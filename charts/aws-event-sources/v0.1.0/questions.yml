@@ -1,0 +1,46 @@
+categories:
+  - Knative
+  - faas
+  - serverless
+  - AWS
+labels:
+  io.rancher.certified: partner
+questions:
+- variable: defaultImage
+  default: "true"
+  description: "Use default Docker images"
+  label: Use Default Images
+  type: boolean
+  show_subquestion_if: false
+  group: "Container Images"
+  subquestions:
+  - variable: image.registry
+    default: "gcr.io"
+    description: "Docker image registry"
+    type: string
+    label: Image Registry
+  - variable: image.repository
+    default: "triggermesh/aws-event-sources-controller"
+    description: "Docker image repository"
+    type: string
+    label: Image Repository
+  - variable: image.tag
+    default: "v0.2.0"
+    description: "Docker image tag"
+    type: string
+    label: Image Tag
+- variable: knative.domain
+  default: "example.com"
+  description: "Specify the Knative Domain"
+  type: string
+  required: true
+  label: Knative Domain
+- variable: knative.urlScheme
+  default: "http"
+  description: "Specify the Knative URL Scheme"
+  type: string
+  required: true
+  label: Knative URL Scheme
+  options:
+    - "http"
+    - "https"
