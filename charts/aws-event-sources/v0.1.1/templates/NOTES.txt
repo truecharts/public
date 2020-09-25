@@ -1,9 +1,0 @@
-TriggerMesh AWS event sources controller for Knative has been installed.
-
-To view the controller logs:
-
-    kubectl logs -f deploy/{{ include "aws-event-sources.fullname" . }}-controller --namespace {{ .Release.Namespace }}
-
-Refer to https://github.com/triggermesh/aws-event-sources/tree/master/config/samples for examples that make use of the controller.
-
-For support and feedback contact us as https://github.com/triggermesh/aws-event-sources/issues/new.
