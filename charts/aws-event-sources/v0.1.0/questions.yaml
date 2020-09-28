@@ -32,6 +32,8 @@
     default: "example.com"
     type: string
     required: true
+    $ref:
+      - definitions/interfaces
 - variable: knative.urlScheme
   description: "Specify the Knative URL Scheme"
   label: Knative URL Scheme
