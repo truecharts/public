@@ -25,3 +25,9 @@ spec:
             - {{ . | quote}}
             {{- end }}
           {{- end }}
+          {{- if .Values.container.args }}
+          args:
+            {{- range .Values.container.args }}
+            - {{ . | quote}}
+            {{- end }}
+          {{- end }}
