@@ -6,21 +6,21 @@
     type: dict
     required: true
     attrs:
-      - variable: image.repository
+      - variable: repository
         description: "Docker image repository"
         label: "Image repository"
         group: "Container Images"
         schema:
           type: string
           required: true
-      - variable: image.tag
+      - variable: tag
         description: "Tag to use for specified image"
         label: "Image Tag"
         group: "Container Images"
         schema:
           type: string
           default: "latest"
-      - variable: image.pull_policy
+      - variable: pull_policy
         description: "Docker Image Pull Policy"
         label: "Image Pull Policy"
         group: "Container Images"
@@ -33,7 +33,7 @@
             - "Never"
 
 # Configurable CMD / Entrypoint / Environment Variables
-- variable: container_entrypoint
+- variable: container_command
   description: "Commands to execute inside container overriding image CMD default"
   label: "Container CMD"
   group: "Container Entrypoint"
@@ -45,7 +45,7 @@
         label: "Command"
         schema:
           type: string
-- variable: container.args
+- variable: container_args
   description: "Specify arguments for container command"
   label: "Container Args"
   group: "Container Entrypoint"
@@ -57,7 +57,7 @@
         label: "Arg"
         schema:
           type: string
-- variable: container.environment_variables
+- variable: container_environment_variables
   description: "Container Environment Variables"
   label: "Container Environment Variables"
   group: "Container Entrypoint"

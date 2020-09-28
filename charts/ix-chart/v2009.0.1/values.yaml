@@ -2,12 +2,11 @@
 
 image:
   repository: debian
-  pullPolicy: IfNotPresent
+  pull_policy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "testing"
 
 # Container CMD / entrypoint
-container_entrypoint:
-  command: []
-  args: []
-  environment_variables: []
+container_command: []
+container_args: []
+container_environment_variables: []
