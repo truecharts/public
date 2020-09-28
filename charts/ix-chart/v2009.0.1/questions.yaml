@@ -16,6 +16,7 @@
 - variable: image.pull_policy
   description: "Docker Image Pull Policy"
   label: "Image Pull Policy"
+  group: "Container Images"
   schema:
     type: string
     default: "IfNotPresent"
@@ -23,3 +24,54 @@
       - "IfNotPresent"
       - "Always"
       - "Never"
+
+# Configurable CMD / Entrypoint / Environment Variables
+- variable: container.command
+  description: "Commands to execute inside container overriding image CMD default"
+  label: "Container CMD"
+  group: "Container Entrypoint"
+  schema:
+    type: list
+    items:
+      - variable: command
+        description: "Container Command"
+        label: "Command"
+        schema:
+          type: string
+- variable: container.args
+  description: "Specify arguments for container command"
+  label: "Container Args"
+  group: "Container Entrypoint"
+  schema:
+    type: list
+    items:
+      - variable: arg
+        description: "Container Arg"
+        label: "Arg"
+        schema:
+          type: string
+- variable: container.environment_variables
+  description: "Container Environment Variables"
+  label: "Container Environment Variables"
+  group: "Container Entrypoint"
+  schema:
+    type: list
+    items:
+      - variable: environment_variable
+        description: "Container Environment Variable"
+        label: "Container Environment Variable"
+        schema:
+          type: dict
+          attrs:
+            - variable: name
+              description: "Environment Variable Name"
+              label: "Environment Variable Name"
+              schema:
+                type: string
+                required: true
+            - variable: value
+              description: "Environment Variable Value"
+              label: "Environment Variable Value"
+              schema:
+                type: string
+                required: true

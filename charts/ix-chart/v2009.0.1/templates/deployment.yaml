@@ -19,3 +19,9 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.container.command }}
+          command:
+            {{- range .Values.container.command }}
+            - {{ . | quote}}
+            {{- end }}
+          {{- end }}
