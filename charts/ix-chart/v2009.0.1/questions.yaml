@@ -1,32 +1,39 @@
 # Image related
-- variable: image.repository
-  description: "Docker image repository"
-  label: "Image repository"
+- variable: image
+  description: "Docker Image Details"
   group: "Container Images"
   schema:
-    type: string
+    type: dict
     required: true
-- variable: image.tag
-  description: "Tag to use for specified image"
-  label: "Image Tag"
-  group: "Container Images"
-  schema:
-    type: string
-    default: "latest"
-- variable: image.pull_policy
-  description: "Docker Image Pull Policy"
-  label: "Image Pull Policy"
-  group: "Container Images"
-  schema:
-    type: string
-    default: "IfNotPresent"
-    enum:
-      - "IfNotPresent"
-      - "Always"
-      - "Never"
+    attrs:
+      - variable: image.repository
+        description: "Docker image repository"
+        label: "Image repository"
+        group: "Container Images"
+        schema:
+          type: string
+          required: true
+      - variable: image.tag
+        description: "Tag to use for specified image"
+        label: "Image Tag"
+        group: "Container Images"
+        schema:
+          type: string
+          default: "latest"
+      - variable: image.pull_policy
+        description: "Docker Image Pull Policy"
+        label: "Image Pull Policy"
+        group: "Container Images"
+        schema:
+          type: string
+          default: "IfNotPresent"
+          enum:
+            - "IfNotPresent"
+            - "Always"
+            - "Never"
 
 # Configurable CMD / Entrypoint / Environment Variables
-- variable: container.command
+- variable: container_entrypoint
   description: "Commands to execute inside container overriding image CMD default"
   label: "Container CMD"
   group: "Container Entrypoint"

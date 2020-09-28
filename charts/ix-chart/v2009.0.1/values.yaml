@@ -1,19 +1,13 @@
 # Default values for ix-chart.
 
-replicaCount: 1
-
 image:
   repository: debian
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "testing"
 
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
 # Container CMD / entrypoint
-container:
+container_entrypoint:
   command: []
   args: []
   environment_variables: []
