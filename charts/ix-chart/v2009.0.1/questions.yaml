@@ -1,0 +1,25 @@
+# Image related
+- variable: image.repository
+  description: "Docker image repository"
+  label: "Image repository"
+  group: "Container Images"
+  schema:
+    type: stirng
+    required: true
+- variable: image.tag
+  description: "Tag to use for specified image"
+  label: "Image Tag"
+  group: "Container Images"
+  schema:
+    type: string
+    default: "latest"
+- variable: image.pull_policy
+  description: "Docker Image Pull Policy"
+  label: "Image Pull Policy"
+  schema:
+    type: string
+    default: "IfNotPresent"
+    enum:
+      - "IfNotPresent"
+      - "Always"
+      - "Never"
