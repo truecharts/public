@@ -31,3 +31,10 @@ spec:
             - {{ . | quote}}
             {{- end }}
           {{- end }}
+          {{- if .Values.container.environment_variables }}
+          env:
+            {{- range .Values.container.environment_variables }}
+            - name: {{ .name | quote }}
+              value: {{ .value | quote }}
+            {{- end }}
+          {{- end }}
