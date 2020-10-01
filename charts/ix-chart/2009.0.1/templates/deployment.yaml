@@ -18,22 +18,22 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
-          imagePullPolicy: {{ .Values.image.pull_policy }}
-          {{- if .Values.container_command }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.containerCommand }}
           command:
-            {{- range .Values.container_command }}
+            {{- range .Values.containerCommand }}
             - {{ . | quote}}
             {{- end }}
           {{- end }}
-          {{- if .Values.container_args }}
+          {{- if .Values.containerArgs }}
           args:
-            {{- range .Values.container_args }}
+            {{- range .Values.containerArgs }}
             - {{ . | quote}}
             {{- end }}
           {{- end }}
-          {{- if .Values.container_environment_variables }}
+          {{- if .Values.containerEnvironmentVariables }}
           env:
-            {{- range .Values.container_environment_variables }}
+            {{- range .Values.containerEnvironmentVariables }}
             - name: {{ .name | quote }}
               value: {{ .value | quote }}
             {{- end }}
