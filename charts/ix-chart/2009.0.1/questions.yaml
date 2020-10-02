@@ -82,3 +82,44 @@
               schema:
                 type: string
                 required: true
+
+# Networking options
+- variable: externalInterfaces
+  description: "Add External Interfaces"
+  label: "Add external Interfaces"
+  group: "Networking"
+  schema:
+    type: list
+    items:
+      - variable: interfaceConfiguration
+        description: "Interface Configuration"
+        label: "Interface Configuration"
+        schema:
+          type: dict
+          $ref:
+            - "normalise/interfaceConfiguration"
+          attrs:
+            - variable: hostInterface
+              description: "Please specify host interface"
+              label: "Host Interface"
+              schema:
+                type: string
+                required: true
+                $ref:
+                  - "definitions/interface"
+            - variable: ipam
+              description: "Define how IP Address will be managed"
+              label: "IP Address Management"
+              schema:
+                type: dict
+                required: true
+                attrs:
+                  - variable: type
+                    description: "Specify type for IPAM"
+                    label: "IPAM Type"
+                    schema:
+                      type: string
+                      required: true
+                      enum:
+                        - "dhcp"
+                        - "static"

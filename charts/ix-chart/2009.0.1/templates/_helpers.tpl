@@ -61,3 +61,10 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Name for external interfaces to be added to chart
+*/}}
+{{- define "externalInterfaceName" -}}
+{{- printf "%s" .Release.Name }}
+{{- end }}

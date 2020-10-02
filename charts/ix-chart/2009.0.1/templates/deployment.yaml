@@ -12,6 +12,14 @@ spec:
     metadata:
       labels:
         {{- include "ix-chart.selectorLabels" . | nindent 8 }}
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
+        {{- if .Values.externalInterfaces }}
+        k8s.v1.cni.cncf.io/networks:
+          {{- range $index, $iface := .Values.externalInterfaces }}
+          - {{ include "externalInterfaceName" . }}-{{ $index }}
+          {{- end }}
+        {{- end }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
