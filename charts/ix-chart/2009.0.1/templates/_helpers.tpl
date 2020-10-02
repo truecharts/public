@@ -66,5 +66,5 @@ Create the name of the service account to use
 Name for external interfaces to be added to chart
 */}}
 {{- define "externalInterfaceName" -}}
-{{- printf "%s" .Release.Name }}
+{{- printf "ix-%s" $.Release.Name }}
 {{- end }}

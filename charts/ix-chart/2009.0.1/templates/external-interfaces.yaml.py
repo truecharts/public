@@ -1,9 +1,9 @@
-{{- range $index, $iface := .Values.externalInterfaces }}
+{{- range $index, $iface := .Values.externalInterfacesConfiguration }}
+---
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition
 metadata:
-  name: {{ include "externalInterfaceName" . }}-{{ $index }}
+  name: ix-{{ $.Release.Name }}-{{ $index }}
 spec:
   config: '{{ $iface }}'
-----------------------------------------------------------
 {{- end }}
