@@ -123,3 +123,37 @@
                       enum:
                         - "dhcp"
                         - "static"
+                      show_subquestions_if: "static"
+                      subquestions:
+                        - variable: staticIPConfigurations
+                          label: "Static IP Addresses"
+                          schema:
+                            type: list
+                            items:
+                              - variable: staticIP
+                                label: "Static IP"
+                                schema:
+                                  type: ipaddr
+                                  cidr: true
+                        - variable: staticRoutes
+                          label: "Static Routes"
+                          schema:
+                            type: list
+                            items:
+                              - variable: staticRouteConfiguration
+                                label: "Static Route Configuration"
+                                schema:
+                                  type: dict
+                                  attrs:
+                                    - variable: destination
+                                      label: "Destination"
+                                      schema:
+                                        type: ipaddr
+                                        cidr: true
+                                        required: true
+                                    - variable: gateway
+                                      label: "Gateway"
+                                      schema:
+                                        type: ipaddr
+                                        cidr: false
+                                        required: true
