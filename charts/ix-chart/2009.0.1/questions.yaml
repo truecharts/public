@@ -157,3 +157,32 @@
                                         type: ipaddr
                                         cidr: false
                                         required: true
+
+# Storage Options
+# Host path based volumes
+- variable: hostPathVolumes
+  label: "Host Path Volumes"
+  schema:
+    type: list
+    items:
+      - variable: hostPathConfiguration
+        label: "Host Path Configuration"
+        schema:
+          type: dict
+          attrs:
+            - variable: hostPath
+              label: "Host Path"
+              schema:
+                type: hostpath
+                required: true
+            - variable: mountPath
+              label: "Mount Path"
+              description: "Path where host path will be mounted inside the pod"
+              schema:
+                type: path
+                required: true
+            - variable: readOnly
+              label: "Read Only"
+              schema:
+                type: boolean
+                default: false

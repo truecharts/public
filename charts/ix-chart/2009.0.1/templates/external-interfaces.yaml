@@ -1,4 +1,4 @@
-{{- range $index, $iface := .Values.externalInterfacesConfiguration }}
+{{- range $index, $iface := .Values.ixExternalInterfacesConfiguration }}
 ---
 apiVersion: "k8s.cni.cncf.io/v1"
 kind: NetworkAttachmentDefinition

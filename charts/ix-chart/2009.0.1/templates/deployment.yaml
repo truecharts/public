@@ -14,12 +14,20 @@ spec:
         {{- include "ix-chart.selectorLabels" . | nindent 8 }}
       annotations:
         rollme: {{ randAlphaNum 5 | quote }}
-        {{- if .Values.externalInterfacesConfigurationNames }}
-        k8s.v1.cni.cncf.io/networks: {{ join ", " .Values.externalInterfacesConfigurationNames }}
+        {{- if .Values.ixExternalInterfacesConfigurationNames }}
+        k8s.v1.cni.cncf.io/networks: {{ join ", " .Values.ixExternalInterfacesConfigurationNames }}
         {{- end }}
     spec:
       containers:
         - name: {{ .Chart.Name }}
+          {{- if .Values.hostPathVolumes }}
+          volumeMounts:
+            {{- range $index, $hostPathConfiguration := .Values.hostPathVolumes }}
+            - mountPath: {{ $hostPathConfiguration.mountPath }}
+              name: ix-host-path-{{ $.Release.Name }}-{{ $index }}
+              readOnly: {{ $hostPathConfiguration.readOnly }}
+            {{- end }}
+          {{- end }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
@@ -43,3 +51,11 @@ spec:
               value: {{ .value | quote }}
             {{- end }}
           {{- end }}
+      {{- if .Values.hostPathVolumes }}
+      volumes:
+      {{- range $index, $hostPathConfiguration := .Values.hostPathVolumes }}
+        - name: ix-host-path-{{ $.Release.Name }}-{{ $index }}
+          hostPath:
+            path: {{ $hostPathConfiguration.hostPath }}
+      {{- end }}
+      {{- end }}
