@@ -18,6 +18,7 @@ spec:
         k8s.v1.cni.cncf.io/networks: {{ join ", " .Values.ixExternalInterfacesConfigurationNames }}
         {{- end }}
     spec:
+      strategy: {{ .Values.updateStrategy }}
       containers:
         - name: {{ .Chart.Name }}
           {{- if or .Values.hostPathVolumes .Values.persistentVolumeClaims }}

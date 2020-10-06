@@ -6,6 +6,10 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "testing"
 
+
+# Update strategy
+updateStrategy: "RollingUpdate"
+
 # Container CMD / entrypoint
 containerCommand: []
 containerArgs: []

@@ -32,6 +32,17 @@
             - "Always"
             - "Never"
 
+# Update strategy
+- variable: updateStrategy
+  description: "Upgrade Policy"
+  label: "Update Strategy"
+  schema:
+    - type: string
+      default: "RollingUpdate"
+      enum:
+        - "RollingUpdate"
+        - "Recreate"
+
 # Configurable CMD / Entrypoint / Environment Variables
 - variable: containerCommand
   description: "Commands to execute inside container overriding image CMD default"
