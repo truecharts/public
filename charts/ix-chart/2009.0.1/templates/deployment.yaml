@@ -5,6 +5,8 @@ metadata:
   labels:
     {{- include "ix-chart.labels" . | nindent 4 }}
 spec:
+  strategy:
+      type: {{ .Values.updateStrategy }}
   selector:
     matchLabels:
       {{- include "ix-chart.selectorLabels" . | nindent 6 }}
@@ -18,7 +20,7 @@ spec:
         k8s.v1.cni.cncf.io/networks: {{ join ", " .Values.ixExternalInterfacesConfigurationNames }}
         {{- end }}
     spec:
-      strategy: {{ .Values.updateStrategy }}
+      restartPolicy: {{ .Values.restartPolicy | quote }}
       containers:
         - name: {{ .Chart.Name }}
           {{- if or .Values.hostPathVolumes .Values.persistentVolumeClaims }}

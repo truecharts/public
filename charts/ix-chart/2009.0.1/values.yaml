@@ -10,6 +10,9 @@ image:
 # Update strategy
 updateStrategy: "RollingUpdate"
 
+# Restart Policy
+restartPolicy: "Always"
+
 # Container CMD / entrypoint
 containerCommand: []
 containerArgs: []

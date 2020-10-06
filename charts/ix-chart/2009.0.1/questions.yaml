@@ -37,11 +37,23 @@
   description: "Upgrade Policy"
   label: "Update Strategy"
   schema:
-    - type: string
-      default: "RollingUpdate"
-      enum:
-        - "RollingUpdate"
-        - "Recreate"
+    type: string
+    default: "RollingUpdate"
+    enum:
+      - "RollingUpdate"
+      - "Recreate"
+
+# Restart Policy
+- variable: restartPolicy
+  description: "Restart Policy for workload"
+  label: "Restart Policy"
+  schema:
+    type: string
+    default: "Always"
+    enum:
+      - "Always"
+      - "OnFailure"
+      - "Never"
 
 # Configurable CMD / Entrypoint / Environment Variables
 - variable: containerCommand
