@@ -1,3 +1,16 @@
+# Workload type
+- variable: workloadType
+  description: "Please specify type of workload to deploy"
+  lablel: "Workload Type"
+  schema:
+    type: string
+    default: "Deployment"
+    required: true
+    enum:
+      - "Deployment"
+      - "Job"
+      - "CronJob"
+
 # Image related
 - variable: image
   description: "Docker Image Details"
@@ -38,6 +51,7 @@
   label: "Update Strategy"
   schema:
     type: string
+    show_if: [["workloadType", "=", "Deployment"]]
     default: "RollingUpdate"
     enum:
       - "RollingUpdate"
