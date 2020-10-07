@@ -58,6 +58,14 @@ spec:
               value: {{ .value | quote }}
             {{- end }}
           {{- end }}
+          {{- if .Values.livenessProbe }}
+          livenessProbe:
+            exec:
+              command:
+                {{ toYaml .Values.livenessProbe.command | indent 16 }}
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.periodSeconds }}
+          {{- end }}
       {{- if or .Values.persistentVolumeClaims .Values.hostPathVolumes }}
       volumes:
       {{- range $index, $hostPathConfiguration := .Values.hostPathVolumes }}

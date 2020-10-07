@@ -234,3 +234,38 @@
               schema:
                 type: int
                 required: true
+
+# Pod Probes
+# Liveness Probe
+- variable: livenessProbe
+  label: "Liveness Probe"
+  description: "Configure Liveness Probe"
+  group: "Probes"
+  schema:
+    type: dict
+    default: null
+    "null": true
+    attrs:
+      - variable: command
+        label: "Liveness command"
+        description: "Specify a command to determine liveness of pod"
+        schema:
+          type: list
+          required: true
+          items:
+            - variable: commandArg
+              label: "Command Arg"
+              schema:
+                type: string
+      - variable: initialDelaySeconds
+        label: "Seconds Delay"
+        description: "Seconds to delay the first liveness probe"
+        schema:
+          type: int
+          default: 5
+      - variable: periodSeconds
+        label: "Period Seconds"
+        description: "Specify number of seconds to run liveness probe"
+        schema:
+          type: int
+          default: 10
