@@ -63,9 +63,20 @@
   label: "Restart Policy"
   schema:
     type: string
+    show_if: [["workloadType", "=", "Deployment"]]
     default: "Always"
     enum:
       - "Always"
+      - "OnFailure"
+      - "Never"
+- variable: jobRestartPolicy
+  description: "Restart Policy for workload"
+  label: "Restart Policy"
+  schema:
+    type: string
+    default: "OnFailure"
+    show_if: [["workloadType", "!=", "Deployment"]]
+    enum:
       - "OnFailure"
       - "Never"
 

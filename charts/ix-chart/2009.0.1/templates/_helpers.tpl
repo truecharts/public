@@ -96,3 +96,15 @@ Get API Version based on workload type
 {{- printf "batch/v1" }}
 {{- end }}
 {{- end }}
+
+
+{{/*
+Get Restart policy based on workload type
+*/}}
+{{- define "restartPolicy" -}}
+{{- if eq (include "workloadIsDeployment" .) "true" }}
+{{- printf "%s" .Values.restartPolicy }}
+{{- else }}
+{{- printf "%s" .Values.jobRestartPolicy }}
+{{- end }}
+{{- end }}

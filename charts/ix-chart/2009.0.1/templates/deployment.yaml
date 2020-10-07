@@ -5,13 +5,13 @@ metadata:
   labels:
     {{- include "ix-chart.labels" . | nindent 4 }}
 spec:
-  {{- if eq .Values.workloadType "Deployment" }}
+  {{- if eq (include "workloadIsDeployment" .) "true" }}
   strategy:
       type: {{ .Values.updateStrategy }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "ix-chart.selectorLabels" . | nindent 6 }}
+  {{- end }}
   template:
     metadata:
       labels:
@@ -22,7 +22,7 @@ spec:
         k8s.v1.cni.cncf.io/networks: {{ join ", " .Values.ixExternalInterfacesConfigurationNames }}
         {{- end }}
     spec:
-      restartPolicy: {{ .Values.restartPolicy | quote }}
+      restartPolicy: {{ template "restartPolicy" . }}
       containers:
         - name: {{ .Chart.Name }}
           {{- if or .Values.hostPathVolumes .Values.persistentVolumeClaims }}
