@@ -63,8 +63,36 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
-Name for external interfaces to be added to chart
+Check if workload type is a deployment
 */}}
-{{- define "externalInterfaceName" -}}
-{{- printf "ix-%s" $.Release.Name }}
+{{- define "workloadIsDeployment" }}
+{{- if eq .Values.workloadType "Deployment" }}
+{{- true -}}
+{{- else }}
+{{- false -}}
+{{- end }}
+{{- end }}
+
+{{/*
+Check if workload type is a cronjob
+*/}}
+{{- define "workloadIsCronJob" }}
+{{- if eq .Values.workloadType "CronJob" }}
+{{- true -}}
+{{- else }}
+{{- false -}}
+{{- end }}
+{{- end }}
+
+{{/*
+Get API Version based on workload type
+*/}}
+{{- define "apiVersion" -}}
+{{- if eq (include "workloadIsDeployment" .) "true" }}
+{{- printf "apps/v1" }}
+{{- else if eq (include "workloadIsCronJob" .) "true" }}
+{{- printf "batch/v1beta1" }}
+{{- else }}
+{{- printf "batch/v1" }}
+{{- end }}
 {{- end }}

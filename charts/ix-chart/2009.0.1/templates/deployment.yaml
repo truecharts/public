@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: {{ template "apiVersion" . }}
 kind: {{ .Values.workloadType }}
 metadata:
   name: {{ include "ix-chart.fullname" . }}
