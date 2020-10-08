@@ -9,6 +9,6 @@ spec:
     {{ include "deploymentSpec" . | nindent 2 }}
   {{- else if eq (include "workloadIsCronJob" .) "true" }}
     {{ include "cronJobSpec" . | nindent 2 }}
-  {{- else }}}
+  {{- else }}
     {{ include "jobSpec" . | nindent 2 }}
   {{- end }}

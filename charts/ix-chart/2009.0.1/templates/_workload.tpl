@@ -127,7 +127,7 @@ template:
 CronJob Spec
 */}}
 {{- define "cronJobSpec" }}
-schedule: {{ .Values.cronSchedule | quote }}
+schedule: {{ include "cronExpression" .Values.cronSchedule | quote }}
 jobTemplate:
   spec:
     {{ include "jobSpec" . | nindent 4 }}
