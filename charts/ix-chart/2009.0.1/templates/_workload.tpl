@@ -58,10 +58,10 @@ containers:
     {{- toYaml .Values.securityContext | nindent 12 }}
   image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
   imagePullPolicy: {{ .Values.image.pullPolicy }}
-  {{- include "containerCommand" | indent 2 }}
-  {{- include "containerArgs" | indent 2 }}
-  {{- include "containerEnvVariables" | indent 2 }}
-  {{- include "containerLivenssProbe" | indent 2 }}
+  {{- include "containerCommand" . | indent 2 }}
+  {{- include "containerArgs" . | indent 2 }}
+  {{- include "containerEnvVariables" . | indent 2 }}
+  {{- include "containerLivenssProbe" . | indent 2 }}
 {{- include "volumeConfiguration" . }}
 {{- end }}
 
@@ -78,6 +78,16 @@ k8s.v1.cni.cncf.io/networks: {{ join ", " .Values.ixExternalInterfacesConfigurat
 
 
 {{/*
+Metadata for workload
+*/}}
+{{- define "commonMetadataWorkload" }}
+labels:
+  {{- include "ix-chart.selectorLabels" . | nindent 2 }}
+annotations:
+  {{- include "workloadAnnotations" . | nindent 2 }}
+{{- end }}
+
+{{/*
 Deployment Spec
 */}}
 {{- define "deploymentSpec" }}
@@ -88,10 +98,7 @@ matchLabels:
   {{- include "ix-chart.selectorLabels" . | nindent 2 }}
 template:
   metadata:
-    labels:
-      {{- include "ix-chart.selectorLabels" . | nindent 6 }}
-    annotations:
-      {{- include "workloadAnnotations" . | nindent 6 }}
+    {{ include "commonMetadataWorkload" . | nindent 4 }}
   spec:
     {{- include "podSepc" . | indent 4 }}
 {{- end }}
@@ -102,10 +109,7 @@ Job Spec Common
 */}}
 {{- define "jobSpecCommon" }}
 metadata:
-  labels:
-    {{- include "ix-chart.selectorLabels" . | nindent 4 }}
-  annotations:
-    {{- include "workloadAnnotations" . | nindent 4 }}
+  {{ include "commonMetadataWorkload" . | nindent 4 }}
 spec:
   {{- include "podSepc" . | indent 2 }}
 {{- end }}
