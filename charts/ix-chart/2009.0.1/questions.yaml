@@ -1,7 +1,7 @@
 # Workload type
 - variable: workloadType
   description: "Please specify type of workload to deploy"
-  lablel: "Workload Type"
+  label: "Workload Type"
   schema:
     type: string
     default: "Deployment"
@@ -10,6 +10,15 @@
       - "Deployment"
       - "Job"
       - "CronJob"
+
+# Cronjob schedule
+- variable: cronSchedule
+  label: "Cron Schedule"
+  schema:
+    type: cron
+    show_if: [["workloadType", "=", "CronJob"]]
+    default:
+      minute: "5"
 
 # Image related
 - variable: image

@@ -12,7 +12,12 @@ spec:
     matchLabels:
       {{- include "ix-chart.selectorLabels" . | nindent 6 }}
   {{- end }}
+  {{- if ne (include "workloadIsCronJob" .) "true" }}
   template:
+  {{- else }}
+  schedule: {{ .Values.cronSchedule | quote }}
+  jobTemplate:
+  {{- end }}
     metadata:
       labels:
         {{- include "ix-chart.selectorLabels" . | nindent 8 }}
