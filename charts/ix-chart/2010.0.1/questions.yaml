@@ -276,6 +276,32 @@
                 type: string
                 required: true
 
+# Volumes
+- variable: volumes
+  label: "Volumes"
+  group: "Storage"
+  schema:
+    type: list
+    items:
+      - variable: volume
+        label: "Volume"
+        schema:
+          type: dict
+          $ref:
+            - "normalise/ixVolume"
+          attrs:
+            - variable: mountPath
+              label: "Mount Path"
+              description: "Path where the volume will be mounted inside the pod"
+              schema:
+                type: path
+                required: true
+            - variable: datasetName
+              label: "Dataset Name"
+              schema:
+                type: string
+                required: true
+
 # Pod Probes
 # Liveness Probe
 - variable: livenessProbe
