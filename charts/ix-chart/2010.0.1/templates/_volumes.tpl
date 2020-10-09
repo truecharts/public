@@ -10,9 +10,9 @@ volumes:
       path: {{ $hostPathConfiguration.hostPath }}
 {{- end }}
 {{- range $index, $claim := .Values.persistentVolumeClaims }}
-  - name: ix-pv-{{ $.Release.Name }}-{{ $index }}
+  - name: ix-pv-{{ $claim.name }}
     persistentVolumeClaim:
-      claimName: ix-pv-claim-{{ $.Release.Name }}-{{ $index }}
+      claimName: ix-{{ $claim.name }}
 {{- end }}
 {{- end }}
 {{- end }}
@@ -30,7 +30,7 @@ volumeMounts:
   {{- end }}
   {{- range $index, $claim := .Values.persistentVolumeClaims }}
   - mountPath: {{ $claim.mountPath }}
-    name: ix-pv-{{ $.Release.Name }}-{{ $index }}
+    name: ix-pv-{{ $claim.name }}
   {{- end }}
 {{- end }}
 {{- end }}

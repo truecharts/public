@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ix-pv-claim-{{ $.Release.Name }}-{{ $index }}
+  name: ix-{{ $claim.name }}
 spec:
   storageClassName: ix-storage-class-{{ $.Release.Name }}
   resources:

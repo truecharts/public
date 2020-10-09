@@ -251,6 +251,8 @@
   group: "Storage"
   schema:
     type: list
+    $ref:
+      - "validations/persistentVolumeClaims"
     items:
       - variable: persistentVolumeClaim
         label: "Persistent Volume Claim Configuration"
@@ -267,6 +269,11 @@
               label: "Volume Capacity"
               schema:
                 type: int
+                required: true
+            - variable: name
+              label: "Persistent Volume Claim Name"
+              schema:
+                type: string
                 required: true
 
 # Pod Probes
