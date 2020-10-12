@@ -1,307 +1,328 @@
-# Workload type
-- variable: workloadType
-  description: "Please specify type of workload to deploy"
-  label: "Workload Type"
-  schema:
-    type: string
-    default: "Deployment"
-    required: true
-    enum:
-      - "Deployment"
-      - "Job"
-      - "CronJob"
+groups:
+  - name: "Container Images"
+    description: "Image to be used for container"
+  - name: "Container Entrypoint"
+    description: "Configuration of the executable that will be run when the container is started"
+  - name: "Container Environment Variables"
+    description: "Set the environment that will be visible to the container"
+  - name: "Networking"
+    description: "Configure networking for container"
+  - name: "Storage"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Health Check"
+    description: "Define mechanism to periodically probe the container to ensure it's functioning as desired"
+  - name: "Workload Details"
+    description: "Configure how workload should be deployed"
+  - name: "Scaling/Upgrade Policy"
+    description: "Configure how pods are replaced when configuration is upgraded"
+  - name: "Restart Policy"
+    description: "Configure when pod should be restarted in case of failure"
 
-# Cronjob schedule
-- variable: cronSchedule
-  label: "Cron Schedule"
-  schema:
-    type: cron
-    show_if: [["workloadType", "=", "CronJob"]]
-    default:
-      minute: "5"
+questions:
+  # Workload type
+  - variable: workloadType
+    description: "Please specify type of workload to deploy"
+    label: "Workload Type"
+    group: "Workload Details"
+    schema:
+      type: string
+      default: "Deployment"
+      required: true
+      enum:
+        - "Deployment"
+        - "Job"
+        - "CronJob"
 
-# Image related
-- variable: image
-  description: "Docker Image Details"
-  group: "Container Images"
-  schema:
-    type: dict
-    required: true
-    attrs:
-      - variable: repository
-        description: "Docker image repository"
-        label: "Image repository"
-        group: "Container Images"
-        schema:
-          type: string
-          required: true
-      - variable: tag
-        description: "Tag to use for specified image"
-        label: "Image Tag"
-        group: "Container Images"
-        schema:
-          type: string
-          default: "latest"
-      - variable: pullPolicy
-        description: "Docker Image Pull Policy"
-        label: "Image Pull Policy"
-        group: "Container Images"
-        schema:
-          type: string
-          default: "IfNotPresent"
-          enum:
-            - "IfNotPresent"
-            - "Always"
-            - "Never"
+  # Cronjob schedule
+  - variable: cronSchedule
+    label: "Cron Schedule"
+    group: "Workload Details"
+    schema:
+      type: cron
+      show_if: [["workloadType", "=", "CronJob"]]
+      default:
+        minute: "5"
 
-# Update strategy
-- variable: updateStrategy
-  description: "Upgrade Policy"
-  label: "Update Strategy"
-  schema:
-    type: string
-    show_if: [["workloadType", "=", "Deployment"]]
-    default: "RollingUpdate"
-    enum:
-      - "RollingUpdate"
-      - "Recreate"
+  # Image related
+  - variable: image
+    description: "Docker Image Details"
+    group: "Container Images"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: repository
+          description: "Docker image repository"
+          label: "Image repository"
+          schema:
+            type: string
+            required: true
+        - variable: tag
+          description: "Tag to use for specified image"
+          label: "Image Tag"
+          schema:
+            type: string
+            default: "latest"
+        - variable: pullPolicy
+          description: "Docker Image Pull Policy"
+          label: "Image Pull Policy"
+          schema:
+            type: string
+            default: "IfNotPresent"
+            enum:
+              - "IfNotPresent"
+              - "Always"
+              - "Never"
 
-# Restart Policy
-- variable: restartPolicy
-  description: "Restart Policy for workload"
-  label: "Restart Policy"
-  schema:
-    type: string
-    show_if: [["workloadType", "=", "Deployment"]]
-    default: "Always"
-    enum:
-      - "Always"
-      - "OnFailure"
-      - "Never"
-- variable: jobRestartPolicy
-  description: "Restart Policy for workload"
-  label: "Restart Policy"
-  schema:
-    type: string
-    default: "OnFailure"
-    show_if: [["workloadType", "!=", "Deployment"]]
-    enum:
-      - "OnFailure"
-      - "Never"
+  # Update strategy
+  - variable: updateStrategy
+    description: "Upgrade Policy"
+    label: "Update Strategy"
+    group: "Scaling/Upgrade Policy"
+    schema:
+      type: string
+      show_if: [["workloadType", "=", "Deployment"]]
+      default: "RollingUpdate"
+      enum:
+        - "RollingUpdate"
+        - "Recreate"
 
-# Configurable CMD / Entrypoint / Environment Variables
-- variable: containerCommand
-  description: "Commands to execute inside container overriding image CMD default"
-  label: "Container CMD"
-  group: "Container Entrypoint"
-  schema:
-    type: list
-    items:
-      - variable: command
-        description: "Container Command"
-        label: "Command"
-        schema:
-          type: string
-- variable: containerArgs
-  description: "Specify arguments for container command"
-  label: "Container Args"
-  group: "Container Entrypoint"
-  schema:
-    type: list
-    items:
-      - variable: arg
-        description: "Container Arg"
-        label: "Arg"
-        schema:
-          type: string
-- variable: containerEnvironmentVariables
-  description: "Container Environment Variables"
-  label: "Container Environment Variables"
-  group: "Container Entrypoint"
-  schema:
-    type: list
-    items:
-      - variable: environmentVariable
-        description: "Container Environment Variable"
-        label: "Container Environment Variable"
-        schema:
-          type: dict
-          attrs:
-            - variable: name
-              description: "Environment Variable Name"
-              label: "Environment Variable Name"
-              schema:
-                type: string
-                required: true
-            - variable: value
-              description: "Environment Variable Value"
-              label: "Environment Variable Value"
-              schema:
-                type: string
-                required: true
+  # Restart Policy
+  - variable: restartPolicy
+    description: "Restart Policy for workload"
+    label: "Restart Policy"
+    schema:
+      type: string
+      show_if: [["workloadType", "=", "Deployment"]]
+      default: "Always"
+      enum:
+        - "Always"
+        - "OnFailure"
+        - "Never"
+  - variable: jobRestartPolicy
+    description: "Restart Policy for workload"
+    label: "Restart Policy"
+    schema:
+      type: string
+      default: "OnFailure"
+      show_if: [["workloadType", "!=", "Deployment"]]
+      enum:
+        - "OnFailure"
+        - "Never"
 
-# Networking options
-- variable: externalInterfaces
-  description: "Add External Interfaces"
-  label: "Add external Interfaces"
-  group: "Networking"
-  schema:
-    type: list
-    items:
-      - variable: interfaceConfiguration
-        description: "Interface Configuration"
-        label: "Interface Configuration"
-        schema:
-          type: dict
-          $ref:
-            - "normalise/interfaceConfiguration"
-          attrs:
-            - variable: hostInterface
-              description: "Please specify host interface"
-              label: "Host Interface"
-              schema:
-                type: string
-                required: true
-                $ref:
-                  - "definitions/interface"
-            - variable: ipam
-              description: "Define how IP Address will be managed"
-              label: "IP Address Management"
-              schema:
-                type: dict
-                required: true
-                attrs:
-                  - variable: type
-                    description: "Specify type for IPAM"
-                    label: "IPAM Type"
-                    schema:
-                      type: string
-                      required: true
-                      enum:
-                        - "dhcp"
-                        - "static"
-                      show_subquestions_if: "static"
-                      subquestions:
-                        - variable: staticIPConfigurations
-                          label: "Static IP Addresses"
-                          schema:
-                            type: list
-                            items:
-                              - variable: staticIP
-                                label: "Static IP"
-                                schema:
-                                  type: ipaddr
-                                  cidr: true
-                        - variable: staticRoutes
-                          label: "Static Routes"
-                          schema:
-                            type: list
-                            items:
-                              - variable: staticRouteConfiguration
-                                label: "Static Route Configuration"
-                                schema:
-                                  type: dict
-                                  attrs:
-                                    - variable: destination
-                                      label: "Destination"
-                                      schema:
-                                        type: ipaddr
-                                        cidr: true
-                                        required: true
-                                    - variable: gateway
-                                      label: "Gateway"
-                                      schema:
-                                        type: ipaddr
-                                        cidr: false
-                                        required: true
+  # Configurable CMD / Entrypoint / Environment Variables
+  - variable: containerCommand
+    description: "Commands to execute inside container overriding image CMD default"
+    label: "Container CMD"
+    group: "Container Entrypoint"
+    schema:
+      type: list
+      items:
+        - variable: command
+          description: "Container Command"
+          label: "Command"
+          schema:
+            type: string
+  - variable: containerArgs
+    description: "Specify arguments for container command"
+    label: "Container Args"
+    group: "Container Entrypoint"
+    schema:
+      type: list
+      items:
+        - variable: arg
+          description: "Container Arg"
+          label: "Arg"
+          schema:
+            type: string
+  - variable: containerEnvironmentVariables
+    description: "Container Environment Variables"
+    label: "Container Environment Variables"
+    group: "Container Environment Variables"
+    schema:
+      type: list
+      items:
+        - variable: environmentVariable
+          description: "Container Environment Variable"
+          label: "Container Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                description: "Environment Variable Name"
+                label: "Environment Variable Name"
+                schema:
+                  type: string
+                  required: true
+              - variable: value
+                description: "Environment Variable Value"
+                label: "Environment Variable Value"
+                schema:
+                  type: string
+                  required: true
 
-# Storage Options
-# Host path based volumes
-- variable: hostPathVolumes
-  label: "Host Path Volumes"
-  group: "Storage"
-  schema:
-    type: list
-    items:
-      - variable: hostPathConfiguration
-        label: "Host Path Configuration"
-        schema:
-          type: dict
-          attrs:
-            - variable: hostPath
-              label: "Host Path"
-              schema:
-                type: hostpath
-                required: true
-            - variable: mountPath
-              label: "Mount Path"
-              description: "Path where host path will be mounted inside the pod"
-              schema:
-                type: path
-                required: true
-            - variable: readOnly
-              label: "Read Only"
-              schema:
-                type: boolean
-                default: false
+  # Networking options
+  - variable: externalInterfaces
+    description: "Add External Interfaces"
+    label: "Add external Interfaces"
+    group: "Networking"
+    schema:
+      type: list
+      items:
+        - variable: interfaceConfiguration
+          description: "Interface Configuration"
+          label: "Interface Configuration"
+          schema:
+            type: dict
+            $ref:
+              - "normalise/interfaceConfiguration"
+            attrs:
+              - variable: hostInterface
+                description: "Please specify host interface"
+                label: "Host Interface"
+                schema:
+                  type: string
+                  required: true
+                  $ref:
+                    - "definitions/interface"
+              - variable: ipam
+                description: "Define how IP Address will be managed"
+                label: "IP Address Management"
+                schema:
+                  type: dict
+                  required: true
+                  attrs:
+                    - variable: type
+                      description: "Specify type for IPAM"
+                      label: "IPAM Type"
+                      schema:
+                        type: string
+                        required: true
+                        enum:
+                          - "dhcp"
+                          - "static"
+                        show_subquestions_if: "static"
+                        subquestions:
+                          - variable: staticIPConfigurations
+                            label: "Static IP Addresses"
+                            schema:
+                              type: list
+                              items:
+                                - variable: staticIP
+                                  label: "Static IP"
+                                  schema:
+                                    type: ipaddr
+                                    cidr: true
+                          - variable: staticRoutes
+                            label: "Static Routes"
+                            schema:
+                              type: list
+                              items:
+                                - variable: staticRouteConfiguration
+                                  label: "Static Route Configuration"
+                                  schema:
+                                    type: dict
+                                    attrs:
+                                      - variable: destination
+                                        label: "Destination"
+                                        schema:
+                                          type: ipaddr
+                                          cidr: true
+                                          required: true
+                                      - variable: gateway
+                                        label: "Gateway"
+                                        schema:
+                                          type: ipaddr
+                                          cidr: false
+                                          required: true
 
-# Volumes
-- variable: volumes
-  label: "Volumes"
-  group: "Storage"
-  schema:
-    type: list
-    items:
-      - variable: volume
-        label: "Volume"
-        schema:
-          type: dict
-          $ref:
-            - "normalise/ixVolume"
-          attrs:
-            - variable: mountPath
-              label: "Mount Path"
-              description: "Path where the volume will be mounted inside the pod"
-              schema:
-                type: path
-                required: true
-            - variable: datasetName
-              label: "Dataset Name"
-              schema:
-                type: string
-                required: true
+  # Storage Options
+  # Host path based volumes
+  - variable: hostPathVolumes
+    label: "Host Path Volumes"
+    group: "Storage"
+    schema:
+      type: list
+      items:
+        - variable: hostPathConfiguration
+          label: "Host Path Configuration"
+          schema:
+            type: dict
+            attrs:
+              - variable: hostPath
+                label: "Host Path"
+                schema:
+                  type: hostpath
+                  required: true
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path where host path will be mounted inside the pod"
+                schema:
+                  type: path
+                  required: true
+              - variable: readOnly
+                label: "Read Only"
+                schema:
+                  type: boolean
+                  default: false
 
-# Pod Probes
-# Liveness Probe
-- variable: livenessProbe
-  label: "Liveness Probe"
-  description: "Configure Liveness Probe"
-  group: "Probes"
-  schema:
-    type: dict
-    default: null
-    "null": true
-    attrs:
-      - variable: command
-        label: "Liveness command"
-        description: "Specify a command to determine liveness of pod"
-        schema:
-          type: list
-          required: true
-          items:
-            - variable: commandArg
-              label: "Command Arg"
-              schema:
-                type: string
-      - variable: initialDelaySeconds
-        label: "Seconds Delay"
-        description: "Seconds to delay the first liveness probe"
-        schema:
-          type: int
-          default: 5
-      - variable: periodSeconds
-        label: "Period Seconds"
-        description: "Specify number of seconds to run liveness probe"
-        schema:
-          type: int
-          default: 10
+  # Volumes
+  - variable: volumes
+    label: "Volumes"
+    group: "Storage"
+    schema:
+      type: list
+      items:
+        - variable: volume
+          label: "Volume"
+          schema:
+            type: dict
+            $ref:
+              - "normalise/ixVolume"
+            attrs:
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  required: true
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  required: true
+
+  # Pod Probes
+  # Liveness Probe
+  - variable: livenessProbe
+    label: "Liveness Probe"
+    description: "Configure Liveness Probe"
+    group: "Health Check"
+    schema:
+      type: dict
+      default: null
+      "null": true
+      attrs:
+        - variable: command
+          label: "Liveness command"
+          description: "Specify a command to determine liveness of pod"
+          schema:
+            type: list
+            required: true
+            items:
+              - variable: commandArg
+                label: "Command Arg"
+                schema:
+                  type: string
+        - variable: initialDelaySeconds
+          label: "Seconds Delay"
+          description: "Seconds to delay the first liveness probe"
+          schema:
+            type: int
+            default: 5
+        - variable: periodSeconds
+          label: "Period Seconds"
+          description: "Specify number of seconds to run liveness probe"
+          schema:
+            type: int
+            default: 10
