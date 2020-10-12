@@ -2,7 +2,7 @@
 Volumes Configuration
 */}}
 {{- define "volumeConfiguration" }}
-{{- if or (or .Values.persistentVolumeClaims .Values.hostPathVolumes) .Values.ixVolumes }}
+{{- if or .Values.ixVolumes .Values.hostPathVolumes }}
 volumes:
 {{- range $index, $hostPathConfiguration := .Values.hostPathVolumes }}
   - name: ix-host-path-{{ $.Release.Name }}-{{ $index }}
@@ -14,11 +14,6 @@ volumes:
     hostPath:
       path: {{ $hostPathConfiguration.hostPath }}
 {{- end }}
-{{- range $index, $claim := .Values.persistentVolumeClaims }}
-  - name: ix-pv-{{ $claim.name }}
-    persistentVolumeClaim:
-      claimName: ix-{{ $claim.name }}
-{{- end }}
 {{- end }}
 {{- end }}
 
@@ -26,7 +21,7 @@ volumes:
 Volume Mounts Configuration
 */}}
 {{- define "volumeMountsConfiguration" }}
-{{- if or .Values.hostPathVolumes .Values.persistentVolumeClaims }}
+{{- if or .Values.hostPathVolumes .Values.ixVolumes }}
 volumeMounts:
   {{- range $index, $hostPathConfiguration := .Values.hostPathVolumes }}
   - mountPath: {{ $hostPathConfiguration.mountPath }}
@@ -36,10 +31,6 @@ volumeMounts:
   {{- range $index, $hostPathConfiguration := .Values.ixVolumes }}
   - mountPath: {{ $hostPathConfiguration.mountPath }}
     name: ix-host-volume-{{ $.Release.Name }}-{{ $index }}
-  {{- end }}
-  {{- range $index, $claim := .Values.persistentVolumeClaims }}
-  - mountPath: {{ $claim.mountPath }}
-    name: ix-pv-{{ $claim.name }}
   {{- end }}
 {{- end }}
 {{- end }}

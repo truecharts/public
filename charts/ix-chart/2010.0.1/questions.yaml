@@ -245,37 +245,6 @@
                 type: boolean
                 default: false
 
-# Persistent Volume Claims
-- variable: persistentVolumeClaims
-  label: "Persistent Volume Claims"
-  group: "Storage"
-  schema:
-    type: list
-    $ref:
-      - "validations/persistentVolumeClaims"
-    items:
-      - variable: persistentVolumeClaim
-        label: "Persistent Volume Claim Configuration"
-        schema:
-          type: dict
-          attrs:
-            - variable: mountPath
-              label: "Mount Path"
-              description: "Path where the volume will be mounted inside the pod"
-              schema:
-                type: path
-                required: true
-            - variable: capacity
-              label: "Volume Capacity"
-              schema:
-                type: int
-                required: true
-            - variable: name
-              label: "Persistent Volume Claim Name"
-              schema:
-                type: string
-                required: true
-
 # Volumes
 - variable: volumes
   label: "Volumes"
