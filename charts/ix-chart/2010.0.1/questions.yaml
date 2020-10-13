@@ -236,6 +236,44 @@ questions:
                                           cidr: false
                                           required: true
 
+  - variable: dnsPolicy
+    label: "DNS Policy"
+    description: "Default behaviour is where Pod inherits the name resolution configuration from the node that the pods run on, if None is specified, It allows a Pod to ignore DNS settings from the Kubernetes environment."
+    group: "Networking"
+    schema:
+      type: string
+      default: "Default"
+      enum:
+        - "Default"
+        - "None"
+  - variable: dnsConfig
+    label: "DNS Configuration"
+    group: "Networking"
+    description: "Specify custom DNS configuration which will be applied to the pod"
+    schema:
+      type: dict
+      attrs:
+        - variable: nameservers
+          label: "Nameservers"
+          schema:
+            default: []
+            type: list
+            items:
+              - variable: nameserver
+                label: "Nameserver"
+                schema:
+                  type: string
+        - variable: searches
+          label: "Searches"
+          schema:
+            default: []
+            type: list
+            items:
+              - variable: search
+                label: "Search Entry"
+                schema:
+                  type: string
+
   # Storage Options
   # Host path based volumes
   - variable: hostPathVolumes
