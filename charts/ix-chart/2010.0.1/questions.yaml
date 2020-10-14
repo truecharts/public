@@ -175,7 +175,7 @@ questions:
           schema:
             type: dict
             $ref:
-              - "normalise/interfaceConfiguration"
+              - "normalize/interfaceConfiguration"
             attrs:
               - variable: hostInterface
                 description: "Please specify host interface"
@@ -316,7 +316,7 @@ questions:
           schema:
             type: dict
             $ref:
-              - "normalise/ixVolume"
+              - "normalize/ixVolume"
             attrs:
               - variable: mountPath
                 label: "Mount Path"
