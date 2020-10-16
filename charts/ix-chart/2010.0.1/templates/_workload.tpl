@@ -63,6 +63,7 @@ containers:
   {{- include "containerEnvVariables" . | indent 2 }}
   {{- include "containerLivenssProbe" . | indent 2 }}
   {{- include "containerPorts" . | indent 2 }}
+  {{- include "containerResourceConfiguration" . | indent 2 }}
 {{- include "volumeConfiguration" . }}
 {{- include "dnsConfiguration" . }}
 {{- end }}
