@@ -17,6 +17,8 @@ groups:
     description: "Configure how pods are replaced when configuration is upgraded"
   - name: "Restart Policy"
     description: "Configure when pod should be restarted in case of failure"
+  - name: "Resource Reservation"
+    description: "Specify resources to be allocated to workload"
 
 questions:
   # Workload type
@@ -395,3 +397,12 @@ questions:
           schema:
             type: int
             default: 10
+
+  # Specify GPU configuration
+  - variable: gpuConfiguration
+    label: "GPU Configuration"
+    group: "Resource Reservation"
+    schema:
+      type: dict
+      $ref:
+        - "definitions/gpuConfiguration"
