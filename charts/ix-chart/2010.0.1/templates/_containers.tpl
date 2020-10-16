@@ -48,3 +48,15 @@ livenessProbe:
   periodSeconds: {{ .Values.periodSeconds }}
 {{- end }}
 {{- end }}
+
+{{/*
+Container Ports
+*/}}
+{{- define "containerPorts" }}
+{{- if .Values.portForwardingList }}
+ports:
+  {{- range $index, $config := .Values.portForwardingList }}
+  - containerPort: {{ $config.containerPort }}
+  {{- end }}
+{{- end }}
+{{- end }}
