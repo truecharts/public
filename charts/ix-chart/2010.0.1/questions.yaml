@@ -31,9 +31,12 @@ questions:
       default: "Deployment"
       required: true
       enum:
-        - "Deployment"
-        - "Job"
-        - "CronJob"
+        - value: "Deployment"
+          description: "Deploy a Deployment workload"
+        - value: "Job"
+          description: "Deploy job workload"
+        - value: "CronJob"
+          description: "Deploy cronjob workload"
 
   # Cronjob schedule
   - variable: cronSchedule
@@ -72,9 +75,12 @@ questions:
             type: string
             default: "IfNotPresent"
             enum:
-              - "IfNotPresent"
-              - "Always"
-              - "Never"
+              - value: "IfNotPresent"
+                description: "Only pull image if not present on host"
+              - value: "Always"
+                description: "Always pull image even if present on host"
+              - value: "Never"
+                description: "Never pull image even if it's not present on host"
 
   # Update strategy
   - variable: updateStrategy
@@ -86,8 +92,10 @@ questions:
       show_if: [["workloadType", "=", "Deployment"]]
       default: "RollingUpdate"
       enum:
-        - "RollingUpdate"
-        - "Recreate"
+        - value: "RollingUpdate"
+          description: "Create new pods and then kill old ones"
+        - value: "Recreate"
+          description: "Kill existing pods before creating new ones"
 
   # Restart Policy
   - variable: restartPolicy
@@ -98,9 +106,12 @@ questions:
       show_if: [["workloadType", "=", "Deployment"]]
       default: "Always"
       enum:
-        - "Always"
-        - "OnFailure"
-        - "Never"
+        - value: "Always"
+          description: "Always restart containers in a pod if they exit"
+        - value: "OnFailure"
+          description: "Only restart containers if they exit with a failure"
+        - value: "Never"
+          description: "Never restart containers if they exit"
   - variable: jobRestartPolicy
     description: "Restart Policy for workload"
     label: "Restart Policy"
@@ -109,8 +120,10 @@ questions:
       default: "OnFailure"
       show_if: [["workloadType", "!=", "Deployment"]]
       enum:
-        - "OnFailure"
-        - "Never"
+        - value: "OnFailure"
+          description: "Only restart job if it fails"
+        - value: "Never"
+          description: "Never restart job even if it fails"
 
   # Configurable CMD / Entrypoint / Environment Variables
   - variable: containerCommand
@@ -201,8 +214,10 @@ questions:
                         type: string
                         required: true
                         enum:
-                          - "dhcp"
-                          - "static"
+                          - value: "dhcp"
+                            description: "Use DHCP"
+                          - value: "static"
+                            description: "Use static IP"
                         show_subquestions_if: "static"
                         subquestions:
                           - variable: staticIPConfigurations
@@ -246,8 +261,10 @@ questions:
       type: string
       default: "Default"
       enum:
-        - "Default"
-        - "None"
+        - value: "Default"
+          description: "Use Default DNS Policy"
+        - value: "None"
+          description: "Ignore DNS settings from the Kuberentes cluster"
   - variable: dnsConfig
     label: "DNS Configuration"
     group: "Networking"
@@ -304,8 +321,10 @@ questions:
                   type: string
                   default: "TCP"
                   enum:
-                    - "TCP"
-                    - "UDP"
+                    - value: "TCP"
+                      description: "TCP Protocol"
+                    - value: "UDP"
+                      description: "UDP Protocol"
 
   # Storage Options
   # Host path based volumes
