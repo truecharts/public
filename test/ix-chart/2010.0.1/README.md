@@ -57,7 +57,7 @@ When a chart release will be deleted, all (2) volumes data will be deleted unlik
 The following is a recommended configuration example for creating ix volumes
 
 ```
-volumes: [
+"volumes": [
   {
      "datasetName": "ix_volume1",
      "mountPath": "/mount_test1"
@@ -77,7 +77,7 @@ volumes: [
 The following is a recommended configuration example for `hostPathVolumes`
 
 ```
-hostPathVolumes: [
+"hostPathVolumes": [
   {
     "hostPath": "/mnt/pool/test_dir",
     "mountPath": "/test_dir",
@@ -90,3 +90,27 @@ hostPathVolumes: [
   }
 ]
 ```
+
+## External Interfaces Configuration Examples
+
+```
+"externalInterfaces": [
+  {
+    "hostInterface": "ens3",
+    "ipam": {"type": "dhcp"}
+  },
+  {
+     "hostInterface": "br0",
+     "ipam": {
+       "type": "static",
+       "staticIPConfigurations": ["192.168.0.120/24"],
+       "staticRoutes": [
+         {"destination": "0.0.0.0/0", "gateway": "192.168.0.1"}
+       ]
+     }
+  }
+]
+```
+
+The first entry in the above configuration example will add an external interface in the pod using macvlan with `ipam` being set to `dhcp`.
+Second entry will add an external interface in the pod using `bridge` and using static IP configuration for the external interface.

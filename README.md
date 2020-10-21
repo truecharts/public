@@ -109,7 +109,6 @@ The above will prompt the user with 2 text fields and a dropdown in the UI getti
 | 	schema.items                | []variables   | false      | specified when `schema.type` is list to declare attributes allowed in the list. |
 | 	schema.private              | bool          | false      | specified for declaring information sensitive fields. |
 | 	schema.null                 | bool          | false      | specifies if the value for the variable can be null. defaults to false. |
-| 	schema.null                 | bool          | false      | specifies if the value for the variable can be null. defaults to false. |
 
 **subquestions**: `subquestions[]` cannot contain `subquestions` or `show_subquestions_if` keys, but all other keys in the above table are supported. Also variables having `schema.type` list do not support `subquestions`.
 
