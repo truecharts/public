@@ -104,5 +104,54 @@ The above will prompt the user with 2 text fields and a dropdown in the UI getti
 | 	schema.show_subquestions_if | string        | false      | show subquestions if is true or equal to one of the options. for example `show_subquestion_if: "static"`. system will convert this to the filters format specifid for `shcema.show_if` automatically.|
 | 	schema.attrs                | []variables   | false      | specified when `schema.type` is dictionary to declare attributes allowed in the dictionary. |
 | 	schema.items                | []variables   | false      | specified when `schema.type` is list to declare attributes allowed in the list. |
+| 	schema.private              | bool          | false      | specified for declaring information sensitive fields. |
+| 	schema.null                 | bool          | false      | specifies if the value for the variable can be null. defaults to false. |
+| 	schema.null                 | bool          | false      | specifies if the value for the variable can be null. defaults to false. |
 
 **subquestions**: `subquestions[]` cannot contain `subquestions` or `show_subquestions_if` keys, but all other keys in the above table are supported. Also variables having `schema.type` list do not support `subquestions`.
+
+There are some novel cases where we would like to provide ability to configure / manage resources for workloads with getting some data from system dynamically.
+So a chart can specify certain actions to be performed by the system for a variable by defining a reference. An example better illustrates this concept:
+```
+- variable: volume
+  label: "Volume"
+  schema:
+    type: dict
+    $ref:
+      - "normalize/ixVolume"
+    attrs:
+      - variable: mountPath
+        label: "Mount Path"
+        description: "Path where the volume will be mounted inside the pod"
+        schema:
+          type: path
+          required: true
+      - variable: datasetName
+        label: "Dataset Name"
+        schema:
+          type: string
+          required: true
+```
+
+In the above variable we define a `$ref` in schema which specifies that the system should take some action for normalising the value specified for the variable.
+In this specific case, `ix_volume` is a concept introduced where we recommend using a volume which we are able to rollback automatically on chart release rollback. In essence,
+it is just a `hostPath` volume for which the system automatically creates the dataset specified.
+
+We have following types of actions supported in `$ref` right now:
+1) definitions
+2) normalize
+
+For (1), system will automatically update schema for a particular definition. For example,
+```
+- variable: hostInterface
+  description: "Please specify host interface"
+  label: "Host Interface"
+  schema:
+    type: string
+    required: true
+    $ref:
+      - "definitions/interface"
+```
+System will automatically populate available interfaces for the user based on what interfaces are available on the system.
+
+For (2), system will normalize values or perform some actions as discussed above.
