@@ -38,7 +38,10 @@ After that create `app-readme.md` file.
 ```
 $ cat charts/ix-chart/<chart version>/app-readme.md
 
-# Wordpress ROCKS!
+# iX-Chart
+
+iX-chart is a chart designed to let user deploy a docker image in a TrueNAS SCALE kubernetes cluster.
+It provides a mechanism to specify workload type, add external host interfaces in the pods, configure volumes and allocate host resources to the workload.
 ```
 
 Then add a `questions.yaml` file to prompt the user for something.
@@ -97,7 +100,7 @@ The above will prompt the user with 2 text fields and a dropdown in the UI getti
 | 	schema.max_length           | int           | false      |  max character length for string type variable.|
 | 	schema.min                  | int           | false      |  min integer length. |
 | 	schema.max                  | int           | false      |  max integer length. |
-| 	schema.enum                 | []string      | false      |  specify the options when the variable type is `string`, for example, <br><br>enum:<br> - "RollingUpdate" <br> - "Recreate"|
+| 	schema.enum                 | []dictionary  | false      |  specify the options when the variable type is `string`, for example, <br><br>enum:<br> - value: "RollingUpdate" <br>&nbsp;&nbsp;description: "Create new pods and then kill old ones"<br> - value: "Recreate"<br>&nbsp;&nbsp;description: "Kill existing pods before creating new ones"|
 | 	schema.valid_chars          | string        | false      |  regular expression for input chars validation. |
 | 	schema.subquestions         | []subquestion | false      |  add an array of subquestions.|
 | 	schema.show_if              | string        | false      | show current variable if condition specified is true, for example `show_if: [["workloadType", "=", "CronJob"]]` |
