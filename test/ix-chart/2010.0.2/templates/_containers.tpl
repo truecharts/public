@@ -53,10 +53,14 @@ livenessProbe:
 Container Ports
 */}}
 {{- define "containerPorts" }}
-{{- if .Values.portForwardingList }}
+{{- if or .Values.portForwardingList .Values.hostPortsList }}
 ports:
   {{- range $index, $config := .Values.portForwardingList }}
   - containerPort: {{ $config.containerPort }}
+  {{- end }}
+  {{- range $index, $config := .Values.hostPortsList }}
+  - containerPort: {{ $config.containerPort }}
+    hostPort: {{ $config.hostPort }}
   {{- end }}
 {{- end }}
 {{- end }}
