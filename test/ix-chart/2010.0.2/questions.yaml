@@ -304,6 +304,7 @@ questions:
     label: "Specify host ports for the workload"
     description: "Only use host ports if scaling of a workload is not required"
     schema:
+      show_if: [["updateStrategy", "=", "Recreate"]]
       type: list
       items:
         - variable: hostPortConfiguration
