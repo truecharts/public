@@ -13,6 +13,7 @@ spec:
       targetPort: {{ $config.containerPort }}
       protocol: {{ $config.protocol }}
       nodePort: {{ $config.nodePort }}
+      name: ix-{{ $.Release.Name }}-{{ $config.nodePort }}-{{ $index }}
     {{- end }}
   selector:
     {{- include "ix-chart.selectorLabels" . | nindent 4 }}
