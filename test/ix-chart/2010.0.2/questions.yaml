@@ -293,6 +293,36 @@ questions:
                 schema:
                   type: string
 
+  - variable: hostNetwork
+    label: "Provide access to node network namespace for the workload"
+    group: "Networking"
+    schema:
+      type: boolean
+      default: false
+
+  - variable: hostPortsList
+    label: "Specify host ports for the workload"
+    description: "Only use host ports if scaling of a workload is not required"
+    schema:
+      show_if: [["updateStrategy", "=", "Recreate"]]
+      type: list
+      items:
+        - variable: hostPortConfiguration
+          label: "Host Port Configuration"
+          schema:
+            type: dict
+            attrs:
+              - variable: containerPort
+                label: "Container Port"
+                schema:
+                  type: string
+                  required: true
+              - variable: hostPort
+                label: "Host Port"
+                schema:
+                  type: string
+                  required: true
+
   - variable: portForwardingList
     label: "Specify Node ports to forward to workload"
     group: "Networking"
