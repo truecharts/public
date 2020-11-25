@@ -51,6 +51,7 @@ questions:
   # Image related
   - variable: image
     description: "Docker Image Details"
+    label: "Docker Image"
     group: "Container Images"
     schema:
       type: dict
@@ -101,6 +102,7 @@ questions:
   - variable: restartPolicy
     description: "Restart Policy for workload"
     label: "Restart Policy"
+    group: "Restart Policy"
     schema:
       type: string
       show_if: [["workloadType", "=", "Deployment"]]
@@ -115,6 +117,7 @@ questions:
   - variable: jobRestartPolicy
     description: "Restart Policy for workload"
     label: "Restart Policy"
+    group: "Restart Policy"
     schema:
       type: string
       default: "OnFailure"
@@ -303,6 +306,7 @@ questions:
   - variable: hostPortsList
     label: "Specify host ports for the workload"
     description: "Only use host ports if scaling of a workload is not required"
+    group: "Networking"
     schema:
       show_if: [["updateStrategy", "=", "Recreate"]]
       type: list
