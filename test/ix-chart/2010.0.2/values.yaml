@@ -6,13 +6,26 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: "testing"
 
+# Restart / Update policy
+restartPolicy: Always
+updateStrategy: RollingUpdate
+
 # Container CMD / entrypoint
-containerCommand: []
-containerArgs: []
+containerCommand:
+  - sleep
+containerArgs:
+  - infinity
 containerEnvironmentVariables: []
 
 # Network related configuration
 externalInterfaces: []
+portForwardingList: []
+hostPortsList: []
+hostNetwork: false
+dnsPolicy: Default
+dnsConfig:
+  nameservers: []
+  searches: []
 
 # Storage related configuration
 hostPathVolumes: []
@@ -21,3 +34,8 @@ volumes: []
 # Probes
 # Liveness Probe
 livenessProbe: null
+
+# Workload type
+workloadType: "Deployment"
+
+gpuConfiguration: {}
