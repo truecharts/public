@@ -1,25 +1,23 @@
 # Default values for ix-chart.
 
 image:
-  repository: debian
+  repository: nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "testing"
+  tag: latest
 
 # Restart / Update policy
 restartPolicy: Always
 updateStrategy: RollingUpdate
 
 # Container CMD / entrypoint
-containerCommand:
-  - sleep
-containerArgs:
-  - infinity
+containerCommand: []
+containerArgs: []
 containerEnvironmentVariables: []
 
 # Network related configuration
 externalInterfaces: []
-portForwardingList: []
+portForwardingList: [{"containerPort": 80, "nodePort": 32000}]
 hostPortsList: []
 hostNetwork: false
 dnsPolicy: Default
