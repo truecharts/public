@@ -12,6 +12,6 @@ spec:
         - nc
       args:
         - "-vz"
-        - "{{ .Release.Name }}-ix-chart"
+        - "{{ include "ix-chart.fullname" . }}"
         - "80"
   restartPolicy: Never
