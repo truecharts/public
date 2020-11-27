@@ -1,0 +1,27 @@
+name: Charts-CI
+
+on: [push]
+
+jobs:
+  build-deb:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Helm
+        run: /bin/bash -c "curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash"
+
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup catalog validation
+        run: |
+          sudo apt update
+          sudo apt install -y python3-all-dev python3-pip python3-setuptools
+          git clone https://github.com/truenas/catalog_validation
+          cd catalog_validation
+          git checkout k3s-ci
+          sudo pip3 install --disable-pip-version-check --exists-action w -r requirements.txt
+          sudo pip3 install -U .
+
+      - name: Validate changed charts
+        run: /bin/bash -c "PWD=${pwd}; sudo /usr/local/bin/charts_validate deploy --path $PWD"
