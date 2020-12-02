@@ -4,17 +4,15 @@ image:
   repository: debian
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "testing"
+  tag: "latest"
 
 # Restart / Update policy
 restartPolicy: Always
 updateStrategy: RollingUpdate
 
 # Container CMD / entrypoint
-containerCommand:
-  - sleep
-containerArgs:
-  - infinity
+containerCommand: []
+containerArgs: []
 containerEnvironmentVariables: []
 
 # Network related configuration
