@@ -21,16 +21,3 @@ maintainers:
   email: christian.ingenhaag@googlemail.com
 - name: billimek
   email: jeff@billimek.com
-dependencies:
-- name: postgresql
-  version: 9.8.9
-  repository: https://charts.bitnami.com/bitnami
-  condition: postgresql.enabled
-- name: mariadb
-  version: 7.10.2
-  repository: https://charts.bitnami.com/bitnami
-  condition: mariadb.enabled
-- name: redis
-  version: 11.0.5
-  repository: https://charts.bitnami.com/bitnami
-  condition: redis.enabled

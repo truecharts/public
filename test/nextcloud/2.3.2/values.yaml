@@ -8,51 +8,9 @@ image:
   # pullSecrets:
   #   - myRegistrKeySecretName
 
-nameOverride: ""
-fullnameOverride: ""
-
-# Number of replicas to be deployed
-replicaCount: 1
-
 ## Allowing use of ingress controllers
 ## ref: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ##
-ingress:
-  enabled: false
-  annotations: {}
-  #  nginx.ingress.kubernetes.io/proxy-body-size: 4G
-  #  kubernetes.io/tls-acme: "true"
-  #  certmanager.k8s.io/cluster-issuer: letsencrypt-prod
-  #  nginx.ingress.kubernetes.io/server-snippet: |-
-  #    server_tokens off;
-  #    proxy_hide_header X-Powered-By;
-
-  #    rewrite ^/.well-known/webfinger /public.php?service=webfinger last;
-  #    rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
-  #    rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json;
-  #    location = /.well-known/carddav {
-  #      return 301 $scheme://$host/remote.php/dav;
-  #    }
-  #    location = /.well-known/caldav {
-  #      return 301 $scheme://$host/remote.php/dav;
-  #    }
-  #    location = /robots.txt {
-  #      allow all;
-  #      log_not_found off;
-  #      access_log off;
-  #    }
-  #    location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
-  #      deny all;
-  #    }
-  #    location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
-  #      deny all;
-  #    }
-  #  tls:
-  #    - secretName: nextcloud-tls
-  #      hosts:
-  #        - nextcloud.kube.home
-  labels: {}
-
 
 # Allow configuration of lifecycle hooks
 # ref: https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/
@@ -128,8 +86,7 @@ nextcloud:
   ## Strategy used to replace old pods
   ## IMPORTANT: use with care, it is suggested to leave as that for upgrade purposes
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
-  strategy:
-    type: Recreate
+  strategy: "Recreate"
     # type: RollingUpdate
     # rollingUpdate:
     #   maxSurge: 1
@@ -204,31 +161,6 @@ externalDatabase:
     # usernameKey: username
     # passwordKey: password
 
-##
-## MariaDB chart configuration
-##
-mariadb:
-  ## Whether to deploy a mariadb server to satisfy the applications database requirements. To use an external database set this to false and configure the externalDatabase parameters
-  enabled: false
-
-  db:
-    name: nextcloud
-    user: nextcloud
-    password: changeme
-
-  replication:
-    enabled: false
-
-  ## Enable persistence using Persistent Volume Claims
-  ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
-  ##
-  master:
-    persistence:
-      enabled: false
-      # storageClass: ""
-      accessMode: ReadWriteOnce
-      size: 8Gi
-
 postgresql:
   enabled: false
   global:
@@ -239,10 +171,6 @@ postgresql:
   persistence:
     enabled: false
     # storageClass: ""
-
-redis:
-  enabled: false
-  usePassword: false
 
 ## Cronjob to execute Nextcloud background tasks
 ## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#webcron
@@ -293,42 +221,6 @@ service:
   loadBalancerIP: nil
   nodePort: 9000
 
-## Enable persistence using Persistent Volume Claims
-## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
-##
-persistence:
-  # Nextcloud Data (/var/www/html)
-  enabled: false
-  annotations: {}
-  ## nextcloud data Persistent Volume Storage Class
-  ## If defined, storageClassName: <storageClass>
-  ## If set to "-", storageClassName: "", which disables dynamic provisioning
-  ## If undefined (the default) or set to null, no storageClassName spec is
-  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-  ##   GKE, AWS & OpenStack)
-  ##
-  # storageClass: "-"
-
-  ## A manually managed Persistent Volume and Claim
-  ## Requires persistence.enabled: true
-  ## If defined, PVC must be created manually before volume will be bound
-  # existingClaim:
-
-  accessMode: ReadWriteOnce
-  size: 8Gi
-
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #  cpu: 100m
-  #  memory: 128Mi
-  # requests:
-  #  cpu: 100m
-  #  memory: 128Mi
-
 ## Liveness and readiness probe values
 ## Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
 ##
@@ -346,54 +238,3 @@ readinessProbe:
   timeoutSeconds: 5
   failureThreshold: 3
   successThreshold: 1
-
-## Enable pod autoscaling using HorizontalPodAutoscaler
-## ref: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-##
-hpa:
-  enabled: false
-  cputhreshold: 60
-  minPods: 1
-  maxPods: 10
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
-
-
-## Prometheus Exporter / Metrics
-##
-metrics:
-  enabled: false
-
-  replicaCount: 1
-  # The metrics exporter needs to know how you serve Nextcloud either http or https
-  https: false
-  timeout: 5s
-
-  image:
-    repository: xperimental/nextcloud-exporter
-    tag: v0.3.0
-    pullPolicy: IfNotPresent
-
-  ## Metrics exporter resource requests and limits
-  ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
-  ##
-  # resources: {}
-
-  ## Metrics exporter pod Annotation and Labels
-  # podAnnotations: {}
-
-  # podLabels: {}
-
-  service:
-    type: ClusterIP
-    ## Use serviceLoadBalancerIP to request a specific static IP,
-    ## otherwise leave blank
-    # loadBalancerIP:
-    annotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "9205"
-    labels: {}
