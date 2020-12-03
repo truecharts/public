@@ -288,10 +288,10 @@ cronjob:
   # affinity: {}
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 8080
   loadBalancerIP: nil
-  nodePort: nil
+  nodePort: 9000
 
 ## Enable persistence using Persistent Volume Claims
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
