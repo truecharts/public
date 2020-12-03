@@ -5,6 +5,10 @@ groups:
     description: "Configuration details for Nextcloud workload"
   - name: "Storage Configuration"
     description: "Configure Storage for Nextcloud"
+  - name: "Container Configuration"
+    description: "Configure nextcloud container parameters"
+  - name: "Nginx Configuration"
+    description: "Use nginx with Nextcloud"
 
 questions:
   # Image related
@@ -50,6 +54,7 @@ questions:
     schema:
       type: dict
       required: true
+      additional_attrs: true
       attrs:
         - variable: host
           description: "Nextcloud host to create application URLs"
@@ -94,6 +99,7 @@ questions:
     schema:
       type: dict
       required: true
+      additional_attrs: true
       attrs:
         - variable: nodePort
           label: "Node Port to use for Nextcloud"
@@ -151,4 +157,61 @@ questions:
           group: "Storage Configuration"
           schema:
             type: hostpath
-            required: true
+
+  - variable: lifecycle
+    label: "Define container Lifecycle"
+    group: "Container Configuration"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs: []
+
+  - variable: nginx
+    label: "Configure Nginx"
+    group: "Nginx Configuration"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs: []
+
+  - variable: internalDatabase
+    label: "REMOVEME"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs: []
+
+  - variable: externalDatabase
+    label: "REMOVEME"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs: []
+
+  - variable: postgresql
+    label: "REMOVEME"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs: []
+
+  - variable: cronjob
+    label: "REMOVEME"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs: []
+
+  - variable: livenessProbe
+    label: "REMOVEME"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs: []
+
+  - variable: readinessProbe
+    label: "REMOVEME"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs: []

@@ -15,7 +15,7 @@ metadata:
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
-{{ toYaml .Values.nextcloud.strategy | indent 4 }}
+    type: {{ .Values.nextcloud.strategy }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "nextcloud.name" . }}
