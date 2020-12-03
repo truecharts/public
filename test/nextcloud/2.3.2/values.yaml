@@ -216,9 +216,6 @@ cronjob:
   # affinity: {}
 
 service:
-  type: NodePort
-  port: 80
-  loadBalancerIP: nil
   nodePort: 9000
 
 ## Liveness and readiness probe values

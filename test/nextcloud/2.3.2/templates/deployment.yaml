@@ -27,9 +27,6 @@ spec:
         app.kubernetes.io/name: {{ include "nextcloud.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/component: app
-        {{- if .Values.redis.enabled }}
-        {{ template "nextcloud.redis.fullname" . }}-client: "true"
-        {{- end }}
       {{- if .Values.podAnnotations }}
       annotations:
 {{ toYaml .Values.podAnnotations | indent 8 }}
@@ -64,21 +61,6 @@ spec:
         {{- if .Values.internalDatabase.enabled }}
         - name: SQLITE_DATABASE
           value: {{ .Values.internalDatabase.name | quote }}
-        {{- else if .Values.mariadb.enabled }}
-        - name: MYSQL_HOST
-          value: {{ template "nextcloud.mariadb.fullname" . }}
-        - name: MYSQL_DATABASE
-          value: {{ .Values.mariadb.db.name | quote }}
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.externalDatabase.existingSecret.secretName | default (printf "%s-%s" .Release.Name "db") }}
-              key: {{ .Values.externalDatabase.existingSecret.usernameKey | default "db-username" }}
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.externalDatabase.existingSecret.secretName | default (printf "%s-%s" .Release.Name "db") }}
-              key: {{ .Values.externalDatabase.existingSecret.passwordKey | default "db-password" }}
         {{- else }}
           {{- if eq .Values.externalDatabase.type "postgresql" }}
         - name: POSTGRES_HOST
@@ -157,12 +139,6 @@ spec:
             secretKeyRef:
               name: {{ template "nextcloud.fullname" . }}
               key: smtp-password
-        {{- end }}
-        {{- if .Values.redis.enabled }}
-        - name: REDIS_HOST
-          value: {{ template "nextcloud.redis.fullname" . }}-master
-        - name: REDIS_HOST_PORT
-          value: {{ .Values.redis.redisPort | quote }}
         {{- end }}
         {{- if .Values.nextcloud.extraEnv }}
 {{ toYaml .Values.nextcloud.extraEnv | indent 8 }}
@@ -325,10 +301,7 @@ spec:
     {{- end }}
       volumes:
       - name: nextcloud-data
-      {{- if .Values.persistence.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistence.existingClaim }}{{ .Values.persistence.existingClaim }}{{- else }}{{ template "nextcloud.fullname" . }}-nextcloud{{- end }}
-      {{- else if ne (include "configuredHostPath" .) "" }}
+      {{- if ne (include "configuredHostPath" .) "" }}
         hostPath:
           path: {{ template "configuredHostPath" . }}
       {{- else }}
