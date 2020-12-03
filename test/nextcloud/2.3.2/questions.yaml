@@ -3,6 +3,8 @@ groups:
     description: "Image to be used for container"
   - name: "Nextcloud Configuration"
     description: "Configuration details for Nextcloud workload"
+  - name: "Storage Configuration"
+    description: "Configure Storage for Nextcloud"
 
 questions:
   # Image related
@@ -100,4 +102,53 @@ questions:
             min: 9000
             max: 65535
             default: 9000
+            required: true
+
+  - variable: configureiXVolume
+    label: "Configure iX Volume"
+    group: "Storage Configuration"
+    description: "Use iX Volume for persistent storage"
+    schema:
+      type: boolean
+      default: true
+      required: true
+      show_subquestions_if: true
+      subquestions:
+        - variable: volume
+          label: "Configure iXVolume"
+          group: "Storage Configuration"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  editable: false
+                  default: "/var/www"
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  required: true
+
+  - variable: configureHostPath
+    label: "Configure Host Path for storage"
+    description: "Use a path on host for persistent data storage"
+    group: "Storage Configuration"
+    schema:
+      type: boolean
+      default: false
+      required: true
+      show_if: [["configureiXVolume", "=", false]]
+      show_subquestions_if: true
+      subquestions:
+        - variable: volumeHostPath
+          label: "Host Path"
+          group: "Storage Configuration"
+          schema:
+            type: hostpath
             required: true

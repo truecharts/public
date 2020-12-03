@@ -47,3 +47,17 @@ Create chart name and version as used by the chart label.
 {{- define "nextcloud.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/*
+Retrieve host path defined in volume
+*/}}
+{{- define "configuredHostPath" -}}
+{{- if .Values.configureiXVolume -}}
+{{- $volDict := first .Values.ixVolumes -}}
+{{- $volDict.hostPath -}}
+{{- else if .Values.configureHostPath -}}
+{{- .Values.volumeHostPath -}}
+{{- else -}}
+{{- printf "" -}}
+{{- end -}}
+{{- end -}}
