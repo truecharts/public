@@ -328,6 +328,9 @@ spec:
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
           claimName: {{ if .Values.persistence.existingClaim }}{{ .Values.persistence.existingClaim }}{{- else }}{{ template "nextcloud.fullname" . }}-nextcloud{{- end }}
+      {{- else if ne (include "configuredHostPath" .) "" }}
+        hostPath:
+          path: {{ template "configuredHostPath" . }}
       {{- else }}
         emptyDir: {}
       {{- end }}
