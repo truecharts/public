@@ -61,3 +61,19 @@ Retrieve host path defined in volume
 {{- printf "" -}}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Selector labels
+*/}}
+{{- define "nextcloud.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "nextcloud.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{/*
+Postgres Selector labels
+*/}}
+{{- define "nextcloud.postgres.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "nextcloud.name" . }}-postgres
+app.kubernetes.io/instance: {{ .Release.Name }}-postgres
+{{- end }}

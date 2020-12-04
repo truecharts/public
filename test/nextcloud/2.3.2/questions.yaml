@@ -7,8 +7,8 @@ groups:
     description: "Configure Storage for Nextcloud"
   - name: "Container Configuration"
     description: "Configure nextcloud container parameters"
-  - name: "Nginx Configuration"
-    description: "Use nginx with Nextcloud"
+  - name: "Postgresql Configuration"
+    description: "Configure Postgresql for nextcloud"
 
 questions:
   # Image related
@@ -165,14 +165,6 @@ questions:
       additional_attrs: true
       attrs: []
 
-  - variable: nginx
-    label: "Configure Nginx"
-    group: "Nginx Configuration"
-    schema:
-      type: dict
-      additional_attrs: true
-      attrs: []
-
   - variable: internalDatabase
     label: "REMOVEME"
     schema:
@@ -188,11 +180,50 @@ questions:
       attrs: []
 
   - variable: postgresql
-    label: "REMOVEME"
+    label: "Configure Postgresql"
+    group: "Postgresql Configuration"
     schema:
       type: dict
       additional_attrs: true
-      attrs: []
+      attrs:
+        - variable: backupVolume
+          label: "Backup Volume"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: mountPath
+                label: "Mount Path"
+                schema:
+                  type: path
+                  editable: false
+                  default: "/postgres_backups"
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "ix-postgres_backups"
+                  editable: false
+        - variable: dataVolume
+          label: "Postgresql Data Volume"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: mountPath
+                label: "Mount Path"
+                schema:
+                  type: path
+                  editable: false
+                  default: "/var/lib/postgresql/data"
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "ix-postgres_data"
+                  editable: false
 
   - variable: cronjob
     label: "REMOVEME"

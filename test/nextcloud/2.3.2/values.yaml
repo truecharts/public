@@ -113,34 +113,18 @@ nextcloud:
   #  - name: nfs
   #    mountPath: "/legacy_data"
 
-nginx:
-  ## You need to set an fpm version of the image for nextcloud if you want to use nginx!
-  enabled: false
-  image:
-    repository: nginx
-    tag: alpine
-    pullPolicy: IfNotPresent
-
-  config:
-    # This generates the default nginx config as per the nextcloud documentation
-    default: true
-    # custom: |-
-    #     worker_processes  1;..
-
-  resources: {}
-
 internalDatabase:
-  enabled: true
+  enabled: false
   name: nextcloud
 
 ##
 ## External database configuration
 ##
 externalDatabase:
-  enabled: false
+  enabled: true
 
   ## Supported database engines: mysql or postgresql
-  type: mysql
+  type: postgresql
 
   ## Database host
   host:
@@ -162,15 +146,7 @@ externalDatabase:
     # passwordKey: password
 
 postgresql:
-  enabled: false
-  global:
-    postgresql:
-      postgresqlUsername: nextcloud
-      postgresqlPassword: changeme
-      postgresqlDatabase: nextcloud
-  persistence:
-    enabled: false
-    # storageClass: ""
+  host:
 
 ## Cronjob to execute Nextcloud background tasks
 ## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#webcron
