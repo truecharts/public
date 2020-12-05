@@ -89,82 +89,13 @@ nextcloud:
   #  - name: nfs
   #    mountPath: "/legacy_data"
 
-internalDatabase:
-  enabled: false
-  name: nextcloud
-
-##
-## External database configuration
-##
-externalDatabase:
-  enabled: true
-
-  ## Supported database engines: mysql or postgresql
-  type: postgresql
-
-  ## Database host
-  host:
-
-  ## Database user
-  user: nextcloud
-
-  ## Database password
-  password:
-
-  ## Database name
-  database: nextcloud
-
-  ## Use a existing secret
-  existingSecret:
-    enabled: false
-    # secretName: nameofsecret
-    # usernameKey: username
-    # passwordKey: password
-
 postgresql:
-
-## Cronjob to execute Nextcloud background tasks
-## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#webcron
-##
-cronjob:
-  enabled: false
-  # Nexcloud image is used as default but only curl is needed
-  image: {}
-    # repository: nextcloud
-    # tag: 16.0.3-apache
-    # pullPolicy: IfNotPresent
-    # pullSecrets:
-    #   - myRegistrKeySecretName
-  # Every 5 minutes
-  # Note: Setting this to any any other value than 5 minutes might
-  #  cause issues with how nextcloud background jobs are executed
-  schedule: "*/5 * * * *"
-  annotations: {}
-  # Set curl's insecure option if you use e.g. self-signed certificates
-  curlInsecure: false
-  failedJobsHistoryLimit: 5
-  successfulJobsHistoryLimit: 2
-  # If not set, nextcloud deployment one will be set
-  # resources:
-    # We usually recommend not to specify default resources and to leave this as a conscious
-    # choice for the user. This also increases chances charts run on environments with little
-    # resources, such as Minikube. If you do want to specify resources, uncomment the following
-    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-    # limits:
-    #  cpu: 100m
-    #  memory: 128Mi
-    # requests:
-    #  cpu: 100m
-    #  memory: 128Mi
-
-  # If not set, nextcloud deployment one will be set
-  # nodeSelector: {}
-
-  # If not set, nextcloud deployment one will be set
-  # tolerations: []
-
-  # If not set, nextcloud deployment one will be set
-  # affinity: {}
+  backupVolume:
+    mountPath: "/postgres_backups"
+    datasetName: "ix-postgres_backups"
+  dataVolume:
+    mountPath: "/var/lib/postgresql/data"
+    datasetName: "ix-postgres_data"
 
 service:
   nodePort: 9000
