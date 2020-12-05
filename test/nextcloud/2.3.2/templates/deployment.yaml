@@ -49,19 +49,19 @@ spec:
         {{- else }}
           {{- if eq .Values.externalDatabase.type "postgresql" }}
         - name: POSTGRES_HOST
-          value: {{ .Values.externalDatabase.host | quote }}
+          value: {{ template "nextcloud.fullname" . }}-postgres:5432
         - name: POSTGRES_DB
-          value: {{ .Values.externalDatabase.database | quote }}
+          value: "nextcloud"
         - name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
-              name: {{ .Values.externalDatabase.existingSecret.secretName | default (printf "%s-%s" .Release.Name "db") }}
-              key: {{ .Values.externalDatabase.existingSecret.usernameKey | default "db-username" }}
+              name: db-details
+              key: db-user
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ .Values.externalDatabase.existingSecret.secretName | default (printf "%s-%s" .Release.Name "db") }}
-              key: {{ .Values.externalDatabase.existingSecret.passwordKey | default "db-password" }}
+              name: db-details
+              key: db-password
           {{- end }}
         {{- end }}
         - name: NEXTCLOUD_ADMIN_USER
