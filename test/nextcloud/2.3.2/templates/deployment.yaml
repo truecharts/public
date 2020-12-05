@@ -57,7 +57,6 @@ spec:
             secretKeyRef:
               name: db-details
               key: db-password
-        {{- end }}
         - name: NEXTCLOUD_ADMIN_USER
           valueFrom:
             secretKeyRef:

@@ -138,7 +138,8 @@ questions:
                 label: "Dataset Name"
                 schema:
                   type: string
-                  required: true
+                  default: "nextcloud_data"
+                  editable: false
 
   - variable: configureHostPath
     label: "Configure Host Path for storage"
