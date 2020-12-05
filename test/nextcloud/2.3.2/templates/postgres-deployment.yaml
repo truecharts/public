@@ -50,7 +50,7 @@ spec:
       volumes:
       - name: postgres-data
         hostPath:
-          path: {{ template "configuredPostgresHostPath" . }}
+          path: "/mnt/evo/ix-applications/releases/nextcloud/volumes/ix_volumes/ix-postgres_data"
       - name: postgres-backup
         hostPath:
-          path: {{ template "configuredBackupPostgresHostPath" . }}
+          path: "/mnt/evo/ix-applications/releases/nextcloud/volumes/ix_volumes/ix-postgres_backups"
