@@ -43,11 +43,6 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
-        {{- if .Values.internalDatabase.enabled }}
-        - name: SQLITE_DATABASE
-          value: {{ .Values.internalDatabase.name | quote }}
-        {{- else }}
-          {{- if eq .Values.externalDatabase.type "postgresql" }}
         - name: POSTGRES_HOST
           value: {{ template "nextcloud.fullname" . }}-postgres:5432
         - name: POSTGRES_DB
@@ -62,8 +57,6 @@ spec:
             secretKeyRef:
               name: db-details
               key: db-password
-          {{- end }}
-        {{- end }}
         - name: NEXTCLOUD_ADMIN_USER
           valueFrom:
             secretKeyRef:
