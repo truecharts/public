@@ -49,12 +49,24 @@ Create chart name and version as used by the chart label.
 {{- end -}}
 
 {{/*
+Retrieve host path from ix volumes based on dataset name
+*/}}
+{{- define "retrieveHostPathFromiXVolume" -}}
+{{- range $index, $hostPathConfiguration := $.ixVolumes }}
+{{- $dsName := base $hostPathConfiguration.hostPath -}}
+{{- if eq $.datasetName $dsName -}}
+{{- $hostPathConfiguration.hostPath -}}
+{{- end -}}
+{{- end }}
+{{- end -}}
+
+{{/*
 Retrieve host path defined in volume
 */}}
 {{- define "configuredHostPath" -}}
 {{- if .Values.configureiXVolume -}}
-{{- $volDict := first .Values.ixVolumes -}}
-{{- $volDict.hostPath -}}
+{{- $volDict := dict "datasetName" $.Values.volume.datasetName "ixVolumes" $.Values.ixVolumes -}}
+{{- include "retrieveHostPathFromiXVolume" $volDict -}}
 {{- else if .Values.configureHostPath -}}
 {{- .Values.volumeHostPath -}}
 {{- else -}}
@@ -66,16 +78,16 @@ Retrieve host path defined in volume
 Retrieve backup postgresql host path defined in volume
 */}}
 {{- define "configuredBackupPostgresHostPath" -}}
-{{- $backupVolDict := first .Values.postgresql.backupVolume -}}
-{{- $backupVolDict.hostPath -}}
+{{- $volDict := dict "datasetName" $.Values.postgresql.backupVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
+{{- include "retrieveHostPathFromiXVolume" $volDict -}}
 {{- end -}}
 
 {{/*
 Retrieve postgresql data host path defined in volume
 */}}
 {{- define "configuredPostgresHostPath" -}}
-{{- $dataVolDict := first .Values.postgresql.dataVolume -}}
-{{- $dataVolDict.hostPath -}}
+{{- $volDict := dict "datasetName" $.Values.postgresql.dataVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
+{{- include "retrieveHostPathFromiXVolume" $volDict -}}
 {{- end -}}
 
 {{/*
