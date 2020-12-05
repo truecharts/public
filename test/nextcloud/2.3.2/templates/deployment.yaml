@@ -13,7 +13,7 @@ metadata:
 {{ toYaml .Values.deploymentAnnotations | indent 4 }}
   {{- end }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   strategy:
     type: {{ .Values.nextcloud.strategy }}
   selector:
@@ -42,21 +42,6 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{- if .Values.lifecycle }}
-        lifecycle:
-        {{-   if .Values.lifecycle.postStartCommand }}
-          postStart:
-            exec:
-              command:
-                {{- toYaml .Values.lifecycle.postStartCommand | nindent 16 -}}
-        {{-   end }}
-        {{-   if .Values.lifecycle.preStopCommand }}
-          preStop:
-            exec:
-              command:
-                {{- toYaml .Values.lifecycle.preStopCommand | nindent 16 -}}
-        {{-   end }}
-        {{- end }}
         env:
         {{- if .Values.internalDatabase.enabled }}
         - name: SQLITE_DATABASE
@@ -77,21 +62,6 @@ spec:
             secretKeyRef:
               name: {{ .Values.externalDatabase.existingSecret.secretName | default (printf "%s-%s" .Release.Name "db") }}
               key: {{ .Values.externalDatabase.existingSecret.passwordKey | default "db-password" }}
-          {{- else }}
-        - name: MYSQL_HOST
-          value: {{ .Values.externalDatabase.host | quote }}
-        - name: MYSQL_DATABASE
-          value: {{ .Values.externalDatabase.database | quote }}
-        - name: MYSQL_USER
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.externalDatabase.existingSecret.secretName | default (printf "%s-%s" .Release.Name "db") }}
-              key: {{ .Values.externalDatabase.existingSecret.usernameKey | default "db-username" }}
-        - name: MYSQL_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.externalDatabase.existingSecret.secretName | default (printf "%s-%s" .Release.Name "db") }}
-              key: {{ .Values.externalDatabase.existingSecret.passwordKey | default "db-password" }}
           {{- end }}
         {{- end }}
         - name: NEXTCLOUD_ADMIN_USER
@@ -106,50 +76,13 @@ spec:
               key: nextcloud-password
         - name: NEXTCLOUD_TRUSTED_DOMAINS
           value: {{ .Values.nextcloud.host }}
-        {{- if ne (int .Values.nextcloud.update) 0 }}
-        - name: NEXTCLOUD_UPDATE
-          value: {{ .Values.nextcloud.update | quote }}
-        {{- end }}
         - name: NEXTCLOUD_DATA_DIR
           value: {{ .Values.nextcloud.datadir | quote }}
-        {{- if .Values.nextcloud.tableprefix }}
-        - name: NEXTCLOUD_TABLE_PREFIX
-          value: {{ .Values.nextcloud.tableprefix | quote }}
-        {{- end }}
-        {{- if .Values.nextcloud.mail.enabled }}
-        - name: MAIL_FROM_ADDRESS
-          value: {{ .Values.nextcloud.mail.fromAddress | quote }}
-        - name: MAIL_DOMAIN
-          value: {{ .Values.nextcloud.mail.domain | quote }}
-        - name: SMTP_HOST
-          value: {{ .Values.nextcloud.mail.smtp.host | quote }}
-        - name: SMTP_SECURE
-          value: {{ .Values.nextcloud.mail.smtp.secure | quote }}
-        - name: SMTP_PORT
-          value: {{ .Values.nextcloud.mail.smtp.port | quote }}
-        - name: SMTP_AUTHTYPE
-          value: {{ .Values.nextcloud.mail.smtp.authtype | quote }}
-        - name: SMTP_NAME
-          valueFrom:
-            secretKeyRef:
-              name: {{ template "nextcloud.fullname" . }}
-              key: smtp-username
-        - name: SMTP_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ template "nextcloud.fullname" . }}
-              key: smtp-password
-        {{- end }}
-        {{- if .Values.nextcloud.extraEnv }}
-{{ toYaml .Values.nextcloud.extraEnv | indent 8 }}
-        {{- end }}
-        {{- if not .Values.nginx.enabled }}
         ports:
         - name: http
           containerPort: 80
           protocol: TCP
-        {{- end }}
-        {{- if and .Values.livenessProbe.enabled (not .Values.nginx.enabled) }}
+        {{- if .Values.livenessProbe.enabled }}
         livenessProbe:
           httpGet:
             path: /status.php
@@ -163,7 +96,7 @@ spec:
           successThreshold: {{ .Values.livenessProbe.successThreshold }}
           failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
         {{- end }}
-        {{- if and .Values.readinessProbe.enabled (not .Values.nginx.enabled) }}
+        {{- if .Values.readinessProbe.enabled}}
         readinessProbe:
           httpGet:
             path: /status.php
@@ -177,8 +110,6 @@ spec:
           successThreshold: {{ .Values.readinessProbe.successThreshold }}
           failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
         {{- end }}
-        resources:
-{{ toYaml .Values.resources | indent 10 }}
         volumeMounts:
         - name: nextcloud-data
           mountPath: /var/www/
@@ -220,85 +151,6 @@ spec:
           mountPath: /usr/local/etc/php/conf.d/{{ $key }}
           subPath: {{ $key }}
         {{- end }}
-        {{- if .Values.nextcloud.extraVolumeMounts }}
-{{ toYaml .Values.nextcloud.extraVolumeMounts | indent 8 }}
-        {{- end }}
-        {{- if .Values.nginx.enabled }}
-      - name: {{ .Chart.Name }}-nginx
-        image: "{{ .Values.nginx.image.repository }}:{{ .Values.nginx.image.tag }}"
-        imagePullPolicy: {{ .Values.nginx.image.pullPolicy }}
-        ports:
-        - name: http
-          containerPort: 80
-          protocol: TCP
-        {{- if .Values.livenessProbe.enabled }}
-        livenessProbe:
-          httpGet:
-            path: /status.php
-            port: http
-            httpHeaders:
-            - name: Host
-              value: {{ .Values.nextcloud.host | quote }}
-          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
-          periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
-          timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
-          successThreshold: {{ .Values.livenessProbe.successThreshold }}
-          failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
-        {{- end }}
-        {{- if .Values.readinessProbe.enabled }}
-        readinessProbe:
-          httpGet:
-            path: /status.php
-            port: http
-            httpHeaders:
-            - name: Host
-              value: {{ .Values.nextcloud.host | quote }}
-          initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
-          periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
-          timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
-          successThreshold: {{ .Values.readinessProbe.successThreshold }}
-          failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
-        {{- end }}
-        resources:
-{{ toYaml .Values.nginx.resources | indent 10 }}
-        volumeMounts:
-        - name: nextcloud-data
-          mountPath: /var/www/
-          subPath: {{ ternary "root" (printf "%s/%s" .Values.nextcloud.persistence.subPath "root") (empty .Values.nextcloud.persistence.subPath) }}
-        - name: nextcloud-data
-          mountPath: /var/www/html
-          subPath: {{ ternary "html" (printf "%s/%s" .Values.nextcloud.persistence.subPath "html") (empty .Values.nextcloud.persistence.subPath) }}
-        - name: nextcloud-data
-          mountPath: {{ .Values.nextcloud.datadir }}
-          subPath: {{ ternary "data" (printf "%s/%s" .Values.nextcloud.persistence.subPath "data") (empty .Values.nextcloud.persistence.subPath) }}
-        - name: nextcloud-data
-          mountPath: /var/www/html/config
-          subPath: {{ ternary "config" (printf "%s/%s" .Values.nextcloud.persistence.subPath "config") (empty .Values.nextcloud.persistence.subPath) }}
-        - name: nextcloud-data
-          mountPath: /var/www/html/custom_apps
-          subPath: {{ ternary "custom_apps" (printf "%s/%s" .Values.nextcloud.persistence.subPath "custom_apps") (empty .Values.nextcloud.persistence.subPath) }}
-        - name: nextcloud-data
-          mountPath: /var/www/tmp
-          subPath: {{ ternary "tmp" (printf "%s/%s" .Values.nextcloud.persistence.subPath "tmp") (empty .Values.nextcloud.persistence.subPath) }}
-        - name: nextcloud-data
-          mountPath: /var/www/html/themes
-          subPath: {{ ternary "themes" (printf "%s/%s" .Values.nextcloud.persistence.subPath "themes") (empty .Values.nextcloud.persistence.subPath) }}
-        - name: nextcloud-nginx-config
-          mountPath: /etc/nginx/nginx.conf
-          subPath: nginx.conf
-      {{- end }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-    {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
       volumes:
       - name: nextcloud-data
       {{- if ne (include "configuredHostPath" .) "" }}
@@ -317,20 +169,6 @@ spec:
         configMap:
           name: {{ template "nextcloud.fullname" . }}-phpconfig
       {{- end }}
-      {{- if .Values.nginx.enabled }}
-      - name: nextcloud-nginx-config
-        configMap:
-          name: {{ template "nextcloud.fullname" . }}-nginxconfig
-      {{- end }}
-      {{- if .Values.nextcloud.extraVolumes }}
-{{ toYaml .Values.nextcloud.extraVolumes | indent 6 }}
-      {{- end }}
-      {{- if .Values.nginx.enabled }}
-      # Will mount configuration files as www-data (id: 82) for nextcloud
-      securityContext:
-        fsGroup: 82
-      {{- else }}
       # Will mount configuration files as www-data (id: 33) for nextcloud
       securityContext:
         fsGroup: 33
-      {{- end }}

@@ -5,18 +5,6 @@ image:
   repository: nextcloud
   tag: 19.0.3-apache
   pullPolicy: IfNotPresent
-  # pullSecrets:
-  #   - myRegistrKeySecretName
-
-## Allowing use of ingress controllers
-## ref: https://kubernetes.io/docs/concepts/services-networking/ingress/
-##
-
-# Allow configuration of lifecycle hooks
-# ref: https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/
-lifecycle: {}
-  # postStartCommand: []
-  # preStopCommand: []
 
 nextcloud:
   host: nextcloud.kube.home
@@ -24,20 +12,8 @@ nextcloud:
   password: changeme
   update: 0
   datadir: /var/www/html/data
-  tableprefix:
   persistence:
     subPath:
-  mail:
-    enabled: false
-    fromAddress: user
-    domain: domain.com
-    smtp:
-      host: domain.com
-      secure: ssl
-      port: 465
-      authtype: LOGIN
-      name: user
-      password: pass
   # PHP Configuration files
   # Will be injected in /usr/local/etc/php/conf.d
   phpConfigs: {}
