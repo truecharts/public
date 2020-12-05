@@ -38,6 +38,10 @@ spec:
         - name: {{ . }}
       {{- end}}
       {{- end }}
+      initContainers:
+        - name: init-postgresdb
+          image: busybox:latest
+          command: ['sh', '-c', "until nslookup {{ template "nextcloud.fullname" . }}-postgres; do echo waiting for postgres; sleep 2; done"]
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
