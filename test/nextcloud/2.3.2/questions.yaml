@@ -157,14 +157,6 @@ questions:
           schema:
             type: hostpath
 
-  - variable: lifecycle
-    label: "Define container Lifecycle"
-    group: "Container Configuration"
-    schema:
-      type: dict
-      additional_attrs: true
-      attrs: []
-
   - variable: internalDatabase
     label: "REMOVEME"
     schema:
@@ -226,20 +218,6 @@ questions:
                   editable: false
 
   - variable: cronjob
-    label: "REMOVEME"
-    schema:
-      type: dict
-      additional_attrs: true
-      attrs: []
-
-  - variable: livenessProbe
-    label: "REMOVEME"
-    schema:
-      type: dict
-      additional_attrs: true
-      attrs: []
-
-  - variable: readinessProbe
     label: "REMOVEME"
     schema:
       type: dict
