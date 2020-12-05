@@ -28,6 +28,11 @@ spec:
         image: "postgres:13.1"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-details
+              key: db-user
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
