@@ -63,6 +63,22 @@ Retrieve host path defined in volume
 {{- end -}}
 
 {{/*
+Retrieve backup postgresql host path defined in volume
+*/}}
+{{- define "configuredBackupPostgresHostPath" -}}
+{{- $backupVolDict := first .Values.postgresql.backupVolume -}}
+{{- $backupVolDict.hostPath -}}
+{{- end -}}
+
+{{/*
+Retrieve postgresql data host path defined in volume
+*/}}
+{{- define "configuredPostgresHostPath" -}}
+{{- $dataVolDict := first .Values.postgresql.dataVolume -}}
+{{- $dataVolDict.hostPath -}}
+{{- end -}}
+
+{{/*
 Selector labels
 */}}
 {{- define "nextcloud.selectorLabels" -}}
