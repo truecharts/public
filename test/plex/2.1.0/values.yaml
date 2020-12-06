@@ -101,10 +101,13 @@ hostNetwork: false
 persistence:
   transcode:
     hostPathEnabled: false
+    hostPath: ""
   data:
     hostPathEnabled: false
+    hostPath: ""
   config:
     hostPathEnabled: false
+    hostPath: ""
 
 # Probes configuration
 probes:
