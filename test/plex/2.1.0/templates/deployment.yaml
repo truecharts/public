@@ -4,12 +4,6 @@ metadata:
   name: {{ include "plex.fullname" . }}
   labels:
     {{- include "plex.labels" . | nindent 4 }}
-  {{- if .Values.deploymentAnnotations }}
-  annotations:
-    {{- range $key, $value := .Values.deploymentAnnotations }}
-    {{ $key }}: {{ $value | quote }}
-    {{- end }}
-  {{- end }}
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -22,63 +16,15 @@ spec:
     metadata:
       labels:
         {{- include "plex.selectorLabels" . | nindent 8 }}
-      {{- if .Values.podAnnotations }}
       annotations:
-        {{- range $key, $value := .Values.podAnnotations }}
-        {{ $key }}: {{ $value | quote }}
-        {{- end }}
-      {{- end }}
+        rollme: {{ randAlphaNum 5 | quote }}
     spec:
-    {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
     {{- if .Values.hostNetwork }}
       hostNetwork: {{ .Values.hostNetwork }}
       dnsPolicy: ClusterFirstWithHostNet
     {{- end }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
-  {{- if .Values.certificate.pkcsMangler.enabled }}
-      initContainers:
-      # This is ugly, but it does work to create a pks file that will work with PLEX from the tls.crt and tls.key that cert-manager normally creates
-      {{- if .Values.certificate.pkcsMangler.enabled }}
-      - name: pkcsmangler-init-container
-        image: "{{ .Values.certificate.pkcsMangler.image.repository }}:{{ .Values.certificate.pkcsMangler.image.tag }}"
-        imagePullPolicy: Always
-        command: ["/bin/sh"]
-        args: ["-c", "openssl pkcs12 -export -passout pass:$(PKCSMANGLER_PFXPASSWORD) -out /shared/cert.pfx -inkey {{ .Values.certificate.pkcsMangler.certificateSecret.volume.mountPath }}/{{ .Values.certificate.pkcsMangler.certificateSecret.keyName }} -in {{ .Values.certificate.pkcsMangler.certificateSecret.volume.mountPath }}/{{ .Values.certificate.pkcsMangler.certificateSecret.crtName }}; chmod 0444 /shared/cert.pfx"]
-        env:
-          - name: "PKCSMANGLER_PFXPASSWORD"
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.certificate.pkcsMangler.pfxPassword.secretName }}
-                key: {{ .Values.certificate.pkcsMangler.pfxPassword.passwordKey }}
-        volumeMounts:
-        - name: shared
-          mountPath: /shared
-        - name: {{ .Values.certificate.pkcsMangler.certificateSecret.volume.name }}
-          mountPath: {{ .Values.certificate.pkcsMangler.certificateSecret.volume.mountPath }}
-      {{- end }}
-  {{- end }}
       containers:
-      {{- if .Values.logging.promtail.enabled }}
-        - name: {{ .Chart.Name }}-promtail
-          image: "{{ .Values.logging.promtail.image.repository }}:{{ .Values.logging.promtail.image.tag }}"
-          imagePullPolicy: {{ .Values.logging.promtail.image.pullPolicy }}
-          args:
-          - -config.file=/etc/promtail/promtail.yaml
-          volumeMounts:
-          - name: promtail-config
-            mountPath: /etc/promtail/promtail.yaml
-            subPath: promtail.yaml
-            readOnly: true
-          - name: shared-logs
-            mountPath: /plex-logs
-      {{- end }}
         - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
@@ -179,20 +125,6 @@ spec:
 {{- range $key, $value := .Values.extraEnv }}
           - name: {{ $key }}
             value: {{ $value }}
-{{- end }}
-# This is part of pkcsMangler
-{{- if .Values.certificate.pkcsMangler.enabled }}
-          - name: "PKCSMANGLER_PFXINCONTAINERPATH"
-            value: "{{.Values.certificate.pkcsMangler.pfxInContainerPath}}"
-{{- if .Values.certificate.pkcsMangler.setPlexPreferences.enabled }}
-          - name: "PKCSMANGLER_PFXPASSWORD"
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.certificate.pkcsMangler.pfxPassword.secretName }}
-                key: {{ .Values.certificate.pkcsMangler.pfxPassword.passwordKey }}
-          - name: "PKCSMANGLER_CUSTOMCERTDOMAIN"
-            value: "customCertificateDomain={{.Values.certificate.pkcsMangler.setPlexPreferences.customCertificateDomain}}"
-{{- end }}
 {{- end }}
           readinessProbe:
             httpGet:
@@ -346,15 +278,3 @@ spec:
                   path: promtail.yaml
       {{- end }}
 ##### VOLUMES END #####
-    {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
-    {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
