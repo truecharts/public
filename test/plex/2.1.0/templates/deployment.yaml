@@ -257,24 +257,4 @@ spec:
           name: {{ .Values.plexPreferences.configmap.name }}
           defaultMode: {{ .Values.plexPreferences.volume.defaultMode }}
       {{- end }}
-      {{- if .Values.certificate.pkcsMangler.enabled }}
-      - name: {{ .Values.certificate.pkcsMangler.volume.name }}
-        configMap:
-          name: {{ .Values.certificate.pkcsMangler.configmap.name }}
-          defaultMode: {{ .Values.certificate.pkcsMangler.volume.defaultMode }}
-      - name: {{ .Values.certificate.pkcsMangler.certificateSecret.volume.name }}
-        secret:
-          secretName: {{ .Values.certificate.pkcsMangler.certificateSecret.name }}
-      {{- end }}
-      {{- if .Values.logging.promtail.enabled }}
-      - name: promtail-config
-        projected:
-          defaultMode: 0444
-          sources:
-          - configMap:
-              name: {{ template "plex.fullname" . }}-promtail
-              items:
-                - key: promtail.yaml
-                  path: promtail.yaml
-      {{- end }}
 ##### VOLUMES END #####
