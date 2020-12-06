@@ -85,6 +85,9 @@ spec:
           - name: pms
             protocol: TCP
             containerPort: 32400
+          {{- if .Values.hostNetwork }}
+            hostPort: {{ .Values.serviceTCP.port }}
+          {{- end }}
           - name: plex-dlna
             protocol: TCP
             containerPort: 32469

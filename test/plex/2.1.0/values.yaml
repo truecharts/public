@@ -68,7 +68,6 @@ securityContext: {}
   # runAsUser: 1000
 
 serviceTCP:
-  enabled: true
   type: NodePort
   port: 32400
   ## Specify the nodePort value for the LoadBalancer and NodePort service types.
