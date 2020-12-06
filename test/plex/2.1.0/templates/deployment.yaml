@@ -67,26 +67,6 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.namespace
-          - name: TRANSCODE_PVC
-  {{- if .Values.persistence.transcode.claimName }}
-            value: "{{ .Values.persistence.transcode.claimName }}"
-  {{- else }}
-            value: "{{ template "plex.fullname" . }}-transcode"
-  {{- end }}
-  {{- if .Values.persistence.data.enabled }}
-          - name: DATA_PVC
-    {{- if .Values.persistence.data.claimName }}
-            value: "{{ .Values.persistence.data.claimName }}"
-    {{- else }}
-            value: "{{ template "plex.fullname" . }}-data"
-    {{- end }}
-  {{- end }}
-          - name: CONFIG_PVC
-  {{- if .Values.persistence.config.claimName }}
-            value: "{{ .Values.persistence.config.claimName }}"
-  {{- else }}
-            value: "{{ template "plex.fullname" . }}-config"
-  {{- end }}
   {{- if .Values.proxy.enabled }}
     {{- if .Values.proxy.http }}
           - name: "HTTP_PROXY"
@@ -146,41 +126,12 @@ spec:
             failureThreshold: {{ .Values.probes.startup.failureThreshold }}
             periodSeconds: {{ .Values.probes.startup.periodSeconds }}
           volumeMounts:
-          {{- if .Values.persistence.data.enabled }}
           - name: data
             mountPath: /data
-          {{- if .Values.persistence.data.subPath }}
-            subPath: {{ .Values.persistence.data.subPath }}
-          {{ end }}
-          {{ end }}
           - name: config
             mountPath: /config
-          {{- if .Values.persistence.config.subPath }}
-            subPath: {{ .Values.persistence.config.subPath }}
-          {{ end }}
           - name: transcode
             mountPath: /transcode
-          {{- if .Values.persistence.transcode.subPath }}
-            subPath: {{ .Values.persistence.transcode.subPath }}
-          {{ end }}
-          {{-  range .Values.persistence.extraData }}
-          - mountPath: "/data-{{ .name }}"
-          {{- if .subPath }}
-            subPath: {{ .subPath }}
-          {{ end }}
-            name: "extradata-{{ .name }}"
-          {{- end }}
-          {{-  range .Values.persistence.extraMounts }}
-          {{- if .mountPath }}
-          - mountPath: /{{ .mountPath }}
-          {{- else }}
-          - mountPath: /{{ .name }}
-          {{- end }}
-          {{- if .subPath }}
-            subPath: {{ .subPath }}
-          {{ end }}
-            name: {{ .name }}
-          {{- end }}
           - name: shared
             mountPath: /shared
           - name: shared-logs
@@ -190,63 +141,17 @@ spec:
             mountPath: {{ .Values.plexPreferences.volume.mountPath }}
             subPath: {{ .Values.plexPreferences.volume.subPath }}
           {{- end }}
-          {{- if .Values.certificate.pkcsMangler.enabled }}
-          - name: {{ .Values.certificate.pkcsMangler.volume.name }}
-            mountPath: {{ .Values.certificate.pkcsMangler.volume.mountPath }}
-            subPath: {{ .Values.certificate.pkcsMangler.volume.subPath }}
-          {{- end }}
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
 ##### VOLUMES START #####
       volumes:
-{{- if .Values.persistence.data.enabled }}
       - name: data
-        persistentVolumeClaim:
-  {{- if .Values.persistence.data.claimName }}
-          claimName: "{{ .Values.persistence.data.claimName }}"
-  {{- else }}
-          claimName: "{{ template "plex.fullname" . }}-data"
-  {{- end }}
-{{- end }}
+        hostPath:
+          path: {{ template "configuredHostPathData" }}
       - name: config
-        persistentVolumeClaim:
-{{- if .Values.persistence.config.claimName }}
-          claimName: "{{ .Values.persistence.config.claimName }}"
-{{- else }}
-          claimName: "{{ template "plex.fullname" . }}-config"
-{{- end }}
+        hostPath:
+          path: {{ template "configuredHostPathConfig" }}
       - name: transcode
-{{- if .Values.persistence.transcode.enabled }}
-        persistentVolumeClaim:
-{{- if .Values.persistence.transcode.claimName }}
-          claimName: "{{ .Values.persistence.transcode.claimName }}"
-{{- else }}
-          claimName: "{{ template "plex.fullname" . }}-transcode"
-{{- end }}
-{{- else }}
-{{- if .Values.persistence.transcode.emptyDir.medium }}
-        emptyDir:
-          medium: "{{ .Values.persistence.transcode.emptyDir.medium }}"
-{{- else }}
-        emptyDir: {}
-{{- end }}
-{{- end }}
-{{-  range .Values.persistence.extraData }}
-      - name: "extradata-{{ .name }}"
-        persistentVolumeClaim:
-{{- if .claimName }}
-          claimName: "{{ .claimName }}"
-{{- else }}
-          claimName: "extradata-{{ .name }}"
-{{- end }}
-{{- end }}
-{{- range .Values.persistence.extraMounts }}
-  {{- if .claimName }}
-      - name: {{ .name }}
-        persistentVolumeClaim:
-          claimName: {{ .claimName }}
-  {{- end }}        
-{{- end }}
+        hostPath:
+          path: {{ template "configuredHostPathTranscode" }}
       - name: shared
         emptyDir: {}
       - name: shared-logs
