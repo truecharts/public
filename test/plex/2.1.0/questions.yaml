@@ -76,6 +76,7 @@ questions:
     schema:
       type: dict
       additional_attrs: true
+      attrs: []
 
   - variable: proxy
     label: "Configure Proxy environment variable"
@@ -83,6 +84,11 @@ questions:
     schema:
       type: dict
       attrs:
+        - variable: enabled
+          label: "Enable Proxy"
+          schema:
+            type: boolean
+            default: false
         - variable: http
           label: "HTTP Proxy"
           schema:
@@ -143,8 +149,9 @@ questions:
                     - variable: hostPath
                       label: "Specify HostPath for Transcode"
                       schema:
-                        type: hostPath
+                        type: hostpath
                         required: true
+                        default: ""
               - variable: volume
                 label: "Configure iXVolume"
                 schema:
@@ -181,8 +188,9 @@ questions:
                     - variable: hostPath
                       label: "Specify HostPath for Data"
                       schema:
-                        type: hostPath
+                        type: hostpath
                         required: true
+                        default: ""
               - variable: volume
                 label: "Configure iXVolume"
                 schema:
@@ -219,8 +227,9 @@ questions:
                     - variable: hostPath
                       label: "Specify HostPath for Config"
                       schema:
-                        type: hostPath
+                        type: hostpath
                         required: true
+                        default: ""
               - variable: volume
                 label: "Configure iXVolume"
                 schema:

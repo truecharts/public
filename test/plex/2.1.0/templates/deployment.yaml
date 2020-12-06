@@ -145,13 +145,13 @@ spec:
       volumes:
       - name: data
         hostPath:
-          path: {{ template "configuredHostPathData" }}
+          path: {{ template "configuredHostPathData" . }}
       - name: config
         hostPath:
-          path: {{ template "configuredHostPathConfig" }}
+          path: {{ template "configuredHostPathConfig" . }}
       - name: transcode
         hostPath:
-          path: {{ template "configuredHostPathTranscode" }}
+          path: {{ template "configuredHostPathTranscode" . }}
       - name: shared
         emptyDir: {}
       - name: shared-logs
