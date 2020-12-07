@@ -111,7 +111,9 @@ questions:
     group: "Plex Configuration"
     schema:
       type: string
-      default: "UTC"
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
 
   # Update strategy
   - variable: strategyType
