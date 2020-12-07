@@ -111,6 +111,7 @@ questions:
 
   - variable: nextcloudDataHostPathEnabled
     label: "Configure Host Path for Nextcloud data"
+    group: "Storage"
     schema:
       type: boolean
       default: false
@@ -123,6 +124,7 @@ questions:
 
   - variable: nextcloudDataVolume
     label: "Configure iXVolume"
+    group: "Storage"
     schema:
       type: dict
       $ref:
