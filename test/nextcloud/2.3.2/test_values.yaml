@@ -1,0 +1,25 @@
+## Official nextcloud image version
+## ref: https://hub.docker.com/r/library/nextcloud/tags/
+##
+image:
+  repository: nextcloud
+  tag: 19.0.3-apache
+  pullPolicy: IfNotPresent
+
+nextcloud:
+  host: nextcloud.kube.home
+  username: admin
+  password: changeme
+  datadir: /var/www/html/data
+  strategy: "Recreate"
+
+postgresql:
+  backupVolume:
+    mountPath: "/postgres_backups"
+    datasetName: "ix-postgres_backups"
+  dataVolume:
+    mountPath: "/var/lib/postgresql/data"
+    datasetName: "ix-postgres_data"
+
+service:
+  nodePort: 9000
