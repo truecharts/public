@@ -144,127 +144,119 @@ questions:
             max: 65535
             default: 32400
 
-  # Persistence
-  - variable: persistence
-    label: "Configure Persistent Storage"
+  - variable: transcodeHostPathEnabled
+    label: "Configure Host Path for Transcode"
+    group: "Storage"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: transcodeHostpath
+          label: "Specify HostPath for Transcode"
+          group: "Storage"
+          schema:
+            type: hostpath
+            required: true
+
+  - variable: transcodeVolume
+    label: "Configure iXVolume"
     group: "Storage"
     schema:
       type: dict
+      show_if: [["transcodeHostPathEnabled", "=", false]]
+      $ref:
+        - "normalize/ixVolume"
       attrs:
-        - variable: transcode
-          label: "Configure Transcode Storage"
+        - variable: mountPath
+          label: "Mount Path"
+          description: "Path where the volume will be mounted inside the pod"
           schema:
-            type: dict
-            attrs:
-              - variable: hostPathEnabled
-                label: "Configure Host Path for Transcode"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: "Specify HostPath for Transcode"
-                      schema:
-                        type: hostpath
-                        required: true
-              - variable: volume
-                label: "Configure iXVolume"
-                schema:
-                  type: dict
-                  show_if: [["hostPathEnabled", "=", false]]
-                  $ref:
-                    - "normalize/ixVolume"
-                  attrs:
-                    - variable: mountPath
-                      label: "Mount Path"
-                      description: "Path where the volume will be mounted inside the pod"
-                      schema:
-                        type: path
-                        editable: false
-                        default: "/transcode"
-                    - variable: datasetName
-                      label: "Dataset Name"
-                      schema:
-                        type: string
-                        default: "ix-plex_transcode"
-                        editable: false
-        - variable: data
-          label: "Configure Data Storage"
+            type: path
+            editable: false
+            default: "/transcode"
+        - variable: datasetName
+          label: "Dataset Name"
           schema:
-            type: dict
-            attrs:
-              - variable: hostPathEnabled
-                label: "Configure Host Path for Data"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: "Specify HostPath for Data"
-                      schema:
-                        type: hostpath
-                        required: true
-              - variable: volume
-                label: "Configure iXVolume"
-                schema:
-                  type: dict
-                  show_if: [["hostPathEnabled", "=", false]]
-                  $ref:
-                    - "normalize/ixVolume"
-                  attrs:
-                    - variable: mountPath
-                      label: "Mount Path"
-                      description: "Path where the volume will be mounted inside the pod"
-                      schema:
-                        type: path
-                        editable: false
-                        default: "/data"
-                    - variable: datasetName
-                      label: "Dataset Name"
-                      schema:
-                        type: string
-                        default: "ix-plex_data"
-                        editable: false
-        - variable: config
-          label: "Configure Config Storage"
+            type: string
+            default: "ix-plex_transcode"
+            editable: false
+
+  - variable: dataHostPathEnabled
+    label: "Configure Host Path for Data"
+    group: "Storage"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      group: "Storage"
+      subquestions:
+        - variable: dataHostPath
+          label: "Specify HostPath for Data"
           schema:
-            type: dict
-            attrs:
-              - variable: hostPathEnabled
-                label: "Configure Host Path for Config"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: "Specify HostPath for Config"
-                      schema:
-                        type: hostpath
-                        required: true
-              - variable: volume
-                label: "Configure iXVolume"
-                schema:
-                  type: dict
-                  show_if: [["hostPathEnabled", "=", false]]
-                  $ref:
-                    - "normalize/ixVolume"
-                  attrs:
-                    - variable: mountPath
-                      label: "Mount Path"
-                      description: "Path where the volume will be mounted inside the pod"
-                      schema:
-                        type: path
-                        editable: false
-                        default: "/config"
-                    - variable: datasetName
-                      label: "Dataset Name"
-                      schema:
-                        type: string
-                        default: "ix-plex_config"
-                        editable: false
+            type: hostpath
+            required: true
+
+  - variable: dataVolume
+    label: "Configure data iXVolume"
+    group: "Storage"
+    schema:
+      type: dict
+      show_if: [["dataHostPathEnabled", "=", false]]
+      $ref:
+        - "normalize/ixVolume"
+      attrs:
+        - variable: mountPath
+          label: "Mount Path"
+          description: "Path where the volume will be mounted inside the pod"
+          schema:
+            type: path
+            editable: false
+            default: "/data"
+        - variable: datasetName
+          label: "Dataset Name"
+          schema:
+            type: string
+            default: "ix-plex_data"
+            editable: false
+
+  - variable: configHostPathEnabled
+    label: "Configure Host Path for Config"
+    group: "Storage"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: configHostPath
+          label: "Specify HostPath for Config"
+          group: "Storage"
+          schema:
+            type: hostpath
+            required: true
+
+  - variable: configVolume
+    label: "Configure iXVolume"
+    group: "Storage"
+    schema:
+      type: dict
+      show_if: [["configHostPathEnabled", "=", false]]
+      $ref:
+        - "normalize/ixVolume"
+      attrs:
+        - variable: mountPath
+          label: "Mount Path"
+          description: "Path where the volume will be mounted inside the pod"
+          schema:
+            type: path
+            editable: false
+            default: "/config"
+        - variable: datasetName
+          label: "Dataset Name"
+          schema:
+            type: string
+            default: "ix-plex_config"
+            editable: false
 
   # Specify GPU configuration
   - variable: gpuConfiguration
