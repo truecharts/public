@@ -49,8 +49,16 @@ spec:
           protocol: TCP
       volumes:
       - name: postgres-data
+        {{- if ne (include "configuredPostgresHostPath" .) "" }}
         hostPath:
           path: {{ template "configuredPostgresHostPath" . }}
+        {{- else }}
+        emptyDir: {}
+        {{- end }}
       - name: postgres-backup
+        {{- if ne (include "configuredBackupPostgresHostPath" .) "" }}
         hostPath:
           path: {{ template "configuredBackupPostgresHostPath" . }}
+        {{- else }}
+        emptyDir: {}
+        {{- end }}
