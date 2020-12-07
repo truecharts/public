@@ -57,20 +57,20 @@ Retrieve host path from ix volumes based on dataset name
 {{- if eq $.datasetName $dsName -}}
 {{- $hostPathConfiguration.hostPath -}}
 {{- end -}}
-{{- end }}
+{{- end -}}
 {{- end -}}
 
 {{/*
 Retrieve host path defined in volume
 */}}
 {{- define "configuredHostPath" -}}
-{{- if .Values.configureiXVolume -}}
-{{- $volDict := dict "datasetName" $.Values.volume.datasetName "ixVolumes" $.Values.ixVolumes -}}
-{{- include "retrieveHostPathFromiXVolume" $volDict -}}
-{{- else if .Values.configureHostPath -}}
-{{- .Values.volumeHostPath -}}
-{{- else -}}
+{{- if .Values.emptyDirVolumes -}}
 {{- printf "" -}}
+{{- else if .Values.nextcloudDataHostPathEnabled -}}
+{{- required "Please specify a host path for nextcloud" .Values.nextcloudHostPath -}}
+{{- else -}}
+{{- $volDict := dict "datasetName" $.Values.nextcloudDataVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
+{{- include "retrieveHostPathFromiXVolume" $volDict -}}
 {{- end -}}
 {{- end -}}
 
@@ -78,7 +78,7 @@ Retrieve host path defined in volume
 Retrieve backup postgresql host path defined in volume
 */}}
 {{- define "configuredBackupPostgresHostPath" -}}
-{{- $volDict := dict "datasetName" $.Values.postgresql.backupVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
+{{- $volDict := dict "datasetName" $.Values.postgresBackupVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
 {{- include "retrieveHostPathFromiXVolume" $volDict -}}
 {{- end -}}
 
@@ -86,7 +86,7 @@ Retrieve backup postgresql host path defined in volume
 Retrieve postgresql data host path defined in volume
 */}}
 {{- define "configuredPostgresHostPath" -}}
-{{- $volDict := dict "datasetName" $.Values.postgresql.dataVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
+{{- $volDict := dict "datasetName" $.Values.postgresDataVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
 {{- include "retrieveHostPathFromiXVolume" $volDict -}}
 {{- end -}}
 
