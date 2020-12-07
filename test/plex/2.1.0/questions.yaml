@@ -20,6 +20,15 @@ groups:
   - name: "Resource Reservation"
     description: "Specify resources to be allocated to workload"
 
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$node_ip"
+    ports:
+      - "$variable-plexServiceTCP.port"
+
 questions:
   # Image related
   - variable: image
@@ -188,7 +197,6 @@ questions:
       type: boolean
       default: false
       show_subquestions_if: true
-      group: "Storage"
       subquestions:
         - variable: dataHostPath
           label: "Specify HostPath for Data"
