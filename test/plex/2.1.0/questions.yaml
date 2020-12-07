@@ -152,9 +152,8 @@ questions:
       default: false
       show_subquestions_if: true
       subquestions:
-        - variable: transcodeHostpath
+        - variable: transcodeHostPath
           label: "Specify HostPath for Transcode"
-          group: "Storage"
           schema:
             type: hostpath
             required: true
@@ -230,7 +229,6 @@ questions:
       subquestions:
         - variable: configHostPath
           label: "Specify HostPath for Config"
-          group: "Storage"
           schema:
             type: hostpath
             required: true
