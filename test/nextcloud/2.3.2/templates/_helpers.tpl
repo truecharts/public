@@ -78,16 +78,24 @@ Retrieve host path defined in volume
 Retrieve backup postgresql host path defined in volume
 */}}
 {{- define "configuredBackupPostgresHostPath" -}}
+{{- if .Values.emptyDirVolumes -}}
+{{- printf "" -}}
+{{- else -}}
 {{- $volDict := dict "datasetName" $.Values.postgresBackupVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
 {{- include "retrieveHostPathFromiXVolume" $volDict -}}
+{{- end -}}
 {{- end -}}
 
 {{/*
 Retrieve postgresql data host path defined in volume
 */}}
 {{- define "configuredPostgresHostPath" -}}
+{{- if .Values.emptyDirVolumes -}}
+{{- printf "" -}}
+{{- else -}}
 {{- $volDict := dict "datasetName" $.Values.postgresDataVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
 {{- include "retrieveHostPathFromiXVolume" $volDict -}}
+{{- end -}}
 {{- end -}}
 
 {{/*
