@@ -263,3 +263,12 @@ questions:
                         type: string
                         default: "ix-plex_config"
                         editable: false
+
+  # Specify GPU configuration
+  - variable: gpuConfiguration
+    label: "GPU Configuration"
+    group: "Resource Reservation"
+    schema:
+      type: dict
+      $ref:
+        - "definitions/gpuConfiguration"
