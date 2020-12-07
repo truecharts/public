@@ -143,14 +143,26 @@ spec:
           {{- end }}
       volumes:
       - name: data
+        {{- if .Values.emptyDirVolumes }}
+        emptyDir: {}
+        {{- else }}
         hostPath:
           path: {{ template "configuredHostPathData" . }}
+        {{- end }}
       - name: config
+        {{- if .Values.emptyDirVolumes }}
+        emptyDir: {}
+        {{- else }}
         hostPath:
           path: {{ template "configuredHostPathConfig" . }}
+        {{- end }}
       - name: transcode
+        {{- if .Values.emptyDirVolumes }}
+        emptyDir: {}
+        {{- else }}
         hostPath:
           path: {{ template "configuredHostPathTranscode" . }}
+        {{- end }}
       - name: shared
         emptyDir: {}
       - name: shared-logs

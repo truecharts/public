@@ -57,13 +57,9 @@ plexServiceTCP:
 
 hostNetwork: false
 
-persistence:
-  transcode:
-    hostPathEnabled: false
-  data:
-    hostPathEnabled: false
-  config:
-    hostPathEnabled: false
+transcodeHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
 
 proxy:
   # This allows to set a proxy environment variable, which PMS uses to fetch the token and assets like movie cover

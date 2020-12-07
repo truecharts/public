@@ -15,10 +15,10 @@ Retrieve host path for transcode
 Let's please remove the redundancy
 */}}
 {{- define "configuredHostPathTranscode" -}}
-{{- if .Values.persistence.transcode.hostPathEnabled -}}
-{{- .Values.persistence.transcode.hostPath -}}
+{{- if .Values.transcodeHostPathEnabled -}}
+{{- .Values.transcodeHostPath -}}
 {{- else -}}
-{{- $volDict := dict "datasetName" $.Values.persistence.transcode.volume.datasetName "ixVolumes" $.Values.ixVolumes -}}
+{{- $volDict := dict "datasetName" $.Values.transcodeVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
 {{- include "retrieveHostPathFromiXVolume" $volDict -}}
 {{- end -}}
 {{- end -}}
@@ -28,10 +28,10 @@ Retrieve host path for data
 Let's please remove the redundancy
 */}}
 {{- define "configuredHostPathData" -}}
-{{- if .Values.persistence.data.hostPathEnabled -}}
-{{- .Values.persistence.data.hostPath -}}
+{{- if .Values.dataHostPathEnabled -}}
+{{- .Values.dataHostPath -}}
 {{- else -}}
-{{- $volDict := dict "datasetName" $.Values.persistence.data.volume.datasetName "ixVolumes" $.Values.ixVolumes -}}
+{{- $volDict := dict "datasetName" $.Values.dataVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
 {{- include "retrieveHostPathFromiXVolume" $volDict -}}
 {{- end -}}
 {{- end -}}
@@ -41,10 +41,10 @@ Retrieve host path for transcode
 Let's please remove the redundancy
 */}}
 {{- define "configuredHostPathConfig" -}}
-{{- if .Values.persistence.config.hostPathEnabled -}}
-{{- .Values.persistence.config.hostPath -}}
+{{- if .Values.configHostPathEnabled -}}
+{{- .Values.configHostPath -}}
 {{- else -}}
-{{- $volDict := dict "datasetName" $.Values.persistence.config.volume.datasetName "ixVolumes" $.Values.ixVolumes -}}
+{{- $volDict := dict "datasetName" $.Values.configVolume.datasetName "ixVolumes" $.Values.ixVolumes -}}
 {{- include "retrieveHostPathFromiXVolume" $volDict -}}
 {{- end -}}
 {{- end -}}
