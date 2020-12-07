@@ -136,6 +136,11 @@ spec:
             mountPath: /shared
           - name: shared-logs
             mountPath: "/config/Library/Application Support/Plex Media Server/Logs"
+          {{- if .Values.gpuConfiguration }}
+          resources:
+            limits:
+              {{- toYaml .Values.gpuConfiguration | nindent 14 }}
+          {{- end }}
       volumes:
       - name: data
         hostPath:
