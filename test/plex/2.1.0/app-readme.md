@@ -1,3 +1,3 @@
 # Plex
 
-Plex is a chart designed to deploy plex in a TrueNAS SCALE kubernetes cluster.
+Plex chart is a chart designed to deploy plex in a TrueNAS SCALE kubernetes cluster.
