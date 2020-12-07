@@ -13,13 +13,5 @@ nextcloud:
   datadir: /var/www/html/data
   strategy: "Recreate"
 
-postgresql:
-  backupVolume:
-    mountPath: "/postgres_backups"
-    datasetName: "ix-postgres_backups"
-  dataVolume:
-    mountPath: "/var/lib/postgresql/data"
-    datasetName: "ix-postgres_data"
-
 service:
   nodePort: 9000
