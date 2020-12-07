@@ -32,7 +32,7 @@ spec:
             protocol: TCP
             containerPort: 32400
           {{- if .Values.hostNetwork }}
-            hostPort: {{ .Values.serviceTCP.port }}
+            hostPort: {{ .Values.plexServiceTCP.port }}
           {{- end }}
           - name: plex-dlna
             protocol: TCP
@@ -110,21 +110,21 @@ spec:
             httpGet:
               path: /identity
               port: 32400
-            failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
-            periodSeconds: {{ .Values.probes.readiness.periodSeconds }}
+            failureThreshold: 5
+            periodSeconds: 15
           livenessProbe:
             httpGet:
               path: /identity
               port: 32400
-            failureThreshold: {{ .Values.probes.liveness.failureThreshold }}
-            periodSeconds: {{ .Values.probes.liveness.periodSeconds }}
+            failureThreshold: 5
+            periodSeconds: 15
           startupProbe:
             httpGet:
               path: /identity
               port: 32400
-            initialDelaySeconds: {{ .Values.probes.startup.initialDelaySeconds }}
-            failureThreshold: {{ .Values.probes.startup.failureThreshold }}
-            periodSeconds: {{ .Values.probes.startup.periodSeconds }}
+            initialDelaySeconds: 5
+            failureThreshold: 40
+            periodSeconds: 15
           volumeMounts:
           - name: data
             mountPath: /data
@@ -136,12 +136,6 @@ spec:
             mountPath: /shared
           - name: shared-logs
             mountPath: "/config/Library/Application Support/Plex Media Server/Logs"
-          {{- if .Values.plexPreferences.enabled }}
-          - name: {{ .Values.plexPreferences.volume.name }}
-            mountPath: {{ .Values.plexPreferences.volume.mountPath }}
-            subPath: {{ .Values.plexPreferences.volume.subPath }}
-          {{- end }}
-##### VOLUMES START #####
       volumes:
       - name: data
         hostPath:
@@ -156,10 +150,3 @@ spec:
         emptyDir: {}
       - name: shared-logs
         emptyDir: {}
-      {{- if .Values.plexPreferences.enabled }}
-      - name: {{ .Values.plexPreferences.volume.name }}
-        configMap:
-          name: {{ .Values.plexPreferences.configmap.name }}
-          defaultMode: {{ .Values.plexPreferences.volume.defaultMode }}
-      {{- end }}
-##### VOLUMES END #####
