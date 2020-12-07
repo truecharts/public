@@ -127,6 +127,21 @@ questions:
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"
 
+  # Port configuration
+  - variable: plexServiceTCP
+    label: "Configure Plex TCP Service"
+    group: "Networking"
+    schema:
+      type: dict
+      attrs:
+        - variable: port
+          label: "Port to expose for Plex UI"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 32400
+
   # Persistence
   - variable: persistence
     label: "Configure Persistent Storage"
@@ -151,7 +166,6 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-                        default: ""
               - variable: volume
                 label: "Configure iXVolume"
                 schema:
@@ -190,7 +204,6 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-                        default: ""
               - variable: volume
                 label: "Configure iXVolume"
                 schema:
@@ -229,7 +242,6 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-                        default: ""
               - variable: volume
                 label: "Configure iXVolume"
                 schema:
