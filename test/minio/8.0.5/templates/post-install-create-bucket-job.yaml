@@ -11,9 +11,6 @@ metadata:
   annotations:
     "helm.sh/hook": post-install,post-upgrade
     "helm.sh/hook-delete-policy": hook-succeeded,before-hook-creation
-{{- with .Values.makeBucketJob.annotations }}
-{{ toYaml . | indent 4 }}
-{{- end }}
 spec:
   template:
     metadata:
@@ -22,10 +19,6 @@ spec:
         release: {{ .Release.Name }}
 {{- if .Values.podLabels }}
 {{ toYaml .Values.podLabels | indent 8 }}
-{{- end }}
-{{- if .Values.makeBucketJob.podAnnotations }}
-      annotations:
-{{ toYaml .Values.makeBucketJob.podAnnotations | indent 8 }}
 {{- end }}
     spec:
       restartPolicy: OnFailure
@@ -41,12 +34,6 @@ spec:
 {{- with .Values.tolerations }}
       tolerations:
 {{ toYaml . | indent 8 }}
-{{- end }}
-{{- if .Values.makeBucketJob.securityContext.enabled }}
-      securityContext:
-        runAsUser: {{ .Values.makeBucketJob.securityContext.runAsUser }}
-        runAsGroup: {{ .Values.makeBucketJob.securityContext.runAsGroup }}
-        fsGroup: {{ .Values.makeBucketJob.securityContext.fsGroup }}
 {{- end }}
       volumes:
         - name: minio-configuration
@@ -82,6 +69,4 @@ spec:
           - name: cert-secret-volume-mc
             mountPath: {{ .Values.configPathmc }}certs
           {{ end }}
-        resources:
-{{ toYaml .Values.makeBucketJob.resources | indent 10 }}
 {{- end }}
