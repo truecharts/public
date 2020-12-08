@@ -136,7 +136,6 @@ The following table lists the configurable parameters of the MinIO chart and the
 | `image.pullPolicy`                               | Image pull policy                                                                                                                       | `IfNotPresent`                   |
 | `trustedCertsSecret`                             | Kubernetes secret with trusted certificates to be mounted on `{{ .Values.certsPath }}/CAs`                                              | `""`                             |
 | `extraArgs`                                      | Additional command line arguments to pass to the MinIO server                                                                           | `[]`                             |
-| `existingSecret`                                 | Name of existing secret with access and secret key.                                                                                     | `""`                             |
 | `accessKey`                                      | Default access key (5 to 20 characters)                                                                                                 | random 20 chars                  |
 | `secretKey`                                      | Default secret key (8 to 40 characters)                                                                                                 | random 40 chars                  |
 | `certsPath`                                      | Default certs path location                                                                                                             | `/etc/minio/certs`               |
@@ -251,31 +250,6 @@ With NetworkPolicy enabled, traffic will be limited to just port 9000.
 For more precise policy, set `networkPolicy.allowExternal=true`. This will
 only allow pods with the generated client label to connect to MinIO.
 This label will be displayed in the output of a successful install.
-
-Existing secret
----------------
-
-Instead of having this chart create the secret for you, you can supply a preexisting secret, much
-like an existing PersistentVolumeClaim.
-
-First, create the secret:
-```bash
-$ kubectl create secret generic my-minio-secret --from-literal=accesskey=foobarbaz --from-literal=secretkey=foobarbazqux
-```
-
-Then install the chart, specifying that you want to use an existing secret:
-```bash
-$ helm install --set existingSecret=my-minio-secret minio/minio
-```
-
-The following fields are expected in the secret:
-
-| .data.<key> in Secret      | Corresponding variable  | Description                                                                       |
-|:---------------------------|:------------------------|:----------------------------------------------------------------------------------|
-| `accesskey`                | `accessKey`             | Access key ID. Mandatory.                                                         |
-| `secretkey`                | `secretKey`             | Secret key. Mandatory.                                                            |
-
-All corresponding variables will be ignored in values file.
 
 Configure TLS
 -------------

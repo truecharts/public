@@ -68,11 +68,7 @@ Return the appropriate apiVersion for statefulset.
 Determine secret name.
 */}}
 {{- define "minio.secretName" -}}
-{{- if .Values.existingSecret -}}
-{{- .Values.existingSecret }}
-{{- else -}}
 {{- include "minio.fullname" . -}}
-{{- end -}}
 {{- end -}}
 
 {{/*

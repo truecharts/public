@@ -44,18 +44,6 @@ secretKey: ""
 certsPath: "/etc/minio/certs/"
 mountPath: "/export"
 
-## Use existing Secret that store following variables:
-##
-## | Chart var             | .data.<key> in Secret    |
-## |:----------------------|:-------------------------|
-## | accessKey             | accesskey                |
-## | secretKey             | secretkey                |
-##
-## All mentioned variables will be ignored in values file.
-## .data.accesskey and .data.secretkey are mandatory,
-## others depend on enabled status of corresponding sections.
-existingSecret: ""
-
 ## Override the root directory which the minio server should serve from.
 ## If left empty, it defaults to the value of {{ .Values.mountPath }}
 ## If defined, it must be a sub-directory of the path specified in {{ .Values.mountPath }}
