@@ -1,7 +1,3 @@
-## set kubernetes cluster domain where minio is running
-##
-clusterDomain: cluster.local
-
 ## Set default image, imageTag, and imagePullPolicy. mode is used to indicate the
 ##
 image:
@@ -130,14 +126,6 @@ service:
     # prometheus.io/scrape: 'true'
     # prometheus.io/path:   '/minio/prometheus/metrics'
     # prometheus.io/port:   '9000'
-
-## Add stateful containers to have security context, if enabled MinIO will run as this
-## user and group NOTE: securityContext is only enabled if persistence.enabled=true
-securityContext:
-  enabled: true
-  runAsUser: 1000
-  runAsGroup: 1000
-  fsGroup: 1000
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
