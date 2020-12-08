@@ -10,6 +10,15 @@ groups:
   - name: "Postgresql Configuration"
     description: "Configure Postgresql for nextcloud"
 
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$variable-nextcloud.host"
+    ports:
+      - "$variable-service.nodePort"
+
 questions:
   # Image related
   - variable: image
