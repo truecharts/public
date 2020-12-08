@@ -141,10 +141,6 @@ The following table lists the configurable parameters of the MinIO chart and the
 | `certsPath`                                      | Default certs path location                                                                                                             | `/etc/minio/certs`               |
 | `mountPath`                                      | Default mount location for persistent drive                                                                                             | `/export`                        |
 | `bucketRoot`                                     | Directory from where minio should serve buckets.                                                                                        | Value of `.mountPath`            |
-| `service.type`                                   | Kubernetes service type                                                                                                                 | `ClusterIP`                      |
-| `service.port`                                   | Kubernetes port where service is exposed                                                                                                | `9000`                           |
-| `service.externalIPs`                            | service external IP addresses                                                                                                           | `nil`                            |
-| `service.annotations`                            | Service annotations                                                                                                                     | `{}`                             |
 | `persistence.enabled`                            | Use persistent volume to store data                                                                                                     | `true`                           |
 | `persistence.size`                               | Size of persistent volume claim                                                                                                         | `500Gi`                          |
 | `persistence.existingClaim`                      | Use an existing PVC to persist data                                                                                                     | `nil`                            |
@@ -224,25 +220,6 @@ If a Persistent Volume Claim already exists, specify it during installation.
 ```bash
 $ helm install --set persistence.existingClaim=PVC_NAME minio/minio
 ```
-
-NetworkPolicy
--------------
-
-To enable network policy for MinIO,
-install [a networking plugin that implements the Kubernetes
-NetworkPolicy spec](https://kubernetes.io/docs/tasks/administer-cluster/declare-network-policy#before-you-begin),
-and set `networkPolicy.enabled` to `true`.
-
-For Kubernetes v1.5 & v1.6, you must also turn on NetworkPolicy by setting
-the DefaultDeny namespace annotation. Note: this will enforce policy for _all_ pods in the namespace:
-
-    kubectl annotate namespace default "net.beta.kubernetes.io/network-policy={\"ingress\":{\"isolation\":\"DefaultDeny\"}}"
-
-With NetworkPolicy enabled, traffic will be limited to just port 9000.
-
-For more precise policy, set `networkPolicy.allowExternal=true`. This will
-only allow pods with the generated client label to connect to MinIO.
-This label will be displayed in the output of a successful install.
 
 Configure TLS
 -------------
