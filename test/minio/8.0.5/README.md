@@ -192,17 +192,7 @@ The following table lists the configurable parameters of the MinIO chart and the
 | `makeBucketJob.securityContext.runAsGroup`       | Group id of the user for the container                                                                                                  | `1000`                           |
 | `makeBucketJob.securityContext.fsGroup`          | Group id of the persistent volume mount for the container                                                                               | `1000`                           |
 | `makeBucketJob.resources.requests.memory`        | Memory resource requests for 'make bucket' job                                                                                          | `128Mi`                          |
-| `updatePrometheusJob.podAnnotations`             | Additional annotations for the pods of the Kubernetes Batch (update-prometheus-secret)                                                  | `""`                             |
-| `updatePrometheusJob.securityContext.enabled`    | Enable to run Kubernetes Batch (update-prometheus-secret) containers as non-root.                                                       | `false`                          |
-| `updatePrometheusJob.securityContext.runAsUser`  | User id of the user for the container                                                                                                   | `1000`                           |
-| `updatePrometheusJob.securityContext.runAsGroup` | Group id of the user for the container                                                                                                  | `1000`                           |
-| `updatePrometheusJob.securityContext.fsGroup`    | Group id of the persistent volume mount for the container                                                                               | `1000`                           |
 | `environment`                                    | Set MinIO server relevant environment variables in `values.yaml` file. MinIO containers will be passed these variables when they start. | `MINIO_STORAGE_CLASS_STANDARD: EC:4"` |
-| `etcd.endpoints`                                 | Enpoints of etcd                                                                                                                        | `[]`                             |
-| `etcd.pathPrefix`                                | Prefix for all etcd keys                                                                                                                | `""`                             |
-| `etcd.corednsPathPrefix`                         | Prefix for all CoreDNS etcd keys                                                                                                        | `""`                             |
-| `etcd.clientCert`                                | Certificate used for SSL/TLS connections to etcd [(etcd Security)](https://etcd.io/docs/latest/op-guide/security/)                      | `""`                             |
-| `etcd.clientCertKey`                             | Key for the certificate [(etcd Security)](https://etcd.io/docs/latest/op-guide/security/)                                               | `""`                             |
 
 Some of the parameters above map to the env variables defined in the [MinIO DockerHub image](https://hub.docker.com/r/minio/minio/).
 
@@ -315,8 +305,6 @@ The following fields are expected in the secret:
 |:---------------------------|:------------------------|:----------------------------------------------------------------------------------|
 | `accesskey`                | `accessKey`             | Access key ID. Mandatory.                                                         |
 | `secretkey`                | `secretKey`             | Secret key. Mandatory.                                                            |
-| `etcd_client_cert.pem`     | `etcd.clientCert`       | Certificate for SSL/TLS connections to etcd. Optional                             |
-| `etcd_client_cert_key.pem` | `etcd.clientCertKey`    | Corresponding key for certificate above. Mandatory when etcd certificate defined. |
 
 All corresponding variables will be ignored in values file.
 
