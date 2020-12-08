@@ -70,7 +70,8 @@ questions:
           label: "Nextcloud host"
           schema:
             type: string
-            default: "nextcloud.kube.home"
+            $ref:
+              - "definitions/nodeIP"
         - variable: username
           label: "Username"
           schema:
