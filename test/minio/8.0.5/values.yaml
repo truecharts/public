@@ -122,30 +122,6 @@ resources:
   requests:
     memory: 4Gi
 
-## Create a bucket after minio install
-##
-defaultBucket:
-  enabled: false
-  ## If enabled, must be a string with length > 0
-  name: bucket
-  ## Can be one of none|download|upload|public
-  policy: none
-  ## Purge if bucket exists already
-  purge: false
-  ## set versioning for bucket true|false
-  # versioning: false
-
-## Create multiple buckets after minio install
-## Enabling `defaultBucket` will take priority over this list
-##
-buckets: []
-  # - name: bucket1
-  #   policy: none
-  #   purge: false
-  # - name: bucket2
-  #   policy: none
-  #   purge: false
-
 ## Use this field to add environment variables relevant to Minio server. These fields will be passed on to Minio container(s)
 ## when Chart is deployed
 environment:
