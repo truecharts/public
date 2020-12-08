@@ -1,7 +1,4 @@
 {{ $scheme := "http" }}
-{{- if .Values.tls.enabled }}
-{{ $scheme = "https" }}
-{{ end }}
 apiVersion: v1
 kind: Service
 metadata:

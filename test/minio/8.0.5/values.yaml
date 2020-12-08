@@ -5,14 +5,6 @@ image:
   tag: RELEASE.2020-11-19T23-48-16Z
   pullPolicy: IfNotPresent
 
-## Set default image, imageTag, and imagePullPolicy for the `mc` (the minio
-## client used to create a default bucket).
-##
-mcImage:
-  repository: minio/mc
-  tag: RELEASE.2020-11-17T00-39-14Z
-  pullPolicy: IfNotPresent
-
 ## Set default image, imageTag, and imagePullPolicy for the `jq` (the JSON
 ## process used to create secret for prometheus ServiceMonitor).
 ##
@@ -24,15 +16,7 @@ helmKubectlJqImage:
 ## Additional arguments to pass to minio binary
 extraArgs: []
 
-## Update strategy for Deployments
-DeploymentUpdate:
-  type: RollingUpdate
-  maxUnavailable: 0
-  maxSurge: 100%
-
-## Update strategy for StatefulSets
-StatefulSetUpdate:
-  updateStrategy: RollingUpdate
+updateStrategy: RollingUpdate
 
 ## Set default accesskey, secretkey, Minio config file path, volume mount path and
 ## number of nodes (only used for Minio distributed mode)
@@ -41,27 +25,12 @@ StatefulSetUpdate:
 ##
 accessKey: ""
 secretKey: ""
-certsPath: "/etc/minio/certs/"
 mountPath: "/export"
 
 ## Override the root directory which the minio server should serve from.
 ## If left empty, it defaults to the value of {{ .Values.mountPath }}
 ## If defined, it must be a sub-directory of the path specified in {{ .Values.mountPath }}
 bucketRoot: ""
-
-## TLS Settings for Minio
-tls:
-  enabled: false
-  ## Create a secret with private.key and public.crt files and pass that here. Ref: https://github.com/minio/minio/tree/master/docs/tls/kubernetes#2-create-kubernetes-secret
-  certSecret: ""
-  publicCrt: public.crt
-  privateKey: private.key
-
-## Trusted Certificates Settings for Minio. Ref: https://docs.minio.io/docs/how-to-secure-access-to-minio-server-with-tls#install-certificates-from-third-party-cas
-## Bundle multiple trusted certificates into one secret and pass that here. Ref: https://github.com/minio/minio/tree/master/docs/tls/kubernetes#2-create-kubernetes-secret
-## When using self-signed certificates, remember to include Minio's own certificate in the bundle with key public.crt.
-## If certSecret is left empty and tls is enabled, this chart installs the public certificate from .Values.tls.certSecret.
-trustedCertsSecret: ""
 
 ## Enable persistence using Persistent Volume Claims
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
