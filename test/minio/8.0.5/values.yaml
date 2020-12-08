@@ -25,11 +25,6 @@ helmKubectlJqImage:
   tag: 3.1.0
   pullPolicy: IfNotPresent
 
-## minio server mode, i.e. standalone or distributed.
-## Distributed Minio ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
-##
-mode: standalone
-
 ## Additional arguments to pass to minio binary
 extraArgs: []
 
@@ -69,13 +64,6 @@ existingSecret: ""
 ## If left empty, it defaults to the value of {{ .Values.mountPath }}
 ## If defined, it must be a sub-directory of the path specified in {{ .Values.mountPath }}
 bucketRoot: ""
-
-# Number of drives attached to a node
-drivesPerNode: 1
-# Number of MinIO containers running
-replicas: 4
-# Number of expanded MinIO clusters
-zones: 1
 
 ## TLS Settings for Minio
 tls:

@@ -1,4 +1,3 @@
-{{- if eq .Values.mode "standalone" }}
 {{ $scheme := "http" }}
 {{- if .Values.tls.enabled }}
 {{ $scheme = "https" }}
@@ -91,4 +90,3 @@ spec:
           secret:
             secretName: {{ template "minio.secretName" . }}
         {{- include "minio.tlsKeysVolume" . | indent 8 }}
-{{- end }}
