@@ -197,18 +197,6 @@ The following table lists the configurable parameters of the MinIO chart and the
 | `updatePrometheusJob.securityContext.runAsUser`  | User id of the user for the container                                                                                                   | `1000`                           |
 | `updatePrometheusJob.securityContext.runAsGroup` | Group id of the user for the container                                                                                                  | `1000`                           |
 | `updatePrometheusJob.securityContext.fsGroup`    | Group id of the persistent volume mount for the container                                                                               | `1000`                           |
-| `s3gateway.enabled`                              | Use MinIO as a [s3 gateway](https://github.com/minio/minio/blob/master/docs/gateway/s3.md)                                              | `false`                          |
-| `s3gateway.replicas`                             | Number of s3 gateway instances to run in parallel                                                                                       | `4`                              |
-| `s3gateway.serviceEndpoint`                      | Endpoint to the S3 compatible service                                                                                                   | `""`                             |
-| `s3gateway.accessKey`                            | Access key of S3 compatible service                                                                                                     | `""`                             |
-| `s3gateway.secretKey`                            | Secret key of S3 compatible service                                                                                                     | `""`                             |
-| `azuregateway.enabled`                           | Use MinIO as an [azure gateway](https://docs.minio.io/docs/minio-gateway-for-azure)                                                     | `false`                          |
-| `azuregateway.replicas`                          | Number of azure gateway instances to run in parallel                                                                                    | `4`                              |
-| `gcsgateway.enabled`                             | Use MinIO as a [Google Cloud Storage gateway](https://docs.minio.io/docs/minio-gateway-for-gcs)                                         | `false`                          |
-| `gcsgateway.gcsKeyJson`                          | credential json file of service account key                                                                                             | `""`                             |
-| `gcsgateway.projectId`                           | Google cloud project id                                                                                                                 | `""`                             |
-| `nasgateway.enabled`                             | Use MinIO as a [NAS gateway](https://docs.MinIO.io/docs/minio-gateway-for-nas)                                                          | `false`                          |
-| `nasgateway.replicas`                            | Number of NAS gateway instances to be run in parallel on a PV                                                                           | `4`                              |
 | `environment`                                    | Set MinIO server relevant environment variables in `values.yaml` file. MinIO containers will be passed these variables when they start. | `MINIO_STORAGE_CLASS_STANDARD: EC:4"` |
 | `metrics.serviceMonitor.enabled`                 | Set this to `true` to create ServiceMonitor for Prometheus operator                                                                     | `false`                          |
 | `metrics.serviceMonitor.additionalLabels`        | Additional labels that can be used so ServiceMonitor will be discovered by Prometheus                                                   | `{}`                             |
@@ -266,30 +254,6 @@ $ helm install --set mode=distributed,replicas=8,zones=2 minio/minio
 
 1. StatefulSets need persistent storage, so the `persistence.enabled` flag is ignored when `mode` is set to `distributed`.
 2. When uninstalling a distributed MinIO release, you'll need to manually delete volumes associated with the StatefulSet.
-
-NAS Gateway
------------
-
-### Prerequisites
-
-MinIO in [NAS gateway mode](https://docs.minio.io/docs/minio-gateway-for-nas) can be used to create multiple MinIO instances backed by single PV in `ReadWriteMany` mode. Currently few [Kubernetes volume plugins](https://kubernetes.io/docs/user-guide/persistent-volumes/#access-modes) support `ReadWriteMany` mode. To deploy MinIO NAS gateway with Helm chart you'll need to have a Persistent Volume running with one of the supported volume plugins. [This document](https://kubernetes.io/docs/user-guide/volumes/#nfs)
-outlines steps to create a NFS PV in Kubernetes cluster.
-
-### Provision NAS Gateway MinIO instances
-
-To provision MinIO servers in [NAS gateway mode](https://docs.minio.io/docs/minio-gateway-for-nas), set the `nasgateway.enabled` field to `true`,
-
-```bash
-$ helm install --set nasgateway.enabled=true minio/minio
-```
-
-This provisions 4 MinIO NAS gateway instances backed by single storage. To change the number of instances in your MinIO deployment, set the `replicas` field,
-
-```bash
-$ helm install --set nasgateway.enabled=true,nasgateway.replicas=8 minio/minio
-```
-
-This provisions MinIO NAS gateway with 8 instances.
 
 Persistence
 -----------
@@ -356,9 +320,6 @@ The following fields are expected in the secret:
 |:---------------------------|:------------------------|:----------------------------------------------------------------------------------|
 | `accesskey`                | `accessKey`             | Access key ID. Mandatory.                                                         |
 | `secretkey`                | `secretKey`             | Secret key. Mandatory.                                                            |
-| `gcs_key.json`             | `gcsgateway.gcsKeyJson` | GCS key if you are using the GCS gateway feature. Optional                        |
-| `awsAccessKeyId`           | `s3gateway.accessKey`   | S3 access key if you are using the S3 gateway feature. Optional                   |
-| `awsSecretAccessKey`       | `s3gateway.secretKey`   | S3 secret key if you are using the S3 gateway feature. Optional                   |
 | `etcd_client_cert.pem`     | `etcd.clientCert`       | Certificate for SSL/TLS connections to etcd. Optional                             |
 | `etcd_client_cert_key.pem` | `etcd.clientCertKey`    | Corresponding key for certificate above. Mandatory when etcd certificate defined. |
 
