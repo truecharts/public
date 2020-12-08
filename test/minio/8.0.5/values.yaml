@@ -149,13 +149,6 @@ service:
     # prometheus.io/path:   '/minio/prometheus/metrics'
     # prometheus.io/port:   '9000'
 
-## Node labels for pod assignment
-## Ref: https://kubernetes.io/docs/user-guide/node-selection/
-##
-nodeSelector: {}
-tolerations: []
-affinity: {}
-
 ## Add stateful containers to have security context, if enabled MinIO will run as this
 ## user and group NOTE: securityContext is only enabled if persistence.enabled=true
 securityContext:
@@ -163,12 +156,6 @@ securityContext:
   runAsUser: 1000
   runAsGroup: 1000
   fsGroup: 1000
-
-# Additational pod annotations
-podAnnotations: {}
-
-# Additional pod labels
-podLabels: {}
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
