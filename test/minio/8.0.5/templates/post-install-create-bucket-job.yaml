@@ -51,6 +51,6 @@ spec:
             mountPath: /config
           {{- if .Values.tls.enabled }}
           - name: cert-secret-volume-mc
-            mountPath: {{ .Values.configPathmc }}certs
+            mountPath: /etc/minio/mc/certs
           {{ end }}
 {{- end }}

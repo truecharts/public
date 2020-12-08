@@ -1,12 +1,8 @@
 #!/bin/sh
 set -e ; # Have script exit in the event of a failed command.
 
-{{- if .Values.configPathmc }}
-MC_CONFIG_DIR="{{ .Values.configPathmc }}"
+MC_CONFIG_DIR="/etc/minio/mc/"
 MC="/usr/bin/mc --insecure --config-dir ${MC_CONFIG_DIR}"
-{{- else }}
-MC="/usr/bin/mc --insecure"
-{{- end }}
 
 # connectToMinio
 # Use a check-sleep-check loop to wait for Minio service to be available
