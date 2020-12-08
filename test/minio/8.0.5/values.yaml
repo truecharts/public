@@ -93,33 +93,8 @@ persistence:
   ##
   subPath: ""
 
-## Expose the Minio service to be accessed from outside the cluster (LoadBalancer service).
-## or access it from within the cluster (ClusterIP service). Set the service type and the port to serve it.
-## ref: http://kubernetes.io/docs/user-guide/services/
-##
-
 service:
-  type: ClusterIP
-  clusterIP: ~
-  port: 9000
   nodePort: 32000
 
-  ## List of IP addresses at which the Prometheus server service is available
-  ## Ref: https://kubernetes.io/docs/user-guide/services/#external-ips
-  ##
-  externalIPs: []
-  #   - externalIp1
-
-  annotations: {}
-    # prometheus.io/scrape: 'true'
-    # prometheus.io/path:   '/minio/prometheus/metrics'
-    # prometheus.io/port:   '9000'
-
-## Use this field to add environment variables relevant to Minio server. These fields will be passed on to Minio container(s)
-## when Chart is deployed
 environment:
   ## Please refer for comprehensive list https://docs.minio.io/docs/minio-server-configuration-guide.html
-
-networkPolicy:
-  enabled: false
-  allowExternal: true
