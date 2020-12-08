@@ -62,9 +62,6 @@ spec:
         checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
         checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
-      {{- if .Values.priorityClassName }}
-      priorityClassName: "{{ .Values.priorityClassName }}"
-      {{- end }}
       serviceAccountName: {{ include "minio.serviceAccountName" . | quote }}
 {{- if and .Values.securityContext.enabled .Values.persistence.enabled }}
       securityContext:
