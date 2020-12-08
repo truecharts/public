@@ -185,13 +185,6 @@ The following table lists the configurable parameters of the MinIO chart and the
 | `defaultBucket.purge`                            | Purge the bucket if already exists                                                                                                      | `false`                          |
 | `defaultBucket.versioning`                       | Enable / Suspend versioning for bucket                                                                                                  | `nil`                            |
 | `buckets`                                        | List of buckets to create after MinIO install                                                                                           | `[]`                             |
-| `makeBucketJob.annotations`                      | Additional annotations for the Kubernetes Batch (make-bucket-job)                                                                       | `""`                             |
-| `makeBucketJob.podAnnotations`                   | Additional annotations for the pods of the Kubernetes Batch (make-bucket-job)                                                           | `""`                             |
-| `makeBucketJob.securityContext.enabled`          | Enable to run Kubernetes Batch (make-bucket-job) containers as non-root.                                                                | `false`                          |
-| `makeBucketJob.securityContext.runAsUser`        | User id of the user for the container                                                                                                   | `1000`                           |
-| `makeBucketJob.securityContext.runAsGroup`       | Group id of the user for the container                                                                                                  | `1000`                           |
-| `makeBucketJob.securityContext.fsGroup`          | Group id of the persistent volume mount for the container                                                                               | `1000`                           |
-| `makeBucketJob.resources.requests.memory`        | Memory resource requests for 'make bucket' job                                                                                          | `128Mi`                          |
 | `environment`                                    | Set MinIO server relevant environment variables in `values.yaml` file. MinIO containers will be passed these variables when they start. | `MINIO_STORAGE_CLASS_STANDARD: EC:4"` |
 
 Some of the parameters above map to the env variables defined in the [MinIO DockerHub image](https://hub.docker.com/r/minio/minio/).
