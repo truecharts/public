@@ -54,8 +54,8 @@ spec:
       serviceAccountName: {{ include "minio.serviceAccountName" . | quote }}
       containers:
       - name: minio-mc
-        image: "{{ .Values.mcImage.repository }}:{{ .Values.mcImage.tag }}"
-        imagePullPolicy: {{ .Values.mcImage.pullPolicy }}
+        image: "minio/mc:latest"
+        imagePullPolicy: IfNotPresent
         command: ["/bin/sh", "/config/initialize"]
         env:
           - name: MINIO_ENDPOINT
