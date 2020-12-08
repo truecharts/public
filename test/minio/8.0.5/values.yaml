@@ -17,12 +17,6 @@ updateStrategy: RollingUpdate
 ##
 accessKey: ""
 secretKey: ""
-mountPath: "/export"
-
-## Override the root directory which the minio server should serve from.
-## If left empty, it defaults to the value of {{ .Values.mountPath }}
-## If defined, it must be a sub-directory of the path specified in {{ .Values.mountPath }}
-bucketRoot: ""
 
 ## Enable persistence using Persistent Volume Claims
 ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/

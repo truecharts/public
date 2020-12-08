@@ -99,8 +99,6 @@ The following table lists the configurable parameters of the MinIO chart and the
 | `extraArgs`                                      | Additional command line arguments to pass to the MinIO server                                                                           | `[]`                             |
 | `accessKey`                                      | Default access key (5 to 20 characters)                                                                                                 | random 20 chars                  |
 | `secretKey`                                      | Default secret key (8 to 40 characters)                                                                                                 | random 40 chars                  |
-| `mountPath`                                      | Default mount location for persistent drive                                                                                             | `/export`                        |
-| `bucketRoot`                                     | Directory from where minio should serve buckets.                                                                                        | Value of `.mountPath`            |
 | `persistence.enabled`                            | Use persistent volume to store data                                                                                                     | `true`                           |
 | `persistence.size`                               | Size of persistent volume claim                                                                                                         | `500Gi`                          |
 | `persistence.existingClaim`                      | Use an existing PVC to persist data                                                                                                     | `nil`                            |
@@ -109,90 +107,7 @@ The following table lists the configurable parameters of the MinIO chart and the
 | `persistence.subPath`                            | Mount a sub directory of the persistent volume if set                                                                                   | `""`                             |
 | `environment`                                    | Set MinIO server relevant environment variables in `values.yaml` file. MinIO containers will be passed these variables when they start. | `MINIO_STORAGE_CLASS_STANDARD: EC:4"` |
 
-Some of the parameters above map to the env variables defined in the [MinIO DockerHub image](https://hub.docker.com/r/minio/minio/).
-
-You can specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
-
-```bash
-$ helm install --name my-release --set persistence.size=1Ti minio/minio
-```
-
-The above command deploys MinIO server with a 1Ti backing persistent volume.
-
-Alternately, you can provide a YAML file that specifies parameter values while installing the chart. For example,
-
-```bash
-$ helm install --name my-release -f values.yaml minio/minio
-```
-
-> **Tip**: You can use the default [values.yaml](minio/values.yaml)
-
-Distributed MinIO
------------
-
-This chart provisions a MinIO server in standalone mode, by default. To provision MinIO server in [distributed mode](https://docs.minio.io/docs/distributed-minio-quickstart-guide), set the `mode` field to `distributed`,
-
-```bash
-$ helm install --set mode=distributed minio/minio
-```
-
-This provisions MinIO server in distributed mode with 4 nodes. To change the number of nodes in your distributed MinIO server, set the `replicas` field,
-
-```bash
-$ helm install --set mode=distributed,replicas=8 minio/minio
-```
-
-This provisions MinIO server in distributed mode with 8 nodes. Note that the `replicas` value should be a minimum value of 4, there is no limit on number of servers you can run.
-
-You can also expand an existing deployment by adding new zones, following command will create a total of 16 nodes with each zone running 8 nodes.
-
-```bash
-$ helm install --set mode=distributed,replicas=8,zones=2 minio/minio
-```
-
-### StatefulSet [limitations](http://kubernetes.io/docs/concepts/abstractions/controllers/statefulsets/#limitations) applicable to distributed MinIO
-
-1. StatefulSets need persistent storage, so the `persistence.enabled` flag is ignored when `mode` is set to `distributed`.
-2. When uninstalling a distributed MinIO release, you'll need to manually delete volumes associated with the StatefulSet.
-
-Persistence
------------
-
-This chart provisions a PersistentVolumeClaim and mounts corresponding persistent volume to default location `/export`. You'll need physical storage available in the Kubernetes cluster for this to work. If you'd rather use `emptyDir`, disable PersistentVolumeClaim by:
-
-```bash
-$ helm install --set persistence.enabled=false minio/minio
-```
-
-> *"An emptyDir volume is first created when a Pod is assigned to a Node, and exists as long as that Pod is running on that node. When a Pod is removed from a node for any reason, the data in the emptyDir is deleted forever."*
-
-Existing PersistentVolumeClaim
-------------------------------
-
-If a Persistent Volume Claim already exists, specify it during installation.
-
-1. Create the PersistentVolume
-2. Create the PersistentVolumeClaim
-3. Install the chart
-
-```bash
-$ helm install --set persistence.existingClaim=PVC_NAME minio/minio
-```
-
-Configure TLS
--------------
-
-To enable TLS for MinIO containers, acquire TLS certificates from a CA or create self-signed certificates. While creating / acquiring certificates ensure the corresponding domain names are set as per the standard [DNS naming conventions](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#pod-identity) in a Kubernetes StatefulSet (for a distributed MinIO setup). Then create a secret using
-
-```bash
-$ kubectl create secret generic tls-ssl-minio --from-file=path/to/private.key --from-file=path/to/public.crt
-```
-
-Then install the chart, specifying that you want to use the TLS secret:
-
-```bash
-$ helm install --set tls.enabled=true,tls.certSecret=tls-ssl-minio minio/minio
-```
+Some parameters above map to the env variables defined in the [MinIO DockerHub image](https://hub.docker.com/r/minio/minio/).
 
 Pass environment variables to MinIO containers
 ----------------------------------------------
