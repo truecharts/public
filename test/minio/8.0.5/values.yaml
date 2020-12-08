@@ -212,19 +212,6 @@ buckets: []
   #   policy: none
   #   purge: false
 
-## Additional Annotations for the Kubernetes Batch (make-bucket-job)
-makeBucketJob:
-  podAnnotations:
-  annotations:
-  securityContext:
-    enabled: false
-    runAsUser: 1000
-    runAsGroup: 1000
-    fsGroup: 1000
-  resources:
-    requests:
-      memory: 128Mi
-
 ## Use this field to add environment variables relevant to Minio server. These fields will be passed on to Minio container(s)
 ## when Chart is deployed
 environment:
