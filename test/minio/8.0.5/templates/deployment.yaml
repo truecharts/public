@@ -35,13 +35,8 @@ spec:
             - "-ce"
             - "/usr/bin/docker-entrypoint.sh minio -S server /export {{- template "minio.extraArgs" . }}"
           volumeMounts:
-            {{- if .Values.persistence.enabled }}
             - name: export
               mountPath: /export
-              {{- if .Values.persistence.subPath }}
-              subPath: "{{ .Values.persistence.subPath }}"
-              {{- end }}
-            {{- end }}
           ports:
             - name: {{ $scheme }}
               containerPort: 9000
@@ -62,11 +57,11 @@ spec:
             {{- end}}
       volumes:
         - name: export
-        {{- if .Values.persistence.enabled }}
-          persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "minio.fullname" .) }}
-        {{- else }}
+        {{- if .Values.emptyDirVolumes }}
           emptyDir: {}
+        {{- else }}
+          hostPath:
+            path: {{ template "configuredMinioHostPath" . }}
         {{- end }}
         - name: minio-user
           secret:
