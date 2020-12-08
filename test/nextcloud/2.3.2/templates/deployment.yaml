@@ -27,10 +27,8 @@ spec:
         app.kubernetes.io/name: {{ include "nextcloud.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/component: app
-      {{- if .Values.podAnnotations }}
       annotations:
-{{ toYaml .Values.podAnnotations | indent 8 }}
-      {{- end }}
+        rollme: {{ randAlphaNum 5 | quote }}
     spec:
       {{- if .Values.image.pullSecrets }}
       imagePullSecrets:
