@@ -79,11 +79,7 @@ Determine secret name.
 Determine service account name for deployment or statefulset.
 */}}
 {{- define "minio.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create -}}
-{{- default (include "minio.fullname" .) .Values.serviceAccount.name | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
-{{- else -}}
-{{- default "default" .Values.serviceAccount.name -}}
-{{- end -}}
+{{- (include "minio.fullname" .) | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*

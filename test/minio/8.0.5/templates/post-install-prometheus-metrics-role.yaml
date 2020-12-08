@@ -1,4 +1,3 @@
-{{- if .Values.serviceAccount.create -}}
 {{- $fullName := include "minio.fullname" . -}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -35,4 +34,3 @@ rules:
       - get
     resourceNames:
       - {{ $fullName }}
-{{- end -}}
