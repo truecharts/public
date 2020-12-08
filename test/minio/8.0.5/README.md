@@ -154,12 +154,6 @@ The following table lists the configurable parameters of the MinIO chart and the
 | `resources.requests.memory`                      | Memory resource requests                                                                                                                | Memory: `4Gi`                    |
 | `tls.enabled`                                    | Enable TLS for MinIO server                                                                                                             | `false`                          |
 | `tls.certSecret`                                 | Kubernetes Secret with `public.crt` and `private.key` files.                                                                            | `""`                             |
-| `defaultBucket.enabled`                          | If set to true, a bucket will be created after MinIO install                                                                            | `false`                          |
-| `defaultBucket.name`                             | Bucket name                                                                                                                             | `bucket`                         |
-| `defaultBucket.policy`                           | Bucket policy                                                                                                                           | `none`                           |
-| `defaultBucket.purge`                            | Purge the bucket if already exists                                                                                                      | `false`                          |
-| `defaultBucket.versioning`                       | Enable / Suspend versioning for bucket                                                                                                  | `nil`                            |
-| `buckets`                                        | List of buckets to create after MinIO install                                                                                           | `[]`                             |
 | `environment`                                    | Set MinIO server relevant environment variables in `values.yaml` file. MinIO containers will be passed these variables when they start. | `MINIO_STORAGE_CLASS_STANDARD: EC:4"` |
 
 Some of the parameters above map to the env variables defined in the [MinIO DockerHub image](https://hub.docker.com/r/minio/minio/).
@@ -276,18 +270,3 @@ $ helm install --set environment.MINIO_BROWSER=on,environment.MINIO_DOMAIN=domai
 ```
 
 You can add as many environment variables as required, using the above format. Just add `environment.<VARIABLE_NAME>=<value>` under `set` flag.
-
-Create buckets after install
----------------------------
-
-Install the chart, specifying the buckets you want to create after install:
-
-```bash
-$ helm install --set buckets[0].name=bucket1,buckets[0].policy=none,buckets[0].purge=false minio/minio
-```
-
-Description of the configuration parameters used above -
-
-- `buckets[].name` - name of the bucket to create, must be a string with length > 0
-- `buckets[].policy` - can be one of none|download|upload|public
-- `buckets[].purge` - purge if bucket exists already
