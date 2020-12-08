@@ -13,7 +13,7 @@ portals:
     protocols:
       - "http"
     host:
-      - "$variable-nextcloud.host"
+      - "$node_ip"
     ports:
       - "$variable-service.nodePort"
 
@@ -119,27 +119,27 @@ questions:
             default: 9001
             required: true
 
-  - variable: nextcloudDataHostPathEnabled
-    label: "Configure Host Path for Nextcloud data"
+  - variable: minioHostPathEnabled
+    label: "Configure Host Path for Minio data"
     group: "Storage"
     schema:
       type: boolean
       default: false
       show_subquestions_if: true
       subquestions:
-        - variable: nextcloudHostPath
-          label: "Specify HostPath for Nextcloud data"
+        - variable: minioHostPath
+          label: "Specify HostPath for Minio data"
           schema:
             type: hostpath
 
-  - variable: nextcloudDataVolume
+  - variable: minioDataVolume
     label: "Configure iXVolume"
     group: "Storage"
     schema:
       type: dict
       $ref:
         - "normalize/ixVolume"
-      show_if: [["nextcloudDataHostPathEnabled", "=", false]]
+      show_if: [["minioHostPathEnabled", "=", false]]
       attrs:
         - variable: mountPath
           label: "Mount Path"
@@ -147,10 +147,10 @@ questions:
           schema:
             type: path
             editable: false
-            default: "/var/www"
+            default: "/export"
         - variable: datasetName
           label: "Dataset Name"
           schema:
             type: string
-            default: "ix-nextcloud_data"
+            default: "ix-minio"
             editable: false
