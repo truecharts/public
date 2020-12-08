@@ -52,44 +52,6 @@ By default a pre-generated access and secret key will be used. To override the d
 $ helm install --set accessKey=myaccesskey,secretKey=mysecretkey --generate-name minio/minio
 ```
 
-### Updating MinIO configuration via Helm
-
-[ConfigMap](https://kubernetes.io/docs/user-guide/configmap/) allows injecting containers with configuration data even while a Helm release is deployed.
-
-To update your MinIO server configuration while it is deployed in a release, you need to
-
-1. Check all the configurable values in the MinIO chart using `helm inspect values minio/minio`.
-2. Override the `minio_server_config` settings in a YAML formatted file, and then pass that file like this `helm upgrade -f config.yaml minio/minio`.
-3. Restart the MinIO server(s) for the changes to take effect.
-
-You can also check the history of upgrades to a release using `helm history my-release`. Replace `my-release` with the actual release name.
-
-### Installing certificates from third party CAs
-
-MinIO can connect to other servers, including MinIO nodes or other server types such as NATs and Redis. If these servers use certificates that were not registered with a known CA, add trust for these certificates to MinIO Server by bundling these certificates into a Kubernetes secret and providing it to Helm via the `trustedCertsSecret` value. If `.Values.tls.enabled` is `true` and you're installing certificates for third party CAs, remember to include Minio's own certificate with key `public.crt`, if it also needs to be trusted.
-
-For instance, given that TLS is enabled and you need to add trust for Minio's own CA and for the CA of a Keycloak server, a Kubernetes secret can be created from the certificate files using `kubectl`:
-
-```
-kubectl -n minio create secret generic minio-trusted-certs --from-file=public.crt --from-file=keycloak.crt
-```
-
-If TLS is not enabled, you would need only the third party CA:
-
-```
-kubectl -n minio create secret generic minio-trusted-certs --from-file=keycloak.crt
-```
-
-The name of the generated secret can then be passed to Helm using a values file or the `--set` parameter:
-
-```
-trustedCertsSecret: "minio-trusted-certs"
-
-or
-
---set trustedCertsSecret=minio-trusted-certs
-```
-
 Uninstalling the Chart
 ----------------------
 
@@ -134,11 +96,9 @@ The following table lists the configurable parameters of the MinIO chart and the
 | `image.repository`                               | Image repository                                                                                                                        | `minio/minio`                    |
 | `image.tag`                                      | MinIO image tag. Possible values listed [here](https://hub.docker.com/r/minio/minio/tags/).                                             | `RELEASE.2020-11-06T23-17-07Z`   |
 | `image.pullPolicy`                               | Image pull policy                                                                                                                       | `IfNotPresent`                   |
-| `trustedCertsSecret`                             | Kubernetes secret with trusted certificates to be mounted on `{{ .Values.certsPath }}/CAs`                                              | `""`                             |
 | `extraArgs`                                      | Additional command line arguments to pass to the MinIO server                                                                           | `[]`                             |
 | `accessKey`                                      | Default access key (5 to 20 characters)                                                                                                 | random 20 chars                  |
 | `secretKey`                                      | Default secret key (8 to 40 characters)                                                                                                 | random 40 chars                  |
-| `certsPath`                                      | Default certs path location                                                                                                             | `/etc/minio/certs`               |
 | `mountPath`                                      | Default mount location for persistent drive                                                                                             | `/export`                        |
 | `bucketRoot`                                     | Directory from where minio should serve buckets.                                                                                        | Value of `.mountPath`            |
 | `persistence.enabled`                            | Use persistent volume to store data                                                                                                     | `true`                           |
@@ -147,8 +107,6 @@ The following table lists the configurable parameters of the MinIO chart and the
 | `persistence.storageClass`                       | Storage class name of PVC                                                                                                               | `nil`                            |
 | `persistence.accessMode`                         | ReadWriteOnce or ReadOnly                                                                                                               | `ReadWriteOnce`                  |
 | `persistence.subPath`                            | Mount a sub directory of the persistent volume if set                                                                                   | `""`                             |
-| `tls.enabled`                                    | Enable TLS for MinIO server                                                                                                             | `false`                          |
-| `tls.certSecret`                                 | Kubernetes Secret with `public.crt` and `private.key` files.                                                                            | `""`                             |
 | `environment`                                    | Set MinIO server relevant environment variables in `values.yaml` file. MinIO containers will be passed these variables when they start. | `MINIO_STORAGE_CLASS_STANDARD: EC:4"` |
 
 Some of the parameters above map to the env variables defined in the [MinIO DockerHub image](https://hub.docker.com/r/minio/minio/).
