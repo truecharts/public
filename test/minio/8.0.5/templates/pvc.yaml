@@ -10,11 +10,6 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-{{- if and .Values.nasgateway.enabled .Values.nasgateway.pv }}
-  selector:
-    matchLabels:
-      pv: {{ .Values.nasgateway.pv | quote }}
-{{- end }}
   accessModes:
     - {{ .Values.persistence.accessMode | quote }}
   resources:
