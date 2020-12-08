@@ -70,8 +70,6 @@ spec:
             - name: {{ $key }}
               value: {{ $val | quote }}
             {{- end}}
-          resources:
-{{ toYaml .Values.resources | indent 12 }}
       volumes:
         - name: export
         {{- if .Values.persistence.enabled }}
