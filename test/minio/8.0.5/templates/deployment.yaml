@@ -1,0 +1,67 @@
+{{ $scheme := "http" }}
+apiVersion: {{ template "minio.deployment.apiVersion" . }}
+kind: Deployment
+metadata:
+  name: {{ template "minio.fullname" . }}
+  labels:
+    app: {{ template "minio.name" . }}
+    chart: {{ template "minio.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  strategy:
+    type: {{ .Values.updateStrategy }}
+  selector:
+    matchLabels:
+      app: {{ template "minio.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      name: {{ template "minio.fullname" . }}
+      labels:
+        app: {{ template "minio.name" . }}
+        release: {{ .Release.Name }}
+      annotations:
+        checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+    spec:
+      serviceAccountName: {{ include "minio.serviceAccountName" . | quote }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - "/bin/sh"
+            - "-ce"
+            - "/usr/bin/docker-entrypoint.sh minio server /export {{- template "minio.extraArgs" . }}"
+          volumeMounts:
+            - name: export
+              mountPath: /export
+          ports:
+            - name: {{ $scheme }}
+              containerPort: 9000
+          env:
+            - name: MINIO_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "minio.secretName" . }}
+                  key: accesskey
+            - name: MINIO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "minio.secretName" . }}
+                  key: secretkey
+            {{- range $key, $val := .Values.environment }}
+            - name: {{ $key }}
+              value: {{ $val | quote }}
+            {{- end}}
+      volumes:
+        - name: export
+        {{- if .Values.emptyDirVolumes }}
+          emptyDir: {}
+        {{- else }}
+          hostPath:
+            path: {{ template "configuredMinioHostPath" . }}
+        {{- end }}
+        - name: minio-user
+          secret:
+            secretName: {{ template "minio.secretName" . }}
