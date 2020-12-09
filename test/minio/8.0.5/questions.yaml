@@ -89,6 +89,7 @@ questions:
 
   - variable: secretKey
     label: "Secret Key"
+    group: "Minio Configuration"
     schema:
       type: string
       required: true
@@ -101,6 +102,7 @@ questions:
     schema:
       type: dict
       additional_attrs: true
+      attrs: []
 
   - variable: service
     description: "Minio Service Configuration"

@@ -23,7 +23,6 @@ spec:
         release: {{ .Release.Name }}
       annotations:
         checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
-        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       serviceAccountName: {{ include "minio.serviceAccountName" . | quote }}
       containers:
@@ -33,7 +32,7 @@ spec:
           command:
             - "/bin/sh"
             - "-ce"
-            - "/usr/bin/docker-entrypoint.sh minio -S server /export {{- template "minio.extraArgs" . }}"
+            - "/usr/bin/docker-entrypoint.sh minio server /export {{- template "minio.extraArgs" . }}"
           volumeMounts:
             - name: export
               mountPath: /export
