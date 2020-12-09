@@ -83,6 +83,7 @@ questions:
     group: "Minio Configuration"
     schema:
       type: string
+      private: true
       required: true
       min_length: 5
       max_length: 20
@@ -92,6 +93,7 @@ questions:
     group: "Minio Configuration"
     schema:
       type: string
+      private: true
       required: true
       min_length: 8
       max_length: 40
