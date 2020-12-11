@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "pre-upgrade-hook1"
+  annotations:
+    "helm.sh/hook": pre-upgrade
+    "helm.sh/hook-weight": "-1"
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    metadata:
+      name: "pre-upgrade-hook1"
+    spec:
+      restartPolicy: Never
+      serviceAccountName: {{ template "nextcloud.serviceAccountName" }}
+      containers:
+      - name: kubectl
+        image: "bitnami/kubectl:1.19"
+        command: ["delete" , "deployment", "{{ template "nextcloud.fullname" . }}", "{{ template "nextcloud.fullname" . }}-postgres"]
