@@ -28,6 +28,7 @@ portals:
       - "$node_ip"
     ports:
       - "$variable-plexServiceTCP.port"
+    path: "/web"
 
 questions:
   # Image related
