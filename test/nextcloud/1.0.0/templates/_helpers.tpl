@@ -120,3 +120,10 @@ Nextcloud service account
 {{- define "nextcloud.serviceAccountName" -}}
 {{- printf "%s-service-account" .Release.Name -}}
 {{- end -}}
+
+{{/*
+Get Nextloud Postgres Database Name
+*/}}
+{{- define "postgres.DatabaseName" -}}
+{{- print "nextcloud" -}}
+{{- end -}}
