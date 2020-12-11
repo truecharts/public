@@ -39,7 +39,7 @@ spec:
       initContainers:
         - name: init-postgresdb
           image: busybox:latest
-          command: ['sh', '-c', "until nslookup {{ template "nextcloud.fullname" . }}-postgres; do echo waiting for postgres; sleep 2; done"]
+          command: ['sh', '-c', "until nc -w 5 -vz {{ template "nextcloud.fullname" . }}-postgres 5432; do echo waiting for postgres; sleep 2; done"]
           imagePullPolicy: {{ .Values.image.pullPolicy }}
       containers:
       - name: {{ .Chart.Name }}
