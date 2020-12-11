@@ -49,7 +49,7 @@ spec:
         - name: POSTGRES_HOST
           value: {{ template "nextcloud.fullname" . }}-postgres:5432
         - name: POSTGRES_DB
-          value: "nextcloud"
+          value: {{ template "postgres.DatabaseName" }}
         - name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
