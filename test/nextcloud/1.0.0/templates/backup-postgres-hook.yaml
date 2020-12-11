@@ -1,0 +1,36 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "pre-upgrade-hook2"
+  annotations:
+    "helm.sh/hook": pre-upgrade
+    "helm.sh/hook-weight": "1"
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    metadata:
+      name: "pre-upgrade-hook2"
+    spec:
+      restartPolicy: Never
+      serviceAccountName: {{ template "nextcloud.serviceAccountName" }}
+      containers:
+      - name: {{ .Chart.Name }}-postgres-backup
+        image: "postgres:13.1"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-details
+              key: db-user
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-details
+              key: db-password
+        volumeMounts:
+          - name: postgres-data
+            mountPath: /var/lib/postgresql/data
+          - name: postgres-backup
+            mountPath: /postgres_backups
+        command: ['sh', '-c', "/docker-entrypoint.sh; pg_dump -U $POSTGRES_USER -d {{ template "postgres.DatabaseName"}} > /postgres_backups/update_dump;"]
