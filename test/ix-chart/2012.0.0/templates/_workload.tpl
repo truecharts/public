@@ -96,6 +96,9 @@ Deployment Spec
 */}}
 {{- define "deploymentSpec" }}
 strategy:
+  {{- if and (eq .Values.updateStrategy "RollingUpdate") .Values.hostPortsList }}
+  {{- fail "RollingUpdate is not allowed when host ports are specified" }}
+  {{- end }}
   type: {{ .Values.updateStrategy }}
 selector:
   matchLabels:
