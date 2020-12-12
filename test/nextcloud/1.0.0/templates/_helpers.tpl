@@ -107,23 +107,8 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
-Postgres Selector labels
-*/}}
-{{- define "nextcloud.postgres.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "nextcloud.name" . }}-postgres
-app.kubernetes.io/instance: {{ .Release.Name }}-postgres
-{{- end }}
-
-{{/*
 Nextcloud service account
 */}}
 {{- define "nextcloud.serviceAccountName" -}}
 {{- printf "%s-service-account" .Release.Name -}}
-{{- end -}}
-
-{{/*
-Get Nextloud Postgres Database Name
-*/}}
-{{- define "postgres.DatabaseName" -}}
-{{- print "nextcloud" -}}
 {{- end -}}
