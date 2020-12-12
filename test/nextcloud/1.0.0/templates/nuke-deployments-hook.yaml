@@ -12,8 +12,8 @@ spec:
       name: "pre-upgrade-hook1"
     spec:
       restartPolicy: Never
-      serviceAccountName: {{ template "nextcloud.serviceAccountName" }}
+      serviceAccountName: "{{ template "nextcloud.serviceAccountName" . }}"
       containers:
       - name: kubectl
         image: "bitnami/kubectl:1.19"
-        command: ["delete" , "deployment", "{{ template "nextcloud.fullname" . }}", "{{ template "nextcloud.fullname" . }}-postgres"]
+        command: ["kubectl", "delete" , "deployment", "{{ template "nextcloud.fullname" . }}", "{{ template "nextcloud.fullname" . }}-postgres"]

@@ -1,3 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "postgres-backup-hook-config-map"
+data:
+  entrypoint.sh: |-
+    #!/bin/sh
+    cmd="/docker-entrypoint.sh postgres"
+    eval "${cmd}" & disown;
+    until pg_isready; do
+      sleep 5;
+    done;
+    pg_dump -U $POSTGRES_USER -d {{ template "postgres.DatabaseName"}} > /postgres_backups/update_dump;
+
+---
+
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -12,7 +28,7 @@ spec:
       name: "pre-upgrade-hook2"
     spec:
       restartPolicy: Never
-      serviceAccountName: {{ template "nextcloud.serviceAccountName" }}
+      serviceAccountName: "{{ template "nextcloud.serviceAccountName" . }}"
       containers:
       - name: {{ .Chart.Name }}-postgres-backup
         image: "postgres:13.1"
@@ -33,4 +49,20 @@ spec:
             mountPath: /var/lib/postgresql/data
           - name: postgres-backup
             mountPath: /postgres_backups
-        command: ['sh', '-c', "/docker-entrypoint.sh; pg_dump -U $POSTGRES_USER -d {{ template "postgres.DatabaseName"}} > /postgres_backups/update_dump;"]
+          - name: backup-script-configmap
+            mountPath: /bin/backup_entrypoint.sh
+            readOnly: true
+            subPath: entrypoint.sh
+        command:
+          - "/bin/backup_entrypoint.sh"
+      volumes:
+      - name: postgres-data
+        hostPath:
+          path: {{ template "configuredPostgresHostPath" . }}
+      - name: postgres-backup
+        hostPath:
+          path: {{ template "configuredBackupPostgresHostPath" . }}
+      - name: backup-script-configmap
+        configMap:
+          defaultMode: 0700
+          name: "postgres-backup-hook-config-map"
