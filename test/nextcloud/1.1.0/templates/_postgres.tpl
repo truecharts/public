@@ -13,6 +13,10 @@ app.kubernetes.io/name: {{ include "nextcloud.name" . }}-postgres
 app.kubernetes.io/instance: {{ .Release.Name }}-postgres
 {{- end }}
 
+{{- define "postgres.imageName" -}}
+{{- print "postgres:13.1" -}}
+{{- end -}}
+
 {{/*
 Retrieve postgres backup name
 This will return a unique name based on revision and chart numbers specified.
