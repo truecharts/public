@@ -1,0 +1,14 @@
+apiVersion: {{ template "apiVersion" . }}
+kind: {{ .Values.workloadType }}
+metadata:
+  name: {{ include "ix-chart.fullname" . }}
+  labels:
+    {{- include "ix-chart.labels" . | nindent 4 }}
+spec:
+  {{- if eq (include "workloadIsDeployment" .) "true" }}
+    {{ include "deploymentSpec" . | nindent 2 }}
+  {{- else if eq (include "workloadIsCronJob" .) "true" }}
+    {{ include "cronJobSpec" . | nindent 2 }}
+  {{- else }}
+    {{ include "jobSpec" . | nindent 2 }}
+  {{- end }}
