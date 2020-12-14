@@ -38,7 +38,7 @@ spec:
       {{- end }}
       initContainers:
         - name: init-postgresdb
-          image: "postgres:13.1"
+          image: {{ template "postgres.imageName" . }}
           command: ['sh', '-c', "until pg_isready -h {{ template "nextcloud.fullname" . }}-postgres; do echo waiting for postgres; sleep 2; done"]
           imagePullPolicy: {{ .Values.image.pullPolicy }}
       containers:

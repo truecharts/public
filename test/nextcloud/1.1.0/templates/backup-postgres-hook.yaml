@@ -17,7 +17,7 @@ spec:
       serviceAccountName: "{{ template "nextcloud.serviceAccountName" . }}"
       containers:
       - name: {{ .Chart.Name }}-postgres-backup
-        image: "postgres:13.1"
+        image: {{ template "postgres.imageName" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         - name: POSTGRES_USER
