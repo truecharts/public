@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: {{ .Chart.Name }}-postgres
-        image: "postgres:13.1"
+        image: {{ template "postgres.imageName" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
         - name: POSTGRES_USER
