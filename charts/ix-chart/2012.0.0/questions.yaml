@@ -342,13 +342,15 @@ questions:
               - variable: containerPort
                 label: "Container Port"
                 schema:
-                  type: string
+                  type: int
                   required: true
               - variable: nodePort
                 label: "Node Port"
                 schema:
-                  type: string
+                  type: int
                   required: true
+                  min: 9000
+                  max: 65535
               - variable: protocol
                 label: "Protocol"
                 schema:
