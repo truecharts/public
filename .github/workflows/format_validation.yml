@@ -1,6 +1,6 @@
 name: format_validation
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
