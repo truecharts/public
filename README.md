@@ -8,7 +8,7 @@ A TrueNAS SCALE chart repository differs slightly in directory structure from up
 
 A TrueNAS SCALE chart also has three additional files an `app-readme.md` file that provides a high level overview display in the TrueNAS SCALE UI and a `questions.yaml` file defining questions to prompt the user with and an `item.yaml` file outlining item specific details. 
 
-There are 2 directories `charts` and `test`, each representing a train. Chart releases created from catalog items in a specific train cannot be moved to another train.
+There are 2 directories `charts` and `test`, each representing a train. Chart releases created from catalog items in a specific train cannot be moved to another train. Currently only the "charts" train is supported and train switching is also not supported.
 
 ```
 charts/ix-chart/<chart version>/
