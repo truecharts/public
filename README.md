@@ -1,6 +1,6 @@
-# iX Official Catalog
+# Unofficial Charts Catalog for TrueNAS SCALE
 
-A curated collection of TrueNAS SCALE enhanced Helm charts.
+A curated community collection of TrueNAS SCALE enhanced Helm charts.
 
 ## TrueNAS SCALE Chart Structure
 
