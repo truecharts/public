@@ -1,6 +1,6 @@
 # Unofficial Charts Catalog for TrueNAS SCALE
 
-A curated community collection of TrueNAS SCALE enhanced Helm charts.
+A curated community catalog of TrueNAS SCALE Apps.
 
 ## TrueNAS SCALE Chart Structure
 
@@ -19,6 +19,8 @@ charts/ix-chart/<chart version>/
   README.md                # Optional: Helm Readme file (will be rendered in TrueNAS SCALE UI as well)
   requirements.yaml        # Optional YAML file listing dependencies for the chart
   templates/               # A directory of templates that, when combined with values.yml will generate K8s YAML
+  templates/tests          # A directory of tests to run using 'helm test'
+  test_values.yaml         # Configuration values for this chart when running the CI
   values.yaml              # The default configuration values for this chart
 ```
 *See the upstream Helm chart [developer reference](https://helm.sh/docs/topics/chart_template_guide/) for a complete walk through of developing charts.*
