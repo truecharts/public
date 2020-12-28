@@ -33,9 +33,10 @@ spec:
         - name: api@internal # The internal name of the Dashboard for Traefik
           kind: TraefikService
       middlewares:
-      - name: compress
-#      - name: basic-security
-#        - name: dashboard-auth #Referencing the BasicAuth middleware
+      - name: traefik-middlewares-chain-public@kubernetescrd
+      {{- if .Values.traefikIngress.authForwardUrl -}}
+      - name: {{ .Release.Name }}-auth-forward
+      {{- end }}
   tls: {{- if .Values.traefikIngress.selfsigned -}}[]{{ else if .Values.traefikIngress.existingCert }}
     secretName: {{ .Values.traefikIngress.existingCert }}
     {{- else if .Values.traefikIngress.wildcard -}}
@@ -43,5 +44,22 @@ spec:
     {{ else }}
     secretName: {{ .Release.Name }}
     {{- end }}
+{{- if .Values.traefikIngress.authForwardUrl -}}
+---
+# Forward authentication
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ .Release.Name }}-auth-forward
+spec:
+  forwardAuth:
+    address: '{{ .Values.traefikIngress.authForwardUrl }}'
+    trustForwardHeader: true
+    authResponseHeaders:
+       - Remote-User
+       - Remote-Groups
+       - Remote-Name
+       - Remote-Email
+{{- end }}
 {{- end }}
 {{- end }}
