@@ -11,12 +11,12 @@ metadata:
 spec:
   {{- if .Values.hostNetwork }}
   type: ClusterIP
-  {{- else }}
+  {{- else if .Values.kmsService.port }}
   type: NodePort
   {{- end }}
   ports:
     - name: kms
-      port: {{ .Values.kmsService.port }}
+      port: 1688
       protocol: TCP
       targetPort: kms
       {{- if eq .Values.hostNetwork false }}
