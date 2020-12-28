@@ -70,3 +70,12 @@ proxy:
 
 gpuConfiguration: {}
 emptyDirVolumes: true
+
+customIngress: 
+   enabled: false
+   port: 32400
+   host: "plex.truecharts.test"
+   selfsigned: true
+   wildcard: false
+   existingCert: ""
+   authForwardUrl: ""
