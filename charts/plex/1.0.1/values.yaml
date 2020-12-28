@@ -69,3 +69,12 @@ proxy:
   # noproxy: "localhost,127.0.0.1,10.96.0.0/12,10.244.0.0/12"
 
 gpuConfiguration: {}
+
+customIngress: 
+   enabled: false
+   port: 32400
+   host: "plex.truecharts.test"
+   selfsigned: true
+   wildcard: false
+   existingCert: ""
+   authForwardUrl: ""
