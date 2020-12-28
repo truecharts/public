@@ -11,12 +11,12 @@ metadata:
 spec:
   {{- if .Values.hostNetwork }}
   type: ClusterIP
-  {{- else }}
+  {{- else if .Values.plexServiceTCP.port }}
   type: NodePort
   {{- end }}
   ports:
     - name: pms
-      port: {{ .Values.plexServiceTCP.port }}
+      port: 32400
       protocol: TCP
       targetPort: pms
       {{- if eq .Values.hostNetwork false }}

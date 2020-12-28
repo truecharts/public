@@ -11,7 +11,7 @@ metadata:
 spec:
   {{- if .Values.hostNetwork }}
   type: ClusterIP
-  {{- else }}
+  {{- else if .Values.transmissionService.port }}
   type: NodePort
   {{- end }}
   ports:
