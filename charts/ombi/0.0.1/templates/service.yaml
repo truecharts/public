@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  {{- if .Values.hostNetwork }}
+  name: {{ include "ombi.fullname" . }}-cluster-ip
+  {{- else }}
+  name: {{ include "ombi.fullname" . }}
+  {{- end }}
+  labels:
+    {{- include "ombi.labels" . | nindent 4 }}
+spec:
+  {{- if .Values.hostNetwork }}
+  type: ClusterIP
+  {{- else }}
+  type: NodePort
+  {{- end }}
+  ports:
+    - name: ombi
+      port: 3579
+      protocol: TCP
+      targetPort: ombi
+      {{- if eq .Values.hostNetwork false }}
+      nodePort: {{.Values.ombiService.port}}
+      {{- end }}
+  selector:
+    {{- include "ombi.selectorLabels" . | nindent 4 }}

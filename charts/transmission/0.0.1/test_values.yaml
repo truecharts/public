@@ -1,0 +1,36 @@
+# Default values
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The Image to use for transmission
+
+image:
+  repository: linuxserver/transmission
+  pullPolicy: IfNotPresent
+  tag: version-3.00-r0
+
+
+# Set the timezone of the transmission server
+timezone: "Etc/UTC"
+
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
+
+transmissionService:
+  port: 32205
+
+hostNetwork: false
+
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+emptyDirVolumes: true
+
+customIngress: 
+   enabled: false
+   port: 9091
+   host: "traefik.truecharts.test"
+   selfsigned: true
+   wildcard: false
+   existingCert: ""

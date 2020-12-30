@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  {{- if .Values.hostNetwork }}
+  name: {{ include "transmission.fullname" . }}-cluster-ip
+  {{- else }}
+  name: {{ include "transmission.fullname" . }}
+  {{- end }}
+  labels:
+    {{- include "transmission.labels" . | nindent 4 }}
+spec:
+  {{- if .Values.hostNetwork }}
+  type: ClusterIP
+  {{- else }}
+  type: NodePort
+  {{- end }}
+  ports:
+    - name: transmission
+      port: 9091
+      protocol: TCP
+      targetPort: transmission
+      {{- if eq .Values.hostNetwork false }}
+      nodePort: {{.Values.transmissionService.port}}
+      {{- end }}
+  selector:
+    {{- include "transmission.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,34 @@
+# Default values
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The Image to use for sonarr
+
+image:
+  repository: linuxserver/sonarr
+  pullPolicy: IfNotPresent
+  tag: version-3.0.4.993
+
+
+# Set the timezone of the sonarr server
+timezone: "Etc/UTC"
+
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
+
+sonarrService:
+  port: 32201
+
+hostNetwork: false
+
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+customIngress: 
+   enabled: false
+   port: 8989
+   host: "your.hostname.com"
+   selfsigned: false
+   wildcard: false
+   existingCert: ""

@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dns-api-key-secret
+  #namespace: cert-manager
+type: Opaque
+stringData:
+  api-key: {{ .Values.certmanager.apikey }}
+---
+{{- if .Values.certmanager.email -}}
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+  #namespace: default
+  annotations:
+   # hooks are defined here
+   "helm.sh/hook": post-install,post-upgrade
+   #"helm.sh/hook-weight": "0"
+   "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  acme:
+    # You must replace this email address with your own.
+    # Let's Encrypt will use this to contact you about expiring
+    # certificates, and issues related to your account.
+    email: {{ .Values.certmanager.email }}
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      # Secret resource used to store the account's private key.
+      name: issuer-account-key
+    # Add a single challenge solver, DNS01
+    solvers:
+    - dns01:
+        cloudflare:
+          email: {{ .Values.certmanager.email }}
+          apiKeySecretRef:
+            name: dns-api-key-secret
+            key: api-key
+{{- end }}

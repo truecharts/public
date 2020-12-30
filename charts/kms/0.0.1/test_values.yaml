@@ -1,0 +1,28 @@
+# Default values
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The Image to use for kms
+
+image:
+  repository: pykmsorg/py-kms
+  pullPolicy: IfNotPresent
+  tag: latest
+
+
+# Set the timezone of the kms server
+timezone: "Etc/UTC"
+
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
+
+kmsService:
+  port: 32207
+
+hostNetwork: false
+
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+emptyDirVolumes: true

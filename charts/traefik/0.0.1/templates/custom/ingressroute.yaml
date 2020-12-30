@@ -1,0 +1,47 @@
+{{- if .Values.traefikIngress.enabled -}}
+{{- if .Values.traefikIngress.host -}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ .Release.Name }}
+  annotations:
+   # hooks are defined here
+   "helm.sh/hook": post-install,post-upgrade
+   "helm.sh/hook-weight": "10"
+   "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  commonName: {{ .Values.traefikIngress.host }}
+  secretName: {{ .Release.Name }}
+  dnsNames:
+  - {{ .Values.traefikIngress.host }}
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+    group: cert-manager.io
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`{{ .Values.traefikIngress.host }}`)
+      services:
+        - name: api@internal # The internal name of the Dashboard for Traefik
+          kind: TraefikService
+      middlewares:
+      - name: compress
+#      - name: basic-security
+#        - name: dashboard-auth #Referencing the BasicAuth middleware
+  tls: {{- if .Values.traefikIngress.selfsigned -}}[]{{ else if .Values.traefikIngress.existingCert }}
+    secretName: {{ .Values.traefikIngress.existingCert }}
+    {{- else if .Values.traefikIngress.wildcard -}}
+    secretName: wildcardcert
+    {{ else }}
+    secretName: {{ .Release.Name }}
+    {{- end }}
+{{- end }}
+{{- end }}

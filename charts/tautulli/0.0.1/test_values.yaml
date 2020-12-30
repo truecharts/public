@@ -1,0 +1,37 @@
+# Default values
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The Image to use for tautulli
+
+image:
+  repository: tautulli/tautulli
+  pullPolicy: IfNotPresent
+  tag: v2.5.4
+
+
+# Set the timezone of the tautulli server
+timezone: "Etc/UTC"
+
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
+
+tautulliService:
+  port: 32206
+
+hostNetwork: false
+
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+
+emptyDirVolumes: true
+
+customIngress: 
+   enabled: false
+   port: 8181
+   host: "traefik.truecharts.test"
+   selfsigned: true
+   wildcard: false
+   existingCert: ""
