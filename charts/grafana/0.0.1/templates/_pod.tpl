@@ -33,6 +33,12 @@ initContainers:
     resources:
 {{ toYaml .Values.initChownData.resources | indent 6 }}
     volumeMounts:
+      - name: configdir
+        mountPath: /config
+      - name: shared
+        mountPath: /shared
+      - name: shared-logs
+        mountPath: "/var/log/grafana"
       - name: storage
         mountPath: "/var/lib/grafana"
 {{- if .Values.persistence.subPath }}
@@ -376,6 +382,17 @@ tolerations:
 {{ toYaml . | indent 2 }}
 {{- end }}
 volumes:
+  - name: configdir
+    {{- if .Values.emptyDirVolumes }}
+    emptyDir: {}
+    {{- else }}
+    hostPath:
+      path: {{ template "configuredHostPathConfig" . }}
+    {{- end }}
+  - name: shared
+    emptyDir: {}
+  - name: shared-logs
+    emptyDir: {}
   - name: config
     configMap:
       name: {{ template "grafana.fullname" . }}
