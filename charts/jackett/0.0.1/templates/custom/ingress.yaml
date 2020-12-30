@@ -1,0 +1,30 @@
+{{- if .Values.customIngress.enabled -}}
+{{- if .Values.customIngress.host -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+  name: {{ .Release.Name }}
+spec:
+  rules:
+  - host: {{ .Values.customIngress.host }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ .Release.Name }}
+          servicePort: {{.Values.customIngress.port}}
+  tls: {{- if .Values.customIngress.selfsigned -}}{{ else if .Values.customIngress.existingCert }}
+    secretName: {{ .Values.customIngress.existingCert }}
+  {{ else if .Values.customIngress.wildcard }}
+    secretName: wilddcardcert
+  {{ else }}
+  - hosts:
+      - {{ .Values.customIngress.host }}
+    secretName: {{ .Release.Name }}
+  {{ end }}
+{{- end }}
+{{- end }}

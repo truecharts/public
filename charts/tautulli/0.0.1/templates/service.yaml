@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  {{- if .Values.hostNetwork }}
+  name: {{ include "tautulli.fullname" . }}-cluster-ip
+  {{- else }}
+  name: {{ include "tautulli.fullname" . }}
+  {{- end }}
+  labels:
+    {{- include "tautulli.labels" . | nindent 4 }}
+spec:
+  {{- if .Values.hostNetwork }}
+  type: ClusterIP
+  {{- else }}
+  type: NodePort
+  {{- end }}
+  ports:
+    - name: tautulli
+      port: 8181
+      protocol: TCP
+      targetPort: tautulli
+      {{- if eq .Values.hostNetwork false }}
+      nodePort: {{.Values.tautulliService.port}}
+      {{- end }}
+  selector:
+    {{- include "tautulli.selectorLabels" . | nindent 4 }}

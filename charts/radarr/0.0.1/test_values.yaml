@@ -1,0 +1,36 @@
+# Default values
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The Image to use for radarr
+
+image:
+  repository: linuxserver/radarr
+  pullPolicy: IfNotPresent
+  tag: version-3.0.0.3989
+
+
+# Set the timezone of the radarr server
+timezone: "Etc/UTC"
+
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
+
+radarrService:
+  port: 32202
+
+hostNetwork: false
+
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+emptyDirVolumes: true
+
+customIngress: 
+   enabled: false
+   port: 7878
+   host: "traefik.truecharts.test"
+   selfsigned: true
+   wildcard: false
+   existingCert: ""

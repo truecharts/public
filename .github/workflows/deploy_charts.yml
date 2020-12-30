@@ -22,7 +22,7 @@ jobs:
         run: |
           sudo apt update > /dev/null 2>&1
           sudo apt install -y python3-all-dev python3-pip python3-setuptools > /dev/null 2>&1
-          git clone https://github.com/truenas/catalog_validation
+          git clone https://github.com/truecharts/catalog_validation
           sudo pip3 install --disable-pip-version-check --exists-action w -r catalog_validation/requirements.txt > /dev/null 2>&1
           sudo pip3 install -U catalog_validation/.
 

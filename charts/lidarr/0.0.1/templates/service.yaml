@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  {{- if .Values.hostNetwork }}
+  name: {{ include "lidarr.fullname" . }}-cluster-ip
+  {{- else }}
+  name: {{ include "lidarr.fullname" . }}
+  {{- end }}
+  labels:
+    {{- include "lidarr.labels" . | nindent 4 }}
+spec:
+  {{- if .Values.hostNetwork }}
+  type: ClusterIP
+  {{- else }}
+  type: NodePort
+  {{- end }}
+  ports:
+    - name: lidarr
+      port: 8686
+      protocol: TCP
+      targetPort: lidarr
+      {{- if eq .Values.hostNetwork false }}
+      nodePort: {{.Values.lidarrService.port}}
+      {{- end }}
+  selector:
+    {{- include "lidarr.selectorLabels" . | nindent 4 }}

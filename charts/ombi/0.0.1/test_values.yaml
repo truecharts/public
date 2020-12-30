@@ -1,0 +1,36 @@
+# Default values
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The Image to use for ombi
+
+image:
+  repository: linuxserver/ombi
+  pullPolicy: IfNotPresent
+  tag: v4-preview-version-v4.0.779
+
+
+# Set the timezone of the ombi server
+timezone: "Etc/UTC"
+
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
+
+ombiService:
+  port: 32208
+
+hostNetwork: false
+
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+emptyDirVolumes: true
+
+customIngress: 
+   enabled: false
+   port: 3579
+   host: "traefik.truecharts.test"
+   selfsigned: true
+   wildcard: false
+   existingCert: ""
