@@ -264,6 +264,26 @@ ports:
       #   sans:
       #     - foo.example.com
       #     - bar.example.com
+  dns-tcp:
+    port: 5353
+    # hostPort: 8443
+    expose: true
+    exposedPort: 5353
+    # The port protocol (TCP/UDP)
+    protocol: TCP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  dns-udp:
+    port: 5353
+    # hostPort: 8443
+    expose: true
+    exposedPort: 5353
+    # The port protocol (TCP/UDP)
+    protocol: UDP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
 
 # TLS Options are created as TLSOption CRDs
 # https://doc.traefik.io/traefik/https/tls/#tls-options
