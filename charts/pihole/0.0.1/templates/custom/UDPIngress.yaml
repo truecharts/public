@@ -1,0 +1,16 @@
+{{- if .Values.customUDPIngress.enabled -}}
+{{- if .Values.customUDPIngress.entrypoint -}}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: {{ .Release.Name }}-dns-udp
+spec:
+  entryPoints:
+    - {{.Values.customUDPIngress.entrypoint}}
+  routes:
+  - services:
+    - name: {{ .Release.Name }}-dns-udp
+      port: {{.Values.customUDPIngress.port}}
+      weight: 10
+{{- end }}
+{{- end }}

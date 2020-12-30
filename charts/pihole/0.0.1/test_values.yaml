@@ -10,7 +10,7 @@ image:
   pullPolicy: IfNotPresent
 
 serviceDns:
-  type: NodePort
+  type: ClusterIP
   externalTrafficPolicy: Local
   loadBalancerIP: ""
     # a fixed LoadBalancer IP
@@ -209,3 +209,29 @@ monitoring:
       # requests:
       #  cpu: 100m
       #  memory: 128Mi
+
+# Truecharts Config
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+emptyDirVolumes: true
+
+customIngress: 
+   enabled: false
+   port: 80
+   host: "your.hostname.com"
+   selfsigned: false
+   wildcard: false
+   existingCert: ""
+   authForwardUrl: ""
+   
+customUDPIngress: 
+   enabled: false
+   entrypoint: "dns-udp"
+   port: 53
+
+customTCPIngress: 
+   enabled: false
+   entrypoint: "dns-tcp"
+   port: 53
