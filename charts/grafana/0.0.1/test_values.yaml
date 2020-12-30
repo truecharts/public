@@ -478,9 +478,9 @@ dashboardsConfigMaps: {}
 ##
 grafana.ini:
   paths:
-    data: /config/data
+    data: /var/lib/grafana/data
     logs: /var/log/grafana
-    plugins: /config/plugins
+    plugins: /var/lib/grafana/plugins
     provisioning: /etc/grafana/provisioning
   analytics:
     check_for_updates: true
@@ -667,10 +667,13 @@ imageRenderer:
 #     cpu: 50m
 #     memory: 50Mi
 
+
 ## TrueCharts Customisations
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
 configHostPathEnabled: false
+
+emptyDirVolumes: true
 
 customIngress: 
    enabled: false
