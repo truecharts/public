@@ -185,9 +185,6 @@ spec:
           volumeMounts:
           - mountPath: /etc/pihole
             name: config
-            {{- if .Values.persistentVolumeClaim.subPath }}
-            subPath: {{ .Values.persistentVolumeClaim.subPath }}
-            {{- end }}
           - mountPath: /etc/dnsmasq.d/02-custom.conf
             name: custom-dnsmasq
             subPath: 02-custom.conf
@@ -214,6 +211,10 @@ spec:
             name: whitelist
             subPath: whitelist.txt
           {{- end }}
+          - name: shared
+            mountPath: /shared
+          - name: shared-logs
+            mountPath: "/config/Library/Application Support/jackett Media Server/Logs"
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
@@ -230,14 +231,16 @@ spec:
     {{- end }}
       volumes:
       - name: config
-        {{- if .Values.persistentVolumeClaim.enabled }}
-        persistentVolumeClaim:
-          claimName: {{ if .Values.persistentVolumeClaim.existingClaim }}{{ .Values.persistentVolumeClaim.existingClaim }}{{- else }}{{ template "pihole.fullname" . }}{{- end }}
-        {{- else if .Values.customVolumes.enabled }}
-{{- toYaml .Values.customVolumes.config | nindent 8 }}
-        {{- else }}
+        {{- if .Values.emptyDirVolumes }}
         emptyDir: {}
+        {{- else }}
+        hostPath:
+          path: {{ template "configuredHostPathConfig" . }}
         {{- end }}
+      - name: shared
+        emptyDir: {}
+      - name: shared-logs
+        emptyDir: {}
       - configMap:
           defaultMode: 420
           name: {{ template "pihole.fullname" . }}-custom-dnsmasq
