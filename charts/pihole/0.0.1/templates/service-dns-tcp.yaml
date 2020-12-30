@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "pihole.fullname" . }}-dns-tcp
+  labels:
+    app: {{ template "pihole.name" . }}
+    chart: {{ template "pihole.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- if .Values.serviceDns.annotations }}
+  annotations:
+{{ toYaml .Values.serviceDns.annotations | indent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.serviceDns.type }}
+  {{- if .Values.serviceDns.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.serviceDns.loadBalancerIP }}
+  {{- end }}
+  {{- if or (eq .Values.serviceDns.type "NodePort") (eq .Values.serviceDns.type "LoadBalancer") }}
+  externalTrafficPolicy: {{ .Values.serviceDns.externalTrafficPolicy }}
+  {{- end }}
+  ports:
+    - port: 53
+      targetPort: dns
+      protocol: TCP
+      name: dns
+    {{- if .Values.monitoring.sidecar.enabled }}
+    - port: {{ .Values.monitoring.sidecar.port }}
+      targetPort: prometheus
+      protocol: TCP
+      name: prometheus
+    {{- end }}
+  selector:
+    app: {{ template "pihole.name" . }}
+    release: {{ .Release.Name }}
