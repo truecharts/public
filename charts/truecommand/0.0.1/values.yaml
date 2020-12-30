@@ -1,0 +1,35 @@
+# Default values
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The Image to use for truecommand
+
+image:
+  repository: ixsystems/truecommand
+  pullPolicy: IfNotPresent
+  tag: 1.3.2
+
+
+# Set the timezone of the truecommand server
+timezone: "Etc/UTC"
+
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
+
+truecommandService:
+  port: 32210
+
+hostNetwork: false
+
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+customIngress: 
+   enabled: false
+   port: 80
+   host: "your.hostname.com"
+   selfsigned: false
+   wildcard: false
+   existingCert: ""
+   authForwardUrl: ""
