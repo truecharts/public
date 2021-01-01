@@ -1,3 +1,4 @@
+{{- define "common.customIngress" -}}
 {{- if .Values.customIngress.enabled -}}
 {{- if .Values.customIngress.host -}}
 apiVersion: extensions/v1beta1
@@ -47,6 +48,7 @@ spec:
        - Remote-Groups
        - Remote-Name
        - Remote-Email
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end }}

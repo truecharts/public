@@ -37,7 +37,7 @@ Let's please remove the redundancy
 {{- end -}}
 
 {{/*
-Retrieve host path for downloads
+Retrieve host path for Config
 Let's please remove the redundancy
 */}}
 {{- define "configuredHostPathConfig" -}}

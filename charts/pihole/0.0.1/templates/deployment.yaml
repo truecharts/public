@@ -39,7 +39,7 @@ spec:
         {{- else }}
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 100
-            podAffinityTerm:  
+            podAffinityTerm:
               labelSelector:
         {{- end }}
                 matchExpressions:

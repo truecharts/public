@@ -1,21 +1,46 @@
-# Default values
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-# The Image to use for jackett
+# Default values for Jackett.
 
 image:
   repository: linuxserver/jackett
   pullPolicy: IfNotPresent
-  tag: version-v0.17.153
+  tag: version-v0.16.2106
+
+strategy:
+  type: Recreate
+
+service:
+  port:
+    port: 9117
+
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+
+  torrentblackhole:
+    enabled: false
+    emptyDir: false
+    mountPath: /downloads
+    ## Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    # storageClass: "-"
+    # accessMode: ReadWriteOnce
+    # size: 1Gi
+    ## Do not delete the pvc upon helm uninstall
+    # skipuninstall: false
+    # existingClaim: ""
 
 
-# Set the timezone of the jackett server
-timezone: "Etc/UTC"
-
-# upgrade strategy type (e.g. Recreate or RollingUpdate)
-strategyType: Recreate
-
+## TrueCharts Values
 jackettService:
   port: 32204
 
@@ -27,7 +52,7 @@ configHostPathEnabled: false
 
 emptyDirVolumes: true
 
-customIngress: 
+customIngress:
    enabled: false
    port: 9117
    host: "traefik.truecharts.test"

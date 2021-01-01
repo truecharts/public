@@ -20,4 +20,3 @@ data:
   {{- range .Values.dnsmasq.additionalHostsEntries }}
     {{ . }}
   {{- end }}
- 

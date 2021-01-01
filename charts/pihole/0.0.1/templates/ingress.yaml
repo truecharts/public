@@ -29,7 +29,7 @@ spec:
             backend:
               service:
                 name: {{ $serviceName }}
-                port: 
+                port:
                   name: http
   {{- end }}
 {{- end }}

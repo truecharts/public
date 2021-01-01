@@ -406,12 +406,12 @@ securityContext:
 
 podSecurityContext:
   fsGroup: 65532
-  
+
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
 configHostPathEnabled: false
 
-traefikIngress: 
+traefikIngress:
    enabled: false
    host: "your.hostname.com"
    selfsigned: false
@@ -425,4 +425,3 @@ certmanager:
    project: ""
    apikey: ""
    wildcardDomain: ""
-   

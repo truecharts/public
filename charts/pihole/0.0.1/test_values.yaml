@@ -217,7 +217,7 @@ configHostPathEnabled: false
 
 emptyDirVolumes: true
 
-customIngress: 
+customIngress:
    enabled: false
    port: 80
    host: "your.hostname.com"
@@ -225,13 +225,13 @@ customIngress:
    wildcard: false
    existingCert: ""
    authForwardUrl: ""
-   
-customUDPIngress: 
+
+customUDPIngress:
    enabled: false
    entrypoint: "dns-udp"
    port: 53
 
-customTCPIngress: 
+customTCPIngress:
    enabled: false
    entrypoint: "dns-tcp"
    port: 53
