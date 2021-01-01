@@ -1,0 +1,35 @@
+name: Lint and Test Common Chart
+
+on: [push, pull_request]
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.4.0
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@v2.0.1
+
+      - name: Run chart-testing (lint)
+        id: lint
+        run: ct lint --config .github/ct.yaml --charts '.common'
+
+      - name: Create kind cluster
+        uses: helm/kind-action@v1.1.0
+
+      - name: Run chart-testing (common-test)
+        run: |
+          ct install --config .github/ct.yaml --charts 'charts/common-test'
