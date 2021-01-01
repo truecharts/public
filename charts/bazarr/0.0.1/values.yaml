@@ -1,0 +1,35 @@
+# Default values
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# The Image to use for bazarr
+
+image:
+  repository: linuxserver/bazarr
+  pullPolicy: IfNotPresent
+  tag: version-v0.9.0.5
+
+
+# Set the timezone of the bazarr server
+timezone: "Etc/UTC"
+
+# upgrade strategy type (e.g. Recreate or RollingUpdate)
+strategyType: Recreate
+
+bazarrService:
+  port: 32212
+
+hostNetwork: false
+
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+customIngress: 
+   enabled: false
+   port: 6767
+   host: "your.hostname.com"
+   selfsigned: false
+   wildcard: false
+   existingCert: ""
+   authForwardUrl: ""
