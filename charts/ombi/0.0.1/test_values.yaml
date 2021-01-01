@@ -1,20 +1,42 @@
-# Default values
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-# The Image to use for ombi
+  
+# Default values for Ombi.
 
 image:
   repository: linuxserver/ombi
   pullPolicy: IfNotPresent
-  tag: v4-preview-version-v4.0.779
+  tag: version-v4.0.681
 
+strategy:
+  type: Recreate
 
-# Set the timezone of the ombi server
-timezone: "Etc/UTC"
+service:
+  port:
+    port: 3579
 
-# upgrade strategy type (e.g. Recreate or RollingUpdate)
-strategyType: Recreate
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+
+# Enabled mariadb
+# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/mariadb
+mariadb:
+  enabled: false
+  architecture: standalone
+  auth:
+    database: ombi
+    username: ombi
+    password: ombi
+  primary:
+    persistence:
+      enabled: false
+
+## TrueCharts Config
 
 ombiService:
   port: 32208
@@ -30,7 +52,7 @@ emptyDirVolumes: true
 customIngress:
    enabled: false
    port: 3579
-   host: "traefik.truecharts.test"
+   host: "ombi.truecharts.test"
    selfsigned: true
    wildcard: false
    existingCert: ""
