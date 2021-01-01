@@ -1,20 +1,28 @@
-# Default values
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-# The Image to use for tautulli
+# Default values for Tautulli.
 
 image:
   repository: tautulli/tautulli
   pullPolicy: IfNotPresent
   tag: v2.5.4
 
+strategy:
+  type: Recreate
 
-# Set the timezone of the tautulli server
-timezone: "Etc/UTC"
+service:
+  port:
+    port: 8181
 
-# upgrade strategy type (e.g. Recreate or RollingUpdate)
-strategyType: Recreate
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+    
+## TrueCharts Config
 
 tautulliService:
   port: 32206

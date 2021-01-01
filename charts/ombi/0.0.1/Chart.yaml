@@ -17,3 +17,7 @@ sources:
   - https://hub.docker.com/r/linuxserver/ombi
 maintainers:
   - name: TrueCharts
+dependencies:
+  - name: common
+    repository: file://../../../.common/
+    version: 0.0.5
