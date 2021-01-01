@@ -35,7 +35,3 @@ jobs:
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.1.0
-
-      - name: Run chart-testing (common-test)
-        run: |
-          ct install --config .github/ct.yaml --charts 'charts/common-test'
