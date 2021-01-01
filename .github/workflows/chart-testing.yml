@@ -12,6 +12,7 @@ jobs:
         fetch-depth: 0
     - uses: actions/setup-python@v2
     - uses: pre-commit/action@v2.0.0
+      continue-on-error: true
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
