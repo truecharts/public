@@ -408,14 +408,14 @@ securityContext:
 
 podSecurityContext:
   fsGroup: 65532
-  
+
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
 configHostPathEnabled: false
 
 emptyDirVolumes: true
 
-traefikIngress: 
+traefikIngress:
    enabled: false
    host: "traefik.truecharts.test"
    selfsigned: true
