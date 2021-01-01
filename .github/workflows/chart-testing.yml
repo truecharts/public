@@ -1,15 +1,25 @@
-name: Charts-CI
+name: chart-testing
 
-on:
-  push:
-    paths:
-      - 'charts/**'
-  pull_request:
-    paths:
-      - 'charts/**'
+on: [push, pull_request]
 
 jobs:
-  deploy-charts:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: pre-commit/action@v2.0.0
+  catalog-tests:
+    runs-on: ubuntu-latest
+    container:
+      image: ixsystems/catalog_validation:latest
+
+    steps:
+    - uses: actions/checkout@v1
+      name: Checkout
+    - name: Validate catalog format
+      run: |
+        /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
+  chart-tests:
     runs-on: ubuntu-20.04
 
     steps:
