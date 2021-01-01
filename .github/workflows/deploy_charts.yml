@@ -1,6 +1,12 @@
 name: Charts-CI
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'charts/**'
+  pull_request:
+    paths:
+      - 'charts/**'
 
 jobs:
   deploy-charts:
