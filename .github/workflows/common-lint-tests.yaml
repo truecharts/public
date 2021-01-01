@@ -8,10 +8,6 @@ on:
     paths:
       - '.common/**'
 
-on: [push, pull_request]
-    paths:
-      - '!nginx/**'
-
 jobs:
   lint-test:
     runs-on: ubuntu-latest
