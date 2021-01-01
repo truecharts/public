@@ -5,10 +5,13 @@ on: [push, pull_request]
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
     - uses: pre-commit/action@v2.0.0
+
+
   catalog-tests:
     runs-on: ubuntu-latest
     container:
@@ -20,7 +23,10 @@ jobs:
     - name: Validate catalog format
       run: |
         /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
+
+
   chart-tests:
+    needs: pre-commit
     runs-on: ubuntu-20.04
 
     steps:
