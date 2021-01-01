@@ -1,8 +1,13 @@
 # See https://pre-commit.com for more information
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
-    hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
+- repo: local
+  hooks:
+  - id: ct-lint
+    name: "Chart Test: Lint"
+    language: docker_image
+    pass_filenames: false
+    types: ['file']
+    files: '^charts/.*(\.ya?ml|\.tpl|\.helmignore|NOTES.txt)'
+    entry: -u 0 quay.io/helmpack/chart-testing:v3.0.0 ct
+    args:
+    - lint
