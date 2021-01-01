@@ -1,6 +1,16 @@
 name: Lint and Test Common Chart
 
+on:
+  push:
+    paths:
+      - '.common/**'
+  pull_request:
+    paths:
+      - '.common/**'
+
 on: [push, pull_request]
+    paths:
+      - '!nginx/**'
 
 jobs:
   lint-test:
