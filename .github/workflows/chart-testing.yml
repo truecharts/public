@@ -12,8 +12,18 @@ jobs:
         fetch-depth: 0
     - uses: actions/setup-python@v2
     - uses: pre-commit/action@v2.0.0
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+        
+        
 
   catalog-tests:
     runs-on: ubuntu-latest
