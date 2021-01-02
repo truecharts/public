@@ -1,4 +1,4 @@
-# Heimdall helm chart
+# Organizr helm chart
 
 ## Configuration
 
