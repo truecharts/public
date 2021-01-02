@@ -1,21 +1,50 @@
-# Default values
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-# The Image to use for truecommand
+# Default values for Jackett.
 
 image:
   repository: ixsystems/truecommand
   pullPolicy: IfNotPresent
   tag: 1.3.2
 
+strategy:
+  type: Recreate
 
-# Set the timezone of the truecommand server
-timezone: "Etc/UTC"
+service:
+  port:
+    port: 80
 
-# upgrade strategy type (e.g. Recreate or RollingUpdate)
-strategyType: Recreate
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
 
+persistence:
+  data:
+    enabled: false
+    emptyDir: false
+    mountPath: /downloads
+    ## Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    # storageClass: "-"
+    # accessMode: ReadWriteOnce
+    # size: 1Gi
+    ## Do not delete the pvc upon helm uninstall
+    # skipuninstall: false
+    # existingClaim: ""
+
+
+
+## TrueCharts Config
+
+appVolumeMounts:
+  - name: data
+    mountPath: /datanope
+  - name: config
+    mountPath: /data
+    
 truecommandService:
   port: 32210
 
