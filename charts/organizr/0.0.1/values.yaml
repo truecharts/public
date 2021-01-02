@@ -1,0 +1,44 @@
+
+# Default values for Organizr.
+
+image:
+  repository: organizr/organizr
+  pullPolicy: Always
+  tag: latest
+
+strategy:
+  type: Recreate
+
+service:
+  port:
+    port: 80
+
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+
+## TrueCharts Config
+
+sonarrService:
+  port: 32201
+
+hostNetwork: false
+
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+customIngress:
+   enabled: false
+   port: 80
+   host: "your.hostname.com"
+   selfsigned: false
+   wildcard: false
+   existingCert: ""
+   authForwardUrl: ""
