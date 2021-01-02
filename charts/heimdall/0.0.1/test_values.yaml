@@ -1,0 +1,48 @@
+# Default values for grocy.
+
+image:
+  repository: linuxserver/heimdall
+  tag: version-2.2.2
+  pullPolicy: IfNotPresent
+
+strategy:
+  type: Recreate
+
+service:
+  port:
+    port: 80
+
+env: {}
+  # TZ:
+  # PUID:
+  # PGID:
+
+probes:
+  startup:
+    enabled: true
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+## TrueCharts Config
+
+sonarrService:
+  port: 32201
+
+hostNetwork: false
+
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+emptyDirVolumes: true
+
+customIngress:
+   enabled: false
+   port: 80
+   host: "sonarr.truecharts.test"
+   selfsigned: true
+   wildcard: false
+   existingCert: ""
+   authForwardUrl: ""
