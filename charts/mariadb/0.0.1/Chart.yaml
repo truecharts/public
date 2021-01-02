@@ -26,3 +26,7 @@ dependencies:
     tags:
       - bitnami-common
     version: 1.x.x
+  - name: phpmyadmin
+    version: 8.0.1
+    repository: https://charts.bitnami.com/bitnami
+    condition: phpmyadmin.enabled

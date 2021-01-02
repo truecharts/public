@@ -843,18 +843,19 @@ metrics:
 
 
 ## TrueCharts Values
-jackettService:
+mariadbService:
   port: 32204
 
 hostNetwork: false
 
-downloadsHostPathEnabled: false
 dataHostPathEnabled: false
-configHostPathEnabled: false
+
+phpmyadmin:
+  enabled: true
 
 customIngress:
    enabled: false
-   port: 9117
+   port: 80
    host: "your.hostname.com"
    selfsigned: false
    wildcard: false

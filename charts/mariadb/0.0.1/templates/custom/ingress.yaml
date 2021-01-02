@@ -9,9 +9,9 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd
     {{- if .Values.customIngress.authForwardUrl -}}
-    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-{{ .Release.Name }}-auth-forward@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-{{ .Release.Name }}-phpmyadmin-auth-forward@kubernetescrd
     {{- end }}
-  name: {{ .Release.Name }}
+  name: {{ .Release.Name }}-phpmyadmin
 spec:
   rules:
   - host: {{ .Values.customIngress.host }}
@@ -19,16 +19,16 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: {{ .Release.Name }}
+          serviceName: {{ .Release.Name }}-phpmyadmin
           servicePort: {{.Values.customIngress.port}}
   tls: {{- if .Values.customIngress.selfsigned -}}{{ else if .Values.customIngress.existingCert }}
     secretName: {{ .Values.customIngress.existingCert }}
   {{ else if .Values.customIngress.wildcard }}
-    secretName: wilddcardcert
+    secretName: wilddcardcert-phpmyadmin
   {{ else }}
   - hosts:
       - {{ .Values.customIngress.host }}
-    secretName: {{ .Release.Name }}
+    secretName: {{ .Release.Name }}-phpmyadmin
   {{ end }}
 {{- if .Values.customIngress.authForwardUrl -}}
 ---
@@ -36,7 +36,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ .Release.Name }}-auth-forward
+  name: {{ .Release.Name }}-phpmyadmin-auth-forward
   namespace: traefik-middlewares
 spec:
   forwardAuth:
