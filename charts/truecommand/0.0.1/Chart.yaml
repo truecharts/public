@@ -12,3 +12,7 @@ sources:
   - https://hub.docker.com/r/ixsystems/truecommand
 maintainers:
   - name: TrueCharts
+dependencies:
+  - name: common
+    repository: file://../../../.common/
+    version: 0.0.5
