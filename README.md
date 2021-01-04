@@ -17,7 +17,6 @@ charts/ix-chart/<chart version>/
   Chart.yaml               # Required Helm chart information file
   questions.yaml           # TrueNAS SCALE Specific: File containing questions for TrueNAS SCALE UI
   README.md                # Optional: Helm Readme file (will be rendered in TrueNAS SCALE UI as well)
-  requirements.yaml        # Optional YAML file listing dependencies for the chart
   templates/               # A directory of templates that, when combined with values.yml will generate K8s YAML
   values.yaml              # The default configuration values for this chart
 ```
