@@ -22,7 +22,6 @@ their default values.
 | `image.tag`                    | The image tag to pull from                                                                                      | `latest`                                                             |
 | `image.pullPolicy`             | Image pull policy                                                                                               | `IfNotPresent`                                                       |
 | `updateStrategy`               | Upgrade Policy                                                                                                  | `RollingUpdate`                                                      |
-| `restartPolicy`                | Restart Policy for containers in workload                                                                       | `Always`                                                             |
 | `jobRestartPolicy`             | Restart Policy for job type workload ( only applicable if `workloadType` is `Job`/`CronJob`                     | `OnFailure`                                                          |
 | `containerCommand`             | Commands to execute inside container overriding image CMD default                                               | `null`                                                               |
 | `containerArgs`                | Specify arguments for container command                                                                         | `null`                                                               |
