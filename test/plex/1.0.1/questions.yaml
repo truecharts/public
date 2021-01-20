@@ -74,12 +74,6 @@ questions:
       type: string
       default: ""
 
-  - variable: advertiseIp
-    label: "Plex Advertise IP"
-    group: "Plex Configuration"
-    schema:
-      type: string
-
   - variable: extraEnv
     label: "Environment variables for plex"
     group: "Plex Configuration"
@@ -87,26 +81,6 @@ questions:
       type: dict
       additional_attrs: true
       attrs: []
-
-  - variable: proxy
-    label: "Configure Proxy environment variable"
-    group: "Plex Configuration"
-    schema:
-      type: dict
-      attrs:
-        - variable: enabled
-          label: "Enable Proxy"
-          schema:
-            type: boolean
-            default: false
-        - variable: http
-          label: "HTTP Proxy"
-          schema:
-            type: string
-        - variable: https
-          label: "HTTPS Proxy"
-          schema:
-            type: string
 
   - variable: hostNetwork
     label: "Configure Host Network"
