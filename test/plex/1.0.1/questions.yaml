@@ -74,20 +74,35 @@ questions:
       type: string
       default: ""
 
-  - variable: extraEnv
-    label: "Environment variables for plex"
-    group: "Plex Configuration"
-    schema:
-      type: dict
-      additional_attrs: true
-      attrs: []
-
   - variable: hostNetwork
     label: "Configure Host Network"
     group: "Networking"
     schema:
       type: boolean
       default: false
+
+  - variable: environmentVariables
+    label: "Environment Variables for Plex"
+    group: "Plex Configuration"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+                  required: true
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
+                  required: true
 
   - variable: timezone
     label: "Plex container timezone"

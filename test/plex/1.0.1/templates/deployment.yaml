@@ -68,10 +68,10 @@ spec:
               fieldRef:
                 fieldPath: metadata.namespace
 # Extra ENV Values supplied by user
-{{- range $key, $value := .Values.extraEnv }}
-          - name: {{ $key }}
-            value: {{ $value }}
-{{- end }}
+{{- range $envVariable := .Values.environmentVariables }}
+          - name: {{ $envVariable.name }}
+            value: {{ $envVariable.value | quote }}
+{{- end}}
           readinessProbe:
             httpGet:
               path: /identity
