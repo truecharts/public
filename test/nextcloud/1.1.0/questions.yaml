@@ -142,14 +142,14 @@ questions:
       show_if: [["nextcloudDataHostPathEnabled", "=", false]]
       attrs:
         - variable: mountPath
-          label: "Mount Path"
+          label: "Nextcloud Data Mount Path"
           description: "Path where the volume will be mounted inside the pod"
           schema:
             type: path
             editable: false
             default: "/var/www"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Nextcloud Dataset Name"
           schema:
             type: string
             default: "ix-nextcloud_data"
@@ -164,13 +164,13 @@ questions:
         - "normalize/ixVolume"
       attrs:
         - variable: mountPath
-          label: "Mount Path"
+          label: "Postgres Backup Mount Path"
           schema:
             type: path
             editable: false
             default: "/postgres_backups"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Postgres Backup Dataset Name"
           schema:
             type: string
             default: "ix-postgres_backups"
@@ -185,13 +185,13 @@ questions:
         - "normalize/ixVolume"
       attrs:
         - variable: mountPath
-          label: "Mount Path"
+          label: "Postgres Mount Path"
           schema:
             type: path
             editable: false
             default: "/var/lib/postgresql/data"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Postgres Dataset Name"
           schema:
             type: string
             default: "ix-postgres_data"
