@@ -50,9 +50,9 @@ spec:
                 secretKeyRef:
                   name: {{ template "minio.secretName" . }}
                   key: secretkey
-            {{- range $key, $val := .Values.environment }}
-            - name: {{ $key }}
-              value: {{ $val | quote }}
+            {{- range $envVariable := .Values.environment }}
+            - name: {{ $envVariable.name }}
+              value: {{ $envVariable.value | quote }}
             {{- end}}
       volumes:
         - name: export

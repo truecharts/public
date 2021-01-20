@@ -102,9 +102,24 @@ questions:
     label: "Minio image environment"
     group: "Minio Configuration"
     schema:
-      type: dict
-      additional_attrs: true
-      attrs: []
+      type: list
+      default: []
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+                  required: true
+              - variable: value
+                label: value
+                schema:
+                  type: string
+                  required: true
 
   - variable: service
     description: "Minio Service Configuration"
@@ -146,14 +161,14 @@ questions:
       show_if: [["minioHostPathEnabled", "=", false]]
       attrs:
         - variable: mountPath
-          label: "Mount Path"
+          label: "Minio Data Mount Path"
           description: "Path where the volume will be mounted inside the pod"
           schema:
             type: path
             editable: false
             default: "/export"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Minio Dataset Name"
           schema:
             type: string
             default: "ix-minio"
