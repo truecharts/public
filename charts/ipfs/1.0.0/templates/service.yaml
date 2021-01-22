@@ -1,0 +1,21 @@
+{{ $scheme := "http" }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "ipfs.fullname" . }}
+  labels:
+    app: {{ template "ipfs.name" . }}
+    chart: {{ template "ipfs.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: "NodePort"
+  ports:
+    - name: {{ $scheme }}
+      port: {{ .Values.service.nodePort }}
+      protocol: TCP
+      nodePort: {{ .Values.service.nodePort }}
+      targetPort: 9080
+  selector:
+    app: {{ template "ipfs.name" . }}
+    release: {{ .Release.Name }}
