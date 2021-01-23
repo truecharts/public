@@ -109,16 +109,16 @@ spec:
             {{- end}}
       volumes:
         - name: data
-        {{- if ne (include "configuredHostPathData" .) "" }}
+        {{- if .Values.emptyDirVolumes }}
+          emptyDir: {}
+        {{- else }}
           hostPath:
             path: {{ template "configuredHostPathData" . }}
-        {{- else }}
-          emptyDir: {}
         {{- end }}
         - name: staging
-        {{- if ne (include "configuredHostPathStaging" .) "" }}
+        {{- if .Values.emptyDirVolumes }}
+          emptyDir: {}
+        {{- else }}
           hostPath:
             path: {{ template "configuredHostPathStaging" . }}
-        {{- else }}
-          emptyDir: {}
         {{- end }}
