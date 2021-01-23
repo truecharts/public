@@ -8,9 +8,14 @@ image:
 ## Additional arguments to pass to ipfs binary
 extraArgs: []
 
-updateStrategy: RollingUpdate
+updateStrategy: Recreate
 
 service:
-  nodePort: 9080
+  swarmPort: 9401
+  apiPort: 9501
+  gatewayPort: 9080
 
 environment:
+
+ipfsDataHostPathEnabled: false
+ipfsStagingHostPathEnabled: false

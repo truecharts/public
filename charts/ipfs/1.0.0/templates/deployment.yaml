@@ -23,35 +23,102 @@ spec:
         release: {{ .Release.Name }}
     spec:
       serviceAccountName: {{ include "ipfs.serviceAccountName" . | quote }}
+      initContainers:
+        - name: init-init
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: ['/bin/sh', '-c', '[ ! -e /data/ipfs/config ] && /usr/local/bin/ipfs init ; exit 0']
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: data
+              mountPath: /data/ipfs
+            - name: staging
+              mountPath: /export
+        - name: init-api
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: ['/usr/local/bin/ipfs', 'config', 'Addresses.API', "/ip4/0.0.0.0/tcp/{{ .Values.service.apiPort}}"]
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: data
+              mountPath: /data/ipfs
+            - name: staging
+              mountPath: /export
+        - name: init-gateway
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: ['/usr/local/bin/ipfs', 'config', 'Addresses.Gateway', "/ip4/0.0.0.0/tcp/{{ .Values.service.gatewayPort}}"]
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: data
+              mountPath: /data/ipfs
+            - name: staging
+              mountPath: /export
+        - name: init-swarm
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: ['/usr/local/bin/ipfs', 'config', '--json', 'Addresses.Swarm', "[\"/ip4/0.0.0.0/tcp/{{ .Values.service.swarmPort}}\",\"/ip4/0.0.0.0/tcp/{{ .Values.service.swarmPort}}/quic\"]" ]
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: data
+              mountPath: /data/ipfs
+            - name: staging
+              mountPath: /export
+        - name: init-access-origin
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: ['/usr/local/bin/ipfs', 'config', '--json', 'API.HTTPHeaders.Access-Control-Allow-Origin', "[\"*\"]" ]
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: data
+              mountPath: /data/ipfs
+            - name: staging
+              mountPath: /export
+        - name: init-access-methods
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: ['/usr/local/bin/ipfs', 'config', '--json', 'API.HTTPHeaders.Access-Control-Allow-Methods', "[\"PUT\",\"POST\"]" ]
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: data
+              mountPath: /data/ipfs
+            - name: staging
+              mountPath: /export
+        - name: init-chown
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          command: ['chown', '-R', '1000:100', '/data/ipfs']
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: data
+              mountPath: /data/ipfs
+            - name: staging
+              mountPath: /export
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: data
-              mountPath: /data/ipfs 
-          volumeMounts:
+              mountPath: /data/ipfs
             - name: staging
               mountPath: /export
           ports:
-            - name: {{ $scheme }}
-              containerPort: 9080
+            - name: swarm
+              containerPort: 9401
+            - name: api
+              containerPort: 9501
+            - name: gateway
+              containerPort: 9880
             {{- range $key, $val := .Values.environment }}
             - name: {{ $key }}
               value: {{ $val | quote }}
             {{- end}}
       volumes:
         - name: data
-        {{- if .Values.emptyDirVolumes }}
-          emptyDir: {}
-        {{- else }}
+        {{- if ne (include "configuredHostPathData" .) "" }}
           hostPath:
-            path: {{ template "configuredDataHostPath" . }}
+            path: {{ template "configuredHostPathData" . }}
+        {{- else }}
+          emptyDir: {}
         {{- end }}
         - name: staging
-        {{- if .Values.emptyDirVolumes }}
-          emptyDir: {}
-        {{- else }}
+        {{- if ne (include "configuredHostPathStaging" .) "" }}
           hostPath:
-            path: {{ template "configuredStagingHostPath" . }}
+            path: {{ template "configuredHostPathStaging" . }}
+        {{- else }}
+          emptyDir: {}
         {{- end }}

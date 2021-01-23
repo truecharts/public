@@ -13,7 +13,7 @@ Retrieve host path from ix volumes based on dataset name
 {{/*
 Retrieve host path for ipfs
 */}}
-{{- define "configuredDataHostPath" -}}
+{{- define "configuredHostPathData" -}}
 {{- if .Values.ipfsDataHostPathEnabled -}}
 {{- .Values.ipfsDataHostPath -}}
 {{- else -}}
@@ -25,7 +25,7 @@ Retrieve host path for ipfs
 {{/*
 Retrieve host path for ipfs
 */}}
-{{- define "configuredStagingHostPath" -}}
+{{- define "configuredHostPathStaging" -}}
 {{- if .Values.ipfsStagingHostPathEnabled -}}
 {{- .Values.ipfsStagingHostPath -}}
 {{- else -}}

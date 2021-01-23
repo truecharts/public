@@ -1,7 +1,11 @@
 groups:
   - name: "Container Images"
     description: "Image to be used for container"
+  - name: "Workload Configuration"
+    description: "Configure Storage for IPFS"
   - name: "Storage"
+    description: "Configure Storage for IPFS"
+  - name: "IPFS Configuration"
     description: "Configure Storage for IPFS"
 
 portals:
@@ -11,7 +15,8 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-service.nodePort"
+      - "$variable-service.apiPort"
+    path: "/webui"
 
 questions:
   # Image related
@@ -55,7 +60,7 @@ questions:
     group: "Workload Configuration"
     schema:
       type: string
-      default: "RollingUpdate"
+      default: "Recreate"
       enum:
         - value: "RollingUpdate"
           description: "Create new pods and then kill old ones"
@@ -78,14 +83,31 @@ questions:
       type: dict
       required: true
       attrs:
-        - variable: nodePort
-          label: "Node Port to use for IPFS"
+        - variable: swarmPort
+          label: "Swarm Port to use for IPFS (Public)"
           schema:
             type: int
-            min: 9000
+            min: 4000
             max: 65535
-            default: 9080
+            default: 9401
             required: true
+        - variable: apiPort
+          label: "API Port to use for IPFS (local)"
+          schema:
+            type: int
+            min: 4000
+            max: 65535
+            default: 9501
+            required: true
+        - variable: gatewayPort
+          label: "Gateway Port to use for IPFS (local)"
+          schema:
+            type: int
+            min: 4000
+            max: 65535
+            default: 9880
+            required: true
+
 
   - variable: ipfsDataHostPathEnabled
     label: "Configure Host Path for IPFS data"
@@ -124,7 +146,7 @@ questions:
             editable: false
 
   - variable: ipfsStagingHostPathEnabled
-    label: "Configure Host Path for IPFS staging"
+    label: "Configure Host Path for IPFS staging data"
     group: "Storage"
     schema:
       type: boolean
@@ -132,7 +154,7 @@ questions:
       show_subquestions_if: true
       subquestions:
         - variable: ipfsStagingHostPath
-          label: "Specify HostPath for IPFS staging"
+          label: "Specify HostPath for IPFS staging data"
           schema:
             type: hostpath
 
