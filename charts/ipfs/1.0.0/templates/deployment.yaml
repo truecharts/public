@@ -26,7 +26,7 @@ spec:
       initContainers:
         - name: init-init
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          command: ['/bin/sh', '-c', '[ ! -e /data/ipfs/config ] && /usr/local/bin/ipfs init ; exit 0']
+          command: ['/bin/sh', '-c', '[ ! -e /data/ipfs/config ] && (/usr/local/bin/ipfs init ; chown -R 1000:100 /data/ipfs) ; exit 0']
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: data
@@ -80,7 +80,7 @@ spec:
               mountPath: /export
         - name: init-chown
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          command: ['chown', '-R', '1000:100', '/data/ipfs']
+          command: ['chown', '1000:100', '/data/ipfs/config']
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: data
