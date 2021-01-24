@@ -32,7 +32,7 @@ Define hostPath for appVolumes
 {{- range $name, $av := .Values.appVolumeMounts -}}
 {{- if $av.enabled }}
 - name: {{ $name }}
-  {{- if or $av.emptyDir .Values.emptyDirVolumes }}
+  {{- if or $av.emptyDir $.Values.emptyDirVolumes }}
   emptyDir: {}
   {{- else }}
   hostPath:
