@@ -25,31 +25,9 @@ Volumes included by the controller.
 {{- end }}
 {{- end }}
 {{- end }}
-- name: data
-  {{- if .Values.emptyDirVolumes }}
-  emptyDir: {}
-  {{- else }}
-  hostPath:
-    path: {{ template "configuredHostPathData" . }}
-  {{- end }}
-- name: config
-  {{- if .Values.emptyDirVolumes }}
-  emptyDir: {}
-  {{- else }}
-  hostPath:
-    path: {{ template "configuredHostPathConfig" . }}
-  {{- end }}
-- name: downloads
-  {{- if .Values.emptyDirVolumes }}
-  emptyDir: {}
-  {{- else }}
-  hostPath:
-    path: {{ template "configuredHostPathdownloads" . }}
-  {{- end }}
-- name: shared
-  emptyDir: {}
-- name: shared-logs
-  emptyDir: {}
+{{- if and .Values.appVolumesEnabled .Values.appVolumeMounts }}
+{{- include "configuredAppVolumes" . }}
+{{- end }}
 {{- if .Values.additionalVolumes }}
   {{- toYaml .Values.additionalVolumes | nindent 0 }}
 {{- end }}
