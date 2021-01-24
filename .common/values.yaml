@@ -377,21 +377,21 @@ addons:
 
 ## TrueCharts Specific
 
+appVolumesEnabled: false
 appVolumeMounts:
-  - name: data
+  data:
     mountPath: /data
-  - name: config
+    HostPathEnabled: false
+  config:
     mountPath: /config
-  - name: downloads
+    HostPathEnabled: false
+  downloads:
     mountPath: /downloads
-  - name: shared
+    HostPathEnabled: false
+  shared:
     mountPath: /shared
-  - name: shared-logs
+  shared-logs:
     mountPath: "/shared/logs"
-
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
 
 emptyDirVolumes: true
 
