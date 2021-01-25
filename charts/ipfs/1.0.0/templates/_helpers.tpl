@@ -35,22 +35,14 @@ Create chart name and version as used by the chart label.
 Return the appropriate apiVersion for deployment.
 */}}
 {{- define "ipfs.deployment.apiVersion" -}}
-{{- if semverCompare "<1.9-0" .Capabilities.KubeVersion.Version -}}
-{{- print "apps/v1beta2" -}}
-{{- else -}}
 {{- print "apps/v1" -}}
-{{- end -}}
 {{- end -}}
 
 {{/*
 Return the appropriate apiVersion for statefulset.
 */}}
 {{- define "ipfs.statefulset.apiVersion" -}}
-{{- if semverCompare "<1.17-0" .Capabilities.KubeVersion.Version -}}
-{{- print "apps/v1beta2" -}}
-{{- else -}}
 {{- print "apps/v1" -}}
-{{- end -}}
 {{- end -}}
 
 {{/*
@@ -72,13 +64,4 @@ Determine name for scc role and rolebinding
 */}}
 {{- define "ipfs.sccRoleName" -}}
 {{- printf "%s-%s" "scc" (include "ipfs.fullname" .) | trunc 63 | trimSuffix "-" -}}
-{{- end -}}
-
-{{/*
-Properly format optional additional arguments to IPFS binary
-*/}}
-{{- define "ipfs.extraArgs" -}}
-{{- range .Values.extraArgs -}}
-{{ " " }}{{ . }}
-{{- end -}}
 {{- end -}}
