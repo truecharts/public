@@ -25,9 +25,7 @@ Volumes included by the controller.
 {{- end }}
 {{- end }}
 {{- end }}
-{{- if and .Values.appVolumesEnabled .Values.appVolumeMounts }}
 {{- include "configuredAppVolumes" . }}
-{{- end }}
 {{- if .Values.additionalVolumes }}
   {{- toYaml .Values.additionalVolumes | nindent 0 }}
 {{- end }}
