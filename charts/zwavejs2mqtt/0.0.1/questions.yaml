@@ -1,0 +1,194 @@
+groups:
+  - name: "Container Images"
+    description: "Image to be used for container"
+  - name: "Networking"
+    description: "Configure networking for container"
+  - name: "Storage"
+    description: "Configure Storage for zwavejsmqtt"
+  - name: "Scaling/Upgrade Policy"
+    description: "Configure how pods are replaced when configuration is upgraded"
+  - name: "Service Configuration"
+    description: "Configure zwavejsmqtt"
+
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$node_ip"
+    ports:
+      - "$variable-service.nodePort"
+
+questions:
+# Container Images
+  - variable: image
+    description: "Docker Image Details"
+    label: "Docker Image"
+    group: "Container Images"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: repository
+          description: "Docker image repository"
+          label: "Image repository"
+          schema:
+            type: string
+            default: "zwavejs/zwavejs2mqtt"
+            editable: false
+        - variable: tag
+          description: "Tag to use for specified image"
+          label: "Image Tag"
+          schema:
+            type: string
+            default: "latest"
+        - variable: pullPolicy
+          description: "Docker Image Pull Policy"
+          label: "Image Pull Policy"
+          schema:
+            type: string
+            default: "IfNotPresent"
+            enum:
+              - value: "IfNotPresent"
+                description: "Only pull image if not present on host"
+              - value: "Always"
+                description: "Always pull image even if present on host"
+              - value: "Never"
+                description: "Never pull image even if it's not present on host"
+
+# Update Policy
+  - variable: strategyType
+    description: "Upgrade Policy"
+    label: "Update Strategy"
+    group: "Scaling/Upgrade Policy"
+    schema:
+      type: string
+      default: "Recreate"
+      enum:
+        - value: "RollingUpdate"
+          description: "Create new pods and then kill old ones"
+        - value: "Recreate"
+          description: "Kill existing pods before creating new ones"
+
+# Networking
+  - variable: hostNetwork
+    label: "Configure Host Network"
+    group: "Networking"
+    schema:
+      type: boolean
+      default: false
+  - variable: service
+    label: "zwavejsmqtt Service Configuration"
+    group: "Networking"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: nodePort
+          label: "Port to expose for zwavejsmqtt UI"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 38091
+
+# Configure zwavejs2mqtt
+  - variable: timezone
+    label: "Timezone"
+    group: "Service Configuration"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
+
+  - variable: securityContext
+    label: "Security Context"
+    group: "Service Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: privileged
+          label: "Enable privileged"
+          decription: "Required to access USB device on the host machine"
+          schema:
+            type: boolean
+            default: true
+
+# Storage test example for proposed TrueCharts common-0.1.0 ---
+  - variable: appVolumesEnabled
+    label: "enable storage"
+    group: "Storage"
+    schema:
+      type: boolean
+      default: true
+
+  - variable: appVolumeMounts
+    label: "app storage"
+    group: "Storage"
+    schema:
+      type: dict
+      attrs:
+        # Config ------------------------
+        - variable: config
+          label: "config dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "ix-zwavejsmqtt_config"
+                  editable: true
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/usr/src/app/store"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+        # Zwave -------------------------
+        - variable: zwave
+          label: "zwave device"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/dev/ttyAMC0"
+              - variable: hostPath
+                label: "Host Path"
+                schema:
+                  type: path
+                  required: true
+                  default: "/dev/ttyAMC0"
