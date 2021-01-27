@@ -105,9 +105,9 @@ spec:
               containerPort: 9880
           {{- if .Values.environment }}
           env:
-            {{- range $key, $val := .Values.environment }}
-            - name: {{ $key }}
-              value: {{ $val | quote }}
+            {{- range $envVariable := .Values.environment }}
+            - name: {{ $envVariable.name }}
+              value: {{ $envVariable.value | quote }}
             {{- end}}
           {{- end }}
       volumes:
