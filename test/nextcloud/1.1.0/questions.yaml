@@ -74,12 +74,14 @@ questions:
               - "definitions/nodeIP"
         - variable: username
           label: "Username"
+          description: "Name of the Nextcloud admin user"
           schema:
             type: string
             default: "admin"
             required: true
         - variable: password
           label: "Password"
+          description: "Password for the Nextcloud admin user"
           schema:
             type: string
             private: true
@@ -87,6 +89,7 @@ questions:
             required: true
         - variable: datadir
           label: "Nextcloud data directory"
+          description: "Configures the data directory where nextcloud stores all files from the users"
           schema:
             type: path
             default: "/var/www/html/data"
@@ -133,7 +136,7 @@ questions:
             type: hostpath
 
   - variable: nextcloudDataVolume
-    label: "Configure iXVolume"
+    label: "Nextcloud Data Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -156,7 +159,7 @@ questions:
             editable: false
 
   - variable: postgresBackupVolume
-    label: "Postgres Backup Volume"
+    label: "Postgres Backup Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -177,7 +180,7 @@ questions:
             editable: false
 
   - variable: postgresDataVolume
-    label: "Postgresql Data Volume"
+    label: "Postgresql Data Volume Defaults"
     group: "Storage"
     schema:
       type: dict
