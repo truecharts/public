@@ -39,7 +39,7 @@ Get Restart policy based on workload type
 */}}
 {{- define "restartPolicy" -}}
 {{- if eq (include "workloadIsDeployment" .) "true" }}
-{{- printf "%s" .Values.restartPolicy }}
+{{- print "Always" }}
 {{- else }}
 {{- printf "%s" .Values.jobRestartPolicy }}
 {{- end }}

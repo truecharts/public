@@ -99,21 +99,6 @@ questions:
           description: "Kill existing pods before creating new ones"
 
   # Restart Policy
-  - variable: restartPolicy
-    description: "Restart Policy for workload"
-    label: "Restart Policy"
-    group: "Restart Policy"
-    schema:
-      type: string
-      show_if: [["workloadType", "=", "Deployment"]]
-      default: "Always"
-      enum:
-        - value: "Always"
-          description: "Always restart containers in a pod if they exit"
-        - value: "OnFailure"
-          description: "Only restart containers if they exit with a failure"
-        - value: "Never"
-          description: "Never restart containers if they exit"
   - variable: jobRestartPolicy
     description: "Restart Policy for workload"
     label: "Restart Policy"
