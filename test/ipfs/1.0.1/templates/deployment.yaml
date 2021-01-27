@@ -103,10 +103,13 @@ spec:
               containerPort: 9501
             - name: gateway
               containerPort: 9880
+          {{- if .Values.environment }}
+          env:
             {{- range $key, $val := .Values.environment }}
             - name: {{ $key }}
               value: {{ $val | quote }}
             {{- end}}
+          {{- end }}
       volumes:
         - name: data
         {{- if .Values.emptyDirVolumes }}
