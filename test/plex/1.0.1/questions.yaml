@@ -70,6 +70,7 @@ questions:
   - variable: claimToken
     label: "Plex Claim Token"
     group: "Plex Configuration"
+    description: "The claim token for the server to obtain a real server token. If not provided, server is will not be automatically logged in. If server is already logged in, this parameter is ignored. You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim."
     schema:
       type: string
       default: ""
@@ -157,7 +158,7 @@ questions:
             required: true
 
   - variable: transcodeVolume
-    label: "Configure iXVolume"
+    label: "Transcode Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -173,7 +174,7 @@ questions:
             editable: false
             default: "/transcode"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Transcode Dataset Name"
           schema:
             type: string
             default: "ix-plex_transcode"
@@ -194,7 +195,7 @@ questions:
             required: true
 
   - variable: dataVolume
-    label: "Configure data iXVolume"
+    label: "Data Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -210,7 +211,7 @@ questions:
             editable: false
             default: "/data"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Data Dataset Name"
           schema:
             type: string
             default: "ix-plex_data"
@@ -231,7 +232,7 @@ questions:
             required: true
 
   - variable: configVolume
-    label: "Configure iXVolume"
+    label: "Configuration Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -247,7 +248,7 @@ questions:
             editable: false
             default: "/config"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Configuration Dataset Name"
           schema:
             type: string
             default: "ix-plex_config"
