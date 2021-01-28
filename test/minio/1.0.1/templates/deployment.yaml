@@ -51,8 +51,12 @@ spec:
                   name: {{ template "minio.secretName" . }}
                   key: secretkey
             {{- range $envVariable := .Values.environment }}
+            {{- if and $envVariable.name $envVariable.value }}
             - name: {{ $envVariable.name }}
               value: {{ $envVariable.value | quote }}
+            {{- else }}
+              {{- fail "Please specify name/value for environment variable" }}
+            {{- end }}
             {{- end}}
       volumes:
         - name: export

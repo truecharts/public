@@ -69,8 +69,12 @@ spec:
                 fieldPath: metadata.namespace
 # Extra ENV Values supplied by user
 {{- range $envVariable := .Values.environmentVariables }}
+          {{- if and $envVariable.name $envVariable.value }}
           - name: {{ $envVariable.name }}
             value: {{ $envVariable.value | quote }}
+          {{- else }}
+            {{- fail "Please specify name/value for environment variable" }}
+          {{- end }}
 {{- end}}
           readinessProbe:
             httpGet:
