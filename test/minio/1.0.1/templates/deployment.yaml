@@ -50,7 +50,7 @@ spec:
                 secretKeyRef:
                   name: {{ template "minio.secretName" . }}
                   key: secretkey
-            {{- range $envVariable := .Values.environment }}
+            {{- range $envVariable := .Values.environmentVariables }}
             {{- if and $envVariable.name $envVariable.value }}
             - name: {{ $envVariable.name }}
               value: {{ $envVariable.value | quote }}
