@@ -18,3 +18,10 @@ Return the appropriate apiVersion for StatefulSet objects.
 {{- define "common.capabilities.statefulset.apiVersion" -}}
 {{- print "apps/v1" -}}
 {{- end -}}
+
+{{/*
+Return the appropriate apiVersion for StatefulSet objects.
+*/}}
+{{- define "common.capabilities.cronjob.apiVersion" -}}
+{{- print "batch/v1beta1" -}}
+{{- end -}}
