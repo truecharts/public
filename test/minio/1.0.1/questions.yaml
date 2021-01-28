@@ -81,6 +81,7 @@ questions:
   - variable: accessKey
     label: "Access Key"
     group: "Minio Configuration"
+    description: "Enter the S3 access ID"
     schema:
       type: string
       private: true
@@ -91,6 +92,7 @@ questions:
   - variable: secretKey
     label: "Secret Key"
     group: "Minio Configuration"
+    description: "Enter the S3 secret access key"
     schema:
       type: string
       private: true
@@ -102,9 +104,22 @@ questions:
     label: "Minio image environment"
     group: "Minio Configuration"
     schema:
-      type: dict
-      additional_attrs: true
-      attrs: []
+      type: list
+      default: []
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
 
   - variable: service
     description: "Minio Service Configuration"
@@ -137,7 +152,7 @@ questions:
             type: hostpath
 
   - variable: minioDataVolume
-    label: "Configure iXVolume"
+    label: "Minio Data Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -146,14 +161,14 @@ questions:
       show_if: [["minioHostPathEnabled", "=", false]]
       attrs:
         - variable: mountPath
-          label: "Mount Path"
+          label: "Minio Data Mount Path"
           description: "Path where the volume will be mounted inside the pod"
           schema:
             type: path
             editable: false
             default: "/export"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Minio Dataset Name"
           schema:
             type: string
             default: "ix-minio"

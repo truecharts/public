@@ -70,43 +70,10 @@ questions:
   - variable: claimToken
     label: "Plex Claim Token"
     group: "Plex Configuration"
+    description: "The claim token for the server to obtain a real server token. If not provided, server is will not be automatically logged in. If server is already logged in, this parameter is ignored. You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim."
     schema:
       type: string
       default: ""
-
-  - variable: advertiseIp
-    label: "Plex Advertise IP"
-    group: "Plex Configuration"
-    schema:
-      type: string
-
-  - variable: extraEnv
-    label: "Environment variables for plex"
-    group: "Plex Configuration"
-    schema:
-      type: dict
-      additional_attrs: true
-      attrs: []
-
-  - variable: proxy
-    label: "Configure Proxy environment variable"
-    group: "Plex Configuration"
-    schema:
-      type: dict
-      attrs:
-        - variable: enabled
-          label: "Enable Proxy"
-          schema:
-            type: boolean
-            default: false
-        - variable: http
-          label: "HTTP Proxy"
-          schema:
-            type: string
-        - variable: https
-          label: "HTTPS Proxy"
-          schema:
-            type: string
 
   - variable: hostNetwork
     label: "Configure Host Network"
@@ -114,6 +81,27 @@ questions:
     schema:
       type: boolean
       default: false
+
+  - variable: environmentVariables
+    label: "Environment Variables for Plex"
+    group: "Plex Configuration"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
 
   - variable: timezone
     label: "Plex container timezone"
@@ -168,7 +156,7 @@ questions:
             required: true
 
   - variable: transcodeVolume
-    label: "Configure iXVolume"
+    label: "Transcode Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -184,7 +172,7 @@ questions:
             editable: false
             default: "/transcode"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Transcode Dataset Name"
           schema:
             type: string
             default: "ix-plex_transcode"
@@ -205,7 +193,7 @@ questions:
             required: true
 
   - variable: dataVolume
-    label: "Configure data iXVolume"
+    label: "Data Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -221,7 +209,7 @@ questions:
             editable: false
             default: "/data"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Data Dataset Name"
           schema:
             type: string
             default: "ix-plex_data"
@@ -242,7 +230,7 @@ questions:
             required: true
 
   - variable: configVolume
-    label: "Configure iXVolume"
+    label: "Configuration Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -258,7 +246,7 @@ questions:
             editable: false
             default: "/config"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "Configuration Dataset Name"
           schema:
             type: string
             default: "ix-plex_config"

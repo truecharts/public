@@ -83,12 +83,10 @@ questions:
                 label: "Name"
                 schema:
                   type: string
-                  required: true
               - variable: value
                 label: "Value"
                 schema:
                   type: string
-                  required: true
 
   - variable: service
     description: "IPFS Service Configuration"
@@ -102,7 +100,7 @@ questions:
           label: "Swarm Port to use for IPFS (Public)"
           schema:
             type: int
-            min: 4000
+            min: 9000
             max: 65535
             default: 9401
             required: true
@@ -110,7 +108,7 @@ questions:
           label: "API Port to use for IPFS (local)"
           schema:
             type: int
-            min: 4000
+            min: 9000
             max: 65535
             default: 9501
             required: true
@@ -118,7 +116,7 @@ questions:
           label: "Gateway Port to use for IPFS (local)"
           schema:
             type: int
-            min: 4000
+            min: 9000
             max: 65535
             default: 9880
             required: true
@@ -138,7 +136,7 @@ questions:
             type: hostpath
 
   - variable: ipfsDataVolume
-    label: "Configure iXVolume"
+    label: "IPFS Data Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -154,7 +152,7 @@ questions:
             editable: false
             default: "/data/ipfs"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "IPFS Data Dataset Name"
           schema:
             type: string
             default: "ix-ipfs-data"
@@ -174,7 +172,7 @@ questions:
             type: hostpath
 
   - variable: ipfsStagingVolume
-    label: "Configure iXVolume"
+    label: "IPFS Staging Volume Defaults"
     group: "Storage"
     schema:
       type: dict
@@ -190,7 +188,7 @@ questions:
             editable: false
             default: "/export"
         - variable: datasetName
-          label: "Dataset Name"
+          label: "IPFS Staging Dataset Name"
           schema:
             type: string
             default: "ix-ipfs-staging"
