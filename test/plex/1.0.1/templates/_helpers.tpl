@@ -50,32 +50,3 @@ Selector labels
 app.kubernetes.io/name: {{ include "plex.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end -}}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "plex.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create -}}
-    {{ default (include "plex.fullname" .) .Values.serviceAccount.name }}
-{{- else -}}
-    {{ default "default" .Values.serviceAccount.name }}
-{{- end -}}
-{{- end -}}
-
-{{/*
-abstract: |
-  Joins a list of values into a comma separated string
-values: |
-  test:
-    - foo
-    - bar
-usage: |
-  {{ include "joinListWithComma" .Values.test }}
-return: |
-  foo,bar
-*/}}
-
-{{- define "joinListWithComma" -}}
-{{- $local := dict "first" true -}}
-{{- range $k, $v := . -}}{{- if not $local.first -}},{{- end -}}{{- $v -}}{{- $_ := set $local "first" false -}}{{- end -}}
-{{- end -}}
