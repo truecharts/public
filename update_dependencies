@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import argparse
 import errno
 import os
@@ -54,7 +54,7 @@ def report_result():
             )
 
 
-def update_train_charts(train_path):
+def update_train_charts(train_path, commit):
     # We will gather all charts in the train and then for each chart all it's versions will be updated
     if not os.path.exists(train_path):
         raise TrainNotFoundException()
@@ -65,6 +65,26 @@ def update_train_charts(train_path):
 
     report_result()
 
+    if commit:
+        if any(ITEMS[item]['error'] for item in ITEMS):
+            print(f'[\033[91mFAILED\x1B[0m]\tNot committing changes as failures detected')
+        else:
+            commit_msg = 'Updated catalog item dependencies\nFollowing items were updated:\n'
+            for item in ITEMS:
+                commit_msg += f'Updated {item} ({", ".join(ITEMS[item]["success"])} versions)\n\n'
+
+            for cmd in (
+                ['git', '-C', train_path, 'add', train_path],
+                ['git', '-C', train_path, 'commit', '-m', commit_msg]
+            ):
+                cp = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+                stderr = cp.communicate()[1]
+                if cp.returncode:
+                    print(f'[\033[91mFAILED\x1B[0m]\tFailed to execute {" ".join(cmd)}: {stderr.decode()}')
+                    exit(1)
+
+            print('[\033[92mOK\x1B[0m]\tChanges committed successfully')
+
 
 def process_catalog_item(item_path):
     if not os.path.exists(item_path):
@@ -73,7 +93,8 @@ def process_catalog_item(item_path):
     item_name = item_path.rsplit('/', 1)[-1]
     print(f'[\033[94mINFO\x1B[0m]\tProcessing {item_name!r} catalog item')
     for item_version in os.listdir(item_path):
-        update_item_version(item_name, item_version, os.path.join(item_path, item_version))
+        if os.path.isdir(os.path.join(item_path, item_version)):
+            update_item_version(item_name, item_version, os.path.join(item_path, item_version))
 
 
 def update_item_version(item_name, version, version_path):
@@ -93,10 +114,11 @@ def main():
 
     parser_setup = subparsers.add_parser('update', help='Update dependencies for specified train')
     parser_setup.add_argument('--train', help='Specify train path to update dependencies', required=True)
+    parser_setup.add_argument('--commit', help='Commit after updating dependencies', default=False)
 
     args = parser.parse_args()
     if args.action == 'update':
-        update_train_charts(args.train)
+        update_train_charts(args.train, args.commit)
     else:
         parser.print_help()
 
