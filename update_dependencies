@@ -41,7 +41,7 @@ def report_result():
     for index, item in enumerate(ITEMS):
         index += 1
         data = ITEMS[item]
-        print(f'\n\n[\033[94mINFO\x1B[0m]\t{index}) {item}')
+        print(f'\n[\033[94mINFO\x1B[0m]\t{index}) {item}')
         if data['success']:
             print(
                 f'[\033[92mOK\x1B[0m]\t - Successfully updated dependencies for {", ".join(data["success"])} versions'
@@ -65,11 +65,12 @@ def update_train_charts(train_path, commit):
 
     report_result()
 
-    if commit:
+    if commit and any(ITEMS[item]['success'] for item in ITEMS):
         if any(ITEMS[item]['error'] for item in ITEMS):
             print(f'[\033[91mFAILED\x1B[0m]\tNot committing changes as failures detected')
         else:
-            commit_msg = 'Updated catalog item dependencies\nFollowing items were updated:\n'
+            commit_msg = f'Updated catalog item dependencies ({train_path.rsplit("/", 1)[0]} train)\n' \
+                         'Following items were updated:\n'
             for item in ITEMS:
                 commit_msg += f'Updated {item} ({", ".join(ITEMS[item]["success"])} versions)\n\n'
 
