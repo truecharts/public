@@ -1,23 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "plex.fullname" . }}
-  labels:
-    {{- include "plex.labels" . | nindent 4 }}
+  name: {{ include "common.names.fullname" . }}
+  labels: {{ include "common.labels" . | nindent 4 }}
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   strategy:
     type: {{ .Values.strategyType }}
   selector:
-    matchLabels:
-      {{- include "plex.selectorLabels" . | nindent 6 }}
+    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      labels:
-        {{- include "plex.selectorLabels" . | nindent 8 }}
-      annotations:
-        rollme: {{ randAlphaNum 5 | quote }}
+      labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
+      annotations: {{ include "common.annotations" . | nindent 8 }}
     spec:
     {{- if .Values.hostNetwork }}
       hostNetwork: {{ .Values.hostNetwork }}
@@ -25,8 +21,7 @@ spec:
     {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           ports:
           - name: pms
             protocol: TCP
@@ -53,29 +48,16 @@ spec:
             protocol: UDP
             containerPort: 32414
           env:
-          - name: TZ
-            value: "{{ .Values.timezone }}"
-          # TODO: move this to a secret?
-          - name: PLEX_CLAIM
-            value: "{{ .Values.claimToken }}"
-          # plex env vars
-          - name: PMS_INTERNAL_ADDRESS
-            value: http://{{ template "plex.fullname" . }}:32400
-          - name: PMS_IMAGE
-            value: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          - name: KUBE_NAMESPACE
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace
-# Extra ENV Values supplied by user
-{{- range $envVariable := .Values.environmentVariables }}
-          {{- if and $envVariable.name $envVariable.value }}
-          - name: {{ $envVariable.name }}
-            value: {{ $envVariable.value | quote }}
-          {{- else }}
-            {{- fail "Please specify name/value for environment variable" }}
-          {{- end }}
-{{- end}}
+            - name: KUBE_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            {{ $envList := (default list .Values.environmentVariables) }}
+            {{ $envList = mustAppend $envList (dict "name" "TZ" "value" .Values.timezone) }}
+            {{ $envList = mustAppend $envList (dict "name" "PLEX_CLAIM" "value" .Values.claimToken) }}
+            {{ $envList = mustAppend $envList (dict "name" "PMS_INTERNAL_ADDRESS" "value" (printf "http://%s:32400" (include "common.names.fullname" .))) }}
+            {{ $envList = mustAppend $envList (dict "name" "PMS_IMAGE" "value" (printf "%s:%s" .Values.image.repository .Values.image.tag))}}
+            {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
           readinessProbe:
             httpGet:
               path: /identity
@@ -112,28 +94,11 @@ spec:
               {{- toYaml .Values.gpuConfiguration | nindent 14 }}
           {{- end }}
       volumes:
-      - name: data
-        {{- if .Values.emptyDirVolumes }}
-        emptyDir: {}
-        {{- else }}
-        hostPath:
-          path: {{ template "configuredHostPathData" . }}
-        {{- end }}
-      - name: config
-        {{- if .Values.emptyDirVolumes }}
-        emptyDir: {}
-        {{- else }}
-        hostPath:
-          path: {{ template "configuredHostPathConfig" . }}
-        {{- end }}
-      - name: transcode
-        {{- if .Values.emptyDirVolumes }}
-        emptyDir: {}
-        {{- else }}
-        hostPath:
-          path: {{ template "configuredHostPathTranscode" . }}
-        {{- end }}
-      - name: shared
-        emptyDir: {}
-      - name: shared-logs
-        emptyDir: {}
+        {{ $emptyDir := .Values.emptyDirVolumes }}
+        {{ $vols := list }}
+        {{ $vols = mustAppend $vols (dict "name" "data" "emptyDirVolumes" $emptyDir "hostPathEnabled" .Values.dataHostPathEnabled "pathField" .Values.dataHostPath "datasetName" (.Values.dataVolume | default dict).datasetName ) }}
+        {{ $vols = mustAppend $vols (dict "name" "config" "emptyDirVolumes" $emptyDir "hostPathEnabled" .Values.configHostPathEnabled "pathField" .Values.configHostPath "datasetName" (.Values.configVolume | default dict).datasetName ) }}
+        {{ $vols = mustAppend $vols (dict "name" "transcode" "emptyDirVolumes" $emptyDir "hostPathEnabled" .Values.transcodeHostPathEnabled "pathField" .Values.transcodeHostPath "datasetName" (.Values.transcodeVolume | default dict).datasetName ) }}
+        {{ $vols = mustAppend $vols (dict "name" "shared" "emptyDirVolumes" true "hostPathEnabled" false "pathField" nil "datasetName" nil) }}
+        {{ $vols = mustAppend $vols (dict "name" "shared-logs" "emptyDirVolumes" true "hostPathEnabled" false "pathField" nil "datasetName" nil) }}
+        {{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) | nindent 8 }}
