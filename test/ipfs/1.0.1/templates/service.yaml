@@ -1,31 +1,6 @@
-{{ $scheme := "http" }}
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ template "ipfs.fullname" . }}
-  labels:
-    app: {{ template "ipfs.name" . }}
-    chart: {{ template "ipfs.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
-spec:
-  type: "NodePort"
-  ports:
-    - name: swarm
-      port: {{ .Values.service.swarmPort }}
-      protocol: TCP
-      nodePort: {{ .Values.service.swarmPort }}
-      targetPort: 9401
-    - name: api
-      port: {{ .Values.service.apiPort }}
-      protocol: TCP
-      nodePort: {{ .Values.service.apiPort }}
-      targetPort: 9501
-    - name: gateway
-      port: {{ .Values.service.gatewayPort }}
-      protocol: TCP
-      nodePort: {{ .Values.service.gatewayPort }}
-      targetPort: 9880
-  selector:
-    app: {{ template "ipfs.name" . }}
-    release: {{ .Release.Name }}
+{{ $svc := .Values.service }}
+{{ $ports := list }}
+{{ $ports = mustAppend $ports (dict "name" "swarm" "port" $svc.swarmPort "nodePort" $svc.swarmPort "targetPort" 9401) }}
+{{ $ports = mustAppend $ports (dict "name" "api" "port" $svc.apiPort "nodePort" $svc.apiPort "targetPort" 9501) }}
+{{ $ports = mustAppend $ports (dict "name" "gateway" "port" $svc.gatewayPort "nodePort" $svc.gatewayPort "targetPort" 9880) }}
+{{ include "common.classes.service" (dict "type" "NodePort" ) }}
