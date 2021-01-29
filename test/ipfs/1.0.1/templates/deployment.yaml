@@ -13,7 +13,7 @@ spec:
       name: {{ template "common.names.fullname" . }}
       labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ include "ipfs.serviceAccountName" . | quote }}
+      serviceAccountName: {{ include "common.names.serviceAccountName" . | quote }}
       initContainers:
         - name: init-init
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
