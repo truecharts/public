@@ -1,21 +1,30 @@
 {{/*
-Render environment variables
+Render environment variable
 */}}
-{{- define "common.containers.environmentVariables" -}}
-{{- $values := . -}}
-{{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "environmentVariables")) -}}
-{{- range $envVariable := $values.environmentVariables -}}
+{{- define "common.containers.environmentVariable" -}}
+{{- $envVariable := . -}}
 {{- include "common.schema.validateKeys" (dict "values" $envVariable "checkKeys" (list "name")) -}}
-- name: {{ $envVariable.name }}
 {{- if $envVariable.valueFromSecret -}}
 {{- include "common.schema.validateKeys" (dict "values" $envVariable "checkKeys" (list "secretName" "secretKey")) -}}
+- name: {{ $envVariable.name }}
   valueFrom:
     secretKeyRef:
       name: {{ $envVariable.secretName }}
       key: {{ $envVariable.secretKey }}
 {{- else -}}
 {{- include "common.schema.validateKeys" (dict "values" $envVariable "checkKeys" (list "value")) -}}
+- name: {{ $envVariable.name }}
   value: {{ $envVariable.value }}
 {{- end -}}
+{{- end -}}
+
+{{/*
+Render environment variables
+*/}}
+{{- define "common.containers.environmentVariables" -}}
+{{- $values := . -}}
+{{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "environmentVariables")) -}}
+{{- range $envVariable := $values.environmentVariables -}}
+{{- include "common.containers.environmentVariable" $envVariable | nindent 0 -}}
 {{- end -}}
 {{- end -}}
