@@ -1,87 +1,71 @@
-{{ $scheme := "http" }}
-apiVersion: {{ template "ipfs.deployment.apiVersion" . }}
+apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
-  name: {{ template "ipfs.fullname" . }}
-  labels:
-    app: {{ template "ipfs.name" . }}
-    chart: {{ template "ipfs.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+  name: {{ template "common.names.fullname" . }}
+  labels: {{ include "common.labels" . | nindent 4 }}
 spec:
   strategy:
     type: {{ .Values.updateStrategy }}
   selector:
-    matchLabels:
-      app: {{ template "ipfs.name" . }}
-      release: {{ .Release.Name }}
+    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      name: {{ template "ipfs.fullname" . }}
-      labels:
-        app: {{ template "ipfs.name" . }}
-        release: {{ .Release.Name }}
+      name: {{ template "common.names.fullname" . }}
+      labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
     spec:
       serviceAccountName: {{ include "ipfs.serviceAccountName" . | quote }}
       initContainers:
         - name: init-init
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/bin/sh', '-c', '[ ! -e /data/ipfs/config ] && (/usr/local/bin/ipfs init ; chown -R 1000:100 /data/ipfs) ; exit 0']
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: data
               mountPath: /data/ipfs
             - name: staging
               mountPath: /export
         - name: init-api
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/usr/local/bin/ipfs', 'config', 'Addresses.API', "/ip4/0.0.0.0/tcp/{{ .Values.service.apiPort}}"]
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: data
               mountPath: /data/ipfs
             - name: staging
               mountPath: /export
         - name: init-gateway
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/usr/local/bin/ipfs', 'config', 'Addresses.Gateway', "/ip4/0.0.0.0/tcp/{{ .Values.service.gatewayPort}}"]
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: data
               mountPath: /data/ipfs
             - name: staging
               mountPath: /export
         - name: init-swarm
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/usr/local/bin/ipfs', 'config', '--json', 'Addresses.Swarm', "[\"/ip4/0.0.0.0/tcp/{{ .Values.service.swarmPort}}\",\"/ip4/0.0.0.0/tcp/{{ .Values.service.swarmPort}}/quic\"]" ]
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: data
               mountPath: /data/ipfs
             - name: staging
               mountPath: /export
         - name: init-access-origin
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/usr/local/bin/ipfs', 'config', '--json', 'API.HTTPHeaders.Access-Control-Allow-Origin', "[\"*\"]" ]
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: data
               mountPath: /data/ipfs
             - name: staging
               mountPath: /export
         - name: init-access-methods
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/usr/local/bin/ipfs', 'config', '--json', 'API.HTTPHeaders.Access-Control-Allow-Methods', "[\"PUT\",\"POST\"]" ]
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: data
               mountPath: /data/ipfs
             - name: staging
               mountPath: /export
         - name: init-chown
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['chown', '1000:100', '/data/ipfs/config']
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
           volumeMounts:
             - name: data
               mountPath: /data/ipfs
@@ -89,8 +73,7 @@ spec:
               mountPath: /export
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           volumeMounts:
             - name: data
               mountPath: /data/ipfs
@@ -105,27 +88,10 @@ spec:
               containerPort: 9880
           {{- if .Values.environment }}
           env:
-            {{- range $envVariable := .Values.environment }}
-            {{- if and $envVariable.name $envVariable.value }}
-            - name: {{ $envVariable.name }}
-              value: {{ $envVariable.value | quote }}
-            {{- else }}
-              {{- fail "Please specify name/value for environment variable" }}
-            {{- end }}
-            {{- end}}
+            {{ include "common.containers.environmentVariables" (dict "environmentVariables" .Values.environment) | nindent 12 }}
           {{- end }}
       volumes:
-        - name: data
-        {{- if .Values.emptyDirVolumes }}
-          emptyDir: {}
-        {{- else }}
-          hostPath:
-            path: {{ template "configuredHostPathData" . }}
-        {{- end }}
-        - name: staging
-        {{- if .Values.emptyDirVolumes }}
-          emptyDir: {}
-        {{- else }}
-          hostPath:
-            path: {{ template "configuredHostPathStaging" . }}
-        {{- end }}
+        {{ $vols := list }}
+        {{ $vols = mustAppend $vols (dict "name" "data" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" .Values.ipfsDataHostPathEnabled "pathField" .Values.ipfsDataHostPath "datasetName" (.Values.ipfsDataVolume | default dict).datasetName ) }}
+        {{ $vols = mustAppend $vols (dict "name" "staging" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" .Values.ipfsStagingHostPath "pathField" .Values.ipfsStagingHostPath "datasetName" (.Values.ipfsStagingVolume | default dict).datasetName ) }}
+        {{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) | nindent 8 }}
