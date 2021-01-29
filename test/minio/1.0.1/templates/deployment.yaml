@@ -1,34 +1,25 @@
 {{ $scheme := "http" }}
-apiVersion: {{ template "minio.deployment.apiVersion" . }}
+apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
-  name: {{ template "minio.fullname" . }}
-  labels:
-    app: {{ template "minio.name" . }}
-    chart: {{ template "minio.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+  name: {{ template "common.names.fullname" . }}
+  labels: {{ include "common.labels" . | nindent 4 }}
 spec:
   strategy:
     type: {{ .Values.updateStrategy }}
   selector:
-    matchLabels:
-      app: {{ template "minio.name" . }}
-      release: {{ .Release.Name }}
+    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      name: {{ template "minio.fullname" . }}
-      labels:
-        app: {{ template "minio.name" . }}
-        release: {{ .Release.Name }}
+      name: {{ template "common.names.fullname" . }}
+      labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
       annotations:
         checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
     spec:
-      serviceAccountName: {{ include "minio.serviceAccountName" . | quote }}
+      serviceAccountName: {{ include "common.names.serviceAccountName" . | quote }}
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command:
             - "/bin/sh"
             - "-ce"
@@ -40,32 +31,12 @@ spec:
             - name: {{ $scheme }}
               containerPort: 9000
           env:
-            - name: MINIO_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ template "minio.secretName" . }}
-                  key: accesskey
-            - name: MINIO_SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ template "minio.secretName" . }}
-                  key: secretkey
-            {{- range $envVariable := .Values.environmentVariables }}
-            {{- if and $envVariable.name $envVariable.value }}
-            - name: {{ $envVariable.name }}
-              value: {{ $envVariable.value | quote }}
-            {{- else }}
-              {{- fail "Please specify name/value for environment variable" }}
-            {{- end }}
-            {{- end}}
+            {{ $secretName := (include "minio.secretName" .) }}
+            {{ $envList := (default list .Values.environment) }}
+            {{ $envList = mustAppend $envList (dict "name" "MINIO_ACCESS_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "accesskey") }}
+            {{ $envList = mustAppend $envList (dict "name" "MINIO_SECRET_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "secretkey") }}
+            {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
       volumes:
-        - name: export
-        {{- if .Values.emptyDirVolumes }}
-          emptyDir: {}
-        {{- else }}
-          hostPath:
-            path: {{ template "configuredMinioHostPath" . }}
-        {{- end }}
-        - name: minio-user
-          secret:
-            secretName: {{ template "minio.secretName" . }}
+        {{ $vols := list }}
+        {{ $vols = mustAppend $vols (dict "name" "export" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" .Values.minioHostPathEnabled "pathField" .Values.minioHostPath "datasetName" (.Values.minioDataVolume | default dict).datasetName ) }}
+        {{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) | nindent 8 }}
