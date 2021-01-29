@@ -11,15 +11,15 @@ This expects a dictionary in the following format:
     "datasetName": string,
 }
 */}}
-{{- define "common.volumeConfig" -}}
+{{- define "common.storage.volumeConfig" -}}
 {{- $values := . -}}
-{{- include "common.validateKeys" (dict "values" $values "checkKeys" (list "name")) -}}
+{{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "name")) -}}
 - name: {{ $values.name }}
 {{- if $values.emptyDirVolumes -}}
   emptyDir: {}
 {{- else -}}
   hostPath:
-    path: {{ template "common.configuredHostPath" $values }}
+    path: {{ template "common.storage.configuredHostPath" $values }}
 {{- end -}}
 {{- end -}}
 
@@ -41,11 +41,11 @@ This expects a dictionary to be provided in the following format:
     ] ( list of dicts )
 }
 */}}
-{{- define "common.volumesConfiguration" -}}
+{{- define "common.storage.volumesConfiguration" -}}
 {{- $values := . -}}
-{{- include "common.validateKeys" (dict "values" $values "checkKeys" (list "ixVolumes" "volumes")) -}}
+{{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "ixVolumes" "volumes")) -}}
 {{- range $vol := $values.volumes -}}
 {{- $_ := set $vol "ixVolumes" $values.ixVolumes -}}
-{{- include "common.volumeConfig" $vol -}}
+{{- include "common.storage.volumeConfig" $vol -}}
 {{- end -}}
 {{- end -}}

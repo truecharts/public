@@ -1,7 +1,7 @@
 {{/*
 DNS Configuration
 */}}
-{{- define "dnsConfiguration" }}
+{{- define "common.networking.dnsConfiguration" }}
 dnsPolicy: {{ .Values.dnsPolicy }}
 {{- if .Values.dnsConfig }}
 dnsConfig:

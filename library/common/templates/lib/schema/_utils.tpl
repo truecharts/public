@@ -1,7 +1,7 @@
 {{/*
 Checks if a list of keys are present in a dictionary
 */}}
-{{- define "common.validateKeys" -}}
+{{- define "common.schema.validateKeys" -}}
 {{- $values := . -}}
 {{- if and (hasKey $values "values") (hasKey $values "checkKeys") -}}
 {{- $missingKeys := list -}}

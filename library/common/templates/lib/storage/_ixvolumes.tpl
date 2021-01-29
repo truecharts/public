@@ -1,7 +1,7 @@
 {{/*
 Retrieve host path from ix volumes based on dataset name
 */}}
-{{- define "common.retrieveHostPathFromiXVolume" -}}
+{{- define "common.storage.retrieveHostPathFromiXVolume" -}}
 {{- range $index, $hostPathConfiguration := $.ixVolumes }}
 {{- $dsName := base $hostPathConfiguration.hostPath -}}
 {{- if eq $.datasetName $dsName -}}
@@ -13,13 +13,13 @@ Retrieve host path from ix volumes based on dataset name
 {{/*
 Retrieve host path from ix volumes based on a key
 */}}
-{{- define "common.configuredHostPath" -}}
+{{- define "common.storage.configuredHostPath" -}}
 {{- $values := . -}}
 {{- if $values.hostPathEnabled -}}
-{{- include "common.validateKeys" (dict "values" $values "checkKeys" (list "pathField")) -}}
+{{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "pathField")) -}}
 {{- $values.pathField -}}
 {{- else -}}
-{{- include "common.validateKeys" (dict "values" $values "checkKeys" (list "datasetName" "ixVolumes")) -}}
-{{- include "common.retrieveHostPathFromiXVolume" (dict "datasetName" $values.datasetName "ixVolumes" $values.ixVolumes) -}}
+{{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "datasetName" "ixVolumes")) -}}
+{{- include "common.storage.retrieveHostPathFromiXVolume" (dict "datasetName" $values.datasetName "ixVolumes" $values.ixVolumes) -}}
 {{- end -}}
 {{- end -}}
