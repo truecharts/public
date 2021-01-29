@@ -1,21 +1,6 @@
-{{ $scheme := "http" }}
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ template "minio.fullname" . }}
-  labels:
-    app: {{ template "minio.name" . }}
-    chart: {{ template "minio.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
-spec:
-  type: "NodePort"
-  ports:
-    - name: {{ $scheme }}
-      port: {{ .Values.service.nodePort }}
-      protocol: TCP
-      nodePort: {{ .Values.service.nodePort }}
-      targetPort: 9000
-  selector:
-    app: {{ template "minio.name" . }}
-    release: {{ .Release.Name }}
+{{ $svc := .Values.service }}
+{{ $ports := list }}
+{{ $ports = mustAppend $ports (dict "name" "http" "port" $svc.nodePort "nodePort" $svc.nodePort "targetPort" 9000) }}
+{{ $params := . }}
+{{ $_ := set $params "service" (dict "type" "NodePort" "ports" $ports ) }}
+{{ include "common.classes.service" $params }}
