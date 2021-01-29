@@ -29,3 +29,10 @@ Create chart name and version as used by the chart label.
 {{- define "common.names.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
+
+{{/*
+Determine service account name for deployment or statefulset.
+*/}}
+{{- define "common.names.serviceAccountName" -}}
+{{- (include "common.names.fullname" .) | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
