@@ -3,7 +3,7 @@ This template serves as a blueprint for all Service objects that are created
 within the common library.
 */}}
 {{- define "common.classes.service" -}}
-{{- $values := . -}}
+{{- $values := .service -}}
 {{- $serviceName := include "common.names.fullname" . -}}
 {{- if hasKey $values "nameSuffix" -}}
   {{- $serviceName = printf "%v-%v" $serviceName $values.nameSuffix -}}
