@@ -15,19 +15,11 @@ Retrieve host path from ix volumes based on a key
 */}}
 {{- define "common.configuredHostPath" -}}
 {{- $values := . -}}
-{{- if and (hasKey $values "hostPathEnabled") (hasKey $values "pathField") -}}
-{{- end -}}
 {{- if $values.hostPathEnabled -}}
-{{- if hasKey $values "pathField" -}}
+{{- include "common.validateKeys" (dict "values" $values "checkKeys" (list "pathField")) -}}
 {{- $values.pathField -}}
 {{- else -}}
-{{- fail "Path must be specified when host path is enabled" -}}
-{{- end -}}
-{{- else if and (hasKey $values "datasetName") (hasKey $values "ixVolumes") -}}
-{{- $volDict := dict "datasetName" $values.datasetName "ixVolumes" $values.ixVolumes -}}
-{{- include "common.retrieveHostPathFromiXVolume" $volDict -}}
-{{- else -}}
-{{- fail "Dataset name and ix volumes must be specified" -}}
+{{- include "common.validateKeys" (dict "values" $values "checkKeys" (list "datasetName" "ixVolumes")) -}}
+{{- include "common.retrieveHostPathFromiXVolume" (dict "datasetName" $values.datasetName "ixVolumes" $values.ixVolumes) -}}
 {{- end -}}
 {{- end -}}
-
