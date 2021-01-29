@@ -23,7 +23,7 @@ spec:
           command:
             - "/bin/sh"
             - "-ce"
-            - "/usr/bin/docker-entrypoint.sh minio server /export {{- template "minio.extraArgs" . }}"
+            - "/usr/bin/docker-entrypoint.sh minio server /export {{ (.Values.extraArgs | default list) | join " " }}"
           volumeMounts:
             - name: export
               mountPath: /export
