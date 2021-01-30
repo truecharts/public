@@ -41,10 +41,6 @@ persistence:
 
 
 ## TrueCharts Values
-jackettService:
-  port: 32204
-
-hostNetwork: false
 
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
@@ -52,8 +48,9 @@ configHostPathEnabled: false
 
 emptyDirVolumes: true
 
-customIngress:
-   enabled: false
+appIngressEnabled: false
+
+appIngress:
    port: 9117
    host: "jackett.truecharts.test"
    selfsigned: true
