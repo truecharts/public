@@ -1,5 +1,6 @@
 {{ $ports := list }}
 {{ $ports = mustAppend $ports (dict "name" "postgres-tcp" "port" 5432 "targetPort" 5432) }}
 {{ $params := . }}
-{{ $_ := set $params "service" (dict "type" "ClusterIP" "ports" $ports "nameSuffix" "postgres" ) }}
+{{ $_ := set $params "service" (dict "type" "ClusterIP" "ports" $ports ) }}
+{{ $_1 := set $params "nameSuffix" "postgres" }}
 {{ include "common.classes.service" $params }}
