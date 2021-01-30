@@ -1,4 +1,6 @@
 {{- if .Values.ixChartContext.isUpgrade -}}
+{{ $values := . }}
+{{ $_ := set $values "nameSuffix" "postgres" }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -14,24 +16,14 @@ spec:
       name: "pre-upgrade-hook2"
     spec:
       restartPolicy: Never
-      serviceAccountName: "{{ template "nextcloud.serviceAccountName" . }}"
+      serviceAccountName: "{{ template "common.names.serviceAccountName" . }}"
       containers:
       - name: {{ .Chart.Name }}-postgres-backup
         image: {{ template "postgres.imageName" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        env:
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: db-details
-              key: db-user
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: db-details
-              key: db-password
-        - name: BACKUP_NAME
-          value: {{ template "postgres.backupName" . }}
+        env: {{ include "postgres.envVariableConfiguration" $values | nindent 10 }}
+          - name: BACKUP_NAME
+            value: {{ template "postgres.backupName" . }}
         volumeMounts:
           - name: postgres-data
             mountPath: /var/lib/postgresql/data
@@ -43,15 +35,9 @@ spec:
             subPath: entrypoint.sh
         command:
           - "/bin/backup_entrypoint.sh"
-      volumes:
-      - name: postgres-data
-        hostPath:
-          path: {{ template "configuredPostgresHostPath" . }}
-      - name: postgres-backup
-        hostPath:
-          path: {{ template "configuredBackupPostgresHostPath" . }}
-      - name: backup-script-configmap
-        configMap:
-          defaultMode: 0700
-          name: "postgres-backup-hook-config-map"
+      volumes: {{ include "postgres.volumeConfiguration" $values | nindent 8 }}
+        - name: backup-script-configmap
+          configMap:
+            defaultMode: 0700
+            name: "postgres-backup-hook-config-map"
 {{- end -}}

@@ -20,11 +20,7 @@ spec:
       - name: {{ .Chart.Name }}-postgres
         image: {{ template "postgres.imageName" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        env:
-        {{ $envList := list }}
-        {{ $envList = mustAppend $envList (dict "name" "POSTGRES_USER" "valueFromSecret" true "secretName" "db-details" "secretKey" "db-user") }}
-        {{ $envList = mustAppend $envList (dict "name" "POSTGRES_PASSWORD" "valueFromSecret" true "secretName" "db-details" "secretKey" "db-password") }}
-        {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
+        env: {{ include "postgres.envVariableConfiguration" $values | nindent 10 }}
         volumeMounts:
           - name: postgres-data
             mountPath: /var/lib/postgresql/data
@@ -34,8 +30,4 @@ spec:
         - name: postgres-tcp
           containerPort: 5432
           protocol: TCP
-      volumes:
-      {{ $vols := list }}
-      {{ $vols = mustAppend $vols (dict "name" "postgres-data" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" false "pathField" nil "datasetName" (.Values.postgresDataVolume | default dict).datasetName ) }}
-      {{ $vols = mustAppend $vols (dict "name" "postgres-backup" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" false "pathField" nil "datasetName" (.Values.postgresBackupVolume | default dict).datasetName ) }}
-      {{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) | nindent 8 }}
+      volumes: {{ include "postgres.volumeConfiguration" $values | nindent 8 }}
