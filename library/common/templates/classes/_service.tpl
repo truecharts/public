@@ -3,7 +3,7 @@ This template serves as a blueprint for all Service objects that are created
 within the common library.
 */}}
 {{- define "common.classes.service" -}}
-{{- $values := .service -}}
+{{- $values := .commonService -}}
 {{- $serviceName := include "common.names.fullname" . -}}
 {{- $svcType := $values.type | default "" -}}
 apiVersion: v1
