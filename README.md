@@ -76,9 +76,12 @@ questions:
             type: string
             default: "IfNotPresent"
             enum:
-              - "IfNotPresent"
-              - "Always"
-              - "Never"
+              - value: "IfNotPresent"
+                description: "Only pull image if not present on host"
+              - value: "Always"
+                description: "Always pull image even if present on host"
+              - value: "Never"
+                description: "Never pull image even if it's not present on host"
 ```
 
 The above will prompt the user with 2 text fields and a dropdown in the UI getting details for image configuration in a helm chart.
