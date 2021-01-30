@@ -1,43 +1,30 @@
-apiVersion: apps/v1
+{{ $values := . }}
+{{ $_ := set $values "nameSuffix" "postgres" }}
+apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
-  name: {{ template "nextcloud.fullname" . }}-postgres
-  labels:
-    helm.sh/chart: {{ include "nextcloud.chart" . }}
-    {{- include "nextcloud.postgres.selectorLabels" . | nindent 4 }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
-    app.kubernetes.io/component: database
+  name: {{ template "common.names.fullname" $values }}
+  labels: {{ include "common.labels.selectorLabels" $values | nindent 4 }}
 spec:
   replicas: 1
   strategy:
     type: {{ .Values.nextcloud.strategy }}
   selector:
-    matchLabels:
-      {{- include "nextcloud.postgres.selectorLabels" . | nindent 6 }}
-      app.kubernetes.io/component: database
+    matchLabels: {{- include "common.labels.selectorLabels" $values | nindent 6 }}
   template:
     metadata:
-      labels:
-        {{- include "nextcloud.postgres.selectorLabels" . | nindent 8 }}
-        app.kubernetes.io/component: database
-      annotations:
-        rollme: {{ randAlphaNum 5 | quote }}
+      labels: {{- include "common.labels.selectorLabels" $values | nindent 8 }}
+      annotations: {{- include "common.annotations" $values | nindent 8 }}
     spec:
       containers:
       - name: {{ .Chart.Name }}-postgres
         image: {{ template "postgres.imageName" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: db-details
-              key: db-user
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: db-details
-              key: db-password
+        {{ $envList := list }}
+        {{ $envList = mustAppend $envList (dict "name" "POSTGRES_USER" "valueFromSecret" true "secretName" "db-details" "secretKey" "db-user") }}
+        {{ $envList = mustAppend $envList (dict "name" "POSTGRES_PASSWORD" "valueFromSecret" true "secretName" "db-details" "secretKey" "db-password") }}
+        {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
         volumeMounts:
           - name: postgres-data
             mountPath: /var/lib/postgresql/data
@@ -48,17 +35,7 @@ spec:
           containerPort: 5432
           protocol: TCP
       volumes:
-      - name: postgres-data
-        {{- if ne (include "configuredPostgresHostPath" .) "" }}
-        hostPath:
-          path: {{ template "configuredPostgresHostPath" . }}
-        {{- else }}
-        emptyDir: {}
-        {{- end }}
-      - name: postgres-backup
-        {{- if ne (include "configuredBackupPostgresHostPath" .) "" }}
-        hostPath:
-          path: {{ template "configuredBackupPostgresHostPath" . }}
-        {{- else }}
-        emptyDir: {}
-        {{- end }}
+      {{ $vols := list }}
+      {{ $vols = mustAppend $vols (dict "name" "postgres-data" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" false "pathField" nil "datasetName" (.Values.postgresDataVolume | default dict).datasetName ) }}
+      {{ $vols = mustAppend $vols (dict "name" "postgres-backup" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" false "pathField" nil "datasetName" (.Values.postgresBackupVolume | default dict).datasetName ) }}
+      {{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) | nindent 8 }}
