@@ -5,5 +5,5 @@
 {{ $ports = mustAppend $ports (dict "name" "plex-gdm3" "port" 32413 "protocol" "UDP" "targetPort" "plex-gdm3") }}
 {{ $ports = mustAppend $ports (dict "name" "plex-gdm4" "port" 32414 "protocol" "UDP" "targetPort" "plex-gdm4") }}
 {{ $params := . }}
-{{ $_ := set $params "service" (dict "type" "ClusterIP" "ports" $ports "nameSuffix" "udp" ) }}
+{{ $_ := set $params "commonService" (dict "type" "ClusterIP" "ports" $ports "nameSuffix" "udp" ) }}
 {{ include "common.classes.service" $params }}

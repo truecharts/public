@@ -4,5 +4,5 @@
 {{ $ports = mustAppend $ports (dict "name" "api" "port" $svc.apiPort "nodePort" $svc.apiPort "targetPort" 9501) }}
 {{ $ports = mustAppend $ports (dict "name" "gateway" "port" $svc.gatewayPort "nodePort" $svc.gatewayPort "targetPort" 9880) }}
 {{ $params := . }}
-{{ $_ := set $params "service" (dict "type" "NodePort" "ports" $ports ) }}
+{{ $_ := set $params "commonService" (dict "type" "NodePort" "ports" $ports ) }}
 {{ include "common.classes.service" $params }}
