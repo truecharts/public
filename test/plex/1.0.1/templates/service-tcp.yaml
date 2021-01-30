@@ -1,35 +1,16 @@
-apiVersion: v1
-kind: Service
-metadata:
-  {{- if .Values.hostNetwork }}
-  name: {{ include "plex.fullname" . }}-tcp-cluster-ip
-  {{- else }}
-  name: {{ include "plex.fullname" . }}-tcp
-  {{- end }}
-  labels:
-    {{- include "plex.labels" . | nindent 4 }}
-spec:
-  {{- if .Values.hostNetwork }}
-  type: ClusterIP
-  {{- else }}
-  type: NodePort
-  {{- end }}
-  ports:
-    - name: pms
-      port: {{ .Values.plexServiceTCP.port }}
-      protocol: TCP
-      targetPort: pms
-      {{- if eq .Values.hostNetwork false }}
-      nodePort: {{.Values.plexServiceTCP.port}}
-      {{- end }}
-    - name: http
-      port: 80
-      targetPort: pms
-    - name: https
-      port: 443
-      targetPort: pms
-    - name: plex-dlna
-      port: 1900
-      targetPort: plex-dlna
-  selector:
-    {{- include "plex.selectorLabels" . | nindent 4 }}
+{{ $svc := .Values.plexServiceTCP }}
+{{ $ports := list }}
+{{ $ports = mustAppend $ports (dict "name" "pms" "port" $svc.port "nodePort" $svc.port "targetPort" "pms") }}
+{{ $ports = mustAppend $ports (dict "name" "http" "port" 80 "targetPort" "pms") }}
+{{ $ports = mustAppend $ports (dict "name" "https" "port" 443 "targetPort" "pms") }}
+{{ $ports = mustAppend $ports (dict "name" "plex-dlna" "port" 1900 "targetPort" "plex-dlna") }}
+{{ $params := . }}
+{{ $_ := set $params "service" (dict "ports" $ports ) }}
+{{ if .Values.hostNetwork }}
+{{ $_ := set $params.service "nameSuffix" "tcp-cluster-ip" }}
+{{ $_1 := set $params.service "type" "ClusterIP" }}
+{{ else }}
+{{ $_ := set $params.service "nameSuffix" "tcp" }}
+{{ $_1 := set $params.service "type" "NodePort" }}
+{{ end }}
+{{ include "common.classes.service" $params }}
