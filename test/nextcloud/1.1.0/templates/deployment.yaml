@@ -1,79 +1,40 @@
-apiVersion: apps/v1
+{{ $postgres_values := . }}
+{{ $_ := set $postgres_values "nameSuffix" "postgres" }}
+apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
-  name: {{ template "nextcloud.fullname" . }}
-  labels:
-    app.kubernetes.io/name: {{ include "nextcloud.name" . }}
-    helm.sh/chart: {{ include "nextcloud.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
-    app.kubernetes.io/component: app
-  {{- if .Values.deploymentAnnotations }}
-  annotations:
-{{ toYaml .Values.deploymentAnnotations | indent 4 }}
-  {{- end }}
+  name: {{ template "common.names.fullname" . }}
+  labels: {{ include "common.labels" . | nindent 4 }}
+  annotations: {{ include "common.annotations" . | nindent 4 }}
 spec:
   replicas: 1
   strategy:
     type: {{ .Values.nextcloud.strategy }}
   selector:
-    matchLabels:
-      app.kubernetes.io/name: {{ include "nextcloud.name" . }}
-      app.kubernetes.io/instance: {{ .Release.Name }}
-      app.kubernetes.io/component: app
+    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      labels:
-        app.kubernetes.io/name: {{ include "nextcloud.name" . }}
-        app.kubernetes.io/instance: {{ .Release.Name }}
-        app.kubernetes.io/component: app
-      annotations:
-        rollme: {{ randAlphaNum 5 | quote }}
+      labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
+      annotations: {{ include "common.annotations" . | nindent 8 }}
     spec:
-      {{- if .Values.image.pullSecrets }}
-      imagePullSecrets:
-      {{- range .Values.image.pullSecrets }}
-        - name: {{ . }}
-      {{- end}}
-      {{- end }}
       initContainers:
         - name: init-postgresdb
           image: {{ template "postgres.imageName" . }}
-          command: ['sh', '-c', "until pg_isready -h {{ template "nextcloud.fullname" . }}-postgres; do echo waiting for postgres; sleep 2; done"]
+          command: ['sh', '-c', "until pg_isready -h {{ template "common.names.fullname" $postgres_values }}; do echo waiting for postgres; sleep 2; done"]
           imagePullPolicy: {{ .Values.image.pullPolicy }}
       containers:
       - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
-        env:
-        - name: POSTGRES_HOST
-          value: {{ template "nextcloud.fullname" . }}-postgres:5432
-        - name: POSTGRES_DB
-          value: {{ template "postgres.DatabaseName" . }}
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: db-details
-              key: db-user
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: db-details
-              key: db-password
-        - name: NEXTCLOUD_ADMIN_USER
-          valueFrom:
-            secretKeyRef:
-              name: {{ template "nextcloud.fullname" . }}
-              key: nextcloud-username
-        - name: NEXTCLOUD_ADMIN_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ template "nextcloud.fullname" . }}
-              key: nextcloud-password
-        - name: NEXTCLOUD_TRUSTED_DOMAINS
-          value: {{ .Values.nextcloud.host }}
-        - name: NEXTCLOUD_DATA_DIR
-          value: {{ .Values.nextcloud.datadir | quote }}
+        {{ include "common.containers.imageConfig" .Values.image | nindent 8 }}
+        env: {{ include "postgres.envVariableConfiguration" $postgres_values | nindent 10 }}
+        {{ $envList := list }}
+        {{ $secretName := (include "common.names.fullname" .) }}
+        {{ $envList = mustAppend $envList (dict "name" "POSTGRES_HOST" "value" (printf "%s:5432" (include "common.names.fullname" $postgres_values))) }}
+        {{ $envList = mustAppend $envList (dict "name" "POSTGRES_DB" "value" (include "postgres.DatabaseName" .)) }}
+        {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_DATA_DIR" "value" .Values.nextcloud.datadir) }}
+        {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_TRUSTED_DOMAINS" "value" .Values.nextcloud.host) }}
+        {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_ADMIN_USER" "valueFromSecret" true "secretName" $secretName "secretKey" "nextcloud-username") }}
+        {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_ADMIN_PASSWORD" "valueFromSecret" true "secretName" $secretName "secretKey" "nextcloud-password") }}
+        {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
         ports:
         - name: http
           containerPort: 80
@@ -101,13 +62,9 @@ spec:
           mountPath: /var/www/html/themes
           subPath: "themes"
       volumes:
-      - name: nextcloud-data
-      {{- if ne (include "configuredHostPath" .) "" }}
-        hostPath:
-          path: {{ template "configuredHostPath" . }}
-      {{- else }}
-        emptyDir: {}
-      {{- end }}
+      {{ $vols := list }}
+      {{ $vols = mustAppend $vols (dict "name" "nextcloud-data" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" .Values.nextcloudDataHostPathEnabled "pathField" .Values.nextcloudHostPath "datasetName" (.Values.nextcloudDataVolume | default dict).datasetName ) }}
+      {{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) | nindent 8 }}
       # Will mount configuration files as www-data (id: 33) for nextcloud
       securityContext:
         fsGroup: 33
