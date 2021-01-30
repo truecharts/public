@@ -15,5 +15,5 @@ Selector labels shared across objects.
 */}}
 {{- define "common.labels.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "common.names.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/instance: {{ include "common.names.releaseName" . }}
 {{- end }}

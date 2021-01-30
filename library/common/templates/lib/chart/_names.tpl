@@ -2,7 +2,12 @@
 Expand the name of the chart.
 */}}
 {{- define "common.names.name" -}}
-{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- $values := . -}}
+{{- $name := (default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-") }}
+{{- if hasKey $values "nameSuffix" -}}
+  {{- $name = (printf "%v-%v" $name $values.nameSuffix) -}}
+{{ end -}}
+{{- print $name -}}
 {{- end }}
 
 {{/*
@@ -11,12 +16,16 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 If release name contains chart name it will be used as a full name.
 */}}
 {{- define "common.names.fullname" -}}
-{{- if .Values.fullnameOverride }}
-{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- $values := . -}}
+{{- if $values.fullnameOverride }}
+{{- $values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
-{{- $name := default .Chart.Name .Values.nameOverride }}
+{{- $name := default .Chart.Name $values.nameOverride }}
+{{- if hasKey $values "nameSuffix" -}}
+  {{- $name = (printf "%v-%v" $name $values.nameSuffix) -}}
+{{ end -}}
 {{- if contains $name .Release.Name }}
-{{- .Release.Name | trunc 63 | trimSuffix "-" }}
+{{- $name = (.Release.Name | trunc 63 | trimSuffix "-") }}
 {{- else }}
 {{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" }}
 {{- end }}
@@ -35,4 +44,18 @@ Determine service account name for deployment or statefulset.
 */}}
 {{- define "common.names.serviceAccountName" -}}
 {{- (include "common.names.fullname" .) | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+
+{{/*
+Determine release name
+This will add a suffix to the release name if nameSuffix is set
+*/}}
+{{- define "common.names.releaseName" -}}
+{{- $values := . -}}
+{{- if hasKey $values "nameSuffix" -}}
+  {{- printf "%v-%v" .Release.Name $values.nameSuffix -}}
+{{- else -}}
+  {{- print .Release.Name -}}
+{{ end -}}
 {{- end -}}
