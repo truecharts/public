@@ -30,20 +30,9 @@ persistence:
 
 ## TrueCharts Config
 
-ombiService:
-  port: 1880
-
-hostNetwork: false
-
 dataHostPathEnabled: false
 
 emptyDirVolumes: true
 
-customIngress:
-   enabled: false
+appIngress:
    port: 1880
-   host: "nodered.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

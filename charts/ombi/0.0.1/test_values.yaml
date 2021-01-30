@@ -38,22 +38,11 @@ mariadb:
 
 ## TrueCharts Config
 
-ombiService:
-  port: 32208
-
-hostNetwork: false
-
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
 configHostPathEnabled: false
 
 emptyDirVolumes: true
 
-customIngress:
-   enabled: false
+appIngress:
    port: 3579
-   host: "ombi.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

@@ -40,20 +40,19 @@ persistence:
     # existingClaim: ""
 
 ## TrueCharts Config
-bazarrService:
-  port: 32212
 
-hostNetwork: false
+appVolumesEnabled: true
 
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: false
+  media:
+    enabled: true
+    emptyDir: false
+  downloads:
+    enabled: true
+    emptyDir: false
 
-customIngress:
-   enabled: false
+appIngress:
    port: 6767
-   host: "your.hostname.com"
-   selfsigned: false
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

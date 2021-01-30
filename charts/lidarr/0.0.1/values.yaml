@@ -42,20 +42,18 @@ persistence:
 
 ## TrueCharts Config
 
-lidarrService:
-  port: 32203
+appVolumesEnabled: true
 
-hostNetwork: false
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: false
+  media:
+    enabled: true
+    emptyDir: false
+  downloads:
+    enabled: true
+    emptyDir: false
 
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
-
-customIngress:
-   enabled: false
+appIngress:
    port: 8686
-   host: "your.hostname.com"
-   selfsigned: false
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

@@ -12,7 +12,7 @@ keywords:
   - usenet
   - torrent
 home: https://github.com/truecharts/charts/tree/dev/charts/bazarr
-icon: https://github.com/Bazarr/Bazarr/blob/phantom-develop/Logo/512.png?raw=true
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png
 sources:
   - https://github.com/Bazarr/Bazarr
   - https://hub.docker.com/r/linuxserver/bazarr
@@ -20,5 +20,5 @@ maintainers:
   - name: TrueCharts
 dependencies:
   - name: common
-    repository: file://../../../.common/
-    version: 0.0.5
+    repository: file://../../../library/common/
+    version: 0.1.0

@@ -38,26 +38,12 @@ persistence:
 
 ## TrueCharts Config
 
+appVolumesEnabled: true
+
 appVolumeMounts:
-  - name: data
-    mountPath: /datanope
-  - name: config
-    mountPath: /data
+  config:
+    enabled: true
+    emptyDir: false
 
-truecommandService:
-    port: 32210
-
-hostNetwork: false
-
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
-
-customIngress:
-   enabled: false
+appIngress:
    port: 80
-   host: "your.hostname.com"
-   selfsigned: false
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

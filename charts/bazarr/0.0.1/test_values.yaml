@@ -41,22 +41,10 @@ persistence:
 
 ## TrueCharts Config
 
-bazarrService:
-  port: 32212
 
-hostNetwork: false
+appVolumesEnabled: false
 
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
+appIngressEnabled: false
 
-emptyDirVolumes: true
-
-customIngress:
-   enabled: false
+appIngress:
    port: 6767
-   host: "bazarr.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

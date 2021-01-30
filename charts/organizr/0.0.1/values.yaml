@@ -25,20 +25,15 @@ persistence:
 
 ## TrueCharts Config
 
-sonarrService:
-  port: 32201
+appVolumesEnabled: true
 
-hostNetwork: false
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: false
+  data:
+    enabled: true
+    emptyDir: false
 
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
-
-customIngress:
-   enabled: false
+appIngress:
    port: 80
-   host: "your.hostname.com"
-   selfsigned: false
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

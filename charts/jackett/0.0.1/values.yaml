@@ -42,19 +42,15 @@ persistence:
 
 ## TrueCharts Values
 
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
-
+appVolumesEnabled: true
 emptyDirVolumes: false
 
-appIngressEnabled: false
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: false
+    datasetName: "ix-jackett_config"
 
 appIngress:
    port: 9117
-   host: "your.hostname.com"
-   selfsigned: false
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""
 
