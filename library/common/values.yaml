@@ -393,10 +393,11 @@ downloadsHostPathEnabled: false
 dataHostPathEnabled: false
 configHostPathEnabled: false
 
-emptyDirVolumes: true
+emptyDirVolumes: false
 
-customIngress:
-  enabled: false
+appIngressEnabled: false
+
+appIngress:
   port: 6666
   host: "your.hostname.com"
   selfsigned: false

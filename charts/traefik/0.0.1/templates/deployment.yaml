@@ -111,8 +111,6 @@ spec:
           {{- toYaml . | nindent 10 }}
         {{- end }}
         volumeMounts:
-          - name: data
-            mountPath: /data
           - name: config
             mountPath: /config
           - name: shared
@@ -244,13 +242,6 @@ spec:
         {{- toYaml .Values.deployment.additionalContainers | nindent 6 }}
       {{- end }}
       volumes:
-        - name: data
-          {{- if .Values.emptyDirVolumes }}
-          emptyDir: {}
-          {{- else }}
-          hostPath:
-            path: {{ template "configuredHostPathData" . }}
-          {{- end }}
         - name: config
           {{- if .Values.emptyDirVolumes }}
           emptyDir: {}

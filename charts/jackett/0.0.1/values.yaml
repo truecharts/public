@@ -3,7 +3,7 @@
 image:
   repository: linuxserver/jackett
   pullPolicy: IfNotPresent
-  tag: version-v0.16.2106
+  tag: version-v0.17.153
 
 strategy:
   type: Recreate
@@ -41,20 +41,20 @@ persistence:
 
 
 ## TrueCharts Values
-jackettService:
-  port: 32204
-
-hostNetwork: false
 
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
 configHostPathEnabled: false
 
-customIngress:
-   enabled: false
+emptyDirVolumes: false
+
+appIngressEnabled: false
+
+appIngress:
    port: 9117
    host: "your.hostname.com"
    selfsigned: false
    wildcard: false
    existingCert: ""
    authForwardUrl: ""
+

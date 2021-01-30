@@ -412,10 +412,11 @@ podSecurityContext:
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
 configHostPathEnabled: false
+trueChartsIngressEnabled: false
 
 emptyDirVolumes: true
 
-traefikIngress:
+trueChartsIngress:
    enabled: false
    host: "traefik.truecharts.test"
    selfsigned: true
