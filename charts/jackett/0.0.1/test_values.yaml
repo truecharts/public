@@ -48,12 +48,5 @@ configHostPathEnabled: false
 
 emptyDirVolumes: true
 
-appIngressEnabled: false
-
 appIngress:
    port: 9117
-   host: "jackett.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

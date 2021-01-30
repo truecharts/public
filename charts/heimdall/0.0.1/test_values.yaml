@@ -25,12 +25,8 @@ persistence:
   config:
     enabled: false
     emptyDir: false
+
 ## TrueCharts Config
-
-sonarrService:
-  port: 32201
-
-hostNetwork: false
 
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
@@ -38,11 +34,5 @@ configHostPathEnabled: false
 
 emptyDirVolumes: true
 
-customIngress:
-   enabled: false
+appIngress:
    port: 80
-   host: "organizr.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

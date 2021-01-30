@@ -24,11 +24,6 @@ persistence:
     
 ## TrueCharts Config
 
-tautulliService:
-  port: 32206
-
-hostNetwork: false
-
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
 configHostPathEnabled: false
@@ -36,11 +31,5 @@ configHostPathEnabled: false
 
 emptyDirVolumes: true
 
-customIngress:
-   enabled: false
+appIngress:
    port: 8181
-   host: "tautulli.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

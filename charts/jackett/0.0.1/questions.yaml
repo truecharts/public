@@ -72,83 +72,49 @@ questions:
 
 ## TrueCharts Specific
 
-  # Port configuration
-
-  - variable: dataHostPathEnabled
-    label: "Configure Host Path for Data"
-    group: "Storage"
-    schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: dataHostPath
-          label: "Specify HostPath for Data"
-          schema:
-            type: hostpath
-            required: true
-
-  - variable: dataVolume
-    label: "Configure data iXVolume"
+  - variable: appVolumeMounts
+    label: "app storage"
     group: "Storage"
     schema:
       type: dict
-      show_if: [["dataHostPathEnabled", "=", false]]
-      $ref:
-        - "normalize/ixVolume"
       attrs:
-        - variable: mountPath
-          label: "Mount Path"
-          description: "Path where the volume will be mounted inside the pod"
+        # Config ------------------------
+        - variable: config
+          label: "config dataset"
           schema:
-            type: path
-            editable: false
-            default: "/data"
-        - variable: datasetName
-          label: "Dataset Name"
-          schema:
-            type: string
-            default: "ix-jackett_data"
-            editable: false
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "config"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/config"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
 
-  - variable: configHostPathEnabled
-    label: "Configure Host Path for Config"
-    group: "Storage"
-    schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: configHostPath
-          label: "Specify HostPath for Config"
-          schema:
-            type: hostpath
-            required: true
-
-  - variable: configVolume
-    label: "Configure iXVolume"
-    group: "Storage"
-    schema:
-      type: dict
-      show_if: [["configHostPathEnabled", "=", false]]
-      $ref:
-        - "normalize/ixVolume"
-      attrs:
-        - variable: mountPath
-          label: "Mount Path"
-          description: "Path where the volume will be mounted inside the pod"
-          schema:
-            type: path
-            editable: false
-            default: "/config"
-        - variable: datasetName
-          label: "Dataset Name"
-          schema:
-            type: string
-            default: "ix-jackett_config"
-            editable: false
-
-- variable: appIngressEnabled
+  - variable: appIngressEnabled
     label: "Enable Ingress"
     description: "Configure Ingress Settings"
     group: "Ingress"

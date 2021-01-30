@@ -9,7 +9,7 @@ keywords:
   - plex
   - emby
 home: https://github.com/truecharts/charts/tree/dev/charts/heimdall
-icon: https://github.com/jellyfin/jellyfin-ux/blob/master/branding/SVG/icon-solid-black.svg
+icon: https://raw.githubusercontent.com/truecharts/truecharts/dev/charts/jellyfin/icon.jpg?raw=true
 sources:
   - https://github.com/k8s-at-home/charts/blob/master/charts/jellyfin
   - https://hub.docker.com/r/linuxserver/Jellyfin/
@@ -18,5 +18,5 @@ maintainers:
   - name: TrueCharts
 dependencies:
   - name: common
-    repository: file://../../../.common/
-    version: 0.0.5
+    repository: file://../../../library/common/
+    version: 0.1.0

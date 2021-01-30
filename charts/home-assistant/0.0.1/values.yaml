@@ -107,18 +107,15 @@ influxdb:
 
 ## TrueCharts Config
 
-homeassistantService:
-  port: 8123
+appVolumesEnabled: true
 
-hostNetwork: false
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: false
+  data:
+    enabled: true
+    emptyDir: false
 
-configHostPathEnabled: false
-
-customIngress:
-   enabled: false
+appIngress:
    port: 1880
-   host: "your.hostname.com"
-   selfsigned: false
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

@@ -29,18 +29,15 @@ persistence:
 
 ## TrueCharts Config
 
-ombiService:
-  port: 32208
+appVolumesEnabled: true
 
-hostNetwork: false
-
-dataHostPathEnabled: false
-
-customIngress:
-   enabled: false
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: false
+  data:
+    enabled: true
+    emptyDir: false
+    
+appIngress:
    port: 1880
-   host: "your.hostname.com"
-   selfsigned: false
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

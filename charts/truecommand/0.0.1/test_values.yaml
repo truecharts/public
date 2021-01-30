@@ -44,11 +44,6 @@ appVolumeMounts:
     mountPath: /datanope
   - name: config
     mountPath: /data
-    
-truecommandService:
-  port: 32210
-
-hostNetwork: false
 
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
@@ -56,11 +51,5 @@ configHostPathEnabled: false
 
 emptyDirVolumes: true
 
-customIngress:
-   enabled: false
+appIngress:
    port: 80
-   host: "traefik.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

@@ -41,22 +41,9 @@ persistence:
 
 ## TrueCharts Config
 
-radarrService:
-  port: 32202
-
-hostNetwork: false
-
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
-
 emptyDirVolumes: true
 
-customIngress:
-   enabled: false
+appVolumesEnabled: false
+
+appIngress:
    port: 7878
-   host: "radarr.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

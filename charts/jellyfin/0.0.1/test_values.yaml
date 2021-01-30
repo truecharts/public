@@ -37,22 +37,9 @@ persistence:
 
 ## TrueCharts Config
 
-sonarrService:
-  port: 32201
-
-hostNetwork: false
-
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
-
 emptyDirVolumes: true
 
-customIngress:
-   enabled: false
+appVolumesEnabled: false
+
+appIngress:
    port: 8096
-   host: "jellyfin.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""

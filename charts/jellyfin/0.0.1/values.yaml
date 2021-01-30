@@ -34,22 +34,18 @@ persistence:
     ## Do not delete the pvc upon helm uninstall
     # skipuninstall: false
     # existingClaim: ""
+
 ## TrueCharts Config
 
-sonarrService:
-  port: 32201
+appVolumesEnabled: true
 
-hostNetwork: false
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: false
+  media:
+    enabled: true
+    emptyDir: false
 
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
-
-customIngress:
-   enabled: false
+appIngress:
    port: 8096
-   host: "your.hostname.com"
-   selfsigned: false
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""
