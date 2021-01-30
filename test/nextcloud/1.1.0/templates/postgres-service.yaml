@@ -1,18 +1,5 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ template "nextcloud.fullname" . }}-postgres
-  labels:
-    app.kubernetes.io/name: {{ include "nextcloud.name" . }}-postgres
-    helm.sh/chart: {{ include "nextcloud.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
-    app.kubernetes.io/component: app
-spec:
-  type: ClusterIP
-  ports:
-  - port: 5432
-    protocol: TCP
-    name: postgres-tcp
-  selector:
-    {{- include "nextcloud.postgres.selectorLabels" . | nindent 4 }}
+{{ $ports := list }}
+{{ $ports = mustAppend $ports (dict "name" "postgres-tcp" "port" 5432 "targetPort" 5432) }}
+{{ $params := . }}
+{{ $_ := set $params "service" (dict "type" "ClusterIP" "ports" $ports "nameSuffix" "postgres" ) }}
+{{ include "common.classes.service" $params }}
