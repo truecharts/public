@@ -61,21 +61,16 @@ transcodeHostPathEnabled: false
 dataHostPathEnabled: false
 configHostPathEnabled: false
 
-proxy:
-  # This allows to set a proxy environment variable, which PMS uses to fetch the token and assets like movie cover
-  enabled: false
-  # http: "http://proxy:8080"
-  # https: "https://proxy:8080"
-  # noproxy: "localhost,127.0.0.1,10.96.0.0/12,10.244.0.0/12"
-
 gpuConfiguration: {}
 emptyDirVolumes: true
 
-customIngress:
-   enabled: false
-   port: 32400
-   host: "plex.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""
+## TrueCharts Values
+
+appIngress:
+  port: 32400
+  host: "plex.truecharts.test"
+  selfsigned: false
+  wildcard: false
+  existingCert: ""
+  authForwardUrl: ""
+

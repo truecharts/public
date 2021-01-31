@@ -70,11 +70,12 @@ proxy:
 
 gpuConfiguration: {}
 
-customIngress:
-   enabled: false
-   port: 32400
-   host: "plex.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""
+## TrueCharts Values
+
+appIngress:
+  port: 32400
+  host: "plex.truecharts.test"
+  selfsigned: false
+  wildcard: false
+  existingCert: ""
+  authForwardUrl: ""
