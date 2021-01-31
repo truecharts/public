@@ -3,7 +3,7 @@
 image:
   repository: homeassistant/home-assistant
   pullPolicy: IfNotPresent
-  tag: 2020.12.1
+  tag: 2021.1.5
 
 strategy:
   type: Recreate
@@ -12,8 +12,10 @@ env: {}
   # TZ:
 
 service:
+  type: NodePort
   port:
     port: 8123
+    nodePort: 38123
 
 # # Enable devices to be discoverable
 # hostNetwork: true
@@ -108,14 +110,24 @@ influxdb:
 ## TrueCharts Config
 
 appVolumesEnabled: true
+emptyDirVolumes: false
 
 appVolumeMounts:
   config:
     enabled: true
     emptyDir: false
+    datasetName: "config"
+    mountPath: "/config"
+    hostPathEnabled: false
   data:
-    enabled: true
+    enabled: false
     emptyDir: false
 
 appIngress:
-   port: 1880
+  enabled: false
+  port: 8123
+  host: "your.hostname.com"
+  selfsigned: true
+  wildcard: false
+  existingCert: ""
+  authForwardUrl: ""

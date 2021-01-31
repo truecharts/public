@@ -3,7 +3,7 @@
 image:
   repository: homeassistant/home-assistant
   pullPolicy: IfNotPresent
-  tag: 2020.12.1
+  tag: 2021.1.5
 
 strategy:
   type: Recreate
@@ -14,6 +14,7 @@ env: {}
 service:
   port:
     port: 8123
+    nodePort: 30023
 
 # # Enable devices to be discoverable
 # hostNetwork: true
@@ -113,15 +114,14 @@ homeassistantService:
 
 hostNetwork: false
 
-configHostPathEnabled: false
-
+appVolumesEnabled: false
 emptyDirVolumes: true
 
-customIngress:
-   enabled: false
-   port: 8123
-   host: "homeassistant.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""
+appIngress:
+  enabled: false
+  port: 8123
+  host: "homeassistant.truecharts.test"
+  selfsigned: true
+  wildcard: false
+  existingCert: ""
+  authForwardUrl: ""
