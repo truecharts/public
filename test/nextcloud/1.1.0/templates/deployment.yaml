@@ -1,5 +1,5 @@
-{{ $postgres_values := . }}
-{{ $_ := set $postgres_values "nameSuffix" "postgres" }}
+{{ $postgres_values := (. | mustDeepCopy) }}
+{{ $_ := set $postgres_values "common" (dict "nameSuffix" "postgres") }}
 apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:

@@ -1,5 +1,5 @@
 {{ $values := . }}
-{{ $_ := set $values "nameSuffix" "postgres" }}
+{{ $_ := set $values "common" (dict "nameSuffix" "postgres") }}
 apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:

@@ -1,6 +1,6 @@
 {{- if .Values.ixChartContext.isUpgrade -}}
-{{ $values := . }}
-{{ $_ := set $values "nameSuffix" "postgres" }}
+{{ $values := (. | mustDeepCopy) }}
+{{ $_ := set $values "common" (dict "nameSuffix" "postgres") }}
 apiVersion: batch/v1
 kind: Job
 metadata:
