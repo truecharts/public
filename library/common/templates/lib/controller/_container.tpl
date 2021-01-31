@@ -43,4 +43,12 @@ The main container included in the controller.
   resources:
     {{- toYaml . | nindent 4 }}
   {{- end }}
+  {{- if and .Values.gpuConfiguration .Values.resources }}
+    limits:
+      {{- toYaml .Values.gpuConfiguration | nindent 14 }}
+  {{- else if .Values.gpuConfiguration }}
+  resources:
+    limits:
+      {{- toYaml .Values.gpuConfiguration | nindent 14 }}
+  {{- end }}
 {{- end -}}
