@@ -5,6 +5,9 @@ within the common library.
 {{- define "common.classes.service" -}}
 {{- $values := .commonService -}}
 {{- $serviceName := include "common.names.fullname" . -}}
+{{- if hasKey $values "nameSuffix" -}}
+  {{- $serviceName = (printf "%v-%v" $serviceName $values.nameSuffix) -}}
+{{ end -}}
 {{- $svcType := $values.type | default "" -}}
 apiVersion: v1
 kind: Service
