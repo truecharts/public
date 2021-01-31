@@ -1,4 +1,4 @@
-{{ $values := . }}
+{{ $values := (. | mustDeepCopy) }}
 {{ $_ := set $values "common" (dict "nameSuffix" "postgres") }}
 apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
