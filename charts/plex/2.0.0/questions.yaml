@@ -21,7 +21,8 @@ groups:
     description: "Specify resources to be allocated to workload"
   - name: "Ingress"
     description: "Ingress Configuration"
-
+  - name: "Resource Reservation"
+    description: "Specify resources to be allocated to workload"
 portals:
   web_portal:
     protocols:
@@ -261,3 +262,12 @@ questions:
                 schema:
                   type: string
                   default: ""
+                  
+  # Specify GPU configuration
+  - variable: gpuConfiguration
+    label: "GPU Configuration"
+    group: "Resource Reservation"
+    schema:
+      type: dict
+      $ref:
+        - "definitions/gpuConfiguration"
