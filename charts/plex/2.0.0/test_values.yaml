@@ -1,76 +1,84 @@
-# Default values
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-# The Image to use for PLEX
+# Default values for plex-media-server.
 
 image:
-  repository: plexinc/pms-docker
-  tag: 1.20.2.3402-0fec14d92
+  repository: k8sathome/plex-media-server
   pullPolicy: IfNotPresent
+  tag: v1.20.4.3517-ab5e1197c
 
-#####   START  --> Official PLEX container environment variables
-# Override this with the plex claim token from plex.tv/claim
-claimToken: ""
+strategy:
+  type: Recreate
 
-# Set the timezone of the plex server
-timezone: "Etc/UTC"
+env: {}
+  # TZ:
 
-# add your pod network subnet to the `List of IP addresses and networks that are allowed without auth`
-# This will override the manual settings, so only use this if you will not need to change it manually.
-# This list will be automatically converted to a command seperated string when passed to the container.
-# You would specify this when using helm CLI with --set allowedNetworks="{127.0.0.1,10.54.2.0/24}"
-# allowedNetworks:
-#   -   127.0.0.1
-#   -   10.54.2.0/24
+service:
+  port:
+    port: 32400
 
-# Instruct the Plex Media Server Container to Change the Configuration Directory Ownership
-# Default is true, you would only need to set this if you want to disable it.
-# changeConfigDirOwnership: true
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+    mountPath: /config
+    ## Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    # storageClass: "-"
+    # accessMode: ReadWriteOnce
+    # size: 1Gi
+    ## Do not delete the pvc upon helm uninstall
+    # skipuninstall: false
+    # existingClaim: ""
 
-# advertiseIp This variable defines the additional IPs on which the server may be be found.
-# For example: http://10.1.1.23:32400.
-# This adds to the list where the server advertises that it can be found.
-# See https://hub.docker.com/r/plexinc/pms-docker/ for details
-# advertiseIp: "http://10.1.1.23:32400"
-
-# Set The user id of the plex user created inside the container.
-# See https://hub.docker.com/r/plexinc/pms-docker/ for details
-# plexUid: 1000
-
-# Set The group id of the plex group created inside the container
-# See https://hub.docker.com/r/plexinc/pms-docker/ for details
-# plexGid: 1000
-
-#####   END  --> Official PLEX container environment variables
-
-# You can add as many Additional ENV variables here
-# The following is the same as --set extraEnv.TMPDIR="/transcode"
-# extraEnv:
-#   TMPDIR: /transcode
-
-# upgrade strategy type (e.g. Recreate or RollingUpdate)
-strategyType: Recreate
-
-plexServiceTCP:
-  port: 32400
-
-hostNetwork: false
-
-transcodeHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
-
-gpuConfiguration: {}
-emptyDirVolumes: true
+  transcode:
+    enabled: false
+    emptyDir: false
+    mountPath: /transcode
+    ## Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    # storageClass: "-"
+    # accessMode: ReadWriteOnce
+    # size: 1Gi
+    ## Do not delete the pvc upon helm uninstall
+    # skipuninstall: false
+    # existingClaim: ""
 
 ## TrueCharts Values
 
+gpuConfiguration: {}
+
+appVolumesEnabled: true
+emptyDirVolumes: true
+
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    datasetName: "config"
+    mountPath: "/config"
+  data:
+    enabled: true
+    emptyDir: true
+    datasetName: "data"
+    mountPath: "/data"
+  media:
+    enabled: true
+    emptyDir: true
+    datasetName: "media"
+    mountPath: "/media"
+  transcode:
+    enabled: true
+    emptyDir: true
+    datasetName: "transcode"
+    mountPath: "/transcode"
+    
 appIngress:
   port: 32400
-  host: "plex.truecharts.test"
-  selfsigned: false
-  wildcard: false
-  existingCert: ""
-  authForwardUrl: ""
 
