@@ -2,7 +2,7 @@
 Expand the name of the chart.
 */}}
 {{- define "common.names.name" -}}
-{{- $values := . -}}
+{{- $values := (.common | default dict) -}}
 {{- $name := (default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-") }}
 {{- if hasKey $values "nameSuffix" -}}
   {{- $name = (printf "%v-%v" $name $values.nameSuffix) -}}
@@ -16,11 +16,11 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 If release name contains chart name it will be used as a full name.
 */}}
 {{- define "common.names.fullname" -}}
-{{- $values := . -}}
-{{- if $values.fullnameOverride }}
-{{- $values.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- $values := (.common | default dict) -}}
+{{- if .Values.fullnameOverride }}
+{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
-{{- $name := default .Chart.Name $values.nameOverride }}
+{{- $name := default .Chart.Name .Values.nameOverride }}
 {{- if hasKey $values "nameSuffix" -}}
   {{- $name = (printf "%v-%v" $name $values.nameSuffix) -}}
 {{ end -}}
@@ -53,7 +53,7 @@ Determine release name
 This will add a suffix to the release name if nameSuffix is set
 */}}
 {{- define "common.names.releaseName" -}}
-{{- $values := . -}}
+{{- $values := (.common | default dict) -}}
 {{- if hasKey $values "nameSuffix" -}}
   {{- printf "%v-%v" .Release.Name $values.nameSuffix -}}
 {{- else -}}
