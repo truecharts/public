@@ -82,6 +82,7 @@ questions:
       default: []
       items:
         - variable: environmentVariable
+          label: ""
           schema:
             type: dict
             attrs:
@@ -119,6 +120,7 @@ questions:
   # Configure app volumes
   - variable: appVolumeMounts
     group: "Volume Mounts"
+    label: ""
     schema:
       type: dict
       attrs:
