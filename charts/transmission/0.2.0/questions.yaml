@@ -1,0 +1,196 @@
+groups:
+  - name: "Container Images"
+    description: "Image to be used for container"
+  - name: "Container Entrypoint"
+    description: "Configuration of the executable that will be run when the container is started"
+  - name: "Container Environment Variables"
+    description: "Set the environment that will be visible to the container"
+  - name: "Networking"
+    description: "Configure networking for container"
+  - name: "Storage"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "transmission Configuration"
+    description: "Configure transmission deployment"
+  - name: "Workload Details"
+    description: "Configure how workload should be deployed"
+  - name: "Scaling/Upgrade Policy"
+    description: "Configure how pods are replaced when configuration is upgraded"
+  - name: "Restart Policy"
+    description: "Configure when pod should be restarted in case of failure"
+  - name: "Resource Reservation"
+    description: "Specify resources to be allocated to workload"
+  - name: "Ingress"
+    description: "Ingress Configuration"
+
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$node_ip"
+    ports:
+      - "$variable-service.port.port"
+    path: "/web"
+
+questions:
+  # Image related
+  - variable: image
+    description: "Docker Image Details"
+    label: "Docker Image"
+    group: "Container Images"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: repository
+          description: "Docker image repository"
+          label: "Image repository"
+          schema:
+            type: string
+            required: true
+            default: "linuxserver/transmission"
+        - variable: tag
+          description: "Tag to use for specified image"
+          label: "Image Tag"
+          schema:
+            type: string
+            default: "version-v0.17.153"
+        - variable: pullPolicy
+          description: "Docker Image Pull Policy"
+          label: "Image Pull Policy"
+          schema:
+            type: string
+            default: "IfNotPresent"
+            enum:
+              - value: "IfNotPresent"
+                description: "Only pull image if not present on host"
+              - value: "Always"
+                description: "Always pull image even if present on host"
+              - value: "Never"
+                description: "Never pull image even if it's not present on host"
+
+
+## TrueCharts Specific
+
+  - variable: appVolumeMounts
+    label: "app storage"
+    group: "Storage"
+    schema:
+      type: dict
+      attrs:
+        - variable: config
+          label: "config dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "config"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/config"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+        - variable: downloads
+          label: "downloads dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "downloads"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/downloads"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+
+
+  - variable: appIngressEnabled
+    label: "Enable Ingress"
+    description: "Configure Ingress Settings"
+    group: "Ingress"
+    schema:
+      type: boolean
+      default: true
+      show_subquestions_if: true
+      subquestions:
+        - variable: appIngress
+          label: "Ingress Settings"
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: host
+                description: "Ingress Hostname"
+                label: "Ingress Hostname"
+                schema:
+                  type: string
+                  default: "your.hostname.com"
+                  required: true
+              - variable: selfsigned
+                description: "Use a self-signed certificate"
+                label: "Self-Signed Certificate"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: wildcard
+                description: "Use wildcard certificate from Certmanager configuration"
+                label: "Use Global Wildcard"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: existingCert
+                description: "Enter name of existing certificate to use"
+                label: "Existing Certificate"
+                schema:
+                  type: string
+                  default: ""
+              - variable: authForwardUrl
+                description: "Enter URL to use for authentication"
+                label: "Forward-Auth URL"
+                schema:
+                  type: string
+                  default: ""
