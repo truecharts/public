@@ -11,6 +11,16 @@ strategy:
 service:
   port:
     port: 9091
+  
+  additionalServices:
+  - enabled: true
+    nameSuffix: bittorrentTCP
+    type: ClusterIP
+    port:
+      port: 51413
+      name: bittorrentTCP
+      protocol: TCP
+      targetPort: 51413
 
 env: {}
   # TZ: UTC
