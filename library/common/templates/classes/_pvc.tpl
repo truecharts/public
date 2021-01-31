@@ -1,5 +1,5 @@
 {{/*
-This template serves as a blueprint for all PersistentVolumeClaim objects that are created
+This template serves as a blueprint for all PersistentVolumeClaim objects that are created 
 within the common library.
 */}}
 {{- define "common.classes.pvc" -}}

@@ -1,5 +1,5 @@
 {{/*
-This template serves as a blueprint for all Ingress objects that are created
+This template serves as a blueprint for all Ingress objects that are created 
 within the common library.
 */}}
 {{- define "common.classes.ingress" -}}
@@ -26,6 +26,11 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
+  {{- if eq (include "common.capabilities.ingress.apiVersion" $) "networking.k8s.io/v1" }}
+  {{- if $values.ingressClassName }}
+  ingressClassName: {{ $values.ingressClassName }}
+  {{- end }}
+  {{- end }}
   {{- if $values.tls }}
   tls:
     {{- range $values.tls }}
