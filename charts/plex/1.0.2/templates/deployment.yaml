@@ -67,29 +67,15 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.namespace
-  {{- if .Values.proxy.enabled }}
-    {{- if .Values.proxy.http }}
-          - name: "HTTP_PROXY"
-            value: "{{.Values.proxy.http}}"
-    {{- end }}
-    {{- if .Values.proxy.https }}
-          - name: "HTTPS_PROXY"
-            value: "{{.Values.proxy.https}}"
-    {{- end }}
-  {{- end }}
-  {{- if .Values.advertiseIp }}
-          - name: "ADVERTISE_IP"
-            value: "{{.Values.advertiseIp}}"
-{{- end }}
-{{- if .Values.allowedNetworks }}
-          - name: "ALLOWED_NETWORKS"
-            value: "{{include "joinListWithComma" .Values.allowedNetworks}}"
-{{- end }}
 # Extra ENV Values supplied by user
-{{- range $key, $value := .Values.extraEnv }}
-          - name: {{ $key }}
-            value: {{ $value }}
-{{- end }}
+{{- range $envVariable := .Values.environmentVariables }}
+          {{- if and $envVariable.name $envVariable.value }}
+          - name: {{ $envVariable.name }}
+            value: {{ $envVariable.value | quote }}
+          {{- else }}
+            {{- fail "Please specify name/value for environment variable" }}
+          {{- end }}
+{{- end}}
           readinessProbe:
             httpGet:
               path: /identity
