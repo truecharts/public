@@ -14,11 +14,11 @@ service:
   
   additionalServices:
   - enabled: true
-    nameSuffix: bittorrentTCP
+    nameSuffix: bittorrent-tcp
     type: ClusterIP
     port:
       port: 51413
-      name: bittorrentTCP
+      name: bittorrent-tcp
       protocol: TCP
       targetPort: 51413
 
