@@ -84,6 +84,7 @@ questions:
   # Service Configuration
   - variable: service
     group: "Network"
+    label: ""
     schema:
       type: dict
       required: true
@@ -99,6 +100,7 @@ questions:
   # Configure app volumes
   - variable: appVolumeMounts
     group: "Volume Mounts"
+    label: ""
     schema:
       type: dict
       attrs:
