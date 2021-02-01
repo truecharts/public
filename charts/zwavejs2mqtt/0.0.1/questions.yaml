@@ -15,7 +15,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-service.nodePort"
+      - "$variable-service.port.nodePort"
 
 questions:
   # Image related
@@ -84,18 +84,41 @@ questions:
   # Service Configuration
   - variable: service
     group: "Network"
-    label: ""
+    label: "Configure Service"
     schema:
       type: dict
-      required: true
       attrs:
-        - variable: nodePort
-          label: "Port to expose for zwavejsmqtt UI"
+        - variable: type
+          label: "Service type"
           schema:
-            type: int
-            min: 9000
-            max: 65535
-            default: 38091
+            type: string
+            default: "NodePort"
+            enum:
+              - value: "NodePort"
+                description: "NodePort"
+              - value: "ClusterIP"
+                description: "ClusterIP"
+            show_subquestions_if: "NodePort"
+            subquestions:
+              - variable: port
+                label: "Port configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: port
+                      label: "container port"
+                      schema:
+                        type: int
+                        default: 8091
+                        editable: false
+                    - variable: nodePort
+                      label: "Node Port to expose for UI"
+                      schema:
+                        type: int
+                        min: 9000
+                        max: 65535
+                        default: 38091
+                        required: true
 
   # Configure app volumes
   - variable: appVolumeMounts
