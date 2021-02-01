@@ -75,27 +75,6 @@ questions:
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
-  # Configure Enviroment Variables
-  - variable: environment
-    group: "Configuration"
-    label: "Environment Variables"
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: environmentVariable
-          label: ""
-          schema:
-            type: dict
-            attrs:
-              - variable: name
-                label: "Name"
-                schema:
-                  type: string
-              - variable: value
-                label: "Value"
-                schema:
-                  type: string
 
   # Configure app volumes
   - variable: appVolumeMounts
