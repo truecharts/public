@@ -144,11 +144,11 @@ service:
 
 ingress:
   enabled: false
-  annotations:
-    #cert-manager.io/cluster-issuer: letsencrypt-prod
-    traefik.ingress.kubernetes.io/router.entrypoints: web
-    #traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd
+  entrypoint: "websecure"
+  certType: "letsencrypt-prod"
+  existingcert: ""
+  authForwardUrl: ""
+  annotations: {}
   labels: {}
   hosts:
     - host: app.truecharts.placeholder
@@ -162,10 +162,14 @@ ingress:
   #      - chart-example.local
   additionalIngresses: []
   # - enabled: false
+  #   selfsigned: false
+  #   existingCert: false
+  #   authForwardUrl: ""
   #   nameSuffix: "api"
-  #   annotations: {}
-  #   # kubernetes.io/ingress.class: nginx
-  #   # kubernetes.io/tls-acme: "true"
+  #   annotations:
+  #     cert-manager.io/cluster-issuer: letsencrypt-prod
+  #     traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  #     traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd
   #   labels: {}
   #   hosts:
   #     - host: chart-example.local
