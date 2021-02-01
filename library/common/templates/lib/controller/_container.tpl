@@ -14,6 +14,14 @@ The main container included in the controller.
   {{- end }}
   {{- if .Values.env }}
   env:
+  {{- range $envVariable := .Values.environmentVariables }}
+  {{- if and $envVariable.name $envVariable.value }}
+    - name: {{ $envVariable.name }}
+    value: {{ $envVariable.value | quote }}
+  {{- else }}
+    {{- fail "Please specify name/value for environment variable" }}
+  {{- end }}
+  {{- end}}
   {{- range $key, $value := .Values.env }}
   - name: {{ $key }}
     value: {{ $value | quote }}

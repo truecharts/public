@@ -412,14 +412,3 @@ appVolumeMounts:
     mountPath: "/shared/logs"
 
 emptyDirVolumes: true
-
-appIngressEnabled: false
-
-appIngress:
-  port: 6666
-  host: "your.hostname.com"
-  selfsigned: false
-  wildcard: false
-  existingCert: ""
-  authForwardUrl: ""
-  entrypoint: "websecure"
