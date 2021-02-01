@@ -65,16 +65,14 @@ service:
     name: webui
     port: 8091
     nodePort: 38091
-
   additionalServices:
+    ## web-socket for zwave-js-server
     - enabled: true
-      name: "zwave-js-ws"
+      nameSuffix: ws
       type: ClusterIP
       port:
-        port: 3000
         name: ws
-        protocol: TCP
-        # nodePort:
+        port: 3000
 
 # Privileged may be required if USB controller is accessed directly through the host machine
 # securityContext:
