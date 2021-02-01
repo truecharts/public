@@ -17,6 +17,7 @@ env: {}
   # PUID: 1001
   # PGID: 1001
 
+
 persistence:
   config:
     enabled: false
@@ -47,6 +48,3 @@ dataHostPathEnabled: false
 configHostPathEnabled: false
 
 emptyDirVolumes: true
-
-appIngress:
-   port: 9117

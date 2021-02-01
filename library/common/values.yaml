@@ -141,14 +141,17 @@ service:
   #   annotations: {}
   #   labels: {}
 
+
 ingress:
   enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  annotations:
+    #cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+    #traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd
   labels: {}
   hosts:
-    - host: chart-example.local
+    - host: app.truecharts.placeholder
       paths:
         - path: /
           # Ignored if not kubeVersion >= 1.14-0

@@ -113,50 +113,51 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-
-  - variable: appIngressEnabled
-    label: "Enable Ingress"
-    description: "Configure Ingress Settings"
+                  
+  - variable: ingress
+    label: "Setup Web Ingress"
     group: "Ingress"
     schema:
-      type: boolean
-      default: true
-      show_subquestions_if: true
-      subquestions:
-        - variable: appIngress
-          label: "Ingress Settings"
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable Web Ingress"
           schema:
-            type: dict
-            required: true
-            attrs:
-              - variable: host
-                description: "Ingress Hostname"
-                label: "Ingress Hostname"
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: hosts
+                label: "Hosts"
                 schema:
-                  type: string
-                  default: "your.hostname.com"
-                  required: true
-              - variable: selfsigned
-                description: "Use a self-signed certificate"
-                label: "Self-Signed Certificate"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: wildcard
-                description: "Use wildcard certificate from Certmanager configuration"
-                label: "Use Global Wildcard"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: existingCert
-                description: "Enter name of existing certificate to use"
-                label: "Existing Certificate"
-                schema:
-                  type: string
-                  default: ""
-              - variable: authForwardUrl
-                description: "Enter URL to use for authentication"
-                label: "Forward-Auth URL"
-                schema:
-                  type: string
-                  default: ""
+                  type: list
+                  default: []
+                  items:
+                    - variable: host
+                      label: "Host"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: host
+                            label: "Domain Name"
+                            schema:
+                              type: string
+                          - variable: paths
+                            label: "paths"
+                            schema:
+                              type: list
+                              default: []
+                              items:
+                                - variable: path
+                                  label: "Path"
+                                  schema:
+                                    type: dict
+                                    attrs:
+                                      - variable: path
+                                        label: "Domain Name"
+                                        schema:
+                                          type: string
+                                      - variable: pathType
+                                        label: "Domain Name"
+                                        schema:
+                                          type: string
