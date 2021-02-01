@@ -4,7 +4,7 @@ groups:
   - name: "Configuration"
     description: "additional container configuration"
   - name: "Networking"
-    description: "network / service configuration"
+    description: "Networking / service configuration"
   - name: "Storage"
     description: "configure app volume mounts"
   - name: "Ingress"
@@ -69,7 +69,7 @@ questions:
   # Configure Enviroment Variables
   - variable: environmentVariables
     label: "Image environment"
-    group: "Container Environment"
+    group: "Configuration"
     schema:
       type: list
       default: []
@@ -126,10 +126,10 @@ questions:
                         default: 36052
                         required: true
 
-  # Enable Host Network
-  - variable: hostNetwork
+  # Enable Host Networking
+  - variable: hostNetworking
     group: "Networking"
-    label: "Enable Host Network"
+    label: "Enable Host Networking"
     schema:
       type: boolean
       default: false
