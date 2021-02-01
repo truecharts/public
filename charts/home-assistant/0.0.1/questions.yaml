@@ -17,7 +17,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-service..port.nodePort"
+      - "$variable-service.port.nodePort"
 
 questions:
   # Image related
