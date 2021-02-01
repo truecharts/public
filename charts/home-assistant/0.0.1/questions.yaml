@@ -3,12 +3,12 @@ groups:
     description: "configure container image"
   - name: "Configuration"
     description: "additional container configuration"
-  - name: "Network"
+  - name: "Networking"
     description: "network / service configuration"
-  - name: "Ingress"
-    description: "configure ingress"
-  - name: "Volume Mounts"
+  - name: "Storage"
     description: "configure app volume mounts"
+  - name: "Ingress"
+    description: "Ingress configuration"
 
 portals:
   web_portal:
@@ -78,7 +78,7 @@ questions:
 
   # Configure app volumes
   - variable: appVolumeMounts
-    group: "Volume Mounts"
+    group: "Storage"
     label: ""
     schema:
       type: dict
@@ -167,7 +167,7 @@ questions:
                         default: "/dev/ttyAMC1"
   # Enable privileged
   - variable: securityContext
-    group: "Volume Mounts"
+    group: "Storage"
     label: "Security Context"
     schema:
       type: dict
@@ -180,14 +180,15 @@ questions:
 
   # Enable Host Network
   - variable: hostNetwork
-    group: "Network"
+    group: "Networking"
     label: "Enable Host Network"
     schema:
       type: boolean
       default: false
+      
   # Service Configuration
   - variable: service
-    group: "Network"
+    group: "Networking"
     label: "Configure Service"
     schema:
       type: dict
@@ -224,49 +225,92 @@ questions:
                         default: 38123
                         required: true
 
-  - variable: appIngressEnabled
-    label: "Enable Ingress"
-    description: "Configure Ingress Settings"
+  - variable: ingress
+    label: "Setup Web Ingress"
     group: "Ingress"
     schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: appIngress
-          label: "Ingress Settings"
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable Web Ingress"
           schema:
-            type: dict
-            required: true
-            attrs:
-              - variable: host
-                description: "Ingress Hostname"
-                label: "Ingress Hostname"
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: entrypoint
+                label: "Select Entrypoint"
                 schema:
                   type: string
-                  default: "your.hostname.com"
+                  default: "websecure"
                   required: true
-              - variable: selfsigned
-                description: "Use a self-signed certificate"
-                label: "Self-Signed Certificate"
+                  enum:
+                    - value: "websecure"
+                      description: "Websecure: HTTPS/TLS port 443"
+              - variable: hosts
+                label: "Hosts"
                 schema:
-                  type: boolean
-                  default: false
-              - variable: wildcard
-                description: "Use wildcard certificate from Certmanager configuration"
-                label: "Use Global Wildcard"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: existingCert
-                description: "Enter name of existing certificate to use"
-                label: "Existing Certificate"
+                  type: list
+                  default: []
+                  items:
+                    - variable: host
+                      label: "Host"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: host
+                            label: "Domain Name"
+                            required: true
+                            schema:
+                              type: string
+                          - variable: paths
+                            label: "paths"
+                            schema:
+                              type: list
+                              default: []
+                              items:
+                                - variable: path
+                                  label: "Path"
+                                  schema:
+                                    type: dict
+                                    attrs:
+                                      - variable: path
+                                        label: "path"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "/"
+                                      - variable: pathType
+                                        label: "pathType"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "prefix"
+              - variable: certType
+                label: "Select Certificate Type"
                 schema:
                   type: string
-                  default: ""
+                  default: "letsencrypt-prod"
+                  enum:
+                    - value: "letsencrypt-prod"
+                      description: "Letsencrypt Production Certificates"
+                    - value: "letsencrypt-staging"
+                      description: "Letsencrypt Test Certificates"
+                    - value: "wildcard"
+                      description: "Global Wildcard Certificate"
+                    - value: "selfsigned"
+                      description: "Self-Signed Certificate"
+                    - value: "existingcert"
+                      description: "Existing Certificate"
+                  show_subquestions_if: "existingcert"
+                  subquestions:
+                    - variable: existingcert
+                      label: "Existing Certificate Name"
+                      schema:
+                        type: string
+                        default: ""
               - variable: authForwardUrl
-                description: "Enter URL to use for authentication"
-                label: "Forward-Auth URL"
+                label: "Forward Authentication URL"
                 schema:
                   type: string
                   default: ""
