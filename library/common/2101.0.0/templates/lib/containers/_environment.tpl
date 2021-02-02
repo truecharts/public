@@ -28,3 +28,14 @@ Render environment variables
 {{- include "common.containers.environmentVariable" $envVariable | nindent 0 -}}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Render environment variables if present
+*/}}
+{{- define "common.containers.allEnvironmentVariables" -}}
+{{- $values := . -}}
+{{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "environmentVariables")) -}}
+{{- if $values.environmentVariables -}}
+env: {{- include "common.containers.environmentVariables" $values | nindent 2 -}}
+{{- end -}}
+{{- end -}}
