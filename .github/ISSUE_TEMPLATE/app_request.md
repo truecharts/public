@@ -1,8 +1,8 @@
 ---
 name: App Request
 about: Request new apps to add to TrueCharts
-title: ''
-labels: bug
+title: 'Add'
+labels: 'New App Request'
 assignees: ''
 
 ---
