@@ -54,5 +54,5 @@ spec:
               containerPort: 9501
             - name: gateway
               containerPort: 9880
-          {{ include "common.containers.environmentVariables" (dict "environmentVariables" .Values.environment) | nindent 10 }}
+          {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" .Values.environment) | nindent 10 }}
       {{ include "common.storage.allAppVolumes" .Values | nindent 6 }}

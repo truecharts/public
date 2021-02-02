@@ -144,14 +144,14 @@ questions:
                   default: "ix-ipfs-staging"
                   editable: false
               - variable: mountPath
-                label: "Mount Path"
+                label: "IPFS Staging Mount Path"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
                   editable: false
                   default: "/export"
               - variable: hostPathEnabled
-                label: "host Path Enabled"
+                label: "Enable Host Path for IPFS Staging Volume"
                 schema:
                   type: boolean
                   default: false
@@ -179,14 +179,14 @@ questions:
                   default: "ix-ipfs-data"
                   editable: false
               - variable: mountPath
-                label: "Mount Path"
+                label: "IPFS Data Mount Path"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
                   editable: false
                   default: "/data/ipfs"
               - variable: hostPathEnabled
-                label: "host Path Enabled"
+                label: "Enable Host Path for IPFS Data Volume"
                 schema:
                   type: boolean
                   default: false
