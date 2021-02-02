@@ -4,20 +4,20 @@ Define appVolumeMounts for container
 {{- define "common.storage.configureAppVolumeMountsInContainer" -}}
 {{- include "common.schema.validateKeys" (dict "values" . "checkKeys" (list "appVolumeMounts")) -}}
 {{- $appVolumeMounts := .appVolumeMounts -}}
-{{- if $appVolumeMounts }}
-{{- range $name, $avm := $appVolumeMounts -}}
-{{- if (default true $avm.enabled) }}
-{{- if $avm.containerNameOverride -}}
-{{- $name = $avm.containerNameOverride -}}
-{{- end -}}
+{{- if $appVolumeMounts -}}
+{{ range $name, $avm := $appVolumeMounts }}
+{{- if (default true $avm.enabled) -}}
+{{ if $avm.containerNameOverride }}
+{{ $name = $avm.containerNameOverride }}
+{{ end }}
 - name: {{ $name }}
   mountPath: {{ $avm.mountPath }}
-  {{- if $avm.subPath }}
+  {{ if $avm.subPath }}
   subPath: {{ $avm.subPath }}
-  {{- end }}
-{{- end }}
-{{- end }}
-{{- end }}
+  {{ end }}
+{{- end -}}
+{{ end }}
+{{- end -}}
 {{- end -}}
 
 
@@ -26,27 +26,27 @@ Define hostPath for appVolumes
 */}}
 {{- define "common.storage.configureAppVolumes" -}}
 {{- include "common.schema.validateKeys" (dict "values" . "checkKeys" (list "appVolumeMounts")) -}}
-{{- $appVolumeMounts := .appVolumeMounts -}}
-{{- if $appVolumeMounts }}
-{{- range $name, $av := $appVolumeMounts -}}
-{{- if (default true $av.enabled) }}
+{{- $values := . -}}
+{{- if $values.appVolumeMounts -}}
+{{- range $name, $av := $values.appVolumeMounts -}}
+{{ if (default true $av.enabled) }}
 - name: {{ $name }}
-  {{- if or $av.emptyDir $.emptyDirVolumes }}
+  {{ if or $av.emptyDir $.emptyDirVolumes }}
   emptyDir: {}
-  {{- else }}
+  {{- else -}}
   hostPath:
     {{ if $av.hostPathEnabled }}
     path: {{ required "hostPath not set" $av.hostPath }}
-    {{- else }}
-    {{- include "common.schema.validateKeys" (dict "values" . "checkKeys" (list "ixVolumes")) -}}
+    {{ else }}
+    {{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "ixVolumes")) -}}
     {{- include "common.schema.validateKeys" (dict "values" $av "checkKeys" (list "datasetName")) -}}
-    {{- $volDict := dict "datasetName" $av.datasetName "ixVolumes" $.ixVolumes -}}
+    {{- $volDict := dict "datasetName" $av.datasetName "ixVolumes" $values.ixVolumes -}}
     path: {{ include "common.storage.retrieveHostPathFromiXVolume" $volDict }}
-    {{- end }}
-  {{- end }}
-{{- end }}
-{{- end }}
-{{- end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{- end -}}
+{{- end -}}
 {{- end -}}
 
 
