@@ -94,34 +94,78 @@ questions:
           label: "Service type"
           schema:
             type: string
-            default: "NodePort"
+            default: "ClusterIP"
             enum:
               - value: "NodePort"
                 description: "NodePort"
               - value: "ClusterIP"
                 description: "ClusterIP"
-            show_subquestions_if: "NodePort"
-            subquestions:
+        - variable: port
+          label: "Port configuration"
+          schema:
+            type: dict
+            attrs:
               - variable: port
-                label: "Port configuration"
+                label: "container port"
                 schema:
-                  type: dict
-                  attrs:
-                    - variable: port
-                      label: "container port"
+                  type: int
+                  default: 8091
+                  editable: false
+              - variable: nodePort
+                label: "Node Port to expose for UI"
+                schema:
+                  show_if: [["service.type", "=", "NodePort"]]
+                  type: int
+                  min: 9000
+                  max: 65535
+                  default: 38091
+                  required: true
+              - variable: additionalPorts
+                label: "additionalPorts"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: additionalPort
+                      label: "additionalPort"
                       schema:
-                        type: int
-                        default: 8091
-                        editable: false
-                    - variable: nodePort
-                      label: "Node Port to expose for UI"
-                      schema:
-                        type: int
-                        min: 9000
-                        max: 65535
-                        default: 38091
-                        required: true
-
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Port Name"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: protocol
+                            label: "Protocol"
+                            schema:
+                              type: string
+                              default: "TCP"
+                              enum:
+                                - value: "TCP"
+                                  description: "TCP"
+                                - value: "UDP"
+                                  description: "UDP"
+                          - variable: port
+                            label: "container port"
+                            schema:
+                              type: int
+                              default: 3000
+                          - variable: targetport
+                            label: "targetPort"
+                            schema:
+                              type: int
+                              default: 3000
+                              editable: false
+                          - variable: nodePort
+                            label: "Node Port to expose for UI"
+                            schema:
+                              type: int
+                              min: 9000
+                              max: 65535
+                              default: 38092
+                              required: true
+                          
   # Configure app volumes
   - variable: appVolumeMounts
     group: "Storage"
