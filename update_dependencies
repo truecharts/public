@@ -69,7 +69,7 @@ def update_train_charts(train_path, commit):
         if any(ITEMS[item]['error'] for item in ITEMS):
             print(f'[\033[91mFAILED\x1B[0m]\tNot committing changes as failures detected')
         else:
-            commit_msg = f'Updated catalog item dependencies ({train_path.rsplit("/", 1)[0]} train)\n' \
+            commit_msg = f'Updated catalog item dependencies ({train_path.rsplit("/", 1)[-1]} train)\n' \
                          'Following items were updated:\n'
             for item in ITEMS:
                 commit_msg += f'Updated {item} ({", ".join(ITEMS[item]["success"])} versions)\n\n'
