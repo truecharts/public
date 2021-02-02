@@ -18,67 +18,35 @@ spec:
         - name: init-init
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/bin/sh', '-c', '[ ! -e /data/ipfs/config ] && (/usr/local/bin/ipfs init ; chown -R 1000:100 /data/ipfs) ; exit 0']
-          volumeMounts:
-            - name: data
-              mountPath: /data/ipfs
-            - name: staging
-              mountPath: /export
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
         - name: init-api
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/usr/local/bin/ipfs', 'config', 'Addresses.API', "/ip4/0.0.0.0/tcp/{{ .Values.service.apiPort}}"]
-          volumeMounts:
-            - name: data
-              mountPath: /data/ipfs
-            - name: staging
-              mountPath: /export
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
         - name: init-gateway
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/usr/local/bin/ipfs', 'config', 'Addresses.Gateway', "/ip4/0.0.0.0/tcp/{{ .Values.service.gatewayPort}}"]
-          volumeMounts:
-            - name: data
-              mountPath: /data/ipfs
-            - name: staging
-              mountPath: /export
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
         - name: init-swarm
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/usr/local/bin/ipfs', 'config', '--json', 'Addresses.Swarm', "[\"/ip4/0.0.0.0/tcp/{{ .Values.service.swarmPort}}\",\"/ip4/0.0.0.0/tcp/{{ .Values.service.swarmPort}}/quic\"]" ]
-          volumeMounts:
-            - name: data
-              mountPath: /data/ipfs
-            - name: staging
-              mountPath: /export
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
         - name: init-access-origin
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/usr/local/bin/ipfs', 'config', '--json', 'API.HTTPHeaders.Access-Control-Allow-Origin', "[\"*\"]" ]
-          volumeMounts:
-            - name: data
-              mountPath: /data/ipfs
-            - name: staging
-              mountPath: /export
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
         - name: init-access-methods
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['/usr/local/bin/ipfs', 'config', '--json', 'API.HTTPHeaders.Access-Control-Allow-Methods', "[\"PUT\",\"POST\"]" ]
-          volumeMounts:
-            - name: data
-              mountPath: /data/ipfs
-            - name: staging
-              mountPath: /export
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
         - name: init-chown
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           command: ['chown', '1000:100', '/data/ipfs/config']
-          volumeMounts:
-            - name: data
-              mountPath: /data/ipfs
-            - name: staging
-              mountPath: /export
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
-          volumeMounts:
-            - name: data
-              mountPath: /data/ipfs
-            - name: staging
-              mountPath: /export
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
           ports:
             - name: swarm
               containerPort: 9401
@@ -86,12 +54,5 @@ spec:
               containerPort: 9501
             - name: gateway
               containerPort: 9880
-          {{- if .Values.environment }}
-          env:
-            {{ include "common.containers.environmentVariables" (dict "environmentVariables" .Values.environment) | nindent 12 }}
-          {{- end }}
-      volumes:
-        {{ $vols := list }}
-        {{ $vols = mustAppend $vols (dict "name" "data" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" .Values.ipfsDataHostPathEnabled "pathField" .Values.ipfsDataHostPath "datasetName" (.Values.ipfsDataVolume | default dict).datasetName ) }}
-        {{ $vols = mustAppend $vols (dict "name" "staging" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" .Values.ipfsStagingHostPath "pathField" .Values.ipfsStagingHostPath "datasetName" (.Values.ipfsStagingVolume | default dict).datasetName ) }}
-        {{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) | nindent 8 }}
+          {{ include "common.containers.environmentVariables" (dict "environmentVariables" .Values.environment) | nindent 10 }}
+      {{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
