@@ -21,15 +21,15 @@ spec:
           {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
         - name: init-api
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
-          command: ['/usr/local/bin/ipfs', 'config', 'Addresses.API', "/ip4/0.0.0.0/tcp/{{ .Values.service.apiPort}}"]
+          command: ['/usr/local/bin/ipfs', 'config', 'Addresses.API', "/ip4/0.0.0.0/tcp/9501"]
           {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
         - name: init-gateway
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
-          command: ['/usr/local/bin/ipfs', 'config', 'Addresses.Gateway', "/ip4/0.0.0.0/tcp/{{ .Values.service.gatewayPort}}"]
+          command: ['/usr/local/bin/ipfs', 'config', 'Addresses.Gateway', "/ip4/0.0.0.0/tcp/9080"]
           {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
         - name: init-swarm
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
-          command: ['/usr/local/bin/ipfs', 'config', '--json', 'Addresses.Swarm', "[\"/ip4/0.0.0.0/tcp/{{ .Values.service.swarmPort}}\",\"/ip4/0.0.0.0/tcp/{{ .Values.service.swarmPort}}/quic\"]" ]
+          command: ['/usr/local/bin/ipfs', 'config', '--json', 'Addresses.Swarm', "[\"/ip4/0.0.0.0/tcp/9401\",\"/ip4/0.0.0.0/tcp/9401/quic\"]" ]
           {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
         - name: init-access-origin
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
@@ -54,5 +54,5 @@ spec:
               containerPort: 9501
             - name: gateway
               containerPort: 9880
-          {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" .Values.environment) | nindent 10 }}
-      {{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
+{{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" .Values.environment) | nindent 10 }}
+{{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
