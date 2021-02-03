@@ -1,6 +1,4 @@
-apiVersion: apps/v1
-kind: Deployment
-{{ include "common.deployment.metadata" . | nindent 0 }}
+{{ include "common.deployment.common_config" . | nindent 0 }}
 spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
   template: {{ include "common.deployment.pod.metadata" . | nindent 4 }}
     spec:

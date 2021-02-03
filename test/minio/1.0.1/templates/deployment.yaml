@@ -1,32 +1,17 @@
 {{ $scheme := "http" }}
-apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
-kind: Deployment
-metadata:
-  name: {{ template "common.names.fullname" . }}
-  labels: {{ include "common.labels" . | nindent 4 }}
-spec:
-  strategy:
-    type: {{ .Values.updateStrategy }}
-  selector:
-    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 6 }}
-  template:
-    metadata:
-      name: {{ template "common.names.fullname" . }}
-      labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
-      annotations:
-        checksum/secrets: {{ include (print $.Template.BasePath "/secrets.yaml") . | sha256sum }}
+{{ include "common.deployment.common_config" . | nindent 0 }}
+spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
+  template: {{ include "common.deployment.pod.metadata" . | nindent 4 }}
     spec:
       serviceAccountName: {{ include "common.names.serviceAccountName" . | quote }}
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
           command:
             - "/bin/sh"
             - "-ce"
             - "/usr/bin/docker-entrypoint.sh minio server /export {{ (.Values.extraArgs | default list) | join " " }}"
-          volumeMounts:
-            - name: export
-              mountPath: /export
           ports:
             - name: {{ $scheme }}
               containerPort: 9000
@@ -36,7 +21,4 @@ spec:
             {{ $envList = mustAppend $envList (dict "name" "MINIO_ACCESS_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "accesskey") }}
             {{ $envList = mustAppend $envList (dict "name" "MINIO_SECRET_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "secretkey") }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
-      volumes:
-        {{ $vols := list }}
-        {{ $vols = mustAppend $vols (dict "name" "export" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" .Values.minioHostPathEnabled "pathField" .Values.minioHostPath "datasetName" (.Values.minioDataVolume | default dict).datasetName ) }}
-        {{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) | nindent 8 }}
+{{ include "common.storage.allAppVolumes" .Values | nindent 6 }}

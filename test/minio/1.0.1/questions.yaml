@@ -138,38 +138,42 @@ questions:
             default: 9000
             required: true
 
-  - variable: minioHostPathEnabled
-    label: "Configure Host Path for Minio data"
-    group: "Storage"
-    schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: minioHostPath
-          label: "Specify HostPath for Minio data"
-          schema:
-            type: hostpath
-
-  - variable: minioDataVolume
-    label: "Minio Data Volume Defaults"
+  - variable: appVolumeMounts
+    label: "Minio Storage"
     group: "Storage"
     schema:
       type: dict
-      $ref:
-        - "normalize/ixVolume"
-      show_if: [["minioHostPathEnabled", "=", false]]
       attrs:
-        - variable: mountPath
-          label: "Minio Data Mount Path"
-          description: "Path where the volume will be mounted inside the pod"
+        - variable: export
+          label: "Data Volume"
           schema:
-            type: path
-            editable: false
-            default: "/export"
-        - variable: datasetName
-          label: "Minio Dataset Name"
-          schema:
-            type: string
-            default: "ix-minio"
-            editable: false
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "Minio Data Volume Dataset Name"
+                schema:
+                  type: string
+                  $ref:
+                    - "normalize/ixVolume"
+                  show_if: [["hostPathEnabled", "=", false]]
+                  default: "ix-minio"
+                  editable: false
+              - variable: mountPath
+                label: "Minio Data Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  editable: false
+                  default: "/export"
+              - variable: hostPathEnabled
+                label: "Enable Host Path for Minio Data Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path for Minio Data Volume"
+                      schema:
+                        type: hostpath
+                        required: true
