@@ -1,0 +1,30 @@
+{{/*
+Retrieve deployment metadata
+*/}}
+{{- define "common.deployment.metadata" -}}
+metadata:
+  name: {{ template "common.names.fullname" . }}
+  labels: {{ include "common.labels.selectorLabels" . | nindent 4 }}
+{{- end -}}
+
+
+{{/*
+Retrieve replicas/strategy/selector
+*/}}
+{{- define "common.deployment.common_spec" -}}
+replicas: {{ (default 1 .Values.replicas) }}
+strategy:
+  type: {{ (default "Recreate" .Values.strategyType ) }}
+selector:
+  matchLabels: {{ include "common.labels.selectorLabels" . | nindent 4 }}
+{{- end -}}
+
+
+{{/*
+Retrieve deployment pod's metadata
+*/}}
+{{- define "common.deployment.pod.metadata" -}}
+metadata:
+  labels: {{ include "common.labels.selectorLabels" . | nindent 4 }}
+  annotations: {{ include "common.annotations" . | nindent 4 }}
+{{- end -}}
