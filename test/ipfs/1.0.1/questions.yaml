@@ -67,7 +67,7 @@ questions:
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"
 
-  - variable: environment
+  - variable: environmentVariables
     label: "IPFS image environment"
     group: "IPFS Configuration"
     schema:
@@ -131,8 +131,6 @@ questions:
           label: "Staging Volume"
           schema:
             type: dict
-            $ref:
-              - "normalize/ixVolume"
             attrs:
               - variable: datasetName
                 label: "IPFS Staging Volume Dataset Name"
@@ -140,7 +138,7 @@ questions:
                   type: string
                   $ref:
                     - "normalize/ixVolume"
-                  show_if: [["hostPathEnabled", "=", false ]]
+                  show_if: [["hostPathEnabled", "=", false]]
                   default: "ix-ipfs-staging"
                   editable: false
               - variable: mountPath
@@ -158,7 +156,7 @@ questions:
                   show_subquestions_if: true
                   subquestions:
                     - variable: hostPath
-                      label: "Host Path"
+                      label: "Host Path for IPFS Staging Volume"
                       schema:
                         type: hostpath
                         required: true
@@ -166,8 +164,6 @@ questions:
           label: "Data Volume"
           schema:
             type: dict
-            $ref:
-              - "normalize/ixVolume"
             attrs:
               - variable: datasetName
                 label: "IPFS Data Volume Dataset Name"
@@ -193,7 +189,7 @@ questions:
                   show_subquestions_if: true
                   subquestions:
                     - variable: hostPath
-                      label: "Host Path"
+                      label: "Host Path for IPFS Data Volume"
                       schema:
                         type: hostpath
                         required: true
