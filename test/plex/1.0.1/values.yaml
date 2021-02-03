@@ -50,16 +50,12 @@ timezone: "Etc/UTC"
 #   TMPDIR: /transcode
 
 # upgrade strategy type (e.g. Recreate or RollingUpdate)
-strategyType: Recreate
+updateStrategy: Recreate
 
 plexServiceTCP:
   port: 32400
 
 hostNetwork: false
-
-transcodeHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
 
 proxy:
   # This allows to set a proxy environment variable, which PMS uses to fetch the token and assets like movie cover
@@ -69,3 +65,20 @@ proxy:
   # noproxy: "localhost,127.0.0.1,10.96.0.0/12,10.244.0.0/12"
 
 gpuConfiguration: {}
+
+appVolumeMounts:
+  transcode:
+    emptyDir: true
+    mountPath: "/transcode"
+  data:
+    emptyDir: true
+    mountPath: "/data"
+  config:
+    emptyDir: true
+    mountPath: "/config"
+  shared:
+    emptyDir: true
+    mountPath: "shared"
+  shared-logs:
+    emptyDir: true
+    mountPath: "/config/Library/Application Support/Plex Media Server/Logs"

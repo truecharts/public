@@ -17,5 +17,11 @@ service:
 
 environment:
 
-ipfsDataHostPathEnabled: false
-ipfsStagingHostPathEnabled: false
+appVolumeMounts:
+  staging:
+    emptyDir: true
+    mountPath: "/export"
+  data:
+    emptyDir: true
+    mountPath: "/data/ipfs"
+

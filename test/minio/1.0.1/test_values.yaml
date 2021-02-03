@@ -17,3 +17,7 @@ environment:
   ## Please refer for comprehensive list https://docs.minio.io/docs/minio-server-configuration-guide.html
 
 emptyDirVolumes: true
+appVolumeMounts:
+  export:
+    emptyDir: true
+    mountPath: "/export"

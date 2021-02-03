@@ -50,7 +50,7 @@ timezone: "Etc/UTC"
 #   TMPDIR: /transcode
 
 # upgrade strategy type (e.g. Recreate or RollingUpdate)
-strategyType: Recreate
+updateStrategy: "Recreate"
 
 plexServiceTCP:
   port: 32400
@@ -63,3 +63,20 @@ configHostPathEnabled: false
 
 gpuConfiguration: {}
 emptyDirVolumes: true
+
+appVolumeMounts:
+  transcode:
+    emptyDir: true
+    mountPath: "/transcode"
+  data:
+    emptyDir: true
+    mountPath: "/data"
+  config:
+    emptyDir: true
+    mountPath: "/config"
+  shared:
+    emptyDir: true
+    mountPath: "shared"
+  shared-logs:
+    emptyDir: true
+    mountPath: "/config/Library/Application Support/Plex Media Server/Logs"

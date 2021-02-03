@@ -15,3 +15,16 @@ nextcloud:
 
 service:
   nodePort: 9001
+
+appVolumeMounts:
+  nextcloud-data:
+    emptyDir: true
+    mountPath: "/var/www"
+
+postgresAppVolumeMounts:
+  postgres-data:
+    emptyDir: true
+    mountPath: "/var/lib/postgresql/data"
+  postgres-backup:
+    emptyDir: true
+    mountPath: "/postgres_backups"

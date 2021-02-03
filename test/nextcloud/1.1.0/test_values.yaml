@@ -11,7 +11,8 @@ nextcloud:
   username: admin
   password: changeme
   datadir: /var/www/html/data
-  strategy: "Recreate"
+
+updateStrategy: "Recreate"
 
 postgresql:
   backupVolume:
@@ -26,3 +27,16 @@ service:
 
 emptyDirVolumes: true
 ixChartContext: {}
+
+appVolumeMounts:
+  nextcloud-data:
+    emptyDir: true
+    mountPath: "/var/www"
+
+postgresAppVolumeMounts:
+  postgres-data:
+    emptyDir: true
+    mountPath: "/var/lib/postgresql/data"
+  postgres-backup:
+    emptyDir: true
+    mountPath: "/postgres_backups"
