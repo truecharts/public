@@ -1,19 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: {{ include "common.names.fullname" . }}
-  labels: {{ include "common.labels" . | nindent 4 }}
-spec:
-  replicas: 1
-  revisionHistoryLimit: 3
-  strategy:
-    type: {{ .Values.strategyType }}
-  selector:
-    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 6 }}
-  template:
-    metadata:
-      labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
-      annotations: {{ include "common.annotations" . | nindent 8 }}
+{{ include "common.deployment.metadata" . | nindent 0 }}
+spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
+  template: {{ include "common.deployment.pod.metadata" . | nindent 4 }}
     spec:
     {{- if .Values.hostNetwork }}
       hostNetwork: {{ .Values.hostNetwork }}
@@ -22,6 +11,8 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
+          {{ include "common.containers.gpuConfiguration" .Values | nindent 10 }}
           ports:
           - name: pms
             protocol: TCP
@@ -77,28 +68,4 @@ spec:
             initialDelaySeconds: 5
             failureThreshold: 40
             periodSeconds: 15
-          volumeMounts:
-          - name: data
-            mountPath: /data
-          - name: config
-            mountPath: /config
-          - name: transcode
-            mountPath: /transcode
-          - name: shared
-            mountPath: /shared
-          - name: shared-logs
-            mountPath: "/config/Library/Application Support/Plex Media Server/Logs"
-          {{- if .Values.gpuConfiguration }}
-          resources:
-            limits:
-              {{- toYaml .Values.gpuConfiguration | nindent 14 }}
-          {{- end }}
-      volumes:
-        {{ $emptyDir := .Values.emptyDirVolumes }}
-        {{ $vols := list }}
-        {{ $vols = mustAppend $vols (dict "name" "data" "emptyDirVolumes" $emptyDir "hostPathEnabled" .Values.dataHostPathEnabled "pathField" .Values.dataHostPath "datasetName" (.Values.dataVolume | default dict).datasetName ) }}
-        {{ $vols = mustAppend $vols (dict "name" "config" "emptyDirVolumes" $emptyDir "hostPathEnabled" .Values.configHostPathEnabled "pathField" .Values.configHostPath "datasetName" (.Values.configVolume | default dict).datasetName ) }}
-        {{ $vols = mustAppend $vols (dict "name" "transcode" "emptyDirVolumes" $emptyDir "hostPathEnabled" .Values.transcodeHostPathEnabled "pathField" .Values.transcodeHostPath "datasetName" (.Values.transcodeVolume | default dict).datasetName ) }}
-        {{ $vols = mustAppend $vols (dict "name" "shared" "emptyDirVolumes" true "hostPathEnabled" false "pathField" nil "datasetName" nil) }}
-        {{ $vols = mustAppend $vols (dict "name" "shared-logs" "emptyDirVolumes" true "hostPathEnabled" false "pathField" nil "datasetName" nil) }}
-        {{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) | nindent 8 }}
+{{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
