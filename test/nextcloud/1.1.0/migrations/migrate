@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+import json
+import sys
+
+
+def migrate(values):
+    values.update({
+        'appVolumeMounts': {
+            'nextcloud-data': {
+                'hostPathEnabled': values['nextcloudDataHostPathEnabled'],
+                **({'hostPath': values['nextcloudHostPath']} if values.get('nextcloudHostPath') else {})
+            },
+        },
+        'updateStrategy': values.get('nextcloud').get('strategy', 'Recreate'),
+    })
+    return values
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        exit(1)
+
+    print(json.dumps(migrate(json.loads(sys.argv[1]))))

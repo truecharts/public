@@ -36,8 +36,14 @@ Retrieve postgres credentials for environment variables configuration
 Retrieve postgres volume configuration
 */}}
 {{- define "postgres.volumeConfiguration" -}}
-{{ $vols := list }}
-{{ $vols = mustAppend $vols (dict "name" "postgres-data" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" false "pathField" nil "datasetName" (.Values.postgresDataVolume | default dict).datasetName ) }}
-{{ $vols = mustAppend $vols (dict "name" "postgres-backup" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" false "pathField" nil "datasetName" (.Values.postgresBackupVolume | default dict).datasetName ) }}
-{{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) }}
+{{ include "common.storage.configureAppVolumes" (dict "appVolumeMounts" .Values.postgresAppVolumeMounts "emptyDirVolumes" .Values.emptyDirVolumes "ixVolumes" .Values.ixVolumes) | nindent 0 }}
 {{- end -}}
+
+
+{{/*
+Retrieve postgres volume mounts configuration
+*/}}
+{{- define "postgres.volumeMountsConfiguration" -}}
+{{ include "common.storage.configureAppVolumeMountsInContainer" (dict "appVolumeMounts" .Values.postgresAppVolumeMounts ) | nindent 0 }}
+{{- end -}}
+

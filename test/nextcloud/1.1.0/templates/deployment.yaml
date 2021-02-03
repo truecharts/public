@@ -1,21 +1,8 @@
 {{ $postgres_values := (. | mustDeepCopy) }}
 {{ $_ := set $postgres_values "common" (dict "nameSuffix" "postgres") }}
-apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
-kind: Deployment
-metadata:
-  name: {{ template "common.names.fullname" . }}
-  labels: {{ include "common.labels" . | nindent 4 }}
-  annotations: {{ include "common.annotations" . | nindent 4 }}
-spec:
-  replicas: 1
-  strategy:
-    type: {{ .Values.nextcloud.strategy }}
-  selector:
-    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 6 }}
-  template:
-    metadata:
-      labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
-      annotations: {{ include "common.annotations" . | nindent 8 }}
+{{ include "common.deployment.common_config" . | nindent 0 }}
+spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
+  template: {{ include "common.deployment.pod.metadata" . | nindent 4 }}
     spec:
       initContainers:
         - name: init-postgresdb
@@ -61,10 +48,7 @@ spec:
         - name: nextcloud-data
           mountPath: /var/www/html/themes
           subPath: "themes"
-      volumes:
-      {{ $vols := list }}
-      {{ $vols = mustAppend $vols (dict "name" "nextcloud-data" "emptyDirVolumes" .Values.emptyDirVolumes "hostPathEnabled" .Values.nextcloudDataHostPathEnabled "pathField" .Values.nextcloudHostPath "datasetName" (.Values.nextcloudDataVolume | default dict).datasetName ) }}
-      {{ include "common.storage.volumesConfiguration" (dict "ixVolumes" .Values.ixVolumes "volumes" $vols) | nindent 8 }}
+{{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
       # Will mount configuration files as www-data (id: 33) for nextcloud
       securityContext:
         fsGroup: 33
