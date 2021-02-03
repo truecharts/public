@@ -13,7 +13,7 @@ updateStrategy: RollingUpdate
 service:
   nodePort: 32001
 
-environment:
+environmentVariables: []
   ## Please refer for comprehensive list https://docs.minio.io/docs/minio-server-configuration-guide.html
 
 emptyDirVolumes: true
