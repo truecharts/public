@@ -14,7 +14,7 @@ Retrieve replicas/strategy/selector
 {{- define "common.deployment.common_spec" -}}
 replicas: {{ (default 1 .Values.replicas) }}
 strategy:
-  type: {{ (default "Recreate" .Values.strategyType ) }}
+  type: {{ (default "Recreate" .Values.updateStrategy ) }}
 selector:
   matchLabels: {{ include "common.labels.selectorLabels" . | nindent 4 }}
 {{- end -}}
