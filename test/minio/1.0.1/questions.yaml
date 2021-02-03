@@ -150,9 +150,10 @@ questions:
             type: dict
             attrs:
               - variable: datasetName
-                label: "Minio Data Volume Dataset Name"
+                label: "Minio Data Volume Name"
                 schema:
                   type: string
+                  hidden: true
                   $ref:
                     - "normalize/ixVolume"
                   show_if: [["hostPathEnabled", "=", false]]
@@ -163,6 +164,7 @@ questions:
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
+                  hidden: true
                   editable: false
                   default: "/export"
               - variable: hostPathEnabled

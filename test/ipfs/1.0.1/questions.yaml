@@ -136,6 +136,7 @@ questions:
                 label: "IPFS Staging Volume Dataset Name"
                 schema:
                   type: string
+                  hidden: true
                   $ref:
                     - "normalize/ixVolume"
                   show_if: [["hostPathEnabled", "=", false]]
@@ -146,6 +147,7 @@ questions:
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
+                  hidden: true
                   editable: false
                   default: "/export"
               - variable: hostPathEnabled
@@ -166,9 +168,10 @@ questions:
             type: dict
             attrs:
               - variable: datasetName
-                label: "IPFS Data Volume Dataset Name"
+                label: "IPFS Data Volume Name"
                 schema:
                   type: string
+                  hidden: true
                   $ref:
                     - "normalize/ixVolume"
                   show_if: [["hostPathEnabled", "=", false]]
@@ -179,6 +182,7 @@ questions:
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
+                  hidden: true
                   editable: false
                   default: "/data/ipfs"
               - variable: hostPathEnabled

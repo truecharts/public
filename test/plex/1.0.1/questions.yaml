@@ -162,19 +162,21 @@ questions:
             type: dict
             attrs:
               - variable: datasetName
-                label: "Plex Transcode Volume Dataset Name"
+                label: "Plex Transcode Volume Name"
                 schema:
                   type: string
                   $ref:
                     - "normalize/ixVolume"
                   show_if: [["hostPathEnabled", "=", false]]
                   default: "ix-plex_transcode"
+                  hidden: true
                   editable: false
               - variable: mountPath
                 label: "Plex Transcode Mount Path"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
+                  hidden: true
                   editable: false
                   default: "/transcode"
               - variable: hostPathEnabled
@@ -195,7 +197,7 @@ questions:
             type: dict
             attrs:
               - variable: datasetName
-                label: "Plex Data Volume Dataset Name"
+                label: "Plex Data Volume Name"
                 schema:
                   type: string
                   $ref:
@@ -203,11 +205,13 @@ questions:
                   show_if: [["hostPathEnabled", "=", false]]
                   default: "ix-plex_data"
                   editable: false
+                  hidden: true
               - variable: mountPath
                 label: "Plex Data Mount Path"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
+                  hidden: true
                   editable: false
                   default: "/data"
               - variable: hostPathEnabled
@@ -228,7 +232,7 @@ questions:
             type: dict
             attrs:
               - variable: datasetName
-                label: "Plex Config Volume Dataset Name"
+                label: "Plex Config Volume Name"
                 schema:
                   type: string
                   $ref:
@@ -236,12 +240,14 @@ questions:
                   show_if: [["hostPathEnabled", "=", false]]
                   default: "ix-plex_config"
                   editable: false
+                  hidden: true
               - variable: mountPath
                 label: "Plex Config Mount Path"
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
                   editable: false
+                  hidden: true
                   default: "/config"
               - variable: hostPathEnabled
                 label: "Enable Host Path for Plex Config Volume"
@@ -259,6 +265,7 @@ questions:
           label: "Shared Volume"
           schema:
             type: dict
+            hidden: true
             attrs:
               - variable: emptyDir
                 label: "Temporary Volume"
@@ -277,6 +284,7 @@ questions:
           label: "Shared Logs Volume"
           schema:
             type: dict
+            hidden: true
             attrs:
               - variable: emptyDir
                 label: "Temporary Volume"

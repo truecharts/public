@@ -143,6 +143,7 @@ questions:
                 label: "Nextcloud Data Volume Name"
                 schema:
                   type: string
+                  hidden: true
                   $ref:
                     - "normalize/ixVolume"
                   show_if: [["hostPathEnabled", "=", false]]
@@ -153,6 +154,7 @@ questions:
                 description: "Path where the volume will be mounted inside the pod"
                 schema:
                   type: path
+                  hidden: true
                   editable: false
                   default: "/var/www"
               - variable: hostPathEnabled
@@ -173,6 +175,7 @@ questions:
     group: "Storage"
     schema:
       type: dict
+      hidden: true
       attrs:
         - variable: postgres-data
           label: "Postgres Data Volume"
