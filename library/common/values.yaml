@@ -401,9 +401,9 @@ appAdditionalServicesEnabled: false
 #     enabled: false
 #     type: NodePort
 #     protocol: TCP
-#     port: 8091
-#     targetPort: 8091
-#     nodePort: 38091
+#     port:
+#       targetPort: 8091
+#       nodePort: 38091
 #     additionalPorts: []
 #       - name: api-alt
 #         port: 8092
