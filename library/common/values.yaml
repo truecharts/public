@@ -402,7 +402,7 @@ appAdditionalServicesEnabled: false
 #     type: NodePort
 #     protocol: TCP
 #     port:
-#       targetPort: 8091
+#       port: 8091
 #       nodePort: 38091
 #     additionalPorts: []
 #       - name: api-alt
@@ -413,7 +413,8 @@ appAdditionalServicesEnabled: false
 #   ws:
 #     enabled: false
 #     type: ClusterIP
-#     port: 3000
+#     port:
+#       port: 3000
 #     additionalPorts: {}
 #       foo:
 #         name: ws-alt
