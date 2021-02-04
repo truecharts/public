@@ -42,7 +42,7 @@ The main container included in the controller.
   {{- end }}
   {{- end }}
   {{- end }}
-  {{- include "configuredAppVolumeMounts" . | nindent 2 }}
+  {{- include "configuredAppVolumeMounts" . | indent 2 }}
   {{- if .Values.additionalVolumeMounts }}
     {{- toYaml .Values.additionalVolumeMounts | nindent 2 }}
   {{- end }}

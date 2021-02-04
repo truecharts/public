@@ -395,20 +395,49 @@ addons:
 
 ## TrueCharts Specific
 
+appAdditionalServicesEnabled: false
+# appAdditionalServices:
+#   api:
+#     enabled: false
+#     type: NodePort
+#     protocol: TCP
+#     port: 8091
+#     targetPort: 8091
+#     nodePort: 38091
+#     additionalPorts: []
+#       - name: api-alt
+#         port: 8092
+#         targetPort: 8092
+#         protocol: TCP
+#         nodePort: 38092
+#   ws:
+#     enabled: false
+#     type: ClusterIP
+#     port: 3000
+#     additionalPorts: {}
+#       foo:
+#         name: ws-alt
+#         protocol: TCP
+#         port: 3001
+#         targetPort: 3001
+
 appVolumesEnabled: false
-appVolumeMounts:
-  data:
-    mountPath: /data
-    HostPathEnabled: false
-  config:
-    mountPath: /config
-    HostPathEnabled: false
-  downloads:
-    mountPath: /downloads
-    HostPathEnabled: false
-  shared:
-    mountPath: /shared
-  shared-logs:
-    mountPath: "/shared/logs"
+# appVolumeMounts:
+#   config:
+#     enabled: false
+#     emptyDir: false
+#     datasetName: "config"
+#     mountPath: "/config"
+#     subPath: some-subpath
+#     hostPathEnabled: false
+#     hostPath: ""
+#   data:
+#     enabled: false
+#     emptyDir: false
+#     datasetName: "data"
+#     mountPath: "/data"
+#     subPath: some-subpath
+#     hostPathEnabled: false
+#     hostPath: ""
 
 emptyDirVolumes: true
