@@ -1,0 +1,133 @@
+name: "Charts: Release"
+
+on:
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - '**'
+    paths:
+      - 'charts/**'
+      - '!charts/**/README.md'
+      - 'library/**'
+      - '!library/**/README.md'
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout-Master
+        uses: actions/checkout@v2
+        with:
+          ref: 'master'
+          path: 'master'
+      - name: Checkout-Charts
+        uses: actions/checkout@v2
+        with:
+          ref: 'charts'
+          path: 'charts'
+
+      - name: Generate Helm Structure
+        run: |
+          cd master
+          rm -Rf ../charts/charts/*
+          for chart in charts/*; do
+              if [ -d "${chart}" ]; then
+                  maxversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
+                  chartname=$(basename ${chart})
+                  echo "Processing ${chart} version ${maxversion}"
+                  mv ${chart}/${maxversion} ../charts/charts/${chartname}
+              fi
+          done
+          mv library/* ../charts/charts/
+          ls ../charts/charts/
+          cd ..
+
+      - name: Commit and push updated charts
+        run: |
+          cd charts
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add --all
+          git commit -sm "Publish Chart updates" || exit 0
+          git push
+    
+  pre-release:
+    needs: copy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Block concurrent jobs
+        uses: softprops/turnstyle@v1
+        with:
+          continue-after-seconds: 180
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release:
+    needs: pre-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block concurrent jobs
+        uses: softprops/turnstyle@v1
+        with:
+          continue-after-seconds: 180
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: 'charts'
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.4.0
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.1.0
+        with:
+          charts_repo_url: https://charts.truecharts.org/
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+  
+  # Update the generated timestamp in the index.yaml
+  # needed until https://github.com/helm/chart-releaser/issues/90
+  # or helm/chart-releaser-action supports this
+  post-release:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block concurrent jobs
+        uses: softprops/turnstyle@v1
+        with:
+          continue-after-seconds: 180
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: "gh-pages"
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Commit and push timestamp updates
+        run: |
+          if [[ -f index.yaml ]]; then
+            git pull
+            export generated_date=$(date --utc +%FT%T.%9NZ)
+            sed -i -e "s/^generated:.*/generated: \"$generated_date\"/" index.yaml
+            git add index.yaml
+            git commit -sm "Update generated timestamp [ci-skip]" || exit 0
+            git push
+          fi
