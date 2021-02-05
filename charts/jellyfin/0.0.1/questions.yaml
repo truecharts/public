@@ -213,91 +213,97 @@ questions:
                         required: true
 
   - variable: appingress
-    label: "Setup Web Ingress"
+    label: ""
     group: "Ingress"
     schema:
       type: dict
       attrs:
-        - variable: enabled
-          label: "Enable Web Ingress"
+        - variable: webui
+          label: "Web Ingress Configuration"
+          group: "Ingress"
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: entrypoint
-                label: "Select Entrypoint"
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Web Ingress"
                 schema:
-                  type: string
-                  default: "websecure"
-                  required: true
-                  enum:
-                    - value: "websecure"
-                      description: "Websecure: HTTPS/TLS port 443"
-              - variable: hosts
-                label: "Hosts"
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: host
-                      label: "Host"
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: entrypoint
+                      label: "Select Entrypoint"
                       schema:
-                        type: dict
-                        attrs:
+                        type: string
+                        default: "websecure"
+                        required: true
+                        enum:
+                          - value: "websecure"
+                            description: "Websecure: HTTPS/TLS port 443"
+                    - variable: hosts
+                      label: "Hosts"
+                      schema:
+                        type: list
+                        default: []
+                        items:
                           - variable: host
-                            label: "Domain Name"
-                            required: true
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: host
+                                  label: "Domain Name"
+                                  required: true
+                                  schema:
+                                    type: string
+                                - variable: paths
+                                  label: "paths"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: path
+                                        label: "Path"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                            - variable: path
+                                              label: "path"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "/"
+                                            - variable: pathType
+                                              label: "pathType"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "prefix"
+                    - variable: certType
+                      label: "Select Certificate Type"
+                      schema:
+                        type: string
+                        default: "letsencrypt-prod"
+                        enum:
+                          - value: "letsencrypt-prod"
+                            description: "Letsencrypt Production Certificates"
+                          - value: "letsencrypt-staging"
+                            description: "Letsencrypt Test Certificates"
+                          - value: "wildcard"
+                            description: "Global Wildcard Certificate"
+                          - value: "selfsigned"
+                            description: "Self-Signed Certificate"
+                          - value: "existingcert"
+                            description: "Existing Certificate"
+                        show_subquestions_if: "existingcert"
+                        subquestions:
+                          - variable: existingcert
+                            label: "Existing Certificate Name"
                             schema:
                               type: string
-                          - variable: paths
-                            label: "paths"
-                            schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: path
-                                  label: "Path"
-                                  schema:
-                                    type: dict
-                                    attrs:
-                                      - variable: path
-                                        label: "path"
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: "/"
-                                      - variable: pathType
-                                        label: "pathType"
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: "prefix"
-              - variable: certType
-                label: "Select Certificate Type"
-                schema:
-                  type: string
-                  default: "letsencrypt-prod"
-                  enum:
-                    - value: "letsencrypt-prod"
-                      description: "Letsencrypt Production Certificates"
-                    - value: "letsencrypt-staging"
-                      description: "Letsencrypt Test Certificates"
-                    - value: "wildcard"
-                      description: "Global Wildcard Certificate"
-                    - value: "selfsigned"
-                      description: "Self-Signed Certificate"
-                    - value: "existingcert"
-                      description: "Existing Certificate"
-                  show_subquestions_if: "existingcert"
-                  subquestions:
-                    - variable: existingcert
-                      label: "Existing Certificate Name"
+                              default: ""
+                    - variable: authForwardUrl
+                      label: "Forward Authentication URL"
                       schema:
                         type: string
                         default: ""
-              - variable: authForwardUrl
-                label: "Forward Authentication URL"
-                schema:
-                  type: string
-                  default: ""
