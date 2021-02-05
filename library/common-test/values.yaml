@@ -15,7 +15,7 @@ appIngress:
   main:
     enabled: true
   mainhttp:
-    enabled: false
+    enabled: true
     entrypoint: "web"
     certType: ""
     existingcert: ""
