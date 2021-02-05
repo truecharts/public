@@ -44,7 +44,11 @@ Create chart name and version as used by the chart label.
 Determine service account name for deployment or statefulset.
 */}}
 {{- define "common.names.serviceAccountName" -}}
-{{- (include "common.names.fullname" .) | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- if .Values.serviceAccountNameOverride }}
+{{- .Values.serviceAccountNameOverride | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- printf "%s-service-account" (include "common.names.releaseName" .) | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
 {{- end -}}
 
 
