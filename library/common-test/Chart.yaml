@@ -1,0 +1,14 @@
+apiVersion: v2
+name: common-test
+description: Helper chart to test different use cases of the common library
+version: 1.1.0
+keywords:
+  - truecharts
+  - common
+home: https://github.com/truecharts/truecharts/tree/master/charts/common-test
+maintainers:
+  - name: truecharts
+dependencies:
+  - name: common
+    repository: file://../common
+    version: n/a
