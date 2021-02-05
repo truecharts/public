@@ -1,0 +1,32 @@
+name: mariadb
+annotations:
+  category: Database
+apiVersion: v2
+appVersion: 10.5.8
+version: 0.0.1
+upstream_version: 9.2.0
+description: Fast, reliable, scalable, and easy to use open-source relational database system. MariaDB Server is intended for mission-critical, heavy-load production systems as well as for embedding into mass-deployed software. Highly available MariaDB cluster.
+engine: gotpl
+  - mariadb
+keywords:
+  - mariadb
+  - mysql
+  - database
+  - sql
+  - prometheus
+home: https://github.com/truecharts/charts/tree/dev/charts/mariadb
+icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+sources:
+  - https://github.com/bitnami/charts/blob/master/bitnami/mariadb
+maintainers:
+  - name: TrueCharts
+dependencies:
+  - name: common
+    repository: https://charts.bitnami.com/bitnami
+    tags:
+      - bitnami-common
+    version: 1.x.x
+  - name: phpmyadmin
+    version: 8.0.1
+    repository: https://charts.bitnami.com/bitnami
+    condition: phpmyadmin.enabled

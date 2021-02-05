@@ -1,0 +1,18 @@
+{{- if .Values.customTCPIngress.enabled -}}
+{{- if .Values.customTCPIngress.entrypoint -}}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: {{ .Release.Name }}-dns-tcp
+spec:
+  entryPoints:
+    - {{.Values.customTCPIngress.entrypoint}}
+  routes:
+  - match: HostSNI(`*`)
+    services:
+    - name: {{ .Release.Name }}-dns-tcp
+      port: {{.Values.customTCPIngress.port}}
+      weight: 10
+      terminationDelay: 400
+{{- end }}
+{{- end }}
