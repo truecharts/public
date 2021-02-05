@@ -499,17 +499,17 @@ appIngress:
             # Ignored if not kubeVersion >= 1.14-0
             pathType: Prefix
 
-  maintcp:
-    enabled: false
-    type: "TCP"
-    entrypoint: "kms"
-    certType: "none"
-    existingcert: ""
-    annotations: {}
-    labels: {}
-    hosts:
-      - host: app.truecharts.placeholder
-        paths:
-          - path: /
-            # Ignored if not kubeVersion >= 1.14-0
-            pathType: Prefix
+#  maintcp:
+#    enabled: false
+#    type: "TCP"
+#    entrypoint: "kms"
+#    certType: "none"
+#    existingcert: ""
+#    annotations: {}
+#    labels: {}
+#    hosts:
+#      - host: app.truecharts.placeholder
+#        paths:
+#          - path: /
+#            # Ignored if not kubeVersion >= 1.14-0
+#            pathType: Prefix
