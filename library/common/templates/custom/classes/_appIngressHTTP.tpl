@@ -39,7 +39,7 @@ spec:
   IngressClassName: {{ $values.appIngressHTTPClassName }}
   {{- end }}
   {{- end }}
-  {{- if ne $values.certType "none" -}}
+  {{- if $values.certType }}
   tls:
   {{- if eq $values.certType "selfsigned" -}}{{ else if eq $values.certType "existingcert" }}
     secretName: {{ $values.existingcert }}
@@ -52,7 +52,7 @@ spec:
         {{- end }}
       secretName: {{ $IngressName }}-tls-secret
   {{ end }}
-  {{ end }}
+  {{- end }}
   rules:
   {{- range $values.hosts }}
     - host: {{ .host | quote }}
