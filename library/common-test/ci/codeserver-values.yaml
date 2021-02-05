@@ -1,0 +1,42 @@
+image:
+  repository: b4bz/homer
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port:
+    port: 8080
+
+ingress:
+  enabled: true
+
+appIngressEnabled: true
+appIngress:
+  main:
+    enabled: true
+
+persistence:
+    config:
+    enabled: true
+    emptyDir: true
+    mountPath: /www/assets
+
+appVolumesEnabled: false
+appVolumeMounts:
+  data:
+    enabled: true
+    emptyDir: true
+    datasetName: "data"
+    mountPath: "/data"
+    hostPathEnabled: false
+    hostPath: ""
+
+addons:
+  codeserver:
+    enabled: true
+    workingDir: "/www/assets"
+    ingress:
+      enabled: true
+    volumeMounts:
+    - name: config
+      mountPath: /www/assets
