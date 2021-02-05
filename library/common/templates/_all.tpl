@@ -34,4 +34,6 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{ include "custom.appService" . | nindent 0 }}
   {{- print "---" | nindent 0 -}}
   {{ include "common.ingress" .  | nindent 0 }}
+  {{- print "---" | nindent 0 -}}
+  {{ include "custom.appIngress" .  | nindent 0 }}
 {{- end -}}
