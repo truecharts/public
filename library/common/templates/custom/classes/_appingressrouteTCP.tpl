@@ -38,7 +38,7 @@ spec:
       port: {{ $svcPort }}
       weight: 10
       terminationDelay: 400
-  {{- if ne $values.certType "none" -}}
+  {{- if $values.certType }}
   tls:
   {{- if eq $values.certType "selfsigned" -}}{{ else if eq $values.certType "existingcert" }}
     secretName: {{ $values.existingcert }}
