@@ -1,0 +1,43 @@
+{{- if .Values.monitoring.podMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  labels:
+    app: {{ template "pihole.name" . }}
+    chart: {{ template "pihole.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    {{- if .Values.monitoring.podMonitor.labels }}
+    {{ toYaml .Values.monitoring.podMonitor.labels }}
+    {{- end }}
+  name: {{ template "pihole.fullname" . }}-prometheus-exporter
+{{- if .Values.monitoring.podMonitor.namespace }}
+  namespace: {{ .Values.monitoring.podMonitor.namespace }}
+{{- end }}
+spec:
+  podMetricsEndpoints:
+  - port: prometheus
+    path: /metrics
+{{- if .Values.monitoring.podMonitor.interval }}
+    interval: {{ .Values.monitoring.podMonitor.interval }}
+{{- end }}
+{{- if .Values.monitoring.podMonitor.bearerTokenFile }}
+    bearerTokenFile: {{ .Values.monitoring.podMonitor.bearerTokenFile }}
+{{- end }}
+{{- if .Values.monitoring.podMonitor.bearerTokenSecret }}
+    bearerTokenSecret:
+      name: {{ .Values.monitoring.podMonitor.bearerTokenSecret.name }}
+      key: {{ .Values.monitoring.podMonitor.bearerTokenSecret.key }}
+      {{- if .Values.monitoring.podMonitor.bearerTokenSecret.optional }}
+      optional: {{ .Values.monitoring.podMonitor.bearerTokenSecret.optional }}
+      {{- end }}
+{{- end }}
+  jobLabel: {{ template "pihole.fullname" . }}-prometheus-exporter
+  namespaceSelector:
+    matchNames:
+    - {{ .Release.Namespace }}
+  selector:
+    matchLabels:
+      app: {{ template "pihole.name" . }}
+      release: {{ .Release.Name }}
+{{- end }}

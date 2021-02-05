@@ -1,0 +1,15 @@
+apiVersion: v1
+appVersion: "5.2.1"
+description: Installs pihole in kubernetes
+home: https://github.com/MoJo2600/pihole-kubernetes/tree/master/charts/pihole
+name: pihole
+version: 0.0.1
+upstream_version: 1.8.23
+sources:
+  - https://github.com/MoJo2600/pihole-kubernetes/tree/master/charts/pihole
+  - https://pi-hole.net/
+  - https://github.com/pi-hole
+  - https://github.com/pi-hole/docker-pi-hole
+icon: https://i2.wp.com/pi-hole.net/wp-content/uploads/2016/12/Vortex-R.png
+maintainers:
+  - name: truecharts

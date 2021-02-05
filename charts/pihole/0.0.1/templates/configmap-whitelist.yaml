@@ -1,0 +1,16 @@
+{{ if .Values.whitelist }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "pihole.fullname" . }}-whitelist
+  labels:
+    app: {{ template "pihole.name" . }}
+    chart: {{ template "pihole.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  whitelist.txt: |
+  {{- range .Values.whitelist }}
+    {{ . }}
+  {{- end }}
+{{ end }}

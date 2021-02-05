@@ -1,0 +1,16 @@
+apiVersion: v2
+name: grafana
+version: 0.0.1
+appVersion: 7.3.5
+upstream_version: 6.1.16
+kubeVersion: '^1.8.0-0'
+description: The leading tool for querying and visualizing time series and metrics.
+home: https://grafana.net
+icon: https://user-images.githubusercontent.com/10999/43383564-afa9ea6c-93db-11e8-855b-de8be4f79756.png
+sources:
+  - https://github.com/grafana/grafana
+  - https://github.com/truecharts/truecharts/charts/grafana
+maintainers:
+  - name: truecharts
+engine: gotpl
+type: application

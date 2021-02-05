@@ -1,0 +1,20 @@
+apiVersion: v2
+appVersion: 0.8.0.1886
+description: Looks and smells like Sonarr but made for music
+name: lidarr
+version: 0.0.1
+keywords:
+  - lidarr
+  - torrent
+  - usenet
+home: https://github.com/truecharts/charts/tree/dev/charts/lidarr
+icon: https://github.com/Lidarr/Lidarr/blob/aphrodite/Logo/512.png?raw=true
+sources:
+  - https://github.com/Lidarr/Lidarr
+  - https://hub.docker.com/r/linuxserver/lidarr
+maintainers:
+  - name: TrueCharts
+dependencies:
+  - name: common
+    repository: file://../../../library/common/
+    version: 0.10.1

@@ -1,0 +1,65 @@
+{{- if .Values.trueChartsIngressEnabled -}}
+{{- if .Values.trueChartsIngress.host -}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ .Release.Name }}
+  annotations:
+   # hooks are defined here
+   "helm.sh/hook": post-install,post-upgrade
+   "helm.sh/hook-weight": "10"
+   "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  commonName: {{ .Values.trueChartsIngress.host }}
+  secretName: {{ .Release.Name }}
+  dnsNames:
+  - {{ .Values.trueChartsIngress.host }}
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+    group: cert-manager.io
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`{{ .Values.trueChartsIngress.host }}`)
+      services:
+        - name: api@internal # The internal name of the Dashboard for Traefik
+          kind: TraefikService
+      middlewares:
+      - name: traefik-middlewares-chain-public@kubernetescrd
+      {{- if .Values.trueChartsIngress.authForwardUrl -}}
+      - name: {{ .Release.Name }}-auth-forward
+      {{- end }}
+  tls: {{- if .Values.trueChartsIngress.selfsigned -}}[]{{ else if .Values.trueChartsIngress.existingCert }}
+    secretName: {{ .Values.trueChartsIngress.existingCert }}
+    {{- else if .Values.trueChartsIngress.wildcard -}}
+    secretName: wildcardcert
+    {{ else }}
+    secretName: {{ .Release.Name }}
+    {{- end }}
+{{- if .Values.trueChartsIngress.authForwardUrl -}}
+---
+# Forward authentication
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ .Release.Name }}-auth-forward
+spec:
+  forwardAuth:
+    address: '{{ .Values.trueChartsIngress.authForwardUrl }}'
+    trustForwardHeader: true
+    authResponseHeaders:
+       - Remote-User
+       - Remote-Groups
+       - Remote-Name
+       - Remote-Email
+{{- end }}
+{{- end }}
+{{- end }}
