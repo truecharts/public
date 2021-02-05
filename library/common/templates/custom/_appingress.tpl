@@ -16,7 +16,7 @@ Renders the additional ingress objects from appIngress
             {{- if eq $ingressValues.type "UDP" -}}
               {{- include "custom.classes.ingressrouteUDP" $ }}
             {{- else if eq $ingressValues.type "TCP" -}}
-              #{{- include "custom.classes.ingressrouteTCP" $ }}
+              {{- include "custom.classes.ingressrouteTCP" $ }}
             {{- else }}
               {{- include "custom.classes.appIngressHTTP" $ }}
 			  {{- if $ingressValues.authForwardURL }}
