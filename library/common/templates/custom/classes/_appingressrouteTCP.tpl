@@ -24,10 +24,10 @@ metadata:
   annotations:
     {{- if or (eq $values.certType "letsencrypt-prod") (eq $values.certType "letsencrypt-staging") }}
     cert-manager.io/cluster-issuer:  {{ $values.certType }} 
-    {{ end }}
-  {{- with $values.annotations }}
+    {{- end }}
+    {{- with $values.annotations }}
     {{- toYaml . | nindent 4 }}
-  {{- end }}
+    {{- end }}
 spec:
   entryPoints:
     - {{ $values.entrypoint }}
@@ -52,7 +52,7 @@ spec:
             {{- range $values.hosts }}
             - {{ .host | quote }}
             {{- end }}
-  {{ end }}
+  {{- end }}
     passthrough: false
   {{- end }}
 {{- end }}
