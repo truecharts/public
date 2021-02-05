@@ -5,19 +5,18 @@ image:
   tag: v0.8.0-rc1
   pullPolicy: IfNotPresent
 
-## Additional arguments to pass to minio binary
+## Additional arguments to pass to ipfs binary
 extraArgs: []
 
 updateStrategy: Recreate
 
 service:
-  swarmPort: 30941
-  apiPort: 30951
-  gatewayPort: 30980
+  swarmPort: 9401
+  apiPort: 9501
+  gatewayPort: 9080
 
-environmentVariables: []
+environment:
 
-emptyDirVolumes: true
 appVolumeMounts:
   staging:
     emptyDir: true
@@ -25,3 +24,4 @@ appVolumeMounts:
   data:
     emptyDir: true
     mountPath: "/data/ipfs"
+

@@ -12,3 +12,7 @@ sources:
 - https://github.com/ipfs/go-ipfs
 - https://hub.docker.com/r/ipfs/go-ipfs
 upstream_version: 0.8.0-rc1
+dependencies:
+  - name: common
+    repository: file://../../../library/common/2101.0.0
+    version: 2101.0.0
