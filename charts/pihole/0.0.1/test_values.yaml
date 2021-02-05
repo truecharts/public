@@ -1,0 +1,237 @@
+# Default values for pihole.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: "pihole/pihole"
+  tag: v5.2.1
+  pullPolicy: IfNotPresent
+
+serviceDns:
+  type: ClusterIP
+  externalTrafficPolicy: Local
+  loadBalancerIP: ""
+    # a fixed LoadBalancer IP
+  annotations: {}
+    # metallb.universe.tf/address-pool: network-services
+    # metallb.universe.tf/allow-shared-ip: pihole-svc
+
+serviceWeb:
+  type: ClusterIP
+  externalTrafficPolicy: Local
+  loadBalancerIP: ""
+    # a fixed LoadBalancer IP
+  annotations: {}
+    # metallb.universe.tf/address-pool: network-services
+    # metallb.universe.tf/allow-shared-ip: pihole-svc
+
+virtualHost: pi.hole
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  path: /
+  hosts:
+    # virtualHost (default value is pi.hole) will be appended to the hosts
+    - chart-example.local
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #     #- virtualHost (default value is pi.hole) will be appended to the hosts
+  #      - chart-example.local
+
+# Probes configuration
+probes:
+  # probes.liveness -- Configure the healthcheck for the ingress controller
+  liveness:
+    enabled: true
+    initialDelaySeconds: 60
+    failureThreshold: 10
+    timeoutSeconds: 5
+  readiness:
+    enabled: true
+    initialDelaySeconds: 60
+    failureThreshold: 3
+    timeoutSeconds: 5
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+persistentVolumeClaim:
+  # set to true to use pvc
+  enabled: false
+  # set to true to use you own pvc
+  # existingClaim: myExistingClaim
+  annotations: {}
+
+  accessModes:
+    - ReadWriteOnce
+  size: "500Mi"
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  # storageClass: "-"
+
+  ## If subPath is set mount a sub folder of a volume instead of the root of the volume.
+  ## This is especially handy for volume plugins that don't natively support sub mounting (like glusterfs).
+
+  ## subPath: "pihole"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Administrator password when not using an existing secret (see below)
+adminPassword: "admin"
+
+# Use an existing secret for the admin password.
+admin:
+  existingSecret: ""
+  passwordKey: "password"
+
+# extraEnvironmentVars is a list of extra enviroment variables to set for pihole to use
+extraEnvVars: {}
+  # TZ: UTC
+
+# extraEnvVarsSecret is a list of secrets to load in as environment variables.
+extraEnvVarsSecret: {}
+  # env_var:
+  #   name: secret-name
+  #   key: secret-key
+
+# default upstream DNS servers to use
+DNS1: "8.8.8.8"
+DNS2: "8.8.4.4"
+
+antiaff:
+  # set to true to enable antiaffinity (example: 2 pihole DNS in the same cluster)
+  enabled: false
+  # Here you can set the pihole release (you set in `helm install <releasename> ...`)
+  # you want to avoid
+  avoidRelease: pihole1
+  # Here you can choose between preferred or required
+  strict: true
+
+doh:
+  # set to true to enabled DNS over HTTPs via cloudflared
+  enabled: false
+  name: "cloudflared"
+  repository: "crazymax/cloudflared"
+  tag: latest
+  pullPolicy: IfNotPresent
+  envVars: {}
+    # Here you can pass environment variables to the DoH container, for example:
+    # TUNNEL_DNS_UPSTREAM: "https://1.1.1.2/dns-query,https://1.0.0.2/dns-query"
+
+dnsmasq:
+  upstreamServers: []
+  # Here you can add upstream dns servers with. All lines will be added to the
+  # pihole dnsmasq configuration.
+  # The format should be like:
+  # - server=/foo.bar/192.168.178.10
+  # - server=/bar.foo/192.168.178.11
+
+  customDnsEntries: []
+  # Here you can add custom dns entries to override the
+  # dns resolution with. All lines will be added to the
+  # pihole dnsmasq configuration.
+  # The format should be like:
+  # - address=/foo.bar/192.168.178.10
+  # - address=/bar.foo/192.168.178.11
+
+  additionalHostsEntries: []
+  # Dnsmasq reads the /etc/hosts file to resolve ips. You can add additional entries if you like
+  # - 192.168.0.3     host4
+  # - 192.168.0.4     host5
+
+
+adlists: {}
+  # If you want to provide blocklists, add them here.
+  # - https://hosts-file.net/grm.txt
+  # - https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts
+
+whitelist: {}
+  # If you want to provide whitelisted domains, add them here.
+  # - clients4.google.com
+
+blacklist: {}
+  # If you want to have special domains blacklisted, add them here
+  # - *.blackist.com
+
+regex: {}
+  # Add regular expression blacklist items
+  # - (^|\.)facebook\.com$
+
+
+webHttp: "80"
+webHttps: "443"
+hostNetwork: "false"
+privileged: "false"
+
+customVolumes:
+  enabled: false
+  config: {}
+    # any volume type can be used here
+    # hostPath:
+    #   path: "/mnt/data"
+
+monitoring:
+  podMonitor:
+    enabled: false
+  sidecar:
+    enabled: false
+    port: 9617
+    image:
+      repository: ekofr/pihole-exporter
+      tag: 0.0.10
+      pullPolicy: IfNotPresent
+    resources:
+      limits:
+        memory: 128Mi
+      # requests:
+      #  cpu: 100m
+      #  memory: 128Mi
+
+# Truecharts Config
+downloadsHostPathEnabled: false
+dataHostPathEnabled: false
+configHostPathEnabled: false
+
+emptyDirVolumes: true
+
+customIngress:
+   enabled: false
+   port: 80
+   host: "your.hostname.com"
+   selfsigned: false
+   wildcard: false
+   existingCert: ""
+   authForwardUrl: ""
+
+customUDPIngress:
+   enabled: false
+   entrypoint: "dns-udp"
+   port: 53
+
+customTCPIngress:
+   enabled: false
+   entrypoint: "dns-tcp"
+   port: 53

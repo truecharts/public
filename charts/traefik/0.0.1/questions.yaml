@@ -1,0 +1,195 @@
+groups:
+  - name: "Container Images"
+    description: "Image to be used for container"
+  - name: "Container Entrypoint"
+    description: "Configuration of the executable that will be run when the container is started"
+  - name: "Container Environment Variables"
+    description: "Set the environment that will be visible to the container"
+  - name: "Networking"
+    description: "Configure networking for container"
+  - name: "Storage"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "traefik Configuration"
+    description: "Configure traefik deployment"
+  - name: "Workload Details"
+    description: "Configure how workload should be deployed"
+  - name: "Scaling/Upgrade Policy"
+    description: "Configure how pods are replaced when configuration is upgraded"
+  - name: "Restart Policy"
+    description: "Configure when pod should be restarted in case of failure"
+  - name: "Resource Reservation"
+    description: "Specify resources to be allocated to workload"
+  - name: "Ingress"
+    description: "Configure ingress"
+  - name: "Certmanager Settings"
+    description: "Configure Certmanager"
+
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$node_ip"
+    ports:
+      - "443"
+
+questions:
+  # Image related
+  - variable: image
+    description: "Docker Image Details"
+    label: "Docker Image"
+    group: "Container Images"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: repository
+          description: "Docker image repository"
+          label: "Image repository"
+          schema:
+            type: string
+            required: true
+            default: "traefik"
+        - variable: tag
+          description: "Tag to use for specified image"
+          label: "Image Tag"
+          schema:
+            type: string
+            default: "2.3.3"
+        - variable: pullPolicy
+          description: "Docker Image Pull Policy"
+          label: "Image Pull Policy"
+          schema:
+            type: string
+            default: "IfNotPresent"
+            enum:
+              - value: "IfNotPresent"
+                description: "Only pull image if not present on host"
+              - value: "Always"
+                description: "Always pull image even if present on host"
+              - value: "Never"
+                description: "Never pull image even if it's not present on host"
+
+
+
+  - variable: configHostPathEnabled
+    label: "Configure Host Path for Config"
+    group: "Storage"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: configHostPath
+          label: "Specify HostPath for Config"
+          schema:
+            type: hostpath
+            required: true
+
+  - variable: configVolume
+    label: "Configure iXVolume"
+    group: "Storage"
+    schema:
+      type: dict
+      show_if: [["configHostPathEnabled", "=", false]]
+      $ref:
+        - "normalize/ixVolume"
+      attrs:
+        - variable: mountPath
+          label: "Mount Path"
+          description: "Path where the volume will be mounted inside the pod"
+          schema:
+            type: path
+            editable: false
+            default: "/config"
+        - variable: datasetName
+          label: "Dataset Name"
+          schema:
+            type: string
+            default: "ix-traefik_config"
+            editable: false
+
+  - variable: trueChartsIngressEnabled
+    label: "Enable Ingress"
+    description: "Configure Ingress Settings"
+    group: "Ingress"
+    schema:
+      type: boolean
+      default: true
+      show_subquestions_if: true
+      subquestions:
+        - variable: trueChartsIngress
+          label: "Ingress Settings"
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: host
+                description: "Ingress Hostname"
+                label: "Ingress Hostname"
+                schema:
+                  type: string
+                  default: "your.hostname.com"
+                  required: true
+              - variable: selfsigned
+                description: "Use a self-signed certificate"
+                label: "Self-Signed Certificate"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: wildcard
+                description: "Use wildcard certificate from Certmanager configuration"
+                label: "Use Global Wildcard"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: existingCert
+                description: "Enter name of existing certificate to use"
+                label: "Existing Certificate"
+                schema:
+                  type: string
+                  default: ""
+              - variable: authForwardURL
+                description: "Enter URL to use for authentication"
+                label: "Forward-Auth URL"
+                schema:
+                  type: string
+                  default: ""
+            
+  - variable: certmanager
+    description: "Configure CertManager Settings"
+    label: "CertManager Settings"
+    group: "Certmanager Settings"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: email
+          description: "Email Adress to use with Letsencrypt"
+          label: "Email-Adress"
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: provider
+          description: "Select the CertManager provider to use"
+          label: "CertManager Provider"
+          schema:
+            type: string
+            default: "cloudflare"
+            enum:
+              - value: "cloudflare"
+                description: "Cloudflare"
+        - variable: apikey
+          description: "Enter your Provider API-Key"
+          label: "API-Key"
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: wildcardDomain
+          description: "Enter Domain name here, if you want to setup a global wildcard-domain"
+          label: "Wildcard Domain"
+          schema:
+            type: string
+            default: ""
