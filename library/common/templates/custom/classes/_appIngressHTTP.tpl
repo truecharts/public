@@ -25,6 +25,9 @@ metadata:
     cert-manager.io/cluster-issuer: {{- if or (eq $values.certType "letsencrypt-prod") (eq $values.certType "letsencrypt-staging") }} {{ $values.certType }} {{ end }}
     traefik.ingress.kubernetes.io/router.entrypoints: {{ $values.entrypoint }}
     traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd
+	{{- if $values.authForwardURL }}
+    traefik.ingress.kubernetes.io/router.middlewares: {{ $IngressName }}
+    {{- end }}
   {{- with $values.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}

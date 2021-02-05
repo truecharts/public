@@ -24,7 +24,7 @@ fullnameOverride: ""
 podAnnotations: {}
 
 serviceAccount:
-  # Specifies whether a service account should be created
+    # Specifies whether a service account should be created
   create: false
   # Annotations to add to the service account
   annotations: {}
@@ -489,7 +489,7 @@ appIngress:
     entrypoint: "websecure"
     certType: "letsencrypt-prod"
     existingcert: ""
-    authForwardUrl: ""
+    authForwardURL: ""
     annotations: {}
     labels: {}
     hosts:

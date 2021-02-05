@@ -19,9 +19,15 @@ Renders the additional ingress objects from appIngress
               {{- include "custom.classes.ingressrouteTCP" $ }}
             {{- else }}
               {{- include "custom.classes.appIngressHTTP" $ }}
+			  {{- if $ingressValues.authForwardURL }}
+                {{- include "custom.classes.appAuthForward" $ }}
+              {{- end }}
             {{- end }}
           {{- else }}
             {{- include "custom.classes.appIngressHTTP" $ }}
+			  {{- if $ingressValues.authForwardURL }}
+                {{- include "custom.classes.appAuthForward" $ }}
+              {{- end }}
           {{- end }}
       {{- end }}
     {{- end }}
