@@ -1,7 +1,28 @@
 {{ $scheme := "http" }}
-{{ include "common.deployment.common_config" . | nindent 0 }}
-spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
-  template: {{ include "common.deployment.pod.metadata" . | nindent 4 }}
+apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
+kind: Deployment
+metadata:
+  name: {{ template "common.names.fullname" . }}
+  labels:
+    app: {{ template "common.names.name" . }}
+    chart: {{ template "common.names.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ (default 1 .Values.replicas) }}
+  strategy:
+    type: {{ (default "Recreate" .Values.updateStrategy ) }}
+  selector:
+    matchLabels:
+      app: {{ template "common.names.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      name: {{ template "common.names.fullname" . }}
+      labels:
+        app: {{ template "common.names.name" . }}
+        release: {{ .Release.Name }}
+      annotations: {{ include "common.annotations" . | nindent 8 }}
     spec:
       serviceAccountName: {{ include "common.names.serviceAccountName" . | quote }}
       containers:
