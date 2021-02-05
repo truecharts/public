@@ -22,10 +22,12 @@ metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
   annotations:
-    cert-manager.io/cluster-issuer: {{- if or (eq $values.certType "letsencrypt-prod") (eq $values.certType "letsencrypt-staging") }} {{ $values.certType }} {{ end }}
+    {{- if or (eq $values.certType "letsencrypt-prod") (eq $values.certType "letsencrypt-staging") }}
+    cert-manager.io/cluster-issuer:  {{ $values.certType }}
+    {{ end }}
     traefik.ingress.kubernetes.io/router.entrypoints: {{ $values.entrypoint }}
     traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd
-	{{- if $values.authForwardURL }}
+    {{- if $values.authForwardURL }}
     traefik.ingress.kubernetes.io/router.middlewares: {{ $IngressName }}
     {{- end }}
   {{- with $values.annotations }}
@@ -37,6 +39,7 @@ spec:
   IngressClassName: {{ $values.appIngressHTTPClassName }}
   {{- end }}
   {{- end }}
+  {{- if ne $values.certType "none" -}}
   tls:
   {{- if eq $values.certType "selfsigned" -}}{{ else if eq $values.certType "existingcert" }}
     secretName: {{ $values.existingcert }}
@@ -48,6 +51,7 @@ spec:
         - {{ .host | quote }}
         {{- end }}
       secretName: {{ $IngressName }}-tls-secret
+  {{ end }}
   {{ end }}
   rules:
   {{- range $values.hosts }}
