@@ -15,12 +15,12 @@ appIngress:
   main:
     enabled: true
     
-appVolumesEnabled: false
- appVolumeMounts:
-   data:
-     enabled: true
-     emptyDir: true
-     datasetName: "data"
-     mountPath: "/data"
-     hostPathEnabled: false
-     hostPath: ""
+appVolumesEnabled: true
+appVolumeMounts:
+  data:
+    enabled: true
+    emptyDir: true
+    datasetName: "data"
+    mountPath: "/data"
+    hostPathEnabled: false
+    hostPath: ""

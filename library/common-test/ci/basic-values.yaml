@@ -16,14 +16,14 @@ appIngress:
     enabled: true
 
 appVolumesEnabled: false
-    appVolumeMounts:
-   data:
-     enabled: true
-     emptyDir: true
-     datasetName: "data"
-     mountPath: "/data"
-     hostPathEnabled: false
-     hostPath: ""
+appVolumeMounts:
+  data:
+    enabled: true
+    emptyDir: true
+    datasetName: "data"
+    mountPath: "/data"
+    hostPathEnabled: false
+    hostPath: ""
 
 probes:
   liveness:

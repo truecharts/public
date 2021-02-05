@@ -22,14 +22,14 @@ persistence:
     mountPath: /www/assets
 
 appVolumesEnabled: false
- appVolumeMounts:
-   data:
-     enabled: true
-     emptyDir: true
-     datasetName: "data"
-     mountPath: "/data"
-     hostPathEnabled: false
-     hostPath: ""
+appVolumeMounts:
+  data:
+    enabled: true
+    emptyDir: true
+    datasetName: "data"
+    mountPath: "/data"
+    hostPathEnabled: false
+    hostPath: ""
 
 addons:
   codeserver:
