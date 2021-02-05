@@ -30,7 +30,9 @@ persistence:
 
 ## TrueCharts Config
 
-dataHostPathEnabled: false
-
+appVolumesEnabled: false
 emptyDirVolumes: true
+
+appIngress:
+  enabled: false
 

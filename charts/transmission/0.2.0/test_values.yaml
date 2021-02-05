@@ -60,17 +60,20 @@ persistence:
 
 ## TrueCharts Values
 
-appVolumesEnabled: true
+appVolumesEnabled: false
 emptyDirVolumes: true
+
+appIngress:
+  enabled: false
 
 appVolumeMounts:
   config:
-    enabled: true
+    enabled: false
     emptyDir: true
     datasetName: "config"
     mountPath: "/config"
   downloads:
-    enabled: true
+    enabled: false
     emptyDir: true
     datasetName: "downloads"
     mountPath: "/downloads"

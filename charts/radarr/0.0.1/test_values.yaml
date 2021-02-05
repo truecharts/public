@@ -41,6 +41,8 @@ persistence:
 
 ## TrueCharts Config
 
+appVolumesEnabled: false
 emptyDirVolumes: true
 
-appVolumesEnabled: false
+appIngress:
+  enabled: false

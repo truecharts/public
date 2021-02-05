@@ -39,14 +39,20 @@ persistence:
 
 ## TrueCharts Config
 
-appVolumeMounts:
-  - name: data
-    mountPath: /datanope
-  - name: config
-    mountPath: /data
-
-downloadsHostPathEnabled: false
-dataHostPathEnabled: false
-configHostPathEnabled: false
-
+appVolumesEnabled: false
 emptyDirVolumes: true
+
+appIngress:
+  enabled: false
+
+appVolumeMounts:
+  config:
+    enabled: false
+    emptyDir: true
+    datasetName: "config"
+    mountPath: "/data"
+  downloads:
+    enabled: false
+    emptyDir: true
+    datasetName: "data"
+    mountPath: "/datanope"

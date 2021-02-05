@@ -54,27 +54,30 @@ persistence:
 
 gpuConfiguration: {}
 
-appVolumesEnabled: true
+appVolumesEnabled: false
 emptyDirVolumes: true
+
+appIngress:
+  enabled: false
 
 appVolumeMounts:
   config:
-    enabled: true
+    enabled: false
     emptyDir: true
     datasetName: "config"
     mountPath: "/config"
   data:
-    enabled: true
+    enabled: false
     emptyDir: true
     datasetName: "data"
     mountPath: "/data"
   media:
-    enabled: true
+    enabled: false
     emptyDir: true
     datasetName: "media"
     mountPath: "/media"
   transcode:
-    enabled: true
+    enabled: false
     emptyDir: true
     datasetName: "transcode"
     mountPath: "/transcode"
