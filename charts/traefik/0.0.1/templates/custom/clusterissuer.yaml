@@ -60,9 +60,66 @@ spec:
     # Add a single challenge solver, DNS01
     solvers:
     - dns01:
+        {{- if eq .Values.certmanager.provider "cloudflare" -}}
         cloudflare:
           email: {{ .Values.certmanager.email }}
           apiKeySecretRef:
             name: dns-api-key-secret
             key: api-key
+        {{- else if eq .Values.certmanager.provider "cloudDNS" -}}
+        cloudDNS:
+        # The ID of the GCP project
+          project: $PROJECT_ID
+          # This is the secret used to access the service account
+          serviceAccountSecretRef:
+            name: clouddns-dns01-solver-svc-acct
+            key: key.json
+        {{- else if eq .Values.certmanager.provider "route53" -}}
+        route53:
+          region: eu-central-1
+          accessKeyID: AKIAIOSFODNN7EXAMPLE
+          secretAccessKeySecretRef:
+            name: prod-route53-credentials-secret
+            key: secret-access-key
+          # you can also assume a role with these credentials
+          role: arn:aws:iam::YYYYYYYYYYYY:role/dns-manager
+        {{- else if eq .Values.certmanager.provider "digitalocean" -}}
+        digitalocean:
+          tokenSecretRef:
+            name: digitalocean-dns
+            key: access-token 
+        {{- else if eq .Values.certmanager.provider "rfc2136" -}}
+        rfc2136:
+         nameserver: 1.2.3.4:53
+         tsigKeyName: example-com-secret
+         tsigAlgorithm: HMACSHA512
+         tsigSecretSecretRef:
+           name: tsig-secret
+           key: tsig-secret-key
+        {{- else if eq .Values.certmanager.provider "azureDNS" -}}
+        azureDNS:
+          subscriptionID: AZURE_SUBSCRIPTION_ID
+          resourceGroupName: AZURE_DNS_ZONE_RESOURCE_GROUP
+          hostedZoneName: AZURE_DNS_ZONE
+          # Azure Cloud Environment, default to AzurePublicCloud
+          environment: AzurePublicCloud
+        {{- else if eq .Values.certmanager.provider "akamai" -}}
+        akamai:
+          serviceConsumerDomain: akab-tho6xie2aiteip8p-poith5aej0ughaba.luna.akamaiapis.net
+          clientTokenSecretRef:
+            name: akamai-dns
+            key: clientToken
+          clientSecretSecretRef:
+            name: akamai-dns
+            key: clientSecret
+          accessTokenSecretRef:
+            name: akamai-dns
+            key: accessToken
+        {{- else if eq .Values.certmanager.provider "acmeDNS" -}}
+        acmeDNS:
+          host: https://acme.example.com
+          accountSecretRef:
+            name: acme-dns
+            key: acmedns.json
+        {{- end }}
 {{- end }}
