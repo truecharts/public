@@ -1,14 +1,16 @@
 groups:
   - name: "Container Image"
-    description: "configure container image"
+    description: "Image configuration"
   - name: "Configuration"
-    description: "additional container configuration"
+    description: "Container configuration"
   - name: "Networking"
-    description: "Networking / service configuration"
-  - name: "Storage"
-    description: "configure app volume mounts"
+    description: "Network configuration"
   - name: "Ingress"
     description: "Ingress configuration"
+  - name: "Services"
+    description: "Service configuration"
+  - name: "Volume Mounts"
+    description: "Configuration volume mounts"
 
 portals:
   web_portal:
@@ -23,7 +25,7 @@ questions:
   # Image related
   - variable: image
     group: "Container Image"
-    label: "Z-Wave JS to MQTT"
+    label: "Container Image"
     schema:
       type: dict
       required: true
@@ -83,10 +85,11 @@ questions:
     schema:
       type: boolean
       default: false
+
   # Service Configuration
   - variable: service
-    group: "Networking"
-    label: "Configure Service"
+    group: "Services"
+    label: "Configure main service for the UI"
     schema:
       type: dict
       attrs:
@@ -94,81 +97,77 @@ questions:
           label: "Service type"
           schema:
             type: string
-            default: "ClusterIP"
+            default: "NodePort"
             enum:
-              - value: "NodePort"
-                description: "NodePort"
               - value: "ClusterIP"
                 description: "ClusterIP"
-        - variable: port
-          label: "Port configuration"
+              - value: "NodePort"
+                description: "NodePort"
+            show_subquestions_if: NodePort
+            subquestions:
+              - variable: port
+                label: "Port configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: port
+                      label: "container port"
+                      schema:
+                        type: int
+                        default: 8091
+                        hidden: true
+                        editable: false
+                    - variable: nodePort
+                      label: "Node Port to expose for UI"
+                      schema:
+                        type: int
+                        min: 9000
+                        max: 65535
+                        default: 38091
+                        required: true
+
+  - variable: appAdditionalServices
+    group: "Services"
+    label: "Configure additional services"
+    schema:
+      type: dict
+      attrs:
+        - variable: ws
+          label: ""
           schema:
             type: dict
             attrs:
-              - variable: port
-                label: "container port"
+              - variable: enabled
+                label: "Enable z-wave js web socket"
                 schema:
-                  type: int
-                  default: 8091
-                  editable: false
-              - variable: nodePort
-                label: "Node Port to expose for UI"
-                schema:
-                  show_if: [["service.type", "=", "NodePort"]]
-                  type: int
-                  min: 9000
-                  max: 65535
-                  default: 38091
-                  required: true
-              - variable: additionalPorts
-                label: "additionalPorts"
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: additionalPort
-                      label: "additionalPort"
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: port
+                      label: "Configuration"
                       schema:
                         type: dict
                         attrs:
-                          - variable: name
-                            label: "Port Name"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: protocol
-                            label: "Protocol"
-                            schema:
-                              type: string
-                              default: "TCP"
-                              enum:
-                                - value: "TCP"
-                                  description: "TCP"
-                                - value: "UDP"
-                                  description: "UDP"
                           - variable: port
                             label: "container port"
                             schema:
                               type: int
                               default: 3000
-                          - variable: targetport
-                            label: "targetPort"
-                            schema:
-                              type: int
-                              default: 3000
-                              editable: false
-                          - variable: nodePort
-                            label: "Node Port to expose for UI"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
-                              default: 38092
-                              required: true
-                          
+                              required: false              
+                    - variable: type
+                      label: "service type"
+                      schema:
+                        type: string
+                        default: "ClusterIP"
+                        enum:
+                          - value: "ClusterIP"
+                            description: "ClusterIP"
+                          - value: "NodePort"
+                            description: "NodePort"
   # Configure app volumes
   - variable: appVolumeMounts
-    group: "Storage"
+    group: "Volume Mounts"
     label: ""
     schema:
       type: dict
@@ -227,7 +226,7 @@ questions:
                   default: "/dev/ttyAMC0"
   # Enable privileged
   - variable: securityContext
-    group: "Storage"
+    group: "Volume Mounts"
     label: "Security Context"
     schema:
       type: dict
