@@ -138,6 +138,15 @@ questions:
             default: 9000
             required: true
 
+  - variable: certificate
+    description: "Minio Certificate"
+    label: "Minio Certificate"
+    group: "Minio Configuration"
+    schema:
+      type: int
+      $ref:
+        - "definitions/certificate"
+
   - variable: appVolumeMounts
     label: "Minio Storage"
     group: "Storage"
