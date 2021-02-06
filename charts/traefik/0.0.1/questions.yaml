@@ -180,16 +180,227 @@ questions:
             enum:
               - value: "cloudflare"
                 description: "Cloudflare"
-        - variable: apikey
-          description: "Enter your Provider API-Key"
-          label: "API-Key"
-          schema:
-            type: string
-            default: ""
-            required: true
+              - value: "cloudDNS"
+                description: "Google cloudDNS"
+              - value: "route53"
+                description: "Route53"
+              - value: "digitalocean"
+                description: "Digitalocean"
+              - value: "rfc2136"
+                description: "rfc2136"
+              - value: "azureDNS"
+                description: "AzureDNS"
+              - value: "akamai"
+                description: "Akamai"
+              - value: "acmeDNS"
+                description: "acmeDNS"
         - variable: wildcardDomain
           description: "Enter Domain name here, if you want to setup a global wildcard-domain"
           label: "Wildcard Domain"
           schema:
             type: string
             default: ""
+        - variable: cloudflare
+          description: "Configure Cloudflare Settings"
+          label: "Cloudflare Settings"
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: apikey
+                description: "Enter your Cloudflare API-Key"
+                label: "API-Key"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: cloudDNS
+          description: "Configure Google cloudDNS Settings"
+          label: "Google cloudDNS Settings"
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: project
+                description: "Enter your Google cloudDNS Project Name"
+                label: "Project"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: keyjson
+                description: "Enter your Google cloudDNS JSON Key"
+                label: "Key-JSON"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: route53
+          description: "Configure Route53 Settings"
+          label: "Route53 Settings"
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: region
+                description: "Enter your Route53 Region"
+                label: "Region"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: accessKeyID
+                description: "Enter your Route53 accessKeyID"
+                label: "accessKeyID"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: secretaccesskey
+                description: "Enter your Route53 secretaccesskey"
+                label: "Secretaccesskey"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: digitalocean
+          description: "Configure Digitalocean Settings"
+          label: "Digitalocean Settings"
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: accesstoken
+                description: "Enter your Digitalocean Access Token"
+                label: "Access Token"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: rfc2136
+          description: "Configure rfc2136 Settings"
+          label: "rfc2136 Settings"
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: nameserver
+                description: "Enter your rfc2136 Nameserver"
+                label: "Nameserver"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: tsigKeyName
+                description: "Enter your rfc2136 tsigKeyName"
+                label: "tsigKeyName"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: tsigsecretkey
+                description: "Enter your rfc2136 tsigsecretkey"
+                label: "tsigsecretkey"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: tsigAlgorithm
+                description: "Enter your rfc2136 tsigAlgorithm"
+                label: "tsigAlgorithm"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: azureDNS
+          description: "Configure AzureDNS Settings"
+          label: "AzureDNS Settings"
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: environment
+                description: "Enter your AzureDNS environment"
+                label: "environment"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: subscriptionID
+                description: "Enter your AzureDNS subscriptionID"
+                label: "subscriptionID"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: resourceGroupName
+                description: "Enter your AzureDNS resourceGroupName"
+                label: "resourceGroupName"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: hostedZoneName
+                description: "Enter your AzureDNS hostedZoneName"
+                label: "hostedZoneName"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: akamai
+          description: "Configure Akamai Settings"
+          label: "Akamai Settings"
+          schema:
+            type: dict
+            required: true
+            attrs:
+              - variable: serviceConsumerDomain
+                description: "Enter your Akamai serviceConsumerDomain"
+                label: "serviceConsumerDomain"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: clientToken
+                description: "Enter your Akamai clientToken"
+                label: "clientToken"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: clientSecret
+                description: "Enter your Akamai clientSecret"
+                label: "clientSecret"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: accessToken
+                description: "Enter your Akamai accessToken"
+                label: "accessToken"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: acmeDNS
+          description: "Configure acmeDNS Settings"
+          label: "acmeDNS Settings"
+          schema:
+            type: dict
+            required: true
+            attrs:
+                - variable: host
+                description: "Enter your acmeDNS host"
+                label: "host"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: apikey
+                description: "Enter your acmeDNS acmednsjson"
+                label: "acmednsjson"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+

@@ -5,21 +5,21 @@ metadata:
 type: Opaque
 stringData:
   # cloudflare
-  api-key: {{ .Values.certmanager.apikey | default "" }}
+  api-key: {{ .Values.certmanager.cloudflare.apikey | default "" }}
   # cloudDNS
-  key-json: {{ .Values.certmanager.keyjson | default "" }}
+  key-json: {{ .Values.certmanager.cloudDNS.keyjson | default "" }}
   # route53
-  secret-access-key: {{ .Values.certmanager.secretaccesskey | default "" }}
+  secret-access-key: {{ .Values.certmanager.route53.secretaccesskey | default "" }}
   # digitalocean
-  access-token: {{ .Values.certmanager.accesstoken | default "" }}
+  access-token: {{ .Values.certmanager.digitalocean.accesstoken | default "" }}
   # rfc2136
-  tsig-secret-key: {{ .Values.certmanager.tsigsecretkey | default "" }}
+  tsig-secret-key: {{ .Values.certmanager.rfc2136.tsigsecretkey | default "" }}
   # akamai
-  clientToken: {{ .Values.certmanager.clientToken | default "" }}
-  clientSecret: {{ .Values.certmanager.clientSecret | default "" }}
-  akamaiaccessToken: {{ .Values.certmanager.akamaiaccessToken | default "" }}
+  clientToken: {{ .Values.certmanager.akamai.clientToken | default "" }}
+  clientSecret: {{ .Values.certmanager.akamai.clientSecret | default "" }}
+  accessToken: {{ .Values.certmanager.akamai.accessToken | default "" }}
   # acmeDNS
-  acmedns-json: {{ .Values.certmanager.acmednsjson | default "" }}
+  acmedns-json: {{ .Values.certmanager.acmeDNS.acmednsjson | default "" }}
 ---
 {{- if .Values.certmanager.email -}}
 apiVersion: cert-manager.io/v1
@@ -82,15 +82,15 @@ spec:
         {{- else if eq .Values.certmanager.provider "cloudDNS" -}}
         cloudDNS:
         # The ID of the GCP project
-          project: $PROJECT_ID
+          project: {{ .Values.certmanager.cloudDNS.project }}
           # This is the secret used to access the service account
           serviceAccountSecretRef:
             name: dns-secrets
             key: key-json
         {{- else if eq .Values.certmanager.provider "route53" -}}
         route53:
-          region: eu-central-1
-          accessKeyID: AKIAIOSFODNN7EXAMPLE
+          region: {{ .Values.certmanager.route53.region }}
+          accessKeyID: {{ .Values.certmanager.route53.accessKeyID }}
           secretAccessKeySecretRef:
             name: dns-secrets
             key: secret-access-key
@@ -103,21 +103,21 @@ spec:
             key: access-token
         {{- else if eq .Values.certmanager.provider "rfc2136" -}}
         rfc2136:
-         nameserver: 1.2.3.4:53
-         tsigKeyName: example-com-secret
-         tsigAlgorithm: HMACSHA512
+         nameserver: {{ .Values.certmanager.rfc2136.nameserver }}
+         tsigKeyName: {{ .Values.certmanager.rfc2136.tsigKeyName }}
+         tsigAlgorithm: {{ .Values.certmanager.rfc2136.tsigAlgorithm }}
          tsigSecretSecretRef:
            name: dns-secrets
            key: tsig-secret-key
         {{- else if eq .Values.certmanager.provider "azureDNS" -}}
         azureDNS:
-          subscriptionID: AZURE_SUBSCRIPTION_ID
-          resourceGroupName: AZURE_DNS_ZONE_RESOURCE_GROUP
-          hostedZoneName: AZURE_DNS_ZONE
-          environment: AzurePublicCloud
+          subscriptionID: {{ .Values.certmanager.azureDNS.subscriptionID }}
+          resourceGroupName: {{ .Values.certmanager.azureDNS.resourceGroupName }}
+          hostedZoneName: {{ .Values.certmanager.azureDNS.hostedZoneName }}
+          environment: {{ .Values.certmanager.azureDNS.environment }}
         {{- else if eq .Values.certmanager.provider "akamai" -}}
         akamai:
-          serviceConsumerDomain: akab-tho6xie2aiteip8p-poith5aej0ughaba.luna.akamaiapis.net
+          serviceConsumerDomain: {{ .Values.certmanager.akamai.serviceConsumerDomain }}
           clientTokenSecretRef:
             name: dns-secrets
             key: clientToken
@@ -129,7 +129,7 @@ spec:
             key: akamaiaccessToken
         {{- else if eq .Values.certmanager.provider "acmeDNS" -}}
         acmeDNS:
-          host: https://acme.example.com
+          host: {{ .Values.certmanager.acmeDNS.region }}
           accountSecretRef:
             name: dns-secrets
             key: acmedns-json
