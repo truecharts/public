@@ -4,3 +4,33 @@ Determine secret name.
 {{- define "minio.secretName" -}}
 {{- include "common.names.fullname" . -}}
 {{- end -}}
+
+
+{{/*
+Retrieve true/false if minio certificate is configured
+*/}}
+{{- define "minio.certAvailable" -}}
+{{- $values := (. | mustDeepCopy) -}}
+{{- $_ := set $values "commonCertOptions" (dict "certKeyName" $values.certificate) -}}
+{{- template "common.resources.cert_present" $values -}}
+{{- end -}}
+
+
+{{/*
+Retrieve public key of minio certificate
+*/}}
+{{- define "minio.cert.publicKey" -}}
+{{- $values := (. | mustDeepCopy) -}}
+{{- $_ := set $values "commonCertOptions" (dict "certKeyName" $values.certificate "publicKey" true) -}}
+{{ include "common.resources.cert" $values }}
+{{- end -}}
+
+
+{{/*
+Retrieve private key of minio certificate
+*/}}
+{{- define "minio.cert.privateKey" -}}
+{{- $values := (. | mustDeepCopy) -}}
+{{- $_ := set $values "commonCertOptions" (dict "certKeyName" $values.certificate) -}}
+{{ include "common.resources.cert" $values }}
+{{- end -}}
