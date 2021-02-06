@@ -1,18 +1,31 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: dns-api-key-secret
-  #namespace: cert-manager
+  name: dns-secrets
 type: Opaque
 stringData:
-  api-key: {{ .Values.certmanager.apikey }}
+  # cloudflare
+  api-key: {{ .Values.certmanager.apikey | default "" }}
+  # cloudDNS
+  key-json: {{ .Values.certmanager.keyjson | default "" }}
+  # route53
+  secret-access-key: {{ .Values.certmanager.secretaccesskey | default "" }}
+  # digitalocean
+  access-token: {{ .Values.certmanager.accesstoken | default "" }}
+  # rfc2136
+  tsig-secret-key: {{ .Values.certmanager.tsigsecretkey | default "" }}
+  # akamai
+  clientToken: {{ .Values.certmanager.clientToken | default "" }}
+  clientSecret: {{ .Values.certmanager.clientSecret | default "" }}
+  accessToken: {{ .Values.certmanager.accessToken | default "" }}
+  # acmeDNS
+  acmedns-json: {{ .Values.certmanager.acmednsjson | default "" }}
 ---
 {{- if .Values.certmanager.email -}}
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-prod
-  #namespace: default
   annotations:
    # hooks are defined here
    "helm.sh/hook": post-install,post-upgrade
@@ -64,7 +77,7 @@ spec:
         cloudflare:
           email: {{ .Values.certmanager.email }}
           apiKeySecretRef:
-            name: dns-api-key-secret
+            name: dns-secrets
             key: api-key
         {{- else if eq .Values.certmanager.provider "cloudDNS" -}}
         cloudDNS:
@@ -72,29 +85,29 @@ spec:
           project: $PROJECT_ID
           # This is the secret used to access the service account
           serviceAccountSecretRef:
-            name: clouddns-dns01-solver-svc-acct
-            key: key.json
+            name: dns-secrets
+            key: key-json
         {{- else if eq .Values.certmanager.provider "route53" -}}
         route53:
           region: eu-central-1
           accessKeyID: AKIAIOSFODNN7EXAMPLE
           secretAccessKeySecretRef:
-            name: prod-route53-credentials-secret
+            name: dns-secrets
             key: secret-access-key
           # you can also assume a role with these credentials
           role: arn:aws:iam::YYYYYYYYYYYY:role/dns-manager
         {{- else if eq .Values.certmanager.provider "digitalocean" -}}
         digitalocean:
           tokenSecretRef:
-            name: digitalocean-dns
-            key: access-token 
+            name: dns-secrets
+            key: access-token
         {{- else if eq .Values.certmanager.provider "rfc2136" -}}
         rfc2136:
          nameserver: 1.2.3.4:53
          tsigKeyName: example-com-secret
          tsigAlgorithm: HMACSHA512
          tsigSecretSecretRef:
-           name: tsig-secret
+           name: dns-secrets
            key: tsig-secret-key
         {{- else if eq .Values.certmanager.provider "azureDNS" -}}
         azureDNS:
@@ -107,19 +120,19 @@ spec:
         akamai:
           serviceConsumerDomain: akab-tho6xie2aiteip8p-poith5aej0ughaba.luna.akamaiapis.net
           clientTokenSecretRef:
-            name: akamai-dns
+            name: dns-secrets
             key: clientToken
           clientSecretSecretRef:
-            name: akamai-dns
+            name: dns-secrets
             key: clientSecret
           accessTokenSecretRef:
-            name: akamai-dns
+            name: dns-secrets
             key: accessToken
         {{- else if eq .Values.certmanager.provider "acmeDNS" -}}
         acmeDNS:
           host: https://acme.example.com
           accountSecretRef:
-            name: acme-dns
-            key: acmedns.json
+            name: dns-secrets
+            key: acmedns-json
         {{- end }}
 {{- end }}
