@@ -62,5 +62,7 @@ spec:
   - secret
   - emptyDir
   - projected
-  - AllowedHostPaths
+{{- if .Values.persistence.enabled }}
+  - persistentVolumeClaim
+{{- end -}}
 {{- end -}}
