@@ -432,19 +432,39 @@ trueChartsIngress:
    authForwardUrl: ""
 
 certmanager:
-   email: ""
+   # general
    provider: ""
-   project: ""
-   apikey: ""
    wildcardDomain: ""
+   # cloudflare
+   apikey: ""
+   email: ""
+   # cloudDNS
    keyjson:
+   project: ""
+   # route53
    secretaccesskey: ""
+   accessKeyID:
+   region:
+   # digitalocean
    accesstoken: ""
+   # rfc2136
    tsigsecretkey: ""
+   nameserver: ""
+   tsigKeyName: ""
+   tsigAlgorithm: ""
+   # azureDNS
+   subscriptionID: ""
+   resourceGroupName: ""
+   hostedZoneName: ""
+   environment: ""
+   # akamai
+   serviceConsumerDomain: ""
    clientToken: ""
    clientSecret: ""
-   accessToken: ""
-   acmednsjson:: ""
+   akamaiaccessTokenaccessToken: ""
+   # acmeDNS
+   host: ""
+   acmednsjson: ""
  
 cert-manager:
   installCRDs: true

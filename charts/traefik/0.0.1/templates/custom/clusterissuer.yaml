@@ -17,7 +17,7 @@ stringData:
   # akamai
   clientToken: {{ .Values.certmanager.clientToken | default "" }}
   clientSecret: {{ .Values.certmanager.clientSecret | default "" }}
-  accessToken: {{ .Values.certmanager.accessToken | default "" }}
+  akamaiaccessToken: {{ .Values.certmanager.akamaiaccessToken | default "" }}
   # acmeDNS
   acmedns-json: {{ .Values.certmanager.acmednsjson | default "" }}
 ---
@@ -114,7 +114,6 @@ spec:
           subscriptionID: AZURE_SUBSCRIPTION_ID
           resourceGroupName: AZURE_DNS_ZONE_RESOURCE_GROUP
           hostedZoneName: AZURE_DNS_ZONE
-          # Azure Cloud Environment, default to AzurePublicCloud
           environment: AzurePublicCloud
         {{- else if eq .Values.certmanager.provider "akamai" -}}
         akamai:
@@ -127,7 +126,7 @@ spec:
             key: clientSecret
           accessTokenSecretRef:
             name: dns-secrets
-            key: accessToken
+            key: akamaiaccessToken
         {{- else if eq .Values.certmanager.provider "acmeDNS" -}}
         acmeDNS:
           host: https://acme.example.com
