@@ -33,7 +33,7 @@ spec:
           command:
             - "/bin/sh"
             - "-ce"
-            - "/usr/bin/docker-entrypoint.sh minio server /export {{ (.Values.extraArgs | default list) | join " " }}"
+            - "/usr/bin/docker-entrypoint.sh minio -S /etc/minio/certs server /export {{ (.Values.extraArgs | default list) | join " " }}"
           ports:
             - name: http
               containerPort: 9000
