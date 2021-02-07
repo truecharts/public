@@ -10,9 +10,13 @@ Determine secret name.
 Retrieve true/false if minio certificate is configured
 */}}
 {{- define "minio.certAvailable" -}}
+{{- if .Values.certificate -}}
 {{- $values := (. | mustDeepCopy) -}}
 {{- $_ := set $values "commonCertOptions" (dict "certKeyName" $values.Values.certificate) -}}
 {{- template "common.resources.cert_present" $values -}}
+{{- else -}}
+{{- false -}}
+{{- end -}}
 {{- end -}}
 
 
