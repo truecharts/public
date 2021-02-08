@@ -37,6 +37,7 @@ jobs:
                   chartname=$(basename ${chart})
                   echo "Processing ${chart} version ${maxversion}"
                   mv ${chart}/${maxversion} ../charts/charts/${chartname}
+                  rm ../charts/charts/${chartname}/Chart.lock
               fi
           done
           mv library/* ../charts/charts/
@@ -88,7 +89,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
-          version: v3.4.0
+          version: v3.5.2
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.1.0
