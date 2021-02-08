@@ -13,15 +13,26 @@ All our apps are supposed to work together, be easy to setup using the TrueNAS U
 
 
 ## Getting started using TrueCharts
-Sadly enough, the TrueNAS SCALE UI currently is not usable with anything except the default apps. Due to much of it being hardcoded. None the less, we are already hard at work preparing as many apps as possible, to be ready when UI support drops.
+Installing TrueCharts within TrueNAS SCALE, still requires the CLI. However it's not hard:
+- Go to you shell of choice (either SSH or the TrueNAS webui shell)
+- enter `cli`
+- enter `app catalog create repository="https://github.com/truecharts/truecharts" label="TrueCharts"`
 
+## FAQ
+- Q: Isn't there more documentation for app x
+A: No, currently during TrueNAS SCALE ALPHA/BETA we focus on the technical aspects. 
+
+- Q: Function x doesn't seem to be working, should it be working?
+A: Maybe, please file an issue
+
+- Q: I'm missing a lot of configuration opions in the install GUI.
+A: We try to aim for a balance in the amount of options vs the simplicity of installation. Suggestions are always welcome
 
 ## Getting into creating Apps
 
 Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior knowhow on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
 
 The specifications of TrueNAS SCALE apps, is layed out in the [wiki](https://github.com/truecharts/truecharts/wiki/TrueNAS-SCALE-Chart-Structure)
-
 
 
 ## Licence
