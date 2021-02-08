@@ -262,16 +262,26 @@ ports:
     # nodePort: 32443
     # Set TLS at the entrypoint
     # https://doc.traefik.io/traefik/routing/entrypoints/#tls
-    tls:
-      enabled: false
-      # this is the name of a TLSOption definition
-      options: ""
-      certResolver: ""
-      domains: []
-      # - main: example.com
-      #   sans:
-      #     - foo.example.com
-      #     - bar.example.com
+  plex:
+    port: 32400
+    # hostPort: 8443
+    expose: true
+    exposedPort: 32400
+    # The port protocol (TCP/UDP)
+    protocol: TCP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  kms:
+    port: 51688 
+    # hostPort: 8443
+    expose: true
+    exposedPort: 1688 
+    # The port protocol (TCP/UDP)
+    protocol: TCP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
   dns-tcp:
     port: 5353
     # hostPort: 8443
@@ -289,6 +299,66 @@ ports:
     exposedPort: 5353
     # The port protocol (TCP/UDP)
     protocol: UDP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  torrent-tcp:
+    port: 51413
+    # hostPort: 8443
+    expose: true
+    exposedPort: 51413
+    # The port protocol (TCP/UDP)
+    protocol: TCP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  torrent-udp:
+    port: 51413
+    # hostPort: 8443
+    expose: true
+    exposedPort: 51413
+    # The port protocol (TCP/UDP)
+    protocol: UDP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  radius:
+    port: 51812
+    # hostPort: 8443
+    expose: true
+    exposedPort: 1812
+    # The port protocol (TCP/UDP)
+    protocol: UDP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  radius-acc:
+    port: 51813
+    # hostPort: 8443
+    expose: true
+    exposedPort: 1813
+    # The port protocol (TCP/UDP)
+    protocol: UDP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  ldaps:
+    port: 50636
+    # hostPort: 8443
+    expose: true
+    exposedPort: 636
+    # The port protocol (TCP/UDP)
+    protocol: TCP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  unificom:
+    port: 8081
+    # hostPort: 8443
+    expose: true
+    exposedPort: 8081
+    # The port protocol (TCP/UDP)
+    protocol: TCP
     # nodePort: 32443
     # Set TLS at the entrypoint
     # https://doc.traefik.io/traefik/routing/entrypoints/#tls
@@ -429,17 +499,17 @@ podSecurityContext:
 downloadsHostPathEnabled: false
 dataHostPathEnabled: false
 configHostPathEnabled: false
-trueChartsIngressEnabled: false
 
 emptyDirVolumes: true
 
-trueChartsIngress:
-   enabled: false
-   host: "traefik.truecharts.test"
-   selfsigned: true
-   wildcard: false
-   existingCert: ""
-   authForwardUrl: ""
+appIngress:
+  webui:
+    enabled: false
+    entrypoint: "websecure"
+    certType: "letsencrypt-prod"
+    existingcert: ""
+    authForwardURL: ""
+    host: "traefik.example.truecharts.org" 
 
 certmanager:
   # general

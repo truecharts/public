@@ -23,6 +23,8 @@ groups:
     description: "Configure ingress"
   - name: "Certmanager Settings"
     description: "Configure Certmanager"
+  - name: "WARNING"
+    description: "WARNING"
 
 portals:
   web_portal:
@@ -35,6 +37,7 @@ portals:
 
 questions:
   # Image related
+
   - variable: image
     description: "Docker Image Details"
     label: "Docker Image"
@@ -109,52 +112,69 @@ questions:
             default: "ix-traefik_config"
             editable: false
 
-  - variable: trueChartsIngressEnabled
-    label: "Enable Ingress"
-    description: "Configure Ingress Settings"
+  - variable: appIngress
+    label: ""
     group: "Ingress"
     schema:
-      type: boolean
-      default: true
-      show_subquestions_if: true
-      subquestions:
-        - variable: trueChartsIngress
-          label: "Ingress Settings"
+      type: dict
+      attrs:
+        - variable: webui
+          label: "Web Ingress Configuration"
+          group: "Ingress"
           schema:
             type: dict
-            required: true
             attrs:
-              - variable: host
-                description: "Ingress Hostname"
-                label: "Ingress Hostname"
-                schema:
-                  type: string
-                  default: "your.hostname.com"
-                  required: true
-              - variable: selfsigned
-                description: "Use a self-signed certificate"
-                label: "Self-Signed Certificate"
+              - variable: enabled
+                label: "Enable Web Ingress"
                 schema:
                   type: boolean
                   default: false
-              - variable: wildcard
-                description: "Use wildcard certificate from Certmanager configuration"
-                label: "Use Global Wildcard"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: existingCert
-                description: "Enter name of existing certificate to use"
-                label: "Existing Certificate"
-                schema:
-                  type: string
-                  default: ""
-              - variable: authForwardURL
-                description: "Enter URL to use for authentication"
-                label: "Forward-Auth URL"
-                schema:
-                  type: string
-                  default: ""
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: entrypoint
+                      label: "Select Entrypoint"
+                      schema:
+                        type: string
+                        default: "websecure"
+                        required: true
+                        enum:
+                          - value: "websecure"
+                            description: "Websecure: HTTPS/TLS port 443"
+                    - variable: host
+                      label: "Host"
+                      required: true
+                      schema:
+                        type: string
+                    - variable: certType
+                      label: "Select Certificate Type"
+                      schema:
+                        type: string
+                        default: "letsencrypt-prod"
+                        enum:
+                          - value: ""
+                            description: "No Encryption/TLS/Certificates"
+                          - value: "letsencrypt-prod"
+                            description: "Letsencrypt Production Certificates"
+                          - value: "letsencrypt-staging"
+                            description: "Letsencrypt Test Certificates"
+                          - value: "wildcard"
+                            description: "Global Wildcard Certificate"
+                          - value: "selfsigned"
+                            description: "Self-Signed Certificate"
+                          - value: "existingcert"
+                            description: "Existing Certificate"
+
+                    - variable: existingcert
+                      label: "Existing Certificate Name"
+                      schema:
+                        type: string
+                        show_if: [["certType", "=", "existingcert"]]
+                        default: ""
+                    - variable: authForwardURL
+                      label: "Forward Authentication URL"
+                      schema:
+                        type: string
+                        default: ""
             
   - variable: certmanager
     description: "Configure CertManager Settings"
@@ -412,3 +432,17 @@ questions:
                   default: ""
                   required: true
 
+  - variable: warning
+    label: "This App binds to the same ports as TrueNAS SCALE UI: 80 and 443"
+    description: "Please be sure to set the UI to a different port or adapter"
+    group: "WARNING"
+    schema:
+        type: dict
+        attrs:
+          - variable: confirm-warning
+            description: "Check this to confirm you have made precautions against conflicts on port 80 and 443"
+            label: "I understand above warning and its consequences"
+            schema:
+              type: boolean
+              default: false
+              required: true
