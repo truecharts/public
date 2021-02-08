@@ -11,7 +11,7 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "http"
+      - "$kubernetes-resource_configmap_minio-config_protocol"
     host:
       - "$node_ip"
     ports:
