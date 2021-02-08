@@ -1,0 +1,34 @@
+image:
+  repository: b4bz/homer
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port:
+    port: 8080
+
+ingress:
+  enabled: true
+
+appIngressEnabled: true
+appIngress:
+  main:
+    enabled: true
+
+appVolumesEnabled: false
+appVolumeMounts:
+  data:
+    enabled: true
+    emptyDir: true
+    datasetName: "data"
+    mountPath: "/data"
+    hostPathEnabled: false
+    hostPath: ""
+
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+  startup:
+    enabled: true
