@@ -1,7 +1,6 @@
 
 # TrueCharts:<br>Community App Catalog for TrueNAS SCALE
-[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/truecharts/master.svg)](https://github.com/truecharts/truecharts/commits) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://github.com/truecharts/truecharts/blob/master/docs/LICENSE.GPLV2) [![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/truecharts/truecharts/blob/master/docs/LICENSE.BSD3)
-
+[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/truecharts/master.svg)](https://github.com/truecharts/truecharts/commits) [![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/truecharts/truecharts/blob/master/docs/LICENSE.BSD3)
 
 Truecharts is an innitiative to provide high quality Apps to use with the TrueNAS SCALE App Ecosystem.
 Our primary goals are:
