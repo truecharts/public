@@ -38,3 +38,29 @@ appVolumeMounts:
     mountPath: "/data"
     hostPathEnabled: false
     hostPath: ""
+  test:
+    enabled: true
+    emptyDir: true
+    datasetName: "test"
+    mountPath: "/test"
+    hostPathEnabled: false
+    hostPath: ""
+    
+appAdditionalServicesEnabled: true
+appAdditionalServices:
+  extra-tcp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 51414
+      name: tcp-test
+      protocol: TCP
+      targetPort: 51414
+  extra-udp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 51414
+      name: udp-test
+      protocol: UDP
+      targetPort: 51414

@@ -4,8 +4,8 @@
 
 | Branch | TrueNAS version | Supported with updates          |
 | ------- | ------- |------------------ |
-| MASTER   | BETA |  NOT RELEASED YET |
-| DEV   | 20.21-ALPHA |  :white_check_mark: |
+| MASTER   | 21.02 ALPHA | :white_check_mark: |
+| Charts   | Standard Kubernetes/Helm | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
