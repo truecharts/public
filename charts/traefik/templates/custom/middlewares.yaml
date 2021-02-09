@@ -38,10 +38,10 @@ spec:
       - PUT
     accessControlMaxAge: 100
     sslRedirect: true
-    #stsSeconds: 63072000
-    #stsIncludeSubdomains: false
-    #stsPreload: false
-    #forceSTSHeader: true
+    stsSeconds: 63072000
+    stsIncludeSubdomains: false
+    stsPreload: false
+    forceSTSHeader: true
     contentTypeNosniff: true
     browserXssFilter: true
     sslForceHost: true
