@@ -2,7 +2,7 @@
 This template serves as a blueprint for all appIngress objects that are created 
 within the common library.
 */}}
-{{- define "custom.classes.appIngressHTTP" -}}
+{{- define "common.custom.classes.appIngressHTTP" -}}
 {{- $values := .Values.appIngress -}}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.appIngress -}}
