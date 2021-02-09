@@ -1,7 +1,7 @@
 {{/*
 Retrieve host path from ix volumes based on dataset name
 */}}
-{{- define "retrieveHostPathFromiXVolume" -}}
+{{- define "common.custom.retrieveHostPathFromiXVolume" -}}
 {{- range $index, $hostPathConfiguration := $.ixVolumes }}
 {{- $dsName := base $hostPathConfiguration.hostPath -}}
 {{- if eq $.datasetName $dsName -}}
@@ -13,7 +13,7 @@ Retrieve host path from ix volumes based on dataset name
 {{/*
 Define appVolumeMounts for container
 */}}
-{{- define "configuredAppVolumeMounts" -}}
+{{- define "common.custom.configuredAppVolumeMounts" -}}
 {{- if and .Values.appVolumesEnabled .Values.appVolumeMounts }}
 {{- range $name, $avm := .Values.appVolumeMounts -}}
 {{- if $avm.enabled }}
@@ -30,7 +30,7 @@ Define appVolumeMounts for container
 {{/*
 Define hostPath for appVolumes
 */}}
-{{- define "configuredAppVolumes" -}}
+{{- define "common.custom.configuredAppVolumes" -}}
 {{- if and .Values.appVolumesEnabled .Values.appVolumeMounts }}
 {{- range $name, $av := .Values.appVolumeMounts -}}
 {{- if $av.enabled }}
@@ -43,7 +43,7 @@ Define hostPath for appVolumes
     path: {{ required "hostPath not set" $av.hostPath }}
     {{- else }}
     {{- $volDict := dict "datasetName" $av.datasetName "ixVolumes" $.Values.ixVolumes -}}
-    path: {{ include "retrieveHostPathFromiXVolume" $volDict }}
+    path: {{ include "common.custom.retrieveHostPathFromiXVolume" $volDict }}
     {{- end }}
   {{- end }}
 {{- end }}
