@@ -45,5 +45,5 @@ jobs:
       - name: Commit and push updated charts
         run: |
             git add --all
-            git commit --all -m "Update-Folder-Names-and-Dependencies"
-            git push
+            git commit --all -m "Update-Folder-Names-and-Dependencies" || exit 0
+            git push || exit 0
