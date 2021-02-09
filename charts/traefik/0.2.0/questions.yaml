@@ -29,9 +29,9 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "http"
+      - "https"
     host:
-      - "$node_ip"
+      - "$variable-appIngress.webui.host"
     ports:
       - "443"
 
