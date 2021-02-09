@@ -18,14 +18,17 @@ Installing TrueCharts within TrueNAS SCALE, still requires the CLI. However it's
 - enter `app catalog create repository="https://github.com/truecharts/truecharts" label="TrueCharts"`
 
 ## FAQ
-- Q: Isn't there more documentation for app x
+- Q: Isn't there more documentation for app x<br>
 A: No, currently during TrueNAS SCALE ALPHA/BETA we focus on the technical aspects. 
 
-- Q: Function x doesn't seem to be working, should it be working?
+- Q: Function x doesn't seem to be working, should it be working?<br>
 A: Maybe, please file an issue
 
-- Q: I'm missing a lot of configuration opions in the install GUI.
+- Q: I'm missing a lot of configuration opions in the install GUI.<br>
 A: We try to aim for a balance in the amount of options vs the simplicity of installation. Suggestions are always welcome
+
+- Q: The portal button isn't working.<br>
+A: Portal buttons are current't not implemented very well and are considered "not supported" for the time being
 
 ## Getting into creating Apps
 
