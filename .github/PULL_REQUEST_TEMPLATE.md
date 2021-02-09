@@ -6,16 +6,15 @@ Fixes # (issue)
 
 **Type of change**
 
+- [ ] Feature/App addition
+- [ ] Bugfix
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] Refactor of current code
-- [ ] This change requires additional documentation update
 
 **How Has This Been Tested?**
 
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
 
-- Test A
-- Test B
 
 **Notes:**
 _Please enter any other relevant information here_
@@ -28,4 +27,3 @@ _Please enter any other relevant information here_
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings
 - [ ] I have added tests to this description that prove my fix is effective or that my feature works
-- [ ] Any new files are named using lowercase (to avoid issues on case sensitive file systems)
