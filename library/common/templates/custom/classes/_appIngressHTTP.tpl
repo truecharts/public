@@ -41,16 +41,19 @@ spec:
   {{- end }}
   {{- if $values.certType }}
   tls:
-  {{- if eq $values.certType "selfsigned" -}}{{ else if eq $values.certType "existingcert" }}
-    secretName: {{ $values.existingcert }}
-  {{ else if eq $values.certType "wildcard" }}
-    secretName: wilddcardcert
-  {{ else }}
+  {{- if eq $values.certType "selfsigned" -}}{}{{ else }}
     - hosts:
         {{- range $values.hosts }}
         - {{ .host | quote }}
         {{- end }}
+      {{- if eq $values.certType "selfsigned" -}}
+      {{ else if eq $values.certType "existingcert" }}
+      secretName: {{ $values.existingcert }}
+      {{ else if eq $values.certType "wildcard" }}
+      secretName: wildcardcert
+      {{ else }}
       secretName: {{ $IngressName }}-tls-secret
+      {{ end }}
   {{ end }}
   {{- end }}
   rules:
