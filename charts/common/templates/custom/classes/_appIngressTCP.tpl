@@ -40,19 +40,22 @@ spec:
       terminationDelay: 400
   {{- if $values.certType }}
   tls:
-  {{- if eq $values.certType "selfsigned" -}}{{ else if eq $values.certType "existingcert" }}
-    secretName: {{ $values.existingcert }}
-  {{ else if eq $values.certType "wildcard" }}
-    secretName: wilddcardcert
-  {{ else }}
-    secretName: {{ $IngressName }}-tls-secret
+  {{- if eq $values.certType "selfsigned" -}}{}{{ else }}
     domains:
       - main: {{ index  $values.hosts 0 }}
-       sans:
+        sans:
             {{- range $values.hosts }}
             - {{ .host | quote }}
             {{- end }}
-  {{- end }}
+    {{- if eq $values.certType "selfsigned" -}}
+    {{ else if eq $values.certType "existingcert" }}
+    secretName: {{ $values.existingcert }}
+    {{ else if eq $values.certType "wildcard" }}
+    secretName: wildcardcert
+    {{ else }}
+    secretName: {{ $IngressName }}-tls-secret
+    {{ end }}
+  {{ end }}
     passthrough: false
   {{- end }}
 {{- end }}
