@@ -1,0 +1,271 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "pihole.fullname" . }}
+  labels:
+    app: {{ template "pihole.name" . }}
+    chart: {{ template "pihole.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: {{ template "pihole.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      annotations:
+        checksum.config.adlists: {{ include (print $.Template.BasePath "/configmap-adlists.yaml") . | sha256sum | trunc 63 }}
+        checksum.config.blacklist: {{ include (print $.Template.BasePath "/configmap-blacklist.yaml") . | sha256sum | trunc 63 }}
+        checksum.config.regex: {{ include (print $.Template.BasePath "/configmap-regex.yaml") . | sha256sum | trunc 63 }}
+        checksum.config.whitelist: {{ include (print $.Template.BasePath "/configmap-whitelist.yaml") . | sha256sum | trunc 63 }}
+        checksum.config.dnsmasqConfig: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum | trunc 63 }}
+      labels:
+        app: {{ template "pihole.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      {{- if .Values.antiaff.enabled }}
+      affinity:
+        podAntiAffinity:
+        {{- if .Values.antiaff.strict }}
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+        {{- else }}
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+        {{- end }}
+                matchExpressions:
+                - key: release
+                  operator: In
+                  values:
+                  - {{ .Values.antiaff.avoidRelease }}
+              topologyKey: "kubernetes.io/hostname"
+      {{- end }}
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+        - 127.0.0.1
+        - 8.8.8.8
+      hostNetwork: {{ .Values.hostNetwork }}
+      containers:
+        {{- if .Values.monitoring.sidecar.enabled }}
+        - name: exporter
+          image: "{{ .Values.monitoring.sidecar.image.repository }}:{{ .Values.monitoring.sidecar.image.tag }}"
+          imagePullPolicy: {{ .Values.monitoring.sidecar.image.pullPolicy }}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          env:
+            - name: PIHOLE_HOSTNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: PIHOLE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: {{ .Values.admin.passwordKey | default "password" }}
+                  name: {{ .Values.admin.existingSecret | default (include "pihole.password-secret" .) }}
+          resources:
+{{ toYaml .Values.monitoring.sidecar.resources | indent 12 }}
+          ports:
+            - containerPort: {{ .Values.monitoring.sidecar.port }}
+              name: prometheus
+              protocol: TCP
+        {{- end }}
+        {{- if .Values.doh.enabled }}
+        - name: cloudflared
+          image: "{{ .Values.doh.repository }}:{{ .Values.doh.tag }}"
+          imagePullPolicy: {{ .Values.doh.pullPolicy }}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          resources:
+            limits:
+              memory: 128Mi
+          ports:
+            - containerPort: 5053
+              name: cloudflared-udp
+              protocol: UDP
+          {{- if .Values.doh.envVars }}
+          env:
+            {{- range $key, $value := .Values.doh.envVars }}
+          - name: {{ $key | quote }}
+            value: {{ $value | quote }}
+            {{- end }}
+          {{- end }}
+          livenessProbe:
+            exec:
+              command:
+              - "/usr/bin/nc"
+              - "-uzvw3"
+              - "localhost"
+              - "5053"
+        {{- end }}
+        - name: {{ .Chart.Name }}
+          env:
+          - name: 'WEB_PORT'
+            value: "{{ .Values.webHttp }}"
+          - name: VIRTUAL_HOST
+            value: {{ .Values.virtualHost }}
+          - name: WEBPASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: {{ .Values.admin.passwordKey | default "password" }}
+                name: {{ .Values.admin.existingSecret | default (include "pihole.password-secret" .) }}
+          {{- range $key, $value := .Values.extraEnvVars }}
+          - name: {{ $key | quote }}
+            value: {{ $value | quote }}
+          {{- end }}
+          {{- range $key, $value := .Values.extraEnvVarsSecret }}
+          - name: {{ $key | quote }}
+            valueFrom:
+              secretKeyRef:
+                key: {{ $value.key | quote }}
+                name: {{ $value.name | quote }}
+          {{- end }}
+          {{- if .Values.doh.enabled }}
+          - name: 'DNS1'
+            value: "127.0.0.1#5053"
+          - name: 'DNS2'
+            value: "127.0.0.1#5053"
+          {{- else }}
+          {{- if .Values.DNS1 }}
+          - name: 'DNS1'
+            value: {{ .Values.DNS1 }}
+          {{- end }}
+          {{- if .Values.DNS2 }}
+          - name: 'DNS2'
+            value: {{ .Values.DNS2 }}
+          {{- end }}
+         {{- end }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            privileged: {{ .Values.privileged }}
+          ports:
+          - containerPort: {{ .Values.webHttp }}
+            name: http
+            protocol: TCP
+          - containerPort: 53
+            name: dns
+            protocol: TCP
+          - containerPort: 53
+            name: dns-udp
+            protocol: UDP
+          - containerPort:  {{ .Values.webHttps }}
+            name: https
+            protocol: TCP
+          - containerPort: 67
+            name: client-udp
+            protocol: UDP
+          {{- if .Values.probes.liveness.enabled }}
+          livenessProbe:
+            httpGet:
+              path: /admin.index.php
+              port: http
+            initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
+            failureThreshold: {{ .Values.probes.liveness.failureThreshold }}
+            timeoutSeconds: {{ .Values.probes.liveness.timeoutSeconds }}
+          {{- end }}
+          {{- if .Values.probes.readiness.enabled }}
+          readinessProbe:
+            httpGet:
+              path: /admin.index.php
+              port: http
+            initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}
+            failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
+            timeoutSeconds: {{ .Values.probes.readiness.timeoutSeconds }}
+          {{- end }}
+          volumeMounts:
+          - mountPath: /etc/pihole
+            name: config
+          - mountPath: /etc/dnsmasq.d/02-custom.conf
+            name: custom-dnsmasq
+            subPath: 02-custom.conf
+          - mountPath: /etc/addn-hosts
+            name: custom-dnsmasq
+            subPath: addn-hosts
+          {{- if .Values.adlists }}
+          - mountPath: /etc/pihole/adlists.list
+            name: adlists
+            subPath: adlists.list
+          {{- end }}
+          {{- if .Values.blacklist }}
+          - mountPath: /etc/pihole/blacklist.txt
+            name: blacklist
+            subPath: blacklist.txt
+          {{- end }}
+          {{- if .Values.regex }}
+          - mountPath: /etc/pihole/regex.list
+            name: regex
+            subPath: regex.list
+          {{- end }}
+          {{- if .Values.whitelist }}
+          - mountPath: /etc/pihole/whitelist.txt
+            name: whitelist
+            subPath: whitelist.txt
+          {{- end }}
+          - name: shared
+            mountPath: /shared
+          - name: shared-logs
+            mountPath: "/config/Library/Application Support/jackett Media Server/Logs"
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+      volumes:
+      - name: config
+        {{- if .Values.emptyDirVolumes }}
+        emptyDir: {}
+        {{- else }}
+        hostPath:
+          path: {{ template "configuredHostPathConfig" . }}
+        {{- end }}
+      - name: shared
+        emptyDir: {}
+      - name: shared-logs
+        emptyDir: {}
+      - configMap:
+          defaultMode: 420
+          name: {{ template "pihole.fullname" . }}-custom-dnsmasq
+        name: custom-dnsmasq
+      {{- if .Values.adlists }}
+      - configMap:
+          defaultMode: 420
+          name: {{ template "pihole.fullname" . }}-adlists
+        name: adlists
+      {{- end }}
+      {{- if .Values.whitelist }}
+      - configMap:
+          defaultMode: 420
+          name: {{ template "pihole.fullname" . }}-whitelist
+        name: whitelist
+      {{- end }}
+      {{- if .Values.blacklist }}
+      - configMap:
+          defaultMode: 420
+          name: {{ template "pihole.fullname" . }}-blacklist
+        name: blacklist
+      {{- end }}
+      {{- if .Values.regex }}
+      - configMap:
+          defaultMode: 420
+          name: {{ template "pihole.fullname" . }}-regex
+        name: regex
+      {{- end }}

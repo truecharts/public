@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "pihole.fullname" . }}-dns-udp
+  labels:
+    app: {{ template "pihole.name" . }}
+    chart: {{ template "pihole.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- if .Values.serviceDns.annotations }}
+  annotations:
+{{ toYaml .Values.serviceDns.annotations | indent 4 }}
+{{- end }}
+spec:
+  type: {{ .Values.serviceDns.type }}
+  {{- if .Values.serviceDns.loadBalancerIP }}
+  loadBalancerIP: {{ .Values.serviceDns.loadBalancerIP }}
+  {{- end }}
+  {{- if or (eq .Values.serviceDns.type "NodePort") (eq .Values.serviceDns.type "LoadBalancer") }}
+  externalTrafficPolicy: {{ .Values.serviceDns.externalTrafficPolicy }}
+  {{- end }}
+  ports:
+    - port: 53
+      targetPort: dns-udp
+      protocol: UDP
+      name: dns-udp
+    - port: 67
+      targetPort: client-udp
+      protocol: UDP
+      name: client-udp
+  selector:
+    app: {{ template "pihole.name" . }}
+    release: {{ .Release.Name }}
