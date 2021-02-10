@@ -34,6 +34,9 @@ A: We try to aim for a balance in the amount of options vs the simplicity of ins
 - Q: The portal button isn't working.<br>
 A: Portal buttons are current't not implemented very well and are considered "not supported" for the time being
 
+- Q: I selected letsencrypt but still get a traefik certificate.<br>
+A: Cert Manager might take up to 10 minutes to fetch the right certificate and requires free access to 1.1.1.1:53. Until the right certificate is fetched, it will use the Traefik Default cert.
+
 ## Getting into creating Apps
 
 Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior knowhow on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
