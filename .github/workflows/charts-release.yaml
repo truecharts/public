@@ -37,7 +37,7 @@ jobs:
                   chartname=$(basename ${chart})
                   echo "Processing ${chart} version ${maxversion}"
                   mv ${chart}/${maxversion} ../charts/charts/${chartname}
-                  rm ../charts/charts/${chartname}/Chart.lock
+                  rm ../charts/charts/${chartname}/Chart.lock || echo "chart.lock missing for ${chartname}, continuing..."
               fi
           done
           mv library/* ../charts/charts/
