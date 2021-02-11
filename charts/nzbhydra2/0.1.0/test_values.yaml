@@ -60,10 +60,11 @@ persistence:
     
 appIngressEnabled: false
     
-appVolumesEnabled: false
+
 appVolumeMounts:
   config:
-    enabled: false
-    emptyDir: false
+    enabled: true
+    emptyDir: true
+    mountPath: "/config"
     
 
