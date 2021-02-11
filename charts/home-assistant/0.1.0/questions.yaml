@@ -112,6 +112,14 @@ questions:
             $ref:
               - "normalize/ixVolume"
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
               - variable: datasetName
                 label: "Name"
                 schema:
@@ -149,7 +157,7 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
-                    - variable: hostPath
+                      - variable: hostPath
                       label: "Path to Z-Wave device on host"
                       schema:
                         type: path

@@ -233,6 +233,14 @@ questions:
             $ref:
               - "normalize/ixVolume"
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
               - variable: datasetName
                 label: "Dataset Name"
                 schema:
@@ -267,6 +275,14 @@ questions:
             $ref:
               - "normalize/ixVolume"
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
               - variable: datasetName
                 label: "Dataset Name"
                 schema:
