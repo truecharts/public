@@ -14,7 +14,7 @@ Retrieve host path from ix volumes based on dataset name
 Define appVolumeMounts for container
 */}}
 {{- define "common.custom.configuredAppVolumeMounts" -}}
-{{- if and .Values.appVolumesEnabled .Values.appVolumeMounts }}
+{{- if .Values.appVolumeMounts }}
 {{- range $name, $avm := .Values.appVolumeMounts -}}
 {{- if $avm.enabled }}
 - name: {{ $name }}
@@ -31,7 +31,7 @@ Define appVolumeMounts for container
 Define hostPath for appVolumes
 */}}
 {{- define "common.custom.configuredAppVolumes" -}}
-{{- if and .Values.appVolumesEnabled .Values.appVolumeMounts }}
+{{- if .Values.appVolumeMounts }}
 {{- range $name, $av := .Values.appVolumeMounts -}}
 {{- if $av.enabled }}
 - name: {{ $name }}
