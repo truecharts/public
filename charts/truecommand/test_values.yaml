@@ -21,7 +21,7 @@ persistence:
   data:
     enabled: false
     emptyDir: false
-    mountPath: /downloads
+    mountPath: /data
     ## Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -39,17 +39,11 @@ persistence:
 
 ## TrueCharts Config
 
-appVolumesEnabled: false
-emptyDirVolumes: true
+
+
 
 appVolumeMounts:
-  config:
-    enabled: false
+  data:
+    enabled: true
     emptyDir: true
-    datasetName: "config"
     mountPath: "/data"
-  downloads:
-    enabled: false
-    emptyDir: true
-    datasetName: "data"
-    mountPath: "/datanope"

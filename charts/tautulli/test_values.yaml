@@ -19,12 +19,13 @@ env: {}
 
 persistence:
   config:
-    enabled: false
-    emptyDir: false
+    enabled: true
+    emptyDir: true
+    mountPath: "/config"
     
 ## TrueCharts Config
 
-appVolumesEnabled: false
-emptyDirVolumes: true
+
+
 
 

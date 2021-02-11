@@ -42,15 +42,15 @@ persistence:
 
 ## TrueCharts Config
 
-appVolumesEnabled: true
-emptyDirVolumes: false
 
-appVolumeMounts:
-  config:
-    enabled: true
-    emptyDir: false
-    datasetName: "config"
-    mountPath: "/config"
-    hostPathEnabled: false
+
+
+#appVolumeMounts:
+#  config:
+#    enabled: true
+#    emptyDir: false
+#    datasetName: "config"
+#    mountPath: "/config"
+#    hostPathEnabled: false
 
 

@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: 2021.2.2
 description: Home Assistant
 name: home-assistant
-version: 0.1.0
+version: 0.2.0
 upstream_version: 5.3.0
 keywords:
 - home-assistant
@@ -27,7 +27,7 @@ dependencies:
 #  condition: postgresql.enabled
 ## mariadb is currently not ported to SCALE yet.
 #  - name: mariadb
-#    version: 0.0.1
+#    version: 0.1.0
 #    repository: file://../../mariadb/0.0.1/
 #    condition: mariadb.enabled
 ## InfluxDB is currently not ported to SCALE yet.

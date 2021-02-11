@@ -42,8 +42,20 @@ persistence:
 
 ## TrueCharts Config
 
-appVolumesEnabled: false
-emptyDirVolumes: true
+
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    mountPath: "/config"
+  media:
+    enabled: true
+    emptyDir: true
+    mountPath: "/media"
+  downloads:
+    enabled: true
+    emptyDir: true
+    mountPath: "/downloads"
 
 
 
