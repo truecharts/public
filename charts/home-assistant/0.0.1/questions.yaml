@@ -186,6 +186,22 @@ questions:
     schema:
       type: boolean
       default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: dnsPolicy
+          group: "Networking"
+          label: "Set the correct DNS policy"
+          description: "Required to be set to ClusterFirstWithHostNet when using hostNetwork"
+          schema:
+            type: string
+            default: "ClusterFirst"
+            enum:
+              - value: "ClusterFirst"
+                description: "ClusterFirst"
+              - value: "ClusterFirstWithHostNet"
+                description: "ClusterFirstWithHostNet"
+      
+
       
   # Service Configuration
   - variable: service
