@@ -157,6 +157,13 @@ questions:
                   required: true
                   hidden: true
                   editable: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
               - variable: datasetName
                 label: "Dataset Name"
                 schema:
