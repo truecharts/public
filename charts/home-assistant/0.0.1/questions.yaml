@@ -75,6 +75,27 @@ questions:
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
+        
+  # Configure Time Zone
+  - variable: git
+    group: "Configuration"
+    label: "Git"
+    description: "Attatch git repository to Home-Assistant"
+    schema:
+      type: dict
+      attrs:
+        - variable: deployKey
+          label: "deployKey"
+          description: "Raw SSH private key"
+          schema:
+            type: string
+            default: ""
+        - variable: deployKeyBase64
+          label: "deployKey"
+          description: "Base64-encoded SSH private key. When both variables are set, the raw SSH key takes precedence"
+          schema:
+            type: string
+            default: ""
 
   # Configure app volumes
   - variable: appVolumeMounts
