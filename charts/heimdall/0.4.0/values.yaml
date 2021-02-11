@@ -28,9 +28,10 @@ persistence:
 
 ## TrueCharts Config
 
-appVolumesEnabled: true
+
 
 appVolumeMounts:
   config:
     enabled: true
-    emptyDir: false
+    emptyDir: true
+    mountPath: "/config"

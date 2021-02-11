@@ -111,22 +111,22 @@ additionalVolumes: []
 
 ## TrueCharts Config
 
-emptyDirVolumes: false
 
-appVolumesEnabled: true
-appVolumeMounts:
-  config:
-    enabled: true
-    emptyDir: false
-    datasetName: "store"
-    mountPath: "/usr/src/app/store"
-    hostPathEnabled: false
-  zwave:
-    enabled: true
-    emptyDir: false
-    mountPath: "/dev/ttyAMC0"
-    hostPathEnabled: true
-    hostPath: "/dev/ttyAMC0"
+
+
+#appVolumeMounts:
+#  config:
+#    enabled: true
+#    emptyDir: false
+#    datasetName: "store"
+#    mountPath: "/usr/src/app/store"
+#    hostPathEnabled: false
+#  zwave:
+#    enabled: true
+#    emptyDir: false
+#    mountPath: "/dev/ttyAMC0"
+#    hostPathEnabled: true
+#    hostPath: "/dev/ttyAMC0"
 
 appAdditionalServicesEnabled: true
 appAdditionalServices:

@@ -71,14 +71,14 @@ persistence:
 
 appIngressEnabled: false
     
-appVolumesEnabled: false
-appVolumeMounts:
-  config:
-    enabled: false
-    emptyDir: false
-  uploads:
-    enabled: false
-    emptyDir: false
-  sym:
-    enabled: false
-    emptyDir: false
+
+#appVolumeMounts:
+#  config:
+#    enabled: false
+#    emptyDir: false
+#  uploads:
+#    enabled: false
+#    emptyDir: false
+#  sym:
+#    enabled: false
+#    emptyDir: false

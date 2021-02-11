@@ -109,16 +109,16 @@ influxdb:
 
 ## TrueCharts Config
 
-appVolumesEnabled: true
-emptyDirVolumes: false
 
-appVolumeMounts:
-  config:
-    enabled: true
-    emptyDir: false
-    datasetName: "config"
-    mountPath: "/config"
-    hostPathEnabled: false
-  data:
-    enabled: false
-    emptyDir: false
+
+
+#appVolumeMounts:
+#  config:
+#    enabled: true
+#    emptyDir: false
+#    datasetName: "config"
+#    mountPath: "/config"
+#    hostPathEnabled: false
+#  data:
+#    enabled: false
+#    emptyDir: false

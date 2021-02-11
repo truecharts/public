@@ -81,14 +81,14 @@ additionalVolumeMounts:
 
 appIngressEnabled: false
     
-appVolumesEnabled: false
-appVolumeMounts:
-  config:
-    enabled: false
-    emptyDir: false
-  media:
-    enabled: false
-    emptyDir: false
-  downloads:
-    enabled: false
-    emptyDir: false
+
+#appVolumeMounts:
+#  config:
+#    enabled: false
+#    emptyDir: false
+#  media:
+#    enabled: false
+#    emptyDir: false
+#  downloads:
+#    enabled: false
+#    emptyDir: false

@@ -495,13 +495,13 @@ securityContext:
 podSecurityContext:
   fsGroup: 65532
 
-appVolumesEnabled: true
-appVolumeMounts:
-  data:
-    enabled: true
-    emptyDir: false
-    datasetName: "data"
-    mountPath: "/data"
+
+#appVolumeMounts:
+#  data:
+#    enabled: true
+#    emptyDir: false
+#    datasetName: "data"
+#    mountPath: "/data"
 
 appIngress:
   webui:
