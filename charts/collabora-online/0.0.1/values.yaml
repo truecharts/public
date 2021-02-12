@@ -20,5 +20,11 @@ env:
   # server_name:
   # DONT_GEN_SSL_CERT:
 
+persistence:
+  data:
+    enabled: false
+    emptyDir: false
+    mountPath: "/etc/loolwsd"
+
 #securityContext:
 #  privileged: true
