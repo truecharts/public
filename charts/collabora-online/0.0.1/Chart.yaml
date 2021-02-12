@@ -1,0 +1,16 @@
+apiVersion: v2
+name: collabora-online
+version: 0.0.1
+appVersion: 6.4.6.1
+description: Collabora Online Development Edition – an awesome, Online Office suite image suitable for home use. 
+keywords:
+  - collabora
+  - collaboration
+  - documents
+home: https://www.collaboraoffice.com/
+icon: https://raw.githubusercontent.com/stavros-k/truecharts/main/charts/collabora-online/icon.png
+sources: 
+ - https://hub.docker.com/r/collabora/code
+ - https://www.collaboraoffice.com/code/docker/
+dependencies:
+  - name: common 
