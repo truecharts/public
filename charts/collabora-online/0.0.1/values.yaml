@@ -11,14 +11,14 @@ service:
     port: 9980
 
 env:   
-  domain: nextcloud\.domain\.tld       
-  dictionaries: de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru              
+  domain:    
+  dictionaries:             
   username: admin
   password: changeme
   extra_params:
 
-securityContext:
-  privileged: false
+#securityContext:
+#  privileged: true
 
 
 

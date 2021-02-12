@@ -93,7 +93,7 @@ questions:
           label: "Service type"
           schema:
             type: string
-            default: "NodePort"
+            default: "ClusterIP"
             enum:
               - value: "NodePort"
                 description: "NodePort"
