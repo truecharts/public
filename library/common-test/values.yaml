@@ -10,26 +10,6 @@ service:
 ingress:
   enabled: true
 
-appIngressEnabled: true
-appIngress:
-  main:
-    enabled: true
-  mainhttp:
-    enabled: true
-    entrypoint: "web"
-    certType: ""
-    existingcert: ""
-    authForwardURL: ""
-    annotations: {}
-    labels: {}
-    hosts:
-      - host: app.truecharts.placeholder
-        paths:
-          - path: /
-            # Ignored if not kubeVersion >= 1.14-0
-            pathType: Prefix
-    
-appVolumesEnabled: true
 appVolumeMounts:
   data:
     enabled: true
