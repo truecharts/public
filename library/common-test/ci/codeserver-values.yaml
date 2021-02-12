@@ -26,7 +26,6 @@ addons:
     - name: config
       mountPath: /www/assets
 
-appIngressEnabled: true
 appIngress:
   main:
     enabled: true
@@ -45,7 +44,7 @@ appIngress:
             # Ignored if not kubeVersion >= 1.14-0
             pathType: Prefix
     
-appVolumesEnabled: true
+
 appVolumeMounts:
   data:
     enabled: true

@@ -19,7 +19,6 @@ probes:
     enabled: true
 
 
-appIngressEnabled: true
 appIngress:
   main:
     enabled: true
@@ -38,7 +37,7 @@ appIngress:
             # Ignored if not kubeVersion >= 1.14-0
             pathType: Prefix
     
-appVolumesEnabled: true
+
 appVolumeMounts:
   data:
     enabled: true
