@@ -29,7 +29,6 @@ persistence:
   config:
     enabled: false
     emptyDir: false
-    mountPath: "/etc/loolwsd"
     ## Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -49,4 +48,4 @@ appVolumeMounts:
   config:
     enabled: true
     emptyDir: true
-    mountPath: "/config"
+    mountPath: "/etc/loolwsd"
