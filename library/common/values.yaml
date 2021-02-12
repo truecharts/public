@@ -24,7 +24,7 @@ fullnameOverride: ""
 podAnnotations: {}
 
 serviceAccount:
-    # Specifies whether a service account should be created
+  # Specifies whether a service account should be created
   create: false
   # Annotations to add to the service account
   annotations: {}
@@ -33,7 +33,7 @@ serviceAccount:
   name: ""
 
 env: {}
-# TZ: UTC
+  # TZ: UTC
 
 ## Variables with values set from templates, example
 ## With a release name of: demo, the example env value will be: demo-admin
