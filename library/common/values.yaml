@@ -193,7 +193,6 @@ ingress:
   ## Or a tpl that is evaluated
   #    hostsTpl:
   #      - '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
-
   additionalIngresses: []
   # - enabled: false
   #   nameSuffix: "api"
@@ -477,7 +476,6 @@ appAdditionalServicesEnabled: false
 #         port: 3001
 #         targetPort: 3001
 
-appVolumesEnabled: false
 # appVolumeMounts:
 #   config:
 #     enabled: false
@@ -496,42 +494,39 @@ appVolumesEnabled: false
 #     hostPathEnabled: false
 #     hostPath: ""
 
-emptyDirVolumes: true
-
-appIngressEnabled: false
-appIngress:
-  main:
-    enabled: false
-    entrypoint: "websecure"
-    certType: "letsencrypt-prod"
-    existingcert: ""
-    authForwardURL: ""
-    annotations: {}
-    labels: {}
-    hosts:
-      - host: app.truecharts.placeholder
-        paths:
-          - path: /
-            # Ignored if not kubeVersion >= 1.14-0
-            pathType: Prefix
-
-  maintcp:
-    enabled: false
-    type: "TCP"
-    entrypoint: "kms"
-    certType: "none"
-    existingcert: ""
-    annotations: {}
-    labels: {}
-    hosts:
-      - host: app.truecharts.placeholder
-        paths:
-          - path: /
-            # Ignored if not kubeVersion >= 1.14-0
-            pathType: Prefix
-  mainudp:
-    enabled: false
-    type: "UDP"
-    entrypoint: "DNSUDP"
-    annotations: {}
-    labels: {}
+#appIngress:
+#  main:
+#    enabled: false
+#    entrypoint: "websecure"
+#    certType: "letsencrypt-prod"
+#    existingcert: ""
+#    authForwardURL: ""
+#    annotations: {}
+#    labels: {}
+#    hosts:
+#      - host: app.truecharts.placeholder
+#        paths:
+#          - path: /
+#            # Ignored if not kubeVersion >= 1.14-0
+#            pathType: Prefix
+#
+#  maintcp:
+#    enabled: false
+#    type: "TCP"
+#    entrypoint: "kms"
+#    certType: "none"
+#    existingcert: ""
+#    annotations: {}
+#    labels: {}
+#    hosts:
+#      - host: app.truecharts.placeholder
+#        paths:
+#          - path: /
+#            # Ignored if not kubeVersion >= 1.14-0
+#            pathType: Prefix
+#  mainudp:
+#    enabled: false
+#    type: "UDP"
+#    entrypoint: "DNSUDP"
+#    annotations: {}
+#    labels: {}
