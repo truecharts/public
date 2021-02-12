@@ -10,19 +10,15 @@ service:
   port:
     port: 9980
 
-env:   
+env:  
   domain:    
   dictionaries:             
   username: admin
   password: changeme
   extra_params:
-  cert_domain:
-  server_name:
-  DONT_GEN_SSL_CERT:
+  # cert_domain:
+  # server_name:
+  # DONT_GEN_SSL_CERT:
 
 #securityContext:
 #  privileged: true
-
-
-
-##need help with ingress
