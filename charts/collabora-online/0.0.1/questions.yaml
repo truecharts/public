@@ -110,7 +110,7 @@ questions:
                       label: "container port"
                       schema:
                         type: int
-                        default: 39980
+                        default: 9980
                         editable: false
                     - variable: nodePort
                       label: "Node Port to expose for UI"
@@ -118,7 +118,7 @@ questions:
                         type: int
                         min: 9000
                         max: 65535
-                        default: 9980
+                        default: 30980
                         required: true
   # environmentVariables Configuraiton
   - variable: env
