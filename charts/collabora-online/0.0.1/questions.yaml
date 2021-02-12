@@ -1,12 +1,14 @@
 groups:
   - name: "Container Image"
     description: "Configure Container Image" 
-  - name: "Privileged"
-    description: "Privileged Configuration"
   - name: "Networking"
     description: "Network Configuration"
   - name: "Environment Variables"
     description: "Environment Variables Configuration"
+  - name: "Ingress"
+    description: "Ingress configuration"
+  - name: "Storage"
+    description: "configure app volume mounts"
 
 #Portal
 portals:
@@ -68,19 +70,6 @@ questions:
           description: "Create new pods and then kill old ones"
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"        
-
-  # Enable privileged
-  - variable: securityContext
-    group: "Privileged"
-    label: "Security Context"
-    schema:
-      type: dict
-      attrs:
-        - variable: privileged
-          label: "Enable privileged"
-          schema:
-            type: boolean
-            default: false
 
   # Service Configuration
   - variable: service
@@ -159,5 +148,157 @@ questions:
           schema:
             type: string
             default: "-o:welcome.enable=false -o:user_interface.mode=notebookbar"
+  # Storage
+  # Configure app volumes
+  - variable: appVolumeMounts
+    group: "Storage"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        # Config ------------------------
+        - variable: config
+          label: "Config Volume"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Name"
+                schema:
+                  type: string
+                  default: "config"
+                  editable: false
+              - variable: mountPath
+                label: "Mount path inside the container"
+                schema:
+                  type: path
+                  default: "/etc/loolwsd"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "Config - Enable Host Path"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Config Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
 
-## Need help with ingress            
+  # Ingress
+  - variable: appIngress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: webui
+          label: "Web Ingress Configuration"
+          group: "Ingress"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Web Ingress"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: entrypoint
+                      label: "Select Entrypoint"
+                      schema:
+                        type: string
+                        default: "websecure"
+                        required: true
+                        enum:
+                          - value: "websecure"
+                            description: "Websecure: HTTPS/TLS port 443"
+                    - variable: hosts
+                      label: "Hosts"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: host
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: host
+                                  label: "Domain Name"
+                                  required: true
+                                  schema:
+                                    type: string
+                                - variable: paths
+                                  label: "paths"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: path
+                                        label: "Path"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                            - variable: path
+                                              label: "path"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "/"
+                                            - variable: pathType
+                                              label: "pathType"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "prefix"
+                    - variable: certType
+                      label: "Select Certificate Type"
+                      schema:
+                        type: string
+                        default: "letsencrypt-prod"
+                        enum:
+                          - value: ""
+                            description: "No Encryption/TLS/Certificates"
+                          - value: "letsencrypt-prod"
+                            description: "Letsencrypt Production Certificates"
+                          - value: "letsencrypt-staging"
+                            description: "Letsencrypt Test Certificates"
+                          - value: "wildcard"
+                            description: "Global Wildcard Certificate"
+                          - value: "selfsigned"
+                            description: "Self-Signed Certificate"
+                          - value: "existingcert"
+                            description: "Existing Certificate"
+                        show_subquestions_if: "existingcert"
+                        subquestions:
+                          - variable: existingcert
+                            label: "Existing Certificate Name"
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: authForwardURL
+                      label: "Forward Authentication URL"
+                      schema:
+                        type: string
+                        default: ""           
