@@ -18,6 +18,9 @@ env:
   username: admin
   password: changeme
   extra_params:
+  cert_domain:
+  server_name:
+  DONT_GEN_SSL_CERT:
 
 #securityContext:
 #  privileged: true
@@ -26,7 +29,6 @@ persistence:
   config:
     enabled: false
     emptyDir: false
-    mountPath: "/etc/loolwsd"
     ## Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
