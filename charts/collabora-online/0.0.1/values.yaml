@@ -7,7 +7,6 @@ strategy:
   type: Recreate
 
 service:
-  type: NodePort
   port:
     port: 9980
     nodePort: 9980
