@@ -148,71 +148,13 @@ questions:
           description: 'e.g. "–o:welcome.enable=false", See more on /etc/loolwsd/loowsd.xml. Separate params with space'
           schema:
             type: string
-            default: "-o:welcome.enable=false -o:user_interface.mode=notebookbar"        
+            default: "-o:welcome.enable=false -o:user_interface.mode=notebookbar -o:ssl.termination=true -o:ssl.enable=false"        
         - variable: server_name
           label: "Server Name"
           description: "When this environment variable is set (is not “”), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."    
           schema:
             type: string
             default: 'collabora\.domain\.tld'
-        
-  # Storage
-  # Configure app volumes
-  - variable: appVolumeMounts
-    label: "app storage"
-    group: "Storage"    
-    schema:
-      type: dict
-      attrs:
-        # Config ------------------------
-        - variable: config
-          label: "Config Volume"
-          schema:
-            type: dict
-            $ref:
-              - "normalize/ixVolume"
-            attrs:
-              - variable: enabled
-                label: "Enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  required: true
-                  hidden: true
-                  editable: false
-              - variable: emptyDir
-                label: "emptyDir"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-                  editable: false
-              - variable: datasetName
-                label: "Name"
-                schema:
-                  type: string
-                  default: "config"
-                  required: true
-                  editable: false
-              - variable: mountPath
-                label: "Mount path inside the container"
-                schema:
-                  type: path
-                  required: true
-                  default: "/etc/loolwsd"
-                  editable: false
-              - variable: hostPathEnabled
-                label: "Config - Enable Host Path"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: "Config Host Path"
-                      schema:
-                        type: hostpath
-                        required: true
 
   # Ingress
   - variable: appIngress
