@@ -149,88 +149,70 @@ questions:
           schema:
             type: string
             default: "-o:welcome.enable=false -o:user_interface.mode=notebookbar"        
-
-        # Adding those makes install fail. Maybe because of the empty value?---------------
-
-        # Maybe we must put those (cert_domain, server_name, DONT_GEN_SSL_CERT) under a Tick-box, like "Enable Advanced Options"
-        # - variable: cert_domain
-        #   label: "Domain to generate SSL (Basic setup probably won't need this)"
-        #   description: "When this environment variable is set (is not “”), then startup script will generate a new SSL certificate signed by a dummy CA for this domain, not for localhost"
-        #   schema:
-        #     type: string
-        #     default: ""    
-        # - variable: server_name
-        #   label: "Server Name (Basic setup probably won't need this)"
-        #   description: "When this environment variable is set (is not “”), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."    
-        #   schema:
-        #     type: string
-        #     default: ""
-        # - variable: DONT_GEN_SSL_CERT
-        #   label: "Don't generate SSL cert"
-        #   description: "When this environment variable is set (is not “”), then startup script will not generate a new SSL certificate signed by a dummy CA. It is useful, if you want to use your own SSL certificate for some reason."   
-        #   schema:
-        #     type: string
-        #     default: ""
+        - variable: server_name
+          label: "Server Name"
+          description: "When this environment variable is set (is not “”), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."    
+          schema:
+            type: string
+            default: 'collabora\.domain\.tld'
         
-  # Also adding storage makes install fail. -------------------
-
-  # # Storage
-  # # Configure app volumes
-  # - variable: appVolumeMounts
-  #   label: "app storage"
-  #   group: "Storage"    
-  #   schema:
-  #     type: dict
-  #     attrs:
-  #       # Config ------------------------
-  #       - variable: config
-  #         label: "Config Volume"
-  #         schema:
-  #           type: dict
-  #           $ref:
-  #             - "normalize/ixVolume"
-  #           attrs:
-  #             - variable: enabled
-  #               label: "Enabled"
-  #               schema:
-  #                 type: boolean
-  #                 default: true
-  #                 required: true
-  #                 hidden: true
-  #                 editable: false
-  #             - variable: emptyDir
-  #               label: "emptyDir"
-  #               schema:
-  #                 type: boolean
-  #                 default: false
-  #                 hidden: true
-  #                 editable: false
-  #             - variable: datasetName
-  #               label: "Name"
-  #               schema:
-  #                 type: string
-  #                 default: "config"
-  #                 required: true
-  #                 editable: false
-  #             - variable: mountPath
-  #               label: "Mount path inside the container"
-  #               schema:
-  #                 type: path
-  #                 required: true
-  #                 default: "/etc/loolwsd"
-  #                 editable: false
-  #             - variable: hostPathEnabled
-  #               label: "Config - Enable Host Path"
-  #               schema:
-  #                 type: boolean
-  #                 default: false
-  #                 show_subquestions_if: true
-  #                 subquestions:
-  #                   - variable: hostPath
-  #                     label: "Config Host Path"
-  #                     schema:
-  #                       type: hostpath
-  #                       required: true
+  # Storage
+  # Configure app volumes
+  - variable: appVolumeMounts
+    label: "app storage"
+    group: "Storage"    
+    schema:
+      type: dict
+      attrs:
+        # Config ------------------------
+        - variable: config
+          label: "Config Volume"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Name"
+                schema:
+                  type: string
+                  default: "config"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount path inside the container"
+                schema:
+                  type: path
+                  required: true
+                  default: "/etc/loolwsd"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "Config - Enable Host Path"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Config Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
 
   # Ingress
   - variable: appIngress

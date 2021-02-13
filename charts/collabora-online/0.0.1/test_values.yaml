@@ -18,12 +18,8 @@ env:
   username: admin
   password: changeme
   extra_params:
-  # cert_domain:
   # server_name:
-  # DONT_GEN_SSL_CERT:
 
-#securityContext:
-#  privileged: true
 
 # persistence:
 #   config:
@@ -44,8 +40,8 @@ env:
 
 # ## TrueCharts Config
 
-# appVolumeMounts:
-#   config:
-#     enabled: true
-#     emptyDir: true
-#     mountPath: "/etc/loolwsd"
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    mountPath: "/etc/loolwsd"
