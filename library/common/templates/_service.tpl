@@ -6,6 +6,7 @@ of the main Service and any additionalServices.
   {{- if .Values.service.enabled -}}
     {{- /* Generate primary service */ -}}
     {{- include "common.classes.service" . }}
+
     {{- /* Generate additional services as required */ -}}
     {{- range $index, $extraService := .Values.service.additionalServices }}
       {{- if $extraService.enabled -}}

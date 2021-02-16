@@ -24,7 +24,7 @@ fullnameOverride: ""
 podAnnotations: {}
 
 serviceAccount:
-    # Specifies whether a service account should be created
+  # Specifies whether a service account should be created
   create: false
   # Annotations to add to the service account
   annotations: {}
@@ -33,7 +33,7 @@ serviceAccount:
   name: ""
 
 env: {}
-# TZ: UTC
+  # TZ: UTC
 
 ## Variables with values set from templates, example
 ## With a release name of: demo, the example env value will be: demo-admin
@@ -178,14 +178,21 @@ ingress:
   labels: {}
   hosts:
     - host: chart-example.local
+      ## Or a tpl that is evaluated
+      # hostTpl: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
       paths:
         - path: /
           # Ignored if not kubeVersion >= 1.14-0
           pathType: Prefix
   tls: []
   #  - secretName: chart-example-tls
+  ## Or if you need a dynamic secretname
+  #  - secretNameTpl: '{{ include "common.names.fullname" . }}-ingress'
   #    hosts:
   #      - chart-example.local
+  ## Or a tpl that is evaluated
+  #    hostsTpl:
+  #      - '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
   additionalIngresses: []
   # - enabled: false
   #   nameSuffix: "api"
@@ -469,7 +476,6 @@ appAdditionalServicesEnabled: false
 #         port: 3001
 #         targetPort: 3001
 
-appVolumesEnabled: false
 # appVolumeMounts:
 #   config:
 #     enabled: false
@@ -488,42 +494,39 @@ appVolumesEnabled: false
 #     hostPathEnabled: false
 #     hostPath: ""
 
-emptyDirVolumes: true
-
-appIngressEnabled: false
-appIngress:
-  main:
-    enabled: false
-    entrypoint: "websecure"
-    certType: "letsencrypt-prod"
-    existingcert: ""
-    authForwardURL: ""
-    annotations: {}
-    labels: {}
-    hosts:
-      - host: app.truecharts.placeholder
-        paths:
-          - path: /
-            # Ignored if not kubeVersion >= 1.14-0
-            pathType: Prefix
-
-  maintcp:
-    enabled: false
-    type: "TCP"
-    entrypoint: "kms"
-    certType: "none"
-    existingcert: ""
-    annotations: {}
-    labels: {}
-    hosts:
-      - host: app.truecharts.placeholder
-        paths:
-          - path: /
-            # Ignored if not kubeVersion >= 1.14-0
-            pathType: Prefix
-  mainudp:
-    enabled: false
-    type: "UDP"
-    entrypoint: "DNSUDP"
-    annotations: {}
-    labels: {}
+# appIngress:
+#  main:
+#    enabled: false
+#    entrypoint: "websecure"
+#    certType: "letsencrypt-prod"
+#    existingcert: ""
+#    authForwardURL: ""
+#    annotations: {}
+#    labels: {}
+#    hosts:
+#      - host: app.truecharts.placeholder
+#        paths:
+#          - path: /
+#            # Ignored if not kubeVersion >= 1.14-0
+#            pathType: Prefix
+#
+#  maintcp:
+#    enabled: false
+#    type: "TCP"
+#    entrypoint: "kms"
+#    certType: "none"
+#    existingcert: ""
+#    annotations: {}
+#    labels: {}
+#    hosts:
+#      - host: app.truecharts.placeholder
+#        paths:
+#          - path: /
+#            # Ignored if not kubeVersion >= 1.14-0
+#            pathType: Prefix
+#  mainudp:
+#    enabled: false
+#    type: "UDP"
+#    entrypoint: "DNSUDP"
+#    annotations: {}
+#    labels: {}
