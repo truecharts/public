@@ -1,0 +1,34 @@
+#!/usr/bin/python3
+import json
+import os
+import sys
+
+
+def migrate(values):
+    values.update({
+        'appVolumeMounts': {
+            'transcode': {
+                'hostPathEnabled': values['transcodeHostPathEnabled'],
+                **({'hostPath': values['transcodeHostPath']} if values.get('transcodeHostPath') else {})
+            },
+            'config': {
+                'hostPathEnabled': values['configHostPathEnabled'],
+                **({'hostPath': values['configHostPath']} if values.get('configHostPath') else {})
+            },
+            'data': {
+                'hostPathEnabled': values['dataHostPathEnabled'],
+                **({'hostPath': values['dataHostPath']} if values.get('dataHostPath') else {})
+            },
+        },
+        'updateStrategy': values.get('strategyType', 'Recreate'),
+    })
+    return values
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        exit(1)
+
+    if os.path.exists(sys.argv[1]):
+        with open(sys.argv[1], 'r') as f:
+            print(json.dumps(migrate(json.loads(f.read()))))

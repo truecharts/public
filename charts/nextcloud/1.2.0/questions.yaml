@@ -1,0 +1,219 @@
+groups:
+  - name: "Container Images"
+    description: "Image to be used for container"
+  - name: "Nextcloud Configuration"
+    description: "Configuration details for Nextcloud workload"
+  - name: "Storage"
+    description: "Configure Storage for Nextcloud"
+  - name: "Container Configuration"
+    description: "Configure nextcloud container parameters"
+  - name: "Postgresql Configuration"
+    description: "Configure Postgresql for nextcloud"
+  - name: "Scaling/Upgrade Policy"
+    description: "Configure how pods are replaced when configuration is upgraded"
+
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$variable-nextcloud.host"
+    ports:
+      - "$variable-service.nodePort"
+
+questions:
+  # Image related
+  - variable: image
+    description: "Docker Image Details"
+    label: "Docker Image"
+    group: "Container Images"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: repository
+          description: "Docker image repository"
+          label: "Image repository"
+          schema:
+            type: string
+            default: "nextcloud"
+            required: true
+        - variable: tag
+          description: "Tag to use for specified image"
+          label: "Image Tag"
+          schema:
+            type: string
+            default: "latest"
+        - variable: pullPolicy
+          description: "Docker Image Pull Policy"
+          label: "Image Pull Policy"
+          schema:
+            type: string
+            default: "IfNotPresent"
+            enum:
+              - value: "IfNotPresent"
+                description: "Only pull image if not present on host"
+              - value: "Always"
+                description: "Always pull image even if present on host"
+              - value: "Never"
+                description: "Never pull image even if it's not present on host"
+
+  - variable: nextcloud
+    description: "Nextcloud configuration details"
+    label: "Nextcloud Configuration"
+    group: "Nextcloud Configuration"
+    schema:
+      type: dict
+      required: true
+      additional_attrs: true
+      attrs:
+        - variable: host
+          description: "Nextcloud host to create application URLs"
+          label: "Nextcloud host"
+          schema:
+            type: string
+            $ref:
+              - "definitions/nodeIP"
+        - variable: username
+          label: "Username"
+          description: "Name of the Nextcloud admin user"
+          schema:
+            type: string
+            default: "admin"
+            required: true
+        - variable: password
+          label: "Password"
+          description: "Password for the Nextcloud admin user"
+          schema:
+            type: string
+            private: true
+            default: "changeme"
+            required: true
+        - variable: datadir
+          label: "Nextcloud data directory"
+          description: "Configures the data directory where nextcloud stores all files from the users"
+          schema:
+            type: path
+            default: "/var/www/html/data"
+            required: true
+
+  # Update strategy
+  - variable: updateStrategy
+    description: "Upgrade Policy"
+    label: "Update Strategy"
+    group: "Scaling/Upgrade Policy"
+    schema:
+      type: string
+      default: "Recreate"
+      enum:
+        - value: "RollingUpdate"
+          description: "Create new pods and then kill old ones"
+        - value: "Recreate"
+          description: "Kill existing pods before creating new ones"
+
+  - variable: service
+    description: "Nextcloud Service Configuration"
+    label: "Nextcloud Service Configuration"
+    group: "Nextcloud Configuration"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: nodePort
+          label: "Node Port to use for Nextcloud"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 9001
+            required: true
+
+  - variable: appVolumeMounts
+    label: "Nextcloud Storage"
+    group: "Storage"
+    schema:
+      type: dict
+      attrs:
+        - variable: nextcloud-data
+          label: "Nextcloud Data Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "Nextcloud Data Volume Name"
+                schema:
+                  type: string
+                  hidden: true
+                  $ref:
+                    - "normalize/ixVolume"
+                  show_if: [["hostPathEnabled", "=", false]]
+                  default: "ix-nextcloud_data"
+                  editable: false
+              - variable: mountPath
+                label: "Nextcloud Data Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: "/var/www"
+              - variable: hostPathEnabled
+                label: "Enable Host Path for Nextcloud Data Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path for Nextcloud Data Volume"
+                      schema:
+                        type: hostpath
+                        required: true
+
+  - variable: postgresAppVolumeMounts
+    label: "Postgres Storage"
+    group: "Storage"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: postgres-data
+          label: "Postgres Data Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "Postgres Data Volume Name"
+                schema:
+                  type: string
+                  $ref:
+                    - "normalize/ixVolume"
+                  default: "ix-postgres_data"
+                  editable: false
+              - variable: mountPath
+                label: "Postgresql Data Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  editable: false
+                  default: "/var/lib/postgresql/data"
+        - variable: postgres-backup
+          label: "Postgres Backup Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "Postgres Backup Volume Name"
+                schema:
+                  type: string
+                  $ref:
+                    - "normalize/ixVolume"
+                  default: "ix-postgres_backups"
+                  editable: false
+              - variable: mountPath
+                label: "Postgresql Backup Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  editable: false
+                  default: "/postgres_backups"
