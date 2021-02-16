@@ -2,7 +2,7 @@ apiVersion: v2
 name: traefik
 description: A Traefik based Kubernetes ingress controller
 type: application
-version: 0.3.0
+version: 0.4.0
 upstream_version: 9.14.2
 appVersion: 2.4.2
 keywords:
@@ -18,7 +18,7 @@ icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets
 dependencies:
   - name: cert-manager
     repository:  "https://charts.jetstack.io"
-    version: v1.1.0
+    version: v1.2.0
   - name: reflector
     repository:  "https://emberstack.github.io/helm-charts"
     version: 5.4.17
