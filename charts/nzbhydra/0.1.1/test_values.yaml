@@ -1,4 +1,4 @@
-# Default values for nzbhydra2.
+# Default values for nzbhydra.
 
 image:
   repository: linuxserver/nzbhydra2
@@ -61,9 +61,10 @@ persistence:
 appIngressEnabled: false
     
 
-#appVolumeMounts:
-#  config:
-#    enabled: false
-#    emptyDir: false
-
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    mountPath: "/config"
+    
 
