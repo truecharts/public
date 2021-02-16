@@ -1,6 +1,6 @@
-# Nzbhydra2
+# nzbhydra
 
-This is a helm chart for [Nzbhydra2](https://github.com/theotherp/nzbhydra2).
+This is a helm chart for [nzbhydra](https://github.com/theotherp/nzbhydra).
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/k8s-at-home/charts/issues/new/choose)**
 
@@ -8,7 +8,7 @@ This is a helm chart for [Nzbhydra2](https://github.com/theotherp/nzbhydra2).
 
 ```shell
 $ helm repo add k8s-at-home https://k8s-at-home.com/charts/
-$ helm install k8s-at-home/nzbhydra2
+$ helm install k8s-at-home/nzbhydra
 ```
 
 ## Installing the Chart
@@ -16,7 +16,7 @@ $ helm install k8s-at-home/nzbhydra2
 To install the chart with the release name `my-release`:
 
 ```console
-helm install --name my-release k8s-at-home/nzbhydra2
+helm install --name my-release k8s-at-home/nzbhydra
 ```
 
 ## Uninstalling the Chart
@@ -30,20 +30,20 @@ helm delete my-release --purge
 The command removes all the Kubernetes components associated with the chart and deletes the release.
 
 ## Configuration
-Read through the charts [values.yaml](https://github.com/k8s-at-home/charts/blob/master/charts/nzbhydra2/values.yaml)
+Read through the charts [values.yaml](https://github.com/k8s-at-home/charts/blob/master/charts/nzbhydra/values.yaml)
 file. It has several commented out suggested values.
 Additionally you can take a look at the common library [values.yaml](https://github.com/k8s-at-home/charts/blob/master/charts/common/values.yaml) for more (advanced) configuration options.
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 ```console
-helm install nzbhydra2 \
+helm install nzbhydra \
   --set env.TZ="America/New_York" \
-    k8s-at-home/nzbhydra2
+    k8s-at-home/nzbhydra
 ```
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the
 chart. For example,
 ```console
-helm install nzbhydra2 k8s-at-home/nzbhydra2 --values values.yaml 
+helm install nzbhydra k8s-at-home/nzbhydra --values values.yaml 
 ```
 
 ```yaml
