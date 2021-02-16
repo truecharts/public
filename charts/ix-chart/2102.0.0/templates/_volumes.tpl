@@ -10,12 +10,14 @@ volumes:
       path: {{ $hostPathConfiguration.hostPath }}
 {{- end }}
 {{- range $index, $hostPathConfiguration := .Values.ixVolumes }}
-  - name: ix-host-volume-{{ $.Release.Name }}-{{ $index }}
+{{ $dsName := base $hostPathConfiguration.hostPath }}
+  - name: ix-host-volume-{{ $.Release.Name }}-{{ $dsName }}
     hostPath:
       path: {{ $hostPathConfiguration.hostPath }}
 {{- end }}
 {{- end }}
 {{- end }}
+
 
 {{/*
 Volume Mounts Configuration
@@ -28,9 +30,9 @@ volumeMounts:
     name: ix-host-path-{{ $.Release.Name }}-{{ $index }}
     readOnly: {{ $hostPathConfiguration.readOnly }}
   {{- end }}
-  {{- range $index, $hostPathConfiguration := .Values.ixVolumes }}
+  {{- range $index, $hostPathConfiguration := .Values.volumes }}
   - mountPath: {{ $hostPathConfiguration.mountPath }}
-    name: ix-host-volume-{{ $.Release.Name }}-{{ $index }}
+    name: ix-host-volume-{{ $.Release.Name }}-{{ $hostPathConfiguration.datasetName }}
   {{- end }}
 {{- end }}
 {{- end }}
