@@ -116,3 +116,9 @@ appVolumeMounts:
     emptyDir: true
     mountPath: "/config"
 
+appAdditionalServices:
+  ws:
+    enabled: true
+    port: 
+      port: 3000
+    type: "ClusterIP"
