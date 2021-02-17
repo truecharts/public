@@ -1,17 +1,16 @@
-# Default values for Transmission.
+# Default values for Sabnzbd.
 
 image:
-  repository: linuxserver/transmission
+  repository: linuxserver/sabnzbd
   pullPolicy: IfNotPresent
-  tag: version-3.00-r2
+  tag: version-3.1.0
 
 strategy:
   type: Recreate
 
 service:
   port:
-    port: 9091
-
+    port: 8080
 
 env: {}
   # TZ: UTC
@@ -23,10 +22,10 @@ persistence:
     enabled: false
     emptyDir: false
 
-  torrentblackhole:
+  media:
     enabled: false
     emptyDir: false
-    mountPath: /downloads
+    mountPath: /media
     ## Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -40,40 +39,19 @@ persistence:
     # skipuninstall: false
     # existingClaim: ""
 
-
-## TrueCharts Values
-
-
-
-
-
+appIngressEnabled: false
+    
 
 appVolumeMounts:
   config:
     enabled: true
     emptyDir: true
     mountPath: "/config"
+  media:
+    enabled: true
+    emptyDir: true
+    mountPath: "/media"
   downloads:
     enabled: true
     emptyDir: true
     mountPath: "/downloads"
-
-
-appAdditionalServicesEnabled: true
-appAdditionalServices:
-  tcp:
-    enabled: true
-    type: ClusterIP
-    port:
-      port: 51413
-      name: bittorrent-tcp
-      protocol: TCP
-      targetPort: 51413
-  udp:
-    enabled: true
-    type: ClusterIP
-    port:
-      port: 51413
-      name: bittorrent-udp
-      protocol: UDP
-      targetPort: 51413
