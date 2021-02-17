@@ -241,14 +241,29 @@ questions:
                         type: hostpath
                         required: true
         - variable: sym
-          label: "downloads dataset"
+          label: "sym dataset"
           schema:
             type: dict
             $ref:
               - "normalize/ixVolume"
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
               - variable: datasetName
-                label: "sym Name"
+                label: "Dataset Name"
                 schema:
                   type: string
                   default: "sym"
