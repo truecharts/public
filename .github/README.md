@@ -43,6 +43,12 @@ A: Cert Manager might take up to 10 minutes to fetch the right certificate and r
 - Q: Is my data guaranteed to be secure?<br>
 A: ix_volumes (the auto generated storage) is considered relatively secure as long as you don't delete the App, but we can't give an absolute guarantee. data mounted using a hostPath, is as secure as the application that is using the data, our charts do not actively alter said dataset/folder. However: SCALE is still ALPHA, so breaking changes in the storage design are very likely.
 
+- Q: sabnzbd isn't starting.<br>
+A: SabNZBD has a weird security implementation that requires you to add the hostname or IP adress to their config file. In the future we might automate this proces, but currently we do not.
+
+- Q: An app is asking for a password.<br>
+A: We almost allways use the defaults from the upstream project, if we are forced to use a password and not add the option to change it in the install GUI.
+
 ## Getting into creating Apps
 
 Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior knowhow on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
