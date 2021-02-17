@@ -191,55 +191,6 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-        - variable: media
-          label: "media dataset"
-          schema:
-            type: dict
-            $ref:
-              - "normalize/ixVolume"
-            attrs:
-              - variable: enabled
-                label: "Enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  required: true
-                  hidden: true
-                  editable: false
-              - variable: emptyDir
-                label: "emptyDir"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-                  editable: false
-              - variable: datasetName
-                label: "Dataset Name"
-                schema:
-                  type: string
-                  default: "media"
-                  required: true
-                  editable: false
-              - variable: mountPath
-                label: "Mount Path"
-                description: "Path to mount inside the pod"
-                schema:
-                  type: path
-                  required: true
-                  default: "/media"
-                  editable: false
-              - variable: hostPathEnabled
-                label: "host Path Enabled"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: "Host Path"
-                      schema:
-                        type: hostpath
-                        required: true
         - variable: downloads
           label: "downloads dataset"
           schema:
