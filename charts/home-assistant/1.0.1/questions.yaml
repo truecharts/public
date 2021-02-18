@@ -153,7 +153,7 @@ questions:
                         required: true
         # Z-Wave device -----------------
         - variable: zwave
-          label: "Z-Wave Device"
+          label: "USB Z-Wave Device"
           schema:
             type: dict
             attrs:
@@ -164,6 +164,12 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
+                    - variable: hostPathEnabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
                     - variable: hostPath
                       label: "Path to Z-Wave device on host"
                       schema:
@@ -178,7 +184,7 @@ questions:
                         default: "/dev/ttyAMC0"
         # Zigbee device -----------------
         - variable: zigbee
-          label: "Zigbee Device"
+          label: "USB Z-Wave Device"
           schema:
             type: dict
             attrs:
@@ -189,6 +195,12 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
+                    - variable: hostPathEnabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
                     - variable: hostPath
                       label: "Path to Zigbee device on host"
                       schema:
