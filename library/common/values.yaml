@@ -32,6 +32,7 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+
 env: {}
   # TZ: UTC
 
@@ -449,6 +450,9 @@ addons:
 
 
 ## TrueCharts Specific
+
+PUID: 568
+PGID: 568
 
 appAdditionalServicesEnabled: false
 # appAdditionalServices:
