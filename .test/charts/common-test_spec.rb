@@ -43,9 +43,9 @@ class Test < ChartTest
         values = {}
         chart.value values
         jq('.spec.template.spec.containers[0].env[0].name', resource('Deployment')).must_equal 'PUID'
-        jq('.spec.template.spec.containers[0].env[0].value', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.containers[0].env[0].value', resource('Deployment')).must_equal "568"
 		jq('.spec.template.spec.containers[0].env[1].name', resource('Deployment')).must_equal 'PGID'
-        jq('.spec.template.spec.containers[0].env[1].value', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.containers[0].env[1].value', resource('Deployment')).must_equal "568"
       end
 
       it 'set "static" environment variables' do
@@ -56,9 +56,9 @@ class Test < ChartTest
         }
         chart.value values
         jq('.spec.template.spec.containers[0].env[0].name', resource('Deployment')).must_equal 'PUID'
-        jq('.spec.template.spec.containers[0].env[0].value', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.containers[0].env[0].value', resource('Deployment')).must_equal "568"
 		jq('.spec.template.spec.containers[0].env[1].name', resource('Deployment')).must_equal 'PGID'
-        jq('.spec.template.spec.containers[0].env[1].value', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.containers[0].env[1].value', resource('Deployment')).must_equal "568"
         jq('.spec.template.spec.containers[0].env[2].name', resource('Deployment')).must_equal values[:env].keys[0].to_s
         jq('.spec.template.spec.containers[0].env[2].value', resource('Deployment')).must_equal values[:env].values[0].to_s
       end
@@ -75,9 +75,9 @@ class Test < ChartTest
         }
         chart.value values
         jq('.spec.template.spec.containers[0].env[0].name', resource('Deployment')).must_equal 'PUID'
-        jq('.spec.template.spec.containers[0].env[0].value', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.containers[0].env[0].value', resource('Deployment')).must_equal "568"
 		jq('.spec.template.spec.containers[0].env[1].name', resource('Deployment')).must_equal 'PGID'
-        jq('.spec.template.spec.containers[0].env[1].value', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.containers[0].env[1].value', resource('Deployment')).must_equal "568"
         jq('.spec.template.spec.containers[0].env[2].name', resource('Deployment')).must_equal values[:envValueFrom].keys[0].to_s
         jq('.spec.template.spec.containers[0].env[2].valueFrom | keys[0]', resource('Deployment')).must_equal values[:envValueFrom].values[0].keys[0].to_s
       end
@@ -93,9 +93,9 @@ class Test < ChartTest
         }
         chart.value values
         jq('.spec.template.spec.containers[0].env[0].name', resource('Deployment')).must_equal 'PUID'
-        jq('.spec.template.spec.containers[0].env[0].value', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.containers[0].env[0].value', resource('Deployment')).must_equal "568"
 		jq('.spec.template.spec.containers[0].env[1].name', resource('Deployment')).must_equal 'PGID'
-        jq('.spec.template.spec.containers[0].env[1].value', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.containers[0].env[1].value', resource('Deployment')).must_equal "568"
         jq('.spec.template.spec.containers[0].env[2].name', resource('Deployment')).must_equal values[:env].keys[0].to_s
         jq('.spec.template.spec.containers[0].env[2].value', resource('Deployment')).must_equal values[:env].values[0].to_s
         jq('.spec.template.spec.containers[0].env[3].name', resource('Deployment')).must_equal values[:envTpl].keys[0].to_s
@@ -110,9 +110,9 @@ class Test < ChartTest
         }
         chart.value values
         jq('.spec.template.spec.containers[0].env[0].name', resource('Deployment')).must_equal 'PUID'
-        jq('.spec.template.spec.containers[0].env[0].value', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.containers[0].env[0].value', resource('Deployment')).must_equal "568"
 		jq('.spec.template.spec.containers[0].env[1].name', resource('Deployment')).must_equal 'PGID'
-        jq('.spec.template.spec.containers[0].env[1].value', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.containers[0].env[1].value', resource('Deployment')).must_equal "568"
         jq('.spec.template.spec.containers[0].env[2].name', resource('Deployment')).must_equal values[:envTpl].keys[0].to_s
         jq('.spec.template.spec.containers[0].env[2].value', resource('Deployment')).must_equal 'common-test-admin'
       end
