@@ -175,13 +175,13 @@ questions:
                       schema:
                         type: path
                         required: true
-                        default: "/dev/ttyAMC0"
+                        default: "/dev/ttyUSB0"
                     - variable: mountPath
                       label: "Path to mount device inside the container"
                       schema:
                         type: path
                         required: true
-                        default: "/dev/ttyAMC0"
+                        default: "/dev/ttyUSB0"
         # Zigbee device -----------------
         - variable: zigbee
           label: "USB Z-Wave Device"
@@ -206,13 +206,13 @@ questions:
                       schema:
                         type: path
                         required: true
-                        default: "/dev/ttyAMC1"
+                        default: "/dev/ttyUSB1"
                     - variable: mountPath
                       label: "Path to mount device inside the container"
                       schema:
                         type: path
                         required: true
-                        default: "/dev/ttyAMC1"
+                        default: "/dev/ttyUSB1"
   # Enable privileged
   - variable: securityContext
     group: "Storage"
