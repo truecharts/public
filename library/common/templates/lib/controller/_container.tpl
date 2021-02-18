@@ -15,28 +15,32 @@ The main container included in the controller.
   securityContext:
     {{- toYaml . | nindent 4 }}
   {{- end }}
-  {{- if or .Values.env .Values.envTpl .Values.envValueFrom }}
   env:
+    - name: PUID
+      value: {{ .Values.PUID }}
+    - name: PGID
+      value: {{ .Values.PGID }}
+  {{- if or .Values.env .Values.envTpl .Values.envValueFrom .Values.envVariable }}
   {{- range $envVariable := .Values.environmentVariables }}
   {{- if and $envVariable.name $envVariable.value }}
     - name: {{ $envVariable.name }}
-    value: {{ $envVariable.value | quote }}
+      value: {{ $envVariable.value | quote }}
   {{- else }}
     {{- fail "Please specify name/value for environment variable" }}
   {{- end }}
   {{- end}}
   {{- range $key, $value := .Values.env }}
-  - name: {{ $key }}
-    value: {{ $value | quote }}
+    - name: {{ $key }}
+      value: {{ $value | quote }}
   {{- end }}
   {{- range $key, $value := .Values.envTpl }}
-  - name: {{ $key }}
-    value: {{ tpl $value $ | quote }}
+    - name: {{ $key }}
+      value: {{ tpl $value $ | quote }}
   {{- end }}
   {{- range $key, $value := .Values.envValueFrom }}
-  - name: {{ $key }}
-    valueFrom: 
-      {{- $value | toYaml | nindent 6 }}
+    - name: {{ $key }}
+      valueFrom: 
+        {{- $value | toYaml | nindent 8 }}
   {{- end }}
   {{- end }}
   {{- with .Values.envFrom }}
