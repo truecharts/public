@@ -18,7 +18,7 @@ probes:
   startup:
     enabled: true
 
-
+fixMountPermissions: false
 appVolumeMounts:
   data:
     enabled: true
@@ -34,7 +34,7 @@ appVolumeMounts:
     mountPath: "/test"
     hostPathEnabled: true
     hostPath: "/tmp"
-    
+
 appAdditionalServicesEnabled: true
 appAdditionalServices:
   extra-tcp:
