@@ -1,0 +1,411 @@
+groups:
+  - name: "Container Image"
+    description: "configure container image"
+  - name: "Configuration"
+    description: "additional container configuration"
+  - name: "Networking"
+    description: "network / service configuration"
+  - name: "Storage"
+    description: "configure app volume mounts"
+  - name: "Ingress"
+    description: "Ingress configuration"
+
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$node_ip"
+    ports:
+      - "$variable-service.port.nodePort"
+
+questions:
+  # Image related
+  - variable: image
+    group: "Container Image"
+    label: "Home Assistant"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: repository
+          label: "Image Repository"
+          schema:
+            type: string
+            default: "homeassistant/home-assistant"
+            editable: false
+        - variable: tag
+          label: "Image Tag"
+          description: "Tag to use for specified image"
+          schema:
+            type: string
+            default: "stable"
+            required: true
+        - variable: pullPolicy
+          label: "Image Pull Policy"
+          schema:
+            type: string
+            default: "IfNotPresent"
+            enum:
+              - value: "IfNotPresent"
+                description: "Only pull image if not present on host"
+              - value: "Always"
+                description: "Always pull image even if present on host"
+              - value: "Never"
+                description: "Never pull image even if it's not present on host"
+  # Update Policy
+  - variable: strategyType
+    group: "Container Image"
+    label: "Update Strategy"
+    schema:
+      type: string
+      default: "Recreate"
+      enum:
+        - value: "RollingUpdate"
+          description: "Create new pods and then kill old ones"
+        - value: "Recreate"
+          description: "Kill existing pods before creating new ones"
+
+  # Configure Time Zone
+  - variable: timezone
+    group: "Configuration"
+    label: "Timezone"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
+        
+  # Configure Time Zone
+  - variable: git
+    group: "Configuration"
+    label: "Git"
+    description: "Attatch git repository to Home-Assistant"
+    schema:
+      type: dict
+      attrs:
+        - variable: deployKey
+          label: "deployKey"
+          description: "Raw SSH private key"
+          schema:
+            type: string
+            default: ""
+        - variable: deployKeyBase64
+          label: "deployKey"
+          description: "Base64-encoded SSH private key. When both variables are set, the raw SSH key takes precedence"
+          schema:
+            type: string
+            default: ""
+
+  # Configure app volumes
+  - variable: appVolumeMounts
+    group: "Storage"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        # Config ------------------------
+        - variable: config
+          label: "Config Volume"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false 
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Name"
+                schema:
+                  type: string
+                  default: "config"
+                  editable: false
+              - variable: mountPath
+                label: "Mount path inside the container"
+                schema:
+                  type: path
+                  default: "/config"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "Config - Enable Host Path"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Config Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+        # Z-Wave device -----------------
+        - variable: zwave
+          label: "USB Z-Wave Device"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "USB Z-Wave Device"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPathEnabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: setPermissions
+                      label: "Automatic Permissions"
+                      description: "Automatically set permissions on install"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true                        
+                    - variable: hostPath
+                      label: "Path to Z-Wave device on host"
+                      schema:
+                        type: path
+                        required: true
+                        default: "/dev/ttyUSB0"
+                    - variable: mountPath
+                      label: "Path to mount device inside the container"
+                      schema:
+                        type: path
+                        required: true
+                        default: "/dev/ttyUSB0"
+        # Zigbee device -----------------
+        - variable: zigbee
+          label: "USB Z-Wave Device"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "USB Zigbee Device"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPathEnabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: setPermissions
+                      label: "Automatic Permissions"
+                      description: "Automatically set permissions on install"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true                        
+                    - variable: hostPath
+                      label: "Path to Zigbee device on host"
+                      schema:
+                        type: path
+                        required: true
+                        default: "/dev/ttyUSB1"
+                    - variable: mountPath
+                      label: "Path to mount device inside the container"
+                      schema:
+                        type: path
+                        required: true
+                        default: "/dev/ttyUSB1"
+  # Enable privileged
+  - variable: securityContext
+    group: "Storage"
+    label: "Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: privileged
+          label: "Enable privileged to pass thru a USB device from the host"
+          schema:
+            type: boolean
+            default: false
+
+  # Enable Host Network
+  - variable: hostNetwork
+    group: "Networking"
+    label: "Enable Host Network"
+    description: "Required if you want devices to be discoverable by Home Assistant"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: dnsPolicy
+          group: "Networking"
+          label: "Set the correct DNS policy"
+          description: "Required to be set to ClusterFirstWithHostNet when using hostNetwork"
+          schema:
+            type: string
+            default: "ClusterFirst"
+            enum:
+              - value: "ClusterFirst"
+                description: "ClusterFirst"
+              - value: "ClusterFirstWithHostNet"
+                description: "ClusterFirstWithHostNet"
+      
+
+      
+  # Service Configuration
+  - variable: service
+    group: "Networking"
+    label: "Configure Service"
+    schema:
+      type: dict
+      attrs:
+        - variable: type
+          label: "Service type"
+          schema:
+            type: string
+            default: "NodePort"
+            enum:
+              - value: "NodePort"
+                description: "NodePort"
+              - value: "ClusterIP"
+                description: "ClusterIP"
+            show_subquestions_if: "NodePort"
+            subquestions:
+              - variable: port
+                label: "Port configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: port
+                      label: "container port"
+                      schema:
+                        type: int
+                        default: 8123
+                        editable: false
+                    - variable: nodePort
+                      label: "Node Port to expose for UI"
+                      schema:
+                        type: int
+                        min: 9000
+                        max: 65535
+                        default: 38123
+                        required: true
+
+  - variable: appIngress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: webui
+          label: "Web Ingress Configuration"
+          group: "Ingress"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Web Ingress"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: entrypoint
+                      label: "Select Entrypoint"
+                      schema:
+                        type: string
+                        default: "websecure"
+                        required: true
+                        enum:
+                          - value: "websecure"
+                            description: "Websecure: HTTPS/TLS port 443"
+                    - variable: hosts
+                      label: "Hosts"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: host
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: host
+                                  label: "Domain Name"
+                                  required: true
+                                  schema:
+                                    type: string
+                                - variable: paths
+                                  label: "paths"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: path
+                                        label: "Path"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                            - variable: path
+                                              label: "path"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "/"
+                                            - variable: pathType
+                                              label: "pathType"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "prefix"
+                    - variable: certType
+                      label: "Select Certificate Type"
+                      schema:
+                        type: string
+                        default: "letsencrypt-prod"
+                        enum:
+                          - value: ""
+                            description: "No Encryption/TLS/Certificates"
+                          - value: "letsencrypt-prod"
+                            description: "Letsencrypt Production Certificates"
+                          - value: "letsencrypt-staging"
+                            description: "Letsencrypt Test Certificates"
+                          - value: "wildcard"
+                            description: "Global Wildcard Certificate"
+                          - value: "selfsigned"
+                            description: "Self-Signed Certificate"
+                          - value: "existingcert"
+                            description: "Existing Certificate"
+                        show_subquestions_if: "existingcert"
+                        subquestions:
+                          - variable: existingcert
+                            label: "Existing Certificate Name"
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: authForwardURL
+                      label: "Forward Authentication URL"
+                      schema:
+                        type: string
+                        default: ""
+                        
