@@ -35,13 +35,13 @@ questions:
           schema:
             type: string
             required: true
-            default: "linuxserver/nzbhydra2"
+            default: "linuxserver/sabnzbd"
         - variable: tag
           description: "Tag to use for specified image"
           label: "Image Tag"
           schema:
             type: string
-            default: "version-v3.8.1"
+            default: "version-3.1.0"
         - variable: pullPolicy
           description: "Docker Image Pull Policy"
           label: "Image Pull Policy"
@@ -115,7 +115,7 @@ questions:
                       label: "container port"
                       schema:
                         type: int
-                        default: 5076
+                        default: 8080
                         editable: false
                     - variable: nodePort
                       label: "Node Port to expose for UI"
@@ -191,7 +191,55 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-
+        - variable: downloads
+          label: "downloads dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "downloads"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/downloads"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
 
   - variable: appIngress
     label: ""
