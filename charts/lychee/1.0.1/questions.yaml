@@ -9,7 +9,6 @@ groups:
     description: "configure app volume mounts"
   - name: "Ingress"
     description: "Ingress configuration"
-
 portals:
   web_portal:
     protocols:
@@ -17,7 +16,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-radarrService.port"
+      - "$variable-service.port.nodePort"
     path: "/web"
 
 questions:
@@ -36,13 +35,13 @@ questions:
           schema:
             type: string
             required: true
-            default: "linuxserver/radarr"
+            default: "lycheeorg/lychee-laravel"
         - variable: tag
           description: "Tag to use for specified image"
           label: "Image Tag"
           schema:
             type: string
-            default: "version-3.0.0.3989"
+            default: "v4.0.8"
         - variable: pullPolicy
           description: "Docker Image Pull Policy"
           label: "Image Pull Policy"
@@ -116,7 +115,7 @@ questions:
                       label: "container port"
                       schema:
                         type: int
-                        default: 7878
+                        default: 80
                         editable: false
                     - variable: nodePort
                       label: "Node Port to expose for UI"
@@ -143,7 +142,6 @@ questions:
     schema:
       type: dict
       attrs:
-        # Config ------------------------
         - variable: config
           label: "config dataset"
           schema:
@@ -179,7 +177,7 @@ questions:
                 schema:
                   type: path
                   required: true
-                  default: "/config"
+                  default: "/conf"
                   editable: false
               - variable: hostPathEnabled
                 label: "host Path Enabled"
@@ -193,8 +191,8 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-        - variable: media
-          label: "media dataset"
+        - variable: uploads
+          label: "uploads dataset"
           schema:
             type: dict
             $ref:
@@ -219,7 +217,7 @@ questions:
                 label: "Dataset Name"
                 schema:
                   type: string
-                  default: "media"
+                  default: "uploads"
                   required: true
                   editable: false
               - variable: mountPath
@@ -228,7 +226,7 @@ questions:
                 schema:
                   type: path
                   required: true
-                  default: "/media"
+                  default: "/uploads"
                   editable: false
               - variable: hostPathEnabled
                 label: "host Path Enabled"
@@ -242,18 +240,33 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-        - variable: downloads
-          label: "downloads dataset"
+        - variable: sym
+          label: "sym dataset"
           schema:
             type: dict
             $ref:
               - "normalize/ixVolume"
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
               - variable: datasetName
-                label: "downloads Name"
+                label: "Dataset Name"
                 schema:
                   type: string
-                  default: "downloads"
+                  default: "sym"
                   required: true
                   editable: false
               - variable: mountPath
@@ -262,7 +275,7 @@ questions:
                 schema:
                   type: path
                   required: true
-                  default: "/downloads"
+                  default: "/sym"
                   editable: false
               - variable: hostPathEnabled
                 label: "host Path Enabled"
@@ -374,9 +387,3 @@ questions:
                       schema:
                         type: string
                         default: ""
-
-              - variable: authForwardURL
-                label: "Forward Authentication URL"
-                schema:
-                  type: string
-                  default: ""

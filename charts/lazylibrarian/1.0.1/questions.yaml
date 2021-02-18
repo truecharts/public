@@ -17,7 +17,8 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-lidarrService.port"
+      - "$variable-lazylibrarianService.port"
+    path: "/web"
 
 questions:
   # Image related
@@ -35,13 +36,13 @@ questions:
           schema:
             type: string
             required: true
-            default: "linuxserver/lidarr"
+            default: "linuxserver/lazylibrarian"
         - variable: tag
           description: "Tag to use for specified image"
           label: "Image Tag"
           schema:
             type: string
-            default: "version-0.8.0.1886"
+            default: "version-047f91af"
         - variable: pullPolicy
           description: "Docker Image Pull Policy"
           label: "Image Pull Policy"
@@ -115,7 +116,7 @@ questions:
                       label: "container port"
                       schema:
                         type: int
-                        default: 8686
+                        default: 5299
                         editable: false
                     - variable: nodePort
                       label: "Node Port to expose for UI"
@@ -248,8 +249,23 @@ questions:
             $ref:
               - "normalize/ixVolume"
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
               - variable: datasetName
-                label: "downloads Name"
+                label: "Dataset Name"
                 schema:
                   type: string
                   default: "downloads"
