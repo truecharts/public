@@ -9,6 +9,7 @@ groups:
     description: "configure app volume mounts"
   - name: "Ingress"
     description: "Ingress configuration"
+
 portals:
   web_portal:
     protocols:
@@ -16,7 +17,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-bazarrService.port"
+      - "$variable-radarrService.port"
     path: "/web"
 
 questions:
@@ -35,13 +36,13 @@ questions:
           schema:
             type: string
             required: true
-            default: "linuxserver/bazarr"
+            default: "linuxserver/radarr"
         - variable: tag
           description: "Tag to use for specified image"
           label: "Image Tag"
           schema:
             type: string
-            default: "version-v0.9.0.5"
+            default: "version-3.0.0.3989"
         - variable: pullPolicy
           description: "Docker Image Pull Policy"
           label: "Image Pull Policy"
@@ -115,7 +116,7 @@ questions:
                       label: "container port"
                       schema:
                         type: int
-                        default: 6767
+                        default: 7878
                         editable: false
                     - variable: nodePort
                       label: "Node Port to expose for UI"
@@ -248,8 +249,23 @@ questions:
             $ref:
               - "normalize/ixVolume"
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
               - variable: datasetName
-                label: "downloads Name"
+                label: "Dataset Name"
                 schema:
                   type: string
                   default: "downloads"
@@ -373,3 +389,9 @@ questions:
                       schema:
                         type: string
                         default: ""
+
+              - variable: authForwardURL
+                label: "Forward Authentication URL"
+                schema:
+                  type: string
+                  default: ""
