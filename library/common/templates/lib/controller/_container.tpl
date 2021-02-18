@@ -17,9 +17,9 @@ The main container included in the controller.
   {{- end }}
   env:
     - name: PUID
-      value: {{ .Values.PUID }}
+      value: {{ .Values.PUID | quote }}
     - name: PGID
-      value: {{ .Values.PGID }}
+      value: {{ .Values.PGID | quote }}
   {{- if or .Values.env .Values.envTpl .Values.envValueFrom .Values.envVariable }}
   {{- range $envVariable := .Values.environmentVariables }}
   {{- if and $envVariable.name $envVariable.value }}
