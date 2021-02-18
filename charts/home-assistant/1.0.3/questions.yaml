@@ -1,16 +1,14 @@
 groups:
   - name: "Container Image"
-    description: "Image configuration"
+    description: "configure container image"
   - name: "Configuration"
-    description: "Container configuration"
+    description: "additional container configuration"
   - name: "Networking"
-    description: "Network configuration"
+    description: "network / service configuration"
+  - name: "Storage"
+    description: "configure app volume mounts"
   - name: "Ingress"
     description: "Ingress configuration"
-  - name: "Services"
-    description: "Service configuration"
-  - name: "Volume Mounts"
-    description: "Configuration volume mounts"
 
 portals:
   web_portal:
@@ -25,7 +23,7 @@ questions:
   # Image related
   - variable: image
     group: "Container Image"
-    label: "Container Image"
+    label: "Home Assistant"
     schema:
       type: dict
       required: true
@@ -34,14 +32,14 @@ questions:
           label: "Image Repository"
           schema:
             type: string
-            default: "zwavejs/zwavejs2mqtt"
+            default: "homeassistant/home-assistant"
             editable: false
         - variable: tag
-          description: "Tag to use for specified image"
           label: "Image Tag"
+          description: "Tag to use for specified image"
           schema:
             type: string
-            default: "1.1.1"
+            default: "stable"
             required: true
         - variable: pullPolicy
           label: "Image Pull Policy"
@@ -77,97 +75,31 @@ questions:
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
-
-  # Enable Host Networking
-  - variable: hostNetworking
-    group: "Networking"
-    label: "Enable Host Networking"
-    schema:
-      type: boolean
-      default: false
-
-  # Service Configuration
-  - variable: service
-    group: "Services"
-    label: "Configure main service for the UI"
+        
+  # Configure Time Zone
+  - variable: git
+    group: "Configuration"
+    label: "Git"
+    description: "Attatch git repository to Home-Assistant"
     schema:
       type: dict
       attrs:
-        - variable: type
-          label: "Service type"
+        - variable: deployKey
+          label: "deployKey"
+          description: "Raw SSH private key"
           schema:
             type: string
-            default: "NodePort"
-            enum:
-              - value: "ClusterIP"
-                description: "ClusterIP"
-              - value: "NodePort"
-                description: "NodePort"
-            show_subquestions_if: NodePort
-            subquestions:
-              - variable: port
-                label: "Port configuration"
-                schema:
-                  type: dict
-                  attrs:
-                    - variable: port
-                      label: "container port"
-                      schema:
-                        type: int
-                        default: 8091
-                        hidden: true
-                        editable: false
-                    - variable: nodePort
-                      label: "Node Port to expose for UI"
-                      schema:
-                        type: int
-                        min: 9000
-                        max: 65535
-                        default: 38091
-                        required: true
-
-  - variable: appAdditionalServices
-    group: "Services"
-    label: "Configure additional services"
-    schema:
-      type: dict
-      attrs:
-        - variable: ws
-          label: ""
+            default: ""
+        - variable: deployKeyBase64
+          label: "deployKey"
+          description: "Base64-encoded SSH private key. When both variables are set, the raw SSH key takes precedence"
           schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable z-wave js web socket"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: port
-                      label: "Configuration"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "container port"
-                            schema:
-                              type: int
-                              default: 3000
-                              required: false              
-                    - variable: type
-                      label: "service type"
-                      schema:
-                        type: string
-                        default: "ClusterIP"
-                        enum:
-                          - value: "ClusterIP"
-                            description: "ClusterIP"
-                          - value: "NodePort"
-                            description: "NodePort"
+            type: string
+            default: ""
+
   # Configure app volumes
   - variable: appVolumeMounts
-    group: "Volume Mounts"
+    group: "Storage"
     label: ""
     schema:
       type: dict
@@ -199,17 +131,16 @@ questions:
                 label: "Name"
                 schema:
                   type: string
-                  default: "store"
+                  default: "config"
                   editable: false
               - variable: mountPath
                 label: "Mount path inside the container"
                 schema:
                   type: path
-                  default: "/usr/src/app/store"
+                  default: "/config"
                   editable: false
               - variable: hostPathEnabled
                 label: "Config - Enable Host Path"
-                description: "something about this here"
                 schema:
                   type: boolean
                   default: false
@@ -217,7 +148,6 @@ questions:
                   subquestions:
                     - variable: hostPath
                       label: "Config Host Path"
-                      description: "Host path to store config"
                       schema:
                         type: hostpath
                         required: true
@@ -227,31 +157,150 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: hostPath
-                label: "Path to Z-Wave device on host"
+              - variable: enabled
+                label: "USB Z-Wave Device"
                 schema:
-                  type: path
-                  required: true
-                  default: "/dev/ttyAMC0"
-              - variable: mountPath
-                label: "Path to mount device inside the container"
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPathEnabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: setPermissions
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: false                        
+                    - variable: hostPath
+                      label: "Path to Z-Wave device on host"
+                      schema:
+                        type: path
+                        required: true
+                        default: "/dev/ttyUSB0"
+                    - variable: mountPath
+                      label: "Path to mount device inside the container"
+                      schema:
+                        type: path
+                        required: true
+                        default: "/dev/ttyUSB0"
+        # Zigbee device -----------------
+        - variable: zigbee
+          label: "USB Z-Wave Device"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "USB Zigbee Device"
                 schema:
-                  type: path
-                  required: true
-                  default: "/dev/ttyAMC0"
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPathEnabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: setPermissions
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: false                        
+                    - variable: hostPath
+                      label: "Path to Zigbee device on host"
+                      schema:
+                        type: path
+                        required: true
+                        default: "/dev/ttyUSB1"
+                    - variable: mountPath
+                      label: "Path to mount device inside the container"
+                      schema:
+                        type: path
+                        required: true
+                        default: "/dev/ttyUSB1"
   # Enable privileged
   - variable: securityContext
-    group: "Volume Mounts"
+    group: "Storage"
     label: "Security Context"
     schema:
       type: dict
       attrs:
         - variable: privileged
-          label: "Enable privileged to pass thru a USB device"
+          label: "Enable privileged to pass thru a USB device from the host"
           schema:
             type: boolean
-            default: true
-            required: true
+            default: false
+
+  # Enable Host Network
+  - variable: hostNetwork
+    group: "Networking"
+    label: "Enable Host Network"
+    description: "Required if you want devices to be discoverable by Home Assistant"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: dnsPolicy
+          group: "Networking"
+          label: "Set the correct DNS policy"
+          description: "Required to be set to ClusterFirstWithHostNet when using hostNetwork"
+          schema:
+            type: string
+            default: "ClusterFirst"
+            enum:
+              - value: "ClusterFirst"
+                description: "ClusterFirst"
+              - value: "ClusterFirstWithHostNet"
+                description: "ClusterFirstWithHostNet"
+      
+
+      
+  # Service Configuration
+  - variable: service
+    group: "Networking"
+    label: "Configure Service"
+    schema:
+      type: dict
+      attrs:
+        - variable: type
+          label: "Service type"
+          schema:
+            type: string
+            default: "NodePort"
+            enum:
+              - value: "NodePort"
+                description: "NodePort"
+              - value: "ClusterIP"
+                description: "ClusterIP"
+            show_subquestions_if: "NodePort"
+            subquestions:
+              - variable: port
+                label: "Port configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: port
+                      label: "container port"
+                      schema:
+                        type: int
+                        default: 8123
+                        editable: false
+                    - variable: nodePort
+                      label: "Node Port to expose for UI"
+                      schema:
+                        type: int
+                        min: 9000
+                        max: 65535
+                        default: 38123
+                        required: true
 
   - variable: appIngress
     label: ""
@@ -350,3 +399,4 @@ questions:
                       schema:
                         type: string
                         default: ""
+                        
