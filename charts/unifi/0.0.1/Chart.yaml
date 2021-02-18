@@ -1,0 +1,20 @@
+apiVersion: v2
+appVersion: 5.14.23
+description: Ubiquiti Network's Unifi Controller
+name: unifi
+version: 0.0.1
+upstream_version: 1.5.1
+keywords:
+  - ubiquiti
+  - unifi
+home: https://unifi-network.ui.com
+icon: https://dl.ubnt.com/press/logo-UniFi.png
+sources:
+  - https://github.com/jacobalberty/unifi-docker
+maintainers:
+  - name: TrueCharts
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.0.0
+    
