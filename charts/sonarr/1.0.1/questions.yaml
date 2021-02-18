@@ -9,6 +9,7 @@ groups:
     description: "configure app volume mounts"
   - name: "Ingress"
     description: "Ingress configuration"
+
 portals:
   web_portal:
     protocols:
@@ -16,7 +17,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-service.port.nodePort"
+      - "$variable-sonarrService.port"
     path: "/web"
 
 questions:
@@ -35,13 +36,13 @@ questions:
           schema:
             type: string
             required: true
-            default: "lycheeorg/lychee-laravel"
+            default: "linuxserver/sonarr"
         - variable: tag
           description: "Tag to use for specified image"
           label: "Image Tag"
           schema:
             type: string
-            default: "v4.0.8"
+            default: "version-3.0.4.993"
         - variable: pullPolicy
           description: "Docker Image Pull Policy"
           label: "Image Pull Policy"
@@ -115,7 +116,7 @@ questions:
                       label: "container port"
                       schema:
                         type: int
-                        default: 80
+                        default: 8989
                         editable: false
                     - variable: nodePort
                       label: "Node Port to expose for UI"
@@ -142,6 +143,7 @@ questions:
     schema:
       type: dict
       attrs:
+        # Config ------------------------
         - variable: config
           label: "config dataset"
           schema:
@@ -177,7 +179,7 @@ questions:
                 schema:
                   type: path
                   required: true
-                  default: "/conf"
+                  default: "/config"
                   editable: false
               - variable: hostPathEnabled
                 label: "host Path Enabled"
@@ -191,8 +193,8 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-        - variable: uploads
-          label: "uploads dataset"
+        - variable: media
+          label: "media dataset"
           schema:
             type: dict
             $ref:
@@ -217,7 +219,7 @@ questions:
                 label: "Dataset Name"
                 schema:
                   type: string
-                  default: "uploads"
+                  default: "media"
                   required: true
                   editable: false
               - variable: mountPath
@@ -226,7 +228,7 @@ questions:
                 schema:
                   type: path
                   required: true
-                  default: "/uploads"
+                  default: "/media"
                   editable: false
               - variable: hostPathEnabled
                 label: "host Path Enabled"
@@ -240,18 +242,33 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-        - variable: sym
+        - variable: downloads
           label: "downloads dataset"
           schema:
             type: dict
             $ref:
               - "normalize/ixVolume"
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
               - variable: datasetName
-                label: "sym Name"
+                label: "Dataset Name"
                 schema:
                   type: string
-                  default: "sym"
+                  default: "downloads"
                   required: true
                   editable: false
               - variable: mountPath
@@ -260,7 +277,7 @@ questions:
                 schema:
                   type: path
                   required: true
-                  default: "/sym"
+                  default: "/downloads"
                   editable: false
               - variable: hostPathEnabled
                 label: "host Path Enabled"
