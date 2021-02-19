@@ -76,13 +76,16 @@ appVolumeMounts:
   config:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/config"
   uploads:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/uploads"
   sym:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/sym"
     

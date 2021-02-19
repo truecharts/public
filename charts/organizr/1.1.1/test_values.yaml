@@ -30,6 +30,7 @@ appVolumeMounts:
   config:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/config"
 
 

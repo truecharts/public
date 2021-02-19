@@ -42,10 +42,12 @@ appVolumeMounts:
   config:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/config"
   media:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/media"
 
 

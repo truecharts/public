@@ -52,10 +52,12 @@ appVolumeMounts:
   config:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/config"
   downloads:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/downloads"
 
 

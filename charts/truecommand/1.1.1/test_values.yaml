@@ -46,4 +46,5 @@ appVolumeMounts:
   data:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/data"

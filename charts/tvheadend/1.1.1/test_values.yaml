@@ -36,10 +36,12 @@ appVolumeMounts:
   config:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/config"
   recordings:
     enabled: true
     emptyDir: true
+    setPermissions: true
     mountPath: "/recordings"
     
 appAdditionalServicesEnabled: true
