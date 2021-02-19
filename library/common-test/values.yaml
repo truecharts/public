@@ -10,6 +10,7 @@ service:
 ingress:
   enabled: true
 
+fixMountPermissions: false
 appVolumeMounts:
   data:
     enabled: true
@@ -25,7 +26,7 @@ appVolumeMounts:
     mountPath: "/test"
     hostPathEnabled: false
     hostPath: ""
-    
+
 appAdditionalServicesEnabled: true
 appAdditionalServices:
   extra-tcp:
