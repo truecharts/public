@@ -19,14 +19,18 @@ env: {}
 
 persistence:
   config:
-    enabled: true
-    emptyDir: true
-    setPermissions: true
+    enabled: false
+    emptyDir: false
     mountPath: "/config"
     
 ## TrueCharts Config
 
-
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/config"
 
 
 
