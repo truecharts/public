@@ -116,9 +116,13 @@ appVolumeMounts:
     setPermissions: true
     mountPath: "/config"
 
+appAdditionalServicesEnabled: true
 appAdditionalServices:
   ws:
     enabled: true
+    type: ClusterIP
     port: 
       port: 3000
-    type: "ClusterIP"
+      name: ws
+      protocol: TCP
+      targetPort: 3000

@@ -132,5 +132,8 @@ appAdditionalServices:
   ws:
     enabled: true
     type: ClusterIP
-    port:
+    port: 
       port: 3000
+      name: ws
+      protocol: TCP
+      targetPort: 3000
