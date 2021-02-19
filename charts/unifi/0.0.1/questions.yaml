@@ -362,4 +362,76 @@ questions:
                       schema:
                         type: string
                         default: ""
-                        
+        - variable: tcp
+          label: "TCP Ingress Configuration"
+          group: "Ingress"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable TCP Ingress"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: type
+                      label: "Select Ingress Type"
+                      schema:
+                        type: string
+                        default: "TCP"
+                        required: true
+                        editable: false
+                        enum:
+                          - value: "TCP"
+                            description: "Plain TCP Connections"
+                    - variable: entrypoint
+                      label: "Select Entrypoint"
+                      schema:
+                        type: string
+                        default: "communication-tcp"
+                        required: true
+                        enum:
+                          - value: "communication-tcp"
+                            description: "Communication-TCP: port 8080"
+                    - variable: certType
+                      label: "Select Certificate Type"
+                      schema:
+                        editable: false
+                        type: string
+                        default: ""
+                        enum:
+                          - value: ""
+                            description: "No Encryption/TLS/Certificates"
+        - variable: udp
+          label: "UDP Ingress Configuration"
+          group: "Ingress"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable UDP Ingress"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: type
+                      label: "Select Ingress Type"
+                      schema:
+                        type: string
+                        default: "UDP"
+                        required: true
+                        editable: false
+                        enum:
+                          - value: "UDP"
+                            description: "Plain UDP Connections"
+                    - variable: entrypoint
+                      label: "Select Entrypoint"
+                      schema:
+                        type: string
+                        default: "stun-udp"
+                        required: true
+                        enum:
+                          - value: "stun-udp"
+                            description: "STUN-UDP: port 3478"

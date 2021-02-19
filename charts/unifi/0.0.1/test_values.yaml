@@ -22,8 +22,26 @@ persistence:
     enabled: false
     emptyDir: false
 
-appIngressEnabled: false
+appIngressEnabled: true
     
+appAdditionalServicesEnabled: true
+appAdditionalServices:
+  tcp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8080
+      name: communication-tcp
+      protocol: TCP
+      targetPort: 8080
+  udp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 3478
+      name: stun-udp
+      protocol: UDP
+      targetPort: 3478
 
 appVolumeMounts:
   config:
