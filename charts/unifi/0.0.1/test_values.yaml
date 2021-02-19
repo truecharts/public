@@ -31,7 +31,7 @@ appAdditionalServices:
     type: ClusterIP
     port:
       port: 8080
-      name: communication-tcp
+      name: unificom
       protocol: TCP
       targetPort: 8080
   udp:
@@ -39,7 +39,7 @@ appAdditionalServices:
     type: ClusterIP
     port:
       port: 3478
-      name: stun-udp
+      name: unifistun
       protocol: UDP
       targetPort: 3478
 

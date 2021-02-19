@@ -352,12 +352,22 @@ ports:
     # Set TLS at the entrypoint
     # https://doc.traefik.io/traefik/routing/entrypoints/#tls
   unificom:
-    port: 8081
+    port: 8080
     # hostPort: 8443
     expose: true
-    exposedPort: 8081
+    exposedPort: 8080
     # The port protocol (TCP/UDP)
     protocol: TCP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  unifistun:
+    port: 3478
+    # hostPort: 8443
+    expose: true
+    exposedPort: 3478
+    # The port protocol (TCP/UDP)
+    protocol: UDP
     # nodePort: 32443
     # Set TLS at the entrypoint
     # https://doc.traefik.io/traefik/routing/entrypoints/#tls

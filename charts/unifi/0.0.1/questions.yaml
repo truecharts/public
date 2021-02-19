@@ -389,11 +389,11 @@ questions:
                       label: "Select Entrypoint"
                       schema:
                         type: string
-                        default: "communication-tcp"
+                        default: "unificom"
                         required: true
                         enum:
-                          - value: "communication-tcp"
-                            description: "Communication-TCP: port 8080"
+                          - value: "unificom"
+                            description: "Unifi Communications TCP: port 8080"
                     - variable: certType
                       label: "Select Certificate Type"
                       schema:
@@ -430,8 +430,8 @@ questions:
                       label: "Select Entrypoint"
                       schema:
                         type: string
-                        default: "stun-udp"
+                        default: "unifistun"
                         required: true
                         enum:
-                          - value: "stun-udp"
-                            description: "STUN-UDP: port 3478"
+                          - value: "unifistun"
+                            description: "Unifi STUN UDP: port 3478"
