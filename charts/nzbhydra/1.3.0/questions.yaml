@@ -66,6 +66,30 @@ questions:
       $ref:
         - "definitions/timezone"
 
+  - variable: PUID
+    group: "Configuration"
+    label: "PUID"
+    description: "The UserID of the user running the application and owning the files"
+    schema:
+      type: int
+      default: 568
+
+  - variable: PGID
+    group: "Configuration"
+    label: "PGID"
+    description: "The groupID of the user/group running the application and owning the files"
+    schema:
+      type: int
+      default: 568
+
+  - variable: UMASK
+    group: "Configuration"
+    label: "UMASK (advanced)"
+    description: "The UMASK used if supported by the application"
+    schema:
+      type: string
+      default: "002"
+
   # Configure Enviroment Variables
   - variable: environmentVariables
     label: "Image environment"
