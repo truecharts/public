@@ -229,6 +229,13 @@ questions:
                   required: true
                   hidden: true
                   editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
