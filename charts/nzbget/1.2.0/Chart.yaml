@@ -1,0 +1,21 @@
+apiVersion: v2
+appVersion: v21.0
+description: NZBGet is a Usenet downloader client
+name: nzbget
+version: 1.2.0
+upstream_version: 7.3.1
+keywords:
+  - nzbget
+  - usenet
+home: https://github.com/truecharts/truecharts/tree/master/charts/nzbget
+icon: https://avatars1.githubusercontent.com/u/3368377?s=400&v=4
+sources:
+  - https://hub.docker.com/r/linuxserver/nzbget/
+  - https://nzbget.net/
+maintainers:
+  - name: TrueCharts
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.2.0
+    
