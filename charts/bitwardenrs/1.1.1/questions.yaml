@@ -75,40 +75,40 @@ questions:
                 label: "Value"
                 schema:
                   type: string              
-#   - variable: service
-#     group: "Networking"
-#     label: "Configure Service"
-#     schema:
-#       type: dict
-#       attrs:
-#         - variable: type
-#           label: "Service type"
-#           schema:
-#             type: string
-#             default: "ClusterIP"
-#             enum:
-#               - value: "NodePort"
-#                 description: "NodePort"
-#               - value: "ClusterIP"
-#                 description: "ClusterIP"
-#             show_subquestions_if: "NodePort"
-#             subquestions:
-#               - variable: port
-#                 label: "Port configuration"
-#                 schema:
-#                   type: dict
-#                   attrs:
-#                     - variable: port
-#                       label: "container port"
-#                       schema:
-#                         type: int
-#                         default: 80
-#                         editable: false
-#                     - variable: nodePort
-#                       label: "Node Port to expose for UI"
-#                       schema:
-#                         type: int
-#                         min: 81
-#                         max: 65535
-#                         default: 82
-#                         required: true
+  - variable: service
+    group: "Networking"
+    label: "Configure Service"
+    schema:
+      type: dict
+      attrs:
+        - variable: type
+          label: "Service type"
+          schema:
+            type: string
+            default: "ClusterIP"
+            enum:
+              - value: "NodePort"
+                description: "NodePort"
+              - value: "ClusterIP"
+                description: "ClusterIP"
+            show_subquestions_if: "NodePort"
+            subquestions:
+              - variable: service
+                label: "Port configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: port
+                      label: "container port"
+                      schema:
+                        type: int
+                        default: 80
+                        editable: false
+                    - variable: nodePort
+                      label: "Node Port to expose for UI"
+                      schema:
+                        type: int
+                        min: 81
+                        max: 65535
+                        default: 82
+                        required: true
