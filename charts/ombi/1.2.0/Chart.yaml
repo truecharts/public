@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: 4.0.681
+description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
+name: ombi
+version: 1.2.0
+keywords:
+  - ombi
+  - plex
+  - emby
+  - sonarr
+  - radarr
+  - couchpotato
+home: https://github.com/truecharts/charts/tree/dev/charts/ombi
+icon: https://img3.androidappsapk.co/wiLDnuwrCWctiiW62ALcj4eIpNbzeRH_UNPo7eqlpYvGkCQYSTybaI4xVRLKGjnlamlV=s300
+sources:
+  - https://github.com/tidusjar/Ombi
+  - https://hub.docker.com/r/linuxserver/ombi
+maintainers:
+  - name: TrueCharts
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.2.0
