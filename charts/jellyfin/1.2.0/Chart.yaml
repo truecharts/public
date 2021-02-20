@@ -1,0 +1,22 @@
+apiVersion: v2
+appVersion: 10.6.4
+description: Jellyfin is a Free Software Media System
+name: jellyfin
+version: 1.2.0
+upstream_version: 4.2.1
+keywords:
+  - jellyfin
+  - plex
+  - emby
+home: https://github.com/truecharts/charts/tree/dev/charts/jellyfin
+icon: https://raw.githubusercontent.com/truecharts/truecharts/master/charts/jellyfin/icon.jpg?raw=true
+sources:
+  - https://github.com/k8s-at-home/charts/blob/master/charts/jellyfin
+  - https://hub.docker.com/r/linuxserver/Jellyfin/
+  - https://github.com/jellyfin/jellyfin
+maintainers:
+  - name: TrueCharts
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.2.0
