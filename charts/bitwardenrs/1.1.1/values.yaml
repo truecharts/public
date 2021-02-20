@@ -16,7 +16,7 @@ bitwardenrs:
   signupsAllowed: false
   gui:
     # If you set a different port here, you must also provide it under env
-    port: 80
+    port: 9880
   websockets:
     enabled: true
     port: 3012
@@ -129,8 +129,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: 
-  port: 80
+  type: ClusterIP
+  port: 9880
   ## Provide any additional annotations which may be required. This can be used to
   ## set the LoadBalancer service type to internal only.
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
