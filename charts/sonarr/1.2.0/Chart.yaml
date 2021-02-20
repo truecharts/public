@@ -1,0 +1,20 @@
+apiVersion: v2
+appVersion: 3.0.4.993
+description: Smart PVR for newsgroup and bittorrent users
+name: sonarr
+version: 1.2.0
+keywords:
+  - sonarr
+  - torrent
+  - usenet
+home: https://github.com/truecharts/charts/tree/dev/charts/sonarr
+icon: https://github.com/Sonarr/Sonarr/blob/phantom-develop/Logo/512.png?raw=true
+sources:
+  - https://github.com/Sonarr/Sonarr
+  - https://hub.docker.com/r/linuxserver/sonarr
+maintainers:
+  - name: TrueCharts
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.2.0
