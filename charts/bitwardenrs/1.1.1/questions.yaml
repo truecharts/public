@@ -93,7 +93,7 @@ questions:
                 description: "ClusterIP"
             show_subquestions_if: "NodePort"
             subquestions:
-              - variable: service
+              - variable: port
                 label: "Port configuration"
                 schema:
                   type: dict
