@@ -9,8 +9,8 @@ groups:
     description: "Configure networking for container"
   - name: "Storage"
     description: "Persist and share data that is separate from the lifecycle of the container"
-  - name: "traefik Configuration"
-    description: "Configure traefik deployment"
+  - name: "Configuration"
+    description: "Configure container deployment"
   - name: "Workload Details"
     description: "Configure how workload should be deployed"
   - name: "Scaling/Upgrade Policy"
@@ -72,39 +72,7 @@ questions:
               - value: "Never"
                 description: "Never pull image even if it's not present on host"
 
-  # Configure Time Zone
-  - variable: timezone
-    group: "Configuration"
-    label: "Timezone"
-    schema:
-      type: string
-      default: "Etc/UTC"
-      $ref:
-        - "definitions/timezone"
 
-  - variable: PUID
-    group: "Configuration"
-    label: "PUID"
-    description: "The UserID of the user running the application and owning the files"
-    schema:
-      type: int
-      default: 568
-
-  - variable: PGID
-    group: "Configuration"
-    label: "PGID"
-    description: "The groupID of the user/group running the application and owning the files"
-    schema:
-      type: int
-      default: 568
-
-  - variable: UMASK
-    group: "Configuration"
-    label: "UMASK (advanced)"
-    description: "The UMASK used if supported by the application"
-    schema:
-      type: string
-      default: "002"
 
   - variable: appVolumeMounts
     label: "app storage"
