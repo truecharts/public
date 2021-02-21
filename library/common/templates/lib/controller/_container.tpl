@@ -20,7 +20,13 @@ The main container included in the controller.
       value: {{ .Values.PUID | quote }}
     - name: PGID
       value: {{ .Values.PGID | quote }}
-  {{- if or .Values.env .Values.envTpl .Values.envValueFrom .Values.envVariable }}
+    - name: UMASK
+      value: {{ .Values.UMASK | quote }}
+  {{- if .Values.timezone }}
+    - name: TZ
+      value: {{ .Values.timezone | quote }}
+  {{- end }}
+  {{- if or .Values.env .Values.envTpl .Values.envValueFrom .Values.envVariable .Values.environmentVariables }}
   {{- range $envVariable := .Values.environmentVariables }}
   {{- if and $envVariable.name $envVariable.value }}
     - name: {{ $envVariable.name }}
