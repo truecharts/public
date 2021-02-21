@@ -37,7 +37,6 @@ portals:
 
 questions:
   # Image related
-
   - variable: image
     description: "Docker Image Details"
     label: "Docker Image"
@@ -204,26 +203,15 @@ questions:
       type: dict
       required: true
       attrs:
-        - variable: email
-          description: "Email Adress to use with Letsencrypt"
-          label: "Email-Adress"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: wildcardDomain
-          description: "Enter Domain name here, if you want to setup a global wildcard-domain"
-          label: "Wildcard Domain"
-          schema:
-            type: string
-            default: ""
         - variable: provider
           description: "Select the CertManager provider to use"
           label: "CertManager Provider"
           schema:
             type: string
-            default: "cloudflare"
+            default: "none"
             enum:
+              - value: "none"
+                description: "none"
               - value: "cloudflare"
                 description: "Cloudflare"
               - value: "cloudDNS"
@@ -240,6 +228,21 @@ questions:
                 description: "Akamai"
               - value: "acmeDNS"
                 description: "acmeDNS"
+        - variable: email
+          description: "Email Adress to use with Letsencrypt"
+          label: "Email-Adress"
+          schema:
+            show_if: [["provider", "!=", "none"]]
+            type: string
+            default: ""
+            required: true
+        - variable: wildcardDomain
+          description: "Enter Domain name here, if you want to setup a global wildcard-domain"
+          label: "Wildcard Domain"
+          schema:
+            show_if: [["provider", "!=", "none"]]
+            type: string
+            default: ""
         - variable: cloudflare
           description: "Configure Cloudflare Settings"
           label: "Cloudflare Settings"

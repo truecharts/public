@@ -6,22 +6,22 @@ metadata:
 type: Opaque
 stringData:
   {{- if eq .Values.certmanager.provider "cloudflare" }}
-  api-key: {{ .Values.certmanager.cloudflare.apikey}}
+  api-key: {{ .Values.certmanager.cloudflare.apikey | quote }}
   {{- else if eq .Values.certmanager.provider "cloudDNS" }}
-  key-json: {{ .Values.certmanager.cloudDNS.keyjson}}
+  key-json: {{ .Values.certmanager.cloudDNS.keyjson | quote }}
   {{- else if eq .Values.certmanager.provider "route53" }}
-  secret-access-key: {{ .Values.certmanager.route53.secretaccesskey}}
+  secret-access-key: {{ .Values.certmanager.route53.secretaccesskey | quote }}
   {{- else if eq .Values.certmanager.provider "digitalocean" }}
-  access-token: {{ .Values.certmanager.digitalocean.accesstoken}}
+  access-token: {{ .Values.certmanager.digitalocean.accesstoken | quote }}
   {{- else if eq .Values.certmanager.provider "rfc2136" }}
   rfc2136:
-  tsig-secret-key: {{ .Values.certmanager.rfc2136.tsigsecretkey}}
+  tsig-secret-key: {{ .Values.certmanager.rfc2136.tsigsecretkey | quote }}
   {{- else if eq .Values.certmanager.provider "akamai" }}
-  clientToken: {{ .Values.certmanager.akamai.clientToken}}
-  clientSecret: {{ .Values.certmanager.akamai.clientSecret}}
-  accessToken: {{ .Values.certmanager.akamai.accessToken}}
+  clientToken: {{ .Values.certmanager.akamai.clientToken| quote }}
+  clientSecret: {{ .Values.certmanager.akamai.clientSecret| quote }}
+  accessToken: {{ .Values.certmanager.akamai.accessToken| quote }}
   {{- else if eq .Values.certmanager.provider "acmeDNS" }}
-  acmedns-json: {{ .Values.certmanager.acmeDNS.acmednsjson}}
+  acmedns-json: {{ .Values.certmanager.acmeDNS.acmednsjson | quote }}
   {{- end }}
 ---
 {{- if .Values.certmanager.email -}}
