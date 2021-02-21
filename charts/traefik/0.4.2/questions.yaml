@@ -72,7 +72,39 @@ questions:
               - value: "Never"
                 description: "Never pull image even if it's not present on host"
 
+  # Configure Time Zone
+  - variable: timezone
+    group: "Configuration"
+    label: "Timezone"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
 
+  - variable: PUID
+    group: "Configuration"
+    label: "PUID"
+    description: "The UserID of the user running the application and owning the files"
+    schema:
+      type: int
+      default: 568
+
+  - variable: PGID
+    group: "Configuration"
+    label: "PGID"
+    description: "The groupID of the user/group running the application and owning the files"
+    schema:
+      type: int
+      default: 568
+
+  - variable: UMASK
+    group: "Configuration"
+    label: "UMASK (advanced)"
+    description: "The UMASK used if supported by the application"
+    schema:
+      type: string
+      default: "002"
 
   - variable: appVolumeMounts
     label: "app storage"
@@ -208,9 +240,9 @@ questions:
           label: "CertManager Provider"
           schema:
             type: string
-            default: "none"
+            default: ""
             enum:
-              - value: "none"
+              - value: ""
                 description: "none"
               - value: "cloudflare"
                 description: "Cloudflare"
@@ -232,7 +264,7 @@ questions:
           description: "Email Adress to use with Letsencrypt"
           label: "Email-Adress"
           schema:
-            show_if: [["provider", "!=", "none"]]
+            show_if: [["provider", "!=", ""]]
             type: string
             default: ""
             required: true
@@ -240,7 +272,7 @@ questions:
           description: "Enter Domain name here, if you want to setup a global wildcard-domain"
           label: "Wildcard Domain"
           schema:
-            show_if: [["provider", "!=", "none"]]
+            show_if: [["provider", "!=", ""]]
             type: string
             default: ""
         - variable: cloudflare
