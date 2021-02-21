@@ -48,6 +48,7 @@ appAdditionalServices:
       name: bittorrent-tcp
       protocol: TCP
       targetPort: 51413
+      nodePort: 51413     
   udp:
     enabled: true
     type: ClusterIP
@@ -56,3 +57,4 @@ appAdditionalServices:
       name: bittorrent-udp
       protocol: UDP
       targetPort: 51413
+      nodePort: 51413

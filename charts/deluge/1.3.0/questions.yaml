@@ -111,6 +111,14 @@ questions:
                 label: "Value"
                 schema:
                   type: string
+                  
+  # Enable Host Network
+  - variable: hostNetwork
+    group: "Networking"
+    label: "Enable Host Network"
+    schema:
+      type: boolean
+      default: false
       
   - variable: service
     group: "Networking"
@@ -166,70 +174,117 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: port
-                      label: "Configuration"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "container port"
-                            schema:
-                              type: int
-                              default: 51413
-                              required: false              
-                    - variable: type
-                      label: "service type"
+                  hidden: true
+              - variable: type
+                label: "Service type"
+                schema:
+                  type: string
+                  default: "ClusterIP"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+              - variable: port
+                label: "Port configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "port name"
                       schema:
                         type: string
-                        default: "ClusterIP"
-                        enum:
-                          - value: "ClusterIP"
-                            description: "ClusterIP"
-                          - value: "NodePort"
-                            description: "NodePort"
+                        default: "torrent-tcp"
+                        hidden: true
+                    - variable: protocol
+                      label: "Protocol"
+                      schema:
+                        type: string
+                        default: "TCP"
+                        hidden: true
+                    - variable: port
+                      label: "container port"
+                      schema:
+                        type: int
+                        default: 51413
+                        editable: false
+                        hidden: true
+                    - variable: targetport
+                      label: "container targetport"
+                      schema:
+                        type: int
+                        default: 51413
+                        editable: false
+                        hidden: true
+                    - variable: nodePort
+                      label: "Node Port to expose"
+                      schema:
+                        type: int
+                        min: 9000
+                        max: 65535
+                        default: 51413
+                        required: false
         - variable: udp
           label: ""
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable TCP port for Torrent Connections"
+                label: "Enable UDP port for Torrent Connections"
                 schema:
                   type: boolean
                   default: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: port
-                      label: "Configuration"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "container port"
-                            schema:
-                              type: int
-                              default: 51413
-                              required: false              
-                    - variable: type
-                      label: "service type"
+                  hidden: true
+              - variable: type
+                label: "Service type"
+                schema:
+                  type: string
+                  default: "ClusterIP"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+              - variable: port
+                label: "Port configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "port name"
                       schema:
                         type: string
-                        default: "ClusterIP"
-                        enum:
-                          - value: "ClusterIP"
-                            description: "ClusterIP"
-                          - value: "NodePort"
-                            description: "NodePort"
+                        default: "torrent-udp"
+                        hidden: true
+                    - variable: protocol
+                      label: "Protocol"
+                      schema:
+                        type: string
+                        default: "UDP"
+                        hidden: true
+                    - variable: port
+                      label: "container port"
+                      schema:
+                        type: int
+                        default: 51413
+                        editable: false
+                        hidden: true
+                    - variable: targetport
+                      label: "container targetport"
+                      schema:
+                        type: int
+                        default: 51413
+                        editable: false
+                        hidden: true
+                    - variable: nodePort
+                      label: "Node Port to expose"
+                      schema:
+                        type: int
+                        min: 9000
+                        max: 65535
+                        default: 51413
+                        required: false
 
-  # Enable Host Network
-  - variable: hostNetwork
-    group: "Networking"
-    label: "Enable Host Network"
-    schema:
-      type: boolean
-      default: false
 
 ## TrueCharts Specific
 

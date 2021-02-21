@@ -18,16 +18,6 @@ service:
   port:
     port: 8080
 
-  additionalServices:
-  - enabled: true
-    nameSuffix: bittorrent
-    type: ClusterIP
-    port:
-      port: 6881
-      name: bittorrent
-      protocol: TCP
-      targetPort: 6881
-
 persistence:
   config:
     enabled: false
@@ -98,3 +88,23 @@ appVolumeMounts:
     emptyDir: true
     setPermissions: true
     mountPath: "/downloads"
+
+
+appAdditionalServicesEnabled: true
+appAdditionalServices:
+  tcp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 51413
+      name: bittorrent-tcp
+      protocol: TCP
+      targetPort: 51413
+  udp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 51413
+      name: bittorrent-udp
+      protocol: UDP
+      targetPort: 51413

@@ -149,9 +149,10 @@ questions:
                         max: 65535
                         default: 38091
                         required: true
-
+                            
+                            
   - variable: appAdditionalServices
-    group: "Services"
+    group: "Networking"
     label: "Configure additional services"
     schema:
       type: dict
@@ -162,33 +163,61 @@ questions:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable streaming port"
+                label: "Enable TCP port for HTSP Connections"
                 schema:
                   type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: port
-                      label: "Configuration"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "container port"
-                            schema:
-                              type: int
-                              default: 9982
-                              required: false              
-                    - variable: type
-                      label: "service type"
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service type"
+                schema:
+                  type: string
+                  default: "ClusterIP"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+              - variable: port
+                label: "Port configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "port name"
                       schema:
                         type: string
-                        default: "ClusterIP"
-                        enum:
-                          - value: "ClusterIP"
-                            description: "ClusterIP"
-                          - value: "NodePort"
-                            description: "NodePort"
+                        default: "htsp"
+                        hidden: true
+                    - variable: protocol
+                      label: "Protocol"
+                      schema:
+                        type: string
+                        default: "TCP"
+                        hidden: true
+                    - variable: port
+                      label: "container port"
+                      schema:
+                        type: int
+                        default: 9982
+                        editable: false
+                        hidden: true
+                    - variable: targetport
+                      label: "container targetport"
+                      schema:
+                        type: int
+                        default: 9982
+                        editable: false
+                        hidden: true
+                    - variable: nodePort
+                      label: "Node Port to expose"
+                      schema:
+                        type: int
+                        min: 9000
+                        max: 65535
+                        default: 9982
+                        required: false
+                            
   # Configure app volumes
   - variable: appVolumeMounts
     group: "Volume Mounts"

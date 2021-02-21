@@ -113,6 +113,15 @@ questions:
                 schema:
                   type: string
       
+                  
+  # Enable Host Network
+  - variable: hostNetwork
+    group: "Networking"
+    label: "Enable Host Network"
+    schema:
+      type: boolean
+      default: false
+      
   - variable: service
     group: "Networking"
     label: "Configure Service"
@@ -150,14 +159,6 @@ questions:
                         max: 65535
                         default: 36052
                         required: true
-
-  # Enable Host Networking
-  - variable: hostNetworking
-    group: "Networking"
-    label: "Enable Host Networking"
-    schema:
-      type: boolean
-      default: false
 
 ## TrueCharts Specific
 
