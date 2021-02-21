@@ -9,8 +9,8 @@ groups:
     description: "Configure networking for container"
   - name: "Storage"
     description: "Persist and share data that is separate from the lifecycle of the container"
-  - name: "traefik Configuration"
-    description: "Configure traefik deployment"
+  - name: "Configuration"
+    description: "Configure container deployment"
   - name: "Workload Details"
     description: "Configure how workload should be deployed"
   - name: "Scaling/Upgrade Policy"
@@ -72,6 +72,7 @@ questions:
               - value: "Never"
                 description: "Never pull image even if it's not present on host"
 
+
   # Configure Time Zone
   - variable: timezone
     group: "Configuration"
@@ -105,6 +106,7 @@ questions:
     schema:
       type: string
       default: "002"
+
 
   - variable: appVolumeMounts
     label: "app storage"
@@ -235,26 +237,15 @@ questions:
       type: dict
       required: true
       attrs:
-        - variable: email
-          description: "Email Adress to use with Letsencrypt"
-          label: "Email-Adress"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: wildcardDomain
-          description: "Enter Domain name here, if you want to setup a global wildcard-domain"
-          label: "Wildcard Domain"
-          schema:
-            type: string
-            default: ""
         - variable: provider
           description: "Select the CertManager provider to use"
           label: "CertManager Provider"
           schema:
             type: string
-            default: "cloudflare"
+            default: ""
             enum:
+              - value: ""
+                description: "none"
               - value: "cloudflare"
                 description: "Cloudflare"
               - value: "cloudDNS"
@@ -271,6 +262,21 @@ questions:
                 description: "Akamai"
               - value: "acmeDNS"
                 description: "acmeDNS"
+        - variable: email
+          description: "Email Adress to use with Letsencrypt"
+          label: "Email-Adress"
+          schema:
+            show_if: [["provider", "!=", ""]]
+            type: string
+            default: ""
+            required: true
+        - variable: wildcardDomain
+          description: "Enter Domain name here, if you want to setup a global wildcard-domain"
+          label: "Wildcard Domain"
+          schema:
+            show_if: [["provider", "!=", ""]]
+            type: string
+            default: ""
         - variable: cloudflare
           description: "Configure Cloudflare Settings"
           label: "Cloudflare Settings"
