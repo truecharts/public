@@ -104,7 +104,7 @@ spec:
             key: akamaiaccessToken
         {{- else if eq .Values.certmanager.provider "acmeDNS" }}
         acmeDNS:
-          host: {{ .Values.certmanager.acmeDNS.region }}
+          host: {{ .Values.certmanager.acmeDNS.host }}
           accountSecretRef:
             name: dns-secrets
             key: acmedns-json
@@ -189,7 +189,7 @@ spec:
             key: akamaiaccessToken
         {{- else if eq .Values.certmanager.provider "acmeDNS" }}
         acmeDNS:
-          host: {{ .Values.certmanager.acmeDNS.region }}
+          host: {{ .Values.certmanager.acmeDNS.host }}
           accountSecretRef:
             name: dns-secrets
             key: acmedns-json
