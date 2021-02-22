@@ -36,15 +36,15 @@ jobs:
       - name: Create general wiki
         run: |
           cd master
-          for doc in docs/*; do
-              if [ -d "${doc}" ]; then
-                  docname=$(basename ${doc})
-                  cp -Rf docs/${docname} ../wiki/content/
-              fi
-          done
-          cp docs/README.md ../wiki/content/index.md || echo "readme copy failed, continuing..."
-          cp docs/CODE_OF_CONDUCT ../wiki/content/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
-          cp docs/CONTRIBUTING ../wiki/content/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          # for doc in docs/*; do
+          #     if [ -d "${doc}" ]; then
+          #         docname=$(basename ${doc})
+          #         cp -Rf docs/${docname} ../wiki/content/
+          #     fi
+          # done
+          cp .github/README.md ../wiki/content/index.md || echo "readme copy failed, continuing..."
+          cp .github/CODE_OF_CONDUCT ../wiki/content/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          cp .github/CONTRIBUTING ../wiki/content/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
           ls ../wiki/content/
           cd ..
 
