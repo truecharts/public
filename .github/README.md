@@ -17,6 +17,9 @@ Installing TrueCharts within TrueNAS SCALE, still requires the CLI. However it's
 - enter `cli`
 - enter `app catalog create repository="https://github.com/truecharts/truecharts" label="TrueCharts"`
 
+For more information, please visit our wiki:
+https://wiki.truecharts.org
+
 ## FAQ
 - Q: I tried to run TrueCharts on TrueNAS SCALE 20.12 and it doesn't work.
 A: TrueNAS SCALE 20.12 has never supported custom charts in any way, shape or form. Hence TrueCharts is 21.02+ only
