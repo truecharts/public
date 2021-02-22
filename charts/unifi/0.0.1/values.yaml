@@ -27,19 +27,26 @@ appIngressEnabled: true
 appAdditionalServicesEnabled: true
 appAdditionalServices:
   tcp:
-    enabled: true
-    type: ClusterIP
-    port:
-      port: 8080
-      name: unificom
-      protocol: TCP
-      targetPort: 8080
+    - enabled: true
+      type: ClusterIP
+      port:
+        port: 8080
+        name: unificom
+        protocol: TCP
+        targetPort: 8080
+    - enabled: true
+      type: ClusterIP
+      port:
+        port: 3478
+        name: stun-tcp
+        protocol: TCP
+        targetPort: 3478
   udp:
     enabled: true
     type: ClusterIP
     port:
       port: 3478
-      name: unifistun
+      name: stun-udp
       protocol: UDP
       targetPort: 3478
     

@@ -437,8 +437,8 @@ questions:
                       label: "Select Entrypoint"
                       schema:
                         type: string
-                        default: "unifistun"
+                        default: "stun-udp"
                         required: true
                         enum:
-                          - value: "unifistun"
-                            description: "Unifi STUN UDP: port 3478"
+                          - value: "stun-udp"
+                            description: "STUN UDP: port 3478"
