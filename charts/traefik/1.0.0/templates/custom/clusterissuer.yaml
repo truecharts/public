@@ -1,0 +1,197 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dns-secrets
+  #namespace: cert-manager
+type: Opaque
+stringData:
+  {{- if eq .Values.certmanager.provider "cloudflare" }}
+  api-key: {{ .Values.certmanager.cloudflare.apikey | quote }}
+  {{- else if eq .Values.certmanager.provider "cloudDNS" }}
+  key-json: {{ .Values.certmanager.cloudDNS.keyjson | quote }}
+  {{- else if eq .Values.certmanager.provider "route53" }}
+  secret-access-key: {{ .Values.certmanager.route53.secretaccesskey | quote }}
+  {{- else if eq .Values.certmanager.provider "digitalocean" }}
+  access-token: {{ .Values.certmanager.digitalocean.accesstoken | quote }}
+  {{- else if eq .Values.certmanager.provider "rfc2136" }}
+  rfc2136:
+  tsig-secret-key: {{ .Values.certmanager.rfc2136.tsigsecretkey | quote }}
+  {{- else if eq .Values.certmanager.provider "akamai" }}
+  clientToken: {{ .Values.certmanager.akamai.clientToken| quote }}
+  clientSecret: {{ .Values.certmanager.akamai.clientSecret| quote }}
+  accessToken: {{ .Values.certmanager.akamai.accessToken| quote }}
+  {{- else if eq .Values.certmanager.provider "acmeDNS" }}
+  acmedns-json: {{ .Values.certmanager.acmeDNS.acmednsjson | quote }}
+  {{- end }}
+---
+{{- if .Values.certmanager.email -}}
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+  #namespace: default
+  annotations:
+   # hooks are defined here
+   "helm.sh/hook": post-install,post-upgrade
+   #"helm.sh/hook-weight": "0"
+   "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  acme:
+    # You must replace this email address with your own.
+    # Let's Encrypt will use this to contact you about expiring
+    # certificates, and issues related to your account.
+    email: {{ .Values.certmanager.email }}
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      # Secret resource used to store the account's private key.
+      name: prod-issuer-account-key
+    # Add a single challenge solver, DNS01
+    solvers:
+    - dns01:
+        {{- if eq .Values.certmanager.provider "cloudflare" }}
+        cloudflare:
+          email: {{ .Values.certmanager.email }}
+          apiKeySecretRef:
+            name: dns-secrets
+            key: api-key
+        {{- else if eq .Values.certmanager.provider "cloudDNS" }}
+        cloudDNS:
+        # The ID of the GCP project
+          project: {{ .Values.certmanager.cloudDNS.project }}
+          # This is the secret used to access the service account
+          serviceAccountSecretRef:
+            name: dns-secrets
+            key: key-json
+        {{- else if eq .Values.certmanager.provider "route53" }}
+        route53:
+          region: {{ .Values.certmanager.route53.region }}
+          accessKeyID: {{ .Values.certmanager.route53.accessKeyID }}
+          secretAccessKeySecretRef:
+            name: dns-secrets
+            key: secret-access-key
+          # you can also assume a role with these credentials
+          role: {{ .Values.certmanager.route53.role }}
+        {{- else if eq .Values.certmanager.provider "digitalocean" }}
+        digitalocean:
+          tokenSecretRef:
+            name: dns-secrets
+            key: access-token
+        {{- else if eq .Values.certmanager.provider "rfc2136" }}
+        rfc2136:
+         nameserver: {{ .Values.certmanager.rfc2136.nameserver }}
+         tsigKeyName: {{ .Values.certmanager.rfc2136.tsigKeyName }}
+         tsigAlgorithm: {{ .Values.certmanager.rfc2136.tsigAlgorithm }}
+         tsigSecretSecretRef:
+           name: dns-secrets
+           key: tsig-secret-key
+        {{- else if eq .Values.certmanager.provider "azureDNS" }}
+        azureDNS:
+          subscriptionID: {{ .Values.certmanager.azureDNS.subscriptionID }}
+          resourceGroupName: {{ .Values.certmanager.azureDNS.resourceGroupName }}
+          hostedZoneName: {{ .Values.certmanager.azureDNS.hostedZoneName }}
+          environment: {{ .Values.certmanager.azureDNS.environment }}
+        {{- else if eq .Values.certmanager.provider "akamai" }}
+        akamai:
+          serviceConsumerDomain: {{ .Values.certmanager.akamai.serviceConsumerDomain }}
+          clientTokenSecretRef:
+            name: dns-secrets
+            key: clientToken
+          clientSecretSecretRef:
+            name: dns-secrets
+            key: clientSecret
+          accessTokenSecretRef:
+            name: dns-secrets
+            key: akamaiaccessToken
+        {{- else if eq .Values.certmanager.provider "acmeDNS" }}
+        acmeDNS:
+          host: {{ .Values.certmanager.acmeDNS.host }}
+          accountSecretRef:
+            name: dns-secrets
+            key: acmedns-json
+        {{- end }}
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+  #namespace: default
+  annotations:
+   # hooks are defined here
+   "helm.sh/hook": post-install,post-upgrade
+   #"helm.sh/hook-weight": "0"
+   "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  acme:
+    # You must replace this email address with your own.
+    # Let's Encrypt will use this to contact you about expiring
+    # certificates, and issues related to your account.
+    email: {{ .Values.certmanager.email }}
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      # Secret resource used to store the account's private key.
+      name: staging-issuer-account-key
+    # Add a single challenge solver, DNS01
+    solvers:
+    - dns01:
+        {{- if eq .Values.certmanager.provider "cloudflare" }}
+        cloudflare:
+          email: {{ .Values.certmanager.email }}
+          apiKeySecretRef:
+            name: dns-secrets
+            key: api-key
+        {{- else if eq .Values.certmanager.provider "cloudDNS" }}
+        cloudDNS:
+        # The ID of the GCP project
+          project: {{ .Values.certmanager.cloudDNS.project }}
+          # This is the secret used to access the service account
+          serviceAccountSecretRef:
+            name: dns-secrets
+            key: key-json
+        {{- else if eq .Values.certmanager.provider "route53" }}
+        route53:
+          region: {{ .Values.certmanager.route53.region }}
+          accessKeyID: {{ .Values.certmanager.route53.accessKeyID }}
+          secretAccessKeySecretRef:
+            name: dns-secrets
+            key: secret-access-key
+          # you can also assume a role with these credentials
+          role: arn:aws:iam::YYYYYYYYYYYY:role/dns-manager
+        {{- else if eq .Values.certmanager.provider "digitalocean" }}
+        digitalocean:
+          tokenSecretRef:
+            name: dns-secrets
+            key: access-token
+        {{- else if eq .Values.certmanager.provider "rfc2136" }}
+        rfc2136:
+         nameserver: {{ .Values.certmanager.rfc2136.nameserver }}
+         tsigKeyName: {{ .Values.certmanager.rfc2136.tsigKeyName }}
+         tsigAlgorithm: {{ .Values.certmanager.rfc2136.tsigAlgorithm }}
+         tsigSecretSecretRef:
+           name: dns-secrets
+           key: tsig-secret-key
+        {{- else if eq .Values.certmanager.provider "azureDNS" }}
+        azureDNS:
+          subscriptionID: {{ .Values.certmanager.azureDNS.subscriptionID }}
+          resourceGroupName: {{ .Values.certmanager.azureDNS.resourceGroupName }}
+          hostedZoneName: {{ .Values.certmanager.azureDNS.hostedZoneName }}
+          environment: {{ .Values.certmanager.azureDNS.environment }}
+        {{- else if eq .Values.certmanager.provider "akamai" }}
+        akamai:
+          serviceConsumerDomain: {{ .Values.certmanager.akamai.serviceConsumerDomain }}
+          clientTokenSecretRef:
+            name: dns-secrets
+            key: clientToken
+          clientSecretSecretRef:
+            name: dns-secrets
+            key: clientSecret
+          accessTokenSecretRef:
+            name: dns-secrets
+            key: akamaiaccessToken
+        {{- else if eq .Values.certmanager.provider "acmeDNS" }}
+        acmeDNS:
+          host: {{ .Values.certmanager.acmeDNS.host }}
+          accountSecretRef:
+            name: dns-secrets
+            key: acmedns-json
+        {{- end }}
+{{- end }}
