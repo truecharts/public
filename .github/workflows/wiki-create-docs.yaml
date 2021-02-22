@@ -32,7 +32,7 @@ jobs:
         run: |
           rm -Rf wiki/content
           mkdir -p wiki/content
-          cp -f wiki/CNAME /wiki/content/CNAME
+          cp -f wiki/CNAME wiki/content/CNAME
           
       - name: Create general wiki
         run: |
