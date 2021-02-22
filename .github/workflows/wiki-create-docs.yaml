@@ -1,0 +1,74 @@
+name: "Wiki: Create General Docs"
+
+on:
+  push:
+    branches:
+      - master
+      - charts
+    tags-ignore:
+      - '**'
+
+jobs:
+  publish-app-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout-Charts
+        uses: actions/checkout@v2
+        with:
+          ref: 'master'
+          path: 'master'
+      - name: Checkout-Charts
+        uses: actions/checkout@v2
+        with:
+          ref: 'charts'
+          path: 'charts'
+      - name: Checkout-Charts
+        uses: actions/checkout@v2
+        with:
+          repository: 'truecharts/wiki'
+          path: 'wiki'
+          token: ${{ secrets.RENOVPUSH }}
+      - name: Clean-Wiki
+        run: |
+          rm -Rf wiki/content
+          mkdir -p wiki/content
+          
+      - name: Create general wiki
+        run: |
+          cd master
+          # for doc in docs/*; do
+          #     if [ -d "${doc}" ]; then
+          #         docname=$(basename ${doc})
+          #         cp -Rf docs/${docname} ../wiki/content/
+          #     fi
+          # done
+          cp .github/README.md ../wiki/content/index.md || echo "readme copy failed, continuing..."
+          cp .github/CODE_OF_CONDUCT ../wiki/content/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          cp .github/CONTRIBUTING ../wiki/content/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          ls ../wiki/content/
+          cd ..
+
+      - name: Create apps wiki
+        run: |
+          cd charts
+          for chart in charts/*; do
+              if [ -d "${chart}" ]; then
+                  chartname=$(basename ${chart})
+                  mkdir -p ../wiki/content/apps/${chartname} || echo "wiki path already exists, continuing..."
+                  if [ -d "${chart}/docs" ]; then
+                    cp -f ${chart}/docs/* ../wiki/content/apps/${chartname}/
+                  fi
+                  cp ${chart}/README.md ../wiki/content/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
+              fi
+          done
+          ls ../wiki/content/apps/
+          cd ..
+
+      - name: Commit and push updated charts
+        run: |
+          cd wiki
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add --all
+          git commit -sm "Publish general wiki updates" || exit 0
+          git push
