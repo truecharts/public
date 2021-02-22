@@ -29,7 +29,7 @@ A: Please file an issue about it, after checking the wiki to make sure it hasn't
 https://github.com/truecharts/truecharts/wiki/k8s-at-home-to-SCALE-App-migration-list
 
 - Q: Isn't there more documentation for app x<br>
-A: No, currently during TrueNAS SCALE ALPHA/BETA we focus on the technical aspects. 
+A: If it's not on our [wiki](https://wiki.truecharts.org), we do not. Currently during TrueNAS SCALE ALPHA/BETA we focus on the technical aspects. 
 
 - Q: Function x doesn't seem to be working, should it be working?<br>
 A: Maybe, please file an issue
@@ -55,8 +55,6 @@ A: We almost allways use the defaults from the upstream project, if we are force
 ## Getting into creating Apps
 
 Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior knowhow on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
-
-The specifications of TrueNAS SCALE apps, is layed out in the [wiki](https://github.com/truecharts/truecharts/wiki/TrueNAS-SCALE-Chart-Structure)
 
 
 ## Licence
