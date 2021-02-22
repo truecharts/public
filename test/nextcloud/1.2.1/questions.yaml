@@ -22,42 +22,6 @@ portals:
       - "$variable-service.nodePort"
 
 questions:
-  # Image related
-  - variable: image
-    description: "Docker Image Details"
-    label: "Docker Image"
-    group: "Container Images"
-    schema:
-      type: dict
-      required: true
-      attrs:
-        - variable: repository
-          description: "Docker image repository"
-          label: "Image repository"
-          schema:
-            type: string
-            default: "nextcloud"
-            required: true
-        - variable: tag
-          description: "Tag to use for specified image"
-          label: "Image Tag"
-          schema:
-            type: string
-            default: "latest"
-        - variable: pullPolicy
-          description: "Docker Image Pull Policy"
-          label: "Image Pull Policy"
-          schema:
-            type: string
-            default: "IfNotPresent"
-            enum:
-              - value: "IfNotPresent"
-                description: "Only pull image if not present on host"
-              - value: "Always"
-                description: "Always pull image even if present on host"
-              - value: "Never"
-                description: "Never pull image even if it's not present on host"
-
   - variable: nextcloud
     description: "Nextcloud configuration details"
     label: "Nextcloud Configuration"
