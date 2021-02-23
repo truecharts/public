@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - charts
     tags-ignore:
       - '**'
 
@@ -12,17 +11,12 @@ jobs:
   publish-app-docs:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout-Charts
+      - name: Checkout-Master
         uses: actions/checkout@v2
         with:
-          ref: 'master'
           path: 'master'
-      - name: Checkout-Charts
-        uses: actions/checkout@v2
-        with:
-          ref: 'charts'
-          path: 'charts'
-      - name: Checkout-Charts
+          token: ${{ secrets.RENOVPUSH }}
+      - name: Checkout-Wiki
         uses: actions/checkout@v2
         with:
           repository: 'truecharts/wiki'
@@ -64,16 +58,19 @@ jobs:
 
       - name: Create apps wiki
         run: |
-          cd charts
+          cd master
           for chart in charts/*; do
-              if [ -d "${chart}" ]; then
-                  chartname=$(basename ${chart})
-                  mkdir -p ../wiki/content/apps/${chartname} || echo "wiki path already exists, continuing..."
-                  if [ -d "${chart}/docs" ]; then
-                    cp -f ${chart}/docs/* ../wiki/content/apps/${chartname}/
-                  fi
-                  cp ${chart}/README.md ../wiki/content/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
-              fi
+            if [ -d "${chart}" ]; then
+                maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
+                chartname=$(basename ${chart})
+                echo "Processing: ${chart} - folder: ${maxfolderversion}"
+
+                mkdir -p ../wiki/content/apps/${chartname} || echo "wiki path already exists, continuing..."
+                if [ -d "${chart}/${maxfolderversion}/docs" ]; then
+                  cp -f ${chart}/${maxfolderversion}/docs/* ../wiki/content/apps/${chartname}/
+                fi
+                cp ${chart}/${maxfolderversion}/README.md ../wiki/content/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
+            fi
           done
           ls ../wiki/content/apps/
           cd ..
