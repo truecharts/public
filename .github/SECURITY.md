@@ -13,4 +13,3 @@ If you find any security issue, please email the project maintainer.
 
 Currently the Project Maintainer is:
 [Ornias1993](https://github.com/Ornias1993)
-

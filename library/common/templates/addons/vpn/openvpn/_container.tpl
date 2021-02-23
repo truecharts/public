@@ -15,7 +15,7 @@ env:
   - name: {{ $k }}
     value: {{ $v | quote }}
 {{- end }}
-{{- end }}  
+{{- end }}
 {{- if or .Values.addons.vpn.openvpn.auth .Values.addons.vpn.openvpn.authSecret }}
 envFrom:
   - secretRef:

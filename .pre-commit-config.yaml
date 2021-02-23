@@ -3,7 +3,9 @@ repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v3.4.0
   hooks:
-  - id: end-of-file-fixer
-    exclude: '\.github(.+)'
   - id: trailing-whitespace
-    exclude: '\.github(.+)'
+  - id: end-of-file-fixer
+  - id: fix-byte-order-marker
+  - id: mixed-line-ending
+  - id: check-merge-conflict
+  - id: check-case-conflict

@@ -1,0 +1,56 @@
+# Default values for tvheadend.
+
+image:
+  repository: linuxserver/tvheadend
+  pullPolicy: IfNotPresent
+  tag: latest
+
+strategy:
+  type: Recreate
+
+# See https://github.com/linuxserver/docker-tvheadend#parameters
+env: {}
+  # PUID: 1000
+  # PGID: 1000
+  # TZ: Europe/London
+  # RUN_OPTS: <run options here>
+
+service:
+  port:
+    port: 9981
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+    mountPath: /config
+  recordings:
+    enabled: false
+    emptyDir: false
+    mountPath: /recordings
+
+appIngressEnabled: false
+
+
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    #setPermissions: true
+    mountPath: "/config"
+  recordings:
+    enabled: true
+    emptyDir: true
+    #setPermissions: true
+    mountPath: "/recordings"
+
+appAdditionalServicesEnabled: true
+appAdditionalServices:
+  htsp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 9982
+      name: htsp
+      protocol: TCP
+      targetPort: 9982
