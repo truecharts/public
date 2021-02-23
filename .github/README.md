@@ -29,7 +29,7 @@ A: Please file an issue about it, after checking the wiki to make sure it hasn't
 https://github.com/truecharts/truecharts/wiki/k8s-at-home-to-SCALE-App-migration-list
 
 - Q: Isn't there more documentation for app x<br>
-A: If it's not on our [wiki](https://wiki.truecharts.org), we do not. Currently during TrueNAS SCALE ALPHA/BETA we focus on the technical aspects. 
+A: If it's not on our [wiki](https://wiki.truecharts.org), we do not. Currently during TrueNAS SCALE ALPHA/BETA we focus on the technical aspects.
 
 - Q: Function x doesn't seem to be working, should it be working?<br>
 A: Maybe, please file an issue

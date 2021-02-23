@@ -28,24 +28,37 @@ jobs:
           repository: 'truecharts/wiki'
           path: 'wiki'
           token: ${{ secrets.RENOVPUSH }}
+
+
+      - name: install helm-docs
+        run: |
+          brew install norwoodj/tap/helm-docs
+
+      - name: (re)generate docs
+        run: |
+          cd master
+          .tools/gen-helm-docs.sh
+          cd ..
+
       - name: Clean-Wiki
         run: |
           rm -Rf wiki/content
           mkdir -p wiki/content
+          mkdir -p wiki/content/development
           cp -f wiki/CNAME wiki/content/CNAME
-          
+
       - name: Create general wiki
         run: |
           cd master
-          # for doc in docs/*; do
-          #     if [ -d "${doc}" ]; then
-          #         docname=$(basename ${doc})
-          #         cp -Rf docs/${docname} ../wiki/content/
-          #     fi
-          # done
+          for doc in .github/docs/*; do
+              if [ -d "${doc}" ]; then
+                  docname=$(basename ${doc})
+                  cp -Rf ${doc} ../wiki/content/
+              fi
+          done
           cp .github/README.md ../wiki/content/index.md || echo "readme copy failed, continuing..."
           cp .github/CODE_OF_CONDUCT ../wiki/content/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
-          cp .github/CONTRIBUTING ../wiki/content/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          cp .github/CONTRIBUTING ../wiki/content/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
           ls ../wiki/content/
           cd ..
 
@@ -65,11 +78,21 @@ jobs:
           ls ../wiki/content/apps/
           cd ..
 
-      - name: Commit and push updated charts
+      - name: Commit and push updated wiki
         run: |
           cd wiki
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git add --all
           git commit -sm "Publish general wiki updates" || exit 0
+          git push
+          cd ..
+
+      - name: Commit and push updated charts
+        run: |
+          cd master
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add --all
+          git commit -sm "Publish docs updates" || exit 0
           git push

@@ -1,5 +1,5 @@
 {{/*
-This template serves as the blueprint for the StatefulSet objects that are created 
+This template serves as the blueprint for the StatefulSet objects that are created
 within the common library.
 */}}
 {{- define "common.statefulset" -}}
@@ -41,7 +41,7 @@ spec:
   - metadata:
       name: {{ $vct.name }}
     spec:
-      accessModes: 
+      accessModes:
         - {{ required (printf "accessMode is required for vCT %v" $vct.name) $vct.accessMode  | quote }}
       resources:
         requests:
