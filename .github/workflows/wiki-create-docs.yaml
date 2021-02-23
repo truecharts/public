@@ -39,6 +39,7 @@ jobs:
         run: |
           rm -Rf wiki/content
           mkdir -p wiki/content
+          mkdir -p wiki/content/development
           cp -f wiki/CNAME wiki/content/CNAME
 
       - name: Create general wiki
@@ -52,7 +53,7 @@ jobs:
           done
           cp .github/README.md ../wiki/content/index.md || echo "readme copy failed, continuing..."
           cp .github/CODE_OF_CONDUCT ../wiki/content/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
-          cp .github/CONTRIBUTING ../wiki/content/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          cp .github/CONTRIBUTING ../wiki/content/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
           ls ../wiki/content/
           cd ..
 
