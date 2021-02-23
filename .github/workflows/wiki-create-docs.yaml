@@ -25,9 +25,16 @@ jobs:
       - name: Checkout-Charts
         uses: actions/checkout@v2
         with:
-            repository: 'truecharts/wiki'
+          repository: 'truecharts/wiki'
           path: 'wiki'
           token: ${{ secrets.RENOVPUSH }}
+
+      - name: (re)generate docs
+        run: |
+          cd master
+          .tools/gen-helm-docs.sh
+          cd ..
+
       - name: Clean-Wiki
         run: |
           rm -Rf wiki/content
@@ -65,11 +72,21 @@ jobs:
           ls ../wiki/content/apps/
           cd ..
 
-      - name: Commit and push updated charts
+      - name: Commit and push updated wiki
         run: |
           cd wiki
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git add --all
           git commit -sm "Publish general wiki updates" || exit 0
+          git push
+          cd ..
+
+      - name: Commit and push updated charts
+        run: |
+          cd master
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add --all
+          git commit -sm "Publish docs updates" || exit 0
           git push

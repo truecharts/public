@@ -1,0 +1,60 @@
+name: "Charts: Release"
+
+on:
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - '**'
+    paths:
+      - 'charts/**'
+      - '!charts/**/*.md'
+      - '!charts/**/README.md'
+      - '!charts/**/README.md.gotmpl'
+      - '!charts/**/docs/*'
+      - 'library/**'
+      - '!library/**/*.md'
+      - '!library/**/README.md'
+      - '!library/**/README.md.gotmpl'
+      - '!library/**/docs/*'
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout-Master
+        uses: actions/checkout@v2
+        with:
+          ref: 'master'
+          path: 'master'
+      - name: Checkout-Charts
+        uses: actions/checkout@v2
+        with:
+          ref: 'charts'
+          path: 'charts'
+
+      - name: Generate Helm Structure
+        run: |
+          cd master
+          rm -Rf ../charts/charts/*
+          for chart in charts/*; do
+              if [ -d "${chart}" ]; then
+                  maxversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
+                  chartname=$(basename ${chart})
+                  echo "Processing ${chart} version ${maxversion}"
+                  mv ${chart}/${maxversion} ../charts/charts/${chartname}
+                  rm ../charts/charts/${chartname}/Chart.lock || echo "chart.lock missing for ${chartname}, continuing..."
+              fi
+          done
+          mv library/* ../charts/charts/
+          ls ../charts/charts/
+          cd ..
+
+      - name: Commit and push updated charts
+        run: |
+          cd charts
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add --all
+          git commit -sm "Publish Chart updates" || exit 0
+          git push

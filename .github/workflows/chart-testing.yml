@@ -72,7 +72,7 @@ jobs:
           bundle install
       - name: Run tests
         run: |
-          bundle exec m -r .test/charts
+          bundle exec m -r .tools/tests/charts
 
 
   chart-tests:

@@ -1,5 +1,5 @@
 {{- define "custom.custom.configuration.header" -}}
-## Custom configuration
+# Configuration Options
 {{- end -}}
 
 {{- define "custom.custom.configuration" -}}
@@ -7,3 +7,5 @@
 
 N/A
 {{- end -}}
+
+{{ template "custom.custom.configuration" . }}
