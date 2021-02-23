@@ -45,7 +45,7 @@ The main container included in the controller.
   {{- end }}
   {{- range $key, $value := .Values.envValueFrom }}
     - name: {{ $key }}
-      valueFrom: 
+      valueFrom:
         {{- $value | toYaml | nindent 8 }}
   {{- end }}
   {{- end }}

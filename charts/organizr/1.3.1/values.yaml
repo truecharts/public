@@ -1,0 +1,36 @@
+
+# Default values for Organizr.
+
+image:
+  repository: organizr/organizr
+  pullPolicy: Always
+  tag: latest
+
+strategy:
+  type: Recreate
+
+service:
+  port:
+    port: 80
+
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+
+## TrueCharts Config
+
+
+
+#appVolumeMounts:
+#  config:
+#    enabled: true
+#    emptyDir: false
+#  data:
+#    enabled: true
+#    emptyDir: false

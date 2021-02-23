@@ -1,0 +1,127 @@
+image:
+  repository: jlesage/handbrake
+  tag: v1.23.1
+  pullPolicy: IfNotPresent
+
+strategy:
+  type: Recreate
+
+service:
+  port:
+    port: 5800            #Required for web GUI
+
+#All values here are set as the docker defaults.
+envTpl:
+# Permissions Settings
+  USER_ID: "{{ .Values.PUID }}"
+  GROUP_ID: "{{ .Values.PGID }}"
+env:
+# General Settings
+  KEEP_APP_RUNNING: "0"
+  CLEAN_TMP_DIR: "1"
+# GUI Settings
+  DISPLAY_WIDTH: "1280"
+  DISPLAY_HEIGHT: "768"
+  SECURE_CONNECTION: "0"
+  VNC_PASSWORD:
+# Automated Conversion Preset
+  AUTOMATED_CONVERSION_PRESET: 'General/Very Fast 1080p30'
+  AUTOMATED_CONVERSION_FORMAT: 'mp4'
+  AUTOMATED_CONVERSION_KEEP_SOURCE: "1"
+  AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION: 'ignore'
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+    mountPath: /config
+
+  storage:
+    enabled: false
+    emptyDir: false
+    mountPath: /storage  # This can be read only
+
+  watch:
+    enabled: false
+    emptyDir: false
+    mountPath: /watch
+
+  output:
+    enabled: false
+    emptyDir: false
+    mountPath: /output
+
+## Somehow must enable user to add as many watch folders
+## All folders must start with "watch" and an index after
+## eg. /watch1, /watch2
+## This is importand because settings can overrode to each watch folder exclusivly, with env vars with _# as a suffix
+## eg. AUTOMATED_CONVERSION_PRESET_1
+
+# Path to your optical drive device in the container
+additionalVolumeMounts: []
+#  - name: opticaldrive
+#    mountPath: /dev/serial/by-id/sr0-
+
+# Path to your zwave device on the host
+additionalVolumes: []
+#  - name: opticaldrive
+#    hostPath:
+#      path: /dev/serial/by-id/sr0-
+
+# affinity:
+#   nodeAffinity:
+#     requiredDuringSchedulingIgnoredDuringExecution:
+#       nodeSelectorTerms:
+#       - matchExpressions:
+#         - key: app
+#           operator: In
+#           values:
+#           - opticaldrive-controller
+
+appVolumeMounts:
+ config:
+   enabled: true
+   emptyDir: true
+   datasetName: "config"
+   mountPath: "/config"
+   hostPathEnabled: true
+   setPermissions: true
+ storage:
+   enabled: true
+   emptyDir: true
+   datasetName: "storage"
+   mountPath: "/storage"
+   hostPathEnabled: true
+   setPermissions: true
+ watch:
+   enabled: true
+   emptyDir: true
+   datasetName: "watch"
+   mountPath: "/watch"
+   hostPathEnabled: true
+   setPermissions: true
+ output:
+   enabled: true
+   emptyDir: true
+   datasetName: "output"
+   mountPath: "/output"
+   hostPathEnabled: true
+   setPermissions: true
+#  opticaldrive:
+#    enabled: true
+#    emptyDir: true
+#    mountPath: "/dev/sr0"
+#    hostPath: "/dev/sr0"
+#    hostPathEnabled: true
+#    setPermissions: true
+
+appAdditionalServicesEnabled: true
+appAdditionalServices:
+  vnc:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 5900
+      name: vnc
+      protocol: "TCP"
+      targetPort: 5900
