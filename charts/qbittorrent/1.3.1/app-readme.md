@@ -1,1 +1,2 @@
-The qbittorrent App is designed to deploy qbittorrent in a TrueNAS SCALE kubernetes cluster.
+qBittorrent is a cross-platform free and open-source BitTorrent client
+

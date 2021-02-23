@@ -1,3 +1,2 @@
-# Transmission
+API Support for your favorite torrent trackers.
 
-Transmission chart is a chart designed to deploy Transmission in a TrueNAS SCALE kubernetes cluster.

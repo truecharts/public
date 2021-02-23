@@ -1,1 +1,2 @@
-The navidrome App is designed to deploy navidrome in a TrueNAS SCALE kubernetes cluster.
+Navidrome is an open source web-based music collection server and streamer
+

@@ -1,3 +1,2 @@
-# Ombi
+Want a Movie or TV Show on Plex or Emby? Use Ombi!
 
-Ombi chart is a chart designed to deploy Ombi in a TrueNAS SCALE kubernetes cluster.

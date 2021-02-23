@@ -1,1 +1,2 @@
-The tvheadend App is designed to deploy tvheadend in a TrueNAS SCALE kubernetes cluster.
+TVheadend - a TV streaming server and digital video recorder
+

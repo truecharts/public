@@ -1,1 +1,2 @@
-The lychee App is designed to deploy lychee in a TrueNAS SCALE kubernetes cluster.
+Lychee is a free photo-management tool, which runs on your server or web-space
+

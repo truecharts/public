@@ -1,3 +1,2 @@
-# Truecommand
+Aggregated management of TrueNAS devices
 
-Truecommand chart is a chart designed to deploy Truecommand in a TrueNAS SCALE kubernetes cluster.

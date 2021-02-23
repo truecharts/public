@@ -1,3 +1,2 @@
-# Lidarr
+Looks and smells like Sonarr but made for music
 
-Lidarr chart is a chart designed to deploy Lidarr in a TrueNAS SCALE kubernetes cluster.

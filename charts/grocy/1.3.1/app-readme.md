@@ -1,1 +1,2 @@
-The grocy App is designed to deploy grocy in a TrueNAS SCALE kubernetes cluster.
+ERP beyond your fridge - grocy is a web-based self-hosted groceries & household management solution for your home
+
