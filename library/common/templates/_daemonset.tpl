@@ -1,5 +1,5 @@
 {{/*
-This template serves as the blueprint for the DaemonSet objects that are created 
+This template serves as the blueprint for the DaemonSet objects that are created
 within the common library.
 */}}
 {{- define "common.daemonset" -}}

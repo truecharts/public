@@ -3,56 +3,26 @@ name: "Charts: Release"
 on:
   push:
     branches:
-      - master
+      - charts
     tags-ignore:
       - '**'
     paths:
       - 'charts/**'
+      - '!charts/**/*.md'
       - '!charts/**/README.md'
+      - '!charts/**/README.md.gotmpl'
+      - '!charts/**/app-readme.md'
+      - '!charts/**/app-readme.md.gotmpl'
+      - '!charts/**/docs/*'
       - 'library/**'
+      - '!library/**/*.md'
       - '!library/**/README.md'
+      - '!library/**/README.md.gotmpl'
+      - '!library/**/app-readme.md'
+      - '!library/**/app-readme.md.gotmpl'
+      - '!library/**/docs/*'
 
 jobs:
-  copy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout-Master
-        uses: actions/checkout@v2
-        with:
-          ref: 'master'
-          path: 'master'
-      - name: Checkout-Charts
-        uses: actions/checkout@v2
-        with:
-          ref: 'charts'
-          path: 'charts'
-
-      - name: Generate Helm Structure
-        run: |
-          cd master
-          rm -Rf ../charts/charts/*
-          for chart in charts/*; do
-              if [ -d "${chart}" ]; then
-                  maxversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
-                  chartname=$(basename ${chart})
-                  echo "Processing ${chart} version ${maxversion}"
-                  mv ${chart}/${maxversion} ../charts/charts/${chartname}
-                  rm ../charts/charts/${chartname}/Chart.lock || echo "chart.lock missing for ${chartname}, continuing..."
-              fi
-          done
-          mv library/* ../charts/charts/
-          ls ../charts/charts/
-          cd ..
-
-      - name: Commit and push updated charts
-        run: |
-          cd charts
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git add --all
-          git commit -sm "Publish Chart updates" || exit 0
-          git push
-    
   pre-release:
     needs: copy
     runs-on: ubuntu-latest
@@ -79,7 +49,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          ref: 'charts'
           fetch-depth: 0
 
       - name: Configure Git
@@ -97,7 +66,7 @@ jobs:
           charts_repo_url: https://charts.truecharts.org/
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-  
+
   # Update the generated timestamp in the index.yaml
   # needed until https://github.com/helm/chart-releaser/issues/90
   # or helm/chart-releaser-action supports this

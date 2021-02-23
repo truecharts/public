@@ -1,0 +1,33 @@
+# Default values for FreshRSS.
+
+image:
+  repository: linuxserver/freshrss
+  pullPolicy: IfNotPresent
+  tag: version-1.17.0
+
+strategy:
+  type: Recreate
+
+service:
+  port:
+    port: 80
+
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+
+appIngressEnabled: false
+
+
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/config"

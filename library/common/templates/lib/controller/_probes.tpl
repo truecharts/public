@@ -8,7 +8,7 @@ Probes selection logic.
     {{- "" | nindent 0 }}
     {{- $probeName }}Probe:
     {{- if $probe.custom -}}
-      {{- $probe.spec | toYaml | nindent 2 }}  
+      {{- $probe.spec | toYaml | nindent 2 }}
     {{- else }}
       {{- "tcpSocket:" | nindent 2 }}
         {{- printf "port: %v" $svcPort  | nindent 4 }}

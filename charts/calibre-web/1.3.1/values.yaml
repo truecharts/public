@@ -1,0 +1,52 @@
+# Default values for Calibre-Web.
+
+image:
+  repository: linuxserver/calibre-web
+  pullPolicy: IfNotPresent
+  tag: version-0.6.9
+
+strategy:
+  type: Recreate
+
+service:
+  port:
+    port: 8083
+
+env: {}
+  # TZ:
+  # PUID:
+  # PGID:
+  # UMASK:
+  # DOCKER_MODS:
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+
+  books:
+    enabled: false
+    emptyDir: false
+    ## Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    # storageClass: "-"
+    # accessMode: ReadWriteOnce
+    # size: 1Gi
+    ## Set to true to retain the PVC upon helm uninstall
+    # skipuninstall: false
+    # existingClaim: ""
+
+appIngressEnabled: false
+
+
+#appVolumeMounts:
+#  config:
+#    enabled: false
+#    emptyDir: false
+#  media:
+#    enabled: false
+#    emptyDir: false

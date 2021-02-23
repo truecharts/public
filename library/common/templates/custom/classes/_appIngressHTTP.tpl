@@ -1,5 +1,5 @@
 {{/*
-This template serves as a blueprint for all appIngress objects that are created 
+This template serves as a blueprint for all appIngress objects that are created
 within the common library.
 */}}
 {{- define "common.custom.classes.appIngressHTTP" -}}

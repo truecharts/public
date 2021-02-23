@@ -1,0 +1,51 @@
+
+# Default values for jellyfin.
+
+image:
+  repository: linuxserver/jellyfin
+  pullPolicy: IfNotPresent
+  tag: version-10.6.4-1
+
+strategy:
+  type: Recreate
+
+service:
+  port:
+    port: 8096
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+
+  media:
+    enabled: false
+    emptyDir: false
+    mountPath: /media
+    ## Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    # storageClass: "-"
+    # accessMode: ReadWriteOnce
+    # size: 1Gi
+    ## Do not delete the pvc upon helm uninstall
+    # skipuninstall: false
+    # existingClaim: ""
+
+## TrueCharts Config
+
+
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/config"
+  media:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/media"
