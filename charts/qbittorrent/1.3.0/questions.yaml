@@ -110,7 +110,7 @@ questions:
                 label: "Value"
                 schema:
                   type: string
-      
+
   - variable: service
     group: "Networking"
     label: "Configure Service"
@@ -148,8 +148,8 @@ questions:
                         max: 65535
                         default: 36052
                         required: true
-                        
-                        
+
+
   - variable: appAdditionalServices
     group: "Networking"
     label: "Configure additional services"
@@ -316,7 +316,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false 
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -372,7 +372,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false 
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:

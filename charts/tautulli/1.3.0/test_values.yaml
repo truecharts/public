@@ -22,7 +22,7 @@ persistence:
     enabled: false
     emptyDir: false
     mountPath: "/config"
-    
+
 ## TrueCharts Config
 
 appVolumeMounts:
@@ -31,6 +31,3 @@ appVolumeMounts:
     emptyDir: true
     setPermissions: true
     mountPath: "/config"
-
-
-

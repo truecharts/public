@@ -23,7 +23,7 @@ persistence:
     emptyDir: false
 
 appIngressEnabled: false
-    
+
 
 appVolumeMounts:
   config:
@@ -31,4 +31,3 @@ appVolumeMounts:
     emptyDir: true
     setPermissions: true
     mountPath: "/config"
-    

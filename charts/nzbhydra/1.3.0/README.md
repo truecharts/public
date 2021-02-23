@@ -43,7 +43,7 @@ helm install nzbhydra \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the
 chart. For example,
 ```console
-helm install nzbhydra k8s-at-home/nzbhydra --values values.yaml 
+helm install nzbhydra k8s-at-home/nzbhydra --values values.yaml
 ```
 
 ```yaml

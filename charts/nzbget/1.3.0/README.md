@@ -48,7 +48,7 @@ helm install nzbget \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the
 chart. For example,
 ```console
-helm install radarr k8s-at-home/nzbget --values values.yaml 
+helm install radarr k8s-at-home/nzbget --values values.yaml
 ```
 
 These values will be nested as it is a dependency, for example

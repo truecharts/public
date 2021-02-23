@@ -3,7 +3,7 @@ require_relative '../test_helper'
 
 class Test < ChartTest
   @@chart = Chart.new('library/common-test')
-  
+
   describe @@chart.name do
     describe 'controller type' do
       it 'defaults to "Deployment"' do
@@ -11,14 +11,14 @@ class Test < ChartTest
         assert_nil(resource('DaemonSet'))
         refute_nil(resource('Deployment'))
       end
-  
+
       it 'accepts "statefulset"' do
         chart.value controllerType: 'statefulset'
         assert_nil(resource('Deployment'))
         assert_nil(resource('DaemonSet'))
         refute_nil(resource('StatefulSet'))
       end
-  
+
       it 'accepts "daemonset"' do
         chart.value controllerType: 'daemonset'
         assert_nil(resource('Deployment'))
@@ -26,12 +26,12 @@ class Test < ChartTest
         refute_nil(resource('DaemonSet'))
       end
     end
-  
+
     describe 'pod replicas' do
       it 'defaults to 1' do
         jq('.spec.replicas', resource('Deployment')).must_equal 1
       end
-  
+
       it 'accepts integer as value' do
         chart.value replicas: 3
         jq('.spec.replicas', resource('Deployment')).must_equal 3
@@ -109,7 +109,7 @@ class Test < ChartTest
         jq('.spec.template.spec.containers[0].env[4].name', resource('Deployment')).must_equal values[:envTpl].keys[0].to_s
         jq('.spec.template.spec.containers[0].env[4].value', resource('Deployment')).must_equal 'common-test-admin'
       end
-      
+
       it 'set "Dynamic/Tpl" environment variables' do
         values = {
           envTpl: {
@@ -139,7 +139,7 @@ class Test < ChartTest
         jq('.spec.template.spec.containers[0].ports[0].containerPort', resource('Deployment')).must_equal default_port
         jq('.spec.template.spec.containers[0].ports[0].name', resource('Deployment')).must_equal default_name
       end
-  
+
       it 'port name can be overridden' do
         values = {
           service: {

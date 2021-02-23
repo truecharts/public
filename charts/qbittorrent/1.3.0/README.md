@@ -47,7 +47,7 @@ helm install my-release \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the
 chart. For example,
 ```console
-helm install my-release k8s-at-home/qbittorrent --values values.yaml 
+helm install my-release k8s-at-home/qbittorrent --values values.yaml
 ```
 
 ```yaml

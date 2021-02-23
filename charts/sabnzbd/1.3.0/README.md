@@ -50,7 +50,7 @@ helm install sabnzbd \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the
 chart. For example,
 ```console
-helm install sabnzbd k8s-at-home/sabnzbd --values values.yaml 
+helm install sabnzbd k8s-at-home/sabnzbd --values values.yaml
 ```
 
 ```yaml

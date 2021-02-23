@@ -57,7 +57,7 @@ persistence:
 
 
 appIngressEnabled: false
-    
+
 
 appVolumeMounts:
   config:
@@ -70,4 +70,3 @@ appVolumeMounts:
     emptyDir: true
     setPermissions: true
     mountPath: "/music"
-    

@@ -3,7 +3,7 @@
 ## Introduction
 
 This chart installs a collabora online (code) server
- 
+
 ## Configuration
 
 | **Description**                                                                                                        | **Parameter**         | **Type** | **Values**          | **Command Example (This is the defaults)** |

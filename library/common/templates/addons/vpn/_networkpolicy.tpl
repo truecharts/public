@@ -14,7 +14,7 @@ spec:
   policyTypes:
     - Egress
   egress:
-  {{- with .Values.addons.vpn.networkPolicy.egress }} 
+  {{- with .Values.addons.vpn.networkPolicy.egress }}
     {{- . | toYaml | nindent 4 }}
   {{- end -}}
 {{- end -}}

@@ -52,7 +52,7 @@ persistence:
     # existingClaim: ""
 
 appIngressEnabled: false
-    
+
 appVolumeMounts:
   config:
     enabled: true
@@ -69,4 +69,3 @@ appVolumeMounts:
     emptyDir: true
     setPermissions: true
     mountPath: "/downloads"
-    

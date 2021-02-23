@@ -25,7 +25,7 @@ addons:
     volumeMounts:
     - name: config
       mountPath: /www/assets
-    
+
 fixMountPermissions: false
 appVolumeMounts:
   data:
@@ -42,7 +42,7 @@ appVolumeMounts:
     mountPath: "/test"
     hostPathEnabled: true
     hostPath: "/tmp"
-    
+
 appAdditionalServicesEnabled: true
 appAdditionalServices:
   extra-tcp:

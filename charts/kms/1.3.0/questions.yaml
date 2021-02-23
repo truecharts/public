@@ -111,7 +111,7 @@ questions:
                 label: "Value"
                 schema:
                   type: string
-      
+
   - variable: service
     group: "Networking"
     label: "Configure Service"
@@ -139,7 +139,7 @@ questions:
                       label: "container port"
                       schema:
                         type: int
-                        default: 1688 
+                        default: 1688
                         editable: false
                     - variable: nodePort
                       label: "Node Port to expose for UI"
@@ -188,7 +188,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false 
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -223,7 +223,7 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-                  
+
   - variable: appIngress
     label: ""
     group: "Ingress"

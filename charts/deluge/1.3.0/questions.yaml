@@ -111,7 +111,7 @@ questions:
                 label: "Value"
                 schema:
                   type: string
-                  
+
   # Enable Host Network
   - variable: hostNetwork
     group: "Networking"
@@ -119,7 +119,7 @@ questions:
     schema:
       type: boolean
       default: false
-      
+
   - variable: service
     group: "Networking"
     label: "Configure Service"
@@ -315,7 +315,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false 
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -371,7 +371,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false 
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:

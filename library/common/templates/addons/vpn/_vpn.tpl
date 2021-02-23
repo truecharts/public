@@ -7,7 +7,7 @@ It will include / inject the required templates based on the given values.
   {{- if eq "openvpn" .Values.addons.vpn.type -}}
     {{- include "common.addon.openvpn" . }}
   {{- end -}}
-  
+
   {{- if eq "wireguard" .Values.addons.vpn.type -}}
     {{- include "common.addon.wireguard" . }}
   {{- end -}}

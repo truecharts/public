@@ -149,8 +149,8 @@ questions:
                         max: 65535
                         default: 38091
                         required: true
-                            
-                            
+
+
   - variable: appAdditionalServices
     group: "Networking"
     label: "Configure additional services"
@@ -217,7 +217,7 @@ questions:
                         max: 65535
                         default: 9982
                         required: false
-                            
+
   # Configure app volumes
   - variable: appVolumeMounts
     group: "Volume Mounts"
@@ -247,7 +247,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false 
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -303,7 +303,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false 
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:

@@ -22,7 +22,7 @@ persistence:
     mountPath: /usr/data
 
 appIngressEnabled: false
-    
+
 
 appVolumeMounts:
   data:
@@ -30,4 +30,3 @@ appVolumeMounts:
     emptyDir: true
     setPermissions: true
     mountPath: "/data"
-    

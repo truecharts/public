@@ -41,7 +41,7 @@ persistence:
     emptyDir: false
     mountPath: /storage  # This can be read only
 
-  watch:      
+  watch:
     enabled: false
     emptyDir: false
     mountPath: /watch
@@ -55,7 +55,7 @@ persistence:
 ## All folders must start with "watch" and an index after
 ## eg. /watch1, /watch2
 ## This is importand because settings can overrode to each watch folder exclusivly, with env vars with _# as a suffix
-## eg. AUTOMATED_CONVERSION_PRESET_1 
+## eg. AUTOMATED_CONVERSION_PRESET_1
 
 # Path to your optical drive device in the container
 additionalVolumeMounts: []
@@ -114,7 +114,7 @@ additionalVolumes: []
 #    hostPath: "/dev/sr0"
 #    hostPathEnabled: true
 #    setPermissions: true
-   
+
 
 appAdditionalServicesEnabled: true
 appAdditionalServices:

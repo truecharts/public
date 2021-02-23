@@ -23,7 +23,7 @@ portals:
       - "$node_ip"
     ports:
       - "$variable-service.port.nodePort"
-# UI 
+# UI
 questions:
   # Image Related
   - variable: image
@@ -33,7 +33,7 @@ questions:
     schema:
       type: dict
       required: true
-      attrs: 
+      attrs:
         - variable: repository
           label: "Image repository"
           description: "Docker image repository"
@@ -118,7 +118,7 @@ questions:
                 schema:
                   type: string
 
-  # Docker specific env  
+  # Docker specific env
   - variable: env
     group: "Configuration"
     label: "Image Environment"
@@ -132,7 +132,7 @@ questions:
             type: boolean
             default: false
             show_subquestions_if: true
-            subquestions:      
+            subquestions:
               - variable: DISPLAY_WIDTH
                 label:  "DISPLAY_WIDTH"
                 description: "Width (in pixels) of the application's window."
@@ -153,14 +153,14 @@ questions:
                 schema:
                   type: string
                   default: "0"
-                  required: true                  
+                  required: true
               - variable: VNC_PASSWORD
                 label:  "VNC_PASSWORD"
                 description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
                 schema:
                   private: true
                   type: string
-                  default: ""                             
+                  default: ""
         - variable: autoconv
           label: "Automated Conversion Settings"
           description: "Always read description before changing a value here. Also refer to README"
@@ -174,7 +174,7 @@ questions:
                 description: "HandBrake preset used by the automatic video converter. Identification of a preset must follow the format <CATEGORY>/<PRESET NAME>"
                 schema:
                   type: string
-                  default: 'General/Very Fast 1080p30'  
+                  default: 'General/Very Fast 1080p30'
                   required: true
               - variable: AUTOMATED_CONVERSION_FORMAT
                 label:  "AUTOMATED_CONVERSION_FORMAT"
@@ -195,9 +195,9 @@ questions:
                 description: "When set to ignore, a non-video file found in the watch folder is ignored. If set to copy, a non-video file is copied as-is to the output folder."
                 schema:
                   type: string
-                  default: 'ignore'   
+                  default: 'ignore'
                   required: true
-                         
+
 # Networking
   - variable: service
     group: "Services"
@@ -302,7 +302,7 @@ questions:
                         max: 65535
                         default: 36053
                         required: false
-    # Host Networking                                    
+    # Host Networking
   - variable: hostNetworking
     group: "Networking"
     label: "Enable Host Networking"
@@ -331,7 +331,7 @@ questions:
     schema:
       type: dict
       attrs:
-          # config     
+          # config
         - variable: config
           label: "config Volume"
           schema:
@@ -353,7 +353,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false                   
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -370,7 +370,7 @@ questions:
               - variable: mountPath
                 label: "Mount Path inside the container"
                 schema:
-                  type: path    
+                  type: path
                   default: "/config"
                   editable: false
               - variable: hostPathEnabled
@@ -386,7 +386,7 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-          # storage              
+          # storage
         - variable: storage
           label: "storage Volume"
           schema:
@@ -408,7 +408,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false                   
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -437,7 +437,7 @@ questions:
                   subquestions:
                     - variable: hostPath
                       label: "storage Host Path"
-                      description: "Host path to store storage"                      
+                      description: "Host path to store storage"
                       schema:
                         type: hostpath
                         required: true
@@ -463,7 +463,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false                   
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -492,11 +492,11 @@ questions:
                   subquestions:
                     - variable: hostPath
                       label: "watch Host Path"
-                      description: "Host path to store watch"                      
+                      description: "Host path to store watch"
                       schema:
                         type: hostpath
                         required: true
-          # output                         
+          # output
         - variable: output
           label: "output Volume"
           schema:
@@ -518,7 +518,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false                   
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -547,11 +547,11 @@ questions:
                   subquestions:
                     - variable: hostPath
                       label: "output Host Path"
-                      description: "Host path to store output"                      
+                      description: "Host path to store output"
                       schema:
                         type: hostpath
                         required: true
-          # Optical Drive              
+          # Optical Drive
         - variable: opticaldrive
           label: "Optical Drive Device"
           schema:
@@ -563,7 +563,7 @@ questions:
                 schema:
                   type: boolean
                   default: false
-                  hidden: true              
+                  hidden: true
               - variable: hostPath
                 label: "Path to Optical Drive device on host"
                 description: 'Best to use path "by-id"'
@@ -576,7 +576,7 @@ questions:
                 schema:
                   type: path
                   default: "/dev/sr0"
-                  required: true                                                                     
+                  required: true
     # Ingress
   - variable: appIngress
     label: ""

@@ -41,7 +41,7 @@ helm install lazylibrarian \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the
 chart. For example,
 ```console
-helm install lazylibrarian k8s-at-home/lazylibrarian --values values.yaml 
+helm install lazylibrarian k8s-at-home/lazylibrarian --values values.yaml
 ```
 
 ```yaml

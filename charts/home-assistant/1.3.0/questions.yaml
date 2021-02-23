@@ -99,7 +99,7 @@ questions:
     schema:
       type: string
       default: "002"
-        
+
   # Configure Time Zone
   - variable: git
     group: "Configuration"
@@ -150,7 +150,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false 
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -207,7 +207,7 @@ questions:
                       schema:
                         type: boolean
                         default: false
-                        hidden: true                        
+                        hidden: true
                     - variable: hostPath
                       label: "Path to Z-Wave device on host"
                       schema:
@@ -245,7 +245,7 @@ questions:
                       schema:
                         type: boolean
                         default: false
-                        hidden: true                        
+                        hidden: true
                     - variable: hostPath
                       label: "Path to Zigbee device on host"
                       schema:
@@ -293,9 +293,9 @@ questions:
                 description: "ClusterFirst"
               - value: "ClusterFirstWithHostNet"
                 description: "ClusterFirstWithHostNet"
-      
 
-      
+
+
   # Service Configuration
   - variable: service
     group: "Networking"
@@ -432,4 +432,3 @@ questions:
                       schema:
                         type: string
                         default: ""
-                        

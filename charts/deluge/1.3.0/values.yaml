@@ -45,7 +45,7 @@ env: {}
   # DELUGE_LOGLEVEL: "error"
 
 appIngressEnabled: false
-    
+
 # appVolumeMounts:
 #   config:
 #     enabled: false
@@ -53,7 +53,7 @@ appIngressEnabled: false
 #   downloads:
 #     enabled: false
 #     emptyDir: false
-    
+
 appAdditionalServicesEnabled: true
 appAdditionalServices:
   tcp:
@@ -72,4 +72,3 @@ appAdditionalServices:
       name: bittorrent-udp
       protocol: UDP
       targetPort: 51413
-      

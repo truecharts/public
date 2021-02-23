@@ -15,7 +15,7 @@ $ helm install k8s-at-home/calibre-web
 
 If you plan to use networked storage to store your media or config for Booksonic, (NFS, etc.) please take a look at the
 Fast Access option in the Booksonic settings. This will help improve the perfomance of the application
-by not constantly monitoring media folders. 
+by not constantly monitoring media folders.
 
 ## Installing the Chart
 
@@ -50,7 +50,7 @@ helm install calibre-web \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the
 chart. For example,
 ```console
-helm install calibre-web k8s-at-home/calibre-web -f values.yaml 
+helm install calibre-web k8s-at-home/calibre-web -f values.yaml
 ```
 
 ```yaml

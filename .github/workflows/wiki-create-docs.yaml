@@ -33,7 +33,7 @@ jobs:
           rm -Rf wiki/content
           mkdir -p wiki/content
           cp -f wiki/CNAME wiki/content/CNAME
-          
+
       - name: Create general wiki
         run: |
           cd master

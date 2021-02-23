@@ -43,7 +43,7 @@ helm install gaps \
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the
 chart. For example,
 ```console
-helm install gaps k8s-at-home/gaps --values values.yaml 
+helm install gaps k8s-at-home/gaps --values values.yaml
 ```
 
 ```yaml
