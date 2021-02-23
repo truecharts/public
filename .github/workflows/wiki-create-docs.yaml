@@ -25,7 +25,7 @@ jobs:
       - name: Checkout-Charts
         uses: actions/checkout@v2
         with:
-          repository: 'truecharts/wiki'
+            repository: 'truecharts/wiki'
           path: 'wiki'
           token: ${{ secrets.RENOVPUSH }}
       - name: Clean-Wiki
@@ -37,12 +37,12 @@ jobs:
       - name: Create general wiki
         run: |
           cd master
-          # for doc in docs/*; do
-          #     if [ -d "${doc}" ]; then
-          #         docname=$(basename ${doc})
-          #         cp -Rf docs/${docname} ../wiki/content/
-          #     fi
-          # done
+          for doc in .github/docs/*; do
+              if [ -d "${doc}" ]; then
+                  docname=$(basename ${doc})
+                  cp -Rf ${doc} ../wiki/content/
+              fi
+          done
           cp .github/README.md ../wiki/content/index.md || echo "readme copy failed, continuing..."
           cp .github/CODE_OF_CONDUCT ../wiki/content/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
           cp .github/CONTRIBUTING ../wiki/content/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
