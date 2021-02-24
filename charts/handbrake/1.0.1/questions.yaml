@@ -7,7 +7,7 @@ groups:
   - name: "Networking"
     description: "Network configuration"
   - name: "Ingress"
-    description: "Ingress configuration"
+    description: "Reverse Proxy configuration"
   - name: "Services"
     description: "Service configuration"
   - name: "Volume Mounts"
@@ -577,7 +577,7 @@ questions:
                   type: path
                   default: "/dev/sr0"
                   required: true
-    # Ingress
+    # Reverse Proxy
   - variable: appIngress
     label: ""
     group: "Ingress"
@@ -585,13 +585,13 @@ questions:
       type: dict
       attrs:
         - variable: webui
-          label: "Web Ingress Configuration"
+          label: "Web Reverse Proxy Configuration"
           group: "Ingress"
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable Web Ingress"
+                label: "Enable Web Reverse Proxy"
                 schema:
                   type: boolean
                   default: false

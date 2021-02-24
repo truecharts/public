@@ -20,7 +20,7 @@ groups:
   - name: "Resource Reservation"
     description: "Specify resources to be allocated to workload"
   - name: "Ingress"
-    description: "Configure ingress"
+    description: "Configure Reverse Proxy"
   - name: "Certmanager Settings"
     description: "Configure Certmanager"
   - name: "WARNING"
@@ -31,7 +31,7 @@ portals:
     protocols:
       - "https"
     host:
-      - "$variable-appIngress.webui.host"
+      - "$variable-appReverse Proxy.webui.host"
     ports:
       - "443"
 
@@ -172,13 +172,13 @@ questions:
       type: dict
       attrs:
         - variable: webui
-          label: "Web Ingress Configuration"
+          label: "Web Reverse Proxy Configuration"
           group: "Ingress"
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable Web Ingress"
+                label: "Enable Web Reverse Proxy"
                 schema:
                   type: boolean
                   default: false

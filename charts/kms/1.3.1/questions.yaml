@@ -8,7 +8,7 @@ groups:
   - name: "Storage"
     description: "configure app volume mounts"
   - name: "Ingress"
-    description: "Ingress configuration"
+    description: "Reverse Proxy configuration"
 
 portals:
   web_portal:
@@ -231,20 +231,20 @@ questions:
       type: dict
       attrs:
         - variable: kms
-          label: "KMS Ingress Configuration"
+          label: "KMS Reverse Proxy Configuration"
           group: "Ingress"
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable TCP Ingress"
+                label: "Enable TCP Reverse Proxy"
                 schema:
                   type: boolean
                   default: false
                   show_subquestions_if: true
                   subquestions:
                     - variable: type
-                      label: "Select Ingress Type"
+                      label: "Select Reverse Proxy Type"
                       schema:
                         type: string
                         default: "TCP"

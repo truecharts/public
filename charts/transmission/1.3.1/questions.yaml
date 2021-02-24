@@ -8,7 +8,7 @@ groups:
   - name: "Storage"
     description: "configure app volume mounts"
   - name: "Ingress"
-    description: "Ingress configuration"
+    description: "Reverse Proxy configuration"
 
 portals:
   web_portal:
@@ -415,13 +415,13 @@ questions:
       type: dict
       attrs:
         - variable: webui
-          label: "Web Ingress Configuration"
+          label: "Web Reverse Proxy Configuration"
           group: "Ingress"
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable Web Ingress"
+                label: "Enable Web Reverse Proxy"
                 schema:
                   type: boolean
                   default: false
@@ -506,20 +506,20 @@ questions:
                         type: string
                         default: ""
         - variable: tcp
-          label: "TCP Ingress Configuration"
+          label: "TCP Reverse Proxy Configuration"
           group: "Ingress"
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable TCP Ingress"
+                label: "Enable TCP Reverse Proxy"
                 schema:
                   type: boolean
                   default: false
                   show_subquestions_if: true
                   subquestions:
                     - variable: type
-                      label: "Select Ingress Type"
+                      label: "Select Reverse Proxy Type"
                       schema:
                         type: string
                         default: "TCP"
@@ -547,20 +547,20 @@ questions:
                           - value: ""
                             description: "No Encryption/TLS/Certificates"
         - variable: udp
-          label: "UDP Ingress Configuration"
+          label: "UDP Reverse Proxy Configuration"
           group: "Ingress"
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable UDP Ingress"
+                label: "Enable UDP Reverse Proxy"
                 schema:
                   type: boolean
                   default: false
                   show_subquestions_if: true
                   subquestions:
                     - variable: type
-                      label: "Select Ingress Type"
+                      label: "Select Reverse Proxy Type"
                       schema:
                         type: string
                         default: "UDP"

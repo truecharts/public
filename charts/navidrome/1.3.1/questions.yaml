@@ -8,7 +8,7 @@ groups:
   - name: "Storage"
     description: "configure app volume mounts"
   - name: "Ingress"
-    description: "Ingress configuration"
+    description: "Reverse Proxy configuration"
 
 portals:
   web_portal:
@@ -288,13 +288,13 @@ questions:
       type: dict
       attrs:
         - variable: webui
-          label: "Web Ingress Configuration"
+          label: "Web Reverse Proxy Configuration"
           group: "Ingress"
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable Web Ingress"
+                label: "Enable Web Reverse Proxy"
                 schema:
                   type: boolean
                   default: false

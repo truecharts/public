@@ -8,7 +8,7 @@ groups:
   - name: "Environment Variables"
     description: "Environment Variables Configuration"
   - name: "Ingress"
-    description: "Ingress configuration"
+    description: "Reverse Proxy configuration"
   - name: "Storage"
     description: "configure app volume mounts"
 
@@ -192,7 +192,7 @@ questions:
             type: string
             default: 'collabora\.domain\.tld'
 
-  # Ingress
+  # Reverse Proxy
   - variable: appIngress
     label: ""
     group: "Ingress"
@@ -200,13 +200,13 @@ questions:
       type: dict
       attrs:
         - variable: webui
-          label: "Web Ingress Configuration"
-          group: "Ingress"
+          label: "Web Reverse Proxy Configuration"
+          group: "Reverse Proxy"
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable Web Ingress"
+                label: "Enable Web Reverse Proxy"
                 schema:
                   type: boolean
                   default: false
