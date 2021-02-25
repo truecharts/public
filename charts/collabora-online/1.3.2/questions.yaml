@@ -1,0 +1,292 @@
+groups:
+  - name: "Container Image"
+    description: "Configure Container Image"
+  - name: "Configuration"
+    description: "additional container configuration"
+  - name: "Networking"
+    description: "Network Configuration"
+  - name: "Environment Variables"
+    description: "Environment Variables Configuration"
+  - name: "Ingress"
+    description: "Reverse Proxy configuration"
+  - name: "Storage"
+    description: "configure app volume mounts"
+
+#Portal
+portals:
+  web_portal:
+    protocols:
+      - "https"
+    host:
+      - "$node_ip"
+    ports:
+      - "$variable-service.port.nodePort"
+    path: "/loleaflet/dist/admin/admin.html"
+
+questions:
+  #Image related
+  - variable: image
+    group: "Container Image"
+    label: "Collabora"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        #Image
+        - variable: repository
+          label: "Image Repository"
+          schema:
+            type: string
+            default: "collabora/code"
+            editable: false
+        #Tag
+        - variable: tag
+          label: "Image Tag"
+          description: "Tag to use for specified image"
+          schema:
+            type: string
+            default: "6.4.6.2"
+            required: true
+        #Pull Policy
+        - variable: pullPolicy
+          label: "Image Pull Policy"
+          schema:
+            type: string
+            default: "IfNotPresent"
+            enum:
+              - value: "IfNotPresent"
+                description: "Only pull image if not present on host"
+              - value: "Always"
+                description: "Always pull image even if present on host"
+              - value: "Never"
+                description: "Never pull image even if it's not present on host"
+  # Strategy
+  - variable: strategyType
+    group: "Container Image"
+    label: "Update Strategy"
+    schema:
+      type: string
+      default: Recreate
+      enum:
+        - value: "RollingUpdate"
+          description: "Create new pods and then kill old ones"
+        - value: "Recreate"
+          description: "Kill existing pods before creating new ones"
+
+  # Configure Time Zone
+  - variable: timezone
+    group: "Configuration"
+    label: "Timezone"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
+
+  - variable: PUID
+    group: "Configuration"
+    label: "PUID"
+    description: "The UserID of the user running the application and owning the files"
+    schema:
+      type: int
+      default: 568
+
+  - variable: PGID
+    group: "Configuration"
+    label: "PGID"
+    description: "The groupID of the user/group running the application and owning the files"
+    schema:
+      type: int
+      default: 568
+
+  - variable: UMASK
+    group: "Configuration"
+    label: "UMASK (advanced)"
+    description: "The UMASK used if supported by the application"
+    schema:
+      type: string
+      default: "002"
+
+  # Service Configuration
+  - variable: service
+    group: "Networking"
+    label: "Configure Network"
+    schema:
+      type: dict
+      attrs:
+        - variable: type
+          label: "Service type"
+          schema:
+            type: string
+            default: "ClusterIP"
+            enum:
+              - value: "NodePort"
+                description: "NodePort"
+              - value: "ClusterIP"
+                description: "ClusterIP"
+            show_subquestions_if: "NodePort"
+            subquestions:
+              - variable: port
+                label: "Port configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: port
+                      label: "container port"
+                      schema:
+                        type: int
+                        default: 9980
+                        editable: false
+                    - variable: nodePort
+                      label: "Node Port to expose for UI"
+                      schema:
+                        type: int
+                        min: 9000
+                        max: 65535
+                        default: 30980
+                        required: true
+
+  # environmentVariables Configuraiton
+  - variable: env
+    group: "Environment Variables"
+    label: "Environment Variables Configuration"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: domain
+          label: "Domains will be using collabora"
+          description: 'Use backslash "\" before dots ".". Use pipe "|" to separate multiple domains'
+          schema:
+            type: string
+            default: 'nextcloud\.domain\.tld|othernextcloud\.domain\.tld'
+            required: true
+        - variable: username
+          label: "Username for WebUI"
+          schema:
+            type: string
+            default: "admin"
+            required: true
+        - variable: password
+          label: "Password for WebUI"
+          schema:
+            type: string
+            private: true
+            default: "changeme"
+            required: true
+        - variable: dictionaries
+          label: "Dictionaries to use, leave empty to use all"
+          schema:
+            type: string
+            default: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
+        - variable: extra_params
+          label: "Extra Parameters to add"
+          description: 'e.g. "–o:welcome.enable=false", See more on /etc/loolwsd/loowsd.xml. Separate params with space'
+          schema:
+            type: string
+            default: "-o:welcome.enable=false -o:user_interface.mode=notebookbar -o:ssl.termination=true -o:ssl.enable=false"
+        - variable: server_name
+          label: "Server Name"
+          description: "When this environment variable is set (is not “”), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."
+          schema:
+            type: string
+            default: 'collabora\.domain\.tld'
+
+  # Reverse Proxy
+  - variable: appIngress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: webui
+          label: "Web Reverse Proxy Configuration"
+          group: "Reverse Proxy"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Web Reverse Proxy"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: entrypoint
+                      label: "Select Entrypoint"
+                      schema:
+                        type: string
+                        default: "websecure"
+                        required: true
+                        enum:
+                          - value: "websecure"
+                            description: "Websecure: HTTPS/TLS port 443"
+                    - variable: hosts
+                      label: "Hosts"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: host
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: host
+                                  label: "Domain Name"
+                                  required: true
+                                  schema:
+                                    type: string
+                                - variable: paths
+                                  label: "paths"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: path
+                                        label: "Path"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                            - variable: path
+                                              label: "path"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "/"
+                                            - variable: pathType
+                                              label: "pathType"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "prefix"
+                    - variable: certType
+                      label: "Select Certificate Type"
+                      schema:
+                        type: string
+                        default: "letsencrypt-prod"
+                        enum:
+                          - value: ""
+                            description: "No Encryption/TLS/Certificates"
+                          - value: "letsencrypt-prod"
+                            description: "Letsencrypt Production Certificates"
+                          - value: "letsencrypt-staging"
+                            description: "Letsencrypt Test Certificates"
+                          - value: "wildcard"
+                            description: "Global Wildcard Certificate"
+                          - value: "selfsigned"
+                            description: "Self-Signed Certificate"
+                          - value: "existingcert"
+                            description: "Existing Certificate"
+                        show_subquestions_if: "existingcert"
+                        subquestions:
+                          - variable: existingcert
+                            label: "Existing Certificate Name"
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: authForwardURL
+                      label: "Forward Authentication URL"
+                      schema:
+                        type: string
+                        default: ""
