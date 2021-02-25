@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.1](https://img.shields.io/badge/AppVersion-1.1.1-informational?style=flat-square)
+![Version: 1.3.2](https://img.shields.io/badge/Version-1.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.1.1](https://img.shields.io/badge/AppVersion-1.1.1-informational?style=flat-square)
 
 Fully configurable Zwave to MQTT gateway and Control Panel using NodeJS and Vue
 
@@ -9,11 +9,14 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/zwavejs2mqtt>
+* <https://github.com/k8s-at-home/charts/tree/master/charts/zwavejs2mqtt>
 * <https://github.com/zwave-js/zwavejs2mqtt>
 * <https://hub.docker.com/r/zwavejs/zwavejs2mqtt>
-* <https://github.com/k8s-at-home/charts/tree/master/charts/zwavejs2mqtt>
 
 ## Requirements
+
+Kubernetes: `>=1.16.0-0`
 
 ## Dependencies
 

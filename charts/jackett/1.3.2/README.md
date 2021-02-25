@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ![AppVersion: version-v0.17.153](https://img.shields.io/badge/AppVersion-version--v0.17.153-informational?style=flat-square)
+![Version: 1.3.2](https://img.shields.io/badge/Version-1.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: version-v0.17.153](https://img.shields.io/badge/AppVersion-version--v0.17.153-informational?style=flat-square)
 
 API Support for your favorite torrent trackers.
 
@@ -9,10 +9,14 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/jackett>
+* <https://github.com/k8s-at-home/charts/tree/master/charts/jackett>
 * <https://github.com/Jackett/Jackett>
 * <https://hub.docker.com/r/linuxserver/jackett>
 
 ## Requirements
+
+Kubernetes: `>=1.16.0-0`
 
 ## Dependencies
 
