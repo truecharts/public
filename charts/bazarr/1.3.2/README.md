@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ![AppVersion: v0.9.0.5](https://img.shields.io/badge/AppVersion-v0.9.0.5-informational?style=flat-square)
+![Version: 1.3.2](https://img.shields.io/badge/Version-1.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.9.0.5](https://img.shields.io/badge/AppVersion-v0.9.0.5-informational?style=flat-square)
 
 Bazarr is a companion application to Bazarr and Radarr. It manages and downloads subtitles based on your requirements
 
@@ -9,10 +9,14 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/bazarr>
+* <https://github.com/k8s-at-home/charts/tree/master/charts/bazarr>
 * <https://github.com/Bazarr/Bazarr>
 * <https://hub.docker.com/r/linuxserver/bazarr>
 
 ## Requirements
+
+Kubernetes: `>=1.16.0-0`
 
 ## Dependencies
 

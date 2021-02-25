@@ -1,24 +1,29 @@
 # Introduction
 
-![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.2](https://img.shields.io/badge/AppVersion-2.4.2-informational?style=flat-square)
+![Version: 1.0.2](https://img.shields.io/badge/Version-1.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.2](https://img.shields.io/badge/AppVersion-2.4.2-informational?style=flat-square)
 
-A Traefik based Kubernetes ingress controller
+A Traefik based Reverse Proxy and Certificate Manager
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/traefik>
 * <https://github.com/traefik/traefik>
 * <https://github.com/traefik/traefik-helm-chart>
+* <https://traefik.io/>
 
 ## Requirements
+
+Kubernetes: `>=1.16.0-0`
 
 ## Dependencies
 
 | Repository | Name | Version |
 |------------|------|---------|
 | https://charts.jetstack.io | cert-manager | v1.2.0 |
+| https://charts.truecharts.org/ | common | 1.3.0 |
 | https://emberstack.github.io/helm-charts | reflector | 5.4.17 |
 
 ## Installing the Chart

@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ![AppVersion: 3.0.4.993](https://img.shields.io/badge/AppVersion-3.0.4.993-informational?style=flat-square)
+![Version: 1.3.2](https://img.shields.io/badge/Version-1.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: version-3.0.4.993](https://img.shields.io/badge/AppVersion-version--3.0.4.993-informational?style=flat-square)
 
 Smart PVR for newsgroup and bittorrent users
 
@@ -9,10 +9,14 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/sonarr>
+* <https://github.com/k8s-at-home/charts/tree/master/charts/sonarr>
 * <https://github.com/Sonarr/Sonarr>
 * <https://hub.docker.com/r/linuxserver/sonarr>
 
 ## Requirements
+
+Kubernetes: `>=1.16.0-0`
 
 ## Dependencies
 

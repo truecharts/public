@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ![AppVersion: 6.4.6.1](https://img.shields.io/badge/AppVersion-6.4.6.1-informational?style=flat-square)
+![Version: 1.3.2](https://img.shields.io/badge/Version-1.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 6.4.6.1](https://img.shields.io/badge/AppVersion-6.4.6.1-informational?style=flat-square)
 
 Collabora Online Development Edition – an awesome, Online Office suite image suitable for home use.
 
@@ -9,10 +9,14 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/collabora-online>
+* <https://github.com/k8s-at-home/charts/tree/master/charts/collabora-online>
 * <https://hub.docker.com/r/collabora/code>
 * <https://www.collaboraoffice.com/code/docker/>
 
 ## Requirements
+
+Kubernetes: `>=1.16.0-0`
 
 ## Dependencies
 
