@@ -48,7 +48,7 @@ jobs:
           cp .github/README.md ../wiki/content/index.md || echo "readme copy failed, continuing..."
           cp .github/CODE_OF_CONDUCT ../wiki/content/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
           cp .github/CONTRIBUTING ../wiki/content/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
-          cp .github/LICENSE ../wiki/content/development/LICENSE.md || echo "license copy failed, continuing..."
+          cp .github/LICENSE ../wiki/content/LICENSE.md || echo "license copy failed, continuing..."
           sed -i '1s/^/#License\n/' ../wiki/content/LICENSE.md
           ls ../wiki/content/
           cd ..
