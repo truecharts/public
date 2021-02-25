@@ -28,18 +28,13 @@ for chart in charts/*; do
       maxchartversion=$(cat ${chart}/${maxfolderversion}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
       chartname=$(basename ${chart})
 	  mkdir -p ${chart}/${maxfolderversion}/docs || true
-      echo "-] Copying templates to ${chart}/${maxfolderversion}"
-      # Copy README template into each Chart directory, remove current if existing
-	  rm -f "${chart}/${maxfolderversion}/README.md.gotmpl" || true
-      cp -f "${readme_template}" "${chart}/${maxfolderversion}/README.md.gotmpl" || true
-      # Copy README template into each Chart directory, remove current if existing
-	  rm -f "${chart}/${maxfolderversion}/app-readme.md.gotmpl" || true
-      cp -f "${app_readme_template}" "${chart}/${maxfolderversion}/app-readme.md.gotmpl" || true
+      echo "-] Copying templates to ${repository}/${chart}/${maxfolderversion}"
       # Copy CONFIG template to each Chart directory, do not overwrite if exists
       cp -n "${config_template}" "${chart}/${maxfolderversion}/docs/CONFIG.md.gotmpl" || true
       helm-docs \
           --ignore-file="${repository}/.helmdocsignore" \
-          --template-files="${chart}/${maxfolderversion}/README.md.gotmpl" \
+		  --output-file="README.md" \
+          --template-files="${repository}/.tools/templates/chart/README.md.gotmpl" \
           --chart-search-root="${chart}/${maxfolderversion}"
       helm-docs \
           --ignore-file="${repository}/.helmdocsignore" \
@@ -49,7 +44,7 @@ for chart in charts/*; do
       helm-docs \
           --ignore-file="${repository}/.helmdocsignore" \
           --output-file="app-readme.md" \
-          --template-files="${chart}/${maxfolderversion}/app-readme.md.gotmpl" \
+          --template-files="${repository}/.tools/templates/chart/app-readme.md.gotmpl" \
           --chart-search-root="${chart}/${maxfolderversion}"
 
 
