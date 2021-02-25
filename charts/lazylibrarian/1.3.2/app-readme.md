@@ -1,2 +1,2 @@
-A Helm chart for deploying LazyLibrarian
+Get all your books, like series with Sonarr...
 

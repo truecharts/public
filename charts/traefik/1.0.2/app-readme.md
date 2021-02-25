@@ -1,2 +1,2 @@
-A Traefik based Kubernetes ingress controller
+A Traefik based Reverse Proxy and Certificate Manager
 
