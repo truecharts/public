@@ -1,4 +1,4 @@
-name: "Charts: Release"
+name: "Charts: Restructure"
 
 on:
   push:
@@ -8,19 +8,7 @@ on:
       - '**'
     paths:
       - 'charts/**'
-      - '!charts/**/*.md'
-      - '!charts/**/README.md'
-      - '!charts/**/README.md.gotmpl'
-      - '!charts/**/app-readme.md'
-      - '!charts/**/app-readme.md.gotmpl'
-      - '!charts/**/docs/*'
       - 'library/**'
-      - '!library/**/*.md'
-      - '!library/**/README.md'
-      - '!library/**/README.md.gotmpl'
-      - '!library/**/app-readme.md'
-      - '!library/**/app-readme.md.gotmpl'
-      - '!library/**/docs/*'
 
 jobs:
   copy:
@@ -31,11 +19,13 @@ jobs:
         with:
           ref: 'master'
           path: 'master'
+          token: ${{ secrets.RENOVPUSH }}
       - name: Checkout-Charts
         uses: actions/checkout@v2
         with:
           ref: 'charts'
           path: 'charts'
+          token: ${{ secrets.RENOVPUSH }}
 
       - name: Generate Helm Structure
         run: |
