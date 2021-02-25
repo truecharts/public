@@ -68,7 +68,7 @@ jobs:
                 fi
                 cp ${chart}/${maxfolderversion}/README.md ../wiki/content/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
                 cp ${chart}/${maxfolderversion}/LICENSE ../wiki/content/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
-                sed -i '1s/^/#License\n/' ../wiki/content/apps/${chartname}/LICENSE.md
+                sed -i '1s/^/#License\n/' ../wiki/content/apps/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
             fi
           done
           ls ../wiki/content/apps/
