@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ![AppVersion: v3.8.1](https://img.shields.io/badge/AppVersion-v3.8.1-informational?style=flat-square)
+![Version: 1.3.2](https://img.shields.io/badge/Version-1.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v3.8.1](https://img.shields.io/badge/AppVersion-v3.8.1-informational?style=flat-square)
 
 Usenet meta search
 
@@ -9,10 +9,14 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
+* <https://github.com/truecharts/charts/tree/master/charts/nzbhydra>
+* <https://github.com/k8s-at-home/charts/tree/master/charts/nzbhydra>
 * <https://hub.docker.com/r/linuxserver/nzbhydra2>
 * <https://github.com/theotherp/nzbhydra2>
 
 ## Requirements
+
+Kubernetes: `>=1.16.0-0`
 
 ## Dependencies
 

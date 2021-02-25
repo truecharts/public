@@ -1,2 +1,2 @@
-Home Assistant
+home-assistant App for TrueNAS SCALE
 
