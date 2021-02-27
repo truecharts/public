@@ -176,7 +176,6 @@ logs:
 
 globalArguments:
   - "--global.checknewversion"
-#  - "--global.sendanonymoususage"
 
 #
 # Configure Traefik static configuration
@@ -185,7 +184,9 @@ globalArguments:
 ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
 additionalArguments:
 #  - "--providers.kubernetesingress.ingressclass=traefik-internal"
+  - "--providers.kubernetesIngress.ingressClass=traefik-cert-manager"
 #  - "--log.level=DEBUG"
+#  - "--metrics.prometheus"
   - "--entrypoints.websecure.http.tls"
   - "--ping"
   - "--serverstransport.insecureskipverify=true"
@@ -285,7 +286,7 @@ ports:
     port: 5353
     # hostPort: 8443
     expose: true
-    exposedPort: 53
+    exposedPort: 5353
     # The port protocol (TCP/UDP)
     protocol: TCP
     # nodePort: 32443
@@ -295,7 +296,27 @@ ports:
     port: 5353
     # hostPort: 8443
     expose: true
-    exposedPort: 53
+    exposedPort: 5353
+    # The port protocol (TCP/UDP)
+    protocol: UDP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  stun-tcp:
+    port: 3478
+    # hostPort: 8443
+    expose: true
+    exposedPort: 3478
+    # The port protocol (TCP/UDP)
+    protocol: TCP
+    # nodePort: 32443
+    # Set TLS at the entrypoint
+    # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+  stun-udp:
+    port: 3478
+    # hostPort: 8443
+    expose: true
+    exposedPort: 3478
     # The port protocol (TCP/UDP)
     protocol: UDP
     # nodePort: 32443
@@ -352,10 +373,10 @@ ports:
     # Set TLS at the entrypoint
     # https://doc.traefik.io/traefik/routing/entrypoints/#tls
   unificom:
-    port: 8081
+    port: 8080
     # hostPort: 8443
     expose: true
-    exposedPort: 8081
+    exposedPort: 8080
     # The port protocol (TCP/UDP)
     protocol: TCP
     # nodePort: 32443
@@ -393,8 +414,8 @@ service:
   loadBalancerSourceRanges: []
     # - 192.168.0.1/32
     # - 172.16.0.0/16
-  externalIPs: []
-    # - 1.2.3.4
+  externalIPs:
+     - 192.168.66.6
 
 ## Create HorizontalPodAutoscaler object.
 ##
@@ -496,12 +517,13 @@ podSecurityContext:
   fsGroup: 65532
 
 
-#appVolumeMounts:
-#  data:
-#    enabled: true
-#    emptyDir: false
-#    datasetName: "data"
-#    mountPath: "/data"
+appVolumeMounts:
+  data:
+    enabled: true
+    emptyDir: true
+    mountPath: "/data"
+
+
 
 appIngress:
   webui:
@@ -519,21 +541,21 @@ certmanager:
   wildcardDomain: ""
   # provider specific
   cloudflare:
-    apikey: ""
+    apikey: "placeholder"
   cloudDNS:
     project: ""
-    keyjson: ""
+    keyjson: "placeholder"
   route53:
     region: ""
     accessKeyID: ""
-    secretaccesskey: ""
+    secretaccesskey: "placeholder"
   digitalocean:
-    accesstoken: ""
+    accesstoken: "placeholder"
   rfc2136:
     nameserver: ""
     tsigKeyName: ""
-    tsigsecretkey: ""
     tsigAlgorithm: ""
+    tsigsecretkey: "placeholder"
   azureDNS:
     environment: ""
     subscriptionID: ""
@@ -541,12 +563,12 @@ certmanager:
     hostedZoneName: ""
   akamai:
     serviceConsumerDomain: ""
-    clientToken: ""
-    clientSecret: ""
-    accessToken: ""
+    clientToken: "placeholder"
+    clientSecret: "placeholder"
+    accessToken: "placeholder"
   acmeDNS:
     host: ""
-    acmednsjson: ""
+    acmednsjson: "placeholder"
 
 cert-manager:
   installCRDs: true
