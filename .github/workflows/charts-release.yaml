@@ -17,7 +17,6 @@ on:
 
 jobs:
   pre-release:
-    needs: copy
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
