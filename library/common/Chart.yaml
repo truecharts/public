@@ -1,16 +1,23 @@
 apiVersion: v2
+kubeVersion: ">=1.16.0-0"
 name: common
+version: 1.3.2
+# upstream_version:
+# appVersion:
 description: Function library for TrueCharts
 type: library
-version: 1.3.1
-
-kubeVersion: ">=1.16.0-0"
-# upstream_version: 3.0.1
+deprecated: false
+home: https://github.com/truecharts/truecharts/tree/master/common
+# icon:
 keywords:
   - truecharts
   - library-chart
-  - k8s-at-home
   - common
-home: https://github.com/truecharts/truecharts/tree/master/common
+sources:
+  - https://github.com/truecharts/charts/tree/master/library/common
+# dependencies:
 maintainers:
-  - name: truecharts
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+# annotations:
