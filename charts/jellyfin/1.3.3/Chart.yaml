@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: jellyfin
-version: 1.3.3
+version: 1.3.4
 upstream_version: 4.2.1
 appVersion: 10.6.4
 description: Jellyfin is a Free Software Media System
@@ -21,7 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.3.1
+    version: 1.3.2
     # condition:
     # tags:
     # import-values:
