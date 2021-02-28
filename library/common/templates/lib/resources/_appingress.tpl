@@ -11,7 +11,7 @@ Renders the additional ingress objects from appIngress
           {{- if not $ingressValues.nameSuffix -}}
             {{- $_ := set $ingressValues "nameSuffix" $name -}}
           {{ end -}}
-          {{- $_ := set $ "ObjectValues" (dict "appIngress" $ingressValues) -}}
+		  {{- $_ := set $ "ObjectValues" (dict "appIngress" $ingressValues) -}}
           {{- if $ingressValues.type -}}
             {{- if eq $ingressValues.type "UDP" -}}
               {{- include "common.classes.appIngressUDP" $ }}
@@ -29,6 +29,9 @@ Renders the additional ingress objects from appIngress
               {{- include "common.classes.appAuthForward" $ }}
             {{- end }}
           {{- end }}
+		  {{- $_ := set $ "ObjectValues" (dict "certHolder" $ingressValues) -}}
+		  {{- print ("---") | nindent 0 -}}
+		  {{- include "common.resources.cert.secret" $ }}
       {{- end }}
     {{- end }}
   {{- end }}
