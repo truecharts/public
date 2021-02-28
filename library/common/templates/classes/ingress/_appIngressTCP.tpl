@@ -52,7 +52,7 @@ spec:
     {{ else if eq $values.certType "existingcert" }}
     secretName: {{ $values.existingcert }}
 	{{ else if eq $values.certType "ixcert" }}
-    secretName: {{ include "common.names.fullname" . }}-ix-cert
+    secretName: {{ $IngressName }}
     {{ else if eq $values.certType "wildcard" }}
     secretName: wildcardcert
     {{ else }}
