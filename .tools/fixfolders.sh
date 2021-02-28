@@ -4,7 +4,7 @@ for chart in charts/*; do
       maxchartversion=$(cat ${chart}/${maxfolderversion}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
       chartname=$(basename ${chart})
       echo "Processing: ${chart} - folder: ${maxfolderversion} - version: ${maxchartversion}"
-      helm dependency update ${chart}/${maxfolderversion}
+      helm dependency update --skip-refresh ${chart}/${maxfolderversion}
       if [ "${maxfolderversion}" != "${maxchartversion}" ]; then
           mv -f ${chart}/${maxfolderversion} ${chart}/${maxchartversion}
           echo "renamed ${chart}/${maxfolderversion} to ${chart}/${maxchartversion}"

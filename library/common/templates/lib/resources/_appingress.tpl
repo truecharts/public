@@ -1,7 +1,7 @@
 {{/*
 Renders the additional ingress objects from appIngress
 */}}
-{{- define "common.custom.appIngress" -}}
+{{- define "common.appIngress" -}}
   {{- /* Generate TrueNAS SCALE app services as required v1 */ -}}
   {{- if .Values.appIngress -}}
     {{- range $name, $ingr := .Values.appIngress }}
@@ -14,19 +14,19 @@ Renders the additional ingress objects from appIngress
           {{- $_ := set $ "ObjectValues" (dict "appIngress" $ingressValues) -}}
           {{- if $ingressValues.type -}}
             {{- if eq $ingressValues.type "UDP" -}}
-              {{- include "common.custom.classes.appIngressUDP" $ }}
+              {{- include "common.classes.appIngressUDP" $ }}
             {{- else if eq $ingressValues.type "TCP" -}}
-              {{- include "common.custom.classes.appIngressTCP" $ }}
+              {{- include "common.classes.appIngressTCP" $ }}
             {{- else }}
-              {{- include "common.custom.classes.appIngressHTTP" $ }}
+              {{- include "common.classes.appIngressHTTP" $ }}
 			  {{- if $ingressValues.authForwardURL }}
-                {{- include "common.custom.classes.appAuthForward" $ }}
+                {{- include "common.classes.appAuthForward" $ }}
               {{- end }}
             {{- end }}
           {{- else }}
-            {{- include "common.custom.classes.appIngressHTTP" $ }}
+            {{- include "common.classes.appIngressHTTP" $ }}
 			{{- if $ingressValues.authForwardURL }}
-              {{- include "common.custom.classes.appAuthForward" $ }}
+              {{- include "common.classes.appAuthForward" $ }}
             {{- end }}
           {{- end }}
       {{- end }}

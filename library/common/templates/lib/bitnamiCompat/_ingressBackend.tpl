@@ -1,3 +1,6 @@
+## Currently only used as Bitnami compatibility Layer, needs more integration during the Ingress integration project.
+
+
 {{/* vim: set filetype=mustache: */}}
 
 {{/*
