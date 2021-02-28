@@ -9,6 +9,7 @@ groups:
     description: "configure app volume mounts"
   - name: "Ingress"
     description: "Reverse Proxy configuration"
+
 portals:
   web_portal:
     protocols:
@@ -16,7 +17,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-service.port.nodePort"
+      - "$variable-radarrService.port"
     path: "/web"
 
 questions:
@@ -35,13 +36,13 @@ questions:
           schema:
             type: string
             required: true
-            default: "linuxserver/nzbhydra2"
+            default: "linuxserver/radarr"
         - variable: tag
           description: "Tag to use for specified image"
           label: "Image Tag"
           schema:
             type: string
-            default: "version-v3.8.1"
+            default: "version-3.0.0.3989"
         - variable: pullPolicy
           description: "Docker Image Pull Policy"
           label: "Image Pull Policy"
@@ -139,7 +140,7 @@ questions:
                       label: "container port"
                       schema:
                         type: int
-                        default: 5076
+                        default: 7878
                         editable: false
                     - variable: nodePort
                       label: "Node Port to expose for UI"
@@ -151,7 +152,7 @@ questions:
                         required: true
 
   # Enable Host Networking
-  - variable: hostNetworking
+  - variable: hostNetwork
     group: "Networking"
     label: "Enable Host Networking"
     schema:
@@ -166,6 +167,7 @@ questions:
     schema:
       type: dict
       attrs:
+        # Config ------------------------
         - variable: config
           label: "config dataset"
           schema:
@@ -209,6 +211,62 @@ questions:
                   type: path
                   required: true
                   default: "/config"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+        - variable: media
+          label: "media dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "media"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/media"
                   editable: false
               - variable: hostPathEnabled
                 label: "host Path Enabled"
@@ -376,3 +434,9 @@ questions:
                       schema:
                         type: string
                         default: ""
+
+              - variable: authForwardURL
+                label: "Forward Authentication URL"
+                schema:
+                  type: string
+                  default: ""
