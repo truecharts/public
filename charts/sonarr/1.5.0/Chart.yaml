@@ -1,0 +1,36 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: sonarr
+version: 1.5.0
+upstream_version: 9.1.0
+appVersion: "version-3.0.4.993"
+description: Smart PVR for newsgroup and bittorrent users
+type: application
+deprecated: false
+home: https://github.com/truecharts/charts/tree/master/charts/sonarr
+icon: https://github.com/Sonarr/Sonarr/blob/phantom-develop/Logo/512.png?raw=true
+keywords:
+  - sonarr
+  - torrent
+  - usenet
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/sonarr
+  - https://github.com/k8s-at-home/charts/tree/master/charts/sonarr
+  - https://github.com/Sonarr/Sonarr
+  - https://hub.docker.com/r/linuxserver/sonarr
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.5.0
+    # condition:
+    # tags:
+    # import-values:
+    # alias:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: Kjeld Schouten-Lebbing
+    email: kjeld@schouten-lebbing.nl
+    url: truecharts.org
+# annotations:

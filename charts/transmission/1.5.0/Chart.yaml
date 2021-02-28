@@ -1,0 +1,35 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: transmission
+version: 1.5.0
+# upstream_version:
+appVersion: "version-v0.17.153"
+description: API Support for your favorite torrent trackers.
+type: application
+deprecated: false
+home: https://github.com/truecharts/charts/tree/master/charts/transmission
+icon: https://github.com/Jackett/Jackett/blob/phantom-develop/Logo/512.png?raw=true
+keywords:
+  - transmission
+  - torrent
+  - usenet
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/transmission
+  - https://github.com/transmission/transmission
+  - https://hub.docker.com/r/linuxserver/transmission
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.5.0
+    # condition:
+    # tags:
+    # import-values:
+    # alias:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: Kjeld Schouten-Lebbing
+    email: kjeld@schouten-lebbing.nl
+    url: truecharts.org
+# annotations:
