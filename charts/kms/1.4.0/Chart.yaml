@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: kms
-version: 1.4.0
+version: 1.5.0
 # upstream_version:
 appVersion: latest
 description: Private Windows Activation Server for development and testing
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.4.0
+    version: 1.5.0
     # condition:
     # tags:
     # import-values:

@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: node-red
-version: 1.4.0
+version: 1.5.0
 upstream_version: 5.2.1
 appVersion: 1.2.5
 description: Node-RED is low-code programming for event-driven applications
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.4.0
+    version: 1.5.0
     # condition:
     # tags:
     # import-values:

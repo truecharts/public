@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: unifi
-version: 1.1.0
+version: 1.2.0
 upstream_version: 1.5.1
 appVersion: 5.14.23
 description: Ubiquiti Network's Unifi Controller
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.4.0
+    version: 1.5.0
     # condition:
     # tags:
     # import-values:

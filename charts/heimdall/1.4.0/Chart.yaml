@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: heimdall
-version: 1.4.0
+version: 1.5.0
 upstream_version: 4.1.1
 appVersion: 2.2.2
 description: An Application dashboard and launcher
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.4.0
+    version: 1.5.0
     # condition:
     # tags:
     # import-values:
