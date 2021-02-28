@@ -1,0 +1,378 @@
+groups:
+  - name: "Container Image"
+    description: "configure container image"
+  - name: "Configuration"
+    description: "additional container configuration"
+  - name: "Networking"
+    description: "Networking / service configuration"
+  - name: "Storage"
+    description: "configure app volume mounts"
+  - name: "Ingress"
+    description: "Reverse Proxy configuration"
+portals:
+  web_portal:
+    protocols:
+      - "http"
+    host:
+      - "$node_ip"
+    ports:
+      - "$variable-service.port.nodePort"
+    path: "/web"
+
+questions:
+  # Image related
+  - variable: image
+    description: "Docker Image Details"
+    label: "Docker Image"
+    group: "Container Image"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: repository
+          description: "Docker image repository"
+          label: "Image repository"
+          schema:
+            type: string
+            required: true
+            default: "linuxserver/nzbhydra2"
+        - variable: tag
+          description: "Tag to use for specified image"
+          label: "Image Tag"
+          schema:
+            type: string
+            default: "version-v3.8.1"
+        - variable: pullPolicy
+          description: "Docker Image Pull Policy"
+          label: "Image Pull Policy"
+          schema:
+            type: string
+            default: "IfNotPresent"
+            enum:
+              - value: "IfNotPresent"
+                description: "Only pull image if not present on host"
+              - value: "Always"
+                description: "Always pull image even if present on host"
+              - value: "Never"
+                description: "Never pull image even if it's not present on host"
+
+  # Configure Time Zone
+  - variable: timezone
+    group: "Configuration"
+    label: "Timezone"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
+
+  - variable: PUID
+    group: "Configuration"
+    label: "PUID"
+    description: "The UserID of the user running the application and owning the files"
+    schema:
+      type: int
+      default: 568
+
+  - variable: PGID
+    group: "Configuration"
+    label: "PGID"
+    description: "The groupID of the user/group running the application and owning the files"
+    schema:
+      type: int
+      default: 568
+
+  - variable: UMASK
+    group: "Configuration"
+    label: "UMASK (advanced)"
+    description: "The UMASK used if supported by the application"
+    schema:
+      type: string
+      default: "002"
+
+  # Configure Enviroment Variables
+  - variable: environmentVariables
+    label: "Image environment"
+    group: "Configuration"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
+
+  - variable: service
+    group: "Networking"
+    label: "Configure Service"
+    schema:
+      type: dict
+      attrs:
+        - variable: type
+          label: "Service type"
+          schema:
+            type: string
+            default: "ClusterIP"
+            enum:
+              - value: "NodePort"
+                description: "NodePort"
+              - value: "ClusterIP"
+                description: "ClusterIP"
+            show_subquestions_if: "NodePort"
+            subquestions:
+              - variable: port
+                label: "Port configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: port
+                      label: "container port"
+                      schema:
+                        type: int
+                        default: 5076
+                        editable: false
+                    - variable: nodePort
+                      label: "Node Port to expose for UI"
+                      schema:
+                        type: int
+                        min: 9000
+                        max: 65535
+                        default: 36052
+                        required: true
+
+  # Enable Host Networking
+  - variable: hostNetwork
+    group: "Networking"
+    label: "Enable Host Networking"
+    schema:
+      type: boolean
+      default: false
+
+## TrueCharts Specific
+
+  - variable: appVolumeMounts
+    label: "app storage"
+    group: "Storage"
+    schema:
+      type: dict
+      attrs:
+        - variable: config
+          label: "config dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "config"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/config"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+        - variable: downloads
+          label: "downloads dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "downloads"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/downloads"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+
+  - variable: appIngress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: webui
+          label: "Web Reverse Proxy Configuration"
+          group: "Ingress"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Web Reverse Proxy"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: entrypoint
+                      label: "Select Entrypoint"
+                      schema:
+                        type: string
+                        default: "websecure"
+                        required: true
+                        enum:
+                          - value: "websecure"
+                            description: "Websecure: HTTPS/TLS port 443"
+                    - variable: hosts
+                      label: "Hosts"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: host
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: host
+                                  label: "Domain Name"
+                                  required: true
+                                  schema:
+                                    type: string
+                                - variable: paths
+                                  label: "paths"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: path
+                                        label: "Path"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                            - variable: path
+                                              label: "path"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "/"
+                                            - variable: pathType
+                                              label: "pathType"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "prefix"
+                    - variable: certType
+                      label: "Select Certificate Type"
+                      schema:
+                        type: string
+                        default: "letsencrypt-prod"
+                        enum:
+                          - value: ""
+                            description: "No Encryption/TLS/Certificates"
+                          - value: "letsencrypt-prod"
+                            description: "Letsencrypt Production Certificates"
+                          - value: "letsencrypt-staging"
+                            description: "Letsencrypt Test Certificates"
+                          - value: "wildcard"
+                            description: "Global Wildcard Certificate"
+                          - value: "selfsigned"
+                            description: "Self-Signed Certificate"
+                          - value: "existingcert"
+                            description: "Existing Certificate"
+                        show_subquestions_if: "existingcert"
+                        subquestions:
+                          - variable: existingcert
+                            label: "Existing Certificate Name"
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: authForwardURL
+                      label: "Forward Authentication URL"
+                      schema:
+                        type: string
+                        default: ""
