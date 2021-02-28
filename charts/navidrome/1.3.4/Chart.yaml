@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: navidrome
-version: 1.3.4
+version: 1.4.0
 upstream_version: 2.3.1
 appVersion: 0.39.0
 description: Navidrome is an open source web-based music collection server and streamer
@@ -21,7 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.3.2
+    version: 1.4.0
     # condition:
     # tags:
     # import-values:
