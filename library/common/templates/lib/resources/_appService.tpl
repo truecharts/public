@@ -1,7 +1,7 @@
 {{/*
 Renders the additioanl Service objects from appAdditionalServices
 */}}
-{{- define "common.custom.appService" -}}
+{{- define "common.appService" -}}
   {{- /* Generate TrueNAS SCALE app services as required v1 */ -}}
   {{- if and .Values.appAdditionalServicesEnabled .Values.appAdditionalServices -}}
     {{- range $name, $srv := .Values.appAdditionalServices }}

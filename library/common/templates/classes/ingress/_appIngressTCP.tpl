@@ -2,7 +2,7 @@
 This template serves as a blueprint for all appIngressTCP objects that are created
 within the common library.
 */}}
-{{- define "common.custom.classes.appIngressTCP" -}}
+{{- define "common.classes.appIngressTCP" -}}
 {{- $values := .Values.appIngress -}}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.appIngress -}}
@@ -48,8 +48,11 @@ spec:
             - {{ .host | quote }}
             {{- end }}
     {{- if eq $values.certType "selfsigned" -}}
+	secretName:
     {{ else if eq $values.certType "existingcert" }}
     secretName: {{ $values.existingcert }}
+	{{ else if eq $values.certType "ixcert" }}
+    secretName: {{ include "common.names.fullname" . }}-ix-cert
     {{ else if eq $values.certType "wildcard" }}
     secretName: wildcardcert
     {{ else }}

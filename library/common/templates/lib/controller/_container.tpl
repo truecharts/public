@@ -3,7 +3,8 @@ The main container included in the controller.
 */ -}}
 {{- define "common.controller.mainContainer" -}}
 - name: {{ include "common.names.fullname" . }}
-  image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+  image: "{{ include "common.images.image" (dict "imageRoot" .Values.image "global" .Values.global) }}"
+  {{ include "common.warnings.rollingTag" .Values.image }}
   imagePullPolicy: {{ .Values.image.pullPolicy }}
   {{- with .Values.command }}
   command: {{ . }}
@@ -64,7 +65,7 @@ The main container included in the controller.
   {{- end }}
   {{- end }}
   {{- end }}
-  {{- include "common.custom.configuredAppVolumeMounts" . | indent 2 }}
+  {{- include "common.storage.configuredAppVolumeMounts" . | indent 2 }}
   {{- if .Values.additionalVolumeMounts }}
     {{- toYaml .Values.additionalVolumeMounts | nindent 2 }}
   {{- end }}

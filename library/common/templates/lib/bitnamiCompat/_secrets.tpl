@@ -1,3 +1,4 @@
+## Currently only used as Bitnami Compatibility layer, may want to integrate more later
 {{/* vim: set filetype=mustache: */}}
 {{/*
 Generate secret name.
