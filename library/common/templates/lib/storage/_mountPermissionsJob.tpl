@@ -2,7 +2,7 @@
 This template serves as the blueprint for the mountPermissions job that is run
 before chart installation.
 */}}
-{{- define "common.custom.mountpermissions.job" -}}
+{{- define "common.storage.permissions.job" -}}
 
 {{- $values := .Values.appVolumeMounts -}}
 {{- if hasKey . "ObjectValues" -}}
@@ -55,7 +55,7 @@ spec:
           #securityContext:
           #
           volumeMounts:
-            {{- include "common.custom.configuredAppVolumeMounts" . | indent 12 }}
+            {{- include "common.storage.configuredAppVolumeMounts" . | indent 12 }}
       {{- with (include "common.controller.volumes" . | trim) }}
       volumes:
         {{- . | nindent 8 }}

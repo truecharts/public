@@ -2,7 +2,7 @@
 This template serves as the blueprint for the mountPermissions job that is run
 before chart installation.
 */}}
-{{- define "common.custom.mountpermissions" -}}
+{{- define "common.storage.permissions" -}}
 {{- if and .Values.appVolumeMounts .Values.fixMountPermissions }}
 {{- range $name, $avm := .Values.appVolumeMounts -}}
 {{- if and $avm.enabled $avm.setPermissions}}
@@ -14,7 +14,7 @@ before chart installation.
 {{ end -}}
 {{- $_ := set $ "ObjectValues" (dict "appVolumeMounts" $VMValues) -}}
 
-{{ include "common.custom.mountpermissions.job" $  | nindent 0 }}
+{{ include "common.storage.permissions.job" $  | nindent 0 }}
 {{- end }}
 {{- end }}
 {{- end }}
