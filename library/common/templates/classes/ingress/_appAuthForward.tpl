@@ -1,7 +1,7 @@
 {{/*
 Renders the additioanl authForward objects from appAuthForward
 */}}
-{{- define "common.custom.classes.appAuthForward" -}}
+{{- define "common.classes.appAuthForward" -}}
 {{- /* Generate TrueNAS SCALE app services as required v1 */ -}}
 {{- $values := .Values.appIngress -}}
 {{- if hasKey . "ObjectValues" -}}
