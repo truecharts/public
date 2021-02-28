@@ -1,0 +1,41 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: traefik
+version: 1.2.0
+upstream_version: 9.14.2
+appVersion: 2.4.2
+description: A Traefik based Reverse Proxy and Certificate Manager
+type: application
+deprecated: false
+home: https://github.com/truecharts/charts/tree/master/charts/traefik
+icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets/img/traefik.logo.png
+keywords:
+  - traefik
+  - ingress
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/traefik
+  - https://github.com/traefik/traefik
+  - https://github.com/traefik/traefik-helm-chart
+  - https://traefik.io/
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.5.0
+  - name: cert-manager
+    repository:  "https://charts.jetstack.io"
+    version: v1.2.0
+  - name: reflector
+    repository:  "https://emberstack.github.io/helm-charts"
+    version: 5.4.17
+    # condition:
+    # tags:
+    # import-values:
+    # alias:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: Kjeld Schouten-Lebbing
+    email: kjeld@schouten-lebbing.nl
+    url: truecharts.org
+# annotations:
