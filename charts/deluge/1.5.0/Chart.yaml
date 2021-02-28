@@ -1,0 +1,31 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: deluge
+version: 1.5.0
+upstream_version: 1.1.1
+appVersion: v2.0.3-2201906121747
+description: Deluge is a torrent download client
+type: application
+deprecated: false
+home: https://github.com/truecharts/charts/tree/master/charts/deluge
+icon: https://avatars2.githubusercontent.com/u/6733935?v=3&s=200
+keywords:
+  - deluge
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/deluge
+  - https://github.com/k8s-at-home/charts/tree/master/charts/deluge
+  - https://hub.docker.com/r/linuxserver/deluge/
+  - https://deluge-torrent.org/
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.5.0
+    # condition:
+    # tags:
+    # import-values:
+    # alias:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+# annotations:
