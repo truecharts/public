@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.5.1](https://img.shields.io/badge/Version-1.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: version-v0.17.153](https://img.shields.io/badge/AppVersion-version--v0.17.153-informational?style=flat-square)
+![Version: 1.6.0](https://img.shields.io/badge/Version-1.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: version-v0.17.153](https://img.shields.io/badge/AppVersion-version--v0.17.153-informational?style=flat-square)
 
 API Support for your favorite torrent trackers.
 
@@ -22,7 +22,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | common | 1.5.0 |
+| https://charts.truecharts.org/ | common | 1.6.0 |
 
 ## Installing the Chart
 
