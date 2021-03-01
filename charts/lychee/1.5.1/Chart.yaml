@@ -1,0 +1,33 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: lychee
+version: 1.5.1
+upstream_version: 2.3.1
+appVersion: 4.0.8
+description: Lychee is a free photo-management tool, which runs on your server or web-space
+type: application
+deprecated: false
+home: https://github.com/truecharts/charts/tree/master/charts/lychee
+icon: https://github.com/LycheeOrg/Lychee/blob/master/Banner.png?raw=true
+keywords:
+  - lychee
+  - photo
+  - pictures
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/lychee
+  - https://github.com/k8s-at-home/charts/tree/master/charts/lychee
+  - https://github.com/LycheeOrg/Lychee
+  - https://hub.docker.com/r/lycheeorg/lychee
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.5.0
+    # condition:
+    # tags:
+    # import-values:
+    # alias:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+# annotations:
