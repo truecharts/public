@@ -55,7 +55,7 @@ spec:
           #securityContext:
           #
           volumeMounts:
-            {{- include "common.storage.configuredAppVolumeMounts" . | indent 12 }}
+            {{- include "common.storage.allContainerVolumeMounts" . | indent 12 }}
       {{- with (include "common.controller.volumes" . | trim) }}
       volumes:
         {{- . | nindent 8 }}

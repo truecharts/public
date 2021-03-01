@@ -25,7 +25,7 @@ Volumes included by the controller.
 {{- end }}
 {{- end }}
 {{- end }}
-{{- include "common.storage.configuredAppVolumes" . }}
+{{ include "common.storage.allAppVolumes" . | nindent 0 }}
 {{- if .Values.additionalVolumes }}
   {{- toYaml .Values.additionalVolumes | nindent 0 }}
 {{- end }}
