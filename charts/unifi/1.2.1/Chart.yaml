@@ -1,0 +1,34 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: unifi
+version: 1.2.1
+upstream_version: 1.5.1
+appVersion: 5.14.23
+description: Ubiquiti Network's Unifi Controller
+type: application
+deprecated: false
+home: https://github.com/truecharts/charts/tree/master/charts/unifi
+icon: https://dl.ubnt.com/press/logo-UniFi.png
+keywords:
+  - ubiquiti
+  - unifi
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/unifi
+  - https://github.com/jacobalberty/unifi-docker
+  - https://unifi-network.ui.com
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.5.0
+    # condition:
+    # tags:
+    # import-values:
+    # alias:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: whiskerz007
+    email: whiskerz007@users.noreply.github.com
+    # url:
+# annotations:
