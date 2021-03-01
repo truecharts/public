@@ -1,40 +1,76 @@
 {{/*
 Define appVolumeMounts for container
 */}}
-{{- define "common.storage.configuredAppVolumeMounts" -}}
-{{- if .Values.appVolumeMounts }}
-{{- range $name, $avm := .Values.appVolumeMounts -}}
-{{- if $avm.enabled }}
+{{- define "common.storage.configureAppVolumeMountsInContainer" -}}
+{{ range $name, $avm := . }}
+{{- if (default true $avm.enabled) -}}
+{{ if $avm.name }}
+{{ $name = $avm.name }}
+{{ end }}
 - name: {{ $name }}
   mountPath: {{ $avm.mountPath }}
-  {{- if $avm.subPath }}
+  {{ if $avm.subPath }}
   subPath: {{ $avm.subPath }}
-  {{- end }}
-{{- end }}
-{{- end }}
-{{- end }}
+  {{ end }}
 {{- end -}}
+{{ end }}
+{{- end -}}
+
 
 {{/*
 Define hostPath for appVolumes
 */}}
-{{- define "common.storage.configuredAppVolumes" -}}
-{{- if .Values.appVolumeMounts }}
-{{- range $name, $av := .Values.appVolumeMounts -}}
-{{- if $av.enabled }}
+{{- define "common.storage.configureAppVolumes" -}}
+{{- range $name, $av := $.volMounts -}}
+{{ if (default true $av.enabled) }}
+{{ if $av.name }}
+{{ $name = $av.name }}
+{{ end }}
 - name: {{ $name }}
-  {{- if $av.emptyDir }}
+  {{ if $av.emptyDir }}
   emptyDir: {}
-  {{- else }}
+  {{- else -}}
   hostPath:
     {{ if $av.hostPathEnabled }}
     path: {{ required "hostPath not set" $av.hostPath }}
-    {{- else }}
-    {{- $volDict := dict "datasetName" $av.datasetName "ixVolumes" $.Values.ixVolumes -}}
-    path: {{ include "common.storage.retrieveHostPathFromiXVolume" $volDict }}
-    {{- end }}
-  {{- end }}
-{{- end }}
-{{- end }}
-{{- end }}
+    {{ else }}
+    {{- $ixVolDict := dict "datasetName" $av.datasetName "ixVolumes" $.ixVolumes -}}
+    path: {{ include "common.storage.retrieveHostPathFromiXVolume" $ixVolDict }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{- end -}}
+{{- end -}}
+
+
+{{/*
+Get all volumes configuration
+*/}}
+{{- define "common.storage.allAppVolumes" -}}
+
+{{- $volDict := dict "volMounts" .Values.appVolumeMounts "ixVolumes" .Values.ixVolumes -}}
+{{- $volExtraDict := dict "volMounts" .Values.appExtraVolumeMounts "ixVolumes" .Values.ixVolumes -}}
+
+{{- if .Values.appVolumeMounts -}}
+{{- include "common.storage.configureAppVolumes" $volDict | nindent 0 -}}
+{{- end -}}
+{{- if .Values.appExtraVolumeMounts -}}
+{{- include "common.storage.configureAppVolumes" $volExtraDict | nindent 0 -}}
+{{- end -}}
+
+{{- end -}}
+
+
+{{/*
+Get all container volume moutns configuration
+*/}}
+{{- define "common.storage.allContainerVolumeMounts" -}}
+
+{{- if .Values.appVolumeMounts -}}
+{{- include "common.storage.configureAppVolumeMountsInContainer" .Values.appVolumeMounts | nindent 0 -}}
+{{- end -}}
+{{- if .Values.appExtraVolumeMounts -}}
+{{- include "common.storage.configureAppVolumeMountsInContainer" .Values.appExtraVolumeMounts | nindent 0 -}}
+{{- end -}}
+
 {{- end -}}

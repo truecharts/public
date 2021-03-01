@@ -493,8 +493,8 @@ fixMountPermissions: true
 #     hostPath: ""
 #     setPermissions: true
 
-#
-#   data:
+# appExtraVolumeMounts:
+#   - name: "data"
 #     enabled: false
 #     emptyDir: false
 #     datasetName: "data"
@@ -502,6 +502,7 @@ fixMountPermissions: true
 #     subPath: some-subpath
 #     hostPathEnabled: false
 #     hostPath: ""
+#     setPermissions: true
 
 # appIngress:
 #  main:
