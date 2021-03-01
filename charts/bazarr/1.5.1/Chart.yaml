@@ -1,0 +1,39 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: bazarr
+version: 1.5.1
+upstream_version: 5.2.1
+appVersion: v0.9.0.5
+description: Bazarr is a companion application to Bazarr and Radarr. It manages and downloads subtitles based on your requirements
+type: application
+deprecated: false
+home: https://github.com/truecharts/charts/tree/master/charts/bazarr
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png
+keywords:
+  - bazarr
+  - radarr
+  - bazarr
+  - subtitles
+  - usenet
+  - torrent
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/bazarr
+  - https://github.com/k8s-at-home/charts/tree/master/charts/bazarr
+  - https://github.com/Bazarr/Bazarr
+  - https://hub.docker.com/r/linuxserver/bazarr
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.5.0
+    # condition:
+    # tags:
+    # import-values:
+    # alias:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: Kjeld Schouten-Lebbing
+    email: kjeld@schouten-lebbing.nl
+    url: truecharts.org
+# annotations:
