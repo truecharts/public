@@ -33,3 +33,7 @@ Setting permissions automatically means we `chown` the folder and all folder wit
 However, we only do so when installing or updating an app.
 
 These permission get based on the user and group you enter in the App configuration dialog and default to `568` (the SCALE default Apps user).
+
+### Custom Storage
+
+Besides the earlier mentioned storage options, we also provide the option to mount as many host folders as you want. This is limited to hostPath mounts only.
