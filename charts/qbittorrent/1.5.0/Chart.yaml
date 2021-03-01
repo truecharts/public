@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: qbittorrent
-version: 1.5.0
+version: 1.6.0
 upstream_version: 7.2.1
 appVersion: 4.3.0
 description: qBittorrent is a cross-platform free and open-source BitTorrent client
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.5.0
+    version: 1.6.0
     # condition:
     # tags:
     # import-values:
