@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: collabora-online
-version: 1.6.0
+version: 1.6.1
 # upstream_version:
 appVersion: 6.4.6.1
 description: Collabora Online Development Edition – an awesome, Online Office suite image suitable for home use.
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.6.0
+    version: 1.6.1
     # condition:
     # tags:
     # import-values:

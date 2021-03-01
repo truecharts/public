@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: ombi
-version: 1.6.0
+version: 1.6.1
 upstream_version: 8.0.1
 appVersion: 4.0.681
 description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
@@ -24,7 +24,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.6.0
+    version: 1.6.1
     # condition:
     # tags:
     # import-values:
