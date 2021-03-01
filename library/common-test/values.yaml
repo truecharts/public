@@ -21,11 +21,27 @@ appVolumeMounts:
     hostPath: ""
   test:
     enabled: true
-    emptyDir: true
+    emptyDir: false
     datasetName: "test"
     mountPath: "/test"
+    hostPathEnabled: true
+    hostPath: "/tmp"
+
+appExtraVolumeMounts:
+  - name: "extratest1"
+    enabled: true
+    emptyDir: true
+    datasetName: "extratest1"
+    mountPath: "/extratest1"
     hostPathEnabled: false
     hostPath: ""
+  - name: "extratest2"
+    enabled: true
+    emptyDir: false
+    datasetName: "extratest2"
+    mountPath: "/extratest2"
+    hostPathEnabled: true
+    hostPath: "/tmp"
 
 appAdditionalServicesEnabled: true
 appAdditionalServices:
