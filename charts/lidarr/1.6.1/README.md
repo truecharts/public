@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.6.0](https://img.shields.io/badge/Version-1.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.8.0.1886](https://img.shields.io/badge/AppVersion-0.8.0.1886-informational?style=flat-square)
+![Version: 1.6.1](https://img.shields.io/badge/Version-1.6.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.8.0.1886](https://img.shields.io/badge/AppVersion-0.8.0.1886-informational?style=flat-square)
 
 Looks and smells like Sonarr but made for music
 
@@ -22,7 +22,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | common | 1.6.0 |
+| https://charts.truecharts.org/ | common | 1.6.1 |
 
 ## Installing the Chart
 
