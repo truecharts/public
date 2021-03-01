@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.5.0](https://img.shields.io/badge/Version-1.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.8](https://img.shields.io/badge/AppVersion-4.0.8-informational?style=flat-square)
+![Version: 1.5.1](https://img.shields.io/badge/Version-1.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.8](https://img.shields.io/badge/AppVersion-4.0.8-informational?style=flat-square)
 
 Lychee is a free photo-management tool, which runs on your server or web-space
 
