@@ -13,26 +13,24 @@ Renders the additional ingress objects from appIngress
 		  {{- $_ := set $ "ObjectValues" (dict "appIngress" $ingressValues) -}}
           {{- if $ingressValues.type -}}
             {{- if eq $ingressValues.type "UDP" -}}
-              {{- include "common.classes.appIngressUDP" $ | nindent 0 -}}
+              {{- include "common.classes.appIngressUDP" $ }}
             {{- else if eq $ingressValues.type "TCP" -}}
-              {{- include "common.classes.appIngressTCP" $ | nindent 0 -}}
+              {{- include "common.classes.appIngressTCP" $ }}
             {{- else }}
-              {{- include "common.classes.appIngressHTTP" $ | nindent 0 -}}
+              {{- include "common.classes.appIngressHTTP" $ }}
 			  {{- if $ingressValues.authForwardURL }}
-                {{- include "common.classes.appAuthForward" $ | nindent 0 -}}
+                {{- include "common.classes.appAuthForward" $ }}
               {{- end }}
             {{- end }}
           {{- else }}
-            {{- include "common.classes.appIngressHTTP" $ | nindent 0 -}}
+            {{- include "common.classes.appIngressHTTP" $ }}
 			{{- if $ingressValues.authForwardURL }}
-              {{- include "common.classes.appAuthForward" $ | nindent 0 -}}
+              {{- include "common.classes.appAuthForward" $ }}
             {{- end }}
           {{- end }}
 		  {{- $_ := set $ "ObjectValues" (dict "certHolder" $ingressValues) -}}
-		  {- if eq $ingressValues.certType "ixcert" -}}
 		  {{- print ("---") | nindent 0 -}}
-		  {{- include "common.resources.cert.secret" $ | nindent 0 -}}
-		  {{- else }}
+		  {{- include "common.resources.cert.secret" $ }}
       {{- end }}
     {{- end }}
   {{- end }}
