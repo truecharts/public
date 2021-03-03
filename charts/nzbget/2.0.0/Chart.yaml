@@ -1,0 +1,40 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: nzbget
+<<<<<<< HEAD:charts/nzbget/1.6.4/Chart.yaml
+version: 1.6.4
+=======
+version: 2.0.0
+>>>>>>> [Common] Refactor Services (#212):charts/nzbget/2.0.0/Chart.yaml
+upstream_version: 7.3.1
+appVersion: v21.0
+description: NZBGet is a Usenet downloader client
+type: application
+deprecated: false
+home: https://github.com/truecharts/charts/tree/master/charts/nzbget
+icon: https://avatars1.githubusercontent.com/u/3368377?s=400&v=4
+keywords:
+  - nzbget
+  - usenet
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/nzbget
+  - https://github.com/k8s-at-home/charts/tree/master/charts/nzbget
+  - https://hub.docker.com/r/linuxserver/nzbget/
+  - https://nzbget.net/
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+<<<<<<< HEAD:charts/nzbget/1.6.4/Chart.yaml
+    version: 1.6.7
+=======
+    version: 2.0.0
+>>>>>>> [Common] Refactor Services (#212):charts/nzbget/2.0.0/Chart.yaml
+    # condition:
+    # tags:
+    # import-values:
+    # alias:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+# annotations:

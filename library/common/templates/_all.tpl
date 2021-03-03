@@ -38,9 +38,7 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{ else if eq .Values.controllerType "statefulset"  }}
     {{- include "common.statefulset" . | nindent 0 }}
   {{- end -}}
-  {{- print "---" | nindent 0 -}}
-  {{ include "common.service" . | nindent 0 }}
-  {{ include "common.appService" . | nindent 0 }}
+  {{ include "common.services" . | nindent 0 }}
   {{- print "---" | nindent 0 -}}
   {{ include "common.ingress" .  | nindent 0 }}
   {{- print "---" | nindent 0 -}}
