@@ -12,6 +12,11 @@ strategy:
 service:
   port:
     port: 8096
+  env:
+    - name: UID
+      value: {{ .Values.PUID | quote }}
+    - name: GID
+      value: {{ .Values.PGID | quote }}
 
 persistence:
   config:
