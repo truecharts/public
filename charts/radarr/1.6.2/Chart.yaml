@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: radarr
-version: 1.6.2
+version: 1.6.3
 upstream_version: 9.1.0
 appVersion: "version-3.0.0.3989"
 description: A fork of Sonarr to work with movies à la Couchpotato
@@ -21,7 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.6.2
+    version: 1.6.5
     # condition:
     # tags:
     # import-values:
