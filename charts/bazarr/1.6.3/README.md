@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.6.2](https://img.shields.io/badge/Version-1.6.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.9.0.5](https://img.shields.io/badge/AppVersion-v0.9.0.5-informational?style=flat-square)
+![Version: 1.6.3](https://img.shields.io/badge/Version-1.6.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v0.9.0.5](https://img.shields.io/badge/AppVersion-v0.9.0.5-informational?style=flat-square)
 
 Bazarr is a companion application to Bazarr and Radarr. It manages and downloads subtitles based on your requirements
 
@@ -22,7 +22,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.truecharts.org/ | common | 1.6.2 |
+| https://charts.truecharts.org/ | common | 1.6.5 |
 
 ## Installing the Chart
 
