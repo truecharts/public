@@ -36,6 +36,8 @@ Creating charts takes some getting used to, as it's based on Helm charts. We hig
 
 Truecharts as a whole, is based on a BSD-3-clause  license, this ensures almost everyone can use and modify our charts. However: As a lot of Apps are based on upstream Helm Charts, Licences can vary on a per-App basis. This can easily be seen by the presence of a "LICENSE" file in the App rootfolder.
 
+Some Apps may also contain parts in other licenses, such as libraries or templates, these files can be recognised by their individual headers.
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftruecharts%2Ftruecharts.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftruecharts%2Ftruecharts?ref=badge_large)
 
 ---
