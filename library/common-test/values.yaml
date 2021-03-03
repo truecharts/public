@@ -3,9 +3,44 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-service:
-  port:
-    port: 8080
+services:
+  main:
+    port:
+      port: 8080
+  test2-tcp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8081
+      name: tcp-test
+      protocol: TCP
+      targetPort: 8081
+  test2-udp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8082
+      name: udp-test
+      protocol: UDP
+      targetPort: 8082
+
+additionalServices:
+  - name: test3-tcp
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8083
+      name: tcp-test
+      protocol: TCP
+      targetPort: 8083
+  - name: test4-dp
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8084
+      name: udp-test
+      protocol: UDP
+      targetPort: 8084
 
 ingress:
   enabled: true
@@ -44,22 +79,3 @@ additionalAppVolumeMounts:
     mountPath: "/test4"
     hostPathEnabled: true
     hostPath: "/tmp"
-
-appAdditionalServicesEnabled: true
-appAdditionalServices:
-  extra-tcp:
-    enabled: true
-    type: ClusterIP
-    port:
-      port: 51414
-      name: tcp-test
-      protocol: TCP
-      targetPort: 51414
-  extra-udp:
-    enabled: true
-    type: ClusterIP
-    port:
-      port: 51414
-      name: udp-test
-      protocol: UDP
-      targetPort: 51414

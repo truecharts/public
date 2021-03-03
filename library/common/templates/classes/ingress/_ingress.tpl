@@ -32,7 +32,7 @@ within the common library.
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
 {{ end -}}
 {{- $svcName := $values.serviceName | default (include "common.names.fullname" .) -}}
-{{- $svcPort := $values.servicePort | default $.Values.service.port.port -}}
+{{- $svcPort := $values.servicePort | default $.Values.services.main.port.port -}}
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
