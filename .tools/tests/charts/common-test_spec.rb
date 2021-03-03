@@ -215,5 +215,48 @@ class Test < ChartTest
         jq('.spec.volumeClaimTemplates[0].spec.storageClassName', resource('StatefulSet')).must_equal values[:volumeClaimTemplates][0][:storageClass]
       end
     end
+
+	describe 'appVolumeMounts' do
+      default_name_1 = 'test1'
+	  default_name_2 = 'test2'
+      default_mountPath_1 = '/test1'
+	  default_mountPath_2 = '/test2'
+	  empty_dir = {}
+	  path = '/tmp'
+
+      it 'appVolumeMounts creates VolumeMounts' do
+        jq('.spec.template.spec.containers[0].volumeMounts[0].name', resource('Deployment')).must_equal default_name_1
+		jq('.spec.template.spec.containers[0].volumeMounts[1].name', resource('Deployment')).must_equal default_name_2
+		jq('.spec.template.spec.containers[0].volumeMounts[0].mountPath', resource('Deployment')).must_equal default_mountPath_1
+		jq('.spec.template.spec.containers[0].volumeMounts[1].mountPath', resource('Deployment')).must_equal default_mountPath_2
+      end
+
+      it 'appVolumeMounts creates Volumes' do
+		jq('.spec.template.spec.volumes[0].emptyDir', resource('Deployment')).must_equal empty_dir
+		jq('.spec.template.spec.volumes[1].hostPath.path', resource('Deployment')).must_equal path
+      end
+    end
+
+	describe 'additionalAppVolumeMounts' do
+      default_name_3 = 'test3'
+	  default_name_4 = 'test4'
+      default_mountPath_3 = '/test3'
+	  default_mountPath_4 = '/test4'
+	  empty_dir = {}
+	  path = '/tmp'
+
+      it 'additionalAppVolumeMounts creates VolumeMounts' do
+        jq('.spec.template.spec.containers[0].volumeMounts[2].name', resource('Deployment')).must_equal default_name_3
+		jq('.spec.template.spec.containers[0].volumeMounts[3].name', resource('Deployment')).must_equal default_name_4
+		jq('.spec.template.spec.containers[0].volumeMounts[2].mountPath', resource('Deployment')).must_equal default_mountPath_3
+		jq('.spec.template.spec.containers[0].volumeMounts[3].mountPath', resource('Deployment')).must_equal default_mountPath_4
+      end
+
+      it 'additionalAppVolumeMounts creates Volumes' do
+		jq('.spec.template.spec.volumes[2].emptyDir', resource('Deployment')).must_equal empty_dir
+		jq('.spec.template.spec.volumes[3].hostPath.path', resource('Deployment')).must_equal path
+      end
+    end
+
   end
 end
