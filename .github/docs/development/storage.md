@@ -90,7 +90,7 @@ It should always be included in any App, to give users the option to customise t
 ##### Example
 
 ```
-  - variable: appExtraVolumeMounts
+  - variable: additionalAppVolumeMounts
     label: "Custom app storage"
     group: "Storage"
     schema:
