@@ -129,48 +129,49 @@ probes:
       periodSeconds: 10
       failureThreshold: 30
 
-service:
-  enabled: true
-  type: ClusterIP
-  ## Specify the default port information
-  port:
+services:
+  main:
+    enabled: true
+    type: ClusterIP
+    ## Specify the default port information
     port:
-    ## name defaults to http
-    name:
-    protocol: TCP
-    ## Specify a service targetPort if you wish to differ the service port from the application port.
-    ## If targetPort is specified, this port number is used in the container definition instead of
-    ## service.port.port. Therefore named ports are not supported for this field.
-    targetPort:
-    ## Specify the nodePort value for the LoadBalancer and NodePort service types.
-    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+      port:
+      ## name defaults to http
+      name:
+      protocol: TCP
+      ## Specify a service targetPort if you wish to differ the service port from the application port.
+      ## If targetPort is specified, this port number is used in the container definition instead of
+      ## service.port.port. Therefore named ports are not supported for this field.
+      targetPort:
+      ## Specify the nodePort value for the LoadBalancer and NodePort service types.
+      ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+      ##
+      # nodePort:
+    additionalPorts: []
+
+    ## Provide any additional annotations which may be required. This can be used to
+    ## set the LoadBalancer service type to internal only.
+    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
     ##
-    # nodePort:
-  additionalPorts: []
+    annotations: {}
+    labels: {}
 
-  ## Provide any additional annotations which may be required. This can be used to
-  ## set the LoadBalancer service type to internal only.
-  ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
-  ##
-  annotations: {}
-  labels: {}
-
-  additionalServices: []
-  # - enabled: false
-  #   nameSuffix: api
-  #   type: ClusterIP
-  #   # Specify the default port information
-  #   port:
-  #     port:
-  #     # name defaults to http
-  #     name:
-  #     protocol: TCP
-  #     # targetPort defaults to http
-  #     targetPort:
-  #     # nodePort:
-  #   additionalPorts: []
-  #   annotations: {}
-  #   labels: {}
+additionalServices: []
+# - enabled: false
+#   nameSuffix: api
+#   type: ClusterIP
+#   # Specify the default port information
+#   port:
+#     port:
+#     # name defaults to http
+#     name:
+#     protocol: TCP
+#     # targetPort defaults to http
+#     targetPort:
+#     # nodePort:
+#   additionalPorts: []
+#   annotations: {}
+#   labels: {}
 
 ingress:
   enabled: false

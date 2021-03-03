@@ -21,34 +21,14 @@ This file is considered to be modified by the TrueCharts Project.
 Ports included by the controller.
 */}}
 {{- define "common.controller.ports" -}}
-  {{- $ports := list -}}
-  {{- with .Values.service -}}
-    {{- $serviceValues := deepCopy . -}}
-    {{/* append the ports for the main service */}}
-    {{- if .enabled -}}
-      {{- $_ := set .port "name" (default "http" .port.name) -}}
-      {{- $ports = mustAppend $ports .port -}}
-      {{- range $_ := .additionalPorts -}}
-        {{/* append the additonalPorts for the main service */}}
-        {{- $ports = mustAppend $ports . -}}
-      {{- end }}
-    {{- end }}
-    {{/* append the ports for each additional service */}}
-    {{- range $_ := .additionalServices }}
-      {{- if .enabled -}}
-        {{- $_ := set .port "name" (required "Missing port.name" .port.name) -}}
-        {{- $ports = mustAppend $ports .port -}}
-        {{- range $_ := .additionalPorts -}}
-          {{/* append the additonalPorts for each additional service */}}
-          {{- $ports = mustAppend $ports . -}}
-        {{- end }}
-      {{- end }}
-    {{- end }}
+{{- $ports := list -}}
     {{/* append the ports for each appAdditionalService - TrueCharts */}}
-    {{- if and $.Values.appAdditionalServicesEnabled $.Values.appAdditionalServices -}}
-      {{- range $name, $_ := $.Values.appAdditionalServices }}
-        {{- if .enabled -}}
-          {{- if kindIs "string" $name -}}
+    {{- if $.Values.services -}}
+      {{- range $name, $_ := $.Values.services }}
+	    {{- if or ( .enabled ) ( eq $name "main" ) -}}
+		  {{- if eq $name "main" -}}
+		    {{- $_ := set .port "name" (default "http" .port.name) -}}
+          {{- else if kindIs "string" $name -}}
             {{- $_ := set .port "name" (default .port.name | default $name) -}}
             {{- else -}}
             {{- $_ := set .port "name" (required "Missing port.name" .port.name) -}}
@@ -61,7 +41,19 @@ Ports included by the controller.
         {{- end }}
       {{- end }}
     {{- end }}
-  {{- end }}
+
+    {{- if $.Values.additionalServices -}}
+      {{- range $_ := $.Values.additionalServices }}
+        {{- if .enabled -}}
+          {{- $_ := set .port "name" (required "Missing port.name" .port.name) -}}
+          {{- $ports = mustAppend $ports .port -}}
+          {{- range $_ := .additionalPorts -}}
+            {{/* append the additonalPorts for each additional service */}}
+            {{- $ports = mustAppend $ports . -}}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
 
 {{/* export/render the list of ports */}}
 {{- if $ports -}}
