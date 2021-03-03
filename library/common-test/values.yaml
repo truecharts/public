@@ -10,36 +10,38 @@ service:
 ingress:
   enabled: true
 
+# these values and names are set specifically with the unittests in mind.
 fixMountPermissions: false
 appVolumeMounts:
-  data:
+  test1:
     enabled: true
     emptyDir: true
-    datasetName: "data"
-    mountPath: "/data"
+    datasetName: "test1"
+    mountPath: "/test1"
     hostPathEnabled: false
     hostPath: ""
-  test:
+  test2:
     enabled: true
     emptyDir: false
-    datasetName: "test"
-    mountPath: "/test"
+    datasetName: "test2"
+    mountPath: "/test2"
     hostPathEnabled: true
     hostPath: "/tmp"
 
-appExtraVolumeMounts:
-  - name: "extratest1"
+# these values and names are set specifically with the unittests in mind.
+additionalAppVolumeMounts:
+  - name: "test3"
     enabled: true
     emptyDir: true
-    datasetName: "extratest1"
-    mountPath: "/extratest1"
+    datasetName: "test3"
+    mountPath: "/test3"
     hostPathEnabled: false
     hostPath: ""
-  - name: "extratest2"
+  - name: "test4"
     enabled: true
     emptyDir: false
-    datasetName: "extratest2"
-    mountPath: "/extratest2"
+    datasetName: "test4"
+    mountPath: "/test4"
     hostPathEnabled: true
     hostPath: "/tmp"
 
