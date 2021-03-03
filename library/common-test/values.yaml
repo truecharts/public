@@ -43,7 +43,16 @@ additionalServices:
       targetPort: 8084
 
 ingress:
-  enabled: true
+  test1:
+    enabled: true
+  test2:
+    enabled: true
+
+additionalIngress:
+  - name: "test3"
+    enabled: true
+  - name: "test4"
+    enabled: true
 
 # these values and names are set specifically with the unittests in mind.
 fixMountPermissions: false
