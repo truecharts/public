@@ -49,12 +49,12 @@ Get all volumes configuration
 {{- define "common.storage.allAppVolumes" -}}
 
 {{- $volDict := dict "volMounts" .Values.appVolumeMounts "ixVolumes" .Values.ixVolumes -}}
-{{- $volExtraDict := dict "volMounts" .Values.appExtraVolumeMounts "ixVolumes" .Values.ixVolumes -}}
+{{- $volExtraDict := dict "volMounts" .Values.additionalAppVolumeMounts "ixVolumes" .Values.ixVolumes -}}
 
 {{- if .Values.appVolumeMounts -}}
 {{- include "common.storage.configureAppVolumes" $volDict | nindent 0 -}}
 {{- end -}}
-{{- if .Values.appExtraVolumeMounts -}}
+{{- if .Values.additionalAppVolumeMounts -}}
 {{- include "common.storage.configureAppVolumes" $volExtraDict | nindent 0 -}}
 {{- end -}}
 
@@ -69,8 +69,8 @@ Get all container volume moutns configuration
 {{- if .Values.appVolumeMounts -}}
 {{- include "common.storage.configureAppVolumeMountsInContainer" .Values.appVolumeMounts | nindent 0 -}}
 {{- end -}}
-{{- if .Values.appExtraVolumeMounts -}}
-{{- include "common.storage.configureAppVolumeMountsInContainer" .Values.appExtraVolumeMounts | nindent 0 -}}
+{{- if .Values.additionalAppVolumeMounts -}}
+{{- include "common.storage.configureAppVolumeMountsInContainer" .Values.additionalAppVolumeMounts | nindent 0 -}}
 {{- end -}}
 
 {{- end -}}
