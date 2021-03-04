@@ -496,9 +496,7 @@ questions:
                         default: "TCP"
                         required: true
                         editable: false
-                        enum:
-                          - value: "TCP"
-                            description: "Plain TCP Connections"
+                        hidden: true
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
@@ -508,15 +506,6 @@ questions:
                         enum:
                           - value: "unificom"
                             description: "Unifi Communications TCP: port 8080"
-                    - variable: certType
-                      label: "Select Certificate Type"
-                      schema:
-                        editable: false
-                        type: string
-                        default: ""
-                        enum:
-                          - value: ""
-                            description: "No Encryption/TLS/Certificates"
         - variable: udp
           label: "UDP Ingress Configuration"
           schema:
@@ -536,9 +525,7 @@ questions:
                         default: "UDP"
                         required: true
                         editable: false
-                        enum:
-                          - value: "UDP"
-                            description: "Plain UDP Connections"
+                        hidden: true
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:

@@ -280,9 +280,7 @@ questions:
                         default: "TCP"
                         required: true
                         editable: false
-                        enum:
-                          - value: "TCP"
-                            description: "Plain TCP Connections"
+                        hidden: true
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
@@ -292,12 +290,3 @@ questions:
                         enum:
                           - value: "kms"
                             description: "KMS: port 1688"
-                    - variable: certType
-                      label: "Select Certificate Type"
-                      schema:
-                        editable: false
-                        type: string
-                        default: ""
-                        enum:
-                          - value: ""
-                            description: "No Encryption/TLS/Certificates"
