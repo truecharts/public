@@ -1,0 +1,35 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: emby
+version: 4.6.0
+upstream_version: 4.6.0.30
+appVersion: 10.6.4
+description: Emby Server is a home media server
+type: application
+deprecated: false
+home: https://github.com/djs52/charts/tree/master/charts/emby
+icon_url: https://raw.githubusercontent.com/djs52/charts/master/charts/emby/icon.png?raw=true
+keywords:
+  - jellyfin
+  - plex
+  - emby
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/emby
+  - https://hub.docker.com/r/emby/embyserver/
+  - https://github.com/MediaBrowser/Emby.Build
+dependencies:
+  - name: common
+    repository: https://charts.truecharts.org/
+    version: 1.6.5
+    # condition:
+    # tags:
+    # import-values:
+    # alias:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: Kjeld Schouten-Lebbing
+    email: kjeld@schouten-lebbing.nl
+    url: truecharts.org
+# annotations:
