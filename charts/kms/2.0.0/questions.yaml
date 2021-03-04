@@ -7,7 +7,7 @@ groups:
     description: "Networking / service configuration"
   - name: "Storage"
     description: "configure app volume mounts"
-  - name: "Ingress"
+  - name: "Reverse Proxy Configuration"
     description: "Reverse Proxy configuration"
 
 portals:
@@ -255,15 +255,14 @@ questions:
                         type: hostpath
                         required: true
 
-  - variable: appIngress
+  - variable: ingress
     label: ""
-    group: "Ingress"
+    group: "Reverse Proxy Configuration"
     schema:
       type: dict
       attrs:
         - variable: kms
           label: "KMS Reverse Proxy Configuration"
-          group: "Ingress"
           schema:
             type: dict
             attrs:

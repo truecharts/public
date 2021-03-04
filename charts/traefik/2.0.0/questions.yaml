@@ -19,8 +19,8 @@ groups:
     description: "Configure when pod should be restarted in case of failure"
   - name: "Resource Reservation"
     description: "Specify resources to be allocated to workload"
-  - name: "Ingress"
-    description: "Configure Reverse Proxy"
+  - name: "Reverse Proxy Configuration"
+    description: "Reverse Proxy configuration"
   - name: "Certmanager Settings"
     description: "Configure Certmanager"
   - name: "WARNING"
@@ -165,15 +165,14 @@ questions:
                         type: hostpath
                         required: true
 
-  - variable: appIngress
+  - variable: ingress
     label: ""
-    group: "Ingress"
+    group: "Reverse Proxy Configuration"
     schema:
       type: dict
       attrs:
         - variable: webui
           label: "Web Reverse Proxy Configuration"
-          group: "Ingress"
           schema:
             type: dict
             attrs:
@@ -184,6 +183,14 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
+                    - variable: type
+                      label: "Reverse Proxy Type"
+                      schema:
+                        type: string
+                        default: "HTTP"
+                        hidden: true
+                        editable: false
+                        required: true
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
