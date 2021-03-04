@@ -21,7 +21,8 @@ within the common library.
 */}}
 {{- define "common.classes.ingress" -}}
 {{- $ingressName := include "common.names.fullname" . -}}
-{{- $values := .Values.ingress -}}
+{{- $svcPort := 80 }}
+{{- $values := .Values -}}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.ingress -}}
     {{- $values = . -}}
@@ -31,7 +32,13 @@ within the common library.
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
 {{ end -}}
 {{- $svcName := $values.serviceName | default (include "common.names.fullname" .) -}}
+
+{{- if $values.standAlone }}
+{{- $svcPort := $values.servicePort | default 80 -}}
+{{- else }}
 {{- $svcPort := $values.servicePort | default $.Values.services.main.port.port -}}
+{{- end }}
+
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
@@ -40,10 +47,7 @@ metadata:
     {{- include "common.labels" . | nindent 4 }}
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: {{ $values.entrypoint }}
-    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd
-    {{- if $values.authForwardURL }}
-    traefik.ingress.kubernetes.io/router.middlewares: {{ $ingressName }}
-    {{- end }}
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd{{ if $values.authForwardURL }},{{ $ingressName }}-auth-forward{{ end }}
     {{- with $values.annotations }}
       {{- toYaml . | nindent 4 }}
     {{- end }}

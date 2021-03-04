@@ -21,8 +21,6 @@ Renders the Ingress objects required by the chart by returning a concatinated li
 of the main Ingress and any additionalIngresses.
 */}}
 {{- define "common.ingress" -}}
-    {{- $svcPort := .Values.services.main.port.port -}}
-
     {{- /* Generate named ingresses as required */ -}}
     {{- range $name, $ingress := .Values.ingress }}
       {{- if $ingress.enabled -}}
@@ -41,7 +39,7 @@ of the main Ingress and any additionalIngresses.
           {{- $_ := set $ingressValues "certType" "" -}}
 		{{ end -}}
 
-        {{- if or ( eq $ingressValues.type "TCP" ) ( eq $ingressValues.type "UDP" ) -}}
+        {{- if or ( eq $ingressValues.type "TCP" ) ( eq $ingressValues.type "UDP" )  ( eq $ingressValues.type "HTTP-IR" ) -}}
 		{{- include "common.classes.ingressRoute" $ -}}
 		{{- else -}}
 		{{- include "common.classes.ingress" $ -}}
@@ -79,7 +77,7 @@ of the main Ingress and any additionalIngresses.
           {{- $_ := set $ingressValues "certType" "" -}}
 		{{ end -}}
 
-        {{- if or ( eq $ingressValues.type "TCP" ) ( eq $ingressValues.type "UDP" ) -}}
+        {{- if or ( eq $ingressValues.type "TCP" ) ( eq $ingressValues.type "UDP" ) ( eq $ingressValues.type "HTTP-IR" ) -}}
 		{{- include "common.classes.ingressRoute" $ -}}
 		{{- else -}}
 		{{- include "common.classes.ingress" $ -}}

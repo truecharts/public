@@ -82,7 +82,7 @@ experimental:
 # Create an IngressRoute for the dashboard
 ingressRoute:
   dashboard:
-    enabled: true
+    enabled: false
     # Additional ingressRoute annotations (e.g. for kubernetes.io/ingress.class)
     annotations: {}
     # Additional ingressRoute labels (e.g. for filtering IngressRoute by custom labels)
@@ -516,60 +516,9 @@ podSecurityContext:
   fsGroup: 65532
 
 
-#appVolumeMounts:
-#  data:
-#    enabled: true
-#    emptyDir: false
-#    datasetName: "data"
-#    mountPath: "/data"
-
-appIngress:
-  webui:
-    enabled: false
-    entrypoint: "websecure"
-    certType: "letsencrypt-prod"
-    existingcert: ""
-    authForwardURL: ""
-    host: "traefik.example.truecharts.org"
-
-certmanager:
-  # general
-  provider: ""
-  email: ""
-  wildcardDomain: ""
-  # provider specific
-  cloudflare:
-    apikey: ""
-  cloudDNS:
-    project: ""
-    keyjson: ""
-  route53:
-    region: ""
-    accessKeyID: ""
-    secretaccesskey: ""
-  digitalocean:
-    accesstoken: ""
-  rfc2136:
-    nameserver: ""
-    tsigKeyName: ""
-    tsigsecretkey: ""
-    tsigAlgorithm: ""
-  azureDNS:
-    environment: ""
-    subscriptionID: ""
-    resourceGroupName: ""
-    hostedZoneName: ""
-  akamai:
-    serviceConsumerDomain: ""
-    clientToken: ""
-    clientSecret: ""
-    accessToken: ""
-  acmeDNS:
-    host: ""
-    acmednsjson: ""
-
-cert-manager:
-  installCRDs: true
-  extraArgs:
-    - --dns01-recursive-nameservers-only
-    - --dns01-recursive-nameservers=1.1.1.1:53
+appVolumeMounts:
+  data:
+    enabled: true
+    emptyDir: false
+    datasetName: "data"
+    mountPath: "/data"

@@ -3,7 +3,7 @@ Renders the additional authForward objects from ingress
 */}}
 {{- define "common.classes.ingress.authForward" -}}
 {{- $authForwardName := include "common.names.fullname" . -}}
-{{- $values := .Values.ingress -}}
+{{- $values := .Values -}}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.ingress -}}
     {{- $values = . -}}
@@ -15,7 +15,7 @@ Renders the additional authForward objects from ingress
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ $authForwardName }}
+  name: {{ $authForwardName }}-auth-forward
 spec:
   forwardAuth:
     address: {{ $values.authForwardURL | quote }}

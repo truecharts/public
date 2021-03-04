@@ -4,7 +4,8 @@ within the common library.
 */}}
 {{- define "common.classes.ingressRoute" -}}
 {{- $ingressName := include "common.names.fullname" . -}}
-{{- $values := .Values.ingress -}}
+{{- $values := .Values -}}
+{{- $svcPort := 80 }}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.ingress -}}
     {{- $values = . -}}
@@ -14,12 +15,20 @@ within the common library.
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
 {{ end -}}
 {{- $svcName := $values.serviceName | default (include "common.names.fullname" .) -}}
+
+{{- if or ( $values.serviceKind ) (  $values.standAlone ) }}
+{{- $svcPort := $values.servicePort | default 80 -}}
+{{- else }}
 {{- $svcPort := $values.servicePort | default $.Values.services.main.port.port -}}
+{{- end }}
+
 apiVersion: traefik.containo.us/v1alpha1
 {{- if eq $values.type "UDP" }}
 kind: IngressRouteUDP
-{{- else }}
+{{- else if eq $values.type "TCP" }}
 kind: IngressRouteTCP
+{{- else }}
+kind: IngressRoute
 {{- end }}
 metadata:
   name: {{ $ingressName }}
@@ -38,16 +47,31 @@ spec:
     - name: {{ $svcName }}
       port: {{ $svcPort }}
       weight: 10
-  {{- else }}
+  {{- else if eq $values.type "TCP" }}
   - match: HostSNI(`*`)
     services:
     - name: {{ $svcName }}
       port: {{ $svcPort }}
       weight: 10
       terminationDelay: 400
+  {{- else }}
+  - kind: Rule
+    match: Host(`{{ (index  $values.hosts 0).host }}`)
+    services:
+      - name: {{ $svcName }}
+        {{- if $values.serviceKind }}
+        kind: {{ $values.serviceKind }}
+        {{- else }}
+        port: {{ $svcPort }}
+        {{- end }}
+    middlewares:
+      - name: traefik-middlewares-chain-public@kubernetescrd
+      {{- if $values.authForwardURL }}
+      - name: "{{ $ingressName }}-auth-forward"
+      {{- end }}
   {{- end }}
 
-{{- if eq $values.type "TCP" }}
+{{- if not ( eq $values.type "UDP" ) }}
 {{- if or ( eq $values.certType "selfsigned") (eq $values.certType "ixcert") }}
   tls:
     domains:

@@ -569,7 +569,7 @@ class Test < ChartTest
       end
 
       it 'check authForward when authForwardURL is set' do
-        expectedName = 'common-test-test1'
+        expectedName = 'common-test-test1-auth-forward'
         values = {
           ingress: {
             test1: {
@@ -582,7 +582,6 @@ class Test < ChartTest
         refute_nil(resource('Middleware'))
         jq('.spec.forwardAuth.address', resource('Middleware')).must_equal  values[:ingress][:test1][:authForwardURL]
         jq('.metadata.name', resource('Middleware')).must_equal  expectedName
-        jq('.metadata.name', resource('Ingress')).must_equal  expectedName
       end
 
     end
@@ -818,6 +817,88 @@ class Test < ChartTest
         refute_nil(resource('IngressRouteUDP'))
         refute_nil(resource('IngressRouteTCP'))
         refute_nil(resource('Ingress'))
+      end
+
+      it 'HTTP-ingressRoute is evaluated ' do
+        expectedHostString = 'Host(`hostname`)'
+        values = {
+          ingress: {
+            test1: {
+              type: "HTTP-IR",
+              enabled: true,
+              hosts: [
+                {
+                  host: 'hostname'
+                }
+              ]
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.routes[0].match', resource('IngressRoute')).must_equal  expectedHostString
+        assert_nil(resource('IngressRouteUDP'))
+        assert_nil(resource('IngressRouteTCP'))
+        refute_nil(resource('Ingress'))
+        refute_nil(resource('IngressRoute'))
+      end
+
+      it 'HTTP-ingressRoute with selfsigned cert is evaluated is evaluated ' do
+        expectedHostString = 'Host(`hostname`)'
+        values = {
+          ingress: {
+            test1: {
+              type: "HTTP-IR",
+              enabled: true,
+              hosts: [
+                {
+                  host: 'hostname'
+                }
+              ],
+              certType: "selfsigned"
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.routes[0].match', resource('IngressRoute')).must_equal  expectedHostString
+        assert_nil(resource('IngressRouteUDP'))
+        assert_nil(resource('IngressRouteTCP'))
+        refute_nil(resource('Ingress'))
+        refute_nil(resource('IngressRoute'))
+        jq('.spec.tls.domains[0].main', resource('IngressRoute')).must_equal  values[:ingress][:test1][:hosts][0][:host]
+        jq('.spec.tls.secretName', resource('IngressRoute')).must_equal nil
+      end
+
+      it 'HTTP-ingressRoute+selfsigned+forwardAuth is evaluated is evaluated ' do
+        expectedHostString = 'Host(`hostname`)'
+        expectedName = 'common-test-test1-auth-forward'
+        values = {
+          ingress: {
+            test1: {
+              type: "HTTP-IR",
+              enabled: true,
+              hosts: [
+                {
+                  host: 'hostname'
+                }
+              ],
+              certType: "selfsigned",
+              authForwardURL: "test.com"
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.routes[0].match', resource('IngressRoute')).must_equal  expectedHostString
+        assert_nil(resource('IngressRouteUDP'))
+        assert_nil(resource('IngressRouteTCP'))
+        refute_nil(resource('Ingress'))
+        refute_nil(resource('IngressRoute'))
+        jq('.spec.tls.domains[0].main', resource('IngressRoute')).must_equal  values[:ingress][:test1][:hosts][0][:host]
+        jq('.spec.tls.secretName', resource('IngressRoute')).must_equal nil
+        jq('.metadata.name', resource('Middleware')).must_equal  expectedName
+        jq('.spec.routes[0].middlewares[1].name', resource('IngressRoute')).must_equal  expectedName
       end
 
     end

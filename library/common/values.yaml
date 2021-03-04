@@ -176,6 +176,8 @@ additionalServices: []
 # ingress:
 #   main:
 #     enabled: false
+#     # Used when including ingress using {{ include "common.ingress" . }}
+#     standAlone: false
 #     type: "HTTP"
 #     entrypoint: "websecure"
 #     certType: ""
