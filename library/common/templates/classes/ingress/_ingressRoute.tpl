@@ -6,20 +6,27 @@ within the common library.
 {{- $ingressName := include "common.names.fullname" . -}}
 {{- $values := .Values -}}
 {{- $svcPort := 80 }}
+{{- $ingressService := $.Values }}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.ingress -}}
     {{- $values = . -}}
   {{- end -}}
 {{ end -}}
+
 {{- if hasKey $values "nameSuffix" -}}
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
+  {{- if and ( $.Values.services ) ( not $values.servicePort ) }}
+    {{- $ingressService := index  $.Values.services $values.nameSuffix }}
+    {{- $svcPort = $ingressService.port.port }}
+  {{ end -}}
+{{- else if and ( $.Values.services ) ( not $values.servicePort ) }}
+  {{- $svcPort = $.Values.services.main.port.port }}
 {{ end -}}
-{{- $svcName := $values.serviceName | default (include "common.names.fullname" .) -}}
 
-{{- if or ( $values.serviceKind ) (  $values.standAlone ) }}
-{{- $svcPort := $values.servicePort | default 80 -}}
-{{- else }}
-{{- $svcPort := $values.servicePort | default $.Values.services.main.port.port -}}
+{{- $svcName := $values.serviceName | default $ingressName -}}
+
+{{- if $values.servicePort }}
+  {{- $svcPort = $values.servicePort -}}
 {{- end }}
 
 apiVersion: traefik.containo.us/v1alpha1

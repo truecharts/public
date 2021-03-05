@@ -28,7 +28,7 @@ of the main Ingress and any additionalIngresses.
         {{- $ingressValues := $ingress -}}
 
 		{{/* set defaults */}}
-        {{- if not $ingressValues.nameSuffix -}}
+        {{- if or (not $ingressValues.nameSuffix) ( ne $name "main" ) -}}
           {{- $_ := set $ingressValues "nameSuffix" $name -}}
         {{ end -}}
         {{- $_ := set $ "ObjectValues" (dict "ingress" $ingressValues) -}}
@@ -66,8 +66,13 @@ of the main Ingress and any additionalIngresses.
         {{- $ingressValues := $additionalIngress -}}
 
 		{{/* set defaults */}}
-        {{- if not $ingressValues.nameSuffix -}}
-          {{- $_ := set $ingressValues "nameSuffix" $index -}}
+		{{- $name := ( $index | quote ) -}}
+        {{- if  $ingressValues.name -}}
+          {{- $name := $ingressValues.name -}}
+        {{- end }}
+
+        {{- if or (not $ingressValues.nameSuffix) ( ne $name "main" ) -}}
+          {{- $_ := set $ingressValues "nameSuffix" $name -}}
         {{ end -}}
         {{- $_ := set $ "ObjectValues" (dict "ingress" $ingressValues) -}}
         {{- if not $ingressValues.type -}}

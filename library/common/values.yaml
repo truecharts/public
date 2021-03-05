@@ -177,10 +177,15 @@ additionalServices: []
 #   main:
 #     enabled: false
 #     # Used when including ingress using {{ include "common.ingress" . }}
-#     standAlone: false
 #     type: "HTTP"
 #     entrypoint: "websecure"
 #     certType: ""
+#     ## Optional: defaults to IngressName
+#     serviceName: ""
+#     ## Optional: Almost never needed
+#     serviceKind: ""
+#     ## Optional: defaults to either service port
+#     servicePort: 80
 #     annotations: {}
 #       # kubernetes.io/ingress.class: nginx
 #       # kubernetes.io/tls-acme: "true"

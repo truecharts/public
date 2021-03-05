@@ -21,22 +21,29 @@ within the common library.
 */}}
 {{- define "common.classes.ingress" -}}
 {{- $ingressName := include "common.names.fullname" . -}}
-{{- $svcPort := 80 }}
 {{- $values := .Values -}}
+{{- $svcPort := 80 }}
+{{- $ingressService := $.Values }}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.ingress -}}
     {{- $values = . -}}
   {{- end -}}
 {{ end -}}
+
 {{- if hasKey $values "nameSuffix" -}}
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
+  {{- if and ( $.Values.services ) ( not $values.servicePort ) }}
+    {{- $ingressService := index  $.Values.services $values.nameSuffix }}
+    {{- $svcPort = $ingressService.port.port }}
+  {{ end -}}
+{{- else if and ( $.Values.services ) ( not $values.servicePort ) }}
+  {{- $svcPort = $.Values.services.main.port.port }}
 {{ end -}}
-{{- $svcName := $values.serviceName | default (include "common.names.fullname" .) -}}
 
-{{- if $values.standAlone }}
-{{- $svcPort := $values.servicePort | default 80 -}}
-{{- else }}
-{{- $svcPort := $values.servicePort | default $.Values.services.main.port.port -}}
+{{- $svcName := $values.serviceName | default $ingressName -}}
+
+{{- if $values.servicePort }}
+  {{- $svcPort = $values.servicePort -}}
 {{- end }}
 
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
