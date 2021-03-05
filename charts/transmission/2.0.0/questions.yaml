@@ -472,12 +472,13 @@ questions:
                         editable: false
                         type: string
                         default: ""
-                    - variable: servicePort
-                      label: "Service Port to proxy to"
-                      schema:
-                        hidden: true
-                        editable: false
-                        type: int
+                    # - variable: servicePort
+                    #   label: "Service Port to proxy to"
+                    #   schema:
+                    #     hidden: true
+                    #     editable: false
+                    #     default: 80
+                    #     type: int
                         # default:
                     - variable: serviceKind
                       label: "Service Kind to proxy to"
@@ -585,12 +586,13 @@ questions:
                         editable: false
                         type: string
                         default: ""
-                    - variable: servicePort
-                      label: "Service Port to proxy to"
-                      schema:
-                        hidden: true
-                        editable: false
-                        type: int
+                    # - variable: servicePort
+                    #   label: "Service Port to proxy to"
+                    #   schema:
+                    #     hidden: true
+                    #     editable: false
+                    #     default: 80
+                    #     type: int
                     - variable: serviceKind
                       label: "Service Kind to proxy to"
                       schema:
@@ -635,12 +637,13 @@ questions:
                         editable: false
                         type: string
                         default: ""
-                    - variable: servicePort
-                      label: "Service Port to proxy to"
-                      schema:
-                        hidden: true
-                        editable: false
-                        type: int
+                    # - variable: servicePort
+                    #   label: "Service Port to proxy to"
+                    #   schema:
+                    #     hidden: true
+                    #     editable: false
+                    #     default: 80
+                    #     type: int
                     - variable: serviceKind
                       label: "Service Kind to proxy to"
                       schema:
