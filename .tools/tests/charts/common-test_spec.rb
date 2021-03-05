@@ -264,5 +264,644 @@ class Test < ChartTest
       end
     end
 
+    describe 'ingress' do
+      it 'should be disabled when (additional)ingress enabled = false' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: false
+            },
+            test2: {
+              enabled: false
+            }
+          },
+          additionalIngress: [
+            {
+            enabled: false,
+            name: "test3"
+            },
+            {
+              enabled: false,
+              name: "test4"
+            }
+          ]
+        }
+        chart.value values
+        assert_nil(resource('Ingress'))
+      end
+
+      it 'should be enabled when (additional)ingress enabled = true' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: true
+            },
+            test2: {
+              enabled: true
+            }
+          },
+          additionalIngress: [
+            {
+            enabled: true,
+            name: "test3"
+            },
+            {
+              enabled: true,
+              name: "test4"
+            }
+          ]
+        }
+        chart.value values
+        refute_nil(resource('Ingress'))
+      end
+
+      it 'should be not create ingressroute unless type tcp/udp' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: true
+            },
+            test2: {
+              enabled: true
+            }
+          },
+          additionalIngress: [
+            {
+            enabled: true,
+            name: "test3"
+            },
+            {
+              enabled: true,
+              name: "test4"
+            }
+          ]
+        }
+        chart.value values
+        assert_nil(resource('IngressRouteTCP'))
+        assert_nil(resource('IngressRouteUDP'))
+      end
+
+      it 'should be enabled when half (additional)ingress enabled = true' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: false
+            },
+            test2: {
+              enabled: true
+            }
+          },
+          additionalIngress: [
+            {
+            enabled: false,
+            name: "test3"
+            },
+            {
+              enabled: true,
+              name: "test4"
+            }
+          ]
+        }
+        chart.value values
+        refute_nil(resource('Ingress'))
+      end
+
+      it 'ingress with hosts' do
+        values = {
+          ingress: {
+            test1: {
+              hosts: [
+                {
+                  host: 'hostname',
+                  paths: [
+                    {
+                      path: '/'
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.rules[0].host', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:host]
+        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:paths][0][:path]
+      end
+
+      it 'ingress with hosts template is evaluated' do
+        expectedHostName = 'common-test.hostname'
+        values = {
+          ingress: {
+            test1: {
+              hosts: [
+                {
+                  hostTpl: '{{ .Release.Name }}.hostname',
+                  paths: [
+                    {
+                      path: '/'
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.rules[0].host', resource('Ingress')).must_equal expectedHostName
+        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:paths][0][:path]
+      end
+
+      it 'ingress with hosts and tls' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: true,
+              hosts: [
+                {
+                  host: 'hostname',
+                  paths: [
+                    {
+                      path: '/'
+                    }
+                  ]
+                }
+              ],
+              tls: [
+                {
+                  hosts: [ 'hostname' ],
+                  secretName: 'hostname-secret-name'
+                }
+              ]
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.rules[0].host', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:host]
+        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:paths][0][:path]
+        jq('.spec.tls[0].hosts[0]', resource('Ingress')).must_equal values[:ingress][:test1][:tls][0][:hosts][0]
+        jq('.spec.tls[0].secretName', resource('Ingress')).must_equal values[:ingress][:test1][:tls][0][:secretName]
+      end
+
+      it 'ingress with tls template is evaluated' do
+        expectedHostName = 'common-test.hostname'
+        expectedSecretName = 'common-test-hostname-secret-name'
+        values = {
+          ingress: {
+            test1: {
+              enabled: true,
+              tls: [
+                {
+                  hostsTpl: [ '{{ .Release.Name }}.hostname' ],
+                  secretNameTpl: '{{ .Release.Name }}-hostname-secret-name'
+                }
+              ]
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.tls[0].hosts[0]', resource('Ingress')).must_equal expectedHostName
+        jq('.spec.tls[0].secretName', resource('Ingress')).must_equal expectedSecretName
+      end
+
+      it 'ingress with hosts and tls template is evaluated' do
+        expectedHostName = 'common-test.hostname'
+        expectedSecretName = 'common-test-hostname-secret-name'
+        values = {
+          ingress: {
+            test1: {
+              enabled: true,
+              hosts: [
+                {
+                  hostTpl: '{{ .Release.Name }}.hostname',
+                  paths: [
+                    {
+                      path: '/'
+                    }
+                  ]
+                }
+              ],
+              tls: [
+                {
+                  hostsTpl: [ '{{ .Release.Name }}.hostname' ],
+                  secretNameTpl: '{{ .Release.Name }}-hostname-secret-name'
+                }
+              ]
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.rules[0].host', resource('Ingress')).must_equal expectedHostName
+        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:paths][0][:path]
+        jq('.spec.tls[0].hosts[0]', resource('Ingress')).must_equal expectedHostName
+        jq('.spec.tls[0].secretName', resource('Ingress')).must_equal expectedSecretName
+      end
+
+      it 'ingress with selfsigned certtype is evaluated' do
+        expectedHostName = 'common-test.hostname'
+        expectedSecretName = 'common-test-hostname-secret-name'
+        values = {
+          ingress: {
+            test1: {
+              enabled: true,
+              hosts: [
+                {
+                  host: 'hostname',
+                  paths: [
+                    {
+                      path: '/'
+                    }
+                  ]
+                }
+              ],
+              certType: "selfsigned"
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.rules[0].host', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:host]
+        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:paths][0][:path]
+        jq('.spec.tls[0].hosts[0]', resource('Ingress')).must_equal  values[:ingress][:test1][:hosts][0][:host]
+        jq('.spec.tls[0].secretName', resource('Ingress')).must_equal nil
+      end
+
+      it 'should create when type = HTTP' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: true,
+              type: "HTTP"
+            },
+            test2: {
+              enabled: false
+            }
+          },
+          additionalIngress: [
+            {
+            enabled: false,
+            name: "test3"
+            },
+            {
+              enabled: false,
+              name: "test4"
+            }
+          ]
+        }
+        chart.value values
+        refute_nil(resource('Ingress'))
+      end
+
+      it 'check no middleware without traefik' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: true
+            }
+          }
+        }
+        chart.value values
+        assert_nil(resource('Middleware'))
+      end
+
+      it 'check authForward when authForwardURL is set' do
+        expectedName = 'common-test-test1-auth-forward'
+        values = {
+          ingress: {
+            test1: {
+              enabled: true,
+              authForwardURL: "test.test.com"
+            }
+          }
+        }
+        chart.value values
+        refute_nil(resource('Middleware'))
+        jq('.spec.forwardAuth.address', resource('Middleware')).must_equal  values[:ingress][:test1][:authForwardURL]
+        jq('.metadata.name', resource('Middleware')).must_equal  expectedName
+      end
+
+    end
+
+    describe 'ingressRoutes' do
+      it 'should create only TCP when type = TCP' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: true,
+              type: "TCP"
+            },
+            test2: {
+              enabled: false
+            }
+          },
+          additionalIngress: [
+            {
+            enabled: false,
+            name: "test3"
+            },
+            {
+              enabled: false,
+              name: "test4"
+            }
+          ]
+        }
+        chart.value values
+        refute_nil(resource('IngressRouteTCP'))
+        assert_nil(resource('IngressRouteUDP'))
+      end
+
+      it 'should create only UDP when type = UDP' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: true,
+              type: "UDP"
+            },
+            test2: {
+              enabled: false
+            }
+          },
+          additionalIngress: [
+            {
+            enabled: false,
+            name: "test3"
+            },
+            {
+              enabled: false,
+              name: "test4"
+            }
+          ]
+        }
+        chart.value values
+        refute_nil(resource('IngressRouteUDP'))
+        assert_nil(resource('IngressRouteTCP'))
+      end
+
+      it 'should create only additional TCP when type = TCP' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: false
+            },
+            test2: {
+              enabled: false
+            }
+          },
+          additionalIngress: [
+            {
+            enabled: true,
+            name: "test3",
+            type: "TCP"
+            },
+            {
+              enabled: false,
+              name: "test4"
+            }
+          ]
+        }
+        chart.value values
+        refute_nil(resource('IngressRouteTCP'))
+        assert_nil(resource('IngressRouteUDP'))
+      end
+
+      it 'should create only additional UDP when type = UDP' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: false
+            },
+            test2: {
+              enabled: false
+            }
+          },
+          additionalIngress: {
+            test3: {
+              enabled: true,
+              type: "UDP"
+            },
+            test4: {
+              enabled: false
+            }
+          }
+        }
+        chart.value values
+        refute_nil(resource('IngressRouteUDP'))
+        assert_nil(resource('IngressRouteTCP'))
+      end
+
+      it 'should be able to create 3 ingress types' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: true,
+              type: "UDP"
+            },
+            test2: {
+              enabled: true,
+              type: "TCP"
+            },
+            test2b: {
+              enabled: true,
+              type: "HTTP"
+            }
+          },
+          additionalIngress: [
+            {
+            enabled: false,
+            name: "test3"
+            },
+            {
+              enabled: false,
+              name: "test4"
+            }
+          ]
+        }
+        chart.value values
+        refute_nil(resource('IngressRouteUDP'))
+        refute_nil(resource('IngressRouteTCP'))
+        refute_nil(resource('Ingress'))
+      end
+
+      it 'should be able to create 3 additional ingress types' do
+        values = {
+          ingress: {
+            test1: {
+              enabled: false,
+              type: "UDP"
+            },
+            test2: {
+              enabled: false,
+              type: "TCP"
+            },
+            test2b: {
+              enabled: false,
+              type: "HTTP"
+            }
+          },
+          additionalIngress: [
+            {
+            enabled: true,
+            type: "HTTP",
+            name: "test3"
+            },
+            {
+              enabled: true,
+              type: "TCP",
+              name: "test4"
+            },
+            {
+              enabled: true,
+              type: "UDP",
+              name: "test5"
+            }
+          ]
+        }
+        chart.value values
+        refute_nil(resource('IngressRouteUDP'))
+        refute_nil(resource('IngressRouteTCP'))
+        refute_nil(resource('Ingress'))
+      end
+
+      it 'ingressroute with selfsigned certtype is evaluated' do
+        values = {
+          ingress: {
+            test1: {
+              type: "TCP",
+              enabled: true,
+              hosts: [
+                {
+                  host: 'hostname'
+                }
+              ],
+              certType: "selfsigned"
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.tls.domains[0].main', resource('IngressRouteTCP')).must_equal  values[:ingress][:test1][:hosts][0][:host]
+        jq('.spec.tls.secretName', resource('IngressRouteTCP')).must_equal nil
+      end
+
+      it 'ingressrouteUDP + HTTP +TCP with selfsigned cert is evaluated ' do
+        values = {
+          ingress: {
+            test1: {
+              type: "TCP",
+              enabled: true,
+              hosts: [
+                {
+                  host: 'hostname'
+                }
+              ],
+              certType: "selfsigned"
+            },
+            test2: {
+              enabled: true,
+              type: "UDP"
+            },
+            test2b: {
+              enabled: true,
+              type: "HTTP"
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.tls.domains[0].main', resource('IngressRouteTCP')).must_equal  values[:ingress][:test1][:hosts][0][:host]
+        jq('.spec.tls.secretName', resource('IngressRouteTCP')).must_equal nil
+        refute_nil(resource('IngressRouteUDP'))
+        refute_nil(resource('IngressRouteTCP'))
+        refute_nil(resource('Ingress'))
+      end
+
+      it 'HTTP-ingressRoute is evaluated ' do
+        expectedHostString = 'Host(`hostname`)'
+        values = {
+          ingress: {
+            test1: {
+              type: "HTTP-IR",
+              enabled: true,
+              hosts: [
+                {
+                  host: 'hostname'
+                }
+              ]
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.routes[0].match', resource('IngressRoute')).must_equal  expectedHostString
+        assert_nil(resource('IngressRouteUDP'))
+        assert_nil(resource('IngressRouteTCP'))
+        refute_nil(resource('Ingress'))
+        refute_nil(resource('IngressRoute'))
+      end
+
+      it 'HTTP-ingressRoute with selfsigned cert is evaluated is evaluated ' do
+        expectedHostString = 'Host(`hostname`)'
+        values = {
+          ingress: {
+            test1: {
+              type: "HTTP-IR",
+              enabled: true,
+              hosts: [
+                {
+                  host: 'hostname'
+                }
+              ],
+              certType: "selfsigned"
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.routes[0].match', resource('IngressRoute')).must_equal  expectedHostString
+        assert_nil(resource('IngressRouteUDP'))
+        assert_nil(resource('IngressRouteTCP'))
+        refute_nil(resource('Ingress'))
+        refute_nil(resource('IngressRoute'))
+        jq('.spec.tls.domains[0].main', resource('IngressRoute')).must_equal  values[:ingress][:test1][:hosts][0][:host]
+        jq('.spec.tls.secretName', resource('IngressRoute')).must_equal nil
+      end
+
+      it 'HTTP-ingressRoute+selfsigned+forwardAuth is evaluated is evaluated ' do
+        expectedHostString = 'Host(`hostname`)'
+        expectedName = 'common-test-test1-auth-forward'
+        values = {
+          ingress: {
+            test1: {
+              type: "HTTP-IR",
+              enabled: true,
+              hosts: [
+                {
+                  host: 'hostname'
+                }
+              ],
+              certType: "selfsigned",
+              authForwardURL: "test.com"
+            }
+          }
+        }
+
+        chart.value values
+        jq('.spec.routes[0].match', resource('IngressRoute')).must_equal  expectedHostString
+        assert_nil(resource('IngressRouteUDP'))
+        assert_nil(resource('IngressRouteTCP'))
+        refute_nil(resource('Ingress'))
+        refute_nil(resource('IngressRoute'))
+        jq('.spec.tls.domains[0].main', resource('IngressRoute')).must_equal  values[:ingress][:test1][:hosts][0][:host]
+        jq('.spec.tls.secretName', resource('IngressRoute')).must_equal nil
+        jq('.metadata.name', resource('Middleware')).must_equal  expectedName
+        jq('.spec.routes[0].middlewares[1].name', resource('IngressRoute')).must_equal  expectedName
+      end
+
+    end
+
   end
 end
