@@ -462,6 +462,27 @@ questions:
                         hidden: true
                         editable: false
                         required: true
+                    - variable: serviceName
+                      label: "Service name to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
+                    - variable: servicePort
+                      label: "Service Port to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: int
+                        default:
+                    - variable: serviceKind
+                      label: "Service Kind to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
@@ -554,6 +575,27 @@ questions:
                         required: true
                         editable: false
                         hidden: true
+                    - variable: serviceName
+                      label: "Service name to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: "tcp"
+                    - variable: servicePort
+                      label: "Service Port to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: int
+                        default: 51413
+                    - variable: serviceKind
+                      label: "Service Kind to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
@@ -584,6 +626,27 @@ questions:
                         required: true
                         editable: false
                         hidden: true
+                    - variable: serviceName
+                      label: "Service name to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: "udp"
+                    - variable: servicePort
+                      label: "Service Port to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: int
+                        default: 51413
+                    - variable: serviceKind
+                      label: "Service Kind to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:

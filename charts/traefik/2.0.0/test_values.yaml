@@ -530,6 +530,7 @@ ingress:
     entrypoint: "websecure"
     certType: "selfsigned"
     serviceName: api@internal
+    servicePort:
     serviceKind: "TraefikService"
     annotations: {}
     labels: {}
