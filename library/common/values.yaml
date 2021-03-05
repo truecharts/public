@@ -207,23 +207,23 @@ additionalServices: []
 #     ## Or a tpl that is evaluated
 #     #    hostsTpl:
 #     #      - '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
-#     additionalIngresses: []
-#     # - enabled: false
-#     #   nameSuffix: "api"
-#     #   annotations: {}
-#     #   # kubernetes.io/ingress.class: nginx
-#     #   # kubernetes.io/tls-acme: "true"
-#     #   labels: {}
-#     #   hosts:
-#     #     - host: chart-example.local
-#     #       paths:
-#     #         - path: /api
-#     #           # Ignored if not kubeVersion >= 1.14-0
-#     #           pathType: Prefix
-#     #   tls: []
-#     #   #  - secretName: chart-example-tls
-#     #   #    hosts:
-#     #   #      - chart-example.local
+# additionalIngresses: []
+#  - enabled: false
+#    nameSuffix: "api"
+#    annotations: {}
+#    # kubernetes.io/ingress.class: nginx
+#    # kubernetes.io/tls-acme: "true"
+#    labels: {}
+#    hosts:
+#      - host: chart-example.local
+#        paths:
+#          - path: /api
+#            # Ignored if not kubeVersion >= 1.14-0
+#            pathType: Prefix
+#    tls: []
+#    #  - secretName: chart-example-tls
+#    #    hosts:
+#    #      - chart-example.local
 
 persistence:
   config:

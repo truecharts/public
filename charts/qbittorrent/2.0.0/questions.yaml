@@ -169,7 +169,8 @@ questions:
                       schema:
                         type: int
                         default: 8787
-                        editable: true
+                        editable: false
+                        hidden: true
                     - variable: nodePort
                       label: "(optional) host nodePort to expose to"
                       description: "only get used when nodePort is selected"
@@ -231,7 +232,8 @@ questions:
                       schema:
                         type: int
                         default: 51413
-                        editable: true
+                        editable: false
+                        hidden: true
                     - variable: nodePort
                       label: "(optional) host nodePort to expose to"
                       description: "only get used when nodePort is selected"
@@ -293,7 +295,8 @@ questions:
                       schema:
                         type: int
                         default: 51413
-                        editable: true
+                        editable: false
+                        hidden: true
                     - variable: nodePort
                       label: "(optional) host nodePort to expose to"
                       description: "only get used when nodePort is selected"
@@ -440,7 +443,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: webui
+        - variable: main
           label: "Web Reverse Proxy Configuration"
           schema:
             type: dict
@@ -579,14 +582,13 @@ questions:
                         hidden: true
                         editable: false
                         type: string
-                        default: "tcp"
+                        default: ""
                     - variable: servicePort
                       label: "Service Port to proxy to"
                       schema:
                         hidden: true
                         editable: false
                         type: int
-                        default: 51413
                     - variable: serviceKind
                       label: "Service Kind to proxy to"
                       schema:
@@ -630,14 +632,13 @@ questions:
                         hidden: true
                         editable: false
                         type: string
-                        default: "udp"
+                        default: ""
                     - variable: servicePort
                       label: "Service Port to proxy to"
                       schema:
                         hidden: true
                         editable: false
                         type: int
-                        default: 51413
                     - variable: serviceKind
                       label: "Service Kind to proxy to"
                       schema:

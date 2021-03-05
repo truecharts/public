@@ -171,7 +171,8 @@ questions:
                       schema:
                         type: int
                         default: 5299
-                        editable: true
+                        editable: false
+                        hidden: true
                     - variable: nodePort
                       label: "(optional) host nodePort to expose to"
                       description: "only get used when nodePort is selected"
@@ -374,7 +375,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: webui
+        - variable: main
           label: "Web Reverse Proxy Configuration"
           schema:
             type: dict
