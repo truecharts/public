@@ -72,12 +72,14 @@
           {{- toYaml . | nindent 10 }}
         {{- end }}
         volumeMounts:
-          {{- include "configuredAppVolumeMounts" . | indent 10 }}
-          #- name: data
-          #  mountPath: {{ .Values.persistence.path }}
-          #  {{- if .Values.persistence.subPath }}
-          #  subPath: {{ .Values.persistence.subPath }}
-          #  {{- end }}
+          {{- include "common.storage.allContainerVolumeMounts" . | indent 10 }}
+          {{- if .Values.persistence.enabled }}
+          - name: {{ .Values.persistence.name }}
+            mountPath: {{ .Values.persistence.path }}
+            {{- if .Values.persistence.subPath }}
+            subPath: {{ .Values.persistence.subPath }}
+            {{- end }}
+          {{- end }}
           - name: tmp
             mountPath: /tmp
           {{- $root := . }}
@@ -207,27 +209,29 @@
         {{- toYaml .Values.deployment.additionalContainers | nindent 6 }}
       {{- end }}
       volumes:
-        {{- include "configuredAppVolumes" . | indent 8 }}
-        #- name: data
-        #  {{- if .Values.persistence.enabled }}
-        #  persistentVolumeClaim:
-        #    claimName: {{ default (include "traefik.fullname" .) .Values.persistence.existingClaim }}
-        #  {{- else }}
-        #  emptyDir: {}
-        #  {{- end }}
+	      {{- if .Values.appVolumeMounts  }}
+          {{- include "common.storage.allAppVolumes" . | indent 8 }}
+          {{- else if .Values.persistence.enabled }}
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ default (include "traefik.fullname" .) .Values.persistence.existingClaim }}
+          {{- else }}
+		- name: data
+          emptyDir: {}
+          {{- end }}
         - name: tmp
           emptyDir: {}
-        #{{- $root := . }}
-        #{{- range .Values.volumes }}
-        #- name: {{ tpl (.name) $root }}
-        #  {{- if eq .type "secret" }}
-        #  secret:
-        #    secretName: {{ tpl (.name) $root }}
-        #  {{- else if eq .type "configMap" }}
-        #  configMap:
-        #    name: {{ tpl (.name) $root }}
-        #  {{- end }}
-        #{{- end }}
+        {{- $root := . }}
+        {{- range .Values.volumes }}
+        - name: {{ tpl (.name) $root }}
+          {{- if eq .type "secret" }}
+          secret:
+            secretName: {{ tpl (.name) $root }}
+          {{- else if eq .type "configMap" }}
+          configMap:
+            name: {{ tpl (.name) $root }}
+          {{- end }}
+        {{- end }}
         {{- if .Values.deployment.additionalVolumes }}
           {{- toYaml .Values.deployment.additionalVolumes | nindent 8 }}
         {{- end }}

@@ -7,7 +7,7 @@ groups:
     description: "network / service configuration"
   - name: "Storage"
     description: "configure app volume mounts"
-  - name: "Ingress"
+  - name: "Reverse Proxy Configuration"
     description: "Reverse Proxy configuration"
 
 portals:
@@ -179,7 +179,8 @@ questions:
                       schema:
                         type: int
                         default: 9091
-                        editable: true
+                        editable: false
+                        hidden: true
                     - variable: nodePort
                       label: "(optional) host nodePort to expose to"
                       description: "only get used when nodePort is selected"
@@ -241,7 +242,8 @@ questions:
                       schema:
                         type: int
                         default: 51413
-                        editable: true
+                        editable: false
+                        hidden: true
                     - variable: nodePort
                       label: "(optional) host nodePort to expose to"
                       description: "only get used when nodePort is selected"
@@ -303,7 +305,8 @@ questions:
                       schema:
                         type: int
                         default: 51413
-                        editable: true
+                        editable: false
+                        hidden: true
                     - variable: nodePort
                       label: "(optional) host nodePort to expose to"
                       description: "only get used when nodePort is selected"
@@ -436,15 +439,14 @@ questions:
                         required: true
 
 
-  - variable: appIngress
+  - variable: ingress
     label: ""
-    group: "Ingress"
+    group: "Reverse Proxy Configuration"
     schema:
       type: dict
       attrs:
-        - variable: webui
+        - variable: main
           label: "Web Reverse Proxy Configuration"
-          group: "Ingress"
           schema:
             type: dict
             attrs:
@@ -455,6 +457,36 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
+                    - variable: type
+                      label: "Reverse Proxy Type"
+                      schema:
+                        type: string
+                        default: "HTTP"
+                        hidden: true
+                        editable: false
+                        required: true
+                    - variable: serviceName
+                      label: "Service name to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
+                    # - variable: servicePort
+                    #   label: "Service Port to proxy to"
+                    #   schema:
+                    #     hidden: true
+                    #     editable: false
+                    #     default: 80
+                    #     type: int
+                        # default:
+                    - variable: serviceKind
+                      label: "Service Kind to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
@@ -507,27 +539,21 @@ questions:
                       label: "Select Certificate Type"
                       schema:
                         type: string
-                        default: "letsencrypt-prod"
+                        default: "selfsigned"
                         enum:
                           - value: ""
                             description: "No Encryption/TLS/Certificates"
-                          - value: "letsencrypt-prod"
-                            description: "Letsencrypt Production Certificates"
-                          - value: "letsencrypt-staging"
-                            description: "Letsencrypt Test Certificates"
-                          - value: "wildcard"
-                            description: "Global Wildcard Certificate"
                           - value: "selfsigned"
                             description: "Self-Signed Certificate"
-                          - value: "existingcert"
-                            description: "Existing Certificate"
-                        show_subquestions_if: "existingcert"
-                        subquestions:
-                          - variable: existingcert
-                            label: "Existing Certificate Name"
-                            schema:
-                              type: string
-                              default: ""
+                          - value: "ixcert"
+                            description: "TrueNAS SCALE Certificate"
+                    - variable: certificate
+                      label: "Select TrueNAS SCALE Certificate"
+                      schema:
+                        type: int
+                        show_if: [["certType", "=", "ixcert"]]
+                        $ref:
+                          - "definitions/certificate"
                     - variable: authForwardURL
                       label: "Forward Authentication URL"
                       schema:
@@ -535,7 +561,6 @@ questions:
                         default: ""
         - variable: tcp
           label: "TCP Reverse Proxy Configuration"
-          group: "Ingress"
           schema:
             type: dict
             attrs:
@@ -553,9 +578,28 @@ questions:
                         default: "TCP"
                         required: true
                         editable: false
-                        enum:
-                          - value: "TCP"
-                            description: "Plain TCP Connections"
+                        hidden: true
+                    - variable: serviceName
+                      label: "Service name to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
+                    # - variable: servicePort
+                    #   label: "Service Port to proxy to"
+                    #   schema:
+                    #     hidden: true
+                    #     editable: false
+                    #     default: 80
+                    #     type: int
+                    - variable: serviceKind
+                      label: "Service Kind to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
@@ -565,18 +609,9 @@ questions:
                         enum:
                           - value: "torrent-tcp"
                             description: "Torrent-TCP: port 51413"
-                    - variable: certType
-                      label: "Select Certificate Type"
-                      schema:
-                        editable: false
-                        type: string
-                        default: ""
-                        enum:
-                          - value: ""
-                            description: "No Encryption/TLS/Certificates"
+
         - variable: udp
           label: "UDP Reverse Proxy Configuration"
-          group: "Ingress"
           schema:
             type: dict
             attrs:
@@ -594,9 +629,28 @@ questions:
                         default: "UDP"
                         required: true
                         editable: false
-                        enum:
-                          - value: "UDP"
-                            description: "Plain UDP Connections"
+                        hidden: true
+                    - variable: serviceName
+                      label: "Service name to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
+                    # - variable: servicePort
+                    #   label: "Service Port to proxy to"
+                    #   schema:
+                    #     hidden: true
+                    #     editable: false
+                    #     default: 80
+                    #     type: int
+                    - variable: serviceKind
+                      label: "Service Kind to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:

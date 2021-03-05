@@ -22,14 +22,14 @@ services:
     enabled: true
     type: ClusterIP
     port:
-      port: 51413
+      port: 6881
       protocol: TCP
       targetPort: 51413
   udp:
     enabled: true
     type: ClusterIP
     port:
-      port: 51413
+      port: 6881
       protocol: UDP
       targetPort: 51413
 
@@ -85,7 +85,7 @@ additionalVolumeMounts:
   - mountPath: /config/custom-cont-init.d
     name: qbittorrent-scripts
 
-appIngressEnabled: false
+
 
 
 appVolumeMounts:

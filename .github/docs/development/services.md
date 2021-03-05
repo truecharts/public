@@ -69,7 +69,8 @@ Please keep in mind that every App is different, some just have one service (whi
                       schema:
                         type: int
                         default: 80
-                        editable: true
+                        editable: false
+                        hidden: true
                     - variable: nodePort
                       label: "(optional) host nodePort to expose to"
                       description: "only get used when nodePort is selected"
@@ -133,7 +134,8 @@ in some edgecases users might need or want to have the option to add unlimited c
                       schema:
                         type: int
                         default: 80
-                        editable: true
+                        editable: false
+                        hidden: true
                     - variable: nodePort
                       label: "(optional) host nodePort to expose to"
                       description: "only get used when nodePort is selected"

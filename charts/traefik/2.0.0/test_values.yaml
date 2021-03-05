@@ -82,7 +82,7 @@ experimental:
 # Create an IngressRoute for the dashboard
 ingressRoute:
   dashboard:
-    enabled: true
+    enabled: false
     # Additional ingressRoute annotations (e.g. for kubernetes.io/ingress.class)
     annotations: {}
     # Additional ingressRoute labels (e.g. for filtering IngressRoute by custom labels)
@@ -442,12 +442,12 @@ autoscaling:
 persistence:
   enabled: false
 #  existingClaim: ""
-  accessMode: ReadWriteOnce
-  size: 128Mi
-  # storageClass: ""
-  path: /data
-  annotations: {}
-  # subPath: "" # only mount a subpath of the Volume into the pod
+  #accessMode: ReadWriteOnce
+  #size: 128Mi
+  ## storageClass: ""
+  #path: /data
+  #annotations: {}
+  ## subPath: "" # only mount a subpath of the Volume into the pod
 
 # If hostNetwork is true, runs traefik in the host network namespace
 # To prevent unschedulabel pods due to port collisions, if hostNetwork=true
@@ -523,55 +523,20 @@ appVolumeMounts:
     emptyDir: true
     mountPath: "/data"
 
-
-
-appIngress:
-  webui:
-    enabled: false
+ingress:
+  dashboard:
+    enabled: true
+    type: "HTTP-IR"
     entrypoint: "websecure"
-    certType: "letsencrypt-prod"
-    existingcert: ""
-    authForwardURL: ""
-    host: "traefik.example.truecharts.org"
-
-certmanager:
-  # general
-  provider: ""
-  email: ""
-  wildcardDomain: ""
-  # provider specific
-  cloudflare:
-    apikey: "placeholder"
-  cloudDNS:
-    project: ""
-    keyjson: "placeholder"
-  route53:
-    region: ""
-    accessKeyID: ""
-    secretaccesskey: "placeholder"
-  digitalocean:
-    accesstoken: "placeholder"
-  rfc2136:
-    nameserver: ""
-    tsigKeyName: ""
-    tsigAlgorithm: ""
-    tsigsecretkey: "placeholder"
-  azureDNS:
-    environment: ""
-    subscriptionID: ""
-    resourceGroupName: ""
-    hostedZoneName: ""
-  akamai:
-    serviceConsumerDomain: ""
-    clientToken: "placeholder"
-    clientSecret: "placeholder"
-    accessToken: "placeholder"
-  acmeDNS:
-    host: ""
-    acmednsjson: "placeholder"
-
-cert-manager:
-  installCRDs: true
-  extraArgs:
-    - --dns01-recursive-nameservers-only
-    - --dns01-recursive-nameservers=1.1.1.1:53
+    certType: "selfsigned"
+    serviceName: api@internal
+    servicePort:
+    serviceKind: "TraefikService"
+    annotations: {}
+    labels: {}
+    hosts:
+      - host: chart-example.local
+        paths:
+          - path: /
+            # Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
