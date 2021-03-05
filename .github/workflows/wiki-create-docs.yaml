@@ -43,6 +43,7 @@ jobs:
       - name: Create general website
         run: |
           cd master
+<<<<<<< HEAD
           cp -Rf .github/docs/* ../website/content/
           cp .github/README.md ../website/content/about/index.md || echo "readme copy failed, continuing..."
           cp .github/CODE_OF_CONDUCT ../website/content/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
@@ -52,6 +53,17 @@ jobs:
           cp NOTICE ../website/content/about/NOTICE.md || echo "license copy failed, continuing..."
           sed -i '1s/^/# NOTICE<br>\n\n/' ../website/content/about/NOTICE.md
           ls ../website/content/
+=======
+          cp -Rf docs/* ../wiki/content/
+          cp .github/README.md ../wiki/content/index.md || echo "readme copy failed, continuing..."
+          cp .github/CODE_OF_CONDUCT ../wiki/content/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          cp .github/CONTRIBUTING ../wiki/content/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          cp LICENSE ../wiki/content/legal/LICENSE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# License<br>\n\n/' ../wiki/content/legal/LICENSE.md
+          cp NOTICE ../wiki/content/legal/NOTICE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# NOTICE<br>\n\n/' ../wiki/content/legal/NOTICE.md
+          ls ../wiki/content/
+>>>>>>> Move docs from .github to project root (#223)
           cd ..
 
       - name: Create apps website
