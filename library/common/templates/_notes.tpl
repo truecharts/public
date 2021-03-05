@@ -21,12 +21,9 @@ Default NOTES.txt content.
 */}}
 {{- define "common.notes.defaultNotes" -}}
 {{- $svcPort := .Values.services.main.port.port -}}
-1. Get the application URL by running these commands:
-{{- if .Values.ingress.enabled }}
-{{- range .Values.ingress.hosts }}
-  http{{ if $.Values.ingress.tls }}s{{ end }}://{{- if .hostTpl }}{{ tpl .hostTpl $ }}{{ else }}{{ .host }}{{ end }}{{ (first .paths).path }}
-{{- end }}
-{{- else if contains "NodePort" .Values.services.main.type }}
+  echo "use your Ingress URL to connect or find the application URL by running these commands:"
+
+{{- if contains "NodePort" .Values.services.main.type }}
   export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "common.names.fullname" . }})
   export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
   echo http://$NODE_IP:$NODE_PORT

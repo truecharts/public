@@ -173,46 +173,57 @@ additionalServices: []
 #   annotations: {}
 #   labels: {}
 
-ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  labels: {}
-  hosts:
-    - host: chart-example.local
-      ## Or a tpl that is evaluated
-      # hostTpl: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
-      paths:
-        - path: /
-          # Ignored if not kubeVersion >= 1.14-0
-          pathType: Prefix
-  tls: []
-  #  - secretName: chart-example-tls
-  ## Or if you need a dynamic secretname
-  #  - secretNameTpl: '{{ include "common.names.fullname" . }}-ingress'
-  #    hosts:
-  #      - chart-example.local
-  ## Or a tpl that is evaluated
-  #    hostsTpl:
-  #      - '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
-  additionalIngresses: []
-  # - enabled: false
-  #   nameSuffix: "api"
-  #   annotations: {}
-  #   # kubernetes.io/ingress.class: nginx
-  #   # kubernetes.io/tls-acme: "true"
-  #   labels: {}
-  #   hosts:
-  #     - host: chart-example.local
-  #       paths:
-  #         - path: /api
-  #           # Ignored if not kubeVersion >= 1.14-0
-  #           pathType: Prefix
-  #   tls: []
-  #   #  - secretName: chart-example-tls
-  #   #    hosts:
-  #   #      - chart-example.local
+# ingress:
+#   main:
+#     enabled: false
+#     # Used when including ingress using {{ include "common.ingress" . }}
+#     type: "HTTP"
+#     entrypoint: "websecure"
+#     certType: ""
+#     ## Optional: defaults to IngressName
+#     serviceName: ""
+#     ## Optional: Almost never needed
+#     serviceKind: ""
+#     ## Optional: defaults to either service port
+#     servicePort: 80
+#     annotations: {}
+#       # kubernetes.io/ingress.class: nginx
+#       # kubernetes.io/tls-acme: "true"
+#     labels: {}
+#     hosts:
+#       - host: chart-example.local
+#         ## Or a tpl that is evaluated
+#         # hostTpl: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
+#         paths:
+#           - path: /
+#             # Ignored if not kubeVersion >= 1.14-0
+#             pathType: Prefix
+#     tls: []
+#     #  - secretName: chart-example-tls
+#     ## Or if you need a dynamic secretname
+#     #  - secretNameTpl: '{{ include "common.names.fullname" . }}-ingress'
+#     #    hosts:
+#     #      - chart-example.local
+#     ## Or a tpl that is evaluated
+#     #    hostsTpl:
+#     #      - '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
+# additionalIngresses: []
+#  - enabled: false
+#    nameSuffix: "api"
+#    annotations: {}
+#    # kubernetes.io/ingress.class: nginx
+#    # kubernetes.io/tls-acme: "true"
+#    labels: {}
+#    hosts:
+#      - host: chart-example.local
+#        paths:
+#          - path: /api
+#            # Ignored if not kubeVersion >= 1.14-0
+#            pathType: Prefix
+#    tls: []
+#    #  - secretName: chart-example-tls
+#    #    hosts:
+#    #      - chart-example.local
 
 persistence:
   config:
@@ -291,32 +302,6 @@ PUID: 568
 PGID: 568
 UMASK: "002"
 fixMountPermissions: true
-# appAdditionalServicesEnabled: false
-# appAdditionalServices:
-#   api:
-#     enabled: false
-#     type: NodePort
-#     protocol: TCP
-#     port:
-#       port: 8091
-#       nodePort: 38091
-#     additionalPorts: []
-#       - name: api-alt
-#         port: 8092
-#         targetPort: 8092
-#         protocol: TCP
-#         nodePort: 38092
-#   ws:
-#     enabled: false
-#     type: ClusterIP
-#     port:
-#       port: 3000
-#     additionalPorts: {}
-#       foo:
-#         name: ws-alt
-#         protocol: TCP
-#         port: 3001
-#         targetPort: 3001
 
 # appVolumeMounts:
 #   config:
@@ -339,40 +324,3 @@ fixMountPermissions: true
 #     hostPathEnabled: false
 #     hostPath: ""
 #     setPermissions: true
-
-# appIngress:
-#  main:
-#    enabled: false
-#    entrypoint: "websecure"
-#    certType: "letsencrypt-prod"
-#    existingcert: ""
-#    authForwardURL: ""
-#    annotations: {}
-#    labels: {}
-#    hosts:
-#      - host: app.truecharts.placeholder
-#        paths:
-#          - path: /
-#            # Ignored if not kubeVersion >= 1.14-0
-#            pathType: Prefix
-#
-#  maintcp:
-#    enabled: false
-#    type: "TCP"
-#    entrypoint: "kms"
-#    certType: "none"
-#    existingcert: ""
-#    annotations: {}
-#    labels: {}
-#    hosts:
-#      - host: app.truecharts.placeholder
-#        paths:
-#          - path: /
-#            # Ignored if not kubeVersion >= 1.14-0
-#            pathType: Prefix
-#  mainudp:
-#    enabled: false
-#    type: "UDP"
-#    entrypoint: "DNSUDP"
-#    annotations: {}
-#    labels: {}
