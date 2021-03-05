@@ -7,7 +7,7 @@ services:
   main:
     port:
       port: 8080
-  test2-tcp:
+  test1:
     enabled: true
     type: ClusterIP
     port:
@@ -15,7 +15,7 @@ services:
       name: tcp-test
       protocol: TCP
       targetPort: 8081
-  test2-udp:
+  test2:
     enabled: true
     type: ClusterIP
     port:
@@ -25,7 +25,7 @@ services:
       targetPort: 8082
 
 additionalServices:
-  - name: test3-tcp
+  - name: test3
     enabled: true
     type: ClusterIP
     port:
@@ -33,7 +33,7 @@ additionalServices:
       name: tcp-test
       protocol: TCP
       targetPort: 8083
-  - name: test4-dp
+  - name: test4
     enabled: true
     type: ClusterIP
     port:
@@ -43,7 +43,16 @@ additionalServices:
       targetPort: 8084
 
 ingress:
-  enabled: true
+  test1:
+    enabled: true
+  test2:
+    enabled: true
+
+additionalIngress:
+  - name: "test3"
+    enabled: true
+  - name: "test4"
+    enabled: true
 
 # these values and names are set specifically with the unittests in mind.
 fixMountPermissions: false

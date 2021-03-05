@@ -19,8 +19,8 @@ groups:
     description: "Configure when pod should be restarted in case of failure"
   - name: "Resource Reservation"
     description: "Specify resources to be allocated to workload"
-  - name: "Ingress"
-    description: "Configure Reverse Proxy"
+  - name: "Reverse Proxy Configuration"
+    description: "Reverse Proxy configuration"
   - name: "Certmanager Settings"
     description: "Configure Certmanager"
   - name: "WARNING"
@@ -57,7 +57,7 @@ questions:
           label: "Image Tag"
           schema:
             type: string
-            default: "2.4.2"
+            default: "2.4.6"
         - variable: pullPolicy
           description: "Docker Image Pull Policy"
           label: "Image Pull Policy"
@@ -108,15 +108,138 @@ questions:
       default: "002"
 
 
+  - variable: ingress
+    label: ""
+    group: "Reverse Proxy Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "WebUI"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Web Reverse Proxy"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: type
+                      label: "Reverse Proxy Type"
+                      schema:
+                        type: string
+                        default: "HTTP-IR"
+                        hidden: true
+                        editable: false
+                        required: true
+                    - variable: serviceName
+                      label: "Service name to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: "api@internal"
+                    # - variable: servicePort
+                    #   label: "Service Port to proxy to"
+                    #   schema:
+                    #     hidden: true
+                    #     editable: false
+                    #     default: 80
+                    #     type: int
+                        # default:
+                    - variable: serviceKind
+                      label: "Service Kind to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: "TraefikService"
+                    - variable: entrypoint
+                      label: "Select Entrypoint"
+                      schema:
+                        type: string
+                        default: "websecure"
+                        required: true
+                        enum:
+                          - value: "websecure"
+                            description: "Websecure: HTTPS/TLS port 443"
+                    - variable: hosts
+                      label: "Hosts"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: host
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: host
+                                  label: "Domain Name"
+                                  required: true
+                                  schema:
+                                    type: string
+                                - variable: paths
+                                  label: "paths"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: path
+                                        label: "Path"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                            - variable: path
+                                              label: "path"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "/"
+                                            - variable: pathType
+                                              label: "pathType"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "prefix"
+                    - variable: certType
+                      label: "Select Certificate Type"
+                      schema:
+                        type: string
+                        default: "selfsigned"
+                        enum:
+                          - value: ""
+                            description: "No Encryption/TLS/Certificates"
+                          - value: "selfsigned"
+                            description: "Self-Signed Certificate"
+                          - value: "ixcert"
+                            description: "TrueNAS SCALE Certificate"
+                    - variable: certificate
+                      label: "Select TrueNAS SCALE Certificate"
+                      schema:
+                        type: int
+                        show_if: [["certType", "=", "ixcert"]]
+                        $ref:
+                          - "definitions/certificate"
+                    - variable: authForwardURL
+                      label: "Forward Authentication URL"
+                      schema:
+                        type: string
+                        default: ""
+
+## TrueCharts Specific
+
   - variable: appVolumeMounts
     label: "app storage"
     group: "Storage"
     schema:
       type: dict
       attrs:
-        # Config ------------------------
+        # Data ------------------------
         - variable: data
-          label: "Data Dataset"
+          label: "data dataset"
           schema:
             type: dict
             $ref:
@@ -130,6 +253,13 @@ questions:
                   required: true
                   hidden: true
                   editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -164,330 +294,6 @@ questions:
                       schema:
                         type: hostpath
                         required: true
-
-  - variable: appIngress
-    label: ""
-    group: "Ingress"
-    schema:
-      type: dict
-      attrs:
-        - variable: webui
-          label: "Web Reverse Proxy Configuration"
-          group: "Ingress"
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Web Reverse Proxy"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: entrypoint
-                      label: "Select Entrypoint"
-                      schema:
-                        type: string
-                        default: "websecure"
-                        required: true
-                        enum:
-                          - value: "websecure"
-                            description: "Websecure: HTTPS/TLS port 443"
-                    - variable: host
-                      label: "Host"
-                      required: true
-                      schema:
-                        type: string
-                    - variable: certType
-                      label: "Select Certificate Type"
-                      schema:
-                        type: string
-                        default: "letsencrypt-prod"
-                        enum:
-                          - value: ""
-                            description: "No Encryption/TLS/Certificates"
-                          - value: "letsencrypt-prod"
-                            description: "Letsencrypt Production Certificates"
-                          - value: "letsencrypt-staging"
-                            description: "Letsencrypt Test Certificates"
-                          - value: "wildcard"
-                            description: "Global Wildcard Certificate"
-                          - value: "selfsigned"
-                            description: "Self-Signed Certificate"
-                          - value: "existingcert"
-                            description: "Existing Certificate"
-
-                    - variable: existingcert
-                      label: "Existing Certificate Name"
-                      schema:
-                        type: string
-                        show_if: [["certType", "=", "existingcert"]]
-                        default: ""
-                    - variable: authForwardURL
-                      label: "Forward Authentication URL"
-                      schema:
-                        type: string
-                        default: ""
-
-  - variable: certmanager
-    description: "Configure CertManager Settings"
-    label: "CertManager Settings"
-    group: "Certmanager Settings"
-    schema:
-      type: dict
-      required: true
-      attrs:
-        - variable: provider
-          description: "Select the CertManager provider to use"
-          label: "CertManager Provider"
-          schema:
-            type: string
-            default: ""
-            enum:
-              - value: ""
-                description: "none"
-              - value: "cloudflare"
-                description: "Cloudflare"
-              - value: "cloudDNS"
-                description: "Google cloudDNS"
-              - value: "route53"
-                description: "Route53"
-              - value: "digitalocean"
-                description: "Digitalocean"
-              - value: "rfc2136"
-                description: "rfc2136"
-              - value: "azureDNS"
-                description: "AzureDNS"
-              - value: "akamai"
-                description: "Akamai"
-              - value: "acmeDNS"
-                description: "acmeDNS"
-        - variable: email
-          description: "Email Adress to use with Letsencrypt"
-          label: "Email-Adress"
-          schema:
-            show_if: [["provider", "!=", ""]]
-            type: string
-            default: ""
-            required: true
-        - variable: wildcardDomain
-          description: "Enter Domain name here, if you want to setup a global wildcard-domain"
-          label: "Wildcard Domain"
-          schema:
-            show_if: [["provider", "!=", ""]]
-            type: string
-            default: ""
-        - variable: cloudflare
-          description: "Configure Cloudflare Settings"
-          label: "Cloudflare Settings"
-          schema:
-            show_if: [["provider", "=", "cloudflare"]]
-            type: dict
-            required: true
-            attrs:
-              - variable: apikey
-                description: "Enter your Cloudflare API-Key"
-                label: "API-Key"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-        - variable: cloudDNS
-          description: "Configure Google cloudDNS Settings"
-          label: "Google cloudDNS Settings"
-          schema:
-            type: dict
-            show_if: [["provider", "=", "cloudDNS"]]
-            required: true
-            attrs:
-              - variable: project
-                description: "Enter your Google cloudDNS Project Name"
-                label: "Project"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: keyjson
-                description: "Enter your Google cloudDNS JSON Key"
-                label: "Key-JSON"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-        - variable: route53
-          description: "Configure Route53 Settings"
-          label: "Route53 Settings"
-          schema:
-            type: dict
-            show_if: [["provider", "=", "route53"]]
-            required: true
-            attrs:
-              - variable: region
-                description: "Enter your Route53 Region"
-                label: "Region"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: accessKeyID
-                description: "Enter your Route53 accessKeyID"
-                label: "accessKeyID"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: secretaccesskey
-                description: "Enter your Route53 secretaccesskey"
-                label: "Secretaccesskey"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-        - variable: digitalocean
-          description: "Configure Digitalocean Settings"
-          label: "Digitalocean Settings"
-          schema:
-            type: dict
-            show_if: [["provider", "=", "digitalocean"]]
-            required: true
-            attrs:
-              - variable: accesstoken
-                description: "Enter your Digitalocean Access Token"
-                label: "Access Token"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-        - variable: rfc2136
-          description: "Configure rfc2136 Settings"
-          label: "rfc2136 Settings"
-          schema:
-            type: dict
-            show_if: [["provider", "=", "rfc2136"]]
-            required: true
-            attrs:
-              - variable: nameserver
-                description: "Enter your rfc2136 Nameserver"
-                label: "Nameserver"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: tsigKeyName
-                description: "Enter your rfc2136 tsigKeyName"
-                label: "tsigKeyName"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: tsigsecretkey
-                description: "Enter your rfc2136 tsigsecretkey"
-                label: "tsigsecretkey"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: tsigAlgorithm
-                description: "Enter your rfc2136 tsigAlgorithm"
-                label: "tsigAlgorithm"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-        - variable: azureDNS
-          description: "Configure AzureDNS Settings"
-          label: "AzureDNS Settings"
-          schema:
-            type: dict
-            show_if: [["provider", "=", "azureDNS"]]
-            required: true
-            attrs:
-              - variable: environment
-                description: "Enter your AzureDNS environment"
-                label: "environment"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: subscriptionID
-                description: "Enter your AzureDNS subscriptionID"
-                label: "subscriptionID"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: resourceGroupName
-                description: "Enter your AzureDNS resourceGroupName"
-                label: "resourceGroupName"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: hostedZoneName
-                description: "Enter your AzureDNS hostedZoneName"
-                label: "hostedZoneName"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-        - variable: akamai
-          description: "Configure Akamai Settings"
-          label: "Akamai Settings"
-          schema:
-            type: dict
-            show_if: [["provider", "=", "akamai"]]
-            required: true
-            attrs:
-              - variable: serviceConsumerDomain
-                description: "Enter your Akamai serviceConsumerDomain"
-                label: "serviceConsumerDomain"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: clientToken
-                description: "Enter your Akamai clientToken"
-                label: "clientToken"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: clientSecret
-                description: "Enter your Akamai clientSecret"
-                label: "clientSecret"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: accessToken
-                description: "Enter your Akamai accessToken"
-                label: "accessToken"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-        - variable: acmeDNS
-          description: "Configure acmeDNS Settings"
-          label: "acmeDNS Settings"
-          schema:
-            type: dict
-            show_if: [["provider", "=", "acmeDNS"]]
-            required: true
-            attrs:
-              - variable: host
-                description: "Enter your acmeDNS host"
-                label: "host"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: apikey
-                description: "Enter your acmeDNS acmednsjson"
-                label: "acmednsjson"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
 
   - variable: warning
     label: "This App binds to the same ports as TrueNAS SCALE UI: 80 and 443"
