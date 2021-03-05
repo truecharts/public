@@ -160,7 +160,7 @@ questions:
                       label: "container port"
                       schema:
                         type: int
-                        default: 8787
+                        default: 8080
                         editable: false
                         hidden: true
                     - variable: targetport
@@ -168,7 +168,7 @@ questions:
                       description: "When connecting internally to this App, you'll need this port"
                       schema:
                         type: int
-                        default: 8787
+                        default: 8080
                         editable: false
                         hidden: true
                     - variable: nodePort
