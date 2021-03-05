@@ -35,13 +35,13 @@ questions:
           schema:
             type: string
             required: true
-            default: "emby/embyserver"
+            default: "linuxserver/emby"
         - variable: tag
           description: "Tag to use for specified image"
           label: "Image Tag"
           schema:
             type: string
-            default: "4.6.0.30"
+            default: "version-4.5.4.0"
         - variable: pullPolicy
           description: "Docker Image Pull Policy"
           label: "Image Pull Policy"
@@ -265,7 +265,7 @@ questions:
                 schema:
                   type: path
                   required: true
-                  default: "/mnt/share1"
+                  default: "/data"
                   editable: false
               - variable: hostPathEnabled
                 label: "host Path Enabled"

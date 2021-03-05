@@ -2,9 +2,9 @@
 # Default values for emby.
 
 image:
-  repository: emby/embyserver
+  repository: linuxserver/emby
   pullPolicy: IfNotPresent
-  tag: 4.6.0.30
+  tag: version-4.5.4.0
 
 strategy:
   type: Recreate
@@ -12,11 +12,6 @@ strategy:
 service:
   port:
     port: 8096
-  env:
-    - name: UID
-      value: {{ .Values.PUID | quote }}
-    - name: GID
-      value: {{ .Values.PGID | quote }}
 
 persistence:
   config:
@@ -26,7 +21,7 @@ persistence:
   media:
     enabled: false
     emptyDir: false
-    mountPath: /mnt/share1
+    mountPath: /data
     ## Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
