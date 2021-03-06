@@ -19,7 +19,7 @@ Preventing the user to disable them, ensures that users don't (by mistake) remov
 ```
   - variable: appVolumeMounts
     label: "app storage"
-    group: "Storage"
+    group: "Storage and Devices"
     schema:
       type: dict
       attrs:
@@ -92,7 +92,7 @@ It should always be included in any App, to give users the option to customise t
 ```
   - variable: additionalAppVolumeMounts
     label: "Custom app storage"
-    group: "Storage"
+    group: "Storage and Devices"
     schema:
       type: list
       default: []
