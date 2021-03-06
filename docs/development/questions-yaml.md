@@ -94,6 +94,31 @@ To minimise the maintenance load of our App collection, we always aim to standar
 
 Be aware that sometimes specific functions might or might not completely function. Leaving them out would, however, everely increase the maintenance load and often said functionality will be added in the common-chart later on anyway.
 
+##### Groups
+
+To make sure all apps stay somewhat the same, we use a standardised `groups:` section. Please make sure to use this in your Apps:
+
+```
+groups:
+  - name: "Container Image"
+    description: "Image to be used for container"
+  - name: "Workload Configuration"
+    description: "Configure workload deployment"
+  - name: "Configuration"
+    description: "additional container configuration"
+  - name: "Networking"
+    description: "Configure / service for container"
+  - name: "Storage and Devices"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Resource Reservation"
+    description: "Specify resources to be allocated to workload"
+  - name: "Reverse Proxy Configuration"
+    description: "Reverse Proxy configuration"
+  - name: "WARNING"
+    description: "WARNING"
+```
+
+
 ##### General Configuration options
 
 These options are always included because almost every chart (eventually) has a use for them and/or other parts of the common chart depend on them.
