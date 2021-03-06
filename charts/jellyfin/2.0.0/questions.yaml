@@ -1,14 +1,20 @@
 groups:
   - name: "Container Image"
-    description: "configure container image"
+    description: "Image to be used for container"
+  - name: "Workload Configuration"
+    description: "Configure workload deployment"
   - name: "Configuration"
     description: "additional container configuration"
   - name: "Networking"
-    description: "Networking / service configuration"
-  - name: "Storage"
-    description: "configure app volume mounts"
+    description: "Configure / service for container"
+  - name: "Storage and Devices"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Resource Reservation"
+    description: "Specify resources to be allocated to workload"
   - name: "Reverse Proxy Configuration"
     description: "Reverse Proxy configuration"
+  - name: "WARNING"
+    description: "WARNING"
 
 portals:
   web_portal:
@@ -20,41 +26,19 @@ portals:
       - "$variable-service.port.nodePort"
 
 questions:
-  # Image related
-  - variable: image
-    description: "Docker Image Details"
-    label: "Docker Image"
+
+  # Update Policy
+  - variable: strategyType
     group: "Container Image"
+    label: "Update Strategy"
     schema:
-      type: dict
-      required: true
-      attrs:
-        - variable: repository
-          description: "Docker image repository"
-          label: "Image repository"
-          schema:
-            type: string
-            required: true
-            default: "linuxserver/jellyfin"
-        - variable: tag
-          description: "Tag to use for specified image"
-          label: "Image Tag"
-          schema:
-            type: string
-            default: "version-10.6.4-1"
-        - variable: pullPolicy
-          description: "Docker Image Pull Policy"
-          label: "Image Pull Policy"
-          schema:
-            type: string
-            default: "IfNotPresent"
-            enum:
-              - value: "IfNotPresent"
-                description: "Only pull image if not present on host"
-              - value: "Always"
-                description: "Always pull image even if present on host"
-              - value: "Never"
-                description: "Never pull image even if it's not present on host"
+      type: string
+      default: "Recreate"
+      enum:
+        - value: "RollingUpdate"
+          description: "Create new pods and then kill old ones"
+        - value: "Recreate"
+          description: "Kill existing pods before creating new ones"
 
   # Configure Time Zone
   - variable: timezone
@@ -111,6 +95,14 @@ questions:
                 label: "Value"
                 schema:
                   type: string
+
+  # Enable Host Networking
+  - variable: hostNetwork
+    group: "Networking"
+    label: "Enable Host Networking"
+    schema:
+      type: boolean
+      default: false
 
   - variable: services
     group: "Networking"
@@ -182,19 +174,11 @@ questions:
                         default: 36052
                         required: true
 
-  # Enable Host Networking
-  - variable: hostNetwork
-    group: "Networking"
-    label: "Enable Host Networking"
-    schema:
-      type: boolean
-      default: false
-
 ## TrueCharts Specific
 
   - variable: appVolumeMounts
     label: "app storage"
-    group: "Storage"
+    group: "Storage and Devices"
     schema:
       type: dict
       attrs:
@@ -311,6 +295,67 @@ questions:
                       schema:
                         type: hostpath
                         required: true
+
+  - variable: additionalAppVolumeMounts
+    label: "Custom app storage"
+    group: "Storage and Devices"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: volumeMount
+          label: "Custom Storage"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: name
+                label: "Mountpoint Name"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+                  editable: true
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: ""
+                  editable: true
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: hostPath
+                label: "Host Path"
+                schema:
+                  type: hostpath
+                  required: true
 
   - variable: ingress
     label: ""

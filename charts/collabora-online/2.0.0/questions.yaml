@@ -1,18 +1,21 @@
 groups:
   - name: "Container Image"
-    description: "Configure Container Image"
+    description: "Image to be used for container"
+  - name: "Workload Configuration"
+    description: "Configure workload deployment"
   - name: "Configuration"
     description: "additional container configuration"
   - name: "Networking"
-    description: "Network Configuration"
-  - name: "Environment Variables"
-    description: "Environment Variables Configuration"
+    description: "Configure / service for container"
+  - name: "Storage and Devices"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Resource Reservation"
+    description: "Specify resources to be allocated to workload"
   - name: "Reverse Proxy Configuration"
     description: "Reverse Proxy configuration"
-  - name: "Storage"
-    description: "configure app volume mounts"
+  - name: "WARNING"
+    description: "WARNING"
 
-#Portal
 portals:
   web_portal:
     protocols:
@@ -24,49 +27,14 @@ portals:
     path: "/loleaflet/dist/admin/admin.html"
 
 questions:
-  #Image related
-  - variable: image
-    group: "Container Image"
-    label: "Collabora"
-    schema:
-      type: dict
-      required: true
-      attrs:
-        #Image
-        - variable: repository
-          label: "Image Repository"
-          schema:
-            type: string
-            default: "collabora/code"
-            editable: false
-        #Tag
-        - variable: tag
-          label: "Image Tag"
-          description: "Tag to use for specified image"
-          schema:
-            type: string
-            default: "6.4.6.2"
-            required: true
-        #Pull Policy
-        - variable: pullPolicy
-          label: "Image Pull Policy"
-          schema:
-            type: string
-            default: "IfNotPresent"
-            enum:
-              - value: "IfNotPresent"
-                description: "Only pull image if not present on host"
-              - value: "Always"
-                description: "Always pull image even if present on host"
-              - value: "Never"
-                description: "Never pull image even if it's not present on host"
-  # Strategy
+
+  # Update Policy
   - variable: strategyType
     group: "Container Image"
     label: "Update Strategy"
     schema:
       type: string
-      default: Recreate
+      default: "Recreate"
       enum:
         - value: "RollingUpdate"
           description: "Create new pods and then kill old ones"
@@ -107,7 +75,62 @@ questions:
       type: string
       default: "002"
 
+  # environmentVariables Configuraiton
+  - variable: env
+    group: "Configuration"
+    label: "Environment Variables Configuration"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: domain
+          label: "Domains will be using collabora"
+          description: 'Use backslash "\" before dots ".". Use pipe "|" to separate multiple domains'
+          schema:
+            type: string
+            default: 'nextcloud\.domain\.tld|othernextcloud\.domain\.tld'
+            required: true
+        - variable: username
+          label: "Username for WebUI"
+          schema:
+            type: string
+            default: "admin"
+            required: true
+        - variable: password
+          label: "Password for WebUI"
+          schema:
+            type: string
+            private: true
+            default: "changeme"
+            required: true
+        - variable: dictionaries
+          label: "Dictionaries to use, leave empty to use all"
+          schema:
+            type: string
+            default: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
+        - variable: extra_params
+          label: "Extra Parameters to add"
+          description: 'e.g. "–o:welcome.enable=false", See more on /etc/loolwsd/loowsd.xml. Separate params with space'
+          schema:
+            type: string
+            default: "-o:welcome.enable=false -o:user_interface.mode=notebookbar -o:ssl.termination=true -o:ssl.enable=false"
+        - variable: server_name
+          label: "Server Name"
+          description: "When this environment variable is set (is not “”), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."
+          schema:
+            type: string
+            default: 'collabora\.domain\.tld'
+
+
   # Service Configuration
+  # Enable Host Networking
+  - variable: hostNetwork
+    group: "Networking"
+    label: "Enable Host Networking"
+    schema:
+      type: boolean
+      default: false
+
   - variable: services
     group: "Networking"
     label: "Configure Service"
@@ -178,53 +201,68 @@ questions:
                         default: 36052
                         required: true
 
-  # environmentVariables Configuraiton
-  - variable: env
-    group: "Environment Variables"
-    label: "Environment Variables Configuration"
-    schema:
-      type: dict
-      required: true
-      attrs:
-        - variable: domain
-          label: "Domains will be using collabora"
-          description: 'Use backslash "\" before dots ".". Use pipe "|" to separate multiple domains'
-          schema:
-            type: string
-            default: 'nextcloud\.domain\.tld|othernextcloud\.domain\.tld'
-            required: true
-        - variable: username
-          label: "Username for WebUI"
-          schema:
-            type: string
-            default: "admin"
-            required: true
-        - variable: password
-          label: "Password for WebUI"
-          schema:
-            type: string
-            private: true
-            default: "changeme"
-            required: true
-        - variable: dictionaries
-          label: "Dictionaries to use, leave empty to use all"
-          schema:
-            type: string
-            default: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
-        - variable: extra_params
-          label: "Extra Parameters to add"
-          description: 'e.g. "–o:welcome.enable=false", See more on /etc/loolwsd/loowsd.xml. Separate params with space'
-          schema:
-            type: string
-            default: "-o:welcome.enable=false -o:user_interface.mode=notebookbar -o:ssl.termination=true -o:ssl.enable=false"
-        - variable: server_name
-          label: "Server Name"
-          description: "When this environment variable is set (is not “”), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."
-          schema:
-            type: string
-            default: 'collabora\.domain\.tld'
-
   # Reverse Proxy
+  - variable: additionalAppVolumeMounts
+    label: "Custom app storage"
+    group: "Storage and Devices"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: volumeMount
+          label: "Custom Storage"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: name
+                label: "Mountpoint Name"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+                  editable: true
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: ""
+                  editable: true
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: hostPath
+                label: "Host Path"
+                schema:
+                  type: hostpath
+                  required: true
+
   - variable: ingress
     label: ""
     group: "Reverse Proxy Configuration"
