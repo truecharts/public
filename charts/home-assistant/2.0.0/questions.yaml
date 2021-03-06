@@ -1,14 +1,20 @@
 groups:
   - name: "Container Image"
-    description: "configure container image"
+    description: "Image to be used for container"
+  - name: "Workload Configuration"
+    description: "Configure workload deployment"
   - name: "Configuration"
     description: "additional container configuration"
   - name: "Networking"
-    description: "network / service configuration"
-  - name: "Storage"
-    description: "configure app volume mounts"
+    description: "Configure / service for container"
+  - name: "Storage and Devices"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Resource Reservation"
+    description: "Specify resources to be allocated to workload"
   - name: "Reverse Proxy Configuration"
     description: "Reverse Proxy configuration"
+  - name: "WARNING"
+    description: "WARNING"
 
 portals:
   web_portal:
@@ -20,39 +26,7 @@ portals:
       - "$variable-service.port.nodePort"
 
 questions:
-  # Image related
-  - variable: image
-    group: "Container Image"
-    label: "Home Assistant"
-    schema:
-      type: dict
-      required: true
-      attrs:
-        - variable: repository
-          label: "Image Repository"
-          schema:
-            type: string
-            default: "homeassistant/home-assistant"
-            editable: false
-        - variable: tag
-          label: "Image Tag"
-          description: "Tag to use for specified image"
-          schema:
-            type: string
-            default: "stable"
-            required: true
-        - variable: pullPolicy
-          label: "Image Pull Policy"
-          schema:
-            type: string
-            default: "IfNotPresent"
-            enum:
-              - value: "IfNotPresent"
-                description: "Only pull image if not present on host"
-              - value: "Always"
-                description: "Always pull image even if present on host"
-              - value: "Never"
-                description: "Never pull image even if it's not present on host"
+
   # Update Policy
   - variable: strategyType
     group: "Container Image"
@@ -123,7 +97,7 @@ questions:
 
   # Configure app volumes
   - variable: appVolumeMounts
-    group: "Storage"
+    group: "Storage and Devices"
     label: ""
     schema:
       type: dict
@@ -260,7 +234,7 @@ questions:
                         default: "/dev/ttyUSB1"
   # Enable privileged
   - variable: securityContext
-    group: "Storage"
+    group: "Storage and Devices"
     label: "Security Context"
     schema:
       type: dict
@@ -271,32 +245,18 @@ questions:
             type: boolean
             default: false
 
-  # Enable Host Network
-  - variable: hostNetwork
-    group: "Networking"
-    label: "Enable Host Network"
-    description: "Required if you want devices to be discoverable by Home Assistant"
-    schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: dnsPolicy
-          group: "Networking"
-          label: "Set the correct DNS policy"
-          description: "Required to be set to ClusterFirstWithHostNet when using hostNetwork"
-          schema:
-            type: string
-            default: "ClusterFirst"
-            enum:
-              - value: "ClusterFirst"
-                description: "ClusterFirst"
-              - value: "ClusterFirstWithHostNet"
-                description: "ClusterFirstWithHostNet"
 
 
 
   # Service Configuration
+  # Enable Host Networking
+  - variable: hostNetwork
+    group: "Networking"
+    label: "Enable Host Networking"
+    schema:
+      type: boolean
+      default: false
+
   - variable: services
     group: "Networking"
     label: "Configure Service"
@@ -366,6 +326,67 @@ questions:
                         max: 65535
                         default: 36052
                         required: true
+
+  - variable: additionalAppVolumeMounts
+    label: "Custom app storage"
+    group: "Storage and Devices"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: volumeMount
+          label: "Custom Storage"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: name
+                label: "Mountpoint Name"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+                  editable: true
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: ""
+                  editable: true
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: hostPath
+                label: "Host Path"
+                schema:
+                  type: hostpath
+                  required: true
 
   - variable: ingress
     label: ""
