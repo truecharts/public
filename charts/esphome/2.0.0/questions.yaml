@@ -1,14 +1,20 @@
 groups:
   - name: "Container Image"
-    description: "configure container image"
+    description: "Image to be used for container"
+  - name: "Workload Configuration"
+    description: "Configure workload deployment"
   - name: "Configuration"
     description: "additional container configuration"
   - name: "Networking"
-    description: "Networking / service configuration"
-  - name: "Storage"
-    description: "configure app volume mounts"
+    description: "Configure / service for container"
+  - name: "Storage and Devices"
+    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Resource Reservation"
+    description: "Specify resources to be allocated to workload"
   - name: "Reverse Proxy Configuration"
     description: "Reverse Proxy configuration"
+  - name: "WARNING"
+    description: "WARNING"
 
 portals:
   web_portal:
@@ -20,39 +26,7 @@ portals:
       - "$variable-service.port.nodePort"
 
 questions:
-  # Image related
-  - variable: image
-    group: "Container Image"
-    label: "ESPHome"
-    schema:
-      type: dict
-      required: true
-      attrs:
-        - variable: repository
-          label: "Image Repository"
-          schema:
-            type: string
-            default: "esphome/esphome"
-            editable: false
-        - variable: tag
-          label: "Image Tag"
-          description: "Tag to use for specified image"
-          schema:
-            type: string
-            default: "latest"
-            required: true
-        - variable: pullPolicy
-          label: "Image Pull Policy"
-          schema:
-            type: string
-            default: "IfNotPresent"
-            enum:
-              - value: "IfNotPresent"
-                description: "Only pull image if not present on host"
-              - value: "Always"
-                description: "Always pull image even if present on host"
-              - value: "Never"
-                description: "Never pull image even if it's not present on host"
+
   # Update Policy
   - variable: strategyType
     group: "Container Image"
@@ -121,6 +95,7 @@ questions:
                 schema:
                   type: string
 
+  # Service Configuration
   # Enable Host Networking
   - variable: hostNetwork
     group: "Networking"
@@ -129,7 +104,6 @@ questions:
       type: boolean
       default: false
 
-  # Service Configuration
   - variable: services
     group: "Networking"
     label: "Configure Service"
@@ -202,7 +176,7 @@ questions:
 
   # Configure app volumes
   - variable: appVolumeMounts
-    group: "Storage"
+    group: "Storage and Devices"
     label: ""
     schema:
       type: dict
@@ -261,6 +235,67 @@ questions:
                       schema:
                         type: hostpath
                         required: true
+
+  - variable: additionalAppVolumeMounts
+    label: "Custom app storage"
+    group: "Storage and Devices"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: volumeMount
+          label: "Custom Storage"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: name
+                label: "Mountpoint Name"
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+                  editable: true
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: ""
+                  editable: true
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: hostPath
+                label: "Host Path"
+                schema:
+                  type: hostpath
+                  required: true
 
   - variable: ingress
     label: ""

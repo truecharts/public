@@ -38,6 +38,30 @@ class Test < ChartTest
       end
     end
 
+    describe 'hostNetwork' do
+      it ' hostnetworking default = nil' do
+        jq('.spec.template.spec.hostNetwork', resource('Deployment')).must_equal nil
+      end
+
+      it 'DNSPolic = ClusterFirst, hostnetworking = nil' do
+        values = {
+          hostNetwork: false
+        }
+        chart.value values
+        jq('.spec.template.spec.hostNetwork', resource('Deployment')).must_equal nil
+        jq('.spec.template.spec.dnsPolicy', resource('Deployment')).must_equal 'ClusterFirst'
+      end
+
+      it 'DNSPolic = ClusterFirstWithHostNet, hostnetworking = true' do
+        values = {
+          hostNetwork: true
+        }
+        chart.value values
+        jq('.spec.template.spec.hostNetwork', resource('Deployment')).must_equal true
+        jq('.spec.template.spec.dnsPolicy', resource('Deployment')).must_equal 'ClusterFirstWithHostNet'
+      end
+    end
+
     describe 'Environment settings' do
       it 'Check no environment variables' do
         values = {}

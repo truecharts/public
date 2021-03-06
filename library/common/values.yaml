@@ -66,7 +66,8 @@ envFrom: []
 # When using hostNetwork make sure you set dnsPolicy to ClusterFirstWithHostNet
 hostNetwork: false
 
-dnsPolicy: ClusterFirst
+## Default get based on hostNetwork setting
+# dnsPolicy: ClusterFirst
 
 # Optional DNS settings, configuring the ndots option may resolve
 # nslookup issues on some Kubernetes setups.
