@@ -79,9 +79,7 @@
       "schedule": [
         "every 1 months on the first day of the month"
       ]
-    }
-  ],
-  [
+    },
     // Setup datasources for tag updates
     {
       "datasources": ["helm"],
@@ -110,7 +108,6 @@
       "labels": ["tag/patch"]
       "groupName": ["patch"]
     }
-  ]
 
 
 
