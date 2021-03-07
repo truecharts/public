@@ -6,6 +6,8 @@ image:
 strategy:
   type: Recreate
 
+startAsRoot: true
+
 services:
   main:
     type: NodePort

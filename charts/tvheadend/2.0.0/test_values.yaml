@@ -8,6 +8,8 @@ image:
 strategy:
   type: Recreate
 
+startAsRoot: true
+
 # See https://github.com/linuxserver/docker-tvheadend#parameters
 env: {}
   # PUID: 1000
