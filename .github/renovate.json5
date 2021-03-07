@@ -109,7 +109,7 @@
       "groupName": ["patch"]
     },
     //
-    // Tag updates for three dot linuxserver
+    // Tag updates for linuxserver
     //
     {
       "packagePatterns": ["^linuxserver\\/"],
@@ -133,33 +133,6 @@
       "bumpVersion": "patch",
       "labels": ["tag/patch"],
       "groupName": ["patch"]
-    },
-    //
-    // Tag updates for four dot linuxserver
-    //
-    {
-      "packagePatterns": ["^linuxserver\\/"],
-      "versionScheme": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<patch>\\d+)?$"
-    },
-    {
-      "commitMessagePrefix": "[{{{parentDir}}}]",
-      "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
-      "updateTypes": ["major"],
-      "bumpVersion": "major",
-      "labels": ["tag/major"]
-    },
-    {
-      "updateTypes": ["minor"],
-      "bumpVersion": "patch",
-      "labels": ["tag/minor"],
-      "groupName": ["minor"]
-    },
-    {
-      "updateTypes": ["patch", "minor"],
-      "bumpVersion": "patch",
-      "labels": ["tag/patch"],
-      "groupName": ["patch"]
     }
-
   ]
 }
