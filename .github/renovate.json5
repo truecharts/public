@@ -8,7 +8,7 @@
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 5,
   "helm-values": {
-    "enabled": false
+    "fileMatch": ["charts/.+/.+/.*_values\\.yaml$"]
   },
   "helmv3": {
     "fileMatch": ["charts/.+/.+/Chart\\.yaml$"]
