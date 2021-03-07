@@ -133,6 +133,13 @@
       "bumpVersion": "patch",
       "labels": ["tag/patch"],
       "groupName": ["patch"]
-    }
+    },
+    //
+    // Tag updates for linuxserver with four part version numbers
+    //
+    {
+      "packagePatterns": ["^linuxserver\\/"],
+      "versionScheme": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<nope>\\d+)\\.(?<patch>\\d+)?$"
+    },
   ]
 }
