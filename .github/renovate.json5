@@ -113,7 +113,7 @@
     //
     {
       "packagePatterns": ["^linuxserver\\/"],
-      "versionScheme": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
+      "versionScheme": "regex:^(?<compatibility>.*)-[v]?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     },
     {
       "commitMessagePrefix": "[{{{parentDir}}}]",
@@ -139,7 +139,7 @@
     //
     {
       "packagePatterns": ["^linuxserver\\/"],
-      "versionScheme": "regex:^(?<compatibility>.*)-v?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<nope>\\d+)\\.(?<patch>\\d+)?$"
+      "versionScheme": "regex:^(?<compatibility>.*)-[v]?(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<nope>\\d+)\\.(?<patch>\\d+)?$"
     },
   ]
 }
