@@ -8,15 +8,16 @@
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 5,
   "helm-values": {
-    "enabled": false
+    "fileMatch": ["charts/.+/.+/.*_values\\.yaml$"]
   },
   "helmv3": {
     "fileMatch": ["charts/.+/.+/Chart\\.yaml$"]
   },
   "packageRules": [
-    // Setup datasources
+    // Setup datasources for dep updates
     {
       "datasources": ["helm"],
+	  "matchManagers": ["helmv3"],
       "commitMessageTopic": "Helm chart {{depName}}",
       "separateMinorPatch": true
     },
@@ -78,6 +79,60 @@
       "schedule": [
         "every 1 months on the first day of the month"
       ]
+    },
+    // Setup datasources tag updates
+    {
+      "datasources": ["helm"],
+	    "matchManagers": ["helm-values"],
+      "commitMessageTopic": "Helm chart {{depName}}"
+    },
+    //
+    // Tag updates for semantic tags
+    //
+    {
+      "commitMessagePrefix": "[{{{parentDir}}}]",
+      "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
+      "updateTypes": ["major"],
+      "bumpVersion": "major",
+      "labels": ["tag/major"]
+    },
+    {
+      "updateTypes": ["minor"],
+      "bumpVersion": "patch",
+      "labels": ["tag/minor"],
+      "groupName": ["minor"]
+    },
+    {
+      "updateTypes": ["patch", "minor"],
+      "bumpVersion": "patch",
+      "labels": ["tag/patch"],
+      "groupName": ["patch"]
+    },
+    //
+    // Tag updates for linuxserver two-three digit versions
+    //
+    {
+      "packagePatterns": ["^linuxserver\\/"],
+      "versionScheme": "regex:^(?<compatibility>.*?(\\d+\\.)??)(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?(-r?p?\\d)?$"
+    },
+    {
+      "commitMessagePrefix": "[{{{parentDir}}}]",
+      "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
+      "updateTypes": ["major"],
+      "bumpVersion": "major",
+      "labels": ["tag/major"]
+    },
+    {
+      "updateTypes": ["minor"],
+      "bumpVersion": "patch",
+      "labels": ["tag/minor"],
+      "groupName": ["minor"]
+    },
+    {
+      "updateTypes": ["patch", "minor"],
+      "bumpVersion": "patch",
+      "labels": ["tag/patch"],
+      "groupName": ["patch"]
     }
   ]
 }
