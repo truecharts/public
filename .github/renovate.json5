@@ -83,7 +83,7 @@
     // Setup datasources for tag updates
     {
       "datasources": ["helm"],
-	    "matchManagers": ["helm-file"],
+	    "matchManagers": ["helm-values"],
       "commitMessageTopic": "Helm chart {{depName}}"
     },
     //
