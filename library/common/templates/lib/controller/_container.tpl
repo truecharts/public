@@ -98,16 +98,12 @@ The main container included in the controller.
   {{- end }}
   {{- end }}
   {{- include "common.controller.probes" . | nindent 2 }}
-  {{- with .Values.resources }}
   resources:
+  {{- with .Values.resources }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
-  {{- if and .Values.gpuConfiguration .Values.resources }}
+  {{- if and .Values.gpuConfiguration }}
     limits:
-      {{- toYaml .Values.gpuConfiguration | nindent 14 }}
-  {{- else if .Values.gpuConfiguration }}
-  resources:
-    limits:
-      {{- toYaml .Values.gpuConfiguration | nindent 14 }}
+      {{- toYaml .Values.gpuConfiguration | nindent 6 }}
   {{- end }}
 {{- end -}}
