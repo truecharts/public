@@ -26,8 +26,12 @@ imagePullSecrets:
   {{- toYaml . | nindent 2 }}
 {{- end }}
 serviceAccountName: {{ include "common.names.serviceAccountName" . }}
-{{- with .Values.podSecurityContext }}
 securityContext:
+{{- if not .Values.startAsRoot }}
+  runAsUser: {{ .Values.PUID }}
+  runAsGroup: {{ .Values.PGID }}
+{{- end }}
+{{- with .Values.podSecurityContext }}
   {{- toYaml . | nindent 2 }}
 {{- end }}
 {{- with .Values.priorityClassName }}

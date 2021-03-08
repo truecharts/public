@@ -3,34 +3,14 @@
 image:
   repository: pykmsorg/py-kms
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: minimal
 
 strategy:
   type: Recreate
+
+startAsRoot: true
 
 services:
   main:
     port:
       port: 1688
-
-env: {}
-  # TZ: UTC
-  # PUID: 1001
-  # PGID: 1001
-
-
-persistence:
-  config:
-    enabled: false
-    emptyDir: false
-
-
-## TrueCharts Values
-
-
-appVolumeMounts:
-  config:
-    enabled: true
-    emptyDir: true
-    setPermissions: true
-    mountPath: "/config"

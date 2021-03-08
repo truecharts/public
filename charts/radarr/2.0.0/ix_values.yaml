@@ -9,6 +9,8 @@ image:
   pullPolicy: IfNotPresent
   tag: version-3.0.0.3989
 
+startAsRoot: true
+
 probes:
   liveness:
     enabled: true

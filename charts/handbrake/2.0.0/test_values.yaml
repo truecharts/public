@@ -6,10 +6,12 @@ image:
 strategy:
   type: Recreate
 
+startAsRoot: true
+
 services:
   main:
     port:
-      port: 5800            #Required for web GUI
+        port: 5800            #Required for web GUI
   vnc:
     enabled: true
     type: ClusterIP
@@ -23,6 +25,7 @@ envTpl:
 # Permissions Settings
   USER_ID: "{{ .Values.PUID }}"
   GROUP_ID: "{{ .Values.PGID }}"
+
 env:
 # General Settings
   KEEP_APP_RUNNING: "0"
