@@ -1,14 +1,12 @@
 # Default values for nzbhydra.
 
 image:
-  repository: linuxserver/nzbhydra2
+  repository: ghcr.io/k8s-at-home/nzbhydra2
   pullPolicy: IfNotPresent
-  tag: version-v3.8.1
+  tag: v3.13.0
 
 strategy:
   type: Recreate
-
-startAsRoot: true
 
 services:
   main:

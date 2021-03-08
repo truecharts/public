@@ -2,14 +2,12 @@
 # Default values for jellyfin.
 
 image:
-  repository: linuxserver/jellyfin
+  repository: jellyfin/jellyfin
   pullPolicy: IfNotPresent
-  tag: version-10.6.4-1
+  tag: 10.6.4
 
 strategy:
   type: Recreate
-
-startAsRoot: true
 
 services:
   main:
