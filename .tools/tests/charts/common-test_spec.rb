@@ -38,6 +38,19 @@ class Test < ChartTest
       end
     end
 
+    describe 'startAsRoot' do
+      it 'defaults to false = runAs 568' do
+        jq('.spec.template.spec.securityContext.runAsUser', resource('Deployment')).must_equal 568
+        jq('.spec.template.spec.securityContext.runAsGroup', resource('Deployment')).must_equal 568
+      end
+
+      it 'can be enabled = runAs nil' do
+        chart.value startAsRoot: true
+        jq('.spec.template.spec.securityContext.runAsUser', resource('Deployment')).must_equal nil
+        jq('.spec.template.spec.securityContext.runAsGroup', resource('Deployment')).must_equal nil
+      end
+    end
+
     describe 'hostNetwork' do
       it ' hostnetworking default = nil' do
         jq('.spec.template.spec.hostNetwork', resource('Deployment')).must_equal nil
