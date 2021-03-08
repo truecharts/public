@@ -357,6 +357,16 @@ questions:
                   type: hostpath
                   required: true
 
+  # Specify GPU configuration
+  - variable: gpuConfiguration
+    label: "GPU Configuration"
+    group: "Storage and Devices"
+    schema:
+      type: dict
+      $ref:
+        - "definitions/gpuConfiguration"
+      attrs: []
+
   - variable: ingress
     label: ""
     group: "Reverse Proxy Configuration"

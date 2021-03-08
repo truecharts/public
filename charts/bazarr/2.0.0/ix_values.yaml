@@ -5,11 +5,9 @@
 ##
 
 image:
-  repository: linuxserver/bazarr
+  repository: ghcr.io/k8s-at-home/bazarr
   pullPolicy: IfNotPresent
-  tag: version-v0.9.0.5
-
-startAsRoot: true
+  tag: v0.9.3-beta.6
 
 ##
 # Most other defaults are set in questions.yaml
