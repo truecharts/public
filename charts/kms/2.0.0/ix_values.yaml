@@ -7,7 +7,9 @@
 image:
   repository: pykmsorg/py-kms
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: minimal
+
+startAsRoot: true
 
 ##
 # Most other defaults are set in questions.yaml

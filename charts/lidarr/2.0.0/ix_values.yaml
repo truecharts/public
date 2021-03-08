@@ -8,6 +8,9 @@ image:
   repository: linuxserver/lidarr
   pullPolicy: IfNotPresent
   tag: version-0.8.0.1886
+
+startAsRoot: true
+
 probes:
     liveness:
       enabled: true

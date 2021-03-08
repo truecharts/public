@@ -8,6 +8,13 @@ image:
 strategy:
   type: Recreate
 
+startAsRoot: true
+
+envTpl:
+# Permissions Settings
+  UNIFI_GID: "{{ .Values.PUID }}"
+  UNIFI_UID: "{{ .Values.PGID }}"
+
 services:
   main:
     port:

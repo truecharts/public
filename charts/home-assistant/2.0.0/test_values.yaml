@@ -8,8 +8,10 @@ image:
 strategy:
   type: Recreate
 
+startAsRoot: true
+
 env: {}
-  # TZ:
+    # TZ:
 
 services:
   main:
