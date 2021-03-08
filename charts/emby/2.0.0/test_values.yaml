@@ -9,9 +9,10 @@ image:
 strategy:
   type: Recreate
 
-service:
-  port:
-    port: 8096
+services:
+  main:
+    port:
+      port: 8096
 
 persistence:
   config:
@@ -48,4 +49,4 @@ appVolumeMounts:
     enabled: true
     emptyDir: true
     setPermissions: true
-    mountPath: "/mnt/share1"
+    mountPath: "/data"

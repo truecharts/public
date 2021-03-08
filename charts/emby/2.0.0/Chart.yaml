@@ -1,9 +1,9 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: emby
-version: 1.6.3
+version: 2.0.0
 # upstream_version:
-appVersion:  4.5.4.0
+appVersion:  "auto"
 description: Emby Server is a home media server
 type: application
 deprecated: false
@@ -20,7 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-    version: 1.6.5
+    version: 2.0.0
     # condition:
     # tags:
     # import-values:
