@@ -9,6 +9,13 @@ image:
   tag: 6.0.45
   pullPolicy: IfNotPresent
 
+startAsRoot: true
+
+envTpl:
+# Permissions Settings
+  UNIFI_GID: "{{ .Values.PUID }}"
+  UNIFI_UID: "{{ .Values.PGID }}"
+
 ##
 # Most other defaults are set in questions.yaml
 # For other options please refer to the wiki, default_values.yaml or the common library chart

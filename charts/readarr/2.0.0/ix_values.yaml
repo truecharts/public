@@ -9,6 +9,8 @@ image:
   pullPolicy: IfNotPresent
   tag: nightly
 
+startAsRoot: true
+
 probes:
     liveness:
       enabled: true
