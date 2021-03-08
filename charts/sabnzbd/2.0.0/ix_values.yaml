@@ -5,11 +5,9 @@
 ##
 
 image:
-  repository: linuxserver/sabnzbd
+  repository: ghcr.io/k8s-at-home/sabnzbd
   pullPolicy: IfNotPresent
-  tag: version-3.1.0
-
-startAsRoot: true
+  tag: v3.2.0
 
 ##
 # Most other defaults are set in questions.yaml
