@@ -5,11 +5,9 @@
 ##
 
 image:
-  repository: linuxserver/jellyfin
+  repository: jellyfin/jellyfin
   pullPolicy: IfNotPresent
-  tag: version-10.6.4-1
-
-startAsRoot: true
+  tag: 10.6.4
 
 ##
 # Most other defaults are set in questions.yaml
