@@ -1,14 +1,12 @@
 # Default values for qbittorrent.
 
 image:
-  repository: linuxserver/qbittorrent
+  repository: ghcr.io/k8s-at-home/qbittorrent
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: v4.3.3
 
 strategy:
   type: Recreate
-
-startAsRoot: true
 
 env: {}
     # TZ: UTC

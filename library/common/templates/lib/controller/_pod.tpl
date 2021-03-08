@@ -30,6 +30,7 @@ securityContext:
 {{- if not .Values.startAsRoot }}
   runAsUser: {{ .Values.PUID }}
   runAsGroup: {{ .Values.PGID }}
+  runAsNonRoot: true
 {{- end }}
 {{- with .Values.podSecurityContext }}
   {{- toYaml . | nindent 2 }}

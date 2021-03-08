@@ -5,11 +5,9 @@
 ##
 
 image:
-  repository: linuxserver/nzbget
+  repository: ghcr.io/k8s-at-home/nzbget
   pullPolicy: IfNotPresent
-  tag: version-v21.0
-
-startAsRoot: true
+  tag: v21.0
 
 ##
 # Most other defaults are set in questions.yaml
