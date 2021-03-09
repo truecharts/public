@@ -27,7 +27,7 @@ metadata:
   annotations:
    "helm.sh/hook": pre-install,pre-upgrade
    "helm.sh/hook-weight": "-10"
-   "helm.sh/hook-delete-policy": hook-succeeded
+   "helm.sh/hook-delete-policy": hook-succeeded,hook-failed,before-hook-creation
   {{- with .Values.controllerAnnotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
