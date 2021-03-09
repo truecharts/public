@@ -19,14 +19,38 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "http"
+      - "$kubernetes-resource_configmap_portal_protocol"
     host:
-      - "$node_ip"
+      - "$kubernetes-resource_configmap_portal_host"
     ports:
-      - "$variable-tautulliService.port"
-    path: "/web"
+      - "$kubernetes-resource_configmap_portal_port"
 
 questions:
+
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+        - variable: nodePortProtocol
+          label: "Protocol when using NodePort"
+          description: "Enter the protocol to use when using nodeport"
+          schema:
+            hidden: true
+            editable: false
+            type: string
+            default: "https"
+
 
   # Update Policy
   - variable: strategyType
@@ -131,7 +155,7 @@ questions:
                   type: string
                   default: "ClusterIP"
                   enum:
-                    - value: "nodePort"
+                    - value: "NodePort"
                       description: "NodePort"
                     - value: "ClusterIP"
                       description: "ClusterIP"
