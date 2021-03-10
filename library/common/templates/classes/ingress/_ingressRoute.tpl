@@ -16,7 +16,7 @@ within the common library.
 {{- if hasKey $values "nameSuffix" -}}
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
   {{- if and ( $.Values.services ) ( not $values.servicePort ) }}
-    {{- $ingressService := index  $.Values.services $values.nameSuffix }}
+    {{- $ingressService := index  $.Values.services ( $values.nameSuffix | quote) }}
     {{- $svcPort = $ingressService.port.port }}
   {{ end -}}
 {{- else if and ( $.Values.services ) ( not $values.servicePort ) }}

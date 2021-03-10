@@ -540,3 +540,21 @@ ingress:
           - path: /
             # Ignored if not kubeVersion >= 1.14-0
             pathType: Prefix
+
+externalServices:
+  - enabled: true
+    name: "test"
+    type: "HTTP"
+    entrypoint: "websecure"
+    certType: "selfsigned"
+    serviceTarget: "192.168.10.20"
+    servicePort: 9443
+    serviceKind: ""
+    annotations: {}
+    labels: {}
+    hosts:
+      - host: radarr.staging.schouten-lebbing.nl
+        paths:
+          - path: /
+            # Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix

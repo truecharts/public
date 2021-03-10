@@ -28,12 +28,12 @@ of the main Service and any additionalServices.
         {{- print ("---") | nindent 0 -}}
         {{- $serviceValues := $extraService -}}
 
-		    {{- $name := ( $index | quote ) -}}
+		{{- $name := $index -}}
         {{- if  $serviceValues.name -}}
           {{- $name := $serviceValues.name -}}
         {{- end }}
 
-        {{- if or (not $serviceValues.nameSuffix) ( ne $name "main" ) -}}
+        {{- if or (not $serviceValues.nameSuffix) ( ne ( $name | quote ) "main" ) -}}
           {{- $_ := set $serviceValues "nameSuffix" $name -}}
         {{ end -}}
         {{- $_ := set $ "ObjectValues" (dict "service" $serviceValues) -}}

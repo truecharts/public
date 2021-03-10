@@ -1168,8 +1168,49 @@ class Test < ChartTest
         jq('.metadata.name', resource('Middleware')).must_equal  expectedName
         jq('.spec.routes[0].middlewares[1].name', resource('IngressRoute')).must_equal  expectedName
       end
-
     end
 
+    describe 'externalServices' do
+    it 'no externalService endpoints present by default' do
+      assert_nil(resource('Endpoints'))
+    end
+
+    it 'Create externalService endpoint' do
+      values = {
+        externalServices: [
+           {
+            enabled: true,
+            serviceTarget: "192.168.10.20",
+            servicePort: 9443,
+            certType: "selfsigned",
+            entrypoint: "websecure",
+            type: "HTTP",
+            hosts: [
+              {
+                host: 'hostname',
+                paths: [
+                  {
+                    path: '/'
+                  }
+                ]
+              }
+            ],
+            tls: [
+              {
+                hosts: [ 'hostname' ],
+                secretName: 'hostname-secret-name'
+              }
+            ]
+          }
+        ]
+      }
+
+      chart.value values
+      refute_nil(resource('Endpoints'))
+      jq('.subsets[0].addresses[0].ip', resource('Endpoints')).must_equal  values[:externalServices][0][:serviceTarget]
+      jq('.subsets[0].ports[0].port', resource('Endpoints')).must_equal  values[:externalServices][0][:servicePort]
+      jq('.metadata.name', resource('Endpoints')).must_equal  "common-test-0"
+    end
   end
+end
 end
