@@ -51,17 +51,6 @@ questions:
             type: string
             default: "https"
 
-
-
-  - variable: nodeIP
-    group: "Container Image"
-    label: "nodeIP"
-    schema:
-      type: string
-      default: $node_ip
-      hidden: true
-      editable: false
-
   # Update Policy
   - variable: strategyType
     group: "Container Image"

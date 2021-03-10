@@ -17,6 +17,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
+	path: "/"
 
 questions:
 
@@ -70,24 +71,4 @@ There are also some additional (advanced) options availale, these can be added b
             editable: false
             type: string
             default: "test.com"
-```
-
-**path:**
-Path has two portions:
-1.
-```
-    path:
-      - "$kubernetes-resource_configmap_portal_path"
-```
-
-2.
-```
-        - variable: path
-          label: "Portal Path"
-          description: "Sets the Path setting on the portal"
-          schema:
-            hidden: true
-            editable: false
-            type: string
-            default: "/"
 ```

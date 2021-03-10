@@ -307,7 +307,6 @@ class Test < ChartTest
       defaultProtocol = "https"
       defaultHost = "$node_ip"
       defaultPort = "443"
-      defaultPath = "/"
       testNodePort = "666"
       testIngressPort = "888"
       it 'No portal (=configmap) is created by default' do
@@ -325,22 +324,6 @@ class Test < ChartTest
         jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
         jq('.data.host', resource('ConfigMap')).must_equal defaultHost
         jq('.data.port', resource('ConfigMap')).must_equal defaultPort
-        jq('.data.path', resource('ConfigMap')).must_equal defaultPath
-      end
-
-      it 'portalpath can be set' do
-        values = {
-            portal: {
-                enabled: true,
-                path: "/kaas"
-              }
-            }
-        chart.value values
-        refute_nil(resource('ConfigMap'))
-        jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
-        jq('.data.host', resource('ConfigMap')).must_equal defaultHost
-        jq('.data.port', resource('ConfigMap')).must_equal defaultPort
-        jq('.data.path', resource('ConfigMap')).must_equal values[:portal][:path]
       end
 
       it 'portal port can be based on NodePort' do
@@ -363,7 +346,6 @@ class Test < ChartTest
         jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
         jq('.data.host', resource('ConfigMap')).must_equal defaultHost
         jq('.data.port', resource('ConfigMap')).must_equal testNodePort
-        jq('.data.path', resource('ConfigMap')).must_equal defaultPath
       end
 
       it 'NodePort portal port can not be overrulled' do
@@ -387,7 +369,6 @@ class Test < ChartTest
         jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
         jq('.data.host', resource('ConfigMap')).must_equal defaultHost
         jq('.data.port', resource('ConfigMap')).must_equal testNodePort
-        jq('.data.path', resource('ConfigMap')).must_equal defaultPath
       end
 
       it 'portal protocol can be overrulled' do
@@ -412,7 +393,6 @@ class Test < ChartTest
         jq('.data.protocol', resource('ConfigMap')).must_equal values[:portal][:nodePortProtocol]
         jq('.data.host', resource('ConfigMap')).must_equal defaultHost
         jq('.data.port', resource('ConfigMap')).must_equal testNodePort
-        jq('.data.path', resource('ConfigMap')).must_equal defaultPath
       end
 
       it 'portal NodePort host can be overrulled' do
@@ -438,7 +418,6 @@ class Test < ChartTest
         jq('.data.protocol', resource('ConfigMap')).must_equal values[:portal][:nodePortProtocol]
         jq('.data.host', resource('ConfigMap')).must_equal values[:portal][:host]
         jq('.data.port', resource('ConfigMap')).must_equal testNodePort
-        jq('.data.path', resource('ConfigMap')).must_equal defaultPath
       end
 
       it 'portal can be based on Ingress' do
@@ -474,7 +453,6 @@ class Test < ChartTest
         jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
         jq('.data.host', resource('ConfigMap')).must_equal values[:ingress][:main][:hosts][0][:host]
         jq('.data.port', resource('ConfigMap')).must_equal defaultPort
-        jq('.data.path', resource('ConfigMap')).must_equal defaultPath
       end
 
       it 'Ingress portal overrules NodePort portal' do
@@ -512,7 +490,6 @@ class Test < ChartTest
         jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
         jq('.data.host', resource('ConfigMap')).must_equal values[:ingress][:main][:hosts][0][:host]
         jq('.data.port', resource('ConfigMap')).must_equal defaultPort
-        jq('.data.path', resource('ConfigMap')).must_equal defaultPath
       end
 
       it 'portal ingress, only port can be overrrulled' do
@@ -551,7 +528,6 @@ class Test < ChartTest
         jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
         jq('.data.host', resource('ConfigMap')).must_equal values[:ingress][:main][:hosts][0][:host]
         jq('.data.port', resource('ConfigMap')).must_equal testIngressPort
-        jq('.data.path', resource('ConfigMap')).must_equal defaultPath
       end
 
     end
