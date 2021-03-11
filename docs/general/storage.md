@@ -32,6 +32,8 @@ For that reason TrueCharts introduced a feature to automatically set permissions
 Setting permissions automatically means we `chown` the folder and all folder within it, to a user and group of your choice.
 However, we only do so when installing or updating an app.
 
+Please be aware that automatically setting ownership/permissions, does mean it overrides your current CHOWN and CHMOD settings. This could break things and yes, it will destroy your system if used carelessly. It's also not wise to enable the automatic permissions on mounted shares from an external system.
+
 These permission get based on the user and group you enter in the App configuration dialog and default to `568` (the SCALE default Apps user).
 
 ### Custom Storage
