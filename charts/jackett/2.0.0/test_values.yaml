@@ -8,19 +8,12 @@ image:
 strategy:
   type: Recreate
 
-portal:
-  enabled: true
-  nodePortProtocol: "http"
 
 services:
   main:
     enabled: true
-    type: "NodePort"
     port:
       port: 9117
-      protocol: "TCP"
-      targetport: 9117
-      nodePort: 59117
 
 env: {}
   # TZ: UTC
