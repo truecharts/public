@@ -641,11 +641,7 @@ class Test < ChartTest
               hosts: [
                 {
                   host: 'hostname',
-                  paths: [
-                    {
-                      path: '/'
-                    }
-                  ]
+                  path: '/'
                 }
               ]
             }
@@ -654,120 +650,10 @@ class Test < ChartTest
 
         chart.value values
         jq('.spec.rules[0].host', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:host]
-        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:paths][0][:path]
+        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:path]
       end
 
-      it 'ingress with hosts template is evaluated' do
-        expectedHostName = 'common-test.hostname'
-        values = {
-          ingress: {
-            test1: {
-              hosts: [
-                {
-                  hostTpl: '{{ .Release.Name }}.hostname',
-                  paths: [
-                    {
-                      path: '/'
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        }
 
-        chart.value values
-        jq('.spec.rules[0].host', resource('Ingress')).must_equal expectedHostName
-        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:paths][0][:path]
-      end
-
-      it 'ingress with hosts and tls' do
-        values = {
-          ingress: {
-            test1: {
-              enabled: true,
-              hosts: [
-                {
-                  host: 'hostname',
-                  paths: [
-                    {
-                      path: '/'
-                    }
-                  ]
-                }
-              ],
-              tls: [
-                {
-                  hosts: [ 'hostname' ],
-                  secretName: 'hostname-secret-name'
-                }
-              ]
-            }
-          }
-        }
-
-        chart.value values
-        jq('.spec.rules[0].host', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:host]
-        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:paths][0][:path]
-        jq('.spec.tls[0].hosts[0]', resource('Ingress')).must_equal values[:ingress][:test1][:tls][0][:hosts][0]
-        jq('.spec.tls[0].secretName', resource('Ingress')).must_equal values[:ingress][:test1][:tls][0][:secretName]
-      end
-
-      it 'ingress with tls template is evaluated' do
-        expectedHostName = 'common-test.hostname'
-        expectedSecretName = 'common-test-hostname-secret-name'
-        values = {
-          ingress: {
-            test1: {
-              enabled: true,
-              tls: [
-                {
-                  hostsTpl: [ '{{ .Release.Name }}.hostname' ],
-                  secretNameTpl: '{{ .Release.Name }}-hostname-secret-name'
-                }
-              ]
-            }
-          }
-        }
-
-        chart.value values
-        jq('.spec.tls[0].hosts[0]', resource('Ingress')).must_equal expectedHostName
-        jq('.spec.tls[0].secretName', resource('Ingress')).must_equal expectedSecretName
-      end
-
-      it 'ingress with hosts and tls template is evaluated' do
-        expectedHostName = 'common-test.hostname'
-        expectedSecretName = 'common-test-hostname-secret-name'
-        values = {
-          ingress: {
-            test1: {
-              enabled: true,
-              hosts: [
-                {
-                  hostTpl: '{{ .Release.Name }}.hostname',
-                  paths: [
-                    {
-                      path: '/'
-                    }
-                  ]
-                }
-              ],
-              tls: [
-                {
-                  hostsTpl: [ '{{ .Release.Name }}.hostname' ],
-                  secretNameTpl: '{{ .Release.Name }}-hostname-secret-name'
-                }
-              ]
-            }
-          }
-        }
-
-        chart.value values
-        jq('.spec.rules[0].host', resource('Ingress')).must_equal expectedHostName
-        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:paths][0][:path]
-        jq('.spec.tls[0].hosts[0]', resource('Ingress')).must_equal expectedHostName
-        jq('.spec.tls[0].secretName', resource('Ingress')).must_equal expectedSecretName
-      end
 
       it 'ingress with selfsigned certtype is evaluated' do
         expectedHostName = 'common-test.hostname'
@@ -779,11 +665,7 @@ class Test < ChartTest
               hosts: [
                 {
                   host: 'hostname',
-                  paths: [
-                    {
-                      path: '/'
-                    }
-                  ]
+                  path: '/'
                 }
               ],
               certType: "selfsigned"
@@ -793,7 +675,7 @@ class Test < ChartTest
 
         chart.value values
         jq('.spec.rules[0].host', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:host]
-        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:paths][0][:path]
+        jq('.spec.rules[0].http.paths[0].path', resource('Ingress')).must_equal values[:ingress][:test1][:hosts][0][:path]
         jq('.spec.tls[0].hosts[0]', resource('Ingress')).must_equal  values[:ingress][:test1][:hosts][0][:host]
         jq('.spec.tls[0].secretName', resource('Ingress')).must_equal nil
       end
@@ -1088,7 +970,7 @@ class Test < ChartTest
       end
 
       it 'HTTP-ingressRoute is evaluated ' do
-        expectedHostString = 'Host(`hostname`)'
+        expectedHostString = 'Host(`hostname`) && PathPrefix(`/`)'
         values = {
           ingress: {
             test1: {
@@ -1112,7 +994,7 @@ class Test < ChartTest
       end
 
       it 'HTTP-ingressRoute with selfsigned cert is evaluated is evaluated ' do
-        expectedHostString = 'Host(`hostname`)'
+        expectedHostString = 'Host(`hostname`) && PathPrefix(`/`)'
         values = {
           ingress: {
             test1: {
@@ -1139,7 +1021,7 @@ class Test < ChartTest
       end
 
       it 'HTTP-ingressRoute+selfsigned+forwardAuth is evaluated is evaluated ' do
-        expectedHostString = 'Host(`hostname`)'
+        expectedHostString = 'Host(`hostname`) && PathPrefix(`/`)'
         expectedName = 'common-test-test1-auth-forward'
         values = {
           ingress: {
@@ -1188,17 +1070,7 @@ class Test < ChartTest
             hosts: [
               {
                 host: 'hostname',
-                paths: [
-                  {
-                    path: '/'
-                  }
-                ]
-              }
-            ],
-            tls: [
-              {
-                hosts: [ 'hostname' ],
-                secretName: 'hostname-secret-name'
+                path: '/'
               }
             ]
           }

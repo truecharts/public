@@ -63,7 +63,7 @@ spec:
       terminationDelay: 400
   {{- else }}
   - kind: Rule
-    match: Host(`{{ (index  $values.hosts 0).host }}`)
+    match: Host(`{{ (index  $values.hosts 0).host }}`) && PathPrefix(`{{ (index  $values.hosts 0).path | default "/" }}`)
     services:
       - name: {{ $svcName }}
         {{- if $values.serviceKind }}
@@ -87,33 +87,6 @@ spec:
             {{- range $values.hosts }}
             - {{ .host | quote }}
             {{- end }}
-
-	{{- if $values.tls }}
-	{{- range $values.tls }}
-
-	{{- if .hosts }}
-      - main: {{ index  .hosts 0 }}
-    {{- range .hosts }}
-        sans:
-            {{- range .hosts }}
-            - {{ . | quote }}
-            {{- end }}
-	{{- end }}
-	{{- end }}
-
-	{{- if .hosts }}
-      - main: {{ index  .hostsTpl 0 }}
-    {{- range .hosts }}
-        sans:
-            {{- range .hostsTpl }}
-            - {{ tpl . $ | quote }}
-            {{- end }}
-	{{- end }}
-	{{- end }}
-
-	{{- end }}
-	{{- end }}
-
 	{{- if eq $values.certType "ixcert" }}
 	secretName: {{ $ingressName }}
     {{- end }}

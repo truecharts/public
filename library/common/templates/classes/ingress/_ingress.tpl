@@ -47,31 +47,8 @@ spec:
   ingressClassName: {{ $values.ingressClassName }}
   {{- end }}
   {{- end }}
-  {{- if or ( eq $values.certType "selfsigned") (eq $values.certType "ixcert") ( $values.tls ) }}
+  {{- if or ( eq $values.certType "selfsigned") (eq $values.certType "ixcert") }}
   tls:
-    {{- if $values.tls }}
-    {{- range $values.tls }}
-    - hosts:
-	    {{- if and ( not .hosts ) ( not .hostsTpl ) }}
-        {{- range $values.hosts }}
-        - {{ .host | quote }}
-        {{- end }}
-		{{- end }}
-        {{- range .hosts }}
-        - {{ . | quote }}
-        {{- end }}
-        {{- range .hostsTpl }}
-        - {{ tpl . $ | quote }}
-        {{- end }}
-      {{- if .secretNameTpl }}
-      secretName: {{ tpl .secretNameTpl $ | quote}}
-	  {{- else if eq $values.certType "ixcert" }}
-	  secretName: {{ $ingressName }}
-      {{- else if .secretName }}
-      secretName: {{ .secretName }}
-      {{- end }}
-    {{- end }}
-	{{- else }}
     - hosts:
         {{- range $values.hosts }}
         - {{ .host | quote }}
@@ -79,18 +56,12 @@ spec:
 	  {{- if eq $values.certType "ixcert" }}
 	  secretName: {{ $ingressName }}
       {{- end }}
-	{{- end }}
   {{- end }}
   rules:
   {{- range $values.hosts }}
-  {{- if .hostTpl }}
-    - host: {{ tpl .hostTpl $ | quote }}
-  {{- else }}
     - host: {{ .host | quote }}
-  {{- end }}
       http:
         paths:
-          {{- range .paths }}
           - path: {{ .path }}
             {{- if eq (include "common.capabilities.ingress.apiVersion" $) "networking.k8s.io/v1" }}
             pathType: Prefix
@@ -105,6 +76,5 @@ spec:
               serviceName: {{ $svcName }}
               servicePort: {{ $svcPort }}
             {{- end }}
-          {{- end }}
   {{- end }}
 {{- end }}

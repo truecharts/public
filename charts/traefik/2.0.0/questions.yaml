@@ -277,29 +277,12 @@ questions:
                                   required: true
                                   schema:
                                     type: string
-                                - variable: paths
-                                  label: "paths"
+                                - variable: path
+                                  label: "path"
                                   schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: path
-                                        label: "Path"
-                                        schema:
-                                          type: dict
-                                          attrs:
-                                            - variable: path
-                                              label: "path"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "/"
-                                            - variable: pathType
-                                              label: "pathType"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "prefix"
+                                    type: string
+                                    required: true
+                                    default: "/"
                     - variable: certType
                       label: "Select Certificate Type"
                       schema:
@@ -954,13 +937,12 @@ questions:
                             schema:
                               type: string
                           - variable: paths
-                            label: "paths"
+                            label: "Path"
                             schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: path
-                                  label: "Path"
+                              type: dict
+                              attrs:
+                                - variable: "1"
+                                  label: ""
                                   schema:
                                     type: dict
                                     attrs:
