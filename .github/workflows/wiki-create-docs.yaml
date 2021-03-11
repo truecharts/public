@@ -1,4 +1,4 @@
-name: "Wiki: Create Docs"
+name: "Website: Create Docs"
 
 on:
   push:
@@ -16,11 +16,11 @@ jobs:
         with:
           path: 'master'
           token: ${{ secrets.RENOVPUSH }}
-      - name: Checkout-Wiki
+      - name: Checkout-Website
         uses: actions/checkout@v2
         with:
-          repository: 'truecharts/wiki'
-          path: 'wiki'
+          repository: 'truecharts/website'
+          path: 'website'
           token: ${{ secrets.RENOVPUSH }}
 
 
@@ -34,27 +34,27 @@ jobs:
           .tools/gen-helm-docs.sh
           cd ..
 
-      - name: Clean-Wiki
+      - name: Clean-Website
         run: |
-          rm -Rf wiki/content
-          mkdir -p wiki/content
-          cp -f wiki/CNAME wiki/content/CNAME
+          rm -Rf website/content
+          mkdir -p website/content
+          cp -f website/CNAME website/content/CNAME
 
-      - name: Create general wiki
+      - name: Create general website
         run: |
           cd master
-          cp -Rf .github/docs/* ../wiki/content/
-          cp .github/README.md ../wiki/content/about/index.md || echo "readme copy failed, continuing..."
-          cp .github/CODE_OF_CONDUCT ../wiki/content/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
-          cp .github/CONTRIBUTING ../wiki/content/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
-          cp LICENSE ../wiki/content/about/LICENSE.md || echo "license copy failed, continuing..."
-          sed -i '1s/^/# License<br>\n\n/' ../wiki/content/about/LICENSE.md
-          cp NOTICE ../wiki/content/about/NOTICE.md || echo "license copy failed, continuing..."
-          sed -i '1s/^/# NOTICE<br>\n\n/' ../wiki/content/about/NOTICE.md
-          ls ../wiki/content/
+          cp -Rf .github/docs/* ../website/content/
+          cp .github/README.md ../website/content/about/index.md || echo "readme copy failed, continuing..."
+          cp .github/CODE_OF_CONDUCT ../website/content/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          cp .github/CONTRIBUTING ../website/content/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          cp LICENSE ../website/content/about/LICENSE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# License<br>\n\n/' ../website/content/about/LICENSE.md
+          cp NOTICE ../website/content/about/NOTICE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# NOTICE<br>\n\n/' ../website/content/about/NOTICE.md
+          ls ../website/content/
           cd ..
 
-      - name: Create apps wiki
+      - name: Create apps website
         run: |
           cd master
           for chart in charts/*; do
@@ -63,25 +63,25 @@ jobs:
                 chartname=$(basename ${chart})
                 echo "Processing: ${chart} - folder: ${maxfolderversion}"
 
-                mkdir -p ../wiki/content/apps/${chartname} || echo "wiki path already exists, continuing..."
+                mkdir -p ../website/content/apps/${chartname} || echo "website path already exists, continuing..."
                 if [ -d "${chart}/${maxfolderversion}/docs" ]; then
-                  cp -f ${chart}/${maxfolderversion}/docs/* ../wiki/content/apps/${chartname}/
+                  cp -f ${chart}/${maxfolderversion}/docs/* ../website/content/apps/${chartname}/
                 fi
-                cp ${chart}/${maxfolderversion}/README.md ../wiki/content/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
-                cp ${chart}/${maxfolderversion}/LICENSE ../wiki/content/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
-                sed -i '1s/^/# License<br>\n\n/' ../wiki/content/apps/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
+                cp ${chart}/${maxfolderversion}/README.md ../website/content/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
+                cp ${chart}/${maxfolderversion}/LICENSE ../website/content/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                sed -i '1s/^/# License<br>\n\n/' ../website/content/apps/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
             fi
           done
-          ls ../wiki/content/apps/
+          ls ../website/content/apps/
           cd ..
 
-      - name: Commit and push updated wiki
+      - name: Commit and push updated website
         run: |
-          cd wiki
+          cd website
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git add --all
-          git commit -sm "Publish general wiki updates" || exit 0
+          git commit -sm "Publish general website updates" || exit 0
           git push
           cd ..
 
