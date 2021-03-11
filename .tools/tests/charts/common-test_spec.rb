@@ -303,6 +303,235 @@ class Test < ChartTest
       end
     end
 
+    describe 'Dynamic Portal creation' do
+      defaultProtocol = "https"
+      defaultHost = "$node_ip"
+      defaultPort = "443"
+      testNodePort = "666"
+      testIngressPort = "888"
+      it 'No portal (=configmap) is created by default' do
+        assert_nil(resource('ConfigMap'))
+      end
+
+      it 'portal is created when added' do
+        values = {
+            portal: {
+                enabled: true
+              }
+            }
+        chart.value values
+        refute_nil(resource('ConfigMap'))
+        jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
+        jq('.data.host', resource('ConfigMap')).must_equal defaultHost
+        jq('.data.port', resource('ConfigMap')).must_equal defaultPort
+      end
+
+      it 'portal port can be based on NodePort' do
+        values = {
+          portal: {
+            enabled: true
+          },
+          services: {
+            main: {
+              type: "NodePort",
+              port: {
+                port: 8080,
+                nodePort: 666
+              }
+            }
+          }
+        }
+        chart.value values
+        refute_nil(resource('ConfigMap'))
+        jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
+        jq('.data.host', resource('ConfigMap')).must_equal defaultHost
+        jq('.data.port', resource('ConfigMap')).must_equal testNodePort
+      end
+
+      it 'NodePort portal port can not be overrulled' do
+        values = {
+          portal: {
+            enabled: true,
+            ingressPort: 888
+          },
+          services: {
+            main: {
+              type: "NodePort",
+              port: {
+                port: 8080,
+                nodePort: 666
+              }
+            }
+          }
+        }
+        chart.value values
+        refute_nil(resource('ConfigMap'))
+        jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
+        jq('.data.host', resource('ConfigMap')).must_equal defaultHost
+        jq('.data.port', resource('ConfigMap')).must_equal testNodePort
+      end
+
+      it 'portal protocol can be overrulled' do
+        values = {
+          portal: {
+            enabled: true,
+            ingressPort: 888,
+            nodePortProtocol: "http"
+          },
+          services: {
+            main: {
+              type: "NodePort",
+              port: {
+                port: 8080,
+                nodePort: 666
+              }
+            }
+          }
+        }
+        chart.value values
+        refute_nil(resource('ConfigMap'))
+        jq('.data.protocol', resource('ConfigMap')).must_equal values[:portal][:nodePortProtocol]
+        jq('.data.host', resource('ConfigMap')).must_equal defaultHost
+        jq('.data.port', resource('ConfigMap')).must_equal testNodePort
+      end
+
+      it 'portal NodePort host can be overrulled' do
+        values = {
+          portal: {
+            enabled: true,
+            ingressPort: 888,
+            nodePortProtocol: "http",
+            host: "test.com"
+          },
+          services: {
+            main: {
+              type: "NodePort",
+              port: {
+                port: 8080,
+                nodePort: 666
+              }
+            }
+          }
+        }
+        chart.value values
+        refute_nil(resource('ConfigMap'))
+        jq('.data.protocol', resource('ConfigMap')).must_equal values[:portal][:nodePortProtocol]
+        jq('.data.host', resource('ConfigMap')).must_equal values[:portal][:host]
+        jq('.data.port', resource('ConfigMap')).must_equal testNodePort
+      end
+
+      it 'portal can be based on Ingress' do
+        values = {
+          portal: {
+            enabled: true
+          },
+            services: {
+              main: {
+                port: {
+                  port: 8080
+                }
+              }
+            },
+            ingress: {
+              main: {
+                enabled: true,
+                hosts: [
+                  {
+                    host: 'test.com',
+                    paths: [
+                      {
+                        path: '/'
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+        }
+        chart.value values
+        refute_nil(resource('ConfigMap'))
+        jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
+        jq('.data.host', resource('ConfigMap')).must_equal values[:ingress][:main][:hosts][0][:host]
+        jq('.data.port', resource('ConfigMap')).must_equal defaultPort
+      end
+
+      it 'Ingress portal overrules NodePort portal' do
+        values = {
+          portal: {
+            enabled: true
+          },
+            services: {
+              main: {
+                type: "NodePort",
+                port: {
+                  port: 8080,
+                  nodePort: 666
+                }
+              }
+            },
+            ingress: {
+              main: {
+                enabled: true,
+                hosts: [
+                  {
+                    host: 'test.com',
+                    paths: [
+                      {
+                        path: '/'
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+        }
+        chart.value values
+        refute_nil(resource('ConfigMap'))
+        jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
+        jq('.data.host', resource('ConfigMap')).must_equal values[:ingress][:main][:hosts][0][:host]
+        jq('.data.port', resource('ConfigMap')).must_equal defaultPort
+      end
+
+      it 'portal ingress, only port can be overrrulled' do
+        values = {
+          portal: {
+            enabled: true,
+            ingressPort: 888,
+            nodePortProtocol: "http",
+            host: "test1.com"
+          },
+            services: {
+              main: {
+                port: {
+                  port: 8080
+                }
+              }
+            },
+            ingress: {
+              main: {
+                enabled: true,
+                hosts: [
+                  {
+                    host: 'test2.com',
+                    paths: [
+                      {
+                        path: '/'
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+        }
+        chart.value values
+        refute_nil(resource('ConfigMap'))
+        jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
+        jq('.data.host', resource('ConfigMap')).must_equal values[:ingress][:main][:hosts][0][:host]
+        jq('.data.port', resource('ConfigMap')).must_equal testIngressPort
+      end
+
+    end
+
     describe 'ingress' do
       it 'should be disabled when (additional)ingress enabled = false' do
         values = {
