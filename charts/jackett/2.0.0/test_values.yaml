@@ -1,9 +1,9 @@
 # Default values for Jackett.
 
 image:
-  repository: ghcr.io/k8s-at-home/jackett
+  repository: ghcr.io/truecharts/jackett
   pullPolicy: IfNotPresent
-  tag: v0.17.656
+  tag: v0.17.671
 
 strategy:
   type: Recreate
