@@ -8,8 +8,10 @@ image:
 strategy:
   type: Recreate
 
+
 services:
   main:
+    enabled: true
     port:
       port: 9117
 
