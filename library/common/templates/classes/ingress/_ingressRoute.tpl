@@ -6,6 +6,7 @@ within the common library.
 {{- $ingressName := include "common.names.fullname" . -}}
 {{- $values := .Values -}}
 {{- $svcPort := 80 }}
+{{- $svcType := "" }}
 {{- $ingressService := $.Values }}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.ingress -}}
@@ -18,15 +19,21 @@ within the common library.
   {{- if and ( $.Values.services ) ( not $values.servicePort ) }}
     {{- $ingressService := index  $.Values.services ( $values.nameSuffix | quote) }}
     {{- $svcPort = $ingressService.port.port }}
+    {{- $svcType = $ingressService.type | default "" }}
   {{ end -}}
 {{- else if and ( $.Values.services ) ( not $values.servicePort ) }}
   {{- $svcPort = $.Values.services.main.port.port }}
+  {{- $svcType = $.Values.services.main.type  | default "" }}
 {{ end -}}
 
 {{- $svcName := $values.serviceName | default $ingressName -}}
 
 {{- if $values.servicePort }}
-  {{- $svcPort = $values.servicePort -}}
+  {{- $svcPort = $values.servicePort }}
+{{- end }}
+
+{{- if $values.serviceType }}
+    {{- $svcType = $values.serviceType }}
 {{- end }}
 
 apiVersion: traefik.containo.us/v1alpha1
@@ -87,8 +94,8 @@ spec:
             {{- range $values.hosts }}
             - {{ .host | quote }}
             {{- end }}
-	{{- if eq $values.certType "ixcert" }}
-	secretName: {{ $ingressName }}
+    {{- if eq $values.certType "ixcert" }}
+    secretName: {{ $ingressName }}
     {{- end }}
     passthrough: false
 

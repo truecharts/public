@@ -282,6 +282,7 @@ questions:
                                   schema:
                                     type: string
                                     required: true
+                                    hidden: true
                                     default: "/"
                     - variable: certType
                       label: "Select Certificate Type"
@@ -904,6 +905,20 @@ questions:
                   editable: true
                   type: int
                   default: 80
+              - variable: serviceType
+                label: "Connection Type"
+                description: "Connection Type between Traefik and the external service"
+                schema:
+                  hidden: false
+                  editable: true
+                  required: true
+                  default: "HTTP"
+                  type: string
+                  enum:
+                    - value: "HTTP"
+                      description: "HTTP"
+                    - value: "HTTPS"
+                      description: "HTTPS"
               - variable: serviceKind
                 label: "Service Kind to proxy to"
                 schema:
@@ -920,44 +935,18 @@ questions:
                   enum:
                     - value: "websecure"
                       description: "Websecure: HTTPS/TLS port 443"
-              - variable: hosts
-                label: "Hosts"
+              - variable: host
+                label: "Domain Name"
+                required: true
                 schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: host
-                      label: "Host"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: host
-                            label: "Domain Name"
-                            required: true
-                            schema:
-                              type: string
-                          - variable: paths
-                            label: "Path"
-                            schema:
-                              type: dict
-                              attrs:
-                                - variable: "1"
-                                  label: ""
-                                  schema:
-                                    type: dict
-                                    attrs:
-                                      - variable: path
-                                        label: "path"
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: "/"
-                                      - variable: pathType
-                                        label: "pathType"
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: "prefix"
+                  type: string
+              - variable: path
+                label: "path"
+                schema:
+                  type: string
+                  required: true
+                  hidden: false
+                  default: "/"
               - variable: certType
                 label: "Select Certificate Type"
                 schema:

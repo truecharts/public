@@ -9,34 +9,34 @@ of the main Ingress and any additionalIngresses.
         {{- print ("---") | nindent 0 -}}
         {{- $ingressValues := $ingress -}}
 
-		{{/* set defaults */}}
+        {{/* set defaults */}}
         {{- if or (not $ingressValues.nameSuffix) ( ne $name "main" ) -}}
           {{- $_ := set $ingressValues "nameSuffix" $name -}}
         {{ end -}}
         {{- $_ := set $ "ObjectValues" (dict "ingress" $ingressValues) -}}
         {{- if not $ingressValues.type -}}
           {{- $_ := set $ingressValues "type" "HTTP" -}}
-		{{ end -}}
-		{{- if not $ingressValues.certType -}}
+        {{ end -}}
+        {{- if not $ingressValues.certType -}}
           {{- $_ := set $ingressValues "certType" "" -}}
-		{{ end -}}
+        {{ end -}}
 
         {{- if or ( eq $ingressValues.type "TCP" ) ( eq $ingressValues.type "UDP" )  ( eq $ingressValues.type "HTTP-IR" ) -}}
-		{{- include "common.classes.ingressRoute" $ -}}
-		{{- else -}}
-		{{- include "common.classes.ingress" $ -}}
-		{{ end -}}
+        {{- include "common.classes.ingressRoute" $ -}}
+        {{- else -}}
+        {{- include "common.classes.ingress" $ -}}
+        {{ end -}}
 
-		{{- if $ingressValues.authForwardURL -}}
-		{{- print ("---") | nindent 0 -}}
-		{{- include "common.classes.ingress.authForward" $ }}
-		{{ end -}}
+        {{- if $ingressValues.authForwardURL -}}
+        {{- print ("---") | nindent 0 -}}
+        {{- include "common.classes.ingress.authForward" $ }}
+        {{ end -}}
 
-		{{- if eq $ingressValues.certType "ixcert" -}}
-		{{- $_ := set $ "ObjectValues" (dict "certHolder" $ingressValues) -}}
-		{{- print ("---") | nindent 0 -}}
-		{{- include "common.resources.cert.secret" $ }}
-		{{ end -}}
+        {{- if eq $ingressValues.certType "ixcert" -}}
+        {{- $_ := set $ "ObjectValues" (dict "certHolder" $ingressValues) -}}
+        {{- print ("---") | nindent 0 -}}
+        {{- include "common.resources.cert.secret" $ }}
+        {{ end -}}
       {{- end }}
     {{- end }}
 
@@ -47,8 +47,8 @@ of the main Ingress and any additionalIngresses.
         {{- print ("---") | nindent 0 -}}
         {{- $ingressValues := $additionalIngress -}}
 
-		{{/* set defaults */}}
-		{{- $name := $index -}}
+        {{/* set defaults */}}
+        {{- $name := $index -}}
         {{- if  $ingressValues.name -}}
           {{- $name := $ingressValues.name -}}
         {{- end }}
@@ -59,27 +59,27 @@ of the main Ingress and any additionalIngresses.
         {{- $_ := set $ "ObjectValues" (dict "ingress" $ingressValues) -}}
         {{- if not $ingressValues.type -}}
           {{- $_ := set $ingressValues "type" "HTTP" -}}
-		{{ end -}}
-		{{- if not $ingressValues.certType -}}
+        {{ end -}}
+        {{- if not $ingressValues.certType -}}
           {{- $_ := set $ingressValues "certType" "" -}}
-		{{ end -}}
+        {{ end -}}
 
         {{- if or ( eq $ingressValues.type "TCP" ) ( eq $ingressValues.type "UDP" ) ( eq $ingressValues.type "HTTP-IR" ) -}}
-		{{- include "common.classes.ingressRoute" $ -}}
-		{{- else -}}
-		{{- include "common.classes.ingress" $ -}}
-		{{ end -}}
+        {{- include "common.classes.ingressRoute" $ -}}
+        {{- else -}}
+        {{- include "common.classes.ingress" $ -}}
+        {{ end -}}
 
-		{{- if $ingressValues.authForwardURL -}}
-		{{- print ("---") | nindent 0 -}}
-		{{- include "common.classes.ingress.authForward" $ }}
-		{{ end -}}
+        {{- if $ingressValues.authForwardURL -}}
+        {{- print ("---") | nindent 0 -}}
+        {{- include "common.classes.ingress.authForward" $ }}
+        {{ end -}}
 
-		{{- if eq $ingressValues.certType "ixcert" -}}
-		{{- $_ := set $ "ObjectValues" (dict "certHolder" $ingressValues) -}}
-		{{- print ("---") | nindent 0 -}}
-		{{- include "common.resources.cert.secret" $ }}
-		{{ end -}}
+        {{- if eq $ingressValues.certType "ixcert" -}}
+        {{- $_ := set $ "ObjectValues" (dict "certHolder" $ingressValues) -}}
+        {{- print ("---") | nindent 0 -}}
+        {{- include "common.resources.cert.secret" $ }}
+        {{ end -}}
       {{- end }}
     {{- end }}
 
@@ -89,11 +89,12 @@ of the main Ingress and any additionalIngresses.
         {{- print ("---") | nindent 0 -}}
         {{- $ingressValues := $externalService -}}
 
-		{{/* set defaults */}}
-		{{- $name := $index -}}
+        {{/* set defaults */}}
+        {{- $name := $index -}}
         {{- if  $ingressValues.name -}}
           {{- $name := $ingressValues.name -}}
         {{- end }}
+        {{- $name = printf "%v-%v" "external" $name -}}
 
         {{- if or (not $ingressValues.nameSuffix) -}}
           {{- $_ := set $ingressValues "nameSuffix" $name -}}
@@ -101,30 +102,30 @@ of the main Ingress and any additionalIngresses.
         {{- $_ := set $ "ObjectValues" (dict "ingress" $ingressValues) -}}
         {{- if not $ingressValues.type -}}
           {{- $_ := set $ingressValues "type" "HTTP" -}}
-		{{ end -}}
-		{{- if not $ingressValues.certType -}}
+        {{ end -}}
+        {{- if not $ingressValues.certType -}}
           {{- $_ := set $ingressValues "certType" "" -}}
-		{{ end -}}
+        {{ end -}}
 
         {{- if or ( eq $ingressValues.type "TCP" ) ( eq $ingressValues.type "UDP" ) ( eq $ingressValues.type "HTTP-IR" ) -}}
-		{{- include "common.classes.ingressRoute" $ -}}
-		{{- else -}}
-		{{- include "common.classes.ingress" $ -}}
-		{{ end -}}
+        {{- include "common.classes.ingressRoute" $ -}}
+        {{- else -}}
+        {{- include "common.classes.ingress" $ -}}
+        {{ end -}}
 
-		{{- print ("---") | nindent 0 -}}
-		{{- include "common.classes.externalService" $ }}
+        {{- print ("---") | nindent 0 -}}
+        {{- include "common.classes.externalService" $ }}
 
-		{{- if $ingressValues.authForwardURL -}}
-		{{- print ("---") | nindent 0 -}}
-		{{- include "common.classes.ingress.authForward" $ }}
-		{{ end -}}
+        {{- if $ingressValues.authForwardURL -}}
+        {{- print ("---") | nindent 0 -}}
+        {{- include "common.classes.ingress.authForward" $ }}
+        {{ end -}}
 
-		{{- if eq $ingressValues.certType "ixcert" -}}
-		{{- $_ := set $ "ObjectValues" (dict "certHolder" $ingressValues) -}}
-		{{- print ("---") | nindent 0 -}}
-		{{- include "common.resources.cert.secret" $ }}
-		{{ end -}}
+        {{- if eq $ingressValues.certType "ixcert" -}}
+        {{- $_ := set $ "ObjectValues" (dict "certHolder" $ingressValues) -}}
+        {{- print ("---") | nindent 0 -}}
+        {{- include "common.resources.cert.secret" $ }}
+        {{ end -}}
       {{- end }}
     {{- end }}
 

@@ -1067,12 +1067,8 @@ class Test < ChartTest
             certType: "selfsigned",
             entrypoint: "websecure",
             type: "HTTP",
-            hosts: [
-              {
-                host: 'hostname',
-                path: '/'
-              }
-            ]
+            host: 'hostname',
+            path: '/'
           }
         ]
       }
@@ -1081,7 +1077,7 @@ class Test < ChartTest
       refute_nil(resource('Endpoints'))
       jq('.subsets[0].addresses[0].ip', resource('Endpoints')).must_equal  values[:externalServices][0][:serviceTarget]
       jq('.subsets[0].ports[0].port', resource('Endpoints')).must_equal  values[:externalServices][0][:servicePort]
-      jq('.metadata.name', resource('Endpoints')).must_equal  "common-test-0"
+      jq('.metadata.name', resource('Endpoints')).must_equal  "common-test-external-0"
     end
   end
 end

@@ -6,6 +6,7 @@ within the common library.
 {{- $ingressName := include "common.names.fullname" . -}}
 {{- $values := .Values -}}
 {{- $svcPort := 80 }}
+{{- $svcType := "" }}
 {{- $ingressService := $.Values }}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.ingress -}}
@@ -18,15 +19,21 @@ within the common library.
   {{- if and ( $.Values.services ) ( not $values.servicePort ) }}
     {{- $ingressService := index  $.Values.services ( $values.nameSuffix | quote ) }}
     {{- $svcPort = $ingressService.port.port }}
+    {{- $svcType = $ingressService.type | default "" }}
   {{ end -}}
 {{- else if and ( $.Values.services ) ( not $values.servicePort ) }}
   {{- $svcPort = $.Values.services.main.port.port }}
+  {{- $svcType = $.Values.services.main.type | default "" }}
 {{ end -}}
 
 {{- $svcName := $values.serviceName | default $ingressName -}}
 
 {{- if $values.servicePort }}
-  {{- $svcPort = $values.servicePort -}}
+  {{- $svcPort = $values.servicePort }}
+{{- end }}
+
+{{- if $values.serviceType }}
+  {{- $svcType = $values.serviceType }}
 {{- end }}
 
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
@@ -36,6 +43,9 @@ metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
   annotations:
+    {{- if eq $svcType "HTTPS" }}
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+    {{- end }}
     traefik.ingress.kubernetes.io/router.entrypoints: {{ $values.entrypoint }}
     traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd{{ if $values.authForwardURL }},{{ $ingressName }}-auth-forward{{ end }}
     {{- with $values.annotations }}
@@ -50,14 +60,37 @@ spec:
   {{- if or ( eq $values.certType "selfsigned") (eq $values.certType "ixcert") }}
   tls:
     - hosts:
+        {{- if $values.host}}
+        - {{ $values.host | quote }}
+        {{- else }}
         {{- range $values.hosts }}
         - {{ .host | quote }}
         {{- end }}
-	  {{- if eq $values.certType "ixcert" }}
-	  secretName: {{ $ingressName }}
+        {{- end }}
+      {{- if eq $values.certType "ixcert" }}
+      secretName: {{ $ingressName }}
       {{- end }}
   {{- end }}
   rules:
+  {{- if $values.host }}
+    - host: {{ $values.host | quote }}
+      http:
+        paths:
+          - path: {{ $values.path | default "/" }}
+            {{- if eq (include "common.capabilities.ingress.apiVersion" $) "networking.k8s.io/v1" }}
+            pathType: Prefix
+            {{- end }}
+            backend:
+            {{- if eq (include "common.capabilities.ingress.apiVersion" $) "networking.k8s.io/v1" }}
+              service:
+                name: {{ $svcName }}
+                port:
+                  number: {{ $svcPort }}
+            {{- else }}
+              serviceName: {{ $svcName }}
+              servicePort: {{ $svcPort }}
+            {{- end }}
+  {{- end }}
   {{- range $values.hosts }}
     - host: {{ .host | quote }}
       http:

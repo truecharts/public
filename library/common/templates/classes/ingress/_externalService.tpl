@@ -23,6 +23,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ $svcName }}
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+  annotations:
+    {{- if eq ( $values.serviceType | default "" ) "HTTPS" }}
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+    {{- end }}
+    {{- with $values.annotations }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   ports:
 {{- if eq $values.type "UDP"}}
@@ -39,6 +48,12 @@ apiVersion: v1
 kind: Endpoints
 metadata:
   name: {{ $svcName }}
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+  annotations:
+    {{- with $values.annotations }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
 subsets:
   - addresses:
       - ip: {{ $values.serviceTarget }}

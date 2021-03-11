@@ -27,11 +27,19 @@ within the common library.
     {{- $values = . -}}
   {{- end -}}
 {{ end -}}
+
 {{- $serviceName := include "common.names.fullname" . -}}
+{{- $svcType := "" -}}
+
 {{- if hasKey $values "nameSuffix" -}}
   {{- $serviceName = printf "%v-%v" $serviceName $values.nameSuffix -}}
 {{ end -}}
-{{- $svcType := $values.type | default "" -}}
+
+{{- if or ( eq $values.type "HTTP" ) ( eq $values.type "HTTPS" ) ( eq $values.type "TCP" ) -}}
+{{- $svcType = "TCP" -}}
+{{- else if eq $values.type "UDP" }}
+{{- $svcType = "UDP" -}}
+{{- end }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -41,8 +49,11 @@ metadata:
   {{- if $values.labels }}
     {{ toYaml $values.labels | nindent 4 }}
   {{- end }}
-  {{- with $values.annotations }}
   annotations:
+  {{- if eq $svcType "HTTPS" }}
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+  {{- end }}
+  {{- with $values.annotations }}
     {{ toYaml . | nindent 4 }}
   {{- end }}
 spec:
