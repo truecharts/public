@@ -28,6 +28,29 @@ portals:
 # UI
 questions:
   # Update Policy
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+        - variable: nodePortProtocol
+          label: "Protocol when using NodePort"
+          description: "Enter the protocol to use when using nodeport"
+          schema:
+            hidden: true
+            editable: false
+            type: string
+            default: "http"
   - variable: strategyType
     group: "Container Image"
     label: "Update Strategy"
