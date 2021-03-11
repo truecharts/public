@@ -38,21 +38,19 @@ jobs:
         run: |
           rm -Rf wiki/content
           mkdir -p wiki/content
-          mkdir -p wiki/content/development
-          mkdir -p wiki/content/Other-Licences
           cp -f wiki/CNAME wiki/content/CNAME
 
       - name: Create general wiki
         run: |
           cd master
           cp -Rf .github/docs/* ../wiki/content/
-          cp .github/README.md ../wiki/content/index.md || echo "readme copy failed, continuing..."
-          cp .github/CODE_OF_CONDUCT ../wiki/content/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          cp .github/README.md ../wiki/content/about/index.md || echo "readme copy failed, continuing..."
+          cp .github/CODE_OF_CONDUCT ../wiki/content/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
           cp .github/CONTRIBUTING ../wiki/content/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
-          cp LICENSE ../wiki/content/legal/LICENSE.md || echo "license copy failed, continuing..."
-          sed -i '1s/^/# License<br>\n\n/' ../wiki/content/legal/LICENSE.md
-          cp NOTICE ../wiki/content/legal/NOTICE.md || echo "license copy failed, continuing..."
-          sed -i '1s/^/# NOTICE<br>\n\n/' ../wiki/content/legal/NOTICE.md
+          cp LICENSE ../wiki/content/about/LICENSE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# License<br>\n\n/' ../wiki/content/about/LICENSE.md
+          cp NOTICE ../wiki/content/about/NOTICE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# NOTICE<br>\n\n/' ../wiki/content/about/NOTICE.md
           ls ../wiki/content/
           cd ..
 
