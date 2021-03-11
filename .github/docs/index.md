@@ -1,4 +1,9 @@
-## Home
+---
+hide:
+  - navigation # Hide navigation
+  - toc        # Hide table of contents
+---
+
 
 TrueCharts is the community that maintains TrueCharts.
 
