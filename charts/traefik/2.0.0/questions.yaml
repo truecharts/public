@@ -21,12 +21,11 @@ portals:
     protocols:
       - "https"
     host:
-      - "$variable-appReverse Proxy.webui.host"
+      - "$variable-ingress.hosts[0].host"
     ports:
       - "443"
 
 questions:
-
   # Update Policy
   - variable: strategyType
     group: "Container Image"

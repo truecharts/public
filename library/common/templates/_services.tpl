@@ -16,7 +16,7 @@ of the main Service and any additionalServices.
         {{ end -}}
         {{- $_ := set $ "ObjectValues" (dict "service" $serviceValues) -}}
         {{- include "common.classes.service" $ -}}
-      {{- end }}
+    {{- end }}
     {{- end }}
   {{- end }}
 
