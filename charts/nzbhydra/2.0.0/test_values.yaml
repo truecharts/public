@@ -1,9 +1,9 @@
 # Default values for nzbhydra.
 
 image:
-  repository: ghcr.io/k8s-at-home/nzbhydra2
+  repository: ghcr.io/truecharts/nzbhydra2
   pullPolicy: IfNotPresent
-  tag: v3.13.0
+  tag: v3.13.1
 
 strategy:
   type: Recreate
