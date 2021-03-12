@@ -44,14 +44,6 @@ questions:
             editable: false
             type: boolean
             default: true
-        - variable: nodePortProtocol
-          label: "Protocol when using NodePort"
-          description: "Enter the protocol to use when using nodeport"
-          schema:
-            hidden: true
-            editable: false
-            type: string
-            default: "https"
 
   # Update Policy
   - variable: strategyType
@@ -168,13 +160,13 @@ questions:
                       label: "Port Type"
                       schema:
                         type: string
-                        default: "TCP"
-                        hidden: true
+                        default: "HTTP"
+                        hidden: false
                         enum:
-                          - value: TCP
-                            description: "TCP"
-                          - value: "UDP"
-                            description: "UDP"
+                          - value: HTTP
+                            description: "HTTP"
+                          - value: "HTTPS"
+                            description: "HTTPS"
                     - variable: port
                       label: "container port"
                       schema:

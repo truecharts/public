@@ -371,36 +371,11 @@ class Test < ChartTest
         jq('.data.port', resource('ConfigMap')).must_equal testNodePort
       end
 
-      it 'portal protocol can be overrulled' do
-        values = {
-          portal: {
-            enabled: true,
-            ingressPort: 888,
-            nodePortProtocol: "http"
-          },
-          services: {
-            main: {
-              type: "NodePort",
-              port: {
-                port: 8080,
-                nodePort: 666
-              }
-            }
-          }
-        }
-        chart.value values
-        refute_nil(resource('ConfigMap'))
-        jq('.data.protocol', resource('ConfigMap')).must_equal values[:portal][:nodePortProtocol]
-        jq('.data.host', resource('ConfigMap')).must_equal defaultHost
-        jq('.data.port', resource('ConfigMap')).must_equal testNodePort
-      end
-
       it 'portal NodePort host can be overrulled' do
         values = {
           portal: {
             enabled: true,
             ingressPort: 888,
-            nodePortProtocol: "http",
             host: "test.com"
           },
           services: {
@@ -415,7 +390,6 @@ class Test < ChartTest
         }
         chart.value values
         refute_nil(resource('ConfigMap'))
-        jq('.data.protocol', resource('ConfigMap')).must_equal values[:portal][:nodePortProtocol]
         jq('.data.host', resource('ConfigMap')).must_equal values[:portal][:host]
         jq('.data.port', resource('ConfigMap')).must_equal testNodePort
       end
@@ -497,7 +471,6 @@ class Test < ChartTest
           portal: {
             enabled: true,
             ingressPort: 888,
-            nodePortProtocol: "http",
             host: "test1.com"
           },
             services: {
