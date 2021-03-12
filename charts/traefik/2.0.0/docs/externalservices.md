@@ -6,6 +6,6 @@ Some users may want to use Traefik for things that are not part of a TrueNAS SCA
 
 ##### Configuration
 
-External Services require both the IP Adress and Port of the service you want to forward. These will internally create a special 'service' that recieves traffic on the same ports (internally) and forwards it to the external service.
+External Services require both the IP Address and Port of the service you want to forward. These will internally create a special 'service' that receives traffic on the same ports (internally) and forwards it to the external service.
 
 Additionally it creates an ingress which forwards traffic to the special forwarding service.

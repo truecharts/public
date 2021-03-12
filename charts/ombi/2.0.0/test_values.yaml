@@ -2,14 +2,12 @@
 # Default values for Ombi.
 
 image:
-  repository: linuxserver/ombi
+  repository: ghcr.io/truecharts/ombi
   pullPolicy: IfNotPresent
-  tag: version-v4.0.681
+  tag: v4.0.1222
 
 strategy:
   type: Recreate
-
-startAsRoot: true
 
 services:
   main:

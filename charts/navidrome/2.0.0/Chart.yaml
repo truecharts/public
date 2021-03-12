@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: navidrome
-<<<<<<< HEAD:charts/navidrome/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/navidrome/2.0.0/Chart.yaml
 upstream_version: 2.3.1
 appVersion: "auto"
 description: Navidrome is an open source web-based music collection server and streamer
@@ -25,11 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/navidrome/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/navidrome/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

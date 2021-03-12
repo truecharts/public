@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: freshrss
-<<<<<<< HEAD:charts/freshrss/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/freshrss/2.0.0/Chart.yaml
 upstream_version: 2.3.1
 appVersion: "auto"
 description: FreshRSS is a self-hosted RSS feed aggregator
@@ -24,11 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/freshrss/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/freshrss/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

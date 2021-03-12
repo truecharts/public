@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: heimdall
-<<<<<<< HEAD:charts/heimdall/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/heimdall/2.0.0/Chart.yaml
 upstream_version: 4.1.1
 appVersion: "auto"
 description: An Application dashboard and launcher
@@ -21,11 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/heimdall/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/heimdall/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

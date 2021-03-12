@@ -273,11 +273,13 @@ questions:
                   hidden: true
                   editable: false
               - variable: datasetName
-                label: "Name"
+                label: "Dataset Name"
                 schema:
                   type: string
-                  default: "store"
+                  default: "config"
+                  required: true
                   editable: false
+                  hidden: true
               - variable: mountPath
                 label: "Mount path inside the container"
                 schema:
@@ -304,6 +306,14 @@ questions:
           schema:
             type: dict
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
               - variable: setPermissions
                 label: "Automatic Permissions"
                 description: "Automatically set permissions on install"
@@ -311,18 +321,41 @@ questions:
                   type: boolean
                   default: false
                   hidden: true
+              - variable: name
+                label: "Mountpoint Name"
+                schema:
+                  type: string
+                  default: "ZWave"
+                  required: true
+                  editable: true
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: mountPath
+                label: "Path to mount device inside the container"
+                description: "Preferably the same as the path to the device path on the host"
+                schema:
+                  type: path
+                  required: true
+                  default: "/dev/ttyUSB0"
+                  editable: true
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
               - variable: hostPath
                 label: "Path to Z-Wave device on host"
                 schema:
                   type: path
                   required: true
                   default: "/dev/ttyUSB0"
-              - variable: mountPath
-                label: "Path to mount device inside the container"
-                schema:
-                  type: path
-                  required: true
-                  default: "/dev/ttyUSB0"
+
   # Enable privileged
   - variable: securityContext
     group: "Storage and Devices"

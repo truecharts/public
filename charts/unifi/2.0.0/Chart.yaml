@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: unifi
-<<<<<<< HEAD:charts/unifi/1.3.4/Chart.yaml
-version: 1.3.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/unifi/2.0.0/Chart.yaml
 upstream_version: 1.5.1
 appVersion: "auto"
 description: Ubiquiti Network's Unifi Controller
@@ -23,11 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/unifi/1.3.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/unifi/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

@@ -60,6 +60,7 @@ Preventing the user to disable them, ensures that users don't (by mistake) remov
                   default: "config"
                   required: true
                   editable: false
+                  hidden: true
               - variable: mountPath
                 label: "Mount Path"
                 description: "Path to mount inside the pod"

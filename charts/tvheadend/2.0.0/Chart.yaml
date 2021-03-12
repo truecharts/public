@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: tvheadend
-<<<<<<< HEAD:charts/tvheadend/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/tvheadend/2.0.0/Chart.yaml
 upstream_version: 1.1.2
 appVersion: "latest"
 description: TVheadend - a TV streaming server and digital video recorder
@@ -25,11 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/tvheadend/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/tvheadend/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:
