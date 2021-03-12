@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: jellyfin
-<<<<<<< HEAD:charts/jellyfin/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/jellyfin/2.0.0/Chart.yaml
 upstream_version: 4.2.1
 appVersion: "auto"
 description: Jellyfin is a Free Software Media System
@@ -25,11 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/jellyfin/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/jellyfin/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

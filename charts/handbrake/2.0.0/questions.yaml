@@ -22,14 +22,14 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "$kubernetes-resource_configmap_main-portal_protocol"
+      - "$kubernetes-resource_configmap_portal_protocol"
     host:
-      - "$kubernetes-resource_configmap_main-portal_host"
+      - "$kubernetes-resource_configmap_portal_host"
     ports:
-      - "$kubernetes-resource_configmap_main-portal_port"
+      - "$kubernetes-resource_configmap_portal_port"
 # UI
 questions:
-  # Update Policy
+  # Portal
   - variable: portal
     group: "Container Image"
     label: "Configure Portal Button"
@@ -53,6 +53,7 @@ questions:
             editable: false
             type: string
             default: "http"
+  # Update Policy
   - variable: strategyType
     group: "Container Image"
     label: "Update Strategy"
@@ -345,6 +346,298 @@ questions:
                         required: true
 
 
+# TrueCharts Specific
+  - variable: appVolumeMounts
+    label: "app storage"
+    group: "Storage and Devices"
+    schema:
+      type: dict
+      attrs:
+        # Config ------------------------
+        - variable: config
+          label: "config dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "config"
+                  required: true
+                  editable: false
+                  hidden: true
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/config"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+          # storage ------------------------
+        - variable: storage
+          label: "storage dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "storage"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/storage"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+          # watch ------------------------
+        - variable: watch
+          label: "watch dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "watch"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/watch"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+          # output ------------------------
+        - variable: output
+          label: "output dataset"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/ixVolume"
+            attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: false
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: datasetName
+                label: "Dataset Name"
+                schema:
+                  type: string
+                  default: "output"
+                  required: true
+                  editable: false
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path to mount inside the pod"
+                schema:
+                  type: path
+                  required: true
+                  default: "/output"
+                  editable: false
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path"
+                      schema:
+                        type: hostpath
+                        required: true
+          # Optical Drive
+        - variable: opticaldrive
+          label: "Optical Drive Device"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Optical Drive Device"
+                schema:
+                  type: boolean
+                  default: false
+                  required: false
+                  editable: true
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: setPermissions
+                      label: "Automatic Permissions"
+                      description: "Automatically set permissions on install"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
+                    - variable: name
+                      label: "Mountpoint Name"
+                      schema:
+                        type: string
+                        default: "opticaldrive"
+                        required: true
+                        editable: true
+                    - variable: emptyDir
+                      label: "emptyDir"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
+                        editable: false
+                    - variable: mountPath
+                      label: "Path to Optical Drive device inside the pod"
+                      description: "Preferably the same as the path to the Optical Drive on the host"
+                      schema:
+                        type: path
+                        required: true
+                        default: ""
+                        editable: true
+                    - variable: hostPathEnabled
+                      label: "host Path Enabled"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: hostPath
+                      label: "Path to Optical Drive device on host"
+                      description: 'Best to use path "by-id"'
+                      schema:
+                        type: path
+                        required: true
 # Privileged
   - variable: securityContext
     group: "Storage and Devices"
@@ -357,263 +650,7 @@ questions:
           schema:
             type: boolean
             default: true
-            required: true
-
-# TrueCharts Specific
-  - variable: appVolumeMounts
-    label: ""
-    group: "Storage and Devices"
-    schema:
-      type: dict
-      attrs:
-          # config
-        - variable: config
-          label: "config Volume"
-          schema:
-            type: dict
-            $ref:
-              - "normalize/ixVolume"
-            attrs:
-              - variable: enabled
-                label: "Enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  required: true
-                  hidden: true
-                  editable: false
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                description: "Automatically set permissions on install"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: false
-              - variable: emptyDir
-                label: "emptyDir"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-                  editable: false
-              - variable: datasetName
-                label: "Name"
-                schema:
-                  type: string
-                  default: "config"
-                  editable: false
-              - variable: mountPath
-                label: "Mount Path inside the container"
-                schema:
-                  type: path
-                  default: "/config"
-                  editable: false
-              - variable: hostPathEnabled
-                label: "config - Enable Host Path"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: "config Host Path"
-                      description: "Host path to store config"
-                      schema:
-                        type: hostpath
-                        required: true
-          # storage
-        - variable: storage
-          label: "storage Volume"
-          schema:
-            type: dict
-            $ref:
-              - "normalize/ixVolume"
-            attrs:
-              - variable: enabled
-                label: "Enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  required: true
-                  hidden: true
-                  editable: false
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                description: "Automatically set permissions on install"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: false
-              - variable: emptyDir
-                label: "emptyDir"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-                  editable: false
-              - variable: datasetName
-                label: "Name"
-                schema:
-                  type: string
-                  default: "storage"
-                  editable: false
-              - variable: mountPath
-                label: "Mount Path inside the container"
-                schema:
-                  type: path
-                  default: "/storage"
-                  editable: false
-              - variable: hostPathEnabled
-                label: "storage - Enable Host Path"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: "storage Host Path"
-                      description: "Host path to store storage"
-                      schema:
-                        type: hostpath
-                        required: true
-          # watch
-        - variable: watch
-          label: "watch Volume"
-          schema:
-            type: dict
-            $ref:
-              - "normalize/ixVolume"
-            attrs:
-              - variable: enabled
-                label: "Enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  required: true
-                  hidden: true
-                  editable: false
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                description: "Automatically set permissions on install"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: false
-              - variable: emptyDir
-                label: "emptyDir"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-                  editable: false
-              - variable: datasetName
-                label: "Name"
-                schema:
-                  type: string
-                  default: "watch"
-                  editable: false
-              - variable: mountPath
-                label: "Mount Path inside the container"
-                schema:
-                  type: path
-                  default: "/watch"
-                  editable: false
-              - variable: hostPathEnabled
-                label: "watch - Enable Host Path"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: "watch Host Path"
-                      description: "Host path to store watch"
-                      schema:
-                        type: hostpath
-                        required: true
-          # output
-        - variable: output
-          label: "output Volume"
-          schema:
-            type: dict
-            $ref:
-              - "normalize/ixVolume"
-            attrs:
-              - variable: enabled
-                label: "Enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  required: true
-                  hidden: true
-                  editable: false
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                description: "Automatically set permissions on install"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: false
-              - variable: emptyDir
-                label: "emptyDir"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-                  editable: false
-              - variable: datasetName
-                label: "Name"
-                schema:
-                  type: string
-                  default: "output"
-                  editable: false
-              - variable: mountPath
-                label: "Mount Path inside the container"
-                schema:
-                  type: path
-                  default: "/output"
-                  editable: false
-              - variable: hostPathEnabled
-                label: "output - Enable Host Path"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: hostPath
-                      label: "output Host Path"
-                      description: "Host path to store output"
-                      schema:
-                        type: hostpath
-                        required: true
-          # Optical Drive
-        - variable: opticaldrive
-          label: "Optical Drive Device"
-          schema:
-            type: dict
-            attrs:
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                description: "Automatically set permissions on install"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-              - variable: hostPath
-                label: "Path to Optical Drive device on host"
-                description: 'Best to use path "by-id"'
-                schema:
-                  type: path
-                  required: true
-                  default: "/dev/sr0"
-              - variable: mountPath
-                label: "Path to mount device inside the container"
-                schema:
-                  type: path
-                  default: "/dev/sr0"
-                  required: true
-
-    # Reverse Proxy
+            required: false
   - variable: additionalAppVolumeMounts
     label: "Custom app storage"
     group: "Storage and Devices"
@@ -674,7 +711,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-
+  # Reverse Proxy
   - variable: ingress
     label: ""
     group: "Reverse Proxy Configuration"

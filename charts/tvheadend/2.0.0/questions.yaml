@@ -273,11 +273,13 @@ questions:
                   hidden: true
                   editable: false
               - variable: datasetName
-                label: "Name"
+                label: "Dataset Name"
                 schema:
                   type: string
-                  default: "store"
+                  default: "config"
+                  required: true
                   editable: false
+                  hidden: true
               - variable: mountPath
                 label: "Mount path inside the container"
                 schema:
@@ -329,11 +331,13 @@ questions:
                   hidden: true
                   editable: false
               - variable: datasetName
-                label: "Name"
+                label: "Dataset Name"
                 schema:
                   type: string
-                  default: "store"
+                  default: "config"
+                  required: true
                   editable: false
+                  hidden: true
               - variable: mountPath
                 label: "Mount path inside the container"
                 schema:

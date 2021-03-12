@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: collabora-online
-<<<<<<< HEAD:charts/collabora-online/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/collabora-online/2.0.0/Chart.yaml
 # upstream_version:
 appVersion: "auto"
 description: Collabora Online Development Edition – an awesome, Online Office suite image suitable for home use.
@@ -23,11 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/collabora-online/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/collabora-online/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

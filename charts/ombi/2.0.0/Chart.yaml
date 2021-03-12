@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: ombi
-<<<<<<< HEAD:charts/ombi/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/ombi/2.0.0/Chart.yaml
 upstream_version: 8.0.1
 appVersion: "auto"
 description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
@@ -28,11 +24,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/ombi/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/ombi/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

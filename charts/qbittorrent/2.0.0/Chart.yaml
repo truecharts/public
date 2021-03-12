@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: qbittorrent
-<<<<<<< HEAD:charts/qbittorrent/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/qbittorrent/2.0.0/Chart.yaml
 upstream_version: 7.2.1
 appVersion: "auto"
 description: qBittorrent is a cross-platform free and open-source BitTorrent client
@@ -23,11 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/qbittorrent/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/qbittorrent/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

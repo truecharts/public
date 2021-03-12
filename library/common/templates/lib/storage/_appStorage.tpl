@@ -3,7 +3,7 @@ Define appVolumeMounts for container
 */}}
 {{- define "common.storage.configureAppVolumeMountsInContainer" -}}
 {{ range $name, $avm := . }}
-{{- if (default true $avm.enabled) -}}
+{{- if $avm.enabled -}}
 {{ if $avm.name }}
 {{ $name = $avm.name }}
 {{ end }}
@@ -22,7 +22,7 @@ Define hostPath for appVolumes
 */}}
 {{- define "common.storage.configureAppVolumes" -}}
 {{- range $name, $av := $.volMounts -}}
-{{ if (default true $av.enabled) }}
+{{ if $av.enabled }}
 {{ if $av.name }}
 {{ $name = $av.name }}
 {{ end }}

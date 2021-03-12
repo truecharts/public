@@ -1,14 +1,12 @@
 # Default values for Radarr.
 
 image:
-  repository: hotio/readarr
+  repository: ghcr.io/truecharts/readarr
   pullPolicy: IfNotPresent
-  tag: nightly
+  tag: v0.1.0.535
 
 strategy:
   type: Recreate
-
-startAsRoot: true
 
 services:
   main:
