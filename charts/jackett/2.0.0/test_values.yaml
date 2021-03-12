@@ -46,6 +46,18 @@ persistence:
 
 ## TrueCharts Values
 
+ingress:
+  main:
+    enabled: true
+    # Used when including ingress using {{ include "common.ingress" . }}
+    type: "HTTP"
+    entrypoint: "websecure"
+    certType: ""
+    annotations: {}
+    hosts:
+      - host: chart-example.local
+        path: /
+
 appVolumeMounts:
   config:
     enabled: true

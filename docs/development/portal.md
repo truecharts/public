@@ -4,9 +4,9 @@ After installation almost every app should have a "portal" button. This button i
 
 ##### questions.yaml example
 
-Every questions.yaml file should contain the following snippets to enable the portal button. Please be aware to change `"https"` to `"http"` if your application uses http instead of https when running using "NodePort".
+Every questions.yaml file should contain the following snippets to enable the portal button. Please be aware to change `"http"` to `"https"` in services.main.port.protocol if your application uses http instead of https when running using "NodePort".
 
-Also please be aware that the portal only(!) points towards the main service and main ingress.
+Also please be aware that the portal only(!) points towards the main service, main service port and main ingress.
 
 ```
 portals:
@@ -17,7 +17,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
-	path: "/"
+		path: "/"
 
 questions:
 
@@ -36,14 +36,6 @@ questions:
             editable: false
             type: boolean
             default: true
-        - variable: nodePortProtocol
-          label: "Protocol when using NodePort"
-          description: "Enter the protocol to use when using nodeport"
-          schema:
-            hidden: true
-            editable: false
-            type: string
-            default: "https"
 
 ```
 
