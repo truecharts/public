@@ -352,21 +352,6 @@ questions:
                         editable: false
                         type: string
                         default: ""
-                    # - variable: servicePort
-                    #   label: "Service Port to proxy to"
-                    #   schema:
-                    #     hidden: true
-                    #     editable: false
-                    #     default: 80
-                    #     type: int
-                        # default:
-                    - variable: serviceKind
-                      label: "Service Kind to proxy to"
-                      schema:
-                        hidden: true
-                        editable: false
-                        type: string
-                        default: ""
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
@@ -392,29 +377,13 @@ questions:
                                   required: true
                                   schema:
                                     type: string
-                                - variable: paths
-                                  label: "paths"
+                                - variable: path
+                                  label: "path"
                                   schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: path
-                                        label: "Path"
-                                        schema:
-                                          type: dict
-                                          attrs:
-                                            - variable: path
-                                              label: "path"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "/"
-                                            - variable: pathType
-                                              label: "pathType"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "prefix"
+                                    type: string
+                                    required: true
+                                    hidden: true
+                                    default: "/"
                     - variable: certType
                       label: "Select Certificate Type"
                       schema:

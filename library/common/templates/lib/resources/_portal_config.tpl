@@ -5,7 +5,7 @@
 {{- $host := "$node_ip" }}
 {{- $port := 443 }}
 {{- $protocol := "https" }}
-{{- $svcType := "" }}
+{{- $portProtocol := "" }}
 
 {{- if hasKey .Values "ingress" }}
   {{- if hasKey .Values.ingress "main" -}}
@@ -25,15 +25,15 @@
   {{- if hasKey .Values.services "main" }}
     {{- if and (hasKey .Values.services.main.port "nodePort" ) ( eq .Values.services.main.type "NodePort" ) }}
       {{- $port = .Values.services.main.port.nodePort }}
-      {{- if or ( eq .Values.services.main.type "HTTP" ) ( eq .Values.services.main.type "HTTPS" ) }}
-        {{- $svcType = .Values.services.main.type }}
+      {{- if or ( eq .Values.services.main.port.protocol "HTTP" ) ( eq .Values.services.main.port.protocol "HTTPS" ) }}
+        {{- $portProtocol = .Values.services.main.port.protocol }}
       {{- end }}
     {{- end }}
   {{- end }}
 {{- end }}
 
-{{- if and ( $svcType ) ( eq $host "$node_ip" ) }}
-  {{- $protocol = $svcType }}
+{{- if and ( $portProtocol ) ( eq $host "$node_ip" ) }}
+  {{- $protocol = $portProtocol }}
 {{- else if and ( ne $host "$node_ip" ) }}
   {{- if .Values.ingress.main.certType }}
     {{- if eq .Values.ingress.main.certType "" }}

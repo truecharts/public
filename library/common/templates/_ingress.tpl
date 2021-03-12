@@ -10,9 +10,10 @@ of the main Ingress and any additionalIngresses.
         {{- $ingressValues := $ingress -}}
 
         {{/* set defaults */}}
-        {{- if or (not $ingressValues.nameSuffix) ( ne $name "main" ) -}}
+        {{- if and (not $ingressValues.nameSuffix) ( ne $name "main" ) -}}
           {{- $_ := set $ingressValues "nameSuffix" $name -}}
         {{ end -}}
+
         {{- $_ := set $ "ObjectValues" (dict "ingress" $ingressValues) -}}
         {{- if not $ingressValues.type -}}
           {{- $_ := set $ingressValues "type" "HTTP" -}}

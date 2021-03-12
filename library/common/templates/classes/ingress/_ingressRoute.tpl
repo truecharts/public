@@ -6,7 +6,7 @@ within the common library.
 {{- $ingressName := include "common.names.fullname" . -}}
 {{- $values := .Values -}}
 {{- $svcPort := 80 }}
-{{- $svcType := "" }}
+{{- $portProtocol := "" }}
 {{- $ingressService := $.Values }}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.ingress -}}
@@ -19,11 +19,11 @@ within the common library.
   {{- if and ( $.Values.services ) ( not $values.servicePort ) }}
     {{- $ingressService := index  $.Values.services ( $values.nameSuffix | quote) }}
     {{- $svcPort = $ingressService.port.port }}
-    {{- $svcType = $ingressService.type | default "" }}
+    {{- $portProtocol = $ingressService.port.protocol | default "" }}
   {{ end -}}
 {{- else if and ( $.Values.services ) ( not $values.servicePort ) }}
   {{- $svcPort = $.Values.services.main.port.port }}
-  {{- $svcType = $.Values.services.main.type  | default "" }}
+  {{- $portProtocol = $.Values.services.main.port.protocol  | default "" }}
 {{ end -}}
 
 {{- $svcName := $values.serviceName | default $ingressName -}}
@@ -33,7 +33,7 @@ within the common library.
 {{- end }}
 
 {{- if $values.serviceType }}
-    {{- $svcType = $values.serviceType }}
+    {{- $portProtocol = $values.serviceType }}
 {{- end }}
 
 apiVersion: traefik.containo.us/v1alpha1

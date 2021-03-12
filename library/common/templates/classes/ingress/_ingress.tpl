@@ -5,9 +5,9 @@ within the common library.
 {{- define "common.classes.ingress" -}}
 {{- $ingressName := include "common.names.fullname" . -}}
 {{- $values := .Values -}}
-{{- $svcPort := 80 }}
-{{- $svcType := "" }}
-{{- $ingressService := $.Values }}
+{{- $svcPort := 80 -}}
+{{- $portProtocol := "" -}}
+{{- $ingressService := $.Values -}}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.ingress -}}
     {{- $values = . -}}
@@ -18,22 +18,22 @@ within the common library.
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
   {{- if and ( $.Values.services ) ( not $values.servicePort ) }}
     {{- $ingressService := index  $.Values.services ( $values.nameSuffix | quote ) }}
-    {{- $svcPort = $ingressService.port.port }}
-    {{- $svcType = $ingressService.type | default "" }}
+    {{- $svcPort = $ingressService.port.port -}}
+    {{- $portProtocol = $ingressService.port.protocol | default "" }}
   {{ end -}}
 {{- else if and ( $.Values.services ) ( not $values.servicePort ) }}
-  {{- $svcPort = $.Values.services.main.port.port }}
-  {{- $svcType = $.Values.services.main.type | default "" }}
+  {{- $svcPort = $.Values.services.main.port.port -}}
+  {{- $portProtocol = $.Values.services.main.port.protocol | default "" -}}
 {{ end -}}
 
 {{- $svcName := $values.serviceName | default $ingressName -}}
 
 {{- if $values.servicePort }}
-  {{- $svcPort = $values.servicePort }}
+  {{- $svcPort = $values.servicePort -}}
 {{- end }}
 
 {{- if $values.serviceType }}
-  {{- $svcType = $values.serviceType }}
+  {{- $portProtocol = $values.serviceType -}}
 {{- end }}
 
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
@@ -43,7 +43,7 @@ metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
   annotations:
-    {{- if eq $svcType "HTTPS" }}
+    {{- if eq $portProtocol "HTTPS" }}
     traefik.ingress.kubernetes.io/service.serversscheme: https
     {{- end }}
     traefik.ingress.kubernetes.io/router.entrypoints: {{ $values.entrypoint }}
@@ -95,7 +95,7 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-          - path: {{ .path }}
+          - path: {{ .path | default "/" }}
             {{- if eq (include "common.capabilities.ingress.apiVersion" $) "networking.k8s.io/v1" }}
             pathType: Prefix
             {{- end }}

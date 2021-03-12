@@ -29,16 +29,18 @@ within the common library.
 {{ end -}}
 
 {{- $serviceName := include "common.names.fullname" . -}}
-{{- $svcType := "" -}}
+
 
 {{- if hasKey $values "nameSuffix" -}}
   {{- $serviceName = printf "%v-%v" $serviceName $values.nameSuffix -}}
 {{ end -}}
+{{- $svcType := $values.type | default "" -}}
 
+{{- $portProtocol := $values.port.type -}}
 {{- if or ( eq $values.type "HTTP" ) ( eq $values.type "HTTPS" ) ( eq $values.type "TCP" ) -}}
-{{- $svcType = "TCP" -}}
+{{- $portProtocol = "TCP" -}}
 {{- else if eq $values.type "UDP" }}
-{{- $svcType = "UDP" -}}
+{{- $portProtocol = "UDP" -}}
 {{- end }}
 apiVersion: v1
 kind: Service
