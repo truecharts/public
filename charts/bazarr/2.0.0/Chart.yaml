@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: bazarr
-<<<<<<< HEAD:charts/bazarr/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/bazarr/2.0.0/Chart.yaml
 upstream_version: 5.2.1
 appVersion: "auto"
 description: Bazarr is a companion application to Bazarr and Radarr. It manages and downloads subtitles based on your requirements
@@ -28,11 +24,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/bazarr/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/bazarr/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

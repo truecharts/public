@@ -30,6 +30,9 @@ securityContext:
 {{- if not .Values.startAsRoot }}
   runAsUser: {{ .Values.PUID }}
   runAsGroup: {{ .Values.PGID }}
+  fsGroup: {{ .Values.PGID }}
+  # 5=tty 20=dailout 24=cdrom 44=video 107=render
+  supplementalGroups: [{{- .Values.supplementalGroups }}]
   runAsNonRoot: true
 {{- end }}
 {{- with .Values.podSecurityContext }}

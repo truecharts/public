@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: deluge
-<<<<<<< HEAD:charts/deluge/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/deluge/2.0.0/Chart.yaml
 upstream_version: 1.1.1
 appVersion: "latest"
 description: Deluge is a torrent download client
@@ -23,11 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/deluge/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/deluge/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

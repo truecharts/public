@@ -18,12 +18,12 @@ Installing TrueCharts within TrueNAS SCALE, still requires the CLI. However it's
 - enter `cli`
 - enter `app catalog create repository="https://github.com/truecharts/truecharts" label="TrueCharts"`
 
-For more information, please visit our wiki:
-https://wiki.truecharts.org
+For more information, please visit our website:
+https://truecharts.org
 
 ## FAQ
 
-Please refer to our [FAQ](https://wiki.truecharts.org/FAQ) and [Issue tracker](https://github.com/truecharts/charts/issues) before creating an issue.
+Please refer to our [FAQ](https://truecharts.org/about/FAQ/) and [Issue tracker](https://github.com/truecharts/charts/issues) before creating an issue.
 There is a significant chance your issue has been reported before!
 
 ## Getting into creating Apps
