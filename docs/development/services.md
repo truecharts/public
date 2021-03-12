@@ -64,13 +64,13 @@ Please keep in mind that every App is different, some just have one service (whi
                       label: "Port Type"
                       schema:
                         type: string
-                        default: "TCP"
-                        hidden: true
+                        default: "HTTP"
+                        hidden: false
                         enum:
-                          - value: TCP
-                            description: "TCP"
-                          - value: "UDP"
-                            description: "UDP"
+                          - value: HTTP
+                            description: "HTTP"
+                          - value: "HTTPS"
+                            description: "HTTPS"
                     - variable: port
                       label: "container port"
                       schema:

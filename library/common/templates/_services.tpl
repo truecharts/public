@@ -4,14 +4,15 @@ of the main Service and any additionalServices.
 */}}
 {{- define "common.services" -}}
   {{- if .Values.services -}}
-	{{- /* Add dict of primary services */ -}}
+        {{- /* Add dict of primary services */ -}}
     {{- range $name, $service := .Values.services }}
       {{- if or ( $service.enabled ) ( eq $name "main" ) -}}
         {{- print ("---") | nindent 0 -}}
         {{- print ("\n") | nindent 0 -}}
         {{- $serviceValues := $service -}}
-		{{- /* Dont add name suffix for primary service named "main" */ -}}
-        {{- if or (not $serviceValues.nameSuffix) ( ne $name "main" ) -}}
+
+        {{- /* Dont add name suffix for primary service named "main" */ -}}
+        {{- if and (not $serviceValues.nameSuffix) ( ne $name "main" ) -}}
           {{- $_ := set $serviceValues "nameSuffix" $name -}}
         {{ end -}}
         {{- $_ := set $ "ObjectValues" (dict "service" $serviceValues) -}}
@@ -28,12 +29,13 @@ of the main Service and any additionalServices.
         {{- print ("---") | nindent 0 -}}
         {{- $serviceValues := $extraService -}}
 
-		    {{- $name := ( $index | quote ) -}}
+        {{- $name := $index -}}
         {{- if  $serviceValues.name -}}
           {{- $name := $serviceValues.name -}}
         {{- end }}
 
-        {{- if or (not $serviceValues.nameSuffix) ( ne $name "main" ) -}}
+        {{- /* Dont add name suffix for primary service named "main" */ -}}
+        {{- if and (not $serviceValues.nameSuffix) ( ne ( $name | quote ) "main" ) -}}
           {{- $_ := set $serviceValues "nameSuffix" $name -}}
         {{ end -}}
         {{- $_ := set $ "ObjectValues" (dict "service" $serviceValues) -}}

@@ -13,6 +13,8 @@ groups:
     description: "Specify resources to be allocated to workload"
   - name: "Reverse Proxy Configuration"
     description: "Reverse Proxy configuration"
+  - name: "Advanced"
+    description: "Advanced Configuration"
   - name: "WARNING"
     description: "WARNING"
 
@@ -72,6 +74,8 @@ questions:
     schema:
       type: string
       default: "002"
+
+
 
 ## TrueCharts Specific
 
@@ -233,14 +237,6 @@ questions:
                         editable: false
                         type: string
                         default: "api@internal"
-                    # - variable: servicePort
-                    #   label: "Service Port to proxy to"
-                    #   schema:
-                    #     hidden: true
-                    #     editable: false
-                    #     default: 80
-                    #     type: int
-                        # default:
                     - variable: serviceKind
                       label: "Service Kind to proxy to"
                       schema:
@@ -273,29 +269,13 @@ questions:
                                   required: true
                                   schema:
                                     type: string
-                                - variable: paths
-                                  label: "paths"
+                                - variable: path
+                                  label: "path"
                                   schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: path
-                                        label: "Path"
-                                        schema:
-                                          type: dict
-                                          attrs:
-                                            - variable: path
-                                              label: "path"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "/"
-                                            - variable: pathType
-                                              label: "pathType"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "prefix"
+                                    type: string
+                                    required: true
+                                    hidden: true
+                                    default: "/"
                     - variable: certType
                       label: "Select Certificate Type"
                       schema:
@@ -321,6 +301,668 @@ questions:
                         type: string
                         default: ""
 
+  - variable: ports
+    label: "(Advanced) Traefik Entrypoints"
+    group: "Advanced"
+    schema:
+      type: dict
+      attrs:
+        - variable: traefik
+          label: "traefik internal"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 9000
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  default: 9000
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  default: "TCP"
+
+        - variable: web
+          label: "web"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 80
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 80
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "TCP"
+                  hidden: true
+              - variable: redirectEnable
+                label: "Enable Redirect"
+                schema:
+                  type: boolean
+                  default: true
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: redirectTo
+                      label: "Target Entrypoint"
+                      description: "Select the Target Entrypoint to redirect to"
+                      schema:
+                        type: string
+                        required: true
+                        default: "websecure"
+        - variable: websecure
+          label: "websecure"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 8443
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 443
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "TCP"
+                  hidden: true
+        - variable: plex
+          label: "plex"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 32400
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: false
+                  default: 32400
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "TCP"
+                  hidden: true
+        - variable: kms
+          label: "kms"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 51688
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 1688
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "TCP"
+                  hidden: true
+        - variable: dns-tcp
+          label: "dns-tcp"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 5353
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 53
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "TCP"
+                  hidden: true
+        - variable: dns-udp
+          label: "dns-udp"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 5353
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 53
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "UDP"
+                  hidden: true
+        - variable: stun-tcp
+          label: "stun-tcp"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 3478
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 3478
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "TCP"
+                  hidden: true
+        - variable: stun-udp
+          label: "stun-udp"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 3478
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 3478
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "UDP"
+                  hidden: true
+        - variable: torrent-tcp
+          label: "torrent-tcp"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 51413
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 51413
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "TCP"
+                  hidden: true
+        - variable: torrent-udp
+          label: "torrent-udp"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 51413
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 51413
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "UDP"
+                  hidden: true
+        - variable: radius
+          label: "radius"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 51812
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 1812
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "UDP"
+                  hidden: true
+        - variable: radius-acc
+          label: "radius-acc"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 51813
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 1813
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "UDP"
+                  hidden: true
+        - variable: ldaps
+          label: "ldaps"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  default: 50636
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 636
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  hidden: true
+                  default: "TCP"
+        - variable: unificom
+          label: "unificom"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  hide: true
+                  default: 8080
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["exposedPort", "=", true]]
+                  required: true
+                  default: 8080
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "TCP"
+                  hidden: true
+
+  - variable: externalServices
+    label: "(Advanced) Add External Services"
+    group: "Advanced"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: externalService
+          label: "External Service"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Web Reverse Proxy"
+                schema:
+                  type: boolean
+                  hidden: true
+                  editable: false
+                  default: true
+              - variable: type
+                label: "Reverse Proxy Type"
+                schema:
+                  type: string
+                  default: "HTTP"
+                  hidden: true
+                  editable: false
+                  required: true
+              - variable: serviceName
+                label: "Service name to proxy to"
+                schema:
+                  hidden: true
+                  editable: false
+                  type: string
+                  default: ""
+              - variable: serviceTarget
+                label: "IP Adress of the external service"
+                schema:
+                  hidden: false
+                  editable: true
+                  required: true
+                  type: string
+                  default: "192.168.0.0"
+              - variable: servicePort
+                label: "External Service Port"
+                description: "The port on the external service you want to proxy"
+                schema:
+                  hidden: false
+                  required: true
+                  editable: true
+                  type: int
+                  default: 80
+              - variable: serviceType
+                label: "Connection Type"
+                description: "Connection Type between Traefik and the external service"
+                schema:
+                  hidden: false
+                  editable: true
+                  required: true
+                  default: "HTTP"
+                  type: string
+                  enum:
+                    - value: "HTTP"
+                      description: "HTTP"
+                    - value: "HTTPS"
+                      description: "HTTPS"
+              - variable: serviceKind
+                label: "Service Kind to proxy to"
+                schema:
+                  hidden: true
+                  editable: false
+                  type: string
+                  default: ""
+              - variable: entrypoint
+                label: "Select Entrypoint"
+                schema:
+                  type: string
+                  default: "websecure"
+                  required: true
+                  enum:
+                    - value: "websecure"
+                      description: "Websecure: HTTPS/TLS port 443"
+              - variable: host
+                label: "Domain Name"
+                required: true
+                schema:
+                  type: string
+              - variable: path
+                label: "path"
+                schema:
+                  type: string
+                  required: true
+                  hidden: false
+                  default: "/"
+              - variable: certType
+                label: "Select Certificate Type"
+                schema:
+                  type: string
+                  default: "selfsigned"
+                  enum:
+                    - value: ""
+                      description: "No Encryption/TLS/Certificates"
+                    - value: "selfsigned"
+                      description: "Self-Signed Certificate"
+                    - value: "ixcert"
+                      description: "TrueNAS SCALE Certificate"
+              - variable: certificate
+                label: "Select TrueNAS SCALE Certificate"
+                schema:
+                  type: int
+                  show_if: [["certType", "=", "ixcert"]]
+                  $ref:
+                    - "definitions/certificate"
+              - variable: authForwardURL
+                label: "Forward Authentication URL"
+                schema:
+                  type: string
+                  default: ""
 
   - variable: warning
     label: "This App binds to the same ports as TrueNAS SCALE UI: 80 and 443"
