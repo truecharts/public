@@ -29,9 +29,15 @@ Render all the ports and additionalPorts for a Service object.
   {{- if $ports -}}
   ports:
   {{- range $_ := $ports }}
+  {{- $protocol := "" -}}
+  {{- if or ( eq .protocol "HTTP" ) ( eq .protocol "HTTPS" ) }}
+    {{- $protocol = "TCP" -}}
+  {{- else }}
+    {{- $protocol = .protocol | default "TCP" -}}
+  {{- end }}
   - port: {{ .port }}
     targetPort: {{ .targetPort | default .name | default "http" }}
-    protocol: {{ .protocol | default "TCP" }}
+    protocol: {{ $protocol | default "TCP" }}
     name: {{ .name | default "http" }}
     {{- if (and (eq $.svcType "NodePort") (not (empty .nodePort))) }}
     nodePort: {{ .nodePort }}
