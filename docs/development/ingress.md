@@ -70,20 +70,6 @@ We try to maintain as much of a standardised questions.yaml format as possible, 
                         editable: false
                         type: string
                         default: ""
-                    # - variable: servicePort
-                    #   label: "Service Port to proxy to"
-                    #   schema:
-                    #     hidden: true
-                    #     editable: false
-                    #     type: int
-                    #     default: 80
-                    - variable: serviceKind
-                      label: "Service Kind to proxy to"
-                      schema:
-                        hidden: true
-                        editable: false
-                        type: string
-                        default: ""
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
@@ -109,29 +95,13 @@ We try to maintain as much of a standardised questions.yaml format as possible, 
                                   required: true
                                   schema:
                                     type: string
-                                - variable: paths
-                                  label: "paths"
+                                - variable: path
+                                  label: "path"
                                   schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: path
-                                        label: "Path"
-                                        schema:
-                                          type: dict
-                                          attrs:
-                                            - variable: path
-                                              label: "path"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "/"
-                                            - variable: pathType
-                                              label: "pathType"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "prefix"
+                                    type: string
+                                    required: true
+                                    hidden: true
+                                    default: "/"
                     - variable: certType
                       label: "Select Certificate Type"
                       schema:
@@ -189,20 +159,6 @@ We try to maintain as much of a standardised questions.yaml format as possible, 
                         editable: false
                         type: string
                         default: ""
-                    # - variable: servicePort
-                    #   label: "Service Port to proxy to"
-                    #   schema:
-                    #     hidden: true
-                    #     editable: false
-                    #     type: int
-                    #     default: 80
-                    - variable: serviceKind
-                      label: "Service Kind to proxy to"
-                      schema:
-                        hidden: true
-                        editable: false
-                        type: string
-                        default: ""
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
@@ -244,20 +200,6 @@ We try to maintain as much of a standardised questions.yaml format as possible, 
                         editable: false
                         type: string
                         default: ""
-                    # - variable: servicePort
-                    #   label: "Service Port to proxy to"
-                    #   schema:
-                    #     hidden: true
-                    #     editable: false
-                    #     type: int
-                    #     default: 80
-                    - variable: serviceKind
-                      label: "Service Kind to proxy to"
-                      schema:
-                        hidden: true
-                        editable: false
-                        type: string
-                        default: ""
                     - variable: entrypoint
                       label: "Select Entrypoint"
                       schema:
@@ -267,4 +209,158 @@ We try to maintain as much of a standardised questions.yaml format as possible, 
                         enum:
                           - value: "torrent-udp"
                             description: "Torrent-UDP: port 51413"
+```
+
+### Other Ingress options
+
+There are a few other options that are rarely (if ever) used.
+
+##### servicePort
+
+```
+                     - variable: servicePort
+                       label: "Service Port to proxy to"
+                       schema:
+                         hidden: true
+                         editable: false
+                         type: int
+                         default: 80
+```
+
+
+##### serviceKind
+
+```
+                    - variable: serviceKind
+                      label: "Service Kind to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: ""
+```
+
+
+### External Services
+
+The externalServices option, is actually mostly an Ingress "under the hood" which just creates a very small (minimal) service.
+
+```
+  - variable: externalServices
+    label: "(Advanced) Add External Services"
+    group: "Advanced"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: externalService
+          label: "External Service"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Web Reverse Proxy"
+                schema:
+                  type: boolean
+                  hidden: true
+                  editable: false
+                  default: true
+              - variable: type
+                label: "Reverse Proxy Type"
+                schema:
+                  type: string
+                  default: "HTTP"
+                  hidden: true
+                  editable: false
+                  required: true
+              - variable: serviceName
+                label: "Service name to proxy to"
+                schema:
+                  hidden: true
+                  editable: false
+                  type: string
+                  default: ""
+              - variable: serviceTarget
+                label: "IP Adress of the external service"
+                schema:
+                  hidden: false
+                  editable: true
+                  required: true
+                  type: string
+                  default: "192.168.0.0"
+              - variable: servicePort
+                label: "External Service Port"
+                description: "The port on the external service you want to proxy"
+                schema:
+                  hidden: false
+                  required: true
+                  editable: true
+                  type: int
+                  default: 80
+              - variable: serviceType
+                label: "Connection Type"
+                description: "Connection Type between Traefik and the external service"
+                schema:
+                  hidden: false
+                  editable: true
+                  required: true
+                  default: "HTTP"
+                  type: string
+                  enum:
+                    - value: "HTTP"
+                      description: "HTTP"
+                    - value: "HTTPS"
+                      description: "HTTPS"
+              - variable: serviceKind
+                label: "Service Kind to proxy to"
+                schema:
+                  hidden: true
+                  editable: false
+                  type: string
+                  default: ""
+              - variable: entrypoint
+                label: "Select Entrypoint"
+                schema:
+                  type: string
+                  default: "websecure"
+                  required: true
+                  enum:
+                    - value: "websecure"
+                      description: "Websecure: HTTPS/TLS port 443"
+              - variable: host
+                label: "Domain Name"
+                required: true
+                schema:
+                  type: string
+              - variable: path
+                label: "path"
+                schema:
+                  type: string
+                  required: true
+                  hidden: false
+                  default: "/"
+              - variable: certType
+                label: "Select Certificate Type"
+                schema:
+                  type: string
+                  default: "selfsigned"
+                  enum:
+                    - value: ""
+                      description: "No Encryption/TLS/Certificates"
+                    - value: "selfsigned"
+                      description: "Self-Signed Certificate"
+                    - value: "ixcert"
+                      description: "TrueNAS SCALE Certificate"
+              - variable: certificate
+                label: "Select TrueNAS SCALE Certificate"
+                schema:
+                  type: int
+                  show_if: [["certType", "=", "ixcert"]]
+                  $ref:
+                    - "definitions/certificate"
+              - variable: authForwardURL
+                label: "Forward Authentication URL"
+                schema:
+                  type: string
+                  default: ""
 ```
