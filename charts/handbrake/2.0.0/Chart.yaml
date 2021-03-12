@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: handbrake
-<<<<<<< HEAD:charts/handbrake/1.3.4/Chart.yaml
-version: 1.3.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/handbrake/2.0.0/Chart.yaml
 # upstream_version:
 appVersion: "auto"
 description: HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.
@@ -25,11 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/handbrake/1.3.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/handbrake/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

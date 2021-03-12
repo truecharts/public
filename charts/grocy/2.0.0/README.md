@@ -1,10 +1,6 @@
 # Introduction
 
-<<<<<<< HEAD:charts/grocy/1.6.4/README.md
-![Version: 1.6.4](https://img.shields.io/badge/Version-1.6.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v2.7.1](https://img.shields.io/badge/AppVersion-v2.7.1-informational?style=flat-square)
-=======
 ![Version: 1.6.1](https://img.shields.io/badge/Version-1.6.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v2.7.1](https://img.shields.io/badge/AppVersion-v2.7.1-informational?style=flat-square)
->>>>>>> [Common] Refactor Services (#212):charts/grocy/2.0.0/README.md
 
 ERP beyond your fridge - grocy is a web-based self-hosted groceries & household management solution for your home
 
@@ -25,11 +21,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-<<<<<<< HEAD:charts/grocy/1.6.4/README.md
-| https://charts.truecharts.org/ | common | 1.6.7 |
-=======
 | https://charts.truecharts.org/ | common | 1.6.1 |
->>>>>>> [Common] Refactor Services (#212):charts/grocy/2.0.0/README.md
 
 ## Installing the Chart
 

@@ -1,10 +1,6 @@
 # Introduction
 
-<<<<<<< HEAD:charts/traefik/1.3.5/README.md
-![Version: 1.3.5](https://img.shields.io/badge/Version-1.3.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.2](https://img.shields.io/badge/AppVersion-2.4.2-informational?style=flat-square)
-=======
 ![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4.2](https://img.shields.io/badge/AppVersion-2.4.2-informational?style=flat-square)
->>>>>>> [Common] Refactor Services (#212):charts/traefik/2.0.0/README.md
 
 A Traefik based Reverse Proxy and Certificate Manager
 
@@ -27,11 +23,7 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://charts.jetstack.io | cert-manager | v1.2.0 |
-<<<<<<< HEAD:charts/traefik/1.3.5/README.md
-| https://charts.truecharts.org/ | common | 1.6.7 |
-=======
 | https://charts.truecharts.org/ | common | 1.6.1 |
->>>>>>> [Common] Refactor Services (#212):charts/traefik/2.0.0/README.md
 | https://emberstack.github.io/helm-charts | reflector | 5.4.17 |
 
 ## Installing the Chart

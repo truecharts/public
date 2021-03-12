@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: radarr
-<<<<<<< HEAD:charts/radarr/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/radarr/2.0.0/Chart.yaml
 upstream_version: 9.1.0
 appVersion: "auto"
 description: A fork of Sonarr to work with movies à la Couchpotato
@@ -25,11 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/radarr/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/radarr/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

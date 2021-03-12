@@ -1,10 +1,6 @@
 # Introduction
 
-<<<<<<< HEAD:charts/radarr/1.6.4/README.md
-![Version: 1.6.4](https://img.shields.io/badge/Version-1.6.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: version-3.0.0.3989](https://img.shields.io/badge/AppVersion-version--3.0.0.3989-informational?style=flat-square)
-=======
 ![Version: 1.6.1](https://img.shields.io/badge/Version-1.6.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: version-3.0.0.3989](https://img.shields.io/badge/AppVersion-version--3.0.0.3989-informational?style=flat-square)
->>>>>>> [Common] Refactor Services (#212):charts/radarr/2.0.0/README.md
 
 A fork of Sonarr to work with movies à la Couchpotato
 
@@ -26,11 +22,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-<<<<<<< HEAD:charts/radarr/1.6.4/README.md
-| https://charts.truecharts.org/ | common | 1.6.7 |
-=======
 | https://charts.truecharts.org/ | common | 1.6.1 |
->>>>>>> [Common] Refactor Services (#212):charts/radarr/2.0.0/README.md
 
 ## Installing the Chart
 

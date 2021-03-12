@@ -1,11 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: zwavejs2mqtt
-<<<<<<< HEAD:charts/zwavejs2mqtt/1.6.4/Chart.yaml
-version: 1.6.4
-=======
 version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/zwavejs2mqtt/2.0.0/Chart.yaml
 upstream_version: 1.1.0
 appVersion: "auto"
 description: Fully configurable Zwave to MQTT gateway and Control Panel using NodeJS and Vue
@@ -26,11 +22,7 @@ sources:
 dependencies:
   - name: common
     repository: https://charts.truecharts.org/
-<<<<<<< HEAD:charts/zwavejs2mqtt/1.6.4/Chart.yaml
-    version: 1.6.7
-=======
     version: 2.0.0
->>>>>>> [Common] Refactor Services (#212):charts/zwavejs2mqtt/2.0.0/Chart.yaml
     # condition:
     # tags:
     # import-values:

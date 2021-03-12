@@ -1,10 +1,6 @@
 # Introduction
 
-<<<<<<< HEAD:charts/handbrake/1.3.4/README.md
-![Version: 1.3.4](https://img.shields.io/badge/Version-1.3.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.23.1](https://img.shields.io/badge/AppVersion-1.23.1-informational?style=flat-square)
-=======
 ![Version: 1.3.1](https://img.shields.io/badge/Version-1.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.23.1](https://img.shields.io/badge/AppVersion-1.23.1-informational?style=flat-square)
->>>>>>> [Common] Refactor Services (#212):charts/handbrake/2.0.0/README.md
 
 HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.
 
@@ -26,11 +22,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-<<<<<<< HEAD:charts/handbrake/1.3.4/README.md
-| https://charts.truecharts.org/ | common | 1.6.7 |
-=======
 | https://charts.truecharts.org/ | common | 1.6.1 |
->>>>>>> [Common] Refactor Services (#212):charts/handbrake/2.0.0/README.md
 
 ## Installing the Chart
 
