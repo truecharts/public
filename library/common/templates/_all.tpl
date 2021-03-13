@@ -27,6 +27,14 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{- /* Build the templates */ -}}
   {{- include "common.pvc" . }}
   {{- print "---" | nindent 0 -}}
+  {{- if .Values.env -}}
+    {{- include "common.configmap" . }}
+    {{- print "---" | nindent 0 -}}
+  {{- end -}}
+  {{- if .Values.secret -}}
+    {{- include "common.secret" . }}
+    {{- print "---" | nindent 0 -}}
+  {{- end -}}
   {{- if .Values.serviceAccount.create -}}
     {{- include "common.serviceAccount" . }}
     {{- print "---" | nindent 0 -}}

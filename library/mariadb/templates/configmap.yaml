@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "common.names.fullname" . }}-config
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+data:
+  custom.cnf: |
+    [mysqld]
+    innodb_doublewrite = 0
+    innodb_checksum_algorithm = none
+    expire_logs_days=7
+    skip_name_resolve
+    # Disabling symbolic-links is recommended to prevent assorted security risks
+    symbolic-links=0

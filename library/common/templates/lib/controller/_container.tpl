@@ -69,8 +69,17 @@ The main container included in the controller.
         {{- $value | toYaml | nindent 8 }}
   {{- end }}
   {{- end }}
-  {{- with .Values.envFrom }}
+  {{- if or .Values.env .Values.secret .Values.envFrom  }}
   envFrom:
+  {{- if .Values.envMap }}
+    - configMapRef:
+      name: {{ include "common.names.fullname" . }}
+  {{- end }}
+  {{- if .Values.envSecret }}
+    - secretRef:
+      name: {{ include "common.names.fullname" . }}
+  {{- end }}
+  {{- with .Values.envFrom }}
     {{- toYaml . | nindent 12 }}
   {{- end }}
   {{- include "common.controller.ports" . | trim | nindent 2 }}

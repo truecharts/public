@@ -1,0 +1,58 @@
+---
+# Default values for mariadb.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your mariadbs.
+image:
+  repository: ghcr.io/linuxserver/mariadb
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "alpine-10.5.8-r0-ls5"
+
+startAsRoot: true
+
+envSecret: {}
+  # MYSQL_ROOT_PASSWORD: "ROOT_ACCESS_PASSWORD"
+  # MYSQL_USER: "MYSQL_USER"
+  # MYSQL_PASSWORD: "DATABASE_PASSWORD"
+
+env: {}
+
+services:
+  main:
+    enabled: true
+    port:
+      port: 3306
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+    mountPath: /config
+    ## Template downloads data Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    # storageClass: "-"
+    ##
+    ## If you want to reuse an existing claim, you can pass the name of the PVC using
+    ## the existingClaim variable
+    # existingClaim: your-claim
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    ## Do not delete the pvc upon helm uninstall
+    skipuninstall: false
+
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/config"
+  backup:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/backup"
