@@ -82,6 +82,7 @@ The main container included in the controller.
   {{- with .Values.envFrom }}
     {{- toYaml . | nindent 12 }}
   {{- end }}
+  {{- end }}
   {{- include "common.controller.ports" . | trim | nindent 2 }}
   volumeMounts:
   {{- range $index, $PVC := .Values.persistence }}
