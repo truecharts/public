@@ -13,3 +13,13 @@ data:
     skip_name_resolve
     # Disabling symbolic-links is recommended to prevent assorted security risks
     symbolic-links=0
+    innodb_file_per_table=1
+    innodb_buffer_pool_size = 1G
+    Max connections = 300
+    query_cache_size = 64M
+    tmp_table_size= 64M
+    max_heap_table_size= 64M
+    slow-query-log = 1
+    slow-query-log-file = /var/lib/mysql/mysql-slow.log
+    long_query_time = 1
+    wait_timeout=60
