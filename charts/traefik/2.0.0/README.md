@@ -24,6 +24,11 @@ Kubernetes: `>=1.16.0-0`
 |------------|------|---------|
 | https://charts.truecharts.org/ | common | 2.0.0 |
 
+
+## Installation Notes
+
+Traefik binds to ports 443 and 80, which are the default ports for the TrueNAS SCALE WebUI. Before deploying this chart, be sure to change the TrueNAS SCALE WebUI ports so they do not conflict, otherwise the chart will not deploy correctly.
+
 ## Installing the Chart
 
 To install the chart with the release name `traefik`

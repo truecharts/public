@@ -16,7 +16,7 @@ We currently offer the following types of pre-configured reverse proxies:
 
 - UDP
 
-Besides HTTP, all these options, require Traefik to be installed before you enable Reverse Proxy on your App. In many cases, the maintainer of your app has hidden specific settings, like the type of Reverse proxies available, to suit your App.
+Besides HTTP, all these options require Traefik to be installed before you enable Reverse Proxy on your App. In many cases, the maintainer of your app has hidden specific settings, like the type of Reverse proxies available, to suit your App.
 
 
 ### Adding Certificates
