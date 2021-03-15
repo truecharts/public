@@ -965,14 +965,14 @@ questions:
                   default: ""
 
   - variable: warning
-    label: "This App binds to the same ports as TrueNAS SCALE UI: 80 and 443"
+    label: "This App binds to the same ports as the defaults for TrueNAS SCALE UI (80 and 443). This means you may not be able to access the TrueNAS SCALE UI after starting the App."
     description: "Please be sure to set the UI to a different port or adapter"
     group: "WARNING"
     schema:
         type: dict
         attrs:
           - variable: confirm-warning
-            description: "Check this to confirm you have made precautions against conflicts on port 80 and 443"
+            description: "Check this to confirm you have made precautions against conflicts on port 80 and 443, such as running the TrueNAS SCALE UI on a different port or adapter."
             label: "I understand above warning and its consequences"
             schema:
               type: boolean

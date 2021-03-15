@@ -4,6 +4,7 @@ Traefik forwards traffic for a lot of applications and we don't want to require 
 
 This means that by default Traefik will claim a lot of ports from the node. Please be aware: these ports can NOT be used by other applications as NodePorts. Under "Advanced" we offer options to disable exposing these ports, freeing them for other applications, or altering the port numbers.
 
+Note that these default ports also clash with the defaults for the TrueNAS SCALE UI. To avoid losing access to the UI after Traefik starts up, go to System Settings -> General and edit the GUI settings to listen on a different port.
 ###### Used Port List
 
 
