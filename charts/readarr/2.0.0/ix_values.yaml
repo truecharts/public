@@ -5,11 +5,9 @@
 ##
 
 image:
-  repository: hotio/readarr
+  repository: ghcr.io/truecharts/readarr
   pullPolicy: IfNotPresent
-  tag: nightly
-
-startAsRoot: true
+  tag: v0.1.0.535
 
 probes:
     liveness:
