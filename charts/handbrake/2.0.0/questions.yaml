@@ -358,7 +358,7 @@ questions:
           schema:
             type: boolean
             default: true
-            required: true
+            required: false
 
 # TrueCharts Specific
   - variable: appVolumeMounts
@@ -593,6 +593,14 @@ questions:
           schema:
             type: dict
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  required: true
+                  hidden: true
+                  editable: false
               - variable: setPermissions
                 label: "Automatic Permissions"
                 description: "Automatically set permissions on install"
@@ -600,19 +608,41 @@ questions:
                   type: boolean
                   default: false
                   hidden: true
+              - variable: name
+                label: "Mountpoint Name"
+                schema:
+                  type: string
+                  default: "opticaldrive"
+                  required: true
+                  editable: true
+              - variable: emptyDir
+                label: "emptyDir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+                  editable: false
+              - variable: mountPath
+                label: "Path to Optical Drive device inside the pod"
+                description: "Preferably the same as the path to the Optical Drive on the host"
+                schema:
+                  type: path
+                  required: true
+                  default: ""
+                  editable: true
+              - variable: hostPathEnabled
+                label: "host Path Enabled"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
               - variable: hostPath
                 label: "Path to Optical Drive device on host"
                 description: 'Best to use path "by-id"'
                 schema:
-                  type: path
+                  type: hostpath
                   required: true
-                  default: "/dev/sr0"
-              - variable: mountPath
-                label: "Path to mount device inside the container"
-                schema:
-                  type: path
-                  default: "/dev/sr0"
-                  required: true
+
 
     # Reverse Proxy
   - variable: additionalAppVolumeMounts
