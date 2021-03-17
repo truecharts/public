@@ -1,6 +1,7 @@
 name: "Docs: Copy"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -9,26 +10,24 @@ on:
       - '**'
     paths:
       - 'library/**/Chart.yaml'
-      - 'library/**/README.md'
-      - 'library/**/LICENSE'
-      - 'library/**/**/CONFIG.md'
-      - 'library/**/app-readme.md'
-      - 'charts/**/Chart.yaml'
-      - 'charts/**/**/README.md'
-      - 'charts/**/**/CONFIG.md'
-      - 'charts/**/**/LICENSE'
-      - 'charts/**/**/app-readme.md'
+      - '.tools/gen-helm-docs.sh'
+      - '**.gotmpl'
+      - '**/LICENSE'
+      - '**LICENSE'
+      - '**.md'
       - '.github/README.md'
-      - '.github/CODE_OF_CONDUCT.md'
+      - '.github/CODE_OF_CONDUCT'
+      - '.github/CONTRIBUTING'
       - './LICENSE'
       - './NOTICE'
       - '.github/workflows/docs.copy.yaml'
 
 jobs:
-  publish-app-docs:
+  copy:
     runs-on: ubuntu-latest
+    name: "Copy"
     steps:
-      - name: Checkout-Master
+      - name: Checkout
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.BOT_TOKEN }}
@@ -43,25 +42,40 @@ jobs:
 
       - name: Copy general readme to website
         run: |
-          cp .github/README.md docs/about/index.md || echo "readme copy failed, continuing..."
-          cp .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
-          cp .github/CONTRIBUTING docs/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
-          cp LICENSE docs/about/LICENSE.md || echo "license copy failed, continuing..."
+          yes | cp -rf .github/README.md docs/about/index.md || echo "readme copy failed, continuing..."
+           yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          yes | cp -rf .github/CONTRIBUTING docs/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          yes | cp -rf LICENSE docs/about/LICENSE.md || echo "license copy failed, continuing..."
           sed -i '1s/^/# License<br>\n\n/' docs/about/LICENSE.md
-          cp NOTICE docs/about/NOTICE.md || echo "license copy failed, continuing..."
+          yes | cp -rf NOTICE docs/about/NOTICE.md || echo "license copy failed, continuing..."
           sed -i '1s/^/# NOTICE<br>\n\n/' docs/about/NOTICE.md
           ls docs/
 
-      - name: Copy Apps readme to website
+      - name: Copy stable Apps readme to website
         run: |
-          for chart in charts/*; do
+          for chart in stable/*; do
             if [ -d "${chart}" ]; then
                 maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
                 chartname=$(basename ${chart})
                 echo "Processing: ${chart} - folder: ${maxfolderversion}"
                 mkdir -p docs/apps/${chartname} || echo "app path already exists, continuing..."
-                cp ${chart}/${maxfolderversion}/README.md docs/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
-                cp ${chart}/${maxfolderversion}/LICENSE docs/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                sed -i '1s/^/# License<br>\n\n/' docs/apps/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
+            fi
+          done
+          ls docs/apps/
+
+      - name: Copy beta Apps readme to website
+        run: |
+          for chart in beta/*; do
+            if [ -d "${chart}" ]; then
+                maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
+                chartname=$(basename ${chart})
+                echo "Processing: ${chart} - folder: ${maxfolderversion}"
+                mkdir -p docs/apps/${chartname} || echo "app path already exists, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
                 sed -i '1s/^/# License<br>\n\n/' docs/apps/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
             fi
           done

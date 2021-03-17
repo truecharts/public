@@ -1,7 +1,7 @@
 # About TrueCharts<br>
 **Community App Catalog for TrueNAS SCALE**
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/truecharts/master.svg)](https://github.com/truecharts/truecharts/commits) [![Charts: Release](https://github.com/truecharts/charts/actions/workflows/charts-release.yaml/badge.svg)](https://github.com/truecharts/charts/actions/workflows/charts-release.yaml) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftruecharts%2Ftruecharts.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftruecharts%2Ftruecharts?ref=badge_shield) [![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/truecharts/truecharts/blob/master/docs/LICENSE.BSD3)
+[![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/truecharts/master.svg)](https://github.com/truecharts/apps/commits) [![Charts: Release](https://github.com/truecharts/apps/actions/workflows/charts-release.yaml/badge.svg)](https://github.com/truecharts/apps/actions/workflows/charts-release.yaml) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftruecharts%2Ftruecharts.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftruecharts%2Ftruecharts?ref=badge_shield) [![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg)](https://github.com/truecharts/apps/blob/master/docs/LICENSE.BSD3)
 ---
 Truecharts is an innitiative to provide high quality Apps to use with the TrueNAS SCALE App Ecosystem.
 Our primary goals are:
@@ -16,14 +16,14 @@ All our apps are supposed to work together, be easy to setup using the TrueNAS U
 Installing TrueCharts within TrueNAS SCALE, still requires the CLI. However it's not hard:
 - Go to you shell of choice (either SSH or the TrueNAS webui shell)
 - enter `cli`
-- enter `app catalog create repository="https://github.com/truecharts/truecharts" label="TrueCharts"`
+- enter `app catalog create repository="https://github.com/truecharts/apps" label="TrueCharts"`
 
 For more information, please visit our website:
 https://truecharts.org
 
 ## FAQ
 
-Please refer to our [FAQ](https://truecharts.org/about/FAQ/) and [Issue tracker](https://github.com/truecharts/charts/issues) before creating an issue.
+Please refer to our [FAQ](https://truecharts.org/about/FAQ/) and [Issue tracker](https://github.com/truecharts/apps/issues) before creating an issue.
 There is a significant chance your issue has been reported before!
 
 ## Getting into creating Apps

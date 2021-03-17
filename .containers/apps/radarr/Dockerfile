@@ -12,20 +12,20 @@ RUN \
   && \
   apt-get -qq install -y \
     libicu66 \
-    mediainfo \
+    libmediainfo0v5 \
   && \
   case "${TARGETPLATFORM}" in \
     'linux/amd64') export ARCH='x64' ;; \
   esac \
   && \
   curl -fsSL -o /tmp/radarr.tar.gz \
-    "https://radarr.servarr.com/v1/update/develop/updatefile?version=${VERSION}&os=linux&runtime=netcore&arch=${ARCH}" \
+    "https://radarr.servarr.com/v1/update/master/updatefile?version=${VERSION}&os=linux&runtime=netcore&arch=${ARCH}" \
   && tar ixzf /tmp/radarr.tar.gz -C /app --strip-components 1 \
   && \
   rm -rf \
     /app/Radarr.Update* \
   && \
-  printf "UpdateMethod=docker\nBranch=develop\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
+  printf "UpdateMethod=docker\nBranch=master\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
   && \
   apt-get autoremove -y \
   && apt-get clean \

@@ -30,7 +30,7 @@ additionalServices:
     type: ClusterIP
     port:
       port: 8083
-      name: tcp-test
+      name: extra-tcp-test
       protocol: TCP
       targetPort: 8083
   - name: test4
@@ -38,7 +38,7 @@ additionalServices:
     type: ClusterIP
     port:
       port: 8084
-      name: udp-test
+      name: extra-udp-test
       protocol: UDP
       targetPort: 8084
 
