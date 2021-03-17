@@ -36,10 +36,10 @@ within the common library.
 {{ end -}}
 {{- $svcType := $values.type | default "" -}}
 
-{{- $portProtocol := $values.port.type -}}
-{{- if or ( eq $values.type "HTTP" ) ( eq $values.type "HTTPS" ) ( eq $values.type "TCP" ) -}}
+{{- $portProtocol := $values.port.protocol -}}
+{{- if or ( eq $values.port.protocol "HTTP" ) ( eq $values.port.protocol "HTTPS" ) ( eq $values.port.protocol "TCP" ) -}}
 {{- $portProtocol = "TCP" -}}
-{{- else if eq $values.type "UDP" }}
+{{- else if eq $values.port.protocol "UDP" }}
 {{- $portProtocol = "UDP" -}}
 {{- end }}
 apiVersion: v1
@@ -52,7 +52,7 @@ metadata:
     {{ toYaml $values.labels | nindent 4 }}
   {{- end }}
   annotations:
-  {{- if eq $svcType "HTTPS" }}
+  {{- if eq $values.port.protocol "HTTPS" }}
     traefik.ingress.kubernetes.io/service.serversscheme: https
   {{- end }}
   {{- with $values.annotations }}

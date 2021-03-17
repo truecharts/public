@@ -4,7 +4,7 @@
 
 Helper chart to test different use cases of the common library
 
-**Homepage:** <https://github.com/truecharts/truecharts/tree/master/charts/common-test>
+**Homepage:** <https://github.com/truecharts/apps/tree/master/charts/common-test>
 
 ## Maintainers
 

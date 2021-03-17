@@ -5,7 +5,6 @@ on:
   push:
     branches:
     - main
-    - staging
     paths:
     - ".github/workflows/containers.update.yaml"
   schedule:
@@ -55,6 +54,6 @@ jobs:
           git config user.name "TrueCharts Bot"
           git config user.email "bot@truecharts.org"
           git add -A
-          git commit -sam "Adding new release versions" || exit 0
+          git commit -sam "chore: added new container release versions" || exit 0
           git push
         fi
