@@ -1,0 +1,111 @@
+name: "Charts: Release"
+
+on:
+  push:
+    branches:
+      - master
+      - staging
+    tags-ignore:
+      - '**'
+    paths:
+      - 'library/**'
+      - '!library/**/*.md'
+      - '!library/**/README.md'
+      - '!library/**/README.md.gotmpl'
+      - '!library/**/app-readme.md'
+      - '!library/**/app-readme.md.gotmpl'
+      - '!library/**/docs/*'
+      - '.github/workflows/charts.release.yaml'
+      - '.github/cr.yaml'
+
+jobs:
+  pre-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Block concurrent jobs
+        uses: softprops/turnstyle@v1
+        with:
+          continue-after-seconds: 180
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+
+  release:
+    needs: pre-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block concurrent jobs
+        uses: softprops/turnstyle@v1
+        with:
+          continue-after-seconds: 180
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.2
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.2.0
+        with:
+          charts_dir: library
+          charts_repo_url: ""
+          config: .github/cr.yaml
+        env:
+          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
+
+      - name: Commit and Push new index
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit chart-index updates" || exit 0
+          git push
+
+  # Update the generated timestamp in the index.yaml
+  # needed until https://github.com/helm/chart-releaser/issues/90
+  # or helm/chart-releaser-action supports this
+#  post-release:
+#    needs: release
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Block concurrent jobs
+#        uses: softprops/turnstyle@v1
+#        with:
+#          continue-after-seconds: 180
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+#
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#        with:
+#          ref: "gh-pages"
+#          fetch-depth: 0
+#
+#      - name: Configure Git
+#        run: |
+#          git config user.name "TrueCharts-Bot"
+#          git config user.email "bot@truecharts.org"
+#
+#      - name: Commit and push timestamp updates
+#        run: |
+#          if [[ -f index.yaml ]]; then
+#            git pull
+#            export generated_date=$(date --utc +%FT%T.%9NZ)
+#            sed -i -e "s/^generated:.*/generated: \"$generated_date\"/" index.yaml
+#            git add index.yaml
+#            git commit -sm "Update generated timestamp [ci-skip]" || exit 0
+#            git push
+#          fi

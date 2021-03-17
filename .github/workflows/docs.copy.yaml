@@ -1,0 +1,76 @@
+name: "Docs: Copy"
+
+on:
+  push:
+    branches:
+      - master
+      - staging
+    tags-ignore:
+      - '**'
+    paths:
+      - 'library/**/Chart.yaml'
+      - 'library/**/README.md'
+      - 'library/**/LICENSE'
+      - 'library/**/**/CONFIG.md'
+      - 'library/**/app-readme.md'
+      - 'charts/**/Chart.yaml'
+      - 'charts/**/**/README.md'
+      - 'charts/**/**/CONFIG.md'
+      - 'charts/**/**/LICENSE'
+      - 'charts/**/**/app-readme.md'
+      - '.github/README.md'
+      - '.github/CODE_OF_CONDUCT.md'
+      - './LICENSE'
+      - './NOTICE'
+      - '.github/workflows/docs.copy.yaml'
+
+jobs:
+  publish-app-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout-Master
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: install helm-docs
+        run: |
+          brew install norwoodj/tap/helm-docs
+
+      - name: (re)generate docs
+        run: |
+          .tools/gen-helm-docs.sh
+
+      - name: Copy general readme to website
+        run: |
+          cp .github/README.md docs/about/index.md || echo "readme copy failed, continuing..."
+          cp .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          cp .github/CONTRIBUTING docs/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          cp LICENSE docs/about/LICENSE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# License<br>\n\n/' docs/about/LICENSE.md
+          cp NOTICE docs/about/NOTICE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# NOTICE<br>\n\n/' docs/about/NOTICE.md
+          ls docs/
+
+      - name: Copy Apps readme to website
+        run: |
+          for chart in charts/*; do
+            if [ -d "${chart}" ]; then
+                maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
+                chartname=$(basename ${chart})
+                echo "Processing: ${chart} - folder: ${maxfolderversion}"
+                mkdir -p docs/apps/${chartname} || echo "app path already exists, continuing..."
+                cp ${chart}/${maxfolderversion}/README.md docs/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
+                cp ${chart}/${maxfolderversion}/LICENSE docs/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                sed -i '1s/^/# License<br>\n\n/' docs/apps/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
+            fi
+          done
+          ls docs/apps/
+
+      - name: Commit and Push updated docs
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit docs updates" || exit 0
+          git push

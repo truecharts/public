@@ -1,0 +1,77 @@
+# Project Information
+site_name: TrueCharts
+site_description: 'Project Documentation for TrueCharts'
+site_author: 'TrueCharts Team'
+docs_dir: docs/
+site_url: 'https://wiki.truecharts.org'
+
+# Repository
+repo_name: 'truecharts/charts'
+repo_url: 'https://github.com/truecharts/charts'
+edit_uri: ""
+
+copyright: Copyright &copy; 2020 - 2021 The TrueCharts Project
+
+extra:
+    generator: false
+
+theme:
+  name: 'material'
+  language: 'en'
+  icon:
+    repo: fontawesome/brands/github-alt
+  language: en
+  features:
+  - navigation.tabs
+  - navigation.tracking
+  - navigation.instant
+  - search.highlight
+  - search.share
+  - search.suggest
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+extra_css:
+  - _static/custom.css
+
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid-experimental
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
