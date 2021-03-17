@@ -1,0 +1,60 @@
+name: "Containers: Update"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    - staging
+    paths:
+    - ".github/workflows/containers.update.yaml"
+  schedule:
+  - cron: "0 */4 * * *"
+
+jobs:
+  get-versions:
+    name: Get Apps Versions
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        # TODO remove this ref
+        ref: "staging"
+        token: ${{ secrets.BOT_TOKEN }}
+        fetch-depth: 1
+    - name: Fetch new application versions
+      run: |
+        find ./.containers/apps -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
+          if test -f "./.containers/apps/${app}/latest-version.sh"; then
+            version=$(bash "./.containers/apps/${app}/latest-version.sh")
+            if [[ ! -z "${version}" || "${version}" != "null" ]]; then
+              echo "${version}" | tee "./.containers/apps/${app}/VERSION" > /dev/null
+              echo "App: ${app} using version: ${version}"
+            fi
+          fi
+          base=$(cat "./.containers/base/ubuntu/VERSION")
+          if [[ ! -z "${base}" || "${base}" != "null" ]]; then
+            echo "${base}" | tee ".containers/apps/${app}/BASE" > /dev/null
+            echo "App: ${app} using Base: ${base}"
+          fi
+        done
+    - name: Fetch new base versions
+      run: |
+        find ./.containers/base -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
+          if test -f "./.containers/base/${app}/latest-version.sh"; then
+            version=$(bash "./.containers/base/${app}/latest-version.sh")
+            if [[ ! -z "${version}" || "${version}" != "null" ]]; then
+              echo "${version}" | tee "./.containers/base/${app}/VERSION" > /dev/null
+              echo "${app} ${version}"
+            fi
+          fi
+        done
+    - name: Add, commit and push to applications version file
+      run: |
+        if [[ -n $(git status --porcelain) ]]; then
+          git config user.name "TrueCharts Bot"
+          git config user.email "bot@truecharts.org"
+          git add -A
+          git commit -sam "Adding new release versions" || exit 0
+          git push
+        fi

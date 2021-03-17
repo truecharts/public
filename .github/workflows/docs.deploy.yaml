@@ -1,0 +1,24 @@
+name: "Docs: Deploy"
+on:
+  push:
+    branches:
+      - master
+      - staging
+    paths:
+      - 'docs/**'
+      - '.github/workflows/docs.deploy.yaml'
+
+jobs:
+  build:
+    name: Deploy Wiki
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}

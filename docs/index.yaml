@@ -1,0 +1,52 @@
+apiVersion: v1
+entries:
+  common:
+  - apiVersion: v2
+    created: "2021-03-17T14:27:24.125854125Z"
+    description: Function library for TrueCharts
+    digest: 41a2bf000d3a9ed7959b1d10690121869593c86c8f689bf70a652e98798c3e88
+    home: https://github.com/truecharts/truecharts/tree/master/common
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: common
+    sources:
+    - https://github.com/truecharts/charts/tree/master/library/common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-2.0.0/common-2.0.0.tgz
+    version: 2.0.0
+  common-test:
+  - apiVersion: v2
+    created: "2021-03-17T14:27:24.209993243Z"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: n/a
+    description: Helper chart to test different use cases of the common library
+    digest: 62611017e79eaaa94b57cd5229bb1058b9780e19eb502f9f54b5ae1903b67374
+    home: https://github.com/truecharts/charts/tree/master/library/common-test
+    keywords:
+    - common-test
+    - truecharts
+    - common
+    - test
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: common-test
+    sources:
+    - https://github.com/truecharts/charts/tree/master/library/common-test
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-test-2.0.0/common-test-2.0.0.tgz
+    version: 2.0.0
+generated: "2021-03-17T14:27:24.209999643Z"
