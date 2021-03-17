@@ -4,4 +4,4 @@
 source "/shim/umask.sh"
 source "/shim/vpn.sh"
 
-exec /app/Radarr -nobrowser -data=/config ${EXTRA_ARGS}
+exec /app/Radarr --nobrowser --data=/config ${EXTRA_ARGS}

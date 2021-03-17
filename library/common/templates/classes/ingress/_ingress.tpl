@@ -46,7 +46,7 @@ metadata:
     {{- if eq $portProtocol "HTTPS" }}
     traefik.ingress.kubernetes.io/service.serversscheme: https
     {{- end }}
-    traefik.ingress.kubernetes.io/router.entrypoints: {{ $values.entrypoint }}
+    traefik.ingress.kubernetes.io/router.entrypoints: {{ $values.entrypoint | default "websecure" }}
     traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd{{ if $values.authForwardURL }},{{ $ingressName }}-auth-forward{{ end }}
     {{- with $values.annotations }}
       {{- toYaml . | nindent 4 }}

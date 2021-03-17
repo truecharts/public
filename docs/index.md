@@ -8,8 +8,8 @@ hide:
 TrueCharts is the community that maintains TrueCharts.
 
 ### TrueCharts
-TrueCharts is a one-line iocage jail management and deployment tool for FreeNAS and FreeBSD.
-If you are interested in using TrueCharts, please visit us on github [github](https://github.com/truecharts/charts/)
+TrueCharts is a catalog of highly optimised TrueNAS SCALE Apps. Made for the community, By the community!
+If you are interested in using TrueCharts, please visit us on github [github](https://github.com/truecharts/apps/)
 
 ### Supported operating systems
 
@@ -40,4 +40,4 @@ This release will focus on adding a solid framework of using (and adding) databa
 
 ### Support or Contact
 
-Having trouble with TrueCharts? Check out our [Wiki](https://wiki.truecharts.org) or [github](https://github.com/truecharts/charts/) and we’ll help you sort it out.
+Having trouble with TrueCharts? Check out our [Wiki](https://wiki.truecharts.org) or [github](https://github.com/truecharts/apps/) and we’ll help you sort it out.

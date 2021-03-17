@@ -7,8 +7,8 @@ ARG VERSION
 USER root
 
 ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility" \
-    INTEL_NEO_VERSION=20.48.18558 \
-    INTEL_IGC_VERSION=1.0.5699 \
+    INTEL_NEO_VERSION=21.11.19310 \
+    INTEL_IGC_VERSION=1.0.6646 \
     INTEL_GMMLIB_VERSION=20.3.2 \
     PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server-new" \
     PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config/Library/Application Support" \
@@ -25,6 +25,14 @@ RUN \
         export ARCH='amd64'; \
         export EXTRA_INSTALL_ARG='beignet-opencl-icd ocl-icd-libopencl1'; \
     ;; \
+    'linux/arm64') \
+        export ARCH='arm64'; \
+        export EXTRA_INSTALL_ARG=''; \
+        unset NVIDIA_DRIVER_CAPABILITIES; \
+        unset INTEL_NEO_VERSION; \
+        unset INTEL_IGC_VERSION; \
+        unset INTEL_GMMLIB_VERSION; \
+    ;; \
   esac \
   && \
   apt-get -qq update \
@@ -38,11 +46,12 @@ RUN \
   && \
   case "${ARCH}" in \
     'amd64') \
-      curl -J -L -o /tmp/gmmlib.deb https://github.com/intel/compute-runtime/releases/download/${INTEL_NEO_VERSION}/intel-gmmlib_${INTEL_GMMLIB_VERSION}_amd64.deb \
+      aria2c -d /tmp -o gmmlib.deb https://github.com/intel/compute-runtime/releases/download/${INTEL_NEO_VERSION}/intel-gmmlib_${INTEL_GMMLIB_VERSION}_amd64.deb \
       && apt-get install -y /tmp/gmmlib.deb \
-      && curl -J -L -o /tmp/#1.deb https://github.com/intel/intel-graphics-compiler/releases/download/igc-${INTEL_IGC_VERSION}/{intel-igc-core,intel-igc-opencl}_${INTEL_IGC_VERSION}_amd64.deb \
+      && aria2c -d /tmp -o intel-igc-core.deb https://github.com/intel/intel-graphics-compiler/releases/download/igc-${INTEL_IGC_VERSION}/intel-igc-core_${INTEL_IGC_VERSION}_amd64.deb \
+      && aria2c -d /tmp -o intel-igc-opencl.deb https://github.com/intel/intel-graphics-compiler/releases/download/igc-${INTEL_IGC_VERSION}/intel-igc-opencl_${INTEL_IGC_VERSION}_amd64.deb \
       && apt-get install -y /tmp/intel-igc-core.deb /tmp/intel-igc-opencl.deb \
-      && curl -J -L -o /tmp/intel-opencl.deb https://github.com/intel/compute-runtime/releases/download/${INTEL_NEO_VERSION}/intel-opencl_${INTEL_NEO_VERSION}_amd64.deb \
+      && aria2c -d /tmp -o intel-opencl.deb https://github.com/intel/compute-runtime/releases/download/${INTEL_NEO_VERSION}/intel-opencl_${INTEL_NEO_VERSION}_amd64.deb \
       && apt-get install -y /tmp/intel-opencl.deb \
     ;; \
   esac \

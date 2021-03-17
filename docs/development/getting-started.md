@@ -20,7 +20,7 @@ You will need these to start your journey:
 
 ### Setting up your dev environment
 
-If you already know what you're doing, go to our [GitHub](https://github.com/truecharts/charts) and fork. Otherwise, look at this picture, from now on this will be the **contribution cycle**. This is how our workflow will look at the end of the tutorial.
+If you already know what you're doing, go to our [GitHub](https://github.com/truecharts/apps) and fork. Otherwise, look at this picture, from now on this will be the **contribution cycle**. This is how our workflow will look at the end of the tutorial.
 
 <img src="https://i.imgur.com/qPg9XmQ.png" alt="Contribution cycle" style="zoom:120%;" />
 
@@ -28,7 +28,7 @@ If you already know what you're doing, go to our [GitHub](https://github.com/tru
 
 What's that? You have no idea what any of that means? Worry not, my fellow contributor! I will guide you step by step.
 
-First, you did your [GitHub account](https://github.com/) account as suggested, right? Good. We will now visit the [TrueCharts  Repository in GitHub](https://github.com/truecharts/charts) and click this little button located at the top right corner of the page:
+First, you did your [GitHub account](https://github.com/) account as suggested, right? Good. We will now visit the [TrueCharts  Repository in GitHub](https://github.com/truecharts/apps) and click this little button located at the top right corner of the page:
 
 ![Fork button](https://i.imgur.com/lw1XYPS.png)
 
@@ -78,7 +78,7 @@ Are you done downloading? Awesome! Now your local repo is automagically soul-lin
 
 |       GitHub Desktop       |                           Git Bash                           |
 | :------------------------: | :----------------------------------------------------------: |
-| This is automagically done | Navigate to the folder where your local repo is<br />``git remote add upstream https://github.com/truecharts/charts.git``<br />Now to make sure everything is in order, we do<br />``git remote -v``<br />and it should show both repos, yours in **origin** and central in **upstream** |
+| This is automagically done | Navigate to the folder where your local repo is<br />``git remote add upstream https://github.com/truecharts/apps.git``<br />Now to make sure everything is in order, we do<br />``git remote -v``<br />and it should show both repos, yours in **origin** and central in **upstream** |
 
 
 ##### Setting up Pre-Commit
@@ -142,7 +142,7 @@ Now all that is missing is publishing your commits to your remote (**origin**)
 
 #### Making a PR
 
-A **P**ull **R**equest is the only way to get your changes into the central version of the game. You do a PR by **committing** your changes and **pushing them** to your remote repo (**origin**). Then, visit the [TrueCharts Repository in GitHub](https://github.com/truecharts/charts) and click this green button:
+A **P**ull **R**equest is the only way to get your changes into the central version of the game. You do a PR by **committing** your changes and **pushing them** to your remote repo (**origin**). Then, visit the [TrueCharts Repository in GitHub](https://github.com/truecharts/apps) and click this green button:
 
 ![make a pr button](https://i.imgur.com/yt2QJd4.png)
 

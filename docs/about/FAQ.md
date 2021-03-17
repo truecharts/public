@@ -5,7 +5,7 @@ A: TrueNAS SCALE 20.12 has never supported custom charts in any way, shape or fo
 
 - Q: Please include app X<br>
 A: Please file an issue about it, after checking the wiki to make sure it hasn't been discussed already:
-https://github.com/truecharts/truecharts/wiki/k8s-at-home-to-SCALE-App-migration-list
+https://github.com/truecharts/apps/wiki/k8s-at-home-to-SCALE-App-migration-list
 
 - Q: Isn't there more documentation for app x<br>
 A: If it's not on our [wiki](https://wiki.truecharts.org), we do not. Currently during TrueNAS SCALE ALPHA/BETA we focus on the technical aspects.

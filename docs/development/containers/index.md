@@ -17,4 +17,4 @@ For configuration and documentation see [here](https://truecharts/containers/get
 
 We have several different methods for getting support.
 
-- [GitHub Discussions](https://github.com/truecharts/charts/discussions)
+- [GitHub Discussions](https://github.com/truecharts/apps/discussions)

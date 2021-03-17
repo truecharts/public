@@ -4,4 +4,4 @@
 source "/shim/umask.sh"
 source "/shim/vpn.sh"
 
-exec /app/Lidarr -nobrowser -data=/config ${EXTRA_ARGS}
+exec /app/Lidarr --nobrowser --data=/config ${EXTRA_ARGS}
