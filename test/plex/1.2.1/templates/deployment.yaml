@@ -9,8 +9,12 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
-          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
           {{ include "common.containers.gpuConfiguration" .Values | nindent 10 }}
+          volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
+            - name: plex-probe-check
+              mountPath: /bin/plex_probe_check.sh
+              readOnly: true
+              subPath: entrypoint.sh
           ports:
           - name: pms
             protocol: TCP
@@ -41,6 +45,10 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
             {{ $envList := (default list .Values.environmentVariables) }}
             {{ $envList = mustAppend $envList (dict "name" "TZ" "value" .Values.timezone) }}
             {{ $envList = mustAppend $envList (dict "name" "PLEX_CLAIM" "value" .Values.claimToken) }}
@@ -48,22 +56,26 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             {{ $envList = mustAppend $envList (dict "name" "PMS_IMAGE" "value" (printf "%s:%s" .Values.image.repository .Values.image.tag))}}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
           readinessProbe:
-            httpGet:
-              path: /identity
-              port: 32400
+            exec:
+              command:
+                - /bin/plex_probe_check.sh
             failureThreshold: 5
             periodSeconds: 15
           livenessProbe:
-            httpGet:
-              path: /identity
-              port: 32400
+            exec:
+              command:
+                - /bin/plex_probe_check.sh
             failureThreshold: 5
             periodSeconds: 15
           startupProbe:
-            httpGet:
-              path: /identity
-              port: 32400
+            exec:
+              command:
+                - /bin/plex_probe_check.sh
             initialDelaySeconds: 5
             failureThreshold: 40
             periodSeconds: 15
-{{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
+      volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
+        - name: plex-probe-check
+          configMap:
+            defaultMode: 0700
+            name: "plex-probe-check"
