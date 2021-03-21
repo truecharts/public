@@ -50,6 +50,9 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
                 fieldRef:
                   fieldPath: status.podIP
             {{ $envList := (default list .Values.environmentVariables) }}
+            {{ if .Values.gpuConfiguration }}
+            {{ $envList = mustAppend $envList (dict "name" "NVIDIA_DRIVER_CAPABILITIES" "value" "all") }}
+            {{ end }}
             {{ $envList = mustAppend $envList (dict "name" "TZ" "value" .Values.timezone) }}
             {{ $envList = mustAppend $envList (dict "name" "PLEX_CLAIM" "value" .Values.claimToken) }}
             {{ $envList = mustAppend $envList (dict "name" "PMS_INTERNAL_ADDRESS" "value" (printf "http://%s:32400" (include "common.names.fullname" .))) }}
