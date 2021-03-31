@@ -60,14 +60,10 @@ To uninstall the `{{ template "chart.name" . }}` deployment
 The command removes all the Kubernetes components associated with the chart **including storage volumes** _(Except hostPath Storage)_ and deletes the release.
 {{- end -}}
 
-{{- define "custom.configuration.header" -}}
-## Configuration
-{{- end -}}
-
 {{- define "custom.support" -}}
 ## Support
 
-- See the [Wiki](https://wiki.truecharts.org)
+- See the [Wiki](https://truecharts.org)
 - Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
 - Ask a [question](https://github.com/truecharts/apps/discussions)
 {{- end -}}

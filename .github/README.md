@@ -13,13 +13,10 @@ All our apps are supposed to work together, be easy to setup using the TrueNAS U
 
 
 ## Getting started using TrueCharts
-Installing TrueCharts within TrueNAS SCALE, still requires the CLI. However it's not hard:
-- Go to you shell of choice (either SSH or the TrueNAS webui shell)
-- enter `cli`
-- enter `app catalog create repository="https://github.com/truecharts/apps" label="TrueCharts"`
+Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
-For more information, please visit our website:
-https://truecharts.org
+For more information:
+https://truecharts.org/manual/adding-truecharts/
 
 ## FAQ
 

@@ -11,6 +11,8 @@ on:
     paths:
       - 'library/**/Chart.yaml'
       - '.tools/gen-helm-docs.sh'
+      - '.tools/templates/docs/**'
+      - '.tools/templates/app/*.gotmpl'
       - '**.gotmpl'
       - '**/LICENSE'
       - '**LICENSE'
@@ -43,7 +45,7 @@ jobs:
       - name: Copy general readme to website
         run: |
           yes | cp -rf .github/README.md docs/about/index.md || echo "readme copy failed, continuing..."
-           yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
           yes | cp -rf .github/CONTRIBUTING docs/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
           yes | cp -rf LICENSE docs/about/LICENSE.md || echo "license copy failed, continuing..."
           sed -i '1s/^/# License<br>\n\n/' docs/about/LICENSE.md
@@ -60,6 +62,7 @@ jobs:
                 echo "Processing: ${chart} - folder: ${maxfolderversion}"
                 mkdir -p docs/apps/${chartname} || echo "app path already exists, continuing..."
                 yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/CONFIG.md docs/apps/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
                 yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
                 sed -i '1s/^/# License<br>\n\n/' docs/apps/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
             fi
@@ -75,6 +78,7 @@ jobs:
                 echo "Processing: ${chart} - folder: ${maxfolderversion}"
                 mkdir -p docs/apps/${chartname} || echo "app path already exists, continuing..."
                 yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/CONFIG.md docs/apps/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
                 yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
                 sed -i '1s/^/# License<br>\n\n/' docs/apps/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
             fi

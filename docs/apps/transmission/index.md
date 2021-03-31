@@ -46,7 +46,7 @@ The command removes all the Kubernetes components associated with the chart **in
 
 ## Support
 
-- See the [Wiki](https://wiki.truecharts.org)
+- See the [Wiki](https://truecharts.org)
 - Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
 - Ask a [question](https://github.com/truecharts/apps/discussions)
 
