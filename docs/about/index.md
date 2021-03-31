@@ -5,7 +5,8 @@
 ---
 Truecharts is an innitiative to provide high quality Apps to use with the TrueNAS SCALE App Ecosystem.
 Our primary goals are:
-- Freedom
+- Micro-Service Centered
+- Native Kubernetes
 - Stability
 - Consistancy
 
@@ -13,13 +14,10 @@ All our apps are supposed to work together, be easy to setup using the TrueNAS U
 
 
 ## Getting started using TrueCharts
-Installing TrueCharts within TrueNAS SCALE, still requires the CLI. However it's not hard:
-- Go to you shell of choice (either SSH or the TrueNAS webui shell)
-- enter `cli`
-- enter `app catalog create repository="https://github.com/truecharts/apps" label="TrueCharts"`
+Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
-For more information, please visit our website:
-https://truecharts.org
+For more information:
+https://truecharts.org/manual/adding-truecharts/
 
 ## FAQ
 
@@ -29,6 +27,15 @@ There is a significant chance your issue has been reported before!
 ## Getting into creating Apps
 
 Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior knowhow on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
+
+## Featured Projects
+
+A lot of our work is based on the great effort of others. We would love to extend special thanks to these projects we owe a lot to:
+
+| <a href="https://www.truenas.com/truenas-scale/"> <img src="https://user-images.githubusercontent.com/7613738/113836934-a1764e00-978d-11eb-8e19-a087c5c1f99b.png" width="150" height="150" /> </a> | <a href="https://k8s-at-home.com/"> <img src="https://user-images.githubusercontent.com/7613738/113837194-e26e6280-978d-11eb-9632-2e1529946302.png" width="150" height="150" /> </a> | <a href="https://traefik.io/traefik/"> <img src="https://user-images.githubusercontent.com/7613738/113837353-0b8ef300-978e-11eb-873e-14769acfe1f1.png" width="150" height="150" /> </a> |
+| :---------------: | :---------------: | :---------------: |
+| <a href="https://www.truenas.com/truenas-scale/">TrueNAS SCALE</a> |  <a href="https://k8s-at-home.com/">K8S-At-Home</a> | <a href="https://traefik.io/traefik/">Traefik</a> |
+
 
 ## Licence
 

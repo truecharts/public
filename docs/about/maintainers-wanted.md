@@ -9,12 +9,13 @@ _Please note: We always prefer maintainers that have worked on one of our Apps b
 
 ### Current Apps without maintainers
 
+- bazarr
 - Calibre-web
-- deluge
 - freshrss
 - gaps
 - grocy
 - heimdall
+- lazylibrarian
 - lychee
 - navidrome
 - node-red
@@ -26,3 +27,4 @@ _Please note: We always prefer maintainers that have worked on one of our Apps b
 - sabnzbd
 - truecommand
 - tvheadend
+- unifi

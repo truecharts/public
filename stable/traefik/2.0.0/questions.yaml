@@ -23,11 +23,28 @@ portals:
     protocols:
       - "https"
     host:
-      - "$variable-ingress.hosts[0].host"
+      - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "443"
 
 questions:
+
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+
   # Update Policy
   - variable: strategyType
     group: "Container Image"

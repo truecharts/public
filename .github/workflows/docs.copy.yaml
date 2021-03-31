@@ -5,12 +5,13 @@ on:
   push:
     branches:
       - master
-      - staging
     tags-ignore:
       - '**'
     paths:
       - 'library/**/Chart.yaml'
       - '.tools/gen-helm-docs.sh'
+      - '.tools/templates/docs/**'
+      - '.tools/templates/app/*.gotmpl'
       - '**.gotmpl'
       - '**/LICENSE'
       - '**LICENSE'
@@ -43,7 +44,7 @@ jobs:
       - name: Copy general readme to website
         run: |
           yes | cp -rf .github/README.md docs/about/index.md || echo "readme copy failed, continuing..."
-           yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
           yes | cp -rf .github/CONTRIBUTING docs/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
           yes | cp -rf LICENSE docs/about/LICENSE.md || echo "license copy failed, continuing..."
           sed -i '1s/^/# License<br>\n\n/' docs/about/LICENSE.md
@@ -58,28 +59,30 @@ jobs:
                 maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
                 chartname=$(basename ${chart})
                 echo "Processing: ${chart} - folder: ${maxfolderversion}"
-                mkdir -p docs/apps/${chartname} || echo "app path already exists, continuing..."
-                yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
-                yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
-                sed -i '1s/^/# License<br>\n\n/' docs/apps/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
+                mkdir -p docs/apps/stable/${chartname} || echo "app path already exists, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/stable/${chartname}/index.md || echo "readme copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/CONFIG.md docs/apps/stable/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/stable/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                sed -i '1s/^/# License<br>\n\n/' docs/apps/stable/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
             fi
           done
-          ls docs/apps/
+          ls docs/apps/stable/
 
-      - name: Copy beta Apps readme to website
+      - name: Copy incubator Apps readme to website
         run: |
-          for chart in beta/*; do
+          for chart in incubator/*; do
             if [ -d "${chart}" ]; then
                 maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
                 chartname=$(basename ${chart})
                 echo "Processing: ${chart} - folder: ${maxfolderversion}"
-                mkdir -p docs/apps/${chartname} || echo "app path already exists, continuing..."
-                yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/${chartname}/index.md || echo "readme copy failed, continuing..."
-                yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
-                sed -i '1s/^/# License<br>\n\n/' docs/apps/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
+                mkdir -p docs/apps/incubator/${chartname} || echo "app path already exists, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/incubator/${chartname}/index.md || echo "readme copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/CONFIG.md docs/apps/incubator/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/incubator/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                sed -i '1s/^/# License<br>\n\n/' docs/apps/incubator/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
             fi
           done
-          ls docs/apps/
+          ls docs/apps/incubator/
 
       - name: Commit and Push updated docs
         run: |
