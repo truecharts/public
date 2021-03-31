@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - master
-      - staging
     paths:
       - 'docs/**'
       - '.github/workflows/docs.deploy.yaml'
+      - 'mkdocs.yml'
 
 jobs:
   build:
