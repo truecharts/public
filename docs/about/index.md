@@ -5,7 +5,8 @@
 ---
 Truecharts is an innitiative to provide high quality Apps to use with the TrueNAS SCALE App Ecosystem.
 Our primary goals are:
-- Freedom
+- Micro-Service Centered
+- Native Kubernetes
 - Stability
 - Consistancy
 
