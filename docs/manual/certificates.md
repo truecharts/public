@@ -63,3 +63,28 @@ TODO: Insert Screenshot
 For clearity, it's advicable to use the same Authenticator for all domain names. However: It's okey to generate both a testing and a staging certificate for the same domain.
 
 - After saving and awaiting the generation proces, you should end up with another `Certificate Signing Request` and a new `Certificate` under `Certificates`, this new `Certificate Signing Request` is used to renew your `Certificate` in the future and should not be deleted!
+
+### Import existing certificates
+
+TrueNAS SCALE also allows you to manually import certificates, this is rather straight forward:
+Copy-Paste the keys into their respective boxes and hit `save`
+
+
+### Notes
+
+There are a few known bugs, issues and/or oddities currently in regards to Certificates
+
+##### Traefik not accepting/using certificates
+
+Sometimes you might notice Traefik ignores your certificate. This is most likely due to the domain on your certificate, being different from the domain you entered into the reverse proxy host box.
+Traefik requires your certificate to match the domain used for Ingress. This is an upstream design decision and something we can easily and safely disable.
+
+##### ACME certificates not working
+
+Currently as of 05-04-2021 ACME certificates can not be added to containers.
+This is a very annoying problem and we are working with iX on solving this. However: It's rather complicated and a combination of very weird behavior of the middleware and it's dependencies, so we do not have a timeframe for when this is fixed.
+
+
+##### New certificates not showing without refresh
+
+Currently recently added certificates will not show in the App UI, without hitting the refresh button on top.
