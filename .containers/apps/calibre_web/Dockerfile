@@ -63,10 +63,8 @@ RUN \
   chmod +x /usr/bin/kepubify \
   && \
   echo "**** create symlinks for imagemagick policy.xml ****" && \
-  [[ -f /etc/ImageMagick-6/policy.xml ]] && \
-      rm /etc/ImageMagick-6/policy.xml \
-  [[ ! -L /etc/ImageMagick-6/policy.xml ]] && \
-      ln -s /app/defaults/policy.xml /etc/ImageMagick-6/policy.xml \
+    rm -f /etc/ImageMagick-6/policy.xml && \
+    ln -s /app/defaults/policy.xml /etc/ImageMagick-6/policy.xml \
   && echo "**** cleanup ****" && \
   apt-get -y purge \
      libldap2-dev \
