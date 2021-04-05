@@ -44,7 +44,7 @@ RUN \
   && \
   cd /app \
   && \
-  pip3 install --no-cache-dir -U \
+  pip3 install --no-cache-dir -U pip \
   pip install --no-cache-dir -U -r \
     requirements.txt -r \
     optional-requirements.txt \
