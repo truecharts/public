@@ -10,7 +10,7 @@ USER root
 
 COPY defaults/ /app
 
-# hadolint ignore=DL3008,DL3015,SC2086
+# hadolint ignore=DL3008,DL3015,SC2086,SC1072
 RUN \
   apt-get -qq update \
   && \
