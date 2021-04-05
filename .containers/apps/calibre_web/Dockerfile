@@ -8,7 +8,9 @@ USER root
 
 COPY ./.containers/apps/calibre_web/defaults/ /app
 
-# hadolint ignore=DL3008,DL3015,SC2086,SC1072
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# hadolint ignore=DL3008,DL3003,DL3015,SC2086
 RUN \
   apt-get -qq update \
   && \
