@@ -8,7 +8,7 @@ ENV XDG_CONFIG_HOME=/config
 
 USER root
 
-COPY defaults/ /app
+COPY ./.containers/apps/calibre_web/defaults/ /app
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC1072
 RUN \
