@@ -1,0 +1,37 @@
+image:
+  registry: registry.opensource.zalan.do
+  repository: acid/postgres-operator
+  tag: v1.6.2
+  pullPolicy: "IfNotPresent"
+
+postgres-operator:
+  fullnameOverride: "postgres-operator"
+  configUsers:
+    # postgres username used for replication between instances
+    replication_username: postgres
+  configMajorVersionUpgrade:
+    # "off": no upgrade, "manual": manifest triggers action, "full": minimal version violation triggers too
+    major_version_upgrade_mode: "full"
+  configKubernetes:
+    #enable_pod_antiaffinity: true
+    #pod_environment_configmap: "postgres-pod-config"
+    watched_namespace: "*"
+    #list of labels that can be inherited from the cluster manifest
+    inherited_labels: application, environment
+    
+ingress:
+  main:
+    enabled: true
+    type: "HTTP"
+    entrypoint: "websecure"
+    certType: "selfsigned"
+    dynamicServiceName: "postgres-operator-ui"
+    servicePort: 8081
+    annotations: {}
+    labels: {}
+    hosts:
+      - host: chart-example.local
+        paths:
+          - path: /
+            # Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
