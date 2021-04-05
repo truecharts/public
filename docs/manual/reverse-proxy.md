@@ -22,3 +22,13 @@ Besides HTTP, all these options, require Traefik to be installed before you enab
 ### Adding Certificates
 
 To add certificates to Apps, we use the TrueNAS SCALE certificate storage. This means you first need to add Certificates to TrueNAS SCALE, after which you can select them when Installing or Editing your App.
+
+### Notes
+
+There are a few highlights to take into account when adding a reverse proxy to an App:
+
+##### Adding hosts is required
+
+By default the hosts list is empty, this is due to upstream design choices and is a issue that is yet to be solved upstream.
+
+However: adding hosts (preferably just one) is required for ANY app to function with a reverse proxy enabled. Apps might not install and throw errors if you do not add any hosts.
