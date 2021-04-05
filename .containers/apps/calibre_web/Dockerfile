@@ -30,7 +30,7 @@ RUN \
     libxrandr2 \
     python3-minimal \
     python3-pkg-resources \
-    unrar && \
+    unrar \
   && \
   case "${TARGETPLATFORM}" in \
     'linux/amd64') export ARCH='AMDx64' ;; \
@@ -43,10 +43,10 @@ RUN \
   cd /app \
   && \
   pip3 install --no-cache-dir -U \
-    pip && \
   pip install --no-cache-dir -U -r \
     requirements.txt -r \
-    optional-requirements.txt && \
+    optional-requirements.txt \
+  && \
   printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
   && \
   echo "***install kepubify" && \
@@ -56,7 +56,7 @@ RUN \
   fi && \
   curl -o \
   /usr/bin/kepubify -L \
-     https://github.com/pgaskin/kepubify/releases/download/${KEPUBIFY_RELEASE}/kepubify-linux-64bit && \
+     https://github.com/pgaskin/kepubify/releases/download/${KEPUBIFY_RELEASE}/kepubify-linux-64bit \
   && \
   chmod +x /usr/bin/kepubify \
   && \
@@ -67,7 +67,8 @@ RUN \
   apt-get -y purge \
      libldap2-dev \
      libsasl2-dev \
-     python3-pip && \
+     python3-pip \
+  && \
   apt-get clean \
   && \
   apt-get autoremove -y \
