@@ -4,8 +4,6 @@ FROM ghcr.io/truecharts/ubuntu:latest
 ARG TARGETPLATFORM
 ARG VERSION
 
-ENV XDG_CONFIG_HOME=/config
-
 USER root
 
 COPY ./.containers/apps/calibre_web/defaults/ /app
