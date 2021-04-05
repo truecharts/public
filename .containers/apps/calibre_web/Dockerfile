@@ -60,7 +60,7 @@ RUN \
   /usr/bin/kepubify -L \
      https://github.com/pgaskin/kepubify/releases/download/${KEPUBIFY_RELEASE}/kepubify-linux-64bit && \
   && \
-  chmod +x /usr/bin/kepubify
+  chmod +x /usr/bin/kepubify \
   && \
   echo "**** create symlinks for imagemagick policy.xml ****" && \
   [[ -f /etc/ImageMagick-6/policy.xml ]] && \
