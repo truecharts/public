@@ -79,12 +79,6 @@ There are a few known bugs, issues and/or oddities currently in regards to Certi
 Sometimes you might notice Traefik ignores your certificate. This is most likely due to the domain on your certificate, being different from the domain you entered into the reverse proxy host box.
 Traefik requires your certificate to match the domain used for Ingress. This is an upstream design decision and something we can easily and safely disable.
 
-##### ACME certificates not working
-
-Currently as of 05-04-2021 ACME certificates can not be added to containers.
-This is a very annoying problem and we are working with iX on solving this. However: It's rather complicated and a combination of very weird behavior of the middleware and it's dependencies, so we do not have a timeframe for when this is fixed.
-
-
 ##### New certificates not showing without refresh
 
-Currently recently added certificates will not show in the App UI, without hitting the refresh button on top.
+Currently recently added certificates will not show in the App UI, without hitting the button to refresh the App list.
