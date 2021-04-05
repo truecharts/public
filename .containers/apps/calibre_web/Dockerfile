@@ -42,8 +42,9 @@ RUN \
     "https://github.com/janeczku/calibre-web/archive/refs/tags/${VERSION}.tar.gz" \
   && tar ixzf /tmp/calibre-web.tar.gz -C /app --strip-components 1 \
   && \
-  cd /app
-  && pip3 install --no-cache-dir -U \
+  cd /app \
+  && \
+  pip3 install --no-cache-dir -U \
     pip && \
   pip install --no-cache-dir -U -r \
     requirements.txt -r \
