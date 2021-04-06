@@ -69,29 +69,131 @@ questions:
       $ref:
         - "definitions/timezone"
 
-  - variable: PUID
-    group: "Container Image"
-    label: "PUID"
-    description: "The UserID of the user running the application and owning the files"
+  - variable: postgres-operator
+    label: "Postgres-Operator Settings"
+    description: "These settings can be used to customise the postgres-operator"
+    group: "Configuration"
     schema:
-      type: int
-      default: 568
+      type: dict
+      attrs:
+        - variable: fullnameOverride
+          label: "fullnameOverride"
+          schema:
+            hidden: true
+            type: string
+            default: "postgres-operator"
+        - variable: configUsers
+          label: ""
+          schema:
+            hidden: true
+            type: dict
+            attrs:
+              - variable: replication_username
+                label: "replication_username"
+                schema:
+                  hidden: true
+                  type: string
+                  default: "postgres"
+        - variable: configMajorVersionUpgrade
+          label: ""
+          schema:
+            hidden: true
+            type: dict
+            attrs:
+              - variable: major_version_upgrade_mode
+                label: "major_version_upgrade_mode"
+                schema:
+                  hidden: true
+                  type: string
+                  default: "full"
+        - variable: configKubernetes
+          label: ""
+          schema:
+            hidden: true
+            type: dict
+            attrs:
+              - variable: watched_namespace
+                label: "watched_namespace"
+                schema:
+                  hidden: true
+                  type: string
+                  default: "*"
+              - variable: inherited_labels
+                label: "inherited_labels"
+                schema:
+                  hidden: true
+                  type: string
+                  default: "application, environment"
+              - variable: pod_environment_configmap
+                label: "pod_environment_configmap"
+                schema:
+                  hidden: true
+                  type: string
+                  default: "default/envconfig"
 
-  - variable: PGID
-    group: "Container Image"
-    label: "PGID"
-    description: "The groupID of the user/group running the application and owning the files"
-    schema:
-      type: int
-      default: 568
-
-  - variable: UMASK
-    group: "Container Image"
-    label: "UMASK (advanced)"
-    description: "The UMASK used if supported by the application"
-    schema:
-      type: string
-      default: "002"
+        - variable: configGeneral
+          label: ""
+          schema:
+            hidden: true
+            type: dict
+            attrs:
+              - variable: kubernetes_use_configmaps
+                label: "kubernetes_use_configmaps"
+                schema:
+                  hidden: false
+                  type: string
+                  default: "false"
+        - variable: securityContext
+          label: ""
+          schema:
+            type: dict
+            attrs:
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
+        - variable: configLogicalBackup
+          label: "Setup Logical Backup (s3)"
+          schema:
+            type: dict
+            attrs:
+              - variable: logical_backup_s3_access_key_id
+                label: "S3 Access Key ID"
+                schema:
+                  type: string
+                  default: ""
+              - variable: logical_backup_s3_bucket
+                label: "S3 bucket"
+                schema:
+                  type: string
+                  default: "my-bucket-url"
+              - variable: logical_backup_s3_endpoint
+                label: "S3 Endpoint"
+                schema:
+                  type: string
+                  default: ""
+              - variable: logical_backup_s3_region
+                label: "S3 Region"
+                schema:
+                  type: string
+                  default: ""
+              - variable: logical_backup_s3_secret_access_key
+                label: "S3 Secret Access Key"
+                schema:
+                  type: string
+                  default: ""
+              - variable: logical_backup_s3_sse
+                label: "S3 SSE"
+                schema:
+                  type: string
+                  default: "AES256"
+              - variable: logical_backup_schedule
+                label: "Cron format Schedule"
+                schema:
+                  type: string
+                  default: "30 00 * * *"
 
   # Configure Enviroment Variables
   - variable: environmentVariables
@@ -146,14 +248,14 @@ questions:
                     - variable: dynamicServiceName
                       label: "Service name to proxy to"
                       schema:
-                        hidden: false
+                        hidden: true
                         editable: false
                         type: string
                         default: "postgres-operator-ui"
                     - variable: servicePort
                       label: "Service port to proxy to"
                       schema:
-                        hidden: false
+                        hidden: true
                         editable: false
                         type: int
                         default: 80
