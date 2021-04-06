@@ -18,7 +18,7 @@ postgres-operator:
     watched_namespace: "*"
     #list of labels that can be inherited from the cluster manifest
     inherited_labels: application, environment
-    
+
 ingress:
   main:
     enabled: true

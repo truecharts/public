@@ -2,14 +2,15 @@
 
 ![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
-Postgres Operator creates and manages PostgreSQL clusters running in Kubernetes
+phpMyAdmin is an mysql administration frontend
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/zalando/postgres-operator>
+* <https://github.com/bitnami/bitnami-docker-phpmyadmin>
+* <https://www.phpmyadmin.net/>
 
 ## Requirements
 
@@ -19,13 +20,12 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://raw.githubusercontent.com/zalando/postgres-operator/master/charts/postgres-operator-ui/ | postgres-operator-ui | 1.6.2 |
-| https://raw.githubusercontent.com/zalando/postgres-operator/master/charts/postgres-operator/ | postgres-operator | 1.6.2 |
 | https://truecharts.org/ | common | 2.0.0 |
+| https://truecharts.org/ | postgres-cluster | 1.0.0 |
 
 ## Installing the Chart
 
-To install the chart with the release name `postgresql`
+To install the chart with the release name `jackett`
 
 - Open TrueNAS SCALE
 - Go to Apps
@@ -34,7 +34,7 @@ To install the chart with the release name `postgresql`
 
 ## Uninstalling the Chart
 
-To uninstall the `postgresql` deployment
+To uninstall the `jackett` deployment
 
 - Open TrueNAS SCALE
 - Go to Apps
