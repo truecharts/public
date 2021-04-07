@@ -31,42 +31,6 @@ portals:
     path: "/web"
 
 questions:
-  # Image related
-  - variable: image
-    description: "Docker Image Details"
-    label: "Docker Image"
-    group: "Container Images"
-    schema:
-      type: dict
-      required: true
-      attrs:
-        - variable: repository
-          description: "Docker image repository"
-          label: "Image repository"
-          schema:
-            type: string
-            required: true
-            default: "plexinc/pms-docker"
-        - variable: tag
-          description: "Tag to use for specified image"
-          label: "Image Tag"
-          schema:
-            type: string
-            default: "1.20.2.3402-0fec14d92"
-        - variable: pullPolicy
-          description: "Docker Image Pull Policy"
-          label: "Image Pull Policy"
-          schema:
-            type: string
-            default: "IfNotPresent"
-            enum:
-              - value: "IfNotPresent"
-                description: "Only pull image if not present on host"
-              - value: "Always"
-                description: "Always pull image even if present on host"
-              - value: "Never"
-                description: "Never pull image even if it's not present on host"
-
   - variable: claimToken
     label: "Plex Claim Token"
     group: "Plex Configuration"
