@@ -5,6 +5,9 @@ import sys
 
 
 def migrate(values):
+    if values.get('appVolumeMounts'):
+        return values
+
     values.update({
         'appVolumeMounts': {
             'export': {

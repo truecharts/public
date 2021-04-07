@@ -1,4 +1,3 @@
-{{ $scheme := "http" }}
 apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
@@ -29,13 +28,14 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
-          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
+          volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
+          {{- include "minio.tlsKeysVolumeMount" . | nindent 12 }}
           command:
             - "/bin/sh"
             - "-ce"
-            - "/usr/bin/docker-entrypoint.sh minio server /export {{ (.Values.extraArgs | default list) | join " " }}"
+            - "/usr/bin/docker-entrypoint.sh minio -S /etc/minio/certs server /export {{ (.Values.extraArgs | default list) | join " " }}"
           ports:
-            - name: {{ $scheme }}
+            - name: http
               containerPort: 9000
           env:
             {{ $secretName := (include "minio.secretName" .) }}
@@ -44,3 +44,4 @@ spec:
             {{ $envList = mustAppend $envList (dict "name" "MINIO_SECRET_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "secretkey") }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
 {{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
+{{- include "minio.tlsKeysVolume" . | nindent 8 }}

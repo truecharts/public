@@ -2,7 +2,7 @@
 ##
 image:
   repository: minio/minio
-  tag: RELEASE.2020-11-19T23-48-16Z
+  tag: RELEASE.2021-02-19T04-38-02Z
   pullPolicy: IfNotPresent
 
 ## Additional arguments to pass to minio binary
@@ -11,7 +11,7 @@ extraArgs: []
 updateStrategy: RollingUpdate
 
 service:
-  nodePort: 32001
+  nodePort: 32324
 
 environmentVariables: []
   ## Please refer for comprehensive list https://docs.minio.io/docs/minio-server-configuration-guide.html
