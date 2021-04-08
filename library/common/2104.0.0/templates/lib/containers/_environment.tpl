@@ -6,15 +6,15 @@ Render environment variable
 {{- include "common.schema.validateKeys" (dict "values" $envVariable "checkKeys" (list "name")) -}}
 {{- if $envVariable.valueFromSecret -}}
 {{- include "common.schema.validateKeys" (dict "values" $envVariable "checkKeys" (list "secretName" "secretKey")) -}}
-- name: {{ $envVariable.name }}
+- name: {{ $envVariable.name | quote }}
   valueFrom:
     secretKeyRef:
-      name: {{ $envVariable.secretName }}
-      key: {{ $envVariable.secretKey }}
+      name: {{ $envVariable.secretName | quote }}
+      key: {{ $envVariable.secretKey | quote }}
 {{- else -}}
 {{- include "common.schema.validateKeys" (dict "values" $envVariable "checkKeys" (list "value")) -}}
-- name: {{ $envVariable.name }}
-  value: {{ $envVariable.value }}
+- name: {{ $envVariable.name | quote }}
+  value: {{ $envVariable.value | quote }}
 {{- end -}}
 {{- end -}}
 
