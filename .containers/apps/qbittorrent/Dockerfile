@@ -91,7 +91,7 @@ RUN \
       ;; \
   esac \
   && \
-  export LIBTORRENT_DEB="libtorrent-rasterbar10_1.2.12+git20210118.3efdb8a941-1ppa1~20.04_${LIBTORRENT_ARCH}.deb" \
+  export LIBTORRENT_DEB="libtorrent-rasterbar10_1.2.13+git20210323.34a979720b-1ppa1~20.04_${LIBTORRENT_ARCH}.deb" \
   && \
   curl -fsSL -o /tmp/libtorrent-rasterbar.deb \
     "https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable/+files/${LIBTORRENT_DEB}" \
