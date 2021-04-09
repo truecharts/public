@@ -7,6 +7,7 @@
 FROM ghcr.io/truecharts/ubuntu:latest as builder
 
 ARG TARGETPLATFORM
+ARG BUILDPLATFORM
 ARG VERSION
 
 # hadolint ignore=DL3002
@@ -44,8 +45,8 @@ RUN \
       ;; \
   esac \
   && \
-  export LIBTORRENT_DEB="libtorrent-rasterbar10_1.2.12+git20210118.3efdb8a941-1ppa1~20.04_${LIBTORRENT_ARCH}.deb" \
-  && export LIBTORRENT_DEV_DEB="libtorrent-rasterbar-dev_1.2.12+git20210118.3efdb8a941-1ppa1~20.04_${LIBTORRENT_ARCH}.deb" \
+  export LIBTORRENT_DEB="libtorrent-rasterbar10_1.2.13+git20210323.34a979720b-1ppa1~20.04_${LIBTORRENT_ARCH}.deb" \
+  && export LIBTORRENT_DEV_DEB="libtorrent-rasterbar-dev_1.2.13+git20210323.34a979720b-1ppa1~20.04_${LIBTORRENT_ARCH}.deb" \
   && \
   curl -fsSL -o libtorrent-rasterbar.deb \
     "https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable/+files/${LIBTORRENT_DEB}" \
@@ -69,6 +70,7 @@ RUN \
 FROM ghcr.io/truecharts/ubuntu:latest
 
 ARG TARGETPLATFORM
+ARG BUILDPLATFORM
 ARG VERSION
 
 # Proper way to set config directory
@@ -87,17 +89,13 @@ RUN \
     'linux/amd64') \
       export LIBTORRENT_ARCH='amd64'; \
       ;; \
-    'linux/arm64') \
-      export LIBTORRENT_ARCH='arm64'; \
-      ;; \
   esac \
   && \
   export LIBTORRENT_DEB="libtorrent-rasterbar10_1.2.12+git20210118.3efdb8a941-1ppa1~20.04_${LIBTORRENT_ARCH}.deb" \
   && \
-  curl -fsSL -o libtorrent-rasterbar.deb \
+  curl -fsSL -o /tmp/libtorrent-rasterbar.deb \
     "https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable/+files/${LIBTORRENT_DEB}" \
-  && dpkg -i libtorrent-rasterbar.deb \
-  && rm -rf libtorrent-rasterbar.deb \
+  && dpkg -i /tmp/libtorrent-rasterbar.deb \
   && \
   apt-get -qq update \
   && \
