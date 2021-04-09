@@ -1,0 +1,50 @@
+# Default values for Jackett.
+
+image:
+  repository: bitnami/phpmyadmin
+  pullPolicy: IfNotPresent
+  tag: 5.1.0-debian-10-r28
+
+strategy:
+  type: Recreate
+
+startAsRoot: true
+
+services:
+  main:
+    enabled: true
+    port:
+      port: 8080
+
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+
+
+## TrueCharts Values
+
+ingress:
+  main:
+    enabled: true
+    # Used when including ingress using {{ include "common.ingress" . }}
+    type: "HTTP"
+    entrypoint: "websecure"
+    certType: ""
+    annotations: {}
+    hosts:
+      - host: chart-example.local
+        path: /
+
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/config"
