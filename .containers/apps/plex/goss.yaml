@@ -1,0 +1,15 @@
+---
+process:
+  Plex Media Serv:
+    running: true
+
+port:
+  tcp6:32400:
+    listening: true
+
+# # TODO fix this test
+# http:
+#   http://localhost:32400:
+#     status: 200
+#     body:
+#     - '<title>Plex</title>'

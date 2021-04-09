@@ -21,17 +21,27 @@ This template serves as a blueprint for all Service objects that are created
 within the common library.
 */}}
 {{- define "common.classes.service" -}}
-{{- $values := .Values.service -}}
+{{- $values := .Values.services.main -}}
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.service -}}
     {{- $values = . -}}
   {{- end -}}
 {{ end -}}
+
 {{- $serviceName := include "common.names.fullname" . -}}
+
+
 {{- if hasKey $values "nameSuffix" -}}
   {{- $serviceName = printf "%v-%v" $serviceName $values.nameSuffix -}}
 {{ end -}}
 {{- $svcType := $values.type | default "" -}}
+
+{{- $portProtocol := $values.port.protocol -}}
+{{- if or ( eq $values.port.protocol "HTTP" ) ( eq $values.port.protocol "HTTPS" ) ( eq $values.port.protocol "TCP" ) -}}
+{{- $portProtocol = "TCP" -}}
+{{- else if eq $values.port.protocol "UDP" }}
+{{- $portProtocol = "UDP" -}}
+{{- end }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -41,8 +51,11 @@ metadata:
   {{- if $values.labels }}
     {{ toYaml $values.labels | nindent 4 }}
   {{- end }}
-  {{- with $values.annotations }}
   annotations:
+  {{- if eq $values.port.protocol "HTTPS" }}
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+  {{- end }}
+  {{- with $values.annotations }}
     {{ toYaml . | nindent 4 }}
   {{- end }}
 spec:
