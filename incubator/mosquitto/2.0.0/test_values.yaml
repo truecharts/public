@@ -1,0 +1,41 @@
+# Default values for mosquitto.
+
+image:
+  repository: eclipse-mosquitto
+  pullPolicy: IfNotPresent
+  tag: 2.0.10
+
+strategy:
+  type: Recreate
+
+services:
+  main:
+    port:
+      port: 1883
+  ws:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 9001
+      protocol: TCP
+      targetPort: 9001
+
+auth:
+  enabled: false
+
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/mosquitto/config"
+  data:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/mosquitto/data"
+  log:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/mosquitto/log"

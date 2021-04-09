@@ -792,6 +792,44 @@ questions:
                   required: true
                   default: "TCP"
                   hidden: true
+        - variable: mqtt
+          label: "MQTT"
+          schema:
+            type: dict
+            attrs:
+              - variable: port
+                label: "Internal Port"
+                description: "(advanced) Port inside the container network"
+                schema:
+                  type: int
+                  required: true
+                  hidden: true
+                  hide: true
+                  default: 1883
+              - variable: expose
+                label: "Expose to Outside"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: exposedPort
+                label: "Outside Port"
+                description: "Port to the outside of all(!) nodes"
+                schema:
+                  type: int
+                  show_if: [["expose", "=", true]]
+                  required: true
+                  default: 1883
+              - variable: protocol
+                label: "Protocol"
+                description: "TCP or UDP reverse proxying?"
+                schema:
+                  type: string
+                  required: true
+                  default: "TCP"
+                  hidden: true
+
+
 
   - variable: externalServices
     label: "(Advanced) Add External Services"

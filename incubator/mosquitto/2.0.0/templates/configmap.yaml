@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "common.names.fullname" . }}-config
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+data:
+  mosquitto.conf: |
+    listener {{ .Values.services.main.port.port }}
+    {{- if .Values.auth.enabled }}
+    allow_anonymous false
+    {{- else }}
+    allow_anonymous true
+    {{- end }}
+    persistence true
+    persistence_location /mosquitto/config
+    autosave_interval 1800
+    include_dir /mosquitto/data

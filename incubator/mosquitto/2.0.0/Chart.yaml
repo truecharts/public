@@ -1,0 +1,30 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: mosquitto
+version: 2.0.0
+upstream_version: 2.2.0
+appVersion: "auto"
+description: Eclipse Mosquitto - An open source MQTT broker
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/incubator/mosquitto
+icon: https://mosquitto.org/images/mosquitto-text-side-28.png
+keywords:
+  - mosquitto
+  - MQTT
+  - eclipse-iot
+  - broker
+sources:
+  - https://github.com/truecharts/apps/tree/master/incubator/mosquitto
+  - https://github.com/k8s-at-home/charts/tree/master/charts/stable/mosquitto
+  - https://github.com/eclipse/mosquitto
+dependencies:
+  - name: common
+    repository: https://truecharts.org/
+    version: 2.0.2
+    # condition:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+# annotations:
