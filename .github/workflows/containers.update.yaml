@@ -17,8 +17,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        # TODO remove this ref
-        ref: "staging"
         token: ${{ secrets.BOT_TOKEN }}
         fetch-depth: 1
     - name: Fetch new application versions

@@ -22,6 +22,7 @@ on:
       - './LICENSE'
       - './NOTICE'
       - '.github/workflows/docs.copy.yaml'
+      - 'index.yaml'
 
 jobs:
   copy:
@@ -43,6 +44,7 @@ jobs:
 
       - name: Copy general readme to website
         run: |
+          yes | cp -rf index.yaml docs/index.yaml || echo "chart-index copy failed, continuing..."
           yes | cp -rf .github/README.md docs/about/index.md || echo "readme copy failed, continuing..."
           yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
           yes | cp -rf .github/CONTRIBUTING docs/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
