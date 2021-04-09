@@ -53,6 +53,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://schouten-lebbing.nl"><img src="https://avatars.githubusercontent.com/u/7613738?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kjeld Schouten-Lebbing</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=Ornias1993" title="Code">💻</a> <a href="#infra-Ornias1993" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/truecharts/apps/commits?author=Ornias1993" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/djs52"><img src="https://avatars.githubusercontent.com/u/1466018?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dan Sheridan</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=djs52" title="Code">💻</a></td>
     <td align="center"><a href="https://www.cetic.be/Sebastien-Dupont?lang=en"><img src="https://avatars.githubusercontent.com/u/2684865?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sebastien Dupont</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=banzo" title="Documentation">📖</a></td>
   </tr>
 </table>
