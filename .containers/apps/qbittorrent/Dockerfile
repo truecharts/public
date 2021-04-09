@@ -39,14 +39,13 @@ RUN \
 # Install lintorrent-rasterbar dependencies
 RUN \
   case "${TARGETPLATFORM}" in \
-    'linux/amd64') export ARCH='amd64' ;; \
+    'linux/amd64') \
+      export LIBTORRENT_ARCH='amd64'; \
+      ;; \
   esac \
-  && echo "arch: ${ARCH}" \
   && \
-  export LIBTORRENT_DEB="libtorrent-rasterbar10_1.2.12+git20210118.3efdb8a941-1ppa1~20.04_${ARCH}.deb" \
-  && export LIBTORRENT_DEV_DEB="libtorrent-rasterbar-dev_1.2.12+git20210118.3efdb8a941-1ppa1~20.04_${ARCH}.deb" \
-  && echo "libtorrent deb: ${LIBTORRENT_DEB}" \
-  && echo "libtorrent-dev deb: ${LIBTORRENT_DEB}" \
+  export LIBTORRENT_DEB="libtorrent-rasterbar10_1.2.12+git20210118.3efdb8a941-1ppa1~20.04_${LIBTORRENT_ARCH}.deb" \
+  && export LIBTORRENT_DEV_DEB="libtorrent-rasterbar-dev_1.2.12+git20210118.3efdb8a941-1ppa1~20.04_${LIBTORRENT_ARCH}.deb" \
   && \
   curl -fsSL -o libtorrent-rasterbar.deb \
     "https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable/+files/${LIBTORRENT_DEB}" \
@@ -60,14 +59,11 @@ RUN \
 
 # Compile qbitorrent
 RUN \
-  git clone --depth 1 -b release-${VERSION} https://github.com/qbittorrent/qBittorrent.git . \
-  && \
-  case "${TARGETPLATFORM}" in \
-    'linux/arm/v7') export EXTRA_CFG_ARG="--with-boost-libdir=/usr/lib/arm-linux-gnueabihf" ;; \
-  esac \
-  && ./configure ${EXTRA_CFG_ARG} --disable-gui --disable-stacktrace \
+  git clone --depth 1 -b "release-${VERSION}" https://github.com/qbittorrent/qBittorrent.git . \
+  && ./configure "${EXTRA_CFG_ARG}" --disable-gui --disable-stacktrace --disable-qt-dbus \
   && make \
-  && make install
+  && make install \
+  && strip /usr/local/bin/qbittorrent-nox -o /usr/local/bin/qbittorrent-nox-stripped
 
 # hadolint ignore=DL3007
 FROM ghcr.io/truecharts/ubuntu:latest
@@ -83,15 +79,20 @@ ENV HOME=/config \
 
 USER root
 
-COPY --from=builder /usr/local/bin/qbittorrent-nox /app/qbittorrent-nox
+COPY --from=builder /usr/local/bin/qbittorrent-nox-stripped /app/qbittorrent-nox
 
 # hadolint ignore=DL3008,DL3015,SC2086
 RUN \
   case "${TARGETPLATFORM}" in \
-    'linux/amd64') export ARCH='amd64' ;; \
+    'linux/amd64') \
+      export LIBTORRENT_ARCH='amd64'; \
+      ;; \
+    'linux/arm64') \
+      export LIBTORRENT_ARCH='arm64'; \
+      ;; \
   esac \
   && \
-  export LIBTORRENT_DEB="libtorrent-rasterbar10_1.2.12+git20210118.3efdb8a941-1ppa1~20.04_${ARCH}.deb" \
+  export LIBTORRENT_DEB="libtorrent-rasterbar10_1.2.12+git20210118.3efdb8a941-1ppa1~20.04_${LIBTORRENT_ARCH}.deb" \
   && \
   curl -fsSL -o libtorrent-rasterbar.deb \
     "https://launchpad.net/~qbittorrent-team/+archive/ubuntu/qbittorrent-stable/+files/${LIBTORRENT_DEB}" \
