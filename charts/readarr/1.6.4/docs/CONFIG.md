@@ -1,3 +1,0 @@
-# Configuration Options
-
-N/A

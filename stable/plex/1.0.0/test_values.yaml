@@ -1,0 +1,54 @@
+# Default values for Plex.
+
+image:
+  repository: ghcr.io/truecharts/plex
+  pullPolicy: IfNotPresent
+  tag: v1.22.0.4163-d8c4875dd
+
+strategy:
+  type: Recreate
+
+# 44=video 107=render
+supplementalGroups: 44,107
+
+services:
+  main:
+    port:
+      port: 32400
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+
+  media:
+    enabled: false
+    emptyDir: false
+    mountPath: /media
+    ## Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    # storageClass: "-"
+    # accessMode: ReadWriteOnce
+    # size: 1Gi
+    ## Do not delete the pvc upon helm uninstall
+    # skipuninstall: false
+    # existingClaim: ""
+
+## TrueCharts Config
+
+
+appVolumeMounts:
+  config:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/config"
+  media:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/media"

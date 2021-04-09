@@ -1,0 +1,14 @@
+---
+process:
+  qbittorrent-nox:
+    running: true
+
+port:
+  tcp6:8080:
+    listening: true
+
+http:
+  http://localhost:8080:
+    status: 200
+    body:
+    - '<title>qBittorrent Web UI</title>'

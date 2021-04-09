@@ -1,14 +1,58 @@
 image:
   repository: b4bz/homer
-  tag: latest
+  tag: 21.03.1
   pullPolicy: IfNotPresent
 
-service:
-  port:
-    port: 8080
+services:
+  main:
+    port:
+      port: 8080
+  test1:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8081
+      name: tcp-test
+      protocol: TCP
+      targetPort: 8081
+  test2:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8082
+      name: udp-test
+      protocol: UDP
+      targetPort: 8082
+
+additionalServices:
+  - name: test3
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8083
+      name: extra-tcp-test
+      protocol: TCP
+      targetPort: 8083
+  - name: test4
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8084
+      name: extra-udp-test
+      protocol: UDP
+      targetPort: 8084
 
 ingress:
-  enabled: true
+  test1:
+    enabled: true
+  test2:
+    enabled: true
+
+additionalIngress:
+  - name: "test3"
+    enabled: true
+  - name: "test4"
+    enabled: true
 
 # these values and names are set specifically with the unittests in mind.
 fixMountPermissions: false
@@ -44,22 +88,3 @@ additionalAppVolumeMounts:
     mountPath: "/test4"
     hostPathEnabled: true
     hostPath: "/tmp"
-
-appAdditionalServicesEnabled: true
-appAdditionalServices:
-  extra-tcp:
-    enabled: true
-    type: ClusterIP
-    port:
-      port: 51414
-      name: tcp-test
-      protocol: TCP
-      targetPort: 51414
-  extra-udp:
-    enabled: true
-    type: ClusterIP
-    port:
-      port: 51414
-      name: udp-test
-      protocol: UDP
-      targetPort: 51414

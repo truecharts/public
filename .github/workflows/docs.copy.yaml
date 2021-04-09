@@ -1,0 +1,93 @@
+name: "Docs: Copy"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - '**'
+    paths:
+      - 'library/**/Chart.yaml'
+      - '.tools/gen-helm-docs.sh'
+      - '.tools/templates/docs/**'
+      - '.tools/templates/app/*.gotmpl'
+      - '**.gotmpl'
+      - '**/LICENSE'
+      - '**LICENSE'
+      - '**.md'
+      - '.github/README.md'
+      - '.github/CODE_OF_CONDUCT'
+      - '.github/CONTRIBUTING'
+      - './LICENSE'
+      - './NOTICE'
+      - '.github/workflows/docs.copy.yaml'
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    name: "Copy"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: install helm-docs
+        run: |
+          brew install norwoodj/tap/helm-docs
+
+      - name: (re)generate docs
+        run: |
+          .tools/gen-helm-docs.sh
+
+      - name: Copy general readme to website
+        run: |
+          yes | cp -rf .github/README.md docs/about/index.md || echo "readme copy failed, continuing..."
+          yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          yes | cp -rf .github/CONTRIBUTING docs/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          yes | cp -rf LICENSE docs/about/LICENSE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# License<br>\n\n/' docs/about/LICENSE.md
+          yes | cp -rf NOTICE docs/about/NOTICE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# NOTICE<br>\n\n/' docs/about/NOTICE.md
+          ls docs/
+
+      - name: Copy stable Apps readme to website
+        run: |
+          for chart in stable/*; do
+            if [ -d "${chart}" ]; then
+                maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
+                chartname=$(basename ${chart})
+                echo "Processing: ${chart} - folder: ${maxfolderversion}"
+                mkdir -p docs/apps/stable/${chartname} || echo "app path already exists, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/stable/${chartname}/index.md || echo "readme copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/CONFIG.md docs/apps/stable/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/stable/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                sed -i '1s/^/# License<br>\n\n/' docs/apps/stable/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
+            fi
+          done
+          ls docs/apps/stable/
+
+      - name: Copy incubator Apps readme to website
+        run: |
+          for chart in incubator/*; do
+            if [ -d "${chart}" ]; then
+                maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
+                chartname=$(basename ${chart})
+                echo "Processing: ${chart} - folder: ${maxfolderversion}"
+                mkdir -p docs/apps/incubator/${chartname} || echo "app path already exists, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/incubator/${chartname}/index.md || echo "readme copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/CONFIG.md docs/apps/incubator/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
+                yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/incubator/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                sed -i '1s/^/# License<br>\n\n/' docs/apps/incubator/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
+            fi
+          done
+          ls docs/apps/incubator/
+
+      - name: Commit and Push updated docs
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit docs updates" || exit 0
+          git push
