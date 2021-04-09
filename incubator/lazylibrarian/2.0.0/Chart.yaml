@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: lazylibrarian
-version: 2.0.0
+version: 2.0.1
 upstream_version: 2.1.0
 appVersion: "latest"
 description: Get all your books, like series with Sonarr...
@@ -20,7 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 2.0.0
+    version: 2.0.2
     # condition:
 maintainers:
   - name: TrueCharts

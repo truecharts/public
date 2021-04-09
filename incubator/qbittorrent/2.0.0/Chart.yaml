@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: qbittorrent
-version: 2.0.0
+version: 2.0.1
 upstream_version: 7.2.1
 appVersion: "auto"
 description: qBittorrent is a cross-platform free and open-source BitTorrent client
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 2.0.0
+    version: 2.0.2
     # condition:
 maintainers:
   - name: TrueCharts

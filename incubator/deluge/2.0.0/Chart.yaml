@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: deluge
-version: 2.0.0
+version: 2.0.1
 # upstream_version:
 appVersion: "auto"
 description: Deluge App for TrueNAS SCALE
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 2.0.0
+    version: 2.0.2
     # condition:
 maintainers:
   - name: TrueCharts
