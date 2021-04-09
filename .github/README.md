@@ -43,6 +43,21 @@ A lot of our work is based on the great effort of others. We would love to exten
 | <a href="https://www.truenas.com/truenas-scale/">TrueNAS SCALE</a> |  <a href="https://k8s-at-home.com/">K8S-At-Home</a> | <a href="https://traefik.io/traefik/">Traefik</a> |
 
 
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
 ## Licence
 
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-orange.svg?style=for-the-badge)](https://github.com/truecharts/apps/blob/master/docs/LICENSE.BSD3)
