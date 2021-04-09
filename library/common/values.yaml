@@ -32,7 +32,6 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-
 env: {}
   # TZ: UTC
 
@@ -85,6 +84,7 @@ enableServiceLinks: true
 podSecurityContext: {}
 
 # Configure the Security Context for the main container
+# PUID and PGID gets added automatically!
 securityContext: {}
 
 initContainers: []
