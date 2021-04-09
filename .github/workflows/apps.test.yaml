@@ -22,6 +22,8 @@ on:
       - '!incubator/**/app-readme.md.gotmpl'
       - '!incubator/**/docs/*'
       - '.github/workflows/apps.test.yaml'
+      - '.github/ct-install.yaml'
+      - '.github/ct-lint.yaml'
 
 jobs:
   catalog-test:
