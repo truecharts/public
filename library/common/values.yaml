@@ -32,6 +32,7 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+
 env: {}
   # TZ: UTC
 
@@ -240,6 +241,29 @@ persistence:
     emptyDir: true
     mountPath: /shared
 
+# Special PVC instance, that does get affected by putting "persistence" into questions.yaml
+backupPersistence:
+  buildinBackup:
+    enabled: true
+    nameOverride: "buildinBackup"
+    ## configuration data Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    ## storageClass: "-"
+    ##
+    ## If you want to reuse an existing claim, you can pass the name of the PVC using
+    ## the existingClaim variable
+    # existingClaim: your-claim
+    # subPath: some-subpath
+    accessMode: ReadWriteOnce
+    size: 100Gi
+    ## Set to true to retain the PVC upon helm uninstall
+    skipuninstall: false
+
 additionalVolumes: []
 
 additionalVolumeMounts: []
@@ -312,3 +336,58 @@ fixMountPermissions: true
 #     hostPathEnabled: false
 #     hostPath: ""
 #     setPermissions: true
+
+
+#### DB Values
+
+# See all operator values at https://github.com/zalando/postgres-operator/blob/master/docs/reference/cluster_manifest.md
+postgresql:
+  # -- team Id for the DB cluster
+  teamId:
+  # -- Number of replicas
+  # It will be automatically set with the number of replicaNodes so any values set here are ignored.
+  numberOfInstances: 1
+  # -- DB users to create (see operator)
+  users:
+    postgres:
+    - superuser
+    - createdb
+
+  # -- databases to create and their user
+  databases:
+    postgres: postgres
+  postgresql:
+    # -- Postgres version to deploy - see which versions are supported by the operator
+    version: "13"
+
+dbsuperuser:
+  # -- Superuser user used for cronjobs
+  # @default -- first user in postgresql.users
+  user:
+  # -- Superuser password
+  # @default -- randomly generated on first install of the chart
+  password:
+  # -- Superuser k8s secret name. It must match the patter used by the operator
+  # @default -- <user>.<db name>.credentials.postgresql.acid.zalan.do
+  secret:
+
+
+dbBackup:
+  # Enable backups to a PVC
+  # defaults to our default buildinBackup PVC, but can be overridden in the future
+  existingClaim: buildinBackup
+  # -- Backup schedule for postgres dumps
+  schedule: "@daily"
+  # -- Persistent volume claim subpath prefix for the backups
+  subpathPrefix: "backup/db"
+  # -- Persistent volume claim subpath for the backups
+  # @default: <subpathPrefix/<release-name>
+  subpath:
+  image:
+    repository: postgres
+    pullPolicy: IfNotPresent
+    tag: latest
+  resources:
+    requests:
+      memory: "10Mi"
+      cpu: "5m"
