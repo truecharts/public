@@ -67,7 +67,5 @@ for chart in incubator/*; do
           --output-file="app-readme.md" \
           --template-files="${repository}/.tools/templates/docs/app-readme.md.gotmpl" \
           --chart-search-root="${chart}/${maxfolderversion}"
-
-
   fi
 done
