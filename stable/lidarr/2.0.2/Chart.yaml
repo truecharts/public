@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: lidarr
-version: 2.0.2
+version: 2.1.0
 upstream_version: 7.1.0
 appVersion: "auto"
 description: Looks and smells like Sonarr but made for music
@@ -21,7 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 2.0.3
+    version: 2.1.4
     # condition:
 maintainers:
   - name: TrueCharts
