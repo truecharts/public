@@ -21,6 +21,13 @@ on:
       - '!incubator/**/app-readme.md'
       - '!incubator/**/app-readme.md.gotmpl'
       - '!incubator/**/docs/*'
+      - 'dev/**'
+      - '!dev/**/*.md'
+      - '!dev/**/README.md'
+      - '!dev/**/README.md.gotmpl'
+      - '!dev/**/app-readme.md'
+      - '!dev/**/app-readme.md.gotmpl'
+      - '!dev/**/docs/*'
       - '.github/workflows/apps.test.yaml'
       - '.github/ct-install.yaml'
       - '.github/ct-lint.yaml'
@@ -54,6 +61,7 @@ jobs:
           changed:
           - 'stable/**'
           - 'incubator/**'
+          - 'dev/**'
     - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
     - id: reduce
       run: |
@@ -78,8 +86,10 @@ jobs:
         run: |
             if test -f "./stable/${{ matrix.app }}/item.yaml"; then
               train="stable"
-            else
+            elif test -f "./incubator/${{ matrix.app }}/item.yaml"; then
               train="incubator"
+            else
+              train="dev"
             fi
             echo ::set-output name=train::${train}
             maxfolderversion=$(ls -l ${train}/${{ matrix.app }} | grep ^d | awk '{print $9}' | tail -n 1)

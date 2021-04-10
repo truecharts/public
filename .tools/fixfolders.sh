@@ -29,7 +29,7 @@ for chart in stable/*; do
 done
 
 
-for chart in beta/*; do
+for chart in dev/*; do
   if [ -d "${chart}" ]; then
       maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
       maxchartversion=$(cat ${chart}/${maxfolderversion}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
