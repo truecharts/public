@@ -8,10 +8,10 @@
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 5,
   "helm-values": {
-    "fileMatch": ["stable/.+/.+/.*_values\\.yaml$", "incubator/.+/.+/.*_values\\.yaml$"]
+    "fileMatch": ["stable/.+/.+/.*_values\\.yaml$", "incubator/.+/.+/.*_values\\.yaml$", "dev/.+/.+/.*_values\\.yaml$"]
   },
   "helmv3": {
-    "fileMatch": ["stable/.+/.+/Chart\\.yaml$", "incubator/.+/.+/Chart\\.yaml$"]
+    "fileMatch": ["stable/.+/.+/Chart\\.yaml$", "incubator/.+/.+/Chart\\.yaml$", "dev/.+/.+/Chart\\.yaml$"]
   },
   "packageRules": [
     // Setup datasources for dep updates
