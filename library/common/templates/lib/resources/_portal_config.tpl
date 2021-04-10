@@ -57,6 +57,7 @@ data:
   protocol: {{ $protocol }}
   host: {{ $host }}
   port: {{ $port | quote }}
+  url: {{ printf "%v%v%v%v%v" $protocol "://" $host ":" $port }}
 
 {{- end }}
 {{- end }}
