@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: postgres-operator
-version: 0.0.1
+version: 0.0.2
 upstream_version: 1.6.2
 appVersion: "auto"
 description: Postgres Operator creates and manages PostgreSQL clusters running in Kubernetes
@@ -24,7 +24,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 2.0.2
+    version: 2.0.3
     # condition:
   - name: postgres-operator-ui
     repository: https://raw.githubusercontent.com/zalando/postgres-operator/master/charts/postgres-operator-ui/
