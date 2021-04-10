@@ -28,6 +28,11 @@ within the common library.
 
 {{- $svcName := $values.serviceName | default $ingressName -}}
 
+{{- if $values.dynamicServiceName }}
+  {{- $dynamicServiceName := printf "%v-%v" .Release.Name $values.dynamicServiceName -}}
+  {{- $svcName = $dynamicServiceName -}}
+{{- end }}
+
 {{- if $values.servicePort }}
   {{- $svcPort = $values.servicePort -}}
 {{- end }}

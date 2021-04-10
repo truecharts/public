@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: envconfig
+  namespace: default
+data:
+  KUBERNETES_BYPASS_API_SERVICE: "false"
