@@ -243,9 +243,9 @@ persistence:
 
 # Special PVC instance, that does get affected by putting "persistence" into questions.yaml
 backupPersistence:
-  buildinBackup:
+  buildinbackup:
     enabled: true
-    nameOverride: "buildinBackup"
+    nameOverride: buildinbackup
     ## configuration data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -374,8 +374,8 @@ dbsuperuser:
 
 dbBackup:
   # Enable backups to a PVC
-  # defaults to our default buildinBackup PVC, but can be overridden in the future
-  existingClaim: buildinBackup
+  # defaults to our default buildinbackup PVC, but can be overridden in the future
+  existingClaim: buildinbackup
   # -- Backup schedule for postgres dumps
   schedule: "@daily"
   # -- Persistent volume claim subpath prefix for the backups
