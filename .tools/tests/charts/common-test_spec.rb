@@ -323,6 +323,7 @@ class Test < ChartTest
       defaultProtocol = "https"
       defaultHost = "$node_ip"
       defaultPort = "443"
+      defaulturl = "https://$node_ip:443"
       testNodePort = "666"
       testIngressPort = "888"
       it 'No portal (=configmap) is created by default' do
@@ -340,6 +341,7 @@ class Test < ChartTest
         jq('.data.protocol', resource('ConfigMap')).must_equal defaultProtocol
         jq('.data.host', resource('ConfigMap')).must_equal defaultHost
         jq('.data.port', resource('ConfigMap')).must_equal defaultPort
+        jq('.data.url', resource('ConfigMap')).must_equal defaulturl
       end
 
       it 'portal port can be based on NodePort' do
