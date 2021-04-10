@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: tautulli
-version: 2.0.1
+version: 2.0.2
 upstream_version: 7.0.1
 appVersion: "auto"
 description: A Python based monitoring and tracking tool for Plex Media Server
@@ -20,7 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 2.0.2
+    version: 2.0.3
     # condition:
 maintainers:
   - name: TrueCharts
