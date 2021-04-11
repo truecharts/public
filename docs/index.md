@@ -7,7 +7,7 @@ hide:
 
 TrueCharts is the community that maintains TrueCharts.
 
-### TrueCharts
+# TrueCharts
 TrueCharts is a catalog of highly optimised TrueNAS SCALE Apps. Made for the community, By the community!
 If you are interested in using TrueCharts, please visit us on github [github](https://github.com/truecharts/apps/)
 
