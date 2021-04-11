@@ -6,7 +6,8 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/truecharts/apps?color=brightgreen&logoColor=white&style=for-the-badge)](https://github.com/truecharts/apps/commits)
 
 ---
-Truecharts is an innitiative to provide high quality Apps to use with the TrueNAS SCALE App Ecosystem.
+TrueCharts is a catalog of highly optimised TrueNAS SCALE Apps. Made for the community, By the community!
+
 Our primary goals are:
 - Micro-Service Centered
 - Native Kubernetes
