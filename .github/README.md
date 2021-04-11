@@ -57,6 +57,16 @@ Creating charts takes some getting used to, as it's based on Helm charts. We hig
 
 For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/development)
 
+
+## Contact and Support
+
+To contact the TrueCharts project:
+- Create an issue on [Github issues](https://github.com/truecharts/apps/issues)
+- Open a discussion on [GitHub Discussions](https://github.com/truecharts/apps/discussions)
+- Send us an [email](mailto://info@truecharts.org)
+- Or [join our Discord server](https://truecharts.org/discord)
+
+
 ## Featured Projects
 
 A lot of our work is based on the great effort of others. We would love to extend special thanks to these projects we owe a lot to:
@@ -95,15 +105,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
-
-
-## Contact and Support
-
-To contact the TrueCharts project:
-- Create an issue on [Github issues](https://github.com/truecharts/apps/issues)
-- Open a discussion on [GitHub Discussions](https://github.com/truecharts/apps/discussions)
-- Send us an [email](mailto://info@truecharts.org)
-- Or [join our Discord server](https://truecharts.org/discord)
 
 
 ## Licence
