@@ -47,6 +47,7 @@ jobs:
           yes | cp -rf index.yaml docs/index.yaml || echo "chart-index copy failed, continuing..."
           yes | cp -rf .github/README.md docs/index.md || echo "readme copy failed, continuing..."
           sed -i '1s/^/---\nhide:\n  - navigation\n  - toc\n---\n/' docs/index.md
+          sed -i 's,<!-- INSERT-DISCORD-WIDGET -->,<iframe src="https://discord.com/widget?id=830763548678291466&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>,g' docs/index.md
           yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
           yes | cp -rf .github/CONTRIBUTING docs/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
           yes | cp -rf LICENSE docs/about/legal/LICENSE.md || echo "license copy failed, continuing..."
