@@ -16,7 +16,6 @@ extra:
     generator: false
 
 theme:
-  scheme: slate
   name: 'material'
   language: 'en'
   icon:
@@ -29,6 +28,8 @@ theme:
   - search.highlight
   - search.share
   - search.suggest
+  palette:
+    scheme: slate
   font:
     text: Roboto
     code: Roboto Mono
