@@ -19,21 +19,43 @@ Our primary goals are:
 
 All our apps are supposed to work together, be easy to setup using the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
 
-
 ## Getting started using TrueCharts
 Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
 For more information:
 https://truecharts.org/manual/adding-truecharts/
 
-## FAQ
+### Support
 
-Please refer to our [FAQ](https://truecharts.org/about/FAQ/) and [Issue tracker](https://github.com/truecharts/apps/issues) before creating an issue.
-There is a significant chance your issue has been reported before!
+Please check our [FAQ](https://truecharts.org/about/FAQ/), [manual](https://truecharts.org/manual) and [Issue tracker](https://github.com/truecharts/apps/issues) There is a significant chance your issue has been reported before!
 
-## Getting into creating Apps
+Still something not working as expected? [Contact us!](https://truecharts.org/about/contact/) and we'll figure it out together!
+
+
+### Development
+
+Our development proces is fully distributed and agile, every chart-maintainer is free to set their own roadmap and development speed and does not have to comply to a centralised roadmap.
+
+This ensures freedom and flexibility for everyone involved and makes sure you, the end user, always has the latest and greated of every App installed.
+
+#### Roadmap
+
+However for big "breaking" changes we do have a roadmap during the ALPHA and BETA stages of TrueNAS SCALE.
+Assuming the release dates of TrueNAS SCALE will keep following the previous 2 months between releases, we will have the following big milestones:
+
+---
+
+- TrueCharts DB Edition - TrueNAS SCALE 21.06
+
+_This release will focus on adding a solid framework of using (and adding) databases to Apps within TrueCharts. This will lead to significantly more App possibilities and performance increases for existing Apps._
+
+---
+
+#### Getting into creating Apps
 
 Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior knowhow on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
+
+For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/development)
 
 ## Featured Projects
 
@@ -81,8 +103,7 @@ To contact the TrueCharts project:
 - Create an issue on [Github issues](https://github.com/truecharts/apps/issues)
 - Open a discussion on [GitHub Discussions](https://github.com/truecharts/apps/discussions)
 - Send us an [email](mailto://info@truecharts.org)
-
-Or [join our Discord server](https://truecharts.org/discord)
+- Or [join our Discord server](https://truecharts.org/discord)
 
 
 ## Licence
