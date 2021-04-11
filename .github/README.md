@@ -84,8 +84,6 @@ To contact the TrueCharts project:
 
 Or [join our Discord server](https://truecharts.org/discord)
 
-<iframe src="https://discord.com/widget?id=830763548678291466&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-
 
 ## Licence
 
