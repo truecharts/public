@@ -3,7 +3,7 @@ hide:
   - navigation
   - toc
 ---
-## About TrueCharts<br>
+# About TrueCharts<br>
 **Community App Catalog for TrueNAS SCALE**
 
 [![docs](https://img.shields.io/badge/docs-rtfm-yellow?logo=gitbook&logoColor=white&style=for-the-badge)](https://truecharts.org/)
