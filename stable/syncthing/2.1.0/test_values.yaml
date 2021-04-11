@@ -17,6 +17,9 @@ persistence:
   config:
     enabled: false
     emptyDir: false
+  storage:
+    enabled: false
+    emptyDir: false
 
 ## TrueCharts Config
 
@@ -25,4 +28,9 @@ appVolumeMounts:
     enabled: true
     emptyDir: true
     setPermissions: true
-    mountPath: "/config"
+    mountPath: "/var/syncthing/"
+  storage:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/var/syncthing/storage"
