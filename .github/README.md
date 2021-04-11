@@ -85,6 +85,10 @@ To contact the TrueCharts project:
 
 <br>
 
+<!-- INSERT-DISCORD-WIDGET -->
+
+<br>
+
 
 ## Featured Projects
 
