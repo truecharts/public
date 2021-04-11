@@ -90,7 +90,7 @@ To contact the TrueCharts project:
 
 <br>
 
-<iframe src="https://discord.com/widget?id=830763548678291466<!-- INSERT-DISCORD-WIDGET -->theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+<iframe src="https://discord.com/widget?id=830763548678291466&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
 <br>
 
