@@ -1,0 +1,28 @@
+# Default values for Syncthing.
+
+image:
+  repository: syncthing/syncthing
+  pullPolicy: IfNotPresent
+  tag: 1.15
+
+strategy:
+  type: Recreate
+
+services:
+  main:
+    port:
+      port: 8384
+
+persistence:
+  config:
+    enabled: false
+    emptyDir: false
+
+## TrueCharts Config
+
+appVolumeMounts:
+  storage:
+    enabled: true
+    emptyDir: true
+    setPermissions: true
+    mountPath: "/var/syncthing/"
