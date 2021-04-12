@@ -42,6 +42,5 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{ include "common.ingress" .  | nindent 0 }}
   {{ include "common.resources.portal" .  | nindent 0 }}
   {{ include "common.storage.permissions" .  | nindent 0 }}
-  {{ include "common.resources.postgres" .  | nindent 0 }}
 
 {{- end -}}
