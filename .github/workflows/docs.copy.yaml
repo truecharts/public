@@ -50,6 +50,7 @@ jobs:
           sed -i 's~<!-- INSERT-DISCORD-WIDGET -->~<iframe src="https://discord.com/widget?id=830763548678291466\&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>~g' docs/index.md
           yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
           yes | cp -rf .github/CONTRIBUTING docs/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          yes | cp -rf .github/SUPPORT.md docs/manual/SUPPORT.md || echo "support policy copy failed, continuing..."
           yes | cp -rf LICENSE docs/about/legal/LICENSE.md || echo "license copy failed, continuing..."
           sed -i '1s/^/# License<br>\n\n/' docs/about/legal/LICENSE.md
           yes | cp -rf NOTICE docs/about/legal/NOTICE.md || echo "license copy failed, continuing..."
