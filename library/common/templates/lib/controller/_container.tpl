@@ -76,7 +76,7 @@ The main container included in the controller.
   {{- include "common.controller.ports" . | trim | nindent 2 }}
   volumeMounts:
   {{- range $index, $PVC := .Values.persistence }}
-  {{- if $PVC.enabled }}
+  {{- if and ( $PVC.enabled ) ( $PVC.mountPath ) }}
   - mountPath: {{ $PVC.mountPath }}
     name: {{ $index }}
   {{- if $PVC.subPath }}
