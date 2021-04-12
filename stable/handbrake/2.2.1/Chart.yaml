@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: handbrake
-version: 2.2.1
+version: 2.2.2
 # upstream_version:
 appVersion: "auto"
 description: HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.
@@ -21,7 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 2.2.1
+    version: 2.2.2
     # condition:
 maintainers:
   - name: TrueCharts
