@@ -1,0 +1,54 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: bitwardenrs/server
+  pullPolicy: IfNotPresent
+  tag: 1.20.0
+
+envTpl:
+  DOMAIN: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}https://{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ end }}{{ end }}"
+
+envFrom:
+  - configMapRef:
+      name: bitwardenconfig
+  - secretRef:
+      name: bitwardensecret
+
+
+envValueFrom:
+  DATABASE_URL:
+    secretKeyRef:
+      name: dbcreds
+      key: url
+
+database:
+  # Database type, must be one of: 'sqlite', 'mysql' or 'postgresql'.
+  type: postgresql
+  # Enable DB Write-Ahead-Log for SQLite, disabled for other databases. https://github.com/dani-garcia/bitwarden_rs/wiki/Running-without-WAL-enabled
+  wal: false
+  ## URL for external databases (mysql://user:pass@host:port or postgresql://user:pass@host:port).
+  # url: ""
+  ## Set the size of the database connection pool.
+  # maxConnections: 10
+  ## Connection retries during startup, 0 for infinite. 1 second between retries.
+  retries: 30
+
+# Enabled postgres
+# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+postgresql:
+  enabled: true
+  postgresqlUsername: homeassistant
+  postgresqlDatabase: homeassistant
+  existingSecret: dbcreds
+  persistence:
+    enabled: true
+    existingClaim: db
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##
