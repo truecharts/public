@@ -1,0 +1,279 @@
+# Default values for Traefik
+image:
+  name: traefik
+  # defaults to appVersion
+  tag: v2.4
+  pullPolicy: IfNotPresent
+
+
+traefik:
+  globalArguments:
+    - "--global.checknewversion"
+
+  ##
+  # Configure Traefik static configuration
+  # Additional arguments to be passed at Traefik's binary
+  # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
+  ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
+  additionalArguments:
+  #  - "--providers.kubernetesingress.ingressclass=traefik-internal"
+  #  - "--log.level=DEBUG"
+  #  - "--metrics.prometheus"
+    - "--entrypoints.websecure.http.tls"
+    - "--ping"
+    - "--serverstransport.insecureskipverify=true"
+
+  # Configure ports
+  ports:
+    # The name of this one can't be changed as it is used for the readiness and
+    # liveness probes, but you can adjust its config to your liking
+    traefik:
+      port: 9000
+      # Use hostPort if set.
+      # hostPort: 9000
+      #
+      # Use hostIP if set. If not set, Kubernetes will default to 0.0.0.0, which
+      # means it's listening on all your interfaces and all your IPs. You may want
+      # to set this value if you need traefik to listen on specific interface
+      # only.
+      # hostIP: 192.168.100.10
+
+      # Defines whether the port is exposed if service.type is LoadBalancer or
+      # NodePort.
+      #
+      # You SHOULD NOT expose the traefik port on production deployments.
+      # If you want to access it from outside of your cluster,
+      # use `kubectl port-forward` or create a secure ingress
+      expose: false
+      # The exposed port for this service
+      exposedPort: 9000
+      # The port protocol (TCP/UDP)
+      protocol: TCP
+    web:
+      port: 8000
+      # hostPort: 8000
+      expose: true
+      exposedPort: 80
+      # The port protocol (TCP/UDP)
+      protocol: TCP
+      # Use nodeport if set. This is useful if you have configured Traefik in a
+      # LoadBalancer
+      # nodePort: 32080
+      # Port Redirections
+      # Added in 2.2, you can make permanent redirects via entrypoints.
+      # https://docs.traefik.io/routing/entrypoints/#redirection
+      redirectTo: websecure
+    websecure:
+      port: 8443
+      # hostPort: 8443
+      expose: true
+      exposedPort: 443
+      # The port protocol (TCP/UDP)
+      protocol: TCP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    plex:
+      port: 32400
+      # hostPort: 8443
+      expose: true
+      exposedPort: 32400
+      # The port protocol (TCP/UDP)
+      protocol: TCP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    kms:
+      port: 51688
+      # hostPort: 8443
+      expose: true
+      exposedPort: 1688
+      # The port protocol (TCP/UDP)
+      protocol: TCP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    dns-tcp:
+      port: 5353
+      # hostPort: 8443
+      expose: true
+      exposedPort: 5353
+      # The port protocol (TCP/UDP)
+      protocol: TCP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    dns-udp:
+      port: 5353
+      # hostPort: 8443
+      expose: true
+      exposedPort: 5353
+      # The port protocol (TCP/UDP)
+      protocol: UDP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    stun-tcp:
+      port: 3478
+      # hostPort: 8443
+      expose: true
+      exposedPort: 3478
+      # The port protocol (TCP/UDP)
+      protocol: TCP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    stun-udp:
+      port: 3478
+      # hostPort: 8443
+      expose: true
+      exposedPort: 3478
+      # The port protocol (TCP/UDP)
+      protocol: UDP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    torrent-tcp:
+      port: 51413
+      # hostPort: 8443
+      expose: true
+      exposedPort: 51413
+      # The port protocol (TCP/UDP)
+      protocol: TCP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    torrent-udp:
+      port: 51413
+      # hostPort: 8443
+      expose: true
+      exposedPort: 51413
+      # The port protocol (TCP/UDP)
+      protocol: UDP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    radius:
+      port: 51812
+      # hostPort: 8443
+      expose: true
+      exposedPort: 1812
+      # The port protocol (TCP/UDP)
+      protocol: UDP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    radius-acc:
+      port: 51813
+      # hostPort: 8443
+      expose: true
+      exposedPort: 1813
+      # The port protocol (TCP/UDP)
+      protocol: UDP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    ldaps:
+      port: 50636
+      # hostPort: 8443
+      expose: true
+      exposedPort: 636
+      # The port protocol (TCP/UDP)
+      protocol: TCP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+    unificom:
+      port: 8080
+      # hostPort: 8443
+      expose: true
+      exposedPort: 8080
+      # The port protocol (TCP/UDP)
+      protocol: TCP
+      # nodePort: 32443
+      # Set TLS at the entrypoint
+      # https://doc.traefik.io/traefik/routing/entrypoints/#tls
+
+  # TLS Options are created as TLSOption CRDs
+  # https://doc.traefik.io/traefik/https/tls/#tls-options
+  # Example:
+  # tlsOptions:
+  #   default:
+  #     sniStrict: true
+  #     preferServerCipherSuites: true
+  #   foobar:
+  #     curvePreferences:
+  #       - CurveP521
+  #       - CurveP384
+  tlsOptions: {}
+
+  # Options for the main traefik service, where the entrypoints traffic comes
+  # from.
+  service:
+    externalIPs:
+      - 192.168.66.6
+
+  # Enable persistence using Persistent Volume Claims
+  # ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
+  # After the pvc has been mounted, add the configs into traefik by using the `additionalArguments` list below, eg:
+  # additionalArguments:
+  # - "--certificatesresolvers.le.acme.storage=/data/acme.json"
+  # It will persist TLS certificates.
+  persistence:
+    enabled: false
+    # existingClaim: ""
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    ## storageClass: ""
+    path: /data
+    # annotations: {}
+    ## subPath: "" # only mount a subpath of the Volume into the pod
+
+  # Set the container security context
+  # To run the container with ports below 1024 this will need to be adjust to run as root
+  securityContext:
+    capabilities:
+      drop: [ALL]
+    readOnlyRootFilesystem: true
+    runAsGroup: 65532
+    runAsNonRoot: true
+    runAsUser: 65532
+
+  podSecurityContext:
+    fsGroup: 65532
+
+ingress:
+  dashboard:
+    enabled: true
+    type: "HTTP-IR"
+    entrypoint: "websecure"
+    certType: "selfsigned"
+    serviceName: api@internal
+    servicePort:
+    serviceKind: "TraefikService"
+    annotations: {}
+    labels: {}
+    hosts:
+      - host: chart-example.local
+        paths:
+          - path: /
+            # Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
+
+externalServices:
+  - enabled: true
+    name: "test"
+    type: "HTTP"
+    entrypoint: "websecure"
+    certType: "selfsigned"
+    serviceTarget: "192.168.10.20"
+    servicePort: 9443
+    serviceKind: ""
+    annotations: {}
+    labels: {}
+    hosts:
+      - host: radarr.staging.schouten-lebbing.nl
+        paths:
+          - path: /
+            # Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix

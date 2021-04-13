@@ -1,9 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: traefik
-version: 2.2.2
-upstream_version: 9.15.2
-appVersion: "2.4"
+version: 3.0.0
+appVersion: "auto"
 description: A Traefik based Reverse Proxy and Certificate Manager
 type: application
 deprecated: false
@@ -22,6 +21,9 @@ dependencies:
     repository: https://truecharts.org/
     version: 2.2.2
     # condition:
+  - name: traefik
+    repository: https://helm.traefik.io/traefik
+    version: v9.18.2
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
