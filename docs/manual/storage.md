@@ -28,11 +28,12 @@ This storage is integrated into TrueNAS SCALE and completely supports reverting 
 
 ### Custom Storage
 
-Besides the earlier mentioned Integrated Persistent Storage, we also provide the option to mount as many host folders as you want. This is limited to hostPath mounts only.
+Besides the earlier mentioned Integrated Persistent Storage, we also provide the option to mount as many host folders as you want.
 
-Custom storage is actually quite simple:
+Custom storage currently actually quite simple:
 It mounts a directory from your TrueNAS SCALE system, directly to a directory inside the App you're installing.
 
+However: We might port this to PVC's in the future, which is not fully decided on yet.
 
 
 ### Permissions
