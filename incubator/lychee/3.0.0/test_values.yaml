@@ -1,0 +1,30 @@
+# Default values for Lychee.
+
+image:
+  repository: lycheeorg/lychee-laravel
+  pullPolicy: IfNotPresent
+  tag: v4.2.2
+
+strategy:
+  type: Recreate
+
+startAsRoot: true
+
+services:
+  main:
+    port:
+      port: 80
+
+env: {}
+  # PHP_TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    emptyDir: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
