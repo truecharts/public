@@ -429,18 +429,21 @@ questions:
     schema:
       type: boolean
       default: false
+      hidden: true
 
   - variable: services
     group: "Networking"
     label: "Configure Service"
     schema:
       type: dict
+      hidden: true
       attrs:
         - variable: main
           label: "Main service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             type: dict
+            hidden: true
             attrs:
               - variable: enabled
                 label: "Enable the service"
@@ -454,9 +457,8 @@ questions:
                 schema:
                   type: string
                   default: "ClusterIP"
+                  hidden: true
                   enum:
-                    - value: "NodePort"
-                      description: "NodePort"
                     - value: "ClusterIP"
                       description: "ClusterIP"
               - variable: port
@@ -469,12 +471,10 @@ questions:
                       schema:
                         type: string
                         default: "HTTP"
-                        hidden: false
+                        hidden: true
                         enum:
                           - value: HTTP
                             description: "HTTP"
-                          - value: "HTTPS"
-                            description: "HTTPS"
                     - variable: port
                       label: "container port"
                       schema:
@@ -499,11 +499,13 @@ questions:
                         max: 65535
                         default: 36052
                         required: true
+                        hidden: true
         - variable: ws
           label: "Websocket service"
           description: "Websocket Service"
           schema:
             type: dict
+            hidden: true
             attrs:
               - variable: enabled
                 label: "Enable the service"
@@ -517,9 +519,8 @@ questions:
                 schema:
                   type: string
                   default: "ClusterIP"
+                  hidden: true
                   enum:
-                    - value: "NodePort"
-                      description: "NodePort"
                     - value: "ClusterIP"
                       description: "ClusterIP"
               - variable: port
@@ -532,12 +533,10 @@ questions:
                       schema:
                         type: string
                         default: "HTTP"
-                        hidden: false
+                        hidden: true
                         enum:
                           - value: HTTP
                             description: "HTTP"
-                          - value: "HTTPS"
-                            description: "HTTPS"
                     - variable: port
                       label: "container port"
                       schema:
@@ -562,6 +561,7 @@ questions:
                         max: 65535
                         default: 36053
                         required: true
+                        hidden: true
 
 
 ## TrueCharts Specific
@@ -813,77 +813,76 @@ questions:
                 label: "Enable Web Reverse Proxy"
                 schema:
                   type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Reverse Proxy Type"
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Reverse Proxy Type"
+                schema:
+                  type: string
+                  default: "HTTP"
+                  hidden: true
+                  editable: false
+                  required: true
+              - variable: serviceName
+                label: "Service name to proxy to"
+                schema:
+                  hidden: true
+                  editable: false
+                  type: string
+                  default: ""
+              - variable: entrypoint
+                label: "Select Entrypoint"
+                schema:
+                  type: string
+                  default: "websecure"
+                  required: true
+                  enum:
+                    - value: "websecure"
+                      description: "Websecure: HTTPS/TLS port 443"
+              - variable: hosts
+                label: "Hosts"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: host
+                      label: "Host"
                       schema:
-                        type: string
-                        default: "HTTP"
-                        hidden: true
-                        editable: false
-                        required: true
-                    - variable: serviceName
-                      label: "Service name to proxy to"
-                      schema:
-                        hidden: true
-                        editable: false
-                        type: string
-                        default: ""
-                    - variable: entrypoint
-                      label: "Select Entrypoint"
-                      schema:
-                        type: string
-                        default: "websecure"
-                        required: true
-                        enum:
-                          - value: "websecure"
-                            description: "Websecure: HTTPS/TLS port 443"
-                    - variable: hosts
-                      label: "Hosts"
-                      schema:
-                        type: list
-                        default: []
-                        items:
+                        type: dict
+                        attrs:
                           - variable: host
-                            label: "Host"
+                            label: "Domain Name"
+                            required: true
                             schema:
-                              type: dict
-                              attrs:
-                                - variable: host
-                                  label: "Domain Name"
-                                  required: true
-                                  schema:
-                                    type: string
-                                - variable: path
-                                  label: "path"
-                                  schema:
-                                    type: string
-                                    required: true
-                                    hidden: true
-                                    default: "/"
-                    - variable: certType
-                      label: "Select Certificate Type"
-                      schema:
-                        type: string
-                        default: "selfsigned"
-                        enum:
-                          - value: ""
-                            description: "No Encryption/TLS/Certificates"
-                          - value: "selfsigned"
-                            description: "Self-Signed Certificate"
-                          - value: "ixcert"
-                            description: "TrueNAS SCALE Certificate"
-                    - variable: certificate
-                      label: "Select TrueNAS SCALE Certificate"
-                      schema:
-                        type: int
-                        show_if: [["certType", "=", "ixcert"]]
-                        $ref:
-                          - "definitions/certificate"
-                    - variable: authForwardURL
-                      label: "Forward Authentication URL"
-                      schema:
-                        type: string
-                        default: ""
+                              type: string
+                          - variable: path
+                            label: "path"
+                            schema:
+                              type: string
+                              required: true
+                              hidden: true
+                              default: "/"
+              - variable: certType
+                label: "Select Certificate Type"
+                schema:
+                  type: string
+                  default: "selfsigned"
+                  enum:
+                    - value: ""
+                      description: "No Encryption/TLS/Certificates"
+                    - value: "selfsigned"
+                      description: "Self-Signed Certificate"
+                    - value: "ixcert"
+                      description: "TrueNAS SCALE Certificate"
+              - variable: certificate
+                label: "Select TrueNAS SCALE Certificate"
+                schema:
+                  type: int
+                  show_if: [["certType", "=", "ixcert"]]
+                  $ref:
+                    - "definitions/certificate"
+              - variable: authForwardURL
+                label: "Forward Authentication URL"
+                schema:
+                  type: string
+                  default: ""

@@ -10,7 +10,7 @@ image:
   tag: 1.20.0
 
 envTpl:
-  DOMAIN: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}https://{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ end }}{{ end }}"
+  DOMAIN: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
 
 envFrom:
   - configMapRef:
