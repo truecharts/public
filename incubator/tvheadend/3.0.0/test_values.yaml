@@ -8,7 +8,12 @@ image:
 strategy:
   type: Recreate
 
-startAsRoot: true
+# Configure the Security Context for the Pod
+podSecurityContext:
+  runAsNonRoot: false
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
 
 # See https://github.com/linuxserver/docker-tvheadend#parameters
 env: {}

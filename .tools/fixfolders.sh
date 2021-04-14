@@ -1,5 +1,5 @@
 #!/bin/sh
-for chart in staging/*; do
+for chart in incubator/*; do
 	if [ -d "${chart}" ]; then
       maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
       maxchartversion=$(cat ${chart}/${maxfolderversion}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
