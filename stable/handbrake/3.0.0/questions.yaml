@@ -21,15 +21,13 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "https"
+      - "$kubernetes-resource_configmap_portal_protocol"
     host:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
-      - "443"
+      - "$kubernetes-resource_configmap_portal_port"
 
 questions:
-
-  # Portal
   - variable: portal
     group: "Container Image"
     label: "Configure Portal Button"
@@ -45,8 +43,7 @@ questions:
             editable: false
             type: boolean
             default: true
-            
-  # Update Policy
+
   - variable: strategyType
     group: "Container Image"
     label: "Update Strategy"
@@ -59,7 +56,6 @@ questions:
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"
 
-  # Configure Time Zone
   - variable: timezone
     group: "Container Image"
     label: "Timezone"
@@ -69,7 +65,6 @@ questions:
       $ref:
         - "definitions/timezone"
 
-  # PUID
   - variable: PUID
     group: "Container Image"
     label: "PUID"
@@ -77,26 +72,7 @@ questions:
     schema:
       type: int
       default: 568
-  
-  #PGID
-  - variable: PGID
-    group: "Container Image"
-    label: "PGID"
-    description: "The groupID of the user/group running the application and owning the files"
-    schema:
-      type: int
-      default: 568
 
-  #UMASK
-  - variable: UMASK
-    group: "Container Image"
-    label: "UMASK (advanced)"
-    description: "The UMASK used if supported by the application"
-    schema:
-      type: string
-      default: "002"
-
-  # Enable privileged
   - variable: securityContext
     group: "Container Image"
     label: "Security Context"
@@ -109,8 +85,45 @@ questions:
             type: boolean
             default: false
 
-  # Configure Handbrake
+  - variable: PGID
+    group: "Container Image"
+    label: "PGID"
+    description: "The groupID of the user/group running the application and owning the files"
+    schema:
+      type: int
+      default: 568
 
+  - variable: UMASK
+    group: "Container Image"
+    label: "UMASK (advanced)"
+    description: "The UMASK used if supported by the application"
+    schema:
+      type: string
+      default: "002"
+
+  # Configure Enviroment Variables
+  - variable: environmentVariables
+    label: "Image environment"
+    group: "Configuration"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
+
+  # Configure Handbrake
   - variable: env
     group: "Configuration"
     label: "Image Environment"
@@ -190,31 +203,6 @@ questions:
                   default: 'ignore'
                   required: true
 
-  # Configure Enviroment Variables
-
-  - variable: environmentVariables
-    label: "Image environment"
-    group: "Configuration"
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: environmentVariable
-          label: "Environment Variable"
-          schema:
-            type: dict
-            attrs:
-              - variable: name
-                label: "Name"
-                schema:
-                  type: string
-              - variable: value
-                label: "Value"
-                schema:
-                  type: string
-
-  # Enable Host Networking
-  
   - variable: hostNetwork
     group: "Networking"
     label: "Enable Host Networking"
@@ -355,8 +343,7 @@ questions:
                         default: 36052
                         required: true
 
-## TrueCharts Specific
-
+  # TrueCharts Specific
   - variable: persistence
     label: "Integrated Persistent Storage"
     group: "Storage"
@@ -416,63 +403,57 @@ questions:
                   type: string
                   default: "100Gi"
 
-        # Optical Drive
-        
-        - variable: opticaldrive
-          label: "Optical Drive Device"
+  - variable: appVolumeMounts
+    group: "Resource Reservation"
+    label: "Optical devices"
+    schema:
+      type: dict
+      attrs:
+        # Optical Device -----------------
+        - variable: opticaldev
+          label: "Optical Device"
           schema:
             type: dict
             attrs:
+              - variable: hostPathEnabled
+                label: "Enable Host Path"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
               - variable: enabled
-                label: "Enable Optical Drive Device"
+                label: "Enabled"
                 schema:
                   type: boolean
                   default: false
                   required: false
+                  hidden: false
                   editable: true
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: setPermissions
-                      label: "Automatic Permissions"
-                      description: "Automatically set permissions on install"
-                      schema:
-                        type: boolean
-                        default: false
-                        hidden: true
-                    - variable: name
-                      label: "Mountpoint Name"
-                      schema:
-                        type: string
-                        default: "opticaldrive"
-                        required: true
-                        editable: true
-                    - variable: emptyDir
-                      label: "emptyDir"
-                      schema:
-                        type: boolean
-                        default: false
-                        hidden: true
-                        editable: false
-                    - variable: mountPath
-                      label: "Path to Optical Drive device inside the pod"
-                      description: "Preferably the same as the path to the Optical Drive on the host"
-                      schema:
-                        type: path
-                        required: true
-                        default: ""
-                        editable: true
-                    - variable: hostPathEnabled
-                      label: "host Path Enabled"
-                      schema:
-                        type: boolean
-                        default: true
-                        hidden: true
-                    - variable: hostPath
-                      label: "Path to Optical Drive device on host"
-                      description: 'Best to use path "by-id"'
-                      schema:
-                        type: path
-                        required: true
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+              - variable: emptyDir
+                label: "Empty Dir"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+              - variable: mountPath
+                label: "Path to mount optical device inside the container"
+                description: "Preferably the same as the path to the device path on the host"
+                schema:
+                  type: path
+                  default: "/dev/sr0"
+                  required: true
+              - variable: hostPath
+                label: "Path to optical device on host"
+                schema:
+                  type: path
+                  default: "/dev/sr0"
+                  required: true
 
   - variable: additionalAppVolumeMounts
     label: "Custom app storage"
