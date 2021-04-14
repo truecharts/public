@@ -22,7 +22,7 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://charts.bitnami.com/bitnami | postgresql | 10.3.15 |
-| https://truecharts.org/ | common | 2.2.2 |
+| https://truecharts.org/ | common | 3.0.1 |
 
 ## Installing the Chart
 

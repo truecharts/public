@@ -23,7 +23,7 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://helm.traefik.io/traefik | traefik | v9.18.2 |
-| https://truecharts.org/ | common | 2.2.2 |
+| https://truecharts.org/ | common | 3.0.1 |
 
 ## Installing the Chart
 
