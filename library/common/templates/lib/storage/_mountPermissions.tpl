@@ -63,7 +63,7 @@ spec:
           - /bin/sh
           - -c
           - |
-            chown -R{{ if eq .podSecurityContext.runAsNonRoot false }}{{ print .Values.PUID }}:{{ print .Values.PGID }}{{ else }}{{ print .podSecurityContext.runAsUser }}:{{ print .podSecurityContext.fsGroup }}{{ end }}{{ print $values.mountPath }}
+            chown -R{{ if eq .podSecurityContext.runAsNonRoot false }}{{ print .Values.PUID }}{{ else }}{{ print .podSecurityContext.runAsUser }}{{ end }}:{{ print .podSecurityContext.fsGroup }}  {{ print $values.mountPath }}
           #args:
           #
           #securityContext:
