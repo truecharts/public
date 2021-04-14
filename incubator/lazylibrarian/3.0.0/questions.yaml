@@ -17,7 +17,6 @@ groups:
     description: "Advanced Configuration"
   - name: "WARNING"
     description: "WARNING"
-
 portals:
   web_portal:
     protocols:
@@ -26,9 +25,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
-
 questions:
-
   - variable: portal
     group: "Container Image"
     label: "Configure Portal Button"
@@ -45,7 +42,6 @@ questions:
             type: boolean
             default: true
 
-
   # Update Policy
   - variable: strategyType
     group: "Container Image"
@@ -58,8 +54,6 @@ questions:
           description: "Create new pods and then kill old ones"
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"
-
-  # Configure Time Zone
   # Configure Time Zone
   - variable: timezone
     group: "Container Image"
@@ -69,30 +63,6 @@ questions:
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
-
-  - variable: PUID
-    group: "Container Image"
-    label: "PUID"
-    description: "The UserID of the user running the application and owning the files"
-    schema:
-      type: int
-      default: 568
-
-  - variable: PGID
-    group: "Container Image"
-    label: "PGID"
-    description: "The groupID of the user/group running the application and owning the files"
-    schema:
-      type: int
-      default: 568
-
-  - variable: UMASK
-    group: "Container Image"
-    label: "UMASK (advanced)"
-    description: "The UMASK used if supported by the application"
-    schema:
-      type: string
-      default: "002"
 
   # Configure Enviroment Variables
   - variable: environmentVariables
@@ -115,7 +85,6 @@ questions:
                 label: "Value"
                 schema:
                   type: string
-
   # Enable Host Networking
   - variable: hostNetwork
     group: "Networking"
@@ -123,7 +92,6 @@ questions:
     schema:
       type: boolean
       default: false
-
   - variable: services
     group: "Networking"
     label: "Configure Service"
@@ -193,9 +161,7 @@ questions:
                         max: 65535
                         default: 36052
                         required: true
-
 ## TrueCharts Specific
-
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Websocket Service"
@@ -256,8 +222,7 @@ questions:
                   type: string
                   default: "100Gi"
 
-
-  - variable: additionalAppVolumeMounts
+  - variable: customStorage
     label: "Custom app storage"
     group: "Storage"
     schema:
@@ -317,7 +282,6 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-
   - variable: ingress
     label: ""
     group: "Reverse Proxy Configuration"
@@ -407,3 +371,89 @@ questions:
                       schema:
                         type: string
                         default: ""
+  - variable: PUID
+    group: "Advanced"
+    label: "PUID"
+    description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+    schema:
+      type: int
+      default: 568
+
+  - variable: PGID
+    group: "Advanced"
+    label: "PGID"
+    description: "Sets the PGID env var for LinuxServer.io (compatible) containers"
+    schema:
+      type: int
+      default: 568
+  - variable: UMASK
+    group: "Advanced"
+    label: "UMASK"
+    description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+    schema:
+      type: string
+      default: "002"
+  # Enable privileged
+  - variable: securityContext
+    group: "Advanced"
+    label: "Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: privileged
+          label: "Enable privileged mode for Common-Chart based charts"
+          schema:
+            type: boolean
+            default: false
+  # Set Pod Security Policy
+  - variable: podSecurityContext
+    group: "Advanced"
+    label: "Pod Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: runAsNonRoot
+          label: "runAsNonRoot"
+          schema:
+            type: boolean
+            default: false
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: supplementalGroups
+          label: "supplementalGroups"
+          description: "Additional groups this App needs access to"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: Group
+                label: "Group"
+                schema:
+                  type: int
+                  default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroupChangePolicy
+          label: "When should we take ownership?"
+          schema:
+            type: string
+            default: "OnRootMismatch"
+            enum:
+              - value: "OnRootMismatch"
+                description: "OnRootMismatch"
+              - value: "Always"
+                description: "Always"

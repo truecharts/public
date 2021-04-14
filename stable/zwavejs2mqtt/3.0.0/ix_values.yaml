@@ -9,9 +9,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 2.4.1
 
-# 5=tty 20=dailout 24=cdrom
-supplementalGroups: 5,20,24
-
 probes:
   liveness:
     enabled: true
@@ -55,7 +52,6 @@ probes:
     #   initialDelaySeconds: 30
     #   periodSeconds: 10
     #   timeoutSeconds: 10
-
 
 ##
 # Most other defaults are set in questions.yaml

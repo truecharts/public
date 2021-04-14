@@ -8,8 +8,13 @@ strategy:
 
 startAsRoot: true
 
-# 24=cdrom 44=video 107=render
-supplementalGroups: 24,44,107
+# Configure the Security Context for the Pod
+podSecurityContext:
+  runAsNonRoot: false
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+  supplementalGroups: [24, 44, 107]
 
 services:
   main:

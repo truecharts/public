@@ -1,15 +1,10 @@
 # Questions.yaml
-
 Questions.yaml is the file which get rendered by TrueNAS to create the UI. When not creating new charts, most of what this project does is stitching together questions.yaml files to turn existing Helm Charts into Apps.
 
-
 ### Syntax
-
 In this document we give you a short reference guide (ported from IX Official) which lays out the settings available in questions.yaml.
 
-
 #### Question Variable Reference
-
 | Variable  | Type | Required | Description |
 | ------------- | ------------- | --- |------------- |
 | 	variable                    | string        | true       |  define the variable name specified in the `values.yaml`file. |
@@ -34,13 +29,9 @@ In this document we give you a short reference guide (ported from IX Official) w
 | 	schema.private              | bool          | false      | specified for declaring information sensitive fields. |
 | 	schema.null                 | bool          | false      | specifies if the value for the variable can be null. defaults to false. |
 
-
 ##### Subquestions
-
 `subquestions[]` cannot contain `subquestions` or `show_subquestions_if` keys, but all other keys in the above table are supported. Also variables having `schema.type` list do not support `subquestions`.
-
 ##### Special Questions
-
 There are some novel cases where we would like to provide ability to configure / manage resources for workloads with getting some data from system dynamically.
 So a chart can specify certain actions to be performed by the system for a variable by defining a reference. An example better illustrates this concept:
 ```
@@ -63,15 +54,12 @@ label: "Dataset Name"
           type: string
           required: true
 ```
-
 In the above variable we define a `$ref` in schema which specifies that the system should take some action for normalising the value specified for the variable.
 In this specific case, `ix_volume` is a concept introduced where we recommend using a volume which we are able to rollback automatically on chart release rollback. In essence,
 it is just a `hostPath` volume for which the system automatically creates the dataset specified.
-
 We have following types of actions supported in `$ref` right now:
 1) definitions
 2) normalize
-
 For (1), system will automatically update schema for a particular definition. For example,
 ```
 - variable: hostInterface
@@ -84,20 +72,13 @@ label: "Host Interface"
       - "definitions/interface"
 ```
 System will automatically populate available interfaces for the user based on what interfaces are available on the system.
-
 For (2), system will normalize values or perform some actions as discussed above.
 
-
 ### Standardised questions.yaml sections
-
 To minimise the maintenance load of our App collection, we always aim to standardise as much as possible. The same goes for questions.yaml. Included here are some code standardised code-snippets that are expected to be included in every App.
-
 Be aware that sometimes specific functions might or might not completely function. Leaving them out would, however, everely increase the maintenance load and often said functionality will be added in the common-chart later on anyway.
-
 ##### Groups
-
 To make sure all apps stay somewhat the same, we use a standardised `groups:` section. Please make sure to use this in your Apps:
-
 ```
 groups:
   - name: "Container Image"
@@ -118,12 +99,9 @@ groups:
     description: "WARNING"
 ```
 
-
 ##### General Configuration options
-
 These options are always included because almost every chart (eventually) has a use for them and/or other parts of the common chart depend on them.
 They are called general options, because they affect the basic functionalities of a chart. For example: Custom User environment variables, permissions and timezones.
-
 
 ```
   - variable: timezone
@@ -134,30 +112,6 @@ They are called general options, because they affect the basic functionalities o
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
-
-  - variable: PUID
-    group: "Configuration"
-    label: "PUID"
-    description: "The UserID of the user running the application and owning the files"
-    schema:
-      type: int
-      default: 568
-
-  - variable: PGID
-    group: "Configuration"
-    label: "PGID"
-    description: "The groupID of the user/group running the application and owning the files"
-    schema:
-      type: int
-      default: 568
-
-  - variable: UMASK
-    group: "Configuration"
-    label: "UMASK (advanced)"
-    description: "The UMASK used if supported by the application"
-    schema:
-      type: string
-      default: "002"
 
   # Configure Custom Enviroment Variables
   - variable: environmentVariables
@@ -180,4 +134,42 @@ They are called general options, because they affect the basic functionalities o
                 label: "Value"
                 schema:
                   type: string
+```
+
+And at the bottom some advanced settings:
+```
+  - variable: PUID
+    group: "Advanced"
+    label: "Common Group ID"
+    description: "The UserID of the user running any included common chart-based pods"
+    schema:
+      type: int
+      default: 568
+
+  - variable: PGID
+    group: "Advanced"
+    label: "Storage and Common Group ID"
+    description: "The groupID of the user/group running any included common chart-based pods and owning the files!"
+    schema:
+      type: int
+      default: 568
+  - variable: UMASK
+    group: "Advanced"
+    label: "UMASK (Common Chart)"
+    description: "The UMASK used (if supported) by any included common chart-based pod"
+    schema:
+      type: string
+      default: "002"
+  # Enable privileged
+  - variable: securityContext
+    group: "Advanced"
+    label: "Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: privileged
+          label: "Enable privileged mode for Common-Chart based charts"
+          schema:
+            type: boolean
+            default: false
 ```

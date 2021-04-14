@@ -10,6 +10,13 @@ image:
 strategy:
   type: Recreate
 
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups:[5, 20, 24]
+
 # # See more environment variables in the zwavejs2mqtt documentation
 # https://zwave-js.github.io/zwavejs2mqtt/#/guide/env-vars
 env: {}
@@ -70,7 +77,6 @@ services:
       port: 3000
       protocol: TCP
       targetPort: 3000
-
 
 # Privileged may be required if USB controller is accessed directly through the host machine
 # securityContext:
