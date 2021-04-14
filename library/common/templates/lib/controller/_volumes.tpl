@@ -46,7 +46,38 @@ Volumes included by the controller.
 {{- end }}
 {{- end }}
 {{- end }}
-{{ include "common.storage.allAppVolumes" . | nindent 0 }}
+
+{{- range $name, $dm := .Values.deviceMounts -}}
+{{ if $dm.enabled }}
+{{ if $dm.name }}
+{{ $name = $dm.name }}
+{{ end }}
+- name: devicemount-{{ $name }}
+  {{ if $dm.emptyDir }}
+  emptyDir: {}
+  {{- else -}}
+  hostPath:
+    path: {{ required "hostPath not set" $dm.hostPath }}
+  {{ end }}
+{{ end }}
+{{- end -}}
+
+{{- range $name, $cs := .Values.customStorage -}}
+{{ if $cs.enabled }}
+{{ if $cs.name }}
+{{ $name = $cs.name }}
+{{ end }}
+- name: customstorage-{{ $name }}
+  {{ if $cs.emptyDir }}
+  emptyDir: {}
+  {{- else -}}
+  hostPath:
+    path: {{ required "hostPath not set" $cs.hostPath }}
+  {{ end }}
+{{ end }}
+{{- end -}}
+
+
 {{- if .Values.additionalVolumes }}
   {{- toYaml .Values.additionalVolumes | nindent 0 }}
 {{- end }}

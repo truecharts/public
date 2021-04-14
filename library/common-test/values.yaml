@@ -56,35 +56,27 @@ additionalIngress:
 
 # these values and names are set specifically with the unittests in mind.
 fixMountPermissions: false
-appVolumeMounts:
+deviceMounts:
   test1:
     enabled: true
     emptyDir: true
-    datasetName: "test1"
     mountPath: "/test1"
-    hostPathEnabled: false
-    hostPath: ""
+    hostPath: "/tmp"
   test2:
     enabled: true
     emptyDir: false
-    datasetName: "test2"
     mountPath: "/test2"
-    hostPathEnabled: true
     hostPath: "/tmp"
 
 # these values and names are set specifically with the unittests in mind.
-additionalAppVolumeMounts:
+customStorage:
   - name: "test3"
     enabled: true
     emptyDir: true
-    datasetName: "test3"
     mountPath: "/test3"
-    hostPathEnabled: false
     hostPath: ""
   - name: "test4"
     enabled: true
     emptyDir: false
-    datasetName: "test4"
     mountPath: "/test4"
-    hostPathEnabled: true
     hostPath: "/tmp"

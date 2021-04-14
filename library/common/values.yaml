@@ -82,11 +82,16 @@ hostNetwork: false
 enableServiceLinks: true
 
 # Configure the Security Context for the Pod
-podSecurityContext: {}
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  fsGroupChangePolicy: "OnRootMismatch"
 
 # Configure the Security Context for the main container
-# PUID and PGID gets added automatically!
 securityContext: {}
+
 
 initContainers: []
 
@@ -241,29 +246,6 @@ persistence:
     emptyDir: true
     mountPath: /shared
 
-# Special PVC instance, that does get affected by putting "persistence" into questions.yaml
-backupPersistence:
-  buildinbackup:
-    enabled: false
-    nameOverride: buildinbackup
-    ## configuration data Persistent Volume Storage Class
-    ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
-    ## If undefined (the default) or set to null, no storageClassName spec is
-    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-    ##   GKE, AWS & OpenStack)
-    ##
-    ## storageClass: "-"
-    ##
-    ## If you want to reuse an existing claim, you can pass the name of the PVC using
-    ## the existingClaim variable
-    # existingClaim: your-claim
-    # subPath: some-subpath
-    accessMode: ReadWriteOnce
-    size: 100Gi
-    ## Set to true to retain the PVC upon helm uninstall
-    skipuninstall: false
-
 additionalVolumes: []
 
 additionalVolumeMounts: []
@@ -312,7 +294,6 @@ resources: {}
 PUID: 568
 PGID: 568
 UMASK: "002"
-startAsRoot: false
 fixMountPermissions: true
 
 # appVolumeMounts:

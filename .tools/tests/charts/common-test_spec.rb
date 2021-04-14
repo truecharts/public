@@ -38,36 +38,7 @@ class Test < ChartTest
       end
     end
 
-    describe 'startAsRoot' do
-      it 'defaults to false = runAs 568' do
-        jq('.spec.template.spec.securityContext.runAsUser', resource('Deployment')).must_equal 568
-        jq('.spec.template.spec.securityContext.runAsGroup', resource('Deployment')).must_equal 568
-        jq('.spec.template.spec.securityContext.fsGroup', resource('Deployment')).must_equal 568
-        jq('.spec.template.spec.securityContext.runAsNonRoot', resource('Deployment')).must_equal true
-        jq('.spec.template.spec.securityContext.supplementalGroups', resource('Deployment')).must_equal []
-      end
 
-      it 'allow settingsupplementalGroups' do
-        values = {
-          supplementalGroups: "5,20"
-        }
-        chart.value values
-        jq('.spec.template.spec.securityContext.runAsUser', resource('Deployment')).must_equal 568
-        jq('.spec.template.spec.securityContext.runAsGroup', resource('Deployment')).must_equal 568
-        jq('.spec.template.spec.securityContext.fsGroup', resource('Deployment')).must_equal 568
-        jq('.spec.template.spec.securityContext.runAsNonRoot', resource('Deployment')).must_equal true
-        jq('.spec.template.spec.securityContext.supplementalGroups', resource('Deployment')).must_equal [5,20]
-      end
-
-      it 'can be enabled = runAs nil' do
-        chart.value startAsRoot: true
-        jq('.spec.template.spec.securityContext.runAsUser', resource('Deployment')).must_equal nil
-        jq('.spec.template.spec.securityContext.runAsGroup', resource('Deployment')).must_equal nil
-        jq('.spec.template.spec.securityContext.runAsNonRoot', resource('Deployment')).must_equal nil
-        jq('.spec.template.spec.securityContext.fsGroup', resource('Deployment')).must_equal nil
-        jq('.spec.template.spec.securityContext.supplementalGroups', resource('Deployment')).must_equal nil
-      end
-    end
 
     describe 'hostNetwork' do
       it ' hostnetworking default = nil' do
@@ -277,43 +248,43 @@ class Test < ChartTest
       end
     end
 
-	describe 'appVolumeMounts' do
-      default_name_1 = 'test1'
-	  default_name_2 = 'test2'
+	describe 'deviceMounts' do
+      default_name_1 = 'devicemount-test1'
+	  default_name_2 = 'devicemount-test2'
       default_mountPath_1 = '/test1'
 	  default_mountPath_2 = '/test2'
 	  empty_dir = {}
 	  path = '/tmp'
 
-      it 'appVolumeMounts creates VolumeMounts' do
+      it 'deviceMounts creates VolumeMounts' do
         jq('.spec.template.spec.containers[0].volumeMounts[0].name', resource('Deployment')).must_equal default_name_1
 		jq('.spec.template.spec.containers[0].volumeMounts[1].name', resource('Deployment')).must_equal default_name_2
 		jq('.spec.template.spec.containers[0].volumeMounts[0].mountPath', resource('Deployment')).must_equal default_mountPath_1
 		jq('.spec.template.spec.containers[0].volumeMounts[1].mountPath', resource('Deployment')).must_equal default_mountPath_2
       end
 
-      it 'appVolumeMounts creates Volumes' do
+      it 'deviceMounts creates Volumes' do
 		jq('.spec.template.spec.volumes[0].emptyDir', resource('Deployment')).must_equal empty_dir
 		jq('.spec.template.spec.volumes[1].hostPath.path', resource('Deployment')).must_equal path
       end
     end
 
-	describe 'additionalAppVolumeMounts' do
-      default_name_3 = 'test3'
-	  default_name_4 = 'test4'
+	describe 'customStorage' do
+      default_name_3 = 'customstorage-test3'
+	  default_name_4 = 'customstorage-test4'
       default_mountPath_3 = '/test3'
 	  default_mountPath_4 = '/test4'
 	  empty_dir = {}
 	  path = '/tmp'
 
-      it 'additionalAppVolumeMounts creates VolumeMounts' do
+      it 'customStorage creates VolumeMounts' do
         jq('.spec.template.spec.containers[0].volumeMounts[2].name', resource('Deployment')).must_equal default_name_3
 		jq('.spec.template.spec.containers[0].volumeMounts[3].name', resource('Deployment')).must_equal default_name_4
 		jq('.spec.template.spec.containers[0].volumeMounts[2].mountPath', resource('Deployment')).must_equal default_mountPath_3
 		jq('.spec.template.spec.containers[0].volumeMounts[3].mountPath', resource('Deployment')).must_equal default_mountPath_4
       end
 
-      it 'additionalAppVolumeMounts creates Volumes' do
+      it 'customStorage creates Volumes' do
 		jq('.spec.template.spec.volumes[2].emptyDir', resource('Deployment')).must_equal empty_dir
 		jq('.spec.template.spec.volumes[3].hostPath.path', resource('Deployment')).must_equal path
       end
