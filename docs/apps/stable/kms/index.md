@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: minimal](https://img.shields.io/badge/AppVersion-minimal-informational?style=flat-square)
+![Version: 3.0.1](https://img.shields.io/badge/Version-3.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: minimal](https://img.shields.io/badge/AppVersion-minimal-informational?style=flat-square)
 
 Private Windows Activation Server for development and testing
 
@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 3.0.1 |
+| https://truecharts.org/ | common | 3.0.2 |
 
 ## Installing the Chart
 
