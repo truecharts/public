@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: emby
-version: 3.0.0
+version: 3.0.1
 # upstream_version:
 appVersion: "auto"
 description: Emby Server is a home media server
@@ -20,7 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 3.0.1
+    version: 3.0.2
     # condition:
 maintainers:
   - name: TrueCharts
