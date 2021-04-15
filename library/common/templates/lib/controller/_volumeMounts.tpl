@@ -20,7 +20,7 @@ Volumes included by the controller.
   {{ $name = $dmm.name }}
 {{ end }}
 - name: devicemount-{{ $name }}
-  mountPath: {{ $dmm.mountPath }}
+  mountPath: {{ $dmm.devicePath }}
   {{ if $dmm.subPath }}
   subPath: {{ $dmm.subPath }}
   {{ end }}

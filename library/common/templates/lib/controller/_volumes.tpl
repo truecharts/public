@@ -57,7 +57,7 @@ Volumes included by the controller.
   emptyDir: {}
   {{- else -}}
   hostPath:
-    path: {{ required "hostPath not set" $dm.hostPath }}
+    path: {{ required "hostPath not set" $dm.devicePath }}
   {{ end }}
 {{ end }}
 {{- end -}}
