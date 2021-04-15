@@ -6,15 +6,12 @@ image:
 strategy:
   type: Recreate
 
-PGID: 101
-PUID: 101
-
 # Configure the Security Context for the Pod
 podSecurityContext:
   runAsNonRoot: false
-  runAsUser: 101
-  runAsGroup: 101
-  fsGroup: 101
+  runAsUser:
+  runAsGroup:
+  fsGroup:
 
 services:
   main:
