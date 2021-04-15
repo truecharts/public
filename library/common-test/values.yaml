@@ -78,5 +78,6 @@ customStorage:
   - name: "test4"
     enabled: true
     emptyDir: false
+    setPermissions: true
     mountPath: "/test4"
     hostPath: "/tmp"
