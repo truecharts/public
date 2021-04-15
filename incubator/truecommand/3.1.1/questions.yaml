@@ -284,88 +284,86 @@ questions:
       type: dict
       attrs:
         - variable: main
-          label: "Web Reverse Proxy Configuration"
+          label: "WebUI"
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable Web Reverse Proxy"
+              - variable: certType
+                label: "Select Reverse-Proxy Type"
                 schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Reverse Proxy Type"
+                  type: string
+                  default: "selfsigned"
+                  enum:
+                    - value: "disabled"
+                      description: "Disabled"
+                    - value: ""
+                      description: "No Encryption/TLS/Certificates"
+                    - value: "selfsigned"
+                      description: "Self-Signed Certificate"
+                    - value: "ixcert"
+                      description: "TrueNAS SCALE Certificate"
+              - variable: type
+                label: "Reverse Proxy Type"
+                schema:
+                  type: string
+                  default: "HTTP"
+                  hidden: true
+                  editable: false
+                  required: true
+              - variable: serviceName
+                label: "Service name to proxy to"
+                schema:
+                  hidden: true
+                  editable: false
+                  type: string
+                  default: ""
+              - variable: entrypoint
+                label: "Select Entrypoint"
+                schema:
+                  show_if: [["certType", "!=", "disabled"]]
+                  type: string
+                  default: "websecure"
+                  required: true
+                  enum:
+                    - value: "websecure"
+                      description: "Websecure: HTTPS/TLS port 443"
+              - variable: hosts
+                label: "Hosts"
+                schema:
+                  show_if: [["certType", "!=", "disabled"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: host
+                      label: "Host"
                       schema:
-                        type: string
-                        default: "HTTP"
-                        hidden: true
-                        editable: false
-                        required: true
-                    - variable: serviceName
-                      label: "Service name to proxy to"
-                      schema:
-                        hidden: true
-                        editable: false
-                        type: string
-                        default: ""
-                    - variable: entrypoint
-                      label: "Select Entrypoint"
-                      schema:
-                        type: string
-                        default: "websecure"
-                        required: true
-                        enum:
-                          - value: "websecure"
-                            description: "Websecure: HTTPS/TLS port 443"
-                    - variable: hosts
-                      label: "Hosts"
-                      schema:
-                        type: list
-                        default: []
-                        items:
+                        type: dict
+                        attrs:
                           - variable: host
-                            label: "Host"
+                            label: "Domain Name"
+                            required: true
                             schema:
-                              type: dict
-                              attrs:
-                                - variable: host
-                                  label: "Domain Name"
-                                  required: true
-                                  schema:
-                                    type: string
-                                - variable: path
-                                  label: "path"
-                                  schema:
-                                    type: string
-                                    required: true
-                                    hidden: true
-                                    default: "/"
-                    - variable: certType
-                      label: "Select Certificate Type"
-                      schema:
-                        type: string
-                        default: "selfsigned"
-                        enum:
-                          - value: ""
-                            description: "No Encryption/TLS/Certificates"
-                          - value: "selfsigned"
-                            description: "Self-Signed Certificate"
-                          - value: "ixcert"
-                            description: "TrueNAS SCALE Certificate"
-                    - variable: certificate
-                      label: "Select TrueNAS SCALE Certificate"
-                      schema:
-                        type: int
-                        show_if: [["certType", "=", "ixcert"]]
-                        $ref:
-                          - "definitions/certificate"
-                    - variable: authForwardURL
-                      label: "Forward Authentication URL"
-                      schema:
-                        type: string
-                        default: ""
+                              type: string
+                          - variable: path
+                            label: "path"
+                            schema:
+                              type: string
+                              required: true
+                              hidden: true
+                              default: "/"
+              - variable: certificate
+                label: "Select TrueNAS SCALE Certificate"
+                schema:
+                  type: int
+                  show_if: [["certType", "=", "ixcert"]]
+                  $ref:
+                    - "definitions/certificate"
+              - variable: authForwardURL
+                label: "Forward Authentication URL"
+                schema:
+                  show_if: [["certType", "!=", "disabled"]]
+                  type: string
+                  default: ""
 
   - variable: PUID
     group: "Advanced"

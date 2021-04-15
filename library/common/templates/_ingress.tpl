@@ -5,7 +5,9 @@ of the main Ingress and any additionalIngresses.
 {{- define "common.ingress" -}}
     {{- /* Generate named ingresses as required */ -}}
     {{- range $name, $ingress := .Values.ingress }}
-      {{- if $ingress.enabled -}}
+      {{- $certType := $ingress.certType | default "disabled" -}}
+      {{- $enabled := $ingress.enabled | default false -}}
+      {{- if or ( ne $certType "disabled" ) ( $ingress.enabled ) -}}
         {{- print ("---") | nindent 0 -}}
         {{- $ingressValues := $ingress -}}
 
@@ -44,7 +46,8 @@ of the main Ingress and any additionalIngresses.
 
     {{- /* Generate additional ingresses as required */ -}}
     {{- range $index, $additionalIngress := .Values.additionalIngress }}
-      {{- if $additionalIngress.enabled -}}
+      {{- $certType := $additionalIngress.certType | default "disabled" -}}
+      {{- if or ( ne $certType "disabled" ) ( $additionalIngress.enabled ) -}}
         {{- print ("---") | nindent 0 -}}
         {{- $ingressValues := $additionalIngress -}}
 
@@ -86,7 +89,8 @@ of the main Ingress and any additionalIngresses.
 
     {{- /* Generate externalService ingresses as required */ -}}
     {{- range $index, $externalService := .Values.externalServices }}
-      {{- if $externalService.enabled -}}
+      {{- $certType := $externalService.certType | default "disabled" -}}
+      {{- if or ( ne $certType "disabled" ) ( $externalService.enabled ) -}}
         {{- print ("---") | nindent 0 -}}
         {{- $ingressValues := $externalService -}}
 

@@ -753,16 +753,24 @@ questions:
       type: dict
       attrs:
         - variable: main
-          label: "Web Reverse Proxy Configuration"
+          label: "WebUI"
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable Web Reverse Proxy"
+              - variable: certType
+                label: "Select Reverse-Proxy Type"
                 schema:
-                  type: boolean
-                  default: true
-                  hidden: true
+                  type: string
+                  default: "selfsigned"
+                  enum:
+                    - value: "disabled"
+                      description: "Disabled"
+                    - value: ""
+                      description: "No Encryption/TLS/Certificates"
+                    - value: "selfsigned"
+                      description: "Self-Signed Certificate"
+                    - value: "ixcert"
+                      description: "TrueNAS SCALE Certificate"
               - variable: type
                 label: "Reverse Proxy Type"
                 schema:
@@ -781,6 +789,7 @@ questions:
               - variable: entrypoint
                 label: "Select Entrypoint"
                 schema:
+                  show_if: [["certType", "!=", "disabled"]]
                   type: string
                   default: "websecure"
                   required: true
@@ -790,6 +799,7 @@ questions:
               - variable: hosts
                 label: "Hosts"
                 schema:
+                  show_if: [["certType", "!=", "disabled"]]
                   type: list
                   default: []
                   items:
@@ -810,18 +820,6 @@ questions:
                               required: true
                               hidden: true
                               default: "/"
-              - variable: certType
-                label: "Select Certificate Type"
-                schema:
-                  type: string
-                  default: "selfsigned"
-                  enum:
-                    - value: ""
-                      description: "No Encryption/TLS/Certificates"
-                    - value: "selfsigned"
-                      description: "Self-Signed Certificate"
-                    - value: "ixcert"
-                      description: "TrueNAS SCALE Certificate"
               - variable: certificate
                 label: "Select TrueNAS SCALE Certificate"
                 schema:
@@ -832,6 +830,7 @@ questions:
               - variable: authForwardURL
                 label: "Forward Authentication URL"
                 schema:
+                  show_if: [["certType", "!=", "disabled"]]
                   type: string
                   default: ""
 
