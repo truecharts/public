@@ -269,7 +269,7 @@ class Test < ChartTest
     end
 
 	describe 'customStorage' do
-      default_name_3 = 'customstorage-test3'
+      default_name_3 = 'customstorage-0'
 	  default_name_4 = 'customstorage-test4'
       default_mountPath_3 = '/test3'
 	  default_mountPath_4 = '/test4'

@@ -563,13 +563,6 @@ questions:
                   type: boolean
                   default: false
                   hidden: false
-              - variable: name
-                label: "Mountpoint Name"
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-                  editable: true
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
@@ -585,12 +578,6 @@ questions:
                   required: true
                   default: ""
                   editable: true
-              - variable: hostPathEnabled
-                label: "host Path Enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: hostPath
                 label: "Host Path"
                 schema:

@@ -67,8 +67,7 @@ persistence:
 
 # these values and names are set specifically with the unittests in mind.
 customStorage:
-  - name: "test3"
-    enabled: true
+  - enabled: true
     emptyDir: true
     mountPath: "/test3"
     hostPath: ""
@@ -88,4 +87,3 @@ deviceMounts:
     enabled: true
     emptyDir: false
     devicePath: "/test2"
-
