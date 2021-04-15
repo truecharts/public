@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: organizr
-version: 3.0.1
+version: 3.0.2
 upstream_version: 3.2.1
 appVersion: "latest"
 description: HTPC/Homelab Services Organizer
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 3.0.2
+    version: 3.0.4
     # condition:
 maintainers:
   - name: TrueCharts
