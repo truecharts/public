@@ -9,8 +9,8 @@ groups:
     description: "Configure / service for container"
   - name: "Storage"
     description: "Persist and share data that is separate from the lifecycle of the container"
-  - name: "Resource Reservation"
-    description: "Specify resources to be allocated to workload"
+  - name: "Resources and Devices"
+    description: "Specify resources/devices to be allocated to workload"
   - name: "Reverse Proxy Configuration"
     description: "Reverse Proxy configuration"
   - name: "Advanced"
@@ -290,14 +290,14 @@ questions:
                   type: hostpath
                   required: true
   - variable: deviceMounts
-    group: "Resource Reservation"
-    label: "Mount USB devices"
+    label: "Mount Devices"
+    group: "Resources and Devices"
     schema:
-      type: dict
-      attrs:
-        # Z-Wave device -----------------
-        - variable: zwave
-          label: "USB Z-Wave Device"
+      type: list
+      default: []
+      items:
+        - variable: deviceMount
+          label: "Custom Storage"
           schema:
             type: dict
             attrs:
@@ -305,86 +305,25 @@ questions:
                 label: "Enabled"
                 schema:
                   type: boolean
-                  default: false
-                  required: false
-                  hidden: false
-                  editable: true
-              - variable: hostPathEnabled
-                label: "Enable Host Path"
-                schema:
-                  type: boolean
                   default: true
+                  required: true
                   hidden: true
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
+                  editable: false
               - variable: emptyDir
-                label: "Empty Dir"
+                label: "emptyDir"
                 schema:
                   type: boolean
                   default: false
                   hidden: true
-              - variable: mountPath
-                label: "Path to mount Z-Wave device inside the container"
-                description: "Preferably the same as the path to the device path on the host"
+                  editable: false
+              - variable: devicePath
+                label: "Device Path"
+                description: "Path to the device to mount inside the container"
                 schema:
                   type: path
-                  default: "/dev/ttyACM0"
                   required: true
-              - variable: hostPath
-                label: "Path to Z-Wave device on host"
-                schema:
-                  type: path
                   default: "/dev/ttyACM0"
-                  required: true
-        # Z-Wave device -----------------
-        - variable: zwave
-          label: "USB zigbee Device"
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enabled"
-                schema:
-                  type: boolean
-                  default: false
-                  required: false
-                  hidden: false
                   editable: true
-              - variable: hostPathEnabled
-                label: "Enable Host Path"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-              - variable: emptyDir
-                label: "Empty Dir"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-              - variable: mountPath
-                label: "Path to mount zigbee device inside the container"
-                description: "Preferably the same as the path to the device path on the host"
-                schema:
-                  type: path
-                  default: "/dev/ttyACM0"
-                  required: true
-              - variable: hostPath
-                label: "Path to zigbee device on host"
-                schema:
-                  type: path
-                  default: "/dev/ttyACM0"
-                  required: true
   - variable: ingress
     label: ""
     group: "Reverse Proxy Configuration"
