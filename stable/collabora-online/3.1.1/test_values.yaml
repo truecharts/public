@@ -23,8 +23,8 @@ services:
 securitycontext:
   allowPrivilegeEscalation: true
   capabilities:
-      add:
-        - MKNOD
+    add:
+      - MKNOD
 
 env:
   domain: nextcloud\.domain\.tld
