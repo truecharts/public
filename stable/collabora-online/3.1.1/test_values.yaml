@@ -9,9 +9,9 @@ strategy:
 # Configure the Security Context for the Pod
 podSecurityContext:
   runAsNonRoot: false
-  runAsUser:
-  runAsGroup:
-  fsGroup:
+  runAsUser: null
+  runAsGroup: null
+  fsGroup: null
 
 services:
   main:
@@ -19,12 +19,6 @@ services:
     port:
       port: 9980
       nodePort: 30980
-
-securitycontext:
-  allowPrivilegeEscalation: true
-  capabilities:
-    add:
-      - MKNOD
 
 env:
   domain: nextcloud\.domain\.tld
