@@ -10,7 +10,7 @@ strategy:
 podSecurityContext:
   runAsNonRoot: false
   runAsUser: 101
-  runAsGroup: 101
+  runAsGroup: 0
   fsGroup: 101
 
 services:
