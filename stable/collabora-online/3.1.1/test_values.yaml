@@ -9,9 +9,9 @@ strategy:
 # Configure the Security Context for the Pod
 podSecurityContext:
   runAsNonRoot: false
-  runAsUser: 102
-  runAsGroup: 102
-  fsGroup: 568
+  runAsUser: null
+  runAsGroup: null
+  fsGroup: null
 
 services:
   main:
