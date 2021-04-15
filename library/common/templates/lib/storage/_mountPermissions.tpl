@@ -40,11 +40,40 @@ spec:
           #securityContext:
           #
           volumeMounts:
-            {{- include "common.controller.volumeMounts" . | indent 12 }}
-      {{- with (include "common.controller.volumes" . | trim) }}
+          {{ range $name, $csm := .Values.customStorage }}
+          {{- if $csm.enabled -}}
+          {{- if $csm.setPermissions -}}
+          {{ if $csm.name }}
+            {{ $name = $csm.name }}
+          {{ end }}
+          - name: customstorage-{{ $name }}
+            mountPath: {{ $csm.mountPath }}
+            {{ if $csm.subPath }}
+            subPath: {{ $csm.subPath }}
+            {{ end }}
+            {{ if $csm.readOnly }}
+            readOnly: {{ $csm.readOnly }}
+            {{ end }}
+          {{- end -}}
+          {{- end -}}
+          {{ end }}
       volumes:
-        {{- . | nindent 8 }}
-      {{- end }}
+      {{- range $name, $cs := .Values.customStorage -}}
+      {{ if $cs.enabled }}
+      {{ if $cs.setPermissions }}
+      {{ if $cs.name }}
+      {{ $name = $cs.name }}
+      {{ end }}
+      - name: customstorage-{{ $name }}
+        {{ if $cs.emptyDir }}
+        emptyDir: {}
+        {{- else -}}
+        hostPath:
+          path: {{ required "hostPath not set" $cs.hostPath }}
+        {{ end }}
+      {{ end }}
+      {{ end }}
+      {{- end -}}
 
 
 {{- end }}
