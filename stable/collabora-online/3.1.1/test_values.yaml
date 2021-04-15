@@ -8,7 +8,7 @@ strategy:
 
 # Configure the Security Context for the Pod
 podSecurityContext:
-  runAsNonRoot: true
+  runAsNonRoot: false
   runAsUser: 101
   runAsGroup: 101
   fsGroup: 101
