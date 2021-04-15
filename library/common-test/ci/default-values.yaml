@@ -20,47 +20,75 @@ env: {}
   # PUID: 1001
   # PGID: 1001
 
-
-persistence:
-  config:
-    enabled: false
-    emptyDir: false
-
-  torrentblackhole:
-    enabled: false
-    emptyDir: false
-    mountPath: /downloads
-    ## Persistent Volume Storage Class
-    ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
-    ## If undefined (the default) or set to null, no storageClassName spec is
-    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-    ##   GKE, AWS & OpenStack)
-    # storageClass: "-"
-    # accessMode: ReadWriteOnce
-    # size: 1Gi
-    ## Do not delete the pvc upon helm uninstall
-    # skipuninstall: false
-    # existingClaim: ""
-
-
-## TrueCharts Values
-
-ingress:
+services:
   main:
     enabled: true
-    # Used when including ingress using {{ include "common.ingress" . }}
-    type: "HTTP"
-    entrypoint: "websecure"
-    certType: ""
-    annotations: {}
-    hosts:
-      - host: chart-example.local
-        path: /
+    port:
+      port: 9117
 
-appVolumeMounts:
-  config:
+additionalServices:
+  - name: test3
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8083
+      name: extra-tcp-test
+      protocol: TCP
+      targetPort: 8083
+  - name: test4
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8084
+      name: extra-udp-test
+      protocol: UDP
+      targetPort: 8084
+
+ingress:
+  test1:
+    enabled: true
+  test2:
+    enabled: true
+
+additionalIngress:
+  - name: "test3"
+    enabled: true
+  - name: "test4"
+    enabled: true
+
+persistence:
+    config:
+    enabled: true
+    mountPath: "/config"
+    emptyDir: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
+
+# these values and names are set specifically with the unittests in mind.
+fixMountPermissions: false
+deviceMounts:
+  test1:
     enabled: true
     emptyDir: true
+    mountPath: "/test1"
+    hostPath: "/tmp"
+  test2:
+    enabled: true
+    emptyDir: false
+    mountPath: "/test2"
+    hostPath: "/tmp"
+
+# these values and names are set specifically with the unittests in mind.
+customStorage:
+  - name: "test3"
+    enabled: true
+    emptyDir: true
+    mountPath: "/test3"
+    hostPath: ""
+  - name: "test4"
+    enabled: true
+    emptyDir: false
     setPermissions: true
-    mountPath: "/config"
+    mountPath: "/test4"
+    hostPath: "/tmp"

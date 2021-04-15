@@ -5,55 +5,26 @@ before chart installation.
 {{- define "common.storage.permissions" -}}
 {{- if .Values.fixMountPermissions }}
 
-{{- range $index, $avm := .Values.customStorage -}}
-{{- if and $avm.enabled $avm.setPermissions}}
+
+{{- $jobName := include "common.names.fullname" . -}}
+{{- $values := .Values -}}
+
+
 {{- print "---" | nindent 0 -}}
-
-{{- $AVMValues := $avm -}}
-{{- if not $AVMValues.nameSuffix -}}
-  {{- $_ := set $AVMValues "nameSuffix" $index -}}
-{{ end -}}
-{{- $_ := set $ "ObjectValues" (dict "appVolumeMounts" $AVMValues) -}}
-
-{{ include "common.storage.permissions.job" $  | nindent 0 }}
-
-
-{{- $values := .Values.appVolumeMounts -}}
-{{- if hasKey . "ObjectValues" -}}
-  {{- with .ObjectValues.appVolumeMounts -}}
-    {{- $values = . -}}
-  {{- end -}}
-{{ end -}}
-{{- $JobName := include "common.names.fullname" . -}}
-{{- if hasKey $values "nameSuffix" -}}
-  {{- $JobName = printf "%v-%v" $JobName $values.nameSuffix -}}
-{{ end -}}
 
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ $JobName }}
+  name: {{ $jobName }}-autopermissions
   labels:
     {{- include "common.labels" . | nindent 4 }}
-    {{- with .Values.controllerLabels }}
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
   annotations:
    "helm.sh/hook": pre-install,pre-upgrade
    "helm.sh/hook-weight": "-10"
    "helm.sh/hook-delete-policy": hook-succeeded,hook-failed,before-hook-creation
-  {{- with .Values.controllerAnnotations }}
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
 spec:
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-      {{- toYaml . | nindent 8 }}
-      {{- end }}
-      labels:
-      {{- include "common.labels.selectorLabels" . | nindent 8 }}
     spec:
       restartPolicy: Never
       containers:
@@ -62,8 +33,8 @@ spec:
           command:
           - /bin/sh
           - -c
-          - |
-            chown -R{{ if eq .podSecurityContext.runAsNonRoot false }}{{ print .Values.PUID }}{{ else }}{{ print .podSecurityContext.runAsUser }}{{ end }}:{{ print .podSecurityContext.fsGroup }}  {{ print $values.mountPath }}
+          - | {{ range $index, $cs := .Values.customStorage}}{{ if and $cs.enabled $cs.setPermissions}}
+            chown -R {{ if eq $values.podSecurityContext.runAsNonRoot false }}{{ print $values.PUID }}{{ else }}{{ print $values.podSecurityContext.runAsUser }}{{ end }}:{{ print $values.podSecurityContext.fsGroup }}  {{ print $cs.mountPath }}{{ end }}{{ end }}
           #args:
           #
           #securityContext:
@@ -74,10 +45,6 @@ spec:
       volumes:
         {{- . | nindent 8 }}
       {{- end }}
-
-
-{{- end }}
-{{- end }}
 
 
 {{- end }}
