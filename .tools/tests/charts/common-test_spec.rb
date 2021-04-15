@@ -494,14 +494,14 @@ class Test < ChartTest
     end
 
     describe 'ingress' do
-      it 'should be disabled when (additional)ingress enabled = false' do
+      it 'should be disabled when (additional)ingress enabled = false and certType = disabled' do
         values = {
           ingress: {
             test1: {
               enabled: false
             },
             test2: {
-              enabled: false
+              certType: "disabled"
             }
           },
           additionalIngress: [
@@ -526,7 +526,7 @@ class Test < ChartTest
               enabled: true
             },
             test2: {
-              enabled: true
+              certType: "plain"
             }
           },
           additionalIngress: [
@@ -551,7 +551,7 @@ class Test < ChartTest
               enabled: true
             },
             test2: {
-              enabled: true
+              certType: "plain"
             }
           },
           additionalIngress: [
@@ -577,7 +577,7 @@ class Test < ChartTest
               enabled: false
             },
             test2: {
-              enabled: true
+              certType: "plain"
             }
           },
           additionalIngress: [
@@ -649,7 +649,7 @@ class Test < ChartTest
               type: "HTTP"
             },
             test2: {
-              enabled: false
+              certType: "disabled"
             }
           },
           additionalIngress: [
@@ -706,7 +706,7 @@ class Test < ChartTest
               type: "TCP"
             },
             test2: {
-              enabled: false
+              certType: "disabled"
             }
           },
           additionalIngress: [
@@ -733,7 +733,7 @@ class Test < ChartTest
               type: "UDP"
             },
             test2: {
-              enabled: false
+              certType: "disabled"
             }
           },
           additionalIngress: [
@@ -759,7 +759,7 @@ class Test < ChartTest
               enabled: false
             },
             test2: {
-              enabled: false
+              certType: "disabled"
             }
           },
           additionalIngress: [
@@ -786,7 +786,7 @@ class Test < ChartTest
               enabled: false
             },
             test2: {
-              enabled: false
+              certType: "disabled"
             }
           },
           additionalIngress: {
@@ -845,7 +845,7 @@ class Test < ChartTest
               type: "UDP"
             },
             test2: {
-              enabled: false,
+              certType: "disabled",
               type: "TCP"
             },
             test2b: {
