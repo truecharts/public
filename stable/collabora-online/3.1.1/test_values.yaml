@@ -8,6 +8,7 @@ strategy:
 
 # Configure the Security Context for the Pod
 podSecurityContext:
+  allowPrivilegeEscalation: true
   runAsNonRoot: false
   runAsUser: 0
   runAsGroup: 0
