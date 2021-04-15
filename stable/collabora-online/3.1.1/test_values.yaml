@@ -20,6 +20,12 @@ services:
       port: 9980
       nodePort: 30980
 
+securitycontext:
+  allowPrivilegeEscalation: true
+  capabilities:
+      add:
+        - MKNOD
+
 env:
   domain: nextcloud\.domain\.tld
   dictionaries: de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru
