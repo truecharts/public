@@ -37,6 +37,9 @@ Volumes included by the controller.
   {{ if $csm.subPath }}
   subPath: {{ $csm.subPath }}
   {{ end }}
+  {{ if $csm.readOnly
+  readOnly: {{ $csm.readOnly }}
+  {{ end }}
 {{- end -}}
 {{ end }}
 
