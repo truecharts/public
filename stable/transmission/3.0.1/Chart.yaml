@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: transmission
-version: 3.0.1
+version: 3.1.0
 # upstream_version:
 appVersion: "auto"
 description: API Support for your favorite torrent trackers.
@@ -20,7 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 3.0.2
+    version: 3.5.0
     # condition:
 maintainers:
   - name: TrueCharts
