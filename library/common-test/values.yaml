@@ -60,13 +60,11 @@ deviceMounts:
   test1:
     enabled: true
     emptyDir: true
-    mountPath: "/test1"
-    hostPath: "/tmp"
+    devicePath: "/test1"
   test2:
     enabled: true
     emptyDir: false
-    mountPath: "/test2"
-    hostPath: "/tmp"
+    devicePath: "/test2"
 
 # these values and names are set specifically with the unittests in mind.
 customStorage:

@@ -296,24 +296,18 @@ PGID: 568
 UMASK: "002"
 fixMountPermissions: true
 
-# appVolumeMounts:
+# deviceMounts:
 #   config:
 #     enabled: false
 #     emptyDir: false
-#     datasetName: "config"
-#     mountPath: "/config"
-#     subPath: some-subpath
-#     hostPathEnabled: false
-#     hostPath: ""
+#     hostPath: "/config"
 #     setPermissions: true
 
-# additionalAppVolumeMounts:
+# customStorage:
 #   - name: "data"
 #     enabled: false
 #     emptyDir: false
-#     datasetName: "data"
 #     mountPath: "/data"
 #     subPath: some-subpath
-#     hostPathEnabled: false
 #     hostPath: ""
 #     setPermissions: true
