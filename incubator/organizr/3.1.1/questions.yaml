@@ -300,6 +300,13 @@ questions:
                   type: boolean
                   default: true
                   hidden: false
+              - variable: readOnly
+                label: "Mount as ReadOnly"
+                description: "prevent any write from being done to the mounted volume"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: false
               - variable: name
                 label: "Mountpoint Name"
                 schema:
