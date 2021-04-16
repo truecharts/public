@@ -35,8 +35,10 @@ ingress:
   enabled: false
 
 persistence:
-  data:
-    enabled: false
-    emptyDir:
-      enabled: false
-    mountPath: /app
+  config:
+    enabled: true
+    mountPath: "/config"
+    emptyDir: true
+    accessMode: ReadWriteOnce
+    size: 10Gi
+    storageClass: ""
