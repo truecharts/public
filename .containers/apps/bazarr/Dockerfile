@@ -1,8 +1,9 @@
 # hadolint ignore=DL3007
+ARG VERSION
+
 FROM ghcr.io/k8s-at-home/bazarr:v${VERSION}
 
 
-ARG VERSION
 ARG TARGETPLATFORM
 
 USER root
