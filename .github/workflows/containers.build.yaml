@@ -83,7 +83,7 @@ jobs:
         echo ::set-output name=category::${CATEGORY}
         VERSION=$(cat ./.containers/${CATEGORY}/${{ matrix.container }}/VERSION)
         echo ::set-output name=version::${VERSION}
-        PLATFORM=$(cat ./.containers/${CATEGORY}/${{ matrix.container }}/PLATFORM)
+        PLATFORM="linux/amd64"
         echo ::set-output name=platform::${PLATFORM}
         if test -f "./.containers/${CATEGORY}/${{ matrix.container }}/goss.yaml"; then
           echo ::set-output name=goss::true
@@ -103,7 +103,7 @@ jobs:
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
       with:
-        platforms: all
+        platforms: amd64
 
     - name: Login to GHCR
       uses: docker/login-action@v1
