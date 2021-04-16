@@ -66,6 +66,27 @@ questions:
       $ref:
         - "definitions/timezone"
 
+          # Configure Enviroment Variables
+  - variable: environmentVariables
+    label: "Image environment"
+    group: "Configuration"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
 
   - variable: env
     group: "Configuration"
