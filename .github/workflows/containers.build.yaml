@@ -52,7 +52,7 @@ jobs:
     - name: hadolint
       uses: reviewdog/action-hadolint@v1.17.1
       with:
-        github_token: ${{ secrets.BOT_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         reporter: github-pr-review
         filter_mode: diff_context
         fail_on_error: true
