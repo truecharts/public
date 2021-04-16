@@ -1,76 +1,42 @@
 image:
-  repository: statping/statping
+  repository: acockburn/appdaemon
   pullPolicy: IfNotPresent
-  tag: "v0.90.65"
+  tag: "4.0.8"
 
 strategy:
   type: Recreate
 
-# See more environment variables in the statping documentation
-# https://github.com/statping/statping/wiki/Config-with-.env-File
-env:
-  # -- Name of the Statping instance
-  NAME: Statping Example
-  # -- Description of the Statping instance
-  DESCRIPTION: This is a Statping instance deployed as Helm chart
-  # -- External URL you use to connect to the statping (the one you enter in your browser)
-  VIRTUAL_HOST: ""
-  # -- Type of database to use
-  DB_CONN: postgres
-  # -- Postgres database hostname
-  # @default -- internal postgresql URL
-  DB_HOST: ""
-  # -- Enable ssl_mode for postgres (To enable use require)
-  POSTGRES_SSLMODE: "disable"
-  # -- Postgres database user name
-  # @default -- postgresql.postgresqlUsername value
-  DB_USER: ""
-  # -- Postgres database password
-  # @default -- postgresql.postgresqlPassword value
-  DB_PASS: ""
-  # -- Postgres database password
-  # @default -- postgresql.postgresqlDatabase value
-  DB_DATABASE: ""
-  # -- Use CDN for static context from third-parties
-  USE_CDN: false
-  # -- Disable logs from appearing and writing to disk
-  DISABLE_LOGS: false
-  # -- dashboard admin user (needed to edit)
-  # ADMIN_USER: admin
-  # -- dashboard admin password (needed to edit)
-  # ADMIN_PASSWORD: admin
-  # -- dashboard admin email
-  # ADMIN_EMAIL: info@example.com
+# Configure the Security Context for the Pod
+podSecurityContext:
+  runAsNonRoot: false
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
 
-service:
-  port:
-    port: 8080
+
+env:
+  URL: ""
+  Token: "" This is a Statping instance deployed as Helm chart
+
+
+services:
+  main:
+    port:
+      port: 5050
+  tcp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 51050
+      protocol: TCP
+      targetPort: 51050
 
 ingress:
   enabled: false
 
-# -- Generated application config.yaml and logs are written here.
-# Usually does not need to be persisted.
-# @default -- see bellow
 persistence:
   data:
     enabled: false
     emptyDir:
       enabled: false
     mountPath: /app
-
-# -- Bitnami postgres chart. For more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
-# @default -- see bellow
-postgresql:
-  # -- By default uses an internal postgress. Disable if you use your own Postgres.
-  enabled: true
-  # -- Postgres database user name
-  postgresqlUsername: postgres
-  # -- Postgres database password
-  postgresqlPassword: "changeme"
-  # -- Postgres database password
-  postgresqlDatabase: postgres
-  persistence:
-    # -- if database is stored to a PVC. Set to true when you are done testing.
-    enabled: false
-    # storageClass: ""
