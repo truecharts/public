@@ -147,7 +147,6 @@ Truecharts as a whole, is based on a BSD-3-clause  license, this ensures almost 
 
 Some Apps may also contain parts in other licenses, such as libraries or templates, these files can be recognised by their individual headers.
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftruecharts%2Ftruecharts.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftruecharts%2Ftruecharts?ref=badge_large)
 
 `SPDX-License-Identifier: BSD-3-Clause`
 
