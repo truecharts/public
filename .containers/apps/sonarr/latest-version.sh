@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-version=$(curl -sX GET "https://services.sonarr.tv/v1/download/main?version=3" | jq --raw-output '.version')
+TOKEN=$(curl https://ghcr.io/token\?scope\="repository:k8s-at-home/sonarr:pull" | jq --raw-output '.[]')
+version=$(curl -H "Authorization: Bearer ${TOKEN}" https://ghcr.io/v2/k8s-at-home/sonarr/tags/list | jq --raw-output '.tags[]' | grep -v latest | grep -v buildcache | tail -n1)
 version="${version#*v}"
 version="${version#*release-}"
-printf "%s" "${version}"
+echo "${version}"

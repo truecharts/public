@@ -1,43 +1,33 @@
 # hadolint ignore=DL3007
-FROM ghcr.io/truecharts/ubuntu:latest
-
 ARG VERSION
+
+FROM ghcr.io/k8s-at-home/readarr:v${VERSION}
+
+
+ARG TARGETPLATFORM
 
 USER root
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # hadolint ignore=DL3008,DL3015,SC2086
 RUN \
-  apt-get -qq update \
+  usermod -l apps kah \
   && \
-  apt-get -qq install -y \
-    libicu66 \
+  groupmod -n apps kah \
+  && chown -R apps:apps /config \
+  && rm -rf /app/package_info \
   && \
-  curl -fsSL -o /tmp/readarr.tar.gz \
-    "https://readarr.servarr.com/v1/update/nightly/updatefile?version=${VERSION}&os=linux&runtime=netcore&arch=x64" \
-  && tar ixzf /tmp/readarr.tar.gz -C /app --strip-components 1 \
-  && \
-  rm -rf \
-    /app/readarr.Update* \
-  && \
-  printf "UpdateMethod=docker\nBranch=nightly\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
-  && \
-  apt-get autoremove -y \
-  && apt-get clean \
-  && \
-  rm -rf \
-    /tmp/* \
-    /var/lib/apt/lists/* \
-    /var/tmp/ \
-  && chmod -R u=rwX,go=rX /app \
-  && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
-  && update-ca-certificates
+  printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info
+
 
 USER apps
 
-EXPOSE 8787
+EXPOSE 6767
 
-COPY ./.containers/apps/readarr/entrypoint.sh /entrypoint.sh
 CMD ["/entrypoint.sh"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
-LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"
+LABEL "authors"="TrueCharts <info@truecharts.org>"
+LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps/tree/master/.containers/apps/readarr"
+LABEL "org.opencontainers.image.documentation "="https://truecharts.org"

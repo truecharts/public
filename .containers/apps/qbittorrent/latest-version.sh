@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-version=$(curl -sX GET "https://api.github.com/repos/qbittorrent/qBittorrent/tags" | jq --raw-output '.[0].name')
+TOKEN=$(curl https://ghcr.io/token\?scope\="repository:k8s-at-home/qbittorrent:pull" | jq --raw-output '.[]')
+version=$(curl -H "Authorization: Bearer ${TOKEN}" https://ghcr.io/v2/k8s-at-home/qbittorrent/tags/list | jq --raw-output '.tags[]' | grep -v latest | grep -v buildcache | tail -n1)
 version="${version#*v}"
 version="${version#*release-}"
-printf "%s" "${version}"
+echo "${version}"
