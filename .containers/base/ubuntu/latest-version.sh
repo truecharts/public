@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-version=$(curl -s "https://registry.hub.docker.com/v1/repositories/library/ubuntu/tags" | jq --raw-output '.[] | select(.name | contains("focal")) | .name'  | tail -n1)
+TOKEN=$(curl https://ghcr.io/token\?scope\="repository:truecharts/ubuntu:pull" | jq --raw-output '.[]')
+version=$(curl -H "Authorization: Bearer ${TOKEN}" https://ghcr.io/v2/truecharts/ubuntu/tags/list | jq --raw-output '.tags[]' | grep -v latest | grep -v buildcache | tail -n1)
 version="${version#*v}"
 version="${version#*release-}"
-printf "%s" "${version}"
+echo "${version}"
