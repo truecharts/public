@@ -1,0 +1,20 @@
+apiVersion: v2
+appVersion: v4.0.8
+description: AppDaemon is a loosely coupled, multithreaded, sandboxed python execution environment for writing automation apps for Home Assistant home automation software. It also provides a configurable dashboard (HADashboard) suitable for wall mounted tablets.
+name: appdaemon
+version: 0.1.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- appdaemon
+- homeautomation
+home: https://github.com/truecharts/apps/tree/master/incubator/appdaemon
+icon: https://github.com/hassio-addons/addon-appdaemon/blob/main/appdaemon/icon.png?raw=true
+sources:
+- https://github.com/AppDaemon/appdaemon
+maintainers:
+  - name: Lloyd Warren
+    email: lloyd3.warren@gmail.com
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 2.2.0
