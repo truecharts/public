@@ -14,8 +14,8 @@ RUN \
   usermod -l apps kah \
   && \
   groupmod -n apps kah \
-  && chown -R apps:apps /config
-  && rm -rf /app/package_info
+  && chown -R apps:apps /config \
+  && rm -rf /app/package_info \
   && \
   printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info
 
