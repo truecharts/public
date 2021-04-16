@@ -27,4 +27,6 @@ EXPOSE 6767
 CMD ["/entrypoint.sh"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
-LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"
+LABEL "authors"="TrueCharts <info@truecharts.org>"
+LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps/tree/master/.containers/apps/bazarr"
+LABEL "org.opencontainers.image.documentation "="https://truecharts.org"
