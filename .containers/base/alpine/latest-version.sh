@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-version=$(curl -s "https://registry.hub.docker.com/v1/repositories/library/alpine/tags" | jq --raw-output '.[] | select(.name | contains(".")) | .name' | sort -t "." -k1,1n -k2,2n -k3,3n | tail -n1)
+TOKEN=$(curl https://ghcr.io/token\?scope\="repository:k8s-at-home/alpine:pull" | jq --raw-output '.[]')
+version=$(curl -H "Authorization: Bearer ${TOKEN}" https://ghcr.io/v2/k8s-at-home/alpine/tags/list | jq --raw-output '.tags[]' | grep -v latest | grep -v buildcache | tail -n1)
 version="${version#*v}"
 version="${version#*release-}"
-printf "%s" "${version}"
+echo "${version}"

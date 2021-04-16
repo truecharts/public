@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-version=$(curl -sX GET "https://api.github.com/repos/theotherp/nzbhydra2/releases" | jq --raw-output '.[0].tag_name')
+TOKEN=$(curl https://ghcr.io/token\?scope\="repository:k8s-at-home/nzbhydra2:pull" | jq --raw-output '.[]')
+version=$(curl -H "Authorization: Bearer ${TOKEN}" https://ghcr.io/v2/k8s-at-home/nzbhydra2/tags/list | jq --raw-output '.tags[]' | grep -v latest | grep -v buildcache | tail -n1)
 version="${version#*v}"
 version="${version#*release-}"
-printf "%s" "${version}"
+echo "${version}"

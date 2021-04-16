@@ -1,53 +1,33 @@
 # hadolint ignore=DL3007
-FROM ghcr.io/truecharts/ubuntu:latest
-
-ARG TARGETPLATFORM
 ARG VERSION
 
-# Sets Jackett config directory
-# https://github.com/Jackett/Jackett#home-directory-1
-ENV XDG_CONFIG_HOME=/config
+FROM ghcr.io/k8s-at-home/jackett:v${VERSION}
+
+
+ARG TARGETPLATFORM
 
 USER root
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # hadolint ignore=DL3008,DL3015,SC2086
 RUN \
-  apt-get -qq update \
+  usermod -l apps kah \
   && \
-  apt-get -qq install -y \
-    libicu66 \
-    libssl1.1 \
+  groupmod -n apps kah \
+  && chown -R apps:apps /config \
+  && rm -rf /app/package_info \
   && \
-  case "${TARGETPLATFORM}" in \
-    'linux/amd64') export ARCH='AMDx64' ;; \
-  esac \
-  && \
-  curl -fsSL -o /tmp/jackett.tar.gz \
-    "https://github.com/Jackett/Jackett/releases/download/v${VERSION}/Jackett.Binaries.Linux${ARCH}.tar.gz" \
-  && tar ixzf /tmp/jackett.tar.gz -C /app --strip-components 1 \
-  && \
-  rm -rf \
-    /app/JackettUpdater* \
-  && \
-  printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
-  && \
-  apt-get autoremove -y \
-  && apt-get clean \
-  && \
-  rm -rf \
-    /tmp/* \
-    /var/lib/apt/lists/* \
-    /var/tmp/ \
-  && chmod -R u=rwX,go=rX /app \
-  && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
-  && update-ca-certificates
+  printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info
+
 
 USER apps
 
-EXPOSE 9117
+EXPOSE 6767
 
-COPY ./.containers/apps/jackett/entrypoint.sh /entrypoint.sh
 CMD ["/entrypoint.sh"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
-LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"
+LABEL "authors"="TrueCharts <info@truecharts.org>"
+LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps/tree/master/.containers/apps/jackett"
+LABEL "org.opencontainers.image.documentation "="https://truecharts.org"

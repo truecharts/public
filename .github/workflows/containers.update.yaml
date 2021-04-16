@@ -29,10 +29,14 @@ jobs:
               echo "App: ${app} using version: ${version}"
             fi
           fi
-          base=$(cat "./.containers/base/ubuntu/VERSION")
-          if [[ ! -z "${base}" || "${base}" != "null" ]]; then
-            echo "${base}" | tee ".containers/apps/${app}/BASE" > /dev/null
-            echo "App: ${app} using Base: ${base}"
+          if test -f "./.containers/apps/${app}/BASE"; then
+            if test -f "./.containers/apps/${app}/latest-base.sh"; then
+              base=$(bash "./.containers/apps/${app}/latest-base.sh")
+              if [[ ! -z "${base}" || "${base}" != "null" ]]; then
+                echo "${base}" | tee ".containers/apps/${app}/BASE" > /dev/null
+                echo "App: ${app} using Base: ${base}"
+              fi
+            fi
           fi
         done
     - name: Fetch new base versions
