@@ -57,32 +57,3 @@ persistence:
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
-
-  storage:
-    emptyDir: true
-    datasetName: "storage"
-    mountPath: "/storage"
-    hostPathEnabled: true
-    setPermissions: true
-
-  watch:
-    emptyDir: true
-    datasetName: "watch"
-    mountPath: "/watch"
-    hostPathEnabled: true
-    setPermissions: true
-
-  output:
-    emptyDir: true
-    datasetName: "output"
-    mountPath: "/output"
-    hostPathEnabled: true
-    setPermissions: true
-
-#  opticaldrive:
-#    enabled: true
-#    emptyDir: true
-#    mountPath: "/dev/sr0"
-#    hostPath: "/dev/sr0"
-#    hostPathEnabled: true
-#    setPermissions: true
