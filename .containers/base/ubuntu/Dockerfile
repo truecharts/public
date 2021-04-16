@@ -1,6 +1,6 @@
 ARG VERSION
 
-FROM ghcr.io/k8s-at-home/ubuntu:buildcache:${VERSION}
+FROM ghcr.io/k8s-at-home/ubuntu:${VERSION}
 
 ARG TARGETPLATFORM
 
