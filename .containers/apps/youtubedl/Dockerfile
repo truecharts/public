@@ -4,6 +4,8 @@ FROM ghcr.io/truecharts/ubuntu:latest AS builder
 ARG VERSION
 
 WORKDIR /app
+USER root
+
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3003,DL3016
 RUN \
