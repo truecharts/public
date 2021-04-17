@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-exec node /app/app.js ${@} ${EXTRA_ARGS}
+rm -R /data/*
+cp -Rf /app/* /data
+exec node /data/app.js ${@} ${EXTRA_ARGS}

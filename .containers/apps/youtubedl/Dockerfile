@@ -73,7 +73,6 @@ RUN \
 COPY --from=builder --chown=apps:apps /app /app
 
 WORKDIR /app
-VOLUME /app
 USER apps
 
 
