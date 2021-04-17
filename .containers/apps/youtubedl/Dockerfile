@@ -4,6 +4,7 @@ ARG VERSION
 
 WORKDIR /app
 
+# hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3003,DL3016
 RUN \
   apt-get -qq update \
   && \
