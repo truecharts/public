@@ -22,7 +22,7 @@ RUN \
   export URL="https://github.com/Tzahi12345/YoutubeDL-Material/releases/download/v${VERSION}/youtubedl-material-v${VERSION}.zip" \
   && curl -fsSL -o /tmp/youtubedl.zip "${URL}" \
   && unzip /tmp/youtubedl.zip -d /tmp \
-  && cp -Rf /tmp/youtubedl-material /app \
+  && cp -Rf /tmp/youtubedl-material/* /app \
   && printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
   && echo "==running NPM install==" \
   && npm install
