@@ -23,7 +23,7 @@ RUN \
 
 USER apps
 
-EXPOSE 6767
+EXPOSE 8080
 
 CMD ["/entrypoint.sh"]
 
