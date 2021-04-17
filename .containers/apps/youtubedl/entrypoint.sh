@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-exec node /app/app.js ${@} ${EXTRA_ARGS}
+echo "Patching youtubedl-material"
+cd /data
+find . -maxdepth 1 ! -name users ! -name appdata  -exec rm -Rf {} +
+cp -Rn /app/* /data
+exec node /data/app.js ${@} ${EXTRA_ARGS}

@@ -66,6 +66,8 @@ RUN \
     /tmp/* \
     /var/lib/apt/lists/* \
     /var/tmp/ \
+  && mkdir /data \
+  && chmod -R 777 /data \
   && chmod -R u=rwX,go=rX /app \
   && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
   && update-ca-certificates
@@ -73,9 +75,8 @@ RUN \
 COPY --from=builder --chown=apps:apps /app /app
 
 WORKDIR /app
-VOLUME /app
 USER apps
-
+VOLUME /data
 
 EXPOSE 17442
 COPY ./.containers/apps/youtubedl/entrypoint.sh /entrypoint.sh
