@@ -54,7 +54,6 @@ RUN \
   && update-ca-certificates
 
 WORKDIR /app
-VOLUME /app
 USER apps
 
 EXPOSE 17442
