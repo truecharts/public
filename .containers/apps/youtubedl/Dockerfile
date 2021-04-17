@@ -1,4 +1,33 @@
 # hadolint ignore=DL3007
+FROM ghcr.io/truecharts/ubuntu:latest AS builder
+
+ARG VERSION
+
+WORKDIR /app
+
+# hadolint ignore=DL3002
+USER root
+
+
+# hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3003,DL3016
+RUN \
+  apt-get -qq update \
+  && \
+  apt-get -qq install -y \
+    nodejs \
+    unzip \
+    python \
+    npm \
+  && \
+  export URL="https://github.com/Tzahi12345/YoutubeDL-Material/releases/download/v${VERSION}/youtubedl-material-v${VERSION}.zip" \
+  && curl -fsSL -o /tmp/youtubedl.zip "${URL}" \
+  && unzip /tmp/youtubedl.zip -d /tmp \
+  && cp -Rf /tmp/youtubedl-material/* /app \
+  && printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
+  && echo "==running NPM install==" \
+  && npm install
+
+# hadolint ignore=DL3007
 FROM ghcr.io/truecharts/ubuntu:latest
 
 ENV NO_UPDATE_NOTIFIER=true
@@ -14,6 +43,8 @@ USER root
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+ARG VERSION
+
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3003,DL3016
 RUN \
   apt-get -qq update \
@@ -24,21 +55,8 @@ RUN \
     ffmpeg \
     unzip \
     python \
-    npm \
     ffmpeg \
     atomicparsley \
-  && \
-  mkdir -p /extract \
-  && \
-  export URL="https://github.com/Tzahi12345/YoutubeDL-Material/releases/download/v${VERSION}/youtubedl-material-v${VERSION}.zip" \
-  && curl -fsSL -o /tmp/youtubedl.zip "${URL}" \
-  && unzip /tmp/youtubedl.zip -d /tmp \
-  && rm -Rf /app || Skip deleting app directory \
-  && cp -Rf /tmp/youtubedl-material /app \
-  && printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
-  && echo "==running NPM install==" \
-  && cd /app \
-  && npm install \
   && echo "==Running Cleanup ==" \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && apt-get autoremove -y \
@@ -52,6 +70,7 @@ RUN \
   && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
   && update-ca-certificates
 
+COPY --from=builder --chown=apps:apps /app /app
 
 USER apps
 
