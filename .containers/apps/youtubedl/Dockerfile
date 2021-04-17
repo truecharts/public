@@ -4,6 +4,8 @@ FROM ghcr.io/truecharts/ubuntu:latest AS builder
 ARG VERSION
 
 WORKDIR /app
+
+# hadolint ignore=DL3002
 USER root
 
 
