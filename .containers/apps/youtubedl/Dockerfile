@@ -1,5 +1,6 @@
 # hadolint ignore=DL3007
 FROM ghcr.io/truecharts/ubuntu:latest AS builder
+
 ARG VERSION
 
 WORKDIR /app
@@ -52,7 +53,6 @@ RUN \
     python \
     ffmpeg \
     atomicparsley \
-  && \
   && echo "==Running Cleanup ==" \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && apt-get autoremove -y \
