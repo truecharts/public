@@ -49,11 +49,10 @@ RUN \
     /var/lib/apt/lists/* \
     /var/tmp/ \
   && chmod -R u=rwX,go=rX /app \
-  && chown -R apps:apps /app \
   && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
   && update-ca-certificates
 
-WORKDIR /app
+
 USER apps
 
 EXPOSE 17442
