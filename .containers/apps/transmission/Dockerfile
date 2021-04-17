@@ -23,7 +23,7 @@ RUN \
 
 USER apps
 
-EXPOSE 6767
+EXPOSE 51413 ${WEBUI_PORT}
 
 CMD ["/entrypoint.sh"]
 

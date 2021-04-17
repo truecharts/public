@@ -1,7 +1,7 @@
 # hadolint ignore=DL3007
 ARG VERSION
 
-FROM ghcr.io/k8s-at-home/radarr:v${VERSION}
+FROM ghcr.io/k8s-at-home/appdaemon:v${VERSION}
 
 
 ARG TARGETPLATFORM
@@ -23,11 +23,11 @@ RUN \
 
 USER apps
 
-EXPOSE 7878
+EXPOSE 5050
 
 CMD ["/entrypoint.sh"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "authors"="TrueCharts <info@truecharts.org>"
-LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps/tree/master/.containers/apps/radarr"
+LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps/tree/master/.containers/apps/appdaemon"
 LABEL "org.opencontainers.image.documentation "="https://truecharts.org"
