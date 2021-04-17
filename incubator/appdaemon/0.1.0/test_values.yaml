@@ -16,7 +16,7 @@ podSecurityContext:
 
 env:
   URL: ""
-  Token: "" This is a Statping instance deployed as Helm chart
+  TOKEN: ""
 
 
 services:
@@ -35,8 +35,10 @@ ingress:
   enabled: false
 
 persistence:
-  data:
+  config:
     enabled: true
+    mountPath: "/config"
     emptyDir: true
-      enabled: false
-    mountPath: /app
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
