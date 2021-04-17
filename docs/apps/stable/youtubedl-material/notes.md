@@ -1,7 +1,7 @@
 # Installation Notes
 
 ## By default Youtube-dl uses the following directories, which are NOT persistence. 
-## Everything in `/data`, `/app` and `/storage` gets WIPED on boot.
+## Everything in `/data`, `/app` and `/config` gets WIPED on boot.
 
 
 * Videos with 'Audio only' checked, by default downloads to `/data/audio/`
@@ -11,5 +11,5 @@
 
 To easily access the above directories, add them as custom storage. eg `/audio`, `/video`, `subscriptions`, `/users`  
 If you plan to use multi-user, you only need 1 directory, `/users`.
-DO NOT add custom storage in `/data`, `/app` and `/storage` it will be wiped on the next boot.
+DO NOT add custom storage in `/data`, `/app` and `/config` it will be wiped on the next boot.
 Then you have to manually map them on the WebUI also. (Top right corner > 3-Dots > Settings > Main and Downloader tabs)
