@@ -72,7 +72,10 @@ RUN \
 
 COPY --from=builder --chown=apps:apps /app /app
 
+WORKDIR /app
+VOLUME /app
 USER apps
+
 
 EXPOSE 17442
 COPY ./.containers/apps/youtubedl/entrypoint.sh /entrypoint.sh
