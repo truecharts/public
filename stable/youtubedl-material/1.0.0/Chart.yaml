@@ -1,0 +1,32 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: youtubedl-material
+version: 1.0.0
+# upstream_version:
+appVersion: "auto"
+description: YoutubeDL-Material is a Material Design frontend for youtube-dl.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/stable/youtubedl-material
+icon: https://truecharts.org/_static/img/youtubedl-material-icon.jpg
+keywords:
+  - media
+  - youtubedl
+  - download
+sources:
+  - https://github.com/truecharts/apps/tree/master/stable/youtubedl-material
+  - https://github.com/Tzahi12345/YoutubeDL-Material
+  - https://hub.docker.com/r/tzahi12345/youtubedl-material
+dependencies:
+  - name: common
+    repository: https://truecharts.org/
+    version: 3.5.2
+    # condition:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: stavros-k
+    email: stavros-k@users.noreply.github.com
+    url: truecharts.org
+# annotations:
