@@ -1,9 +1,9 @@
 # Default values for Jackett.
 
 image:
-  repository: ghcr.io/truecharts/jackett
+  repository: ghcr.io/truecharts/youtubedl
   pullPolicy: IfNotPresent
-  tag: v0.17.892
+  tag: latest
 
 strategy:
   type: Recreate
@@ -27,6 +27,13 @@ env: {}
 
 
 persistence:
+  app:
+    enabled: true
+    mountPath: "/app"
+    emptyDir: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
   config:
     enabled: true
     mountPath: "/config"
