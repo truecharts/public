@@ -27,9 +27,9 @@ env: {}
 
 
 persistence:
-  data:
+  config:
     enabled: true
-    mountPath: "/data"
+    mountPath: "/data/appdata"
     emptyDir: true
     accessMode: ReadWriteOnce
     size: 1Gi
