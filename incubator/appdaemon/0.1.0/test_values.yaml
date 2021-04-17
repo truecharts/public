@@ -31,9 +31,6 @@ services:
       protocol: TCP
       targetPort: 51050
 
-ingress:
-  enabled: false
-
 persistence:
   config:
     enabled: true
