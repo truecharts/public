@@ -194,7 +194,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/app/appdata"
+                  default: "/data/appdata"
                   hidden: true
               - variable: emptyDir
                 label: "Mount a ramdisk instead of actual storage"
