@@ -1,7 +1,7 @@
 # # Default values for YoutubeDL-Material.
 
 image:
-  repository: ghcr.io/truecharts/youtubedl
+  repository: ghcr.io/truecharts/youtubedltest
   pullPolicy: IfNotPresent
   tag: v4.2
 strategy:
@@ -27,7 +27,7 @@ env: {}
 persistence:
   config:
     enabled: true
-    mountPath: "/data/appdata"
+    mountPath: "/app/appdata"
     emptyDir: true
     accessMode: ReadWriteOnce
     size: 1Gi
