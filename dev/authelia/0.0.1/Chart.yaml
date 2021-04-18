@@ -1,0 +1,43 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: authelia
+version: 0.0.1
+#upstream_version
+appVersion: "auto"
+description: Authelia is a Single Sign-On Multi-Factor portal for web apps
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/dev/authelia
+icon: https://avatars2.githubusercontent.com/u/59122411?s=200&v=4
+keywords:
+  - SSO
+  - Authentication
+  - Security
+  - Two-Factor
+  - U2F
+  - YubiKey
+  - Push Notifications
+  - LDAP
+sources:
+- https://github.com/authelia/chartrepo/tree/master/charts/authelia
+- https://www.github.com/authelia/authelia
+dependencies:
+  - name: common
+    repository: https://truecharts.org/
+    version: 3.5.2
+    # condition:
+  - name: authelia
+    repository: https://charts.authelia.com
+    version: 0.3.11
+  - name: postgresql
+    version: 10.3.17
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: Ornias1993
+    email: kjeld@schouten-lebbing.nl
+    url: truecharts.org
+# annotations:
