@@ -39,12 +39,13 @@ persistence:
     storageClass: ""
 
 additionalVolumeMounts:
-  - mountPath: /config/secrets/
-    name: secrets
-    readOnly: true
   - mountPath: /config
     name: config
     readOnly: false
+  - mountPath: /config/secrets
+    name: secrets
+    readOnly: true
+
 
 additionalVolumes:
   - name: config
