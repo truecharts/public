@@ -86,7 +86,8 @@ RUN \
   && chmod -R 777 /data \
   && chmod -R u=rwX,go=rX /app \
   && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
-  && update-ca-certificates
+  && update-ca-certificates \
+  && chown -R apps:apps /apps \
 
 COPY --chown=apps:apps --from=builder [ "/extract/build/backend/public/", "/app/public/" ]
 COPY --chown=apps:apps --from=builder [ "/extract/backend/", "/app/" ]
