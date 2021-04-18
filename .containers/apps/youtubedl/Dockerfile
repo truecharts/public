@@ -66,9 +66,14 @@ RUN \
     nodejs \
     npm \
     ffmpeg \
+    youtube-dl \
+    unzip \
     python \
     ffmpeg \
     atomicparsley \
+  && mkdir /app/appdata || echo ""
+  && mkdir /config/appdata || echo ""
+  && ln -s /app/appdata /config/appdata
   && echo "==Installing youtubedl-material==" \
   && npm install \
   && printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
@@ -88,13 +93,13 @@ RUN \
   && chmod -R u=rwX,go=rX /app \
   && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
   && update-ca-certificates \
-  && chown -R apps:apps /app
+  && chown -R apps:apps /app \
+  && chown -R apps:apps /config
 
 COPY --chown=apps:apps --from=builder [ "/extract/build/backend/public/", "/app/public/" ]
 COPY --chown=apps:apps --from=builder [ "/extract/backend/", "/app/" ]
 
 USER apps
-VOLUME /data/appdata
 
 EXPOSE 17442
 COPY ./.containers/apps/youtubedl/entrypoint.sh /entrypoint.sh
