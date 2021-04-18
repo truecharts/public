@@ -104,8 +104,6 @@ postgresql:
     enabled: true
     existingClaim: db
 
-
-
 ### TODO: Cut down the authelia crap
 ## Authelia Domain
 ## Should be the root domain you want to protect.
@@ -504,7 +502,6 @@ configMap:
     ## The length of time before a banned user can login again. Ban Time accepts duration notation.
     ## See: https://www.authelia.com/docs/configuration/index.html#duration-notation-format
     ban_time: 5m
-
 
   ##
   ## Storage Provider Configuration
