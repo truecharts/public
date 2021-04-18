@@ -28,6 +28,12 @@ RUN \
   && tar ixzf /tmp/youtubedl.tgz -C /extract --strip-components=1 \
   && cp /extract/package.json /extract/package-lock.json /extract/build
 
+RUN \
+  mkdir /extract/ffmpeg /
+  && export URL2="https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz" \
+  && curl -fsSL -o /tmp/ffmpeg.tgz "${URL2}" \
+  && tar ixzf /tmp/ffmpeg.tgz -C /extract/ffmpeg
+
 # hadolint ignore=DL3016
 RUN \
   echo "==running NPM install==" \
@@ -58,7 +64,7 @@ ARG VERSION
 
 WORKDIR /app
 COPY --chown=apps:apps --from=builder [ "/extract/backend/package.json", "/extract/backend/package-lock.json", "/app/" ]
-
+COPY --chown=apps:apps --from=builder [ "/extract/ffmpeg/", "/app/ffmpeg/" ]
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3003,DL3016
 RUN \
   apt-get -qq update \
@@ -66,12 +72,13 @@ RUN \
   apt-get -qq install -y \
     nodejs \
     npm \
-    ffmpeg \
     youtube-dl \
     unzip \
     python \
     ffmpeg \
     atomicparsley \
+  && sudo ln -s "/app/ffmpeg/ffmpeg" /usr/local/bin/ \
+  && sudo ln -s "/app/ffmpeg/ffprobe" /usr/local/bin/ \
   && mkdir /app/appdata || echo "" \
   && mkdir /config/.cache || echo "" \
   && mkdir /config/appdata || echo "" \
