@@ -8,38 +8,38 @@ secret:
   secretName: autheliasecret
   items:
   - key: JWT_TOKEN
-    path: /config/secrets/jwt
+    path: jwt
   - key: SESSION_ENCRYPTION_KEY
-    path: /config/secrets/session
+    path: session
     {{- if or .Values.configMap.storage.postgres .Values.configMap.storage.mysql }}
   - key: STORAGE_PASSWORD
-    path: /config/secrets/storage
+    path: storage
     {{- end }}
     {{- if .Values.configMap.authentication_backend.ldap }}
   - key: LDAP_PASSWORD
-    path: /config/secrets/ldap
+    path: ldap
     {{- end }}
     {{- if or (include "authelia.configured.smtp" .) (include "authelia.configured.smtpSecret" .) }}
   - key: SMTP_PASSWORD
-    path: /config/secrets/smtp
+    path: smtp
     {{- end }}
     {{- if and .Values.configMap.session.redis.enabled .Values.configMap.session.redis.enabledSecret }}
   - key: REDIS_PASSWORD
-    path: /config/secrets/redis
+    path: redis
     {{- end }}
     {{- if and .Values.configMap.session.redis.high_availability.enabled .Values.configMap.session.redis.high_availability.enabledSecret }}
   - key: REDIS_SENTINEL_PASSWORD
-    path: /config/secrets/redis-sentinel
+    path: redis-sentinel
     {{- end }}
     {{- if .Values.configMap.duo_api }}
   - key: DUO_API_KEY
-    path: /config/secrets/duo
+    path: duo
     {{- end }}
     {{- if .Values.configMap.identity_providers.oidc.enabled }}
   - key: OIDC_PRIVATE_KEY
-    path: /config/secrets/oidc-private-key
+    path: oidc-private-key
   - key: OIDC_HMAC_SECRET
-    path: /config/secrets/oidc-hmac-secret
+    path: oidc-hmac-secret
     {{- end -}}
 {{- end -}}
 

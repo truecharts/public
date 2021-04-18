@@ -65,7 +65,7 @@ postgresql:
   existingSecret: dbcreds
   persistence:
     enabled: false
-    existingClaim: db
+    existingClaim: dbp
 
 ### TODO: Cut down the authelia crap
 ## Authelia Domain
