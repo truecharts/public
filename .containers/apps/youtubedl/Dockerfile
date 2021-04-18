@@ -1,31 +1,36 @@
 # hadolint ignore=DL3007
 FROM ghcr.io/truecharts/ubuntu:latest AS builder
 
-ARG VERSION
 
-WORKDIR /app
+WORKDIR /extract/build
 
 # hadolint ignore=DL3002
 USER root
-
+ARG VERSION
+ENV VERSION=4.2
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3003,DL3016
 RUN \
   apt-get -qq update \
   && \
   apt-get -qq install -y \
-    nodejs \
-    unzip \
-    python \
     npm \
-  && \
-  export URL="https://github.com/Tzahi12345/YoutubeDL-Material/releases/download/v${VERSION}/youtubedl-material-v${VERSION}.zip" \
-  && curl -fsSL -o /tmp/youtubedl.zip "${URL}" \
-  && unzip /tmp/youtubedl.zip -d /tmp \
-  && cp -Rf /tmp/youtubedl-material/* /app \
-  && printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
-  && echo "==running NPM install==" \
-  && npm install
+
+RUN npm install -g @angular/cli
+
+RUN \
+  export URL="https://github.com/Tzahi12345/YoutubeDL-Material/archive/refs/tags/v${VERSION}.tar.gz" \
+  && curl -fsSL -o /tmp/youtubedl.tgz "${URL}" \
+  && tar ixzf /tmp/youtubedl.tgz -C /extract --strip-components=1 \
+  && cp /extract/package.json /extract/package-lock.json /extract/build \
+
+RUN \
+  echo "==running NPM install==" \
+  && npm install \
+  && cp /extract/angular.json /extract/tsconfig.json /extract/build \
+  && cp -Rf /extract/src /extract/build \
+  && ng build --prod
+
 
 # hadolint ignore=DL3007
 FROM ghcr.io/truecharts/ubuntu:latest
@@ -45,18 +50,22 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG VERSION
 
+WORKDIR /app
+COPY --chown=apps:apps --from=builder [ "/extract/backend/package.json", "/extract/backend/package-lock.json", "/app/" ]
+
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3003,DL3016
 RUN \
   apt-get -qq update \
   && \
   apt-get -qq install -y \
     nodejs \
-    youtube-dl \
+    npm \
     ffmpeg \
-    unzip \
     python \
     ffmpeg \
     atomicparsley \
+  && echo "==Installing youtubedl-material==" \
+  && npm install \
   && echo "==Running Cleanup ==" \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && apt-get autoremove -y \
@@ -72,14 +81,14 @@ RUN \
   && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
   && update-ca-certificates
 
-COPY --from=builder --chown=apps:apps /app /app
+COPY --chown=apps:apps --from=builder [ "/extract/build/backend/public/", "/app/public/" ]
+COPY --chown=apps:apps --from=builder [ "/extract/backend/", "/app/" ]
 
-WORKDIR /app
 USER apps
 VOLUME /data/appdata
 
 EXPOSE 17442
-COPY ./.containers/apps/youtubedl/entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 CMD [ "/entrypoint.sh" ]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
