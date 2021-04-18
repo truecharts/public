@@ -14,7 +14,7 @@ RUN \
   apt-get -qq update \
   && \
   apt-get -qq install -y \
-    npm \
+    npm
 
 RUN npm install -g @angular/cli
 
@@ -22,7 +22,7 @@ RUN \
   export URL="https://github.com/Tzahi12345/YoutubeDL-Material/archive/refs/tags/v${VERSION}.tar.gz" \
   && curl -fsSL -o /tmp/youtubedl.tgz "${URL}" \
   && tar ixzf /tmp/youtubedl.tgz -C /extract --strip-components=1 \
-  && cp /extract/package.json /extract/package-lock.json /extract/build \
+  && cp /extract/package.json /extract/package-lock.json /extract/build
 
 RUN \
   echo "==running NPM install==" \
@@ -66,7 +66,10 @@ RUN \
     atomicparsley \
   && echo "==Installing youtubedl-material==" \
   && npm install \
+  && printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
   && echo "==Running Cleanup ==" \
+  && apt-get remove -y \
+    npm \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && apt-get autoremove -y \
   && apt-get clean \
@@ -88,7 +91,7 @@ USER apps
 VOLUME /data/appdata
 
 EXPOSE 17442
-COPY entrypoint.sh /entrypoint.sh
+COPY ./.containers/apps/youtubedl/entrypoint.sh /entrypoint.sh
 CMD [ "/entrypoint.sh" ]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
