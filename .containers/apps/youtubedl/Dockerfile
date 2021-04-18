@@ -71,9 +71,9 @@ RUN \
     python \
     ffmpeg \
     atomicparsley \
-  && mkdir /app/appdata || echo ""
-  && mkdir /config/appdata || echo ""
-  && ln -s /app/appdata /config/appdata
+  && mkdir /app/appdata || echo "" \
+  && mkdir /config/appdata || echo "" \
+  && ln -s /app/appdata /config/appdata \
   && echo "==Installing youtubedl-material==" \
   && npm install \
   && printf "UpdateMethod=docker\nPackageVersion=%s\nPackageAuthor=[TrueCharts Project](https://truecharts.org)" "${VERSION}" > /app/package_info \
