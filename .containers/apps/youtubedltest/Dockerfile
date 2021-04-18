@@ -85,7 +85,7 @@ RUN \
     /var/tmp/ \
   && mkdir -p /data/appdata \
   && chmod -R 777 /data \
-  && chmod -R u=rwX,go=rX /app \
+  && chmod -R 775 /app \
   && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
   && update-ca-certificates \
   && chown -R apps:apps /app
