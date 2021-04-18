@@ -37,12 +37,13 @@ persistence:
 # Enabled postgres
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
+  fullnameOverride: postgresql
   enabled: true
   postgresqlUsername: authelia
   postgresqlDatabase: authelia
   existingSecret: dbcreds
   persistence:
-    enabled: false
+    enabled: true
     existingClaim: db
 
 authelia:
@@ -411,7 +412,7 @@ authelia:
       ##
       postgres:
         enabled: true
-        host: 127.0.0.1
+        host: postgresql
         port: 5432
         database: authelia
         username: authelia
