@@ -1,0 +1,154 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: autheliaconfig
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+data:
+  {{ default "configuration.yaml" .Values.configMap.key }}: |
+    ---
+    host: 0.0.0.0
+    port: {{ default 9091 .Values.configMap.port }}
+    theme: {{ default "light" .Values.configMap.theme }}
+    log_level: {{ default "info" .Values.configMap.log_level  }}
+    default_redirection_url: {{ default (printf "https://www.%s" .Values.domain) .Values.configMap.default_redirection_url }}
+    {{- if (include "authelia.enabled.certificatesSecret" .) }}
+    certificates_directory: /config/certificates
+    {{- end }}
+    server: {{ toYaml .Values.configMap.server | nindent 6 }}
+    totp:
+      issuer: {{ default .Values.domain .Values.configMap.totp.issuer }}
+      period: {{ default 30 .Values.configMap.totp.period }}
+      skew: {{ default 1 .Values.configMap.totp.skew }}
+    {{- if include "authelia.configured.duo" . }}
+    duo_api:
+      hostname: {{ .Values.configMap.duo_api.hostname }}
+      integration_key: {{ .Values.configMap.duo_api.integration_key }}
+    {{- end }}
+    {{- with $auth := .Values.configMap.authentication_backend }}
+    authentication_backend:
+      disable_reset_password: {{ $auth.disable_reset_password }}
+    {{- if $auth.file.enabled }}
+      file:
+        path: {{ $auth.file.path }}
+        password: {{ toYaml $auth.file.password | nindent 10 }}
+    {{- end }}
+    {{- if $auth.ldap.enabled }}
+      ldap:
+        implementation: {{ default "custom" $auth.ldap.implementation }}
+        url: {{ $auth.ldap.url }}
+        start_tls: {{ $auth.ldap.start_tls }}
+        tls: {{ toYaml $auth.ldap.tls | nindent 10 }}
+    {{- if $auth.ldap.base_dn }}
+        base_dn: {{ $auth.ldap.base_dn }}
+    {{- end }}
+    {{- if $auth.ldap.username_attribute }}
+        username_attribute: {{ $auth.ldap.username_attribute }}
+    {{- end }}
+    {{- if $auth.ldap.additional_users_dn }}
+        additional_users_dn: {{ $auth.ldap.additional_users_dn }}
+    {{- end }}
+    {{- if $auth.ldap.users_filter }}
+        users_filter: {{ $auth.ldap.users_filter }}
+    {{- end }}
+    {{- if $auth.ldap.additional_groups_dn }}
+        additional_groups_dn: {{ $auth.ldap.additional_groups_dn }}
+    {{- end }}
+    {{- if $auth.ldap.groups_filter }}
+        groups_filter: {{ $auth.ldap.groups_filter }}
+    {{- end }}
+    {{- if $auth.ldap.group_name_attribute }}
+        group_name_attribute: {{ $auth.ldap.group_name_attribute }}
+    {{- end }}
+    {{- end }}
+    {{- if $auth.ldap.mail_attribute }}
+        group_name_attribute: {{ $auth.ldap.mail_attribute }}
+    {{- end }}
+    {{- if $auth.ldap.display_name_attribute }}
+        group_name_attribute: {{ $auth.ldap.display_name_attribute }}
+    {{- end }}
+        user: {{ $auth.ldap.user }}
+    {{- end }}
+    {{- with $session := .Values.configMap.session }}
+    session:
+      name: {{ default "authelia_session" $session.name }}
+      domain: {{ required "A valid .Values.domain entry required!" $.Values.domain }}
+      expiration: {{ default "1M" $session.expiration }}
+      inactivity: {{ default "5m" $session.inactivity }}
+      remember_me_duration: {{ default "1M" $session.remember_me_duration }}
+    {{- if $session.redis.enabled }}
+      redis:
+        host: {{ $session.redis.host }}
+        port: {{ default 6379 $session.redis.port }}
+        username: {{ default "authelia" $session.redis.username }}
+        maximum_active_connections: {{ default 8 $session.redis.maximum_active_connections }}
+        minimum_idle_connections: {{ default 0 $session.redis.minimum_idle_connections }}
+    {{- if $session.redis.tls.enabled }}
+        tls:
+          server_name: {{ $session.redis.tls.server_name }}
+          skip_verify: {{ $session.redis.tls.skip_verify }}
+          minimum_version: {{ default "TLS1.2" $session.redis.tls.minimum_version }}
+    {{- end }}
+    {{- if $session.redis.high_availability.enabled }}
+        high_availability:
+          sentinel_name: {{ $session.redis.high_availability.sentinel_name }}
+          {{- if $session.redis.high_availability.nodes }}
+          nodes: {{ toYaml $session.redis.high_availability.nodes | nindent 10 }}
+          {{- end }}
+          route_by_latency: {{ $session.redis.high_availability.route_by_latency }}
+          route_randomly: {{ $session.redis.high_availability.route_randomly }}
+    {{- end }}
+    {{- end }}
+    {{- end }}
+    regulation: {{ toYaml .Values.configMap.regulation | nindent 6 }}
+    storage:
+    {{- with $storage := .Values.configMap.storage }}
+    {{- if $storage.local.enabled }}
+      local:
+        path: {{ $storage.local.path }}
+    {{- end }}
+    {{- if $storage.mysql.enabled }}
+      mysql:
+        host: {{ $storage.mysql.host }}
+        port: {{ default 3306 $storage.mysql.port }}
+        database: {{ default "authelia" $storage.mysql.database }}
+        username: {{ default "authelia" $storage.mysql.username }}
+    {{- end }}
+    {{- if $storage.postgres.enabled }}
+      postgres:
+        host: {{ $storage.postgres.host }}
+        port: {{ default 5432 $storage.postgres.port }}
+        database: {{ default "authelia" $storage.postgres.database }}
+        username: {{ default "authelia" $storage.postgres.username }}
+        sslmode: {{ default "disable" $storage.postgres.sslmode }}
+    {{- end }}
+    {{- end }}
+    {{- with $notifier := .Values.configMap.notifier }}
+    notifier:
+      disable_startup_check: {{ $.Values.configMap.notifier.disable_startup_check }}
+    {{- if $notifier.filesystem.enabled }}
+      filesystem:
+        filename: {{ $notifier.filesystem.filename }}
+    {{- end }}
+    {{- if $notifier.smtp.enabled }}
+      smtp:
+        username: {{ $notifier.smtp.username }}
+        host: {{ $notifier.smtp.host }}
+        port: {{ default 25 $notifier.smtp.port }}
+        sender: {{ $notifier.smtp.sender }}
+        identifier: {{ $notifier.smtp.identifier }}
+        subject: {{ $notifier.smtp.subject | quote }}
+        startup_check_address: {{ $notifier.smtp.startup_check_address }}
+        disable_require_tls: {{ $notifier.smtp.disable_require_tls }}
+        disable_html_emails: {{ $notifier.smtp.disable_html_emails }}
+        tls: {{ toYaml $notifier.smtp.tls | nindent 10 }}
+    {{- end }}
+    {{- end }}
+    {{- if .Values.configMap.identity_providers.oidc.enabled }}
+    identity_providers:
+      oidc:
+        clients: {{ toYaml .Values.configMap.identity_providers.oidc.clients | nindent 8 }}
+    {{- end }}
+    access_control: {{ toYaml .Values.configMap.access_control | nindent 6 }}
+    ...
+    {{- end }}
