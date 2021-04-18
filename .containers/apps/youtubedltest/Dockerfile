@@ -97,7 +97,7 @@ USER apps
 VOLUME /data/appdata
 
 EXPOSE 17442
-COPY entrypoint.sh /entrypoint.sh
+COPY ./.containers/apps/youtubedltest/entrypoint.sh /entrypoint.sh
 CMD [ "/entrypoint.sh" ]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
