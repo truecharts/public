@@ -16,7 +16,8 @@ RUN \
   apt-get -qq update \
   && \
   apt-get -qq install -y \
-    npm
+    npm \
+    build-essential
 
 # hadolint ignore=DL3016
 RUN npm install -g @angular/cli

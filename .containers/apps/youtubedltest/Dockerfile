@@ -16,7 +16,8 @@ RUN \
   apt-get -qq update \
   && \
   apt-get -qq install -y \
-    npm
+    npm \
+    build-essential
 
 # hadolint ignore=DL3016
 RUN npm install -g @angular/cli
@@ -96,7 +97,7 @@ USER apps
 VOLUME /data/appdata
 
 EXPOSE 17442
-COPY ./.containers/apps/youtubedltest/entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 CMD [ "/entrypoint.sh" ]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
