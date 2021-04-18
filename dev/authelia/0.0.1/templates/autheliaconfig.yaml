@@ -107,13 +107,6 @@ data:
       local:
         path: {{ $storage.local.path }}
     {{- end }}
-    {{- if $storage.mysql.enabled }}
-      mysql:
-        host: {{ $storage.mysql.host }}
-        port: {{ default 3306 $storage.mysql.port }}
-        database: {{ default "authelia" $storage.mysql.database }}
-        username: {{ default "authelia" $storage.mysql.username }}
-    {{- end }}
     {{- if $storage.postgres.enabled }}
       postgres:
         host: {{ $storage.postgres.host }}
@@ -151,4 +144,3 @@ data:
     {{- end }}
     access_control: {{ toYaml .Values.configMap.access_control | nindent 6 }}
     ...
-    {{- end }}
