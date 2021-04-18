@@ -9,6 +9,8 @@ USER root
 ARG VERSION
 ENV VERSION=4.2
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3003,DL3016
 RUN \
   apt-get -qq update \
@@ -16,6 +18,7 @@ RUN \
   apt-get -qq install -y \
     npm
 
+# hadolint ignore=DL3016
 RUN npm install -g @angular/cli
 
 RUN \
@@ -24,6 +27,7 @@ RUN \
   && tar ixzf /tmp/youtubedl.tgz -C /extract --strip-components=1 \
   && cp /extract/package.json /extract/package-lock.json /extract/build
 
+# hadolint ignore=DL3016
 RUN \
   echo "==running NPM install==" \
   && npm install \
