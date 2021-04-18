@@ -13,6 +13,7 @@ podSecurityContext:
   runAsUser: 568
   runAsGroup: 568
   fsGroup: 568
+  supplementalGroups: [44, 107]
 
 services:
   main:
@@ -26,7 +27,7 @@ env: {}
 persistence:
   config:
     enabled: true
-    mountPath: "/data/appdata"
+    mountPath: "/app/appdata"
     emptyDir: true
     accessMode: ReadWriteOnce
     size: 1Gi

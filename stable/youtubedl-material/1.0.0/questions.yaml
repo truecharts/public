@@ -84,7 +84,7 @@ questions:
                 label: "Value"
                 schema:
                   type: string
- 
+
   # Enable Host Networking
   - variable: hostNetwork
     group: "Networking"
@@ -194,7 +194,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/data/appdata"
+                  default: "/app/appdata"
                   hidden: true
               - variable: emptyDir
                 label: "Mount a ramdisk instead of actual storage"
@@ -220,7 +220,7 @@ questions:
                 schema:
                   type: string
                   default: "100Gi"
-       
+
   - variable: customStorage
     label: "Custom app storage"
     group: "Storage"
@@ -411,7 +411,7 @@ questions:
           description: "Additional groups this App needs access to"
           schema:
             type: list
-            default: []
+            default: [568]
             items:
               - variable: Group
                 label: "Group"
