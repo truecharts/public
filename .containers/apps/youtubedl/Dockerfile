@@ -90,7 +90,8 @@ RUN \
     /tmp/* \
     /var/lib/apt/lists/* \
     /var/tmp/ \
-  && chmod -R u=rwX,go=rX /app \
+  && chmod -R 775 /app \
+  && chmod -R 775 /config \
   && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
   && update-ca-certificates \
   && chown -R apps:apps /app \
