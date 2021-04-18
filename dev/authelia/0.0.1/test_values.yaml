@@ -12,7 +12,6 @@ image:
 strategy:
   type: Recreate
 
-
 envFrom:
   - configMapRef:
       name: bitwardenconfig
@@ -276,9 +275,6 @@ authelia:
 
         ## The username of the admin user.
         user: CN=Authelia,DC=example,DC=com
-
-
-
     ##
     ## Access Control Configuration
     ##
@@ -401,7 +397,6 @@ authelia:
       ## See: https://www.authelia.com/docs/configuration/index.html#duration-notation-format
       ban_time: 5m
 
-
     ##
     ## Storage Provider Configuration
     ##
@@ -493,7 +488,6 @@ authelia:
           - authorization_code
           response_types:
           - code
-
   ##
   ## Authelia Secret Generator.
   ##
