@@ -43,6 +43,7 @@ FROM ghcr.io/truecharts/ubuntu:latest
 ENV NO_UPDATE_NOTIFIER=true
 ENV NODE_ENV=production
 ENV APP_DIR="/app"
+env XDG_CACHE_HOME="/config/.cache"
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
@@ -72,6 +73,7 @@ RUN \
     ffmpeg \
     atomicparsley \
   && mkdir /app/appdata || echo "" \
+  && mkdir /config/.cache || echo "" \
   && mkdir /config/appdata || echo "" \
   && ln -s /app/appdata /config/appdata \
   && echo "==Installing youtubedl-material==" \
