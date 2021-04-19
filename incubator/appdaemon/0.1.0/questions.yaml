@@ -85,6 +85,13 @@ questions:
             type: string
             default: ""
             required: true
+        - variable: HA_URL
+          label: "HA URL"
+          description: "URL of your home assistant instance"
+          schema:
+            type: string
+            default: ""
+            required: true
 
   # Configure Enviroment Variables
   - variable: environmentVariables
