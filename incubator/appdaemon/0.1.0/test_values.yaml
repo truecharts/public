@@ -1,5 +1,5 @@
 image:
-  repository: acockburn/appdaemon
+  repository: ghcr.io/truecharts/appdaemon
   pullPolicy: IfNotPresent
   tag: "4.0.8"
 
@@ -15,9 +15,12 @@ podSecurityContext:
 
 
 env:
-  URL: ""
+  HA_URL: ""
+  # used to point appdaemon to your home assistant instance
   TOKEN: ""
+  # used to authenticate app daemon to your home assistant instance
   DASH_URL: ""
+  # url for the appdaemon dashboard, an alternative interface for home assistant
 
 
 services:
