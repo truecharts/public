@@ -8,20 +8,20 @@ strategy:
 
 # Configure the Security Context for the Pod
 podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
 
+TZ: "America/Chicago"
 
 env:
-  HA_URL: "http://192.168.5.31:8123"
+  HA_URL: ""
   # used to point appdaemon to your home assistant instance
   TOKEN: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjNjNiMzZkM2QwMTg0M2Y4OGQ2Y2JkYjY4MmViNGQ2NiIsImlhdCI6MTYxODk0MDc4OSwiZXhwIjoxOTM0MzAwNzg5fQ.CUXm9K4jSS--qBQZ9DahqFL1YIgIcCK32pfORqiQ0ns"
   # used to authenticate app daemon to your home assistant instance
-  DASH_URL: "localhost:5050"
+  DASH_URL: "http://localhost:5050"
   # url for the appdaemon dashboard, an alternative interface for home assistant
-  TZ: "America/Chicago"
   LATITUDE: 46
   LONGITUDE: -94
   ELEVATION: 1217
