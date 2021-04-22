@@ -62,7 +62,9 @@ ENV ANSIBLE_LIBRARY /ansible/library
 
 WORKDIR /ansible/playbooks
 
-ENTRYPOINT ["ansible-playbook"]
+COPY ./.containers/apps/ansible/entrypoint.sh /entrypoint.sh
+
+CMD ["/entrypoint.sh"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "authors"="TrueCharts <info@truecharts.org>"
