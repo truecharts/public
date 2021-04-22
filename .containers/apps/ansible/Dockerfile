@@ -64,7 +64,7 @@ WORKDIR /ansible/playbooks
 
 COPY ./.containers/apps/ansible/entrypoint.sh /entrypoint.sh
 
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "authors"="TrueCharts <info@truecharts.org>"
