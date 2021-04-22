@@ -54,4 +54,6 @@ if [ -f "$ANSIBLE_REQUIREMENTS" ]; then
     ansible-galaxy install $ANSIBLE_GALAXY_PARAM -r $ANSIBLE_REQUIREMENTS
 fi
 
+cd /ansible
+
 exec "$@"
