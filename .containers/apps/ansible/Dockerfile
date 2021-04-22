@@ -27,11 +27,11 @@ USER root
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 
-# hadolint ignore=DL3008,DL3015,SC2086,SC2155
+# hadolint ignore=DL3008,DL3013,DL3015,DL3019,SC2086,SC2155
 RUN set -x && \
     \
     echo "==> Adding build-dependencies..."  && \
-    apk --update add --virtual build-dependencies \
+    apk --no-cache --update add --virtual build-dependencies \
       gcc \
       musl-dev \
       libffi-dev \
@@ -44,10 +44,10 @@ RUN set -x && \
     echo "==> Adding Python runtime..."  && \
     apk add --no-cache ${BUILD_PACKAGES} && \
     pip install --upgrade pip && \
-    pip install python-keyczar docker-py && \
+    pip install --no-cache-dir python-keyczar docker-py && \
     \
     echo "==> Installing Ansible..."  && \
-    pip install ansible==${VERSION} && \
+    pip install --no-cache-dir ansible==${VERSION} && \
     \
     echo "==> Cleaning up..."  && \
     apk del build-dependencies && \
