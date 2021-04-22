@@ -10,6 +10,7 @@ ENV BUILD_PACKAGES \
   tar \
   openssh-client \
   sshpass \
+  nano \
   git \
   python \
   py-boto \
@@ -24,7 +25,7 @@ ENV BUILD_PACKAGES \
 # hadolint ignore=DL3002
 USER root
 
-SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
 
 # hadolint ignore=DL3008,DL3013,DL3015,DL3017,DL3018,DL3019,SC2086,SC2155
