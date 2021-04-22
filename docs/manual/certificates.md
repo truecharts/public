@@ -27,7 +27,7 @@ To use iX Certificates with letsencrypt there are a few requirements:
 - Click `Credentials` in the Left side menu and go the `Certificates` page.
 
 
-![Certificates](https://truecharts.org/_static/img/LE/LE2.PNG){ align=left }
+![Certificates](https://truecharts.org/_static/img/LE/LE2.png){ align=left }
 
 
 
@@ -38,12 +38,12 @@ To use iX Certificates with letsencrypt there are a few requirements:
 For Cloudflare you need either a global API-Key or a limited-scope API token. Please refer to cloudflare and/or AWS on how to get the required credentials.
 
 
-![Certificates](https://truecharts.org/_static/img/LE/LE1.PNG){ align=left }
+![Certificates](https://truecharts.org/_static/img/LE/LE1.png){ align=left }
 
 
 - Notice `Certificate Signing Requests`, select `Add` besides `Certificate Signing Requests` to open the menu for adding the domain information you want a certificate for.
 
-![Certificates](https://truecharts.org/_static/img/LE/LE3.PNG){ align=left }
+![Certificates](https://truecharts.org/_static/img/LE/LE3.png){ align=left }
 
 
 - Enter all information required in the wizard and save it.
