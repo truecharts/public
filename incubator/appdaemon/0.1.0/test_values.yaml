@@ -16,15 +16,10 @@ podSecurityContext:
 timezone: "America/Chicago"
 
 env:
-  HA_URL: ""
-  # used to point appdaemon to your home assistant instance
-  TOKEN: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjNjNiMzZkM2QwMTg0M2Y4OGQ2Y2JkYjY4MmViNGQ2NiIsImlhdCI6MTYxODk0MDc4OSwiZXhwIjoxOTM0MzAwNzg5fQ.CUXm9K4jSS--qBQZ9DahqFL1YIgIcCK32pfORqiQ0ns"
-  # used to authenticate app daemon to your home assistant instance
-  DASH_URL: ""
-  # url for the appdaemon dashboard, an alternative interface for home assistant
   LATITUDE: 46
   LONGITUDE: -94
   ELEVATION: 1217
+  DASH_URL: "http://0.0.0.0:5050"
 
 
 services:
