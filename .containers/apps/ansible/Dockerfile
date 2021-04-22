@@ -42,7 +42,7 @@ RUN \
         ansible-lint \
  && apk del \
         .build-deps \
- && rm -rf /var/cache/apk/*
+ && rm -rf /var/cache/apk/* \
  && echo "==> Cleaning up..." \
  && apk del build-dependencies \
  && rm -rf /var/cache/apk/* \
@@ -50,7 +50,6 @@ RUN \
  && mkdir -p /etc/ansible /ansible \
  && echo "[local]" >> /etc/ansible/hosts \
  && echo "localhost" >> /etc/ansible/hosts
- && mkdir -p /etc/ansible
 
 
 ENV ANSIBLE_GATHERING smart
