@@ -27,7 +27,7 @@ USER root
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 
-# hadolint ignore=DL3008,DL3013,DL3015,DL3017,DL3019,SC2086,SC2155
+# hadolint ignore=DL3008,DL3013,DL3015,DL3017,DL3018,DL3019,SC2086,SC2155
 RUN set -x && \
     \
     echo "==> Adding build-dependencies..."  && \
