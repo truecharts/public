@@ -27,8 +27,7 @@ To use iX Certificates with letsencrypt there are a few requirements:
 - Click `Credentials` in the Left side menu and go the `Certificates` page.
 
 
-![Certificates](https://truecharts.org/_static/img/LE/LE2.png){ align=left }
-
+<img src="https://truecharts.org/_static/img/LE/LE2.png" width="100%"/>
 
 
 - Notice `ACME DNS-Authenticators`, select `Add` besides `ACME DNS-Authenticators` to open the menu for adding your DNS provider for domain verification.
@@ -38,20 +37,19 @@ To use iX Certificates with letsencrypt there are a few requirements:
 For Cloudflare you need either a global API-Key or a limited-scope API token. Please refer to cloudflare and/or AWS on how to get the required credentials.
 
 
-![Certificates](https://truecharts.org/_static/img/LE/LE1.png){ align=left }
-
+<img src="https://truecharts.org/_static/img/LE/LE1.png" width="100%" />
 
 - Notice `Certificate Signing Requests`, select `Add` besides `Certificate Signing Requests` to open the menu for adding the domain information you want a certificate for.
 
-![Certificates](https://truecharts.org/_static/img/LE/LE3.png){ align=left }
 
+<img src="https://truecharts.org/_static/img/LE/LE3.png" width="100%" />
 
 - Enter all information required in the wizard and save it.
 If you are not sure, the defaults are alsmost always "alright", because most of what you enter here is completely ignored by Letsencrypt.
 `Common Name` in this case means `Primary domain name`, whereas `Subject Alternate Names` means `Extra domain names`.
 
 
-![Certificates](https://truecharts.org/_static/img/LE/LE5.PNG){ align=left }
+<img src="https://truecharts.org/_static/img/LE/LE5.PNG" width="100%" />
 
 
 - Notice your new `Certificate Signing Request` showing up in the box below `Certificate Signing Requests`. Also notice the small `wrench` icon to the right of your `Certificate Signing Request`
