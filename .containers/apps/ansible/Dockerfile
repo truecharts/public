@@ -21,10 +21,13 @@ ENV BUILD_PACKAGES \
   py-yaml \
   ca-certificates
 
+# hadolint ignore=DL3002
 USER root
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+
+# hadolint ignore=DL3008,DL3015,SC2086,SC2155
 RUN set -x && \
     \
     echo "==> Adding build-dependencies..."  && \
