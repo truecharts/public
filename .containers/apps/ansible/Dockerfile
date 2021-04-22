@@ -1,32 +1,9 @@
 # hadolint ignore=DL3007
 FROM ghcr.io/truecharts/alpine:latest
 
-ARG VERSION
+# Metadata params
 ARG TARGETPLATFORM
-
-ENV BUILD_PACKAGES \
-  bash \
-  curl \
-  tar \
-  openssh-client \
-  sshpass \
-  nano \
-  git \
-  py-boto \
-  py-dateutil \
-  py-httplib2 \
-  py-jinja2 \
-  py-paramiko \
-  py-pip \
-  py-yaml \
-  ca-certificates \
-  openssl \
-  python3\
-  py3-pip \
-  py3-cryptography \
-  rsync \
-  sshpass
-
+ARG VERSION
 
 # hadolint ignore=DL3002
 USER root
@@ -35,36 +12,46 @@ SHELL ["/bin/sh", "-o", "pipefail", "-c"]
 
 
 # hadolint ignore=DL3008,DL3013,DL3015,DL3017,DL3018,DL3019,SC2086,SC2155
-RUN set -x && \
-    \
-    echo "==> Adding build-dependencies..."  && \
-    apk --no-cache --update add --virtual build-dependencies \
-      .build-deps \
-      gcc \
-      musl-dev \
-      libffi-dev \
-      openssl-dev \
-      python3-dev \
-    \
-    echo "==> Upgrading apk and system..."  && \
-    apk update && apk upgrade && \
-    \
-    echo "==> Adding Python runtime..."  && \
-    apk add --no-cache ${BUILD_PACKAGES} && \
-    pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir python-keyczar docker-py && \
-    \
-    echo "==> Installing Ansible..."  && \
-    pip install --no-cache-dir ansible==${VERSION} && \
-    \
-    echo "==> Cleaning up..."  && \
-    apk del build-dependencies && \
-    rm -rf /var/cache/apk/* && \
-    \
-    echo "==> Adding hosts for convenience..."  && \
-    mkdir -p /etc/ansible /ansible && \
-    echo "[local]" >> /etc/ansible/hosts && \
-    echo "localhost" >> /etc/ansible/hosts
+RUN \
+ echo "==> Upgrading apk and system..." \
+ && apk --update --no-cache add \
+        ca-certificates \
+        git \
+        openssh-client \
+        openssl \
+        python3\
+        py3-pip \
+        py3-cryptography \
+        rsync \
+        sshpass \
+ && echo "==> Adding build-dependencies..." \
+ && apk --update --no-cache add --virtual \
+        .build-deps \
+        python3-dev \
+        libffi-dev \
+        openssl-dev \
+        build-base \
+        curl \
+ && echo "==> Adding Python runtime..." \
+ && pip3 install --no-cache-dir --upgrade \
+        pip \
+        cffi \
+ && echo "==> Installing Ansible..." \
+ && pip3 install --no-cache-dir \
+        ansible==${VERSION} \
+        ansible-lint \
+ && apk del \
+        .build-deps \
+ && rm -rf /var/cache/apk/*
+ && echo "==> Cleaning up..." \
+ && apk del build-dependencies \
+ && rm -rf /var/cache/apk/* \
+ && echo "==> Adding hosts for convenience..." \
+ && mkdir -p /etc/ansible /ansible \
+ && echo "[local]" >> /etc/ansible/hosts \
+ && echo "localhost" >> /etc/ansible/hosts
+ && mkdir -p /etc/ansible
+
 
 ENV ANSIBLE_GATHERING smart
 ENV ANSIBLE_HOST_KEY_CHECKING false
