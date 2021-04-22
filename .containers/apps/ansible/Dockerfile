@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM FROM ghcr.io/truecharts/alpine:latest
+FROM ghcr.io/truecharts/alpine:latest
 
 ARG VERSION
 ARG TARGETPLATFORM
