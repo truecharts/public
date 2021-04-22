@@ -40,11 +40,11 @@ RUN \
  && pip3 install --no-cache-dir \
         ansible==${VERSION} \
         ansible-lint \
- && apk del \
-        .build-deps \
  && echo "==> install taskfile.dev..." \
  && sh -c "$(curl --location https://taskfile.dev/install.sh)" \
  && echo "==> Cleaning up..." \
+ && apk del \
+        .build-deps \
  && rm -rf /var/cache/apk/* \
  && echo "==> Adding hosts for convenience..." \
  && mkdir -p /etc/ansible /ansible \
