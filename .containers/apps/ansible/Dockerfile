@@ -43,7 +43,7 @@ RUN \
  && apk del \
         .build-deps \
  && echo "==> install taskfile.dev..." \
- && sh -c "$(curl --location https://taskfile.dev/install.sh)"
+ && sh -c "$(curl --location https://taskfile.dev/install.sh)" \
  && echo "==> Cleaning up..." \
  && rm -rf /var/cache/apk/* \
  && echo "==> Adding hosts for convenience..." \
