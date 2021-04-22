@@ -44,7 +44,6 @@ RUN \
         .build-deps \
  && rm -rf /var/cache/apk/* \
  && echo "==> Cleaning up..." \
- && apk del build-dependencies \
  && rm -rf /var/cache/apk/* \
  && echo "==> Adding hosts for convenience..." \
  && mkdir -p /etc/ansible /ansible \
