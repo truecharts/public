@@ -12,7 +12,6 @@ ENV BUILD_PACKAGES \
   sshpass \
   nano \
   git \
-  python \
   py-boto \
   py-dateutil \
   py-httplib2 \
@@ -20,7 +19,14 @@ ENV BUILD_PACKAGES \
   py-paramiko \
   py-pip \
   py-yaml \
-  ca-certificates
+  ca-certificates \
+  openssl \
+  python3\
+  py3-pip \
+  py3-cryptography \
+  rsync \
+  sshpass
+
 
 # hadolint ignore=DL3002
 USER root
@@ -33,11 +39,12 @@ RUN set -x && \
     \
     echo "==> Adding build-dependencies..."  && \
     apk --no-cache --update add --virtual build-dependencies \
+      .build-deps \
       gcc \
       musl-dev \
       libffi-dev \
       openssl-dev \
-      python-dev && \
+      python3-dev \
     \
     echo "==> Upgrading apk and system..."  && \
     apk update && apk upgrade && \
