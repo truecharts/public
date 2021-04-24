@@ -362,12 +362,6 @@ questions:
                   show_if: [["certType", "!=", "disabled"]]
                   type: string
                   default: ""
-              - variable: authForwardURL
-                label: "Forward Authentication URL"
-                schema:
-                  type: string
-                  default: ""
-
   - variable: UMASK
     group: "Advanced"
     label: "UMASK"
