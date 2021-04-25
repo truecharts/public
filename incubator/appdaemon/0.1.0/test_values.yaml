@@ -37,7 +37,7 @@ ingress:
   main:
     enabled: false
 
-additionalAppVolumeMounts:
+persistence:
   conf:
     enabled: true
     mountPath: "/conf"
