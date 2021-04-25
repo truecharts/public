@@ -92,6 +92,28 @@ questions:
             type: string
             default: ""
             required: true
+        - variable: LATITUDE
+          label: "Latitude"
+          description: "Latitude of your home assistant instance"
+          schema:
+            type: int
+            default: ""
+            required: true
+        - variable: LONGITUDE
+          label: "Longitude"
+          description: "Longitude of your home assistant instance"
+          schema:
+            type: int
+            default: ""
+            required: true
+        - variable: ELEVATION
+          label: "Elecation"
+          description: "Longitude of your home assistant instance"
+          schema:
+            type: int
+            default: ""
+            required: true
+
 
   # Configure Enviroment Variables
   - variable: environmentVariables

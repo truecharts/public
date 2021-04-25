@@ -37,11 +37,10 @@ ingress:
   main:
     enabled: false
 
-persistence:
-  config:
+additionalAppVolumeMounts:
+  conf:
     enabled: true
-    mountPath: "/config"
+    mountPath: "/conf"
     emptyDir: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    mountpath: "/tmp"
+
