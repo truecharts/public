@@ -1,0 +1,43 @@
+# Default values for Jackett.
+
+image:
+  repository: ghcr.io/k8s-at-home/jackett
+  pullPolicy: IfNotPresent
+  tag: v0.17.934
+
+strategy:
+  type: Recreate
+
+
+services:
+  enabled: true
+  port:
+    port: 9117
+
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    emptyDir: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
+
+
+## TrueCharts Values
+ingress:
+  enabled: true
+  # Used when including ingress using {{ include "common.ingress" . }}
+  type: "HTTP"
+  entrypoint: "websecure"
+  certType: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      path: /
