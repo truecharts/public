@@ -29,16 +29,3 @@ persistence:
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
-
-
-## TrueCharts Values
-ingress:
-  enabled: true
-  # Used when including ingress using {{ include "common.ingress" . }}
-  type: "HTTP"
-  entrypoint: "websecure"
-  certType: ""
-  annotations: {}
-  hosts:
-    - host: chart-example.local
-      path: /
