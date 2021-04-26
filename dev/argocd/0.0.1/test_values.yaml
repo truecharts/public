@@ -1,9 +1,16 @@
 # Default values for emby.
 
-image:
-  repository: ghcr.io/truecharts/emby
-  pullPolicy: IfNotPresent
-  tag: v4.5.4.0
+ingress:
+  main:
+    enabled: true
+    certType: selfsigned
+    type: "HTTP"
+    serviceName: "argocd-server"
+    servicePort: 80
+    entrypoint: "websecure"
+    hosts:
+      - host: "test.test.com"
+        path: "/"
 
 argo-cd:
   fullnameOverride: argocd
