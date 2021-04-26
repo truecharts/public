@@ -1,5 +1,11 @@
 # Default values for emby.
 
+image:
+  name: argo-cd
+  # defaults to appVersion
+  tag: v6.6.6
+  pullPolicy: IfNotPresent
+
 ingress:
   main:
     enabled: true
