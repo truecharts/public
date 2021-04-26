@@ -261,8 +261,8 @@ questions:
                 schema:
                   type: path
                   required: true
-                  default: ""
-                  editable: true
+                  default: "/conf"
+                  editable: false
               - variable: hostPath
                 label: "Host Path"
                 schema:
