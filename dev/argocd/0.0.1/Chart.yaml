@@ -1,0 +1,30 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: argocd
+version: 3.1.2
+# upstream_version:
+appVersion: "auto"
+description: A Helm chart for ArgoCD, a declarative, GitOps continuous delivery tool for Kubernetes.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/master/stable/argocd
+icon: https://raw.githubusercontent.com/argoproj/argo/master/docs/assets/argo.png
+keywords:
+  - argoproj
+  - argocd
+  - gitops
+sources:
+  - https://github.com/truecharts/apps/tree/master/stable/argocd
+dependencies:
+  - name: common
+    repository: https://truecharts.org/
+    version: 3.5.2
+    # condition:
+  - name: argo-cd
+    version: 3.2.2
+    repository: https://argoproj.github.io/argo-helm
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+# annotations:
