@@ -21,7 +21,6 @@ env:
   ELEVATION: 1217
   DASH_URL: "http://0.0.0.0:5050"
 
-
 services:
   main:
     port:
@@ -37,10 +36,12 @@ ingress:
   main:
     enabled: false
 
-persistence:
-  conf:
-    enabled: true
-    mountPath: "/conf"
-    emptyDir: true
-    mountpath: "/tmp"
+additionalVolumeMounts:
+  - name: config
+    mountPath: /conf
 
+
+additionalVolumes:
+  - name: config
+    hostPath:
+      path: /tmp
