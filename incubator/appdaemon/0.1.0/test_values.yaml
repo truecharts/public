@@ -32,9 +32,6 @@ services:
       port: 51050
       protocol: TCP
       targetPort: 51050
-ingress:
-  main:
-    enabled: false
 
 customStorage:
   - name: config
