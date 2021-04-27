@@ -262,61 +262,6 @@ questions:
                 schema:
                   type: path
                   required: true
-                  default: "/conf"
-                  editable: false
-              - variable: hostPath
-                label: "Host Path"
-                schema:
-                  type: hostpath
-                  required: true
-
-  - variable: customStorage
-    label: "Custom app storage"
-    group: "Storage"
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: volumeMount
-          label: "Custom Storage"
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  required: true
-                  hidden: true
-                  editable: false
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                description: "Automatically set permissions on install"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: false
-              - variable: readOnly
-                label: "Mount as ReadOnly"
-                description: "prevent any write from being done to the mounted volume"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: false
-              - variable: emptyDir
-                label: "emptyDir"
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-                  editable: false
-              - variable: mountPath
-                label: "Mount Path"
-                description: "Path to mount inside the pod"
-                schema:
-                  type: path
-                  required: true
                   default: ""
                   editable: false
               - variable: hostPath
@@ -324,6 +269,7 @@ questions:
                 schema:
                   type: hostpath
                   required: true
+
   - variable: ingress
     label: ""
     group: "Reverse Proxy Configuration"
