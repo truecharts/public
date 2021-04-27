@@ -277,7 +277,7 @@ questions:
   # Specify GPU configuration
   - variable: gpuConfiguration
     label: "GPU Configuration"
-    group: "Storage"
+    group: "Resources and Devices"
     schema:
       type: dict
       $ref:
@@ -298,7 +298,7 @@ questions:
                 label: "Select Reverse-Proxy Type"
                 schema:
                   type: string
-                  default: "selfsigned"
+                  default: "disabled"
                   enum:
                     - value: "disabled"
                       description: "Disabled"

@@ -66,6 +66,27 @@ questions:
       $ref:
         - "definitions/timezone"
 
+          # Configure Enviroment Variables
+  - variable: environmentVariables
+    label: "Image environment"
+    group: "Configuration"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
 
   - variable: env
     group: "Configuration"
@@ -452,7 +473,7 @@ questions:
                 label: "Select Reverse-Proxy Type"
                 schema:
                   type: string
-                  default: "selfsigned"
+                  default: "disabled"
                   enum:
                     - value: "disabled"
                       description: "Disabled"
@@ -558,54 +579,3 @@ questions:
           schema:
             type: boolean
             default: false
-  # Set Pod Security Policy
-  - variable: podSecurityContext
-    group: "Advanced"
-    label: "Pod Security Context"
-    schema:
-      type: dict
-      attrs:
-        - variable: runAsNonRoot
-          label: "runAsNonRoot"
-          schema:
-            type: boolean
-            default: false
-        - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
-        - variable: supplementalGroups
-          label: "supplementalGroups"
-          description: "Additional groups this App needs access to"
-          schema:
-            type: list
-            default: [24, 44, 107]
-            items:
-              - variable: Group
-                label: "Group"
-                schema:
-                  type: int
-                  default: 568
-        - variable: fsGroup
-          label: "The group that should own ALL storage."
-          schema:
-            type: int
-            default: 0
-        - variable: fsGroupChangePolicy
-          label: "When should we chmod/chown?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"

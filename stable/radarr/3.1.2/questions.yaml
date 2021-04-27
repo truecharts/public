@@ -290,7 +290,7 @@ questions:
                 label: "Select Reverse-Proxy Type"
                 schema:
                   type: string
-                  default: "selfsigned"
+                  default: "disabled"
                   enum:
                     - value: "disabled"
                       description: "Disabled"
@@ -362,12 +362,6 @@ questions:
                   show_if: [["certType", "!=", "disabled"]]
                   type: string
                   default: ""
-              - variable: authForwardURL
-                label: "Forward Authentication URL"
-                schema:
-                  type: string
-                  default: ""
-
   - variable: UMASK
     group: "Advanced"
     label: "UMASK"

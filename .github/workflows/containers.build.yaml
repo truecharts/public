@@ -92,7 +92,7 @@ jobs:
         fi
         if [ "${{github.event_name}}" == "pull_request" ]; then
           echo ::set-output name=push::false
-          echo ::set-output name=cache_from::"type=registry,ref=ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:buildcache"
+          echo ::set-output name=cache_from::"type=registry,ref=ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:buildcache" || echo ::set-output name=cache_from::""
           echo ::set-output name=cache_to::""
         else
           echo ::set-output name=push::true

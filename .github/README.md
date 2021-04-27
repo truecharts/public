@@ -104,7 +104,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -127,6 +127,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://www.cetic.be/Sebastien-Dupont?lang=en"><img src="https://avatars.githubusercontent.com/u/2684865?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sebastien Dupont</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=banzo" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/angelnu"><img src="https://avatars.githubusercontent.com/u/4406403?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Vegetto</b></sub></a><br /><a href="https://github.com/truecharts/apps/pulls?q=is%3Apr+reviewed-by%3Aangelnu" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="http://nieuwdorp.me"><img src="https://avatars.githubusercontent.com/u/12896549?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Luuk Nieuwdorp</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=luuknieuwdorp" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/natewalck"><img src="https://avatars.githubusercontent.com/u/867868?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nate Walck</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=natewalck" title="Code">💻</a></td>
   </tr>
 </table>
 
@@ -147,7 +148,6 @@ Truecharts as a whole, is based on a BSD-3-clause  license, this ensures almost 
 
 Some Apps may also contain parts in other licenses, such as libraries or templates, these files can be recognised by their individual headers.
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ftruecharts%2Ftruecharts.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ftruecharts%2Ftruecharts?ref=badge_large)
 
 `SPDX-License-Identifier: BSD-3-Clause`
 

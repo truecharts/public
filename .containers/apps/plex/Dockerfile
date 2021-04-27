@@ -23,7 +23,7 @@ RUN \
 
 USER apps
 
-EXPOSE 6767
+EXPOSE 32400/tcp 1900/tcp 5353/udp 8324/tcp 32410/udp 32413/udp 32414/udp 32469/udp
 
 CMD ["/entrypoint.sh"]
 
