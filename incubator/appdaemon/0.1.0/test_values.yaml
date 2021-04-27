@@ -36,12 +36,8 @@ ingress:
   main:
     enabled: false
 
-additionalVolumeMounts:
+customStorage:
   - name: config
+    enabled: true
     mountPath: /conf
-
-
-additionalVolumes:
-  - name: config
-    hostPath:
-      path: /tmp
+    emptyDir: true
