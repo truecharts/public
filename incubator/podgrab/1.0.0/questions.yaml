@@ -63,6 +63,27 @@ questions:
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
+# App env variables
+  - variable: env
+    group: "Configuration"
+    label: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+        - variable: PASSWORD
+          label: "Password"
+          description: "Desired Password"
+          schema:
+            type: string
+            default: ""
+            required: false
+        - variable: CHECK_FREQUENCY
+          label: "Update Frequency"
+          description: "Interval to check for new podcasts"
+          schema:
+            type: int
+            default: "240"
+            required: true
 
   # Configure Enviroment Variables
   - variable: environmentVariables
