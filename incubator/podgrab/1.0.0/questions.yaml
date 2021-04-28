@@ -245,8 +245,8 @@ questions:
                   type: string
                   default: "1Gi"
         - variable: data
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: "Asset Config Storage"
+          description: "Stores the downloaded podcasts."
           schema:
             type: dict
             attrs:
@@ -295,7 +295,7 @@ questions:
                 label: "Size quotum of storage"
                 schema:
                   type: string
-                  default: "100Gi"
+                  default: "1Gi"
   - variable: customStorage
     label: "Custom app storage"
     group: "Storage"
@@ -437,28 +437,7 @@ questions:
                   show_if: [["certType", "!=", "disabled"]]
                   type: string
                   default: ""
-  - variable: PUID
-    group: "Advanced"
-    label: "PUID"
-    description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
-    schema:
-      type: int
-      default: 568
 
-  - variable: PGID
-    group: "Advanced"
-    label: "PGID"
-    description: "Sets the PGID env var for LinuxServer.io (compatible) containers"
-    schema:
-      type: int
-      default: 568
-  - variable: UMASK
-    group: "Advanced"
-    label: "UMASK"
-    description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-    schema:
-      type: string
-      default: "002"
   # Enable privileged
   - variable: securityContext
     group: "Advanced"
@@ -471,6 +450,7 @@ questions:
           schema:
             type: boolean
             default: false
+
   # Set Pod Security Policy
   - variable: podSecurityContext
     group: "Advanced"
