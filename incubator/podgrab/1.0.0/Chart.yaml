@@ -1,0 +1,29 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: podgrab
+version: 1.0.0
+upstream_version: 1.0.0
+appVersion: "latest"
+description: Podcast downloader and player
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/incubator/podgrab
+icon: https://github.com/warllo54/apps/blob/podgrab/incubator/podgrab/icon.png
+keywords:
+  - podgrab
+sources:
+  - https://github.com/akhilrex/podgrab
+  - https://hub.docker.com/r/akhilrex/podgrab
+dependencies:
+  - name: common
+    repository: https://truecharts.org/
+    version: 3.5.2
+    # condition:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: warllo54
+    email: 20650065+warllo54@users.noreply.github.com
+    url: truecharts.org
+# annotations:
