@@ -63,6 +63,7 @@ questions:
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
+
 # App env variables
   - variable: env
     group: "Configuration"
@@ -82,7 +83,7 @@ questions:
           description: "Interval to check for new podcasts"
           schema:
             type: int
-            default: "240"
+            default: 240
             required: true
 
   # Configure Enviroment Variables
@@ -106,6 +107,7 @@ questions:
                 label: "Value"
                 schema:
                   type: string
+
   # Enable Host Networking
   - variable: hostNetwork
     group: "Networking"
