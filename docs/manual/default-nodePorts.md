@@ -53,9 +53,4 @@
 |SABnzbd                    |Main     |36045      |
 |Organizr                   |Main     |36046      |
 
-
-
-
-
-
-
+#### Note: TCP and UPD ports that are the same in each App, are not by mistake.
