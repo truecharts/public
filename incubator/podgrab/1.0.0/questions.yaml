@@ -182,7 +182,7 @@ questions:
                         type: int
                         min: 9000
                         max: 65535
-                        default: 36052
+                        default: 36047
                         required: true
 ## TrueCharts Specific
   - variable: persistence
@@ -462,19 +462,19 @@ questions:
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: false
+            default: true
         - variable: runAsUser
           label: "runAsUser"
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: supplementalGroups
           label: "supplementalGroups"
           description: "Additional groups this App needs access to"
