@@ -7,7 +7,7 @@
 image:
   repository: bitwardenrs/server
   pullPolicy: IfNotPresent
-  tag: 1.20.0
+  tag: 1.21.0
 
 envTpl:
   DOMAIN: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
