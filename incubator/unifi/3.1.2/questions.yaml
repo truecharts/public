@@ -159,7 +159,7 @@ questions:
                         type: int
                         min: 9000
                         max: 65535
-                        default: 36035
+                        default: 36052
                         required: true
         - variable: tcp
           label: "Unifi Device Communications"
@@ -222,7 +222,7 @@ questions:
                         type: int
                         min: 9000
                         max: 65535
-                        default: 36036
+                        default: 36052
                         required: true
         - variable: udp
           label: "Stun Device Communications"
@@ -285,7 +285,7 @@ questions:
                         type: int
                         min: 9000
                         max: 65535
-                        default: 36037
+                        default: 36052
                         required: true
   - variable: persistence
     label: "Integrated Persistent Storage"

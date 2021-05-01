@@ -27,11 +27,11 @@ envTpl:
 
 env:
   # TZ: UTC
-  VISION-FACE: "True"
-  VISION-DETECTION: "True"
-  VISION-SCENE: "True"
+  VISION-FACE: True
+  VISION-DETECTION: True
+  VISION-SCENE: True
   MODELSTORE-DETECTION: "/modelstore/detection"    # Path to custom models (needs to be on documentation)
-  MODE: "High"        # High|Medium|Low
+  MODE: High        # High|Medium|Low
   # ADMIN-KEY: "" # Deprecated since it got OpenSource? or optional?
   # API-KEY: "" # Deprecated since it got OpenSource? or optional?podSecurityContext:
 
