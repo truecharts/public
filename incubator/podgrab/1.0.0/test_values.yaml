@@ -39,10 +39,9 @@ persistence:
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
-  assets:
+
+customStorage:
+  - name: assets
     enabled: true
     mountPath: "/assets"
     emptyDir: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
