@@ -29,7 +29,7 @@ https://truecharts.org/manual/adding-truecharts/
 
 ### Support
 
-Please check our [FAQ](https://truecharts.org/about/FAQ/), [manual](https://truecharts.org/manual) and [Issue tracker](https://github.com/truecharts/apps/issues) There is a significant chance your issue has been reported before!
+Please check our [FAQ](https://truecharts.org/about/), [manual](https://truecharts.org/manual/SUPPORT/) and [Issue tracker](https://github.com/truecharts/apps/issues) There is a significant chance your issue has been reported before!
 
 Still something not working as expected? [Contact us!](https://truecharts.org/about/contact/) and we'll figure it out together!
 
