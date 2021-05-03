@@ -102,4 +102,24 @@ spec:
 {{- end }}
 {{- end }}
 
+{{- if $values.authForwardURL }}
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $ingressName }}-auth-forward
+spec:
+  forwardAuth:
+    address: {{ $values.authForwardURL | quote }}
+    tls:
+      insecureSkipVerify: true
+    trustForwardHeader: true
+    authResponseHeaders:
+      - Remote-User
+      - Remote-Groups
+      - Remote-Name
+      - Remote-Email
+
+{{- end }}
 {{- end }}

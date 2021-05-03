@@ -14,6 +14,7 @@ within the common library.
   {{- end -}}
 {{ end -}}
 
+
 {{- if hasKey $values "nameSuffix" -}}
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
   {{- if and ( $.Values.services ) ( not $values.servicePort ) }}
@@ -115,4 +116,26 @@ spec:
               servicePort: {{ $svcPort }}
             {{- end }}
   {{- end }}
+
+{{- if $values.authForwardURL }}
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $ingressName }}-auth-forward
+spec:
+  forwardAuth:
+    address: {{ $values.authForwardURL | quote }}
+    tls:
+      insecureSkipVerify: true
+    trustForwardHeader: true
+    authResponseHeaders:
+      - Remote-User
+      - Remote-Groups
+      - Remote-Name
+      - Remote-Email
+{{- end }}
+
 {{- end }}

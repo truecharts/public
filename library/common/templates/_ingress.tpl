@@ -30,11 +30,6 @@ of the main Ingress and any additionalIngresses.
         {{- include "common.classes.ingress" $ -}}
         {{ end -}}
 
-        {{- if $ingressValues.authForwardURL -}}
-        {{- print ("---") | nindent 0 -}}
-        {{- include "common.classes.ingress.authForward" $ }}
-        {{ end -}}
-
         {{- if eq $ingressValues.certType "ixcert" -}}
         {{- $_ := set $ "ObjectValues" (dict "certHolder" $ingressValues) -}}
         {{- print ("---") | nindent 0 -}}
@@ -72,11 +67,6 @@ of the main Ingress and any additionalIngresses.
         {{- include "common.classes.ingressRoute" $ -}}
         {{- else -}}
         {{- include "common.classes.ingress" $ -}}
-        {{ end -}}
-
-        {{- if $ingressValues.authForwardURL -}}
-        {{- print ("---") | nindent 0 -}}
-        {{- include "common.classes.ingress.authForward" $ }}
         {{ end -}}
 
         {{- if eq $ingressValues.certType "ixcert" -}}
@@ -120,11 +110,6 @@ of the main Ingress and any additionalIngresses.
 
         {{- print ("---") | nindent 0 -}}
         {{- include "common.classes.externalService" $ }}
-
-        {{- if $ingressValues.authForwardURL -}}
-        {{- print ("---") | nindent 0 -}}
-        {{- include "common.classes.ingress.authForward" $ }}
-        {{ end -}}
 
         {{- if eq $ingressValues.certType "ixcert" -}}
         {{- $_ := set $ "ObjectValues" (dict "certHolder" $ingressValues) -}}
