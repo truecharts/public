@@ -983,7 +983,8 @@ class Test < ChartTest
 
       it 'HTTP-ingressRoute+selfsigned+forwardAuth is evaluated is evaluated ' do
         expectedHostString = 'Host(`hostname`) && PathPrefix(`/`)'
-        expectedName = 'common-test-test1-auth-forward'
+        expectedName1 = 'common-test-test1-auth-forward'
+        expectedName2 = 'common-test-test1-auth-forward@kubernetescrd'
         values = {
           ingress: {
             test1: {
@@ -1008,8 +1009,8 @@ class Test < ChartTest
         refute_nil(resource('IngressRoute'))
         jq('.spec.tls.domains[0].main', resource('IngressRoute')).must_equal  values[:ingress][:test1][:hosts][0][:host]
         jq('.spec.tls.secretName', resource('IngressRoute')).must_equal nil
-        jq('.metadata.name', resource('Middleware')).must_equal  expectedName
-        jq('.spec.routes[0].middlewares[1].name', resource('IngressRoute')).must_equal  expectedName
+        jq('.metadata.name', resource('Middleware')).must_equal  expectedName1
+        jq('.spec.routes[0].middlewares[1].name', resource('IngressRoute')).must_equal  expectedName2
       end
     end
 

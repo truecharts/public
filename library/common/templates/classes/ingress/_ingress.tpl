@@ -14,6 +14,7 @@ within the common library.
   {{- end -}}
 {{ end -}}
 
+
 {{- if hasKey $values "nameSuffix" -}}
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
   {{- if and ( $.Values.services ) ( not $values.servicePort ) }}
@@ -52,7 +53,7 @@ metadata:
     traefik.ingress.kubernetes.io/service.serversscheme: https
     {{- end }}
     traefik.ingress.kubernetes.io/router.entrypoints: {{ $values.entrypoint | default "websecure" }}
-    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd{{ if $values.authForwardURL }},{{ $ingressName }}-auth-forward{{ end }}
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd{{ if $values.authForwardURL }},{{ $ingressName }}-auth-forward@kubernetescrd{{ end }}
     {{- with $values.annotations }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
@@ -115,4 +116,26 @@ spec:
               servicePort: {{ $svcPort }}
             {{- end }}
   {{- end }}
+
+{{- if $values.authForwardURL }}
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $ingressName }}-auth-forward
+spec:
+  forwardAuth:
+    address: {{ $values.authForwardURL | quote }}
+    tls:
+      insecureSkipVerify: true
+    trustForwardHeader: true
+    authResponseHeaders:
+      - Remote-User
+      - Remote-Groups
+      - Remote-Name
+      - Remote-Email
+{{- end }}
+
 {{- end }}
