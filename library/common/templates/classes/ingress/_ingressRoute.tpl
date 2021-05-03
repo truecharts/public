@@ -81,7 +81,7 @@ spec:
     middlewares:
       - name: traefik-middlewares-chain-public@kubernetescrd
       {{- if $values.authForwardURL }}
-      - name: "{{ $ingressName }}-auth-forward"
+      - name: "{{ $ingressName }}-auth-forward@kubernetescrd"
       {{- end }}
   {{- end }}
 
