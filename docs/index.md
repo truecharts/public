@@ -34,7 +34,7 @@ https://truecharts.org/manual/adding-truecharts/
 
 ### Support
 
-Please check our [FAQ](https://truecharts.org/about/FAQ/), [manual](https://truecharts.org/manual) and [Issue tracker](https://github.com/truecharts/apps/issues) There is a significant chance your issue has been reported before!
+Please check our [FAQ](https://truecharts.org/about/), [manual](https://truecharts.org/manual/SUPPORT/) and [Issue tracker](https://github.com/truecharts/apps/issues) There is a significant chance your issue has been reported before!
 
 Still something not working as expected? [Contact us!](https://truecharts.org/about/contact/) and we'll figure it out together!
 
@@ -109,7 +109,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-12-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -134,6 +134,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://nieuwdorp.me"><img src="https://avatars.githubusercontent.com/u/12896549?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Luuk Nieuwdorp</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=luuknieuwdorp" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/natewalck"><img src="https://avatars.githubusercontent.com/u/867868?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Nate Walck</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=natewalck" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/warllo54"><img src="https://avatars.githubusercontent.com/u/20650065?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lloyd</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=warllo54" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/dwithnall"><img src="https://avatars.githubusercontent.com/u/5699800?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dave Withnall</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=dwithnall" title="Documentation">📖</a></td>
   </tr>
 </table>
 
