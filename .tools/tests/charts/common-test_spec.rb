@@ -680,7 +680,7 @@ class Test < ChartTest
       end
 
       it 'check authForward when authForwardURL is set' do
-        expectedName = 'common-test-test1-auth-forward'
+        expectedName = 'common-test-test1-auth-forward@kubernetescrd'
         values = {
           ingress: {
             test1: {
@@ -983,7 +983,7 @@ class Test < ChartTest
 
       it 'HTTP-ingressRoute+selfsigned+forwardAuth is evaluated is evaluated ' do
         expectedHostString = 'Host(`hostname`) && PathPrefix(`/`)'
-        expectedName = 'common-test-test1-auth-forward'
+        expectedName = 'common-test-test1-auth-forward@kubernetescrd'
         values = {
           ingress: {
             test1: {
