@@ -1,0 +1,31 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: fireflyiii
+version: 1.0.0
+appVersion: "auto"
+description: A free and open source personal finance manager
+type: application
+deprecated: false
+home: https://github.com/firefly-iii/firefly-iii/
+icon: https://www.firefly-iii.org/assets/logo/color.png
+keywords:
+  - fireflyiii
+  - finacial
+sources:
+  - https://github.com/firefly-iii/firefly-iii/
+  - name: common
+    repository: https://truecharts.org/
+    version: 3.5.2
+    # condition:
+  - name: postgresql
+    version: 10.4.0
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: warllo54
+    email: 20650065+warllo54@users.noreply.github.com
+    url: truecharts.org
+# annotations:
