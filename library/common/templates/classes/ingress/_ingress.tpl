@@ -55,7 +55,7 @@ metadata:
     traefik.ingress.kubernetes.io/service.serversscheme: https
     {{- end }}
     traefik.ingress.kubernetes.io/router.entrypoints: {{ $values.entrypoint | default "websecure" }}
-    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd{{ if $values.authForwardURL }},{{ printf "%v@%v" $authForwardName "@kubernetescrd" }}{{ end }}
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd{{ if $values.authForwardURL }},{{ printf "%v-%v@%v" .Release.Namespace  $authForwardName "kubernetescrd" }}{{ end }}
     {{- with $values.annotations }}
       {{- toYaml . | nindent 4 }}
     {{- end }}

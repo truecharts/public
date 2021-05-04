@@ -984,7 +984,7 @@ class Test < ChartTest
       it 'HTTP-ingressRoute+selfsigned+forwardAuth is evaluated is evaluated ' do
         expectedHostString = 'Host(`hostname`) && PathPrefix(`/`)'
         expectedName1 = 'common-test-test1-auth-forward'
-        expectedName2 = 'common-test-test1-auth-forward@kubernetescrd'
+        expectedName2 = 'default-common-test-test1-auth-forward@kubernetescrd'
         values = {
           ingress: {
             test1: {
