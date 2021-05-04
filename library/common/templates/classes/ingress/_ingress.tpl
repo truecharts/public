@@ -27,6 +27,8 @@ within the common library.
   {{- $portProtocol = $.Values.services.main.port.protocol | default "" -}}
 {{ end -}}
 
+{{- $authForwardName := ( printf "%v-%v" $ingressName "auth-forward" ) -}}
+
 {{- $svcName := $values.serviceName | default $ingressName -}}
 
 {{- if $values.dynamicServiceName }}
@@ -53,7 +55,7 @@ metadata:
     traefik.ingress.kubernetes.io/service.serversscheme: https
     {{- end }}
     traefik.ingress.kubernetes.io/router.entrypoints: {{ $values.entrypoint | default "websecure" }}
-    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd{{ if $values.authForwardURL }},{{ $ingressName }}-auth-forward@kubernetescrd{{ end }}
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-middlewares-chain-public@kubernetescrd{{ if $values.authForwardURL }},{{ printf "%v@%v" $authForwardName "@kubernetescrd" }}{{ end }}
     {{- with $values.annotations }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
@@ -124,7 +126,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ $ingressName }}-auth-forward
+  name: {{ $authForwardName }}
 spec:
   forwardAuth:
     address: {{ $values.authForwardURL | quote }}
