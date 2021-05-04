@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 3.1.4](https://img.shields.io/badge/Version-3.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 3.1.5](https://img.shields.io/badge/Version-3.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Jellyfin is a Free Software Media System
 
@@ -22,7 +22,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 3.5.4 |
+| https://truecharts.org/ | common | 3.5.5 |
 
 ## Installing the Chart
 
