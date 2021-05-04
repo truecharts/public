@@ -83,6 +83,22 @@ questions:
                 label: "Value"
                 schema:
                   type: string
+
+  # Docker specific env
+  - variable: env
+    group: "Configuration"
+    label: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+        - variable: APP_KEY
+          label: "App Key"
+          description: "Your unique 32 application character key"
+          schema:
+            type: string
+            default: ""
+            required: true
+
   # Enable Host Networking
   - variable: hostNetwork
     group: "Networking"
@@ -147,7 +163,7 @@ questions:
                       description: "When connecting internally to this App, you'll need this port"
                       schema:
                         type: int
-                        default: 8080
+                        default: 51080
                         editable: false
                         hidden: true
                     - variable: nodePort
@@ -157,71 +173,9 @@ questions:
                         type: int
                         min: 9000
                         max: 65535
-                        default: 36000
+                        default: 36048
                         required: true
-                        hidden: true
-        - variable: ws
-          label: "Websocket service"
-          description: "Websocket Service"
-          schema:
-            type: dict
-            hidden: true
-            attrs:
-              - variable: enabled
-                label: "Enable the service"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-              - variable: type
-                label: "Service type"
-                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System"
-                schema:
-                  type: string
-                  default: "ClusterIP"
-                  hidden: true
-                  enum:
-                    - value: "ClusterIP"
-                      description: "ClusterIP"
-              - variable: port
-                label: "Port configuration"
-                schema:
-                  type: dict
-                  attrs:
-                    - variable: protocol
-                      label: "Port Type"
-                      schema:
-                        type: string
-                        default: "HTTP"
-                        hidden: true
-                        enum:
-                          - value: HTTP
-                            description: "HTTP"
-                    - variable: port
-                      label: "container port"
-                      schema:
-                        type: int
-                        default: 3012
-                        editable: false
-                        hidden: true
-                    - variable: targetport
-                      label: "Internal Service port"
-                      description: "When connecting internally to this App, you'll need this port"
-                      schema:
-                        type: int
-                        default: 3012
-                        editable: false
-                        hidden: true
-                    - variable: nodePort
-                      label: "(optional) host nodePort to expose to"
-                      description: "only get used when nodePort is selected"
-                      schema:
-                        type: int
-                        min: 9000
-                        max: 65535
-                        default: 36001
-                        required: true
-                        hidden: true
+                        hidden: false
 
 ## TrueCharts Specific
   - variable: persistence
