@@ -3,6 +3,3 @@
 
 {{/* Render the templates */}}
 {{ include "common.all" . }}
-
-{{/* Render special ingress for bitwarden */}}
-{{- include "bitwarden.ingress" . }}
