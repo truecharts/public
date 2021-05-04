@@ -1,0 +1,31 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: esphome
+version: 3.1.5
+upstream_version: 4.3.1
+appVersion: "auto"
+description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful configuration files and control them remotely through Home Automation systems.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/stable/esphome
+icon: https://esphome.io/_images/logo.svg
+keywords:
+  - esphome
+sources:
+  - https://github.com/truecharts/apps/tree/master/stable/esphome
+  - https://github.com/k8s-at-home/charts/tree/master/charts/esphome
+  - https://github.com/esphome/esphome
+  - https://hub.docker.com/u/esphome
+dependencies:
+  - name: common
+    repository: https://truecharts.org/
+    version: 3.5.5
+    # condition:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: tprelog
+    email: 35702532+tprelog@users.noreply.github.com
+    url: truecharts.org
+# annotations:

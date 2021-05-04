@@ -1,0 +1,57 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: home-assistant
+version: 3.1.5
+upstream_version: 5.3.0
+appVersion: "auto"
+description: home-assistant App for TrueNAS SCALE
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/stable/home-assistant
+icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Home_Assistant_Logo.svg/519px-Home_Assistant_Logo.svg.png
+keywords:
+  - home-assistant
+  - hass
+  - homeassistant
+sources:
+  - https://github.com/truecharts/apps/tree/master/stable/home-assistant
+  - https://github.com/k8s-at-home/charts/tree/master/charts/home-assistant
+  - https://github.com/home-assistant/home-assistant
+  - https://github.com/cdr/code-server
+dependencies:
+  - name: common
+    repository: https://truecharts.org/
+    version: 3.5.5
+    # condition:
+  # ## postgresql is currently not ported to SCALE yet.
+  # - name: postgresql
+  #   version: 10.2.0
+  #   repository: https://charts.bitnami.com/bitnami
+  #   condition: postgresql.enabled
+  #   # tags:
+  #   # import-values:
+  #   # alias:
+  # ## mariadb is currently not ported to SCALE yet.
+  # - name: mariadb
+  #     version: 0.1.0
+  #     repository: file://../../mariadb/0.0.1/
+  #     condition: mariadb.enabled
+  #   # tags:
+  #   # import-values:
+  #   # alias:
+  # ## InfluxDB is currently not ported to SCALE yet.
+  # - name: influxdb
+  #   version: 1.1.6
+  #   repository: https://charts.bitnami.com/bitnami
+  #   condition: influxdb.enabled
+  #   # tags:
+  #   # import-values:
+  #   # alias:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: tprelog
+    email: 35702532+tprelog@users.noreply.github.com
+    url: truecharts.org
+# annotations:

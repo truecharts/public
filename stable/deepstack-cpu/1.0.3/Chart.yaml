@@ -1,0 +1,31 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: deepstack-cpu
+version: 1.0.3
+# upstream_version:
+appVersion: "auto"
+description: DeepStack AI provides AI features including Face Recognition, Object Detection, Scene Recognition and custom AI Models
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/stable/deepstack-cpu
+icon: https://deepquest.sfo2.digitaloceanspaces.com/deepstackcc/static/img/deepstacklogo.png
+keywords:
+  - AI
+sources:
+  - https://github.com/truecharts/apps/tree/master/stable/deepstack-cpu
+  - https://github.com/johnolafenwa/DeepStack
+  - https://hub.docker.com/r/deepquestai/deepstack
+  - https://www.deepstack.cc/
+dependencies:
+  - name: common
+    repository: https://truecharts.org/
+    version: 3.5.5
+    # condition:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: stavros-k
+    email: stavros-k@users.noreply.github.com
+    url: truecharts.org
+# annotations:

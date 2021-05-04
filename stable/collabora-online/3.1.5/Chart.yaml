@@ -1,0 +1,31 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: collabora-online
+version: 3.1.5
+# upstream_version:
+appVersion: "auto"
+description: Collabora Online Development Edition – an awesome, Online Office suite image suitable for home use.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/stable/collabora-online
+icon: https://truecharts.org/_static/img/collabora-icon.png
+keywords:
+  - collabora-online
+sources:
+  - https://github.com/truecharts/apps/tree/master/stable/collabora-online
+  - https://github.com/k8s-at-home/charts/tree/master/charts/collabora-online
+  - https://hub.docker.com/r/collabora/code
+  - https://www.collaboraoffice.com/code/docker/
+dependencies:
+  - name: common
+    repository: https://truecharts.org/
+    version: 3.5.5
+    # condition:
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: stavros-k
+    email: stavros-k@users.noreply.github.com
+    url: truecharts.org
+# annotations:
