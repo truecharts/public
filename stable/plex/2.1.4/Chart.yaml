@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: plex
-version: 2.1.4
+version: 2.1.5
 upstream_version: 4.2.1
 appVersion: "auto"
 description: Plex Media Server
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 3.5.4
+    version: 3.5.5
     # condition:
 maintainers:
   - name: TrueCharts

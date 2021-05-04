@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: node-red
-version: 3.1.4
+version: 3.1.5
 upstream_version: 5.2.1
 appVersion: "auto"
 description: Node-RED is low-code programming for event-driven applications
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 3.5.4
+    version: 3.5.5
     # condition:
 maintainers:
   - name: TrueCharts

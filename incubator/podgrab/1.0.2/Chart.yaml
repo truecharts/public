@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: podgrab
-version: 1.0.2
+version: 1.0.3
 upstream_version: 1.0.0
 appVersion: "latest"
 description: A self-hosted podcast manager to download episodes as soon as they become live.
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 3.5.4
+    version: 3.5.5
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
