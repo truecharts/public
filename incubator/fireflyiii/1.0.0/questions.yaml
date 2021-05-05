@@ -106,20 +106,17 @@ questions:
     schema:
       type: boolean
       default: false
-      hidden: true
   - variable: services
     group: "Networking"
     label: "Configure Service"
     schema:
       type: dict
-      hidden: true
       attrs:
         - variable: main
           label: "Main service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             type: dict
-            hidden: true
             attrs:
               - variable: enabled
                 label: "Enable the service"
@@ -133,8 +130,9 @@ questions:
                 schema:
                   type: string
                   default: "ClusterIP"
-                  hidden: true
                   enum:
+                    - value: "NodePort"
+                      description: "NodePort"
                     - value: "ClusterIP"
                       description: "ClusterIP"
               - variable: port
@@ -147,10 +145,12 @@ questions:
                       schema:
                         type: string
                         default: "HTTP"
-                        hidden: true
+                        hidden: false
                         enum:
                           - value: HTTP
                             description: "HTTP"
+                          - value: "HTTPS"
+                            description: "HTTPS"
                     - variable: port
                       label: "container port"
                       schema:
@@ -175,7 +175,6 @@ questions:
                         max: 65535
                         default: 36048
                         required: true
-                        hidden: false
 
 ## TrueCharts Specific
   - variable: persistence
