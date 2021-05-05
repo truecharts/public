@@ -17,12 +17,17 @@ within the common library.
 
 {{- if hasKey $values "nameSuffix" -}}
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
-  {{- if and ( $.Values.services ) ( not $values.servicePort ) }}
+  {{- if not $values.servicePort }}
     {{- $ingressService := index  $.Values.services ( $values.nameSuffix | quote ) }}
-    {{- $svcPort = $ingressService.port.port -}}
-    {{- $portProtocol = $ingressService.port.protocol | default "" }}
+    {{- if $ingressService.enabled }}
+      {{- $svcPort = $ingressService.port.port -}}
+      {{- $portProtocol = $ingressService.port.protocol | default "" }}
+    {{- else if $.Values.services.main.enabled }}
+      {{- $svcPort = $.Values.services.main.port.port -}}
+      {{- $portProtocol = $.Values.services.main.port.protocol | default "" -}}
+    {{ end -}}
   {{ end -}}
-{{- else if and ( $.Values.services ) ( not $values.servicePort ) }}
+{{- else if and ( $.Values.services.main.enabled ) ( not $values.servicePort ) }}
   {{- $svcPort = $.Values.services.main.port.port -}}
   {{- $portProtocol = $.Values.services.main.port.protocol | default "" -}}
 {{ end -}}
