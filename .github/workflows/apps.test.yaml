@@ -72,9 +72,9 @@ jobs:
       - name: Prepare-Lint
         id: prep-lint
         run: |
-            if test -f "./stable/${{ matrix.app }}/item.yaml"; then
+            if test -f "./stable/${{ matrix.app }}/Chart.yaml"; then
               train="stable"
-            elif test -f "./incubator/${{ matrix.app }}/item.yaml"; then
+            elif test -f "./incubator/${{ matrix.app }}/Chart.yaml"; then
               train="incubator"
             else
               train="dev"
