@@ -49,7 +49,6 @@ jobs:
 
               mkdir -p catalog/test/${chartname}/${maxchartversion}
               cp -Rf ${chart}/* catalog/test/${chartname}/${maxchartversion}/
-              mv catalog/test/${chartname}/${maxchartversion}/item.yaml catalog/test/${chartname}/
             fi
           done
       - name: Apply SCALE Patches
