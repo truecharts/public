@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: fireflyiii
-version: 1.0.0
+version: 1.0.1
 appVersion: "auto"
 description: A free and open source personal finance manager
 type: application
@@ -16,9 +16,9 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 3.5.2
+    version: 3.5.5
   - name: postgresql
-    version: 10.4.0
+    version: 10.4.2
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
 maintainers:
