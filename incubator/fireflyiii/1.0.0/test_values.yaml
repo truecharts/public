@@ -8,6 +8,12 @@ image:
 strategy:
   type: Recreate
 
+podSecurityContext:
+  runAsNonRoot: false
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+
 services:
   main:
     port:
