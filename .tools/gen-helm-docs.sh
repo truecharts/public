@@ -16,8 +16,6 @@ repository=$(git rev-parse --show-toplevel)
 # Templates to copy into each chart directory
 readme_template="${repository}/.tools/templates/docs/README.md.gotmpl"
 config_template="${repository}/.tools/templates/docs/CONFIG.md.gotmpl"
-app_readme_template="${repository}/.tools/templates/docs/app-readme.md.gotmpl"
-
 root="${repository}"
 
 for chart in stable/*; do
@@ -35,12 +33,6 @@ for chart in stable/*; do
           --output-file="CONFIG.md" \
           --template-files="${repository}/.tools/templates/docs/CONFIG.md.gotmpl" \
           --chart-search-root="${chart}"
-      helm-docs \
-          --ignore-file=".helmdocsignore" \
-          --output-file="app-readme.md" \
-          --template-files="${repository}/.tools/templates/docs/app-readme.md.gotmpl" \
-          --chart-search-root="${chart}"
-
 
   fi
 done
@@ -59,11 +51,6 @@ for chart in incubator/*; do
           --ignore-file=".helmdocsignore" \
           --output-file="CONFIG.md" \
           --template-files="${repository}/.tools/templates/docs/CONFIG.md.gotmpl" \
-          --chart-search-root="${chart}"
-      helm-docs \
-          --ignore-file=".helmdocsignore" \
-          --output-file="app-readme.md" \
-          --template-files="${repository}/.tools/templates/docs/app-readme.md.gotmpl" \
           --chart-search-root="${chart}"
   fi
 done
