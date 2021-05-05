@@ -62,7 +62,7 @@ jobs:
               mv ${path}/SCALE/item.yaml catalog/test/${chartname}/
               mv ${path}/SCALE/ix_values.yaml ${path}/
               mv ${path}/SCALE/questions.yaml ${path}/
-              cp -rf ${path}/SCALE/templates/* ${path}/templates
+              cp -rf ${path}/SCALE/templates/* ${path}/templates || echo "ignoring templates directory..."
               rm -rf ${path}/SCALE/templates
               mv ${path}/values.yaml ${path}/test_values.yaml
               touch ${path}/values.yaml
