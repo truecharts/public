@@ -1,0 +1,78 @@
+# Default values for Bitwarden.
+
+image:
+  repository: jc5x/firefly-iii
+  pullPolicy: IfNotPresent
+  tag: latest
+
+strategy:
+  type: Recreate
+
+podSecurityContext:
+  runAsNonRoot: false
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+
+services:
+  main:
+    port:
+      port: 8080
+  tcp:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 51080
+      protocol: TCP
+      targetPort: 51080
+
+env:
+  DB_USERNAME: firefly
+  DB_DATABASE: firefly
+  DB_CONNECTION: pgsql
+  DB_PORT: 5432
+  APP_Key: AGcfkCUS233ZWmBXztYbdyCs2u7kkz55
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: url
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/var/www/html/storage/upload"
+    emptyDir: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
+  db:
+    nameOverride: "db"
+    enabled: true
+    emptyDir: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
+  dbbackup:
+    enabled: true
+    emptyDir: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""
+
+
+# Enabled postgres
+# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+postgresql:
+  enabled: true
+  postgresqlUsername: firefly
+  postgresqlDatabase: firefly
+  existingSecret: dbcreds
+  persistence:
+    enabled: false
+    existingClaim: db

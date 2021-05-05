@@ -53,5 +53,6 @@
 |SABnzbd                    |Main     |36045      |
 |Organizr                   |Main     |36046      |
 |Podgrab                    |Main     |36047      |
+|Fireflyiii                 |Main     |36048      |
 
 #### Note: TCP and UPD ports that are the same in each App, are not by mistake.
