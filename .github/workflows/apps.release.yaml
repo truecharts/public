@@ -11,10 +11,8 @@ on:
       - '.github/workflows/apps.release.yaml'
 
 jobs:
-  common-release:
-    needs: pre-release
+  release:
     runs-on: ubuntu-latest
-    if: needs.pre-release.outputs.release == 'true'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
