@@ -45,7 +45,7 @@ jobs:
           done
       - name: fetch dependencies
         run: |
-          helm dependency update master/test/*
+          helm dependency update master/.test/*
       - name: Add Chart release
         run: |
           for chart in master/.test/*; do
