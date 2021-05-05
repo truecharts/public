@@ -1,11 +1,12 @@
 #!/bin/sh
 for chart in stable/*; do
   if [ -d "${chart}" ]; then
+
+	rm -rf ${chart}/SCALE
+	rm -rf ${chart}/charts
     maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
     chartname=$(basename ${chart})
     path="${chart}/${maxfolderversion}"
-	rm -rf ${chart}/SCALE
-	rm -rf ${chart}/charts
 	rm -rf ${path}/charts
 	rm -rf ${path}/Chart.lock
     rm -rf ${path}/values.yaml
