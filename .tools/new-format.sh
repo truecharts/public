@@ -1,5 +1,5 @@
 #!/bin/sh
-for chart in stable/*; do
+for chart in incubator/*; do
   if [ -d "${chart}" ]; then
 
 	rm -rf ${chart}/SCALE
