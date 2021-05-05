@@ -45,9 +45,9 @@ Assuming the release dates of TrueNAS SCALE will keep following the previous 2 m
 
 
 
-**TrueCharts DB Edition - TrueNAS SCALE 21.06**
+**To Be Announced - TrueNAS SCALE 21.06**
 
-_This release will focus on adding a solid framework of using (and adding) databases to Apps within TrueCharts. This will lead to significantly more App possibilities and performance increases for existing Apps._
+_We're working on some exiting new features for TrueNAS SCALE, which will be announced at a later date._
 
 
 <br>
