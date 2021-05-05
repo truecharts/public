@@ -11,8 +11,87 @@ on:
       - '.github/workflows/apps.release.yaml'
 
 jobs:
+  catalog-test:
+    runs-on: ubuntu-latest
+    container:
+      image: ixsystems/catalog_validation:latest
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_TOKEN }}
+          path: master
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          repository: truecharts/catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          path: catalog
+      - name: Remove if release already exists
+        run: |
+          for train in stable incubator dev
+            for chart in master/${train}/*; do
+              if [ -d "${chart}" ]; then
+                maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                chartname=$(basename ${chart})
+                echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
+                rm -Rf catalog/test/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
+                rm -Rf catalog/test/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
+              fi
+            done
+          done
+      - name: fetch dependencies
+        run: |
+          helm dependency update master/.test/*
+      - name: Add Chart release
+        run: |
+          for train in stable incubator dev
+            for chart in master/${train}/*; do
+              if [ -d "${chart}" ]; then
+                maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                chartname=$(basename ${chart})
+                echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
+                mkdir -p catalog/test/${chartname}/${maxchartversion}
+                cp -Rf ${chart}/* catalog/community/${chartname}/${maxchartversion}/
+              fi
+            done
+          done
+      - name: Apply SCALE Patches
+        run: |
+          for chart in catalog/community/*; do
+            if [ -d "${chart}" ]; then
+              maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
+              chartname=$(basename ${chart})
+              path="${chart}/${maxfolderversion}"
+              echo "Processing... Applying SCALE patch... Chart: ${chartname} - Version: ${maxfolderversion}"
+              mv ${path}/SCALE/item.yaml catalog/community/${chartname}/
+              mv ${path}/SCALE/ix_values.yaml ${path}/
+              mv ${path}/SCALE/questions.yaml ${path}/
+              cp -rf ${path}/SCALE/templates/* ${path}/templates || echo "ignoring templates directory..."
+              rm -rf ${path}/SCALE/templates
+              mv ${path}/values.yaml ${path}/test_values.yaml
+              touch ${path}/values.yaml
+              description=$(cat ${path}/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
+              echo "${description}" >> ${path}/app-readme.md
+            fi
+          done
+      - name: Validate catalog format
+        run: |
+          cd catalog
+          /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
+
   release:
     runs-on: ubuntu-latest
+    needs: catalog-test
     steps:
       - name: Install Helm
         uses: azure/setup-helm@v1
@@ -33,39 +112,42 @@ jobs:
           path: catalog
       - name: Remove if release already exists
         run: |
-          for chart in master/.test/*; do
-            if [ -d "${chart}" ]; then
-              maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-              chartname=$(basename ${chart})
-              echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
-
-              rm -Rf catalog/test/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
-              rm -Rf catalog/test/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
-            fi
+          for train in stable incubator dev
+            for chart in master/${train}/*; do
+              if [ -d "${chart}" ]; then
+                maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                chartname=$(basename ${chart})
+                echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
+                rm -Rf catalog/test/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
+                rm -Rf catalog/test/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
+              fi
+            done
           done
       - name: fetch dependencies
         run: |
           helm dependency update master/.test/*
       - name: Add Chart release
         run: |
-          for chart in master/.test/*; do
-            if [ -d "${chart}" ]; then
-              maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-              chartname=$(basename ${chart})
-              echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
-              mkdir -p catalog/test/${chartname}/${maxchartversion}
-              cp -Rf ${chart}/* catalog/test/${chartname}/${maxchartversion}/
-            fi
+          for train in stable incubator dev
+            for chart in master/${train}/*; do
+              if [ -d "${chart}" ]; then
+                maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                chartname=$(basename ${chart})
+                echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
+                mkdir -p catalog/test/${chartname}/${maxchartversion}
+                cp -Rf ${chart}/* catalog/community/${chartname}/${maxchartversion}/
+              fi
+            done
           done
       - name: Apply SCALE Patches
         run: |
-          for chart in catalog/test/*; do
+          for chart in catalog/community/*; do
             if [ -d "${chart}" ]; then
               maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
               chartname=$(basename ${chart})
               path="${chart}/${maxfolderversion}"
               echo "Processing... Applying SCALE patch... Chart: ${chartname} - Version: ${maxfolderversion}"
-              mv ${path}/SCALE/item.yaml catalog/test/${chartname}/
+              mv ${path}/SCALE/item.yaml catalog/community/${chartname}/
               mv ${path}/SCALE/ix_values.yaml ${path}/
               mv ${path}/SCALE/questions.yaml ${path}/
               cp -rf ${path}/SCALE/templates/* ${path}/templates || echo "ignoring templates directory..."
@@ -76,6 +158,7 @@ jobs:
               echo "${description}" >> ${path}/app-readme.md
             fi
           done
+
       - name: Commit and Push new App releases
         run: |
           cd catalog
