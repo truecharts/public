@@ -52,6 +52,25 @@ jobs:
               mv catalog/test/${chartname}/${maxchartversion}/item.yaml catalog/test/${chartname}/
             fi
           done
+      - name: Apply SCALE Patches
+        run: |
+          for chart in catalog/test/*; do
+            if [ -d "${chart}" ]; then
+              maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
+              chartname=$(basename ${chart})
+              path="${chart}/${maxfolderversion}"
+              echo "Processing... Applying SCALE patch... Chart: ${chartname} - Version: ${maxfolderversion}"
+              mv ${path}/SCALE/item.yaml catalog/test/${chartname}/
+              mv ${path}/SCALE/ix_values.yaml ${path}/
+              mv ${path}/SCALE/questions.yaml ${path}/
+              cp -rf ${path}/SCALE/templates/* ${path}/templates
+              rm -rf ${path}/SCALE/templates
+              mv ${path}/values.yaml ${path}/test_values.yaml
+              touch ${path}/values.yaml
+              description=$(cat ${chart}/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
+              echo "${description}" >> ${path}/app-readme.md
+            fi
+          done
       - name: Commit and Push new App releases
         run: |
           cd catalog
