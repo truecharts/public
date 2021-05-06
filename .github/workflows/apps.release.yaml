@@ -38,7 +38,8 @@ jobs:
           path: catalog
       - name: Remove if release already exists
         run: |
-          for train in stable incubator; do
+          for train in stable incubator
+          do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -139,7 +140,8 @@ jobs:
           done
       - name: Add Chart release
         run: |
-          for train in stable incubator; do
+          for train in stable incubator
+          do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
