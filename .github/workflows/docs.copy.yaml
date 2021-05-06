@@ -61,13 +61,12 @@ jobs:
         run: |
           for chart in stable/*; do
             if [ -d "${chart}" ]; then
-                maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
                 chartname=$(basename ${chart})
-                echo "Processing: ${chart} - folder: ${maxfolderversion}"
+                echo "Processing: ${chart}"
                 mkdir -p docs/apps/stable/${chartname} || echo "app path already exists, continuing..."
-                yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/stable/${chartname}/index.md || echo "readme copy failed, continuing..."
-                yes | cp -rf ${chart}/${maxfolderversion}/CONFIG.md docs/apps/stable/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
-                yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/stable/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                yes | cp -rf ${chart}/README.md docs/apps/stable/${chartname}/index.md || echo "readme copy failed, continuing..."
+                yes | cp -rf ${chart}/CONFIG.md docs/apps/stable/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
+                yes | cp -rf ${chart}/LICENSE docs/apps/stable/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
                 sed -i '1s/^/# License<br>\n\n/' docs/apps/stable/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
             fi
           done
@@ -77,13 +76,12 @@ jobs:
         run: |
           for chart in incubator/*; do
             if [ -d "${chart}" ]; then
-                maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
                 chartname=$(basename ${chart})
-                echo "Processing: ${chart} - folder: ${maxfolderversion}"
+                echo "Processing: ${chart}"
                 mkdir -p docs/apps/incubator/${chartname} || echo "app path already exists, continuing..."
-                yes | cp -rf ${chart}/${maxfolderversion}/README.md docs/apps/incubator/${chartname}/index.md || echo "readme copy failed, continuing..."
-                yes | cp -rf ${chart}/${maxfolderversion}/CONFIG.md docs/apps/incubator/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
-                yes | cp -rf ${chart}/${maxfolderversion}/LICENSE docs/apps/incubator/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                yes | cp -rf ${chart}/README.md docs/apps/incubator/${chartname}/index.md || echo "readme copy failed, continuing..."
+                yes | cp -rf ${chart}/CONFIG.md docs/apps/incubator/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
+                yes | cp -rf ${chart}/LICENSE docs/apps/incubator/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
                 sed -i '1s/^/# License<br>\n\n/' docs/apps/incubator/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
             fi
           done

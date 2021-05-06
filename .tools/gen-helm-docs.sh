@@ -16,56 +16,41 @@ repository=$(git rev-parse --show-toplevel)
 # Templates to copy into each chart directory
 readme_template="${repository}/.tools/templates/docs/README.md.gotmpl"
 config_template="${repository}/.tools/templates/docs/CONFIG.md.gotmpl"
-app_readme_template="${repository}/.tools/templates/docs/app-readme.md.gotmpl"
-
 root="${repository}"
 
 for chart in stable/*; do
   if [ -d "${chart}" ]; then
-      maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
-      maxchartversion=$(cat ${chart}/${maxfolderversion}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+      maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
       chartname=$(basename ${chart})
-      echo "-] Copying templates to ${repository}/${chart}/${maxfolderversion}"
+      echo "-] Copying templates to ${repository}/${chart}"
       helm-docs \
           --ignore-file=".helmdocsignore" \
           --output-file="README.md" \
           --template-files="${repository}/.tools/templates/docs/README.md.gotmpl" \
-          --chart-search-root="${chart}/${maxfolderversion}"
+          --chart-search-root="${chart}"
       helm-docs \
           --ignore-file=".helmdocsignore" \
           --output-file="CONFIG.md" \
           --template-files="${repository}/.tools/templates/docs/CONFIG.md.gotmpl" \
-          --chart-search-root="${chart}/${maxfolderversion}"
-      helm-docs \
-          --ignore-file=".helmdocsignore" \
-          --output-file="app-readme.md" \
-          --template-files="${repository}/.tools/templates/docs/app-readme.md.gotmpl" \
-          --chart-search-root="${chart}/${maxfolderversion}"
-
+          --chart-search-root="${chart}"
 
   fi
 done
 
 for chart in incubator/*; do
   if [ -d "${chart}" ]; then
-      maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
-      maxchartversion=$(cat ${chart}/${maxfolderversion}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+      maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
       chartname=$(basename ${chart})
-      echo "-] Copying templates to ${repository}/${chart}/${maxfolderversion}"
+      echo "-] Copying templates to ${repository}/${chart}"
       helm-docs \
           --ignore-file=".helmdocsignore" \
 		  --output-file="README.md" \
           --template-files="${repository}/.tools/templates/docs/README.md.gotmpl" \
-          --chart-search-root="${chart}/${maxfolderversion}"
+          --chart-search-root="${chart}"
       helm-docs \
           --ignore-file=".helmdocsignore" \
           --output-file="CONFIG.md" \
           --template-files="${repository}/.tools/templates/docs/CONFIG.md.gotmpl" \
-          --chart-search-root="${chart}/${maxfolderversion}"
-      helm-docs \
-          --ignore-file=".helmdocsignore" \
-          --output-file="app-readme.md" \
-          --template-files="${repository}/.tools/templates/docs/app-readme.md.gotmpl" \
-          --chart-search-root="${chart}/${maxfolderversion}"
+          --chart-search-root="${chart}"
   fi
 done

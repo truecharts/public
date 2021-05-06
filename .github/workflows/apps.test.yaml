@@ -8,43 +8,31 @@ on:
       - '**'
     paths:
       - 'stable/**'
-      - '!stable/**/*.md'
-      - '!stable/**/README.md'
-      - '!stable/**/README.md.gotmpl'
-      - '!stable/**/app-readme.md'
-      - '!stable/**/app-readme.md.gotmpl'
-      - '!stable/**/docs/*'
+      - '!stable/*.md'
+      - '!stable/README.md'
+      - '!stable/README.md.gotmpl'
+      - '!stable/app-readme.md'
+      - '!stable/app-readme.md.gotmpl'
+      - '!stable/docs/*'
       - 'incubator/**'
-      - '!incubator/**/*.md'
-      - '!incubator/**/README.md'
-      - '!incubator/**/README.md.gotmpl'
-      - '!incubator/**/app-readme.md'
-      - '!incubator/**/app-readme.md.gotmpl'
-      - '!incubator/**/docs/*'
+      - '!incubator/*.md'
+      - '!incubator/README.md'
+      - '!incubator/README.md.gotmpl'
+      - '!incubator/app-readme.md'
+      - '!incubator/app-readme.md.gotmpl'
+      - '!incubator/docs/*'
       - 'dev/**'
-      - '!dev/**/*.md'
-      - '!dev/**/README.md'
-      - '!dev/**/README.md.gotmpl'
-      - '!dev/**/app-readme.md'
-      - '!dev/**/app-readme.md.gotmpl'
-      - '!dev/**/docs/*'
+      - '!dev/*.md'
+      - '!dev/README.md'
+      - '!dev/README.md.gotmpl'
+      - '!dev/app-readme.md'
+      - '!dev/app-readme.md.gotmpl'
+      - '!dev/docs/*'
       - '.github/workflows/apps.test.yaml'
       - '.github/ct-install.yaml'
       - '.github/ct-lint.yaml'
 
 jobs:
-  catalog-test:
-    runs-on: ubuntu-latest
-    container:
-      image: ixsystems/catalog_validation:latest
-
-    steps:
-    - uses: actions/checkout@v2
-      name: Checkout
-    - name: Validate catalog format
-      run: |
-        /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
-
   changes:
     name: Get changed Apps
     runs-on: ubuntu-20.04
@@ -69,7 +57,7 @@ jobs:
         echo ::set-output name=apps::${APPS}
 
   app-tests:
-    needs: [catalog-test, changes]
+    needs: [changes]
     name: App Tests
     runs-on: ubuntu-latest
     strategy:
@@ -84,19 +72,14 @@ jobs:
       - name: Prepare-Lint
         id: prep-lint
         run: |
-            if test -f "./stable/${{ matrix.app }}/item.yaml"; then
+            if test -f "./stable/${{ matrix.app }}/Chart.yaml"; then
               train="stable"
-            elif test -f "./incubator/${{ matrix.app }}/item.yaml"; then
+            elif test -f "./incubator/${{ matrix.app }}/Chart.yaml"; then
               train="incubator"
             else
               train="dev"
             fi
             echo ::set-output name=train::${train}
-            maxfolderversion=$(ls -l ${train}/${{ matrix.app }} | grep ^d | awk '{print $9}' | tail -n 1)
-            echo "Detected folder version: ${maxfolderversion}"
-            mkdir ${train}/${{ matrix.app }}/${maxfolderversion}/ci  || exit 0
-            cp ${train}/${{ matrix.app }}/${maxfolderversion}/test_values.yaml ${train}/${{ matrix.app }}/${maxfolderversion}/ci/test-values.yaml
-            echo ::set-output name=maxfolderversion::${maxfolderversion}
 
       - name: Install Helm
         uses: azure/setup-helm@v1
@@ -113,12 +96,7 @@ jobs:
 
       - name: Run chart-testing (lint)
         id: lint
-        run: ct lint --config .github/ct-lint.yaml --charts '${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}/${{ steps.prep-lint.outputs.maxfolderversion }}'
-
-      - name: Prepare-Test
-        run: |
-            mv -f ${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}/${{ steps.prep-lint.outputs.maxfolderversion }}/* ${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}/
-            rm -Rf ${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}/${{ steps.prep-lint.outputs.maxfolderversion }}
+        run: ct lint --config .github/ct-lint.yaml --charts '${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1

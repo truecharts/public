@@ -16,11 +16,11 @@ Adding the TrueCharts Community App Catalog is relatively straight forwards.
 
 Name: `truecharts`
 
-Repository: `https://github.com/truecharts/apps`
+Repository: `https://github.com/truecharts/catalog`
 
 Preferred Trains: `stable` (and optionally: `incubator`)
 
-Branch: `master`
+Branch: `main`
 
 ##### Difference between Stable and Incubator
 
