@@ -45,8 +45,8 @@ jobs:
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
-                rm -Rf catalog/test/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
-                rm -Rf catalog/test/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
+                rm -Rf catalog/${train}/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
+                rm -Rf catalog/${train}/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
               fi
             done
           done
@@ -71,7 +71,7 @@ jobs:
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
-                mkdir -p catalog/test/${chartname}/${maxchartversion}
+                mkdir -p catalog/${train}/${chartname}/${maxchartversion}
                 cp -Rf ${chart}/* catalog/${train}/${chartname}/${maxchartversion}/
               fi
             done
@@ -133,8 +133,8 @@ jobs:
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
-                rm -Rf catalog/test/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
-                rm -Rf catalog/test/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
+                rm -Rf catalog/${train}/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
+                rm -Rf catalog/${train}/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
               fi
             done
           done
@@ -159,7 +159,7 @@ jobs:
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
-                mkdir -p catalog/test/${chartname}/${maxchartversion}
+                mkdir -p catalog/${train}/${chartname}/${maxchartversion}
                 cp -Rf ${chart}/* catalog/${train}/${chartname}/${maxchartversion}/
               fi
             done
