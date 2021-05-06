@@ -20,7 +20,7 @@ Repository: `https://github.com/truecharts/catalog`
 
 Preferred Trains: `stable` (and optionally: `incubator`)
 
-Branch: `master`
+Branch: `main`
 
 ##### Difference between Stable and Incubator
 
