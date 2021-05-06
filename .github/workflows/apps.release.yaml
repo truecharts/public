@@ -54,9 +54,13 @@ jobs:
         run: |
           for train in stable incubator
           do
-            cd master/${train}
-            helm dependency update
-            cd ..
+            for chart in master/${train}/*; do
+              if [ -d "${chart}" ]; then
+                cd ${chart}
+                helm dependency update
+                cd -
+              fi
+            done
           done
       - name: Add Chart release
         run: |
@@ -138,9 +142,13 @@ jobs:
         run: |
           for train in stable incubator
           do
-            cd master/${train}
-            helm dependency update
-            cd ..
+            for chart in master/${train}/*; do
+              if [ -d "${chart}" ]; then
+                cd ${chart}
+                helm dependency update
+                cd -
+              fi
+            done
           done
       - name: Add Chart release
         run: |
