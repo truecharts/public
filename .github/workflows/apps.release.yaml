@@ -50,12 +50,12 @@ jobs:
               fi
             done
           done
-      - name: fetch dependencies
+      - name: fetch stable dependencies
         run: |
-          for train in stable incubator
-          do
-            helm dependency update master/${train}/*
-          done
+            helm dependency update master/stable/*
+      - name: fetch incubator dependencies
+        run: |
+            helm dependency update master/incubator/*
       - name: Add Chart release
         run: |
           for train in stable incubator
@@ -132,12 +132,12 @@ jobs:
               fi
             done
           done
-      - name: fetch dependencies
+      - name: fetch stable dependencies
         run: |
-          for train in stable incubator
-          do
-            helm dependency update master/${train}/*
-          done
+            helm dependency update master/stable/*
+      - name: fetch incubator dependencies
+        run: |
+            helm dependency update master/incubator/*
       - name: Add Chart release
         run: |
           for train in stable incubator
