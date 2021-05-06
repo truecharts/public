@@ -38,7 +38,7 @@ jobs:
           path: catalog
       - name: Remove if release already exists
         run: |
-          for train in stable incubator dev
+          for train in stable incubator dev; do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -54,7 +54,7 @@ jobs:
           helm dependency update master/.test/*
       - name: Add Chart release
         run: |
-          for train in stable incubator dev
+          for train in stable incubator dev; do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -67,7 +67,7 @@ jobs:
           done
       - name: Apply SCALE Patches
         run: |
-          for train in stable incubator dev
+          for train in stable incubator dev; do
             for chart in catalog/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
@@ -114,7 +114,7 @@ jobs:
           path: catalog
       - name: Remove if release already exists
         run: |
-          for train in stable incubator dev
+          for train in stable incubator dev; do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -130,7 +130,7 @@ jobs:
           helm dependency update master/.test/*
       - name: Add Chart release
         run: |
-          for train in stable incubator dev
+          for train in stable incubator dev; do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -143,7 +143,7 @@ jobs:
           done
       - name: Apply SCALE Patches
         run: |
-          for train in stable incubator dev
+          for train in stable incubator dev; do
             for chart in catalog/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
