@@ -38,7 +38,7 @@ jobs:
           path: catalog
       - name: Remove if release already exists
         run: |
-          for train in stable incubator dev; do
+          for train in stable incubator; do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -51,12 +51,12 @@ jobs:
           done
       - name: fetch dependencies
         run: |
-          for train in stable incubator dev; do
+          for train in stable incubator; do
             helm dependency update master/${train}/*
           done
       - name: Add Chart release
         run: |
-          for train in stable incubator dev; do
+          for train in stable incubator; do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -69,7 +69,7 @@ jobs:
           done
       - name: Apply SCALE Patches
         run: |
-          for train in stable incubator dev; do
+          for train in stable incubator; do
             for chart in catalog/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
@@ -116,7 +116,7 @@ jobs:
           path: catalog
       - name: Remove if release already exists
         run: |
-          for train in stable incubator dev; do
+          for train in stable incubator; do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -129,12 +129,12 @@ jobs:
           done
       - name: fetch dependencies
         run: |
-          for train in stable incubator dev; do
+          for train in stable incubator; do
             helm dependency update master/${train}/*
           done
       - name: Add Chart release
         run: |
-          for train in stable incubator dev; do
+          for train in stable incubator; do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -147,7 +147,7 @@ jobs:
           done
       - name: Apply SCALE Patches
         run: |
-          for train in stable incubator dev; do
+          for train in stable incubator; do
             for chart in catalog/${train}/*; do
               if [ -d "${chart}" ]; then
                 maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
