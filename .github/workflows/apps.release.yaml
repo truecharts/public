@@ -51,7 +51,9 @@ jobs:
           done
       - name: fetch dependencies
         run: |
-          helm dependency update master/.test/*
+          for train in stable incubator dev; do
+            helm dependency update master/${train}/*
+          done
       - name: Add Chart release
         run: |
           for train in stable incubator dev; do
@@ -127,7 +129,9 @@ jobs:
           done
       - name: fetch dependencies
         run: |
-          helm dependency update master/.test/*
+          for train in stable incubator dev; do
+            helm dependency update master/${train}/*
+          done
       - name: Add Chart release
         run: |
           for train in stable incubator dev; do
