@@ -15,6 +15,10 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
               mountPath: /bin/plex_probe_check.sh
               readOnly: true
               subPath: entrypoint.sh
+            {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+            - name: extrappvolume-{{ $index }}
+              mountPath: {{ $hostPathConfiguration.mountPath }}
+            {{ end }}
           ports:
           - name: pms
             protocol: TCP
@@ -82,3 +86,8 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           configMap:
             defaultMode: 0700
             name: "plex-probe-check"
+        {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+        - name: extrappvolume-{{ $index }}
+          hostPath:
+            path: {{ $hostPathConfiguration.hostPath }}
+        {{ end }}
