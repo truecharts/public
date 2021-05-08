@@ -15,14 +15,15 @@ spec:
       containers:
       - name: {{ .Chart.Name }}-generate-mnemonic
         {{ include "common.containers.imageConfig" .Values.image | nindent 8 }}
-        volumeMounts: {{- include "common.storage.configureAppVolumeMountsInContainer" . | nindent 10 -}}
+        volumeMounts:{{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 10 }}
+
           - name: generate-mnemonic-configmap
             mountPath: /generate_entrypoint.sh
             readOnly: true
             subPath: entrypoint.sh
         command:
           - "/generate_entrypoint.sh"
-      volumes:  {{- include "common.storage.configureAppVolumes" . | nindent 8 -}}
+      volumes:  {{- include "common.storage.configureAppVolumes" .Values | nindent 8 -}}
         - name: generate-mnemonic-configmap
           configMap:
             defaultMode: 0700

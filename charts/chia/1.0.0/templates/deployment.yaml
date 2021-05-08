@@ -13,6 +13,8 @@ spec:
       name: {{ template "common.names.fullname" . }}
       labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
     spec:
+      # FIXME: Let's please remove hostnetwork when upstream hostport issue is sorted out with kube-router
+      hostNetwork: true
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
