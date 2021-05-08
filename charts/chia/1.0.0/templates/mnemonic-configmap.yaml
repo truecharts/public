@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "generate-mnemonic-config-map"
+data:
+  entrypoint.sh: |-
+    #!/bin/sh
+    /chia-blockchain/venv/bin/python3 -c "from chia.util.keychain import generate_mnemonic;print(generate_mnemonic())" > /plots/keyfile;
