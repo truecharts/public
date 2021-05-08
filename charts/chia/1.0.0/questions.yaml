@@ -33,7 +33,7 @@ questions:
                   editable: false
                   default: "/root/.chia"
               - variable: hostPathEnabled
-                label: "Enable Host Path for Chia Configuration Volume"
+                label: "Enable Custom Host Path for Chia Configuration Volume"
                 schema:
                   type: boolean
                   default: false
@@ -68,7 +68,7 @@ questions:
                   editable: false
                   default: "/plots"
               - variable: hostPathEnabled
-                label: "Enable Host Path for Chia Plots Volume"
+                label: "Enable Custom Host Path for Chia Plots Volume"
                 schema:
                   type: boolean
                   default: false
