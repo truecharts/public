@@ -9,4 +9,6 @@ metadata:
 data:
   entrypoint.sh: |-
     #!/bin/sh
-    /chia-blockchain/venv/bin/python3 -c "from chia.util.keychain import generate_mnemonic;print(generate_mnemonic())" > /plots/keyfile;
+    if [ -e /root/as.sh ]; then
+        /chia-blockchain/venv/bin/python3 -c "from chia.util.keychain import generate_mnemonic;print(generate_mnemonic())" > /plots/keyfile;
+    fi
