@@ -72,7 +72,7 @@ jobs:
               fi
             done
           echo "Processed charts for ${train}:"
-          ls docs/apps/${train}/ || no Apps in train
+          ls docs/apps/${train}/ || echo "no Apps in train"
           done
 
       - name: Commit and Push updated docs
