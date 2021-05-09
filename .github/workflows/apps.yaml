@@ -7,26 +7,22 @@ on:
     tags-ignore:
       - '**'
     paths:
-      - 'stable/**'
-      - 'develop/**'
-      - 'incubator/**'
-      - 'non-free/**'
-      - 'deprecated/**'
-      - '.github/workflows/apps.release.yaml'
+      - 'charts/**'
+      - '.github/workflows/apps.yaml'
+      - '.github/ct-install.yaml'
+      - '.github/ct-lint.yaml'
+      - '.github/cr.yaml'
   pull_request:
     branches:
       - '**'
     tags-ignore:
       - '**'
     paths:
-      - 'stable/**'
-      - 'develop/**'
-      - 'incubator/**'
-      - 'non-free/**'
-      - 'deprecated/**'
-      - '.github/workflows/apps.release.yaml'
+      - 'charts/**'
+      - '.github/workflows/apps.yaml'
       - '.github/ct-install.yaml'
       - '.github/ct-lint.yaml'
+      - '.github/cr.yaml'
 
 jobs:
   changes:
