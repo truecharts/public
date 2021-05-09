@@ -1,0 +1,28 @@
+apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
+kind: Deployment
+metadata:
+  name: {{ template "common.names.fullname" . }}
+  labels: {{ include "common.labels" . | nindent 4 }}
+spec:
+  strategy:
+    type: {{ .Values.updateStrategy }}
+  selector:
+    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      name: {{ template "common.names.fullname" . }}
+      labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
+    spec:
+      # FIXME: Let's please remove hostnetwork when upstream hostport issue is sorted out with kube-router
+      hostNetwork: true
+      containers:
+        - name: {{ .Chart.Name }}
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
+          {{ include "common.storage.allContainerVolumeMounts" .Values | nindent 10 }}
+          ports:
+            - name: chia-network
+              protocol: TCP
+              containerPort: 8444
+              hostPort: 8444
+{{ include "common.containers.allEnvironmentVariables" .Values | nindent 10 }}
+{{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
