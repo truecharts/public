@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: sabnzbd
-version: 3.1.5
+version: 3.1.6
 upstream_version: 5.0.1
 appVersion: "auto"
 description: Free and easy binary newsreader
@@ -20,7 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 3.5.5
+    version: 3.5.8
     # condition:
 maintainers:
   - name: TrueCharts
