@@ -40,12 +40,12 @@ jobs:
         list-files: json
         filters: |
           changed:
-          - 'stable/**'
-          - 'incubator/**'
-          - 'develop/**'
-          - 'deprecated/**'
-          - 'non-free/**'
-          - 'library/**'
+          - 'charts/stable/**'
+          - 'charts/incubator/**'
+          - 'charts/develop/**'
+          - 'charts/deprecated/**'
+          - 'charts/non-free/**'
+          - 'charts/library/**'
     - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
     - id: reduce
       run: |
