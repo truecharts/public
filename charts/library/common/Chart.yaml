@@ -1,0 +1,22 @@
+apiVersion: v2
+appVersion: none
+description: Function library for TrueCharts
+home: https://github.com/truecharts/apps/tree/master/common
+icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+keywords:
+- truecharts
+- library-chart
+- common
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: common
+sources:
+- https://github.com/truecharts/apps/tree/master/library/common
+type: library
+version: 3.5.5

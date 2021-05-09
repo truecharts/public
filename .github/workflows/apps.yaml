@@ -1,0 +1,324 @@
+name: "Apps: Test & Release"
+
+on:
+  push:
+    branches:
+      - 'master'
+    tags-ignore:
+      - '**'
+    paths:
+      - 'stable/**'
+      - 'develop/**'
+      - 'incubator/**'
+      - 'non-free/**'
+      - 'deprecated/**'
+      - '.github/workflows/apps.release.yaml'
+  pull_request:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+    paths:
+      - 'stable/**'
+      - 'develop/**'
+      - 'incubator/**'
+      - 'non-free/**'
+      - 'deprecated/**'
+      - '.github/workflows/apps.release.yaml'
+      - '.github/ct-install.yaml'
+      - '.github/ct-lint.yaml'
+
+jobs:
+  changes:
+    name: Get changed Apps
+    runs-on: ubuntu-20.04
+    outputs:
+      matrix: "{\"app\": ${{ steps.reduce.outputs.apps }} }"
+      empty_matrix: ${{ steps.reduce.outputs.empty_matrix }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        list-files: json
+        filters: |
+          changed:
+          - 'stable/**'
+          - 'incubator/**'
+          - 'develop/**'
+          - 'deprecated/**'
+          - 'non-free/**'
+          - 'library/**'
+    - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
+    - id: reduce
+      run: |
+        APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.second_directory)") | unique' changes.json)
+        echo ::set-output name=apps::${APPS}
+        if [ ${#APPS[@]} -eq 1 ]; then
+          if [ -z "${APPS[0]}" ]; then
+            echo "Changed Apps: ${APPS[*]}"
+            echo "::set-output name=empty_matrix::true"
+          else
+            echo "No Changed Apps"
+            echo "::set-output name=empty_matrix::false"
+          fi
+        else
+          echo "No Changed Apps"
+          echo "::set-output name=empty_matrix::false"
+        fi
+
+  app-tests:
+    needs: [changes]
+    if: ${{ needs.changes.outputs.empty_matrix == 'false' }}
+    name: App Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.changes.outputs.matrix) }}
+      fail-fast: false
+    steps:
+      - name: Checkout
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Prepare-Lint
+        if: ${{ matrix.app != '.gitkee' }}
+        id: prep-lint
+        run: |
+            if test -f "./charts/stable/${{ matrix.app }}/Chart.yaml"; then
+              train="stable"
+            elif test -f "./charts/incubator/${{ matrix.app }}/Chart.yaml"; then
+              train="incubator"
+            elif test -f "./charts/deprecated/${{ matrix.app }}/Chart.yaml"; then
+              train="deprecated"
+            elif test -f "./charts/non-free/${{ matrix.app }}/Chart.yaml"; then
+              train="non-free"
+            elif test -f "./charts/library/${{ matrix.app }}/Chart.yaml"; then
+              train="library"
+            else
+              train="develop"
+            fi
+            echo ::set-output name=train::${train}
+
+      - name: Install Helm
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+
+      - uses: actions/setup-python@v2
+        if: ${{ matrix.app != '.gitkee' }}
+        with:
+          python-version: 3.7
+
+      - name: Install Dev tools for unittests
+        if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
+        run: sudo apt-get update && sudo apt-get install -y jq libjq-dev
+
+      - name: Install Ruby for unittests
+        if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+
+      - name: Set up chart-testing
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: helm/chart-testing-action@v2.0.1
+
+      - name: Run chart-testing (lint)
+        if: ${{ matrix.app != '.gitkee' }}
+        id: lint
+        run: ct lint --config .github/ct-lint.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
+
+      - name: Install dependencies
+        if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
+        run: |
+          export RUBYJQ_USE_SYSTEM_LIBRARIES=1
+          bundle install
+
+      - name: Run common unit tests
+        if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
+        run: |
+          bundle exec m -r .tools/tests/charts
+
+      - name: Create k3d cluster
+        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' }}
+        uses: nolar/setup-k3d-k3s@v1
+        with:
+          version: v1.19
+
+      ## TODO: Fix common-test
+      - name: Run chart-testing (install)
+        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' && matrix.app != 'common-test' }}
+        run: ct install --config .github/ct-install.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
+
+  app-tests-complete:
+    needs: [app-tests]
+    name: Apps Test Complete
+    runs-on: ubuntu-latest
+    steps:
+      - name: complete message
+        run: echo "App Tests Completed Successfully"
+
+  pre-release:
+    needs: [app-tests]
+    runs-on: ubuntu-latest
+    outputs:
+      release: ${{ steps.prep.outputs.release }}
+    timeout-minutes: 5
+    steps:
+      - name: Prepare
+        id: prep
+        run: |
+          if [ "${{github.event_name}}" == "pull_request" ]; then
+            echo ::set-output name=release::false
+          else
+            echo ::set-output name=release::true
+          fi
+      - name: Block concurrent jobs
+        uses: softprops/turnstyle@v1
+        if: steps.prep.outputs.release == 'true'
+        with:
+          continue-after-seconds: 180
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+
+
+  catalog-release:
+    runs-on: ubuntu-latest
+    needs: pre-release
+    if: needs.pre-release.outputs.release == 'true'
+    container:
+      image: ixsystems/catalog_validation:latest
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_TOKEN }}
+          path: master
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          repository: truecharts/catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          path: catalog
+      - name: Remove if release already exists
+        run: |
+          for train in stable incubator develop non-free deprecated
+          do
+            for chart in master/charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                chartname=$(basename ${chart})
+                echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
+                rm -Rf catalog/charts/${train}/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
+                rm -Rf catalog/charts/${train}/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
+              fi
+            done
+          done
+      - name: fetch dependencies
+        run: |
+          for train in stable incubator develop non-free deprecated
+          do
+            for chart in master/charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                cd ${chart}
+                helm dependency update
+                cd -
+              fi
+            done
+          done
+      - name: Apply SCALE Patches
+        run: |
+          for train in stable incubator develop non-free deprecated
+          do
+            for chart in master/charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                chartname=$(basename ${chart})
+                echo "Processing... Applying SCALE patch... Chart: ${chartname} - Version: ${maxfolderversion}"
+                mv ${chart}/SCALE/item.yaml ${chart}/
+                mv ${chart}/SCALE/ix_values.yaml ${chart}/
+                mv ${chart}/SCALE/questions.yaml ${chart}/
+                cp -rf ${chart}/SCALE/templates/* ${chart}/templates || echo "ignoring templates directory..."
+                rm -rf ${chart}/SCALE
+                mv ${chart}/values.yaml ${chart}/test_values.yaml
+                touch ${chart}/values.yaml
+                description=$(cat ${chart}/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
+                echo "${description}" >> ${chart}/app-readme.md
+              fi
+            done
+          done
+      - name: Add Chart release
+        run: |
+          for train in stable incubator develop non-free deprecated
+          do
+            for chart in master/charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                chartname=$(basename ${chart})
+                echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
+                mkdir -p catalog/charts/${train}/${chartname}/${maxchartversion}
+                cp -Rf ${chart}/* catalog/charts/${train}/${chartname}/${maxchartversion}/
+                mv catalog/charts/${train}/${chartname}/${maxchartversion}/item.yaml catalog/charts/${train}/${chartname}/item.yaml
+              fi
+            done
+          done
+      - name: Validate catalog format
+        run: |
+          cd catalog
+          /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
+      - name: Commit and Push new App releases
+        run: |
+          cd catalog
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit new App releases for TrueCharts" || exit 0
+          git push
+
+  helm-release:
+    needs: pre-release
+    runs-on: ubuntu-latest
+    if: needs.pre-release.outputs.release == 'true'
+    steps:
+      - name: Block concurrent jobs
+        uses: softprops/turnstyle@v1
+        with:
+          continue-after-seconds: 180
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.2.0
+        with:
+          config: .github/cr.yaml
+          charts_dir: charts/*
+        env:
+          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"

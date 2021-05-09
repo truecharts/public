@@ -1,30 +1,28 @@
-# Default values for common-test.
-# Use jackett because it's a nice basic app...
 image:
-  repository: ghcr.io/truecharts/jackett
+  repository: b4bz/homer
+  tag: 21.03.2
   pullPolicy: IfNotPresent
-  tag: v0.17.671
-
-strategy:
-  type: Recreate
-
 
 services:
   main:
-    enabled: true
     port:
-      port: 9117
-
-env: {}
-  # TZ: UTC
-  # PUID: 1001
-  # PGID: 1001
-
-services:
-  main:
+      port: 8080
+  test1:
     enabled: true
+    type: ClusterIP
     port:
-      port: 9117
+      port: 8081
+      name: tcp-test
+      protocol: TCP
+      targetPort: 8081
+  test2:
+    enabled: true
+    type: ClusterIP
+    port:
+      port: 8082
+      name: udp-test
+      protocol: UDP
+      targetPort: 8082
 
 additionalServices:
   - name: test3
@@ -50,20 +48,23 @@ ingress:
   test2:
     certType: "plain"
 
+
 additionalIngress:
   - name: "test3"
     enabled: true
   - name: "test4"
     enabled: true
 
-persistence:
-    config:
+# these values and names are set specifically with the unittests in mind.
+deviceMounts:
+  test1:
     enabled: true
-    mountPath: "/config"
     emptyDir: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    devicePath: "/test1"
+  test2:
+    enabled: true
+    emptyDir: false
+    devicePath: "/test2"
 
 # these values and names are set specifically with the unittests in mind.
 customStorage:
@@ -77,13 +78,3 @@ customStorage:
     setPermissions: true
     mountPath: "/test4"
     hostPath: "/tmp"
-
-deviceMounts:
-  test1:
-    enabled: true
-    emptyDir: true
-    devicePath: "/test1"
-  test2:
-    enabled: true
-    emptyDir: false
-    devicePath: "/test2"
