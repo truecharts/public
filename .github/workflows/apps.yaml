@@ -49,7 +49,7 @@ jobs:
     - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
     - id: reduce
       run: |
-        APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.second_directory)") | unique' changes.json)
+        APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.second_directory)") | unique' changes.json)
         echo ::set-output name=apps::${APPS}
         if [ ${#APPS[@]} -eq 1 ]; then
           if [ -z "${APPS[0]}" ]; then
