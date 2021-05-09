@@ -21,13 +21,27 @@ on:
       - '!incubator/app-readme.md'
       - '!incubator/app-readme.md.gotmpl'
       - '!incubator/docs/*'
-      - 'dev/**'
-      - '!dev/*.md'
-      - '!dev/README.md'
-      - '!dev/README.md.gotmpl'
-      - '!dev/app-readme.md'
-      - '!dev/app-readme.md.gotmpl'
-      - '!dev/docs/*'
+      - 'develop/**'
+      - '!develop/*.md'
+      - '!develop/README.md'
+      - '!develop/README.md.gotmpl'
+      - '!develop/app-readme.md'
+      - '!develop/app-readme.md.gotmpl'
+      - '!develop/docs/*'
+      - 'non-free/**'
+      - '!non-free/*.md'
+      - '!non-free/README.md'
+      - '!non-free/README.md.gotmpl'
+      - '!non-free/app-readme.md'
+      - '!non-free/app-readme.md.gotmpl'
+      - '!non-free/docs/*'
+      - 'deprecated/**'
+      - '!deprecated/*.md'
+      - '!deprecated/README.md'
+      - '!deprecated/README.md.gotmpl'
+      - '!deprecated/app-readme.md'
+      - '!deprecated/app-readme.md.gotmpl'
+      - '!deprecated/docs/*'
       - '.github/workflows/apps.test.yaml'
       - '.github/ct-install.yaml'
       - '.github/ct-lint.yaml'
@@ -50,7 +64,7 @@ jobs:
           - 'stable/**'
           - 'incubator/**'
           - 'develop/**'
-          - 'insecure/**'
+          - 'deprecated/**'
           - 'non-free/**'
     - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
     - id: reduce
@@ -78,8 +92,8 @@ jobs:
               train="stable"
             elif test -f "./incubator/${{ matrix.app }}/Chart.yaml"; then
               train="incubator"
-            elif test -f "./insecure/${{ matrix.app }}/Chart.yaml"; then
-              train="insecure"
+            elif test -f "./deprecated/${{ matrix.app }}/Chart.yaml"; then
+              train="deprecated"
             elif test -f "./non-free/${{ matrix.app }}/Chart.yaml"; then
               train="non-free"
             else

@@ -59,7 +59,7 @@ jobs:
 
       - name: Copy Apps readme to website
         run: |
-          for train in stable incubator develop non-free insecure; do
+          for train in stable incubator develop non-free deprecated; do
             for chart in ${train}/*; do
               if [ -d "${chart}" ]; then
                   chartname=$(basename ${chart})

@@ -18,7 +18,7 @@ readme_template="${repository}/.tools/templates/docs/README.md.gotmpl"
 config_template="${repository}/.tools/templates/docs/CONFIG.md.gotmpl"
 root="${repository}"
 
-for train in stable incubator develop non-free insecure; do
+for train in stable incubator develop non-free deprecated; do
   for chart in ${train}/*; do
     if [ -d "${chart}" ]; then
         maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')

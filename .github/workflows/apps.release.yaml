@@ -7,7 +7,11 @@ on:
     tags-ignore:
       - '**'
     paths:
-      - 'test/**'
+      - 'stable/**'
+      - 'develop/**'
+      - 'incubator/**'
+      - 'non-free/**'
+      - 'deprecated/**'
       - '.github/workflows/apps.release.yaml'
 
 jobs:
@@ -38,7 +42,7 @@ jobs:
           path: catalog
       - name: Remove if release already exists
         run: |
-          for train in stable incubator develop non-free insecure
+          for train in stable incubator develop non-free deprecated
           do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
@@ -52,7 +56,7 @@ jobs:
           done
       - name: fetch dependencies
         run: |
-          for train in stable incubator develop non-free insecure
+          for train in stable incubator develop non-free deprecated
           do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
@@ -64,7 +68,7 @@ jobs:
           done
       - name: Add Chart release
         run: |
-          for train in stable incubator develop non-free insecure
+          for train in stable incubator develop non-free deprecated
           do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
@@ -78,7 +82,7 @@ jobs:
           done
       - name: Apply SCALE Patches
         run: |
-          for train in stable incubator develop non-free insecure
+          for train in stable incubator develop non-free deprecated
           do
             for chart in catalog/${train}/*; do
               if [ -d "${chart}" ]; then
