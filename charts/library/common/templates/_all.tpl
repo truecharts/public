@@ -19,9 +19,14 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{ else if eq .Values.controllerType "statefulset"  }}
     {{- include "common.statefulset" . | nindent 0 }}
   {{- end -}}
+  {{ include "common.classes.hpa" . | nindent 0 }}
   {{ include "common.services" . | nindent 0 }}
   {{ include "common.ingress" .  | nindent 0 }}
-  {{ include "common.resources.portal" .  | nindent 0 }}
-  {{ include "common.storage.permissions" .  | nindent 0 }}
+  {{- if .Values.secret -}}
+    {{- print "---" | nindent 0 -}}
+    {{ include "common.secret" .  | nindent 0 }}
+  {{- end -}}
+  {{ include "common.classes.mountPermissions" .  | nindent 0 }}
+  {{ include "common.classes.portal" .  | nindent 0 }}
 
 {{- end -}}

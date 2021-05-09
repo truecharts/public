@@ -82,12 +82,12 @@ hostNetwork: false
 enableServiceLinks: true
 
 # Configure the Security Context for the Pod
-podSecurityContext:
-  runAsNonRoot: true
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  fsGroupChangePolicy: "OnRootMismatch"
+# podSecurityContext:
+#   runAsNonRoot: true
+#   runAsUser: 568
+#   runAsGroup: 568
+#   fsGroup: 568
+#   fsGroupChangePolicy: "OnRootMismatch"
 
 # Configure the Security Context for the main container
 securityContext: {}
@@ -163,61 +163,6 @@ services:
     annotations: {}
     labels: {}
 
-additionalServices: []
-# - enabled: false
-#   nameSuffix: api
-#   type: ClusterIP
-#   # Specify the default port information
-#   port:
-#     port:
-#     # name defaults to http
-#     name:
-#     protocol: TCP
-#     # targetPort defaults to http
-#     targetPort:
-#     # nodePort:
-#   additionalPorts: []
-#   annotations: {}
-#   labels: {}
-
-# ingress:
-#   main:
-#     enabled: false
-#     # Used when including ingress using {{ include "common.ingress" . }}
-#     type: "HTTP"
-#     entrypoint: "websecure"
-#     certType: ""
-#     ## Optional: defaults to IngressName
-#     serviceName: ""
-#     ## Optional: Almost never needed
-#     serviceKind: ""
-#     ## Optional: defaults to either service port
-#     servicePort: 80
-#     annotations: {}
-#       # kubernetes.io/ingress.class: nginx
-#       # kubernetes.io/tls-acme: "true"
-#     labels: {}
-#     hosts:
-#       - host: chart-example.local
-#         path: /
-# additionalIngresses: []
-#  - enabled: false
-#    nameSuffix: "api"
-#    annotations: {}
-#    # kubernetes.io/ingress.class: nginx
-#    # kubernetes.io/tls-acme: "true"
-#    labels: {}
-#    hosts:
-#      - host: chart-example.local
-#        paths:
-#          - path: /api
-#            # Ignored if not kubeVersion >= 1.14-0
-#            pathType: Prefix
-#    tls: []
-#    #  - secretName: chart-example-tls
-#    #    hosts:
-#    #      - chart-example.local
-
 persistence:
   config:
     enabled: false
@@ -243,7 +188,8 @@ persistence:
   # Create an emptyDir volume to share between all containers
   shared:
     enabled: false
-    emptyDir: true
+    emptyDir:
+      enabled: true
     mountPath: /shared
 
 additionalVolumes: []
@@ -290,11 +236,6 @@ resources: {}
 #   memory: 128Mi
 
 ## TrueCharts Specific
-
-PUID: 568
-PGID: 568
-UMASK: "002"
-fixMountPermissions: true
 
 # deviceMounts:
 #   config:
