@@ -53,14 +53,14 @@ jobs:
         echo ::set-output name=apps::${APPS}
         if [ ${#APPS[@]} -eq 1 ]; then
           if [ -z "${APPS[0]}" ]; then
-            echo "Changed Apps: ${APPS[*]}"
+            echo "No Changed Apps"
             echo "::set-output name=empty_matrix::true"
           else
-            echo "No Changed Apps"
+            echo "Changed Apps: ${APPS[*]}"
             echo "::set-output name=empty_matrix::false"
           fi
         else
-          echo "No Changed Apps"
+          echo "Changed Apps: ${APPS[*]}"
           echo "::set-output name=empty_matrix::false"
         fi
 
