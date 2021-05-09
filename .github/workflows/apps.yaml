@@ -51,14 +51,9 @@ jobs:
       run: |
         APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json)
         echo ::set-output name=apps::${APPS}
-        if [ ${#APPS[@]} -eq 1 ] || [ ${#APPS[@]} -eq 0 ]; then
-          if [ -z "${APPS[0]}" ]; then
-            echo "No Changed Apps"
-            echo "::set-output name=empty_matrix::true"
-          else
-            echo "Changed Apps: ${APPS[*]}"
-            echo "::set-output name=empty_matrix::false"
-          fi
+        if [ -z "${APPS[0]}" ]; then
+          echo "No Changed Apps"
+          echo "::set-output name=empty_matrix::true"
         else
           echo "Changed Apps: ${APPS[*]}"
           echo "::set-output name=empty_matrix::false"
