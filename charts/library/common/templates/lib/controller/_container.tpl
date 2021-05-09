@@ -92,12 +92,14 @@ The main container included in the controller.
     {{- . | nindent 2 }}
   {{- end }}
   {{- include "common.controller.probes" . | nindent 2 }}
+
+  {{/*
+  Merges the TrueNAS SCALE generated GPU info with the .Values.resources dict
+  */}}
+  {{- $resources := dict "limits" ( .Values.scaleGPU | default dict ) }}
+  {{- $resources = merge $resources .Values.resources }}
   resources:
-  {{- with .Values.resources }}
+  {{- with $resources }}
     {{- toYaml . | nindent 4 }}
-  {{- end }}
-  {{- if and .Values.gpuConfiguration }}
-    limits:
-      {{- toYaml .Values.gpuConfiguration | nindent 6 }}
   {{- end }}
 {{- end -}}
