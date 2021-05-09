@@ -5,15 +5,13 @@ class Test < ChartTest
   @@chart = Chart.new('charts/library/common-test')
 
   describe @@chart.name do
-    describe 'configmap::general' do
-      it 'does not exist by default' do
+    describe 'configmap::portal-defaults' do
+      it 'no configmap exists by default' do
         configmap = chart.resources(kind: "ConfigMap").first
         assert_nil(configmap)
       end
-    end
 
-    describe 'configmap::portal-defaults' do
-      it 'can be enabled' do
+      it 'creates configmap whe enabled' do
         values = {
           portal: {
             enabled: true
@@ -41,7 +39,9 @@ class Test < ChartTest
             enabled: true
           },
           ingress: {
-            enabled: false
+            main: {
+              enabled: false
+            }
           }
         }
         chart.value values
@@ -55,7 +55,9 @@ class Test < ChartTest
             enabled: true
           },
           ingress: {
-            enabled: false
+            main: {
+              enabled: false
+            }
           }
         }
         chart.value values
@@ -69,7 +71,9 @@ class Test < ChartTest
             enabled: true
           },
           ingress: {
-            enabled: false
+            main: {
+              enabled: false
+            }
           }
         }
         chart.value values
@@ -83,7 +87,9 @@ class Test < ChartTest
             enabled: true
           },
           ingress: {
-            enabled: false
+            main: {
+              enabled: false
+            }
           }
         }
         chart.value values
@@ -98,14 +104,6 @@ class Test < ChartTest
           portal: {
             enabled: true,
             ingressPort: "666"
-          },
-          ingress: {
-            enabled: true,
-            hosts: [
-            {
-              host: "blabla.com"
-            }
-            ]
           }
         }
         chart.value values
@@ -120,7 +118,9 @@ class Test < ChartTest
             host: "test.host"
           },
           ingress: {
-            enabled: false
+            main: {
+              enabled: false
+            }
           }
         }
         chart.value values
@@ -135,7 +135,9 @@ class Test < ChartTest
             path: "/path"
           },
           ingress: {
-            enabled: false
+            main: {
+              enabled: false
+            }
           }
         }
         chart.value values
@@ -151,16 +153,18 @@ class Test < ChartTest
             enabled: true
           },
           ingress: {
-            enabled: false
+            main: {
+              enabled: false
+            }
           },
           services: {
             main: {
-              type: "NodePort",
-              port: {
-                nodePort: 666,
-              },
-            },
-          },
+            type: "NodePort",
+            port: {
+              nodePort: 666
+            }
+          }
+          }
         }
         chart.value values
         configmap = chart.resources(kind: "ConfigMap").first
@@ -173,16 +177,18 @@ class Test < ChartTest
             enabled: true
           },
           ingress: {
-            enabled: false
+            main: {
+              enabled: false
+            }
           },
           services: {
             main: {
-              type: "NodePort",
-              port: {
-                nodePort: 666,
-              },
-            },
-          },
+            type: "NodePort",
+            port: {
+              nodePort: 666
+            }
+          }
+          }
         }
         chart.value values
         configmap = chart.resources(kind: "ConfigMap").first
@@ -195,17 +201,19 @@ class Test < ChartTest
             enabled: true
           },
           ingress: {
-            enabled: false
+            main: {
+              enabled: false
+            }
           },
           services: {
             main: {
-              type: "NodePort",
-              port: {
-                nodePort: 666,
-                protocol: "HTTPS",
-              },
-            },
-          },
+            type: "NodePort",
+            port: {
+              nodePort: 666,
+              protocol: "HTTPS"
+            }
+          }
+          }
         }
         chart.value values
         configmap = chart.resources(kind: "ConfigMap").first
@@ -218,17 +226,19 @@ class Test < ChartTest
             enabled: true
           },
           ingress: {
-            enabled: false
+            main: {
+              enabled: false
+            }
           },
           services: {
             main: {
-              type: "NodePort",
-              port: {
-                nodePort: 666,
-                protocol: "HTTP",
-              },
-            },
-          },
+            type: "NodePort",
+            port: {
+              nodePort: 666,
+              protocol: "HTTP"
+            }
+          }
+          }
         }
         chart.value values
         configmap = chart.resources(kind: "ConfigMap").first
@@ -243,19 +253,21 @@ class Test < ChartTest
             enabled: true
           },
           ingress: {
-            enabled: true,
-            hosts: [
-              {
-                host: "test.domain",
-                paths:
-                [
-                  {
-                    path: "/test"
-                  }
-                ]
+            main: {
+              enabled: true,
+              hosts: [
+                {
+                  host: "test.domain",
+                  paths:
+                  [
+                    {
+                      path: "/test"
+                    }
+                  ]
 
-              }
-            ]
+                }
+              ]
+            }
           }
         }
         chart.value values
@@ -270,19 +282,21 @@ class Test < ChartTest
             enabled: true
           },
           ingress: {
-            enabled: true,
-            hosts: [
-              {
-                host: "test.domain",
-                paths:
-                [
-                  {
-                    path: "/test"
-                  }
-                ]
+            main: {
+              enabled: true,
+              hosts: [
+                {
+                  host: "test.domain",
+                  paths:
+                  [
+                    {
+                      path: "/test"
+                    }
+                  ]
 
-              }
-            ]
+                }
+              ]
+            }
           }
         }
         chart.value values

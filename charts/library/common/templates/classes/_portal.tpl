@@ -3,15 +3,16 @@
 {{- if .Values.portal }}
 {{- if .Values.portal.enabled }}
 {{- $svc := index .Values.services (keys .Values.services | first) -}}
+{{- $ingr := index .Values.ingress (keys .Values.ingress | first) -}}
 {{- $host := "$node_ip" }}
 {{- $port := 443 }}
 {{- $protocol := "https" }}
 {{- $portProtocol := "" }}
 {{- $path := "/" }}
 
-{{- if hasKey .Values "ingress" }}
-  {{- if .Values.ingress.enabled }}
-    {{- range .Values.ingress.hosts }}
+{{- if $ingr }}
+  {{- if $ingr.enabled }}
+    {{- range $ingr.hosts }}
       {{- if .hostTpl }}
         {{ $host = ( tpl .hostTpl $ ) }}
       {{- else if .host }}
@@ -40,7 +41,7 @@
 {{- if and ( $portProtocol ) ( eq $host "$node_ip" ) }}
   {{- $protocol = $portProtocol }}
 {{- else if and ( ne $host "$node_ip" ) }}
-  {{- if $.Values.ingress.tls }}
+  {{- if $ingr.tls }}
     {{- $protocol = "https" }}
   {{- end }}
 {{- end }}

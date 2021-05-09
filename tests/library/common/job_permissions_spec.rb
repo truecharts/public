@@ -5,9 +5,8 @@ class Test < ChartTest
   @@chart = Chart.new('charts/library/common-test')
 
   describe @@chart.name do
-
     describe 'job::permissions' do
-      it 'does not exist by default' do
+      it 'no job exists by default' do
         job = chart.resources(kind: "Job").first
         assert_nil(job)
       end
