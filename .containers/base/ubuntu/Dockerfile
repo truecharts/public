@@ -14,6 +14,11 @@ RUN \
   groupmod -n apps kah \
   && chown -R apps:apps /config
 
+# Patch CVE-2020-14040
+
+RUN \
+  go get -u golang.org/x/text
+
 WORKDIR /app
 
 USER apps
