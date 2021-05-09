@@ -264,3 +264,28 @@ questions:
                   type: path
                   editable: false
                   default: "/config/Library/Application Support/Plex Media Server/Logs"
+
+  - variable: extraAppVolumeMounts
+    label: "Plex Extra Host Path Volumes"
+    group: "Storage"
+    schema:
+      type: list
+      items:
+        - variable: extraAppVolume
+          label: "Plex Host Path Volume"
+          description: "Add an extra host path volume for plex application"
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: "Mount Path in Pod"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  required: true
+              - variable: hostPath
+                label: "Host Path"
+                description: "Host path"
+                schema:
+                  type: hostpath
+                  required: true

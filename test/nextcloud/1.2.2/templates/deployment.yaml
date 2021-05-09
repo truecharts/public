@@ -48,7 +48,16 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
         - name: nextcloud-data
           mountPath: /var/www/html/themes
           subPath: "themes"
+        {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+        - name: extrappvolume-{{ $index }}
+          mountPath: {{ $hostPathConfiguration.mountPath }}
+        {{ end }}
 {{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
+      {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+        - name: extrappvolume-{{ $index }}
+          hostPath:
+            path: {{ $hostPathConfiguration.hostPath }}
+      {{ end }}
       # Will mount configuration files as www-data (id: 33) for nextcloud
       securityContext:
         fsGroup: 33

@@ -134,6 +134,31 @@ questions:
                         type: hostpath
                         required: true
 
+  - variable: extraAppVolumeMounts
+    label: "Nextcloud Extra Host Path Volumes"
+    group: "Storage"
+    schema:
+      type: list
+      items:
+        - variable: extraAppVolume
+          label: "Nextcloud Host Path Volume"
+          description: "Add an extra host path volume for nextcloud application"
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: "Mount Path in Pod"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  required: true
+              - variable: hostPath
+                label: "Host Path"
+                description: "Host path"
+                schema:
+                  type: hostpath
+                  required: true
+
   - variable: postgresAppVolumeMounts
     label: "Postgres Storage"
     group: "Storage"
