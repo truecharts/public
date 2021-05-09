@@ -1,0 +1,81 @@
+groups:
+  - name: "Storage"
+    description: "Configure Storage for Chia"
+
+questions:
+  - variable: appVolumeMounts
+    label: "Chia Storage"
+    group: "Storage"
+    schema:
+      type: dict
+      attrs:
+        - variable: config
+          label: "Configuration Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "Configuration Volume Dataset Name"
+                schema:
+                  type: string
+                  hidden: true
+                  $ref:
+                    - "normalize/ixVolume"
+                  show_if: [["hostPathEnabled", "=", false]]
+                  default: "config"
+                  editable: false
+              - variable: mountPath
+                label: "Configuration Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: "/root/.chia"
+              - variable: hostPathEnabled
+                label: "Enable Custom Host Path for Chia Configuration Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path for Chia Configuration Volume"
+                      schema:
+                        type: hostpath
+                        required: true
+        - variable: plots
+          label: "Plot Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: datasetName
+                label: "Plots Volume Name"
+                schema:
+                  type: string
+                  hidden: true
+                  $ref:
+                    - "normalize/ixVolume"
+                  show_if: [["hostPathEnabled", "=", false]]
+                  default: "plots"
+                  editable: false
+              - variable: mountPath
+                label: "Plots Mount Path"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  hidden: true
+                  editable: false
+                  default: "/plots"
+              - variable: hostPathEnabled
+                label: "Enable Custom Host Path for Chia Plots Volume"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hostPath
+                      label: "Host Path for Chia Plots Volume"
+                      schema:
+                        type: hostpath
+                        required: true
