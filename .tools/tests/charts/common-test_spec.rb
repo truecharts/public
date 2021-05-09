@@ -2,7 +2,7 @@
 require_relative '../test_helper'
 
 class Test < ChartTest
-  @@chart = Chart.new('library/common-test')
+  @@chart = Chart.new('charts/library/common-test')
 
   describe @@chart.name do
     describe 'controller type' do
