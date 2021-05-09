@@ -57,35 +57,22 @@ jobs:
           sed -i '1s/^/# NOTICE<br>\n\n/' docs/about/legal/NOTICE.md
           ls docs/
 
-      - name: Copy stable Apps readme to website
+      - name: Copy Apps readme to website
         run: |
-          for chart in stable/*; do
-            if [ -d "${chart}" ]; then
-                chartname=$(basename ${chart})
-                echo "Processing: ${chart}"
-                mkdir -p docs/apps/stable/${chartname} || echo "app path already exists, continuing..."
-                yes | cp -rf ${chart}/README.md docs/apps/stable/${chartname}/index.md || echo "readme copy failed, continuing..."
-                yes | cp -rf ${chart}/CONFIG.md docs/apps/stable/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
-                yes | cp -rf ${chart}/LICENSE docs/apps/stable/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
-                sed -i '1s/^/# License<br>\n\n/' docs/apps/stable/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
-            fi
+          for train in stable incubator develop non-free insecure; do
+            for chart in ${train}/*; do
+              if [ -d "${chart}" ]; then
+                  chartname=$(basename ${chart})
+                  echo "Processing: ${chart}"
+                  mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
+                  yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md || echo "readme copy failed, continuing..."
+                  yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
+                  yes | cp -rf ${chart}/LICENSE docs/apps/${train}/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                  sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
+              fi
+            done
+          ls docs/apps/${train}/
           done
-          ls docs/apps/stable/
-
-      - name: Copy incubator Apps readme to website
-        run: |
-          for chart in incubator/*; do
-            if [ -d "${chart}" ]; then
-                chartname=$(basename ${chart})
-                echo "Processing: ${chart}"
-                mkdir -p docs/apps/incubator/${chartname} || echo "app path already exists, continuing..."
-                yes | cp -rf ${chart}/README.md docs/apps/incubator/${chartname}/index.md || echo "readme copy failed, continuing..."
-                yes | cp -rf ${chart}/CONFIG.md docs/apps/incubator/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
-                yes | cp -rf ${chart}/LICENSE docs/apps/incubator/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
-                sed -i '1s/^/# License<br>\n\n/' docs/apps/incubator/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
-            fi
-          done
-          ls docs/apps/incubator/
 
       - name: Commit and Push updated docs
         run: |

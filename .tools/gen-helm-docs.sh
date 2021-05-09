@@ -18,39 +18,22 @@ readme_template="${repository}/.tools/templates/docs/README.md.gotmpl"
 config_template="${repository}/.tools/templates/docs/CONFIG.md.gotmpl"
 root="${repository}"
 
-for chart in stable/*; do
-  if [ -d "${chart}" ]; then
-      maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-      chartname=$(basename ${chart})
-      echo "-] Copying templates to ${repository}/${chart}"
-      helm-docs \
-          --ignore-file=".helmdocsignore" \
-          --output-file="README.md" \
-          --template-files="${repository}/.tools/templates/docs/README.md.gotmpl" \
-          --chart-search-root="${chart}"
-      helm-docs \
-          --ignore-file=".helmdocsignore" \
-          --output-file="CONFIG.md" \
-          --template-files="${repository}/.tools/templates/docs/CONFIG.md.gotmpl" \
-          --chart-search-root="${chart}"
-
-  fi
-done
-
-for chart in incubator/*; do
-  if [ -d "${chart}" ]; then
-      maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-      chartname=$(basename ${chart})
-      echo "-] Copying templates to ${repository}/${chart}"
-      helm-docs \
-          --ignore-file=".helmdocsignore" \
-		  --output-file="README.md" \
-          --template-files="${repository}/.tools/templates/docs/README.md.gotmpl" \
-          --chart-search-root="${chart}"
-      helm-docs \
-          --ignore-file=".helmdocsignore" \
-          --output-file="CONFIG.md" \
-          --template-files="${repository}/.tools/templates/docs/CONFIG.md.gotmpl" \
-          --chart-search-root="${chart}"
-  fi
+for train in stable incubator develop non-free insecure; do
+  for chart in ${train}/*; do
+    if [ -d "${chart}" ]; then
+        maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+        chartname=$(basename ${chart})
+        echo "-] Copying templates to ${repository}/${chart}"
+        helm-docs \
+            --ignore-file=".helmdocsignore" \
+            --output-file="README.md" \
+            --template-files="${repository}/.tools/templates/docs/README.md.gotmpl" \
+            --chart-search-root="${chart}"
+        helm-docs \
+            --ignore-file=".helmdocsignore" \
+            --output-file="CONFIG.md" \
+            --template-files="${repository}/.tools/templates/docs/CONFIG.md.gotmpl" \
+            --chart-search-root="${chart}"
+    fi
+  done
 done

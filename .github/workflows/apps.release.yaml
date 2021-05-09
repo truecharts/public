@@ -38,7 +38,7 @@ jobs:
           path: catalog
       - name: Remove if release already exists
         run: |
-          for train in stable incubator
+          for train in stable incubator develop non-free insecure
           do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
@@ -52,7 +52,7 @@ jobs:
           done
       - name: fetch dependencies
         run: |
-          for train in stable incubator
+          for train in stable incubator develop non-free insecure
           do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
@@ -64,7 +64,7 @@ jobs:
           done
       - name: Add Chart release
         run: |
-          for train in stable incubator
+          for train in stable incubator develop non-free insecure
           do
             for chart in master/${train}/*; do
               if [ -d "${chart}" ]; then
@@ -78,7 +78,7 @@ jobs:
           done
       - name: Apply SCALE Patches
         run: |
-          for train in stable incubator
+          for train in stable incubator develop non-free insecure
           do
             for chart in catalog/${train}/*; do
               if [ -d "${chart}" ]; then
