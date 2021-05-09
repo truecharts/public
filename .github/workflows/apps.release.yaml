@@ -66,6 +66,26 @@ jobs:
               fi
             done
           done
+      - name: Apply SCALE Patches
+        run: |
+          for train in stable incubator develop non-free deprecated
+          do
+            for chart in master/${train}/*; do
+              if [ -d "${chart}" ]; then
+                chartname=$(basename ${chart})
+                echo "Processing... Applying SCALE patch... Chart: ${chartname} - Version: ${maxfolderversion}"
+                mv ${chart}/SCALE/item.yaml ${chart}/
+                mv ${chart}/SCALE/ix_values.yaml ${chart}/
+                mv ${chart}/SCALE/questions.yaml ${chart}/
+                cp -rf ${chart}/SCALE/templates/* ${chart}/templates || echo "ignoring templates directory..."
+                rm -rf ${chart}/SCALE
+                mv ${chart}/values.yaml ${chart}/test_values.yaml
+                touch ${chart}/values.yaml
+                description=$(cat ${chart}/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
+                echo "${description}" >> ${chart}/app-readme.md
+              fi
+            done
+          done
       - name: Add Chart release
         run: |
           for train in stable incubator develop non-free deprecated
@@ -77,28 +97,7 @@ jobs:
                 echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
                 mkdir -p catalog/${train}/${chartname}/${maxchartversion}
                 cp -Rf ${chart}/* catalog/${train}/${chartname}/${maxchartversion}/
-              fi
-            done
-          done
-      - name: Apply SCALE Patches
-        run: |
-          for train in stable incubator develop non-free deprecated
-          do
-            for chart in catalog/${train}/*; do
-              if [ -d "${chart}" ]; then
-                maxfolderversion=$(ls -l ${chart} | grep ^d | awk '{print $9}' | tail -n 1)
-                chartname=$(basename ${chart})
-                path="${chart}/${maxfolderversion}"
-                echo "Processing... Applying SCALE patch... Chart: ${chartname} - Version: ${maxfolderversion}"
-                mv ${path}/SCALE/item.yaml catalog/${train}/${chartname}/
-                mv ${path}/SCALE/ix_values.yaml ${path}/
-                mv ${path}/SCALE/questions.yaml ${path}/
-                cp -rf ${path}/SCALE/templates/* ${path}/templates || echo "ignoring templates directory..."
-                rm -rf ${path}/SCALE/templates
-                mv ${path}/values.yaml ${path}/test_values.yaml
-                touch ${path}/values.yaml
-                description=$(cat ${path}/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
-                echo "${description}" >> ${path}/app-readme.md
+                mv catalog/${train}/${chartname}/${maxchartversion}/item.yaml catalog/${train}/${chartname}/item.yaml
               fi
             done
           done
