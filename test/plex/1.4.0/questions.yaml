@@ -19,6 +19,8 @@ groups:
     description: "Configure when pod should be restarted in case of failure"
   - name: "Resource Reservation"
     description: "Specify resources to be allocated to workload"
+  - name: "Advanced DNS Settings"
+    description: "Configure DNS settings"
 
 portals:
   web_portal:
@@ -31,6 +33,34 @@ portals:
     path: "/web"
 
 questions:
+
+  - variable: dnsConfig
+    label: "DNS Configuration"
+    group: "Advanced DNS Settings"
+    schema:
+      type: dict
+      attrs:
+        - variable: options
+          label: "DNS Options"
+          schema:
+            type: list
+            items:
+              - variable: optionsEntry
+                label: "Option Entry Configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Option Name"
+                      schema:
+                        type: string
+                        required: true
+                    - variable: value
+                      label: "Option Value"
+                      schema:
+                        type: string
+                        required: true
+
   - variable: claimToken
     label: "Plex Claim Token"
     group: "Plex Configuration"
