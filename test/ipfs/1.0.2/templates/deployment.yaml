@@ -55,4 +55,5 @@ spec:
             - name: gateway
               containerPort: 9880
 {{ include "common.containers.allEnvironmentVariables" .Values | nindent 10 }}
+{{ include "common.networking.dnsConfiguration" .Values | nindent 6 }}
 {{ include "common.storage.allAppVolumes" .Values | nindent 6 }}

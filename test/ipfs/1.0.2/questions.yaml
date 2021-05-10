@@ -7,6 +7,8 @@ groups:
     description: "Configure Storage for IPFS"
   - name: "IPFS Configuration"
     description: "Configure Storage for IPFS"
+  - name: "Advanced DNS Settings"
+    description: "Configure DNS settings"
 
 portals:
   web_portal:
@@ -19,6 +21,34 @@ portals:
     path: "/webui"
 
 questions:
+
+  - variable: dnsConfig
+    label: "DNS Configuration"
+    group: "Advanced DNS Settings"
+    schema:
+      type: dict
+      attrs:
+        - variable: options
+          label: "DNS Options"
+          schema:
+            type: list
+            items:
+              - variable: optionsEntry
+                label: "Option Entry Configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Option Name"
+                      schema:
+                        type: string
+                        required: true
+                    - variable: value
+                      label: "Option Value"
+                      schema:
+                        type: string
+                        required: true
+
   - variable: updateStrategy
     label: "IPFS update strategy"
     group: "Workload Configuration"
