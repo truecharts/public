@@ -33,6 +33,20 @@ class Test < ChartTest
         refute_nil(pvc)
       end
 
+      it 'name can be overridden by nameOverride' do
+        values = {
+          persistence: {
+            config: {
+              enabled: true,
+              nameOverride: 'customname'
+            }
+          }
+        }
+        chart.value values
+        pvc = chart.resources(kind: "PersistentVolumeClaim").find{ |s| s["metadata"]["name"] == "customname" }
+        refute_nil(pvc)
+      end
+
       it 'nameSuffix can be skipped' do
         values = {
           persistence: {
