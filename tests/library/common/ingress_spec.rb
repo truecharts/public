@@ -48,7 +48,7 @@ class Test < ChartTest
         }
 
         chart.value values
-        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test" }
+        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test-main" }
         refute_nil(ingress)
         assert_equal(values[:ingress][:main][:tls][0][:hosts][0], ingress["spec"]["tls"][0]["hosts"][0])
         assert_equal(values[:ingress][:main][:tls][0][:secretName], ingress["spec"]["tls"][0]["secretName"])
@@ -70,7 +70,7 @@ class Test < ChartTest
         }
 
         chart.value values
-        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test" }
+        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test-main" }
         refute_nil(ingress)
         assert_equal(values[:ingress][:main][:tls][0][:hosts][0], ingress["spec"]["tls"][0]["hosts"][0])
         assert_equal(false, ingress["spec"]["tls"][0].key?("secretName"))
@@ -93,7 +93,7 @@ class Test < ChartTest
         }
 
         chart.value values
-        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test" }
+        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test-main" }
         refute_nil(ingress)
         assert_equal('common-test-secret', ingress["spec"]["tls"][0]["secretName"])
       end
@@ -118,7 +118,7 @@ class Test < ChartTest
         }
 
         chart.value values
-        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test" }
+        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test-main" }
         refute_nil(ingress)
         assert_equal(expectedPath, ingress["spec"]["rules"][0]["http"]["paths"][0]["path"])
       end
@@ -138,7 +138,7 @@ class Test < ChartTest
         }
 
         chart.value values
-        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test" }
+        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test-main" }
         refute_nil(ingress)
         assert_equal(values[:ingress][:main][:hosts][0][:host], ingress["spec"]["rules"][0]["host"])
       end
@@ -159,7 +159,7 @@ class Test < ChartTest
         }
 
         chart.value values
-        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test" }
+        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test-main" }
         refute_nil(ingress)
         assert_equal(expectedHostName, ingress["spec"]["rules"][0]["host"])
       end
@@ -188,7 +188,7 @@ class Test < ChartTest
         }
 
         chart.value values
-        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test" }
+        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test-main" }
         firstPath = ingress["spec"]["rules"][0]["http"]["paths"][0]
         secondPath = ingress["spec"]["rules"][0]["http"]["paths"][1]
         assert_equal("common-test", firstPath["backend"]["service"]["name"])
