@@ -348,6 +348,32 @@ entries:
   common:
   - apiVersion: v2
     appVersion: none
+    created: "2021-05-10T12:22:12.81772989Z"
+    description: Function library for TrueCharts
+    digest: bb95be9466543b5c89f0ab5b290dc3ae2994f7c567f76c16f811c00bd67ba2a3
+    home: https://github.com/truecharts/apps/tree/master/common
+    icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: common
+    sources:
+    - https://github.com/truecharts/apps/tree/master/library/common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-4.0.1/common-4.0.1.tgz
+    version: 4.0.1
+  - apiVersion: v2
+    appVersion: none
     created: "2021-05-09T16:56:23.741848773Z"
     description: Function library for TrueCharts
     digest: a415636bf93eb36e0156e921345c08c11e7051bcf50dd88ac1e5cc29dc86f92f
@@ -867,6 +893,34 @@ entries:
     - https://github.com/truecharts/apps/releases/download/common-2.0.2/common-2.0.2.tgz
     version: 2.0.2
   common-test:
+  - apiVersion: v2
+    appVersion: none
+    created: "2021-05-10T12:22:13.000646066Z"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: latest
+    description: Helper chart to test different use cases of the common library
+    digest: c41b679d1b37066e7b702e30fc99b414264406cda73c29479d4a0a0d10f15d63
+    home: https://github.com/truecharts/apps/tree/master/library/common-test
+    icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+    keywords:
+    - common-test
+    - truecharts
+    - common
+    - test
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: common-test
+    sources:
+    - https://github.com/truecharts/apps/tree/master/library/common-test
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-test-3.0.0/common-test-3.0.0.tgz
+    version: 3.0.0
   - apiVersion: v2
     appVersion: none
     created: "2021-05-09T16:56:23.888987698Z"
@@ -3561,4 +3615,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-05-09T18:47:04.859774737Z"
+generated: "2021-05-10T12:22:13.001153282Z"
