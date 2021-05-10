@@ -40,10 +40,16 @@ Assuming the release dates of TrueNAS SCALE will keep following the previous 2 m
 
 
 
-**To Be Announced - TrueNAS SCALE 21.06**
+**Features and Polishing - TrueNAS SCALE 21.06**
 
-_We're working on some exiting new features for TrueNAS SCALE, which will be announced at a later date._
+_This release going to focus on polishing some of the ugly ALPHA code we wrote and add some exciting new features._
+_We'll also start working on providing more solid testing and compatibility with users that want to use native-helm on SCALE._
 
+<br>
+
+**SCALE ALL THE APPS - TrueNAS SCALE 21.08**
+
+_Beta has landed by now and people want their apps available on scale. Lets give them what they want!_
 
 <br>
 
