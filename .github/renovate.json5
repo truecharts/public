@@ -17,9 +17,10 @@
     // Setup datasources for dep updates
     {
       "datasources": ["helm"],
-	  "matchManagers": ["helmv3"],
+      "matchManagers": ["helmv3"],
       "commitMessageTopic": "Helm chart {{depName}}",
-      "separateMinorPatch": true
+      "separateMinorPatch": true,
+      "separateMultipleMajor": false
     },
     //
     // Common library dep
