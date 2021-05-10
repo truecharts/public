@@ -16,6 +16,19 @@ of the main Ingress and any additionalIngresses.
 
         {{- $_ := set $ "ObjectValues" (dict "ingress" $ingressValues) -}}
         {{- include "common.classes.ingress" $ }}
+
+
+        {{- range $index, $tlsValues :=  $ingressValues.tls }}
+          {{- if .scaleCert }}
+            {{- $nameSuffix := ( printf "%v-%v-%v" $ingressValues.nameSuffix "tls" $index ) -}}
+            {{- $_ := set $tlsValues "nameSuffix" $nameSuffix -}}
+            {{- $_ := set $ "ObjectValues" (dict "certHolder" $tlsValues) -}}
+            {{- print ("---\n") | nindent 0 -}}
+            {{- include "common.cert.secret" $ -}}
+          {{- end }}
+        {{- end }}
+
+
       {{- end }}
     {{- end }}
 {{- end }}

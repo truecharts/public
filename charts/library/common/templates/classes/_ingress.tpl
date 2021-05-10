@@ -4,18 +4,22 @@ within the common library.
 */}}
 {{- define "common.classes.ingress" -}}
 {{- $ingressName := include "common.names.fullname" . -}}
-{{- $values := .Values.ingress -}}
+{{- $values := index .Values.ingress (keys .Values.ingress | first) -}}
+
 {{- if hasKey . "ObjectValues" -}}
   {{- with .ObjectValues.ingress -}}
     {{- $values = . -}}
   {{- end -}}
 {{ end -}}
+
 {{- if hasKey $values "nameSuffix" -}}
   {{- $ingressName = printf "%v-%v" $ingressName $values.nameSuffix -}}
 {{ end -}}
+
 {{- $svc := index .Values.services (keys .Values.services | first) -}}
 {{- $svcName := $values.serviceName | default (include "common.names.fullname" .) -}}
 {{- $svcPort := $values.servicePort | default $svc.port.port -}}
+
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
 kind: Ingress
 metadata:
@@ -34,19 +38,21 @@ spec:
   {{- end }}
   {{- if $values.tls }}
   tls:
-    {{- range $values.tls }}
+    {{- range $index, $tlsValues :=  $values.tls }}
     - hosts:
-        {{- range .hosts }}
+        {{- range $tlsValues.hosts }}
         - {{ . | quote }}
         {{- end }}
-        {{- range .hostsTpl }}
+        {{- range $tlsValues.hostsTpl }}
         - {{ tpl . $ | quote }}
         {{- end }}
-      {{- if or .secretNameTpl .secretName }}
-      {{- if .secretNameTpl }}
-      secretName: {{ tpl .secretNameTpl $ | quote}}
+      {{- if or $tlsValues.secretNameTpl $tlsValues.secretName $tlsValues.scaleCert }}
+      {{- if $tlsValues.scaleCert }}
+      secretName: {{ ( printf "%v-%v-%v-%v-%v" $ingressName "tls" $index "ixcert" $tlsValues.scaleCert ) }}
+      {{- else if $tlsValues.secretNameTpl }}
+      secretName: {{ tpl $tlsValues.secretNameTpl $ | quote}}
       {{- else }}
-      secretName: {{ .secretName }}
+      secretName: {{ $tlsValues.secretName }}
       {{- end }}
       {{- end }}
     {{- end }}
