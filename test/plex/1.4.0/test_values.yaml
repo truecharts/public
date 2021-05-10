@@ -78,3 +78,6 @@ appVolumeMounts:
   shared-logs:
     emptyDir: true
     mountPath: "/config/Library/Application Support/Plex Media Server/Logs"
+
+dnsConfig:
+  options: []

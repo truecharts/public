@@ -41,3 +41,6 @@ postgresAppVolumeMounts:
   postgres-backup:
     emptyDir: true
     mountPath: "/postgres_backups"
+
+dnsConfig:
+  options: []
