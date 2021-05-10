@@ -43,5 +43,6 @@ spec:
             {{ $envList = mustAppend $envList (dict "name" "MINIO_ACCESS_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "accesskey") }}
             {{ $envList = mustAppend $envList (dict "name" "MINIO_SECRET_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "secretkey") }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
+{{ include "common.networking.dnsConfiguration" .Values | nindent 6 }}
 {{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
 {{- include "minio.tlsKeysVolume" . | nindent 8 }}
