@@ -142,7 +142,7 @@ jobs:
 
       ## TODO: Fix common-test
       - name: Run chart-testing (install)
-        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' && matrix.app != 'common-test' }}
+        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' }}
         run: ct install --config .github/ct-install.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
 
   app-tests-complete:

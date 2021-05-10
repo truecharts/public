@@ -82,12 +82,12 @@ hostNetwork: false
 enableServiceLinks: true
 
 # Configure the Security Context for the Pod
-podSecurityContext:
-  runAsNonRoot: true
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  fsGroupChangePolicy: "OnRootMismatch"
+# podSecurityContext:
+#   runAsNonRoot: true
+#   runAsUser: 568
+#   runAsGroup: 568
+#   fsGroup: 568
+#   fsGroupChangePolicy: "OnRootMismatch"
 
 # Configure the Security Context for the main container
 securityContext: {}
@@ -141,11 +141,14 @@ services:
     enabled: true
     type: ClusterIP
     ## Specify the default port information
+    ## It is adviced not to mix different port protocols on the same service
     port:
       port:
       ## name defaults to http
       name:
-      protocol: TCP
+      ## Accepts: HTTP, HTTPS, TCP and UDP
+      ## HTTPS and HTTPS spawn a TCP service and get used for internal URL and name generation
+      protocol: HTTP
       ## Specify a service targetPort if you wish to differ the service port from the application port.
       ## If targetPort is specified, this port number is used in the container definition instead of
       ## service.port.port. Therefore named ports are not supported for this field.
@@ -163,60 +166,21 @@ services:
     annotations: {}
     labels: {}
 
-additionalServices: []
-# - enabled: false
-#   nameSuffix: api
-#   type: ClusterIP
-#   # Specify the default port information
-#   port:
-#     port:
-#     # name defaults to http
-#     name:
-#     protocol: TCP
-#     # targetPort defaults to http
-#     targetPort:
-#     # nodePort:
-#   additionalPorts: []
-#   annotations: {}
-#   labels: {}
-
-# ingress:
-#   main:
-#     enabled: false
-#     # Used when including ingress using {{ include "common.ingress" . }}
-#     type: "HTTP"
-#     entrypoint: "websecure"
-#     certType: ""
-#     ## Optional: defaults to IngressName
-#     serviceName: ""
-#     ## Optional: Almost never needed
-#     serviceKind: ""
-#     ## Optional: defaults to either service port
-#     servicePort: 80
-#     annotations: {}
-#       # kubernetes.io/ingress.class: nginx
-#       # kubernetes.io/tls-acme: "true"
-#     labels: {}
-#     hosts:
-#       - host: chart-example.local
-#         path: /
-# additionalIngresses: []
-#  - enabled: false
-#    nameSuffix: "api"
-#    annotations: {}
-#    # kubernetes.io/ingress.class: nginx
-#    # kubernetes.io/tls-acme: "true"
-#    labels: {}
-#    hosts:
-#      - host: chart-example.local
-#        paths:
-#          - path: /api
-#            # Ignored if not kubeVersion >= 1.14-0
-#            pathType: Prefix
-#    tls: []
-#    #  - secretName: chart-example-tls
-#    #    hosts:
-#    #      - chart-example.local
+  ## additionalServices can be created as either a dict.
+  # additionalService:
+  #   type: ClusterIP
+  #   # Specify the default port information
+  #   port:
+  #     port:
+  #     # name defaults to http
+  #     name:
+  #     protocol: TCP
+  #     # targetPort defaults to http
+  #     targetPort:
+  #     # nodePort:
+  #   additionalPorts: []
+  #   annotations: {}
+  #   labels: {}
 
 persistence:
   config:
@@ -243,7 +207,8 @@ persistence:
   # Create an emptyDir volume to share between all containers
   shared:
     enabled: false
-    emptyDir: true
+    emptyDir:
+      enabled: true
     mountPath: /shared
 
 additionalVolumes: []
@@ -289,12 +254,10 @@ resources: {}
 #   cpu: 100m
 #   memory: 128Mi
 
-## TrueCharts Specific
+## Used by TrueNAS SCALE to easily set add GPU's to Apps
+# scaleGPU: {}
 
-PUID: 568
-PGID: 568
-UMASK: "002"
-fixMountPermissions: true
+## TrueCharts Specific
 
 # deviceMounts:
 #   config:
@@ -312,3 +275,60 @@ fixMountPermissions: true
 #     hostPath: ""
 #     readOnly: false
 #     setPermissions: true
+
+ingress:
+  main:
+    enabled: false
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+    labels: {}
+    # ingressClassName: "nginx"
+    hosts:
+      - host: chart-example.local
+        ## Or a tpl that is evaluated
+        # hostTpl: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
+        paths:
+          - path: /
+            ## Or a tpl that is evaluated
+            # pathTpl: '{{ include "common.names.fullname" . }}'
+            ## Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
+    tls: []
+    #  - secretName: chart-example-tls
+    ## Or if you need a dynamic secretname
+    #  - secretNameTpl: '{{ include "common.names.fullname" . }}-ingress'
+    #    hosts:
+    #      - chart-example.local
+    ## Or a tpl that is evaluated
+    #    hostsTpl:
+    #      - '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
+  # additionalIngress:
+  #   annotations: {}
+  #   # kubernetes.io/ingress.class: nginx
+  #   # kubernetes.io/tls-acme: "true"
+  #   labels: {}
+  #   hosts:
+  #     - host: chart-example.local
+  #       paths:
+  #         - path: /api
+  #           # Ignored if not kubeVersion >= 1.14-0
+  #           pathType: Prefix
+  #           serviceName:  # optionally target a specific service
+  #           servicePort:  # optionally target a specific service port
+  #   tls: []
+  #   #  - secretName: chart-example-tls
+  #   #    hosts:
+  #   #      - chart-example.local
+
+# ## Adds a portal configmap for use with TrueNAS SCALE
+# ## This should not be enabled on other systems than TrueNAS SCALE,
+# ## Because it requires a seperate namespace for each chart.
+# portal:
+#   enabled: false
+#   ## Override default port used for the portal button when using ingress.
+#   # ingressPort: 80
+#   ## Override hostname used for the portal button when using nodePort
+#   # host: 192.168.0.2
+#   ## Override the path used in the url
+#   # path: /example

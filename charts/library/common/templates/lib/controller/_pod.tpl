@@ -24,9 +24,7 @@ hostNetwork: {{ . }}
 hostname: {{ . }}
 {{- end }}
 {{- if .Values.dnsPolicy }}
-{{- with .Values.dnsPolicy }}
-dnsPolicy: {{ . }}
-{{- end }}
+dnsPolicy: {{ .Values.dnsPolicy }}
 {{- else if .Values.hostNetwork }}
 dnsPolicy: "ClusterFirstWithHostNet"
 {{- else }}
@@ -44,7 +42,7 @@ initContainers:
 containers:
   {{- include "common.controller.mainContainer" . | nindent 0 }}
   {{- with .Values.additionalContainers }}
-    {{- toYaml . | nindent 0 }}
+    {{- tpl (toYaml .) $ | nindent 0 }}
   {{- end }}
 {{- with (include "common.controller.volumes" . | trim) }}
 volumes:

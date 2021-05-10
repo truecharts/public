@@ -1,11 +1,11 @@
-
 {{/*
 Volumes included by the controller.
 */}}
 {{- define "common.controller.volumeMounts" -}}
+
 {{- range $index, $PVC := .Values.persistence }}
-{{- if and ( $PVC.enabled ) ( $PVC.mountPath ) }}
-- mountPath: {{ $PVC.mountPath }}
+{{- if $PVC.enabled }}
+- mountPath: {{ $PVC.mountPath | default (printf "/%v" $index) }}
   name: {{ $index }}
 {{- if $PVC.subPath }}
   subPath: {{ $PVC.subPath }}
@@ -13,7 +13,9 @@ Volumes included by the controller.
 {{- end }}
 {{- end }}
 
-
+{{/*
+Creates mountpoints to mount devices directly to the same path inside the container
+*/}}
 {{ range $name, $dmm := .Values.deviceMounts }}
 {{- if $dmm.enabled -}}
 {{ if $dmm.name }}
@@ -27,27 +29,28 @@ Volumes included by the controller.
 {{- end -}}
 {{ end }}
 
-{{ range $name, $csm := .Values.customStorage }}
-{{- if $csm.enabled -}}
-{{ if $csm.name }}
-  {{ $name = $csm.name }}
+{{/*
+Creates mountpoints to mount hostPaths directly to the container
+*/}}
+{{ range $name, $hpm := .Values.hostPathMounts }}
+{{- if $hpm.enabled -}}
+{{ if $hpm.name }}
+  {{ $name = $hpm.name }}
 {{ end }}
-- name: customstorage-{{ $name }}
-  mountPath: {{ $csm.mountPath }}
-  {{ if $csm.subPath }}
-  subPath: {{ $csm.subPath }}
+- name: hostpathmounts-{{ $name }}
+  mountPath: {{ $hpm.mountPath }}
+  {{ if $hpm.subPath }}
+  subPath: {{ $hpm.subPath }}
   {{ end }}
-  {{ if $csm.readOnly }}
-  readOnly: {{ $csm.readOnly }}
+  {{ if $hpm.readOnly }}
+  readOnly: {{ $hpm.readOnly }}
   {{ end }}
 {{- end -}}
 {{ end }}
 
-
 {{- if .Values.additionalVolumeMounts }}
-  {{- toYaml .Values.additionalVolumeMounts | nindent 0 }}
+{{- toYaml .Values.additionalVolumeMounts | nindent 0 }}
 {{- end }}
-
 
 {{- if eq .Values.controllerType "statefulset"  }}
 {{- range $index, $vct := .Values.volumeClaimTemplates }}

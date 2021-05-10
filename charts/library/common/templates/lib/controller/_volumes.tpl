@@ -29,22 +29,45 @@ Volumes included by the controller.
   persistentVolumeClaim:
     claimName: {{ $persistence.existingClaim }}
 {{- else -}}
-  {{- if $persistence.emptyDir -}}
   {{- /* Always prefer an emptyDir next if that is set */}}
+  {{- $emptyDir := false -}}
+  {{- if $persistence.emptyDir -}}
+    {{- if $persistence.emptyDir.enabled -}}
+      {{- $emptyDir = true -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $emptyDir }}
+  {{- if or $persistence.emptyDir.medium $persistence.emptyDir.sizeLimit }}
+  emptyDir:
+    {{- with $persistence.emptyDir.medium }}
+    medium: "{{ . }}"
+    {{- end }}
+    {{- with $persistence.emptyDir.sizeLimit }}
+    sizeLimit: "{{ . }}"
+    {{- end }}
+  {{- else }}
   emptyDir: {}
+  {{- end }}
   {{- else -}}
   {{- /* Otherwise refer to the PVC name */}}
-  persistentVolumeClaim:
-    {{- if $persistence.nameOverride }}
-    claimName: {{ $persistence.nameOverride }}
-    {{- else if $persistence.nameSuffix }}
-    claimName: {{ printf "%s-%s" (include "common.names.fullname" $) $persistence.nameSuffix }}
-    {{- else }}
-    claimName: {{ printf "%s-%s" (include "common.names.fullname" $) $index }}
-    {{- end }}
+  {{- $pvcName := (include "common.names.fullname" $) -}}
+  {{- if $persistence.nameOverride -}}
+    {{- $pvcName = $persistence.nameOverride -}}
+  {{- else if $persistence.nameSuffix -}}
+    {{- if not (eq $persistence.nameSuffix "-") -}}
+      {{- $pvcName = (printf "%s-%s" (include "common.names.fullname" $) $persistence.nameSuffix) -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $pvcName = (printf "%s-%s" (include "common.names.fullname" $) $index) -}}
   {{- end }}
+  persistentVolumeClaim:
+    claimName: {{ $pvcName }}
 {{- end }}
 {{- end }}
+{{- end }}
+{{- end }}
+{{- if .Values.additionalVolumes }}
+  {{- toYaml .Values.additionalVolumes | nindent 0 }}
 {{- end }}
 
 {{- range $name, $dm := .Values.deviceMounts -}}
@@ -62,23 +85,22 @@ Volumes included by the controller.
 {{ end }}
 {{- end -}}
 
-{{- range $name, $cs := .Values.customStorage -}}
-{{ if $cs.enabled }}
-{{ if $cs.name }}
-{{ $name = $cs.name }}
+{{/*
+Creates Volumes for hostPaths which can be directly mounted to a container
+*/}}
+{{- range $name, $hpm := .Values.hostPathMounts -}}
+{{ if $hpm.enabled }}
+{{ if $hpm.name }}
+{{ $name = $hpm.name }}
 {{ end }}
-- name: customstorage-{{ $name }}
-  {{ if $cs.emptyDir }}
+- name: hostpathmounts-{{ $name }}
+  {{ if $hpm.emptyDir }}
   emptyDir: {}
   {{- else -}}
   hostPath:
-    path: {{ required "hostPath not set" $cs.hostPath }}
+    path: {{ required "hostPath not set" $hpm.hostPath }}
   {{ end }}
 {{ end }}
 {{- end -}}
 
-
-{{- if .Values.additionalVolumes }}
-  {{- toYaml .Values.additionalVolumes | nindent 0 }}
-{{- end }}
 {{- end -}}

@@ -31,7 +31,9 @@ within the common library.
 {{- if hasKey $values "nameOverride" -}}
   {{- $pvcName = $values.nameOverride -}}
 {{- else if hasKey $values "nameSuffix" -}}
-  {{- $pvcName = printf "%v-%v" $pvcName $values.nameSuffix -}}
+  {{- if not (eq $values.nameSuffix "-") -}}
+    {{- $pvcName = printf "%v-%v" $pvcName $values.nameSuffix -}}
+  {{ end -}}
 {{ end -}}
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -55,8 +57,6 @@ spec:
     requests:
       storage: {{ required (printf "size is required for PVC %v" $pvcName) $values.size | quote }}
   {{- if $values.storageClass }}
-  storageClassName: {{ include "common.storage.class" . }}
-  {{- else }}
-  storageClassName: {{ ( printf "%v-%v"  "ix-storage-class" .Release.Name ) }}
+  storageClassName: {{ if (eq "-" $values.storageClass) }}""{{- else if (eq "SCALE-ZFS" $values.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" .Release.Name ) }}{{- else }}{{ $values.storageClass | quote }}{{- end }}
   {{- end }}
 {{- end -}}
