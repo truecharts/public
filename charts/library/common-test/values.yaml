@@ -7,9 +7,3 @@ services:
   main:
     port:
       port: 8080
-
-ingress:
-  main:
-    enabled: true
-    tls:
-      - secretNameTpl: "{{ .Release.Name }}-secret"
