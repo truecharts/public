@@ -132,7 +132,7 @@ jobs:
       - name: Run common unit tests
         if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
         run: |
-          bundle exec m -r .tools/tests/charts
+          bundle exec m -r tests
 
       - name: Create k3d cluster
         if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' }}
