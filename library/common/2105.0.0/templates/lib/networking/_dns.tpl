@@ -2,11 +2,11 @@
 DNS Configuration
 */}}
 {{- define "common.networking.dnsConfiguration" }}
-{{ if .Values.dnsPolicy }}
-dnsPolicy: {{ .Values.dnsPolicy }}
+{{ if .dnsPolicy }}
+dnsPolicy: {{ .dnsPolicy }}
 {{ end }}
-{{ if .Values.dnsConfig }}
+{{ if .dnsConfig }}
 dnsConfig:
-  {{ toYaml .Values.dnsConfig | nindent 2 }}
+  {{ toYaml .dnsConfig | nindent 2 }}
 {{ end }}
 {{- end }}
