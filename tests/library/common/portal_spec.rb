@@ -104,6 +104,11 @@ class Test < ChartTest
           portal: {
             enabled: true,
             ingressPort: "666"
+          },
+          ingress: {
+            main: {
+              enabled: true
+            }
           }
         }
         chart.value values
