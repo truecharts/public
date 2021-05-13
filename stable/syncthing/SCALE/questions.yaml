@@ -175,7 +175,7 @@ questions:
                       description: "NodePort"
                     - value: "ClusterIP"
                       description: "ClusterIP"
-              - variable: port
+              - variable: tcp
                 label: "TCP port"
                 schema:
                   type: dict
@@ -215,7 +215,7 @@ questions:
                         max: 65535
                         default: 22000
                         required: true
-              - variable: port
+              - variable: udp
                 label: "UDP port"
                 schema:
                   type: dict
