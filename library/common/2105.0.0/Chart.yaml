@@ -1,6 +1,6 @@
 apiVersion: v2
-name: ix-chart
-description: A Helm chart for deploying simple workloads Kubernetes
+name: common
+description: A library chart for iX Official Catalog
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -10,7 +10,7 @@ description: A Helm chart for deploying simple workloads Kubernetes
 # Library charts provide useful utilities or functions for the chart developer. They're included as
 # a dependency of application charts to inject those utilities and functions into the rendering
 # pipeline. Library charts do not define any templates and therefore cannot be deployed.
-type: application
+type: library
 
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
@@ -21,8 +21,3 @@ version: 2105.0.0
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 appVersion: v1
-dependencies:
-  - name: common
-    repository: file://../../../library/common/2105.0.0
-    version: 2105.0.0
-
