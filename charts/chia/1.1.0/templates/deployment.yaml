@@ -28,7 +28,9 @@ spec:
               protocol: TCP
               containerPort: 8444
               hostPort: 8444
-{{ include "common.containers.allEnvironmentVariables" .Values | nindent 10 }}
+          {{ $envList := (default list .Values.environmentVariables) }}
+          {{ $envList = mustAppend $envList (dict "name" "keys" "value" "/plots/keyfile") }}
+          {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
       volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
       {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
         - name: extrappvolume-{{ $index }}

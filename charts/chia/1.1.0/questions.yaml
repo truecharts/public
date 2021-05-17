@@ -1,6 +1,8 @@
 groups:
   - name: "Storage"
     description: "Configure Storage for Chia"
+  - name: "Chia Environment Variables"
+    description: "Set the environment that will be visible to the container"
 
 questions:
   - variable: appVolumeMounts
@@ -104,3 +106,24 @@ questions:
                 schema:
                   type: hostpath
                   required: true
+
+  - variable: environmentVariables
+    label: "Environment Variables for Chia"
+    group: "Chia Environment Variables"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: environmentVariable
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
