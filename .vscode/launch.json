@@ -11,20 +11,7 @@
             "host": "127.0.0.1",
             "program": "${workspaceRoot}/charts/library/common/tests/",
             "env": {},
-            "args": [],
-            "showLog": true
-        },
-        {
-            "name": "Test Current File",
-            "type": "go",
-            "request": "launch",
-            "mode": "test",
-            "remotePath": "",
-            "port": 2345,
-            "host": "127.0.0.1",
-            "program": "${file}",
-            "env": {},
-            "args": [],
+            "args": ["-test.v"],
             "showLog": true
         }
     ]
