@@ -61,7 +61,7 @@ jobs:
 
   app-unit-tests:
     needs: [changes]
-    if: ${{ needs.changes.outputs.empty_matrix == 'false' &&  matrix.app != '.gitkee' }}
+    if: ${{ needs.changes.outputs.empty_matrix == 'false' }}
     name: App Unit Tests
     runs-on: ubuntu-latest
     strategy:
