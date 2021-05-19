@@ -94,10 +94,11 @@ jobs:
             echo ::set-output name=train::${train}
             if test -d "./charts/${train}/${{ matrix.app }}/tests/"; then
               unittests='true'
+            echo "::set-output name=unittests::true"
             else
               unittests="false"
+            echo "::set-output name=unittests::false"
             fi
-            echo ::set-output name=unittests::${unittests}
 
       - uses: actions/setup-go@v2
         if: ${{ steps.prep-lint.outputs.train == 'true' }}
