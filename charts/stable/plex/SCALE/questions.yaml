@@ -244,7 +244,7 @@ questions:
                 schema:
                   type: string
                   default: "100Gi"
-  - variable: customStorage
+  - variable: hostPathMounts
     label: "Custom app storage"
     group: "Storage"
     schema:
@@ -299,13 +299,13 @@ questions:
                   type: hostpath
                   required: true
   # Specify GPU configuration
-  - variable: gpuConfiguration
+  - variable: scaleGPU
     label: "GPU Configuration"
     group: "Resources and Devices"
     schema:
       type: dict
       $ref:
-        - "definitions/gpuConfiguration"
+        - "definitions/scaleGPU"
       attrs: []
   - variable: ingress
     label: ""

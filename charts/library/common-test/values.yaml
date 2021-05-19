@@ -3,7 +3,8 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-services:
+service:
   main:
-    port:
-      port: 8080
+    ports:
+      main:
+        port: 8080

@@ -8,13 +8,16 @@ image:
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 8080
+    ports:
+      main:
+        port: 8080
   ws:
-    port:
-      port: 3012
+    ports:
+      ws:
+        enabled: true
+        port: 3012
 
 env: {}
 
@@ -146,20 +149,23 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
   db:
     nameOverride: "db"
     enabled: true
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
   dbbackup:
     enabled: true
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

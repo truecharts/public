@@ -3,20 +3,22 @@
 image:
   repository: syncthing/syncthing
   pullPolicy: IfNotPresent
-  tag: 1.16
+  tag: "1.16"
 
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 8384
+    ports:
+      main:
+        port: 8384
 
 persistence:
   config:
     enabled: true
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

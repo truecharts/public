@@ -66,17 +66,19 @@ probes:
     #   periodSeconds: 10
     #   timeoutSeconds: 10
 
-services:
+service:
   main:
-    port:
-      port: 8091
+    ports:
+      main:
+        port: 8091
   ws:
     enabled: true
     type: ClusterIP
-    port:
-      port: 3000
-      protocol: TCP
-      targetPort: 3000
+    ports:
+      ws:
+        enabled: true
+        port: 3000
+        protocol: TCP
 
 # Privileged may be required if USB controller is accessed directly through the host machine
 # securityContext:
@@ -86,7 +88,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

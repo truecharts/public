@@ -15,7 +15,8 @@ podSecurityContext:
   runAsGroup: 0
   fsGroup: 0
 
-services:
+service:
   main:
-    port:
-      port: 1688
+    ports:
+      main:
+        port: 1688

@@ -18,8 +18,8 @@ podSecurityContext:
 
 envTpl:
 # Permissions Settings
-  USER_ID: "{{ .Values.PUID }}"
-  GROUP_ID: "{{ .Values.PGID }}"
+  USER_ID: "568"
+  GROUP_ID: "568"
 
 ##
 # Most other defaults are set in questions.yaml

@@ -260,7 +260,7 @@ ingress:
             # Ignored if not kubeVersion >= 1.14-0
             pathType: Prefix
 
-externalServices:
+externalservice:
   - enabled: true
     name: "test"
     type: "HTTP"

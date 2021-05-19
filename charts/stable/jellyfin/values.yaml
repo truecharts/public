@@ -12,16 +12,18 @@ strategy:
 podSecurityContext:
   supplementalGroups: [44, 107]
 
-services:
+service:
   main:
-    port:
-      port: 8096
+    ports:
+      main:
+        port: 8096
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

@@ -12,8 +12,8 @@ image:
 
 envTpl:
 # Permissions Settings
-  UNIFI_GID: "{{ .Values.PUID }}"
-  UNIFI_UID: "{{ .Values.PGID }}"
+  UNIFI_GID: "568"
+  UNIFI_UID: "568"
 
 ##
 # Most other defaults are set in questions.yaml

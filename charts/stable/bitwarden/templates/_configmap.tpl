@@ -1,9 +1,10 @@
+{{/* Define the configmap */}}
+{{- define "bitwarden.configmap" -}}
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: bitwardenconfig
-  labels:
-  {{- include "common.labels" . | nindent 4 }}
 data:
   ROCKET_PORT: "8080"
   SIGNUPS_ALLOWED: {{ .Values.bitwardenrs.allowSignups | quote }}
@@ -112,3 +113,4 @@ data:
   {{- else }}
   ENABLE_DB_WAL: "false"
   {{- end }}
+{{- end -}}

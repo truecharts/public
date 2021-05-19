@@ -8,11 +8,12 @@ image:
 strategy:
   type: Recreate
 
-services:
+service:
   main:
     enabled: true
-    port:
-      port: 5000
+    ports:
+      main:
+        port: 5000
 
 podSecurityContext:
   runAsNonRoot: false
@@ -22,8 +23,8 @@ podSecurityContext:
 
 envTpl:
 # Permissions Settings
-  USER_ID: "{{ .Values.PUID }}"
-  GROUP_ID: "{{ .Values.PGID }}"
+  USER_ID: "568"
+  GROUP_ID: "568"
 
 env:
   # TZ: UTC
@@ -39,13 +40,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/datastore"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
-
-## TrueCharts Values
-
-ingress:
-  main:
-    enabled: false

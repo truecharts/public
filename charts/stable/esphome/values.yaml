@@ -8,10 +8,11 @@ image:
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 6052
+    ports:
+      main:
+        port: 6052
 
 env: {}
   # ESPHOME_DASHBOARD_USE_PING: true
@@ -26,7 +27,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

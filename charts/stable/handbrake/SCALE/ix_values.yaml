@@ -20,8 +20,8 @@ podSecurityContext:
 #All values here are set as the docker defaults.
 envTpl:
 # Permissions Settings
-  USER_ID: "{{ .Values.PUID }}"
-  GROUP_ID: "{{ .Values.PGID }}"
+  USER_ID: "568"
+  GROUP_ID: "568"
 
 ##
 # Most other defaults are set in questions.yaml

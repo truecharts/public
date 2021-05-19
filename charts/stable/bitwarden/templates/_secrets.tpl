@@ -1,3 +1,6 @@
+{{/* Define the secrets */}}
+{{- define "bitwarden.secrets" -}}
+
 {{- $adminToken := "" }}
 {{- if eq .Values.bitwardenrs.admin.enabled true }}
 {{- $adminToken = .Values.bitwardenrs.admin.token | default (randAlphaNum 48) | b64enc | quote }}
@@ -17,8 +20,6 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: bitwardensecret
-  labels:
-    {{- include "common.labels" . | nindent 4 }}
 data:
   {{- if ne $adminToken "" }}
   ADMIN_TOKEN: {{ $adminToken }}
@@ -54,3 +55,4 @@ data:
 {{- end }}
   url: {{ ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
 type: Opaque
+{{- end -}}

@@ -17,27 +17,26 @@ podSecurityContext:
 
 envTpl:
 # Permissions Settings
-  UNIFI_GID: "{{ .Values.PUID }}"
-  UNIFI_UID: "{{ .Values.PGID }}"
+  UNIFI_GID: "568"
+  UNIFI_UID: "568"
 
-services:
+service:
   main:
-    port:
-      port: 8443
-  tcp:
+    ports:
+      main:
+        port: 8443
+  conn:
     enabled: true
     type: ClusterIP
-    port:
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
-  udp:
-    enabled: true
-    type: ClusterIP
-    port:
-      port: 3478
-      protocol: UDP
-      targetPort: 3478
+    ports:
+      http:
+        enabled: true
+        port: 8080
+        protocol: TCP
+      stun:
+        enabled: true
+        port: 3478
+        protocol: UDP
 
 env: {}
   # TZ:
@@ -48,7 +47,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/unifi"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

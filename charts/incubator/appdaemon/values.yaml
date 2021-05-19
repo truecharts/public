@@ -21,19 +21,21 @@ env:
   ELEVATION: 1217
   DASH_URL: "http://0.0.0.0:5050"
 
-services:
+service:
   main:
-    port:
-      port: 5050
+    ports:
+      main:
+        port: 5050
   tcp:
     enabled: true
     type: ClusterIP
-    port:
-      port: 51050
-      protocol: TCP
-      targetPort: 51050
+    ports:
+      tcp:
+        enabled: true
+        port: 51050
+        protocol: TCP
 
-customStorage:
+hostPathMounts:
   - name: config
     enabled: true
     mountPath: /conf

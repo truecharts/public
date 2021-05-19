@@ -19,11 +19,11 @@ podSecurityContext:
 env: {}
     # TZ:
 
-services:
+service:
   main:
-    port:
-      port: 8123
-    nodePort: 30023
+    ports:
+      main:
+        port: 8123
 
 # # Enable devices to be discoverable
 # hostNetwork: true
@@ -53,7 +53,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

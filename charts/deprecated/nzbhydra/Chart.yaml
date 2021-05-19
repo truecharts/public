@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: nzbhydra
-version: 3.1.7
+version: 4.0.0
 upstream_version: 5.3.1
 appVersion: "auto"
 description: Usenet meta search
@@ -20,7 +20,7 @@ sources:
 dependencies:
   - name: common
     repository: https://truecharts.org/
-    version: 3.5.8
+    version: 4.1.1
     # condition:
 maintainers: []
 # annotations:

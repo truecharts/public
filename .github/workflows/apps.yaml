@@ -59,15 +59,18 @@ jobs:
           echo "::set-output name=empty_matrix::false"
         fi
 
-  app-unit-tests:
+  app-tests:
     needs: [changes]
     if: ${{ needs.changes.outputs.empty_matrix == 'false' }}
-    name: App Unit Tests
+    name: App Tests
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{ fromJson(needs.changes.outputs.matrix) }}
       fail-fast: false
     steps:
+    ##
+    # GENERAL SECTION
+    ##
       - name: Checkout
         if: ${{ matrix.app != '.gitkee' }}
         uses: actions/checkout@v2
@@ -93,17 +96,36 @@ jobs:
             fi
             echo ::set-output name=train::${train}
             if test -d "./charts/${train}/${{ matrix.app }}/tests/"; then
-              unittests='true'
+                unittests='true'
             echo "::set-output name=unittests::true"
             else
               unittests="false"
             echo "::set-output name=unittests::false"
             fi
 
+      - name: Install Helm
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+
+      - uses: actions/setup-python@v2
+        if: ${{ matrix.app != '.gitkee' }}
+        with:
+          python-version: 3.7
+
+      - name: Set up chart-testing
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: helm/chart-testing-action@v2.0.1
+
       - uses: actions/setup-go@v2
         if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
         with:
           go-version: '^1.16'
+
+    ##
+    # Unit-Test section
+    ##
 
       # Get values for cache paths to be used in later steps
       - id: go-cache-paths
@@ -111,6 +133,7 @@ jobs:
         run: |
           echo "::set-output name=go-build::$(go env GOCACHE)"
           echo "::set-output name=go-mod::$(go env GOMODCACHE)"
+
       # Cache go build cache, used to speedup go test
       - name: Go Build Cache
         if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
@@ -133,54 +156,10 @@ jobs:
         with:
           test-results: test.json
 
-  app-tests:
-    needs: [changes]
-    if: ${{ needs.changes.outputs.empty_matrix == 'false' }}
-    name: App Tests
-    runs-on: ubuntu-latest
-    strategy:
-      matrix: ${{ fromJson(needs.changes.outputs.matrix) }}
-      fail-fast: false
-    steps:
-      - name: Checkout
-        if: ${{ matrix.app != '.gitkee' }}
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
 
-      - name: Prepare-Lint
-        if: ${{ matrix.app != '.gitkee' }}
-        id: prep-lint
-        run: |
-            if test -f "./charts/stable/${{ matrix.app }}/Chart.yaml"; then
-              train="stable"
-            elif test -f "./charts/incubator/${{ matrix.app }}/Chart.yaml"; then
-              train="incubator"
-            elif test -f "./charts/deprecated/${{ matrix.app }}/Chart.yaml"; then
-              train="deprecated"
-            elif test -f "./charts/non-free/${{ matrix.app }}/Chart.yaml"; then
-              train="non-free"
-            elif test -f "./charts/library/${{ matrix.app }}/Chart.yaml"; then
-              train="library"
-            else
-              train="develop"
-            fi
-            echo ::set-output name=train::${train}
-
-      - name: Install Helm
-        if: ${{ matrix.app != '.gitkee' }}
-        uses: azure/setup-helm@v1
-        with:
-          version: v3.5.3
-
-      - uses: actions/setup-python@v2
-        if: ${{ matrix.app != '.gitkee' }}
-        with:
-          python-version: 3.7
-
-      - name: Set up chart-testing
-        if: ${{ matrix.app != '.gitkee' }}
-        uses: helm/chart-testing-action@v2.0.1
+    ##
+    # Chart-Testing Section
+    ##
 
       - name: Run chart-testing (lint)
         if: ${{ matrix.app != '.gitkee' }}
@@ -199,7 +178,7 @@ jobs:
         run: ct install --config .github/ct-install.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
 
   app-tests-complete:
-    needs: [app-tests, app-unit-tests]
+    needs: [app-tests]
     name: Apps Test Complete
     runs-on: ubuntu-latest
     steps:
@@ -207,7 +186,7 @@ jobs:
         run: echo "App Tests Completed Successfully"
 
   pre-release:
-    needs: [app-tests, app-unit-tests]
+    needs: [app-tests]
     runs-on: ubuntu-latest
     outputs:
       release: ${{ steps.prep.outputs.release }}
@@ -233,10 +212,8 @@ jobs:
   catalog-release:
     runs-on: ubuntu-latest
     needs: pre-release
-    if: needs.pre-release.outputs.release == 'true'
     container:
       image: ixsystems/catalog_validation:latest
-
     steps:
       - uses: actions/checkout@v2
         name: Checkout
@@ -323,6 +300,7 @@ jobs:
           cd catalog
           /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
       - name: Commit and Push new App releases
+        if: ${{ steps.pre-release.outputs.release == 'true' }}
         run: |
           cd catalog
           git config user.name "TrueCharts-Bot"
