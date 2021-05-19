@@ -198,7 +198,7 @@ jobs:
         run: ct install --config .github/ct-install.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
 
   app-tests-complete:
-    needs: [app-tests]
+    needs: [app-tests, app-unit-tests]
     name: Apps Test Complete
     runs-on: ubuntu-latest
     steps:
@@ -206,7 +206,7 @@ jobs:
         run: echo "App Tests Completed Successfully"
 
   pre-release:
-    needs: [app-tests]
+    needs: [app-tests, app-unit-tests]
     runs-on: ubuntu-latest
     outputs:
       release: ${{ steps.prep.outputs.release }}
