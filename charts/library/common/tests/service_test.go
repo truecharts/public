@@ -4,7 +4,7 @@ import (
     "fmt"
     "testing"
 
-    "github.com/truecharts/apps/test/helmunit"
+    "github.com/truecharts/apps/tests/helmunit"
     "github.com/stretchr/testify/suite"
 )
 

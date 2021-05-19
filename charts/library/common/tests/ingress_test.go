@@ -3,7 +3,7 @@ package common
 import (
     "testing"
 
-    "github.com/truecharts/apps/test/helmunit"
+    "github.com/truecharts/apps/tests/helmunit"
     "github.com/stretchr/testify/suite"
 )
 
