@@ -17,33 +17,29 @@ This file is considered to be modified by the TrueCharts Project.
 */}}
 
 {{/*
-Render all the ports and additionalPorts for a Service object.
+Return the name of the primary port for a given Service object.
 */}}
-{{- define "common.classes.service.ports" -}}
-  {{- $ports := list -}}
-  {{- $values := .values -}}
-  {{- $ports = mustAppend $ports $values.port -}}
-  {{- range $_ := $values.additionalPorts -}}
-    {{- $ports = mustAppend $ports . -}}
+{{- define "common.classes.service.ports.primary" -}}
+  {{- $enabledPorts := dict -}}
+  {{- range $name, $port := .values.ports -}}
+    {{- if $port.enabled -}}
+      {{- $_ := set $enabledPorts $name . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if eq 0 (len $enabledPorts) }}
+    {{- fail (printf "No ports are enabled for service \"%s\"!" .serviceName) }}
   {{- end }}
-  {{- if $ports -}}
-  ports:
-  {{- range $_ := $ports }}
-  - port: {{ .port }}
-    targetPort: {{ .targetPort | default .name | default "http" }}
-    {{- if .protocol }}
-    {{- if or ( eq .protocol "HTTP" ) ( eq .protocol "HTTPS" ) ( eq .protocol "TCP" ) }}
-    protocol: TCP
-    {{- else }}
-    protocol: {{ .protocol }}
-    {{- end }}
-    {{- else }}
-    protocol: TCP
-    {{- end }}
-    name: {{ .name | default "http" }}
-    {{- if (and (eq $.svcType "NodePort") (not (empty .nodePort))) }}
-    nodePort: {{ .nodePort }}
-    {{ end }}
+
+  {{- $result := "" -}}
+  {{- range $name, $port := $enabledPorts -}}
+    {{- if and (hasKey $port "primary") $port.primary -}}
+      {{- $result = $name -}}
+    {{- end -}}
   {{- end -}}
+
+  {{- if not $result -}}
+    {{- $result = keys $enabledPorts | first -}}
   {{- end -}}
-{{- end }}
+  {{- $result -}}
+{{- end -}}
