@@ -1,8 +1,9 @@
-{{- define "common.classes.portal" -}}
+{{- define "common.class.portal" -}}
 
 {{- if .Values.portal }}
 {{- if .Values.portal.enabled }}
-{{- $svc := index .Values.services (keys .Values.services | first) -}}
+{{- $primaryService := get .Values.service (include "common.service.primary" .) }}
+{{- $primaryPort := get $primaryService.ports (include "common.classes.service.ports.primary" (dict "values" $primaryService)) -}}
 {{- $ingr := index .Values.ingress (keys .Values.ingress | first) -}}
 {{- $host := "$node_ip" }}
 {{- $port := 443 }}
@@ -30,10 +31,10 @@
 {{- if and ( .Values.portal.ingressPort ) ( ne $host "$node_ip" ) }}
   {{- $port = .Values.portal.ingressPort }}
 {{- else  if eq $host "$node_ip" }}
-  {{- if eq $svc.type "NodePort" }}
-    {{- $port = $svc.port.nodePort }}
-    {{- if or ( eq $svc.port.protocol "HTTP" ) ( eq $svc.port.protocol "HTTPS" ) }}
-      {{- $portProtocol = $svc.port.protocol }}
+  {{- if eq $primaryService.type "NodePort" }}
+    {{- $port = $primaryPort.nodePort }}
+    {{- if or ( eq $primaryPort.protocol "HTTP" ) ( eq $primaryPort.protocol "HTTPS" ) }}
+      {{- $portProtocol = $primaryPort.protocol }}
     {{- end }}
   {{- end }}
 {{- end }}
@@ -54,7 +55,7 @@
   {{- $path = .Values.portal.path }}
 {{- end }}
 
-{{- print "---" | nindent 0 -}}
+---
 
 apiVersion: v1
 kind: ConfigMap

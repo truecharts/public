@@ -222,7 +222,7 @@ service:
     # Additional ports can be added by adding a dictionary key similar to the 'http' service.
     # @default -- See below
     ports:
-      http:
+      main:
         # -- Enables or disables the port
         enabled: true
 
