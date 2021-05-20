@@ -3,9 +3,6 @@ image:
   tag: 1.1.4
   pullPolicy: IfNotPresent
 updateStrategy: Recreate
-environmentVariables:
-  - name: "keys"
-    value: "/plots/keyfile"
 
 appVolumeMounts:
   staging:
