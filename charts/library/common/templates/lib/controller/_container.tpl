@@ -31,12 +31,12 @@
   env:
    {{- range $key, $value := .Values.envTpl }}
     - name: {{ $key }}
-       value: {{ tpl $value $ | quote }}
+      value: {{ tpl $value $ | quote }}
    {{- end }}
    {{- range $key, $value := .Values.envValueFrom }}
     - name: {{ $key }}
       valueFrom:
-       {{- $value | toYaml | nindent 6 }}
+        {{- $value | toYaml | nindent 8 }}
    {{- end }}
   {{- range $envList := .Values.envList }}
     {{- if and $envList.name $envList.value }}
