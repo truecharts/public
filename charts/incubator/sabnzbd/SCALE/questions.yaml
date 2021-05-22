@@ -55,22 +55,19 @@ questions:
           description: "Create new pods and then kill old ones"
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"
-  # Configure Time Zone
-  - variable: timezone
-    group: "Container Image"
-    label: "Timezone"
-    schema:
-      type: string
-      default: "Etc/UTC"
-      $ref:
-        - "definitions/timezone"
-  # Docker specific env
   - variable: env
     group: "Configuration"
     label: "Image Environment"
     schema:
       type: dict
       attrs:
+        - variable: timezone
+          label: "Timezone"
+          schema:
+            type: string
+            default: "Etc/UTC"
+            $ref:
+              - "definitions/timezone"
         - variable: HOST_WHITELIST_ENTRIES
           label: "HostName Whitelist"
           description: "If you use a reverse proxy, you might need to enter your hostname's here (comma seperated)"

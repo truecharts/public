@@ -55,15 +55,6 @@ questions:
           description: "Create new pods and then kill old ones"
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"
-  # Configure Time Zone
-  - variable: timezone
-    group: "Container Image"
-    label: "Timezone"
-    schema:
-      type: string
-      default: "Etc/UTC"
-      $ref:
-        - "definitions/timezone"
   # Docker specific env
   - variable: env
     group: "Configuration"
@@ -71,6 +62,13 @@ questions:
     schema:
       type: dict
       attrs:
+        - variable: timezone
+          label: "Timezone"
+          schema:
+            type: string
+            default: "Etc/UTC"
+            $ref:
+              - "definitions/timezone"
         - variable: APP_KEY
           label: "App Key"
           description: "Your unique 32 application character key"

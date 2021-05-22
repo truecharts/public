@@ -8,14 +8,6 @@ image:
   repository: collabora/code
   tag: 6.4.8.4
   pullPolicy: IfNotPresent
-
-# Configure the Security Context for the Pod
-podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: null
-  runAsGroup: null
-  fsGroup: null
-
 ##
 # Most other defaults are set in questions.yaml
 # For other options please refer to the wiki, default_values.yaml or the common library chart

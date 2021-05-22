@@ -6,10 +6,6 @@ image:
 strategy:
   type: Recreate
 
-# Configure the Security Context for the Pod
-podSecurityContext:
-  supplementalGroups: [24, 44, 107]
-
 service:
   main:
     ports:

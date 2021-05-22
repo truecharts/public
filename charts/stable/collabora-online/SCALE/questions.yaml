@@ -56,23 +56,19 @@ questions:
           description: "Create new pods and then kill old ones"
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"
-  # Configure Time Zone
-  - variable: timezone
-    group: "Container Image"
-    label: "Timezone"
-    schema:
-      type: string
-      default: "Etc/UTC"
-      $ref:
-        - "definitions/timezone"
-  # envList Configuraiton
   - variable: env
     group: "Configuration"
-    label: "Environment Variables Configuration"
+    label: "Image Environment"
     schema:
       type: dict
-      required: true
       attrs:
+        - variable: timezone
+          label: "Timezone"
+          schema:
+            type: string
+            default: "Etc/UTC"
+            $ref:
+              - "definitions/timezone"
         - variable: domain
           label: "Domains will be using collabora"
           description: 'Use backslash "\" before dots ".". Use pipe "|" to separate multiple domains'

@@ -8,13 +8,6 @@ image:
 strategy:
   type: Recreate
 
-# Configure the Security Context for the Pod
-podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
-
 service:
   main:
     ports:
@@ -32,7 +25,6 @@ service:
         enabled: true
         port: 51413
         protocol: UDP
-
 
 persistence:
   config:

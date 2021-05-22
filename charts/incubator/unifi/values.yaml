@@ -8,13 +8,6 @@ image:
 strategy:
   type: Recreate
 
-# Configure the Security Context for the Pod
-podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
-
 envTpl:
 # Permissions Settings
   UNIFI_GID: "568"
@@ -25,15 +18,19 @@ service:
     ports:
       main:
         port: 8443
-  conn:
+  comm:
     enabled: true
     type: ClusterIP
     ports:
-      http:
+      tcp:
         enabled: true
         port: 8080
         protocol: TCP
-      stun:
+  stun:
+    enabled: true
+    type: ClusterIP
+    ports:
+      udp:
         enabled: true
         port: 3478
         protocol: UDP
