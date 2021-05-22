@@ -156,10 +156,10 @@ probes:
     # If you selected `custom: true`, this field holds the definition of the livenessProbe.
     # @default -- See below
     spec:
-      initialDelaySeconds: 0
+      initialDelaySeconds: 2
       periodSeconds: 10
-      timeoutSeconds: 1
-      failureThreshold: 3
+      timeoutSeconds: 2
+      failureThreshold: 5
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -172,10 +172,10 @@ probes:
     # If you selected `custom: true`, this field holds the definition of the readinessProbe.
     # @default -- See below
     spec:
-      initialDelaySeconds: 0
+      initialDelaySeconds: 2
       periodSeconds: 10
-      timeoutSeconds: 1
-      failureThreshold: 3
+      timeoutSeconds: 2
+      failureThreshold: 5
 
   # -- Startup probe configuration
   # @default -- See below
@@ -188,11 +188,11 @@ probes:
     # If you selected `custom: true`, this field holds the definition of the startupProbe.
     # @default -- See below
     spec:
-      initialDelaySeconds: 0
-      timeoutSeconds: 1
+      initialDelaySeconds: 3
+      timeoutSeconds: 2
       ## This means it has a maximum of 5*30=150 seconds to start up before it fails
       periodSeconds: 5
-      failureThreshold: 30
+      failureThreshold: 60
 
 # -- Configure the services for the chart here.
 # Additional services can be added by adding a dictionary key similar to the 'main' service.
