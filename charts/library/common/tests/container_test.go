@@ -203,11 +203,11 @@ func (suite *ContainerTestSuite) TestPorts() {
 		expectedPort     int
 		expectedProtocol string
 	}{
-		"Default":       {values: nil, expectedPortName: "http", expectedPort: 0, expectedProtocol: "TCP"},
+		"Default":       {values: nil, expectedPortName: "main", expectedPort: 0, expectedProtocol: "TCP"},
 		"CustomName":    {values: []string{"service.main.ports.http.enabled=false", "service.main.ports.server.enabled=true", "service.main.ports.server.port=8080"}, expectedPortName: "server", expectedPort: 8080, expectedProtocol: "TCP"},
-		"ProtocolHTTP":  {values: []string{"service.main.ports.http.protocol=HTTP"}, expectedPortName: "http", expectedPort: 0, expectedProtocol: "TCP"},
-		"ProtocolHTTPS": {values: []string{"service.main.ports.http.protocol=HTTP"}, expectedPortName: "http", expectedPort: 0, expectedProtocol: "TCP"},
-		"ProtocolUDP":   {values: []string{"service.main.ports.http.protocol=UDP"}, expectedPortName: "http", expectedPort: 0, expectedProtocol: "UDP"},
+		"ProtocolHTTP":  {values: []string{"service.main.ports.http.protocol=HTTP"}, expectedPortName: "main", expectedPort: 0, expectedProtocol: "TCP"},
+		"ProtocolHTTPS": {values: []string{"service.main.ports.http.protocol=HTTP"}, expectedPortName: "main", expectedPort: 0, expectedProtocol: "TCP"},
+		"ProtocolUDP":   {values: []string{"service.main.ports.http.protocol=UDP"}, expectedPortName: "main", expectedPort: 0, expectedProtocol: "UDP"},
 	}
 	for name, tc := range tests {
 		suite.Suite.Run(name, func() {

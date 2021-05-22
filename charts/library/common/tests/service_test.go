@@ -52,10 +52,10 @@ func (suite *ServiceTestSuite) TestPortNames() {
         expectedName          string
         expectedTargetPort    interface{}
     }{
-        "Default":          {values: nil, expectedRenderFailure: false, expectedName: "http", expectedTargetPort: "http"},
-        "CustomName":       {values: []string{"service.main.ports.http.enabled=false", "service.main.ports.server.enabled=true", "service.main.ports.server.port=8080"}, expectedRenderFailure: false, expectedName: "server", expectedTargetPort: "server"},
-        "CustomTargetPort": {values: []string{"service.main.ports.http.targetPort=80"}, expectedRenderFailure: false, expectedName: "http", expectedTargetPort: 80},
-        "NamedTargetPort":  {values: []string{"service.main.ports.http.targetPort=name"}, expectedRenderFailure: true, expectedName: "", expectedTargetPort: nil},
+        "Default":          {values: nil, expectedRenderFailure: false, expectedName: "main", expectedTargetPort: "main"},
+        "CustomName":       {values: []string{"service.main.ports.main.enabled=false", "service.main.ports.server.enabled=true", "service.main.ports.server.port=8080"}, expectedRenderFailure: false, expectedName: "server", expectedTargetPort: "server"},
+        "CustomTargetPort": {values: []string{"service.main.ports.main.targetPort=80"}, expectedRenderFailure: false, expectedName: "main", expectedTargetPort: 80},
+        "NamedTargetPort":  {values: []string{"service.main.ports.main.targetPort=name"}, expectedRenderFailure: true, expectedName: "", expectedTargetPort: nil},
     }
     for name, tc := range tests {
         suite.Suite.Run(name, func() {
@@ -83,10 +83,10 @@ func (suite *ServiceTestSuite) TestPortProtocol() {
         expectedProtocol string
     }{
         "Default":       {values: nil, expectedProtocol: "TCP"},
-        "ExplicitTCP":   {values: []string{"service.main.ports.http.protocol=TCP"}, expectedProtocol: "TCP"},
-        "ExplicitHTTP":  {values: []string{"service.main.ports.http.protocol=HTTP"}, expectedProtocol: "TCP"},
-        "ExplicitHTTPS": {values: []string{"service.main.ports.http.protocol=HTTPS"}, expectedProtocol: "TCP"},
-        "ExplicitUDP":   {values: []string{"service.main.ports.http.protocol=UDP"}, expectedProtocol: "UDP"},
+        "ExplicitTCP":   {values: []string{"service.main.ports.main.protocol=TCP"}, expectedProtocol: "TCP"},
+        "ExplicitHTTP":  {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedProtocol: "TCP"},
+        "ExplicitHTTPS": {values: []string{"service.main.ports.main.protocol=HTTPS"}, expectedProtocol: "TCP"},
+        "ExplicitUDP":   {values: []string{"service.main.ports.main.protocol=UDP"}, expectedProtocol: "UDP"},
     }
     for name, tc := range tests {
         suite.Suite.Run(name, func() {
@@ -109,10 +109,10 @@ func (suite *ServiceTestSuite) TestAnnotations() {
         expectedAnnotations map[string]string
     }{
         "Default":       {values: nil, expectedAnnotations: nil},
-        "ExplicitTCP":   {values: []string{"service.main.ports.http.protocol=TCP"}, expectedAnnotations: nil},
-        "ExplicitHTTP":  {values: []string{"service.main.ports.http.protocol=HTTP"}, expectedAnnotations: nil},
-        "ExplicitHTTPS": {values: []string{"service.main.ports.http.protocol=HTTPS"}, expectedAnnotations: map[string]string{"traefik.ingress.kubernetes.io/service.serversscheme": "https"}},
-        "ExplicitUDP":   {values: []string{"service.main.ports.http.protocol=UDP"}, expectedAnnotations: nil},
+        "ExplicitTCP":   {values: []string{"service.main.ports.main.protocol=TCP"}, expectedAnnotations: nil},
+        "ExplicitHTTP":  {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedAnnotations: nil},
+        "ExplicitHTTPS": {values: []string{"service.main.ports.main.protocol=HTTPS"}, expectedAnnotations: map[string]string{"traefik.ingress.kubernetes.io/service.serversscheme": "https"}},
+        "ExplicitUDP":   {values: []string{"service.main.ports.main.protocol=UDP"}, expectedAnnotations: nil},
     }
     for name, tc := range tests {
         suite.Suite.Run(name, func() {
