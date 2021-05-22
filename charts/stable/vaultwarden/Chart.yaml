@@ -1,0 +1,39 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: vaultwarden
+version: 1.0.0
+# upstream_version:
+appVersion: "auto"
+description: Unofficial Bitwarden compatible server written in Rust
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/stable/vaultwarden
+icon: https://raw.githubusercontent.com/bitwarden/brand/master/icons/256x256.png
+keywords:
+  - bitwarden
+  - bitwardenrs
+  - bitwarden_rs
+  - vaultwarden
+  - password
+  - rust
+sources:
+  - https://github.com/truecharts/apps/tree/master/incubator/bitwarden
+  - https://github.com/k8s-at-home/charts/tree/master/charts/stable/bitwardenrs
+  - https://github.com/dani-garcia/vaultwarden
+dependencies:
+  - name: common
+    repository: https://truecharts.org/
+    version: 4.1.5
+    # condition:
+  - name: postgresql
+    version: 10.4.3
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: truecharts.org
+  - name: Ornias1993
+    email: kjeld@schouten-lebbing.nl
+    url: truecharts.org
+# annotations:

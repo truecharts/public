@@ -13,9 +13,8 @@ podSecurityContext:
   runAsGroup: 568
   fsGroup: 568
 
-timezone: "America/Chicago"
-
 env:
+  TZ: "America/Chicago"
   LATITUDE: 46
   LONGITUDE: -94
   ELEVATION: 1217

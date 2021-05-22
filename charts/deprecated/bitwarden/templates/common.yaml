@@ -4,11 +4,5 @@
 {{/* Render the templates */}}
 {{ include "common.all" . }}
 
-{{/* Render configmap for bitwarden */}}
-{{- include "bitwarden.configmap" . }}
-
-{{/* Render secrets for bitwarden */}}
-{{- include "bitwarden.secrets" . }}
-
 {{/* Render special ingress for bitwarden */}}
 {{- include "bitwarden.ingress" . }}
