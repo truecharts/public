@@ -6,14 +6,8 @@ image:
 strategy:
   type: Recreate
 
-startAsRoot: true
-
 # Configure the Security Context for the Pod
 podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
   supplementalGroups: [24, 44, 107]
 
 service:

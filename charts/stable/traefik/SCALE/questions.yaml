@@ -6,15 +6,13 @@ groups:
   - name: "Configuration"
     description: "additional container configuration"
   - name: "Networking"
-    description: "Configure Network and Services for container"
+    description: "Configure / service for container"
   - name: "Storage"
     description: "Persist and share data that is separate from the lifecycle of the container"
   - name: "Resources and Devices"
     description: "Specify resources/devices to be allocated to workload"
-  - name: "Ingress Configuration"
-    description: "Ingress Configuration"
-  - name: "Security"
-    description: "Configure security context"
+  - name: "Reverse Proxy Configuration"
+    description: "Reverse Proxy configuration"
   - name: "Advanced"
     description: "Advanced Configuration"
   - name: "WARNING"
@@ -52,18 +50,103 @@ questions:
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
-  - variable: env
-    group: "Configuration"
-    label: "Image Environment"
+
+  - variable: ingress
+    label: ""
+    group: "Reverse Proxy Configuration"
     schema:
       type: dict
       attrs:
-        - variable: UMASK
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+        - variable: main
+          label: "WebUI"
           schema:
-            type: string
-            default: "002"
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Web Reverse Proxy"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: type
+                      label: "Reverse Proxy Type"
+                      schema:
+                        type: string
+                        default: "HTTP-IR"
+                        hidden: true
+                        editable: false
+                        required: true
+                    - variable: serviceName
+                      label: "Service name to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: "api@internal"
+                    - variable: serviceKind
+                      label: "Service Kind to proxy to"
+                      schema:
+                        hidden: true
+                        editable: false
+                        type: string
+                        default: "TraefikService"
+                    - variable: entrypoint
+                      label: "Select Entrypoint"
+                      schema:
+                        type: string
+                        default: "websecure"
+                        required: true
+                        enum:
+                          - value: "websecure"
+                            description: "Websecure: HTTPS/TLS port 443"
+                    - variable: hosts
+                      label: "Hosts"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: host
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: host
+                                  label: "Domain Name"
+                                  required: true
+                                  schema:
+                                    type: string
+                                - variable: path
+                                  label: "path"
+                                  schema:
+                                    type: string
+                                    required: true
+                                    hidden: true
+                                    default: "/"
+                    - variable: certType
+                      label: "Select Certificate Type"
+                      schema:
+                        type: string
+                        default: "selfsigned"
+                        enum:
+                          - value: ""
+                            description: "No Encryption/TLS/Certificates"
+                          - value: "selfsigned"
+                            description: "Self-Signed Certificate"
+                          - value: "ixcert"
+                            description: "TrueNAS SCALE Certificate"
+                    - variable: certificate
+                      label: "Select TrueNAS SCALE Certificate"
+                      schema:
+                        type: int
+                        show_if: [["certType", "=", "ixcert"]]
+                        $ref:
+                          - "definitions/certificate"
+                    - variable: authForwardURL
+                      label: "Forward Authentication URL"
+                      schema:
+                        type: string
+                        default: ""
   - variable: traefik
     label: "(Advanced) Traefik Settings"
     group: "Advanced"
@@ -659,9 +742,17 @@ questions:
                 schema:
                   type: string
                   default: ""
+
+  - variable: UMASK
+    group: "Advanced"
+    label: "UMASK"
+    description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+    schema:
+      type: string
+      default: "002"
   # Enable privileged
   - variable: securityContext
-    group: "Security"
+    group: "Advanced"
     label: "Security Context"
     schema:
       type: dict
@@ -673,7 +764,7 @@ questions:
             default: false
   # Set Pod Security Policy
   - variable: podSecurityContext
-    group: "Security"
+    group: "Advanced"
     label: "Pod Security Context"
     schema:
       type: dict
@@ -728,12 +819,12 @@ questions:
     description: "Please be sure to set the UI to a different port or adapter"
     group: "WARNING"
     schema:
-      type: dict
-      attrs:
-        - variable: confirm-warning
-          description: "Check this to confirm you have made precautions against conflicts on port 80 and 443, such as running the TrueNAS SCALE UI on a different port or adapter."
-          label: "I understand above warning and its consequences"
-          schema:
-            type: boolean
-            default: false
-            required: true
+        type: dict
+        attrs:
+          - variable: confirm-warning
+            description: "Check this to confirm you have made precautions against conflicts on port 80 and 443, such as running the TrueNAS SCALE UI on a different port or adapter."
+            label: "I understand above warning and its consequences"
+            schema:
+              type: boolean
+              default: false
+              required: true

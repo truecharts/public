@@ -15,6 +15,7 @@
 {{- if eq .Values.bitwardenrs.yubico.enabled true }}
 {{- $yubicoClientId = required "Yubico Client ID required" .Values.bitwardenrs.yubico.clientId | toString | b64enc | quote }}
 {{- end -}}
+---
 
 apiVersion: v1
 kind: Secret

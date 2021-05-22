@@ -156,6 +156,18 @@ jobs:
         with:
           test-results: test.json
 
+      - name: Run tests
+        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
+        run: |
+         if grep -q "FAIL"  test.json
+         then
+            echo "Unit Test reported FAILED";
+            exit 1
+         else
+            echo "Unit Test reported OK";
+            exit 0
+         fi
+
 
     ##
     # Chart-Testing Section
