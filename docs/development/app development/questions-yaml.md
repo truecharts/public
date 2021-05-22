@@ -88,20 +88,26 @@ groups:
   - name: "Configuration"
     description: "additional container configuration"
   - name: "Networking"
-    description: "Configure / service for container"
-  - name: "Storage and Devices"
+    description: "Configure Network and Services for container"
+  - name: "Storage"
     description: "Persist and share data that is separate from the lifecycle of the container"
   - name: "Resources and Devices"
     description: "Specify resources/devices to be allocated to workload"
-  - name: "Reverse Proxy Configuration"
-    description: "Reverse Proxy configuration"
+  - name: "Ingress Configuration"
+    description: "Ingress Configuration"
+  - name: "Security"
+    description: "Configure security context"
+  - name: "Advanced"
+    description: "Advanced Configuration"
   - name: "WARNING"
     description: "WARNING"
 ```
 
 ##### General Configuration options
-These options are always included because almost every chart (eventually) has a use for them and/or other parts of the common chart depend on them.
+These options are always* included because almost every chart (eventually) has a use for them and/or other parts of the common chart depend on them.
 They are called general options, because they affect the basic functionalities of a chart. For example: Custom User environment variables, permissions and timezones.
+
+*`PUID`, `PGID`, `UMASK` are only included when they are needed. 
 
 ```
   - variable: timezone
@@ -112,6 +118,31 @@ They are called general options, because they affect the basic functionalities o
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
+
+  - variable: env
+    group: "Configuration"
+    label: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: int
+            default: 568
+        - variable: PGID
+          label: "PGID"
+          description: "Sets the PGID env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: int
+            default: 568
+        - variable: UMASK
+          label: "UMASK"
+          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: string
+            default: "002"
 
   # Configure Custom Enviroment Variables
   - variable: environmentVariables
@@ -136,33 +167,12 @@ They are called general options, because they affect the basic functionalities o
                   type: string
 ```
 
-And at the bottom some advanced settings:
-```
-  - variable: PUID
-    group: "Advanced"
-    label: "Common Group ID"
-    description: "The UserID of the user running any included common chart-based pods"
-    schema:
-      type: int
-      default: 568
+##### Security Context Configuration options
 
-  - variable: PGID
-    group: "Advanced"
-    label: "Storage and Common Group ID"
-    description: "The groupID of the user/group running any included common chart-based pods and owning the files!"
-    schema:
-      type: int
-      default: 568
-  - variable: UMASK
-    group: "Advanced"
-    label: "UMASK (Common Chart)"
-    description: "The UMASK used (if supported) by any included common chart-based pod"
-    schema:
-      type: string
-      default: "002"
+```
   # Enable privileged
   - variable: securityContext
-    group: "Advanced"
+    group: "Security"
     label: "Security Context"
     schema:
       type: dict
@@ -172,4 +182,56 @@ And at the bottom some advanced settings:
           schema:
             type: boolean
             default: false
+  # Set Pod Security Policy
+  - variable: podSecurityContext
+    group: "Security"
+    label: "Pod Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: runAsNonRoot
+          label: "runAsNonRoot"
+          schema:
+            type: boolean
+            default: false
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: supplementalGroups
+          label: "supplementalGroups"
+          description: "Additional groups this App needs access to"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: Group
+                label: "Group"
+                schema:
+                  type: int
+                  default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroupChangePolicy
+          label: "When should we take ownership?"
+          schema:
+            type: string
+            default: "OnRootMismatch"
+            enum:
+              - value: "OnRootMismatch"
+                description: "OnRootMismatch"
+              - value: "Always"
+                description: "Always"
 ```
