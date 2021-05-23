@@ -1,0 +1,82 @@
+name: "Renovate: Bump on Push"
+
+on:
+  push:
+    branches:
+      - 'renovate/docker-*'
+    tags-ignore:
+      - '**'
+
+jobs:
+  renovate-bump:
+    name: Get changed Apps
+    runs-on: ubuntu-20.04
+    outputs:
+      matrix: "{\"app\": ${{ steps.reduce.outputs.apps }} }"
+      empty_matrix: ${{ steps.reduce.outputs.empty_matrix }}
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_TOKEN }}
+      - name: Set up Python
+        uses: actions/setup-python@v2
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pybump
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          list-files: json
+          filters: |
+            changed:
+            - 'charts/stable/**'
+            - 'charts/incubator/**'
+            - 'charts/develop/**'
+            - 'charts/deprecated/**'
+            - 'charts/non-free/**'
+            - 'charts/library/**'
+      - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
+      - id: reduce
+        run: |
+          APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json)
+          echo ::set-output name=apps::${APPS}
+          if [ -z "${APPS[0]}" ]; then
+            echo "No Changed Apps"
+            echo "::set-output name=empty_matrix::true"
+          else
+            echo "Changed Apps: ${APPS[*]}"
+            echo "::set-output name=empty_matrix::false"
+          fi
+      - name: Bump
+        run: |
+            for chart in ${{ steps.reduce.outputs.apps }}; do
+              if "${chart}" == '.gitkee'; then
+                echo "Skipping..."
+                return
+              else if test -f "./charts/stable/${chart}/Chart.yaml"; then
+                train="stable"
+              elif test -f "./charts/incubator/${chart}/Chart.yaml"; then
+                train="incubator"
+              elif test -f "./charts/deprecated/${chart}/Chart.yaml"; then
+                train="deprecated"
+              elif test -f "./charts/non-free/${chart}/Chart.yaml"; then
+                train="non-free"
+              elif test -f "./charts/library/${chart}/Chart.yaml"; then
+                train="library"
+              else
+                train="develop"
+              fi
+              $pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
+            done
+      - name: Commit and Push new version
+        if: ${{ needs.pre-release.outputs.release == 'true' }}
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit bumped App Version" || exit 0
+          git push
