@@ -19,6 +19,8 @@ groups:
     description: "Advanced Configuration"
   - name: "WARNING"
     description: "WARNING"
+
+portals:
   web_portal:
     protocols:
       - "$kubernetes-resource_configmap_portal_protocol"
@@ -60,7 +62,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: timezone
+        - variable: TZ
           label: "Timezone"
           schema:
             type: string

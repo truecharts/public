@@ -17,8 +17,8 @@ service:
 
 envTpl:
   # Permissions Settings
-  USER_ID: "{ { .env.PUID } }"
-  GROUP_ID: "{ { .env.PGID } }"
+  USER_ID: "{{ .Values.env.PUID }}"
+  GROUP_ID: "{{ .Values.env.PGID }}"
 
 env:
   PUID: "568"

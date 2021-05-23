@@ -62,7 +62,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: timezone
+        - variable: TZ
           label: "Timezone"
           schema:
             type: string
@@ -74,13 +74,13 @@ questions:
           description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: PGID
           label: "PGID"
           description: "Sets the PGID env var for LinuxServer.io (compatible) containers"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: UMASK
           label: "UMASK"
           description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"

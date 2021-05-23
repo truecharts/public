@@ -10,8 +10,8 @@ strategy:
 
 envTpl:
   # Permissions Settings
-  UNIFI_GID: "{ { .env.PUID } }"
-  UNIFI_UID: "{ { .env.PGID } }"
+  UNIFI_GID: "{{ .Values.env.PUID }}"
+  UNIFI_UID: "{{ .Values.env.PGID }}"
 
 service:
   main:
