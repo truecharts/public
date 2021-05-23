@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: bitwarden
-version: 1.2.7
+version: 1.2.8
 upstream_version: 2.1.5
 appVersion: "auto"
 description: Unofficial Bitwarden compatible server written in Rust
@@ -25,7 +25,7 @@ dependencies:
     version: 3.5.8
     # condition:
   - name: postgresql
-    version: 10.4.3
+    version: 10.4.6
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
 maintainers: []
