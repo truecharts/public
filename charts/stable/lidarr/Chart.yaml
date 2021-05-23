@@ -1,33 +1,31 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: lidarr
-version: 3.1.6
-upstream_version: 7.1.0
-appVersion: "auto"
-description: Looks and smells like Sonarr but made for music
-type: application
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 4.1.6
 deprecated: false
+description: Looks and smells like Sonarr but made for music
 home: https://github.com/truecharts/apps/tree/master/stable/lidarr
 icon: https://avatars3.githubusercontent.com/u/28475832?s=400&v=4
 keywords:
-  - lidarr
-  - torrent
-  - usenet
-sources:
-  - https://github.com/truecharts/apps/tree/master/stable/lidarr
-  - https://github.com/k8s-at-home/charts/tree/master/charts/lidarr
-  - https://github.com/Lidarr/Lidarr
-  - https://hub.docker.com/r/linuxserver/lidarr
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 3.5.8
-    # condition:
+- lidarr
+- torrent
+- usenet
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: lidarr
+sources:
+- https://github.com/truecharts/apps/tree/master/stable/lidarr
+- https://github.com/k8s-at-home/charts/tree/master/charts/lidarr
+- https://github.com/Lidarr/Lidarr
+- https://hub.docker.com/r/linuxserver/lidarr
+type: application
+upstream_version: 7.1.0
+version: 4.0.2

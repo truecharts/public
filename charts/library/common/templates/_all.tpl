@@ -7,26 +7,31 @@ Main entrypoint for the common library chart. It will render all underlying temp
 
   {{- /* Build the templates */ -}}
   {{- include "common.pvc" . }}
-  {{- print "---" | nindent 0 -}}
+
   {{- if .Values.serviceAccount.create -}}
     {{- include "common.serviceAccount" . }}
-    {{- print "---" | nindent 0 -}}
   {{- end -}}
-  {{- if eq .Values.controllerType "deployment" }}
+
+  {{- if eq .Values.controller.type "deployment" }}
     {{- include "common.deployment" . | nindent 0 }}
-  {{ else if eq .Values.controllerType "daemonset" }}
+  {{ else if eq .Values.controller.type "daemonset" }}
     {{- include "common.daemonset" . | nindent 0 }}
-  {{ else if eq .Values.controllerType "statefulset"  }}
+  {{ else if eq .Values.controller.type "statefulset"  }}
     {{- include "common.statefulset" . | nindent 0 }}
+  {{ else }}
+    {{- fail (printf "Not a valid controller.type (%s)" .Values.controller.type) }}
   {{- end -}}
+
   {{ include "common.classes.hpa" . | nindent 0 }}
-  {{ include "common.services" . | nindent 0 }}
+
+  {{ include "common.service" . | nindent 0 }}
+
   {{ include "common.ingress" .  | nindent 0 }}
+
   {{- if .Values.secret -}}
-    {{- print "---" | nindent 0 -}}
     {{ include "common.secret" .  | nindent 0 }}
   {{- end -}}
-  {{ include "common.classes.mountPermissions" .  | nindent 0 }}
-  {{ include "common.classes.portal" .  | nindent 0 }}
+  {{ include "common.class.portal" .  | nindent 0 }}
 
+  {{ include "common.class.mountPermissions" .  | nindent 0 }}
 {{- end -}}

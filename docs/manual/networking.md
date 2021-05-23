@@ -28,3 +28,11 @@ There are, however, multiple downsides to using nodeports:
 
 - You can only pick ports above 9000
 - You can not connect two Apps to the same port
+
+##### LoadBalancer
+
+Loadbalancer connects a service targetPort directly to the Host Network. However: it can do so in lower ranges than NodePort, making it a great solution for things like DNS servers.
+
+There are, however, downsides to using LoadBalancer:
+
+- You can not connect two Apps to the same port

@@ -1,36 +1,34 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: ombi
-version: 3.1.6
-upstream_version: 8.0.1
-appVersion: "auto"
-description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
-type: application
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 4.1.6
 deprecated: false
+description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
 home: https://github.com/truecharts/apps/tree/master/stable/ombi
 icon: https://img3.androidappsapk.co/wiLDnuwrCWctiiW62ALcj4eIpNbzeRH_UNPo7eqlpYvGkCQYSTybaI4xVRLKGjnlamlV=s300
 keywords:
-  - ombi
-  - plex
-  - emby
-  - sonarr
-  - radarr
-  - couchpotato
-sources:
-  - https://github.com/truecharts/apps/tree/master/stable/ombi
-  - https://github.com/k8s-at-home/charts/tree/master/charts/ombi
-  - https://github.com/tidusjar/Ombi
-  - https://hub.docker.com/r/linuxserver/ombi
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 3.5.8
-    # condition:
+- ombi
+- plex
+- emby
+- sonarr
+- radarr
+- couchpotato
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: ombi
+sources:
+- https://github.com/truecharts/apps/tree/master/stable/ombi
+- https://github.com/k8s-at-home/charts/tree/master/charts/ombi
+- https://github.com/tidusjar/Ombi
+- https://hub.docker.com/r/linuxserver/ombi
+type: application
+upstream_version: 8.0.1
+version: 4.0.2

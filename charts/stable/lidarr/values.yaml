@@ -3,15 +3,16 @@
 image:
   repository: ghcr.io/truecharts/lidarr
   pullPolicy: IfNotPresent
-  tag: v0.8.1.2169
+  tag: v1.0.0.2221
 
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 8686
+    ports:
+      main:
+        port: 8686
 
 env: {}
   # TZ: UTC
@@ -43,7 +44,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

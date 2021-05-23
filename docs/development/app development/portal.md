@@ -64,3 +64,8 @@ There are also some additional (advanced) options availale, these can be added b
             type: string
             default: "test.com"
 ```
+
+
+##### Known issues
+
+- Portal currently doesn't work (yet) when setting the servicetype to "Loadbalancer"

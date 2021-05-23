@@ -3,15 +3,16 @@
 image:
   repository: ghcr.io/truecharts/radarr
   pullPolicy: IfNotPresent
-  tag: v3.1.1.4954
+  tag: v3.2.0.5048
 
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 7878
+    ports:
+      main:
+        port: 7878
 
 env: {}
   # TZ: UTC
@@ -43,7 +44,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

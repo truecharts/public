@@ -7,7 +7,6 @@ This article serves as a development extention to the storage article available 
 For all these storage solutions we require the commonchart to be added to the App.
 The Common-Chart handles both the connection/addition of storage to the container and spinning up special k8s jobs to fix the permissions if requested for the Custom storage.
 
-
 ### Integrated Persistent Storage
 
 When adding an App, there are almost always certain folders that are required for solid Apps performance. For example config files that should be persistent across restarts.
@@ -56,9 +55,15 @@ Preventing the user to disable them, ensures that users don't (by mistake) remov
               - variable: emptyDir
                 label: "Mount a ramdisk instead of actual storage"
                 schema:
-                  type: boolean
-                  default: false
+                  type: dict
                   hidden: true
+                  attrs:
+                    - variable: enabled
+                      label: "Enable emptyDir"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
               - variable: accessMode
                 label: "Access Mode (Advanced)"
                 description: "Allow or disallow multiple PVC's writhing to the same PVC"
@@ -87,7 +92,7 @@ It should always be included in any App, to give users the option to customise t
 ##### Example
 
 ```
-  - variable: additionalAppVolumeMounts
+  - variable: hostPathMounts
     label: "Custom app storage"
     group: "Storage and Devices"
     schema:
@@ -122,12 +127,16 @@ It should always be included in any App, to give users the option to customise t
                   required: true
                   editable: true
               - variable: emptyDir
-                label: "emptyDir"
+                label: "Mount a ramdisk instead of actual storage"
                 schema:
-                  type: boolean
-                  default: false
                   hidden: true
-                  editable: false
+                  attrs:
+                    - variable: enabled
+                      label: Enable emptyDir
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
               - variable: mountPath
                 label: "Mount Path"
                 description: "Path to mount inside the pod"

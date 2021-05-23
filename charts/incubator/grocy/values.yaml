@@ -2,23 +2,17 @@
 
 image:
   repository: linuxserver/grocy
-  tag: version-v2.7.1
+  tag: version-v3.0.1
   pullPolicy: IfNotPresent
 
 strategy:
   type: Recreate
 
-# Configure the Security Context for the Pod
-podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
-
-services:
+service:
   main:
-    port:
-      port: 80
+    ports:
+      main:
+        port: 80
 
 env: {}
   # TZ:
@@ -29,7 +23,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

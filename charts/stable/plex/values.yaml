@@ -10,18 +10,24 @@ strategy:
 
 # 44=video 107=render
 podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
   supplementalGroups: [44, 107]
 
-services:
+service:
   main:
-    port:
-      port: 32400
+    ports:
+      main:
+        port: 32400
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

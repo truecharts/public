@@ -1,41 +1,89 @@
-# type: options are deployment, daemonset or statefulset
-controllerType: deployment
-# Set annotations on the deployment/statefulset/daemonset
-controllerAnnotations: {}
-# Set labels on the deployment/statefulset/daemonset
-controllerLabels: {}
+global:
+  # -- Set an override for the prefix of the fullname
+  nameOverride:
+  # -- Set the entire name definition
+  fullnameOverride:
 
-replicas: 1
-strategy:
-  ## For Deployments, valid values are Recreate and RollingUpdate
-  ## For StatefulSets, valid values are OnDelete and RollingUpdate
-  ## DaemonSets ignore this
-  type: RollingUpdate
+controller:
+  # -- Set the controller type.
+  # Valid options are deployment, daemonset or statefulset
+  type: deployment
+  # -- Set annotations on the deployment/statefulset/daemonset
+  annotations: {}
+  # -- Set labels on the deployment/statefulset/daemonset
+  labels: {}
+  # -- Number of desired pods
+  replicas: 1
+  # -- Set the controller upgrade strategy
+  # For Deployments, valid values are Recreate (default) and RollingUpdate.
+  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
+  # DaemonSets ignore this.
+  strategy:
+  rollingUpdate:
+    # -- Set deployment RollingUpdate max unavailable
+    unavailable:
+    # -- Set deployment RollingUpdate max surge
+    surge:
+    # -- Set statefulset RollingUpdate partition
+    partition:
+  # -- ReplicaSet revision history limit
+  revisionHistoryLimit: 3
 
-# Override the default command
+image:
+  # -- image repository
+  repository:
+  # -- image tag
+  tag:
+  # -- image pull policy
+  pullPolicy:
+
+# -- Override the command(s) for the default container
 command: []
-# Override the default args
+# -- Override the args for the default container
 args: []
 
-nameOverride: ""
-fullnameOverride: ""
-
-# Set annotations on the pod
+# -- Set annotations on the pod
 podAnnotations: {}
 
+# -- Add a Horizontal Pod Autoscaler
+# @default -- <disabled>
+autoscaling:
+  enabled: false
+  target:  # deploymentname
+  minReplicas:  # 1
+  maxReplicas:  # 100
+  targetCPUUtilizationPercentage:  # 80
+  targetMemoryUtilizationPercentage:  # 80
+
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- Specifies whether a service account should be created
   create: false
-  # Annotations to add to the service account
+
+  # -- Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
+
+  # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+# -- Use this to populate a secret with the values you specify.
+# Be aware that these values are not encrypted by default, and could therefore visible
+# to anybody with access to the values.yaml file.
+secret: {}
+  # PASSWORD: my-password
 
+# -- Main environment variables. Template enabled.
+# Syntax options:
+# A) TZ: UTC
+# B) PASSWD: '{{ .Release.Name }}'
+# C) PASSWD:
+#      envFrom:
+#        ...
+# D) - name: TZ
+#      value: UTC
+# E) - name: TZ
+#      value: '{{ .Release.Name }}'
 env: {}
-  # TZ: UTC
-
 ## Variables with values set from templates, example
 ## With a release name of: demo, the example env value will be: demo-admin
 envTpl: {}
@@ -53,170 +101,274 @@ envFrom: []
 #     name: config-map-name
 # - secretRef:
 #     name: secret-name
+# -- Custom priority class for different treatment by the scheduler
+priorityClassName:  # system-node-critical
 
-# Custom priority class for different treatment by the scheduler
-# priorityClassName: system-node-critical
+# -- Allows specifying a custom scheduler name
+schedulerName:  # awkward-dangerous-scheduler
 
-# Allow specifying a custom scheduler name
-# schedulerName: awkward-dangerous-scheduler
+# -- Allows specifying explicit hostname setting
+hostname:
 
-# Allow specifying explicit hostname setting
-# hostname:
-
-# When using hostNetwork make sure you set dnsPolicy to ClusterFirstWithHostNet
+# -- When using hostNetwork make sure you set dnsPolicy to `ClusterFirstWithHostNet`
 hostNetwork: false
 
-## Default get based on hostNetwork setting
-# dnsPolicy: ClusterFirst
+# -- Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true.
+dnsPolicy:  # ClusterFirst
 
-# Optional DNS settings, configuring the ndots option may resolve
-# nslookup issues on some Kubernetes setups.
-# dnsConfig:
+# -- Optional DNS settings, configuring the ndots option may resolve nslookup issues on some Kubernetes setups.
+dnsConfig: {}
 #   options:
 #     - name: ndots
 #       value: "1"
 
-# Enable/disable the generation of environment variables for services.
-# See https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service
-# for more information.
+# -- Enable/disable the generation of environment variables for services.
+# [[ref]](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)
 enableServiceLinks: true
 
-# Configure the Security Context for the Pod
-# podSecurityContext:
-#   runAsNonRoot: true
-#   runAsUser: 568
-#   runAsGroup: 568
-#   fsGroup: 568
-#   fsGroupChangePolicy: "OnRootMismatch"
+# -- Configure the Security Context for the Pod
+podSecurityContext: {}
 
-# Configure the Security Context for the main container
+# -- Configure the Security Context for the main container
 securityContext: {}
 
+# -- Configure the lifecycle for the main container
+lifecycle: {}
 
+# -- Specify any initContainers here. Yaml will be passed in to the Pod as-is.
 initContainers: []
 
+# -- Specify any additional containers here. Yaml will be passed in to the Pod as-is.
 additionalContainers: []
 
-## Probes configuration
+# -- Probe configuration
+# -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+# @default -- See below
 probes:
+  # -- Liveness probe configuration
+  # @default -- See below
   liveness:
+    # -- Enable the liveness probe
     enabled: true
-    ## Set this to true if you wish to specify your own livenessProbe
+    # -- Set this to `true` if you wish to specify your own livenessProbe
     custom: false
-    ## The spec field contains the values for the default livenessProbe.
-    ## If you selected custom: true, this field holds the definition of the livenessProbe.
+    # -- The spec field contains the values for the default livenessProbe.
+    # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+    # @default -- See below
     spec:
-      initialDelaySeconds: 0
+      initialDelaySeconds: 2
       periodSeconds: 10
-      timeoutSeconds: 10
+      timeoutSeconds: 2
       failureThreshold: 5
 
+  # -- Redainess probe configuration
+  # @default -- See below
   readiness:
+    # -- Enable the readiness probe
     enabled: true
-    ## Set this to true if you wish to specify your own readinessProbe
+    # -- Set this to `true` if you wish to specify your own readinessProbe
     custom: false
-    ## The spec field contains the values for the default readinessProbe.
-    ## If you selected custom: true, this field holds the definition of the readinessProbe.
+    # -- The spec field contains the values for the default readinessProbe.
+    # If you selected `custom: true`, this field holds the definition of the readinessProbe.
+    # @default -- See below
     spec:
-      initialDelaySeconds: 0
+      initialDelaySeconds: 2
       periodSeconds: 10
-      timeoutSeconds: 10
+      timeoutSeconds: 2
       failureThreshold: 5
 
+  # -- Startup probe configuration
+  # @default -- See below
   startup:
+    # -- Enable the startup probe
     enabled: true
-    ## Set this to true if you wish to specify your own startupProbe
+    # -- Set this to `true` if you wish to specify your own startupProbe
     custom: false
-    ## The spec field contains the values for the default startupProbe.
-    ## If you selected custom: true, this field holds the definition of the startupProbe.
+    # -- The spec field contains the values for the default startupProbe.
+    # If you selected `custom: true`, this field holds the definition of the startupProbe.
+    # @default -- See below
     spec:
-      initialDelaySeconds: 0
-      timeoutSeconds: 10
+      initialDelaySeconds: 3
+      timeoutSeconds: 2
       ## This means it has a maximum of 5*30=150 seconds to start up before it fails
-      periodSeconds: 10
-      failureThreshold: 30
+      periodSeconds: 5
+      failureThreshold: 60
 
-services:
+# -- Configure the services for the chart here.
+# Additional services can be added by adding a dictionary key similar to the 'main' service.
+# @default -- See below
+service:
   main:
+    # -- Enables or disables the service
     enabled: true
-    type: ClusterIP
-    ## Specify the default port information
-    ## It is adviced not to mix different port protocols on the same service
-    port:
-      port:
-      ## name defaults to http
-      name:
-      ## Accepts: HTTP, HTTPS, TCP and UDP
-      ## HTTPS and HTTPS spawn a TCP service and get used for internal URL and name generation
-      protocol: HTTP
-      ## Specify a service targetPort if you wish to differ the service port from the application port.
-      ## If targetPort is specified, this port number is used in the container definition instead of
-      ## service.port.port. Therefore named ports are not supported for this field.
-      targetPort:
-      ## Specify the nodePort value for the LoadBalancer and NodePort service types.
-      ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
-      ##
-      # nodePort:
-    additionalPorts: []
 
-    ## Provide any additional annotations which may be required. This can be used to
-    ## set the LoadBalancer service type to internal only.
-    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
-    ##
+    # -- Make this the primary service (used in probes, notes, etc...).
+    # If there is more than 1 service, make sure that only 1 service is marked as primary.
+    primary: true
+
+    # -- Override the name suffix that is used for this service
+    nameOverride:
+
+    # -- Set the service type
+    type: ClusterIP
+
+    # -- Provide additional annotations which may be required.
     annotations: {}
+
+    # -- Provide additional labels which may be required.
     labels: {}
 
-  ## additionalServices can be created as either a dict.
-  # additionalService:
-  #   type: ClusterIP
-  #   # Specify the default port information
-  #   port:
-  #     port:
-  #     # name defaults to http
-  #     name:
-  #     protocol: TCP
-  #     # targetPort defaults to http
-  #     targetPort:
-  #     # nodePort:
-  #   additionalPorts: []
-  #   annotations: {}
-  #   labels: {}
+    # -- Configure the Service port information here.
+    # Additional ports can be added by adding a dictionary key similar to the 'http' service.
+    # @default -- See below
+    ports:
+      main:
+        # -- Enables or disables the port
+        enabled: true
 
-persistence:
-  config:
+        # -- Make this the primary port (used in probes, notes, etc...)
+        # If there is more than 1 service, make sure that only 1 port is marked as primary.
+        primary: true
+
+        # -- The port number
+        port:
+
+        # -- Port protocol.
+        # Support values are `HTTP`, `HTTPS`, `TCP` and `UDP`.
+        # HTTPS and HTTPS spawn a TCP service and get used for internal URL and name generation
+        protocol: HTTP
+
+        # -- Specify a service targetPort if you wish to differ the service port from the application port.
+        # If `targetPort` is specified, this port number is used in the container definition instead of
+        # the `port` value. Therefore named ports are not supported for this field.
+        targetPort:
+
+        # -- Specify the nodePort value for the LoadBalancer and NodePort service types.
+        # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
+        nodePort:
+
+# -- Configure the ingresses for the chart here.
+# Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
+# @default -- See below
+ingress:
+  main:
+    # -- Enables or disables the ingress
     enabled: false
+
+    # -- Make this the primary ingress (used in probes, notes, etc...).
+    # If there is more than 1 ingress, make sure that only 1 ingress is marked as primary.
+    primary: true
+
+    # -- Override the name suffix that is used for this ingress.
+    nameOverride:
+
+    # -- Provide additional annotations which may be required.
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+
+    # -- Provide additional labels which may be required.
+    labels: {}
+
+    # -- Set the ingressClass that is used for this ingress.
+    # Requires Kubernetes >=1.19
+    ingressClassName:  # "nginx"
+
+    ## Configure the hosts for the ingress
+    hosts:
+      -  # -- Host address. Helm template can be passed.
+        host: chart-example.local
+        ## Configure the paths for the host
+        paths:
+          -  # -- Path.  Helm template can be passed.
+            path: /
+            # -- Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
+            service:
+              # -- Overrides the service name reference for this path
+              name:
+              # -- Overrides the service port reference for this path
+              port:
+
+    # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
+    tls: []
+    #  - secretName: chart-example-tls
+    # -- Create a secret from a GUI selected TrueNAS SCALE certificate
+    #    scaleCert: true
+    #    hosts:
+    #      - chart-example.local
+
+# -- Configure the persistent volumes for the chart here.
+# Additional items can be added by adding a dictionary key similar to the 'config' key.
+# @default -- See below
+persistence:
+  # -- Default persistence for configuration files.
+  # @default -- See below
+  config:
+    # -- Enables or disables the persistent volume
+    enabled: false
+
+    # -- Where to mount the volume in the main container.
     mountPath: /config
-    ## configuration data Persistent Volume Storage Class
-    ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
-    ## If undefined (the default) or set to null, no storageClassName spec is
-    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-    ##   GKE, AWS & OpenStack)
-    ##
-    # storageClass: "-"
-    ##
-    ## If you want to reuse an existing claim, you can pass the name of the PVC using
-    ## the existingClaim variable
-    # existingClaim: your-claim
-    # subPath: some-subpath
+
+    # -- Override the name suffix that is used for this volume.
+    nameOverride:
+
+    emptyDir:
+      # -- Create an emptyDir volume instead of a persistent volume.
+      # [[ref]] (https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+      enabled: false
+
+    # -- Storage Class for the config volume.
+    # If set to `-`, dynamic provisioning is disabled.
+    # If set to `SCALE-ZFS`, the default provisioner for TrueNAS SCALE is used.
+    # If set to something else, the given storageClass is used.
+    # If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner.
+    storageClass:  # "-"
+
+    # -- If you want to reuse an existing claim, the name of the existing PVC can be passed here.
+    existingClaim:  # your-claim
+
+    # -- Used in conjunction with `existingClaim`. Specifies a sub-path inside the referenced volume instead of its root
+    subPath:  # some-subpath
+
+    # -- AccessMode for the persistent volume.
+    # Make sure to select an access mode that is supported by your storage provider!
+    # [[ref]](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
     accessMode: ReadWriteOnce
+
+    # -- The amount of storage that is requested for the persistent volume.
     size: 1Gi
-    ## Set to true to retain the PVC upon helm uninstall
+
+    # - Set to true to retain the PVC upon `helm uninstall`
     skipuninstall: false
 
-  # Create an emptyDir volume to share between all containers
   shared:
+    # -- Create an emptyDir volume to share between all containers
     enabled: false
     emptyDir:
       enabled: true
+    # -- Where to mount the shared volume in the main container.
     mountPath: /shared
 
+# -- Mount a path on the host to the main container.
+hostPathMounts: []
+  # - name: "data"
+  #   enabled: false
+  #   emptyDir: false
+  #   mountPath: "/data"
+  #   subPath: some-subpath
+  #   hostPath: ""
+  #   readOnly: false
+
+# -- Specify any additional volumes here. (e.g. to mount nfs volumes directly)
 additionalVolumes: []
 
+# -- Specify any additional volume mounts for the main container here.
 additionalVolumeMounts: []
 
+# -- Used in conjunction with `controller.type: statefulset` to create individual disks for each instance.
 volumeClaimTemplates: []
-# Used in statefulset to create individual disks for each instance
 # - name: data
 #   mountPath: /data
 #   accessMode: "ReadWriteOnce"
@@ -228,107 +380,35 @@ volumeClaimTemplates: []
 #   size: 2Gi
 #   storageClass: cheap-storage-class
 
+# -- Node selection constraint
+# [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector)
 nodeSelector: {}
 
+# -- Defines affinity constraint rules.
+# [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
 affinity: {}
 
+# -- Specify taint tolerations
+# [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
 tolerations: []
 
+# -- Use hostAliases to add custom entries to /etc/hosts - mapping IP addresses to hostnames.
+# [[ref]](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 hostAliases: []
-# Use hostAliases to add custom entries to /etc/hosts - mapping IP addresses to hostnames.
-# ref: https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
 # - ip: "192.168.1.100"
 #   hostnames:
 #   - "example.com"
 #   - "www.example.com"
 
+# -- Set the resource requests / limits for the main container.
 resources: {}
-# We usually recommend not to specify default resources and to leave this as a conscious
-# choice for the user. This also increases chances charts run on environments with little
-# resources, such as Minikube. If you do want to specify resources, uncomment the following
-# lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-# limits:
-#   cpu: 100m
-#   memory: 128Mi
-# requests:
-#   cpu: 100m
-#   memory: 128Mi
-
-## Used by TrueNAS SCALE to easily set add GPU's to Apps
-# scaleGPU: {}
-
-## TrueCharts Specific
-
-# deviceMounts:
-#   config:
-#     enabled: false
-#     emptyDir: false
-#     hostPath: "/config"
-#     setPermissions: true
-
-# customStorage:
-#   - name: "data"
-#     enabled: false
-#     emptyDir: false
-#     mountPath: "/data"
-#     subPath: some-subpath
-#     hostPath: ""
-#     readOnly: false
-#     setPermissions: true
-
-ingress:
-  main:
-    enabled: false
-    annotations: {}
-      # kubernetes.io/ingress.class: nginx
-      # kubernetes.io/tls-acme: "true"
-    labels: {}
-    # ingressClassName: "nginx"
-    hosts:
-      - host: chart-example.local
-        ## Or a tpl that is evaluated
-        # hostTpl: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
-        paths:
-          - path: /
-            ## Or a tpl that is evaluated
-            # pathTpl: '{{ include "common.names.fullname" . }}'
-            ## Ignored if not kubeVersion >= 1.14-0
-            pathType: Prefix
-    tls: []
-    #  - secretName: chart-example-tls
-    ## Or if you need a dynamic secretname
-    #  - secretNameTpl: '{{ include "common.names.fullname" . }}-ingress'
-    #    hosts:
-    #      - chart-example.local
-    ## Or a tpl that is evaluated
-    #    hostsTpl:
-    #      - '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.{{ .Values.ingress.domainname }}'
-  # additionalIngress:
-  #   annotations: {}
-  #   # kubernetes.io/ingress.class: nginx
-  #   # kubernetes.io/tls-acme: "true"
-  #   labels: {}
-  #   hosts:
-  #     - host: chart-example.local
-  #       paths:
-  #         - path: /api
-  #           # Ignored if not kubeVersion >= 1.14-0
-  #           pathType: Prefix
-  #           serviceName:  # optionally target a specific service
-  #           servicePort:  # optionally target a specific service port
-  #   tls: []
-  #   #  - secretName: chart-example-tls
-  #   #    hosts:
-  #   #      - chart-example.local
-
-# ## Adds a portal configmap for use with TrueNAS SCALE
-# ## This should not be enabled on other systems than TrueNAS SCALE,
-# ## Because it requires a seperate namespace for each chart.
-# portal:
-#   enabled: false
-#   ## Override default port used for the portal button when using ingress.
-#   # ingressPort: 80
-#   ## Override hostname used for the portal button when using nodePort
-#   # host: 192.168.0.2
-#   ## Override the path used in the url
-#   # path: /example
+  ## We usually recommend not to specify default resources and to leave this as a conscious
+  ## choice for the user. This also increases chances charts run on environments with little
+  ## resources, such as Minikube. If you do want to specify resources, uncomment the following
+  ## lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi

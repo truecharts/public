@@ -8,16 +8,18 @@ image:
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 6789
+    ports:
+      main:
+        port: 6789
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

@@ -3,15 +3,16 @@
 image:
   repository: ghcr.io/truecharts/nzbhydra2
   pullPolicy: IfNotPresent
-  tag: v3.14.1
+  tag: v3.14.2
 
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 5076
+    ports:
+      main:
+        port: 5076
 
 env: {}
   # TZ: UTC
@@ -26,7 +27,7 @@ probes:
       failureThreshold: 5
       httpGet:
         path: /actuator/health/livenessState
-        port: http
+        port: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
@@ -37,7 +38,7 @@ probes:
       failureThreshold: 5
       httpGet:
         path: /actuator/health/readinessState
-        port: http
+        port: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
@@ -48,7 +49,7 @@ probes:
       failureThreshold: 5
       httpGet:
         path: /actuator/health/readinessState
-        port: http
+        port: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
@@ -58,7 +59,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

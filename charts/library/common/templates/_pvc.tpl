@@ -32,11 +32,10 @@ of all the entries of the persistence key.
 
     {{- if and $PVC.enabled (not (or $emptyDir $PVC.existingClaim)) -}}
       {{- $persistenceValues := $PVC -}}
-      {{- if not $persistenceValues.nameSuffix -}}
-        {{- $_ := set $persistenceValues "nameSuffix" $index -}}
+      {{- if not $persistenceValues.nameOverride -}}
+        {{- $_ := set $persistenceValues "nameOverride" $index -}}
       {{- end -}}
       {{- $_ := set $ "ObjectValues" (dict "persistence" $persistenceValues) -}}
-      {{- print ("---") | nindent 0 -}}
       {{- include "common.classes.pvc" $ | nindent 0 -}}
     {{- end }}
   {{- end }}

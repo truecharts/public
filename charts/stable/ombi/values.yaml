@@ -3,15 +3,16 @@
 image:
   repository: ghcr.io/truecharts/ombi
   pullPolicy: IfNotPresent
-  tag: v4.0.1348
+  tag: v4.0.1394
 
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 3579
+    ports:
+      main:
+        port: 3579
 
 env: {}
   # TZ: UTC
@@ -22,7 +23,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

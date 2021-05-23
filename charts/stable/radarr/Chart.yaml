@@ -1,33 +1,31 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: radarr
-version: 3.1.6
-upstream_version: 9.1.0
-appVersion: "auto"
-description: A fork of Sonarr to work with movies à la Couchpotato
-type: application
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 4.1.6
 deprecated: false
+description: "A fork of Sonarr to work with movies \xE0 la Couchpotato"
 home: https://github.com/truecharts/apps/tree/master/stable/radarr
 icon: https://nzbusenet.com/wp-content/uploads/2017/10/radarr-logo.png
 keywords:
-  - radarr
-  - torrent
-  - usenet
-sources:
-  - https://github.com/truecharts/apps/tree/master/stable/radarr
-  - https://github.com/k8s-at-home/charts/tree/master/charts/radarr
-  - https://github.com/Radarr/Radarr
-  - https://hub.docker.com/r/linuxserver/radarr
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 3.5.8
-    # condition:
+- radarr
+- torrent
+- usenet
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: radarr
+sources:
+- https://github.com/truecharts/apps/tree/master/stable/radarr
+- https://github.com/k8s-at-home/charts/tree/master/charts/radarr
+- https://github.com/Radarr/Radarr
+- https://hub.docker.com/r/linuxserver/radarr
+type: application
+upstream_version: 9.1.0
+version: 4.0.2
