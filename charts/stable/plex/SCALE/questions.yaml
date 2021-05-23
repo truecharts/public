@@ -346,7 +346,7 @@ questions:
     schema:
       type: dict
       $ref:
-        - "definitions/scaleGPU"
+        - "definitions/gpuConfiguration"
       attrs: []
   # Enable privileged
   - variable: securityContext
