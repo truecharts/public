@@ -11,15 +11,18 @@ jobs:
   renovate-bump:
     name: Get changed Apps
     runs-on: ubuntu-20.04
-    outputs:
-      matrix: "{\"app\": ${{ steps.reduce.outputs.apps }} }"
-      empty_matrix: ${{ steps.reduce.outputs.empty_matrix }}
     steps:
       - uses: actions/checkout@v2
         name: Checkout
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_TOKEN }}
+      - uses: actions/checkout@v2
+        name: Checkout
+        with:
+          fetch-depth: 0
+          ref: master
+          path: master
       - name: Set up Python
         uses: actions/setup-python@v2
       - name: Install dependencies
@@ -39,25 +42,18 @@ jobs:
             - 'charts/deprecated/**'
             - 'charts/non-free/**'
             - 'charts/library/**'
-      - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
-      - id: reduce
-        run: |
-          APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json)
-          echo ::set-output name=apps::${APPS}
-          if [ -z "${APPS[0]}" ]; then
-            echo "No Changed Apps"
-            echo "::set-output name=empty_matrix::true"
-          else
-            echo "Changed Apps: ${APPS[*]}"
-            echo "::set-output name=empty_matrix::false"
-          fi
+      - name: Filter filter-output
+        run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
       - name: Bump
         run: |
-            for chart in ${{ steps.reduce.outputs.apps }}; do
-              if "${chart}" == '.gitkee'; then
+            APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json  |  jq -r '.[]')
+            echo "changed apps: ${APPS[*]}"
+            for chart in ${APPS[*]}
+            do
+              if [[ "${chart}" == '.gitkee' ]]; then
                 echo "Skipping..."
                 return
-              else if test -f "./charts/stable/${chart}/Chart.yaml"; then
+              elif test -f "./charts/stable/${chart}/Chart.yaml"; then
                 train="stable"
               elif test -f "./charts/incubator/${chart}/Chart.yaml"; then
                 train="incubator"
@@ -70,10 +66,23 @@ jobs:
               else
                 train="develop"
               fi
-              $pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
+              echo "Comparing versions for ${train}/${chart}"
+              master=$(pybump get --file ./master/charts/${train}/${chart}/Chart.yaml)
+              current=$(pybump get --file ./charts/${train}/${chart}/Chart.yaml)
+              echo "master version: ${master}"
+              echo "current version: ${current}"
+              if [[ "${master}" != "${current}" ]]; then
+                echo "Version does not have to be bumped"
+              else
+                echo "Bumping patch version for ${train}/${chart}"
+                pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
+              fi
             done
+      - name: Cleanup
+        run: |
+          rm -rf changes.json
+          rm -rf master
       - name: Commit and Push new version
-        if: ${{ needs.pre-release.outputs.release == 'true' }}
         run: |
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
