@@ -6,6 +6,7 @@
   "reviewersFromCodeOwners": true,
   "suppressNotifications": ["prIgnoreNotification"],
   "rebaseWhen": "conflicted",
+  "prCreation": "not-pending",
   "prConcurrentLimit": 5,
   "helm-values": {
     "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
@@ -137,7 +138,6 @@
     {
       "matchDatasources": ["docker"],
       "automerge": true,
-      "automergeType": "branch",
       "matchUpdateTypes": ["minor", "patch"],
       "matchPackageNames": [
         "ghcr.io/truecharts/plex",
