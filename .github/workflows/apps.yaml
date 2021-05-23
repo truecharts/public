@@ -146,17 +146,17 @@ jobs:
         if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
         run: |
           go mod download
-      - name: Run tests
+      - name: Run unit tests
         if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
         run: |
           go test ./charts/.../tests -json | tee test.json
-      - name: Annotate tests
+      - name: Annotate unit tests
         if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
         uses: guyarb/golang-test-annotations@v0.3.0
         with:
           test-results: test.json
 
-      - name: Run tests
+      - name: Parse Unit Tests
         if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
         run: |
          if grep -q "FAIL"  test.json
@@ -234,17 +234,32 @@ jobs:
         with:
           version: v3.5.3
       - name: Checkout
+        if: ${{ needs.pre-release.outputs.release == 'true' }}
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_TOKEN }}
           path: master
       - name: Checkout
+        if: ${{ needs.pre-release.outputs.release == 'true' }}
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
           repository: truecharts/catalog
           token: ${{ secrets.BOT_TOKEN }}
+          path: catalog
+      - name: Checkout
+        if: ${{ needs.pre-release.outputs.release == 'false' }}
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          path: master
+      - name: Checkout
+        if: ${{ needs.pre-release.outputs.release == 'false' }}
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          repository: truecharts/catalog
           path: catalog
       - name: Remove if release already exists
         run: |
@@ -312,7 +327,7 @@ jobs:
           cd catalog
           /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
       - name: Commit and Push new App releases
-        if: ${{ steps.pre-release.outputs.release == 'true' }}
+        if: ${{ needs.pre-release.outputs.release == 'true' }}
         run: |
           cd catalog
           git config user.name "TrueCharts-Bot"
