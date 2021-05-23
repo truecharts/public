@@ -126,5 +126,14 @@
       "packagePatterns": ["^linuxserver\\/"],
       "versionScheme": "regex:^(?<compatibility>.*?(\\d+\\.)??)(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?(-r?p?\\d)?$"
     },
+    // version strategies
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "loose",
+      "matchPackageNames": [
+        "ghcr.io/truecharts/plex",
+        "ghcr.io/truecharts/qbittorrent",
+      ],
+    },
   ]
 }
