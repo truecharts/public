@@ -117,13 +117,14 @@
       "groupName": ["patch"]
     },
     //
-    // Tag updates for linuxserver two-three digit versions
+    // Version strategies
     //
+    // Versioning for linuxserver two-three digit container versions
     {
       "packagePatterns": ["^linuxserver\\/"],
       "versionScheme": "regex:^(?<compatibility>.*?(\\d+\\.)??)(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?(-r?p?\\d)?$"
     },
-    // version strategies
+    // Versioning for slightly problematic container versions
     {
       "matchDatasources": ["docker"],
       "versioning": "loose",
@@ -132,7 +133,7 @@
         "ghcr.io/truecharts/qbittorrent",
       ],
     },
-    // enable auto-merge
+    // enable container auto-merge
     {
       "matchDatasources": ["docker"],
       "automerge": true,
