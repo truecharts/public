@@ -135,5 +135,15 @@
         "ghcr.io/truecharts/qbittorrent",
       ],
     },
+    // enable auto-merge
+    {
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "automergeType": "branch",
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": [
+        "ghcr.io/truecharts/plex",
+        "ghcr.io/truecharts/jackett",
+     ],
   ]
 }
