@@ -3,7 +3,7 @@ name: "Renovate: Bump on Push"
 on:
   push:
     branches:
-      - 'renovate/docker-*'
+      - 'renovate/**'
     tags-ignore:
       - '**'
 
