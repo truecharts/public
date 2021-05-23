@@ -1,33 +1,31 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: jackett
-version: 4.0.0
-upstream_version: 7.0.1
-appVersion: "auto"
-description: API Support for your favorite torrent trackers.
-type: application
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 4.1.5
 deprecated: false
+description: API Support for your favorite torrent trackers.
 home: https://github.com/truecharts/apps/tree/master/stable/jackett
 icon: https://truecharts.org/_static/img/jackett-icon.png
 keywords:
-  - jackett
-  - torrent
-  - usenet
-sources:
-  - https://github.com/truecharts/apps/tree/master/stable/jackett
-  - https://github.com/k8s-at-home/charts/tree/master/charts/jackett
-  - https://github.com/Jackett/Jackett
-  - https://hub.docker.com/r/linuxserver/jackett
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 4.1.5
-    # condition:
+- jackett
+- torrent
+- usenet
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: jackett
+sources:
+- https://github.com/truecharts/apps/tree/master/stable/jackett
+- https://github.com/k8s-at-home/charts/tree/master/charts/jackett
+- https://github.com/Jackett/Jackett
+- https://hub.docker.com/r/linuxserver/jackett
+type: application
+upstream_version: 7.0.1
+version: 4.0.1
