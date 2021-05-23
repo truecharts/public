@@ -22,20 +22,23 @@ service:
 
 # All values here are set as the docker defaults.
 envTpl:
-# Permissions Settings
-  USER_ID: "568"
-  GROUP_ID: "568"
+  # Permissions Settings
+  USER_ID: "{{ .Values.env.PUID }}"
+  GROUP_ID: "{{ .Values.env.PGID }}"
 
 env:
-# General Settings
+  # Permissions Settings
+  PUID: "0"
+  PGID: "0"
+  # General Settings
   KEEP_APP_RUNNING: "0"
   CLEAN_TMP_DIR: "1"
-# GUI Settings
+  # GUI Settings
   DISPLAY_WIDTH: "1280"
   DISPLAY_HEIGHT: "768"
   SECURE_CONNECTION: "0"
   VNC_PASSWORD:
-# Automated Conversion Preset
+  # Automated Conversion Preset
   AUTOMATED_CONVERSION_PRESET: "General/Very Fast 1080p30"
   AUTOMATED_CONVERSION_FORMAT: "mp4"
   AUTOMATED_CONVERSION_KEEP_SOURCE: "1"

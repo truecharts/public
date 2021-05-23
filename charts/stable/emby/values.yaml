@@ -8,6 +8,7 @@ image:
 strategy:
   type: Recreate
 
+# 44=video 107=render
 podSecurityContext:
   runAsNonRoot: true
   runAsUser: 568

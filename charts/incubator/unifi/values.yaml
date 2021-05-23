@@ -9,9 +9,9 @@ strategy:
   type: Recreate
 
 envTpl:
-# Permissions Settings
-  UNIFI_GID: "568"
-  UNIFI_UID: "568"
+  # Permissions Settings
+  UNIFI_GID: "{ { .env.PUID } }"
+  UNIFI_UID: "{ { .env.PGID } }"
 
 service:
   main:
@@ -35,10 +35,10 @@ service:
         port: 3478
         protocol: UDP
 
-env: {}
+env:
   # TZ:
-  # PUID:
-  # PGID:
+  PUID: "568"
+  PGID: "568"
 
 persistence:
   config:

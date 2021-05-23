@@ -9,6 +9,7 @@ image:
   pullPolicy: IfNotPresent
   tag: 2.4.1
 
+# 5=tty 20=dialout 24=cdrom
 podSecurityContext:
   runAsNonRoot: true
   runAsUser: 568

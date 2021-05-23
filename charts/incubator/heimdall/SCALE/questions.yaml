@@ -61,13 +61,13 @@ questions:
     schema:
       type: dict
       attrs:
-      - variable: timezone
-        label: "Timezone"
-        schema:
-          type: string
-          default: "Etc/UTC"
-          $ref:
-            - "definitions/timezone"
+        - variable: timezone
+          label: "Timezone"
+          schema:
+            type: string
+            default: "Etc/UTC"
+            $ref:
+              - "definitions/timezone"
         - variable: PUID
           label: "PUID"
           description: "Sets the PUID env var for LinuxServer.io (compatible) containers"

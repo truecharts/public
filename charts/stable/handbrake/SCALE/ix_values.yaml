@@ -11,10 +11,9 @@ image:
 
 #All values here are set as the docker defaults.
 envTpl:
-# Permissions Settings
-  USER_ID: "568"
-  GROUP_ID: "568"
-
+  # Permissions Settings
+  USER_ID: "{{ .Values.env.PUID }}"
+  GROUP_ID: "{{ .Values.env.PGID }}"
 ##
 # Most other defaults are set in questions.yaml
 # For other options please refer to the wiki, default_values.yaml or the common library chart

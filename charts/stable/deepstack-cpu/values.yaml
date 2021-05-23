@@ -17,16 +17,20 @@ service:
 
 envTpl:
   # Permissions Settings
-  USER_ID: "568"
-  GROUP_ID: "568"
+  USER_ID: "{ { .env.PUID } }"
+  GROUP_ID: "{ { .env.PGID } }"
 
 env:
+  PUID: "568"
+  PGID: "568"
   # TZ: UTC
   VISION-FACE: "True"
   VISION-DETECTION: "True"
   VISION-SCENE: "True"
-  MODELSTORE-DETECTION: "/modelstore/detection"     # Path to custom models (needs to be on documentation)
-  MODE: "High"    # High|Medium|Low
+  # Path to custom models (needs to be on documentation)
+  MODELSTORE-DETECTION: "/modelstore/detection"
+  # High|Medium|Low
+  MODE: "High"
 
 persistence:
   config:

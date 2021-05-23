@@ -74,46 +74,19 @@ questions:
           description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: PGID
           label: "PGID"
           description: "Sets the PGID env var for LinuxServer.io (compatible) containers"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: UMASK
           label: "UMASK"
           description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
           schema:
             type: string
             default: "002"
-    # Configure Enviroment Variables
-  - variable: envList
-    label: "Image environment"
-    group: "Configuration"
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: envItem
-          label: "Environment Variable"
-          schema:
-            type: dict
-            attrs:
-              - variable: name
-                label: "Name"
-                schema:
-                  type: string
-              - variable: value
-                label: "Value"
-                schema:
-                  type: string
-  - variable: env
-    group: "Configuration"
-    label: "Image Environment"
-    schema:
-      type: dict
-      attrs:
         - variable: gui
           label: "GUI Settings"
           description: "Always read description before changing a value here. Also refer to README"
@@ -186,6 +159,26 @@ questions:
                   type: string
                   default: "ignore"
                   required: true
+  - variable: envList
+    label: "Image environment"
+    group: "Configuration"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: envItem
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
   # Enable Host Networking
   - variable: hostNetwork
     group: "Networking"

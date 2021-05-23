@@ -9,12 +9,10 @@ image:
   tag: 6.1.71
   pullPolicy: IfNotPresent
 
-
 envTpl:
-# Permissions Settings
-  UNIFI_GID: "568"
-  UNIFI_UID: "568"
-
+  # Permissions Settings
+  UNIFI_GID: "{ { .env.PUID } }"
+  UNIFI_UID: "{ { .env.PGID } }"
 ##
 # Most other defaults are set in questions.yaml
 # For other options please refer to the wiki, default_values.yaml or the common library chart
