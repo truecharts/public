@@ -1,35 +1,33 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: readarr
-version: 4.0.0
-upstream_version: 2.1.0
-appVersion: "auto"
-description: A fork of Radarr to work with Books & AudioBooks
-type: application
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 4.1.5
 deprecated: false
+description: A fork of Radarr to work with Books & AudioBooks
 home: https://github.com/truecharts/apps/tree/master/incubator/readarr
 icon: https://github.com/Readarr/Readarr/blob/develop/Logo/1024.png?raw=true
 keywords:
-  - readarr
-  - torrent
-  - usenet
-  - AudioBooks
-  - ebooks
-sources:
-  - https://github.com/truecharts/apps/tree/master/incubator/readarr
-  - https://github.com/k8s-at-home/charts/tree/master/charts/readarr
-  - https://github.com/Readarr/Readarr
-  - https://readarr.com
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 4.1.5
-    # condition:
+- readarr
+- torrent
+- usenet
+- AudioBooks
+- ebooks
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: readarr
+sources:
+- https://github.com/truecharts/apps/tree/master/incubator/readarr
+- https://github.com/k8s-at-home/charts/tree/master/charts/readarr
+- https://github.com/Readarr/Readarr
+- https://readarr.com
+type: application
+upstream_version: 2.1.0
+version: 4.0.1
