@@ -2112,6 +2112,38 @@ entries:
   emby:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-23T21:06:07.244909167Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.6
+    description: Emby Server is a home media server
+    digest: 36f2e75a17508a9b3ae64ee2f8305c69e2a4eeeea8ab9b66eac1d5cda02974d6
+    home: https://github.com/truecharts/apps/master/stable/emby
+    icon: https://truecharts.org/_static/img/emby-icon.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: dan.sheridan@postman.org.uk
+      name: djs52
+      url: truecharts.org
+    name: emby
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/emby
+    - https://hub.docker.com/r/linuxserver/emby
+    - https://github.com/linuxserver/docker-emby.git
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/emby-4.0.2/emby-4.0.2.tgz
+    version: 4.0.2
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-23T20:59:09.228952739Z"
     dependencies:
     - name: common
@@ -3458,6 +3490,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/jackett-3.1.5/jackett-3.1.5.tgz
     version: 3.1.5
   jellyfin:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-23T21:06:07.402328493Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.6
+    description: Jellyfin is a Free Software Media System
+    digest: ba83813219899caa526e2c794bf472bd92dc8e979902d5345edaecb3c0b7d9d5
+    home: https://github.com/truecharts/apps/tree/master/stable/jellyfin
+    icon: https://truecharts.org/_static/img/jellyfin-icon.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jellyfin
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/jellyfin
+    - https://github.com/k8s-at-home/charts/tree/master/charts/jellyfin
+    - https://hub.docker.com/r/linuxserver/Jellyfin/
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jellyfin-4.0.2/jellyfin-4.0.2.tgz
+    version: 4.0.2
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-23T20:59:10.461724934Z"
@@ -4903,6 +4968,35 @@ entries:
     - https://github.com/truecharts/apps/releases/download/organizr-3.1.5/organizr-3.1.5.tgz
     version: 3.1.5
   plex:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-23T21:06:07.558034755Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.6
+    description: Plex Media Server
+    digest: 739b61707790694d95a13f65542c84f7f422a19efd88b168b82cb2a80d84b7dd
+    home: https://github.com/truecharts/apps/tree/master/stable/plex
+    icon: https://www.plex.tv/wp-content/uploads/2018/01/pmp-icon-1.png
+    keywords:
+    - plex
+    - plex-media-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: plex
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/plex
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/plex-3.0.2/plex-3.0.2.tgz
+    version: 3.0.2
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-23T20:59:11.806898702Z"
@@ -6961,4 +7055,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-05-23T20:59:13.577917304Z"
+generated: "2021-05-23T21:06:07.558590775Z"
