@@ -17,22 +17,32 @@
     // Setup datasources for dep updates
     {
       "datasources": ["helm"],
-	  "matchManagers": ["helmv3"],
+      "matchManagers": ["helmv3"],
       "commitMessageTopic": "Helm chart {{depName}}",
       "separateMinorPatch": true
+    },
+    // global docker datasource settings
+    {
+      "datasources": ["docker"],
+      "matchManagers": ["helm-values"],
+      "enabled": true,
+      "commitMessageTopic": "container image {{depName}}",
+      "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
+      "matchUpdateTypes": ["major", "minor", "patch"],
     },
     //
     // Common library dep
     //
     {
-      "commitMessagePrefix": "[{{{parentDir}}}]",
-      "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
+      "matchDatasources": ["helm"],
       "updateTypes": ["major"],
       "bumpVersion": "major",
       "labels": ["dependency/major"],
-      "packageNames": ["common"]
+      "packageNames": ["common"],
+      "groupName": ["internal major dep"]
     },
     {
+      "matchDatasources": ["helm"],
       "updateTypes": ["minor"],
       "bumpVersion": "minor",
       "labels": ["dependency/minor"],
@@ -40,6 +50,7 @@
       "groupName": ["internal minor dep"]
     },
     {
+      "matchDatasources": ["helm"],
       "updateTypes": ["patch"],
       "bumpVersion": "patch",
       "labels": ["dependency/patch"],
@@ -47,9 +58,10 @@
       "groupName": ["internal patch dep"]
     },
     //
-    // Other library deps
+    // External helm deps
     //
     {
+      "matchDatasources": ["helm"],
       "commitMessagePrefix": "[{{{parentDir}}}]",
       "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
       "updateTypes": ["major"],
@@ -61,6 +73,7 @@
       ]
     },
     {
+      "matchDatasources": ["helm"],
       "updateTypes": ["minor"],
       "bumpVersion": "minor",
       "labels": ["dependency/minor"],
@@ -71,6 +84,7 @@
       ]
     },
     {
+      "matchDatasources": ["helm"],
       "updateTypes": ["patch"],
       "bumpVersion": "patch",
       "labels": ["dependency/patch"],
@@ -80,16 +94,11 @@
         "every 1 months on the first day of the month"
       ]
     },
-    // Setup datasources tag updates
-    {
-      "datasources": ["helm"],
-	    "matchManagers": ["helm-values"],
-      "commitMessageTopic": "Helm chart {{depName}}"
-    },
     //
     // Tag updates for semantic tags
     //
     {
+      "matchDatasources": ["docker"],
       "commitMessagePrefix": "[{{{parentDir}}}]",
       "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
       "updateTypes": ["major"],
@@ -97,12 +106,14 @@
       "labels": ["tag/major"]
     },
     {
+      "matchDatasources": ["docker"],
       "updateTypes": ["minor"],
       "bumpVersion": "minor",
       "labels": ["tag/minor"],
       "groupName": ["minor"]
     },
     {
+      "matchDatasources": ["docker"],
       "updateTypes": ["patch"],
       "bumpVersion": "patch",
       "labels": ["tag/patch"],
@@ -115,24 +126,5 @@
       "packagePatterns": ["^linuxserver\\/"],
       "versionScheme": "regex:^(?<compatibility>.*?(\\d+\\.)??)(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?(-r?p?\\d)?$"
     },
-    {
-      "commitMessagePrefix": "[{{{parentDir}}}]",
-      "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
-      "updateTypes": ["major"],
-      "bumpVersion": "major",
-      "labels": ["tag/major"]
-    },
-    {
-      "updateTypes": ["minor"],
-      "bumpVersion": "minor",
-      "labels": ["tag/minor"],
-      "groupName": ["minor"]
-    },
-    {
-      "updateTypes": ["patch"],
-      "bumpVersion": "patch",
-      "labels": ["tag/patch"],
-      "groupName": ["patch"]
-    }
   ]
 }
