@@ -8,29 +8,29 @@
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 5,
   "helm-values": {
-    "fileMatch": ["charts/.+/.+/.*values\\.yaml$", "charts/.+/.+/SCALE/.*_values\\.yaml$"]
+    "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
   },
   "helmv3": {
-    "fileMatch": ["charts/.+/.+/Chart\\.yaml$"]
+    "fileMatch": ["charts/.+/Chart\\.yaml$"]
   },
   "packageRules": [
     // Setup datasources for dep updates
     {
       "datasources": ["helm"],
-      "matchManagers": ["helmv3"],
+	  "matchManagers": ["helmv3"],
       "commitMessageTopic": "Helm chart {{depName}}",
-      "separateMinorPatch": true,
-      "separateMultipleMajor": false
+      "separateMinorPatch": true
     },
     //
     // Common library dep
     //
     {
+      "commitMessagePrefix": "[{{{parentDir}}}]",
+      "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
       "updateTypes": ["major"],
       "bumpVersion": "major",
       "labels": ["dependency/major"],
       "packageNames": ["common"]
-      "groupName": ["internal major dep"]
     },
     {
       "updateTypes": ["minor"],
