@@ -241,9 +241,15 @@ questions:
               - variable: emptyDir
                 label: "Mount a ramdisk instead of actual storage"
                 schema:
-                  type: boolean
-                  default: false
+                  type: dict
                   hidden: true
+                  attrs:
+                    - variable: enabled
+                      label: "Enable emptyDir"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
               - variable: accessMode
                 label: "Access Mode (Advanced)"
                 description: "Allow or disallow multiple PVC's writhing to the same PVC"

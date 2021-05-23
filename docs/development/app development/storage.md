@@ -7,7 +7,6 @@ This article serves as a development extention to the storage article available 
 For all these storage solutions we require the commonchart to be added to the App.
 The Common-Chart handles both the connection/addition of storage to the container and spinning up special k8s jobs to fix the permissions if requested for the Custom storage.
 
-
 ### Integrated Persistent Storage
 
 When adding an App, there are almost always certain folders that are required for solid Apps performance. For example config files that should be persistent across restarts.
@@ -56,6 +55,7 @@ Preventing the user to disable them, ensures that users don't (by mistake) remov
               - variable: emptyDir
                 label: "Mount a ramdisk instead of actual storage"
                 schema:
+                  type: dict
                   hidden: true
                   attrs:
                     - variable: enabled
