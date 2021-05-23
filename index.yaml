@@ -3904,6 +3904,39 @@ entries:
   lidarr:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-23T21:16:54.624543515Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.6
+    description: Looks and smells like Sonarr but made for music
+    digest: a4c9642579db7dea38859482c9fdb7bab886cc6df1c41b864df6d6c08bb8ccdd
+    home: https://github.com/truecharts/apps/tree/master/stable/lidarr
+    icon: https://avatars3.githubusercontent.com/u/28475832?s=400&v=4
+    keywords:
+    - lidarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: lidarr
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/lidarr
+    - https://github.com/k8s-at-home/charts/tree/master/charts/lidarr
+    - https://github.com/Lidarr/Lidarr
+    - https://hub.docker.com/r/linuxserver/lidarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lidarr-4.0.2/lidarr-4.0.2.tgz
+    version: 4.0.2
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-23T20:59:10.826104719Z"
     dependencies:
     - name: common
@@ -7055,4 +7088,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-05-23T21:06:07.558590775Z"
+generated: "2021-05-23T21:16:54.625330345Z"
