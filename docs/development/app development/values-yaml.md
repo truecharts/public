@@ -7,7 +7,7 @@ However, we have multiple different values.yaml files, with different goals. Bec
 
 ##### values.yaml
 
-The normal file with default setting in helm charts. However, for our non-library and non-dependency charts, this is not used for TrueCharts. As questions.yaml generates configs on demand (with addition of ix_values.yaml), this file might interfere with some Helm operations combined with the questions.yaml or test_values.yaml systems or cause unexpected behavior if used.
+This file contains the default config when running the App using stock helm (not SCALE). It also gets used for the testingsuite.
 
 ##### ix_values.yaml
 
@@ -39,14 +39,3 @@ image:
 ##
 
 ```
-
-
-##### test_values.yaml
-
-Our Apps often use special features of TrueNAS inside questions.yaml and our charts. However these features are not (always) compatible with stock Helm. Therefore we define a set of seperate "test" values.yaml setting that get used when we run the test CI.
-
-They should, however, be as close as possible to your "actual" default settings in questions.yaml
-
-##### default_values.yaml
-
-This on is the "odd one" of the bunch. We prefer not to use it for actual default, but to store default when porting charts from upstream.

@@ -78,7 +78,7 @@ For (2), system will normalize values or perform some actions as discussed above
 To minimise the maintenance load of our App collection, we always aim to standardise as much as possible. The same goes for questions.yaml. Included here are some code standardised code-snippets that are expected to be included in every App.
 Be aware that sometimes specific functions might or might not completely function. Leaving them out would, however, everely increase the maintenance load and often said functionality will be added in the common-chart later on anyway.
 ##### Groups
-To make sure all apps stay somewhat the same, we use a standardised `groups:` section. Please make sure to use this in your Apps:
+To make sure all apps stay somewhat the same, we use a list of standardised groups for the groups section. Please make sure to use these groups in your Apps:
 ```
 groups:
   - name: "Container Image"
@@ -107,24 +107,22 @@ groups:
 These options are always* included because almost every chart (eventually) has a use for them and/or other parts of the common chart depend on them.
 They are called general options, because they affect the basic functionalities of a chart. For example: Custom User environment variables, permissions and timezones.
 
-*`PUID`, `PGID`, `UMASK` are only included when they are needed. 
+*`PUID`, `PGID`, `UMASK` are only included when they are needed.
 
 ```
-  - variable: timezone
-    group: "Configuration"
-    label: "Timezone"
-    schema:
-      type: string
-      default: "Etc/UTC"
-      $ref:
-        - "definitions/timezone"
-
   - variable: env
     group: "Configuration"
     label: "Image Environment"
     schema:
       type: dict
       attrs:
+        - variable: TZ
+          label: "Timezone"
+          schema:
+            type: string
+            default: "Etc/UTC"
+            $ref:
+        - "definitions/timezone"
         - variable: PUID
           label: "PUID"
           description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
@@ -193,31 +191,19 @@ They are called general options, because they affect the basic functionalities o
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: false
+            default: true
         - variable: runAsUser
           label: "runAsUser"
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
-        - variable: supplementalGroups
-          label: "supplementalGroups"
-          description: "Additional groups this App needs access to"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: Group
-                label: "Group"
-                schema:
-                  type: int
-                  default: 568
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."

@@ -7,22 +7,28 @@ A TrueNAS SCALE chart also has three additional files an `app-readme.md` file th
 There are 2 directories `charts` and `test`, each representing a train. Chart releases created from catalog items in a specific train cannot be moved to another train. Currently only the `charts` train can be used inside the UI.
 
 ```
-charts/ix-chart/<chart version>/
-  app-readme.md            # TrueNAS SCALE Specific: Readme file for display in TrueNAS SCALE UI
+charts/<train>/<chart name>/
   charts/                  # Directory containing dependency charts
   Chart.yaml               # Required Helm chart information file
-  questions.yaml           # TrueNAS SCALE Specific: File containing questions for TrueNAS SCALE UI
   README.md                # Optional: Helm Readme file (will be rendered in TrueNAS SCALE UI as well)
   templates/               # A directory of templates that, when combined with values.yml will generate K8s YAML
   values.yaml              # The default configuration values for this chart
 ```
+
+```
+charts/<train>/<chart name>/
+  app-readme.md            # TrueNAS SCALE Specific: Readme file for display in TrueNAS SCALE UI
+  questions.yaml           # TrueNAS SCALE Specific: File containing questions for TrueNAS SCALE UI
+  ix_values.yaml           # Hidden configuration values when installing using TrueNAS SCALE
+```
+
 *See the upstream Helm chart [developer reference](https://helm.sh/docs/chart_template_guide/) for a complete walk through of developing charts.*
 
 To convert an upstream chart to take advantage of TrueNAS SCALE enhanced UX, first create an `item.yaml` file.
 This file among other catalog item information provides a list of categories that this chart fits into. This helps users navigate and filtering when browsing the catalog UI.
 
 ```
-$ cat charts/ix-chart/item.yaml
+$ cat charts/<train>/<chart name>/SCALE/item.yaml
 categories:
   - generic
 icon_url: "http://ix_url"
@@ -31,7 +37,7 @@ icon_url: "http://ix_url"
 After that create `app-readme.md` file.
 
 ```
-$ cat charts/ix-chart/<chart version>/app-readme.md
+$ cat charts/<train>/<chart name>/SCALE/app-readme.md
 
 iX-chart is a chart designed to let user deploy a docker image in a TrueNAS SCALE kubernetes cluster.
 It provides a mechanism to specify workload type, add external host interfaces in the pods, configure volumes and allocate host resources to the workload.

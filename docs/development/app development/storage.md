@@ -56,9 +56,14 @@ Preventing the user to disable them, ensures that users don't (by mistake) remov
               - variable: emptyDir
                 label: "Mount a ramdisk instead of actual storage"
                 schema:
-                  type: boolean
-                  default: false
                   hidden: true
+                  attrs:
+                    - variable: enabled
+                      label: "Enable emptyDir"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
               - variable: accessMode
                 label: "Access Mode (Advanced)"
                 description: "Allow or disallow multiple PVC's writhing to the same PVC"
@@ -87,7 +92,7 @@ It should always be included in any App, to give users the option to customise t
 ##### Example
 
 ```
-  - variable: additionalAppVolumeMounts
+  - variable: hostPathMounts
     label: "Custom app storage"
     group: "Storage and Devices"
     schema:
@@ -122,12 +127,16 @@ It should always be included in any App, to give users the option to customise t
                   required: true
                   editable: true
               - variable: emptyDir
-                label: "emptyDir"
+                label: "Mount a ramdisk instead of actual storage"
                 schema:
-                  type: boolean
-                  default: false
                   hidden: true
-                  editable: false
+                  attrs:
+                    - variable: enabled
+                      label: Enable emptyDir
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
               - variable: mountPath
                 label: "Mount Path"
                 description: "Path to mount inside the pod"
