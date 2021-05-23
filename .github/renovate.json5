@@ -69,7 +69,7 @@
       "labels": ["dependency/major"],
       "excludePackageNames": ["common"],
       "schedule": [
-        "every 3 months on the first day of the month"
+        "on monday"
       ]
     },
     {
@@ -80,7 +80,7 @@
       "excludePackageNames": ["common"],
       "groupName": ["external minor dep"],
       "schedule": [
-        "every 2 months on the first day of the month"
+        "on monday"
       ]
     },
     {
@@ -90,9 +90,6 @@
       "labels": ["dependency/patch"],
       "excludePackageNames": ["common"],
       "groupName": ["external patch dep"],
-      "schedule": [
-        "every 1 months on the first day of the month"
-      ]
     },
     //
     // Tag updates for semantic tags
