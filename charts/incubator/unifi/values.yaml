@@ -8,47 +8,44 @@ image:
 strategy:
   type: Recreate
 
-# Configure the Security Context for the Pod
-podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
-
 envTpl:
-# Permissions Settings
-  UNIFI_GID: "{{ .Values.PUID }}"
-  UNIFI_UID: "{{ .Values.PGID }}"
+  # Permissions Settings
+  UNIFI_GID: "{{ .Values.env.PUID }}"
+  UNIFI_UID: "{{ .Values.env.PGID }}"
 
-services:
+service:
   main:
-    port:
-      port: 8443
-  tcp:
+    ports:
+      main:
+        port: 8443
+  comm:
     enabled: true
     type: ClusterIP
-    port:
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
-  udp:
+    ports:
+      tcp:
+        enabled: true
+        port: 8080
+        protocol: TCP
+  stun:
     enabled: true
     type: ClusterIP
-    port:
-      port: 3478
-      protocol: UDP
-      targetPort: 3478
+    ports:
+      udp:
+        enabled: true
+        port: 3478
+        protocol: UDP
 
-env: {}
+env:
   # TZ:
-  # PUID:
-  # PGID:
+  PUID: "568"
+  PGID: "568"
 
 persistence:
   config:
     enabled: true
     mountPath: "/unifi"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

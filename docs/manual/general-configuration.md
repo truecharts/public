@@ -1,6 +1,6 @@
 # General Configuration
 
-There are some setting that are always present on every App from TrueCharts.
+These are some common settings you might find on Apps and an explaination of their usecase.
 
 ##### Explaination sheet:
 

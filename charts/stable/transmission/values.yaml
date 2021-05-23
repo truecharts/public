@@ -8,25 +8,23 @@ image:
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 9091
-  tcp:
+    ports:
+      main:
+        port: 9091
+  torrent:
     enabled: true
     type: ClusterIP
-    port:
-      port: 51413
-      protocol: TCP
-      targetPort: 51413
-  udp:
-    enabled: true
-    type: ClusterIP
-    port:
-      port: 51413
-      protocol: UDP
-      targetPort: 51413
-
+    ports:
+      tcp:
+        enabled: true
+        port: 51413
+        protocol: TCP
+      udp:
+        enabled: true
+        port: 51413
+        protocol: UDP
 
 env: {}
   # TZ: UTC
@@ -37,7 +35,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

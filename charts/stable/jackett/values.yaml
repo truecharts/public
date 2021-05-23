@@ -9,11 +9,12 @@ strategy:
   type: Recreate
 
 
-services:
+service:
   main:
     enabled: true
-    port:
-      port: 9117
+    ports:
+      main:
+        port: 9117
 
 env: {}
   # TZ: UTC
@@ -25,22 +26,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
-
-
-## TrueCharts Values
-
-ingress:
-  main:
-    enabled: true
-    # Used when including ingress using {{ include "common.ingress" . }}
-    type: "HTTP"
-    entrypoint: "websecure"
-    certType: ""
-    annotations: {}
-    hosts:
-      - host: chart-example.local
-        path: /

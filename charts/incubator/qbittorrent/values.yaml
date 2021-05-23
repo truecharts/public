@@ -14,31 +14,30 @@ env: {}
   # PGID: 1001
   # UMASK: 022
 
-services:
+service:
   main:
-    port:
-      port: 8080
-  tcp:
+    ports:
+      main:
+        port: 8080
+  torrent:
     enabled: true
     type: ClusterIP
-    port:
-      port: 6881
-      protocol: TCP
-      targetPort: 51413
-  udp:
-    enabled: true
-    type: ClusterIP
-    port:
-      port: 6881
-      protocol: UDP
-      targetPort: 51413
-
+    ports:
+      tcp:
+        enabled: true
+        port: 6881
+        protocol: TCP
+      udp:
+        enabled: true
+        port: 6881
+        protocol: UDP
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
@@ -54,7 +53,3 @@ additionalVolumes:
 additionalVolumeMounts:
   - mountPath: /config/custom-cont-init.d
     name: qbittorrent-scripts
-
-
-appAdditionalServicesEnabled: true
-appAdditionalServices:

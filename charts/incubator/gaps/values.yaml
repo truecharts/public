@@ -8,10 +8,11 @@ image:
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 8484
+    ports:
+      main:
+        port: 8484
 
 env: {}
   # TZ: UTC
@@ -20,7 +21,8 @@ persistence:
   data:
     enabled: true
     mountPath: "/usr/data"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

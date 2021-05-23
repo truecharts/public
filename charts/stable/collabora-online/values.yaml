@@ -6,19 +6,12 @@ image:
 strategy:
   type: Recreate
 
-# Configure the Security Context for the Pod
-podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: null
-  runAsGroup: null
-  fsGroup: null
-
-services:
+service:
   main:
     type: NodePort
-    port:
-      port: 9980
-      nodePort: 30980
+    ports:
+      main:
+        port: 9980
 
 env:
   domain: nextcloud\.domain\.tld

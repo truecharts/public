@@ -8,44 +8,36 @@ image:
 strategy:
   type: Recreate
 
-services:
+service:
   main:
     enabled: true
-    port:
-      port: 5000
-
-podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
+    ports:
+      main:
+        port: 5000
 
 envTpl:
-# Permissions Settings
-  USER_ID: "{{ .Values.PUID }}"
-  GROUP_ID: "{{ .Values.PGID }}"
+  # Permissions Settings
+  USER_ID: "{{ .Values.env.PUID }}"
+  GROUP_ID: "{{ .Values.env.PGID }}"
 
 env:
+  PUID: "568"
+  PGID: "568"
   # TZ: UTC
   VISION-FACE: "True"
   VISION-DETECTION: "True"
   VISION-SCENE: "True"
-  MODELSTORE-DETECTION: "/modelstore/detection"    # Path to custom models (needs to be on documentation)
-  MODE: "High"        # High|Medium|Low
-  # ADMIN-KEY: "" # Deprecated since it got OpenSource? or optional?
-  # API-KEY: "" # Deprecated since it got OpenSource? or optional?podSecurityContext:
+  # Path to custom models (needs to be on documentation)
+  MODELSTORE-DETECTION: "/modelstore/detection"
+  # High|Medium|Low
+  MODE: "High"
 
 persistence:
   config:
     enabled: true
     mountPath: "/datastore"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
-
-## TrueCharts Values
-
-ingress:
-  main:
-    enabled: false

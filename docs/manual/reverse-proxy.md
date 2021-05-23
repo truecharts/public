@@ -4,6 +4,10 @@ Within TrueCharts our aim is to make it as easy as possible to secure your Apps.
 
 To use Traefik as a Reverse Proxy, all you have to do is enable "Reverse Proxy" in the App of your choice and fill out a little form.
 
+## Note
+
+Currently for charts using common 4.0, we do NOT support Reverse-Proxy/Ingress as it's being completely rewrithen from scratch at the moment.
+
 ### Types of Reverse Proxys
 
 We currently offer the following types of pre-configured reverse proxies:

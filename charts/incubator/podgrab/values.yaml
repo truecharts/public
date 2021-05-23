@@ -15,17 +15,19 @@ podSecurityContext:
   runAsGroup: 568
   fsGroup: 568
 
-services:
+service:
   main:
-    port:
-      port: 8080
+    ports:
+      main:
+        port: 8080
   tcp:
     enabled: true
     type: ClusterIP
-    port:
-      port: 51080
-      protocol: TCP
-      targetPort: 51080
+    ports:
+      tcp:
+        enabled: true
+        port: 51080
+        protocol: TCP
 
 env:
   PASSWORD: secretpasswordgoeshere
@@ -35,12 +37,13 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
 
-customStorage:
+hostPathMounts:
   - name: assets
     enabled: true
     mountPath: "/assets"

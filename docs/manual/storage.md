@@ -8,7 +8,7 @@ TrueCharts uses multiple different storage systems:
 Storage is currently seperated into two types:
 
 1. Integrated Persistent Storage
-2. Custom Storage
+2. Custom Storage aka "hostPathMounts"
 
 
 ### Integrated Persistent Storage
@@ -26,14 +26,12 @@ We currently have the following Storage options for Integrated Persistent Storag
 This storage is integrated into TrueNAS SCALE and completely supports reverting upgrades. Thats why this is the default (and only actually supported!) way of storing App configuration files.
 
 
-### Custom Storage
+### Custom app storage aka "hostPathMounts"
 
 Besides the earlier mentioned Integrated Persistent Storage, we also provide the option to mount as many host folders as you want.
 
-Custom storage currently actually quite simple:
+hostPathMounts are actually quite simple:
 It mounts a directory from your TrueNAS SCALE system, directly to a directory inside the App you're installing.
-
-However: We might port this to PVC's in the future, which is not fully decided on yet.
 
 
 ### Permissions
@@ -46,7 +44,7 @@ For both Integrated Persistent Storage and Custom storage, we offer special opti
 These get automatically set to be owned by root:__PGID__
 There are no options available to configure this.
 
-##### Custom storage
+##### Custom app storage aka "hostPathMounts"
 
 We offer an optional automatic set the permissions according to App PGID and PUID.
 

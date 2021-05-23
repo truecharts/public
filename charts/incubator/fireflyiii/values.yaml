@@ -1,4 +1,4 @@
-# Default values for Bitwarden.
+# Default values for fireflyIII.
 
 image:
   repository: jc5x/firefly-iii
@@ -14,17 +14,19 @@ podSecurityContext:
   runAsGroup: 0
   fsGroup: 0
 
-services:
+service:
   main:
-    port:
-      port: 8080
+    ports:
+      main:
+        port: 8080
   tcp:
     enabled: true
     type: ClusterIP
-    port:
-      port: 51080
-      protocol: TCP
-      targetPort: 51080
+    ports:
+      tcp:
+        enabled: true
+        port: 51080
+        protocol: TCP
 
 env:
   DB_USERNAME: firefly
@@ -47,20 +49,23 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/www/html/storage/upload"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
   db:
     nameOverride: "db"
     enabled: true
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
   dbbackup:
     enabled: true
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

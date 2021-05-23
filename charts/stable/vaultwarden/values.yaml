@@ -1,20 +1,23 @@
 # Default values for Bitwarden.
 
 image:
-  repository: bitwardenrs/server
+  repository: vaultwarden/server
   pullPolicy: IfNotPresent
   tag: 1.21.0
 
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 8080
+    ports:
+      main:
+        port: 8080
   ws:
-    port:
-      port: 3012
+    ports:
+      ws:
+        enabled: true
+        port: 3012
 
 env: {}
 
@@ -23,9 +26,9 @@ envTpl:
 
 envFrom:
   - configMapRef:
-      name: bitwardenconfig
+      name: vaultwardenconfig
   - secretRef:
-      name: bitwardensecret
+      name: vaultwardensecret
 
 envValueFrom:
   DATABASE_URL:
@@ -46,7 +49,7 @@ database:
   # retries: 15
 
 # Set Bitwarden_rs application variables
-bitwardenrs:
+vaultwarden:
   # Allow any user to sign-up: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-registration-of-new-users
   allowSignups: true
   ## Whitelist domains allowed to sign-up. 'allowSignups' is ignored if set.
@@ -146,20 +149,23 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
   db:
     nameOverride: "db"
     enabled: true
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
   dbbackup:
     enabled: true
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""
@@ -169,8 +175,8 @@ persistence:
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
   enabled: true
-  postgresqlUsername: homeassistant
-  postgresqlDatabase: homeassistant
+  postgresqlUsername: vaultwarden
+  postgresqlDatabase: vaultwarden
   existingSecret: dbcreds
   persistence:
     enabled: false

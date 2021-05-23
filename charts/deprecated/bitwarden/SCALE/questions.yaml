@@ -62,7 +62,7 @@ questions:
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
-# Configure Bitwarden:
+  # Configure Bitwarden:
   - variable: bitwardenrs
     label: ""
     group: "Configuration"
@@ -521,7 +521,7 @@ questions:
                         required: true
                         hidden: true
 
-## TrueCharts Specific
+  ## TrueCharts Specific
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Websocket Service"
@@ -560,9 +560,15 @@ questions:
               - variable: emptyDir
                 label: "Mount a ramdisk instead of actual storage"
                 schema:
-                  type: boolean
-                  default: false
+                  type: dict
                   hidden: true
+                  attrs:
+                    - variable: enabled
+                      label: "Enable emptyDir"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
               - variable: accessMode
                 label: "Access Mode (Advanced)"
                 description: "Allow or disallow multiple PVC's writhing to the same PVC"
@@ -619,9 +625,15 @@ questions:
               - variable: emptyDir
                 label: "Mount a ramdisk instead of actual storage"
                 schema:
-                  type: boolean
-                  default: false
+                  type: dict
                   hidden: true
+                  attrs:
+                    - variable: enabled
+                      label: "Enable emptyDir"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
               - variable: accessMode
                 label: "Access Mode (Advanced)"
                 description: "Allow or disallow multiple PVC's writhing to the same PVC"
@@ -671,9 +683,15 @@ questions:
               - variable: emptyDir
                 label: "Mount a ramdisk instead of actual storage"
                 schema:
-                  type: boolean
-                  default: false
+                  type: dict
                   hidden: true
+                  attrs:
+                    - variable: enabled
+                      label: "Enable emptyDir"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: true
               - variable: accessMode
                 label: "Access Mode (Advanced)"
                 description: "Allow or disallow multiple PVC's writhing to the same PVC"

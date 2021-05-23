@@ -8,10 +8,11 @@ image:
 strategy:
   type: Recreate
 
-services:
+service:
   main:
-    port:
-      port: 4533
+    ports:
+      main:
+        port: 4533
 
 env:
   ND_SCANINTERVAL: "15m"
@@ -24,7 +25,8 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

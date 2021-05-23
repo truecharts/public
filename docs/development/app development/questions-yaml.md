@@ -78,7 +78,7 @@ For (2), system will normalize values or perform some actions as discussed above
 To minimise the maintenance load of our App collection, we always aim to standardise as much as possible. The same goes for questions.yaml. Included here are some code standardised code-snippets that are expected to be included in every App.
 Be aware that sometimes specific functions might or might not completely function. Leaving them out would, however, everely increase the maintenance load and often said functionality will be added in the common-chart later on anyway.
 ##### Groups
-To make sure all apps stay somewhat the same, we use a standardised `groups:` section. Please make sure to use this in your Apps:
+To make sure all apps stay somewhat the same, we use a list of standardised groups for the groups section. Please make sure to use these groups in your Apps:
 ```
 groups:
   - name: "Container Image"
@@ -88,30 +88,59 @@ groups:
   - name: "Configuration"
     description: "additional container configuration"
   - name: "Networking"
-    description: "Configure / service for container"
-  - name: "Storage and Devices"
+    description: "Configure Network and Services for container"
+  - name: "Storage"
     description: "Persist and share data that is separate from the lifecycle of the container"
   - name: "Resources and Devices"
     description: "Specify resources/devices to be allocated to workload"
-  - name: "Reverse Proxy Configuration"
-    description: "Reverse Proxy configuration"
+  - name: "Ingress Configuration"
+    description: "Ingress Configuration"
+  - name: "Security"
+    description: "Configure security context"
+  - name: "Advanced"
+    description: "Advanced Configuration"
   - name: "WARNING"
     description: "WARNING"
 ```
 
 ##### General Configuration options
-These options are always included because almost every chart (eventually) has a use for them and/or other parts of the common chart depend on them.
+These options are always* included because almost every chart (eventually) has a use for them and/or other parts of the common chart depend on them.
 They are called general options, because they affect the basic functionalities of a chart. For example: Custom User environment variables, permissions and timezones.
 
+*`PUID`, `PGID`, `UMASK` are only included when they are needed.
+
 ```
-  - variable: timezone
+  - variable: env
     group: "Configuration"
-    label: "Timezone"
+    label: "Image Environment"
     schema:
-      type: string
-      default: "Etc/UTC"
-      $ref:
+      type: dict
+      attrs:
+        - variable: TZ
+          label: "Timezone"
+          schema:
+            type: string
+            default: "Etc/UTC"
+            $ref:
         - "definitions/timezone"
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: int
+            default: 568
+        - variable: PGID
+          label: "PGID"
+          description: "Sets the PGID env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: int
+            default: 568
+        - variable: UMASK
+          label: "UMASK"
+          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: string
+            default: "002"
 
   # Configure Custom Enviroment Variables
   - variable: environmentVariables
@@ -136,33 +165,12 @@ They are called general options, because they affect the basic functionalities o
                   type: string
 ```
 
-And at the bottom some advanced settings:
-```
-  - variable: PUID
-    group: "Advanced"
-    label: "Common Group ID"
-    description: "The UserID of the user running any included common chart-based pods"
-    schema:
-      type: int
-      default: 568
+##### Security Context Configuration options
 
-  - variable: PGID
-    group: "Advanced"
-    label: "Storage and Common Group ID"
-    description: "The groupID of the user/group running any included common chart-based pods and owning the files!"
-    schema:
-      type: int
-      default: 568
-  - variable: UMASK
-    group: "Advanced"
-    label: "UMASK (Common Chart)"
-    description: "The UMASK used (if supported) by any included common chart-based pod"
-    schema:
-      type: string
-      default: "002"
+```
   # Enable privileged
   - variable: securityContext
-    group: "Advanced"
+    group: "Security"
     label: "Security Context"
     schema:
       type: dict
@@ -172,4 +180,44 @@ And at the bottom some advanced settings:
           schema:
             type: boolean
             default: false
+  # Set Pod Security Policy
+  - variable: podSecurityContext
+    group: "Security"
+    label: "Pod Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: runAsNonRoot
+          label: "runAsNonRoot"
+          schema:
+            type: boolean
+            default: true
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroupChangePolicy
+          label: "When should we take ownership?"
+          schema:
+            type: string
+            default: "OnRootMismatch"
+            enum:
+              - value: "OnRootMismatch"
+                description: "OnRootMismatch"
+              - value: "Always"
+                description: "Always"
 ```

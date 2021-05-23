@@ -17,16 +17,18 @@ env: {}
   # NODE_RED_ENABLE_SAFE_MODE:
   # FLOWS:
 
-services:
+service:
   main:
-    port:
-      port: 1880
+    ports:
+      main:
+        port: 1880
 
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-    emptyDir: true
+    emptyDir:
+      enabled: true
     accessMode: ReadWriteOnce
     size: 1Gi
     storageClass: ""

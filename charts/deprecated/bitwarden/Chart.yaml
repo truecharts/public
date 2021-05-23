@@ -1,12 +1,12 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: bitwarden
-version: 1.2.6
+version: 1.2.7
 upstream_version: 2.1.5
 appVersion: "auto"
 description: Unofficial Bitwarden compatible server written in Rust
 type: application
-deprecated: false
+deprecated: true
 home: https://github.com/truecharts/apps/tree/master/incubator/bitwarden
 icon: https://raw.githubusercontent.com/bitwarden/brand/master/icons/256x256.png
 keywords:
@@ -28,11 +28,5 @@ dependencies:
     version: 10.4.3
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
+maintainers: []
 # annotations:
