@@ -1985,6 +1985,38 @@ entries:
   esphome:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-23T20:36:05.024146527Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.5
+    description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful
+      configuration files and control them remotely through Home Automation systems.
+    digest: 30fa8bb30e9925382958e0600892ade8fb7dbe782c87217e161cd45ef202a185
+    home: https://github.com/truecharts/apps/tree/master/stable/esphome
+    icon: https://esphome.io/_images/logo.svg
+    keywords:
+    - esphome
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: esphome
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/esphome
+    - https://github.com/k8s-at-home/charts/tree/master/charts/esphome
+    - https://github.com/esphome/esphome
+    - https://hub.docker.com/u/esphome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/esphome-4.0.1/esphome-4.0.1.tgz
+    version: 4.0.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-23T19:02:14.366391767Z"
     dependencies:
     - name: common
@@ -2759,6 +2791,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/home-assistant-3.1.5/home-assistant-3.1.5.tgz
     version: 3.1.5
   jackett:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-23T20:36:05.195972636Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.5
+    description: API Support for your favorite torrent trackers.
+    digest: 6182ceac437325d296b4d1453aea2adfc12ad10cb191758cb8bc9e1a0ea1b3c9
+    home: https://github.com/truecharts/apps/tree/master/stable/jackett
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - jackett
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jackett
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/jackett
+    - https://github.com/k8s-at-home/charts/tree/master/charts/jackett
+    - https://github.com/Jackett/Jackett
+    - https://hub.docker.com/r/linuxserver/jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jackett-4.0.1/jackett-4.0.1.tgz
+    version: 4.0.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-23T19:02:15.692955512Z"
@@ -4234,6 +4299,39 @@ entries:
   radarr:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-23T20:36:05.364455924Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.5
+    description: A fork of Sonarr to work with movies à la Couchpotato
+    digest: 0ed078ba100dbad7dcd99cfd3b24a000d1ef7708db66a3a8a4738f0146dfc2d4
+    home: https://github.com/truecharts/apps/tree/master/stable/radarr
+    icon: https://nzbusenet.com/wp-content/uploads/2017/10/radarr-logo.png
+    keywords:
+    - radarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: radarr
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/radarr
+    - https://github.com/k8s-at-home/charts/tree/master/charts/radarr
+    - https://github.com/Radarr/Radarr
+    - https://hub.docker.com/r/linuxserver/radarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/radarr-4.0.1/radarr-4.0.1.tgz
+    version: 4.0.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-23T19:02:18.070317864Z"
     dependencies:
     - name: common
@@ -5230,6 +5328,34 @@ entries:
   unifi:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-23T20:36:05.534918425Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.5
+    description: Ubiquiti Network's Unifi Controller
+    digest: b5a9f9ebe6c240b4de4ad40ba69ba4d2f5a39ebd29b9a53248d3fd4c9d6b122e
+    home: https://github.com/truecharts/apps/tree/master/incubator/unifi
+    icon: https://dl.ubnt.com/press/logo-UniFi.png
+    keywords:
+    - ubiquiti
+    - unifi
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: unifi
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/unifi
+    - https://github.com/jacobalberty/unifi-docker
+    - https://unifi-network.ui.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/unifi-4.0.1/unifi-4.0.1.tgz
+    version: 4.0.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-23T19:02:19.42134332Z"
     dependencies:
     - name: common
@@ -5458,4 +5584,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-05-23T20:24:46.629512812Z"
+generated: "2021-05-23T20:36:05.535550829Z"
