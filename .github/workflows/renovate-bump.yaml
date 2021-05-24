@@ -87,5 +87,5 @@ jobs:
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
           git add --all
-          git commit --amend || exit 0
-          git push --force
+          git commit -sm "Commit bumped App Version" || exit 0
+          git push

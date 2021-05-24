@@ -52,6 +52,7 @@
     },
     {
       "matchDatasources": ["helm"],
+      "automerge": true,
       "updateTypes": ["patch"],
       "bumpVersion": "patch",
       "labels": ["dependency/patch"],
@@ -70,7 +71,7 @@
       "labels": ["dependency/major"],
       "excludePackageNames": ["common"],
       "schedule": [
-        "on monday"
+        "on tuesday"
       ]
     },
     {
@@ -81,7 +82,7 @@
       "excludePackageNames": ["common"],
       "groupName": ["external minor dep"],
       "schedule": [
-        "on monday"
+        "on tuesday"
       ]
     },
     {
@@ -91,6 +92,9 @@
       "labels": ["dependency/patch"],
       "excludePackageNames": ["common"],
       "groupName": ["external patch dep"],
+      "schedule": [
+        "on tuesday"
+      ]
     },
     //
     // Tag updates for semantic tags
@@ -101,21 +105,30 @@
       "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
       "updateTypes": ["major"],
       "bumpVersion": "major",
-      "labels": ["tag/major"]
+      "labels": ["tag/major"],
+      "schedule": [
+        "on tuesday"
+      ]
     },
     {
       "matchDatasources": ["docker"],
       "updateTypes": ["minor"],
       "bumpVersion": "minor",
       "labels": ["tag/minor"],
-      "groupName": ["minor"]
+      "groupName": ["minor"],
+      "schedule": [
+        "on tuesday"
+      ]
     },
     {
       "matchDatasources": ["docker"],
       "updateTypes": ["patch"],
       "bumpVersion": "patch",
       "labels": ["tag/patch"],
-      "groupName": ["patch"]
+      "groupName": ["patch"],
+      "schedule": [
+        "on tuesday"
+      ]
     },
     //
     // Version strategies
@@ -133,16 +146,6 @@
         "ghcr.io/truecharts/plex",
         "ghcr.io/truecharts/qbittorrent",
       ],
-    },
-    // enable container auto-merge
-    {
-      "matchDatasources": ["docker"],
-      "automerge": true,
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchPackageNames": [
-        "ghcr.io/truecharts/plex",
-        "ghcr.io/truecharts/jackett",
-     ],
     },
   ]
 }
