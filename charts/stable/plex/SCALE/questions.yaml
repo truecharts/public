@@ -238,7 +238,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: true
+                  hidden: false
               - variable: storageClass
                 label: "Type of Storage"
                 description: " Warning: Anything other than Internal will break rollback!"
