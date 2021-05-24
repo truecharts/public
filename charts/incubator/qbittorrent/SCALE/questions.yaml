@@ -162,6 +162,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
                           - variable: protocol
                             label: "Port Type"
                             schema:
@@ -256,6 +262,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
                           - variable: protocol
                             label: "Port Type"
                             schema:
@@ -301,6 +313,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
                           - variable: protocol
                             label: "Port Type"
                             schema:
