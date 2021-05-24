@@ -21,6 +21,11 @@ service:
       udp:
         port: 22000
         protocol: UDP
+  discovery:
+    ports:
+      discovery:
+        port: 21027
+        protocol: UDP
 
 persistence:
   config:
