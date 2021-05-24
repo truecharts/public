@@ -266,12 +266,14 @@ jobs:
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              if [ -d "${chart}" ]; then
+              if [ -d "${chart}/SCALE" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
                 rm -Rf catalog/${train}/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
                 rm -Rf catalog/${train}/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
+              else
+                echo "Skipping chart, no correct SCALE compatibility layer detected"
               fi
             done
           done
@@ -292,7 +294,7 @@ jobs:
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              if [ -d "${chart}" ]; then
+              if [ -d "${chart}/SCALE" ]; then
                 chartname=$(basename ${chart})
                 echo "Processing... Applying SCALE patch... Chart: ${chartname} - Version: ${maxfolderversion}"
                 mv ${chart}/SCALE/item.yaml ${chart}/
@@ -304,6 +306,8 @@ jobs:
                 touch ${chart}/values.yaml
                 description=$(cat ${chart}/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
                 echo "${description}" >> ${chart}/app-readme.md
+              else
+                echo "Skipping chart, no correct SCALE compatibility layer detected"
               fi
             done
           done
@@ -312,13 +316,15 @@ jobs:
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              if [ -d "${chart}/SCALE" ]; then
+              if [ -f "${chart}/item.yaml" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
-                echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
-                mkdir -p catalog/${train}/${chartname}/${maxchartversion}
-                cp -Rf ${chart}/* catalog/${train}/${chartname}/${maxchartversion}/
-                mv catalog/${train}/${chartname}/${maxchartversion}/item.yaml catalog/${train}/${chartname}/item.yaml
+                  echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
+                  mkdir -p catalog/${train}/${chartname}/${maxchartversion}
+                  cp -Rf ${chart}/* catalog/${train}/${chartname}/${maxchartversion}/
+                  mv catalog/${train}/${chartname}/${maxchartversion}/item.yaml catalog/${train}/${chartname}/item.yaml
+              else
+                echo "Skipping, chart does not contain SCALE compatibility layer..."
               fi
             done
           done
