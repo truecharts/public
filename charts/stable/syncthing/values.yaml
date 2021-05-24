@@ -13,6 +13,14 @@ service:
     ports:
       main:
         port: 8384
+  listeners:
+    ports:
+      tcp:
+        port: 22000
+        protocol: TCP
+      udp:
+        port: 22000
+        protocol: UDP
 
 persistence:
   config:
