@@ -1,26 +1,24 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: heimdall
-version: 4.0.1
-upstream_version: 4.1.1
-appVersion: "auto"
-description: An Application dashboard and launcher
-type: application
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 4.1.6
 deprecated: false
+description: An Application dashboard and launcher
 home: https://github.com/truecharts/apps/tree/master/incubator/heimdall
 icon: https://i.imgur.com/mM4tcO5.png
 keywords:
-  - heimdall
-sources:
-  - https://github.com/truecharts/apps/tree/master/incubator/heimdall
-  - https://github.com/k8s-at-home/charts/tree/master/charts/heimdall
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 4.1.6
-    # condition:
+- heimdall
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+name: heimdall
+sources:
+- https://github.com/truecharts/apps/tree/master/incubator/heimdall
+- https://github.com/k8s-at-home/charts/tree/master/charts/heimdall
+type: application
+upstream_version: 4.1.1
+version: 4.1.0

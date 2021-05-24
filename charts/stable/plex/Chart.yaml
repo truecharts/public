@@ -1,29 +1,27 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: plex
-version: 3.0.3
-upstream_version: 4.2.1
-appVersion: "auto"
-description: Plex Media Server
-type: application
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 4.1.6
 deprecated: false
+description: Plex Media Server
 home: https://github.com/truecharts/apps/tree/master/stable/plex
 icon: https://www.plex.tv/wp-content/uploads/2018/01/pmp-icon-1.png
 keywords:
 - plex
 - plex-media-server
-sources:
-  - https://github.com/truecharts/apps/tree/master/stable/plex
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 4.1.6
-    # condition:
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: plex
+sources:
+- https://github.com/truecharts/apps/tree/master/stable/plex
+type: application
+upstream_version: 4.2.1
+version: 3.1.0

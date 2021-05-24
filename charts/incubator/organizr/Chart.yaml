@@ -1,28 +1,26 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: organizr
-version: 4.0.1
-upstream_version: 3.2.1
-appVersion: "latest"
-description: HTPC/Homelab Services Organizer
-type: application
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 4.1.6
 deprecated: false
+description: HTPC/Homelab Services Organizer
 home: https://github.com/truecharts/apps/tree/master/incubator/organizr
 icon: https://github.com/causefx/Organizr/blob/v2-master/plugins/images/organizr/logo.png?raw=true
 keywords:
-  - organizr
-sources:
-  - https://github.com/truecharts/apps/tree/master/incubator/organizr
-  - https://github.com/k8s-at-home/charts/tree/master/charts/organizr
-  - https://github.com/causefx/Organizr
-  - https://hub.docker.com/r/organizr/organizr
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 4.1.6
-    # condition:
+- organizr
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+name: organizr
+sources:
+- https://github.com/truecharts/apps/tree/master/incubator/organizr
+- https://github.com/k8s-at-home/charts/tree/master/charts/organizr
+- https://github.com/causefx/Organizr
+- https://hub.docker.com/r/organizr/organizr
+type: application
+upstream_version: 3.2.1
+version: 4.1.0
