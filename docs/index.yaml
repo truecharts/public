@@ -2805,6 +2805,34 @@ entries:
   grocy:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-24T11:48:51.773510838Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.6
+    description: ERP beyond your fridge - grocy is a web-based self-hosted groceries
+      & household management solution for your home
+    digest: 46a4720f8b3d9c025546497e68ecd8412839e22244666e20a89a0a78476e66cf
+    home: https://github.com/truecharts/apps/tree/master/incubator/grocy
+    icon: https://github.com/grocy/grocy/raw/master/public/img/appicons/mstile-150x150.png
+    keywords:
+    - grocy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: grocy
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/grocy
+    - https://github.com/k8s-at-home/charts/tree/master/charts/grocy
+    - https://github.com/grocy/grocy
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/grocy-4.0.3/grocy-4.0.3.tgz
+    version: 4.0.3
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-23T20:59:09.85076365Z"
     dependencies:
     - name: common
@@ -3904,6 +3932,39 @@ entries:
   lidarr:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-24T11:48:51.924006576Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.6
+    description: Looks and smells like Sonarr but made for music
+    digest: c95fccd222825b5581835dad744f28317d489dc256bb23925c7918f5735edb78
+    home: https://github.com/truecharts/apps/tree/master/stable/lidarr
+    icon: https://avatars3.githubusercontent.com/u/28475832?s=400&v=4
+    keywords:
+    - lidarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: lidarr
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/lidarr
+    - https://github.com/k8s-at-home/charts/tree/master/charts/lidarr
+    - https://github.com/Lidarr/Lidarr
+    - https://hub.docker.com/r/linuxserver/lidarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lidarr-4.0.3/lidarr-4.0.3.tgz
+    version: 4.0.3
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-23T20:59:10.826104719Z"
     dependencies:
     - name: common
@@ -4970,6 +5031,35 @@ entries:
   plex:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-24T11:48:52.084430449Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.6
+    description: Plex Media Server
+    digest: a164ca812554f91b69a2679a2d49e7b5dd892819ae0584ead16d0986aff78f7b
+    home: https://github.com/truecharts/apps/tree/master/stable/plex
+    icon: https://www.plex.tv/wp-content/uploads/2018/01/pmp-icon-1.png
+    keywords:
+    - plex
+    - plex-media-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: plex
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/plex
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/plex-3.0.3/plex-3.0.3.tgz
+    version: 3.0.3
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-23T21:06:07.558034755Z"
     dependencies:
     - name: common
@@ -5514,6 +5604,41 @@ entries:
     - https://github.com/truecharts/apps/releases/download/radarr-3.1.5/radarr-3.1.5.tgz
     version: 3.1.5
   readarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-24T11:48:52.253299852Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.6
+    description: A fork of Radarr to work with Books & AudioBooks
+    digest: 486cfed23a2b5fcff738168db82ed2c7e7ce48558d3f653664df9d9659e931bb
+    home: https://github.com/truecharts/apps/tree/master/incubator/readarr
+    icon: https://github.com/Readarr/Readarr/blob/develop/Logo/1024.png?raw=true
+    keywords:
+    - readarr
+    - torrent
+    - usenet
+    - AudioBooks
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: readarr
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/readarr
+    - https://github.com/k8s-at-home/charts/tree/master/charts/readarr
+    - https://github.com/Readarr/Readarr
+    - https://readarr.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/readarr-4.0.3/readarr-4.0.3.tgz
+    version: 4.0.3
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-23T20:59:12.290423576Z"
@@ -6917,6 +7042,41 @@ entries:
   zwavejs2mqtt:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-24T11:48:52.408471906Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 4.1.6
+    description: Fully configurable Zwave to MQTT gateway and Control Panel using
+      NodeJS and Vue
+    digest: 518012c5bfa3a32558c64c51e3260d7f17bbb0c6a8826e0c57c028ccbcdc8d4a
+    home: https://github.com/truecharts/apps/tree/master/stable/zwavejs2mqtt
+    icon: https://raw.githubusercontent.com/zwave-js/zwavejs2mqtt/master/static/logo.png
+    keywords:
+    - zwavejs2mqtt
+    - zwave-js
+    - z-wave
+    - zwave
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: zwavejs2mqtt
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/zwavejs2mqtt
+    - https://github.com/k8s-at-home/charts/tree/master/charts/zwavejs2mqtt
+    - https://github.com/zwave-js/zwavejs2mqtt
+    - https://hub.docker.com/r/zwavejs/zwavejs2mqtt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-4.0.3/zwavejs2mqtt-4.0.3.tgz
+    version: 4.0.3
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-23T21:19:46.798707979Z"
     dependencies:
     - name: common
@@ -7090,4 +7250,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-05-23T21:19:46.800279497Z"
+generated: "2021-05-24T11:48:52.409155809Z"
