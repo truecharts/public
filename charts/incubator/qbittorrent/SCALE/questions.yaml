@@ -375,27 +375,29 @@ questions:
                   default: "/config"
                   hidden: true
               - variable: emptyDir
-                label: "Use Empty Dir Mountpoint"
+                label: "EmptyDir Volume"
                 schema:
                   type: dict
                   hidden: false
                   attrs:
                     - variable: enabled
-                      label: "Enable emptyDir"
+                      label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
                         hidden: false
-                    - variable: medium
-                      label: "EmptyDir Medium"
-                      schema:
-                        type: string
-                        default: ""
-                        enum:
-                          - value: ""
-                            description: "Default"
-                          - value: "Memory"
-                            description: "Memory"
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: medium
+                            label: "EmptyDir Medium"
+                            schema:
+                              type: string
+                              default: ""
+                              enum:
+                                - value: ""
+                                  description: "Default"
+                                - value: "Memory"
+                                  description: "Memory"
               - variable: accessMode
                 label: "Access Mode (Advanced)"
                 description: "Allow or disallow multiple PVC's writhing to the same PVC"
@@ -449,12 +451,29 @@ questions:
                   default: false
                   hidden: false
               - variable: emptyDir
-                label: "emptyDir"
+                label: "EmptyDir Volume"
                 schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-                  editable: false
+                  type: dict
+                  hidden: false
+                  attrs:
+                    - variable: enabled
+                      label: "Use emptyDir volume"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: medium
+                            label: "EmptyDir Medium"
+                            schema:
+                              type: string
+                              default: ""
+                              enum:
+                                - value: ""
+                                  description: "Default"
+                                - value: "Memory"
+                                  description: "Memory"
               - variable: mountPath
                 label: "Mount Path"
                 description: "Path to mount inside the pod"
@@ -465,6 +484,7 @@ questions:
                   editable: true
               - variable: hostPath
                 label: "Host Path"
+                description: "Path on the host to mount inside the container, ignored when emptyDir is enabled"
                 schema:
                   type: hostpath
                   required: true

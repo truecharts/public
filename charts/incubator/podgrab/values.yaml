@@ -47,4 +47,5 @@ hostPathMounts:
   - name: assets
     enabled: true
     mountPath: "/assets"
-    emptyDir: true
+    emptyDir:
+      enabled: true

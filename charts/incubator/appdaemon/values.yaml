@@ -38,4 +38,5 @@ hostPathMounts:
   - name: config
     enabled: true
     mountPath: /conf
-    emptyDir: true
+    emptyDir:
+      enabled: true
