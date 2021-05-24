@@ -510,12 +510,27 @@ questions:
                   default: false
                   hidden: false
               - variable: emptyDir
-                label: "emptyDir"
+                label: "Use Empty Dir Mountpoint"
                 schema:
-                  type: boolean
-                  default: false
-                  hidden: true
-                  editable: false
+                  type: dict
+                  hidden: false
+                  attrs:
+                    - variable: enabled
+                      label: "Enable emptyDir"
+                      schema:
+                        type: boolean
+                        default: false
+                        hidden: false
+                    - variable: medium
+                      label: "EmptyDir Medium"
+                      schema:
+                        type: string
+                        default: ""
+                        enum:
+                          - value: ""
+                            description: "Default"
+                          - value: "Memory"
+                            description: "Memory"
               - variable: mountPath
                 label: "Mount Path"
                 description: "Path to mount inside the pod"
@@ -526,6 +541,7 @@ questions:
                   editable: true
               - variable: hostPath
                 label: "Host Path"
+                description: "Path on the host to mount inside the container, ignored when emptyDir is enabled"
                 schema:
                   type: hostpath
                   required: true
