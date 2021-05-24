@@ -48,7 +48,6 @@ spec:
               {{- range $_, $hpm := $hostPathMounts }}
               chown -R {{ printf "%d:%d %s" (int $user) (int $group) $hpm.mountPath }}
               {{- end }}
-          {{- with (include "common.controller.volumeMounts" . | trim) }}
           volumeMounts:
             {{- range $name, $hpm := $hostPathMounts }}
             - name: {{ printf "hostpathmounts-%s" $name }}
