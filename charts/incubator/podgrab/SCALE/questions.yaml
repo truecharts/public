@@ -170,6 +170,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
                           - variable: protocol
                             label: "Port Type"
                             schema:
@@ -331,18 +337,16 @@ questions:
                         type: boolean
                         default: false
                         hidden: false
-                        show_subquestions_if: true
-                        subquestions:
-                          - variable: medium
-                            label: "EmptyDir Medium"
-                            schema:
-                              type: string
-                              default: ""
-                              enum:
-                                - value: ""
-                                  description: "Default"
-                                - value: "Memory"
-                                  description: "Memory"
+                    - variable: medium
+                      label: "EmptyDir Medium"
+                      schema:
+                        type: string
+                        default: ""
+                        enum:
+                          - value: ""
+                            description: "Default"
+                          - value: "Memory"
+                            description: "Memory"
               - variable: mountPath
                 label: "Mount Path"
                 description: "Path to mount inside the pod"

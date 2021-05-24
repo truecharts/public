@@ -147,18 +147,16 @@ It should always be included in any App, to give users the option to customise t
                         type: boolean
                         default: false
                         hidden: false
-                        show_subquestions_if: true
-                        subquestions:
-                          - variable: medium
-                            label: "EmptyDir Medium"
-                            schema:
-                              type: string
-                              default: ""
-                              enum:
-                                - value: ""
-                                  description: "Default"
-                                - value: "Memory"
-                                  description: "Memory"
+                    - variable: medium
+                      label: "EmptyDir Medium"
+                      schema:
+                        type: string
+                        default: ""
+                        enum:
+                          - value: ""
+                            description: "Default"
+                          - value: "Memory"
+                            description: "Memory"
               - variable: mountPath
                 label: "Mount Path"
                 description: "Path to mount inside the pod"

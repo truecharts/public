@@ -88,6 +88,12 @@ Please keep in mind that every App is different, some just have one service (whi
                       schema:
                         type: dict
                         attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
                           - variable: protocol
                             label: "Port Type"
                             schema:
@@ -128,70 +134,4 @@ Please keep in mind that every App is different, some just have one service (whi
                               max: 65535
                               default: 36041
                               required: true
-```
-
-##### Unlimited custom services
-
-in some edgecases users might need or want to have the option to add unlimited custom Services. While we _highly_ suggest not doing so, these services can be added with the following standardised template:
-
-```
-  - variable: additionalServices
-    label: "Custom Services"
-    group: "Networking"
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: additionalService
-          label: "Custom Service"
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                 label: "Enable the service"
-                 schema:
-                   type: boolean
-                   default: true
-                   hidden: true
-              - variable: type
-                label: "Service type"
-                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System"
-                schema:
-                  type: string
-                  default: "ClusterIP"
-                  enum:
-                    - value: "nodePort"
-                      description: "NodePort"
-                    - value: "ClusterIP"
-                      description: "ClusterIP"
-              - variable: port
-                label: "Port configuration"
-                schema:
-                  type: dict
-                  attrs:
-                    - variable: port
-                      label: "container port"
-                      schema:
-                        type: int
-                        default: 80
-                        editable: false
-                        hidden: true
-                    - variable: targetport
-                      label: "Internal Service port"
-                      description: "When connecting internally to this App, you'll need this port"
-                      schema:
-                        type: int
-                        default: 80
-                        editable: false
-                        hidden: true
-                    - variable: nodePort
-                      label: "(optional) host nodePort to expose to"
-                      description: "only get used when nodePort is selected"
-                      schema:
-                        type: int
-                        min: 9000
-                        max: 65535
-                        default: 36052
-                        required: true
-
 ```
