@@ -50,12 +50,41 @@ spec:
               {{- end }}
           {{- with (include "common.controller.volumeMounts" . | trim) }}
           volumeMounts:
-            {{ nindent 12 . }}
-          {{- end }}
-      {{- with (include "common.controller.volumes" . | trim) }}
+            {{- range $name, $hpm := $hostPathMounts }}
+            - name: {{ printf "hostpathmounts-%s" $name }}
+              mountPath: {{ $hpm.mountPath }}
+              {{- if $hpm.subPath }}
+              subPath: {{ $hpm.subPath }}
+              {{- end }}
+            {{- end }}
       volumes:
-        {{- nindent 8 . }}
-      {{- end }}
+        {{- range $name, $hpm := $hostPathMounts }}
+        - name: {{ printf "hostpathmounts-%s" $name }}
+          {{- /* Always prefer an emptyDir next if that is set */}}
+          {{- $emptyDir := false -}}
+          {{- if $hpm.emptyDir -}}
+            {{- if $hpm.emptyDir.enabled -}}
+              {{- $emptyDir = true -}}
+            {{- end -}}
+          {{- end -}}
+          {{- if $emptyDir }}
+          {{- if or $hpm.emptyDir.medium $hpm.emptyDir.sizeLimit }}
+          emptyDir:
+            {{- with $hpm.emptyDir.medium }}
+            medium: "{{ . }}"
+            {{- end }}
+            {{- with $hpm.emptyDir.sizeLimit }}
+            sizeLimit: "{{ . }}"
+            {{- end }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+          {{- else }}
+          hostPath:
+            path: {{ required "hostPath not set" $hpm.hostPath }}
+          {{ end }}
+        {{ end }}
+        {{- end }}
 
   {{- end -}}
 {{- end -}}
