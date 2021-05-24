@@ -3260,6 +3260,39 @@ entries:
   fireflyiii:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-24T21:43:02.729005585Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.0.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.4.6
+    description: A free and open source personal finance manager
+    digest: 3f4924f22ddec7f44303b760435955e371c01fbba29de9e95590188372389d7f
+    home: https://github.com/firefly-iii/firefly-iii/
+    icon: https://www.firefly-iii.org/assets/logo/color.png
+    keywords:
+    - fireflyiii
+    - finacial
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 20650065+warllo54@users.noreply.github.com
+      name: warllo54
+      url: truecharts.org
+    name: fireflyiii
+    sources:
+    - https://github.com/firefly-iii/firefly-iii/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/fireflyiii-3.0.2/fireflyiii-3.0.2.tgz
+    version: 3.0.2
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-24T21:09:19.127606049Z"
     dependencies:
     - name: common
@@ -7864,6 +7897,36 @@ entries:
     version: 2.1.5
   podgrab:
   - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-24T21:43:02.850635329Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.0.0
+    description: A self-hosted podcast manager to download episodes as soon as they
+      become live.
+    digest: 24b65c9b81b9be46ddc0ea06053414044779525e2bb679bf5c0b752acc29e095
+    home: https://github.com/truecharts/apps/tree/master/incubator/podgrab
+    icon: https://truecharts.org/_static/img/podgrab-icon.png
+    keywords:
+    - podgrab
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 20650065+warllo54@users.noreply.github.com
+      name: warllo54
+      url: truecharts.org
+    name: podgrab
+    sources:
+    - https://github.com/akhilrex/podgrab
+    - https://hub.docker.com/r/akhilrex/podgrab
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/podgrab-3.0.2/podgrab-3.0.2.tgz
+    version: 3.0.2
+  - apiVersion: v2
     appVersion: latest
     created: "2021-05-24T21:09:21.190743773Z"
     dependencies:
@@ -10397,6 +10460,36 @@ entries:
     version: 3.1.5
   tvheadend:
   - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-24T21:43:03.000809123Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.0.0
+    description: TVheadend - a TV streaming server and digital video recorder
+    digest: 8d41f2f03c9dc16dc4644631950ced2f5b661b0753b14898ff6143ef62da94d3
+    home: https://github.com/truecharts/apps/tree/master/incubator/tvheadend
+    icon: https://avatars.githubusercontent.com/u/1908588?s=200&v=4
+    keywords:
+    - tvheadend
+    - tv
+    - streaming
+    - dvb
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: tvheadend
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/tvheadend
+    - https://github.com/k8s-at-home/charts/tree/master/charts/tvheadend
+    - https://github.com/tvheadend/tvheadend
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/tvheadend-6.0.2/tvheadend-6.0.2.tgz
+    version: 6.0.2
+  - apiVersion: v2
     appVersion: latest
     created: "2021-05-24T21:09:22.479198668Z"
     dependencies:
@@ -11343,4 +11436,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-05-24T21:09:22.784674749Z"
+generated: "2021-05-24T21:43:03.002084565Z"
