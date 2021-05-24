@@ -31,3 +31,10 @@ Be also aware that we do not have common 2.0 based installs available in the ver
 
 In cases you upgrade to a common 4.0 based app, reinstall is currently required. Please be aware: Installing will nuke your data!
 However: Common 3.0 based Apps are still available to be installed using the version dropdown
+
+##### Common 4.0 -> common 5.0 based Apps
+
+Common 5.0.0 is actually a rather small update: It just allows using a ramdisk when using emptyDir on hostPathMount.
+It is however still a breaking change.
+
+To update, we advice removing all(!) entries from hostPathMounts/customStorage and readd them after the update
