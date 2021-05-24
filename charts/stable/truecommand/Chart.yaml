@@ -1,29 +1,26 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: truecommand
-version: 4.0.1
-# upstream_version: 1.1.0
-appVersion: "nightly"
-description: Aggregated management of TrueNAS devices
-type: application
+appVersion: nightly
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 4.1.6
 deprecated: false
+description: Aggregated management of TrueNAS devices
 home: https://github.com/truecharts/apps/tree/master/incubator/truecommand
 icon: https://www.ixsystems.com/documentation/truecommand/1.2/_static/tv-logo.png
 keywords:
-  - truecommand
-sources:
-  - https://github.com/truecharts/apps/tree/master/incubator/truecommand
-  - https://hub.docker.com/r/ixsystems/truecommand
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 4.1.6
-    # condition:
+- truecommand
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: truecommand
+sources:
+- https://github.com/truecharts/apps/tree/master/incubator/truecommand
+- https://hub.docker.com/r/ixsystems/truecommand
+type: application
+version: 4.1.0

@@ -355,7 +355,9 @@ persistence:
 hostPathMounts: []
   # - name: "data"
   #   enabled: false
-  #   emptyDir: false
+  #   emptyDir:
+  #     enabled: false
+  #     medium: ""
   #   mountPath: "/data"
   #   subPath: some-subpath
   #   hostPath: ""
