@@ -82,7 +82,6 @@ spec:
           hostPath:
             path: {{ required "hostPath not set" $hpm.hostPath }}
           {{ end }}
-        {{ end }}
         {{- end }}
 
   {{- end -}}
