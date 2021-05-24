@@ -387,13 +387,13 @@ questions:
                   default: "/config"
                   hidden: true
               - variable: emptyDir
-                label: "Use Empty Dir Mountpoint"
+                label: "EmptyDir Volume"
                 schema:
                   type: dict
                   hidden: false
                   attrs:
                     - variable: enabled
-                      label: "Enable emptyDir"
+                      label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
@@ -463,13 +463,13 @@ questions:
                   default: false
                   hidden: false
               - variable: emptyDir
-                label: "Use Empty Dir Mountpoint"
+                label: "EmptyDir Volume"
                 schema:
                   type: dict
                   hidden: false
                   attrs:
                     - variable: enabled
-                      label: "Enable emptyDir"
+                      label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
