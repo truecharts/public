@@ -263,7 +263,8 @@ func (suite *PodTestSuite) TestHostPathVolumes() {
               hostPath: "/tmp1"
             - name: config
               enabled: true
-              emptyDir: true
+              emptyDir:
+                enabled: true
               mountPath: "/data"
     `
     tests := map[string]struct {
@@ -305,7 +306,8 @@ func (suite *PodTestSuite) TestHostPathVolumePaths() {
               hostPath: "/tmp1"
             - name: config
               enabled: true
-              emptyDir: true
+              emptyDir:
+                enabled: true
               mountPath: "/data"
     `
     tests := map[string]struct {
