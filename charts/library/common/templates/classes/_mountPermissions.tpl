@@ -48,23 +48,14 @@ spec:
               {{- range $_, $hpm := $hostPathMounts }}
               chown -R {{ printf "%d:%d %s" (int $user) (int $group) $hpm.mountPath }}
               {{- end }}
+          {{- with (include "common.controller.volumeMounts" . | trim) }}
           volumeMounts:
-            {{- range $name, $hpm := $hostPathMounts }}
-            - name: {{ printf "hostpathmounts-%s" $name }}
-              mountPath: {{ $hpm.mountPath }}
-              {{- if $hpm.subPath }}
-              subPath: {{ $hpm.subPath }}
-              {{- end }}
-            {{- end }}
-      volumes:
-        {{- range $name, $hpm := $hostPathMounts }}
-        - name: {{ printf "hostpathmounts-%s" $name }}
-          {{- if $hpm.emptyDir }}
-          emptyDir: {}
-          {{- else }}
-          hostPath:
-            path: {{ required "hostPath not set" $hpm.hostPath }}
+            {{ nindent 12 . }}
           {{- end }}
-        {{- end }}
+      {{- with (include "common.controller.volumes" . | trim) }}
+      volumes:
+        {{- nindent 8 . }}
+      {{- end }}
+
   {{- end -}}
 {{- end -}}
