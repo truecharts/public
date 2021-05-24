@@ -381,16 +381,18 @@ questions:
                         type: boolean
                         default: false
                         hidden: false
-                    - variable: medium
-                      label: "EmptyDir Medium"
-                      schema:
-                        type: string
-                        default: ""
-                        enum:
-                          - value: ""
-                            description: "Default"
-                          - value: "Memory"
-                            description: "Memory"
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: medium
+                            label: "EmptyDir Medium"
+                            schema:
+                              type: string
+                              default: ""
+                              enum:
+                                - value: ""
+                                  description: "Default"
+                                - value: "Memory"
+                                  description: "Memory"
               - variable: accessMode
                 label: "Access Mode (Advanced)"
                 description: "Allow or disallow multiple PVC's writhing to the same PVC"
@@ -455,16 +457,18 @@ questions:
                         type: boolean
                         default: false
                         hidden: false
-                    - variable: medium
-                      label: "EmptyDir Medium"
-                      schema:
-                        type: string
-                        default: ""
-                        enum:
-                          - value: ""
-                            description: "Default"
-                          - value: "Memory"
-                            description: "Memory"
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: medium
+                            label: "EmptyDir Medium"
+                            schema:
+                              type: string
+                              default: ""
+                              enum:
+                                - value: ""
+                                  description: "Default"
+                                - value: "Memory"
+                                  description: "Memory"
               - variable: mountPath
                 label: "Mount Path"
                 description: "Path to mount inside the pod"
