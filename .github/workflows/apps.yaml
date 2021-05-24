@@ -312,7 +312,7 @@ jobs:
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              if [ -d "${chart}" ]; then
+              if [ -d "${chart}/SCALE" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
