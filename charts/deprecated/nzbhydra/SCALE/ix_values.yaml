@@ -17,7 +17,7 @@ probes:
       failureThreshold: 5
       httpGet:
         path: /actuator/health/livenessState
-        port: http
+        port: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
@@ -28,7 +28,7 @@ probes:
       failureThreshold: 5
       httpGet:
         path: /actuator/health/readinessState
-        port: http
+        port: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
@@ -39,7 +39,7 @@ probes:
       failureThreshold: 5
       httpGet:
         path: /actuator/health/readinessState
-        port: http
+        port: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
