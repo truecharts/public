@@ -231,13 +231,10 @@ questions:
                   hidden: false
               - variable: storageClass
                 label: "Type of Storage"
-                description: " Warning: Anything other than Internal will break rollback!"
+                description: " Warning: Anything other than SCALE-ZFS will break rollback!"
                 schema:
                   type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Internal"
+                  default: "SCALE-ZFS"
               - variable: mountPath
                 label: "mountPath"
                 description: "Path inside the container the storage is mounted"
@@ -306,13 +303,10 @@ questions:
                   hidden: true
               - variable: storageClass
                 label: "Type of Storage"
-                description: " Warning: Anything other than Internal will break rollback!"
+                description: " Warning: Anything other than SCALE-ZFS will break rollback!"
                 schema:
                   type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Internal"
+                  default: "SCALE-ZFS"
               - variable: mountPath
                 label: "mountPath"
                 description: "Path inside the container the storage is mounted"
@@ -374,13 +368,10 @@ questions:
                   hidden: false
               - variable: storageClass
                 label: "Type of Storage"
-                description: " Warning: Anything other than Internal will break rollback!"
+                description: " Warning: Anything other than SCALE-ZFS will break rollback!"
                 schema:
                   type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Internal"
+                  default: "SCALE-ZFS"
               - variable: mountPath
                 label: "mountPath"
                 description: "Path inside the container the storage is mounted"
