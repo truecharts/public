@@ -8396,6 +8396,37 @@ entries:
   navidrome:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-25T21:26:46.29591406Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.0.2
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: 339e70799b1b6905a640146e1ad5db8e1a0b81905885b3c4b4ad06d789dbed18
+    home: https://github.com/truecharts/apps/tree/master/incubator/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/v0.42.0/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: navidrome
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/navidrome
+    - https://github.com/k8s-at-home/charts/tree/master/charts/navidrome
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/navidrome-5.0.5/navidrome-5.0.5.tgz
+    version: 5.0.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-25T15:00:32.341326325Z"
     dependencies:
     - name: common
@@ -15588,4 +15619,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-05-25T15:00:35.781810705Z"
+generated: "2021-05-25T21:26:46.29728504Z"
