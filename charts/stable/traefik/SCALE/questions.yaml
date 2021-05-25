@@ -782,18 +782,6 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: supplementalGroups
-          label: "supplementalGroups"
-          description: "Additional groups this App needs access to"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: Group
-                label: "Group"
-                schema:
-                  type: int
-                  default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
@@ -815,12 +803,12 @@ questions:
     description: "Please be sure to set the UI to a different port or adapter"
     group: "WARNING"
     schema:
-        type: dict
-        attrs:
-          - variable: confirm-warning
-            description: "Check this to confirm you have made precautions against conflicts on port 80 and 443, such as running the TrueNAS SCALE UI on a different port or adapter."
-            label: "I understand above warning and its consequences"
-            schema:
-              type: boolean
-              default: false
-              required: true
+      type: dict
+      attrs:
+        - variable: confirm-warning
+          description: "Check this to confirm you have made precautions against conflicts on port 80 and 443, such as running the TrueNAS SCALE UI on a different port or adapter."
+          label: "I understand above warning and its consequences"
+          schema:
+            type: boolean
+            default: false
+            required: true
