@@ -257,7 +257,6 @@ questions:
                             schema:
                               type: string
                               default: "HTTP"
-                              hidden: false
                               enum:
                                 - value: HTTP
                                   description: "HTTP"
@@ -281,7 +280,6 @@ questions:
                               type: int
                               default: 5800
                               editable: true
-                              hidden: false
                               required: true
                           - variable: nodePort
                             label: "Node Port (Optional)"
@@ -357,7 +355,6 @@ questions:
                             schema:
                               type: string
                               default: "TCP"
-                              hidden: false
                               enum:
                                 - value: HTTP
                                   description: "HTTP"
@@ -381,7 +378,6 @@ questions:
                               type: int
                               default: 5900
                               editable: true
-                              hidden: false
                               required: true
                           - variable: nodePort
                             label: "Node Port (Optional)"
@@ -410,7 +406,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false
               - variable: storageClass
                 label: "Type of Storage"
                 description: " Warning: Anything other than SCALE-ZFS will break rollback!"
@@ -428,14 +423,12 @@ questions:
                 label: "EmptyDir Volume"
                 schema:
                   type: dict
-                  hidden: false
                   attrs:
                     - variable: enabled
                       label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
-                        hidden: false
                         show_subquestions_if: true
                         subquestions:
                           - variable: medium
@@ -483,35 +476,29 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  required: true
                   hidden: true
-                  editable: false
               - variable: setPermissions
                 label: "Automatic Permissions"
                 description: "Automatically set permissions on install"
                 schema:
                   type: boolean
                   default: true
-                  hidden: false
               - variable: readOnly
                 label: "Mount as ReadOnly"
                 description: "prevent any write from being done to the mounted volume"
                 schema:
                   type: boolean
                   default: false
-                  hidden: false
               - variable: emptyDir
                 label: "EmptyDir Volume"
                 schema:
                   type: dict
-                  hidden: false
                   attrs:
                     - variable: enabled
                       label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
-                        hidden: false
                     - variable: medium
                       label: "EmptyDir Medium"
                       schema:
@@ -560,14 +547,12 @@ questions:
                 label: "EmptyDir Volume"
                 schema:
                   type: dict
-                  hidden: false
                   attrs:
                     - variable: enabled
                       label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
-                        hidden: false
                         show_subquestions_if: true
                         subquestions:
                           - variable: medium

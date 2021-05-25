@@ -662,7 +662,6 @@ questions:
               - variable: serviceTarget
                 label: "IP Adress of the external service"
                 schema:
-                  hidden: false
                   editable: true
                   required: true
                   type: string
@@ -671,7 +670,6 @@ questions:
                 label: "External Service Port"
                 description: "The port on the external service you want to proxy"
                 schema:
-                  hidden: false
                   required: true
                   editable: true
                   type: int
@@ -680,7 +678,6 @@ questions:
                 label: "Connection Type"
                 description: "Connection Type between Traefik and the external service"
                 schema:
-                  hidden: false
                   editable: true
                   required: true
                   default: "HTTP"
@@ -716,7 +713,6 @@ questions:
                 schema:
                   type: string
                   required: true
-                  hidden: false
                   default: "/"
               - variable: certType
                 label: "Select Certificate Type"

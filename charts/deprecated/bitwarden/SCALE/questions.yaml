@@ -540,7 +540,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false
               - variable: storageClass
                 label: "Type of Storage"
                 description: " Warning: Anything other than Internal will break rollback!"
@@ -561,14 +560,12 @@ questions:
                 label: "Use Empty Dir Mountpoint"
                 schema:
                   type: dict
-                  hidden: false
                   attrs:
                     - variable: enabled
                       label: "Enable emptyDir"
                       schema:
                         type: boolean
                         default: false
-                        hidden: false
                     - variable: medium
                       label: "EmptyDir Medium"
                       schema:
@@ -636,14 +633,12 @@ questions:
                 label: "Use Empty Dir Mountpoint"
                 schema:
                   type: dict
-                  hidden: false
                   attrs:
                     - variable: enabled
                       label: "Enable emptyDir"
                       schema:
                         type: boolean
                         default: false
-                        hidden: false
                     - variable: medium
                       label: "EmptyDir Medium"
                       schema:
@@ -683,7 +678,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false
               - variable: storageClass
                 label: "Type of Storage"
                 description: " Warning: Anything other than Internal will break rollback!"
@@ -704,14 +698,12 @@ questions:
                 label: "Use Empty Dir Mountpoint"
                 schema:
                   type: dict
-                  hidden: false
                   attrs:
                     - variable: enabled
                       label: "Enable emptyDir"
                       schema:
                         type: boolean
                         default: false
-                        hidden: false
                     - variable: medium
                       label: "EmptyDir Medium"
                       schema:
@@ -757,23 +749,19 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  required: true
                   hidden: true
-                  editable: false
               - variable: setPermissions
                 label: "Automatic Permissions"
                 description: "Automatically set permissions on install"
                 schema:
                   type: boolean
                   default: true
-                  hidden: false
               - variable: readOnly
                 label: "Mount as ReadOnly"
                 description: "prevent any write from being done to the mounted volume"
                 schema:
                   type: boolean
                   default: false
-                  hidden: false
               - variable: emptyDir
                 label: "emptyDir"
                 schema:
