@@ -9658,6 +9658,42 @@ entries:
   ombi:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-25T22:12:22.330559494Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.0.2
+    description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
+    digest: 0297e58efe30e51d03a2a0a9471f308c40ccf791bf1bdf8e56832cee24e9ba40
+    home: https://github.com/truecharts/apps/tree/master/stable/ombi
+    icon: https://img3.androidappsapk.co/wiLDnuwrCWctiiW62ALcj4eIpNbzeRH_UNPo7eqlpYvGkCQYSTybaI4xVRLKGjnlamlV=s300
+    keywords:
+    - ombi
+    - plex
+    - emby
+    - sonarr
+    - radarr
+    - couchpotato
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: ombi
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/ombi
+    - https://github.com/k8s-at-home/charts/tree/master/charts/ombi
+    - https://github.com/tidusjar/Ombi
+    - https://hub.docker.com/r/linuxserver/ombi
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ombi-5.0.5/ombi-5.0.5.tgz
+    version: 5.0.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-25T15:00:32.96961582Z"
     dependencies:
     - name: common
@@ -15652,4 +15688,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-05-25T21:32:40.551961122Z"
+generated: "2021-05-25T22:12:22.336882645Z"
