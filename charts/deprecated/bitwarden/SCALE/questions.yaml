@@ -70,12 +70,12 @@ questions:
       type: dict
       attrs:
         - variable: yubico
-          label: "Yubico OPT authentication"
+          label: "Yubico OTP authentication"
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable Yubico OPT authentication"
+                label: "Enable Yubico OTP authentication"
                 description: "Please refer to the manual at: https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-Yubikey-OTP-authentication"
                 schema:
                   type: boolean
