@@ -1,33 +1,31 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: jellyfin
-version: 4.0.2
-upstream_version: 4.2.1
-appVersion: "auto"
-description: Jellyfin is a Free Software Media System
-type: application
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 5.0.2
 deprecated: false
+description: Jellyfin is a Free Software Media System
 home: https://github.com/truecharts/apps/tree/master/stable/jellyfin
 icon: https://truecharts.org/_static/img/jellyfin-icon.png
 keywords:
-  - jellyfin
-  - plex
-  - emby
-sources:
-  - https://github.com/truecharts/apps/tree/master/stable/jellyfin
-  - https://github.com/k8s-at-home/charts/tree/master/charts/jellyfin
-  - https://hub.docker.com/r/linuxserver/Jellyfin/
-  - https://github.com/jellyfin/jellyfin
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 4.1.6
-    # condition:
+- jellyfin
+- plex
+- emby
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: jellyfin
+sources:
+- https://github.com/truecharts/apps/tree/master/stable/jellyfin
+- https://github.com/k8s-at-home/charts/tree/master/charts/jellyfin
+- https://hub.docker.com/r/linuxserver/Jellyfin/
+- https://github.com/jellyfin/jellyfin
+type: application
+upstream_version: 4.2.1
+version: 5.0.2

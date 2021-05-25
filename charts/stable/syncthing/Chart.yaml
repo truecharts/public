@@ -1,30 +1,27 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: syncthing
-version: 4.0.1
-# upstream_version:
-appVersion: "auto"
-description: P2P file synchronization application
-type: application
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 5.0.2
 deprecated: false
+description: P2P file synchronization application
 home: https://github.com/truecharts/apps/tree/master/stable/syncthing
 icon: https://raw.githubusercontent.com/syncthing/syncthing/main/assets/logo-128.png
 keywords:
-  - syncthing
-sources:
-  - https://syncthing.net/
-  - https://github.com/syncthing/syncthing
-  - https://hub.docker.com/r/syncthing/syncthing
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 4.1.6
-    # condition:
+- syncthing
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: luuknieuwdorp
-    email: luuk@nieuwdorp.me
-    url: nieuwdorp.me
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: luuk@nieuwdorp.me
+  name: luuknieuwdorp
+  url: nieuwdorp.me
+name: syncthing
+sources:
+- https://syncthing.net/
+- https://github.com/syncthing/syncthing
+- https://hub.docker.com/r/syncthing/syncthing
+type: application
+version: 5.1.2

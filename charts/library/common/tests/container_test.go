@@ -305,6 +305,11 @@ func (suite *ContainerTestSuite) TestPersistenceHostpathMounts() {
             hostPath: /tmp
             mountPath: /config
             subPath: mySubPath
+          - name: cache
+            enabled: true
+            mountPath: /cache
+            emptyDir:
+                enabled: true
     `
 	tests := map[string]struct {
 		values            *string
@@ -312,6 +317,7 @@ func (suite *ContainerTestSuite) TestPersistenceHostpathMounts() {
 		expectedMountPath string
 		expectedSubPath   string
 	}{
+		"EmptyDir":      {values: &values, volumeToTest: "cache", expectedMountPath: "/cache"},
 		"WithMountPath": {values: &values, volumeToTest: "hostpathmounts-data", expectedMountPath: "/data"},
 		"WithSubPath":   {values: &values, volumeToTest: "hostpathmounts-config", expectedMountPath: "/config", expectedSubPath: "mySubPath"},
 	}

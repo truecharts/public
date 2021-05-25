@@ -1,32 +1,30 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: lazylibrarian
-version: 4.0.1
-upstream_version: 2.1.0
-appVersion: "latest"
-description: Get all your books, like series with Sonarr...
-type: application
+appVersion: latest
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 5.0.2
 deprecated: false
+description: Get all your books, like series with Sonarr...
 home: https://github.com/truecharts/apps/tree/master/incubator/lazylibrarian
 icon: https://lazylibrarian.gitlab.io/logo.svg
 keywords:
-  - lazylibrarian
-  - ebooks
-sources:
-  - https://github.com/truecharts/apps/tree/master/incubator/lazylibrarian
-  - https://github.com/k8s-at-home/charts/tree/master/charts/lazylibrarian
-  - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
-  - https://lazylibrarian.gitlab.io
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 4.1.6
-    # condition:
+- lazylibrarian
+- ebooks
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: lazylibrarian
+sources:
+- https://github.com/truecharts/apps/tree/master/incubator/lazylibrarian
+- https://github.com/k8s-at-home/charts/tree/master/charts/lazylibrarian
+- https://gitlab.com/LazyLibrarian/LazyLibrarian.git
+- https://lazylibrarian.gitlab.io
+type: application
+upstream_version: 2.1.0
+version: 5.0.2

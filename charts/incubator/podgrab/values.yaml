@@ -3,7 +3,7 @@
 image:
   repository: akhilrex/podgrab
   pullPolicy: Always
-  tag: latest
+  tag: 1.0.0
 
 strategy:
   type: Recreate
@@ -47,4 +47,5 @@ hostPathMounts:
   - name: assets
     enabled: true
     mountPath: "/assets"
-    emptyDir: true
+    emptyDir:
+      enabled: true

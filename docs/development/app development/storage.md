@@ -35,35 +35,44 @@ Preventing the user to disable them, ensures that users don't (by mistake) remov
                 schema:
                   type: boolean
                   default: true
-                  hidden: true
+                  hidden: false
               - variable: storageClass
                 label: "Type of Storage"
-                description: " Warning: Anything other than Internal will break rollback!"
+                description: " Warning: Anything other than SCALE-ZFS will break rollback!"
                 schema:
                   type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Internal"
+                  default: "SCALE-ZFS"
               - variable: mountPath
                 label: "mountPath"
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/data"
+                  default: "/config"
                   hidden: true
               - variable: emptyDir
-                label: "Mount a ramdisk instead of actual storage"
+                label: "EmptyDir Volume"
                 schema:
                   type: dict
-                  hidden: true
+                  hidden: false
                   attrs:
                     - variable: enabled
-                      label: "Enable emptyDir"
+                      label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
-                        hidden: true
+                        hidden: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: medium
+                            label: "EmptyDir Medium"
+                            schema:
+                              type: string
+                              default: ""
+                              enum:
+                                - value: ""
+                                  description: "Default"
+                                - value: "Memory"
+                                  description: "Memory"
               - variable: accessMode
                 label: "Access Mode (Advanced)"
                 description: "Allow or disallow multiple PVC's writhing to the same PVC"
@@ -127,16 +136,27 @@ It should always be included in any App, to give users the option to customise t
                   required: true
                   editable: true
               - variable: emptyDir
-                label: "Mount a ramdisk instead of actual storage"
+                label: "EmptyDir Volume"
                 schema:
-                  hidden: true
+                  type: dict
+                  hidden: false
                   attrs:
                     - variable: enabled
-                      label: Enable emptyDir
+                      label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
-                        hidden: true
+                        hidden: false
+                    - variable: medium
+                      label: "EmptyDir Medium"
+                      schema:
+                        type: string
+                        default: ""
+                        enum:
+                          - value: ""
+                            description: "Default"
+                          - value: "Memory"
+                            description: "Memory"
               - variable: mountPath
                 label: "Mount Path"
                 description: "Path to mount inside the pod"
@@ -153,6 +173,7 @@ It should always be included in any App, to give users the option to customise t
                   hidden: true
               - variable: hostPath
                 label: "Host Path"
+                description: "Path on the host to mount inside the container, ignored when emptyDir is enabled"
                 schema:
                   type: hostpath
                   required: true

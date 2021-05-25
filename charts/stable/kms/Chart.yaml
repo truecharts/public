@@ -1,29 +1,26 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: kms
-version: 4.0.1
-# upstream_version:
-appVersion: "minimal"
-description: Private Windows Activation Server for development and testing
-type: application
+appVersion: minimal
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 5.0.2
 deprecated: false
+description: Private Windows Activation Server for development and testing
 home: https://github.com/truecharts/apps/tree/master/stable/kms
 icon: https://truecharts.org/_static/img/kms-icon.jpg
 keywords:
-  - kms
-sources:
-  - https://github.com/truecharts/apps/tree/master/stable/kms
-  - https://github.com/SystemRage/py-kms
-dependencies:
-  - name: common
-    repository: https://truecharts.org/
-    version: 4.1.6
-    # condition:
+- kms
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-  - name: Ornias1993
-    email: kjeld@schouten-lebbing.nl
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: kms
+sources:
+- https://github.com/truecharts/apps/tree/master/stable/kms
+- https://github.com/SystemRage/py-kms
+type: application
+version: 5.0.2

@@ -59,12 +59,30 @@ spec:
       volumes:
         {{- range $name, $hpm := $hostPathMounts }}
         - name: {{ printf "hostpathmounts-%s" $name }}
-          {{- if $hpm.emptyDir }}
+          {{- /* Always prefer an emptyDir next if that is set */}}
+          {{- $emptyDir := false -}}
+          {{- if $hpm.emptyDir -}}
+            {{- if $hpm.emptyDir.enabled -}}
+              {{- $emptyDir = true -}}
+            {{- end -}}
+          {{- end -}}
+          {{- if $emptyDir }}
+          {{- if or $hpm.emptyDir.medium $hpm.emptyDir.sizeLimit }}
+          emptyDir:
+            {{- with $hpm.emptyDir.medium }}
+            medium: "{{ . }}"
+            {{- end }}
+            {{- with $hpm.emptyDir.sizeLimit }}
+            sizeLimit: "{{ . }}"
+            {{- end }}
+          {{- else }}
           emptyDir: {}
+          {{- end }}
           {{- else }}
           hostPath:
             path: {{ required "hostPath not set" $hpm.hostPath }}
-          {{- end }}
+          {{ end }}
         {{- end }}
+
   {{- end -}}
 {{- end -}}
