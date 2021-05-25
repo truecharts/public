@@ -116,7 +116,7 @@ jobs:
 
       - name: Set up chart-testing
         if: ${{ matrix.app != '.gitkee' }}
-        uses: helm/chart-testing-action@v2.0.1
+        uses: helm/chart-testing-action@v2.1.0
 
       - uses: actions/setup-go@v2
         if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
