@@ -354,7 +354,6 @@ questions:
                             schema:
                               type: string
                               default: "HTTP"
-                              hidden: false
                               enum:
                                 - value: HTTP
                                   description: "HTTP"
@@ -378,7 +377,6 @@ questions:
                               type: int
                               default: 9091
                               editable: true
-                              hidden: false
                               required: true
                           - variable: nodePort
                             label: "Node Port (Optional)"
@@ -454,7 +452,6 @@ questions:
                             schema:
                               type: string
                               default: "TCP"
-                              hidden: false
                               enum:
                                 - value: HTTP
                                   description: "HTTP"
@@ -478,7 +475,6 @@ questions:
                               type: int
                               default: 51413
                               editable: true
-                              hidden: false
                               required: true
                           - variable: nodePort
                             label: "Node Port (Optional)"
@@ -505,7 +501,6 @@ questions:
                             schema:
                               type: string
                               default: "UDP"
-                              hidden: false
                               enum:
                                 - value: HTTP
                                   description: "HTTP"
@@ -529,7 +524,6 @@ questions:
                               type: int
                               default: 51413
                               editable: true
-                              hidden: false
                               required: true
                           - variable: nodePort
                             label: "Node Port (Optional)"
@@ -558,7 +552,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false
               - variable: storageClass
                 label: "Type of Storage"
                 description: " Warning: Anything other than SCALE-ZFS will break rollback!"
@@ -636,14 +629,12 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: false
               - variable: readOnly
                 label: "Mount as ReadOnly"
                 description: "prevent any write from being done to the mounted volume"
                 schema:
                   type: boolean
                   default: false
-                  hidden: false
               - variable: emptyDir
                 label: "EmptyDir Volume"
                 schema:
