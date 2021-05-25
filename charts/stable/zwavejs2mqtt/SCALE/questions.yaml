@@ -337,14 +337,12 @@ questions:
                 label: "EmptyDir Volume"
                 schema:
                   type: dict
-                  hidden: false
                   attrs:
                     - variable: enabled
                       label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
-                        hidden: false
                         show_subquestions_if: true
                         subquestions:
                           - variable: medium
@@ -392,9 +390,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  required: true
                   hidden: true
-                  editable: false
               - variable: setPermissions
                 label: "Automatic Permissions"
                 description: "Automatically set permissions on install"
@@ -413,14 +409,12 @@ questions:
                 label: "EmptyDir Volume"
                 schema:
                   type: dict
-                  hidden: false
                   attrs:
                     - variable: enabled
                       label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
-                        hidden: false
                     - variable: medium
                       label: "EmptyDir Medium"
                       schema:
@@ -469,14 +463,12 @@ questions:
                 label: "EmptyDir Volume"
                 schema:
                   type: dict
-                  hidden: false
                   attrs:
                     - variable: enabled
                       label: "Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
-                        hidden: false
                         show_subquestions_if: true
                         subquestions:
                           - variable: medium
