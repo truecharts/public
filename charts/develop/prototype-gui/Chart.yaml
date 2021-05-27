@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 5.1.1
+deprecated: false
+description: App to test GUI prototypes
+home: https://github.com/truecharts/apps/tree/master/develop/prototype-gui
+icon: https://truecharts.org/_static/img/jackett-icon.png
+keywords:
+- dev
+- prototype
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+name: prototype-gui
+sources:
+- https://github.com/truecharts/apps/tree/master/develop/prototype-gui
+type: application
+version: 0.0.1
