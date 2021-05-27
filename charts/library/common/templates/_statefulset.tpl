@@ -31,8 +31,9 @@ metadata:
     {{- with .Values.controller.labels }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
-  {{- with .Values.controller.annotations }}
   annotations:
+  {{- include "common.annotations.workload" . | nindent 4 }}
+  {{- with .Values.controller.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
