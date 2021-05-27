@@ -31,8 +31,9 @@ metadata:
     {{- with .Values.controller.labels }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
-  {{- with .Values.controller.annotations }}
   annotations:
+  {{- include "common.annotations.workload" . | nindent 4 }}
+  {{- with .Values.controller.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
@@ -54,8 +55,9 @@ spec:
   serviceName: {{ include "common.names.fullname" . }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
+      {{- include "common.annotations.workload.spec" . | nindent 8 }}
+      {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
