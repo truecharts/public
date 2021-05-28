@@ -1,0 +1,66 @@
+image:
+  repository: b4bz/homer
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+
+ingress:
+  main:
+    enabled: true
+
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+    emptyDir:
+      enabled: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    skipuninstall: false
+
+
+
+hostPathMounts:
+  - name: "hpmmountempty"
+    enabled: true
+    emptyDir:
+      enabled: true
+    mountPath: "/test1"
+    hostPath: ""
+    readOnly: false
+  - name: "hpmmountnonempty"
+    enabled: true
+    emptyDir:
+      enabled: false
+    mountPath: "/test2"
+    hostPath: "/tmp"
+    readOnly: false
+  - name: "hpmmountpermissions"
+    enabled: true
+    setPermissions: true
+    emptyDir:
+      enabled: false
+    mountPath: "/test3"
+    hostPath: "/tmp"
+    readOnly: false
+  - enabled: true
+    setPermissions: true
+    emptyDir:
+      enabled: false
+    mountPath: "/test4"
+    hostPath: "/tmp"
+    readOnly: false
+
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: true
+  startup:
+    enabled: true

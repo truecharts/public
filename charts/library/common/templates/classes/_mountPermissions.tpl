@@ -18,7 +18,7 @@ before chart installation.
     {{- $hostPathMounts := dict -}}
     {{- range $name, $mount := .Values.hostPathMounts -}}
       {{- if and $mount.enabled $mount.setPermissions -}}
-        {{- $name = default $name $mount.name -}}
+        {{- $name = default ( $name| toString ) $mount.name -}}
         {{- $_ := set $hostPathMounts $name $mount -}}
       {{- end -}}
     {{- end }}
