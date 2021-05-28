@@ -72,7 +72,7 @@ Creates Volumes for hostPaths which can be directly mounted to a container
 {{ if $hpm.name }}
 {{ $name = $hpm.name }}
 {{ end }}
-- name: {{ printf "hostpathmounts-%s" $name }}
+- name: hostpathmounts-{{ $name }}
   {{- /* Always prefer an emptyDir next if that is set */}}
   {{- $emptyDir := false -}}
   {{- if $hpm.emptyDir -}}
