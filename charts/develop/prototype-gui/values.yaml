@@ -1,0 +1,33 @@
+# Default values for Jackett.
+
+image:
+  repository: ghcr.io/truecharts/jackett
+  pullPolicy: IfNotPresent
+  tag: v0.18.145
+
+strategy:
+  type: Recreate
+
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 9117
+
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    emptyDir:
+      enabled: true
+    accessMode: ReadWriteOnce
+    size: 1Gi
+    storageClass: ""

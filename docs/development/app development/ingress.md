@@ -38,47 +38,23 @@ We try to maintain as much of a standardised questions.yaml format as possible, 
 
 ```
   - variable: ingress
-    label: ""
-    group: "Reverse Proxy Configuration"
+    label: "Ingress Configuration"
+    group: "Ingress Configuration"
     schema:
       type: dict
       attrs:
-        - variable: webui
-          label: "Web Reverse Proxy Configuration"
+        - variable: main
+          label: "Main Ingress"
           schema:
             type: dict
             attrs:
               - variable: enabled
-                label: "Enable Web Reverse Proxy"
+                label: "Enable Ingress"
                 schema:
                   type: boolean
                   default: false
                   show_subquestions_if: true
                   subquestions:
-                    - variable: type
-                      label: "Reverse Proxy Type"
-                      schema:
-                        type: string
-                        default: "HTTP"
-                        hidden: true
-                        editable: false
-                        required: true
-                    - variable: serviceName
-                      label: "Service name to proxy to"
-                      schema:
-                        hidden: true
-                        editable: false
-                        type: string
-                        default: ""
-                    - variable: entrypoint
-                      label: "Select Entrypoint"
-                      schema:
-                        type: string
-                        default: "websecure"
-                        required: true
-                        enum:
-                          - value: "websecure"
-                            description: "Websecure: HTTPS/TLS port 443"
                     - variable: hosts
                       label: "Hosts"
                       schema:
@@ -91,41 +67,55 @@ We try to maintain as much of a standardised questions.yaml format as possible, 
                               type: dict
                               attrs:
                                 - variable: host
-                                  label: "Domain Name"
-                                  required: true
+                                  label: "HostName"
                                   schema:
                                     type: string
-                                - variable: path
-                                  label: "path"
-                                  schema:
-                                    type: string
+                                    default: ""
                                     required: true
-                                    hidden: true
-                                    default: "/"
-                    - variable: certType
-                      label: "Select Certificate Type"
+                                - variable: paths
+                                  label: "Hosts"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: path
+                                        label: "path"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          hidden: false
+                                          default: "/"
+                                      - variable: pathType
+                                        label: "pathType"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          hidden: false
+                                          default: "Prefix"
+                    - variable: tls
+                      label: "TLS-Settings"
                       schema:
-                        type: string
-                        default: "selfsigned"
-                        enum:
-                          - value: ""
-                            description: "No Encryption/TLS/Certificates"
-                          - value: "selfsigned"
-                            description: "Self-Signed Certificate"
-                          - value: "ixcert"
-                            description: "TrueNAS SCALE Certificate"
-                    - variable: certificate
-                      label: "Select TrueNAS SCALE Certificate"
-                      schema:
-                        type: int
-                        show_if: [["certType", "=", "ixcert"]]
-                        $ref:
-                          - "definitions/certificate"
-                    - variable: authForwardURL
-                      label: "Forward Authentication URL"
-                      schema:
-                        type: string
-                        default: ""
+                        type: list
+                        default: []
+                        items:
+                          - variable: hosts
+                            label: "Certificate Hosts"
+                            schema:
+                              type: list
+                              default: []
+                              items:
+                                - variable: host
+                                  label: "Host"
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    required: true
+                          - variable: scaleCERT
+                            label: "Select TrueNAS SCALE Certificate"
+                            schema:
+                              type: int
+                              $ref:
+                                - "definitions/certificate"
 
 ```
 
