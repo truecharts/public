@@ -3,16 +3,16 @@ groups:
     description: "Image to be used for container"
   - name: "Controller"
     description: "Configure workload deployment"
-  - name: "Configuration"
+  - name: "Container Configuration"
     description: "additional container configuration"
-  - name: "Networking"
+  - name: "Networking and Services"
     description: "Configure Network and Services for container"
-  - name: "Storage"
-    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Storage and Persistence"
+    description: "Persist and share data that is separate from the container"
   - name: "Ingress"
     description: "Ingress Configuration"
-  - name: "Security"
-    description: "Configure security context"
+  - name: "Security and Permissions"
+    description: "Configure security context and permissions"
   - name: "Resources and Devices"
     description: "Specify resources/devices to be allocated to workload"
   - name: "Advanced"
@@ -86,7 +86,7 @@ questions:
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
 
   - variable: env
-    group: "Configuration"
+    group: "Container Configuration"
     label: "Image Environment"
     schema:
       type: dict
@@ -107,7 +107,7 @@ questions:
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
-    group: "Configuration"
+    group: "Container Configuration"
     schema:
       type: list
       default: []
@@ -129,7 +129,7 @@ questions:
   - variable: externalInterfaces
     description: "External Interfaces"
     label: "(Advanced) External Interfaces"
-    group: "Networking"
+    group: "Networking and Services"
     schema:
       type: list
       items:
@@ -202,13 +202,13 @@ questions:
                                           cidr: false
                                           required: true
   - variable: hostNetwork
-    group: "Networking"
+    group: "Networking and Services"
     label: "(Advanced) Enable Host Networking"
     schema:
       type: boolean
       default: false
   - variable: service
-    group: "Networking"
+    group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
       type: dict
@@ -314,7 +314,7 @@ questions:
   ## TrueCharts Specific
   - variable: persistence
     label: "Integrated Persistent Storage"
-    group: "Storage"
+    group: "Storage and Persistence"
     schema:
       type: dict
       attrs:
@@ -384,7 +384,7 @@ questions:
                   default: "100Gi"
   - variable: hostPathMounts
     label: "Custom app storage"
-    group: "Storage"
+    group: "Storage and Persistence"
     schema:
       type: list
       default: []
@@ -529,7 +529,7 @@ questions:
 
   # Enable privileged
   - variable: securityContext
-    group: "Security"
+    group: "Security and Permissions"
     label: "Security Context"
     schema:
       type: dict
@@ -541,7 +541,7 @@ questions:
             default: false
   # Set Pod Security Policy
   - variable: podSecurityContext
-    group: "Security"
+    group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
       type: dict
