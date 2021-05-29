@@ -50,7 +50,7 @@ questions:
       attrs:
         - variable: type
           description: "Please specify type of workload to deploy"
-          label: "Controller Type"
+          label: "(Advanced) Controller Type"
           schema:
             type: string
             default: "Deployment"
@@ -71,7 +71,7 @@ questions:
             required: true
         - variable: strategy:
           description: "Please specify type of workload to deploy"
-          label: "Update Strategy"
+          label: "(Advanced) Update Strategy"
           schema:
             type: string
             default: "Recreate"
@@ -127,7 +127,7 @@ questions:
 
   - variable: externalInterfaces
     description: "Add External Interfaces"
-    label: "Add external Interfaces"
+    label: "(Advanced) Add external Interfaces"
     group: "Networking"
     schema:
       type: list
@@ -202,7 +202,7 @@ questions:
                                           required: true
   - variable: hostNetwork
     group: "Networking"
-    label: "Enable Host Networking"
+    label: "(Advanced) Enable Host Networking"
     schema:
       type: boolean
       default: false
@@ -236,7 +236,7 @@ questions:
                     - value: "ClusterIP"
                       description: "ClusterIP"
                     - value: "LoadBalancer"
-                      description: "LoadBalancer"
+                      description: "(Advanced) LoadBalancer"
               - variable: loadBalancerIP
                 label: "LoadBalancer IP"
                 description: "LoadBalancerIP"
@@ -329,7 +329,7 @@ questions:
                   type: boolean
                   default: true
               - variable: storageClass
-                label: "Type of Storage"
+                label: "(Advanced) Type of Storage"
                 description: " Warning: Anything other than SCALE-ZFS will break rollback!"
                 schema:
                   type: string
@@ -347,7 +347,7 @@ questions:
                   type: dict
                   attrs:
                     - variable: enabled
-                      label: "Use emptyDir volume"
+                      label: "(Advanced) Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
@@ -417,7 +417,7 @@ questions:
                   type: dict
                   attrs:
                     - variable: enabled
-                      label: "Use emptyDir volume"
+                      label: "(Advanced) Use emptyDir volume"
                       schema:
                         type: boolean
                         default: false
@@ -534,7 +534,7 @@ questions:
       type: dict
       attrs:
         - variable: privileged
-          label: "Enable privileged mode for Common-Chart based charts"
+          label: "(Advanced) Enable privileged mode for Common-Chart based charts"
           schema:
             type: boolean
             default: false
@@ -569,7 +569,7 @@ questions:
             type: int
             default: 568
         - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
+          label: "(Advanced) When should we take ownership?"
           schema:
             type: string
             default: "OnRootMismatch"
