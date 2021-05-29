@@ -34,4 +34,6 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{ include "common.class.portal" .  | nindent 0 }}
 
   {{ include "common.class.mountPermissions" .  | nindent 0 }}
+  {{ include "common.classes.externalInterfaces" .  | nindent 0 }}
+
 {{- end -}}
