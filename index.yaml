@@ -3,6 +3,38 @@ entries:
   appdaemon:
   - apiVersion: v2
     appVersion: v4.0.8
+    created: "2021-05-29T12:59:56.800564352Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: AppDaemon is a loosely coupled, multithreaded, sandboxed python execution
+      environment for writing automation apps for Home Assistant home automation software.
+      It also provides a configurable dashboard (HADashboard) suitable for wall mounted
+      tablets.
+    digest: 4d3beb363b98fb32312cbae693ae8153e3c173e850d9acab160b7eea0b3d506f
+    home: https://github.com/truecharts/apps/tree/master/incubator/appdaemon
+    icon: https://github.com/hassio-addons/addon-appdaemon/blob/main/appdaemon/icon.png?raw=true
+    keywords:
+    - appdaemon
+    - homeautomation
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 20650065+warllo54@users.noreply.github.com
+      name: warllo54
+      url: truecharts.org
+    name: appdaemon
+    sources:
+    - https://github.com/AppDaemon/appdaemon
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/appdaemon-2.1.1/appdaemon-2.1.1.tgz
+    version: 2.1.1
+  - apiVersion: v2
+    appVersion: v4.0.8
     created: "2021-05-28T21:52:14.006458313Z"
     dependencies:
     - name: common
@@ -354,6 +386,43 @@ entries:
     - https://github.com/truecharts/apps/releases/download/appdaemon-0.1.3/appdaemon-0.1.3.tgz
     version: 0.1.3
   bazarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T12:59:56.998659634Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Bazarr is a companion application to Bazarr and Radarr. It manages
+      and downloads subtitles based on your requirements
+    digest: d79063a0cf288432901873778dacddbcbca16e1dd5dc86965682fbbe391e37e2
+    home: https://github.com/truecharts/apps/tree/master/incubator/bazarr
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png
+    keywords:
+    - bazarr
+    - radarr
+    - bazarr
+    - subtitles
+    - usenet
+    - torrent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: bazarr
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/bazarr
+    - https://github.com/k8s-at-home/charts/tree/master/charts/bazarr
+    - https://github.com/Bazarr/Bazarr
+    - https://hub.docker.com/r/linuxserver/bazarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/bazarr-5.1.1/bazarr-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:14.180424661Z"
@@ -1070,6 +1139,37 @@ entries:
   calibre-web:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T12:59:57.146495871Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Calibre-Web is a web app providing a clean interface for browsing,
+      reading and downloading eBooks using an existing Calibre database.
+    digest: 02db4ee3acf84ff3903e7d9de40eccb443db200d9cc442c1c77cb77342857605
+    home: https://github.com/truecharts/apps/tree/master/incubator/calibre-web
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png
+    keywords:
+    - calibre-web
+    - calibre
+    - ebook
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: calibre-web
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/calibre-web
+    - https://github.com/k8s-at-home/charts/tree/master/charts/calibre-web
+    - https://hub.docker.com/r/linuxserver/calibre-web/
+    - https://github.com/janeczku/calibre-web
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/calibre-web-5.1.1/calibre-web-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:14.354516908Z"
     dependencies:
     - name: common
@@ -1441,6 +1541,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/calibre-web-3.1.5/calibre-web-3.1.5.tgz
     version: 3.1.5
   collabora-online:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T12:59:57.303409715Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Collabora Online Development Edition – an awesome, Online Office
+      suite image suitable for home use.
+    digest: c5e62f440202fabf0cca3d22f28bce341d0710b78c6a2ce6ed9137db4bef586c
+    home: https://github.com/truecharts/apps/tree/master/stable/collabora-online
+    icon: https://truecharts.org/_static/img/collabora-icon.png
+    keywords:
+    - collabora-online
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: stavros-k@users.noreply.github.com
+      name: stavros-k
+      url: truecharts.org
+    name: collabora-online
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/collabora-online
+    - https://github.com/k8s-at-home/charts/tree/master/charts/collabora-online
+    - https://hub.docker.com/r/collabora/code
+    - https://www.collaboraoffice.com/code/docker/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/collabora-online-5.1.1/collabora-online-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:14.53051904Z"
@@ -3080,6 +3212,38 @@ entries:
   deepstack-cpu:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T12:59:57.530547624Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: DeepStack AI provides AI features including Face Recognition, Object
+      Detection, Scene Recognition and custom AI Models
+    digest: 0c282dad080e0ac366b0f0f3395ba9dd8689fd7f2cddf83617af4c3f7081e5f9
+    home: https://github.com/truecharts/apps/tree/master/stable/deepstack-cpu
+    icon: https://deepquest.sfo2.digitaloceanspaces.com/deepstackcc/static/img/deepstacklogo.png
+    keywords:
+    - AI
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: stavros-k@users.noreply.github.com
+      name: stavros-k
+      url: truecharts.org
+    name: deepstack-cpu
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/deepstack-cpu
+    - https://github.com/johnolafenwa/DeepStack
+    - https://hub.docker.com/r/deepquestai/deepstack
+    - https://www.deepstack.cc/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deepstack-cpu-3.1.1/deepstack-cpu-3.1.1.tgz
+    version: 3.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:14.694910963Z"
     dependencies:
     - name: common
@@ -3433,6 +3597,34 @@ entries:
   deluge:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T12:59:57.67817806Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Deluge App for TrueNAS SCALE
+    digest: 9f5b77b31d76673aa931e76edbf3115907630a5c7c48f6fbf5e94464108a7c42
+    home: https://github.com/truecharts/apps/tree/master/incubator/deluge
+    icon: https://avatars2.githubusercontent.com/u/6733935?v=3&s=200
+    keywords:
+    - transmission
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: deluge
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/deluge
+    - https://github.com/deluge-torrent/deluge
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deluge-5.1.1/deluge-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:14.86631733Z"
     dependencies:
     - name: common
@@ -3740,6 +3932,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/deluge-3.1.5/deluge-3.1.5.tgz
     version: 3.1.5
   emby:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T12:59:57.8298055Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Emby Server is a home media server
+    digest: edc6beef4a128655d2d590796e93d405d09e5cd5a6adadc37ccc315d5d380bc3
+    home: https://github.com/truecharts/apps/master/stable/emby
+    icon: https://truecharts.org/_static/img/emby-icon.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: dan.sheridan@postman.org.uk
+      name: djs52
+      url: truecharts.org
+    name: emby
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/emby
+    - https://hub.docker.com/r/linuxserver/emby
+    - https://github.com/linuxserver/docker-emby.git
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/emby-5.1.1/emby-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:15.129132688Z"
@@ -4127,6 +4351,38 @@ entries:
   esphome:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T12:59:57.984616642Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful
+      configuration files and control them remotely through Home Automation systems.
+    digest: 9d9489f6fdc40d1f1f98f83944ea11c5da9fc7d0945c3b1eb1b8744fda37fcae
+    home: https://github.com/truecharts/apps/tree/master/stable/esphome
+    icon: https://esphome.io/_images/logo.svg
+    keywords:
+    - esphome
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: esphome
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/esphome
+    - https://github.com/k8s-at-home/charts/tree/master/charts/esphome
+    - https://github.com/esphome/esphome
+    - https://hub.docker.com/u/esphome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/esphome-5.1.1/esphome-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:15.311082074Z"
     dependencies:
     - name: common
@@ -4510,6 +4766,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/esphome-3.1.5/esphome-3.1.5.tgz
     version: 3.1.5
   fireflyiii:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T12:59:58.189230531Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.4.7
+    description: A free and open source personal finance manager
+    digest: a19eff45fc6bcfebc5204dd45afb6ec38dc9f2d75d1dad058087bbc287de6c31
+    home: https://github.com/firefly-iii/firefly-iii/
+    icon: https://www.firefly-iii.org/assets/logo/color.png
+    keywords:
+    - fireflyiii
+    - finacial
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 20650065+warllo54@users.noreply.github.com
+      name: warllo54
+      url: truecharts.org
+    name: fireflyiii
+    sources:
+    - https://github.com/firefly-iii/firefly-iii/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/fireflyiii-3.1.1/fireflyiii-3.1.1.tgz
+    version: 3.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:15.489195589Z"
@@ -4909,6 +5198,35 @@ entries:
   freshrss:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T12:59:58.401684826Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: FreshRSS is a self-hosted RSS feed aggregator
+    digest: 1f999f5bbb55760ee6d386cc59db6d066161be4c2a97912803af032068804f45
+    home: https://github.com/truecharts/apps/tree/master/incubator/freshrss
+    icon: https://github.com/FreshRSS/FreshRSS/blob/master/docs/img/FreshRSS-logo.png?raw=true
+    keywords:
+    - freshrss
+    - rss
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: freshrss
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/freshrss
+    - https://github.com/k8s-at-home/charts/tree/master/charts/freshrss
+    - https://github.com/FreshRSS/FreshRSS
+    - https://hub.docker.com/r/linuxserver/freshrss
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/freshrss-5.1.1/freshrss-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:15.663860432Z"
     dependencies:
     - name: common
@@ -5227,6 +5545,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/freshrss-3.1.5/freshrss-3.1.5.tgz
     version: 3.1.5
   gaps:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T12:59:58.626240033Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Gaps searches through your Plex Server or local folders for all movies,
+      then queries for known movies in the same collection.
+    digest: 2336b44000bdb30b6bbf5834c98f91eb30b6f844c569f0769f5297f4ab772f1b
+    home: https://github.com/truecharts/apps/tree/master/incubator/gaps
+    icon: https://raw.githubusercontent.com/JasonHHouse/gaps/master/images/Final-Black.png
+    keywords:
+    - gaps
+    - plex
+    - plex-media-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: gaps
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/gaps
+    - https://github.com/k8s-at-home/charts/tree/master/charts/gaps
+    - https://github.com/JasonHHouse/gaps
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/gaps-5.1.1/gaps-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:15.824450284Z"
@@ -5558,6 +5906,34 @@ entries:
     - https://github.com/truecharts/apps/releases/download/gaps-3.1.5/gaps-3.1.5.tgz
     version: 3.1.5
   grocy:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T12:59:58.797098791Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: ERP beyond your fridge - grocy is a web-based self-hosted groceries
+      & household management solution for your home
+    digest: e8a92888f35bec1458a3dde4c894ffe83643f1a58fcf69f1687c805b436170ec
+    home: https://github.com/truecharts/apps/tree/master/incubator/grocy
+    icon: https://github.com/grocy/grocy/raw/master/public/img/appicons/mstile-150x150.png
+    keywords:
+    - grocy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: grocy
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/grocy
+    - https://github.com/k8s-at-home/charts/tree/master/charts/grocy
+    - https://github.com/grocy/grocy
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/grocy-5.1.1/grocy-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:15.988766907Z"
@@ -5895,6 +6271,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/grocy-3.1.5/grocy-3.1.5.tgz
     version: 3.1.5
   handbrake:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T12:59:58.955167136Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: HandBrake is a tool for converting video from nearly any format to
+      a selection of modern, widely supported codecs.
+    digest: d690a88a5d32e89ad4afc17f54ac2b50fbeb6b92e97a778f63766ac692e28699
+    home: https://github.com/truecharts/apps/tree/master/stable/handbrake
+    icon: https://handbrake.fr/img/logo.png
+    keywords:
+    - handbrake
+    - encode
+    - media
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: stavros-k@users.noreply.github.com
+      name: stavros-k
+      url: truecharts.org
+    name: handbrake
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/handbrake
+    - https://github.com/jlesage/docker-handbrake
+    - https://hub.docker.com/r/jlesage/handbrake/
+    - https://handbrake.fr/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/handbrake-5.1.1/handbrake-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:16.15945838Z"
@@ -6272,6 +6682,32 @@ entries:
   heimdall:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T12:59:59.1326476Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: An Application dashboard and launcher
+    digest: c37e353462a90e1616d493e1b21277e5ad9de094d458429e0c9e8f4f0ecf2fc5
+    home: https://github.com/truecharts/apps/tree/master/incubator/heimdall
+    icon: https://i.imgur.com/mM4tcO5.png
+    keywords:
+    - heimdall
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: heimdall
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/heimdall
+    - https://github.com/k8s-at-home/charts/tree/master/charts/heimdall
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/heimdall-5.1.1/heimdall-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:16.336019408Z"
     dependencies:
     - name: common
@@ -6557,6 +6993,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/heimdall-3.1.5/heimdall-3.1.5.tgz
     version: 3.1.5
   home-assistant:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T12:59:59.279980435Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: home-assistant App for TrueNAS SCALE
+    digest: 887f14ad975366673a57649f0c038d50e9b6aacc29b69a643f5276819af26004
+    home: https://github.com/truecharts/apps/tree/master/stable/home-assistant
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Home_Assistant_Logo.svg/519px-Home_Assistant_Logo.svg.png
+    keywords:
+    - home-assistant
+    - hass
+    - homeassistant
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: home-assistant
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/home-assistant
+    - https://github.com/k8s-at-home/charts/tree/master/charts/home-assistant
+    - https://github.com/home-assistant/home-assistant
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/home-assistant-5.1.1/home-assistant-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:16.499336739Z"
@@ -6954,6 +7423,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/home-assistant-3.1.5/home-assistant-3.1.5.tgz
     version: 3.1.5
   jackett:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T12:59:59.42685617Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: API Support for your favorite torrent trackers.
+    digest: fd427dde7489c668b0c2a279bff364bde4ddc659b64e78c6c812b1e84910cd80
+    home: https://github.com/truecharts/apps/tree/master/stable/jackett
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - jackett
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jackett
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/jackett
+    - https://github.com/k8s-at-home/charts/tree/master/charts/jackett
+    - https://github.com/Jackett/Jackett
+    - https://hub.docker.com/r/linuxserver/jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jackett-5.1.1/jackett-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:16.712493582Z"
@@ -7386,6 +7888,39 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T12:59:59.596668827Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Jellyfin is a Free Software Media System
+    digest: 60c2b14ba2f10a944b496759905c560372c2ebde5d586277bc73e35423235c29
+    home: https://github.com/truecharts/apps/tree/master/stable/jellyfin
+    icon: https://truecharts.org/_static/img/jellyfin-icon.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jellyfin
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/jellyfin
+    - https://github.com/k8s-at-home/charts/tree/master/charts/jellyfin
+    - https://hub.docker.com/r/linuxserver/Jellyfin/
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jellyfin-5.1.1/jellyfin-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:16.872672337Z"
     dependencies:
     - name: common
@@ -7783,6 +8318,35 @@ entries:
   kms:
   - apiVersion: v2
     appVersion: minimal
+    created: "2021-05-29T12:59:59.751301969Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Private Windows Activation Server for development and testing
+    digest: f67b8da2f11de801626c56f8a7a5a48640d061ea7011883451c723a722d321c8
+    home: https://github.com/truecharts/apps/tree/master/stable/kms
+    icon: https://truecharts.org/_static/img/kms-icon.jpg
+    keywords:
+    - kms
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: kms
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/kms
+    - https://github.com/SystemRage/py-kms
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/kms-5.1.1/kms-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: minimal
     created: "2021-05-28T21:52:17.057785798Z"
     dependencies:
     - name: common
@@ -8101,6 +8665,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/kms-3.1.5/kms-3.1.5.tgz
     version: 3.1.5
   lazylibrarian:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-05-29T12:59:59.949153251Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Get all your books, like series with Sonarr...
+    digest: 4d86a274810ca196a157a6c1c4ee028e9174da5cccfb6fc9690f1788e2375dca
+    home: https://github.com/truecharts/apps/tree/master/incubator/lazylibrarian
+    icon: https://lazylibrarian.gitlab.io/logo.svg
+    keywords:
+    - lazylibrarian
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: lazylibrarian
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/lazylibrarian
+    - https://github.com/k8s-at-home/charts/tree/master/charts/lazylibrarian
+    - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
+    - https://lazylibrarian.gitlab.io
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lazylibrarian-5.1.1/lazylibrarian-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: latest
     created: "2021-05-28T21:52:17.222201121Z"
@@ -8454,6 +9050,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/lazylibrarian-3.1.5/lazylibrarian-3.1.5.tgz
     version: 3.1.5
   lidarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:00.109088399Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Looks and smells like Sonarr but made for music
+    digest: 8cff8fd591f7f72aa2a26fd30d5fda7b4eec4170b15300e8dfbba3bae8f3aefd
+    home: https://github.com/truecharts/apps/tree/master/stable/lidarr
+    icon: https://avatars3.githubusercontent.com/u/28475832?s=400&v=4
+    keywords:
+    - lidarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: lidarr
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/lidarr
+    - https://github.com/k8s-at-home/charts/tree/master/charts/lidarr
+    - https://github.com/Lidarr/Lidarr
+    - https://hub.docker.com/r/linuxserver/lidarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lidarr-5.1.1/lidarr-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:17.413732032Z"
@@ -8853,6 +9482,37 @@ entries:
   lychee:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T13:00:00.320046693Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Lychee is a free photo-management tool, which runs on your server
+      or web-space
+    digest: 88fb6ebf6a82aef167d12805e0c9a6dfb62604d45fdcad6e24fa367bff65b1db
+    home: https://github.com/truecharts/apps/tree/master/incubator/lychee
+    icon: https://github.com/LycheeOrg/Lychee/blob/master/Banner.png?raw=true
+    keywords:
+    - lychee
+    - photo
+    - pictures
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: lychee
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/lychee
+    - https://github.com/k8s-at-home/charts/tree/master/charts/lychee
+    - https://github.com/LycheeOrg/Lychee
+    - https://hub.docker.com/r/lycheeorg/lychee
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lychee-5.1.1/lychee-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:17.583973809Z"
     dependencies:
     - name: common
@@ -9193,6 +9853,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/lychee-3.1.5/lychee-3.1.5.tgz
     version: 3.1.5
   navidrome:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:00.475091636Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: d89a9829303fe8b598868347fd2e8a4d6b82b501ed024405edbbe438b0c0f804
+    home: https://github.com/truecharts/apps/tree/master/incubator/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/v0.42.0/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: navidrome
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/navidrome
+    - https://github.com/k8s-at-home/charts/tree/master/charts/navidrome
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/navidrome-5.1.1/navidrome-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:17.795777563Z"
@@ -9568,6 +10259,34 @@ entries:
   node-red:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T13:00:00.643283091Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Node-RED is low-code programming for event-driven applications
+    digest: c073dcba150af5f11c581ee84cd6f8ce9d4fdc3b86c9cf96cdad158e863eab5b
+    home: https://github.com/truecharts/apps/tree/master/incubator/node-red
+    icon: https://nodered.org/about/resources/media/node-red-icon-2.png
+    keywords:
+    - node-red
+    - nodered
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: node-red
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/node-red
+    - https://github.com/k8s-at-home/charts/tree/master/charts/node-red
+    - https://github.com/node-red/node-red-docker
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/node-red-5.1.1/node-red-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:17.973070085Z"
     dependencies:
     - name: common
@@ -9905,6 +10624,35 @@ entries:
   nzbget:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T13:00:00.997321431Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: NZBGet is a Usenet downloader client
+    digest: 98e2201ec30209d135cab314b22ef7d5385f285249a3c4aa4c42746b111f8964
+    home: https://github.com/truecharts/apps/tree/master/incubator/nzbget
+    icon: https://avatars1.githubusercontent.com/u/3368377?s=400&v=4
+    keywords:
+    - nzbget
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: nzbget
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/nzbget
+    - https://github.com/k8s-at-home/charts/tree/master/charts/nzbget
+    - https://hub.docker.com/r/linuxserver/nzbget/
+    - https://nzbget.net/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nzbget-5.1.1/nzbget-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:18.152427391Z"
     dependencies:
     - name: common
@@ -10225,6 +10973,32 @@ entries:
   nzbhydra:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T13:00:01.282157809Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    deprecated: true
+    description: Usenet meta search
+    digest: 215a5928d3d7073284f18449eee83462659e1cc88b2c83dccf1de2d5dcfa2ea7
+    home: https://github.com/truecharts/apps/tree/master/incubator/nzbhydra
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png
+    keywords:
+    - nzbhydra
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    name: nzbhydra
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/nzbhydra
+    - https://github.com/k8s-at-home/charts/tree/master/charts/nzbhydra
+    - https://hub.docker.com/r/linuxserver/nzbhydra2
+    - https://github.com/theotherp/nzbhydra2
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nzbhydra-5.1.1/nzbhydra-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:18.311109158Z"
     dependencies:
     - name: common
@@ -10536,6 +11310,42 @@ entries:
     - https://github.com/truecharts/apps/releases/download/nzbhydra-3.1.6/nzbhydra-3.1.6.tgz
     version: 3.1.6
   ombi:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:01.524518547Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
+    digest: 8d61d906b01de7579e2a89546bb0e7972e4c477afffc10b4a3eb9c671ef8f851
+    home: https://github.com/truecharts/apps/tree/master/stable/ombi
+    icon: https://img3.androidappsapk.co/wiLDnuwrCWctiiW62ALcj4eIpNbzeRH_UNPo7eqlpYvGkCQYSTybaI4xVRLKGjnlamlV=s300
+    keywords:
+    - ombi
+    - plex
+    - emby
+    - sonarr
+    - radarr
+    - couchpotato
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: ombi
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/ombi
+    - https://github.com/k8s-at-home/charts/tree/master/charts/ombi
+    - https://github.com/tidusjar/Ombi
+    - https://hub.docker.com/r/linuxserver/ombi
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ombi-5.1.1/ombi-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:18.464045869Z"
@@ -11007,6 +11817,34 @@ entries:
   organizr:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-05-29T13:00:01.736324354Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: HTPC/Homelab Services Organizer
+    digest: 8f84758349678e82f15c59d6f5dd0df61a7490a477d423fbfbc1c7037e1d7c9d
+    home: https://github.com/truecharts/apps/tree/master/incubator/organizr
+    icon: https://github.com/causefx/Organizr/blob/v2-master/plugins/images/organizr/logo.png?raw=true
+    keywords:
+    - organizr
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: organizr
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/organizr
+    - https://github.com/k8s-at-home/charts/tree/master/charts/organizr
+    - https://github.com/causefx/Organizr
+    - https://hub.docker.com/r/organizr/organizr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/organizr-5.1.1/organizr-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-05-28T21:52:18.614627899Z"
     dependencies:
     - name: common
@@ -11314,6 +12152,35 @@ entries:
     - https://github.com/truecharts/apps/releases/download/organizr-3.1.5/organizr-3.1.5.tgz
     version: 3.1.5
   plex:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:01.986635499Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Plex Media Server
+    digest: 68a956de0e46704976bf27147492f15df68128e575708356b803b9f6afb6e09d
+    home: https://github.com/truecharts/apps/tree/master/stable/plex
+    icon: https://www.plex.tv/wp-content/uploads/2018/01/pmp-icon-1.png
+    keywords:
+    - plex
+    - plex-media-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: plex
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/plex
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/plex-4.1.1/plex-4.1.1.tgz
+    version: 4.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:18.769545895Z"
@@ -11692,6 +12559,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/plex-2.1.5/plex-2.1.5.tgz
     version: 2.1.5
   podgrab:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:02.28320569Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: A self-hosted podcast manager to download episodes as soon as they
+      become live.
+    digest: 10f82177f14c4b848f4d9db3db4a3bc46a7aad8056f9e834b0ab7b010d13ab27
+    home: https://github.com/truecharts/apps/tree/master/incubator/podgrab
+    icon: https://truecharts.org/_static/img/podgrab-icon.png
+    keywords:
+    - podgrab
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 20650065+warllo54@users.noreply.github.com
+      name: warllo54
+      url: truecharts.org
+    name: podgrab
+    sources:
+    - https://github.com/akhilrex/podgrab
+    - https://hub.docker.com/r/akhilrex/podgrab
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/podgrab-3.1.1/podgrab-3.1.1.tgz
+    version: 3.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:18.92450629Z"
@@ -12134,6 +13031,34 @@ entries:
   qbittorrent:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T13:00:02.503666805Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: qBittorrent is a cross-platform free and open-source BitTorrent client
+    digest: c427a8c9976c65652dc48cdeef51295b60a2d7232988968680c80f1910f70983
+    home: https://github.com/truecharts/apps/tree/master/incubator/qbittorrent
+    icon: https://cloud.githubusercontent.com/assets/14862437/23586868/89ef2922-01c4-11e7-869c-52aafcece17f.png
+    keywords:
+    - qbittorrent
+    - torrrent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: qbittorrent
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/qbittorrent
+    - https://github.com/k8s-at-home/charts/tree/master/charts/qbittorrent
+    - https://hub.docker.com/r/linuxserver/qbittorrent/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/qbittorrent-5.1.1/qbittorrent-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:19.068414772Z"
     dependencies:
     - name: common
@@ -12441,6 +13366,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/qbittorrent-3.1.5/qbittorrent-3.1.5.tgz
     version: 3.1.5
   radarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:02.694920693Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: A fork of Sonarr to work with movies à la Couchpotato
+    digest: 484fb8dda39e7d448c8d22538266f12ba12619e6419192fcd5e044752216c280
+    home: https://github.com/truecharts/apps/tree/master/stable/radarr
+    icon: https://nzbusenet.com/wp-content/uploads/2017/10/radarr-logo.png
+    keywords:
+    - radarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: radarr
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/radarr
+    - https://github.com/k8s-at-home/charts/tree/master/charts/radarr
+    - https://github.com/Radarr/Radarr
+    - https://hub.docker.com/r/linuxserver/radarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/radarr-5.1.1/radarr-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:19.238953646Z"
@@ -12838,6 +13796,41 @@ entries:
     - https://github.com/truecharts/apps/releases/download/radarr-3.1.5/radarr-3.1.5.tgz
     version: 3.1.5
   readarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:02.890630384Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: A fork of Radarr to work with Books & AudioBooks
+    digest: 359441a4720dfbf66ed0b9f3714db0b12423f800719157e4ffbfc49f0c3e03bc
+    home: https://github.com/truecharts/apps/tree/master/incubator/readarr
+    icon: https://github.com/Readarr/Readarr/blob/develop/Logo/1024.png?raw=true
+    keywords:
+    - readarr
+    - torrent
+    - usenet
+    - AudioBooks
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: readarr
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/readarr
+    - https://github.com/k8s-at-home/charts/tree/master/charts/readarr
+    - https://github.com/Readarr/Readarr
+    - https://readarr.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/readarr-5.1.1/readarr-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:19.39551863Z"
@@ -13296,6 +14289,35 @@ entries:
   sabnzbd:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T13:00:03.064092954Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Free and easy binary newsreader
+    digest: 7bd1de4fec7f9bda929d94be28987c5ce460fc69c6a0213f550ec9036ceb8fcb
+    home: https://github.com/truecharts/apps/tree/master/incubator/sabnzbd
+    icon: https://avatars1.githubusercontent.com/u/960698?s=400&v=4
+    keywords:
+    - sabnzbd
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: sabnzbd
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/sabnzbd
+    - https://github.com/k8s-at-home/charts/tree/master/charts/sabnzbd
+    - https://hub.docker.com/r/linuxserver/sabnzbd/
+    - https://sabnzbd.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/sabnzbd-5.1.1/sabnzbd-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:19.550450025Z"
     dependencies:
     - name: common
@@ -13614,6 +14636,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/sabnzbd-3.1.5/sabnzbd-3.1.5.tgz
     version: 3.1.5
   sonarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:03.299119084Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Smart PVR for newsgroup and bittorrent users
+    digest: 5cf743743c5f1984d4096b9a92e5cb7176a661554e2390878bcfd7c804a7b21b
+    home: https://github.com/truecharts/apps/tree/master/stable/sonarr
+    icon: https://github.com/Sonarr/Sonarr/blob/phantom-develop/Logo/512.png?raw=true
+    keywords:
+    - sonarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: sonarr
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/sonarr
+    - https://github.com/k8s-at-home/charts/tree/master/charts/sonarr
+    - https://github.com/Sonarr/Sonarr
+    - https://hub.docker.com/r/linuxserver/sonarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/sonarr-5.1.1/sonarr-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:19.707227407Z"
@@ -13980,6 +15035,36 @@ entries:
   syncthing:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T13:00:03.514550295Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: P2P file synchronization application
+    digest: 373cdaf8cf22c87871b6243bf577a08e34934fb490e3b5acadb12ccace8177b7
+    home: https://github.com/truecharts/apps/tree/master/stable/syncthing
+    icon: https://raw.githubusercontent.com/syncthing/syncthing/main/assets/logo-128.png
+    keywords:
+    - syncthing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: luuk@nieuwdorp.me
+      name: luuknieuwdorp
+      url: nieuwdorp.me
+    name: syncthing
+    sources:
+    - https://syncthing.net/
+    - https://github.com/syncthing/syncthing
+    - https://hub.docker.com/r/syncthing/syncthing
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/syncthing-5.2.1/syncthing-5.2.1.tgz
+    version: 5.2.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:19.887845503Z"
     dependencies:
     - name: common
@@ -14339,6 +15424,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/syncthing-3.1.5/syncthing-3.1.5.tgz
     version: 3.1.5
   tautulli:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:03.700716377Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: A Python based monitoring and tracking tool for Plex Media Server
+    digest: 36073eb4ec1fd0746a03ae4e7a92ebdaf9d43c91b60cfa2d52cf84ac8c7be550
+    home: https://github.com/truecharts/apps/tree/master/stable/tautulli
+    icon: https://github.com/Tautulli/Tautulli/blob/master/data/interfaces/default/images/logo.png?raw=true
+    keywords:
+    - tautulli
+    - plex
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: tautulli
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/tautulli
+    - https://github.com/k8s-at-home/charts/tree/master/charts/tautulli
+    - https://github.com/Tautulli/Tautulli
+    - https://hub.docker.com/r/tautulli/tautulli
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/tautulli-5.1.1/tautulli-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:20.071577375Z"
@@ -15007,6 +16124,38 @@ entries:
   transmission:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T13:00:03.937569209Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: API Support for your favorite torrent trackers.
+    digest: 17a244f389ca079fd78b1cebc8722ad799173392d1fa59a97f3c405dd870ac05
+    home: https://github.com/truecharts/apps/tree/master/stable/transmission
+    icon: https://github.com/Jackett/Jackett/blob/phantom-develop/Logo/512.png?raw=true
+    keywords:
+    - transmission
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: transmission
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/transmission
+    - https://github.com/transmission/transmission
+    - https://hub.docker.com/r/linuxserver/transmission
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/transmission-5.1.1/transmission-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:20.244293133Z"
     dependencies:
     - name: common
@@ -15360,6 +16509,35 @@ entries:
   truecommand:
   - apiVersion: v2
     appVersion: nightly
+    created: "2021-05-29T13:00:04.128990097Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Aggregated management of TrueNAS devices
+    digest: e85de1fbc2f7728353e94b127c89b13ec08a189882cf8a9d08ee20ab6ec17a3e
+    home: https://github.com/truecharts/apps/tree/master/incubator/truecommand
+    icon: https://www.ixsystems.com/documentation/truecommand/1.2/_static/tv-logo.png
+    keywords:
+    - truecommand
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: truecommand
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/truecommand
+    - https://hub.docker.com/r/ixsystems/truecommand
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/truecommand-5.1.1/truecommand-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: nightly
     created: "2021-05-28T21:52:20.393524373Z"
     dependencies:
     - name: common
@@ -15678,6 +16856,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/truecommand-3.1.5/truecommand-3.1.5.tgz
     version: 3.1.5
   tvheadend:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:04.504441664Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: TVheadend - a TV streaming server and digital video recorder
+    digest: 672b542c6ba1b12983f259f85bbf0b2d6454cd9d2fe53dced1ca5f8487a35f1f
+    home: https://github.com/truecharts/apps/tree/master/incubator/tvheadend
+    icon: https://avatars.githubusercontent.com/u/1908588?s=200&v=4
+    keywords:
+    - tvheadend
+    - tv
+    - streaming
+    - dvb
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: tvheadend
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/tvheadend
+    - https://github.com/k8s-at-home/charts/tree/master/charts/tvheadend
+    - https://github.com/tvheadend/tvheadend
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/tvheadend-6.1.1/tvheadend-6.1.1.tgz
+    version: 6.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:20.542766713Z"
@@ -16041,6 +17249,34 @@ entries:
   unifi:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-05-29T13:00:04.696355852Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Ubiquiti Network's Unifi Controller
+    digest: 8aa9802b8d418193b9354df106a29502df22d59802c9f73e9c3b067cd786ee9c
+    home: https://github.com/truecharts/apps/tree/master/incubator/unifi
+    icon: https://dl.ubnt.com/press/logo-UniFi.png
+    keywords:
+    - ubiquiti
+    - unifi
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: unifi
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/unifi
+    - https://github.com/jacobalberty/unifi-docker
+    - https://unifi-network.ui.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/unifi-5.1.1/unifi-5.1.1.tgz
+    version: 5.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-28T21:52:20.734112526Z"
     dependencies:
     - name: common
@@ -16376,6 +17612,45 @@ entries:
     - https://github.com/truecharts/apps/releases/download/unifi-3.1.5/unifi-3.1.5.tgz
     version: 3.1.5
   vaultwarden:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:04.92865498Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.4.7
+    description: Unofficial Bitwarden compatible server written in Rust
+    digest: 1495aadf7c1c7466b1a331745c2ee4d0465af4664b8dd52b05f5e681ae34397a
+    home: https://github.com/truecharts/apps/tree/master/stable/vaultwarden
+    icon: https://raw.githubusercontent.com/bitwarden/brand/master/icons/256x256.png
+    keywords:
+    - bitwarden
+    - bitwardenrs
+    - bitwarden_rs
+    - vaultwarden
+    - password
+    - rust
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: vaultwarden
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/bitwarden
+    - https://github.com/k8s-at-home/charts/tree/master/charts/stable/bitwardenrs
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/vaultwarden-2.1.1/vaultwarden-2.1.1.tgz
+    version: 2.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:20.906987882Z"
@@ -16728,6 +18003,41 @@ entries:
     - https://github.com/truecharts/apps/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
   zwavejs2mqtt:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T13:00:05.095949244Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.2
+    description: Fully configurable Zwave to MQTT gateway and Control Panel using
+      NodeJS and Vue
+    digest: ad20a5f307c9b6e57f295e638965133f84de2145ba36fcd7bb6d1648f58807ed
+    home: https://github.com/truecharts/apps/tree/master/stable/zwavejs2mqtt
+    icon: https://raw.githubusercontent.com/zwave-js/zwavejs2mqtt/master/static/logo.png
+    keywords:
+    - zwavejs2mqtt
+    - zwave-js
+    - z-wave
+    - zwave
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: zwavejs2mqtt
+    sources:
+    - https://github.com/truecharts/apps/tree/master/stable/zwavejs2mqtt
+    - https://github.com/k8s-at-home/charts/tree/master/charts/zwavejs2mqtt
+    - https://github.com/zwave-js/zwavejs2mqtt
+    - https://hub.docker.com/r/zwavejs/zwavejs2mqtt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-5.1.1/zwavejs2mqtt-5.1.1.tgz
+    version: 5.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-28T21:52:21.078699548Z"
@@ -17218,4 +18528,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-05-29T12:27:30.497735657Z"
+generated: "2021-05-29T13:00:05.099182747Z"
