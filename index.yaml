@@ -12052,6 +12052,33 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/podgrab-1.0.3/podgrab-1.0.3.tgz
     version: 1.0.3
+  prototype-gui:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-05-29T12:03:11.576161153Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.1
+    description: App to test GUI prototypes
+    digest: be4b6602a05102b5c0dc85b48a14452b4ff9f2314e0901f73daa07b0b31f6245
+    home: https://github.com/truecharts/apps/tree/master/develop/prototype-gui
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - dev
+    - prototype
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prototype-gui
+    sources:
+    - https://github.com/truecharts/apps/tree/master/develop/prototype-gui
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prototype-gui-0.0.1/prototype-gui-0.0.1.tgz
+    version: 0.0.1
   qbittorrent:
   - apiVersion: v2
     appVersion: auto
@@ -17139,4 +17166,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-05-29T11:18:13.16467736Z"
+generated: "2021-05-29T12:03:11.578577588Z"
