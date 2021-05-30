@@ -554,3 +554,39 @@ questions:
                 schema:
                   type: hostpath
                   required: true
+  - variable: resources
+    group: "Resources and Devices"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: limits
+          label: "Advanced Limit Resource Consumption"
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: "CPU"
+                schema:
+                  type: string
+                  default: "2000m"
+              - variable: memory
+                label: "Memory RAM"
+                schema:
+                  type: string
+                  default: "2Gi"
+        - variable: requests
+          label: "Advanced Request minimum resources required"
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: "CPU"
+                schema:
+                  type: string
+                  default: "10m"
+              - variable: memory
+                label: "Memory RAM"
+                schema:
+                  type: string
+                  default: "50Mi"
