@@ -8,11 +8,13 @@ on:
     paths:
     - 'containers/apps/**'
     - 'containers/base/**'
+    - 'containers/dev/**'
     - ".github/workflows/containers.build.yaml"
   pull_request:
     paths:
     - 'containers/apps/**'
     - 'containers/base/**'
+    - 'containers/dev/**'
     - ".github/workflows/containers.build.yaml"
 
 env:
@@ -37,6 +39,7 @@ jobs:
           changed:
           - 'containers/apps/**'
           - 'containers/base/**'
+          - 'containers/dev/**'
     - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
     - id: reduce
       run: |
@@ -77,6 +80,8 @@ jobs:
       run: |
         if test -f "./containers/apps/${{ matrix.container }}/Dockerfile"; then
           CATEGORY="apps"
+        elif test -f "./containers/dev/${{ matrix.container }}/Dockerfile"; then
+          CATEGORY="dev"
         else
           CATEGORY="base"
         fi

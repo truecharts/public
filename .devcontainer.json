@@ -1,10 +1,10 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.154.0/containers/ruby
 {
-    "name": "Go",
+    "name": "TrueCharts-Dev",
     "build": {
         "context": "..",
-        "dockerfile": "Dockerfile",
+        "dockerfile": "containers/dev/devcontainer/Dockerfile",
         "args": {
             "VARIANT": "1.16",
         }
