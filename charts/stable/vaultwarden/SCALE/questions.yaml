@@ -420,14 +420,14 @@ questions:
                   type: string
   # Enable Host Networking
   - variable: hostNetwork
-    group: "Networking"
+    group: "Networking and Services"
     label: "Enable Host Networking"
     schema:
       type: boolean
       default: false
       hidden: true
   - variable: service
-    group: "Networking"
+    group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
       type: dict

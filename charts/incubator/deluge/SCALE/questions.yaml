@@ -110,13 +110,13 @@ questions:
                   type: string
   ## Enable Host Network
   - variable: hostNetwork
-    group: "Networking"
+    group: "Networking and Services"
     label: "Enable Host Network"
     schema:
       type: boolean
       default: false
   - variable: service
-    group: "Networking"
+    group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
       type: dict
