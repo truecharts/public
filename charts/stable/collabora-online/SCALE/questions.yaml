@@ -1,24 +1,22 @@
 groups:
   - name: "Container Image"
     description: "Image to be used for container"
-  - name: "Workload Configuration"
+  - name: "Controller"
     description: "Configure workload deployment"
-  - name: "Configuration"
+  - name: "Container Configuration"
     description: "additional container configuration"
-  - name: "Networking"
+  - name: "Networking and Services"
     description: "Configure Network and Services for container"
-  - name: "Storage"
-    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Storage and Persistence"
+    description: "Persist and share data that is separate from the container"
+  - name: "Ingress"
+    description: "Ingress Configuration"
+  - name: "Security and Permissions"
+    description: "Configure security context and permissions"
   - name: "Resources and Devices"
     description: "Specify resources/devices to be allocated to workload"
-  - name: "Ingress Configuration"
-    description: "Ingress Configuration"
-  - name: "Security"
-    description: "Configure security context"
   - name: "Advanced"
     description: "Advanced Configuration"
-  - name: "WARNING"
-    description: "WARNING"
 portals:
   web_portal:
     protocols:
@@ -57,7 +55,7 @@ questions:
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"
   - variable: env
-    group: "Configuration"
+    group: "Container Configuration"
     label: "Image Environment"
     schema:
       type: dict
@@ -109,7 +107,7 @@ questions:
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
-    group: "Configuration"
+    group: "Container Configuration"
     schema:
       type: list
       default: []
@@ -241,7 +239,7 @@ questions:
   # Reverse Proxy
   - variable: hostPathMounts
     label: "Custom app storage"
-    group: "Storage"
+    group: "Storage and Persistence"
     schema:
       type: list
       default: []
