@@ -1,24 +1,24 @@
 groups:
   - name: "Container Image"
     description: "Image to be used for container"
-  - name: "Workload Configuration"
+  - name: "Controller"
     description: "Configure workload deployment"
-  - name: "Configuration"
+  - name: "Container Configuration"
     description: "additional container configuration"
-  - name: "Networking"
+  - name: "App Configuration"
+    description: "App specific config options"
+  - name: "Networking and Services"
     description: "Configure Network and Services for container"
-  - name: "Storage"
-    description: "Persist and share data that is separate from the lifecycle of the container"
+  - name: "Storage and Persistence"
+    description: "Persist and share data that is separate from the container"
+  - name: "Ingress"
+    description: "Ingress Configuration"
+  - name: "Security and Permissions"
+    description: "Configure security context and permissions"
   - name: "Resources and Devices"
     description: "Specify resources/devices to be allocated to workload"
-  - name: "Ingress Configuration"
-    description: "Ingress Configuration"
-  - name: "Security"
-    description: "Configure security context"
   - name: "Advanced"
     description: "Advanced Configuration"
-  - name: "WARNING"
-    description: "WARNING"
 portals:
   web_portal:
     protocols:
@@ -43,20 +43,49 @@ questions:
             editable: false
             type: boolean
             default: true
-  # Update Policy
-  - variable: strategyType
-    group: "Container Image"
-    label: "Update Strategy"
+  - variable: controller
+    group: "Controller"
+    label: ""
     schema:
-      type: string
-      default: "Recreate"
-      enum:
-        - value: "RollingUpdate"
-          description: "Create new pods and then kill old ones"
-        - value: "Recreate"
-          description: "Kill existing pods before creating new ones"
+      type: dict
+      attrs:
+        - variable: type
+          description: "Please specify type of workload to deploy"
+          label: "(Advanced) Controller Type"
+          schema:
+            type: string
+            default: "deployment"
+            required: true
+            enum:
+              - value: "deployment"
+                description: "Deployment"
+              - value: "statefulset"
+                description: "Statefulset"
+              - value: "daemonset"
+                description: "Daemonset"
+        - variable: replicas
+          description: "Number of desired pod replicas"
+          label: "Desired Replicas"
+          schema:
+            type: int
+            default: 1
+            required: true
+        - variable: strategy
+          description: "Please specify type of workload to deploy"
+          label: "(Advanced) Update Strategy"
+          schema:
+            type: string
+            default: "Recreate"
+            required: true
+            enum:
+              - value: "Recreate"
+                description: "Recreate: Kill existing pods before creating new ones"
+              - value: "RollingUpdate"
+                description: "RollingUpdate: Create new pods and then kill old ones"
+              - value: "OnDelete"
+                description: "(Legacy) OnDelete: ignore .spec.template changes"
   - variable: env
-    group: "Configuration"
+    group: "Container Configuration"
     label: "Image Environment"
     schema:
       type: dict
@@ -77,7 +106,7 @@ questions:
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
-    group: "Configuration"
+    group: "Container Configuration"
     schema:
       type: list
       default: []
@@ -95,15 +124,90 @@ questions:
                 label: "Value"
                 schema:
                   type: string
-  # Enable Host Networking
+
   - variable: hostNetwork
-    group: "Networking"
+    group: "Networking and Services"
     label: "Enable Host Networking"
     schema:
       type: boolean
       default: false
+  - variable: externalInterfaces
+    description: "External Interfaces"
+    label: "(Advanced) External Interfaces"
+    group: "Networking and Services"
+    schema:
+      type: list
+      items:
+        - variable: interfaceConfiguration
+          description: "Interface Configuration"
+          label: "Interface Configuration"
+          schema:
+            type: dict
+            $ref:
+              - "normalize/interfaceConfiguration"
+            attrs:
+              - variable: hostInterface
+                description: "Please specify host interface"
+                label: "Host Interface"
+                schema:
+                  type: string
+                  required: true
+                  $ref:
+                    - "definitions/interface"
+              - variable: ipam
+                description: "Define how IP Address will be managed"
+                label: "IP Address Management"
+                schema:
+                  type: dict
+                  required: true
+                  attrs:
+                    - variable: type
+                      description: "Specify type for IPAM"
+                      label: "IPAM Type"
+                      schema:
+                        type: string
+                        required: true
+                        enum:
+                          - value: "dhcp"
+                            description: "Use DHCP"
+                          - value: "static"
+                            description: "Use static IP"
+                        show_subquestions_if: "static"
+                        subquestions:
+                          - variable: staticIPConfigurations
+                            label: "Static IP Addresses"
+                            schema:
+                              type: list
+                              items:
+                                - variable: staticIP
+                                  label: "Static IP"
+                                  schema:
+                                    type: ipaddr
+                                    cidr: true
+                          - variable: staticRoutes
+                            label: "Static Routes"
+                            schema:
+                              type: list
+                              items:
+                                - variable: staticRouteConfiguration
+                                  label: "Static Route Configuration"
+                                  schema:
+                                    type: dict
+                                    attrs:
+                                      - variable: destination
+                                        label: "Destination"
+                                        schema:
+                                          type: ipaddr
+                                          cidr: true
+                                          required: true
+                                      - variable: gateway
+                                        label: "Gateway"
+                                        schema:
+                                          type: ipaddr
+                                          cidr: false
+                                          required: true
   - variable: service
-    group: "Networking"
+    group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
       type: dict
@@ -209,7 +313,7 @@ questions:
   ## TrueCharts Specific
   - variable: persistence
     label: "Integrated Persistent Storage"
-    group: "Storage"
+    group: "Storage and Persistence"
     schema:
       type: dict
       attrs:
@@ -279,7 +383,7 @@ questions:
                   default: "100Gi"
   - variable: hostPathMounts
     label: "Custom app storage"
-    group: "Storage"
+    group: "Storage and Persistence"
     schema:
       type: list
       default: []
@@ -343,7 +447,7 @@ questions:
                   required: true
   # Enable privileged
   - variable: securityContext
-    group: "Security"
+    group: "Security and Permissions"
     label: "Security Context"
     schema:
       type: dict
@@ -355,7 +459,7 @@ questions:
             default: false
   # Set Pod Security Policy
   - variable: podSecurityContext
-    group: "Security"
+    group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
       type: dict
@@ -393,3 +497,39 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+  - variable: resources
+    group: "Resources and Devices"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: limits
+          label: "Advanced Limit Resource Consumption"
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: "CPU"
+                schema:
+                  type: string
+                  default: "2000m"
+              - variable: memory
+                label: "Memory RAM"
+                schema:
+                  type: string
+                  default: "2Gi"
+        - variable: requests
+          label: "Advanced Request minimum resources required"
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: "CPU"
+                schema:
+                  type: string
+                  default: "10m"
+              - variable: memory
+                label: "Memory RAM"
+                schema:
+                  type: string
+                  default: "50Mi"
