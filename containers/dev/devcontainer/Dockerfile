@@ -1,5 +1,5 @@
-ARG VARIANT="1.16"
-FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
+ARG VERSION="1.16"
+FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VERSION}
 
 ARG HELM_VERSION="3.5.4"
 ARG CT_VERSION=3.3.1
