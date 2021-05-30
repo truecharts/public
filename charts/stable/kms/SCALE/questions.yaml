@@ -19,7 +19,7 @@ groups:
     description: "Specify resources/devices to be allocated to workload"
   - name: "Advanced"
     description: "Advanced Configuration"
-portals:
+questions:
   - variable: portal
     group: "Container Image"
     label: "Configure Portal Button"
@@ -34,7 +34,7 @@ portals:
             hidden: true
             editable: false
             type: boolean
-            default: true
+            default: false
   - variable: controller
     group: "Controller"
     label: ""
