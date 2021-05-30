@@ -47,7 +47,7 @@ USER apps
 
 EXPOSE 3579
 
-COPY ./.containers/apps/ombi/entrypoint.sh /entrypoint.sh
+COPY ./containers/apps/ombi/entrypoint.sh /entrypoint.sh
 CMD ["/entrypoint.sh"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"

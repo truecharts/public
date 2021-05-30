@@ -29,5 +29,5 @@ CMD ["/entrypoint.sh"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "authors"="TrueCharts <info@truecharts.org>"
-LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps/tree/master/.containers/apps/sabnzbd"
+LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps/tree/master/containers/apps/sabnzbd"
 LABEL "org.opencontainers.image.documentation "="https://truecharts.org"
