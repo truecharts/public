@@ -14,8 +14,8 @@ command -v helm-docs >/dev/null 2>&1 || {
 repository=$(git rev-parse --show-toplevel)
 
 # Templates to copy into each chart directory
-readme_template="${repository}/.tools/templates/docs/README.md.gotmpl"
-config_template="${repository}/.tools/templates/docs/CONFIG.md.gotmpl"
+readme_template="${repository}/tools/templates/docs/README.md.gotmpl"
+config_template="${repository}/tools/templates/docs/CONFIG.md.gotmpl"
 root="${repository}"
 
 for train in stable incubator develop non-free deprecated; do
@@ -27,12 +27,12 @@ for train in stable incubator develop non-free deprecated; do
         helm-docs \
             --ignore-file=".helmdocsignore" \
             --output-file="README.md" \
-            --template-files="${repository}/.tools/templates/docs/README.md.gotmpl" \
+            --template-files="${repository}/tools/templates/docs/README.md.gotmpl" \
             --chart-search-root="${chart}"
         helm-docs \
             --ignore-file=".helmdocsignore" \
             --output-file="CONFIG.md" \
-            --template-files="${repository}/.tools/templates/docs/CONFIG.md.gotmpl" \
+            --template-files="${repository}/tools/templates/docs/CONFIG.md.gotmpl" \
             --chart-search-root="${chart}"
     fi
   done

@@ -85,7 +85,7 @@ Are you done downloading? Awesome! Now your local repo is automagically soul-lin
 
 Pre-Commit makes sure to fix small warnings that might prevent us from merging your changes into our repo. For now it isn't really important why, how and what. But realise it does so in each step called "commit" in the future.
 
-To setup Pre-Commit on windows, simply double click `.tools/pre-commit-install.bat`, on Linux you can install pre-commit by using `pip install pre-commit` and  `pre-commit install` from the project top-most directory
+To setup Pre-Commit on windows, simply double click `tools/pre-commit-install.bat`, on Linux you can install pre-commit by using `pip install pre-commit` and  `pre-commit install` from the project top-most directory
 
 
 ### Opening the project and editing the project

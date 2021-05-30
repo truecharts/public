@@ -9,9 +9,9 @@ on:
       - '**'
     paths:
       - 'library/**/Chart.yaml'
-      - '.tools/gen-helm-docs.sh'
-      - '.tools/templates/docs/**'
-      - '.tools/templates/app/*.gotmpl'
+      - 'tools/gen-helm-docs.sh'
+      - 'tools/templates/docs/**'
+      - 'tools/templates/app/*.gotmpl'
       - '**.gotmpl'
       - '**/LICENSE'
       - '**LICENSE'
@@ -40,7 +40,7 @@ jobs:
 
       - name: (re)generate docs
         run: |
-          .tools/gen-helm-docs.sh
+          tools/gen-helm-docs.sh
 
       - name: Copy general readme to website
         run: |
