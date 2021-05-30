@@ -84,10 +84,10 @@ questions:
                 description: "RollingUpdate: Create new pods and then kill old ones"
               - value: "OnDelete"
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
-  # Configure Bitwarden:
-  - variable: bitwardenrs
+
+  - variable: vaultwarden
     label: ""
-    group: "Container Configuration"
+    group: "App Configuration"
     schema:
       type: dict
       attrs:
@@ -98,7 +98,7 @@ questions:
             attrs:
               - variable: enabled
                 label: "Enable Yubico OTP authentication"
-                description: "Please refer to the manual at: https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-Yubikey-OTP-authentication"
+                description: "Please refer to the manual at: https://github.com/dani-garcia/vaultwarden/wiki/Enabling-Yubikey-OTP-authentication"
                 schema:
                   type: boolean
                   default: false
@@ -279,13 +279,13 @@ questions:
                         default: false
         - variable: allowSignups
           label: "Allow Signup"
-          description: "Allow any user to sign-up: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-registration-of-new-users"
+          description: "Allow any user to sign-up: https://github.com/dani-garcia/vaultwarden/wiki/Disable-registration-of-new-users"
           schema:
             type: boolean
             default: true
         - variable: allowInvitation
           label: "Always allow Invitation"
-          description: "Allow invited users to sign-up even feature is disabled: https://github.com/dani-garcia/bitwarden_rs/wiki/Disable-invitations"
+          description: "Allow invited users to sign-up even feature is disabled: https://github.com/dani-garcia/vaultwarden/wiki/Disable-invitations"
           schema:
             type: boolean
             default: true
@@ -297,7 +297,7 @@ questions:
             default: ""
         - variable: showPasswordHint
           label: "Show password hints"
-          description: "https://github.com/dani-garcia/bitwarden_rs/wiki/Password-hint-display"
+          description: "https://github.com/dani-garcia/vaultwarden/wiki/Password-hint-display"
           schema:
             type: boolean
             default: true
@@ -345,14 +345,14 @@ questions:
             default: 600
         - variable: enableWebsockets
           label: "Enable Websocket Connections"
-          description: "Enable Websockets for notification. https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-WebSocket-notifications"
+          description: "Enable Websockets for notification. https://github.com/dani-garcia/vaultwarden/wiki/Enabling-WebSocket-notifications"
           schema:
             type: boolean
             default: true
             hidden: true
         - variable: enableWebVault
           label: "Enable Webvault"
-          description: "Enable Web Vault (static content). https://github.com/dani-garcia/bitwarden_rs/wiki/Disabling-or-overriding-the-Vault-interface-hosting"
+          description: "Enable Web Vault (static content). https://github.com/dani-garcia/vaultwarden/wiki/Disabling-or-overriding-the-Vault-interface-hosting"
           schema:
             type: boolean
             default: true
@@ -500,7 +500,7 @@ questions:
                                           type: ipaddr
                                           cidr: false
                                           required: true
-      hidden: true
+
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
