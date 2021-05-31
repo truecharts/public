@@ -5,7 +5,7 @@
 ##
 
 image:
-  repository: bitwardenrs/server
+  repository: vaultwarden/server
   pullPolicy: IfNotPresent
   tag: 1.21.0
 
@@ -14,9 +14,9 @@ envTpl:
 
 envFrom:
   - configMapRef:
-      name: bitwardenconfig
+      name: vaultwardenconfig
   - secretRef:
-      name: bitwardensecret
+      name: vaultwardensecret
 
 
 envValueFrom:
