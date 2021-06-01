@@ -17462,6 +17462,32 @@ entries:
   sabnzbd:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-01T12:29:57.072757315Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: Free and easy binary newsreader
+    digest: e778fb71fa25b13bd3ceb5d293fa445246b274b4619b9482915c0064383bd2ee
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/sabnzbd
+    icon: https://avatars1.githubusercontent.com/u/960698?s=400&v=4
+    keywords:
+    - sabnzbd
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: sabnzbd
+    sources:
+    - https://sabnzbd.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/sabnzbd-5.2.4/sabnzbd-5.2.4.tgz
+    version: 5.2.4
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-31T00:09:06.241513739Z"
     dependencies:
     - name: common
@@ -22796,4 +22822,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-01T11:27:41.591791434Z"
+generated: "2021-06-01T12:29:57.075786589Z"
