@@ -4546,6 +4546,37 @@ entries:
   emby:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-01T11:27:41.447952612Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: Emby Server is a home media server
+    digest: 57541d3f7ebab241198ffb688e0c6f2aa8f83a7090ded96ee76aa168043d82b4
+    home: https://github.com/truecharts/apps/master/stable/emby
+    icon: https://truecharts.org/_static/img/emby-icon.png
+    keywords:
+    - jellyfin
+    - plex
+    - emby
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: dan.sheridan@postman.org.uk
+      name: djs52
+      url: truecharts.org
+    name: emby
+    sources:
+    - https://hub.docker.com/r/linuxserver/emby
+    - https://github.com/linuxserver/docker-emby.git
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/emby-5.2.4/emby-5.2.4.tgz
+    version: 5.2.4
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-31T00:09:03.172474916Z"
     dependencies:
     - name: common
@@ -22108,6 +22139,39 @@ entries:
   zwavejs2mqtt:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-01T11:27:41.587909318Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: Fully configurable Zwave to MQTT gateway and Control Panel using
+      NodeJS and Vue
+    digest: 9ef5473f0696c029f95b304dc54c64526eb372514bd82f719ca1efb084fd26a1
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zwavejs2mqtt
+    icon: https://raw.githubusercontent.com/zwave-js/zwavejs2mqtt/master/static/logo.png
+    keywords:
+    - zwavejs2mqtt
+    - zwave-js
+    - z-wave
+    - zwave
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: zwavejs2mqtt
+    sources:
+    - https://github.com/zwave-js/zwavejs2mqtt
+    - https://hub.docker.com/r/zwavejs/zwavejs2mqtt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-5.2.4/zwavejs2mqtt-5.2.4.tgz
+    version: 5.2.4
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-31T00:09:07.234740209Z"
     dependencies:
     - name: common
@@ -22732,4 +22796,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-01T11:22:02.115271249Z"
+generated: "2021-06-01T11:27:41.591791434Z"
