@@ -586,24 +586,29 @@ questions:
                         type: list
                         default: []
                         items:
-                          - variable: hosts
-                            label: "Certificate Hosts"
+                          - variable: tlsEntry
+                            label: "Host"
                             schema:
-                              type: list
-                              default: []
-                              items:
-                                - variable: host
-                                  label: "Host"
+                              type: dict
+                              attrs:
+                                - variable: hosts
+                                  label: "Certificate Hosts"
                                   schema:
-                                    type: string
-                                    default: ""
-                                    required: true
-                          - variable: scaleCERT
-                            label: "Select TrueNAS SCALE Certificate"
-                            schema:
-                              type: int
-                              $ref:
-                                - "definitions/certificate"
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: host
+                                        label: "Host"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                - variable: scaleCERT
+                                  label: "Select TrueNAS SCALE Certificate"
+                                  schema:
+                                    type: int
+                                    $ref:
+                                      - "definitions/certificate"
 
   # Enable privileged
   - variable: securityContext
