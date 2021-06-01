@@ -546,7 +546,7 @@ questions:
                         type: list
                         default: []
                         items:
-                          - variable: host
+                          - variable: hostEntry
                             label: "Host"
                             schema:
                               type: dict
@@ -558,25 +558,28 @@ questions:
                                     default: ""
                                     required: true
                                 - variable: paths
-                                  label: "Hosts"
+                                  label: "Paths"
                                   schema:
                                     type: list
                                     default: []
                                     items:
-                                      - variable: path
-                                        label: "path"
+                                      - variable: pathEntry
+                                        label: "Host"
                                         schema:
-                                          type: string
-                                          required: true
-                                          hidden: false
-                                          default: "/"
-                                      - variable: pathType
-                                        label: "pathType"
-                                        schema:
-                                          type: string
-                                          required: true
-                                          hidden: false
-                                          default: "Prefix"
+                                          type: dict
+                                          attrs:
+                                            - variable: path
+                                              label: "path"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "/"
+                                            - variable: pathType
+                                              label: "pathType"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "Prefix"
                     - variable: tls
                       label: "TLS-Settings"
                       schema:
