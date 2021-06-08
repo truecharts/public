@@ -1835,6 +1835,36 @@ entries:
   collabora-online:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-08T09:48:26.108859995Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: Collabora Online Development Edition – an awesome, Online Office
+      suite image suitable for home use.
+    digest: 5f206cc4f37c1235dc99d64107754563401bb8562d7503ecd24f9a54954fe2e2
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/collabora-online
+    icon: https://truecharts.org/_static/img/collabora-icon.png
+    keywords:
+    - collabora-online
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: stavros-k@users.noreply.github.com
+      name: stavros-k
+      url: truecharts.org
+    name: collabora-online
+    sources:
+    - https://hub.docker.com/r/collabora/code
+    - https://www.collaboraoffice.com/code/docker/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/collabora-online-5.2.5/collabora-online-5.2.5.tgz
+    version: 5.2.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-31T00:09:02.847309679Z"
     dependencies:
     - name: common
@@ -6192,6 +6222,33 @@ entries:
   freshrss:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-08T09:48:26.273881325Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: FreshRSS is a self-hosted RSS feed aggregator
+    digest: 01102a09e0f1b168b99527151bb49dddf5c8bc5ba55d35b716631c2393aabfa3
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/freshrss
+    icon: https://github.com/FreshRSS/FreshRSS/blob/master/docs/img/FreshRSS-logo.png?raw=true
+    keywords:
+    - freshrss
+    - rss
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    - https://hub.docker.com/r/linuxserver/freshrss
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/freshrss-5.2.4/freshrss-5.2.4.tgz
+    version: 5.2.4
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-31T00:09:03.503356167Z"
     dependencies:
     - name: common
@@ -8964,6 +9021,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/home-assistant-3.1.5/home-assistant-3.1.5.tgz
     version: 3.1.5
   jackett:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-08T09:48:26.45073423Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: API Support for your favorite torrent trackers.
+    digest: eac21485a09072ade75a9b5164e2ab3280f094f522c98402c359b548f275bb28
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/jackett
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - jackett
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jackett-5.2.6/jackett-5.2.6.tgz
+    version: 5.2.6
   - apiVersion: v2
     appVersion: auto
     created: "2021-06-01T11:13:39.381949897Z"
@@ -13776,6 +13863,39 @@ entries:
   ombi:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-08T09:48:26.625823909Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
+    digest: d0b12341f374a1fae7012b54da4c13bd2ca776e2ef6181b3f92cc32cb9fc6671
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ombi
+    icon: https://img3.androidappsapk.co/wiLDnuwrCWctiiW62ALcj4eIpNbzeRH_UNPo7eqlpYvGkCQYSTybaI4xVRLKGjnlamlV=s300
+    keywords:
+    - ombi
+    - plex
+    - emby
+    - sonarr
+    - radarr
+    - couchpotato
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: ombi
+    sources:
+    - https://github.com/tidusjar/Ombi
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ombi-5.2.5/ombi-5.2.5.tgz
+    version: 5.2.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-31T00:09:05.361668771Z"
     dependencies:
     - name: common
@@ -15771,6 +15891,30 @@ entries:
   prototype-gui:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-08T09:48:26.800935189Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: App to test GUI prototypes
+    digest: ca03129ff8c32a51919e41142622ba7502ce21c9ad96cc73974b33959bfd6c48
+    home: https://github.com/truecharts/apps/tree/master/charts/develop/prototype-gui
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - dev
+    - prototype
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prototype-gui
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prototype-gui-0.0.13/prototype-gui-0.0.13.tgz
+    version: 0.0.13
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-01T11:22:02.112311386Z"
     dependencies:
     - name: common
@@ -16435,6 +16579,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/qbittorrent-3.1.5/qbittorrent-3.1.5.tgz
     version: 3.1.5
   radarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-08T09:48:26.963155678Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: A fork of Sonarr to work with movies à la Couchpotato
+    digest: 5a5b64d4d83581559746a0a5c9931c85e249a0017ca90cc6f90ef06604522809
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/radarr
+    icon: https://nzbusenet.com/wp-content/uploads/2017/10/radarr-logo.png
+    keywords:
+    - radarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: radarr
+    sources:
+    - https://github.com/Radarr/Radarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/radarr-5.2.5/radarr-5.2.5.tgz
+    version: 5.2.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-31T00:09:06.053003977Z"
@@ -22322,6 +22496,39 @@ entries:
   zwavejs2mqtt:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-08T09:48:27.133765491Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: Fully configurable Zwave to MQTT gateway and Control Panel using
+      NodeJS and Vue
+    digest: ec2a9d4eb8353e7aedef6a65f1064a4cb047456d5a107ef8aac772a77bdb2406
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zwavejs2mqtt
+    icon: https://raw.githubusercontent.com/zwave-js/zwavejs2mqtt/master/static/logo.png
+    keywords:
+    - zwavejs2mqtt
+    - zwave-js
+    - z-wave
+    - zwave
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: zwavejs2mqtt
+    sources:
+    - https://github.com/zwave-js/zwavejs2mqtt
+    - https://hub.docker.com/r/zwavejs/zwavejs2mqtt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-5.2.5/zwavejs2mqtt-5.2.5.tgz
+    version: 5.2.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-01T11:27:41.587909318Z"
     dependencies:
     - name: common
@@ -22979,4 +23186,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-08T09:17:32.437152793Z"
+generated: "2021-06-08T09:48:27.138242957Z"
