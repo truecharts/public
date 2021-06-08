@@ -293,7 +293,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/usr/src/app/store"
+                  default: "/config"
                   hidden: true
               - variable: emptyDir
                 label: "EmptyDir Volume"

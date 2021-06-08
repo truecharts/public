@@ -62,21 +62,6 @@ persistence:
 #     hostPath:
 #       path: /dev/serial/by-id/usb-0658_0200-if00
 
-# Enabled mariadb
-# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/mariadb
-mariadb:
-  enabled: false
-  architecture: standalone
-  auth:
-    database: home-assistant
-    username: home-assistant
-    password: home-assistant-pass
-    rootPassword: home-assistantrootpass
-  primary:
-    persistence:
-      enabled: false
-      # storageClass: ""
-
 # Enabled postgres
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
