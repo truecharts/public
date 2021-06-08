@@ -8410,6 +8410,37 @@ entries:
   home-assistant:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-08T09:17:32.343793485Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: home-assistant App for TrueNAS SCALE
+    digest: f2f3e02f01ea621f24822344760280f11eb0b3a90cbfd507ae1aeacfa90666aa
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/home-assistant
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Home_Assistant_Logo.svg/519px-Home_Assistant_Logo.svg.png
+    keywords:
+    - home-assistant
+    - hass
+    - homeassistant
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: home-assistant
+    sources:
+    - https://github.com/home-assistant/home-assistant
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/home-assistant-5.2.4/home-assistant-5.2.4.tgz
+    version: 5.2.4
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-05-31T00:09:04.131119213Z"
     dependencies:
     - name: common
@@ -12876,6 +12907,32 @@ entries:
     - https://github.com/truecharts/apps/releases/download/node-red-3.1.5/node-red-3.1.5.tgz
     version: 3.1.5
   nzbget:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-08T09:17:32.433591824Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 5.1.3
+    description: NZBGet is a Usenet downloader client
+    digest: 3e734ddd98912ea112fdcf31ae1a4b61212b60c3e2f17867c84076c4831b5078
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/nzbget
+    icon: https://avatars1.githubusercontent.com/u/3368377?s=400&v=4
+    keywords:
+    - nzbget
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: nzbget
+    sources:
+    - https://nzbget.net/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nzbget-5.2.4/nzbget-5.2.4.tgz
+    version: 5.2.4
   - apiVersion: v2
     appVersion: auto
     created: "2021-05-31T00:09:05.171970202Z"
@@ -22922,4 +22979,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-08T09:04:20.959920229Z"
+generated: "2021-06-08T09:17:32.437152793Z"
