@@ -139,81 +139,7 @@ questions:
     schema:
       type: boolean
       default: false
-  - variable: externalInterfaces
-    description: "External Interfaces"
-    label: "(Advanced) External Interfaces"
-    group: "Networking and Services"
-    schema:
-      type: list
-      items:
-        - variable: interfaceConfiguration
-          description: "Interface Configuration"
-          label: "Interface Configuration"
-          schema:
-            type: dict
-            $ref:
-              - "normalize/interfaceConfiguration"
-            attrs:
-              - variable: hostInterface
-                description: "Please specify host interface"
-                label: "Host Interface"
-                schema:
-                  type: string
-                  required: true
-                  $ref:
-                    - "definitions/interface"
-              - variable: ipam
-                description: "Define how IP Address will be managed"
-                label: "IP Address Management"
-                schema:
-                  type: dict
-                  required: true
-                  attrs:
-                    - variable: type
-                      description: "Specify type for IPAM"
-                      label: "IPAM Type"
-                      schema:
-                        type: string
-                        required: true
-                        enum:
-                          - value: "dhcp"
-                            description: "Use DHCP"
-                          - value: "static"
-                            description: "Use static IP"
-                        show_subquestions_if: "static"
-                        subquestions:
-                          - variable: staticIPConfigurations
-                            label: "Static IP Addresses"
-                            schema:
-                              type: list
-                              items:
-                                - variable: staticIP
-                                  label: "Static IP"
-                                  schema:
-                                    type: ipaddr
-                                    cidr: true
-                          - variable: staticRoutes
-                            label: "Static Routes"
-                            schema:
-                              type: list
-                              items:
-                                - variable: staticRouteConfiguration
-                                  label: "Static Route Configuration"
-                                  schema:
-                                    type: dict
-                                    attrs:
-                                      - variable: destination
-                                        label: "Destination"
-                                        schema:
-                                          type: ipaddr
-                                          cidr: true
-                                          required: true
-                                      - variable: gateway
-                                        label: "Gateway"
-                                        schema:
-                                          type: ipaddr
-                                          cidr: false
-                                          required: true
+
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -454,7 +380,95 @@ questions:
                 schema:
                   type: hostpath
                   required: true
-  # Enable privileged
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Ingress"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hosts
+                      label: "Hosts"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: hostEntry
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: host
+                                  label: "HostName"
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    required: true
+                                - variable: paths
+                                  label: "Paths"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: pathEntry
+                                        label: "Host"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                            - variable: path
+                                              label: "path"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "/"
+                                            - variable: pathType
+                                              label: "pathType"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "Prefix"
+                    - variable: tls
+                      label: "TLS-Settings"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: tlsEntry
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: hosts
+                                  label: "Certificate Hosts"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: host
+                                        label: "Host"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                - variable: scaleCERT
+                                  label: "Select TrueNAS SCALE Certificate"
+                                  schema:
+                                    type: int
+                                    $ref:
+                                      - "definitions/certificate"
+
   - variable: securityContext
     group: "Security and Permissions"
     label: "Security Context"
@@ -466,7 +480,7 @@ questions:
           schema:
             type: boolean
             default: false
-  # Set Pod Security Policy
+
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"

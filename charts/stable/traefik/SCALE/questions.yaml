@@ -746,7 +746,7 @@ questions:
     schema:
       type: string
       default: "002"
-  # Enable privileged
+
   - variable: securityContext
     group: "Advanced"
     label: "Security Context"
@@ -758,7 +758,7 @@ questions:
           schema:
             type: boolean
             default: false
-  # Set Pod Security Policy
+
   - variable: podSecurityContext
     group: "Advanced"
     label: "Pod Security Context"
