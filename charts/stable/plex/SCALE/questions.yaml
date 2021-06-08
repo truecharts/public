@@ -398,7 +398,7 @@ questions:
       $ref:
         - "definitions/gpuConfiguration"
       attrs: []
-  # Enable privileged
+
   - variable: securityContext
     group: "Security and Permissions"
     label: "Security Context"
@@ -410,7 +410,7 @@ questions:
           schema:
             type: boolean
             default: false
-  # Set Pod Security Policy
+
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
