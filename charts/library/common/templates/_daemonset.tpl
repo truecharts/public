@@ -32,6 +32,9 @@ spec:
       {{- end }}
       labels:
         {{- include "common.labels.selectorLabels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     spec:
       {{- include "common.controller.pod" . | nindent 6 }}
 {{- end }}
