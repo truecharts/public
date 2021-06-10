@@ -1,6 +1,9 @@
 apiVersion: v2
 appVersion: "2.4"
-dependencies: []
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 3.5.8
 deprecated: false
 description: A Traefik based Reverse Proxy and Certificate Manager
 home: https://github.com/truecharts/apps/tree/master/charts/stable/traefik
