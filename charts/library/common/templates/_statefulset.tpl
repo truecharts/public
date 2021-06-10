@@ -1,22 +1,4 @@
 {{/*
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-`SPDX-License-Identifier: Apache-2.0`
-
-This file is considered to be modified by the TrueCharts Project.
-*/}}
-
-{{/*
 This template serves as the blueprint for the StatefulSet objects that are created
 within the common library.
 */}}
@@ -31,9 +13,8 @@ metadata:
     {{- with .Values.controller.labels }}
       {{- toYaml . | nindent 4 }}
     {{- end }}
-  annotations:
-  {{- include "common.annotations.workload" . | nindent 4 }}
   {{- with .Values.controller.annotations }}
+  annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
@@ -55,13 +36,15 @@ spec:
   serviceName: {{ include "common.names.fullname" . }}
   template:
     metadata:
-      annotations:
-      {{- include "common.annotations.workload.spec" . | nindent 8 }}
       {{- with .Values.podAnnotations }}
+      annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
         {{- include "common.labels.selectorLabels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
     spec:
       {{- include "common.controller.pod" . | nindent 6 }}
   volumeClaimTemplates:

@@ -1,32 +1,23 @@
 {{/* Volumes included by the controller */}}
 {{- define "common.controller.volumeMounts" -}}
-  {{- range $index, $PVC := .Values.persistence }}
-    {{- if $PVC.enabled }}
-- mountPath: {{ $PVC.mountPath | default (printf "/%v" $index) }}
+  {{- range $index, $item := .Values.persistence }}
+    {{- $mountPath := (printf "/%v" $index) -}}
+    {{- if eq "hostPath" (default "pvc" $item.type) -}}
+      {{- $mountPath = $item.hostPath -}}
+    {{- end -}}
+    {{- with $item.mountPath -}}
+      {{- $mountPath = . -}}
+    {{- end }}
+    {{- if and $item.enabled (ne $mountPath "-") }}
+- mountPath: {{ $mountPath }}
   name: {{ $index }}
-      {{- if $PVC.subPath }}
-  subPath: {{ $PVC.subPath }}
+      {{- with $item.subPath }}
+  subPath: {{ . }}
+      {{- end }}
+      {{- with $item.readOnly }}
+  readOnly: {{ . }}
       {{- end }}
     {{- end }}
-  {{- end }}
-
-{{/*
-Creates mountpoints to mount devices directly to the same path inside the container
-*/}}
-{{ range $name, $dmm := .Values.deviceMounts }}
-{{- if $dmm.enabled -}}
-{{ if $dmm.name }}
-  {{ $name = $dmm.name }}
-{{ end }}
-- name: devicemount-{{ $name }}
-  mountPath: {{ $dmm.devicePath }}
-  {{ if $dmm.subPath }}
-  subPath: {{ $dmm.subPath }}
-  {{ end }}
-{{- end -}}
-{{ end }}
-  {{- if .Values.additionalVolumeMounts }}
-    {{- toYaml .Values.additionalVolumeMounts | nindent 0 }}
   {{- end }}
 
   {{- if eq .Values.controller.type "statefulset" }}
@@ -39,18 +30,4 @@ Creates mountpoints to mount devices directly to the same path inside the contai
     {{- end }}
   {{- end }}
 
-  {{/* Creates mountpoints to mount hostPaths directly to the container */}}
-  {{- range $name, $hpm := .Values.hostPathMounts }}
-    {{- if $hpm.enabled }}
-      {{- $name = default $name $hpm.name }}
-- name: hostpathmounts-{{ $name }}
-  mountPath: {{ $hpm.mountPath }}
-      {{- if $hpm.subPath }}
-  subPath: {{ $hpm.subPath }}
-      {{- end }}
-      {{- if $hpm.readOnly }}
-  readOnly: {{ $hpm.readOnly }}
-      {{- end }}
-    {{- end }}
-  {{ end }}
 {{- end -}}

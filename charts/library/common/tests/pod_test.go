@@ -118,23 +118,28 @@ func (suite *PodTestSuite) TestPersistenceItems() {
         persistence:
             cache:
                 enabled: true
-                emptyDir:
-                    enabled: true
+                type: emptyDir
             config:
                 enabled: true
-                emptyDir:
-                    enabled: false
             data:
                 enabled: true
                 existingClaim: dataClaim
+            custom-mount:
+                enabled: true
+                type: custom
+                volumeSpec:
+                    downwardAPI:
+                        items:
+                            - path: "labels"
+                              fieldRef:
+                                  fieldPath: metadata.labels
     `
-
     tests := map[string]struct {
         values          *string
         expectedVolumes []string
     }{
         "Default":       {values: nil, expectedVolumes: nil},
-        "MultipleItems": {values: &values, expectedVolumes: []string{"config", "cache", "data"}},
+        "MultipleItems": {values: &values, expectedVolumes: []string{"config", "cache", "data", "custom-mount"}},
     }
     for name, tc := range tests {
         suite.Suite.Run(name, func() {
@@ -214,8 +219,7 @@ func (suite *PodTestSuite) TestPersistenceEmptyDir() {
         persistence:
             config:
                 enabled: true
-                emptyDir:
-                    enabled: true
+                type: emptyDir
     `
     tests := map[string]struct {
         values            []string
@@ -223,8 +227,8 @@ func (suite *PodTestSuite) TestPersistenceEmptyDir() {
         expectedSizeLimit string
     }{
         "Enabled":       {values: nil, expectedMedium: "", expectedSizeLimit: ""},
-        "WithMedium":    {values: []string{"persistence.config.emptyDir.medium=memory"}, expectedMedium: "memory", expectedSizeLimit: ""},
-        "WithSizeLimit": {values: []string{"persistence.config.emptyDir.medium=memory", "persistence.config.emptyDir.sizeLimit=1Gi"}, expectedMedium: "memory", expectedSizeLimit: "1Gi"},
+        "WithMedium":    {values: []string{"persistence.config.medium=memory"}, expectedMedium: "memory", expectedSizeLimit: ""},
+        "WithSizeLimit": {values: []string{"persistence.config.medium=memory", "persistence.config.sizeLimit=1Gi"}, expectedMedium: "memory", expectedSizeLimit: "1Gi"},
     }
     for name, tc := range tests {
         suite.Suite.Run(name, func() {
@@ -256,23 +260,25 @@ func (suite *PodTestSuite) TestPersistenceEmptyDir() {
 
 func (suite *PodTestSuite) TestHostPathVolumes() {
     values := `
-        hostPathMounts:
-            - name: data
-              enabled: true
-              mountPath: "/data"
-              hostPath: "/tmp1"
-            - name: config
-              enabled: true
-              emptyDir:
+        persistence:
+            hostpathmounts-data:
                 enabled: true
-              mountPath: "/data"
+                type: hostPath
+                hostPath: "/tmp1"
+                mountPath: "/data"
+            hostpathmounts-with-type:
+                enabled: true
+                type: hostPath
+                hostPath: "/tmp2"
+                hostPathType: "Directory"
+                mountPath: "/data2"
     `
     tests := map[string]struct {
         values          *string
         expectedVolumes []string
     }{
         "Default":       {values: nil, expectedVolumes: nil},
-        "MultipleItems": {values: &values, expectedVolumes: []string{"hostpathmounts-data", "hostpathmounts-config"}},
+        "MultipleItems": {values: &values, expectedVolumes: []string{"hostpathmounts-data", "hostpathmounts-with-type"}},
     }
     for name, tc := range tests {
         suite.Suite.Run(name, func() {
@@ -291,59 +297,6 @@ func (suite *PodTestSuite) TestHostPathVolumes() {
                 searchVolumes := volumes.Search("name").Data()
                 for _, expectedVolume := range tc.expectedVolumes {
                     suite.Assertions.Contains(searchVolumes, expectedVolume)
-                }
-            }
-        })
-    }
-}
-
-func (suite *PodTestSuite) TestHostPathVolumePaths() {
-    values := `
-        hostPathMounts:
-            - name: data
-              enabled: true
-              mountPath: "/data"
-              hostPath: "/tmp1"
-            - name: config
-              enabled: true
-              emptyDir:
-                enabled: true
-              mountPath: "/data"
-    `
-    tests := map[string]struct {
-        values       *string
-        volumeToTest string
-        expectedPath string
-        emptyDir     bool
-    }{
-        "HostPath": {values: &values, volumeToTest: "hostpathmounts-data", expectedPath: "/tmp1", emptyDir: false},
-        "EmptyDir": {values: &values, volumeToTest: "hostpathmounts-config", expectedPath: "", emptyDir: true},
-    }
-    for name, tc := range tests {
-        suite.Suite.Run(name, func() {
-            err := suite.Chart.Render(nil, nil, tc.values)
-            if err != nil {
-                suite.FailNow(err.Error())
-            }
-
-            deploymentManifest := suite.Chart.Manifests.Get("Deployment", "common-test")
-            volumes, _ := deploymentManifest.Path("spec.template.spec.volumes").Children()
-
-            for _, volume := range volumes {
-                volumeName := volume.Path("name").Data().(string)
-                if volumeName == tc.volumeToTest {
-                    if tc.expectedPath == "" {
-                        suite.Assertions.Nil(volume.Path("hostPath.path"))
-                    } else {
-                        suite.Assertions.EqualValues(tc.expectedPath, volume.Path("hostPath.path").Data())
-                    }
-
-                    if tc.emptyDir == false {
-                        suite.Assertions.Nil(volume.Path("emptyDir"))
-                    } else {
-                        suite.Assertions.NotNil(volume.Path("emptyDir"))
-                    }
-                    break
                 }
             }
         })

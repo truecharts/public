@@ -30,7 +30,7 @@ func (suite *ServiceTestSuite) TestServiceName() {
         expectedName string
     }{
         "Default":    {values: nil, expectedName: "common-test"},
-        "CustomName": {values: []string{"service.main.nameOverride=http"}, expectedName: "common-test-http"},
+        "CustomName": {values: []string{"service.main.nameOverride=main"}, expectedName: "common-test-main"},
     }
     for name, tc := range tests {
         suite.Suite.Run(name, func() {

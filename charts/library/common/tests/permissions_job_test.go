@@ -34,10 +34,12 @@ func (suite *PermissionsJobTestSuite) TestPresence() {
         },
         "WithHostPathMount": {
             values: []string{
-                "hostPathMounts[0].name=data",
-                "hostPathMounts[0].enabled=true",
-                "hostPathMounts[0].mountPath=/data",
-                "hostPathMounts[0].hostPath=/tmp",
+                "persistenceList[0].name=data",
+                "persistenceList[0].type=hostPath",
+                "persistenceList[0].enabled=true",
+                "persistenceList[0].mountPath=/data",
+                "persistenceList[0].setPermissions=true",
+                "persistenceList[0].hostPath=/tmp",
             },
             expectedJob: true,
         },
@@ -64,27 +66,20 @@ func (suite *PermissionsJobTestSuite) TestVolumesAndMounts() {
         values          []string
         expectedVolumes []string
     }{
-        "Default": {
+        "MultiplepersistenceList": {
             values: []string{
-                "hostPathMounts[0].name=data",
-                "hostPathMounts[0].enabled=true",
-                "hostPathMounts[0].mountPath=/data",
-                "hostPathMounts[0].hostPath=/tmp",
-            },
-            expectedVolumes: nil,
-        },
-        "MultipleHostPathMounts": {
-            values: []string{
-                "hostPathMounts[0].name=data",
-                "hostPathMounts[0].enabled=true",
-                "hostPathMounts[0].setPermissions=true",
-                "hostPathMounts[0].mountPath=/data",
-                "hostPathMounts[0].hostPath=/tmp",
-                "hostPathMounts[1].name=config",
-                "hostPathMounts[1].enabled=true",
-                "hostPathMounts[1].setPermissions=true",
-                "hostPathMounts[1].mountPath=/config",
-                "hostPathMounts[1].hostPath=/tmp",
+                "persistenceList[0].name=data",
+                "persistenceList[0].type=hostPath",
+                "persistenceList[0].enabled=true",
+                "persistenceList[0].setPermissions=true",
+                "persistenceList[0].mountPath=/data",
+                "persistenceList[0].hostPath=/tmp",
+                "persistenceList[1].name=config",
+                "persistenceList[1].type=hostPath",
+                "persistenceList[1].enabled=true",
+                "persistenceList[1].setPermissions=true",
+                "persistenceList[1].mountPath=/config",
+                "persistenceList[1].hostPath=/tmp",
             },
             expectedVolumes: []string{"hostpathmounts-config", "hostpathmounts-data"},
         },
@@ -124,16 +119,18 @@ func (suite *PermissionsJobTestSuite) TestVolumesAndMounts() {
 
 func (suite *PermissionsJobTestSuite) TestCommand() {
     baseValues := []string{
-        "hostPathMounts[0].name=data",
-        "hostPathMounts[0].enabled=true",
-        "hostPathMounts[0].setPermissions=true",
-        "hostPathMounts[0].mountPath=/data",
-        "hostPathMounts[0].hostPath=/tmp",
-        "hostPathMounts[1].name=config",
-        "hostPathMounts[1].enabled=true",
-        "hostPathMounts[1].setPermissions=true",
-        "hostPathMounts[1].mountPath=/config",
-        "hostPathMounts[1].hostPath=/tmp",
+        "persistenceList[0].name=data",
+        "persistenceList[0].type=hostPath",
+        "persistenceList[0].enabled=true",
+        "persistenceList[0].setPermissions=true",
+        "persistenceList[0].mountPath=/data",
+        "persistenceList[0].hostPath=/tmp",
+        "persistenceList[1].name=config",
+        "persistenceList[1].type=hostPath",
+        "persistenceList[1].enabled=true",
+        "persistenceList[1].setPermissions=true",
+        "persistenceList[1].mountPath=/config",
+        "persistenceList[1].hostPath=/tmp",
     }
     tests := map[string]struct {
         values          []string

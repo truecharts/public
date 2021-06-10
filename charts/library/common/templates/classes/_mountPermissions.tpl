@@ -3,25 +3,24 @@ This template serves as the blueprint for the mountPermissions job that is run
 before chart installation.
 */}}
 {{- define "common.class.mountPermissions" -}}
-  {{- if .Values.hostPathMounts -}}
+  {{- if .Values.persistence -}}
     {{- $jobName := include "common.names.fullname" . -}}
     {{- $user := 568 -}}
+    {{- $group := 568 -}}
     {{- if .Values.env -}}
-      {{- $user = dig "PUID" $user .Values.env -}}
+        {{- $user = dig "PUID" $user .Values.env -}}
+        {{- $group = dig "PGID" $group .Values.env -}}
     {{- end -}}
     {{- $user = dig "runAsUser" $user .Values.podSecurityContext -}}
-    {{- $group := 568 -}}
-    {{- if and .Values.env -}}
-      {{- $group = dig "PGID" $group .Values.env -}}
-    {{- end -}}
     {{- $group = dig "fsGroup" $group .Values.podSecurityContext -}}
     {{- $hostPathMounts := dict -}}
-    {{- range $name, $mount := .Values.hostPathMounts -}}
+    {{- range $name, $mount := .Values.persistence -}}
       {{- if and $mount.enabled $mount.setPermissions -}}
         {{- $name = default ( $name| toString ) $mount.name -}}
         {{- $_ := set $hostPathMounts $name $mount -}}
       {{- end -}}
     {{- end }}
+    {{- if $hostPathMounts -}}
 ---
 apiVersion: batch/v1
 kind: Job
@@ -83,6 +82,6 @@ spec:
             path: {{ required "hostPath not set" $hpm.hostPath }}
           {{ end }}
         {{- end }}
-
+    {{- end -}}
   {{- end -}}
 {{- end -}}

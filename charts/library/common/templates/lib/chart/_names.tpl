@@ -1,24 +1,10 @@
-{{/*
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-`SPDX-License-Identifier: Apache-2.0`
-
-This file is considered to be modified by the TrueCharts Project.
-*/}}
-
 {{/* Expand the name of the chart */}}
 {{- define "common.names.name" -}}
-  {{- default .Chart.Name (default .Values.nameOverride .Values.global.nameOverride) | trunc 63 | trimSuffix "-" -}}
+  {{- $globalNameOverride := "" -}}
+  {{- if hasKey .Values "global" -}}
+    {{- $globalNameOverride = (default $globalNameOverride .Values.global.nameOverride) -}}
+  {{- end -}}
+  {{- default .Chart.Name (default .Values.nameOverride $globalNameOverride) | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
@@ -28,13 +14,17 @@ If release name contains chart name it will be used as a full name.
 */}}
 {{- define "common.names.fullname" -}}
   {{- $name := include "common.names.name" . -}}
-  {{- if or .Values.fullnameOverride .Values.global.fullnameOverride -}}
-    {{- $name = default .Values.fullnameOverride .Values.global.fullnameOverride -}}
+  {{- $globalFullNameOverride := "" -}}
+  {{- if hasKey .Values "global" -}}
+    {{- $globalFullNameOverride = (default $globalFullNameOverride .Values.global.fullnameOverride) -}}
+  {{- end -}}
+  {{- if or .Values.fullnameOverride $globalFullNameOverride -}}
+    {{- $name = default .Values.fullnameOverride $globalFullNameOverride -}}
   {{- else -}}
     {{- if contains $name .Release.Name -}}
-      {{- $name := .Release.Name -}}
+      {{- $name = .Release.Name -}}
     {{- else -}}
-      {{- $name := printf "%s-%s" .Release.Name $name -}}
+      {{- $name = printf "%s-%s" .Release.Name $name -}}
     {{- end -}}
   {{- end -}}
   {{- trunc 63 $name | trimSuffix "-" -}}
