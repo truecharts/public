@@ -25,7 +25,7 @@
 {{- end }}
 
 {{- if eq $host "$node_ip" }}
-  {{- $port = $ports.traefik.exposedPort }}
+  {{- $port = .Values.ports.traefik.exposedPort }}
 {{- end }}
 
 ---
