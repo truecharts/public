@@ -1,12 +1,9 @@
 apiVersion: v2
-appVersion: auto
+appVersion: "2.4"
 dependencies:
 - name: common
   repository: https://truecharts.org/
   version: 3.5.8
-- name: traefik
-  repository: https://helm.traefik.io/traefik
-  version: 9.19.1
 deprecated: false
 description: A Traefik based Reverse Proxy and Certificate Manager
 home: https://github.com/truecharts/apps/tree/master/charts/stable/traefik
@@ -28,4 +25,4 @@ sources:
 - https://github.com/traefik/traefik-helm-chart
 - https://traefik.io/
 type: application
-version: 4.0.6
+version: 5.0.0
