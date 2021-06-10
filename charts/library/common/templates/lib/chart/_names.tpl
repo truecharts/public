@@ -40,9 +40,9 @@ If release name contains chart name it will be used as a full name.
     {{- $name = default .Values.fullnameOverride $globalFullNameOverride -}}
   {{- else -}}
     {{- if contains $name .Release.Name -}}
-      {{- $name := .Release.Name -}}
+      {{- $name = .Release.Name -}}
     {{- else -}}
-      {{- $name := printf "%s-%s" .Release.Name $name -}}
+      {{- $name = printf "%s-%s" .Release.Name $name -}}
     {{- end -}}
   {{- end -}}
   {{- trunc 63 $name | trimSuffix "-" -}}
