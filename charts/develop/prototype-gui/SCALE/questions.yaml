@@ -350,9 +350,9 @@ questions:
                     - value: "ReadWriteMany"
                       description: "ReadWriteMany"
               - variable: size
-                show_if: [["type", "=", "pvc"]]
                 label: "Size quotum of storage"
                 schema:
+                  show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "100Gi"
   - variable: persistenceList
@@ -465,9 +465,9 @@ questions:
                     - value: "ReadWriteMany"
                       description: "ReadWriteMany"
               - variable: size
-                show_if: [["type", "=", "pvc"]]
                 label: "Size quotum of storage"
                 schema:
+                  show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "100Gi"
 
