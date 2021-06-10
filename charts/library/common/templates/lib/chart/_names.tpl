@@ -18,7 +18,11 @@ This file is considered to be modified by the TrueCharts Project.
 
 {{/* Expand the name of the chart */}}
 {{- define "common.names.name" -}}
-  {{- default .Chart.Name (default .Values.nameOverride .Values.global.nameOverride) | trunc 63 | trimSuffix "-" -}}
+  {{- $globalNameOverride := "" -}}
+  {{- if hasKey .Values "global" -}}
+    {{- $globalNameOverride = (default $globalNameOverride .Values.global.nameOverride) -}}
+  {{- end -}}
+  {{- default .Chart.Name (default .Values.nameOverride $globalNameOverride) | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
 {{/*
@@ -28,8 +32,12 @@ If release name contains chart name it will be used as a full name.
 */}}
 {{- define "common.names.fullname" -}}
   {{- $name := include "common.names.name" . -}}
-  {{- if or .Values.fullnameOverride .Values.global.fullnameOverride -}}
-    {{- $name = default .Values.fullnameOverride .Values.global.fullnameOverride -}}
+  {{- $globalFullNameOverride := "" -}}
+  {{- if hasKey .Values "global" -}}
+    {{- $globalFullNameOverride = (default $globalFullNameOverride .Values.global.fullnameOverride) -}}
+  {{- end -}}
+  {{- if or .Values.fullnameOverride $globalFullNameOverride -}}
+    {{- $name = default .Values.fullnameOverride $globalFullNameOverride -}}
   {{- else -}}
     {{- if contains $name .Release.Name -}}
       {{- $name := .Release.Name -}}
