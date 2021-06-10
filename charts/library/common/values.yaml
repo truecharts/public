@@ -82,10 +82,6 @@ secret: {}
 # C) PASSWD:
 #      envFrom:
 #        ...
-# D) - name: TZ
-#      value: UTC
-# E) - name: TZ
-#      value: '{{ .Release.Name }}'
 env: {}
 ## Variables with values set from templates, example
 ## With a release name of: demo, the example env value will be: demo-admin
@@ -225,7 +221,7 @@ service:
     # Additional ports can be added by adding a dictionary key similar to the 'http' service.
     # @default -- See below
     ports:
-      http:
+      main:
         # -- Enables or disables the port
         enabled: true
 
@@ -296,8 +292,15 @@ ingress:
     # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
     tls: []
     #  - secretName: chart-example-tls
+    # -- Create a secret from a GUI selected TrueNAS SCALE certificate
+    #    scaleCert: true
     #    hosts:
     #      - chart-example.local
+
+# -- Configure persistenceList for the chart here.
+# Additional items can be added by adding a items similar to persistence
+# @default -- []
+persistenceList: []
 
 # -- Configure persistence for the chart here.
 # Additional items can be added by adding a dictionary key similar to the 'config' key.
@@ -324,6 +327,7 @@ persistence:
 
     # -- Storage Class for the config volume.
     # If set to `-`, dynamic provisioning is disabled.
+    # If set to `SCALE-ZFS`, the default provisioner for TrueNAS SCALE is used.
     # If set to something else, the given storageClass is used.
     # If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner.
     storageClass:  # "-"

@@ -103,8 +103,6 @@ func (suite *ContainerTestSuite) TestEnv() {
         "KeyValueFloat":              {values: []string{"env.float=4.2"}, expectedEnv: map[string]string{"float": "4.2"}},
         "KeyValueBool":               {values: []string{"env.bool=false"}, expectedEnv: map[string]string{"bool": "false"}},
         "KeyValueInt":                {values: []string{"env.int=42"}, expectedEnv: map[string]string{"int": "42"}},
-        "List":                       {values: []string{"env[0].name=STATIC_ENV_FROM_LIST", "env[0].value=STATIC_ENV_VALUE_FROM_LIST"}, expectedEnv: map[string]string{"STATIC_ENV_FROM_LIST": "STATIC_ENV_VALUE_FROM_LIST"}},
-        "ValueFrom":                  {values: []string{"env[0].name=STATIC_ENV_FROM_LIST", "env[0].valueFrom.fieldRef.fieldPath=spec.nodeName"}, expectedEnv: map[string]string{"STATIC_ENV_FROM_LIST": "spec.nodeName"}},
         "KeyValue+ExplicitValueFrom": {values: []string{"env.STATIC_ENV=value_of_env", "env.STATIC_ENV_FROM.valueFrom.fieldRef.fieldPath=spec.nodeName"}, expectedEnv: map[string]string{"STATIC_ENV": "value_of_env", "STATIC_ENV_FROM": "spec.nodeName"}},
         "ImplicitValueFrom":          {values: []string{"env.NODE_NAME.fieldRef.fieldPath=spec.nodeName"}, expectedEnv: map[string]string{"NODE_NAME": "spec.nodeName"}},
         "Templated":                  {values: []string{`env.DYN_ENV=\{\{ .Release.Name \}\}-admin`}, expectedEnv: map[string]string{"DYN_ENV": "common-test-admin"}},
@@ -202,11 +200,11 @@ func (suite *ContainerTestSuite) TestPorts() {
         expectedPort     int
         expectedProtocol string
     }{
-        "Default":       {values: nil, expectedPortName: "http", expectedPort: 0, expectedProtocol: "TCP"},
-        "CustomName":    {values: []string{"service.main.ports.http.enabled=false", "service.main.ports.server.enabled=true", "service.main.ports.server.port=8080"}, expectedPortName: "server", expectedPort: 8080, expectedProtocol: "TCP"},
-        "ProtocolHTTP":  {values: []string{"service.main.ports.http.protocol=HTTP"}, expectedPortName: "http", expectedPort: 0, expectedProtocol: "TCP"},
-        "ProtocolHTTPS": {values: []string{"service.main.ports.http.protocol=HTTP"}, expectedPortName: "http", expectedPort: 0, expectedProtocol: "TCP"},
-        "ProtocolUDP":   {values: []string{"service.main.ports.http.protocol=UDP"}, expectedPortName: "http", expectedPort: 0, expectedProtocol: "UDP"},
+        "Default":       {values: nil, expectedPortName: "main", expectedPort: 0, expectedProtocol: "TCP"},
+        "CustomName":    {values: []string{"service.main.ports.main.enabled=false", "service.main.ports.server.enabled=true", "service.main.ports.server.port=8080"}, expectedPortName: "server", expectedPort: 8080, expectedProtocol: "TCP"},
+        "ProtocolHTTP":  {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedPortName: "main", expectedPort: 0, expectedProtocol: "TCP"},
+        "ProtocolHTTPS": {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedPortName: "main", expectedPort: 0, expectedProtocol: "TCP"},
+        "ProtocolUDP":   {values: []string{"service.main.ports.main.protocol=UDP"}, expectedPortName: "main", expectedPort: 0, expectedProtocol: "UDP"},
     }
     for name, tc := range tests {
         suite.Suite.Run(name, func() {

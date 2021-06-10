@@ -38,7 +38,7 @@ spec:
     requests:
       storage: {{ required (printf "size is required for PVC %v" $pvcName) $values.size | quote }}
   {{- if $values.storageClass }}
-  storageClassName: {{ if (eq "-" $values.storageClass) }}""{{- else }}{{ $values.storageClass | quote }}{{- end }}
+  storageClassName: {{ if (eq "-" $values.storageClass) }}""{{- else if (eq "SCALE-ZFS" $values.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" .Release.Name ) }}{{- else }}{{ $values.storageClass | quote }}{{- end }}
   {{- end }}
   {{- if $values.volumeName }}
   volumeName: {{ $values.volumeName | quote }}

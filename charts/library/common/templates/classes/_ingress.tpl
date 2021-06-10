@@ -37,12 +37,14 @@ spec:
   {{- end }}
   {{- if $values.tls }}
   tls:
-    {{- range $values.tls }}
+    {{- range $index, $tlsValues :=  $values.tls }}
     - hosts:
-        {{- range .hosts }}
+        {{- range $tlsValues.hosts }}
         - {{ tpl . $ | quote }}
         {{- end }}
-      {{- if .secretName }}
+      {{- if $tlsValues.scaleCert }}
+      secretName: {{ ( printf "%v-%v-%v-%v-%v" $ingressName "tls" $index "ixcert" $tlsValues.scaleCert ) }}
+      {{- else if .secretName }}
       secretName: {{ tpl .secretName $ | quote}}
       {{- end }}
     {{- end }}
