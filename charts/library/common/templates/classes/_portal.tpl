@@ -3,29 +3,33 @@
 {{- if .Values.portal }}
 {{- if .Values.portal.enabled }}
 
-{{- if .Values.portal.inject.service }}
-{{- $primaryService := ( tpl .Values.portal.inject.service $ ) }}
-{{- else }}
-{{- $primaryService := get .Values.service (include "common.service.primary" .) }}
-{{- end }}
-
-{{- if .Values.portal.inject.port }}
-{{- $primaryPort := ( tpl .Values.portal.inject.port $ ) -}}
-{{- else }}
-{{- $primaryPort := get $primaryService.ports (include "common.classes.service.ports.primary" (dict "values" $primaryService)) -}}
-{{- end }}
-
-{{- if .Values.portal.inject.ingress }}
-{{- $primaryPort := ( tpl .Values.portal.inject.ingress $ ) -}}
-{{- else }}
-{{- $ingr := index .Values.ingress (keys .Values.ingress | first) -}}
-{{- end }}
 
 {{- $host := "$node_ip" }}
 {{- $port := 443 }}
 {{- $protocol := "https" }}
 {{- $portProtocol := "" }}
 {{- $path := "/" }}
+{{- $primaryService := nil }}
+{{- $primaryPort := nil }}
+{{- $ingr := nil }}
+
+{{- if .Values.portal.inject.service }}
+{{- $primaryService = ( tpl .Values.portal.inject.service $ ) }}
+{{- else }}
+{{- $primaryService = get .Values.service (include "common.service.primary" .) }}
+{{- end }}
+
+{{- if .Values.portal.inject.port }}
+{{- $primaryPort = ( tpl .Values.portal.inject.port $ ) -}}
+{{- else }}
+{{- $primaryPort = get $primaryService.ports (include "common.classes.service.ports.primary" (dict "values" $primaryService)) -}}
+{{- end }}
+
+{{- if .Values.portal.inject.ingress }}
+{{- $ingr = ( tpl .Values.portal.inject.ingress $ ) -}}
+{{- else }}
+{{- $ingr = index .Values.ingress (keys .Values.ingress | first) -}}
+{{- end }}
 
 {{- if $ingr }}
   {{- if $ingr.enabled }}
