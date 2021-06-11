@@ -1,5 +1,32 @@
 apiVersion: v1
 entries:
+  airsonic:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-11T14:48:09.108984266Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.1.1
+    description: Airsonic is a Free and Open Source community driven media server
+    digest: e8392be6c8755a00c7b32e42ece7a3f82009afbbddf4e5d0a2e228fae16c2124
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/airsonic
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-logo.png
+    keywords:
+    - airsonic
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: airsonic
+    sources:
+    - https://github.com/airsonic/airsonic
+    - https://github.com/linuxserver/docker-airsonic
+    - https://github.com/k8s-at-home/charts/tree/master/charts/airsonic
+    urls:
+    - https://github.com/truecharts/apps/releases/download/airsonic-1.0.0/airsonic-1.0.0.tgz
+    version: 1.0.0
   appdaemon:
   - apiVersion: v2
     appVersion: v4.0.8
@@ -8571,6 +8598,35 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/handbrake-3.1.5/handbrake-3.1.5.tgz
     version: 3.1.5
+  haste-server:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2021-06-11T14:48:09.247321196Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.1.1
+    description: Simple text sharing
+    digest: ac6478cb6acf3ab3e707780987921b4cfd27e8a20dbe6026bbe248909a8a166c
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/haste
+    icon: https://raw.githubusercontent.com/nicholaswilde/helm-charts/main/images/haste.png
+    keywords:
+    - haste
+    - hastebin
+    - haste-server
+    - pastebin
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: haste-server
+    sources:
+    - https://github.com/seejohnrun/haste-server
+    - https://github.com/k8s-at-home/container-images
+    urls:
+    - https://github.com/truecharts/apps/releases/download/haste-server-1.0.0/haste-server-1.0.0.tgz
+    version: 1.0.0
   heimdall:
   - apiVersion: v2
     appVersion: auto
@@ -12778,6 +12834,33 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/lychee-3.1.5/lychee-3.1.5.tgz
     version: 3.1.5
+  mealie:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-11T14:48:09.39647901Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.1.1
+    description: Mealie is a self hosted recipe manager and meal planner with a RestAPI
+      backend and a reactive frontend application built in Vue for a pleasant user
+      experience for the whole family.
+    digest: ce17583f720372d0d0d33c47ed19519fd79d589a5702bef2f2b8be5b279d4081
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/mealie
+    icon: https://raw.githubusercontent.com/hay-kot/mealie/gh-pages/assets/img/favicon.png
+    keywords:
+    - grocy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: mealie
+    sources:
+    - https://github.com/hay-kot/mealie
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mealie-1.0.0/mealie-1.0.0.tgz
+    version: 1.0.0
   navidrome:
   - apiVersion: v2
     appVersion: auto
@@ -17228,6 +17311,35 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/prototype-gui-0.0.1/prototype-gui-0.0.1.tgz
     version: 0.0.1
+  prowlarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-11T14:48:09.531115308Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.1.1
+    description: Indexer manager/proxy built on the popular arr net base stack to
+      integrate with your various PVR apps.
+    digest: c18ffa612c4c770a6d60c7fdbdd82ecc725f35a4d8f09ce0f7d48819bae8c883
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/prowlarr
+    icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/400.png
+    keywords:
+    - prowlarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prowlarr
+    sources:
+    - https://github.com/Prowlarr/Prowlarr
+    - https://github.com/k8s-at-home/container-images
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prowlarr-1.0.0/prowlarr-1.0.0.tgz
+    version: 1.0.0
   qbittorrent:
   - apiVersion: v2
     appVersion: auto
@@ -18873,6 +18985,33 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/readarr-3.1.5/readarr-3.1.5.tgz
     version: 3.1.5
+  reg:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-11T14:48:09.680589641Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.1.1
+    description: Docker registry v2 command line client and repo listing generator
+      with security checks.
+    digest: 5d0b6f564b74d3fa7df440d701ebaa24f355ffd657c2839be5e1d80de888dd27
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/reg
+    icon: https://avatars.githubusercontent.com/u/37218338
+    keywords:
+    - reg
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: reg
+    sources:
+    - https://github.com/genuinetools/reg
+    - https://github.com/k8s-at-home/container-images/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/reg-1.0.0/reg-1.0.0.tgz
+    version: 1.0.0
   sabnzbd:
   - apiVersion: v2
     appVersion: auto
@@ -20952,6 +21091,35 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/tautulli-3.1.5/tautulli-3.1.5.tgz
     version: 3.1.5
+  thelounge:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-11T14:48:09.834050127Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.1.1
+    description: The Lounge, modern web IRC client designed for self-hosting
+    digest: 337e1d93dfe407beb6af06fd6078ee30c15774397ddcaa37ed00a17dc0a9486c
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/thelounge
+    icon: https://avatars.githubusercontent.com/u/14336958?s=200&v=4
+    keywords:
+    - thelounge
+    - IRC
+    - The Lounge
+    - docker
+    - thelounge-docker
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: thelounge
+    sources:
+    - https://github.com/thelounge/thelounge
+    urls:
+    - https://github.com/truecharts/apps/releases/download/thelounge-1.0.0/thelounge-1.0.0.tgz
+    version: 1.0.0
   traefik:
   - apiVersion: v2
     appVersion: "2.4"
@@ -24666,4 +24834,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-11T10:43:56.576925867Z"
+generated: "2021-06-11T14:48:09.837440041Z"
