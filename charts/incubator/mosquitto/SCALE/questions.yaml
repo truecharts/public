@@ -103,6 +103,18 @@ questions:
           schema:
             type: string
             default: "002"
+  - variable: auth
+    group: "App Configuration"
+    label: "Authentication"
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "enabled"
+          description: "By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config."
+          schema:
+            type: boolean
+            default: false
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
