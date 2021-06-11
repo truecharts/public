@@ -18,8 +18,7 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-    emptyDir:
-      enabled: true
+    type: emptyDir
     accessMode: ReadWriteOnce
     size: 1Gi
     skipuninstall: false
@@ -29,8 +28,7 @@ persistence:
 hostPathMounts:
   - name: "hpmmountempty"
     enabled: true
-    emptyDir:
-      enabled: true
+    type: emptyDir
     mountPath: "/test1"
     hostPath: ""
     readOnly: false

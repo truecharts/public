@@ -36,8 +36,4 @@ persistence:
   config:
     enabled: true
     mountPath: "/datastore"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir
