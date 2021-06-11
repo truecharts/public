@@ -322,6 +322,10 @@ persistence:
     # Valid options are pvc, emptyDir, hostPath or custom
     type: pvc
 
+    # -- force the complete PVC name
+    # Will not add any prefix or suffix
+    forceName: ""
+
     # -- Where to mount the volume in the main container.
     # Defaults to `/<name_of_the_volume>`,
     # setting to '-' creates the volume but disables the volumeMount.

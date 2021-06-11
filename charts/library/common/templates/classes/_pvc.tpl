@@ -15,6 +15,9 @@ within the common library.
     {{- $pvcName = printf "%v-%v" $pvcName $values.nameOverride -}}
   {{ end -}}
 {{ end }}
+{{- if $values.forceName -}}
+  {{- $pvcName = $values.forceName -}}
+{{ end }}
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
