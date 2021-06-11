@@ -52,7 +52,7 @@ persistence:
     type: emptyDir
 
   db:
-    nameOverride: "db"
+    forceName: "db"
     enabled: true
     type: emptyDir
 
