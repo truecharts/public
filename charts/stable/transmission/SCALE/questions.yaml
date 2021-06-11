@@ -84,187 +84,7 @@ questions:
                 description: "RollingUpdate: Create new pods and then kill old ones"
               - value: "OnDelete"
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
-  - variable: transmissionConfig
-    group: "Container Configuration"
-    label: "Transmission Settings"
-    schema:
-      type: dict
-      attrs:
-        - variable: alt-speed-down
-          label: "alt-speed-down"
-          schema:
-            type: int
-            default: 50
-        - variable: alt-speed-enabled
-          label: "alt-speed-enabled"
-          schema:
-            type: boolean
-            default: false
-        - variable: alt-speed-time-begin
-          label: "alt-speed-time-begin"
-          schema:
-            type: int
-            default: 540
-        - variable: alt-speed-time-day
-          label: "alt-speed-time-day"
-          schema:
-            type: int
-            default: 127
-        - variable: alt-speed-time-enabled
-          label: "alt-speed-time-enabled"
-          schema:
-            type: boolean
-            default: false
-        - variable: alt-speed-time-end
-          label: "alt-speed-time-end"
-          schema:
-            type: int
-            default: 1020
-        - variable: alt-speed-up
-          label: "alt-speed-up"
-          schema:
-            type: int
-            default: 50
-        - variable: blocklist-enabled
-          label: "blocklist-enabled"
-          schema:
-            type: boolean
-            default: true
-        - variable: blocklist-url
-          label: "blocklist-url"
-          schema:
-            type: string
-            default: "http://john.bitsurge.net/public/biglist.p2p.gz"
-        - variable: download-dir
-          label: "download-dir"
-          schema:
-            type: string
-            default: "/downloads/complete"
-        - variable: download-queue-enabled
-          label: "download-queue-enabled"
-          schema:
-            type: boolean
-            default: true
-        - variable: download-queue-size
-          label: "download-queue-size"
-          schema:
-            type: int
-            default: 5
-        - variable: encryption
-          label: "encryption"
-          schema:
-            type: int
-            default: 1
-        - variable: idle-seeding-limit
-          label: "idle-seeding-limit"
-          schema:
-            type: int
-            default: 30
-        - variable: idle-seeding-limit-enabled
-          label: "idle-seeding-limit-enabled"
-          schema:
-            type: boolean
-            default: false
-        - variable: incomplete-dir
-          label: "incomplete-dir"
-          schema:
-            type: string
-            default: "/downloads/incomplete"
-        - variable: incomplete-dir-enabled
-          label: "incomplete-dir-enabled"
-          schema:
-            type: boolean
-            default: true
-        - variable: peer-limit-global
-          label: "peer-limit-global"
-          schema:
-            type: int
-            default: 200
-        - variable: peer-limit-per-torrent
-          label: "peer-limit-per-torrent"
-          schema:
-            type: int
-            default: 50
-        - variable: queue-stalled-enabled
-          label: "queue-stalled-enabled"
-          schema:
-            type: boolean
-            default: true
-        - variable: queue-stalled-minutes
-          label: "queue-stalled-minutes"
-          schema:
-            type: int
-            default: 30
-        - variable: ratio-limit
-          label: "ratio-limit"
-          schema:
-            type: int
-            default: 2
-        - variable: ratio-limit-enabled
-          label: "ratio-limit-enabled"
-          schema:
-            type: boolean
-            default: false
-        - variable: scrape-paused-torrents-enabled
-          label: "scrape-paused-torrents-enabled"
-          schema:
-            type: boolean
-            default: true
-        - variable: script-torrent-done-enabled
-          label: "script-torrent-done-enabled"
-          schema:
-            type: boolean
-            default: false
-        - variable: script-torrent-done-filename
-          label: "script-torrent-done-filename"
-          schema:
-            type: string
-            default: ""
-        - variable: seed-queue-enabled
-          label: "seed-queue-enabled"
-          schema:
-            type: boolean
-            default: false
-        - variable: seed-queue-size
-          label: "seed-queue-size"
-          schema:
-            type: int
-            default: 10
-        - variable: speed-limit-down
-          label: "speed-limit-down"
-          schema:
-            type: int
-            default: 100
-        - variable: speed-limit-down-enabled
-          label: "speed-limit-down-enabled"
-          schema:
-            type: boolean
-            default: false
-        - variable: speed-limit-up
-          label: "speed-limit-up"
-          schema:
-            type: int
-            default: 100
-        - variable: speed-limit-up-enabled
-          label: "speed-limit-up-enabled"
-          schema:
-            type: boolean
-            default: false
-        - variable: start-added-torrents
-          label: "start-added-torrents"
-          schema:
-            type: boolean
-            default: true
-        - variable: trash-original-torrent-files
-          label: "trash-original-torrent-files"
-          schema:
-            type: boolean
-            default: false
-        - variable: upload-slots-per-torrent
-          label: "upload-slots-per-torrent"
-          schema:
-            type: int
-            default: 14
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -284,6 +104,278 @@ questions:
           schema:
             type: string
             default: "002"
+        - variable: TRANSMISSION_ALT_SPEED_DOWN
+          schema:
+            type: int
+            default: 50
+        - variable: TRANSMISSION_ALT_SPEED_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_ALT_SPEED_TIME_BEGIN
+          schema:
+            type: int
+            default: 540
+        - variable: TRANSMISSION_ALT_SPEED_TIME_DAY
+          schema:
+            type: int
+            default: 127
+        - variable: TRANSMISSION_ALT_SPEED_TIME_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_ALT_SPEED_TIME_END
+          schema:
+            type: int
+            default: 1020
+        - variable: TRANSMISSION_ALT_SPEED_UP
+          schema:
+            type: int
+            default: 50
+        - variable: TRANSMISSION_BIND_ADDRESS_IPV4
+          schema:
+            type: string
+            default: "0.0.0.0"
+        - variable: TRANSMISSION_BIND_ADDRESS_IPV6
+          schema:
+            type: string
+            default: "::"
+        - variable: TRANSMISSION_BLOCKLIST_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_BLOCKLIST_URL
+          schema:
+            type: string
+            default: "http://john.bitsurge.net/public/biglist.p2p.gz"
+        - variable: TRANSMISSION_CACHE_SIZE_MB
+          schema:
+            type: int
+            default: 4
+        - variable: TRANSMISSION_DHT_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_DOWNLOAD_DIR
+          schema:
+            type: string
+            default: "/downloads/complete"
+        - variable: TRANSMISSION_DOWNLOAD_QUEUE_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_DOWNLOAD_QUEUE_SIZE
+          schema:
+            type: int
+            default: 5
+        - variable: TRANSMISSION_ENCRYPTION
+          schema:
+            type: int
+            default: 1
+        - variable: TRANSMISSION_IDLE_SEEDING_LIMIT
+          schema:
+            type: int
+            default: 30
+        - variable: TRANSMISSION_IDLE_SEEDING_LIMIT_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_INCOMPLETE_DIR
+          schema:
+            type: string
+            default: "/downloads/incomplete"
+        - variable: TRANSMISSION_INCOMPLETE_DIR_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_LPD_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_MESSAGE_LEVEL
+          schema:
+            type: int
+            default: 2
+        - variable: TRANSMISSION_PEER_CONGESTION_ALGORITHM
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_PEER_ID_TTL_HOURS
+          schema:
+            type: int
+            default: 6
+        - variable: TRANSMISSION_PEER_LIMIT_GLOBAL
+          schema:
+            type: int
+            default: 200
+        - variable: TRANSMISSION_PEER_LIMIT_PER_TORRENT
+          schema:
+            type: int
+            default: 50
+        - variable: TRANSMISSION_PEER_PORT
+          schema:
+            type: int
+            default: 51413
+        - variable: TRANSMISSION_PEER_PORT_RANDOM_HIGH
+          schema:
+            type: int
+            default: 65535
+        - variable: TRANSMISSION_PEER_PORT_RANDOM_LOW
+          schema:
+            type: int
+            default: 49152
+        - variable: TRANSMISSION_PEER_PORT_RANDOM_ON_START
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_PEER_SOCKET_TOS
+            schema:
+            type: string
+            default: "default"
+        - variable: TRANSMISSION_PEX_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_PORT_FORWARDING_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_PREALLOCATION
+          schema:
+            type: int
+            default: 1
+        - variable: TRANSMISSION_PREFETCH_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_QUEUE_STALLED_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_QUEUE_STALLED_MINUTES
+          schema:
+            type: int
+            default: 30
+        - variable: TRANSMISSION_RATIO_LIMIT
+          schema:
+            type: int
+            default: 2
+        - variable: TRANSMISSION_RATIO_LIMIT_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_RENAME_PARTIAL_FILES
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_RPC_AUTHENTICATION_REQUIRED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_RPC_BIND_ADDRESS
+          schema:
+            type: string
+            default: "0.0.0.0"
+        - variable: TRANSMISSION_RPC_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_RPC_HOST_WHITELIST
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_RPC_HOST_WHITELIST_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_RPC_PASSWORD
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_RPC_PORT
+          schema:
+            type: int
+            default: 9091
+        - variable: TRANSMISSION_RPC_URL
+          schema:
+            type: string
+            default: "/
+        - variable: TRANSMISSION_RPC_USERNAME
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_RPC_WHITELIST
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_RPC_WHITELIST_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_SCRAPE_PAUSED_TORRENTS_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_SCRIPT_TORRENT_DONE_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_SCRIPT_TORRENT_DONE_FILENAME
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_SEED_QUEUE_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_SEED_QUEUE_SIZE
+          schema:
+            type: int
+            default: 10
+        - variable: TRANSMISSION_SPEED_LIMIT_DOWN
+          schema:
+            type: int
+            default: 100
+        - variable: TRANSMISSION_SPEED_LIMIT_DOWN_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_SPEED_LIMIT_UP
+          schema:
+            type: int
+            default: 100
+        - variable: TRANSMISSION_SPEED_LIMIT_UP_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_START_ADDED_TORRENTS
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_TRASH_ORIGINAL_TORRENT_FILES
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_UMASK
+          schema:
+            type: int
+            default: 2
+        - variable: TRANSMISSION_UPLOAD_SLOTS_PER_TORRENT
+          schema:
+            type: int
+            default: 14
+        - variable: TRANSMISSION_UTP_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_WATCH_DIR
+          schema:
+            type: string
+            default: "/watch"
+        - variable: TRANSMISSION_WATCH_DIR_ENABLED
+          schema:
+            type: boolean
+            default: false
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
