@@ -39,4 +39,6 @@ ingress:
 # @default -- See values.yaml
 persistence:
   config:
-    enabled: false
+    enabled: true
+    mountPath: "/config"
+    type: emptyDir
