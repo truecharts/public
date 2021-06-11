@@ -686,8 +686,7 @@ questions:
                 description: "Path inside the container the device is mounted"
                 schema:
                   type: string
-                  default: "/dev/usb"
-                  hidden: true
+                  default: "/dev/ttyACM0"
 
   - variable: securityContext
     group: "Security and Permissions"
