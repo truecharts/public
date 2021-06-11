@@ -149,26 +149,17 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir
+
   db:
     nameOverride: "db"
     enabled: true
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir
+
   dbbackup:
     enabled: true
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir
+
 
 
 # Enabled postgres

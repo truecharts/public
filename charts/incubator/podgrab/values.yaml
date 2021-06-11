@@ -37,15 +37,11 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir
+
 
 hostPathMounts:
   - name: assets
     enabled: true
     mountPath: "/assets"
-    emptyDir:
-      enabled: true
+    type: emptyDir

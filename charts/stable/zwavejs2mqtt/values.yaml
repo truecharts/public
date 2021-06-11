@@ -89,11 +89,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir
+
 
 # Path to your zwave device in the container
 additionalVolumeMounts: []
