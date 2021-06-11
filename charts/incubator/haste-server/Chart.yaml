@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: "latest"
+description: Simple text sharing
+name: haste-server
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- haste
+- hastebin
+- haste-server
+- pastebin
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/haste
+icon: https://raw.githubusercontent.com/nicholaswilde/helm-charts/main/images/haste.png
+sources:
+- https://github.com/seejohnrun/haste-server
+- https://github.com/k8s-at-home/container-images
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 6.1.1
