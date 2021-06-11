@@ -16810,6 +16810,30 @@ entries:
   prototype-gui:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-11T00:02:19.360558657Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.0.0
+    description: App to test GUI prototypes
+    digest: 34dcf6ac8eb8171fe3c3d600bef5ba72995293c5bee7300932beca19c654bcec
+    home: https://github.com/truecharts/apps/tree/master/charts/develop/prototype-gui
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - dev
+    - prototype
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prototype-gui
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prototype-gui-1.0.2/prototype-gui-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-10T23:35:47.548651846Z"
     dependencies:
     - name: common
@@ -24594,4 +24618,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-10T23:44:03.753259279Z"
+generated: "2021-06-11T00:02:19.364911648Z"
