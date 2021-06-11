@@ -54,6 +54,6 @@ data:
   postgresql-password: {{ $dbPass | b64enc | quote }}
   postgresql-postgres-password: {{ randAlphaNum 50 | b64enc | quote }}
 {{- end }}
-  url: {{ ( printf "%v%v:%v@%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
+  url: {{ ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
 type: Opaque
 {{- end -}}
