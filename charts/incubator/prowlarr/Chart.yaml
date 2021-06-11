@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: "auto"
+description: Indexer manager/proxy built on the popular arr net base stack to integrate with your various PVR apps.
+name: prowlarr
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- prowlarr
+- torrent
+- usenet
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/prowlarr
+icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/400.png
+sources:
+- https://github.com/Prowlarr/Prowlarr
+- https://github.com/k8s-at-home/container-images
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 6.1.1
