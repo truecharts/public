@@ -12861,6 +12861,34 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/mealie-1.0.0/mealie-1.0.0.tgz
     version: 1.0.0
+  mosquitto:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-11T15:20:52.863891389Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.1.1
+    description: Eclipse Mosquitto - An open source MQTT broker
+    digest: fc4a296ae76ab7198cb9e23df28980dcfadda52b8fc79068798c1f71879ed049
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/mosquitto
+    icon: https://raw.githubusercontent.com/eclipse/mosquitto/master/logo/mosquitto-logo-min.svg
+    keywords:
+    - mosquitto
+    - MQTT
+    - eclipse-iot
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: mosquitto
+    sources:
+    - https://github.com/eclipse/mosquitto
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mosquitto-1.0.0/mosquitto-1.0.0.tgz
+    version: 1.0.0
   navidrome:
   - apiVersion: v2
     appVersion: auto
@@ -23417,6 +23445,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/unifi-3.1.5/unifi-3.1.5.tgz
     version: 3.1.5
+  unpackerr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-11T15:20:53.017267351Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.1.1
+    description: This application runs as a daemon on your download host. It checks
+      for completed downloads and extracts them so Radarr, Lidarr, Sonarr, and Readarr
+      may import them
+    digest: e494604439e71726c4c8bd5d32d9b496591d1929aed5c54818f0cab7c134cf40
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/unpackrr
+    icon: https://raw.githubusercontent.com/wiki/davidnewhall/unpackerr/images/unpackerr-logo-text.png
+    keywords:
+    - unpackerr
+    - sonarr
+    - radarr
+    - lidarr
+    - readarr
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: unpackerr
+    sources:
+    - https://github.com/davidnewhall/unpackerr
+    - https://hub.docker.com/r/golift/unpackerr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/unpackerr-1.0.0/unpackerr-1.0.0.tgz
+    version: 1.0.0
   vaultwarden:
   - apiVersion: v2
     appVersion: auto
@@ -24834,4 +24895,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-11T14:48:09.837440041Z"
+generated: "2021-06-11T15:20:53.020691791Z"
