@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 3.1.5](https://img.shields.io/badge/Version-3.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 6.0.0](https://img.shields.io/badge/Version-6.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Get all your books, like series with Sonarr...
 
@@ -9,8 +9,6 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
-* <https://github.com/truecharts/apps/tree/master/incubator/lazylibrarian>
-* <https://github.com/k8s-at-home/charts/tree/master/charts/lazylibrarian>
 * <https://gitlab.com/LazyLibrarian/LazyLibrarian.git>
 * <https://lazylibrarian.gitlab.io>
 
@@ -22,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 3.5.5 |
+| https://truecharts.org/ | common | 6.1.1 |
 
 ## Installing the Chart
 

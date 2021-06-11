@@ -1,18 +1,16 @@
 # Introduction
 
-![Version: 3.1.5](https://img.shields.io/badge/Version-3.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
-Smart PVR for newsgroup and bittorrent users
+This application runs as a daemon on your download host. It checks for completed downloads and extracts them so Radarr, Lidarr, Sonarr, and Readarr may import them
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/apps/tree/master/stable/sonarr>
-* <https://github.com/k8s-at-home/charts/tree/master/charts/sonarr>
-* <https://github.com/Sonarr/Sonarr>
-* <https://hub.docker.com/r/linuxserver/sonarr>
+* <https://github.com/davidnewhall/unpackerr>
+* <https://hub.docker.com/r/golift/unpackerr>
 
 ## Requirements
 
@@ -22,11 +20,11 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 3.5.5 |
+| https://truecharts.org/ | common | 6.1.1 |
 
 ## Installing the Chart
 
-To install the chart with the release name `sonarr`
+To install the chart with the release name `unpackerr`
 
 - Open TrueNAS SCALE
 - Go to Apps
@@ -35,7 +33,7 @@ To install the chart with the release name `sonarr`
 
 ## Uninstalling the Chart
 
-To uninstall the `sonarr` deployment
+To uninstall the `unpackerr` deployment
 
 - Open TrueNAS SCALE
 - Go to Apps

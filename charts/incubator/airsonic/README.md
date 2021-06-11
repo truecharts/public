@@ -1,15 +1,17 @@
 # Introduction
 
-![Version: 6.0.0](https://img.shields.io/badge/Version-6.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
-Usenet meta search
+Airsonic is a Free and Open Source community driven media server
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/theotherp/nzbhydra2>
+* <https://github.com/airsonic/airsonic>
+* <https://github.com/linuxserver/docker-airsonic>
+* <https://github.com/k8s-at-home/charts/tree/master/charts/airsonic>
 
 ## Requirements
 
@@ -23,7 +25,7 @@ Kubernetes: `>=1.16.0-0`
 
 ## Installing the Chart
 
-To install the chart with the release name `nzbhydra`
+To install the chart with the release name `airsonic`
 
 - Open TrueNAS SCALE
 - Go to Apps
@@ -32,7 +34,7 @@ To install the chart with the release name `nzbhydra`
 
 ## Uninstalling the Chart
 
-To uninstall the `nzbhydra` deployment
+To uninstall the `airsonic` deployment
 
 - Open TrueNAS SCALE
 - Go to Apps

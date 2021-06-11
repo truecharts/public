@@ -1,18 +1,15 @@
 # Introduction
 
-![Version: 3.1.5](https://img.shields.io/badge/Version-3.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
-API Support for your favorite torrent trackers.
+Eclipse Mosquitto - An open source MQTT broker
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/apps/tree/master/stable/jackett>
-* <https://github.com/k8s-at-home/charts/tree/master/charts/jackett>
-* <https://github.com/Jackett/Jackett>
-* <https://hub.docker.com/r/linuxserver/jackett>
+* <https://github.com/eclipse/mosquitto>
 
 ## Requirements
 
@@ -22,11 +19,11 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 3.5.5 |
+| https://truecharts.org/ | common | 6.1.1 |
 
 ## Installing the Chart
 
-To install the chart with the release name `jackett`
+To install the chart with the release name `mosquitto`
 
 - Open TrueNAS SCALE
 - Go to Apps
@@ -35,7 +32,7 @@ To install the chart with the release name `jackett`
 
 ## Uninstalling the Chart
 
-To uninstall the `jackett` deployment
+To uninstall the `mosquitto` deployment
 
 - Open TrueNAS SCALE
 - Go to Apps
