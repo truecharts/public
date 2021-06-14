@@ -18,17 +18,17 @@ Probes selection logic.
     {{- else }}
       {{- if and $primaryService $primaryPort -}}
         {{- if $probe.type -}}
-          {{- $probeType := $probe.type -}}
+          {{- $probeType = $probe.type -}}
         {{- else -}}
           {{- if $primaryPort.protocol -}}
-            {{- $probeType := $primaryPort.protocol -}}
+            {{- $probeType = $primaryPort.protocol -}}
           {{- end }}
         {{- end }}
 
-          {{- if or ( eq $probeType "HTTP" ) ( eq $probeType "HTTP" ) -}}
+          {{- if or ( eq $probeType "HTTPS" ) ( eq $probeType "HTTP" ) -}}
               {{- "httpGet:" | nindent 2 }}
                 {{- printf "path: %v" $probe.path | nindent 4 }}
-                {{- printf "scheme: %v" $primaryPort.protocol | nindent 4 }}
+                {{- printf "scheme: %v" $probeType | nindent 4 }}
           {{- else -}}
             {{- "tcpSocket:" | nindent 2 }}
           {{- end }}
