@@ -17,16 +17,6 @@ podSecurityContext:
   fsGroup: 568
   supplementalGroups: [44, 107]
 
-probes:
-  readiness:
-    enabled: true
-    path: /identity
-  liveness:
-    enabled: true
-    path: /identity
-  startup:
-    enabled: true
-    path: /identity
 ##
 # Most other defaults are set in questions.yaml
 # For other options please refer to the wiki, default_values.yaml or the common library chart
