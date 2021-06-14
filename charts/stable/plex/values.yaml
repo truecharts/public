@@ -27,14 +27,3 @@ persistence:
     enabled: true
     mountPath: "/config"
     type: emptyDir
-
-probes:
-  readiness:
-    enabled: true
-    path: /identity
-  liveness:
-    enabled: true
-    path: /identity
-  startup:
-    enabled: true
-    path: /identity
