@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+import json
+import sys
+
+from datetime import datetime
+
+
+def newer_mapping(image_tags):
+    key = list(image_tags.keys())[0]
+    if not image_tags[key]:
+        return {}
+
+    tags = {t.strip('RELEASE.'): t for t in image_tags[key] if t.startswith('RELEASE.') and t.endswith('Z')}
+    if not tags:
+        return {}
+
+    versions = [datetime.strptime(t, '%Y-%m-%dT%H-%M-%SZ') for t in tags]
+    versions.sort()
+
+    version = versions[-1].strftime('%Y-%m-%dT%H-%M-%SZ')
+    return {
+        'tags': {key: tags[version]},
+        'app_version': version,
+    }
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        exit(1)
+
+    print(json.dumps(newer_mapping(json.loads(sys.argv[1]))))
