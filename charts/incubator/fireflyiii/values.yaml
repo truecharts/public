@@ -8,12 +8,6 @@ image:
 strategy:
   type: Recreate
 
-podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
-
 service:
   main:
     ports:
@@ -43,7 +37,7 @@ env:
   DB_DATABASE: firefly
   DB_CONNECTION: pgsql
   DB_PORT: 5432
-  APP_Key: AGcfkCUS233ZWmBXztYbdyCs2u7kkz55
+  APP_KEY: "AGcfkCUS233ZWmBXztYbdyCs2u7kkz55"
 
 envValueFrom:
   DB_HOST:
