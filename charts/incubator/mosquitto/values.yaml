@@ -14,8 +14,7 @@ service:
   main:
     ports:
       main:
-        enabled: false
-      mqtt:
+        protocol: TCP
         enabled: true
         port: 1883
 

@@ -208,24 +208,13 @@ questions:
                             label: "Enable the port"
                             schema:
                               type: boolean
-                              default: false
-                              hidden: true
-                    - variable: mqtt
-                      label: "MQTT Service Port Configuration"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
                               default: true
                               hidden: true
                           - variable: protocol
                             label: "Port Type"
                             schema:
                               type: string
-                              default: "HTTP"
+                              default: "TCP"
                               enum:
                                 - value: HTTP
                                   description: "HTTP"
