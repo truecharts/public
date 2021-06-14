@@ -29,6 +29,16 @@ service:
         port: 51080
         protocol: TCP
 
+probes:
+  liveness:
+    path: "/login"
+
+  readiness:
+    path: "/login"
+
+  startup:
+    path: "/login"
+
 env:
   DB_USERNAME: firefly
   DB_DATABASE: firefly
