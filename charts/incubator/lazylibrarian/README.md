@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 6.1.1](https://img.shields.io/badge/Version-6.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
+![Version: 6.1.2](https://img.shields.io/badge/Version-6.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: latest](https://img.shields.io/badge/AppVersion-latest-informational?style=flat-square)
 
 Get all your books, like series with Sonarr...
 
@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 6.3.1 |
+| https://truecharts.org/ | common | 6.3.4 |
 
 ## Installing the Chart
 
