@@ -19,11 +19,9 @@ Probes selection logic.
         {{- if or ( eq $primaryPort.protocol "HTTP" ) ( eq $primaryPort.protocol "HTTPS" ) -}}
           {{- "httpGet:" | nindent 2 }}
             {{- printf "path: %v" $probe.path | nindent 4 }}
-            {{- ( printf "path: %v" "/" ) | nindent 4 }}
             {{- printf "scheme: %v" $primaryPort.protocol | nindent 4 }}
         {{- else -}}
           {{- "tcpSocket:" | nindent 2 }}
-            {{- printf "port: %v" $primaryPort.port  | nindent 4 }}
         {{- end }}
             {{- printf "port: %v" $primaryPort.port  | nindent 4 }}
         {{- printf "initialDelaySeconds: %v" $probe.spec.initialDelaySeconds  | nindent 2 }}
