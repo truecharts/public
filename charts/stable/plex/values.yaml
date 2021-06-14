@@ -27,3 +27,29 @@ persistence:
     enabled: true
     mountPath: "/config"
     type: emptyDir
+
+probes:
+  readiness:
+    enabled: true
+    path: /identity
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    timeoutSeconds: 30
+    successThreshold: 1
+    failureThreshold: 3
+  liveness:
+    enabled: true
+    path: /identity
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    timeoutSeconds: 30
+    successThreshold: 1
+    failureThreshold: 3
+  startup:
+    enabled: true
+    path: /identity
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    timeoutSeconds: 30
+    successThreshold: 1
+    failureThreshold: 3
