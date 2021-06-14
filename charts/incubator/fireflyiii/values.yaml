@@ -49,7 +49,7 @@ envValueFrom:
   DB_HOST:
     secretKeyRef:
       name: dbcreds
-      key: url
+      key: postgresql_host
   DB_PASSWORD:
     secretKeyRef:
       name: dbcreds
