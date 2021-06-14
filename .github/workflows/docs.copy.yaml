@@ -8,22 +8,22 @@ on:
     tags-ignore:
       - '**'
     paths:
-      #- 'library/**/Chart.yaml'
-      #- 'tools/gen-helm-docs.sh'
-      #- 'tools/templates/docs/**'
-      #- 'tools/templates/app/*.gotmpl'
-      #- '**.gotmpl'
-      #- '**/LICENSE'
-      #- '**LICENSE'
-      #- '**.md'
-      #- '**/*.md'
-      #- 'charts/**/*.md'
-      #- '.github/README.md'
-      #- '.github/CODE_OF_CONDUCT'
-      #- '.github/CONTRIBUTING'
-      #- './LICENSE'
-      #- './NOTICE'
-      #- '.github/workflows/docs.copy.yaml'
+      - 'library/**/Chart.yaml'
+      - 'tools/gen-helm-docs.sh'
+      - 'tools/templates/docs/**'
+      - 'tools/templates/app/*.gotmpl'
+      - '**.gotmpl'
+      - '**/LICENSE'
+      - '**LICENSE'
+      - '**.md'
+      - '**/*.md'
+      - 'charts/**/*.md'
+      - '.github/README.md'
+      - '.github/CODE_OF_CONDUCT'
+      - '.github/CONTRIBUTING'
+      - './LICENSE'
+      - './NOTICE'
+      - '.github/workflows/docs.copy.yaml'
       - 'index.yaml'
 
 jobs:
@@ -40,9 +40,9 @@ jobs:
         run: |
           brew install norwoodj/tap/helm-docs
 
-      - name: (re)generate docs
-        run: |
-          tools/gen-helm-docs.sh
+#      - name: (re)generate docs
+#        run: |
+#          #tools/gen-helm-docs.sh
 
       - name: Copy general readme to website
         run: |
