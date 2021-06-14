@@ -45,3 +45,13 @@ hostPathMounts:
     enabled: true
     mountPath: "/assets"
     type: emptyDir
+
+probes:
+  liveness:
+    enabled: false
+
+  readiness:
+    enabled: false
+
+  startup:
+    enabled: false
