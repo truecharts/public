@@ -13,7 +13,7 @@ def newer_mapping(image_tags):
 
     tags = {t.rsplit('-', 1)[0]: t for t in image_tags[key]}
 
-    versions = [v for v in map(parse_version, tags) if isinstance(v, Version)]
+    versions = [v for v in map(parse_version, tags) if isinstance(v, Version) and not v.is_prerelease]
     if not versions:
         return {}
 
