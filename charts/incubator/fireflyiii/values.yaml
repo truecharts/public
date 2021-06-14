@@ -18,6 +18,7 @@ service:
   main:
     ports:
       main:
+        protocol: HTTPS
         port: 8080
   tcp:
     enabled: true
