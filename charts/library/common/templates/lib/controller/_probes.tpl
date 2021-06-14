@@ -7,6 +7,7 @@ Probes selection logic.
 {{- if $primaryService -}}
   {{- $primaryPort = get $primaryService.ports (include "common.classes.service.ports.primary" (dict "serviceName" (include "common.service.primary" .) "values" $primaryService)) -}}
 {{- end -}}
+{{- $probeType := "HTTP" -}}
 
 {{- range $probeName, $probe := .Values.probes }}
   {{- if $probe.enabled -}}
@@ -16,22 +17,27 @@ Probes selection logic.
       {{- $probe.spec | toYaml | nindent 2 }}
     {{- else }}
       {{- if and $primaryService $primaryPort -}}
-        {{- if $primaryPort.protocol -}}
-          {{- if or ( eq $primaryPort.protocol "HTTP" ) ( eq $primaryPort.protocol "HTTPS" ) -}}
-            {{- "httpGet:" | nindent 2 }}
-              {{- printf "path: %v" $probe.path | nindent 4 }}
-              {{- printf "scheme: %v" $primaryPort.protocol | nindent 4 }}
+        {{- if $probe.type -}}
+          {{- $probeType := $probe.type -}}
+        {{- else -}}
+          {{- if $primaryPort.protocol -}}
+            {{- $probeType := $primaryPort.protocol -}}
+          {{- end }}
+        {{- end }}
+
+          {{- if or ( eq $probeType "HTTP" ) ( eq $probeType "HTTP" ) -}}
+              {{- "httpGet:" | nindent 2 }}
+                {{- printf "path: %v" $probe.path | nindent 4 }}
+                {{- printf "scheme: %v" $primaryPort.protocol | nindent 4 }}
           {{- else -}}
             {{- "tcpSocket:" | nindent 2 }}
           {{- end }}
-        {{- else -}}
-          {{- "tcpSocket:" | nindent 2 }}
-        {{- end }}
-            {{- printf "port: %v" $primaryPort.port  | nindent 4 }}
-        {{- printf "initialDelaySeconds: %v" $probe.spec.initialDelaySeconds  | nindent 2 }}
-        {{- printf "failureThreshold: %v" $probe.spec.failureThreshold  | nindent 2 }}
-        {{- printf "timeoutSeconds: %v" $probe.spec.timeoutSeconds  | nindent 2 }}
-        {{- printf "periodSeconds: %v" $probe.spec.periodSeconds | nindent 2 }}
+
+              {{- printf "port: %v" $primaryPort.port  | nindent 4 }}
+          {{- printf "initialDelaySeconds: %v" $probe.spec.initialDelaySeconds  | nindent 2 }}
+          {{- printf "failureThreshold: %v" $probe.spec.failureThreshold  | nindent 2 }}
+          {{- printf "timeoutSeconds: %v" $probe.spec.timeoutSeconds  | nindent 2 }}
+          {{- printf "periodSeconds: %v" $probe.spec.periodSeconds | nindent 2 }}
       {{- end }}
     {{- end }}
   {{- end }}
