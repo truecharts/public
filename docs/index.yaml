@@ -12508,6 +12508,37 @@ entries:
   home-assistant:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-15T10:32:02.377942178Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.5
+    description: home-assistant App for TrueNAS SCALE
+    digest: 1ea9eec38d27930f50b969c0c8db2c8b0ef79a0e02432f6400f10218c2948885
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/home-assistant
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Home_Assistant_Logo.svg/519px-Home_Assistant_Logo.svg.png
+    keywords:
+    - home-assistant
+    - hass
+    - homeassistant
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: home-assistant
+    sources:
+    - https://github.com/home-assistant/home-assistant
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/home-assistant-6.1.5/home-assistant-6.1.5.tgz
+    version: 6.1.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-15T01:08:28.43475603Z"
     dependencies:
     - name: common
@@ -13310,6 +13341,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/home-assistant-3.1.5/home-assistant-3.1.5.tgz
     version: 3.1.5
   jackett:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-15T10:32:02.481145867Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.5
+    description: API Support for your favorite torrent trackers.
+    digest: 8b30f091e03d309be837aed98387f377847a85bee90c05bf6e4333fbf34b7e23
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/jackett
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - jackett
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jackett-6.1.5/jackett-6.1.5.tgz
+    version: 6.1.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-06-15T01:08:28.52433236Z"
@@ -20826,6 +20887,39 @@ entries:
   ombi:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-15T10:32:02.624679559Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.5
+    description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
+    digest: 827d76e03887a6b10bf82aefc862cae63a0d3abe139c5a751899503f40958305
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ombi
+    icon: https://img3.androidappsapk.co/wiLDnuwrCWctiiW62ALcj4eIpNbzeRH_UNPo7eqlpYvGkCQYSTybaI4xVRLKGjnlamlV=s300
+    keywords:
+    - ombi
+    - plex
+    - emby
+    - sonarr
+    - radarr
+    - couchpotato
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: ombi
+    sources:
+    - https://github.com/tidusjar/Ombi
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ombi-6.1.5/ombi-6.1.5.tgz
+    version: 6.1.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-15T01:08:29.640395044Z"
     dependencies:
     - name: common
@@ -23782,6 +23876,30 @@ entries:
   prototype-gui:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-15T10:32:02.73603805Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.5
+    description: App to test GUI prototypes
+    digest: 049f797261288303248eaaa1c233c074969dee2f5e26fecca6c074d0a629b635
+    home: https://github.com/truecharts/apps/tree/master/charts/develop/prototype-gui
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - dev
+    - prototype
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prototype-gui
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prototype-gui-1.2.5/prototype-gui-1.2.5.tgz
+    version: 1.2.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-15T01:08:29.996881519Z"
     dependencies:
     - name: common
@@ -24345,6 +24463,34 @@ entries:
     - https://github.com/truecharts/apps/releases/download/prototype-gui-0.0.1/prototype-gui-0.0.1.tgz
     version: 0.0.1
   prowlarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-15T10:32:02.831494242Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.5
+    description: Indexer manager/proxy built on the popular arr net base stack to
+      integrate with your various PVR apps.
+    digest: af7800b5dc93db03cf8648fa97b47630e8bd1ca686d76e26e00b63f4f9db1276
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/prowlarr
+    icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/400.png
+    keywords:
+    - prowlarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prowlarr
+    sources:
+    - https://github.com/Prowlarr/Prowlarr
+    - https://github.com/k8s-at-home/container-images
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prowlarr-1.1.5/prowlarr-1.1.5.tgz
+    version: 1.1.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-06-15T01:08:30.171529325Z"
@@ -25968,6 +26114,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/radarr-3.1.5/radarr-3.1.5.tgz
     version: 3.1.5
   readarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-15T10:32:02.941206912Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.5
+    description: A fork of Radarr to work with Books & AudioBooks
+    digest: 088d7c23198b41b151c32ab0416382b489ab668f16aad05e3087a573eedff7b6
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/readarr
+    icon: https://github.com/Readarr/Readarr/blob/develop/Logo/1024.png?raw=true
+    keywords:
+    - readarr
+    - torrent
+    - usenet
+    - AudioBooks
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: readarr
+    sources:
+    - https://github.com/Readarr/Readarr
+    - https://readarr.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/readarr-6.1.5/readarr-6.1.5.tgz
+    version: 6.1.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-06-15T01:08:30.489730896Z"
@@ -33456,6 +33635,38 @@ entries:
   unpackerr:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-15T10:32:03.045017709Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.5
+    description: This application runs as a daemon on your download host. It checks
+      for completed downloads and extracts them so Radarr, Lidarr, Sonarr, and Readarr
+      may import them
+    digest: 90c424241a08b3d9cefe4b68c932816ff8529d702f10679b9a89113623c7644d
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/unpackrr
+    icon: https://raw.githubusercontent.com/wiki/davidnewhall/unpackerr/images/unpackerr-logo-text.png
+    keywords:
+    - unpackerr
+    - sonarr
+    - radarr
+    - lidarr
+    - readarr
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: unpackerr
+    sources:
+    - https://github.com/davidnewhall/unpackerr
+    - https://hub.docker.com/r/golift/unpackerr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/unpackerr-1.1.5/unpackerr-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-15T01:08:31.577392946Z"
     dependencies:
     - name: common
@@ -35654,4 +35865,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-15T10:06:35.114367998Z"
+generated: "2021-06-15T10:32:03.050922683Z"
