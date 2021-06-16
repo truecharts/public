@@ -2,22 +2,16 @@
 import json
 import sys
 
-from datetime import datetime
+from catalog_update.upgrade_strategy import datetime_versioning
 
 
 def newer_mapping(image_tags):
     key = list(image_tags.keys())[0]
-    if not image_tags[key]:
-        return {}
-
     tags = {t.strip('RELEASE.'): t for t in image_tags[key] if t.startswith('RELEASE.') and t.endswith('Z')}
-    if not tags:
+    version = datetime_versioning(list(tags), '%Y-%m-%dT%H-%M-%SZ')
+    if not version:
         return {}
 
-    versions = [datetime.strptime(t, '%Y-%m-%dT%H-%M-%SZ') for t in tags]
-    versions.sort()
-
-    version = versions[-1].strftime('%Y-%m-%dT%H-%M-%SZ')
     return {
         'tags': {key: tags[version]},
         'app_version': version,
