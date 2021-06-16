@@ -2,23 +2,16 @@
 import json
 import sys
 
-from pkg_resources import parse_version
-from pkg_resources.extern.packaging.version import Version
+from catalog_update.upgrade_strategy import semantic_versioning
 
 
 def newer_mapping(image_tags):
     key = list(image_tags.keys())[0]
-    if not image_tags[key]:
-        return {}
-
     tags = {t.rsplit('-', 1)[0]: t for t in image_tags[key]}
-
-    versions = [v for v in map(parse_version, tags) if isinstance(v, Version) and not v.is_prerelease]
-    if not versions:
+    version = semantic_versioning(list(tags))
+    if not version:
         return {}
 
-    versions.sort()
-    version = str(versions[-1])
     return {
         'tags': {key: tags[version]},
         'app_version': version,
