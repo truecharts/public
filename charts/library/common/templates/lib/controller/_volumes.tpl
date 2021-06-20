@@ -19,6 +19,9 @@ Volumes included by the controller.
       {{- else -}}
         {{- $pvcName = (printf "%s-%s" (include "common.names.fullname" $) $index) -}}
       {{- end -}}
+      {{- if $persistence.forceName -}}
+        {{- $pvcName = $persistence.forceName -}}
+      {{- end -}}
     {{- end }}
   persistentVolumeClaim:
     claimName: {{ $pvcName }}
