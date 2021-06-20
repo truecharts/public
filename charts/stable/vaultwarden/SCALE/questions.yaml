@@ -426,7 +426,6 @@ questions:
       type: boolean
       default: false
 
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -766,10 +765,25 @@ questions:
                   type: string
                   default: "db"
                   hidden: true
+              - variable: type
+                label: "(Advanced) Type of Storage"
+                description: "Sets the persistence type"
+                schema:
+                  type: string
+                  default: "pvc"
+                  hidden: true
+                  enum:
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "hostPath"
+                      description: "hostPath"
               - variable: storageClass
-                label: "Type of Storage"
+                label: "(Advanced) storageClass"
                 description: " Warning: Anything other than SCALE-ZFS will break rollback!"
                 schema:
+                  show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "SCALE-ZFS"
               - variable: mountPath
