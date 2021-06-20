@@ -27,3 +27,4 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings
 - [ ] I have added tests to this description that prove my fix is effective or that my feature works
+- [ ] I increased versions for any altered app according to semantic versioning
