@@ -7598,6 +7598,36 @@ entries:
   esphome:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-21T10:55:33.541738235Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.7
+    description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful
+      configuration files and control them remotely through Home Automation systems.
+    digest: 7b4bcd6efe6f9cfe4ee2cba4538dc608dfe8a9ab7e57dfb727c69efe2744d86d
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/esphome
+    icon: https://esphome.io/_images/logo.svg
+    keywords:
+    - esphome
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: esphome
+    sources:
+    - https://github.com/esphome/esphome
+    - https://hub.docker.com/u/esphome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/esphome-6.1.6/esphome-6.1.6.tgz
+    version: 6.1.6
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-20T10:00:47.32085512Z"
     dependencies:
     - name: common
@@ -18710,6 +18740,32 @@ entries:
     - https://github.com/truecharts/apps/releases/download/lychee-3.1.5/lychee-3.1.5.tgz
     version: 3.1.5
   mealie:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-21T10:55:33.696376773Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.7
+    description: Mealie is a self hosted recipe manager and meal planner with a RestAPI
+      backend and a reactive frontend application built in Vue for a pleasant user
+      experience for the whole family.
+    digest: 4e72486e81f2d0d0c19943e57d6f9d30e16db77e4461055805eb5c2fd165f5ae
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/mealie
+    icon: https://raw.githubusercontent.com/hay-kot/mealie/gh-pages/assets/img/favicon.png
+    keywords:
+    - grocy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: mealie
+    sources:
+    - https://github.com/hay-kot/mealie
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mealie-1.1.6/mealie-1.1.6.tgz
+    version: 1.1.6
   - apiVersion: v2
     appVersion: auto
     created: "2021-06-20T10:00:49.190871687Z"
@@ -37854,4 +37910,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-21T10:37:16.135074766Z"
+generated: "2021-06-21T10:55:33.705970281Z"
