@@ -109,7 +109,7 @@ questions:
           description: "Networks allowed to connect to plex"
           schema:
             type: string
-            default: ""
+            default: "172.16.0.0/16,YOURLOCALSUBNETIP"
         - variable: PLEX_CLAIM
           label: "Plex Claim Token"
           description: "Claim token to use to register the plex server (Max. 4 minutes old!)"
