@@ -1,1 +1,0 @@
-* TLS Support added for Minio application. This lets users to use TrueNAS certificates with Minio Application.

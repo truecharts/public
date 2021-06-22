@@ -1,9 +1,0 @@
-{{ $ports := list }}
-{{ $ports = mustAppend $ports (dict "name" "plex-dlna-udp" "port" 1900 "protocol" "UDP" "targetPort" "plex-dlna-udp") }}
-{{ $ports = mustAppend $ports (dict "name" "plex-gdm1" "port" 32410 "protocol" "UDP" "targetPort" "plex-gdm1") }}
-{{ $ports = mustAppend $ports (dict "name" "plex-gdm2" "port" 32412 "protocol" "UDP" "targetPort" "plex-gdm2") }}
-{{ $ports = mustAppend $ports (dict "name" "plex-gdm3" "port" 32413 "protocol" "UDP" "targetPort" "plex-gdm3") }}
-{{ $ports = mustAppend $ports (dict "name" "plex-gdm4" "port" 32414 "protocol" "UDP" "targetPort" "plex-gdm4") }}
-{{ $params := . }}
-{{ $_ := set $params "commonService" (dict "type" "ClusterIP" "ports" $ports "nameSuffix" "udp" ) }}
-{{ include "common.classes.service" $params }}
