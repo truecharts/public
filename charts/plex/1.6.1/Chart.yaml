@@ -1,0 +1,18 @@
+apiVersion: v2
+appVersion: 1.23.2.4656
+description: Plex Media Server
+name: plex
+version: 1.6.1
+keywords:
+  - plex
+home: https://plex.tv/
+icon: https://www.plex.tv/wp-content/uploads/2018/01/pmp-icon-1.png
+sources:
+  - https://hub.docker.com/r/plexinc/pms-docker/
+  - https://github.com/k8s-at-home/charts/tree/master/charts/plex
+upstream_version: 2.1.0
+dependencies:
+  - name: common
+    repository: file://../../../library/common/2105.0.0
+    version: 2105.0.0
+
