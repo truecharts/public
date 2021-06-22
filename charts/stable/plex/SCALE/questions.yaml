@@ -27,6 +27,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
+    path: "/web"
 questions:
   - variable: portal
     group: "Container Image"
@@ -105,10 +106,10 @@ questions:
             default: ""
         - variable: ALLOWED_NETWORKS
           label: "Allowed Networks"
-          description: "Networks allowed to connect to plex"
+          description: "Networks allowed to connect to plex. Add your local network IP to this list"
           schema:
             type: string
-            default: ""
+            default: "172.16.0.0/16"
         - variable: PLEX_CLAIM
           label: "Plex Claim Token"
           description: "Claim token to use to register the plex server (Max. 4 minutes old!)"

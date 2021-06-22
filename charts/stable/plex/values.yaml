@@ -27,3 +27,6 @@ persistence:
     enabled: true
     mountPath: "/config"
     type: emptyDir
+
+env:
+  ALLOWED_NETWORKS: "172.16.0.0/16"
