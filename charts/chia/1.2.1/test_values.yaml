@@ -1,0 +1,13 @@
+image:
+  repository: ghcr.io/chia-network/chia
+  tag: 1.1.4
+  pullPolicy: IfNotPresent
+updateStrategy: Recreate
+
+appVolumeMounts:
+  staging:
+    emptyDir: true
+    mountPath: "/plots"
+  data:
+    emptyDir: true
+    mountPath: "/root/.chia"
