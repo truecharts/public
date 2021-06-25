@@ -13,11 +13,6 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
-
-podSecurityContext:
-  runAsNonRoot: false
-  runAsUser: 0
-  runAsGroup: 0
 # -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-airsonic#environment-variables-e) for more details.
 # @default -- See below
 env:
