@@ -6,13 +6,15 @@ on:
     branches:
     - master
     paths:
-    - '.containers/apps/**'
-    - '.containers/base/**'
+    - 'containers/apps/**'
+    - 'containers/base/**'
+    - 'containers/dev/**'
     - ".github/workflows/containers.build.yaml"
   pull_request:
     paths:
-    - '.containers/apps/**'
-    - '.containers/base/**'
+    - 'containers/apps/**'
+    - 'containers/base/**'
+    - 'containers/dev/**'
     - ".github/workflows/containers.build.yaml"
 
 env:
@@ -35,8 +37,9 @@ jobs:
         list-files: json
         filters: |
           changed:
-          - '.containers/apps/**'
-          - '.containers/base/**'
+          - 'containers/apps/**'
+          - 'containers/base/**'
+          - 'containers/dev/**'
     - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
     - id: reduce
       run: |
@@ -50,7 +53,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: hadolint
-      uses: reviewdog/action-hadolint@v1.19.1
+      uses: reviewdog/action-hadolint@v1.20.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         reporter: github-pr-review
@@ -75,17 +78,19 @@ jobs:
     - name: Prepare
       id: prep
       run: |
-        if test -f "./.containers/apps/${{ matrix.container }}/Dockerfile"; then
+        if test -f "./containers/apps/${{ matrix.container }}/Dockerfile"; then
           CATEGORY="apps"
+        elif test -f "./containers/dev/${{ matrix.container }}/Dockerfile"; then
+          CATEGORY="dev"
         else
           CATEGORY="base"
         fi
         echo ::set-output name=category::${CATEGORY}
-        VERSION=$(cat ./.containers/${CATEGORY}/${{ matrix.container }}/VERSION)
+        VERSION=$(cat ./containers/${CATEGORY}/${{ matrix.container }}/VERSION)
         echo ::set-output name=version::${VERSION}
         PLATFORM="linux/amd64"
         echo ::set-output name=platform::${PLATFORM}
-        if test -f "./.containers/${CATEGORY}/${{ matrix.container }}/goss.yaml"; then
+        if test -f "./containers/${CATEGORY}/${{ matrix.container }}/goss.yaml"; then
           echo ::set-output name=goss::true
         else
           echo ::set-output name=goss::false
@@ -136,7 +141,7 @@ jobs:
       with:
         build-args: VERSION=${{ steps.prep.outputs.version }}
         context: .
-        file: ./.containers/${{ steps.prep.outputs.category }}/${{ matrix.container }}/Dockerfile
+        file: ./containers/${{ steps.prep.outputs.category }}/${{ matrix.container }}/Dockerfile
         load: true
         tags: |
           ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:test
@@ -147,7 +152,7 @@ jobs:
     - name: Run GOSS tests
       if: ${{ steps.prep.outputs.goss == 'true' }}
       env:
-        GOSS_FILE: ./.containers/${{ steps.prep.outputs.category }}/${{ matrix.container }}/goss.yaml
+        GOSS_FILE: ./containers/${{ steps.prep.outputs.category }}/${{ matrix.container }}/goss.yaml
       run: |
         dgoss run ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:test
 
@@ -158,7 +163,7 @@ jobs:
         build-args: VERSION=${{ steps.prep.outputs.version }}
         context: .
         platforms: ${{ steps.prep.outputs.platform }}
-        file: ./.containers/${{ steps.prep.outputs.category }}/${{ matrix.container }}/Dockerfile
+        file: ./containers/${{ steps.prep.outputs.category }}/${{ matrix.container }}/Dockerfile
         push: ${{ steps.prep.outputs.push }}
         tags: |
           ghcr.io/${{ github.repository_owner }}/${{ matrix.container }}:latest

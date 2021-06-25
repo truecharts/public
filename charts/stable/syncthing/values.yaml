@@ -3,7 +3,7 @@
 image:
   repository: syncthing/syncthing
   pullPolicy: IfNotPresent
-  tag: "1.16"
+  tag: "1.17"
 
 strategy:
   type: Recreate
@@ -33,9 +33,6 @@ service:
 persistence:
   config:
     enabled: true
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir
+
     mountPath: "/var/syncthing/"

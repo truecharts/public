@@ -5,7 +5,7 @@
 image:
   repository: zwavejs/zwavejs2mqtt
   pullPolicy: IfNotPresent
-  tag: 4.3.1
+  tag: 5.0.4
 
 strategy:
   type: Recreate
@@ -89,22 +89,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir
 
-# Path to your zwave device in the container
-additionalVolumeMounts: []
-#  - name: usb
-#    mountPath: /dev/serial/by-id/usb-0658_0200-if00
-
-# Path to your zwave device on the host
-additionalVolumes: []
-#  - name: usb
-#    hostPath:
-#      path: /dev/serial/by-id/usb-0658_0200-if00
 
 # affinity:
 #   nodeAffinity:

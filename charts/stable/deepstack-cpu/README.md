@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.0.3](https://img.shields.io/badge/Version-1.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 4.1.2](https://img.shields.io/badge/Version-4.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 DeepStack AI provides AI features including Face Recognition, Object Detection, Scene Recognition and custom AI Models
 
@@ -9,7 +9,6 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
-* <https://github.com/truecharts/apps/tree/master/stable/deepstack-cpu>
 * <https://github.com/johnolafenwa/DeepStack>
 * <https://hub.docker.com/r/deepquestai/deepstack>
 * <https://www.deepstack.cc/>
@@ -22,7 +21,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 3.5.5 |
+| https://truecharts.org/ | common | 6.3.4 |
 
 ## Installing the Chart
 

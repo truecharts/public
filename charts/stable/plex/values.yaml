@@ -1,7 +1,7 @@
 # Default values for Plex.
 
 image:
-  repository: ghcr.io/truecharts/plex
+  repository: ghcr.io/k8s-at-home/plex
   pullPolicy: IfNotPresent
   tag: v1.22.3.4523-d0ce30438
 
@@ -26,8 +26,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir
+
+env:
+  ALLOWED_NETWORKS: "172.16.0.0/16"

@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 3.1.5](https://img.shields.io/badge/Version-3.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: minimal](https://img.shields.io/badge/AppVersion-minimal-informational?style=flat-square)
+![Version: 6.1.3](https://img.shields.io/badge/Version-6.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: minimal](https://img.shields.io/badge/AppVersion-minimal-informational?style=flat-square)
 
 Private Windows Activation Server for development and testing
 
@@ -9,7 +9,6 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
-* <https://github.com/truecharts/apps/tree/master/stable/kms>
 * <https://github.com/SystemRage/py-kms>
 
 ## Requirements
@@ -20,7 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 3.5.5 |
+| https://truecharts.org/ | common | 6.3.4 |
 
 ## Installing the Chart
 

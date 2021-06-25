@@ -1,17 +1,15 @@
 # Introduction
 
-![Version: 1.2.5](https://img.shields.io/badge/Version-1.2.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 3.1.2](https://img.shields.io/badge/Version-3.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
-Unofficial Vaultwarden compatible server written in Rust
+Unofficial Bitwarden compatible server written in Rust
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/truecharts/apps/tree/master/incubator/Vaultwarden>
-* <https://github.com/k8s-at-home/charts/tree/master/charts/stable/Vaultwardenrs>
-* <https://github.com/dani-garcia/Vaultwarden_rs>
+* <https://github.com/dani-garcia/vaultwarden>
 
 ## Requirements
 
@@ -21,12 +19,12 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | postgresql | 10.4.2 |
-| https://truecharts.org/ | common | 3.5.5 |
+| https://charts.bitnami.com/bitnami | postgresql | 10.4.9 |
+| https://truecharts.org/ | common | 6.3.4 |
 
 ## Installing the Chart
 
-To install the chart with the release name `Vaultwarden`
+To install the chart with the release name `vaultwarden`
 
 - Open TrueNAS SCALE
 - Go to Apps
@@ -35,7 +33,7 @@ To install the chart with the release name `Vaultwarden`
 
 ## Uninstalling the Chart
 
-To uninstall the `Vaultwarden` deployment
+To uninstall the `vaultwarden` deployment
 
 - Open TrueNAS SCALE
 - Go to Apps

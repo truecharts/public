@@ -7,14 +7,11 @@
 image:
   repository: zwavejs/zwavejs2mqtt
   pullPolicy: IfNotPresent
-  tag: 4.3.1
+  tag: 5.0.4
 
 # 5=tty 20=dialout 24=cdrom
 podSecurityContext:
   runAsNonRoot: true
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
   supplementalGroups: [5, 20, 24]
 
 probes:

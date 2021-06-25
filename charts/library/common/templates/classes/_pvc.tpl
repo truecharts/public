@@ -1,22 +1,4 @@
 {{/*
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-`SPDX-License-Identifier: Apache-2.0`
-
-This file is considered to be modified by the TrueCharts Project.
-*/}}
-
-{{/*
 This template serves as a blueprint for all PersistentVolumeClaim objects that are created
 within the common library.
 */}}
@@ -32,6 +14,9 @@ within the common library.
   {{- if not (eq $values.nameOverride "-") -}}
     {{- $pvcName = printf "%v-%v" $pvcName $values.nameOverride -}}
   {{ end -}}
+{{ end }}
+{{- if $values.forceName -}}
+  {{- $pvcName = $values.forceName -}}
 {{ end }}
 ---
 kind: PersistentVolumeClaim
@@ -57,5 +42,8 @@ spec:
       storage: {{ required (printf "size is required for PVC %v" $pvcName) $values.size | quote }}
   {{- if $values.storageClass }}
   storageClassName: {{ if (eq "-" $values.storageClass) }}""{{- else if (eq "SCALE-ZFS" $values.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" .Release.Name ) }}{{- else }}{{ $values.storageClass | quote }}{{- end }}
+  {{- end }}
+  {{- if $values.volumeName }}
+  volumeName: {{ $values.volumeName | quote }}
   {{- end }}
 {{- end -}}

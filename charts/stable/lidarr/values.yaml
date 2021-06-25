@@ -1,7 +1,7 @@
 # Default values for Lidarr.
 
 image:
-  repository: ghcr.io/truecharts/lidarr
+  repository: ghcr.io/k8s-at-home/lidarr
   pullPolicy: IfNotPresent
   tag: v1.0.0.2226
 
@@ -44,8 +44,4 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir

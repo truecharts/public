@@ -5,9 +5,19 @@
 ##
 
 image:
-  repository: jc5x/firefly-iii
+  repository: fireflyiii/core
   pullPolicy: IfNotPresent
-  tag: version-5.5.11
+  tag: version-5.5.12
+
+probes:
+  liveness:
+    path: "/login"
+
+  readiness:
+    path: "/login"
+
+  startup:
+    path: "/login"
 
 env:
   DB_USERNAME: fireflyiii

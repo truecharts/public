@@ -17,6 +17,7 @@ service:
   main:
     ports:
       main:
+        protocol: HTTPS
         port: 8443
   comm:
     enabled: true
@@ -44,8 +45,4 @@ persistence:
   config:
     enabled: true
     mountPath: "/unifi"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir

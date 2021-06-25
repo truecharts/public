@@ -5,7 +5,7 @@
 ##
 
 image:
-  repository: bitwardenrs/server
+  repository: vaultwarden/server
   pullPolicy: IfNotPresent
   tag: 1.21.0
 
@@ -14,9 +14,9 @@ envTpl:
 
 envFrom:
   - configMapRef:
-      name: bitwardenconfig
+      name: vaultwardenconfig
   - secretRef:
-      name: bitwardensecret
+      name: vaultwardensecret
 
 
 envValueFrom:
@@ -41,8 +41,8 @@ database:
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
   enabled: true
-  postgresqlUsername: homeassistant
-  postgresqlDatabase: homeassistant
+  postgresqlUsername: vaultwarden
+  postgresqlDatabase: vaultwarden
   existingSecret: dbcreds
   persistence:
     enabled: true

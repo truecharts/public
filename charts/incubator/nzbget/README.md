@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 3.1.5](https://img.shields.io/badge/Version-3.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 6.1.2](https://img.shields.io/badge/Version-6.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 NZBGet is a Usenet downloader client
 
@@ -9,9 +9,6 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
-* <https://github.com/truecharts/apps/tree/master/incubator/nzbget>
-* <https://github.com/k8s-at-home/charts/tree/master/charts/nzbget>
-* <https://hub.docker.com/r/linuxserver/nzbget/>
 * <https://nzbget.net/>
 
 ## Requirements
@@ -22,7 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 3.5.5 |
+| https://truecharts.org/ | common | 6.3.4 |
 
 ## Installing the Chart
 

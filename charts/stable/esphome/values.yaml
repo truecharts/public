@@ -3,7 +3,7 @@
 image:
   repository: esphome/esphome
   pullPolicy: IfNotPresent
-  tag: 1.18.0
+  tag: 1.19.2
 
 strategy:
   type: Recreate
@@ -27,8 +27,4 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir

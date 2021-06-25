@@ -3,10 +3,10 @@ appVersion: auto
 dependencies:
 - name: common
   repository: https://truecharts.org/
-  version: 5.0.2
+  version: 6.3.7
 deprecated: true
 description: Usenet meta search
-home: https://github.com/truecharts/apps/tree/master/incubator/nzbhydra
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/nzbhydra
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png
 keywords:
 - nzbhydra
@@ -15,10 +15,6 @@ kubeVersion: '>=1.16.0-0'
 maintainers: []
 name: nzbhydra
 sources:
-- https://github.com/truecharts/apps/tree/master/incubator/nzbhydra
-- https://github.com/k8s-at-home/charts/tree/master/charts/nzbhydra
-- https://hub.docker.com/r/linuxserver/nzbhydra2
 - https://github.com/theotherp/nzbhydra2
 type: application
-upstream_version: 5.3.1
-version: 5.0.2
+version: 6.1.5

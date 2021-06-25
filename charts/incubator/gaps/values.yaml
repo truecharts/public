@@ -21,8 +21,4 @@ persistence:
   data:
     enabled: true
     mountPath: "/usr/data"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir

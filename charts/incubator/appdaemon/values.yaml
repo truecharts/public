@@ -1,5 +1,5 @@
 image:
-  repository: ghcr.io/truecharts/appdaemon
+  repository: ghcr.io/k8s-at-home/appdaemon
   pullPolicy: IfNotPresent
   tag: "v4.0.8"
 
@@ -38,5 +38,4 @@ hostPathMounts:
   - name: config
     enabled: true
     mountPath: /conf
-    emptyDir:
-      enabled: true
+    type: emptyDir

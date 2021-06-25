@@ -3,7 +3,7 @@
 image:
   repository: ixsystems/truecommand
   pullPolicy: IfNotPresent
-  tag: nightly
+  tag: "2.0"
 
 strategy:
   type: Recreate
@@ -23,8 +23,4 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    emptyDir:
-      enabled: true
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    storageClass: ""
+    type: emptyDir

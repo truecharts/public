@@ -24,11 +24,11 @@ Branch: `main`
 
 ##### Difference between Stable and Incubator
 
-TrueCharts has 2 trains: `Staging` and `Incubator`. Both trains contain Apps that should work fine. However they have a slightly different meaning:
+TrueCharts has 2 trains: `stable` and `incubator`. Both trains contain Apps that should work fine. However they have a slightly different meaning:
 
-`Staging` Contains Apps that have an active maintainer that uses and maintains these Apps. This person guarantees that the Apps should function without issues. They also are reviewed more strictly before being accepted into `Stable`, for both security and stability.
+`stable` contains Apps that have an active maintainer that uses and maintains these Apps. This person guarantees that the Apps should function without issues. They also are reviewed more strictly before being accepted into `stable`, for both security and stability.
 
-`Incubator` Contains Apps that either do not have an active maintainer or are not fully reviewed to comply to all our technical guidelines. They should, however, still function without issues.
+`incubator` contains Apps that either do not have an active maintainer or are not fully reviewed to comply to all our technical guidelines. They should, however, still function without issues.
 
 ##### Adding TrueCharts on TrueNAS SCALE 21.02ALPHA
 

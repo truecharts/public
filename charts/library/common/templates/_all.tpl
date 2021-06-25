@@ -12,15 +12,17 @@ Main entrypoint for the common library chart. It will render all underlying temp
     {{- include "common.serviceAccount" . }}
   {{- end -}}
 
-  {{- if eq .Values.controller.type "deployment" }}
-    {{- include "common.deployment" . | nindent 0 }}
-  {{ else if eq .Values.controller.type "daemonset" }}
-    {{- include "common.daemonset" . | nindent 0 }}
-  {{ else if eq .Values.controller.type "statefulset"  }}
-    {{- include "common.statefulset" . | nindent 0 }}
-  {{ else }}
-    {{- fail (printf "Not a valid controller.type (%s)" .Values.controller.type) }}
-  {{- end -}}
+  {{- if .Values.controller.enabled }}
+    {{- if eq .Values.controller.type "deployment" }}
+      {{- include "common.deployment" . | nindent 0 }}
+    {{ else if eq .Values.controller.type "daemonset" }}
+      {{- include "common.daemonset" . | nindent 0 }}
+    {{ else if eq .Values.controller.type "statefulset"  }}
+      {{- include "common.statefulset" . | nindent 0 }}
+    {{ else }}
+      {{- fail (printf "Not a valid controller.type (%s)" .Values.controller.type) }}
+    {{- end -}}
+ {{- end -}}
 
   {{ include "common.classes.hpa" . | nindent 0 }}
 
@@ -34,4 +36,6 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{ include "common.class.portal" .  | nindent 0 }}
 
   {{ include "common.class.mountPermissions" .  | nindent 0 }}
+  {{ include "common.classes.externalInterfaces" .  | nindent 0 }}
+
 {{- end -}}
