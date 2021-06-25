@@ -355,7 +355,7 @@ questions:
                   type: string
                   default: "100Gi"
   - variable: persistenceList
-    label: "Custom app storage"
+    label: "Additional app storage"
     group: "Storage and Persistence"
     schema:
       type: list
@@ -437,6 +437,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: medium
                 label: "EmptyDir Medium"

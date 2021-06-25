@@ -448,6 +448,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: medium
                 label: "EmptyDir Medium"
