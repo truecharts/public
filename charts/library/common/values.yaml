@@ -153,6 +153,9 @@ probes:
     enabled: true
     # -- Set this to `true` if you wish to specify your own livenessProbe
     custom: false
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: TCP
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: "/"
@@ -172,6 +175,9 @@ probes:
     enabled: true
     # -- Set this to `true` if you wish to specify your own readinessProbe
     custom: false
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: TCP
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: "/"
@@ -191,6 +197,9 @@ probes:
     enabled: true
     # -- Set this to `true` if you wish to specify your own startupProbe
     custom: false
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: TCP
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: "/"
