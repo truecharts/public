@@ -225,7 +225,7 @@ questions:
             type: string
             default: ""
         - variable: TRANSMISSION_PEER_ID_TTL_HOURS
-          label:  TRANSMISSION_PEER_ID_TTL_HOURS
+          label: TRANSMISSION_PEER_ID_TTL_HOURS
           schema:
             type: int
             default: 6
@@ -924,7 +924,8 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  required: true
+                  default: ""
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:

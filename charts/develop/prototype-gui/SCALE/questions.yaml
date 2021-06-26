@@ -133,7 +133,6 @@ questions:
       type: boolean
       default: false
 
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -356,7 +355,7 @@ questions:
                   type: string
                   default: "100Gi"
   - variable: persistenceList
-    label: "Custom app storage"
+    label: "Additional app storage"
     group: "Storage and Persistence"
     schema:
       type: list
@@ -438,7 +437,8 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  required: true
+                  default: ""
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -559,7 +559,6 @@ questions:
                                     $ref:
                                       - "definitions/certificate"
 
-
   - variable: securityContext
     group: "Security and Permissions"
     label: "Security Context"
@@ -611,7 +610,6 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
-
 
   - variable: resources
     group: "Resources and Devices"
