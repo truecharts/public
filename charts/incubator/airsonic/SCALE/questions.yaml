@@ -450,7 +450,8 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  required: true
+                  default: ""
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -495,28 +496,6 @@ questions:
             type: boolean
             default: false
 
-  - variable: podSecurityContext
-    group: "Security and Permissions"
-    label: "Pod Security Context"
-    schema:
-      type: dict
-      attrs:
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
   - variable: resources
     group: "Resources and Devices"
     label: ""
