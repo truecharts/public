@@ -7,7 +7,7 @@ Probes selection logic.
 {{- if $primaryService -}}
   {{- $primaryPort = get $primaryService.ports (include "common.classes.service.ports.primary" (dict "serviceName" (include "common.service.primary" .) "values" $primaryService)) -}}
 {{- end -}}
-{{- $probeType := $probe.type | default "TCP" -}}
+{{- $probeType := "TCP" -}}
 
 {{- range $probeName, $probe := .Values.probes }}
   {{- if $probe.enabled -}}
@@ -20,6 +20,8 @@ Probes selection logic.
           {{- if $probe.type -}}
             {{- if eq $probe.type "AUTO" -}}
               {{- $probeType = $primaryPort.protocol -}}
+            {{- else -}}
+              {{- $probeType := $probe.type -}}
             {{- end }}
           {{- end }}
 
