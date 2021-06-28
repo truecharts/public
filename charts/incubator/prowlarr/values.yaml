@@ -13,6 +13,11 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
+
 # -- environment variables.
 # @default -- See below
 env:
