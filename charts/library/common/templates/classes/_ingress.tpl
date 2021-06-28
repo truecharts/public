@@ -20,6 +20,16 @@ within the common library.
   {{- $primaryPort := get $primaryService.ports (include "common.classes.service.ports.primary" (dict "values" $primaryService)) -}}
   {{- $name := include "common.names.name" . -}}
   {{- $isStable := include "common.capabilities.ingress.isStable" . }}
+
+  {{- $middlewares := "" }}
+  {{ range $index, $middleware := $values.middlewares }}
+      {{- if $index }}
+      {{ $middlewares = ( printf "%v, %v-%v@%v" $middlewares "traefik-middlewares" $middleware "kubernetescrd" ) }}
+      {{- else }}
+      {{ $middlewares = ( printf "%v-%v@%v" "traefik-middlewares" $middleware "kubernetescrd" ) }}
+      {{- end }}
+  {{end}}
+
 ---
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
 kind: Ingress
@@ -27,8 +37,9 @@ metadata:
   name: {{ $ingressName }}
   labels:
     {{- include "common.labels" . | nindent 4 }}
-  {{- with $values.annotations }}
   annotations:
+    "traefik.ingress.kubernetes.io/router.middlewares": {{ $middlewares | quote }}
+  {{- with $values.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
