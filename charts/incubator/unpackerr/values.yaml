@@ -11,6 +11,12 @@ strategy:
 service:
   main:
     enabled: false
+    ports:
+      main:
+        enabled: false
+
+portal:
+  enabled: false
 
 env: {}
   # TZ: UTC
