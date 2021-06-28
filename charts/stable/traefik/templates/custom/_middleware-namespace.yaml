@@ -3,3 +3,5 @@ kind: Namespace
 metadata:
   name: traefik-middlewares
   namespace: traefik-middlewares
+  annotations:
+    "helm.sh/hook": pre-install
