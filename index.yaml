@@ -290,6 +290,38 @@ entries:
   appdaemon:
   - apiVersion: v2
     appVersion: v4.0.8
+    created: "2021-06-29T20:18:50.035201624Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.8
+    description: AppDaemon is a loosely coupled, multithreaded, sandboxed python execution
+      environment for writing automation apps for Home Assistant home automation software.
+      It also provides a configurable dashboard (HADashboard) suitable for wall mounted
+      tablets.
+    digest: b3156fc5a5dca2b1c3d016c9e744f6f590dadd0927123623e642db14e3caf426
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/appdaemon
+    icon: https://github.com/hassio-addons/addon-appdaemon/blob/main/appdaemon/icon.png?raw=true
+    keywords:
+    - appdaemon
+    - homeautomation
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 20650065+warllo54@users.noreply.github.com
+      name: warllo54
+      url: truecharts.org
+    name: appdaemon
+    sources:
+    - https://github.com/AppDaemon/appdaemon
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/appdaemon-3.1.9/appdaemon-3.1.9.tgz
+    version: 3.1.9
+  - apiVersion: v2
+    appVersion: v4.0.8
     created: "2021-06-29T13:13:06.391728861Z"
     dependencies:
     - name: common
@@ -9035,6 +9067,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/esphome-3.1.5/esphome-3.1.5.tgz
     version: 3.1.5
   fireflyiii:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-29T20:18:50.132256104Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.8
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.5.0
+    description: A free and open source personal finance manager
+    digest: 7d16fe9d1944c7d5779be826ba2067a04fd9717eb2093090b755e635fbe1f23f
+    home: https://github.com/firefly-iii/firefly-iii/
+    icon: https://www.firefly-iii.org/assets/logo/color.png
+    keywords:
+    - fireflyiii
+    - finacial
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 20650065+warllo54@users.noreply.github.com
+      name: warllo54
+      url: truecharts.org
+    name: fireflyiii
+    sources:
+    - https://github.com/firefly-iii/firefly-iii/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/fireflyiii-4.2.6/fireflyiii-4.2.6.tgz
+    version: 4.2.6
   - apiVersion: v2
     appVersion: auto
     created: "2021-06-29T13:13:06.509038617Z"
@@ -41695,4 +41760,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-29T18:50:25.522755515Z"
+generated: "2021-06-29T20:18:50.141113412Z"
