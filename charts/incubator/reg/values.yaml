@@ -13,6 +13,11 @@ image:
   # -- image tag
   tag: v0.16.1
 
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
+
 # -- environment variables. See more environment variables in the [reg documentation](https://github.com/genuinetools/reg).
 env:
   # -- Set the container timezone

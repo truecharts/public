@@ -16,6 +16,11 @@ image:
 strategy:
   type: Recreate
 
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
+
 # -- environment variables. See [image docs](https://github.com/seejohnrun/haste-server) for more details.
 # @default -- See below
 env:
