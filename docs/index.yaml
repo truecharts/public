@@ -20877,6 +20877,35 @@ entries:
   navidrome:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-29T08:09:03.690693638Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.8
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: f43c61a691e1c10967f9cc63d7d005d8a5752f28abe24be88d915e99a80f97b6
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/v0.42.0/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/navidrome-6.1.8/navidrome-6.1.8.tgz
+    version: 6.1.8
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-26T08:13:49.745717764Z"
     dependencies:
     - name: common
@@ -39121,6 +39150,43 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-29T08:09:03.832851623Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.8
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.5.0
+    description: Unofficial Bitwarden compatible server written in Rust
+    digest: 64afd5b9d0692d8f36b6e3ba12c0f7dc3169ea9246b0e56c1f20b7ce7cab93e1
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/vaultwarden
+    icon: https://raw.githubusercontent.com/bitwarden/brand/master/icons/256x256.png
+    keywords:
+    - bitwarden
+    - bitwardenrs
+    - bitwarden_rs
+    - vaultwarden
+    - password
+    - rust
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/vaultwarden-3.2.5/vaultwarden-3.2.5.tgz
+    version: 3.2.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-26T08:13:52.094269404Z"
     dependencies:
     - name: common
@@ -40256,6 +40322,39 @@ entries:
   zwavejs2mqtt:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-29T08:09:03.965619177Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.8
+    description: Fully configurable Zwave to MQTT gateway and Control Panel using
+      NodeJS and Vue
+    digest: 582c154f2934dcf587c9ddc097a93a1ff643641b11073859c077a466a15dfa35
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zwavejs2mqtt
+    icon: https://raw.githubusercontent.com/zwave-js/zwavejs2mqtt/master/static/logo.png
+    keywords:
+    - zwavejs2mqtt
+    - zwave-js
+    - z-wave
+    - zwave
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: zwavejs2mqtt
+    sources:
+    - https://github.com/zwave-js/zwavejs2mqtt
+    - https://hub.docker.com/r/zwavejs/zwavejs2mqtt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-6.1.10/zwavejs2mqtt-6.1.10.tgz
+    version: 6.1.10
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-26T08:13:52.182191127Z"
     dependencies:
     - name: common
@@ -41375,4 +41474,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-29T07:27:31.279773214Z"
+generated: "2021-06-29T08:09:03.974575102Z"
