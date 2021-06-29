@@ -123,15 +123,17 @@ questions:
           label: "Latitude"
           description: "Latitude of your home assistant instance"
           schema:
-            type: int
-            default: 0
+            type: string
+            default: ""
+            valid_chars: "0-9."
             required: true
         - variable: LONGITUDE
           label: "Longitude"
           description: "Longitude of your home assistant instance"
           schema:
-            type: int
-            default: 0
+            type: string
+            default: ""
+            valid_chars: "0-9."
             required: true
         - variable: ELEVATION
           label: "Elevation"
