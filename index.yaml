@@ -15173,6 +15173,36 @@ entries:
   jackett:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-29T18:39:08.465786406Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.8
+    description: API Support for your favorite torrent trackers.
+    digest: 90229e88914e41b81eed814b70292470bb73b05d3d6484a543d17350c865b21f
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/jackett
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - jackett
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jackett-6.1.13/jackett-6.1.13.tgz
+    version: 6.1.13
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-27T06:27:20.161235745Z"
     dependencies:
     - name: common
@@ -27348,6 +27378,30 @@ entries:
     - https://github.com/truecharts/apps/releases/download/podgrab-1.0.3/podgrab-1.0.3.tgz
     version: 1.0.3
   prototype-gui:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-06-29T18:39:08.554606549Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.8
+    description: App to test GUI prototypes
+    digest: 3a9c070ec54d5d407aa2b577a0f64e81e6be5f0142d78e0df5ce9d7f5d1fd55a
+    home: https://github.com/truecharts/apps/tree/master/charts/develop/prototype-gui
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - dev
+    - prototype
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prototype-gui
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prototype-gui-1.2.13/prototype-gui-1.2.13.tgz
+    version: 1.2.13
   - apiVersion: v2
     appVersion: auto
     created: "2021-06-27T06:27:20.67475725Z"
@@ -41604,4 +41658,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-29T15:11:08.8413303Z"
+generated: "2021-06-29T18:39:08.563863585Z"
