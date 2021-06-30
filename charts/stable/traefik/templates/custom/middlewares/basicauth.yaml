@@ -11,7 +11,7 @@ metadata:
   name: {{printf "%v-%v" $middlewareData.name "secret" }}
   namespace: traefikmiddlewares
 type: Opaque
-stringdata:
+stringData:
   users: |
     {{- range $index, $user := $users }}
     {{ printf "%s" $user }}
