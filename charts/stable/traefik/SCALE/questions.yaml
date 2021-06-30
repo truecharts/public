@@ -7,6 +7,8 @@ groups:
     description: "additional container configuration"
   - name: "App Configuration"
     description: "App specific config options"
+  - name: "Middlewares"
+    description: "Traefik Middlewares"
   - name: "Networking and Services"
     description: "Configure Network and Services for container"
   - name: "Storage and Persistence"
@@ -43,6 +45,108 @@ questions:
             editable: false
             type: boolean
             default: true
+
+  - variable: middlewares
+    group: "Middlewares"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: basicAuth
+          label: "basicAuth"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: basicAuthEntry
+                schema:
+                  type: dict
+                  hidden: true
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: users
+                      label: "Users"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: usersEntry
+                            schema:
+                              type: dict
+                              hidden: true
+                              attrs:
+                                - variable: username
+                                  label: "Username"
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: password
+                                  label: "Password"
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+
+
+        - variable: forwardAuth
+          label: "forwardAuth"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: basicAuthEntry
+                schema:
+                  type: dict
+                  hidden: true
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: address
+                      label: "Address"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: trustForwardHeader
+                      label: "trustForwardHeader"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: authResponseHeadersRegex
+                      label: "authResponseHeadersRegex"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: authResponseHeaders
+                      label: "authResponseHeaders"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: authResponseHeadersEntry
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: authRequestHeaders
+                      label: "authRequestHeaders"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: authRequestHeadersEntry
+                            schema:
+                              type: string
+                              default: ""
 
   - variable: hostNetwork
     group: "Networking and Services"
