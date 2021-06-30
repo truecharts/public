@@ -1,0 +1,28 @@
+{{ range $index, $middlewareData := .Values.middlewares.basicauth }}
+---
+{{- $users := list }}
+{{ range $index, $userdata := $middlewareData.users }}
+    {{ $users = append $users ( htpasswd $userdata.username $userdata.password | b64enc ) }}
+{{ end }}
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ printf "%s-%s-%s" "basicauth" "secret" ( $index | toString ) }}
+  namespace: traefikmiddlewares
+data:
+  users: |{{ len $users }}
+    {{- range $index, $user := $users }}
+    {{ printf "%s" $user }}
+    {{- end }}
+---
+# Declaring the user list
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ printf "%s-%s" "basicauth" ( $index | toString ) }}
+  namespace: traefikmiddlewares
+spec:
+  basicAuth:
+    secret: {{ printf "%s-%s-%s" "basicauth" "secret" ( $index | toString ) }}
+{{ end }}
