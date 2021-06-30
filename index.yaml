@@ -28750,6 +28750,32 @@ entries:
   organizr:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-06-30T16:51:31.692821844Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.4.3
+    description: HTPC/Homelab Services Organizer
+    digest: 995257b1c00939b2aa96fbc803281b044b330490721031b7c417747faf5c0a28
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/organizr
+    icon: https://github.com/causefx/Organizr/blob/v2-master/plugins/images/organizr/logo.png?raw=true
+    keywords:
+    - organizr
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: organizr
+    sources:
+    - https://github.com/causefx/Organizr
+    - https://hub.docker.com/r/organizr/organizr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/organizr-6.2.4/organizr-6.2.4.tgz
+    version: 6.2.4
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-06-30T15:53:25.319437074Z"
     dependencies:
     - name: common
@@ -48137,4 +48163,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-30T16:19:57.18275323Z"
+generated: "2021-06-30T16:51:31.702631011Z"
