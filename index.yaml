@@ -10285,6 +10285,39 @@ entries:
   fireflyiii:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-30T16:19:57.011523963Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.4.3
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.5.1
+    description: A free and open source personal finance manager
+    digest: 611938e80df067a467751c98800f6dbfca812de56d1c5708592e622486fbfb37
+    home: https://github.com/firefly-iii/firefly-iii/
+    icon: https://www.firefly-iii.org/assets/logo/color.png
+    keywords:
+    - fireflyiii
+    - finacial
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 20650065+warllo54@users.noreply.github.com
+      name: warllo54
+      url: truecharts.org
+    name: fireflyiii
+    sources:
+    - https://github.com/firefly-iii/firefly-iii/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/fireflyiii-4.3.4/fireflyiii-4.3.4.tgz
+    version: 4.3.4
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-30T15:53:21.735101053Z"
     dependencies:
     - name: common
@@ -45393,6 +45426,43 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-06-30T16:19:57.172727132Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.4.3
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.5.1
+    description: Unofficial Bitwarden compatible server written in Rust
+    digest: 098fe31f2c7f11c70188901a24a4fb9e09a4dcdca84046fec5f4b280b6acae31
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/vaultwarden
+    icon: https://raw.githubusercontent.com/bitwarden/brand/master/icons/256x256.png
+    keywords:
+    - bitwarden
+    - bitwardenrs
+    - bitwarden_rs
+    - vaultwarden
+    - password
+    - rust
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/vaultwarden-3.3.4/vaultwarden-3.3.4.tgz
+    version: 3.3.4
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-06-30T15:53:28.640991425Z"
     dependencies:
     - name: common
@@ -48067,4 +48137,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-30T16:12:38.402604954Z"
+generated: "2021-06-30T16:19:57.18275323Z"
