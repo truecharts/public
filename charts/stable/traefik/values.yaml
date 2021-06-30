@@ -409,4 +409,18 @@ podSecurityContext:
 
 middlewares:
   basicAuth: []
+  # - name: basicauthexample
+  #   users:
+  #     - username: testuser
+  #       password: testpassword
   forwardAuth: []
+  # - name: forwardAuthexample
+  #   address: https://auth.example.com/
+  #   authResponseHeaders:
+  #     - X-Secret
+  #     - X-Auth-User
+  #   authRequestHeaders:
+  #     - "Accept"
+  #     - "X-CustomHeader"
+  #   authResponseHeadersRegex: "^X-"
+  #   trustForwardHeader: true

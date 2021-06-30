@@ -3,7 +3,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: {{ printf "%s-%s" "forwardauth" ( $index | toString ) }}
+  name: {{ $middlewareData.name }}
   namespace: traefikmiddlewares
 spec:
   forwardAuth:
