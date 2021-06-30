@@ -5,7 +5,7 @@
 {{- $port := 443 }}
 {{- $protocol := "https" }}
 {{- $portProtocol := "" }}
-{{- $path := "/" }}
+{{- $path := "/dashboard/" }}
 
 {{- if $ingr }}
   {{- if $ingr.enabled }}
@@ -26,6 +26,7 @@
 
 {{- if eq $host "$node_ip" }}
   {{- $port = .Values.ports.traefik.exposedPort }}
+  {{- $protocol = "http" }}
 {{- end }}
 
 ---
