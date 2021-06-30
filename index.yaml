@@ -4147,6 +4147,30 @@ entries:
   common:
   - apiVersion: v2
     appVersion: none
+    created: "2021-06-30T10:59:08.000327593Z"
+    description: Function library for TrueCharts
+    digest: a02fe320dc6d64d9dd9a76d374e1db80c29984116b05c00dc3a13721ba848c64
+    home: https://github.com/truecharts/apps/tree/master/charts/common
+    icon: https://avatars.githubusercontent.com/u/76400755
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-6.4.0/common-6.4.0.tgz
+    version: 6.4.0
+  - apiVersion: v2
+    appVersion: none
     created: "2021-06-26T07:42:03.562378744Z"
     description: Function library for TrueCharts
     digest: 5bb1b0e7e2db734e9e22f0111ad8bb52556d42f7692eedb1c9e65baf6e6dd71f
@@ -35144,6 +35168,37 @@ entries:
   traefik:
   - apiVersion: v2
     appVersion: "2.4"
+    created: "2021-06-30T10:59:08.170816076Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.3.8
+    description: A Traefik based Reverse Proxy and Certificate Manager
+    digest: ed8eac15e1fbdd9290436dfdc332e496dbaf753ef41df2e368991a5d8754df9c
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/traefik
+    icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    - https://traefik.io/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/traefik-6.2.0/traefik-6.2.0.tgz
+    version: 6.2.0
+  - apiVersion: v2
+    appVersion: "2.4"
     created: "2021-06-28T17:42:29.374608416Z"
     dependencies:
     - name: common
@@ -41760,4 +41815,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-29T20:18:50.141113412Z"
+generated: "2021-06-30T10:59:08.18120182Z"
