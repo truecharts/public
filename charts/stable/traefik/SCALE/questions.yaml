@@ -47,6 +47,7 @@ questions:
             default: true
 
   - variable: middlewares
+    label: ""
     group: "Middlewares"
     schema:
       type: dict
@@ -59,6 +60,7 @@ questions:
             default: []
             items:
               - variable: basicAuthEntry
+                label: ""
                 schema:
                   type: dict
                   hidden: true
@@ -76,6 +78,7 @@ questions:
                         default: []
                         items:
                           - variable: usersEntry
+                            label: ""
                             schema:
                               type: dict
                               hidden: true
@@ -101,6 +104,7 @@ questions:
             default: []
             items:
               - variable: basicAuthEntry
+                label: ""
                 schema:
                   type: dict
                   hidden: true
