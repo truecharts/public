@@ -20,6 +20,29 @@ within the common library.
   {{- $primaryPort := get $primaryService.ports (include "common.classes.service.ports.primary" (dict "values" $primaryService)) -}}
   {{- $name := include "common.names.name" . -}}
   {{- $isStable := include "common.capabilities.ingress.isStable" . }}
+
+  {{- $fixedMiddlewares := "" }}
+  {{ range $index, $fixedMiddleware := $values.fixedMiddlewares }}
+      {{- if $index }}
+      {{ $fixedMiddlewares = ( printf "%v, %v-%v@%v" $fixedMiddlewares "traefikmiddlewares" $fixedMiddleware "kubernetescrd" ) }}
+      {{- else }}
+      {{ $fixedMiddlewares = ( printf "%v-%v@%v" "traefikmiddlewares" $fixedMiddleware "kubernetescrd" ) }}
+      {{- end }}
+  {{ end }}
+
+  {{- $middlewares := "" }}
+  {{ range $index, $middleware := $values.middlewares }}
+      {{- if $index }}
+      {{ $middlewares = ( printf "%v, %v-%v@%v" $middlewares "traefikmiddlewares" $middleware "kubernetescrd" ) }}
+      {{- else }}
+      {{ $middlewares = ( printf "%v-%v@%v" "traefikmiddlewares" $middleware "kubernetescrd" ) }}
+      {{- end }}
+  {{ end }}
+
+  {{- if $fixedMiddlewares }}
+    {{ $middlewares = ( printf "%v, %v" $fixedMiddlewares $middlewares ) }}
+  {{ end }}
+
 ---
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
 kind: Ingress
@@ -27,8 +50,9 @@ metadata:
   name: {{ $ingressName }}
   labels:
     {{- include "common.labels" . | nindent 4 }}
-  {{- with $values.annotations }}
   annotations:
+    "traefik.ingress.kubernetes.io/router.middlewares": {{ $middlewares | quote }}
+  {{- with $values.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
