@@ -2,7 +2,7 @@
 ---
 {{- $users := list }}
 {{ range $index, $userdata := $middlewareData.users }}
-    {{ $users = append $users ( htpasswd $userdata.username $userdata.password | b64enc ) }}
+    {{ $users = append $users ( htpasswd $userdata.username $userdata.password ) }}
 {{ end }}
 
 apiVersion: v1
@@ -10,8 +10,9 @@ kind: Secret
 metadata:
   name: {{printf "%v-%v" $middlewareData.name "secret" }}
   namespace: traefikmiddlewares
-data:
-  users: |{{ len $users }}
+type: Opaque
+stringdata:
+  users: |
     {{- range $index, $user := $users }}
     {{ printf "%s" $user }}
     {{- end }}
