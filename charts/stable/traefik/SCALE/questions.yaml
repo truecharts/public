@@ -283,6 +283,18 @@ questions:
                   required: true
                   default: "TCP"
                   hidden: true
+              - variable: tls
+                label: "tls"
+                schema:
+                  type: dict
+                  hidden: true
+                  attrs:
+                    - variable: enabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
 
   - variable: securityContext
     group: "Security and Permissions"
