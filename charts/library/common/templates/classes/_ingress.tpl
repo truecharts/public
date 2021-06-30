@@ -3,7 +3,8 @@ This template serves as a blueprint for all Ingress objects that are created
 within the common library.
 */}}
 {{- define "common.classes.ingress" -}}
-  {{- $ingressName := include "common.names.fullname" . -}}
+  {{- $fullName := include "common.names.fullname" . -}}
+  {{- $ingressName := $fullName -}}
   {{- $values := .Values.ingress -}}
 
   {{- if hasKey . "ObjectValues" -}}
@@ -16,9 +17,13 @@ within the common library.
     {{- $ingressName = printf "%v-%v" $ingressName $values.nameOverride -}}
   {{- end -}}
 
-  {{- $primaryService := get .Values.service (include "common.service.primary" .) }}
-  {{- $primaryPort := get $primaryService.ports (include "common.classes.service.ports.primary" (dict "values" $primaryService)) -}}
-  {{- $name := include "common.names.name" . -}}
+  {{- $primaryService := get .Values.service (include "common.service.primary" .) -}}
+  {{- $defaultServiceName := $fullName -}}
+  {{- if and (hasKey $primaryService "nameOverride") $primaryService.nameOverride -}}
+    {{- $defaultServiceName = printf "%v-%v" $defaultServiceName $primaryService.nameOverride -}}
+  {{- end -}}
+  {{- $defaultServicePort := get $primaryService.ports (include "common.classes.service.ports.primary" (dict "values" $primaryService)) -}}
+
   {{- $isStable := include "common.capabilities.ingress.isStable" . }}
 
   {{- $fixedMiddlewares := "" }}
@@ -79,11 +84,11 @@ spec:
       http:
         paths:
           {{- range .paths }}
-          {{- $service := $name -}}
-          {{- $port := $primaryPort.port -}}
+          {{- $service := $defaultServiceName -}}
+          {{- $port := $defaultServicePort.port -}}
           {{- if .service -}}
-            {{- $service = default $name .service.name -}}
-            {{- $port = default $primaryPort.port .service.port -}}
+            {{- $service = default $service .service.name -}}
+            {{- $port = default $port .service.port -}}
           {{- end }}
           - path: {{ tpl .path $ | quote }}
             {{- if $isStable }}
