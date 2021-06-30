@@ -44,8 +44,10 @@ within the common library.
       {{- end }}
   {{ end }}
 
-  {{- if $fixedMiddlewares }}
+  {{- if and ( $fixedMiddlewares ) ( $middlewares ) }}
     {{ $middlewares = ( printf "%v, %v" $fixedMiddlewares $middlewares ) }}
+  {{- else if $fixedMiddlewares }}
+      {{ $middlewares = ( printf "%s" $fixedMiddlewares ) }}
   {{ end }}
 
 ---
