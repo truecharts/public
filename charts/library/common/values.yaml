@@ -281,6 +281,16 @@ ingress:
     # -- Override the name suffix that is used for this ingress.
     nameOverride:
 
+    # -- List of middlewares in the traefikmiddlewares k8s namespace to add automatically
+    # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
+    # Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user
+    fixedMiddlewares:
+      - chain-basic
+
+    # -- Additional List of middlewares in the traefikmiddlewares k8s namespace to add automatically
+    # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
+    middlewares: []
+
     # -- Provide additional annotations which may be required.
     annotations: {}
       # kubernetes.io/ingress.class: nginx

@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: compress
-  namespace: traefik-middlewares
+  namespace: traefikmiddlewares
 spec:
   compress: {}
 ---
@@ -12,7 +12,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: basic-ratelimit
-  namespace: traefik-middlewares
+  namespace: traefikmiddlewares
 spec:
   rateLimit:
     average: 300
@@ -22,7 +22,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: basic-secure-headers
-  namespace: traefik-middlewares
+  namespace: traefikmiddlewares
 spec:
   headers:
     accessControlAllowMethods:
@@ -48,7 +48,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: chain-basic
-  namespace: traefik-middlewares
+  namespace: traefikmiddlewares
 spec:
   chain:
     middlewares:

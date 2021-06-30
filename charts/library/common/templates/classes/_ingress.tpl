@@ -21,14 +21,27 @@ within the common library.
   {{- $name := include "common.names.name" . -}}
   {{- $isStable := include "common.capabilities.ingress.isStable" . }}
 
+  {{- $fixedMiddlewares := "" }}
+  {{ range $index, $fixedMiddleware := $values.fixedMiddlewares }}
+      {{- if $index }}
+      {{ $fixedMiddlewares = ( printf "%v, %v-%v@%v" $fixedMiddlewares "traefikmiddlewares" $fixedMiddleware "kubernetescrd" ) }}
+      {{- else }}
+      {{ $fixedMiddlewares = ( printf "%v-%v@%v" "traefikmiddlewares" $fixedMiddleware "kubernetescrd" ) }}
+      {{- end }}
+  {{ end }}
+
   {{- $middlewares := "" }}
   {{ range $index, $middleware := $values.middlewares }}
       {{- if $index }}
-      {{ $middlewares = ( printf "%v, %v-%v@%v" $middlewares "traefik-middlewares" $middleware "kubernetescrd" ) }}
+      {{ $middlewares = ( printf "%v, %v-%v@%v" $middlewares "traefikmiddlewares" $middleware "kubernetescrd" ) }}
       {{- else }}
-      {{ $middlewares = ( printf "%v-%v@%v" "traefik-middlewares" $middleware "kubernetescrd" ) }}
+      {{ $middlewares = ( printf "%v-%v@%v" "traefikmiddlewares" $middleware "kubernetescrd" ) }}
       {{- end }}
-  {{end}}
+  {{ end }}
+
+  {{- if $fixedMiddlewares }}
+    {{ $middlewares = ( printf "%v, %v" $fixedMiddlewares $middlewares ) }}
+  {{ end }}
 
 ---
 apiVersion: {{ include "common.capabilities.ingress.apiVersion" . }}
