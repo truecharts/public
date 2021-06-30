@@ -40367,6 +40367,37 @@ entries:
   traefik:
   - apiVersion: v2
     appVersion: "2.4"
+    created: "2021-06-30T18:33:04.905894789Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.4.3
+    description: A Traefik based Reverse Proxy and Certificate Manager
+    digest: d5698e8cf24135013a9e08401fbd4d63bc394674509e30d0d6f398bb4d779cb2
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/traefik
+    icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    - https://traefik.io/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/traefik-6.3.6/traefik-6.3.6.tgz
+    version: 6.3.6
+  - apiVersion: v2
+    appVersion: "2.4"
     created: "2021-06-30T15:53:27.704852477Z"
     dependencies:
     - name: common
@@ -48163,4 +48194,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-06-30T16:51:31.702631011Z"
+generated: "2021-06-30T18:33:04.916534325Z"
