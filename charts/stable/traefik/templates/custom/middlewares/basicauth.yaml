@@ -1,4 +1,4 @@
-{{ range $index, $middlewareData := .Values.middlewares.basicauth }}
+{{ range $index, $middlewareData := .Values.middlewares.basicAuth }}
 ---
 {{- $users := list }}
 {{ range $index, $userdata := $middlewareData.users }}
