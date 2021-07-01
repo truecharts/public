@@ -31,8 +31,6 @@ service:
   main:
     ports:
       main:
-        enabled: false
-      server:
         enabled: true
         protocol: TCP
         port: 10000

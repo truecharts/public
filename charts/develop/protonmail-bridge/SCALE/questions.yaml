@@ -139,8 +139,21 @@ questions:
       type: dict
       attrs:
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: "main Service"
+          description: "The main service"
+          schema:
+            type: dict
+            hidden: true
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
+        - variable: smtp
+          label: "smtp Service"
+          description: "The smtp service"
           schema:
             type: dict
             attrs:
@@ -155,7 +168,7 @@ questions:
                 description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
                 schema:
                   type: string
-                  default: "NodePort"
+                  default: "LoadBalancer"
                   enum:
                     - value: "NodePort"
                       description: "NodePort"
@@ -187,8 +200,8 @@ questions:
                 schema:
                   type: dict
                   attrs:
-                    - variable: main
-                      label: "Main Service Port Configuration"
+                    - variable: smtp
+                      label: "smtp Service Port Configuration"
                       schema:
                         type: dict
                         attrs:
@@ -202,7 +215,7 @@ questions:
                             label: "Port Type"
                             schema:
                               type: string
-                              default: "HTTP"
+                              default: "TCP"
                               enum:
                                 - value: HTTP
                                   description: "HTTP"

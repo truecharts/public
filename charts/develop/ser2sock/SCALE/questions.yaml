@@ -103,6 +103,26 @@ questions:
           schema:
             type: string
             default: "002"
+        - variable: BAUD_RATE
+          label: "BAUD_RATE"
+          description: "Serial device baud rate"
+          schema:
+            type: string
+            default: "115200"
+        - variable: SERIAL_DEVICE
+          label: "SERIAL_DEVICE"
+          description: "Path to the serial device"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: LISTENER_PORT
+          label: "LISTENER_PORT"
+          description: "Port where ser2sock listens"
+          schema:
+            type: string
+            hidden: true
+            default: "{{ .Values.service.main.ports.main.port }}"
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
@@ -588,7 +608,7 @@ questions:
           label: "Enable privileged mode for Common-Chart based charts"
           schema:
             type: boolean
-            default: false
+            default: true
 
   - variable: podSecurityContext
     group: "Security and Permissions"
@@ -629,6 +649,47 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+
+  - variable: deviceList
+    label: "Mount USB devices"
+    group: "Resources and Devices"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: deviceListEntry
+          label: "Device"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: type
+                label: "(Advanced) Type of Storage"
+                description: "Sets the persistence type"
+                schema:
+                  type: string
+                  default: "hostPath"
+                  hidden: true
+              - variable: readOnly
+                label: "readOnly"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: hostPath
+                label: "Host Device Path"
+                description: "Path to the device on the host system"
+                schema:
+                  type: path
+              - variable: mountPath
+                label: "Container Device Path"
+                description: "Path inside the container the device is mounted"
+                schema:
+                  type: string
+                  default: "/dev/ttyACM0"
   - variable: resources
     group: "Resources and Devices"
     label: ""

@@ -103,6 +103,11 @@ questions:
           schema:
             type: string
             default: "002"
+        - variable: STASH_PORT
+          label: "STASH_PORT"
+          schema:
+            type: string
+            default: "9999"
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
@@ -320,7 +325,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/root/.stash"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"

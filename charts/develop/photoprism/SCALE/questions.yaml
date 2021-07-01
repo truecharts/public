@@ -97,9 +97,46 @@ questions:
             default: "Etc/UTC"
             $ref:
               - "definitions/timezone"
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the userID inside the container"
+          schema:
+            type: string
+            default: "568"
+        - variable: PGID
+          label: "PGID"
+          description: "Sets the GroupID inside the container"
+          schema:
+            type: string
+            default: "568"
         - variable: UMASK
           label: "UMASK"
           description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: string
+            default: "002"
+        - variable: PHOTOPRISM_STORAGE_PATH
+          label: "PHOTOPRISM_STORAGE_PATH"
+          description: "Photoprism storage path"
+          schema:
+            type: string
+            default: "002"
+        - variable: PHOTOPRISM_ORIGINALS_PATH
+          label: "PHOTOPRISM_ORIGINALS_PATH"
+          description: "Photoprism originals path"
+          schema:
+            type: string
+            default: "002"
+        - variable: PHOTOPRISM_ADMIN_PASSWORD
+          label: "PHOTOPRISM_ADMIN_PASSWORD"
+          description: " Initial admin password. **BE SURE TO CHANGE THIS!**"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: PHOTOPRISM_PUBLIC
+          label: "PHOTOPRISM_PUBLIC"
+          description: "Disable authentication / password protection"
           schema:
             type: string
             default: "002"
@@ -320,7 +357,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/photoprism/storage"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"

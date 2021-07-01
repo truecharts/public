@@ -606,7 +606,7 @@ questions:
           label: "Enable privileged mode for Common-Chart based charts"
           schema:
             type: boolean
-            default: false
+            default: true
 
   - variable: podSecurityContext
     group: "Security and Permissions"
