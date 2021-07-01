@@ -3,8 +3,8 @@
 {{- $secretName := include "common.names.fullname" . -}}
 
 {{- if .ObjectValues.certHolder -}}
-  {{- if hasKey .ObjectValues.certHolder "nameSuffix" -}}
-    {{- $secretName = ( printf "%v-%v-%v-%v" $secretName .ObjectValues.certHolder.nameSuffix "ixcert" .ObjectValues.certHolder.scaleCert ) -}}
+  {{- if hasKey .ObjectValues.certHolder "nameOverride" -}}
+    {{- $secretName = ( printf "%v-%v-%v-%v" $secretName .ObjectValues.certHolder.nameOverride "ixcert" .ObjectValues.certHolder.scaleCert ) -}}
   {{- else }}
     {{- $secretName = ( printf "%v-%v-%v" $secretName "ixcert" .ObjectValues.certHolder.scaleCert ) -}}
   {{ end -}}
