@@ -18,7 +18,7 @@
           {{- $nameOverride := ( printf "%v-%v-%v" $ingressValues.nameOverride "tls" $name ) -}}
           {{- $_ := set $tlsValues "nameOverride" $nameOverride -}}
           {{- $_ := set $ "ObjectValues" (dict "certHolder" $tlsValues) -}}
-          {{- include "common.cert.secret" $ -}}
+          {{- include "common.cert.secret" $ }}
         {{- end }}
       {{- end }}
     {{- end }}

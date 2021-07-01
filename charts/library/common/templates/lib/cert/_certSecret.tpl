@@ -14,7 +14,9 @@
 {{ end -}}
 
 {{- if eq (include "common.cert.available" $ ) "true" -}}
----
+
+
+{{- printf "\n%s\n" "---" }}
 apiVersion: v1
 kind: Secret
 metadata:
