@@ -10,7 +10,7 @@ for chart in input/*; do
     echo "processing ${chart} using nodeport $nodeport"
     mkdir -p output/${basename}
     cp -rf placeholder/SCALE output/${basename}/
-    cp -rf placeholder/ci output/${basename}/
+    cp -rf ${chart}/ci output/${basename}/ || echo "no CI folder detected, continuing..."
     cp -rf ${chart}/templates output/${basename}/
     cp -rf ${chart}/Chart.yaml output/${basename}/Chart.yaml
     cp -rf ${chart}/.helmignore output/${basename}/.helmignore
