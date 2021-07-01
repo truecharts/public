@@ -30,7 +30,8 @@ for chart in input/*; do
     sed -i "/name: commonc\- name2: common" output/${basename}/Chart.yaml
     sed -i "/- name:/c\- name: truecharts" output/${basename}/Chart.yaml
     sed -i "/name2: commonc\- name: common" output/${basename}/Chart.yaml
-    sed -i "/email:/c\  email: info@truecharts.org" output/${basename}/Chart.yaml
+    sed -i "/email:/c\  email: info@truecharts.org
+  url: https://truecharts.org" output/${basename}/Chart.yaml
     sed -i "/  version:/c\  version: 6.4.6" output/${basename}/Chart.yaml
     sed -i "s|github.com/k8s-at-home/charts|github.com/truechartsapps|g" output/${basename}/Chart.yaml
     sed -i "s|charts/stable|charts/incubator|g" output/${basename}/Chart.yaml
