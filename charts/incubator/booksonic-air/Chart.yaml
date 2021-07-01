@@ -1,0 +1,22 @@
+apiVersion: v2
+appVersion: 'auto'
+description: Booksonic is a platform for accessing the audibooks you own wherever you are
+name: booksonic-air
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- booksonic
+- audiobook
+home: https://github.com/truechartsapps/tree/master/charts/incubator/booksonic-air
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/booksonic-air.png
+sources:
+- https://github.com/popeen/Booksonic-Air
+- https://hub.docker.com/r/linuxserver/booksonic-air
+maintainers:
+- name: truecharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 6.4.6

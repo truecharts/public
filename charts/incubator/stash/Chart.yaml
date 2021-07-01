@@ -1,0 +1,21 @@
+apiVersion: v2
+appVersion: 'auto'
+description: An organizer for your porn, written in Go
+name: stash
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- porn
+home: https://github.com/truechartsapps/tree/master/charts/incubator/stash
+icon: https://raw.githubusercontent.com/stashapp/website/master/images/stash.svg
+sources:
+- https://github.com/stashapp/stash
+- https://hub.docker.com/r/stashapp/stash
+maintainers:
+- name: truecharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 6.4.6

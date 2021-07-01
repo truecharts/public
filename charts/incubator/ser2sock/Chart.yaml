@@ -1,0 +1,21 @@
+apiVersion: v2
+appVersion: 'auto'
+description: Serial to Socket Redirector
+name: ser2sock
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- ser2sock
+home: https://github.com/truechartsapps/tree/master/charts/incubator/ser2sock
+icon: https://i.imgur.com/GfZ7McO.png
+sources:
+- https://github.com/nutechsoftware/ser2sock
+- https://github.com/tenstartups/ser2sock
+maintainers:
+- name: truecharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 6.4.6

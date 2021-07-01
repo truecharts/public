@@ -1,0 +1,22 @@
+apiVersion: v2
+appVersion: 'auto'
+description: Container for protonmail bridge to work on the network.
+name: protonmail-bridge
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- protonmail
+- protonmail-bridge
+home: https://github.com/truechartsapps/tree/master/charts/incubator/protonmail-bridge
+icon: https://raw.githubusercontent.com/ProtonMail/proton-bridge/master/icon.iconset/icon_256x256.png
+sources:
+- https://github.com/shenxn/protonmail-bridge-docker
+- https://hub.docker.com/r/shenxn/protonmail-bridge
+maintainers:
+- name: truecharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 6.4.6

@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: 'auto'
+description: PhotoPrism® is a server-based application for browsing, organizing and sharing your personal photo collection
+name: photoprism
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- photos
+- photoprism
+- pictures
+- sharing
+home: https://github.com/truechartsapps/tree/master/charts/incubator/photoprism
+icon: https://demo.photoprism.org/static/img/logo-avatar.svg
+sources:
+- https://github.com/photoprism/photoprism
+- https://hub.docker.com/r/photoprism/photoprism
+maintainers:
+- name: truecharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 6.4.6

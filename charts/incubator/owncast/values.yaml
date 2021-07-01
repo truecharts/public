@@ -1,0 +1,41 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+# -- image repository
+  repository: gabekangas/owncast
+  # -- image tag
+  tag: 0.0.7
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+  rtmp:
+    enabled: true
+    type: NodePort
+    externalTrafficPolicy: Local
+    ports:
+      rtmp:
+        enabled: true
+        port: 1935
+        protocol: TCP
+        targetPort: 1935
+
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: false
+    mountPath: /app/data

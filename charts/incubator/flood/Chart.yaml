@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: 'auto'
+description: Flood is a monitoring service for various torrent clients
+name: flood
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+- flood
+- rtorrent
+- qbittorrent
+- transmission
+home: https://github.com/truechartsapps/tree/master/charts/incubator/flood
+icon: https://raw.githubusercontent.com/jesec/flood/master/flood.svg
+sources:
+- https://github.com/jesec/flood
+- https://hub.docker.com/r/jesec/flood
+maintainers:
+- name: truecharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 6.4.6

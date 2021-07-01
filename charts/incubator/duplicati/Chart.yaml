@@ -1,0 +1,21 @@
+apiVersion: v2
+appVersion: 'auto'
+description: Store securely encrypted backups on cloud storage services!
+name: duplicati
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - duplicati
+home: https://github.com/truechartsapps/tree/master/charts/incubator/duplicati
+icon: https://avatars.githubusercontent.com/u/8270231?s=200&v=4
+sources:
+  - https://hub.docker.com/r/linuxserver/duplicati/
+  - https://github.com/duplicati/duplicati
+maintainers:
+- name: truecharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 6.4.6

@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: 'auto'
+description: deCONZ is an easy to use control software, with which you can set up and control Zigbee networks of any size without further programming effort.
+name: deconz
+version: 1.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - deconz
+  - home-automation
+  - zigbee
+  - conbee
+home: https://github.com/truechartsapps/tree/master/charts/incubator/deconz
+icon: https://avatars1.githubusercontent.com/u/4217524?s=400&v=4
+sources:
+  - https://github.com/dresden-elektronik/deconz-rest-plugin
+  - https://github.com/marthoc/docker-deconz
+maintainers:
+- name: truecharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 6.4.6
