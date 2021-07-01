@@ -320,7 +320,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "PLACEHOLDERCONFIGPATH"
+                  default: "/config"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
