@@ -1,18 +1,18 @@
 apiVersion: v2
-appVersion: 'auto'/
+appVersion: 'auto'
 description: Paperless - Index and archive all of your scanned paper documents
 name: paperless
-version: 1.0.0/
+version: 1.0.0
 kubeVersion: ">=1.16.0-0"
 keywords:
 - paperless
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/paperless
+home: https://github.com/truechartsapps/tree/master/charts/incubator/paperless
 icon: https://avatars.githubusercontent.com/u/47271576?s=200&v=4
 sources:
 - https://github.com/jonaswinkler/paperless-ng
 maintainers:
-- name: truecharts/
+- name: truecharts
 dependencies:
-- name: common/
+- name: common
   repository: https://truecharts.org
-  version: 6.4.6/
+  version: 6.4.6

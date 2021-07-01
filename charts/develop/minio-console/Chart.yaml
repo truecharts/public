@@ -1,21 +1,21 @@
 apiVersion: v2
-appVersion: 'auto'/
+appVersion: 'auto'
 description: A management console for minio server and operator
 name: minio-console
-version: 1.0.0/
+version: 1.0.0
 kubeVersion: ">=1.16.0-0"
 keywords:
 - minio-console
 - minio
 - s3
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/minio-console
+home: https://github.com/truechartsapps/tree/master/charts/incubator/minio-console
 icon: https://min.io/resources/img/logo/MINIO_wordmark.png
 sources:
 - https://github.com/minio/console
 maintainers:
-- name: truecharts/
-  email: info@truecharts.org/
+- name: truecharts
+  email: info@truecharts.org
 dependencies:
-- name: common/
+- name: common
   repository: https://truecharts.org
-  version: 6.4.6/
+  version: 6.4.6

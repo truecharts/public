@@ -1,20 +1,20 @@
 apiVersion: v2
-appVersion: 'auto'/
+appVersion: 'auto'
 description: Discord bot that provides metrics from a Discord server
 name: promcord
-version: 1.0.0/
+version: 1.0.0
 kubeVersion: ">=1.16.0-0"
 keywords:
   - promcord
   - discord
   - metrics
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/promcord
+home: https://github.com/truechartsapps/tree/master/charts/incubator/promcord
 sources:
   - https://github.com/nimarion/promcord
 maintainers:
-- name: truecharts/
-  email: info@truecharts.org/
+- name: truecharts
+  email: info@truecharts.org
 dependencies:
-- name: common/
+- name: common
     repository: https://truecharts.org
-  version: 6.4.6/
+  version: 6.4.6
