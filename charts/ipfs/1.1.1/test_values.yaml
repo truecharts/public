@@ -1,27 +1,30 @@
 ## Set default image, imageTag, and imagePullPolicy. mode is used to indicate the
 ##
 image:
-  repository: minio/minio
-  tag: RELEASE.2021-04-06T23-11-00Z
+  repository: ipfs/go-ipfs
+  tag: v0.9.0
   pullPolicy: IfNotPresent
 
 ## Additional arguments to pass to minio binary
 extraArgs: []
 
-updateStrategy: RollingUpdate
+updateStrategy: Recreate
 
 service:
-  nodePort: 32324
+  swarmPort: 30941
+  apiPort: 30951
+  gatewayPort: 30980
 
 environmentVariables: []
-  ## Please refer for comprehensive list https://docs.minio.io/docs/minio-server-configuration-guide.html
 
 emptyDirVolumes: true
 appVolumeMounts:
-  export:
+  staging:
     emptyDir: true
     mountPath: "/export"
-
+  data:
+    emptyDir: true
+    mountPath: "/data/ipfs"
 
 dnsConfig:
   options: []
