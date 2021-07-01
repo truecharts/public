@@ -103,6 +103,40 @@ questions:
           schema:
             type: string
             default: "002"
+        - variable: REGENERATE_SETTINGS
+          label: "REGENERATE_SETTINGS"
+          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: string
+            default: "002"
+        - variable: SITE_ROOT
+         label: "SITE_ROOT"
+         description: "The site's top-level URL and the port it listens to"
+         schema:
+           type: string
+           required: true
+           default: ""
+        - variable: SITE_NAME
+          label: "SITE_NAME"
+          description: "The site's name (e.g., "Example Corp HealthChecks")"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: SUPERUSER_EMAIL
+          label: "SUPERUSER_EMAIL"
+          description: "Superuser email"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: SUPERUSER_PASSWORD
+          label: "SUPERUSER_PASSWORD"
+          description: "Superuser password"
+          schema:
+            type: string
+            required: true
+            default: ""
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"

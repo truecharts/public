@@ -97,6 +97,18 @@ questions:
             default: "Etc/UTC"
             $ref:
               - "definitions/timezone"
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the userID inside the container"
+          schema:
+            type: string
+            default: "568"
+        - variable: PGID
+          label: "PGID"
+          description: "Sets the GroupID inside the container"
+          schema:
+            type: string
+            default: "568"
         - variable: UMASK
           label: "UMASK"
           description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
@@ -320,7 +332,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/home/node/app/.dizquetv"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
@@ -590,45 +602,6 @@ questions:
             type: boolean
             default: false
 
-  - variable: podSecurityContext
-    group: "Security and Permissions"
-    label: "Pod Security Context"
-    schema:
-      type: dict
-      attrs:
-        - variable: runAsNonRoot
-          label: "runAsNonRoot"
-          schema:
-            type: boolean
-            default: true
-        - variable: runAsUser
-          label: "runAsUser"
-          description: "The UserID of the user running the application"
-          schema:
-            type: int
-            default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
-        - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
-          schema:
-            type: int
-            default: 568
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
   - variable: resources
     group: "Resources and Devices"
     label: ""

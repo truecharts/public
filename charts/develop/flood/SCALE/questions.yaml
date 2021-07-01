@@ -103,6 +103,13 @@ questions:
           schema:
             type: string
             default: "002"
+        - variable: FLOOD_OPTION_RUNDIR
+          label: "FLOOD_OPTION_RUNDIR"
+          description: "Where to store Flood's runtime files (eg. database)"
+          schema:
+            type: string
+            default: "/data"
+
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
@@ -243,9 +250,9 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             type: dict
             attrs:
@@ -320,7 +327,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/data"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"

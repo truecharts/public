@@ -97,6 +97,18 @@ questions:
             default: "Etc/UTC"
             $ref:
               - "definitions/timezone"
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the userID inside the container"
+          schema:
+            type: string
+            default: "568"
+        - variable: PGID
+          label: "PGID"
+          description: "Sets the GroupID inside the container"
+          schema:
+            type: string
+            default: "568"
         - variable: UMASK
           label: "UMASK"
           description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
@@ -236,6 +248,300 @@ questions:
                               max: 65535
                               default: 3712
                               required: true
+        - variable: jsonservice
+          label: "jsonservice Service"
+          description: "The jsonservice service"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "NodePort"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Port(s) Configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: jsonservice
+                      label: "jsonservice Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: protocol
+                            label: "Port Type"
+                            schema:
+                              type: string
+                              default: "TCP"
+                              enum:
+                                - value: HTTP
+                                  description: "HTTP"
+                                - value: "HTTPS"
+                                  description: "HTTPS"
+                                - value: TCP
+                                  description: "TCP"
+                                - value: "UDP"
+                                  description: "UDP"
+                          - variable: port
+                            label: "Container Port"
+                            schema:
+                              type: int
+                              default: 19444
+                              editable: false
+                              hidden: true
+                          - variable: targetport
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 19444
+                              editable: true
+                              required: true
+                          - variable: nodePort
+                            label: "Node Port (Optional)"
+                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
+                            schema:
+                              type: int
+                              min: 9000
+                              max: 65535
+                              default: 3804
+                              required: true
+        - variable: protobufservice
+          label: "protobufservice Service"
+          description: "The protobufservice service"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "NodePort"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Port(s) Configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: protobufservice
+                      label: "protobufservice Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: protocol
+                            label: "Port Type"
+                            schema:
+                              type: string
+                              default: "TCP"
+                              enum:
+                                - value: HTTP
+                                  description: "HTTP"
+                                - value: "HTTPS"
+                                  description: "HTTPS"
+                                - value: TCP
+                                  description: "TCP"
+                                - value: "UDP"
+                                  description: "UDP"
+                          - variable: port
+                            label: "Container Port"
+                            schema:
+                              type: int
+                              default: 19445
+                              editable: false
+                              hidden: true
+                          - variable: targetport
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 19445
+                              editable: true
+                              required: true
+                          - variable: nodePort
+                            label: "Node Port (Optional)"
+                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
+                            schema:
+                              type: int
+                              min: 9000
+                              max: 65535
+                              default: 3805
+                              required: true
+        - variable: boblightservice
+          label: "boblightservice Service"
+          description: "The boblightservice service"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "NodePort"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Port(s) Configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: boblightservice
+                      label: "boblightservice Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: protocol
+                            label: "Port Type"
+                            schema:
+                              type: string
+                              default: "TCP"
+                              enum:
+                                - value: HTTP
+                                  description: "HTTP"
+                                - value: "HTTPS"
+                                  description: "HTTPS"
+                                - value: TCP
+                                  description: "TCP"
+                                - value: "UDP"
+                                  description: "UDP"
+                          - variable: port
+                            label: "Container Port"
+                            schema:
+                              type: int
+                              default: 19333
+                              editable: false
+                              hidden: true
+                          - variable: targetport
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 19333
+                              editable: true
+                              required: true
+                          - variable: nodePort
+                            label: "Node Port (Optional)"
+                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
+                            schema:
+                              type: int
+                              min: 9000
+                              max: 65535
+                              default: 3806
+                              required: true
 
   - variable: persistence
     label: "Integrated Persistent Storage"
@@ -320,7 +626,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/root/.hyperion"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
