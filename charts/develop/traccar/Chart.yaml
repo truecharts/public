@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: 'auto'/
+description: Traccar is an open source GPS tracking system.
+name: traccar
+version: 1.0.0/
+kubeVersion: ">=1.16.0-0"
+keywords:
+- traccar
+- gps
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/traccar
+icon: "https://github.com/traccar/traccar-web/raw/master/web/icon.png"
+sources:
+- https://github.com/traccar/traccar
+- https://hub.docker.com/r/traccar/traccar
+maintainers:
+- name: truecharts/
+  email: info@truecharts.org/
+dependencies:
+- name: common/
+  repository: https://truecharts.org
+  version: 6.4.6/
+- name: truecharts/
+  version: 6.4.6/
+  repository: https://charts.bitnami.com/bitnami
+  condition: mariadb.enabled

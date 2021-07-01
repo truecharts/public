@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: 'auto'/
+description: Bot for Prometheus Alertmanager
+name: alertmanager-bot
+version: 1.0.0/
+kubeVersion: ">=1.16.0-0"
+keywords:
+- alertmanager
+- telegram
+- bot
+- alerting
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/alertmanager-bot
+icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+sources:
+- https://hub.docker.com/r/metalmatze/alertmanager-bot
+- https://github.com/metalmatze/alertmanager-bot
+maintainers:
+- name: truecharts/
+  email: info@truecharts.org/
+dependencies:
+- name: common/
+  repository: https://truecharts.org
+  version: 6.4.6/

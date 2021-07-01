@@ -1,0 +1,20 @@
+apiVersion: v2
+appVersion: 'auto'/
+description: Prometheus NUT Exporter a service monitor to send NUT server metrics to a Prometheus instance.
+name: prometheus-nut-exporter
+version: 1.0.0/
+kubeVersion: ">=1.16.0-0"
+keywords:
+- nut
+- prometheus
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/prometheus-nut-exporter
+icon: https://www.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/125-512.png
+sources:
+- https://github.com/HON95/prometheus-nut-exporter
+maintainers:
+- name: truecharts/
+  email: info@truecharts.org/
+dependencies:
+- name: common/
+  repository: https://truecharts.org
+  version: 6.4.6/
