@@ -19,7 +19,7 @@ env:
   # -- Set the container timezone
   TZ: UTC
   # -- tdarr web UI listening port (same as Service port)
-  webUIPort: "{{ .Values.service.main.ports.http.port }}"
+  webUIPort: "{{ .Values.service.main.ports.main.port }}"
   # -- tdarr server binding address
   serverIP: 0.0.0.0
   # -- tdarr server listening port
