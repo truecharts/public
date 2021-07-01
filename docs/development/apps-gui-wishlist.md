@@ -14,8 +14,8 @@ The goal is to gather some suggestions and forward them to iX-Systems.
 - The App overview card should be resizable, right now viewing application events is very limiting.
 - Fix some of the themes to work with apps section. Light color themes like paper make it very hard to see if an app is up to date or requiring upgrade
 
-- :heavy_check_mark: Make timezone default to timezone set in TN System [NAS-110373](https://jira.ixsystems.com/browse/NAS-110373)
-- :heavy_check_mark: Show all config options on "Confirm options" when installing an App
+- :white_check_mark: Make timezone default to timezone set in TN System [NAS-110373](https://jira.ixsystems.com/browse/NAS-110373)
+- :white_check_mark: Show all config options on "Confirm options" when installing an App
 
 ##### Technical suggestions
 
