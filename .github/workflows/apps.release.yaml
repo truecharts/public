@@ -117,7 +117,6 @@ jobs:
           cd catalog
           /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
       - name: Commit and Push new App releases
-        if: ${{ needs.pre-release.outputs.release == 'true' }}
         run: |
           cd catalog
           git config user.name "TrueCharts-Bot"
