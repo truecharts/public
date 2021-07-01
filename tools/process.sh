@@ -10,6 +10,7 @@ for chart in input/*; do
     echo "processing ${chart} using nodeport $nodeport"
     mkdir -p output/${basename}
     cp -rf placeholder/SCALE output/${basename}/
+    cp -rf placeholder/ci output/${basename}/
     cp -rf ${chart}/templates output/${basename}/
     cp -rf ${chart}/Chart.yaml output/${basename}/Chart.yaml
     cp -rf ${chart}/.helmignore output/${basename}/.helmignore
@@ -35,5 +36,6 @@ for chart in input/*; do
     sed -i "/  version:/c\  version: 6.4.6" output/${basename}/Chart.yaml
     sed -i "s|github.com/k8s-at-home/charts|github.com/truecharts/apps|g" output/${basename}/Chart.yaml
     sed -i "s|charts/stable|charts/incubator|g" output/${basename}/Chart.yaml
+    sed -i "s|http:|main:|g" output/${basename}/values.yaml
   fi
 done
