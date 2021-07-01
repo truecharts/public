@@ -103,6 +103,12 @@ questions:
           schema:
             type: string
             default: "002"
+        - variable: LOG_LEVEL
+          label: "LOG_LEVEL"
+          description: "Set the application log level"
+          schema:
+            type: string
+            default: "info"
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
@@ -320,7 +326,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/app/config"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"

@@ -103,6 +103,24 @@ questions:
           schema:
             type: string
             default: "002"
+        - variable: ENABLE_MJPG_STREAMER
+          label: "ENABLE_MJPG_STREAMER"
+          description: "Enable this to ensure camera streaming is enabled you add a video device"
+          schema:
+            type: string
+            default: "false"
+        - variable: MJPG_STREAMER_INPUT
+          label: "MJPG_STREAMER_INPUT"
+          description: "MJPG Streamer input parameters"
+          schema:
+            type: string
+            default: ""
+        - variable: CAMERA_DEV
+          label: "CAMERA_DEV"
+          description: "MJPG Streamer camera device"
+          schema:
+            type: string
+            default: ""
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
@@ -243,9 +261,9 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             type: dict
             attrs:
@@ -320,7 +338,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/octoprint"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
@@ -629,6 +647,46 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+  - variable: deviceList
+    label: "Mount USB devices"
+    group: "Resources and Devices"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: deviceListEntry
+          label: "Device"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: type
+                label: "(Advanced) Type of Storage"
+                description: "Sets the persistence type"
+                schema:
+                  type: string
+                  default: "hostPath"
+                  hidden: true
+              - variable: readOnly
+                label: "readOnly"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: hostPath
+                label: "Host Device Path"
+                description: "Path to the device on the host system"
+                schema:
+                  type: path
+              - variable: mountPath
+                label: "Container Device Path"
+                description: "Path inside the container the device is mounted"
+                schema:
+                  type: string
+                  default: "/dev/ttyACM0"
   - variable: resources
     group: "Resources and Devices"
     label: ""
