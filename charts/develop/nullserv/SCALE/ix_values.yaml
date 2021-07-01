@@ -9,6 +9,17 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.3.0
 
+# -- Configures the probes for the main Pod.
+# @default -- See values.yaml
+probes:
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      httpGet:
+        path: /welcome.txt
+        port: main
+
 ##
 # Most other defaults are set in questions.yaml
 # For other options please refer to the wiki, default_values.yaml or the common library chart
