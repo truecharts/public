@@ -110,12 +110,12 @@ questions:
             type: string
             default: "002"
         - variable: SITE_ROOT
-         label: "SITE_ROOT"
-         description: "The site's top-level URL and the port it listens to"
-         schema:
-           type: string
-           required: true
-           default: ""
+          label: "SITE_ROOT"
+          description: "The site's top-level URL and the port it listens to"
+          schema:
+            type: string
+            required: true
+            default: ""
         - variable: SITE_NAME
           label: "SITE_NAME"
           description: "The site's name (e.g., "Example Corp HealthChecks")"
