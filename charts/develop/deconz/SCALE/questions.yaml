@@ -115,25 +115,25 @@ questions:
           schema:
             type: string
             default: "1"
-         - variable: DECONZ_WEB_PORT
+        - variable: DECONZ_WEB_PORT
           label: "DECONZ_WEB_PORT"
           description: "Web UI listen port"
           schema:
             type: string
             default: "80"
-         - variable: DECONZ_WS_PORT
+        - variable: DECONZ_WS_PORT
           label: "DECONZ_WS_PORT"
           description: "Websocket listen port"
           schema:
             type: string
             default: "443"
-         - variable: DECONZ_VNC_PORT
+        - variable: DECONZ_VNC_PORT
           label: "DECONZ_VNC_PORT"
           description: " VNC server listen port"
           schema:
             type: string
             default: "5900"
-         - variable: DECONZ_VNC_PASSWORD
+        - variable: DECONZ_VNC_PASSWORD
           label: "DECONZ_VNC_PASSWORD"
           description: "If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password "changeme""
           schema:
