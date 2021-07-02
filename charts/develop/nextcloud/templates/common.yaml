@@ -9,3 +9,6 @@
 
 {{/* Render secrets for nextcloud */}}
 {{- include "nextcloud.secrets" . }}
+
+{{/* Render cronjob for nextcloud */}}
+{{- include "nextcloud.cronjob" . }}
