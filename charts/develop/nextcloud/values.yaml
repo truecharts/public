@@ -52,6 +52,10 @@ persistence:
     enabled: true
     type: emptyDir
 
+
+podSecurityContext:
+  fsGroup: 33
+
 # Enabled postgres
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
