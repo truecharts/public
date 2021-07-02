@@ -31,10 +31,10 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: host
-  #REDIS_HOST:
-  #  secretKeyRef:
-  #    name: dbcreds
-  #    key: redishost
+  # REDIS_HOST:
+  #   secretKeyRef:
+  #     name: dbcreds
+  #     key: redishost
 
 
 persistence:
