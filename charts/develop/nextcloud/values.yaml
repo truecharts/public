@@ -60,7 +60,7 @@ postgresql:
   postgresqlDatabase: nextcloud
   existingSecret: dbcreds
   persistence:
-    enabled: true
+    enabled: false
     existingClaim: db
 
 # Enabled redis
