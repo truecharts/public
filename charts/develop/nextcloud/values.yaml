@@ -21,7 +21,7 @@ env:
 envTpl:
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  POSTGRES_HOST: "{{ ( printf "%v%v-%v:%v" "postgresql://" .Release.Name "postgresql" "5432" ) }}"
+  POSTGRES_HOST: "{{ printf "%v%v-%v:%v" "postgresql://" .Release.Name "postgresql" "5432" }}"
 
 envValueFrom:
   POSTGRES_PASSWORD:
