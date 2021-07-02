@@ -454,7 +454,7 @@ questions:
                 description: "Forces a certain name for the PVC"
                 schema:
                   type: string
-                  default: "db"
+                  default: "redismaster"
                   hidden: true
               - variable: type
                 label: "(Advanced) Type of Storage"
