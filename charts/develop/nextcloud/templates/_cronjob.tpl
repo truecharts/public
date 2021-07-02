@@ -41,7 +41,6 @@ spec:
                 {{- toYaml . | nindent 17 }}
                 {{- end }}
                 {{- end }}
-              {{- end }}
               resources:
 {{ toYaml (default .Values.resources .Values.cronjob.resources) | indent 16 }}
           {{- if .Values.rbac.enabled }}
@@ -59,5 +58,5 @@ spec:
           tolerations:
 {{ toYaml . | indent 12 }}
     {{- end }}
-{{- end }}
+
 {{- end -}}
