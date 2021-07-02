@@ -1,0 +1,38 @@
+apiVersion: v2
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 6.4.6
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 10.5.1
+- name: redis
+  version: 14.6.3
+  repository: https://charts.bitnami.com/bitnami
+  condition: redis.enabled
+deprecated: false
+description: A private cloud server that puts the control and security of your own data back into your hands.
+home: https://nextcloud.com/
+icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nextcloud_Logo.svg/1280px-Nextcloud_Logo.svg.png
+keywords:
+- nextcloud
+- storage
+- http
+- web
+- php
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: nextcloud
+sources:
+- https://github.com/nextcloud/docker
+- https://github.com/nextcloud/helm
+type: application
+version: 1.0.0

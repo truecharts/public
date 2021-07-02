@@ -1,0 +1,98 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: nextcloud
+  pullPolicy: IfNotPresent
+  tag: 21.0.2
+
+strategy:
+  type: Recreate
+
+env: {}
+
+
+envTpl:
+  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+
+
+envFrom:
+  - configMapRef:
+      name: nextcloudconfig
+
+
+envValueFrom:
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: host
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: masterhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+
+probes:
+  startup:
+    spec:
+      initialDelaySeconds: 3
+      timeoutSeconds: 2
+      ## This means it has a maximum of 10*60=600 seconds to start up before it fails
+      periodSeconds: 10
+      failureThreshold: 60
+
+## Cronjob to execute Nextcloud background tasks
+## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#webcron
+##
+cronjob:
+  # Every 5 minutes
+  # Note: Setting this to any any other value than 5 minutes might
+  #  cause issues with how nextcloud background jobs are executed
+  schedule: "*/5 * * * *"
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
+
+# Enabled postgres
+# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+postgresql:
+  enabled: true
+  postgresqlUsername: nextcloud
+  postgresqlDatabase: nextcloud
+  existingSecret: dbcreds
+  persistence:
+    enabled: true
+    existingClaim: db
+
+# Enabled redis
+# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
+redis:
+  architecture: standalone
+  enabled: true
+  auth:
+    existingSecret: rediscreds
+    existingSecretPasswordKey: redis-password
+  master:
+    persistence:
+      enabled: true
+      existingClaim: redismaster
+  replica:
+    replicaCount: 0
+    persistence:
+      enabled: false
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##
