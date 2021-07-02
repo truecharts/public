@@ -240,7 +240,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36059
+                              default: 36086
                               required: true
   - variable: persistence
     label: "Integrated Persistent Storage"
@@ -584,7 +584,6 @@ questions:
                               type: string
                               default: ""
                               required: true
-
 
   - variable: securityContext
     group: "Security and Permissions"
