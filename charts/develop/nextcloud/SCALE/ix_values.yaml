@@ -32,6 +32,10 @@ envValueFrom:
     secretKeyRef:
       name: rediscreds
       key: masterhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
 
 # Enabled postgres
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
@@ -47,6 +51,7 @@ postgresql:
 # Enabled redis
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
 redis:
+  architecture: standalone
   enabled: true
   auth:
     existingSecret: rediscreds
