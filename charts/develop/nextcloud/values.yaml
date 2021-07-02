@@ -71,6 +71,5 @@ postgresql:
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
 redis:
   enabled: true
-  existingSecret: dbcreds
   persistence:
     enabled: false
