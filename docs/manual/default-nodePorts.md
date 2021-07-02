@@ -55,5 +55,15 @@
 | Podgrab        |   Main    |  36047   |
 | Fireflyiii     |   Main    |  36048   |
 | FocalBoard     |   Main    |  36049   |
+| Airsonic       |   Main    |  36050   |
+| Appdaemon      |   Main    |  36051   |
+| Booksonic-air  |   Main    |  36052   |
+| Calibre        |   Main    |  36053   |
+| Calibre        | WebServer |  36054   |
+| Deconz         |   Main    |  36055   |
+| Deconz         | Websocket |  36056   |
+| Deconz         |    VNC    |  36057   |
+| Dizquetv       |   Main    |  36058   |
+| Duplicati      |   Main    |  36059   |
 
 #### Note: TCP and UPD ports that are the same in each App, are not by mistake.
