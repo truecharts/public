@@ -65,5 +65,15 @@
 | Deconz         |    VNC    |  36057   |
 | Dizquetv       |   Main    |  36058   |
 | Duplicati      |   Main    |  36059   |
+| Flaresolverr   |   Main    |  36060   |
+| Flood          |   Main    |  36061   |
+| Gonic          |   Main    |  36062   |
+| Healthchecks   |   Main    |  36063   |
+| Hyperion-ng    |   Main    |  36064   |
+| Komga          |   Main    |  36065   |
+| Librespeed     |   Main    |  36066   |
+| Mealie         |   Main    |  36067   |
+| Mosquitto      |   Main    |  36068   |
+| Mylar          |   Main    |  36068   |
 
 #### Note: TCP and UPD ports that are the same in each App, are not by mistake.
