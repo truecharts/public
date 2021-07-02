@@ -26,15 +26,15 @@ spec:
           restartPolicy: Never
           containers:
             - name: {{ .Chart.Name }}
-              image: "{{ default .Values.image.repository .Values.cronjob.image.repository }}:{{ default .Values.image.tag .Values.cronjob.image.tag }}"
-              imagePullPolicy: {{ default .Values.image.pullPolicy .Values.cronjob.image.pullPolicy }}
+              image: "{{ .Values.image.repository }}:{{ default .Values.image.tag }}"
+              imagePullPolicy: {{ default .Values.image.pullPolicy }}
               command: [ "curl" ]
               args:
                 - "-k"
                 - "--fail"
                 - "-L"
-                - "http://{{ template "common.names.fullname" . }}:{{ .Values.service.port }}/cron.php"
-              # Will mount configuration files as www-data (id: 33) for nextcloud
+                - "http://{{ template "common.names.fullname" . }}:{{ .Values.service.main.ports.main.port }}/cron.php"
+              # Will mount configuration files as www-data (id: 33) by default for nextcloud
               securityContext:
                 {{- if .Values.securityContext }}
                 {{- with .Values.securityContext }}
