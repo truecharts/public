@@ -1,0 +1,43 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: nextcloud
+  pullPolicy: IfNotPresent
+  tag: 21.0.2
+
+strategy:
+  type: Recreate
+
+env: {}
+
+
+envTpl:
+  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRES_HOST: "{{ ( printf "%v%v-%v:%v" "postgresql://" .Release.Name "postgresql" "5432" ) }}"
+
+envValueFrom:
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
+# Enabled postgres
+# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+postgresql:
+  enabled: true
+  postgresqlUsername: nextcloud
+  postgresqlDatabase: nextcloud
+  existingSecret: dbcreds
+  persistence:
+    enabled: true
+    existingClaim: db
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##

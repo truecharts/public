@@ -1,0 +1,56 @@
+# Default values for Bitwarden.
+
+image:
+  repository: nextcloud
+  pullPolicy: IfNotPresent
+  tag: 21.0.2
+
+strategy:
+  type: Recreate
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+env: {}
+
+
+envTpl:
+  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRES_HOST: "{{ ( printf "%v%v-%v:%v" "postgresql://" .Release.Name "postgresql" "5432" ) }}"
+
+envValueFrom:
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/var/www"
+    type: emptyDir
+
+  db:
+    forceName: "db"
+    enabled: true
+    type: emptyDir
+
+  dbbackup:
+    enabled: true
+    type: emptyDir
+
+# Enabled postgres
+# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+postgresql:
+  enabled: true
+  postgresqlUsername: nextcloud
+  postgresqlDatabase: nextcloud
+  existingSecret: dbcreds
+  persistence:
+    enabled: true
+    existingClaim: db
