@@ -19,6 +19,12 @@ envTpl:
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
 
+
+envFrom:
+  - configMapRef:
+      name: nextcloudconfig
+
+
 envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:

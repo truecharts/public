@@ -4,5 +4,8 @@
 {{/* Render the templates */}}
 {{ include "common.all" . }}
 
+{{/* Render configmap for nextcloud */}}
+{{- include "nextcloud.configmap" . }}
+
 {{/* Render secrets for nextcloud */}}
 {{- include "nextcloud.secrets" . }}
