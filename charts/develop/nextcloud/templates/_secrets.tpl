@@ -23,5 +23,6 @@ data:
 {{- end }}
   url: {{ ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
   host: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
+  redishost: {{ ( printf "%v-%v" .Release.Name "redis" ) | b64enc | quote }}
 type: Opaque
 {{- end -}}

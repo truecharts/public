@@ -28,6 +28,10 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: host
+  REDIS_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: redishost
 
 # Enabled postgres
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
@@ -39,6 +43,14 @@ postgresql:
   persistence:
     enabled: true
     existingClaim: db
+
+# Enabled redis
+# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
+redis:
+  enabled: true
+  existingSecret: dbcreds
+  persistence:
+    enabled: false
 
 ##
 # Most other defaults are set in questions.yaml
