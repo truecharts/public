@@ -105,6 +105,22 @@ questions:
           schema:
             type: string
             default: "002"
+        - variable: NEXTCLOUD_ADMIN_USER
+          label: "NEXTCLOUD_ADMIN_USER"
+          description: "Name of the Nextcloud default Admin User"
+          schema:
+            type: string
+            required: true
+            default: "admin"
+        - variable: NEXTCLOUD_ADMIN_PASSWORD
+          label: "NEXTCLOUD_ADMIN_PASSWORD"
+          description: "Password for the Nextcloud default Admin User"
+          schema:
+            type: string
+            required: true
+            default: ""
+
+
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
