@@ -34,14 +34,14 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: host
-  # REDIS_HOST:
-  #   secretKeyRef:
-  #     name: rediscreds
-  #     key: masterhost
-  # REDIS_PASSWORD:
-  #   secretKeyRef:
-  #     name: rediscreds
-  #     key: redis-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: masterhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
 
 persistence:
   data:
@@ -63,20 +63,57 @@ persistence:
     enabled: true
     type: emptyDir
 
+initContainers:
+  - name: init-postgresdb
+    image: postgres:13.1
+    command:
+      - "sh"
+      - "-c"
+      - "until pg_isready -h ${pghost} ; do sleep 2 ; done"
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: pghost
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
 
 podSecurityContext:
   fsGroup: 33
 
-# test
+# -- Probe configuration
+# -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+# @default -- See below
 probes:
-  startup:
-    spec:
-      initialDelaySeconds: 3
-      timeoutSeconds: 2
-      ## This means it has a maximum of 10*60=600 seconds to start up before it fails
-      periodSeconds: 10
-      failureThreshold: 60
+  # -- Liveness probe configuration
+  # @default -- See below
+  liveness:
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: HTTP
+    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+    # @default -- "/"
+    path: /status.php
 
+  # -- Redainess probe configuration
+  # @default -- See below
+  readiness:
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: HTTP
+    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+    # @default -- "/"
+    path: /status.php
+
+  # -- Startup probe configuration
+  # @default -- See below
+  startup:
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: HTTP
+    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+    # @default -- "/"
+    path: /status.php
 
 ## Cronjob to execute Nextcloud background tasks
 ## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#webcron

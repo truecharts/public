@@ -18,4 +18,5 @@ metadata:
   name: nextcloudconfig
 data:
   NEXTCLOUD_TRUSTED_DOMAINS: {{ $hosts | quote }}
+
 {{- end -}}
