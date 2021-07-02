@@ -49,6 +49,11 @@ persistence:
     enabled: true
     type: emptyDir
 
+  redismaster:
+    forceName: "redismaster"
+    enabled: true
+    type: emptyDir
+
   dbbackup:
     enabled: true
     type: emptyDir
@@ -71,9 +76,16 @@ postgresql:
 # Enabled redis
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
 redis:
+  architecture: standalone
   enabled: true
   auth:
     existingSecret: rediscreds
     existingSecretPasswordKey: redis-password
-  persistence:
-    enabled: false
+  master:
+    persistence:
+      enabled: false
+      existingClaim: redismaster
+  replica:
+    replicaCount: 0
+    persistence:
+      enabled: false
