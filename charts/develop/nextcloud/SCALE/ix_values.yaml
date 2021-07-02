@@ -18,13 +18,16 @@ env: {}
 envTpl:
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  POSTGRES_HOST: "{{ ( printf "%v%v-%v:%v" "postgresql://" .Release.Name "postgresql" "5432" ) }}"
 
 envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
+  POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: host
 
 # Enabled postgres
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
