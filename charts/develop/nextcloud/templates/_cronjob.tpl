@@ -43,20 +43,5 @@ spec:
                 {{- end }}
               resources:
 {{ toYaml (default .Values.resources .Values.cronjob.resources) | indent 16 }}
-          {{- if .Values.rbac.enabled }}
-          serviceAccountName: {{ .Values.rbac.serviceaccount.name }}
-          {{- end }}
-    {{- with (default .Values.nodeSelector .Values.cronjob.nodeSelector) }}
-          nodeSelector:
-{{ toYaml . | indent 12 }}
-    {{- end }}
-    {{- with (default .Values.affinity .Values.cronjob.affinity) }}
-          affinity:
-{{ toYaml . | indent 12 }}
-    {{- end }}
-    {{- with (default .Values.tolerations .Values.cronjob.tolerations) }}
-          tolerations:
-{{ toYaml . | indent 12 }}
-    {{- end }}
 
 {{- end -}}
