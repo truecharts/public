@@ -38,7 +38,7 @@ envValueFrom:
     secretKeyRef:
       name: rediscreds
       key: masterhost
-  REDIS_PASSWORD:
+  REDIS_HOST_PASSWORD:
     secretKeyRef:
       name: rediscreds
       key: redis-password
