@@ -59,4 +59,5 @@ spec:
           tolerations:
 {{ toYaml . | indent 12 }}
     {{- end }}
+{{- end }}
 {{- end -}}
