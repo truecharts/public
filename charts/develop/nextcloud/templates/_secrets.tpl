@@ -23,6 +23,7 @@ data:
 {{- end }}
   url: {{ ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
   host: {{ ( printf "%v-%v:5432" .Release.Name "postgresql" ) | b64enc | quote }}
+  plainhost: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
 type: Opaque
 
 ---
