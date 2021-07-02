@@ -44,6 +44,7 @@ data:
   {{- $redisPass = randAlphaNum 50 }}
   redis-password: {{ $redisPass | b64enc | quote }}
 {{- end }}
-  host: {{ ( printf "%v-%v" .Release.Name "redis" ) | b64enc | quote }}
+  masterhost: {{ ( printf "%v-%v" .Release.Name "redis-master" ) | b64enc | quote }}
+  slavehost: {{ ( printf "%v-%v" .Release.Name "redis-master" ) | b64enc | quote }}
 type: Opaque
 {{- end -}}
