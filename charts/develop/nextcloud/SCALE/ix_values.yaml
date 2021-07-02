@@ -37,6 +37,15 @@ envValueFrom:
       name: rediscreds
       key: redis-password
 
+probes:
+  startup:
+    spec:
+      initialDelaySeconds: 3
+      timeoutSeconds: 2
+      ## This means it has a maximum of 10*60=600 seconds to start up before it fails
+      periodSeconds: 10
+      failureThreshold: 60
+
 # Enabled postgres
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
