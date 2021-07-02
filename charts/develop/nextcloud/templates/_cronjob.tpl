@@ -1,11 +1,12 @@
 {{/* Define the cronjob */}}
 {{- define "nextcloud.cronjob" -}}
 {{- $jobName := include "common.names.fullname" . -}}
+
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ printf "%s-auto-permissions" $jobName }}
+  name: {{ printf "%s-cronjob" $jobName }}
   labels:
     {{- include "common.labels" . | nindent 4 }}
 spec:
@@ -42,6 +43,6 @@ spec:
                 {{- end }}
                 {{- end }}
               resources:
-{{ toYaml (default .Values.resources .Values.cronjob.resources) | indent 16 }}
+{{ toYaml .Values.resources | indent 16 }}
 
 {{- end -}}
