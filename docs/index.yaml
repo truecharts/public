@@ -44736,6 +44736,31 @@ entries:
   stash:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-02T08:12:16.68585062Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.4.6
+    description: An organizer for your porn, written in Go
+    digest: 02374875e9d69b668535a521f36db5bacaddac05578f6c4fabac6353976bdf5d
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/stash
+    icon: https://raw.githubusercontent.com/stashapp/website/master/images/stash.svg
+    keywords:
+    - porn
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: stash
+    sources:
+    - https://github.com/stashapp/stash
+    - https://hub.docker.com/r/stashapp/stash
+    urls:
+    - https://github.com/truecharts/apps/releases/download/stash-1.0.3/stash-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-01T19:54:55.162611885Z"
     dependencies:
     - name: common
@@ -56762,4 +56787,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-01T19:54:56.256419138Z"
+generated: "2021-07-02T08:12:16.698259031Z"
