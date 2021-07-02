@@ -2,8 +2,8 @@
 {{- define "nextcloud.configmap" -}}
 
 {{- $hosts := "" }}
-{{- if $values.ingress.enabled }}
-{{ range $index, $host := $values.ingress.main.hosts }}
+{{- if .Values.ingress.main.enabled }}
+{{ range $index, $host := .Values.ingress.main.hosts }}
     {{- if $index }}
     {{ $hosts = ( printf "%v %v" $hosts $host ) }}
     {{- else }}
