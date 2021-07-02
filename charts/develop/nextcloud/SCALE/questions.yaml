@@ -85,7 +85,6 @@ questions:
               - value: "OnDelete"
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
 
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -105,8 +104,6 @@ questions:
           schema:
             type: string
             default: "002"
-
-
 
   # Configure Enviroment Variables
   - variable: envList
@@ -239,7 +236,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 38011
+                              default: 36091
                               required: true
 
   - variable: persistence
