@@ -38,15 +38,15 @@ spec:
                 - "-f"
                 - "/var/www/html/cron.php"
               # Will mount configuration files as www-data (id: 33) by default for nextcloud
+              {{- with (include "common.controller.volumeMounts" . | trim) }}
+              volumeMounts:
+                {{ nindent 16 . }}
+              {{- end }}
               securityContext:
                 {{- if .Values.securityContext }}
                 {{- with .Values.securityContext }}
                 {{- toYaml . | nindent 17 }}
                 {{- end }}
-                {{- end }}
-                {{- with (include "common.controller.volumeMounts" . | trim) }}
-                volumeMounts:
-                  {{ nindent 16 . }}
                 {{- end }}
               resources:
 {{ toYaml .Values.resources | indent 16 }}
