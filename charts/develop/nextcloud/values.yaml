@@ -17,6 +17,7 @@ service:
 env:
   NEXTCLOUD_ADMIN_USER: "admin"
   NEXTCLOUD_ADMIN_PASSWORD: "adminpass"
+  TRUSTED_PROXIES: "172.16.0.0/16"
 
 envTpl:
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"

@@ -18,5 +18,8 @@ metadata:
   name: nextcloudconfig
 data:
   NEXTCLOUD_TRUSTED_DOMAINS: {{ $hosts | quote }}
+  {{- if .Values.Ingress.main.enabled }}
+  APACHE_DISABLE_REWRITE_IP: 1
+  {{- end }}
 
 {{- end -}}
