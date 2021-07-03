@@ -65,7 +65,7 @@ probes:
   liveness:
     # -- sets the probe type when not using a custom probe
     # @default -- "TCP"
-    type: HTTP
+    type: AUTO
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: /status.php
@@ -75,7 +75,7 @@ probes:
   readiness:
     # -- sets the probe type when not using a custom probe
     # @default -- "TCP"
-    type: HTTP
+    type: AUTO
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: /status.php
@@ -85,7 +85,7 @@ probes:
   startup:
     # -- sets the probe type when not using a custom probe
     # @default -- "TCP"
-    type: HTTP
+    type: AUTO
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: /status.php
