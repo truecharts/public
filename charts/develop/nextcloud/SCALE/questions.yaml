@@ -382,6 +382,12 @@ questions:
                   type: boolean
                   default: true
                   hidden: true
+              - variable: noMount
+                label: "Do not mount this storage inside the main pod"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
               - variable: forceName
                 label: "Override PVC Name (advanced)"
                 description: "Forces a certain name for the PVC"
@@ -456,6 +462,12 @@ questions:
             attrs:
               - variable: enabled
                 label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: noMount
+                label: "Do not mount this storage inside the main pod"
                 schema:
                   type: boolean
                   default: true
