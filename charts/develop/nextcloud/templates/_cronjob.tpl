@@ -25,17 +25,23 @@ spec:
         metadata:
         spec:
           restartPolicy: Never
+          {{- with (include "common.controller.volumes" . | trim) }}
+          volumes:
+            {{- nindent 12 . }}
+          {{- end }}
           containers:
             - name: {{ .Chart.Name }}
               image: "{{ .Values.image.repository }}:{{ default .Values.image.tag }}"
               imagePullPolicy: {{ default .Values.image.pullPolicy }}
-              command: [ "curl" ]
+              command: [ "php" ]
               args:
-                - "-k"
-                - "--fail"
-                - "-L"
-                - "http://{{ template "common.names.fullname" . }}:{{ .Values.service.main.ports.main.port }}/cron.php"
+                - "-f"
+                - "/var/www/html/cron.php"
               # Will mount configuration files as www-data (id: 33) by default for nextcloud
+              {{- with (include "common.controller.volumeMounts" . | trim) }}
+              volumeMounts:
+                {{ nindent 16 . }}
+              {{- end }}
               securityContext:
                 {{- if .Values.securityContext }}
                 {{- with .Values.securityContext }}
