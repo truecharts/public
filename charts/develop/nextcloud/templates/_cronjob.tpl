@@ -43,11 +43,9 @@ spec:
                 {{ nindent 16 . }}
               {{- end }}
               securityContext:
-                {{- if .Values.securityContext }}
-                {{- with .Values.securityContext }}
-                {{- toYaml . | nindent 17 }}
-                {{- end }}
-                {{- end }}
+                runAsUser: 33
+                runAsgroup: 33
+                fsGroup: 33
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 
