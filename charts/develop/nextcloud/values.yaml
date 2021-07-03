@@ -60,10 +60,6 @@ persistence:
     enabled: true
     type: emptyDir
 
-  dbbackup:
-    enabled: true
-    type: emptyDir
-
 initContainers:
   - name: init-postgresdb
     image: postgres:13.1
