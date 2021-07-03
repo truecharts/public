@@ -3,7 +3,7 @@ appVersion: auto
 dependencies:
 - name: common
   repository: https://truecharts.org/
-  version: 6.4.6
+  version: 6.5.0
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.bitnami.com/bitnami
@@ -35,4 +35,4 @@ sources:
 - https://github.com/nextcloud/docker
 - https://github.com/nextcloud/helm
 type: application
-version: 1.0.10
+version: 1.0.11
