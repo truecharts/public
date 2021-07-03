@@ -14,12 +14,13 @@ service:
       main:
         port: 80
 
-env: {}
+env:
+  NEXTCLOUD_ADMIN_USER: "admin"
+  NEXTCLOUD_ADMIN_PASSWORD: "adminpass"
 
 envTpl:
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-
 
 envFrom:
   - configMapRef:
@@ -56,10 +57,6 @@ persistence:
 
   redismaster:
     forceName: "redismaster"
-    enabled: true
-    type: emptyDir
-
-  dbbackup:
     enabled: true
     type: emptyDir
 
