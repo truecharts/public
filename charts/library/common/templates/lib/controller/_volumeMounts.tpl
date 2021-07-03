@@ -1,6 +1,7 @@
 {{/* Volumes included by the controller */}}
 {{- define "common.controller.volumeMounts" -}}
   {{- range $index, $item := .Values.persistence }}
+  {{- if not $item.noMount }}
     {{- $mountPath := (printf "/%v" $index) -}}
     {{- if eq "hostPath" (default "pvc" $item.type) -}}
       {{- $mountPath = $item.hostPath -}}
@@ -28,6 +29,7 @@
   subPath: {{ $vct.subPath }}
       {{- end }}
     {{- end }}
+  {{- end }}
   {{- end }}
 
 {{- end -}}

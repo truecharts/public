@@ -51,11 +51,13 @@ persistence:
     type: emptyDir
 
   db:
+    noMount: true
     forceName: "db"
     enabled: true
     type: emptyDir
 
   redismaster:
+    noMount: true
     forceName: "redismaster"
     enabled: true
     type: emptyDir
@@ -127,6 +129,8 @@ cronjob:
 # Enabled postgres
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
+  volumePermissions:
+    enabled: true
   enabled: true
   postgresqlUsername: nextcloud
   postgresqlDatabase: nextcloud
@@ -138,6 +142,8 @@ postgresql:
 # Enabled redis
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
 redis:
+  volumePermissions:
+    enabled: true
   architecture: standalone
   enabled: true
   auth:
