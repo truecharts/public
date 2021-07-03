@@ -5,9 +5,9 @@
 {{- if .Values.ingress.main.enabled }}
 {{ range $index, $host := .Values.ingress.main.hosts }}
     {{- if $index }}
-    {{ $hosts = ( printf "%v %v" $hosts $host ) }}
+    {{ $hosts = ( printf "%v %v" $hosts $host.host ) }}
     {{- else }}
-    {{ $hosts = ( printf "%s" $host ) }}
+    {{ $hosts = ( printf "%s" $host.host ) }}
     {{- end }}
 {{ end }}
 {{- end }}
