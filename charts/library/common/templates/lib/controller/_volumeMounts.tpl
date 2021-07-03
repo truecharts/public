@@ -20,6 +20,7 @@
       {{- end }}
     {{- end }}
   {{- end }}
+  {{- end }}
 
   {{- if eq .Values.controller.type "statefulset" }}
     {{- range $index, $vct := .Values.volumeClaimTemplates }}
@@ -30,6 +31,6 @@
       {{- end }}
     {{- end }}
   {{- end }}
-  {{- end }}
+
 
 {{- end -}}
