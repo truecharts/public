@@ -29,5 +29,8 @@ metadata:
   name: hpbconfig
 data:
   NEXTCLOUD_URL: {{ ( printf "%v-%v" .Release.Name "nextcloud" ) | quote }}
+  {{- if .Values.env.HPB_URL }}
+  HPB_URL: {{ .Values.env.HPB_URL }}
+  {{- end }}
 
 {{- end -}}
