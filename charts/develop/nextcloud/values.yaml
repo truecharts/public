@@ -49,16 +49,19 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/www"
+    type: pvc
 
   db:
     noMount: true
     forceName: "db"
     enabled: true
+    type: pvc
 
   redismaster:
     noMount: true
     forceName: "redismaster"
     enabled: true
+    type: pvc
 
 initContainers:
   - name: init-postgresdb
