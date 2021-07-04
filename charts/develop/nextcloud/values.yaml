@@ -49,19 +49,16 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/www"
-    type: emptyDir
 
   db:
     noMount: true
     forceName: "db"
     enabled: true
-    type: emptyDir
 
   redismaster:
     noMount: true
     forceName: "redismaster"
     enabled: true
-    type: emptyDir
 
 initContainers:
   - name: init-postgresdb
