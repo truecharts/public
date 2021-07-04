@@ -939,7 +939,7 @@ questions:
                                                     schema:
                                                       type: string
                                                       hidden: true
-                                                      default: "{{ ( printf "%v-%v" .Release.Name "nextcloud-hpb" ) | quote }}"
+                                                      default: "{{ .Release.Name }}-nextcloud-hpb"
                                                   - variable: port
                                                     label: "serviceport"
                                                     schema:
