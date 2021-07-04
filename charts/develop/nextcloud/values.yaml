@@ -50,18 +50,21 @@ persistence:
     enabled: true
     mountPath: "/var/www"
     type: pvc
+    accessMode: ReadWriteOnce
 
   db:
     noMount: true
     forceName: "db"
     enabled: true
     type: pvc
+    accessMode: ReadWriteOnce
 
   redismaster:
     noMount: true
     forceName: "redismaster"
     enabled: true
     type: pvc
+    accessMode: ReadWriteOnce
 
 initContainers:
   - name: init-postgresdb
