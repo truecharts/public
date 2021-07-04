@@ -11,6 +11,7 @@ Probes selection logic.
 
 {{- range $probeName, $probe := .Values.probes }}
   {{- if $probe.enabled -}}
+    {{- $probeType = "TCP" -}}
     {{- "" | nindent 0 }}
     {{- $probeName }}Probe:
     {{- if $probe.custom -}}
