@@ -3,7 +3,7 @@ appVersion: auto
 dependencies:
 - name: common
   repository: https://truecharts.org/
-  version: 6.5.0
+  version: 6.5.1
 - condition: postgresql.enabled
   name: postgresql
   repository: https://charts.bitnami.com/bitnami
@@ -27,4 +27,4 @@ name: fireflyiii
 sources:
 - https://github.com/firefly-iii/firefly-iii/
 type: application
-version: 4.4.0
+version: 4.4.1
