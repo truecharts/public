@@ -99,10 +99,10 @@ probes:
     # @default -- "/"
     spec:
       httpGet:
+        path: /status.php
+        port: 80
         httpHeaders:
         - name: Host
-          path: /status.php
-          port: 80
           value: "test.fakedomain.dns"
       initialDelaySeconds: 10
       periodSeconds: 10
@@ -117,10 +117,10 @@ probes:
     # @default -- "/"
     spec:
       httpGet:
+        path: /status.php
+        port: 80
         httpHeaders:
         - name: Host
-          path: /status.php
-          port: 80
           value: "test.fakedomain.dns"
       initialDelaySeconds: 10
       periodSeconds: 10
