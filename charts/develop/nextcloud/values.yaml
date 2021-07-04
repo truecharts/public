@@ -48,7 +48,7 @@ envValueFrom:
 persistence:
   data:
     enabled: true
-    mountPath: "/var/www"
+    mountPath: "/var/www/html"
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
