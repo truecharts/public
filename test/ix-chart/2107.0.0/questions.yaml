@@ -255,7 +255,14 @@ questions:
       default: "Default"
       enum:
         - value: "Default"
-          description: "Use Default DNS Policy"
+          description: "Use Default DNS Policy where Pod will inherit the name resolution configuration from the node."
+        - value: "ClusterFirst"
+          description: >
+            "Kubernetes internal DNS will be prioritised and resolved first. If the domain does not resolve with internal
+            kubernetes DNS, the DNS query will be forwarded to the upstream nameserver inherited from the node. This is
+            useful if the workload needs to access other service(s)/workload(s) using kubernetes internal DNS."
+        - value: "ClusterFirstWithHostNet"
+          description: "For Pods running with hostNetwork and wanting to prioritise internal kubernetes DNS should make use of this policy."
         - value: "None"
           description: "Ignore DNS settings from the Kubernetes cluster"
   - variable: dnsConfig
