@@ -14,8 +14,10 @@ service:
       main:
         port: 80
   hpb:
+    enabled: true
     ports:
       hpb:
+        enabled: true
         port: 7867
 
 env:
