@@ -97,7 +97,7 @@ additionalContainers:
   command:
   - "/bin/bash"
   - "-c"
-  - "--" ]
+  - "--"
   args:
   - 'while [ ! -f "/var/www/html/custom_apps/notify_push/bin/x86_64/notify_push" ]; do sleep 30; echo "notify_push not found, waiting"; done; && /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push'
   env:
