@@ -94,8 +94,12 @@ additionalContainers:
 - name: hpb
   image: nextcloud:21.0.2
   imagePullPolicy: IfNotPresent
-  command: [ "/bin/bash", "-c", "--" ]
-  args: [ 'while [ ! -f "/var/www/html/custom_apps/notify_push/bin/x86_64/notify_push" ]; do sleep 30; echo "notify_push not found, waiting"; done; && /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push' ]
+  command:
+  - "/bin/bash"
+  - "-c"
+  - "--" ]
+  args:
+  - 'while [ ! -f "/var/www/html/custom_apps/notify_push/bin/x86_64/notify_push" ]; do sleep 30; echo "notify_push not found, waiting"; done; && /var/www/html/custom_apps/notify_push/bin/x86_64/notify_push'
   env:
     - name: PORT
       value: "7867"
