@@ -17,7 +17,7 @@ kind: ConfigMap
 metadata:
   name: nextcloudconfig
 data:
-  NEXTCLOUD_TRUSTED_DOMAINS: {{ ( printf "%v %v %v" "test.fakedomain.dns" .Values.env.NODE_IP $hosts ) | quote }}
+  NEXTCLOUD_TRUSTED_DOMAINS: {{ ( printf "%v %v %v" "test.fakedomain.dns" ( .Values.env.NODE_IP | default "localhost" ) $hosts ) | quote }}
   {{- if .Values.ingress.main.enabled }}
   APACHE_DISABLE_REWRITE_IP: "1"
   {{- end }}
