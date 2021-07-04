@@ -115,6 +115,19 @@ probes:
       timeoutSeconds: 2
       failureThreshold: 5
 
+  # -- Startup probe configuration
+  # @default -- See below
+  startup:
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: TCP
+    spec:
+      initialDelaySeconds: 10
+      timeoutSeconds: 2
+      ## This means it has a maximum of 5*30=150 seconds to start up before it fails
+      periodSeconds: 5
+      failureThreshold: 60
+
 
 ## Cronjob to execute Nextcloud background tasks
 ## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#webcron
