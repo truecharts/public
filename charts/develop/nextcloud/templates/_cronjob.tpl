@@ -33,10 +33,9 @@ spec:
             - name: {{ .Chart.Name }}
               image: "{{ .Values.image.repository }}:{{ default .Values.image.tag }}"
               imagePullPolicy: {{ default .Values.image.pullPolicy }}
-              command: [ "php" ]
+              command: [ "echo" ]
               args:
-                - "-f"
-                - "/var/www/html/cron.php"
+                - "/var/www/html/status.php"
               # Will mount configuration files as www-data (id: 33) by default for nextcloud
               {{- with (include "common.controller.volumeMounts" . | trim) }}
               volumeMounts:
