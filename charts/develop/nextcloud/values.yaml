@@ -94,13 +94,16 @@ probes:
   # -- Liveness probe configuration
   # @default -- See below
   liveness:
-    # -- sets the probe type when not using a custom probe
-    # @default -- "TCP"
-    type: AUTO
+    custom: true
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
-    path: /status.php
     spec:
+      httpGet:
+        httpHeaders:
+        - name: Host
+          path: /status.php
+          port: 80
+          value: "test.fakedomain.dns"
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 2
@@ -109,13 +112,16 @@ probes:
   # -- Redainess probe configuration
   # @default -- See below
   readiness:
-    # -- sets the probe type when not using a custom probe
-    # @default -- "TCP"
-    type: AUTO
+    custom: true
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
-    path: /status.php
     spec:
+      httpGet:
+        httpHeaders:
+        - name: Host
+          path: /status.php
+          port: 80
+          value: "test.fakedomain.dns"
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 2
