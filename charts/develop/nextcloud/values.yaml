@@ -94,6 +94,11 @@ probes:
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: /status.php
+    spec:
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 2
+      failureThreshold: 5
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -104,16 +109,12 @@ probes:
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: /status.php
+    spec:
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 2
+      failureThreshold: 5
 
-  # -- Startup probe configuration
-  # @default -- See below
-  startup:
-    # -- sets the probe type when not using a custom probe
-    # @default -- "TCP"
-    type: AUTO
-    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-    # @default -- "/"
-    path: /status.php
 
 ## Cronjob to execute Nextcloud background tasks
 ## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#webcron
