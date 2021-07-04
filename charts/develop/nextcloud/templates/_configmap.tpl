@@ -22,4 +22,12 @@ data:
   APACHE_DISABLE_REWRITE_IP: "1"
   {{- end }}
 
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hpbconfig
+data:
+  NEXTCLOUD_URL: {{ ( printf "%v-%v" .Release.Name "nextcloud" ) | b64enc | quote }}
+
 {{- end -}}

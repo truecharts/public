@@ -84,6 +84,29 @@ initContainers:
             name: dbcreds
             key: plainhost
 
+additionalContainers:
+- name: hpb
+  image: nextcloud:21.0.2
+  imagePullPolicy: IfNotPresent
+  command:
+    - "/var/www/html/custom_apps/notify_push/bin/x86_64/notify_push"
+    - "/var/www/html/config/config.php"
+  env:
+    PORT: 7867
+  envFrom:
+    - configMapRef:
+        name: hpbconfig
+  ports:
+    - name: hpb
+      containerPort: 7867
+  volumeMounts:
+    - mountPath: /var/www/html
+      name: data
+  securityContext:
+    runAsUser: 33
+    runAsGroup: 33
+
+
 podSecurityContext:
   fsGroup: 33
 
