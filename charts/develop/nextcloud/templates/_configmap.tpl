@@ -17,9 +17,17 @@ kind: ConfigMap
 metadata:
   name: nextcloudconfig
 data:
-  NEXTCLOUD_TRUSTED_DOMAINS: {{ ( printf "%v %v %v" "test.fakedomain.dns" ( .Values.env.NODE_IP | default "localhost" ) $hosts ) | quote }}
+  NEXTCLOUD_TRUSTED_DOMAINS: {{ ( printf "%v %v %v %v %v" "test.fakedomain.dns" ( .Values.env.NODE_IP | default "localhost" ) ( printf "%v-%v" .Release.Name "nextcloud" ) ( printf "%v-%v" .Release.Name "nextcloud-hpb" ) $hosts ) | quote }}
   {{- if .Values.ingress.main.enabled }}
   APACHE_DISABLE_REWRITE_IP: "1"
   {{- end }}
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hpbconfig
+data:
+  NEXTCLOUD_URL: {{ ( printf "%v-%v" .Release.Name "nextcloud" ) | quote }}
 
 {{- end -}}
