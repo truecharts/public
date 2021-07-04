@@ -34,7 +34,11 @@ Probes selection logic.
             {{- "tcpSocket:" | nindent 2 }}
           {{- end }}
 
-              {{- printf "port: %v" $primaryPort.port  | nindent 4 }}
+          {{- if $primaryPort.targetPort }}
+            {{- printf "port: %v" $primaryPort.targetPort | nindent 4 }}
+          {{- else}}
+            {{- printf "port: %v" $primaryPort.port | nindent 4 }}
+          {{- end }}
           {{- printf "initialDelaySeconds: %v" $probe.spec.initialDelaySeconds  | nindent 2 }}
           {{- printf "failureThreshold: %v" $probe.spec.failureThreshold  | nindent 2 }}
           {{- printf "timeoutSeconds: %v" $probe.spec.timeoutSeconds  | nindent 2 }}
