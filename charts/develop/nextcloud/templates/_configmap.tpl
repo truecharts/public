@@ -28,6 +28,6 @@ kind: ConfigMap
 metadata:
   name: hpbconfig
 data:
-  NEXTCLOUD_URL: {{ ( printf "%v-%v" .Release.Name "nextcloud" ) | b64enc | quote }}
+  NEXTCLOUD_URL: {{ ( printf "%v-%v" .Release.Name "nextcloud" ) | quote }}
 
 {{- end -}}

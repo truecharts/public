@@ -13,6 +13,10 @@ service:
     ports:
       main:
         port: 80
+  hpb:
+    ports:
+      hpb:
+        port: 7867
 
 env:
   NEXTCLOUD_ADMIN_USER: "admin"
