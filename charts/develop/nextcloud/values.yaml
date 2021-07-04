@@ -130,15 +130,20 @@ probes:
   # -- Startup probe configuration
   # @default -- See below
   startup:
-    # -- sets the probe type when not using a custom probe
-    # @default -- "TCP"
-    type: TCP
+    custom: true
+    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+    # @default -- "/"
     spec:
+      httpGet:
+        path: /status.php
+        port: 80
+        httpHeaders:
+        - name: Host
+          value: "test.fakedomain.dns"
       initialDelaySeconds: 10
+      periodSeconds: 10
       timeoutSeconds: 2
-      ## This means it has a maximum of 5*30=150 seconds to start up before it fails
-      periodSeconds: 5
-      failureThreshold: 60
+      failureThreshold: 5
 
 
 ## Cronjob to execute Nextcloud background tasks
