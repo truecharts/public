@@ -107,11 +107,13 @@ questions:
           label: "PGADMIN_DEFAULT_EMAIL"
           schema:
             type: string
+            required: true
             default: ""
         - variable: PGADMIN_DEFAULT_PASSWORD
           label: "PGADMIN_DEFAULT_PASSWORD"
           schema:
             type: string
+            required: true
             default: ""
   # Configure Enviroment Variables
   - variable: envList
