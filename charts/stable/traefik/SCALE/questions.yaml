@@ -150,6 +150,82 @@ questions:
                             schema:
                               type: string
                               default: ""
+        - variable: chain
+          label: "chain"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: chainEntry
+                label: ""
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: middlewares
+                      label: "Middlewares to Chain"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+
+        - variable: redirectScheme
+          label: "redirectScheme"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: redirectSchemeEntry
+                label: ""
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: scheme
+                      label: "Scheme"
+                      schema:
+                        type: string
+                        required: true
+                        default: "https"
+                        enum:
+                          - value: "https"
+                            description: "https"
+                          - value: "http"
+                            description: "http"
+                    - variable: permanent
+                      label: "Permanent"
+                      schema:
+                        type: boolean
+                        required: true
+                        default: false
+
+        - variable: rateLimit
+          label: "rateLimit"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: rateLimitEntry
+                label: ""
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: average
+                      label: "Average"
+                      schema:
+                        type: int
+                        required: true
+                        default: 300
+                    - variable: burst
+                      label: "Burst"
+                      schema:
+                        type: int
+                        required: true
+                        default: 200
 
   - variable: hostNetwork
     group: "Networking and Services"
