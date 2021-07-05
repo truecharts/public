@@ -29,7 +29,7 @@
   {{- end }}
 {{- end }}
 
-{{- $traefikportalhook := lookup "v1" "ConfigMap" traefikmiddlewares "portalhook" }}
+{{- $traefikportalhook := lookup "v1" "ConfigMap" "traefikmiddlewares" "portalhook" }}
 {{- if .Values.portal.ingressPort  }}
   {{- $ingressport = .Values.portal.ingressPort }}
 {{- else if $traefikportalhook }}
