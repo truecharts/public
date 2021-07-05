@@ -11,6 +11,6 @@ spec:
   chain:
     middlewares:
       {{ range $index, $chainData := .Values.middlewares.chainmiddlewares }}
-      - name: {{ $chainData.name }}
+      - name: {{ printf "%v-%v@%v" "traefikmiddlewares" $chainData.name "kubernetescrd" }}
       {{ end }}
 {{ end }}
