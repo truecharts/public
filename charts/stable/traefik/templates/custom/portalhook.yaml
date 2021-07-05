@@ -8,5 +8,5 @@ metadata:
   name: portalhook
   namespace: traefikmiddlewares
 data:
-  websecureport: {{ .Values.ports.websecure.exposedPort }}
+  websecureport: {{ .Values.ports.websecure.exposedPort | quote }}
 {{- end }}
