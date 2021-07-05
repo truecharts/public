@@ -161,6 +161,11 @@ questions:
                 schema:
                   type: dict
                   attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
                     - variable: middlewares
                       label: "Middlewares to Chain"
                       schema:
@@ -185,6 +190,11 @@ questions:
                 schema:
                   type: dict
                   attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
                     - variable: scheme
                       label: "Scheme"
                       schema:
@@ -214,6 +224,11 @@ questions:
                 schema:
                   type: dict
                   attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
                     - variable: average
                       label: "Average"
                       schema:
