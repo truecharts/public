@@ -32184,6 +32184,48 @@ entries:
   nextcloud:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-05T08:44:41.064814161Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.5.1
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.6.3
+    description: A private cloud server that puts the control and security of your
+      own data back into your hands.
+    digest: e87624b717982c76b59c27ade1a07d02b49c144f16a015a42e32cdf6cef4dbf8
+    home: https://nextcloud.com/
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nextcloud_Logo.svg/1280px-Nextcloud_Logo.svg.png
+    keywords:
+    - nextcloud
+    - storage
+    - http
+    - web
+    - php
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: nextcloud
+    sources:
+    - https://github.com/nextcloud/docker
+    - https://github.com/nextcloud/helm
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nextcloud-1.1.6/nextcloud-1.1.6.tgz
+    version: 1.1.6
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-04T21:27:16.000291227Z"
     dependencies:
     - name: common
@@ -53735,6 +53777,37 @@ entries:
   traefik:
   - apiVersion: v2
     appVersion: "2.4"
+    created: "2021-07-05T08:44:41.266074165Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.1
+    description: A Traefik based Reverse Proxy and Certificate Manager
+    digest: cf21bb52d00bbd429c56f0016c10bef323a2b8faadd894d470060e72d8eeba4a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/traefik
+    icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    - https://traefik.io/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/traefik-6.5.1/traefik-6.5.1.tgz
+    version: 6.5.1
+  - apiVersion: v2
+    appVersion: "2.4"
     created: "2021-07-04T11:46:32.152992467Z"
     dependencies:
     - name: common
@@ -63559,4 +63632,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-04T21:27:16.017013419Z"
+generated: "2021-07-05T08:44:41.282987991Z"
