@@ -19,17 +19,6 @@ spec:
     average: 300
     burst: 200
 ---
-# This ensures http is redirected to https even when the websecure port is set to 9443
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: basic-redirectscheme
-  namespace: traefikmiddlewares
-spec:
-  redirectScheme:
-    scheme: https
-    permanent: true
----
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
@@ -67,4 +56,3 @@ spec:
     - name: basic-ratelimit
     - name: basic-secure-headers
     - name: compress
-    - name: basic-redirectscheme
