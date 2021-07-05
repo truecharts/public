@@ -8,12 +8,13 @@ dependencies:
   name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 10.5.1
-- name: redis
-  version: 14.6.3
+- condition: redis.enabled
+  name: redis
   repository: https://charts.bitnami.com/bitnami
-  condition: redis.enabled
+  version: 14.6.3
 deprecated: false
-description: A private cloud server that puts the control and security of your own data back into your hands.
+description: A private cloud server that puts the control and security of your own
+  data back into your hands.
 home: https://nextcloud.com/
 icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nextcloud_Logo.svg/1280px-Nextcloud_Logo.svg.png
 keywords:
@@ -35,4 +36,4 @@ sources:
 - https://github.com/nextcloud/docker
 - https://github.com/nextcloud/helm
 type: application
-version: 1.1.8
+version: 1.1.9
