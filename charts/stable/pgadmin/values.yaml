@@ -13,9 +13,11 @@ service:
     enabled: true
     ports:
       main:
-        port: 8080
+        port: 80
 
-env: {}
+env:
+  PGADMIN_DEFAULT_EMAIL: ""
+  PGADMIN_DEFAULT_PASSWORD: ""
 
 persistence:
   config:
