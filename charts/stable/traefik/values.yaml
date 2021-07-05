@@ -424,3 +424,12 @@ middlewares:
   #     - "X-CustomHeader"
   #   authResponseHeadersRegex: "^X-"
   #   trustForwardHeader: true
+  chain: []
+  # middlewares:
+  #  - name: compress
+  redirectScheme: []
+  #  scheme: https
+  #  permanent: true
+  rateLimit: []
+  #  average: 300
+  #  burst: 200
