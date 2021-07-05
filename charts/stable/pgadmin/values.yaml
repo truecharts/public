@@ -1,0 +1,26 @@
+# Default values for Jackett.
+
+image:
+  repository: dpage/pgadmin4
+  pullPolicy: IfNotPresent
+  tag: "5.3"
+
+strategy:
+  type: Recreate
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 80
+
+env:
+  PGADMIN_DEFAULT_EMAIL: "replace@this.now"
+  PGADMIN_DEFAULT_PASSWORD: "changeme"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/lib/pgadmin"
+    type: emptyDir

@@ -1,0 +1,21 @@
+# Default values for Jackett.
+
+image:
+  repository: osixia/phpldapadmin
+  pullPolicy: IfNotPresent
+  tag: "0.9.0"
+
+strategy:
+  type: Recreate
+
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 80
+
+env:
+  PHPLDAPADMIN_HTTPS: "false"
+  PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
