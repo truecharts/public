@@ -19,11 +19,3 @@ service:
 env:
   PHPLDAPADMIN_HTTPS: "false"
   PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
-
-
-
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-    type: emptyDir

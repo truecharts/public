@@ -5,11 +5,19 @@
 ##
 
 image:
-  repository: osixia/phpldapadmin
+  repository: dpage/pgadmin4
   pullPolicy: IfNotPresent
-  tag: 0.9.0
+  tag: 5.3
 
+probes:
+  liveness:
+    path: "/UI/Login"
 
+  readiness:
+    path: "/UI/Login"
+
+  startup:
+    path: "/UI/Login"
 
 ##
 # Most other defaults are set in questions.yaml
