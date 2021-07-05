@@ -10,6 +10,7 @@
 {{- $protocol := "https" }}
 {{- $portProtocol := "" }}
 {{- $path := "/" }}
+{{- $ingressport := 443 }}
 
 {{- if $ingr }}
   {{- if $ingr.enabled }}
@@ -28,8 +29,17 @@
   {{- end }}
 {{- end }}
 
-{{- if and ( .Values.portal.ingressPort ) ( ne $host "$node_ip" ) }}
-  {{- $port = .Values.portal.ingressPort }}
+{{- $traefikportalhook := lookup "v1" "ConfigMap" traefikmiddlewares "portalhook" }}
+{{- if .Values.portal.ingressPort  }}
+  {{- $ingressport = .Values.portal.ingressPort }}
+{{- else if $traefikportalhook }}
+  {{- if $traefikportalhook.data.websecureport }}
+    {{- $ingressport = ( index $traefikportalhook.data "websecureport" ) }}
+  {{- end }}
+{{- end }}
+
+{{- if ne $host "$node_ip" }}
+  {{- $port = $ingressport }}
 {{- else  if eq $host "$node_ip" }}
   {{- if eq $primaryService.type "NodePort" }}
     {{- $port = $primaryPort.nodePort }}
