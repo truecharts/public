@@ -8,7 +8,6 @@ image:
 strategy:
   type: Recreate
 
-
 service:
   main:
     enabled: true
@@ -17,8 +16,6 @@ service:
         port: 8080
 
 env: {}
-
-
 
 persistence:
   config:

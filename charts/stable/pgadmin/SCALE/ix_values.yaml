@@ -9,15 +9,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 5.3
 
-probes:
-  liveness:
-    path: "/UI/Login"
-
-  readiness:
-    path: "/UI/Login"
-
-  startup:
-    path: "/UI/Login"
 
 ##
 # Most other defaults are set in questions.yaml
