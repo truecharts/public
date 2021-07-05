@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 3.3.10](https://img.shields.io/badge/Version-3.3.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 3.4.2](https://img.shields.io/badge/Version-3.4.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Unofficial Bitwarden compatible server written in Rust
 
@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://charts.bitnami.com/bitnami | postgresql | 10.5.1 |
-| https://truecharts.org/ | common | 6.4.6 |
+| https://truecharts.org/ | common | 6.5.2 |
 
 ## Installing the Chart
 
