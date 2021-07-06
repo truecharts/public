@@ -3,8 +3,6 @@ ARG VERSION
 # hadolint ignore=DL3007
 FROM freeradius/freeradius-server:${VERSION}
 
-USER root
-
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
