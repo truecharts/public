@@ -28851,6 +28851,34 @@ entries:
   komga:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-06T09:09:39.989147918Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.5.4
+    description: A comics/mangas server to serve/stream pages via API
+    digest: 4a7f7bda920e156675579289108937f16d5c35da571d1bd5a872a39dae48a484
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/komga
+    icon: https://komga.org/assets/media/logo.svg
+    keywords:
+    - komga
+    - comics
+    - mangas
+    - server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: komga
+    sources:
+    - https://komga.org/
+    - https://github.com/gotson/komga
+    urls:
+    - https://github.com/truecharts/apps/releases/download/komga-1.1.6/komga-1.1.6.tgz
+    version: 1.1.6
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-06T09:01:24.548337406Z"
     dependencies:
     - name: common
@@ -71519,4 +71547,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-06T09:01:24.991895243Z"
+generated: "2021-07-06T09:09:40.007373437Z"
