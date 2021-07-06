@@ -8,8 +8,6 @@ VOLUME /config
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
 RUN \
-  mkdir -p /defaults/raddb/ && \
-  cp -Rf /etc/raddb/* /defaults/raddb/ && \
   rm /docker-entrypoint.sh && \
   rm -Rf /etc/raddb && \
   ln -s  /config /etc/raddb
