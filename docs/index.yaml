@@ -42689,6 +42689,38 @@ entries:
   openldap:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-06T14:05:51.612041981Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Community developed LDAP software
+    digest: d8a7a528a78e1241bfd66d198d153368ecd3a10ebcb74cc5a987754fc48e79c5
+    home: https://www.openldap.org
+    icon: https://raw.githubusercontent.com/jp-gouin/helm-openldap/master/logo.png
+    keywords:
+    - ldap
+    - openldap
+    - iam-stack
+    - high availability
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: openldap
+    sources:
+    - https://github.com/jp-gouin/helm-openldap
+    - https://github.com/osixia/docker-openldap
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/openldap-1.0.1/openldap-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-06T14:02:50.186348156Z"
     dependencies:
     - name: common
@@ -71700,4 +71732,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-06T14:02:50.205694974Z"
+generated: "2021-07-06T14:05:51.632731526Z"
