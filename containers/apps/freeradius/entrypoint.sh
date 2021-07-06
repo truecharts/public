@@ -1,11 +1,16 @@
 #!/bin/sh
 set -e
 
-if [ -f "/etc/raddb/clients.conf" ]; then
+if [ -f "/config/clients.conf" ]; then
   echo "Radius config already exists, skipping config copy..."
+  chown -R freerad:freerad /config
+  ln -s /etc/raddb /config
 else
-  echo "Radius config does not exist copying..."
-  cp -Rf /defaults/raddb/* /etc/raddb/
+  echo "Radius config does not exist, copying..."
+  rm -Rf /defaults/raddb
+  cp -Rf /defaults/raddb/* /config/
+  chown -R freerad:freerad /config
+  ln -s /etc/raddb /config
 fi
 
 # this if will check if the first argument is a flag
