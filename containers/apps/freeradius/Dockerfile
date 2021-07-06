@@ -4,13 +4,16 @@ ARG VERSION
 FROM freeradius/freeradius-server:${VERSION}
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+VOLUME /config
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
 RUN \
   mkdir -p /defaults/raddb/ && \
-  cp -Rf /etc/raddb/* /defaults/raddb/
+  cp -Rf /etc/raddb/* /defaults/raddb/ && \
+  rm -Rf /etc/raddb && \
+  ln -s  /config /etc/raddb
 
-VOLUME /config
+
 COPY ./containers/apps/freeradius/entrypoint.sh /entrypoint.sh
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
