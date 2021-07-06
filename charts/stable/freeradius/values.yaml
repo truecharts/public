@@ -9,10 +9,12 @@ service:
   main:
     ports:
       main:
+        protocol: UDP
         port: 1812
   accounting:
     ports:
       accounting:
+        protocol: UDP
         port: 1813
 
 env: {}
