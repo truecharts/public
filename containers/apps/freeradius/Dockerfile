@@ -10,6 +10,7 @@ RUN \
   mkdir -p /defaults/raddb/ && \
   cp -Rf /etc/raddb/* /defaults/raddb/
 
+VOLUME /config
 COPY ./containers/apps/freeradius/entrypoint.sh /entrypoint.sh
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
