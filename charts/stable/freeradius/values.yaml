@@ -1,0 +1,30 @@
+# Default values for Bitwarden.
+
+image:
+  repository: freeradius/freeradius-server
+  pullPolicy: IfNotPresent
+  tag: 3.0.23
+
+service:
+  main:
+    ports:
+      main:
+        port: 1812
+  accounting:
+    ports:
+      accounting:
+        port: 1813
+
+env: {}
+
+envFrom:
+  - configMapRef:
+      name: openldapconfig
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/raddb/"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
