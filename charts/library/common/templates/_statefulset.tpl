@@ -49,8 +49,12 @@ spec:
       {{- include "common.controller.pod" . | nindent 6 }}
   volumeClaimTemplates:
     {{- range $index, $vct := .Values.volumeClaimTemplates }}
+    {{- $vctname := $index }}
+    {{- if $vct.name }}
+    {{- $vctname := $vct.name }}
+    {{- end }}
     - metadata:
-        name: {{ $vct.name }}
+        name: {{ $vctname }}
       spec:
         accessModes:
           - {{ required (printf "accessMode is required for vCT %v" $vct.name) $vct.accessMode  | quote }}
