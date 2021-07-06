@@ -31,6 +31,10 @@ service:
     ports:
       main:
         port: 389
+  https:
+    ports:
+      https:
+        port: 636
 
 # Default configuration for openldap as environment variables. These get injected directly in the container.
 # Use the env variables from https://github.com/osixia/docker-openldap#beginner-guide
@@ -43,11 +47,7 @@ env:
   LDAP_READONLY_USER_PASSWORD: "readonly"
   LDAP_RFC2307BIS_SCHEMA: "false"
   LDAP_BACKEND: "mdb"
-  LDAP_TLS: "false"
-  LDAP_TLS_CRT_FILENAME: "tls.crt"
-  LDAP_TLS_KEY_FILENAME: "tls.key"
-  LDAP_TLS_DH_PARAM_FILENAME: "dhparam.pem"
-  LDAP_TLS_CA_CRT_FILENAME: "ca.crt"
+  LDAP_TLS: "true"
   LDAP_TLS_ENFORCE: "false"
   LDAP_TLS_VERIFY_CLIENT: "never"
   LDAP_TLS_PROTOCOL_MIN: "3.0"
