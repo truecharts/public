@@ -17041,6 +17041,37 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/focalboard-1.0.1/focalboard-1.0.1.tgz
     version: 1.0.1
+  freeradius:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T22:52:07.079171084Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: OpenSource Radius implementation
+    digest: 59c6090cf5d074aa99b99443771875c62eb115abd97d29be57cc7059f6071a7b
+    home: https://www.openldap.org
+    icon: https://networkradius.com/assets/img/FR-NR.svg
+    keywords:
+    - radius
+    - auth
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: freeradius
+    sources:
+    - https://hub.docker.com/r/freeradius/freeradius-server/
+    - https://freeradius.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/freeradius-1.0.0/freeradius-1.0.0.tgz
+    version: 1.0.0
   freshrss:
   - apiVersion: v2
     appVersion: auto
@@ -44135,6 +44166,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/ombi-3.1.5/ombi-3.1.5.tgz
     version: 3.1.5
   openldap:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T22:52:07.240347223Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Community developed LDAP software
+    digest: b0a6d0143360fc82cce16ce56892b66dcd3be20691fcf4b59cdeffc51d6ff34a
+    home: https://www.openldap.org
+    icon: https://raw.githubusercontent.com/jp-gouin/helm-openldap/master/logo.png
+    keywords:
+    - ldap
+    - openldap
+    - iam-stack
+    - high availability
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: openldap
+    sources:
+    - https://github.com/jp-gouin/helm-openldap
+    - https://github.com/osixia/docker-openldap
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/openldap-1.0.2/openldap-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-06T14:05:51.612041981Z"
@@ -74212,4 +74275,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-06T21:31:39.577142462Z"
+generated: "2021-07-06T22:52:07.259794736Z"
