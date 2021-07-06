@@ -15993,6 +15993,34 @@ entries:
   flood:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-06T08:56:47.986047477Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.5.4
+    description: Flood is a monitoring service for various torrent clients
+    digest: f51671db36999d7170795992eb900955e8aed588ec7cf535eb63da5909c6b627
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/flood
+    icon: https://raw.githubusercontent.com/jesec/flood/master/flood.svg
+    keywords:
+    - flood
+    - rtorrent
+    - qbittorrent
+    - transmission
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: flood
+    sources:
+    - https://github.com/jesec/flood
+    - https://hub.docker.com/r/jesec/flood
+    urls:
+    - https://github.com/truecharts/apps/releases/download/flood-1.1.5/flood-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-05T22:21:03.657533999Z"
     dependencies:
     - name: common
@@ -24785,6 +24813,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/hyperion-ng-1.0.1/hyperion-ng-1.0.1.tgz
     version: 1.0.1
   jackett:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T08:56:48.113412444Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.4
+    description: API Support for your favorite torrent trackers.
+    digest: 81f12b2a74f6517a811e19605ae0f5312743aae31c2e3a32dc313c3e3a1361ca
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/jackett
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - jackett
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jackett-6.3.5/jackett-6.3.5.tgz
+    version: 6.3.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-05T22:21:05.097045472Z"
@@ -34429,6 +34487,35 @@ entries:
   navidrome:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-06T08:56:48.252968727Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.4
+    description: Navidrome is an open source web-based music collection server and
+      streamer
+    digest: 185a040e920af2609796dba74f6e9e6634a4d62bd8393fae9ec37ef226a710f3
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/navidrome
+    icon: https://raw.githubusercontent.com/navidrome/navidrome/v0.42.0/ui/src/icons/android-icon-192x192.png
+    keywords:
+    - navidrome
+    - music
+    - streaming
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: navidrome
+    sources:
+    - https://github.com/deluan/navidrome
+    - https://hub.docker.com/r/deluan/navidrome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/navidrome-6.3.5/navidrome-6.3.5.tgz
+    version: 6.3.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-05T22:21:06.312743857Z"
     dependencies:
     - name: common
@@ -35674,6 +35761,48 @@ entries:
     - https://github.com/truecharts/apps/releases/download/navidrome-3.1.5/navidrome-3.1.5.tgz
     version: 3.1.5
   nextcloud:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T08:56:48.412237465Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.4
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.5.2
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.6.4
+    description: A private cloud server that puts the control and security of your
+      own data back into your hands.
+    digest: d652e66a44402f74aae917871fc3b50a2145ca39d320ae6db752cb08c64909c0
+    home: https://nextcloud.com/
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nextcloud_Logo.svg/1280px-Nextcloud_Logo.svg.png
+    keywords:
+    - nextcloud
+    - storage
+    - http
+    - web
+    - php
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: nextcloud
+    sources:
+    - https://github.com/nextcloud/docker
+    - https://github.com/nextcloud/helm
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nextcloud-1.1.12/nextcloud-1.1.12.tgz
+    version: 1.1.12
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-06T08:37:14.203184141Z"
@@ -40706,6 +40835,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/omada-controller-1.0.1/omada-controller-1.0.1.tgz
     version: 1.0.1
   ombi:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T08:56:48.553571052Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.4
+    description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
+    digest: 344b0f5c46ceb3264d3ee2aefd7272d445be3bb0a58ee3f78ed487fd84625ee2
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ombi
+    icon: https://img3.androidappsapk.co/wiLDnuwrCWctiiW62ALcj4eIpNbzeRH_UNPo7eqlpYvGkCQYSTybaI4xVRLKGjnlamlV=s300
+    keywords:
+    - ombi
+    - plex
+    - emby
+    - sonarr
+    - radarr
+    - couchpotato
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: ombi
+    sources:
+    - https://github.com/tidusjar/Ombi
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ombi-6.3.5/ombi-6.3.5.tgz
+    version: 6.3.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-05T22:21:07.163599863Z"
@@ -47317,6 +47479,30 @@ entries:
   prototype-gui:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-06T08:56:48.68844996Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.4
+    description: App to test GUI prototypes
+    digest: c81c07bcb9b9ef4f45dc9c0ded19f77d06d8c18dec4b79d9c414a2dfc402cabb
+    home: https://github.com/truechartsapps/tree/master/charts/develop/prototype-gui
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - dev
+    - prototype
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prototype-gui
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prototype-gui-1.4.5/prototype-gui-1.4.5.tgz
+    version: 1.4.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-05T22:21:08.556932416Z"
     dependencies:
     - name: common
@@ -48408,6 +48594,34 @@ entries:
     - https://github.com/truecharts/apps/releases/download/prototype-gui-0.0.1/prototype-gui-0.0.1.tgz
     version: 0.0.1
   prowlarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T08:56:48.818990214Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.4
+    description: Indexer manager/proxy built on the popular arr net base stack to
+      integrate with your various PVR apps.
+    digest: baa5e3f76c9ae420fb57975f34c13329524497e1309f28432efcd1f821151c30
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/prowlarr
+    icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/400.png
+    keywords:
+    - prowlarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prowlarr
+    sources:
+    - https://github.com/Prowlarr/Prowlarr
+    - https://github.com/k8s-at-home/container-images
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prowlarr-1.3.5/prowlarr-1.3.5.tgz
+    version: 1.3.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-05T22:21:08.673319506Z"
@@ -51762,6 +51976,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/radarr-3.1.5/radarr-3.1.5.tgz
     version: 3.1.5
   readarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T08:56:48.943238599Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.4
+    description: A fork of Radarr to work with Books & AudioBooks
+    digest: 838a3b372fbe3b608f7951990a015090625493af2e4a738c56ab669b2500325e
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/readarr
+    icon: https://github.com/Readarr/Readarr/blob/develop/Logo/1024.png?raw=true
+    keywords:
+    - readarr
+    - torrent
+    - usenet
+    - AudioBooks
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: readarr
+    sources:
+    - https://github.com/Readarr/Readarr
+    - https://readarr.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/readarr-6.3.5/readarr-6.3.5.tgz
+    version: 6.3.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-05T22:21:09.116989398Z"
@@ -71046,4 +71293,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-06T08:37:14.368411071Z"
+generated: "2021-07-06T08:56:48.965003675Z"
