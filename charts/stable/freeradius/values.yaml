@@ -1,0 +1,47 @@
+# Default values for Bitwarden.
+
+image:
+  repository: ghcr.io/truecharts/freeradius
+  pullPolicy: IfNotPresent
+  tag: v3.0.23
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        port: 1812
+  accounting:
+    ports:
+      accounting:
+        protocol: UDP
+        port: 1813
+
+# -- Probe configuration
+# -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+# @default -- See below
+probes:
+  # -- Liveness probe configuration
+  # @default -- See below
+  liveness:
+    enabled: false
+
+  # -- Redainess probe configuration
+  # @default -- See below
+  readiness:
+    enabled: false
+
+  # -- Startup probe configuration
+  # @default -- See below
+  startup:
+    enabled: false
+
+env: {}
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

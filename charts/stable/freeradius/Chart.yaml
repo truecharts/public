@@ -5,14 +5,12 @@ dependencies:
   repository: https://truecharts.org/
   version: 6.6.1
 deprecated: false
-description: Community developed LDAP software
+description: OpenSource Radius implementation
 home: https://www.openldap.org
-icon: https://raw.githubusercontent.com/jp-gouin/helm-openldap/master/logo.png
+icon: https://networkradius.com/assets/img/FR-NR.svg
 keywords:
-- ldap
-- openldap
-- iam-stack
-- high availability
+- radius
+- auth
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
@@ -21,9 +19,9 @@ maintainers:
 - email: kjeld@schouten-lebbing.nl
   name: Ornias1993
   url: truecharts.org
-name: openldap
+name: freeradius
 sources:
-- https://github.com/jp-gouin/helm-openldap
-- https://github.com/osixia/docker-openldap
+- https://hub.docker.com/r/freeradius/freeradius-server/
+- https://freeradius.org/
 type: application
-version: 1.0.2
+version: 1.0.0
