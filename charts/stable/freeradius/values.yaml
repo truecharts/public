@@ -41,7 +41,7 @@ env: {}
 persistence:
   config:
     enabled: true
-    mountPath: "/etc/raddb/"
+    mountPath: "/config"
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
