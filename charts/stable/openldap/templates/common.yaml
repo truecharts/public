@@ -4,11 +4,5 @@
 {{/* Render the templates */}}
 {{ include "common.all" . }}
 
-{{/* Render configmap for nextcloud */}}
-{{- include "nextcloud.configmap" . }}
-
-{{/* Render secrets for nextcloud */}}
-{{- include "nextcloud.secrets" . }}
-
-{{/* Render cronjob for nextcloud */}}
-{{- include "nextcloud.cronjob" . }}
+{{/* Render configmap for openldap */}}
+{{- include "openldap.configmap" . }}
