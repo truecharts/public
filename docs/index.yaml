@@ -4012,6 +4012,31 @@ entries:
   calibre:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-06T09:01:24.243093568Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.5.4
+    description: Calibre is a powerful and easy to use e-book manager.
+    digest: 67859407cceefdc6590365846c813863a2ec097a7452d5b3b1c08181fc1d843c
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/calibre
+    icon: https://github.com/kovidgoyal/calibre/raw/master/resources/images/lt.png
+    keywords:
+    - calibre
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: calibre
+    sources:
+    - https://hub.docker.com/r/linuxserver/calibre/
+    - https://github.com/kovidgoyal/calibre/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/calibre-1.1.5/calibre-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-05T22:21:01.938441634Z"
     dependencies:
     - name: common
@@ -16218,6 +16243,35 @@ entries:
   focalboard:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-06T09:01:24.339610844Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.5.4
+    description: Focalboard is an open source, self-hosted alternative to Trello,
+      Notion, and Asana.
+    digest: 274e8826f56350d700da457ca5b075bbfef95b9f039dcd2502a04d8a53349df1
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/focalboard
+    icon: https://github.com/mattermost/focalboard/raw/main/webapp/static/favicon.svg
+    keywords:
+    - focalboard
+    - kanban
+    - project management
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: focalboard
+    sources:
+    - https://www.focalboard.com/
+    - https://github.com/mattermost/focalboard
+    - https://github.com/FlipEnergy/container-images/blob/main/focalboard
+    urls:
+    - https://github.com/truecharts/apps/releases/download/focalboard-1.1.5/focalboard-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-05T22:21:03.783855645Z"
     dependencies:
     - name: common
@@ -22042,6 +22096,35 @@ entries:
     - https://github.com/truecharts/apps/releases/download/haste-server-1.0.0/haste-server-1.0.0.tgz
     version: 1.0.0
   healthchecks:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T09:01:24.450515732Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.5.4
+    description: Healthchecks is a cron job monitoring service. It listens for HTTP
+      requests and email messages ("pings") from your cron jobs and scheduled tasks
+      ("checks"). When a ping does not arrive on time, Healthchecks sends out alerts.
+    digest: 2a6ec9e98c378cd24352832d662d858625f45a11455251a7aad915e415f54709
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/healthchecks
+    icon: https://raw.githubusercontent.com/healthchecks/healthchecks/master/stuff/logo.svg?raw=true
+    keywords:
+    - cron
+    - monitoring
+    - alert
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: healthchecks
+    sources:
+    - https://github.com/healthchecks/healthchecks
+    - https://hub.docker.com/r/linuxserver/healthchecks
+    urls:
+    - https://github.com/truecharts/apps/releases/download/healthchecks-1.1.5/healthchecks-1.1.5.tgz
+    version: 1.1.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-05T22:21:04.644565686Z"
@@ -28766,6 +28849,34 @@ entries:
     - https://github.com/truecharts/apps/releases/download/kms-3.1.5/kms-3.1.5.tgz
     version: 3.1.5
   komga:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T09:01:24.548337406Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.5.4
+    description: A comics/mangas server to serve/stream pages via API
+    digest: 77a551cfb0bad0abca0a04281010ab1efbed872bce065f32b155e7db8889f8ae
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/komga
+    icon: https://komga.org/assets/media/logo.svg
+    keywords:
+    - komga
+    - comics
+    - mangas
+    - server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: komga
+    sources:
+    - https://komga.org/
+    - https://github.com/gotson/komga
+    urls:
+    - https://github.com/truecharts/apps/releases/download/komga-1.1.5/komga-1.1.5.tgz
+    version: 1.1.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-05T22:21:05.43952158Z"
@@ -40654,6 +40765,32 @@ entries:
   omada-controller:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-06T09:01:24.648071382Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.5.4
+    description: Omada enables the network administrators to monitor and manage all
+      the Omada products in the network with a centralized management platform.
+    digest: 4f1bb216e18160af63cabc2285d8c9f17d87f9563e21c46e7751da8d02f7653e
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/omada-controller
+    icon: https://www.tp-link.com/assets/images/icon/logo-white.svg
+    keywords:
+    - omada-controller
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: omada-controller
+    sources:
+    - https://github.com/mbentley/docker-omada-controller
+    - https://github.com/truechartsapps/tree/master/charts/omada-controller
+    urls:
+    - https://github.com/truecharts/apps/releases/download/omada-controller-1.1.5/omada-controller-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-05T22:21:07.057019648Z"
     dependencies:
     - name: common
@@ -43942,6 +44079,38 @@ entries:
   owncloud-ocis:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-06T09:01:24.767086172Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.5.4
+    description: ownCloud Infinite Scale is a self-hosted file sync and share server.
+    digest: aac9ee09bc03342033d98a2b21dfc5dd64b9ae0eec793f7c52606424748e6da6
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/owncloud-ocis
+    icon: https://avatars.githubusercontent.com/u/1645051?s=200&v=4
+    keywords:
+    - owncloud
+    - ocis
+    - infinite
+    - scale
+    - self-hosted
+    - sync
+    - share
+    - server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: owncloud-ocis
+    sources:
+    - https://hub.docker.com/r/owncloud/ocis
+    - https://owncloud.dev/ocis/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/owncloud-ocis-1.1.5/owncloud-ocis-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-05T22:21:07.628707019Z"
     dependencies:
     - name: common
@@ -44165,6 +44334,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/owncloud-ocis-1.0.1/owncloud-ocis-1.0.1.tgz
     version: 1.0.1
   pgadmin:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T09:01:24.881779159Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.4
+    description: Web-Based postgresql database management utility
+    digest: 059bf34b58f1ce8643f4f28bba0f3558745c387f4f6e8ed9707c2a6eb691558b
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/pgadmin
+    icon: https://www.postgresql.org/message-id/attachment/1139/pgAdmin.svg
+    keywords:
+    - pgadmin
+    - db
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: pgadmin
+    sources:
+    - https://www.pgadmin.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/pgadmin-1.0.3/pgadmin-1.0.3.tgz
+    version: 1.0.3
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-05T22:21:07.742756891Z"
@@ -44674,6 +44873,33 @@ entries:
     - https://github.com/truecharts/apps/releases/download/piaware-1.0.1/piaware-1.0.1.tgz
     version: 1.0.1
   plex:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-06T09:01:24.97477783Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.5.4
+    description: Plex Media Server
+    digest: 2da7d50e8ad22660ede0892bebb0eb4b5fa62fa365fa34fd003f9b07634fa73b
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/plex
+    icon: https://www.plex.tv/wp-content/uploads/2018/01/pmp-icon-1.png
+    keywords:
+    - plex
+    - plex-media-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: plex
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/plex-5.3.5/plex-5.3.5.tgz
+    version: 5.3.5
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-05T22:21:08.162716102Z"
@@ -71293,4 +71519,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-06T08:56:48.965003675Z"
+generated: "2021-07-06T09:01:24.991895243Z"
