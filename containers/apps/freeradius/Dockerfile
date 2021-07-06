@@ -10,11 +10,12 @@ VOLUME /config
 RUN \
   mkdir -p /defaults/raddb/ && \
   cp -Rf /etc/raddb/* /defaults/raddb/ && \
+  rm /docker-entrypoint.sh && \
   rm -Rf /etc/raddb && \
   ln -s  /config /etc/raddb
 
 
-COPY ./containers/apps/freeradius/entrypoint.sh /entrypoint.sh
+COPY ./containers/apps/freeradius/entrypoint.sh /docker-entrypoint.sh
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"
