@@ -1,17 +1,16 @@
 #!/bin/sh
 set -e
 
+rm -Rf /etc/raddb
 if [ -f "/config/clients.conf" ]; then
   echo "Radius config already exists, skipping config copy..."
-  chown -R freerad:freerad /config
-  ln -s /etc/raddb /config
 else
   echo "Radius config does not exist, copying..."
-  rm -Rf /defaults/raddb
   cp -Rf /defaults/raddb/* /config/
-  chown -R freerad:freerad /config
-  ln -s /etc/raddb /config
 fi
+
+chown -R freerad:freerad /config
+ln -s /etc/raddb /config
 
 # this if will check if the first argument is a flag
 # but only works if all arguments require a hyphenated flag
