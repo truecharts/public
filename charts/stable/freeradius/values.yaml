@@ -17,10 +17,6 @@ service:
 
 env: {}
 
-envFrom:
-  - configMapRef:
-      name: openldapconfig
-
 persistence:
   config:
     enabled: true
