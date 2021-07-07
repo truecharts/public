@@ -4,6 +4,16 @@ groups:
   - name: "Chia Environment Variables"
     description: "Set the environment that will be visible to the container"
 
+portals:
+  web_portal:
+    protocols:
+      - "https"
+    host:
+      - "www.truepool.io"
+    ports:
+      - 443
+    path: "/kb/truepool-docker-image/"
+
 questions:
   - variable: appVolumeMounts
     label: "Chia Storage"
