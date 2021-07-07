@@ -1,6 +1,8 @@
 groups:
   - name: "Storage"
     description: "Configure Storage for Chia"
+  - name: "Farmr.net Configuration"
+    description: "Configure farmr.net support"
   - name: "Chia Environment Variables"
     description: "Set the environment that will be visible to the container"
 
@@ -11,10 +13,24 @@ portals:
     host:
       - "www.truepool.io"
     ports:
-      - 443
+      - "443"
     path: "/kb/truepool-docker-image/"
 
 questions:
+  - variable: farmr_env
+    label: "Enable 'farmr.net' support"
+    group: "Farmr.net Configuration"
+    description: "Configure 'farmr.net' support for chia"
+    schema:
+      type: string
+      default: "off"
+      enum:
+        - value: "off"
+          description: "OFF"
+        - value: "farmer"
+          description: "FARMER"
+        - value: "harvester"
+          description: "HARVESTER"
   - variable: appVolumeMounts
     label: "Chia Storage"
     group: "Storage"
