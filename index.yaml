@@ -31467,6 +31467,33 @@ entries:
   librespeed:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-13T15:32:34.290257519Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.6.1
+    description: Librespeed is a HTML5 webpage to test upload and download speeds
+    digest: 468d4b82992921c9cdda0b7ea153b6e7b41566ae13998a02ad478e8f64afafeb
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/librespeed
+    icon: https://github.com/librespeed/speedtest/blob/master/.logo/icon_huge.png?raw=true
+    keywords:
+    - librespeed
+    - speedtest
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: librespeed
+    sources:
+    - https://github.com/librespeed/speedtest
+    - https://hub.docker.com/r/linuxserver/librespeed
+    - https://github.com/truechartsapps/tree/master/charts/librespeed
+    urls:
+    - https://github.com/truecharts/apps/releases/download/librespeed-1.2.1/librespeed-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-06T14:20:17.056323608Z"
     dependencies:
     - name: common
@@ -74657,4 +74684,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-13T15:20:24.20744313Z"
+generated: "2021-07-13T15:32:34.304761702Z"
