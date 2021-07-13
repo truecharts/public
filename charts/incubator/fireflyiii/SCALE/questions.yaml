@@ -106,6 +106,7 @@ questions:
             default: ""
             min_length: 32
             max_length: 32
+            valid_chars: '[a-zA-Z0-9!@#$%^&*?]{32}'
             required: true
         - variable: UMASK
           label: "UMASK"
