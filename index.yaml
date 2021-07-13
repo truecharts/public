@@ -4132,6 +4132,31 @@ entries:
   calibre:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-13T08:26:05.978540605Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.6.1
+    description: Calibre is a powerful and easy to use e-book manager.
+    digest: e3e1055ec00a3b551ef41e462cce0aae79ee077738c9ea24233f2589a5ae4b73
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/calibre
+    icon: https://github.com/kovidgoyal/calibre/raw/master/resources/images/lt.png
+    keywords:
+    - calibre
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: calibre
+    sources:
+    - https://hub.docker.com/r/linuxserver/calibre/
+    - https://github.com/kovidgoyal/calibre/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/calibre-1.2.1/calibre-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-06T14:20:11.81059498Z"
     dependencies:
     - name: common
@@ -24110,6 +24135,37 @@ entries:
   home-assistant:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-13T08:26:06.089049049Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: home-assistant App for TrueNAS SCALE
+    digest: b03ef2da107b068b68cb5e8879944b4df70906e3e9094e320a2e2c7811420a21
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/home-assistant
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Home_Assistant_Logo.svg/519px-Home_Assistant_Logo.svg.png
+    keywords:
+    - home-assistant
+    - hass
+    - homeassistant
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: home-assistant
+    sources:
+    - https://github.com/home-assistant/home-assistant
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/home-assistant-6.4.1/home-assistant-6.4.1.tgz
+    version: 6.4.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-06T14:20:15.920386913Z"
     dependencies:
     - name: common
@@ -41204,6 +41260,29 @@ entries:
     - https://github.com/truecharts/apps/releases/download/nzbget-3.1.5/nzbget-3.1.5.tgz
     version: 3.1.5
   nzbhydra:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-13T08:26:06.224644703Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    deprecated: true
+    description: Usenet meta search
+    digest: 8467a1c4c064f4dfdd10def79bcc119c08585e3b30c9af319fba279e29366add
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/nzbhydra
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png
+    keywords:
+    - nzbhydra
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    name: nzbhydra
+    sources:
+    - https://github.com/theotherp/nzbhydra2
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nzbhydra-6.4.1/nzbhydra-6.4.1.tgz
+    version: 6.4.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-06T14:20:18.85074499Z"
@@ -74549,4 +74628,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-13T08:19:00.708251983Z"
+generated: "2021-07-13T08:26:06.258369788Z"
