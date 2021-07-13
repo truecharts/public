@@ -16807,6 +16807,35 @@ entries:
   focalboard:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-13T20:54:49.317597556Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.6.1
+    description: Focalboard is an open source, self-hosted alternative to Trello,
+      Notion, and Asana.
+    digest: 09db2b385e14aac519f1d5befe6ad9d0ae72d39abf6f7a0d94c8f6f72790269f
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/focalboard
+    icon: https://github.com/mattermost/focalboard/raw/main/webapp/static/favicon.svg
+    keywords:
+    - focalboard
+    - kanban
+    - project management
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: focalboard
+    sources:
+    - https://www.focalboard.com/
+    - https://github.com/mattermost/focalboard
+    - https://github.com/FlipEnergy/container-images/blob/main/focalboard
+    urls:
+    - https://github.com/truecharts/apps/releases/download/focalboard-1.2.1/focalboard-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-06T14:20:14.315475962Z"
     dependencies:
     - name: common
@@ -46126,6 +46155,38 @@ entries:
   owncloud-ocis:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-13T20:54:49.55002288Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.6.1
+    description: ownCloud Infinite Scale is a self-hosted file sync and share server.
+    digest: 383176be94fb6ce619af2e941a91e9277719c57463887de5c7da11d3807c05a3
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/owncloud-ocis
+    icon: https://avatars.githubusercontent.com/u/1645051?s=200&v=4
+    keywords:
+    - owncloud
+    - ocis
+    - infinite
+    - scale
+    - self-hosted
+    - sync
+    - share
+    - server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: owncloud-ocis
+    sources:
+    - https://hub.docker.com/r/owncloud/ocis
+    - https://owncloud.dev/ocis/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/owncloud-ocis-1.2.1/owncloud-ocis-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-06T14:20:19.970491615Z"
     dependencies:
     - name: common
@@ -74684,4 +74745,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-13T15:32:34.304761702Z"
+generated: "2021-07-13T20:54:49.566118516Z"
