@@ -120,16 +120,16 @@ questions:
           description: "Photoprism storage path"
           schema:
             type: string
-            default: "002"
+            default: "/photoprism/storage"
         - variable: PHOTOPRISM_ORIGINALS_PATH
           label: "PHOTOPRISM_ORIGINALS_PATH"
           description: "Photoprism originals path"
           schema:
             type: string
-            default: "002"
+            default: "/photoprism/originals"
         - variable: PHOTOPRISM_ADMIN_PASSWORD
           label: "PHOTOPRISM_ADMIN_PASSWORD"
-          description: " Initial admin password. **BE SURE TO CHANGE THIS!**"
+          description: "Initial admin password. **BE SURE TO CHANGE THIS!**"
           schema:
             type: string
             required: true
@@ -138,8 +138,8 @@ questions:
           label: "PHOTOPRISM_PUBLIC"
           description: "Disable authentication / password protection"
           schema:
-            type: string
-            default: "002"
+            type: boolean
+            default: false
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
