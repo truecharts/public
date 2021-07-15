@@ -1,7 +1,7 @@
 appVolumeMounts:
   data:
     emptyDir: true
-    mountPath: /root/.chia
+    mountPath: /data
   staging:
     emptyDir: true
     mountPath: /plots
