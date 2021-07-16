@@ -58,7 +58,7 @@ questions:
                 schema:
                   type: path
                   hidden: true
-                  editable: false
+                  editable: true
                   default: "/data"
               - variable: hostPathEnabled
                 label: "Enable Custom Host Path for Chia Configuration Volume"
