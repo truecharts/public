@@ -39483,6 +39483,32 @@ entries:
   node-red:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-20T16:02:13.967259044Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Node-RED is low-code programming for event-driven applications
+    digest: 9e1d72bc94a1a87d825b6ee524842b3b839fe115cdb9a5e3cbceed1bddd7dd4c
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/node-red
+    icon: https://nodered.org/about/resources/media/node-red-icon-2.png
+    keywords:
+    - node-red
+    - nodered
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: node-red
+    sources:
+    - https://github.com/node-red/node-red-docker
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/node-red-6.4.1/node-red-6.4.1.tgz
+    version: 6.4.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-06T14:20:18.378505053Z"
     dependencies:
     - name: common
@@ -75677,4 +75703,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-20T15:49:49.120580296Z"
+generated: "2021-07-20T16:02:13.982603437Z"
