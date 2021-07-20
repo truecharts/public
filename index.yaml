@@ -55557,6 +55557,39 @@ entries:
   readarr:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-20T19:58:13.979803998Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: A fork of Radarr to work with Books & AudioBooks
+    digest: a244918683bba18426cdc7fa2fbd3bd7ae5f41aaabb3fbfcf54a0c552d87542c
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/readarr
+    icon: https://github.com/Readarr/Readarr/blob/develop/Logo/1024.png?raw=true
+    keywords:
+    - readarr
+    - torrent
+    - usenet
+    - AudioBooks
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: readarr
+    sources:
+    - https://github.com/Readarr/Readarr
+    - https://readarr.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/readarr-6.4.3/readarr-6.4.3.tgz
+    version: 6.4.3
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-20T09:13:33.102088195Z"
     dependencies:
     - name: common
@@ -75729,4 +75762,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-20T18:00:42.050327849Z"
+generated: "2021-07-20T19:58:13.994852993Z"
