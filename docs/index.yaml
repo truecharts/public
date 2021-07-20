@@ -30279,6 +30279,34 @@ entries:
   komga:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-20T09:24:21.386761244Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.6.1
+    description: A comics/mangas server to serve/stream pages via API
+    digest: b94d719721013617b9a70b2b5333b0283cb1dd189e4b8311dd4e3eed3a8ecdf7
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/komga
+    icon: https://komga.org/assets/media/logo.svg
+    keywords:
+    - komga
+    - comics
+    - mangas
+    - server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: komga
+    sources:
+    - https://komga.org/
+    - https://github.com/gotson/komga
+    urls:
+    - https://github.com/truecharts/apps/releases/download/komga-1.2.2/komga-1.2.2.tgz
+    version: 1.2.2
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-13T08:18:59.630843846Z"
     dependencies:
     - name: common
@@ -46949,6 +46977,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/owncloud-ocis-1.0.1/owncloud-ocis-1.0.1.tgz
     version: 1.0.1
   pgadmin:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-20T09:24:21.560636779Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Web-Based postgresql database management utility
+    digest: 0aaac5546834ee9bdb53e7c2ca8d646341b12b6d156cd54ac1cfc65b98a365ba
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/pgadmin
+    icon: https://www.postgresql.org/message-id/attachment/1139/pgAdmin.svg
+    keywords:
+    - pgadmin
+    - db
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: pgadmin
+    sources:
+    - https://www.pgadmin.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/pgadmin-1.1.1/pgadmin-1.1.1.tgz
+    version: 1.1.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-06T14:20:20.134127239Z"
@@ -75441,4 +75499,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-20T09:13:33.447431364Z"
+generated: "2021-07-20T09:24:21.581016794Z"
