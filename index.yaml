@@ -5697,6 +5697,37 @@ entries:
   collabora-online:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-20T22:09:21.082957484Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Collabora Online Development Edition – an awesome, Online Office
+      suite image suitable for home use.
+    digest: e5c23247d954c8542a516851b07aa90fa15cb4765cad985bcfed5ce788d26362
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/collabora-online
+    icon: https://truecharts.org/_static/img/collabora-icon.png
+    keywords:
+    - collabora-online
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: stavros-k@users.noreply.github.com
+      name: stavros-k
+      url: truecharts.org
+    name: collabora-online
+    sources:
+    - https://hub.docker.com/r/collabora/code
+    - https://sdk.collaboraonline.com/contents.html
+    - https://github.com/CollaboraOnline/online/tree/master/kubernetes/helm
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/collabora-online-6.4.3/collabora-online-6.4.3.tgz
+    version: 6.4.3
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-20T09:13:31.918860352Z"
     dependencies:
     - name: common
@@ -47852,6 +47883,33 @@ entries:
   plex:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-20T22:09:21.185981112Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Plex Media Server
+    digest: f8f8354c57a14d196509df1e3e763ed793af9433336467667115101a1d26e686
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/plex
+    icon: https://www.plex.tv/wp-content/uploads/2018/01/pmp-icon-1.png
+    keywords:
+    - plex
+    - plex-media-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: plex
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/plex-5.4.2/plex-5.4.2.tgz
+    version: 5.4.2
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-13T08:19:00.133093523Z"
     dependencies:
     - name: common
@@ -55555,6 +55613,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/radarr-3.1.5/radarr-3.1.5.tgz
     version: 3.1.5
   readarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-20T22:09:21.307241092Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: A fork of Radarr to work with Books & AudioBooks
+    digest: 0827d09508e6b69928adfe8af3c4088844025badfa8525f4b689737790d21d7c
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/readarr
+    icon: https://github.com/Readarr/Readarr/blob/develop/Logo/1024.png?raw=true
+    keywords:
+    - readarr
+    - torrent
+    - usenet
+    - AudioBooks
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: readarr
+    sources:
+    - https://github.com/Readarr/Readarr
+    - https://readarr.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/readarr-6.4.4/readarr-6.4.4.tgz
+    version: 6.4.4
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-20T19:58:13.979803998Z"
@@ -75762,4 +75853,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-20T19:58:13.994852993Z"
+generated: "2021-07-20T22:09:21.320421574Z"
