@@ -14,6 +14,10 @@ The goal is to gather some suggestions and forward them to iX-Systems.
 - The App overview card should be resizable, right now viewing application events is very limiting.
 - Fix some of the themes to work with apps section. Light color themes like paper make it very hard to see if an app is up to date or requiring upgrade
 - Installed apps status should be updated without the need to change view and come back. e.g After installing/updating an app, you will always see "Deploying" until you go to manage catalogs and come back to installed apps.
+- Add ability to set which app will start on boot (Auto start)
+- Add ability to set a delay before an app starts on boot (Delayed auto start)
+- Add ability to group apps (for better organization) (e.g. Media apps, Production apps, Dev Apps etc)
+- Show statistics per app (cpu/ network / ram)
 
 - :white_check_mark: Make timezone default to timezone set in TN System [NAS-110373](https://jira.ixsystems.com/browse/NAS-110373)
 - :white_check_mark: Show all config options on "Confirm options" when installing an App
@@ -23,5 +27,8 @@ The goal is to gather some suggestions and forward them to iX-Systems.
 - Allow `show_if` and `show_subquestions_if` to to use values for evaluation from parent variables [NAS-110751](https://jira.ixsystems.com/browse/NAS-110751)
 - Add option for separators and whitespace in questions.yaml [NAS-110750](https://jira.ixsystems.com/browse/NAS-110750)
 - Validate regex defined in questions.yaml when focus leaves input field.
+- Set custom message to display when `valid_chars` is not matched.
+- Add ability to save a PVC backup even on app delete
+- Add ability to restore a PVC backup from a deleted app
 
 Join our [discord](https://truecharts.org/discord) to make a new suggestion.
