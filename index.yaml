@@ -13565,6 +13565,36 @@ entries:
   esphome:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-27T09:38:24.475672749Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful
+      configuration files and control them remotely through Home Automation systems.
+    digest: 60c64f5d424549fd87841c9335a94f2c6403cc54044fba73b8e4ace1996641dc
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/esphome
+    icon: https://esphome.io/_images/logo.svg
+    keywords:
+    - esphome
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: esphome
+    sources:
+    - https://github.com/esphome/esphome
+    - https://hub.docker.com/u/esphome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/esphome-6.4.1/esphome-6.4.1.tgz
+    version: 6.4.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-06T14:20:13.485272842Z"
     dependencies:
     - name: common
@@ -20057,6 +20087,32 @@ entries:
     - https://github.com/truecharts/apps/releases/download/gonic-1.0.1/gonic-1.0.1.tgz
     version: 1.0.1
   grocy:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-27T09:38:24.63194269Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: ERP beyond your fridge - grocy is a web-based self-hosted groceries
+      & household management solution for your home
+    digest: af6150b8b210b034d4110e014985b8ca281a8a887a70694fdfef36e1fdcceeab
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/grocy
+    icon: https://github.com/grocy/grocy/raw/master/public/img/appicons/mstile-150x150.png
+    keywords:
+    - grocy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: grocy
+    sources:
+    - https://github.com/grocy/grocy
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/grocy-6.4.1/grocy-6.4.1.tgz
+    version: 6.4.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-06T14:20:15.085052522Z"
@@ -30468,6 +30524,34 @@ entries:
     - https://github.com/truecharts/apps/releases/download/kms-3.1.5/kms-3.1.5.tgz
     version: 3.1.5
   komga:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-07-27T09:38:24.793303809Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.6.1
+    description: A comics/mangas server to serve/stream pages via API
+    digest: 0cd419778026268d7f5e34248027c6c50333baeed261a9eaf3ebb8c10127b049
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/komga
+    icon: https://komga.org/assets/media/logo.svg
+    keywords:
+    - komga
+    - comics
+    - mangas
+    - server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: komga
+    sources:
+    - https://komga.org/
+    - https://github.com/gotson/komga
+    urls:
+    - https://github.com/truecharts/apps/releases/download/komga-1.2.3/komga-1.2.3.tgz
+    version: 1.2.3
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-20T09:24:21.386761244Z"
@@ -74570,6 +74654,39 @@ entries:
   zwavejs2mqtt:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-07-27T09:38:24.950864545Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Fully configurable Zwave to MQTT gateway and Control Panel using
+      NodeJS and Vue
+    digest: ca0cc85a667d7e9d83aeb80c98999d8cc55d54d7c5a57ca83651eaabecad4a61
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zwavejs2mqtt
+    icon: https://raw.githubusercontent.com/zwave-js/zwavejs2mqtt/master/static/logo.png
+    keywords:
+    - zwavejs2mqtt
+    - zwave-js
+    - z-wave
+    - zwave
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: zwavejs2mqtt
+    sources:
+    - https://github.com/zwave-js/zwavejs2mqtt
+    - https://hub.docker.com/r/zwavejs/zwavejs2mqtt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-6.4.3/zwavejs2mqtt-6.4.3.tgz
+    version: 6.4.3
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-20T15:20:42.82361289Z"
     dependencies:
     - name: common
@@ -76316,4 +76433,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-27T09:12:35.141356953Z"
+generated: "2021-07-27T09:38:24.977226233Z"
