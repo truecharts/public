@@ -17,7 +17,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "$variable-service.nodePort"
+      - "$variable-service.consolePort"
 
 questions:
 
@@ -124,12 +124,20 @@ questions:
       required: true
       attrs:
         - variable: nodePort
-          label: "Node Port to use for Minio"
+          label: "Node Port to use for Minio API"
           schema:
             type: int
             min: 9000
             max: 65535
             default: 9000
+            required: true
+        - variable: consolePort
+          label: "Node Port to use for Minio UI Access"
+          schema:
+            type: int
+            min: 9000
+            max: 65535
+            default: 9002
             required: true
 
   - variable: certificate
