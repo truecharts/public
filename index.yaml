@@ -43592,6 +43592,33 @@ entries:
   octoprint:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-01T17:41:55.948161937Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.6.1
+    description: OctoPrint is the snappy web interface for your 3D printer
+    digest: 565ba1008650013491e727582edfc3a280afebb610ee50f06005fda6feb1ceee
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/octoprint
+    icon: https://avatars3.githubusercontent.com/u/5982294?s=400&v=4
+    keywords:
+    - octoprint
+    - 3d
+    - printer
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: octoprint
+    sources:
+    - https://github.com/OctoPrint/OctoPrint
+    - https://hub.docker.com/r/octoprint/octoprint
+    urls:
+    - https://github.com/truecharts/apps/releases/download/octoprint-1.2.1/octoprint-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-06T14:20:19.008306824Z"
     dependencies:
     - name: common
@@ -76921,4 +76948,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-07-28T17:22:15.030283405Z"
+generated: "2021-08-01T17:41:55.966941902Z"
