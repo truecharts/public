@@ -33,10 +33,12 @@ spec:
           command:
             - "/bin/sh"
             - "-ce"
-            - "/usr/bin/docker-entrypoint.sh minio -S /etc/minio/certs server /export {{ (.Values.extraArgs | default list) | join " " }}"
+            - "/usr/bin/docker-entrypoint.sh minio -S /etc/minio/certs server /export --console-address=':9001' {{ (.Values.extraArgs | default list) | join " " }}"
           ports:
-            - name: http
+            - name: api
               containerPort: 9000
+            - name: console
+              containerPort: 9001
           env:
             {{ $secretName := (include "minio.secretName" .) }}
             {{ $envList := (default list .Values.environment) }}
