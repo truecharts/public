@@ -13596,6 +13596,36 @@ entries:
   esphome:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-03T08:16:28.671737115Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful
+      configuration files and control them remotely through Home Automation systems.
+    digest: 838d631a581688660decb597847cfd3cb704eff3ca4a324fde550e1ebfbba7f0
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/esphome
+    icon: https://esphome.io/_images/logo.svg
+    keywords:
+    - esphome
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: esphome
+    sources:
+    - https://github.com/esphome/esphome
+    - https://hub.docker.com/u/esphome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/esphome-6.4.2/esphome-6.4.2.tgz
+    version: 6.4.2
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-27T09:38:24.475672749Z"
     dependencies:
     - name: common
@@ -16855,6 +16885,32 @@ entries:
     - https://github.com/truecharts/apps/releases/download/fireflyiii-1.0.1/fireflyiii-1.0.1.tgz
     version: 1.0.1
   flaresolverr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-03T08:16:28.780389251Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.6.1
+    description: FlareSolverr is a proxy server to bypass Cloudflare protection
+    digest: 93e98b372dc2f6b9ae4fb5c6e81cb65475f7e0707d17802368b9d671722a6972
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/flaresolverr
+    icon: https://raw.githubusercontent.com/FlareSolverr/FlareSolverr/master/resources/flaresolverr_logo.svg
+    keywords:
+    - flaresolverr
+    - jackett
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: flaresolverr
+    sources:
+    - https://github.com/FlareSolverr/FlareSolverr
+    - https://hub.docker.com/r/flaresolverr/flaresolverr
+    urls:
+    - https://github.com/truecharts/apps/releases/download/flaresolverr-1.2.1/flaresolverr-1.2.1.tgz
+    version: 1.2.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-06T14:20:13.891384153Z"
@@ -26490,6 +26546,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/hyperion-ng-1.0.1/hyperion-ng-1.0.1.tgz
     version: 1.0.1
   jackett:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-03T08:16:28.955792762Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: API Support for your favorite torrent trackers.
+    digest: e3c539faa89eeb28d49126acbd3456067a9dbeead276b040ed7014d0de064b94
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/jackett
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - jackett
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jackett-6.4.6/jackett-6.4.6.tgz
+    version: 6.4.6
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-28T17:22:14.306391406Z"
@@ -40127,6 +40213,32 @@ entries:
   node-red:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-03T08:16:29.055032904Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Node-RED is low-code programming for event-driven applications
+    digest: 2ee720d780f2a8905c9c8716be050f976aaf4feaff45760f7919bccdd660313a
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/node-red
+    icon: https://nodered.org/about/resources/media/node-red-icon-2.png
+    keywords:
+    - node-red
+    - nodered
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: node-red
+    sources:
+    - https://github.com/node-red/node-red-docker
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/node-red-6.4.5/node-red-6.4.5.tgz
+    version: 6.4.5
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-28T17:22:14.497138845Z"
     dependencies:
     - name: common
@@ -44186,6 +44298,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/omada-controller-1.0.1/omada-controller-1.0.1.tgz
     version: 1.0.1
   ombi:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-03T08:16:29.148271223Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
+    digest: 97493dc17330be744af07604425a90847b2e8aab440b21c3bbbed28f1effb7e9
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ombi
+    icon: https://img3.androidappsapk.co/wiLDnuwrCWctiiW62ALcj4eIpNbzeRH_UNPo7eqlpYvGkCQYSTybaI4xVRLKGjnlamlV=s300
+    keywords:
+    - ombi
+    - plex
+    - emby
+    - sonarr
+    - radarr
+    - couchpotato
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: ombi
+    sources:
+    - https://github.com/tidusjar/Ombi
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ombi-6.4.4/ombi-6.4.4.tgz
+    version: 6.4.4
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-28T17:22:14.672470804Z"
@@ -48641,6 +48786,33 @@ entries:
   plex:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-03T08:16:29.248838893Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Plex Media Server
+    digest: 79939bc4782aae3e426089fe5a41ef18817f6231ce3c9533505c50859371fee8
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/plex
+    icon: https://www.plex.tv/wp-content/uploads/2018/01/pmp-icon-1.png
+    keywords:
+    - plex
+    - plex-media-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: plex
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/plex-5.4.4/plex-5.4.4.tgz
+    version: 5.4.4
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-27T09:12:34.461280675Z"
     dependencies:
     - name: common
@@ -51663,6 +51835,30 @@ entries:
   prototype-gui:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-03T08:16:29.345422181Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: App to test GUI prototypes
+    digest: d3c146bb625b72c9d6ba124b665345b1ebb9837cc6b3940ac1e1308fd81e3419
+    home: https://github.com/truechartsapps/tree/master/charts/develop/prototype-gui
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - dev
+    - prototype
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prototype-gui
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prototype-gui-1.5.6/prototype-gui-1.5.6.tgz
+    version: 1.5.6
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-28T17:22:14.843096507Z"
     dependencies:
     - name: common
@@ -52922,6 +53118,34 @@ entries:
     - https://github.com/truecharts/apps/releases/download/prototype-gui-0.0.1/prototype-gui-0.0.1.tgz
     version: 0.0.1
   prowlarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-03T08:16:29.457935297Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Indexer manager/proxy built on the popular arr net base stack to
+      integrate with your various PVR apps.
+    digest: 1bf29183ec6c7b40906a1e5b9f9534d888904cf1d031c78739b912f9f2120f4f
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/prowlarr
+    icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/400.png
+    keywords:
+    - prowlarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prowlarr
+    sources:
+    - https://github.com/Prowlarr/Prowlarr
+    - https://github.com/k8s-at-home/container-images
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prowlarr-1.4.6/prowlarr-1.4.6.tgz
+    version: 1.4.6
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-28T17:22:15.009859665Z"
@@ -56554,6 +56778,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/radarr-3.1.5/radarr-3.1.5.tgz
     version: 3.1.5
   readarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-03T08:16:29.580296116Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: A fork of Radarr to work with Books & AudioBooks
+    digest: b3657d6099f782eb4e54adb2f278a5fe28f03616072f82c6bff193f85ca7239b
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/readarr
+    icon: https://github.com/Readarr/Readarr/blob/develop/Logo/1024.png?raw=true
+    keywords:
+    - readarr
+    - torrent
+    - usenet
+    - AudioBooks
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: readarr
+    sources:
+    - https://github.com/Readarr/Readarr
+    - https://readarr.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/readarr-6.4.8/readarr-6.4.8.tgz
+    version: 6.4.8
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-27T17:34:27.743274045Z"
@@ -75323,6 +75580,39 @@ entries:
   zwavejs2mqtt:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-03T08:16:29.670621875Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: Fully configurable Zwave to MQTT gateway and Control Panel using
+      NodeJS and Vue
+    digest: 56c63a7628c9efa77ee4f9c685164b966240a96b7f6116c40e9981f870a226e7
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zwavejs2mqtt
+    icon: https://raw.githubusercontent.com/zwave-js/zwavejs2mqtt/master/static/logo.png
+    keywords:
+    - zwavejs2mqtt
+    - zwave-js
+    - z-wave
+    - zwave
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: zwavejs2mqtt
+    sources:
+    - https://github.com/zwave-js/zwavejs2mqtt
+    - https://hub.docker.com/r/zwavejs/zwavejs2mqtt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-6.4.4/zwavejs2mqtt-6.4.4.tgz
+    version: 6.4.4
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-27T09:38:24.950864545Z"
     dependencies:
     - name: common
@@ -77102,4 +77392,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-03T07:25:21.923333552Z"
+generated: "2021-08-03T08:16:29.691052895Z"
