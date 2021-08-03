@@ -4199,6 +4199,31 @@ entries:
   calibre:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-03T08:37:32.366137813Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.6.1
+    description: Calibre is a powerful and easy to use e-book manager.
+    digest: 4235692d52e507de817027438d80f282bf11a81a599573534c2b4ee698a9c2c5
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/calibre
+    icon: https://github.com/kovidgoyal/calibre/raw/master/resources/images/lt.png
+    keywords:
+    - calibre
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: calibre
+    sources:
+    - https://hub.docker.com/r/linuxserver/calibre/
+    - https://github.com/kovidgoyal/calibre/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/calibre-1.2.2/calibre-1.2.2.tgz
+    version: 1.2.2
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-07-13T08:26:05.978540605Z"
     dependencies:
     - name: common
@@ -30767,6 +30792,34 @@ entries:
     - https://github.com/truecharts/apps/releases/download/kms-3.1.5/kms-3.1.5.tgz
     version: 3.1.5
   komga:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-03T08:37:32.543294108Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.6.1
+    description: A comics/mangas server to serve/stream pages via API
+    digest: 779d4e52aa528762128bdcff813b283de5bae191ce304dba2e6473766713cd9c
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/komga
+    icon: https://komga.org/assets/media/logo.svg
+    keywords:
+    - komga
+    - comics
+    - mangas
+    - server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: komga
+    sources:
+    - https://komga.org/
+    - https://github.com/gotson/komga
+    urls:
+    - https://github.com/truecharts/apps/releases/download/komga-1.2.4/komga-1.2.4.tgz
+    version: 1.2.4
   - apiVersion: v2
     appVersion: auto
     created: "2021-07-27T09:38:24.793303809Z"
@@ -77392,4 +77445,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-03T08:16:29.691052895Z"
+generated: "2021-08-03T08:37:32.558440945Z"
