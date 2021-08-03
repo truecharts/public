@@ -26573,6 +26573,36 @@ entries:
   jackett:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-03T13:28:44.358972642Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: API Support for your favorite torrent trackers.
+    digest: 1c63566eada2371926e9eca0b413b781286a8273769fe64baeeb243d3ca101d9
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/jackett
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - jackett
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jackett-6.4.7/jackett-6.4.7.tgz
+    version: 6.4.7
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-03T08:16:28.955792762Z"
     dependencies:
     - name: common
@@ -51886,6 +51916,30 @@ entries:
     - https://github.com/truecharts/apps/releases/download/protonmail-bridge-1.0.1/protonmail-bridge-1.0.1.tgz
     version: 1.0.1
   prototype-gui:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-03T13:28:44.486579586Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.1
+    description: App to test GUI prototypes
+    digest: eec87fd8ae0021cf9e06f28621175a65097eb4cfb7e47fdccbf1457e7758838b
+    home: https://github.com/truechartsapps/tree/master/charts/develop/prototype-gui
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - dev
+    - prototype
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prototype-gui
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prototype-gui-1.5.7/prototype-gui-1.5.7.tgz
+    version: 1.5.7
   - apiVersion: v2
     appVersion: auto
     created: "2021-08-03T08:16:29.345422181Z"
@@ -77445,4 +77499,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-03T08:37:32.558440945Z"
+generated: "2021-08-03T13:28:44.504475917Z"
