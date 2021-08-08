@@ -1,4 +1,4 @@
-# 03 -
+# 03 - Installing Apps
 
 #### Video Guide
 
