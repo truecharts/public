@@ -41,7 +41,7 @@ spec:
               containerPort: 9001
           env:
             {{ $secretName := (include "minio.secretName" .) }}
-            {{ $envList := (default list .Values.environment) }}
+            {{ $envList := (default list .Values.environmentVariables) }}
             {{ $envList = mustAppend $envList (dict "name" "MINIO_ACCESS_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "accesskey") }}
             {{ $envList = mustAppend $envList (dict "name" "MINIO_SECRET_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "secretkey") }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
