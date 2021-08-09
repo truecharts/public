@@ -147,7 +147,7 @@ questions:
     schema:
       type: string
       default: null
-      null: true
+      "null": true
       show_if: [["certificate", "!=", null]]
 
   - variable: certificate

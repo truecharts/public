@@ -43,8 +43,8 @@ spec:
             {{ $secretName := (include "minio.secretName" .) }}
             {{ $envList := (default list .Values.environmentVariables) }}
             {{ if .Values.minioDomain }}
-            {{ $envList = mustAppend $envList (dict "name" "MINIO_BROWSER_REDIRECT_URL" "value" (printf "https://%s:%d" .Values.minioDomain .Values.service.consolePort)) }}
-            {{ $envList = mustAppend $envList (dict "name" "MINIO_SERVER_URL" "value" (printf "https://%s:%d" .Values.minioDomain .Values.service.nodePort)) }}
+            {{ $envList = mustAppend $envList (dict "name" "MINIO_BROWSER_REDIRECT_URL" "value" (printf "%s://%s:%d" (include "minio.scheme" .) .Values.minioDomain (.Values.service.consolePort | int))) }}
+            {{ $envList = mustAppend $envList (dict "name" "MINIO_SERVER_URL" "value" (printf "%s://%s:%d" (include "minio.scheme" .) .Values.minioDomain (.Values.service.nodePort | int))) }}
             {{ end }}
             {{ $envList = mustAppend $envList (dict "name" "MINIO_ACCESS_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "accesskey") }}
             {{ $envList = mustAppend $envList (dict "name" "MINIO_SECRET_KEY" "valueFromSecret" true "secretName" $secretName "secretKey" "secretkey") }}
