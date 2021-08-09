@@ -47,6 +47,28 @@ questions:
             type: boolean
             default: true
 
+  - variable: pilot
+    label: "Traefik Pilot"
+    group: "App Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "enabled"
+          schema:
+            type: boolean
+            default: false
+        - variable: token
+          label: "token"
+          schema:
+            type: string
+            default: ""
+        - variable: dashboard
+          label: "Pilot Dashboard"
+          schema:
+            type: boolean
+            default: false
+
   - variable: middlewares
     label: ""
     group: "Middlewares"
