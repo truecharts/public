@@ -1,4 +1,4 @@
-# Migration Guides
+# Migration between versions
 
 Sometimes we can not guarantee automatic updating between new versions of our Apps.
 These pages include some common scenario's and give some guidance how to manually move between different versions and Trains.
