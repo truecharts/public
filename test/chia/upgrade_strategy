@@ -8,7 +8,7 @@ from catalog_update.upgrade_strategy import semantic_versioning
 def newer_mapping(image_tags):
     key = list(image_tags.keys())[0]
     tags = {t.strip('v').replace('_', '.'): t for t in image_tags[key]}
-    version = semantic_versioning(image_tags[key])
+    version = semantic_versioning(tags)
     if not version:
         return {}
 
