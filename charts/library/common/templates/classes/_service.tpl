@@ -96,7 +96,7 @@ spec:
   selector:
     {{- include "common.labels.selectorLabels" . | nindent 4 }}
   {{- end }}
-{{- if eq $svcType "ExternalIP" )}}
+{{- if eq $svcType "ExternalIP" }}
 ---
 apiVersion: v1
 kind: Endpoints
