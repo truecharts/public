@@ -140,6 +140,16 @@ questions:
             default: 9002
             required: true
 
+  - variable: minioDomain
+    label: "Minio Domain Name"
+    description: "This is only required if TLS is configured for Minio"
+    group: "Minio Configuration"
+    schema:
+      type: string
+      default: null
+      "null": true
+      show_if: [["certificate", "!=", null]]
+
   - variable: certificate
     description: "Minio Certificate"
     label: "Minio Certificate"
