@@ -39,6 +39,10 @@ spec:
   {{- if $values.clusterIP }}
   clusterIP: {{ $values.clusterIP }}
   {{end}}
+  {{- else if eq $svcType "ExternalName" }}
+  type: {{ $svcType }}
+  externalName: {{ $values.externalName }}
+  {{- else if eq $svcType "ExternalIP" }}
   {{- else if eq $svcType "LoadBalancer" }}
   type: {{ $svcType }}
   {{- if $values.loadBalancerIP }}
@@ -88,6 +92,8 @@ spec:
     {{ end }}
   {{- end }}
   {{- end }}
+  {{- if or ( ne $svcType "ExternalName" ) ( ne $svcType "ExternalIP" )}}
   selector:
     {{- include "common.labels.selectorLabels" . | nindent 4 }}
+  {{- end }}
 {{- end }}
