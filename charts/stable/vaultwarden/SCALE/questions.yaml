@@ -765,6 +765,12 @@ questions:
                   type: string
                   default: "db"
                   hidden: true
+              - variable: noMount
+                label: "Do not mount this storage inside the main pod"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
               - variable: type
                 label: "(Advanced) Type of Storage"
                 description: "Sets the persistence type"

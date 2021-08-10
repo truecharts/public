@@ -152,11 +152,13 @@ persistence:
     type: emptyDir
 
   db:
+    noMount: true
     forceName: "db"
     enabled: true
     type: emptyDir
 
   dbbackup:
+    noMount: true
     enabled: true
     type: emptyDir
 
