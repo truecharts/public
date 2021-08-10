@@ -76513,6 +76513,43 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-10T13:43:15.864931317Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.9.1
+    description: Unofficial Bitwarden compatible server written in Rust
+    digest: fc34a574905ec104b5c84d4d057d1b2b49bd46d2a8ea7d66b6ae24abaefc43d0
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/vaultwarden
+    icon: https://raw.githubusercontent.com/bitwarden/brand/master/icons/256x256.png
+    keywords:
+    - bitwarden
+    - bitwardenrs
+    - bitwarden_rs
+    - vaultwarden
+    - password
+    - rust
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/vaultwarden-3.9.3/vaultwarden-3.9.3.tgz
+    version: 3.9.3
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-10T07:16:12.414565715Z"
     dependencies:
     - name: common
@@ -80848,4 +80885,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-10T12:17:24.576706592Z"
+generated: "2021-08-10T13:43:15.884886264Z"
