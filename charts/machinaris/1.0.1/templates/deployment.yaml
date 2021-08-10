@@ -31,6 +31,10 @@ spec:
             - name: machinaris-ui
               protocol: TCP
               containerPort: 8926
+            - name: machinaris-api
+              protocol: TCP
+              containerPort: 8927
+              hostPort: 8927
           {{ $envList := (default list .Values.environmentVariables) }}
           {{ $envList = mustAppend $envList (dict "name" "TZ" "value" $.Values.timezone) }}
           {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
