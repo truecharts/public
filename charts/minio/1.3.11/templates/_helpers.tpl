@@ -38,3 +38,15 @@ Retrieve private key of minio certificate
 {{- $_ := set $values "commonCertOptions" (dict "certKeyName" $values.Values.certificate) -}}
 {{ include "common.resources.cert" $values }}
 {{- end -}}
+
+
+{{/*
+Retrieve scheme/protocol for minio
+*/}}
+{{- define "minio.scheme" -}}
+{{- if eq (include "minio.certAvailable" .) "true" -}}
+{{- print "https" -}}
+{{- else -}}
+{{- print "http" -}}
+{{- end -}}
+{{- end -}}
