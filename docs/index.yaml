@@ -5896,6 +5896,37 @@ entries:
   collabora-online:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-10T08:37:17.143992751Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.2
+    description: Collabora Online Development Edition – an awesome, Online Office
+      suite image suitable for home use.
+    digest: db6fb641148bdbb3e620c68e5808e8b80c8ed9d99816726ca7cca5b13a3926db
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/collabora-online
+    icon: https://truecharts.org/_static/img/collabora-icon.png
+    keywords:
+    - collabora-online
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: stavros-k@users.noreply.github.com
+      name: stavros-k
+      url: truecharts.org
+    name: collabora-online
+    sources:
+    - https://hub.docker.com/r/collabora/code
+    - https://sdk.collaboraonline.com/contents.html
+    - https://github.com/CollaboraOnline/online/tree/master/kubernetes/helm
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/collabora-online-6.4.6/collabora-online-6.4.6.tgz
+    version: 6.4.6
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-09T19:37:20.556489199Z"
     dependencies:
     - name: common
@@ -14017,6 +14048,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/emby-3.1.5/emby-3.1.5.tgz
     version: 3.1.5
   esphome:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-10T08:37:17.289505403Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.2
+    description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful
+      configuration files and control them remotely through Home Automation systems.
+    digest: f4075fd5cc955e55a78817ed17c28867b21f91306a87dfcc4bcedbc7f3f1e538
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/esphome
+    icon: https://esphome.io/_images/logo.svg
+    keywords:
+    - esphome
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: esphome
+    sources:
+    - https://github.com/esphome/esphome
+    - https://hub.docker.com/u/esphome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/esphome-6.4.4/esphome-6.4.4.tgz
+    version: 6.4.4
   - apiVersion: v2
     appVersion: auto
     created: "2021-08-09T19:37:21.246358156Z"
@@ -27455,6 +27516,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/hyperion-ng-1.0.1/hyperion-ng-1.0.1.tgz
     version: 1.0.1
   jackett:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-10T08:37:17.390348455Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.2
+    description: API Support for your favorite torrent trackers.
+    digest: 733d285749bb6c6f8b35746a59a1bdae6e9c3de265aa2c90b91a99ce36be2eff
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/jackett
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - jackett
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jackett-6.4.9/jackett-6.4.9.tgz
+    version: 6.4.9
   - apiVersion: v2
     appVersion: auto
     created: "2021-08-09T19:37:22.826223943Z"
@@ -44256,6 +44347,29 @@ entries:
   nzbhydra:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-10T08:37:17.478623539Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.2
+    deprecated: true
+    description: Usenet meta search
+    digest: ace3ab6c095cb465b6fb771312506523ddea4ab230970006815658babaa634a8
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/nzbhydra
+    icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png
+    keywords:
+    - nzbhydra
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    name: nzbhydra
+    sources:
+    - https://github.com/theotherp/nzbhydra2
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nzbhydra-6.4.3/nzbhydra-6.4.3.tgz
+    version: 6.4.3
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-09T19:37:24.490800484Z"
     dependencies:
     - name: common
@@ -53911,6 +54025,30 @@ entries:
   prototype-gui:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-10T08:37:17.573016505Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.2
+    description: App to test GUI prototypes
+    digest: 0f1a8889fbad9f82f42d121be60e9987f7e2c7f2db006f69b790a74030182f9b
+    home: https://github.com/truechartsapps/tree/master/charts/develop/prototype-gui
+    icon: https://truecharts.org/_static/img/jackett-icon.png
+    keywords:
+    - dev
+    - prototype
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prototype-gui
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prototype-gui-1.5.9/prototype-gui-1.5.9.tgz
+    version: 1.5.9
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-09T19:37:25.887820916Z"
     dependencies:
     - name: common
@@ -55242,6 +55380,34 @@ entries:
     - https://github.com/truecharts/apps/releases/download/prototype-gui-0.0.1/prototype-gui-0.0.1.tgz
     version: 0.0.1
   prowlarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-10T08:37:17.733778661Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.2
+    description: Indexer manager/proxy built on the popular arr net base stack to
+      integrate with your various PVR apps.
+    digest: 9c54b5b83fbda57fd5474069e1636bb4c50a69c5057d7088445deae4e20af3dd
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/prowlarr
+    icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/400.png
+    keywords:
+    - prowlarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prowlarr
+    sources:
+    - https://github.com/Prowlarr/Prowlarr
+    - https://github.com/k8s-at-home/container-images
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prowlarr-1.4.8/prowlarr-1.4.8.tgz
+    version: 1.4.8
   - apiVersion: v2
     appVersion: auto
     created: "2021-08-09T19:37:25.990158894Z"
@@ -56588,6 +56754,30 @@ entries:
     - https://github.com/truecharts/apps/releases/download/pyload-1.0.1/pyload-1.0.1.tgz
     version: 1.0.1
   qbittorrent:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-10T08:37:17.896756447Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.2
+    description: qBittorrent is a cross-platform free and open-source BitTorrent client
+    digest: e4d9a9eb44dae54d619b7e1cae1633ef47ca11d801f34f4b1cff606416a8f296
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/qbittorrent
+    icon: https://cloud.githubusercontent.com/assets/14862437/23586868/89ef2922-01c4-11e7-869c-52aafcece17f.png
+    keywords:
+    - qbittorrent
+    - torrrent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: qbittorrent
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/qbittorrent-6.4.3/qbittorrent-6.4.3.tgz
+    version: 6.4.3
   - apiVersion: v2
     appVersion: auto
     created: "2021-08-09T19:37:26.153851397Z"
@@ -59036,6 +59226,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/radarr-3.1.5/radarr-3.1.5.tgz
     version: 3.1.5
   readarr:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-10T08:37:18.041870493Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.2
+    description: A fork of Radarr to work with Books & AudioBooks
+    digest: b0b87684435b6f2ad1d5c1a881bbd56ea97ca9565c4aa88e25904b13c06a4642
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/readarr
+    icon: https://github.com/Readarr/Readarr/blob/develop/Logo/1024.png?raw=true
+    keywords:
+    - readarr
+    - torrent
+    - usenet
+    - AudioBooks
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: readarr
+    sources:
+    - https://github.com/Readarr/Readarr
+    - https://readarr.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/readarr-6.4.10/readarr-6.4.10.tgz
+    version: 6.4.10
   - apiVersion: v2
     appVersion: auto
     created: "2021-08-09T19:37:26.319316433Z"
@@ -78428,6 +78651,39 @@ entries:
   zwavejs2mqtt:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-10T08:37:18.134619037Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.6.2
+    description: Fully configurable Zwave to MQTT gateway and Control Panel using
+      NodeJS and Vue
+    digest: 0a1aa19160570ea36417c156461bc46967d9183be110360b35f9773663a86db9
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/zwavejs2mqtt
+    icon: https://raw.githubusercontent.com/zwave-js/zwavejs2mqtt/master/static/logo.png
+    keywords:
+    - zwavejs2mqtt
+    - zwave-js
+    - z-wave
+    - zwave
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 35702532+tprelog@users.noreply.github.com
+      name: tprelog
+      url: truecharts.org
+    name: zwavejs2mqtt
+    sources:
+    - https://github.com/zwave-js/zwavejs2mqtt
+    - https://hub.docker.com/r/zwavejs/zwavejs2mqtt
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-6.4.7/zwavejs2mqtt-6.4.7.tgz
+    version: 6.4.7
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-09T19:37:27.898411117Z"
     dependencies:
     - name: common
@@ -80306,4 +80562,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-10T08:30:49.479497566Z"
+generated: "2021-08-10T08:37:18.153520991Z"
