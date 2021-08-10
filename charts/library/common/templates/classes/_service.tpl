@@ -39,6 +39,10 @@ spec:
   {{- if $values.clusterIP }}
   clusterIP: {{ $values.clusterIP }}
   {{end}}
+  {{- else if eq $svcType "ExternalName" }}
+  type: {{ $svcType }}
+  externalName: {{ $values.externalName }}
+  {{- else if eq $svcType "ExternalIP" }}
   {{- else if eq $svcType "LoadBalancer" }}
   type: {{ $svcType }}
   {{- if $values.loadBalancerIP }}
@@ -88,6 +92,37 @@ spec:
     {{ end }}
   {{- end }}
   {{- end }}
+  {{- if and ( ne $svcType "ExternalName" ) ( ne $svcType "ExternalIP" )}}
   selector:
     {{- include "common.labels.selectorLabels" . | nindent 4 }}
+  {{- end }}
+{{- if eq $svcType "ExternalIP" }}
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: {{ $serviceName }}
+  labels:
+    {{- include "common.labels" $ | nindent 4 }}
+subsets:
+  - addresses:
+      - ip: {{ $values.externalIP }}
+    ports:
+    {{- range $name, $port := $values.ports }}
+    {{- if $port.enabled }}
+      - port: {{ $port.port | default 80 }}
+        targetPort: {{ $port.targetPort | default $name }}
+        {{- if $port.protocol }}
+        {{- if or ( eq $port.protocol "HTTP" ) ( eq $port.protocol "HTTPS" ) ( eq $port.protocol "TCP" ) }}
+        protocol: TCP
+        {{- else }}
+        protocol: {{ $port.protocol }}
+        {{- end }}
+        {{- else }}
+        protocol: TCP
+        {{- end }}
+        name: {{ $name }}
+    {{- end }}
+    {{- end }}
+{{- end }}
 {{- end }}
