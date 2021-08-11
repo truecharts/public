@@ -18,6 +18,7 @@ The goal is to gather some suggestions and forward them to iX-Systems.
 - Add ability to set a delay before an app starts on boot (Delayed auto start)
 - Add ability to group apps (for better organization) (e.g. Media apps, Production apps, Dev Apps etc)
 - Show statistics per app (cpu / network / ram)
+- Allow changing colors (yellow/gold default) of catalogs/trains boxes in the available/installed apps tabs, to be easier to distinguish between catalog/train.
 
 - :white_check_mark: Make timezone default to timezone set in TN System [NAS-110373](https://jira.ixsystems.com/browse/NAS-110373)
 - :white_check_mark: Show all config options on "Confirm options" when installing an App
