@@ -28,15 +28,12 @@ postgresqlDatabase: "test"
 envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
-      name: '{{ .Values.existingSecret | default (include "common.names.fullname" . | quote) }}'
+      name: '{{ .Values.existingSecret | default ( include "common.names.fullname" . | quote ) }}'
       key: "postgresql-password"
 
 envTpl:
   PGDATA: "{{ .Values.pgdatapath }}"
   POSTGRES_USER: "{{ .Values.postgresqlUsername }}"
   POSTGRES_DB: "{{ .Values.postgresqlDatabase }}"
-#  POSTGRESQL_POSTGRES_PASSWORD: "{{ .Values.postgrespassword }}"
-#  POSTGRESQL_PASSWORD: "{{ .Values.password }}"
-  
-
-  
+# POSTGRESQL_POSTGRES_PASSWORD: "{{ .Values.postgrespassword }}"
+# POSTGRESQL_PASSWORD: "{{ .Values.password }}"

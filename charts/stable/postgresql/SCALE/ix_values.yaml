@@ -14,7 +14,7 @@ pgdatapath: "/data"
 envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
-      name: "{{ .Values.existingSecret | default (include "common.names.fullname" . | quote) }}"
+      name: '{{ .Values.existingSecret | default ( include "common.names.fullname" . | quote ) }}'
       key: "postgresql-password"
 
 envTpl:
