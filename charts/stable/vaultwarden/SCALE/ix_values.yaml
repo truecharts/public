@@ -38,17 +38,12 @@ database:
   retries: 30
 
 # Enabled postgres
-# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
-  volumePermissions:
-    enabled: true
+
   enabled: true
   postgresqlUsername: vaultwarden
   postgresqlDatabase: vaultwarden
   existingSecret: dbcreds
-  persistence:
-    enabled: true
-    existingClaim: db
 
 ##
 # Most other defaults are set in questions.yaml
