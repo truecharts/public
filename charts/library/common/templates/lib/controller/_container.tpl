@@ -36,7 +36,13 @@
    {{- range $key, $value := .Values.envValueFrom }}
     - name: {{ $key }}
       valueFrom:
+        {{- if $value.secretKeyRef }}
+        secretKeyRef: 
+          name: {{ tpl $value.secretKeyRef.name $ | quote }}
+          key: {{ tpl $value.secretKeyRef.key $ | quote }}
+        {{- else }}
         {{- $value | toYaml | nindent 8 }}
+        {{- end }}
    {{- end }}
   {{- range $envList := .Values.envList }}
     {{- if and $envList.name $envList.value }}
