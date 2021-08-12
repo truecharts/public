@@ -59,14 +59,6 @@ persistence:
     accessMode: ReadWriteOnce
     size: "100Gi"
 
-  db:
-    noMount: true
-    forceName: "db"
-    enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-
   redismaster:
     noMount: true
     forceName: "redismaster"
@@ -194,15 +186,11 @@ cronjob:
 # Enabled postgres
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
-  volumePermissions:
-    enabled: true
   enabled: true
   postgresqlUsername: nextcloud
   postgresqlDatabase: nextcloud
   existingSecret: dbcreds
-  persistence:
-    enabled: false
-    existingClaim: db
+
 
 # Enabled redis
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
