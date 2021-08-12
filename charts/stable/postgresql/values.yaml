@@ -1,0 +1,44 @@
+image:
+  repository: postgres
+  pullPolicy: IfNotPresent
+  tag: "13.3"
+
+strategy:
+  type: Recreate
+
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 5432
+
+persistence:
+  data:
+    enabled: true
+    type: emptyDir
+  backups:
+    enabled: true
+    type: emptyDir
+
+
+pgdatapath: "/data"
+postgresqlPassword: "testpass"
+postgresqlUsername: "test"
+postgresqlDatabase: "test"
+# existingSecret: ""
+
+
+envValueFrom:
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: '{{ .Values.existingSecret | default ( include "common.names.fullname" . ) }}'
+      key: "postgresql-password"
+
+envTpl:
+  PGDATA: "{{ .Values.pgdatapath }}"
+  POSTGRES_USER: "{{ .Values.postgresqlUsername }}"
+  POSTGRES_DB: "{{ .Values.postgresqlDatabase }}"
+# POSTGRESQL_POSTGRES_PASSWORD: "{{ .Values.postgrespassword }}"
+# POSTGRESQL_PASSWORD: "{{ .Values.password }}"
