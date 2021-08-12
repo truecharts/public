@@ -7,14 +7,14 @@
 image:
   repository: postgres
   pullPolicy: IfNotPresent
-  tag: 13.3
+  tag: "13.3"
 
 pgdatapath: "/data"
 
 envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( include "common.names.fullname" . | quote ) }}'
+      name: '{{ .Values.existingSecret | default ( include "common.names.fullname" . ) }}'
       key: "postgresql-password"
 
 envTpl:

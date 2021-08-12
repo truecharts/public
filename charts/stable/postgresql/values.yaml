@@ -1,7 +1,7 @@
 image:
   repository: postgres
   pullPolicy: IfNotPresent
-  tag: 13.3
+  tag: "13.3"
 
 strategy:
   type: Recreate
@@ -33,7 +33,7 @@ postgresqlDatabase: "test"
 envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( include "common.names.fullname" . | quote ) }}'
+      name: '{{ .Values.existingSecret | default ( include "common.names.fullname" . ) }}'
       key: "postgresql-password"
 
 envTpl:
