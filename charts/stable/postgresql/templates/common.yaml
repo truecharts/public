@@ -1,0 +1,12 @@
+{{/*
+Get the password secret.
+*/}}
+{{- define "postgresql.secretName" -}}
+{{- if .Values.existingSecret -}}
+    {{- printf "%s" (tpl .Values.existingSecret $) -}}
+{{- else -}}
+    {{- printf "%s" (include "common.names.fullname" .) -}}
+{{- end -}}
+{{- end -}}
+
+{{ include "common.all" . }}
