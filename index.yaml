@@ -7452,6 +7452,30 @@ entries:
   common:
   - apiVersion: v2
     appVersion: none
+    created: "2021-08-12T10:31:33.312620526Z"
+    description: Function library for TrueCharts
+    digest: 88fac63851835f8e940dbb16a6fd9bec9c4ac1f1464ebf5ef7459fbd4b7a097f
+    home: https://github.com/truecharts/apps/tree/master/charts/common
+    icon: https://avatars.githubusercontent.com/u/76400755
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-6.8.0/common-6.8.0.tgz
+    version: 6.8.0
+  - apiVersion: v2
+    appVersion: none
     created: "2021-08-10T14:14:39.978573333Z"
     description: Function library for TrueCharts
     digest: 0ddff7d2ba5394a908741afb2737c4e70c7f38a87d8a8ad0bc9f91ae4bfb697b
@@ -76537,6 +76561,43 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-12T10:31:33.48439437Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.7.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.8.0
+    description: Unofficial Bitwarden compatible server written in Rust
+    digest: 0934eecd170ae08d20e4178cf3af3ebeaf32a23afa9b8e44d069061056040219
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/vaultwarden
+    icon: https://raw.githubusercontent.com/bitwarden/brand/master/icons/256x256.png
+    keywords:
+    - bitwarden
+    - bitwardenrs
+    - bitwarden_rs
+    - vaultwarden
+    - password
+    - rust
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/vaultwarden-3.10.1/vaultwarden-3.10.1.tgz
+    version: 3.10.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-10T13:43:15.864931317Z"
     dependencies:
     - name: common
@@ -80909,4 +80970,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-10T14:14:40.001416134Z"
+generated: "2021-08-12T10:31:33.510773531Z"
