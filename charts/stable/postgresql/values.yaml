@@ -12,10 +12,13 @@ service:
     enabled: true
     ports:
       main:
-      port: 5432
+        port: 5432
 
 persistence:
   data:
+    enabled: true
+    type: emptyDir
+  backups:
     enabled: true
     type: emptyDir
 

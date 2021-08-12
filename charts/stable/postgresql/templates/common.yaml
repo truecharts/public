@@ -1,21 +1,2 @@
-{{/*
-Get the password secret.
-*/}}
-{{- define "postgresql.secretName" -}}
-{{- if .Values.existingSecret -}}
-    {{- printf "%s" (tpl .Values.existingSecret $) -}}
-{{- else -}}
-    {{- printf "%s" (include "common.names.fullname" .) -}}
-{{- end -}}
-{{- end -}}
-
-{{/*
-Retrieve postgres backup name
-This will return a unique name based on revision and chart numbers specified.
-*/}}
-{{- define "postgres.backupName" -}}
-{{- $upgradeDict := .Values.ixChartContext.upgradeMetadata -}}
-{{- printf "postgres-backup-from-%s-to-%s-revision-%d" $upgradeDict.oldChartVersion $upgradeDict.newChartVersion (int64 $upgradeDict.preUpgradeRevision) -}}
-{{- end }}
 
 {{ include "common.all" . }}
