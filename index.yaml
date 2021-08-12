@@ -40969,6 +40969,48 @@ entries:
   nextcloud:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-12T12:55:41.770933111Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.8.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 1.0.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.8.8
+    description: A private cloud server that puts the control and security of your
+      own data back into your hands.
+    digest: d3f564433b92039f2ca1cbbc78ca3ebe927aa9b09d2307245979ab3abc7c9e20
+    home: https://nextcloud.com/
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nextcloud_Logo.svg/1280px-Nextcloud_Logo.svg.png
+    keywords:
+    - nextcloud
+    - storage
+    - http
+    - web
+    - php
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: nextcloud
+    sources:
+    - https://github.com/nextcloud/docker
+    - https://github.com/nextcloud/helm
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nextcloud-2.0.0/nextcloud-2.0.0.tgz
+    version: 2.0.0
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-12T11:53:00.59410547Z"
     dependencies:
     - name: common
@@ -83497,4 +83539,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-12T12:12:04.030874338Z"
+generated: "2021-08-12T12:55:41.790395747Z"
