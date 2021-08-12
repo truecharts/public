@@ -151,26 +151,9 @@ persistence:
     mountPath: "/data"
     type: emptyDir
 
-  db:
-    noMount: true
-    forceName: "db"
-    enabled: true
-    type: emptyDir
-
-  dbbackup:
-    noMount: true
-    enabled: true
-    type: emptyDir
-
 # Enabled postgres
-# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
-  volumePermissions:
-    enabled: true
   enabled: true
   postgresqlUsername: vaultwarden
   postgresqlDatabase: vaultwarden
   existingSecret: dbcreds
-  persistence:
-    enabled: false
-    existingClaim: db
