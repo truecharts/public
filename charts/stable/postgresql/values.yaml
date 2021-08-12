@@ -9,7 +9,9 @@ strategy:
 
 service:
   main:
-    port:
+    enabled: true
+    ports:
+      main:
       port: 5432
 
 persistence:
