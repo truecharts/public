@@ -25206,6 +25206,35 @@ entries:
   healthchecks:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-13T16:20:46.733460219Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.8.0
+    description: Healthchecks is a cron job monitoring service. It listens for HTTP
+      requests and email messages ("pings") from your cron jobs and scheduled tasks
+      ("checks"). When a ping does not arrive on time, Healthchecks sends out alerts.
+    digest: b725d49a3af13a4307c503cc05e8c77c45a8770718884a77195372ae2cca9b32
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/healthchecks
+    icon: https://avatars.githubusercontent.com/u/13053880?s=200&v=4
+    keywords:
+    - cron
+    - monitoring
+    - alert
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: healthchecks
+    sources:
+    - https://github.com/healthchecks/healthchecks
+    - https://hub.docker.com/r/linuxserver/healthchecks
+    urls:
+    - https://github.com/truecharts/apps/releases/download/healthchecks-1.4.1/healthchecks-1.4.1.tgz
+    version: 1.4.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-12T11:52:58.001851349Z"
     dependencies:
     - name: common
@@ -38592,6 +38621,33 @@ entries:
     - https://github.com/truecharts/apps/releases/download/mealie-1.0.0/mealie-1.0.0.tgz
     version: 1.0.0
   mosquitto:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-13T16:20:46.906119154Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.8.0
+    description: Eclipse Mosquitto - An open source MQTT broker
+    digest: 12efdd5d9f7d8e4d12486e8ae50006a78450c162a06d48a7c05e1491ee75a5ff
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/mosquitto
+    icon: https://projects.eclipse.org/sites/default/files/mosquitto-200px.png
+    keywords:
+    - mosquitto
+    - MQTT
+    - eclipse-iot
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: mosquitto
+    sources:
+    - https://github.com/eclipse/mosquitto
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mosquitto-1.6.1/mosquitto-1.6.1.tgz
+    version: 1.6.1
   - apiVersion: v2
     appVersion: auto
     created: "2021-08-12T11:53:00.057093686Z"
@@ -83572,4 +83628,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-12T13:03:51.579983667Z"
+generated: "2021-08-13T16:20:46.928885872Z"
