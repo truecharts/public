@@ -5,10 +5,10 @@ appVolumeMounts:
   plots:
     emptyDir: true
     mountPath: /plots
-timezone: 'America/Edmonton'
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/guydavis/machinaris
-  tag: v0.5.1
-updateStrategy: Recreate
+  tag: v0.5.2
 machinaris_ui_port: 31003
+timezone: America/Edmonton
+updateStrategy: Recreate
