@@ -25,8 +25,6 @@ spec:
         env:
           - name: BACKUP_NAME
             value: {{- printf "postgres-backup-from-%s-to-%s-revision-%d" $upgradeDict.oldChartVersion $upgradeDict.newChartVersion (int64 $upgradeDict.preUpgradeRevision) -}}
-          - name: PGDATA
-            value: {{ .Values.pgdatapath | quote }}
           - name: POSTGRES_USER
             value: {{ .Values.postgresqlUsername | quote  }}
           - name: POSTGRES_DB

@@ -15,15 +15,15 @@ service:
         port: 5432
 
 persistence:
-  data:
+  db:
     enabled: true
     type: emptyDir
-  backups:
+    mountPath: "/var/lib/postgresql/data"
+  dbbackups:
     enabled: true
     type: emptyDir
 
 
-pgdatapath: "/data"
 postgresqlPassword: "testpass"
 postgresqlUsername: "test"
 postgresqlDatabase: "test"
@@ -37,7 +37,6 @@ envValueFrom:
       key: "postgresql-password"
 
 envTpl:
-  PGDATA: "{{ .Values.pgdatapath }}"
   POSTGRES_USER: "{{ .Values.postgresqlUsername }}"
   POSTGRES_DB: "{{ .Values.postgresqlDatabase }}"
 # POSTGRESQL_POSTGRES_PASSWORD: "{{ .Values.postgrespassword }}"

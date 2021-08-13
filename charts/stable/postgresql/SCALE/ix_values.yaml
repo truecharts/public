@@ -9,7 +9,6 @@ image:
   pullPolicy: IfNotPresent
   tag: "13.3"
 
-pgdatapath: "/data"
 
 envValueFrom:
   POSTGRES_PASSWORD:
@@ -18,7 +17,6 @@ envValueFrom:
       key: "postgresql-password"
 
 envTpl:
-  PGDATA: "{{ .Values.pgdatapath }}"
   POSTGRES_USER: "{{ .Values.postgresqlUsername }}"
   POSTGRES_DB: "{{ .Values.postgresqlDatabase }}"
 #  POSTGRESQL_POSTGRES_PASSWORD: "{{ .Values.postgrespassword }}"

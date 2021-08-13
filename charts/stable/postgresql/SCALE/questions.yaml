@@ -76,7 +76,7 @@ questions:
                 description: "RollingUpdate: Create new pods and then kill old ones"
               - value: "OnDelete"
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
-                
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -253,8 +253,8 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: data
-          label: "App data Storage"
+        - variable: db
+          label: "App db Storage"
           description: "Stores the Application Database."
           schema:
             type: dict
@@ -330,7 +330,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/data"
+                  default: "/var/lib/postgresql/data"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
@@ -364,7 +364,7 @@ questions:
                   type: string
                   default: "100Gi"
 
-        - variable: backups
+        - variable: dbbackups
           label: "App backup Storage"
           description: "Stores the Application backups."
           schema:
@@ -441,7 +441,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/backups"
+                  default: "/dbbackups"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
