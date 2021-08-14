@@ -184,13 +184,11 @@ cronjob:
   successfulJobsHistoryLimit: 2
 
 # Enabled postgres
-# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
 postgresql:
   enabled: true
   postgresqlUsername: nextcloud
   postgresqlDatabase: nextcloud
   existingSecret: dbcreds
-
 
 # Enabled redis
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
