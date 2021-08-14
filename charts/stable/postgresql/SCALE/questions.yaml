@@ -120,7 +120,7 @@ questions:
       type: string
       default: "mydatabase"
       required: true
-  - variable: user
+  - variable: postgresqlUsername
     group: "App Configuration"
     label: "Database User"
     schema:
