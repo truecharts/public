@@ -12,7 +12,7 @@ Our primary goals are:
 - Micro-Service Centered
 - Native Kubernetes
 - Stability
-- Consistancy
+- Consistency
 
 All our apps are supposed to work together, be easy to setup using the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
 
@@ -62,13 +62,13 @@ _Beta has landed by now and people want their apps available on scale. Lets give
 
 ---
 
-Our development proces is fully distributed and agile, so every chart-maintainer is free to set their own roadmap and development speed and does not have to comply to a centralised roadmap.
-This ensures freedom and flexibility for everyone involved and makes sure you, the end user, always has the latest and greated of every App installed.
+Our development process is fully distributed and agile, so every chart-maintainer is free to set their own roadmap and development speed and does not have to comply to a centralised roadmap.
+This ensures freedom and flexibility for everyone involved and makes sure you, the end user, always has the latest and greatest of every App installed.
 
 
 ### Getting into creating Apps
 
-Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior knowhow on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
+Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior know-how on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
 
 For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/)
 
@@ -76,7 +76,7 @@ For more information on creating SCALE Apps and Helm charts, please check out ou
 
 We provide a lot of tools to make it easier to develop charts, templates, automated testing, automated fixes, automated docs. Even automated update is included. We also actively try to collaborate with other k8s community projects on tooling, for the betterment of all!
 
-Those tools do, however, take time to develop and are certainly not bug free. If you find mistakes in our tooling, please feel free to repost issues or submit any fixes you feel appropiate!
+Those tools do, however, take time to develop and are certainly not bug free. If you find mistakes in our tooling, please feel free to repost issues or submit any fixes you feel appropriate!
 
 <br>
 
@@ -157,7 +157,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ---
 
-Truecharts as a whole, is based on a BSD-3-clause  license, this ensures almost everyone can use and modify our charts. However: As a lot of Apps are based on upstream Helm Charts, Licences can vary on a per-App basis. This can easily be seen by the presence of a "LICENSE" file in the App rootfolder.
+Truecharts as a whole, is based on a BSD-3-clause  license, this ensures almost everyone can use and modify our charts. However: As a lot of Apps are based on upstream Helm Charts, Licences can vary on a per-App basis. This can easily be seen by the presence of a "LICENSE" file in the App root folder.
 
 Some Apps may also contain parts in other licenses, such as libraries or templates, these files can be recognised by their individual headers.
 
