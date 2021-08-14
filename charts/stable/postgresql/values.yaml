@@ -17,12 +17,16 @@ service:
 persistence:
   db:
     enabled: true
-    type: emptyDir
     mountPath: "/var/lib/postgresql/data"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
   dbbackups:
     enabled: true
-    type: emptyDir
-
+    mountPath: "/dbbackups"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
 
 postgresqlPassword: "testpass"
 postgresqlUsername: "test"
