@@ -48,20 +48,27 @@ function generatesvc(name, app, service) {
 
 </SCRIPT>
 
-<div id="svcdns">
-<h2>Generate Internal DNS Name:</h2>
-<div id="svcdns-form">
-
 <FORM NAME="frameform" ACTION="" METHOD="GET"><BR>
-<input type="text" NAME="name">
-<input type="text" NAME="app">
-<input type="text" NAME="service">
-
-<INPUT TYPE="button" NAME="button" Value="Click" onClick="process(this.form)">
+<div class="form">
+  <div class="subtitle">Generate Internal DNS Name:</div>
+  <div class="input-container ic1">
+    <input id="name" class="input" type="text" placeholder=" " />
+    <div class="cut"></div>
+    <label for="name" class="placeholder">Name:</label>
+  </div>
+  <div class="input-container ic2">
+    <input id="app" class="input" type="text" placeholder=" " />
+    <div class="cut"></div>
+    <label for="app" class="placeholder">App</label>
+  </div>
+  <div class="input-container ic2">
+    <input id="service" class="input" type="text" placeholder=" " />
+    <div class="cut cut-short"></div>
+    <label for="service" class="placeholder">Service</>
+  </div>
+  <INPUT TYPE="button" class="submit" NAME="button" Value="Generate" onClick="process(this.form)">
+</div>
 </FORM>
-
-</div>
-</div>
 
 #### Video Guide
 
