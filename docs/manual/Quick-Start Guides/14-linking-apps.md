@@ -48,7 +48,6 @@ function generatesvc(name, app, service) {
 
 </SCRIPT>
 
-<BODY>
 <FORM NAME="frameform" ACTION="" METHOD="GET">Generate Internal DNS Name:<BR>
 <input type="text" NAME="name">
 <input type="text" NAME="app">
@@ -56,6 +55,7 @@ function generatesvc(name, app, service) {
 <P>
 
 <INPUT TYPE="button" NAME="button" Value="Click" onClick="process(this.form)">
+</FORM>
 
 #### Video Guide
 
