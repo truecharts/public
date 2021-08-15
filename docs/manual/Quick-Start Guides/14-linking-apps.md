@@ -23,6 +23,7 @@ If you need to reach a different service (which is not often the case!), you nee
 ##### Internal Domain Name generator
 
 
+<link href="https://truecharts.org/_static/form.css" type="text/css" rel="stylesheet" />
 <FORM id="frameform"><BR>
 <div class="form">
   <div class="subtitle">Generate Internal DNS Name:</div>
