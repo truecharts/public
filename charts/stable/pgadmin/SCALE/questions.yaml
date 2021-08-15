@@ -592,18 +592,6 @@ questions:
                               default: ""
                               required: true
 
-  - variable: securityContext
-    group: "Security and Permissions"
-    label: "Security Context"
-    schema:
-      type: dict
-      attrs:
-        - variable: privileged
-          label: "Enable privileged mode for Common-Chart based charts"
-          schema:
-            type: boolean
-            default: false
-
   - variable: resources
     group: "Resources and Devices"
     label: ""
