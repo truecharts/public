@@ -33,7 +33,7 @@ function process (form) {
 
 
 function generatesvc(name, app, service) {
-    var svcname ""
+    var svcname = ""
     if (name == app) {
       svcname = name ;
     } else {
