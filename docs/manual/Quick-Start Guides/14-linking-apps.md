@@ -73,7 +73,7 @@ function generatesvc(name, app, service) {
   <div class="input-container ic2">
     <input id="service" class="input" type="text" placeholder=" " />
     <div class="cut cut-short"></div>
-    <label for="service" class="placeholder">Service</>
+    <label for="service" class="placeholder">Service (Optional)</>
   </div>
   <INPUT TYPE="button" class="submit" NAME="button" Value="Generate" onClick="process(this.form)">
 </div>
