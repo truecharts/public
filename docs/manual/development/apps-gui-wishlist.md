@@ -2,6 +2,11 @@
 
 The goal is to gather some suggestions and forward them to iX-Systems.
 
+##### Documentation suggestions
+
+- Document the fact users can also use the native Helm CLI instead of Apps for advanced deployments and which things they should avoid (such as `ix-` prefixed namespaces)
+- Document how advanced users can take an existing Helm Chart and create an app with mostly empty GUI to deploy it on SCALE.
+
 ##### Visual suggestions
 
 - Use all screen on install / edit app, not just a sidebar. [NAS-110183](https://jira.ixsystems.com/browse/NAS-110183)
@@ -18,7 +23,10 @@ The goal is to gather some suggestions and forward them to iX-Systems.
 - Add ability to set a delay before an app starts on boot (Delayed auto start)
 - Add ability to group apps (for better organization) (e.g. Media apps, Production apps, Dev Apps etc)
 - Show statistics per app (cpu / network / ram)
+- Use blue for the Official Catalog/Train boxes in the available/installed apps tabs.
 - Allow changing colors (yellow/gold default) of catalogs/trains boxes in the available/installed apps tabs, to be easier to distinguish between catalog/train.
+- Add option for separators and whitespace in questions.yaml [NAS-110750](https://jira.ixsystems.com/browse/NAS-110750)
+- Allow showing 1 or more default entries when creating a list (instead of an empty list)
 
 - :white_check_mark: Make timezone default to timezone set in TN System [NAS-110373](https://jira.ixsystems.com/browse/NAS-110373)
 - :white_check_mark: Show all config options on "Confirm options" when installing an App
@@ -27,10 +35,10 @@ The goal is to gather some suggestions and forward them to iX-Systems.
 ##### Technical suggestions
 
 - Allow `show_if` and `show_subquestions_if` to to use values for evaluation from parent variables [NAS-110751](https://jira.ixsystems.com/browse/NAS-110751)
-- Add option for separators and whitespace in questions.yaml [NAS-110750](https://jira.ixsystems.com/browse/NAS-110750)
 - Validate regex defined in questions.yaml when focus leaves input field.
 - Set custom message to display when `valid_chars` is not matched.
 - Add ability to save a PVC backup even on app delete
 - Add ability to restore a PVC backup from a deleted app
+- Investigate if we can show/mount the PVC path to the host (maybe show only if the App is `stopped`?)
 
 Join our [discord](https://truecharts.org/discord) to make a new suggestion.
