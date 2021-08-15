@@ -33,7 +33,7 @@ To reach an app named "sabnzbd" within Sonarr, we can use the following internal
 
 
 <SCRIPT LANGUAGE="JavaScript">
-function testResults (form) {
+function process (form) {
     var svcdns = generatesvc(form.name.value, form.app.value, form.service.value);
     alert ("Service DNS Name: " + svcdns);
      console.log(svcdns)
@@ -55,7 +55,7 @@ function generatesvc(name, app, service) {
 <input type="text" NAME="service">
 <P>
 
-<INPUT TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)">
+<INPUT TYPE="button" NAME="button" Value="Click" onClick="process(this.form)">
 
 #### Video Guide
 
