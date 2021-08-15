@@ -20,15 +20,6 @@ If you need to reach a different service (which is not often the case!), you nee
 - `$SVCNAME.ix-$APPNAME.svc.cluster.local` or
 - `$SVCNAME.ix-$APPNAME`
 
-##### Example
-
-To reach an app named "sabnzbd" within Sonarr, we can use the following internal domain name:
-
-- `sabnzbd.ix-sabnzbd`
-
-<a href="https://truecharts.org/_static/img/linking/linking-example-sonarrsabnzbd.png"><img src="https://truecharts.org/_static/img/linking/linking-example-sonarrsabnzbd.png" width="100%"/></a>
-
-
 ##### Internal Domain Name generator
 
 
@@ -78,6 +69,15 @@ function generatesvc(name, app, service) {
   <INPUT TYPE="button" class="submit" NAME="button" Value="Generate" onClick="process(this.form)">
 </div>
 </FORM>
+
+
+##### Example
+
+To reach an app named "sabnzbd" within Sonarr, we can use the following internal domain name:
+
+- `sabnzbd.ix-sabnzbd`
+
+<a href="https://truecharts.org/_static/img/linking/linking-example-sonarrsabnzbd.png"><img src="https://truecharts.org/_static/img/linking/linking-example-sonarrsabnzbd.png" width="100%"/></a>
 
 #### Video Guide
 
