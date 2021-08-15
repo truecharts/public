@@ -41,7 +41,7 @@ function testResults (form) {
 
 
 
-function buildHexStringCommand(name, app, service) {
+function generatesvc(name, app, service) {
     let svcdns = name + app + service;
     return svcdns;
 };
