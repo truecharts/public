@@ -42,7 +42,14 @@ function process (form) {
 
 
 function generatesvc(name, app, service) {
-    let svcname = name + "-" + app ;
+    if (name == app) {
+      let svcname = name ;
+    } else {
+      let svcname = name + "-" + app ;
+    }
+    if (service) {
+      let svcname = svcname + "-" + service ;
+    }
     let svcdns = svcname + "." + "ix-" + name + ".svc.cluster.local" ;
     return svcdns;
 };
@@ -50,24 +57,24 @@ function generatesvc(name, app, service) {
 </SCRIPT>
 
 <FORM NAME="frameform" ACTION="" METHOD="GET"><BR>
-<div class="form-form">
-  <div class="form-subtitle">Generate Internal DNS Name:</div>
-  <div class="form-input-container ic1">
-    <input id="name" class="form-input" type="text" placeholder=" " />
-    <div class="form-cut"></div>
-    <label for="name" class="form-placeholder">Name:</label>
+<div class="form">
+  <div class="subtitle">Generate Internal DNS Name:</div>
+  <div class="input-container ic1">
+    <input id="name" class="input" type="text" placeholder=" " />
+    <div class="cut"></div>
+    <label for="name" class="placeholder">Name:</label>
   </div>
-  <div class="form-input-container ic2">
-    <input id="app" class="form-input" type="text" placeholder=" " />
-    <div class="form-cut"></div>
-    <label for="app" class="form-placeholder">App</label>
+  <div class="input-container ic2">
+    <input id="app" class="input" type="text" placeholder=" " />
+    <div class="cut"></div>
+    <label for="app" class="placeholder">App</label>
   </div>
-  <div class="form-input-container ic2">
-    <input id="service" class="form-input" type="text" placeholder=" " />
-    <div class="form-cut cut-short"></div>
-    <label for="service" class="form-placeholder">Service</>
+  <div class="input-container ic2">
+    <input id="service" class="input" type="text" placeholder=" " />
+    <div class="cut cut-short"></div>
+    <label for="service" class="placeholder">Service</>
   </div>
-  <INPUT TYPE="button" class="form-submit" NAME="button" Value="Generate" onClick="process(this.form)">
+  <INPUT TYPE="button" class="submit" NAME="button" Value="Generate" onClick="process(this.form)">
 </div>
 </FORM>
 
