@@ -44,17 +44,17 @@ If you need to reach a different service (which is not often the case!), you nee
   <div class="subtitle">Generate Internal DNS Name:</div>
   <div class="input-container ic1">
     <input required id="name" class="input" type="text" placeholder=" " />
-    <div class="cut"></div>
+    <div class="cut cut-short-name"></div>
     <label for="name" class="placeholder">Name</label>
   </div>
   <div class="input-container ic2">
     <input required id="app" class="input" type="text" placeholder=" " />
-    <div class="cut"></div>
+    <div class="cut cut-short-app"></div>
     <label for="app" class="placeholder">App</label>
   </div>
   <div class="input-container ic2">
     <input id="service" class="input" type="text" placeholder=" " />
-    <div class="cut cut-short"></div>
+    <div class="cut"></div>
     <label for="service" class="placeholder">Service (Optional)</>
   </div>
   <INPUT TYPE="submit" class="submit" NAME="button" Value="Generate">

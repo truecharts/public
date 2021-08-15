@@ -1,5 +1,3 @@
-
-
 .form {
   background-color: #15172b;
   border-radius: 20px;
@@ -61,13 +59,15 @@
   top: -20px;
   transform: translateY(0);
   transition: transform 200ms;
-  width: 76px;
+  width: 115px;
 }
 
-.cut-short {
-  width: 50px;
+.cut-short-name {
+  width: 52px;
 }
-
+.cut-short-app {
+  width: 41px;
+}
 .input:focus ~ .cut,
 .input:not(:placeholder-shown) ~ .cut {
   transform: translateY(8px);
