@@ -55,6 +55,7 @@ function generatesvc(name, app, service) {
 };
 
 </SCRIPT>
+<link href="https://truecharts.org/_static/form.css" type="text/css" rel="stylesheet" />
 
 <FORM NAME="frameform" ACTION="" METHOD="GET"><BR>
 <div class="form">
