@@ -33,13 +33,14 @@ function process (form) {
 
 
 function generatesvc(name, app, service) {
+    var svcname ""
     if (name == app) {
-      let svcname = name ;
+      svcname = name ;
     } else {
-      let svcname = name + "-" + app ;
+      svcname = name + "-" + app ;
     }
     if (service) {
-      let svcname = svcname + "-" + service ;
+      svcname = svcname + "-" + service ;
     }
     let svcdns = svcname + "." + "ix-" + name + ".svc.cluster.local" ;
     return svcdns;
@@ -54,7 +55,7 @@ function generatesvc(name, app, service) {
   <div class="input-container ic1">
     <input required id="name" class="input" type="text" placeholder=" " />
     <div class="cut"></div>
-    <label for="name" class="placeholder">Name:</label>
+    <label for="name" class="placeholder">Name</label>
   </div>
   <div class="input-container ic2">
     <input required id="app" class="input" type="text" placeholder=" " />
