@@ -23,33 +23,7 @@ If you need to reach a different service (which is not often the case!), you nee
 ##### Internal Domain Name generator
 
 
-<SCRIPT LANGUAGE="JavaScript">
-function process (form) {
-    var svcdns = generatesvc(form.name.value, form.app.value, form.service.value);
-    alert ("Service DNS Name: " + svcdns);
-     console.log(svcdns)
-}
-
-
-
-function generatesvc(name, app, service) {
-    var svcname = ""
-    if (name == app) {
-      svcname = name ;
-    } else {
-      svcname = name + "-" + app ;
-    }
-    if (service) {
-      svcname = svcname + "-" + service ;
-    }
-    let svcdns = svcname + "." + "ix-" + name + ".svc.cluster.local" ;
-    return svcdns;
-};
-</SCRIPT>
-
-<link href="https://truecharts.org/_static/form.css" type="text/css" rel="stylesheet" />
-
-<FORM NAME="frameform" ACTION="" METHOD="GET"><BR>
+<FORM id="frameform"><BR>
 <div class="form">
   <div class="subtitle">Generate Internal DNS Name:</div>
   <div class="input-container ic1">
@@ -67,9 +41,37 @@ function generatesvc(name, app, service) {
     <div class="cut cut-short"></div>
     <label for="service" class="placeholder">Service (Optional)</>
   </div>
-  <INPUT TYPE="button" class="submit" NAME="button" Value="Generate" onClick="process(this.form)">
+  <INPUT TYPE="submit" class="submit" NAME="button" Value="Generate">
 </div>
 </FORM>
+
+<SCRIPT LANGUAGE="JavaScript">
+const form = document.getElementById('frameform');
+const name = document.getElementById('name');
+const app = document.getElementById('app');
+const service = document.getElementById('service');
+
+form.onsubmit = submit;
+
+function submit(event) {
+
+
+    var svcname = ""
+    if (name.value == app.value) {
+      svcname = name.value ;
+    } else {
+      svcname = name.value + "-" + app.value ;
+    }
+    if (service.value) {
+      svcname = svcname + "-" + service.value ;
+    }
+    let svcdns = svcname + "." + "ix-" + name.value + ".svc.cluster.local" ;
+    alert ("Service DNS Name: " + svcdns);
+     console.log(svcdns)
+    return false;
+}
+</SCRIPT>
+
 
 
 ##### Example
