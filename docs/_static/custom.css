@@ -6,15 +6,7 @@
 }
 
 
-body {
-  align-items: center;
-  background-color: #000;
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-}
-
-.form {
+.form-form {
   background-color: #15172b;
   border-radius: 20px;
   box-sizing: border-box;
@@ -23,7 +15,7 @@ body {
   width: 320px;
 }
 
-.title {
+.form-form-title {
   color: #eee;
   font-family: sans-serif;
   font-size: 36px;
@@ -31,7 +23,7 @@ body {
   margin-top: 30px;
 }
 
-.subtitle {
+.form-form-subtitle {
   color: #eee;
   font-family: sans-serif;
   font-size: 16px;
@@ -39,21 +31,21 @@ body {
   margin-top: 10px;
 }
 
-.input-container {
+.form-form-input-container {
   height: 50px;
   position: relative;
   width: 100%;
 }
 
-.ic1 {
+.form-ic1 {
   margin-top: 40px;
 }
 
-.ic2 {
+.form-ic2 {
   margin-top: 30px;
 }
 
-.input {
+.form-input {
   background-color: #303245;
   border-radius: 12px;
   border: 0;
@@ -66,7 +58,7 @@ body {
   width: 100%;
 }
 
-.cut {
+.form-cut {
   background-color: #15172b;
   border-radius: 10px;
   height: 20px;
@@ -78,16 +70,16 @@ body {
   width: 76px;
 }
 
-.cut-short {
+.form-cut-short {
   width: 50px;
 }
 
-.input:focus ~ .cut,
-.input:not(:placeholder-shown) ~ .cut {
+.form-input:focus ~ .cut,
+.form-input:not(:placeholder-shown) ~ .cut {
   transform: translateY(8px);
 }
 
-.placeholder {
+.form-placeholder {
   color: #65657b;
   font-family: sans-serif;
   left: 20px;
@@ -99,20 +91,20 @@ body {
   top: 20px;
 }
 
-.input:focus ~ .placeholder,
-.input:not(:placeholder-shown) ~ .placeholder {
+.form-input:focus ~ .placeholder,
+.form-input:not(:placeholder-shown) ~ .placeholder {
   transform: translateY(-30px) translateX(10px) scale(0.75);
 }
 
-.input:not(:placeholder-shown) ~ .placeholder {
+.form-input:not(:placeholder-shown) ~ .placeholder {
   color: #808097;
 }
 
-.input:focus ~ .placeholder {
+.form-input:focus ~ .placeholder {
   color: #dc2f55;
 }
 
-.submit {
+.form-submit {
   background-color: #08d;
   border-radius: 12px;
   border: 0;
@@ -127,6 +119,6 @@ body {
   width: 100%;
 }
 
-.submit:active {
+.form-submit:active {
   background-color: #06b;
 }
