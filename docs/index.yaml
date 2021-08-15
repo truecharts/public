@@ -52083,6 +52083,36 @@ entries:
   pgadmin:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-15T08:00:51.443890732Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.8.0
+    description: Web-Based postgresql database management utility
+    digest: 342d966e3183a754f1182a67f90b79f60267067ed06aef7be27ccaa33c39d956
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/pgadmin
+    icon: https://www.postgresql.org/message-id/attachment/1139/pgAdmin.svg
+    keywords:
+    - pgadmin
+    - db
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: pgadmin
+    sources:
+    - https://www.pgadmin.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/pgadmin-1.3.1/pgadmin-1.3.1.tgz
+    version: 1.3.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-12T11:53:03.057964625Z"
     dependencies:
     - name: common
@@ -83945,4 +83975,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-14T09:48:27.873127417Z"
+generated: "2021-08-15T08:00:51.467619393Z"
