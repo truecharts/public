@@ -44,20 +44,20 @@ function generatesvc(name, app, service) {
     let svcdns = svcname + "." + "ix-" + name + ".svc.cluster.local" ;
     return svcdns;
 };
-
 </SCRIPT>
+
 <link href="https://truecharts.org/_static/form.css" type="text/css" rel="stylesheet" />
 
 <FORM NAME="frameform" ACTION="" METHOD="GET"><BR>
 <div class="form">
   <div class="subtitle">Generate Internal DNS Name:</div>
   <div class="input-container ic1">
-    <input id="name" class="input" type="text" placeholder=" " />
+    <input required id="name" class="input" type="text" placeholder=" " />
     <div class="cut"></div>
     <label for="name" class="placeholder">Name:</label>
   </div>
   <div class="input-container ic2">
-    <input id="app" class="input" type="text" placeholder=" " />
+    <input required id="app" class="input" type="text" placeholder=" " />
     <div class="cut"></div>
     <label for="app" class="placeholder">App</label>
   </div>
