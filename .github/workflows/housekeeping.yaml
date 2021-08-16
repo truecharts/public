@@ -66,9 +66,8 @@ jobs:
           done
 
       - name: rerun pre-commit checks
+        continue-on-error: true
         uses: pre-commit/action@v2.0.3
-        with:
-          extra_args:  --all-files || exit 0
 
       - name: (re)generate docs
         run: |
@@ -159,9 +158,8 @@ jobs:
           done
 
       - name: rerun pre-commit checks
+        continue-on-error: true
         uses: pre-commit/action@v2.0.3
-        with:
-          extra_args:  --all-files || exit 0
 
       - name: Copy general readme to website
         run: |
