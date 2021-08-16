@@ -35,7 +35,29 @@ jobs:
 
       - name: (re)generate docs
         run: |
-          tools/gen-helm-docs.sh
+          # Templates to copy into each chart directory
+          readme_template="./tools/templates/docs/README.md.gotmpl"
+          config_template="./tools/templates/docs/CONFIG.md.gotmpl"
+
+          for train in stable incubator develop non-free deprecated; do
+            for chart in charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                  maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                  chartname=$(basename ${chart})
+                  echo "-] Copying templates to ./${chart}"
+                  helm-docs \
+                      --ignore-file=".helmdocsignore" \
+                      --output-file="README.md" \
+                      --template-files="./tools/templates/docs/README.md.gotmpl" \
+                      --chart-search-root="${chart}"
+                  helm-docs \
+                      --ignore-file=".helmdocsignore" \
+                      --output-file="CONFIG.md" \
+                      --template-files="./tools/templates/docs/CONFIG.md.gotmpl" \
+                      --chart-search-root="${chart}"
+              fi
+            done
+          done
 
       - uses: dorny/paths-filter@v2
         id: filter
