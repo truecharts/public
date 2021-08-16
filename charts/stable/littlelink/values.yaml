@@ -40,3 +40,11 @@ littlelink:
   tiktok: "https://www.tiktok.com/@technotim"
   kit: "https://kit.co/technotim"
   footer: "thanks for stopping by!"
+
+securityContext:
+  privileged: false
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
