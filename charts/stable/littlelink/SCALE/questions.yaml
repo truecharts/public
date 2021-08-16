@@ -699,22 +699,6 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: fsGroup
-          label: "fsGroup"
-          description: "The group that should own ALL storage."
-          schema:
-            type: int
-            default: 568
-        - variable: fsGroupChangePolicy
-          label: "When should we take ownership?"
-          schema:
-            type: string
-            default: "OnRootMismatch"
-            enum:
-              - value: "OnRootMismatch"
-                description: "OnRootMismatch"
-              - value: "Always"
-                description: "Always"
   - variable: resources
     group: "Resources and Devices"
     label: ""
