@@ -67,9 +67,8 @@ jobs:
 
       - name: (re)generate docs
         run: |
-          ROOT=$(git rev-parse --show-top-level)
           for train in stable incubator develop non-free deprecated; do
-            for chart in ${ROOT}/charts/${train}/*; do
+            for chart in charts/${train}/*; do
               if [ -d "${chart}" ]; then
                   maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                   chartname=$(basename ${chart})
@@ -134,9 +133,8 @@ jobs:
 
       - name: update versions in docs
         run: |
-          ROOT=$(git rev-parse --show-top-level)
           for train in stable incubator develop non-free deprecated; do
-            for chart in ${ROOT}/charts/${train}/*; do
+            for chart in charts/${train}/*; do
               if [ -d "${chart}" ]; then
                   maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                   chartname=$(basename ${chart})
