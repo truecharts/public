@@ -13,20 +13,13 @@ on:
 jobs:
   docs-generate:
     runs-on: ubuntu-latest
-    name: "Copy"
+    name: "Docs: (re)Generate"
     steps:
-      - name: Checkout
+      - name: Checkout branch
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_TOKEN }}
-
-      - uses: actions/checkout@v2
-          name: Checkout
-        with:
-          fetch-depth: 0
-          ref: master
-          path: master
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -81,6 +74,7 @@ jobs:
         id: filter
         with:
           list-files: json
+          base: HEAD
           filters: |
             changed:
             - 'charts/stable/**'
@@ -116,22 +110,13 @@ jobs:
                 train="develop"
               fi
               echo "Comparing versions for ${train}/${chart}"
-              master=$(pybump get --file ./master/charts/${train}/${chart}/Chart.yaml)
-              current=$(pybump get --file ./charts/${train}/${chart}/Chart.yaml)
-              echo "master version: ${master}"
-              echo "current version: ${current}"
-              if [[ "${master}" != "${current}" ]]; then
-                echo "Version does not have to be bumped"
-              else
-                echo "Bumping patch version for ${train}/${chart}"
-                pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
-              fi
+              echo "Bumping patch version for ${train}/${chart}"
+              pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
             done
 
       - name: Cleanup
         run: |
           rm -rf changes.json
-          rm -rf master
 
       - name: Commit and Push updated docs
         run: |
