@@ -73,9 +73,9 @@ questions:
             type: string
 
   - variable: accessKey
-    label: "Access Key"
+    label: "Root User"
     group: "Minio Configuration"
-    description: "Enter the S3 access ID"
+    description: "Enter the S3 Root User"
     schema:
       type: string
       private: true
@@ -84,9 +84,9 @@ questions:
       max_length: 20
 
   - variable: secretKey
-    label: "Secret Key"
+    label: "Root Password"
     group: "Minio Configuration"
-    description: "Enter the S3 secret access key"
+    description: "Enter the S3 Root Password"
     schema:
       type: string
       private: true
