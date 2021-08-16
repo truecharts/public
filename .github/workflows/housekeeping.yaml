@@ -1,0 +1,181 @@
+name: "Housekeeping"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    paths:
+    - ".github/workflows/housekeeping.yaml"
+  schedule:
+  - cron: "0 3 * * *"
+
+jobs:
+  housekeeping:
+    runs-on: ubuntu-latest
+    name: "Docs: (re)Generate"
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pybump
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: install helm-docs
+        run: |
+          brew install norwoodj/tap/helm-docs
+
+    - name: Containers: Fetch new application versions
+      run: |
+        find ./containers/apps -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
+          if test -f "./containers/apps/${app}/latest-version.sh"; then
+            version=$(bash "./containers/apps/${app}/latest-version.sh")
+            if [[ ! -z "${version}" || "${version}" != "null" ]]; then
+              echo "${version}" | tee "./containers/apps/${app}/VERSION" > /dev/null
+              echo "App: ${app} using version: ${version}"
+            fi
+          fi
+          if test -f "./containers/apps/${app}/BASE"; then
+            if test -f "./containers/apps/${app}/latest-base.sh"; then
+              base=$(bash "./containers/apps/${app}/latest-base.sh")
+              if [[ ! -z "${base}" || "${base}" != "null" ]]; then
+                echo "${base}" | tee "containers/apps/${app}/BASE" > /dev/null
+                echo "App: ${app} using Base: ${base}"
+              fi
+            fi
+          fi
+        done
+    - name: Containers: Fetch new base versions
+      run: |
+        find ./containers/base -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
+          if test -f "./containers/base/${app}/latest-version.sh"; then
+            version=$(bash "./containers/base/${app}/latest-version.sh")
+            if [[ ! -z "${version}" || "${version}" != "null" ]]; then
+              echo "${version}" | tee "./containers/base/${app}/VERSION" > /dev/null
+              echo "${app} ${version}"
+            fi
+          fi
+        done
+
+      - name: (re)generate docs
+        run: |
+          # Templates to copy into each chart directory
+          readme_template="./tools/templates/docs/README.md.gotmpl"
+          config_template="./tools/templates/docs/CONFIG.md.gotmpl"
+
+          for train in stable incubator develop non-free deprecated; do
+            for chart in charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                  maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                  chartname=$(basename ${chart})
+                  echo "-] Copying templates to ./${chart}"
+                  helm-docs \
+                      --ignore-file=".helmdocsignore" \
+                      --output-file="README.md" \
+                      --template-files="./tools/templates/docs/README.md.gotmpl" \
+                      --chart-search-root="${chart}"
+                  helm-docs \
+                      --ignore-file=".helmdocsignore" \
+                      --output-file="CONFIG.md" \
+                      --template-files="./tools/templates/docs/CONFIG.md.gotmpl" \
+                      --chart-search-root="${chart}"
+              fi
+            done
+          done
+
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          list-files: json
+          base: HEAD
+          filters: |
+            changed:
+            - 'charts/stable/**'
+            - 'charts/incubator/**'
+            - 'charts/develop/**'
+            - 'charts/deprecated/**'
+            - 'charts/non-free/**'
+            - 'charts/library/**'
+
+      - name: Filter filter-output
+        run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
+
+      - name: Bump
+        run: |
+            APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json  |  jq -r '.[]')
+            echo "changed apps: ${APPS[*]}"
+            for chart in ${APPS[*]}
+            do
+              if [[ "${chart}" == '.gitkee' ]]; then
+                echo "Skipping..."
+                return
+              elif test -f "./charts/stable/${chart}/Chart.yaml"; then
+                train="stable"
+              elif test -f "./charts/incubator/${chart}/Chart.yaml"; then
+                train="incubator"
+              elif test -f "./charts/deprecated/${chart}/Chart.yaml"; then
+                train="deprecated"
+              elif test -f "./charts/non-free/${chart}/Chart.yaml"; then
+                train="non-free"
+              elif test -f "./charts/library/${chart}/Chart.yaml"; then
+                train="library"
+              else
+                train="develop"
+              fi
+              echo "Comparing versions for ${train}/${chart}"
+              echo "Bumping patch version for ${train}/${chart}"
+              pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
+            done
+
+      - name: Copy general readme to website
+        run: |
+          yes | cp -rf index.yaml docs/index.yaml || echo "chart-index copy failed, continuing..."
+          yes | cp -rf .github/README.md docs/index.md || echo "readme copy failed, continuing..."
+          sed -i '1s/^/---\nhide:\n  - navigation\n  - toc\n---\n/' docs/index.md
+          sed -i 's~<!-- INSERT-DISCORD-WIDGET -->~<iframe src="https://discord.com/widget?id=830763548678291466\&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>~g' docs/index.md
+          yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md || echo "CODE_OF_CONDUCT copy failed, continuing..."
+          yes | cp -rf .github/CONTRIBUTING docs/development/contributing.md || echo "CONTRIBUTING copy failed, continuing..."
+          yes | cp -rf .github/SUPPORT.md docs/manual/SUPPORT.md || echo "support policy copy failed, continuing..."
+          yes | cp -rf LICENSE docs/about/legal/LICENSE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# License<br>\n\n/' docs/about/legal/LICENSE.md
+          yes | cp -rf NOTICE docs/about/legal/NOTICE.md || echo "license copy failed, continuing..."
+          sed -i '1s/^/# NOTICE<br>\n\n/' docs/about/legal/NOTICE.md
+          ls docs/
+
+      - name: Copy Apps readme to website
+        run: |
+          for train in stable incubator develop non-free deprecated; do
+            for chart in ${train}/*; do
+              if [ -d "${chart}" ]; then
+                  chartname=$(basename ${chart})
+                  echo "Processing: ${chart}"
+                  mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
+                  yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md || echo "readme copy failed, continuing..."
+                  yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
+                  yes | cp -rf ${chart}/LICENSE docs/apps/${train}/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
+                  sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
+              fi
+            done
+          echo "Processed charts for ${train}:"
+          ls docs/apps/${train}/ || echo "no Apps in train"
+          done
+
+      - name: Cleanup
+        run: |
+          rm -rf changes.json
+
+      - name: Commit and Push Housekeeping
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Daily Housekeeping" || exit 0
+          git push
