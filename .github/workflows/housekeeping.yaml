@@ -33,7 +33,7 @@ jobs:
         run: |
           brew install norwoodj/tap/helm-docs
 
-      - name: Containers: Fetch new application versions
+      - name: Containers - Fetch new application versions
         run: |
           find ./containers/apps -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
             if test -f "./containers/apps/${app}/latest-version.sh"; then
@@ -53,7 +53,7 @@ jobs:
               fi
             fi
           done
-      - name: Containers: Fetch new base versions
+      - name: Containers - Fetch new base versions
         run: |
           find ./containers/base -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
             if test -f "./containers/base/${app}/latest-version.sh"; then
