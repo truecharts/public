@@ -1,6 +1,6 @@
 # traefik
 
-![Version: 6.8.1](https://img.shields.io/badge/Version-6.8.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4](https://img.shields.io/badge/AppVersion-2.4-informational?style=flat-square)
+![Version: 6.8.3](https://img.shields.io/badge/Version-6.8.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.4](https://img.shields.io/badge/AppVersion-2.4-informational?style=flat-square)
 
 A Traefik based Reverse Proxy and Certificate Manager
 
