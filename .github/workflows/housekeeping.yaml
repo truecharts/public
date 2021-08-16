@@ -33,37 +33,37 @@ jobs:
         run: |
           brew install norwoodj/tap/helm-docs
 
-    - name: Containers: Fetch new application versions
-      run: |
-        find ./containers/apps -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
-          if test -f "./containers/apps/${app}/latest-version.sh"; then
-            version=$(bash "./containers/apps/${app}/latest-version.sh")
-            if [[ ! -z "${version}" || "${version}" != "null" ]]; then
-              echo "${version}" | tee "./containers/apps/${app}/VERSION" > /dev/null
-              echo "App: ${app} using version: ${version}"
-            fi
-          fi
-          if test -f "./containers/apps/${app}/BASE"; then
-            if test -f "./containers/apps/${app}/latest-base.sh"; then
-              base=$(bash "./containers/apps/${app}/latest-base.sh")
-              if [[ ! -z "${base}" || "${base}" != "null" ]]; then
-                echo "${base}" | tee "containers/apps/${app}/BASE" > /dev/null
-                echo "App: ${app} using Base: ${base}"
+      - name: Containers: Fetch new application versions
+        run: |
+          find ./containers/apps -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
+            if test -f "./containers/apps/${app}/latest-version.sh"; then
+              version=$(bash "./containers/apps/${app}/latest-version.sh")
+              if [[ ! -z "${version}" || "${version}" != "null" ]]; then
+                echo "${version}" | tee "./containers/apps/${app}/VERSION" > /dev/null
+                echo "App: ${app} using version: ${version}"
               fi
             fi
-          fi
-        done
-    - name: Containers: Fetch new base versions
-      run: |
-        find ./containers/base -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
-          if test -f "./containers/base/${app}/latest-version.sh"; then
-            version=$(bash "./containers/base/${app}/latest-version.sh")
-            if [[ ! -z "${version}" || "${version}" != "null" ]]; then
-              echo "${version}" | tee "./containers/base/${app}/VERSION" > /dev/null
-              echo "${app} ${version}"
+            if test -f "./containers/apps/${app}/BASE"; then
+              if test -f "./containers/apps/${app}/latest-base.sh"; then
+                base=$(bash "./containers/apps/${app}/latest-base.sh")
+                if [[ ! -z "${base}" || "${base}" != "null" ]]; then
+                  echo "${base}" | tee "containers/apps/${app}/BASE" > /dev/null
+                  echo "App: ${app} using Base: ${base}"
+                fi
+              fi
             fi
-          fi
-        done
+          done
+      - name: Containers: Fetch new base versions
+        run: |
+          find ./containers/base -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
+            if test -f "./containers/base/${app}/latest-version.sh"; then
+              version=$(bash "./containers/base/${app}/latest-version.sh")
+              if [[ ! -z "${version}" || "${version}" != "null" ]]; then
+                echo "${version}" | tee "./containers/base/${app}/VERSION" > /dev/null
+                echo "${app} ${version}"
+              fi
+            fi
+          done
 
       - name: (re)generate docs
         run: |
