@@ -67,7 +67,7 @@ jobs:
 
       - name: (re)generate docs
         run: |
-          root=$(git rev-parse --show-top-level)
+          ROOT=$(git rev-parse --show-top-level)
           for train in stable incubator develop non-free deprecated; do
             for chart in charts/${train}/*; do
               if [ -d "${chart}" ]; then
@@ -77,12 +77,12 @@ jobs:
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="README.md" \
-                      --template-files="$(root)/tools/templates/docs/README.md.gotmpl" \
+                      --template-files="${ROOT}/tools/templates/docs/README.md.gotmpl" \
                       --chart-search-root="${chart}"
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="CONFIG.md" \
-                      --template-files="$(root)/tools/templates/docs/CONFIG.md.gotmpl" \
+                      --template-files="${ROOT}/tools/templates/docs/CONFIG.md.gotmpl" \
                       --chart-search-root="${chart}"
               fi
             done
@@ -131,6 +131,29 @@ jobs:
               echo "Bumping patch version for ${train}/${chart}"
               pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
             done
+
+      - name: update versions in docs
+        run: |
+          ROOT=$(git rev-parse --show-top-level)
+          for train in stable incubator develop non-free deprecated; do
+            for chart in charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                  maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                  chartname=$(basename ${chart})
+                  echo "Copying templates to ${chart}"
+                  helm-docs \
+                      --ignore-file=".helmdocsignore" \
+                      --output-file="README.md" \
+                      --template-files="${ROOT}/tools/templates/docs/README.md.gotmpl" \
+                      --chart-search-root="${chart}"
+                  helm-docs \
+                      --ignore-file=".helmdocsignore" \
+                      --output-file="CONFIG.md" \
+                      --template-files="${ROOT}/tools/templates/docs/CONFIG.md.gotmpl" \
+                      --chart-search-root="${chart}"
+              fi
+            done
+          done
 
       - name: Copy general readme to website
         run: |
