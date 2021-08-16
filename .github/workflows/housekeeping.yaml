@@ -13,7 +13,7 @@ on:
 jobs:
   housekeeping:
     runs-on: ubuntu-latest
-    name: "Docs: (re)Generate"
+    name: "Housekeeping"
     steps:
       - name: Checkout branch
         uses: actions/checkout@v2
@@ -67,25 +67,22 @@ jobs:
 
       - name: (re)generate docs
         run: |
-          # Templates to copy into each chart directory
-          readme_template="./tools/templates/docs/README.md.gotmpl"
-          config_template="./tools/templates/docs/CONFIG.md.gotmpl"
-
+          root=$(git rev-parse --show-top-level)
           for train in stable incubator develop non-free deprecated; do
             for chart in charts/${train}/*; do
               if [ -d "${chart}" ]; then
                   maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                   chartname=$(basename ${chart})
-                  echo "-] Copying templates to ./${chart}"
+                  echo "Copying templates to ${chart}"
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="README.md" \
-                      --template-files="./tools/templates/docs/README.md.gotmpl" \
+                      --template-files="$(root)/tools/templates/docs/README.md.gotmpl" \
                       --chart-search-root="${chart}"
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="CONFIG.md" \
-                      --template-files="./tools/templates/docs/CONFIG.md.gotmpl" \
+                      --template-files="$(root)/tools/templates/docs/CONFIG.md.gotmpl" \
                       --chart-search-root="${chart}"
               fi
             done
@@ -153,7 +150,7 @@ jobs:
       - name: Copy Apps readme to website
         run: |
           for train in stable incubator develop non-free deprecated; do
-            for chart in ${train}/*; do
+            for chart in charts/${train}/*; do
               if [ -d "${chart}" ]; then
                   chartname=$(basename ${chart})
                   echo "Processing: ${chart}"
