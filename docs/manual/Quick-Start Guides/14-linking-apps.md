@@ -8,20 +8,35 @@ The backend for TrueNAS SCALE Apps is Kubernetes. Linking apps together in Kuber
 
 Instead we need to use their internal(!) domain name. Please beware: this name is only available between Apps and can not be reached from the host/node or your own PC.
 
-The format for internal domain name for the main service is as follows, please replace `$APPNAME` with the name you gave your App when installing.
+The format for internal domain name for the main service is explained bellow.
+Please replace `$NAME` with the name you gave your App when installing and `$APPNAME` with the name the app has on the catalog where is needed.
 
-- `$APPNAME.ix-$APPNAME.svc.cluster.local`
+**If your app has the _same_ name as in the catalog, the format is as follows.**
+
+- `$NAME.ix-$NAME.svc.cluster.local`
+
+**If your app has _different_ name than in the catalog, the format is as follows**
+
+- `$NAME-$APPNAME.ix-$NAME.svc.cluster.local`
 
 Kubernetes can usually identify the app when omitting `svc.cluster.local` as well:
-- `$APPNAME.ix-$APPNAME`
+
+- `$NAME.ix-$NAME` or
+- `$NAME-$APPNAME.ix-$NAME`
 
 If you need to reach a different service (which is not often the case!), you need a slightly different format, where `$SVCNAME` is the name of the service you want to reach:
 
-- `$SVCNAME.ix-$APPNAME.svc.cluster.local` or
-- `$SVCNAME.ix-$APPNAME`
+**If your app has the _same_ name as in the catalog, the format is as follows.**
+
+- `$NAME-$SVCNAME.ix-$NAME.svc.cluster.local` or
+- `$NAME-$SVCNAME.ix-$NAME`
+
+**If your app has _different_ name than in the catalog, the format is as follows**
+
+- `$NAME-$APPNAME-$SVCNAME.ix-$NAME.svc.cluster.local` or
+- `$NAME-$APPNAME-$SVCNAME.ix-$NAME`
 
 ##### Internal Domain Name generator
-
 
 <link href="https://truecharts.org/_static/form.css" type="text/css" rel="stylesheet" />
 <FORM id="frameform"><BR>
@@ -29,17 +44,17 @@ If you need to reach a different service (which is not often the case!), you nee
   <div class="subtitle">Generate Internal DNS Name:</div>
   <div class="input-container ic1">
     <input required id="name" class="input" type="text" placeholder=" " />
-    <div class="cut"></div>
+    <div class="cut cut-short-name"></div>
     <label for="name" class="placeholder">Name</label>
   </div>
   <div class="input-container ic2">
     <input required id="app" class="input" type="text" placeholder=" " />
-    <div class="cut"></div>
+    <div class="cut cut-short-app"></div>
     <label for="app" class="placeholder">App</label>
   </div>
   <div class="input-container ic2">
     <input id="service" class="input" type="text" placeholder=" " />
-    <div class="cut cut-short"></div>
+    <div class="cut"></div>
     <label for="service" class="placeholder">Service (Optional)</>
   </div>
   <INPUT TYPE="submit" class="submit" NAME="button" Value="Generate">
@@ -73,12 +88,11 @@ function submit(event) {
 }
 </SCRIPT>
 
-
-
 ##### Example
 
-To reach an app named "sabnzbd" within Sonarr, we can use the following internal domain name:
+To reach an app named "sabnzbd" (same name as the catalog app name) within Sonarr, we can use the following internal domain name:
 
+- `sabnzbd.ix-sabnzbd.svc.cluster.local` or
 - `sabnzbd.ix-sabnzbd`
 
 <a href="https://truecharts.org/_static/img/linking/linking-example-sonarrsabnzbd.png"><img src="https://truecharts.org/_static/img/linking/linking-example-sonarrsabnzbd.png" width="100%"/></a>
