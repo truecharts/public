@@ -37,7 +37,7 @@
     - name: {{ $key }}
       valueFrom:
         {{- if $value.secretKeyRef }}
-        secretKeyRef: 
+        secretKeyRef:
           name: {{ tpl $value.secretKeyRef.name $ | quote }}
           key: {{ tpl $value.secretKeyRef.key $ | quote }}
         {{- else }}
