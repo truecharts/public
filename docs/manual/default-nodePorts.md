@@ -98,5 +98,6 @@
 | Resillio-sync       |    UDP    |  36089   |
 | Resillio-sync       |    TCP    |  36090   |
 | Nextcloud           |   Main    |  36091   |
+| LittleLink          |   Main    |  36092   |
 
 #### Note: TCP and UPD ports that are the same in each App, are not by mistake.
