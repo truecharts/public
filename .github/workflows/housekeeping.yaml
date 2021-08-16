@@ -69,7 +69,7 @@ jobs:
         run: |
           ROOT=$(git rev-parse --show-top-level)
           for train in stable incubator develop non-free deprecated; do
-            for chart in charts/${train}/*; do
+            for chart in ${ROOT}/charts/${train}/*; do
               if [ -d "${chart}" ]; then
                   maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                   chartname=$(basename ${chart})
@@ -77,12 +77,12 @@ jobs:
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="README.md" \
-                      --template-files="${ROOT}/tools/templates/docs/README.md.gotmpl" \
+                      --template-files="/home/runner/work/apps/apps/tools/templates/docs/README.md.gotmpl" \
                       --chart-search-root="${chart}"
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="CONFIG.md" \
-                      --template-files="${ROOT}/tools/templates/docs/CONFIG.md.gotmpl" \
+                      --template-files="/home/runner/work/apps/apps/tools/templates/docs/CONFIG.md.gotmpl" \
                       --chart-search-root="${chart}"
               fi
             done
@@ -136,7 +136,7 @@ jobs:
         run: |
           ROOT=$(git rev-parse --show-top-level)
           for train in stable incubator develop non-free deprecated; do
-            for chart in charts/${train}/*; do
+            for chart in ${ROOT}/charts/${train}/*; do
               if [ -d "${chart}" ]; then
                   maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                   chartname=$(basename ${chart})
@@ -144,12 +144,12 @@ jobs:
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="README.md" \
-                      --template-files="${ROOT}/tools/templates/docs/README.md.gotmpl" \
+                      --template-files="/home/runner/work/apps/apps/tools/templates/docs/README.md.gotmpl" \
                       --chart-search-root="${chart}"
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="CONFIG.md" \
-                      --template-files="${ROOT}/tools/templates/docs/CONFIG.md.gotmpl" \
+                      --template-files="/home/runner/work/apps/apps/tools/templates/docs/CONFIG.md.gotmpl" \
                       --chart-search-root="${chart}"
               fi
             done
