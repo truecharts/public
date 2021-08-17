@@ -303,6 +303,7 @@ jobs:
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
+              ((i=i%10)); ((i++==0)) && wait
               fetchtask "${chart}" &
             done
           done
