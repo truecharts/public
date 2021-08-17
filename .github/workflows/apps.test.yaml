@@ -25,7 +25,7 @@ jobs:
       - name: Cache helm repo cache
         uses: actions/cache@v2
         with:
-          key: helmrepocache
+          key: helmrepocache-${{ github.sha }}-${{ github.sha }}
           path: |
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
@@ -91,7 +91,7 @@ jobs:
       - name: Cache helm repo cache
         uses: actions/cache@v2
         with:
-          key: helmrepocache
+          key: helmrepocache-${{ github.sha }}
           path: |
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
@@ -244,7 +244,7 @@ jobs:
       - name: Cache helm repo cache
         uses: actions/cache@v2
         with:
-          key: helmrepocache
+          key: helmrepocache-${{ github.sha }}
           path: |
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
@@ -270,7 +270,7 @@ jobs:
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              removetask "${train}" "${chart}"
+              removetask "${train}" "${chart}" &
             done
           done
           wait
