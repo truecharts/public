@@ -287,7 +287,6 @@ jobs:
           done
           wait
       - name: fetch dependencies
-        shell: bash
         run: |
           fetchtask(){
             if [ -d "$1" ]; then
@@ -304,7 +303,7 @@ jobs:
                 $i=0
                 wait
               fi
-              $i=$($i + 1)
+              $i=$(( $i + 1 ))
               fetchtask "${chart}" &
             done
           done
