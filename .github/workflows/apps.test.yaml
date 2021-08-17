@@ -221,10 +221,10 @@ jobs:
             ~/.config/helm/repositories.yaml
 
       - name: update helm repo cache
-          run: |
-            helm repo add truecharts https://truecharts.org
-            helm repo add bitnami https://charts.bitnami.com/bitnami
-            helm repo update
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
 
       - name: Remove if release already exists
         run: |
