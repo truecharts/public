@@ -239,11 +239,6 @@ jobs:
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
 
-
-      - name: Block concurrent jobs
-        uses: softprops/turnstyle@v1
-        with:
-          continue-after-seconds: 180
       - uses: actions/checkout@v2
         name: Checkout
 
@@ -300,10 +295,11 @@ jobs:
               cd -
             fi
           }
+          i=0
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              ((i=i%10)); ((i++==0)) && wait
+              ((i=i%9)); ((i++)) && wait
               fetchtask "${chart}" &
             done
           done
