@@ -295,19 +295,12 @@ jobs:
               cd -
             fi
           }
-          i=0
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              if [ $i -eq 10 ]; then
-                $i=0
-                wait
-              fi
-              $i=`expr $i + 1`
-              fetchtask "${chart}" &
+              fetchtask "${chart}"
             done
           done
-          wait
       - name: Apply SCALE Patches
         run: |
           patchtask(){
