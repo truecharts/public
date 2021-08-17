@@ -1,4 +1,4 @@
-{{- if .Values.ixChartContext -}}
+{{- if and ( .Values.enableUpgradeBackup ) ( .Values.ixChartContext ) -}}
 {{- if .Values.ixChartContext.isUpgrade -}}
 {{- $upgradeDict := .Values.ixChartContext.upgradeMetadata -}}
 {{ $values := (. | mustDeepCopy) }}
@@ -52,5 +52,6 @@ spec:
       {{- with (include "common.controller.volumes" . | trim) }}
         {{- nindent 2 . }}
       {{- end }}
+{{- end -}}
 {{- end -}}
 {{- end -}}
