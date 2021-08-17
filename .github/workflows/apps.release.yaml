@@ -44,6 +44,22 @@ jobs:
     container:
       image: ixsystems/catalog_validation:latest
     steps:
+      - name: Cache helm repo cache
+        id: cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache-${{ github.sha }}
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
+
+      - name: Cache-Error-Fix
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
+
       - name: Block concurrent jobs
         uses: softprops/turnstyle@v1
         with:
@@ -52,13 +68,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
       - uses: actions/checkout@v2
         name: Checkout
-      - name: Cache helm repo cache
-        uses: actions/cache@v2
-        with:
-          key: helmrepocache-${{ github.sha }}
-          path: |
-            ~/.cache/helm/repository
-            ~/.config/helm/repositories.yaml
+
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
@@ -160,6 +170,23 @@ jobs:
     needs: [prephelm]
     runs-on: ubuntu-latest
     steps:
+
+      - name: Cache helm repo cache
+        id: cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache-${{ github.sha }}
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
+
+      - name: Cache-Error-Fix
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
+
       - name: Block concurrent jobs
         uses: softprops/turnstyle@v1
         with:
@@ -172,14 +199,6 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_TOKEN }}
-
-      - name: Cache helm repo cache
-        uses: actions/cache@v2
-        with:
-          key: helmrepocache-${{ github.sha }}
-          path: |
-            ~/.cache/helm/repository
-            ~/.config/helm/repositories.yaml
 
       - name: Configure Git
         run: |

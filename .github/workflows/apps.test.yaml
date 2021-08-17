@@ -89,12 +89,20 @@ jobs:
           fetch-depth: 0
 
       - name: Cache helm repo cache
+        id: cache
         uses: actions/cache@v2
         with:
           key: helmrepocache-${{ github.sha }}
           path: |
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
+
+      - name: Cache-Error-Fix
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
 
       - name: Prepare-Lint
         if: ${{ matrix.app != '.gitkee' }}
@@ -223,12 +231,21 @@ jobs:
       image: ixsystems/catalog_validation:latest
     steps:
       - name: Cache helm repo cache
+        id: cache
         uses: actions/cache@v2
         with:
           key: helmrepocache-${{ github.sha }}
           path: |
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
+
+      - name: Cache-Error-Fix
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
+
 
       - name: Block concurrent jobs
         uses: softprops/turnstyle@v1
