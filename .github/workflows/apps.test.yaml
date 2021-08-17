@@ -13,6 +13,29 @@ on:
       - '.github/ct-lint.yaml'
 
 jobs:
+  prephelm:
+    name: Get changed Apps
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+
+      - name: Cache helm repo cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
+
+      - name: update helm repo cache
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
+
   changes:
     name: Get changed Apps
     runs-on: ubuntu-20.04
@@ -48,7 +71,7 @@ jobs:
         fi
 
   app-tests:
-    needs: [changes]
+    needs: [changes, prephelm]
     if: ${{ needs.changes.outputs.empty_matrix == 'false' }}
     name: App Tests
     runs-on: ubuntu-latest
@@ -64,6 +87,14 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: Cache helm repo cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
 
       - name: Prepare-Lint
         if: ${{ matrix.app != '.gitkee' }}
@@ -219,12 +250,6 @@ jobs:
           path: |
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
-
-      - name: update helm repo cache
-        run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
 
       - name: Remove if release already exists
         run: |
