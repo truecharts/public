@@ -300,7 +300,11 @@ jobs:
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              ((i=i%9)); ((i++)) && wait
+              if [ $i == 10 ]; then
+                $i=0
+                wait
+              fi
+              $i=$($i + 1)
               fetchtask "${chart}" &
             done
           done
