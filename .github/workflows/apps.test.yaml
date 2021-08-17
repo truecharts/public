@@ -303,7 +303,7 @@ jobs:
                 $i=0
                 wait
               fi
-              $i=$(( $i + 1 ))
+              $i=`expr $i + 1`
               fetchtask "${chart}" &
             done
           done
