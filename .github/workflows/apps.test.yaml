@@ -25,7 +25,7 @@ jobs:
       - name: Cache helm repo cache
         uses: actions/cache@v2
         with:
-          key: helmrepocache-${{ github.sha }}-${{ github.sha }}
+          key: helmrepocache-${{ github.sha }}
           path: |
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
