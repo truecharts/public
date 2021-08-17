@@ -294,12 +294,11 @@ jobs:
       - name: fetch dependencies
         run: |
           fetchtask(){
-            if [ -d "$2/SCALE" ]; then
-              if [ -d "${chart}" ]; then
-                cd ${chart}
-                helm dependency update --skip-refresh
-                cd -
-              fi
+            if [ -d "$1" ]; then
+              cd $1
+              helm dependency update --skip-refresh
+              cd -
+            fi
           }
           for train in stable incubator develop non-free deprecated
           do
