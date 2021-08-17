@@ -27545,6 +27545,35 @@ entries:
   healthchecks:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-17T13:10:59.499694627Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 6.8.1
+    description: Healthchecks is a cron job monitoring service. It listens for HTTP
+      requests and email messages ("pings") from your cron jobs and scheduled tasks
+      ("checks"). When a ping does not arrive on time, Healthchecks sends out alerts.
+    digest: 09154acee220c0dccdf3ef5f6b66dcd7a64b2425a703938769799fcf76f7fab0
+    home: https://github.com/truechartsapps/tree/master/charts/incubator/healthchecks
+    icon: https://avatars.githubusercontent.com/u/13053880?s=200&v=4
+    keywords:
+    - cron
+    - monitoring
+    - alert
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: truecharts
+      url: https://truecharts.org
+    name: healthchecks
+    sources:
+    - https://github.com/healthchecks/healthchecks
+    - https://hub.docker.com/r/linuxserver/healthchecks
+    urls:
+    - https://github.com/truecharts/apps/releases/download/healthchecks-1.4.8/healthchecks-1.4.8.tgz
+    version: 1.4.8
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-17T03:17:47.964987281Z"
     dependencies:
     - name: common
@@ -92102,4 +92131,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-17T12:58:03.892307479Z"
+generated: "2021-08-17T13:10:59.520117836Z"
