@@ -61221,6 +61221,37 @@ entries:
   postgresql:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-17T09:55:10.352618829Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.8.1
+    description: PostgresSQL
+    digest: 2afba80045cd189435f5de0c315dbb69fb113d74a6cc427b4ea81d39a922e50b
+    home: https://github.com/truecharts/apps/tree/master/stable/postgres
+    icon: https://d1q6f0aelx0por.cloudfront.net/product-logos/library-postgres-logo.png
+    keywords:
+    - postgres
+    - postgressql
+    - dtabase
+    - sql
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: postgresql
+    sources:
+    - https://www.postgresql.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/postgresql-1.0.11/postgresql-1.0.11.tgz
+    version: 1.0.11
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-17T03:17:53.524634078Z"
     dependencies:
     - name: common
@@ -91704,4 +91735,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-17T03:17:57.500210607Z"
+generated: "2021-08-17T09:55:10.378161165Z"
