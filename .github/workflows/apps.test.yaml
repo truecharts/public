@@ -299,7 +299,7 @@ jobs:
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              if [ $i == 10 ]; then
+              if [ $i -eq 10 ]; then
                 $i=0
                 wait
               fi
