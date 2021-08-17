@@ -97,13 +97,6 @@ jobs:
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
 
-      - name: Cache-Error-Fix
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
-
       - name: Prepare-Lint
         if: ${{ matrix.app != '.gitkee' }}
         id: prep-lint
@@ -135,6 +128,13 @@ jobs:
         uses: azure/setup-helm@v1
         with:
           version: v3.5.3
+
+      - name: Cache-Error-Fix
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
 
       - uses: actions/setup-python@v2
         if: ${{ matrix.app != '.gitkee' }}
@@ -239,13 +239,6 @@ jobs:
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
 
-      - name: Cache-Error-Fix
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
-
 
       - name: Block concurrent jobs
         uses: softprops/turnstyle@v1
@@ -270,6 +263,13 @@ jobs:
         uses: azure/setup-helm@v1
         with:
           version: v3.5.3
+
+      - name: Cache-Error-Fix
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
 
       - name: Remove if release already exists
         run: |

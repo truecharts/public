@@ -53,13 +53,6 @@ jobs:
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
 
-      - name: Cache-Error-Fix
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
-
       - name: Block concurrent jobs
         uses: softprops/turnstyle@v1
         with:
@@ -73,6 +66,15 @@ jobs:
         uses: azure/setup-helm@v1
         with:
           version: v3.5.3
+
+
+      - name: Cache-Error-Fix
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
+
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -180,13 +182,6 @@ jobs:
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
 
-      - name: Cache-Error-Fix
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
-
       - name: Block concurrent jobs
         uses: softprops/turnstyle@v1
         with:
@@ -209,6 +204,13 @@ jobs:
         uses: azure/setup-helm@v1
         with:
           version: v3.5.3
+
+      - name: Cache-Error-Fix
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.2.1
