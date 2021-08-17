@@ -15,7 +15,31 @@ on:
       - '.github/cr.yaml'
 
 jobs:
+  prephelm:
+    name: Prepare Helm
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+
+      - name: Cache helm repo cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
+
+      - name: update helm repo cache
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
+
   catalog-release:
+    needs: [prephelm]
     runs-on: ubuntu-latest
     container:
       image: ixsystems/catalog_validation:latest
@@ -28,6 +52,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
       - uses: actions/checkout@v2
         name: Checkout
+      - name: Cache helm repo cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
@@ -68,7 +99,7 @@ jobs:
             for chart in master/charts/${train}/*; do
               if [ -d "${chart}" ]; then
                 cd ${chart}
-                helm dependency update
+                helm dependency update --skip-refresh
                 cd -
               fi
             done
@@ -126,6 +157,7 @@ jobs:
           git push
 
   helm-release:
+    needs: [prephelm]
     runs-on: ubuntu-latest
     steps:
       - name: Block concurrent jobs
@@ -140,6 +172,14 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_TOKEN }}
+
+      - name: Cache helm repo cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
 
       - name: Configure Git
         run: |

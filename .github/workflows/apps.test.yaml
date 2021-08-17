@@ -1,4 +1,4 @@
-name: "Apps: Test & Release"
+name: "Apps: Tests"
 
 on:
   pull_request:
@@ -14,7 +14,7 @@ on:
 
 jobs:
   prephelm:
-    name: Get changed Apps
+    name: Prepare Helm
     runs-on: ubuntu-20.04
     steps:
       - name: Install Helm
@@ -227,10 +227,7 @@ jobs:
           continue-after-seconds: 180
       - uses: actions/checkout@v2
         name: Checkout
-      - name: Install Helm
-        uses: azure/setup-helm@v1
-        with:
-          version: v3.5.3
+
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -250,6 +247,11 @@ jobs:
           path: |
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
+
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
 
       - name: Remove if release already exists
         run: |
