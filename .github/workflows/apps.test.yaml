@@ -309,43 +309,51 @@ jobs:
           wait
       - name: Apply SCALE Patches
         run: |
+          patchtask(){
+            if [ -d "$1/SCALE" ]; then
+              chartname=$(basename $1)
+              echo "Processing... Applying SCALE patch... Chart: ${chartname}"
+              mv $1/SCALE/item.yaml $1/
+              mv $1/SCALE/ix_values.yaml $1/
+              mv $1/SCALE/questions.yaml $1/
+              cp -rf $1/SCALE/templates/* $1/templates || echo "ignoring templates directory..."
+              rm -rf $1/SCALE
+              mv $1/values.yaml $1/test_values.yaml
+              touch $1/values.yaml
+              description=$(cat $1/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
+              echo "${description}" >> $1/app-readme.md
+            else
+              echo "Skipping chart $1, no correct SCALE compatibility layer detected"
+            fi
+          }
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              if [ -d "${chart}/SCALE" ]; then
-                chartname=$(basename ${chart})
-                echo "Processing... Applying SCALE patch... Chart: ${chartname} - Version: ${maxfolderversion}"
-                mv ${chart}/SCALE/item.yaml ${chart}/
-                mv ${chart}/SCALE/ix_values.yaml ${chart}/
-                mv ${chart}/SCALE/questions.yaml ${chart}/
-                cp -rf ${chart}/SCALE/templates/* ${chart}/templates || echo "ignoring templates directory..."
-                rm -rf ${chart}/SCALE
-                mv ${chart}/values.yaml ${chart}/test_values.yaml
-                touch ${chart}/values.yaml
-                description=$(cat ${chart}/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
-                echo "${description}" >> ${chart}/app-readme.md
-              else
-                echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
-              fi
+              patchtask "${chart}" &
             done
           done
+          wait
       - name: Add Chart release
         run: |
+          addtask(){
+            if [ -f "$1/item.yaml" ]; then
+              maxchartversion=$(cat $1/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+              chartname=$(basename $1)
+                echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
+                mkdir -p catalog/${train}/${chartname}/${maxchartversion}
+                cp -Rf $1/* catalog/${train}/${chartname}/${maxchartversion}/
+                mv catalog/${train}/${chartname}/${maxchartversion}/item.yaml catalog/${train}/${chartname}/item.yaml
+            else
+              echo "Skipping, chart $1 does not contain SCALE compatibility layer..."
+            fi
+          }
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              if [ -f "${chart}/item.yaml" ]; then
-                maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-                chartname=$(basename ${chart})
-                  echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
-                  mkdir -p catalog/${train}/${chartname}/${maxchartversion}
-                  cp -Rf ${chart}/* catalog/${train}/${chartname}/${maxchartversion}/
-                  mv catalog/${train}/${chartname}/${maxchartversion}/item.yaml catalog/${train}/${chartname}/item.yaml
-              else
-                echo "Skipping, chart ${chart} does not contain SCALE compatibility layer..."
-              fi
+              addtask "${chart}" &
             done
           done
+          wait
       - name: Validate catalog format
         run: |
           cd catalog
