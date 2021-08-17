@@ -222,6 +222,14 @@ jobs:
     container:
       image: ixsystems/catalog_validation:latest
     steps:
+      - name: Cache helm repo cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache-${{ github.sha }}
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
+
       - name: Block concurrent jobs
         uses: softprops/turnstyle@v1
         with:
@@ -240,14 +248,6 @@ jobs:
           fetch-depth: 0
           repository: truecharts/catalog
           path: catalog
-
-      - name: Cache helm repo cache
-        uses: actions/cache@v2
-        with:
-          key: helmrepocache-${{ github.sha }}
-          path: |
-            ~/.cache/helm/repository
-            ~/.config/helm/repositories.yaml
 
       - name: Install Helm
         uses: azure/setup-helm@v1
@@ -276,16 +276,21 @@ jobs:
           wait
       - name: fetch dependencies
         run: |
-          for train in stable incubator develop non-free deprecated
-          do
-            for chart in master/charts/${train}/*; do
+          fetchtask(){
+            if [ -d "$2/SCALE" ]; then
               if [ -d "${chart}" ]; then
                 cd ${chart}
                 helm dependency update --skip-refresh
                 cd -
               fi
+          }
+          for train in stable incubator develop non-free deprecated
+          do
+            for chart in master/charts/${train}/*; do
+              fetchtask "${chart}" &
             done
           done
+          wait
       - name: Apply SCALE Patches
         run: |
           for train in stable incubator develop non-free deprecated
