@@ -217,6 +217,7 @@ jobs:
         run: echo "App Tests Completed Successfully"
 
   catalog-test:
+    needs: [prephelm]
     runs-on: ubuntu-latest
     container:
       image: ixsystems/catalog_validation:latest
