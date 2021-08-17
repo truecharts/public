@@ -255,20 +255,24 @@ jobs:
 
       - name: Remove if release already exists
         run: |
+          removetask(){
+            if [ -d "$2/SCALE" ]; then
+              maxchartversion=$(cat $2/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+              chartname=$(basename $2)
+              echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
+              rm -Rf catalog/$1/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
+              rm -Rf catalog/$1/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
+            else
+              echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
+            fi
+          }
           for train in stable incubator develop non-free deprecated
           do
             for chart in master/charts/${train}/*; do
-              if [ -d "${chart}/SCALE" ]; then
-                maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-                chartname=$(basename ${chart})
-                echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
-                rm -Rf catalog/${train}/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
-                rm -Rf catalog/${train}/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
-              else
-                echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
-              fi
+              removetask "${train}" "${chart}"
             done
           done
+          wait
       - name: fetch dependencies
         run: |
           for train in stable incubator develop non-free deprecated
