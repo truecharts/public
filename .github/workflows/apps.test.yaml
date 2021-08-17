@@ -211,6 +211,21 @@ jobs:
           fetch-depth: 0
           repository: truecharts/catalog
           path: catalog
+
+      - name: Cache helm repo cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
+
+      - name: update helm repo cache
+          run: |
+            helm repo add truecharts https://truecharts.org
+            helm repo add bitnami https://charts.bitnami.com/bitnami
+            helm repo update
+
       - name: Remove if release already exists
         run: |
           for train in stable incubator develop non-free deprecated
@@ -234,7 +249,7 @@ jobs:
             for chart in master/charts/${train}/*; do
               if [ -d "${chart}" ]; then
                 cd ${chart}
-                helm dependency update
+                helm dependency update --skip-refresh
                 cd -
               fi
             done
