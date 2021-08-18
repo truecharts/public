@@ -139,7 +139,7 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
         "DefaultPermissionsForMultipleMounts": {
             values: baseValues,
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R 568:568 /config\nchown -R 568:568 /data\n",
+                "/bin/sh", "-c", "chown -R :568 /config\nchown -R :568 /data\n",
             },
         },
         "DefaultPermissionsForDisabledpodSecurityContext": {
@@ -147,7 +147,7 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
                 "podSecurityContext.allowPrivilegeEscalation=false",
             ),
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R 568:568 /config\nchown -R 568:568 /data\n",
+                "/bin/sh", "-c", "chown -R :568 /config\nchown -R :568 /data\n",
             },
         },
         "PermissionsForFsGroup": {
@@ -155,33 +155,15 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
                 "podSecurityContext.fsGroup=666",
             ),
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R 568:666 /config\nchown -R 568:666 /data\n",
+                "/bin/sh", "-c", "chown -R :666 /config\nchown -R :666 /data\n",
             },
         },
-        "PermissionsForRunAsUser": {
+        "PermissionsForPgid": {
             values: append(baseValues,
-                "podSecurityContext.runAsUser=999",
-            ),
-            expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R 999:568 /config\nchown -R 999:568 /data\n",
-            },
-        },
-        "PermissionsForRunAsUserAndFsGroup": {
-            values: append(baseValues,
-                "podSecurityContext.runAsUser=999",
-                "podSecurityContext.fsGroup=666",
-            ),
-            expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R 999:666 /config\nchown -R 999:666 /data\n",
-            },
-        },
-        "PermissionsForPgidPuid": {
-            values: append(baseValues,
-                "env.PUID=999",
                 "env.PGID=666",
             ),
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R 999:666 /config\nchown -R 999:666 /data\n",
+                "/bin/sh", "-c", "chown -R :666 /config\nchown -R :666 /data\n",
             },
         },
     }
