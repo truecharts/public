@@ -8454,6 +8454,30 @@ entries:
   common:
   - apiVersion: v2
     appVersion: none
+    created: "2021-08-18T14:51:00.047573475Z"
+    description: Function library for TrueCharts
+    digest: 8fcfabb324a9f326bf61d9f86f4bde80d026c2529716df41bd40cf2e6041a5bb
+    home: https://github.com/truecharts/apps/tree/master/charts/common
+    icon: https://avatars.githubusercontent.com/u/76400755
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-6.8.3/common-6.8.3.tgz
+    version: 6.8.3
+  - apiVersion: v2
+    appVersion: none
     created: "2021-08-16T14:43:36.582472219Z"
     description: Function library for TrueCharts
     digest: 81822c5d69733984f4e7aafdcfe19a51a3b51c13cb1907dd407d0d9aecb45875
@@ -45339,6 +45363,45 @@ entries:
     - https://github.com/truecharts/apps/releases/download/navidrome-3.1.5/navidrome-3.1.5.tgz
     version: 3.1.5
   nextcloud:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-18T14:51:00.159425769Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.8.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 1.0.13
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.8.8
+    description: A private cloud server that puts the control and security of your
+      own data back into your hands.
+    digest: dae113ba82b88b82b4b04fe28a78dee90d107e9a84a5048fe77816a478c122c9
+    home: https://nextcloud.com/
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nextcloud_Logo.svg/1280px-Nextcloud_Logo.svg.png
+    keywords:
+    - nextcloud
+    - storage
+    - http
+    - web
+    - php
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: nextcloud
+    sources:
+    - https://github.com/nextcloud/docker
+    - https://github.com/nextcloud/helm
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nextcloud-2.0.13/nextcloud-2.0.13.tgz
+    version: 2.0.13
   - apiVersion: v2
     appVersion: auto
     created: "2021-08-18T08:38:34.240682048Z"
@@ -93184,4 +93247,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-18T08:38:34.265171785Z"
+generated: "2021-08-18T14:51:00.183187098Z"
