@@ -27,6 +27,7 @@ The goal is to gather some suggestions and forward them to iX-Systems.
 - Allow changing colors (yellow/gold default) of catalogs/trains boxes in the available/installed apps tabs, to be easier to distinguish between catalog/train.
 - Add option for separators and whitespace in questions.yaml [NAS-110750](https://jira.ixsystems.com/browse/NAS-110750)
 - Allow showing 1 or more default entries when creating a list (instead of an empty list)
+- When using rollback display a dropdown of available versions, instead of a textbox.
 
 - :white_check_mark: Make timezone default to timezone set in TN System [NAS-110373](https://jira.ixsystems.com/browse/NAS-110373)
 - :white_check_mark: Show all config options on "Confirm options" when installing an App
