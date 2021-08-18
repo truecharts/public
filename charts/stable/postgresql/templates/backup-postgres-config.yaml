@@ -12,4 +12,4 @@ data:
     until pg_isready; do
       sleep 5;
     done;
-    pg_dump -U $POSTGRES_USER -d {{ .Values.postgresqlDatabase }} > /dbbackups/$BACKUP_NAME;
+    pg_dump -U {{ .Values.postgresqlUser }} -d {{ .Values.postgresqlDatabase }} > /dbbackups/$BACKUP_NAME;
