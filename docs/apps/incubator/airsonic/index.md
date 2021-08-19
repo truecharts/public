@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.6.10](https://img.shields.io/badge/Version-1.6.10-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.6.11](https://img.shields.io/badge/Version-1.6.11-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Airsonic is a Free and Open Source community driven media server
 
