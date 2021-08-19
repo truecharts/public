@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.4.9](https://img.shields.io/badge/Version-1.4.9-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.4.11](https://img.shields.io/badge/Version-1.4.11-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Healthchecks is a cron job monitoring service. It listens for HTTP requests and email messages ("pings") from your cron jobs and scheduled tasks ("checks"). When a ping does not arrive on time, Healthchecks sends out alerts.
 
@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 6.8.1 |
+| https://truecharts.org | common | 6.8.3 |
 
 ## Installing the Chart
 

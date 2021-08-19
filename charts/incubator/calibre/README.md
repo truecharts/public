@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.4.8](https://img.shields.io/badge/Version-1.4.8-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.4.10](https://img.shields.io/badge/Version-1.4.10-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Calibre is a powerful and easy to use e-book manager.
 
@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 6.8.1 |
+| https://truecharts.org | common | 6.8.3 |
 
 ## Installing the Chart
 

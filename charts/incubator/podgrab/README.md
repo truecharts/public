@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 4.6.6](https://img.shields.io/badge/Version-4.6.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 4.6.8](https://img.shields.io/badge/Version-4.6.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 A self-hosted podcast manager to download episodes as soon as they become live.
 
@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 6.8.1 |
+| https://truecharts.org/ | common | 6.8.3 |
 
 ## Installing the Chart
 
