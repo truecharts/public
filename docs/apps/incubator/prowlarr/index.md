@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.6.12](https://img.shields.io/badge/Version-1.6.12-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.6.13](https://img.shields.io/badge/Version-1.6.13-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Indexer manager/proxy built on the popular arr net base stack to integrate with your various PVR apps.
 

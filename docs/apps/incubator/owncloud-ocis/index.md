@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.4.9](https://img.shields.io/badge/Version-1.4.9-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.4.10](https://img.shields.io/badge/Version-1.4.10-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 ownCloud Infinite Scale is a self-hosted file sync and share server.
 
