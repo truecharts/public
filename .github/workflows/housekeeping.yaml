@@ -80,12 +80,12 @@ jobs:
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="README.md" \
-                      --template-files="/home/runner/work/apps/apps/tools/templates/docs/README.md.gotmpl" \
+                      --template-files="/home/runner/work/apps/apps/templates/docs/README.md.gotmpl" \
                       --chart-search-root="${chart}"
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="CONFIG.md" \
-                      --template-files="/home/runner/work/apps/apps/tools/templates/docs/CONFIG.md.gotmpl" \
+                      --template-files="/home/runner/work/apps/apps/templates/docs/CONFIG.md.gotmpl" \
                       --chart-search-root="${chart}"
               fi
             done
@@ -146,12 +146,12 @@ jobs:
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="README.md" \
-                      --template-files="/home/runner/work/apps/apps/tools/templates/docs/README.md.gotmpl" \
+                      --template-files="/home/runner/work/apps/apps/templates/docs/README.md.gotmpl" \
                       --chart-search-root="${chart}"
                   helm-docs \
                       --ignore-file=".helmdocsignore" \
                       --output-file="CONFIG.md" \
-                      --template-files="/home/runner/work/apps/apps/tools/templates/docs/CONFIG.md.gotmpl" \
+                      --template-files="/home/runner/work/apps/apps/templates/docs/CONFIG.md.gotmpl" \
                       --chart-search-root="${chart}"
               fi
             done

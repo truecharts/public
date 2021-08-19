@@ -9,7 +9,7 @@ for chart in input/*; do
     basename=$(basename ${chart})
     echo "processing ${chart} using nodeport $nodeport"
     mkdir -p output/${basename}
-    cp -rf placeholder/SCALE output/${basename}/
+    cp -rf ../templates/app/SCALE output/${basename}/
     cp -rf ${chart}/ci output/${basename}/ || echo "no CI folder detected, continuing..."
     cp -rf ${chart}/templates output/${basename}/
     cp -rf ${chart}/Chart.yaml output/${basename}/Chart.yaml
