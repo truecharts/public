@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.4.8](https://img.shields.io/badge/Version-1.4.8-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.4.9](https://img.shields.io/badge/Version-1.4.9-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 A simple null file http and https server
 
@@ -23,28 +23,17 @@ Kubernetes: `>=1.16.0-0`
 
 ## Installing the Chart
 
-To install the chart with the release name `nullserv`
-
-- Open TrueNAS SCALE
-- Go to Apps
-- Click "Install" for this specific Apps
-- Fill out the configuration form
+To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/03-Installing-an-App/).
 
 ## Uninstalling the Chart
 
-To uninstall the `nullserv` deployment
-
-- Open TrueNAS SCALE
-- Go to Apps
-- Go to "Installed Apps"
-- Expand the menu in the top-right corner of this App
-- Click "Remove" for this specific Apps
-
-The command removes all the Kubernetes components associated with the chart **including storage volumes** _(Except hostPath Storage)_ and deletes the release.
+To remove this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/07-Deleting-an-App/).
 
 ## Support
 
+- Please check our [quick-start guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Open-Apps/) first.
 - See the [Wiki](https://truecharts.org)
+- Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
 - Ask a [question](https://github.com/truecharts/apps/discussions)
 
