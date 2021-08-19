@@ -153,6 +153,11 @@ jobs:
                       --output-file="CONFIG.md" \
                       --template-files="/home/runner/work/apps/apps/templates/docs/CONFIG.md.gotmpl" \
                       --chart-search-root="${chart}"
+                  helm-docs \
+                      --ignore-file=".helmdocsignore" \
+                      --output-file="app-readme.md" \
+                      --template-files="/home/runner/work/apps/apps/templates/docs/app-readme.md.gotmpl" \
+                      --chart-search-root="${chart}"
               fi
             done
           done
