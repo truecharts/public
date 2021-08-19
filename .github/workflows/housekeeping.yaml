@@ -65,7 +65,7 @@ jobs:
             fi
           done
 
-      - name: rerun pre-commit checks
+      - name: run pre-commit checks
         continue-on-error: true
         uses: pre-commit/action@v2.0.3
 
