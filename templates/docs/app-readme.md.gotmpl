@@ -1,6 +1,10 @@
 {{- define "custom.custom.app-readme" -}}
 {{ template "chart.deprecationWarning" . }}
 {{ template "chart.description" . }}
+
+This App is supplied by TrueCharts, for more information please visit https://truecharts.org
+
 {{- end -}}
 
-{{ template "custom.custom.configuration" . }}
+
+{{ template "custom.custom.app-readme" . }}
