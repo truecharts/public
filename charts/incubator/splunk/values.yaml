@@ -1,0 +1,28 @@
+image:
+  repository: splunk/splunk
+  pullPolicy: IfNotPresent
+  tag: "8.1.5"
+
+strategy:
+  type: Recreate
+
+
+env:
+  # TZ:
+  SPLUNK_START_ARGS: "--accept-license"
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 8000
+
+ingress:
+  enabled: false
+
+# persistence:
+#   data:
+#     enabled: false
+#     emptyDir: false
+#     mountPath: /data
