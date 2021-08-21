@@ -68,6 +68,31 @@
 .cut-short-app {
   width: 41px;
 }
+
+@media screen and (min-width: 1600px) {
+  .cut {
+    width: 124px;
+  }
+  .cut-short-app {
+    width: 44px;
+  }
+  .cut-short-name {
+    width: 54px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .cut {
+    width: 136px;
+  }
+  .cut-short-app {
+    width: 46px;
+  }
+  .cut-short-name {
+    width: 58px;
+  }
+}
+
 .input:focus ~ .cut,
 .input:not(:placeholder-shown) ~ .cut {
   transform: translateY(8px);
@@ -108,7 +133,7 @@
   font-size: 18px;
   height: 50px;
   margin-top: 38px;
-  // outline: 0;
+  /* outline: 0; */
   text-align: center;
   width: 100%;
 }
