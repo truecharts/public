@@ -27322,6 +27322,39 @@ entries:
   handbrake:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-23T03:12:28.62692185Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.8.3
+    description: HandBrake is a tool for converting video from nearly any format to
+      a selection of modern, widely supported codecs.
+    digest: e89a503cd340c0089607bfad03e57e933f6dd46405b233403445e9591932424d
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/handbrake
+    icon: https://handbrake.fr/img/logo.png
+    keywords:
+    - handbrake
+    - encode
+    - media
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: stavros-k@users.noreply.github.com
+      name: stavros-k
+      url: truecharts.org
+    name: handbrake
+    sources:
+    - https://github.com/jlesage/docker-handbrake
+    - https://hub.docker.com/r/jlesage/handbrake/
+    - https://handbrake.fr/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/handbrake-6.6.13/handbrake-6.6.13.tgz
+    version: 6.6.13
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-22T22:09:46.288765042Z"
     dependencies:
     - name: common
@@ -100883,4 +100916,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-22T22:09:46.314533558Z"
+generated: "2021-08-23T03:12:28.655176774Z"
