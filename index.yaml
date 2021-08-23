@@ -64457,6 +64457,33 @@ entries:
   plex:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-23T17:35:31.456833756Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.8.3
+    description: Plex Media Server
+    digest: 873f022cf91448493443de2536aa840e6419e7d4fe0894eb3e82d3e1a5172e7b
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/plex
+    icon: https://www.plex.tv/wp-content/uploads/2018/01/pmp-icon-1.png
+    keywords:
+    - plex
+    - plex-media-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: plex
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/plex-5.6.14/plex-5.6.14.tgz
+    version: 5.6.14
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-19T10:38:57.559370472Z"
     dependencies:
     - name: common
@@ -100916,4 +100943,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-23T03:12:28.655176774Z"
+generated: "2021-08-23T17:35:31.492620558Z"
