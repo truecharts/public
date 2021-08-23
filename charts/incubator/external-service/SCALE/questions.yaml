@@ -123,15 +123,7 @@ questions:
                               type: int
                               default: 80
                               editable: false
-                              hidden: true
-                          - variable: targetport
-                            label: "Target Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 80
-                              editable: true
-                              required: true
+                              hidden: false
 
   - variable: ingress
     label: ""
