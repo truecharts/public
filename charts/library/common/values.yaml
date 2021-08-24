@@ -127,6 +127,10 @@ dnsConfig: {}
 # [[ref]](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)
 enableServiceLinks: true
 
+# -- Configure additional security context parameters for the pod (gets merged with podSecurityContext)
+customPodSecurityContext:
+  permissive: false
+
 # -- Configure the Security Context for the Pod
 podSecurityContext: {}
 
