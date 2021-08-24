@@ -6,6 +6,54 @@ kind: ConfigMap
 metadata:
   name: littlelinkconfig
 data:
+  {{- if .Values.littlelink.meta_title }}
+  META_TILE: {{ .Values.littlelink.meta_title | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.meta_description }}
+  META_DESCRIPTION: {{ .Values.littlelink.meta_description | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.meta_author }}
+  META_AUTHOR: {{ .Values.littlelink.meta_author | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.theme }}
+  THEME: {{ .Values.littlelink.theme | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.favicon_url }}
+  FAVICON_URL: {{ .Values.littlelink.favicon_url | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.avatar_url }}
+  AVATAR_URL: {{ .Values.littlelink.avatar_url | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.avatar_2x_url }}
+  AVATAR_2X_URL: {{ .Values.littlelink.avatar_2x_url | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.avatar_alt }}
+  AVATAR_ALT: {{ .Values.littlelink.avatar_alt | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.name }}
+  NAME: {{ .Values.littlelink.name | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.bio }}
+  BIO: {{ .Values.littlelink.bio | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.github }}
+  GITHUB: {{ .Values.littlelink.github | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.twitter }}
+  TWITTER: {{ .Values.littlelink.twitter | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.instagram }}
+  INSTAGRAM: {{ .Values.littlelink.instagram | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.youtube }}
+  YOUTUBE: {{ .Values.littlelink.youtube | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.twitch }}
+  TWITCH: {{ .Values.littlelink.twitch | quote }}
+  {{- end }}
+  {{- if .Values.littlelink.discord }}
+  DISCORD: {{ .Values.littlelink.discord | quote }}
+  {{- end }}
   {{- if .Values.littlelink.tiktok }}
   TIKTOK: {{ .Values.littlelink.tiktok | quote }}
   {{- end }}

@@ -111,16 +111,6 @@ subsets:
     {{- range $name, $port := $values.ports }}
     {{- if $port.enabled }}
       - port: {{ $port.port | default 80 }}
-        targetPort: {{ $port.targetPort | default $name }}
-        {{- if $port.protocol }}
-        {{- if or ( eq $port.protocol "HTTP" ) ( eq $port.protocol "HTTPS" ) ( eq $port.protocol "TCP" ) }}
-        protocol: TCP
-        {{- else }}
-        protocol: {{ $port.protocol }}
-        {{- end }}
-        {{- else }}
-        protocol: TCP
-        {{- end }}
         name: {{ $name }}
     {{- end }}
     {{- end }}

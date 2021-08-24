@@ -759,6 +759,14 @@ questions:
                               type: string
                               default: ""
                               required: true
+  - variable: scaleGPU
+    label: "GPU Configuration"
+    group: "Resources and Devices"
+    schema:
+      type: dict
+      $ref:
+        - "definitions/gpuConfiguration"
+      attrs: []
   - variable: deviceList
     label: "Mount USB devices"
     group: "Resources and Devices"

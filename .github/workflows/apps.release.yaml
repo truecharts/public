@@ -90,7 +90,7 @@ jobs:
           path: catalog
       - name: Remove if release already exists
         run: |
-          for train in stable incubator develop non-free deprecated
+          for train in stable incubator
           do
             for chart in master/charts/${train}/*; do
               if [ -d "${chart}/SCALE" ]; then
@@ -106,7 +106,7 @@ jobs:
           done
       - name: fetch dependencies
         run: |
-          for train in stable incubator develop non-free deprecated
+          for train in stable incubator
           do
             for chart in master/charts/${train}/*; do
               if [ -d "${chart}" ]; then
@@ -118,7 +118,7 @@ jobs:
           done
       - name: Apply SCALE Patches
         run: |
-          for train in stable incubator develop non-free deprecated
+          for train in stable incubator
           do
             for chart in master/charts/${train}/*; do
               if [ -d "${chart}/SCALE" ]; then
@@ -140,7 +140,7 @@ jobs:
           done
       - name: Add Chart release
         run: |
-          for train in stable incubator develop non-free deprecated
+          for train in stable incubator
           do
             for chart in master/charts/${train}/*; do
               if [ -f "${chart}/item.yaml" ]; then

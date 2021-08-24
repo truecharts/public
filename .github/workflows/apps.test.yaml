@@ -53,9 +53,6 @@ jobs:
           changed:
           - 'charts/stable/**'
           - 'charts/incubator/**'
-          - 'charts/develop/**'
-          - 'charts/deprecated/**'
-          - 'charts/non-free/**'
           - 'charts/library/**'
     - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
     - id: reduce
@@ -105,14 +102,10 @@ jobs:
               train="stable"
             elif test -f "./charts/incubator/${{ matrix.app }}/Chart.yaml"; then
               train="incubator"
-            elif test -f "./charts/deprecated/${{ matrix.app }}/Chart.yaml"; then
-              train="deprecated"
-            elif test -f "./charts/non-free/${{ matrix.app }}/Chart.yaml"; then
-              train="non-free"
             elif test -f "./charts/library/${{ matrix.app }}/Chart.yaml"; then
               train="library"
             else
-              train="develop"
+              train="incubator"
             fi
             echo ::set-output name=train::${train}
             if test -d "./charts/${train}/${{ matrix.app }}/tests/"; then
@@ -279,7 +272,7 @@ jobs:
               echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
             fi
           }
-          for train in stable incubator develop non-free deprecated
+          for train in stable incubator
           do
             for chart in master/charts/${train}/*; do
               removetask "${train}" "${chart}" &
@@ -295,7 +288,7 @@ jobs:
               cd -
             fi
           }
-          for train in stable incubator develop non-free deprecated
+          for train in stable incubator
           do
             for chart in master/charts/${train}/*; do
               fetchtask "${chart}"
@@ -320,7 +313,7 @@ jobs:
               echo "Skipping chart $1, no correct SCALE compatibility layer detected"
             fi
           }
-          for train in stable incubator develop non-free deprecated
+          for train in stable incubator
           do
             for chart in master/charts/${train}/*; do
               patchtask "${chart}" &
@@ -341,7 +334,7 @@ jobs:
               echo "Skipping, chart $1 does not contain SCALE compatibility layer..."
             fi
           }
-          for train in stable incubator develop non-free deprecated
+          for train in stable incubator
           do
             for chart in master/charts/${train}/*; do
               addtask "${chart}" &

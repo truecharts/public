@@ -1,0 +1,15 @@
+# Default values for Jackett.
+
+# Disable Deployment
+controller:
+  enabled: false
+
+service:
+  main:
+    enabled: true
+    type: ExternalIP
+    externalIP: "1.1.1.1"
+    ports:
+      main:
+        Type: HTTPS
+        port: 443

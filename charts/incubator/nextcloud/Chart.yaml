@@ -3,15 +3,15 @@ appVersion: auto
 dependencies:
 - name: common
   repository: https://truecharts.org/
-  version: 6.8.3
+  version: 6.9.1
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 1.0.13
+  version: 1.1.0
 - condition: redis.enabled
   name: redis
   repository: https://charts.bitnami.com/bitnami
-  version: 14.8.8
+  version: 14.8.11
 deprecated: false
 description: A private cloud server that puts the control and security of your own
   data back into your hands.
@@ -33,4 +33,4 @@ sources:
 - https://github.com/nextcloud/docker
 - https://github.com/nextcloud/helm
 type: application
-version: 2.0.18
+version: 2.2.0
