@@ -638,6 +638,16 @@ questions:
                 label: "When should we take ownership?"
                 schema:
                   type: int
+        - variable: supplementalGroups
+          label: "When should we take ownership?"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: supplementalGroupsEntry
+                label: "When should we take ownership?"
+                schema:
+                  type: int
         - variable: fsGroupChangePolicy
           label: "When should we take ownership?"
           schema:
