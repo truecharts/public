@@ -7,11 +7,8 @@ imagePullSecrets:
     {{- toYaml . | nindent 2 }}
   {{- end }}
 serviceAccountName: {{ include "common.names.serviceAccountName" . }}
-securityContext:
-  {{- if or ( .Values.deviceList ) ( .Values.customPodSecurityContext.permissive ) }}
-  permissive: true
-  {{- end }}
   {{- with .Values.podSecurityContext }}
+securityContext:
     {{- toYaml . | nindent 2 }}
   {{- end }}
   {{- with .Values.priorityClassName }}
