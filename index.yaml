@@ -78161,6 +78161,34 @@ entries:
   prowlarr:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-24T20:46:20.114509857Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.9.1
+    description: Indexer manager/proxy built on the popular arr net base stack to
+      integrate with your various PVR apps.
+    digest: dfc1d63465bedcfa39fefa1dd587138232575563ceb8993a401192a0ed7e6978
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/prowlarr
+    icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/400.png
+    keywords:
+    - prowlarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: prowlarr
+    sources:
+    - https://github.com/Prowlarr/Prowlarr
+    - https://github.com/k8s-at-home/container-images
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prowlarr-1.7.1/prowlarr-1.7.1.tgz
+    version: 1.7.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-24T11:23:04.054792474Z"
     dependencies:
     - name: common
@@ -111233,4 +111261,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-24T16:48:02.37775255Z"
+generated: "2021-08-24T20:46:20.15279247Z"
