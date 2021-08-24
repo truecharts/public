@@ -47,10 +47,9 @@
   {{- end }}
 
   {{/* save supplementalgroups to placeholder variable */}}
+  {{- $supGroups := list }}
   {{ if .Values.podSecurityContext.supplementalgroups }}
   {{- $supGroups = .Values.podSecurityContext.supplementalgroups }}
-  {{- else }}
-  {{- $supGroups := list }}
   {{- end }}
 
   {{/* Append requered groups to supplementalgroups when deviceList is used */}}
