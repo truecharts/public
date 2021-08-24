@@ -266,6 +266,12 @@ service:
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
 
+
+# -- Configure ingressList for the chart here.
+# Additional items can be added by adding a items similar to ingress
+# @default -- []
+ingressList: []
+
 # -- Configure the ingresses for the chart here.
 # Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
 # @default -- See below

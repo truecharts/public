@@ -38,9 +38,6 @@ jobs:
             changed:
             - 'charts/stable/**'
             - 'charts/incubator/**'
-            - 'charts/develop/**'
-            - 'charts/deprecated/**'
-            - 'charts/non-free/**'
             - 'charts/library/**'
       - name: Filter filter-output
         run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
@@ -57,14 +54,10 @@ jobs:
                 train="stable"
               elif test -f "./charts/incubator/${chart}/Chart.yaml"; then
                 train="incubator"
-              elif test -f "./charts/deprecated/${chart}/Chart.yaml"; then
-                train="deprecated"
-              elif test -f "./charts/non-free/${chart}/Chart.yaml"; then
-                train="non-free"
               elif test -f "./charts/library/${chart}/Chart.yaml"; then
                 train="library"
               else
-                train="develop"
+                train="incubator"
               fi
               echo "Comparing versions for ${train}/${chart}"
               master=$(pybump get --file ./master/charts/${train}/${chart}/Chart.yaml)
