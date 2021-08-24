@@ -47,25 +47,25 @@
   {{- $_ := set .Values.securityContext "privileged" true -}}
   {{- end }}
 
-  {{/* save supplementalgroups to placeholder variable */}}
+  {{/* save supplementalGroups to placeholder variable */}}
   {{- $supGroups := list }}
-  {{ if .Values.podSecurityContext.supplementalgroups }}
-  {{- $supGroups = .Values.podSecurityContext.supplementalgroups }}
+  {{ if .Values.podSecurityContext.supplementalGroups }}
+  {{- $supGroups = .Values.podSecurityContext.supplementalGroups }}
   {{- end }}
 
-  {{/* Append requered groups to supplementalgroups when deviceList is used */}}
+  {{/* Append requered groups to supplementalGroups when deviceList is used */}}
   {{- if .Values.deviceList}}
   {{- $devGroups := list 5 20 24 }}
   {{- $supGroups := list ( concat $supGroups $devGroups ) }}
   {{- end }}
 
-  {{/* Append requered groups to supplementalgroups when scaleGPU is used */}}
+  {{/* Append requered groups to supplementalGroups when scaleGPU is used */}}
   {{- if .Values.scaleGPU }}
   {{- $gpuGroups := list 44 107 }}
   {{- $supGroups := list ( concat $supGroups $gpuGroups ) }}
   {{- end }}
 
-  {{/* write appended supplementalgroups to .Values */}}
-  {{- $_ := set .Values.podSecurityContext "supplementalgroups" $supGroups -}}
+  {{/* write appended supplementalGroups to .Values */}}
+  {{- $_ := set .Values.podSecurityContext "supplementalGroups" $supGroups -}}
 
 {{- end -}}
