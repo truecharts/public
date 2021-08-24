@@ -20488,6 +20488,39 @@ entries:
   fireflyiii:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-24T14:38:33.076395028Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.9.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 1.1.0
+    description: A free and open source personal finance manager
+    digest: e32dfff33ef4d10175bde81b2a9d34079cb29151553a325b60d5f1513abbea72
+    home: https://github.com/firefly-iii/firefly-iii/
+    icon: https://www.firefly-iii.org/assets/logo/color.png
+    keywords:
+    - fireflyiii
+    - finacial
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: 20650065+warllo54@users.noreply.github.com
+      name: warllo54
+      url: truecharts.org
+    name: fireflyiii
+    sources:
+    - https://github.com/firefly-iii/firefly-iii/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/fireflyiii-5.2.0/fireflyiii-5.2.0.tgz
+    version: 5.2.0
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-24T11:22:56.747073328Z"
     dependencies:
     - name: common
@@ -54048,6 +54081,45 @@ entries:
     - https://github.com/truecharts/apps/releases/download/navidrome-3.1.5/navidrome-3.1.5.tgz
     version: 3.1.5
   nextcloud:
+  - apiVersion: v2
+    appVersion: auto
+    created: "2021-08-24T14:38:33.278817473Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.9.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 1.1.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.8.11
+    description: A private cloud server that puts the control and security of your
+      own data back into your hands.
+    digest: 8a04dd8b24e3717a7191d8cca2d07208e9e783e12856d66ddd7a755933f7c293
+    home: https://nextcloud.com/
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Nextcloud_Logo.svg/1280px-Nextcloud_Logo.svg.png
+    keywords:
+    - nextcloud
+    - storage
+    - http
+    - web
+    - php
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    name: nextcloud
+    sources:
+    - https://github.com/nextcloud/docker
+    - https://github.com/nextcloud/helm
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nextcloud-2.2.0/nextcloud-2.2.0.tgz
+    version: 2.2.0
   - apiVersion: v2
     appVersion: auto
     created: "2021-08-24T11:23:00.349471862Z"
@@ -105321,6 +105393,43 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-24T14:38:33.462887316Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.9.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 1.1.0
+    description: Unofficial Bitwarden compatible server written in Rust
+    digest: 06e8339d83d93e54a63317ab5f5103b1c5dc6690adfa8dcfa6e373a19980c009
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/vaultwarden
+    icon: https://raw.githubusercontent.com/bitwarden/brand/master/icons/256x256.png
+    keywords:
+    - bitwarden
+    - bitwardenrs
+    - bitwarden_rs
+    - vaultwarden
+    - password
+    - rust
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/vaultwarden-4.2.0/vaultwarden-4.2.0.tgz
+    version: 4.2.0
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-24T11:23:06.883179388Z"
     dependencies:
     - name: common
@@ -111096,4 +111205,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-24T13:54:13.125058928Z"
+generated: "2021-08-24T14:38:33.498707186Z"
