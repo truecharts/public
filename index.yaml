@@ -20371,6 +20371,35 @@ entries:
   external-service:
   - apiVersion: v2
     appVersion: auto
+    created: "2021-08-24T13:54:13.081010106Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org/
+      version: 6.9.1
+    description: Allow external services to be used like Apps.
+    digest: 1d019a4a6f9b7009c25c99ebb6acd25b7302e17aec80af898c20f0d81fef843a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/external-service
+    icon: https://truecharts.org/_static/img/external-service-icon.png
+    keywords:
+    - external-service
+    - reverse-proxy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: truecharts.org
+    - email: kjeld@schouten-lebbing.nl
+      name: Ornias1993
+      url: truecharts.org
+    name: external-service
+    sources:
+    - https://github.com/truecharts/apps/tree/master/charts/stable/external-service
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/external-service-0.1.1/external-service-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: auto
     created: "2021-08-24T11:22:56.606081754Z"
     dependencies:
     - name: common
@@ -111067,4 +111096,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-3.1.5/zwavejs2mqtt-3.1.5.tgz
     version: 3.1.5
-generated: "2021-08-24T11:23:07.178438729Z"
+generated: "2021-08-24T13:54:13.125058928Z"
