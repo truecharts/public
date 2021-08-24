@@ -73,13 +73,13 @@ questions:
                       description: "ExternalName"
                     - value: "ExternalIP"
                       description: "ExternalIP"
-              - variable: externalIP
+              - variable: externalName
                 label: "External Service Domainname"
                 description: "Domainname of External service"
                 schema:
                   show_if: [["type", "=", "ExternalName"]]
                   type: string
-                  default: "1.1.1.1"
+                  default: "google.com"
               - variable: externalIP
                 label: "External Service IP"
                 description: "IP of External service"
