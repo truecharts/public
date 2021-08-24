@@ -299,6 +299,7 @@ questions:
     schema:
       type: boolean
       default: false
+      show_if: [["externalInterfaces", "=", []]]
 
   - variable: hostPortsList
     label: "Specify host ports for the workload"
