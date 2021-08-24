@@ -51,7 +51,7 @@ Pod specification
 */}}
 {{- define "podSepc" }}
 restartPolicy: {{ template "restartPolicy" . }}
-hostNetwork: {{ .Values.hostNetwork }}
+hostNetwork: {{ template "hostNetworkingConfiguration" . }}
 containers:
 - name: {{ .Chart.Name }}
   {{- include "volumeMountsConfiguration" . | indent 2}}
