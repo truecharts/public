@@ -26,6 +26,7 @@
     {{- $_ := set $perDict $name $item }}
   {{- end }}
   {{- $per := merge .Values.persistence $perDict }}
+  {{- $_ := set .Values "persistence" (deepCopy $per) -}}
 
 
   {{/* merge ingressList with ingress */}}
@@ -37,8 +38,8 @@
     {{- end }}
     {{- $_ := set $ingDict $name $item }}
   {{- end }}
-  {{- $per := merge .Values.ingress $ingDict }}
-  {{- $_ := set .Values "persistence" (deepCopy $per) -}}
+  {{- $ing := merge .Values.ingress $ingDict }}
+  {{- $_ := set .Values "ingress" (deepCopy $ing) -}}
 
   {{/* Enable privileged securitycontext when deviceList is used */}}
   {{- if .Values.securityContext.privileged }}
