@@ -27,7 +27,17 @@
   {{- end }}
   {{- $per := merge .Values.persistence $perDict }}
 
-  {{/* write merged persitence with .Values Persitence */}}
+
+  {{/* merge ingressList with ingress */}}
+  {{- $ingDict := dict }}
+  {{- range $index, $item := .Values.ingressList -}}
+    {{- $name := ( printf "list-%s" ( $index | toString ) ) }}
+    {{- if $item.name }}
+      {{- $name = $item.name }}
+    {{- end }}
+    {{- $_ := set $ingDict $name $item }}
+  {{- end }}
+  {{- $per := merge .Values.ingress $ingDict }}
   {{- $_ := set .Values "persistence" (deepCopy $per) -}}
 
   {{/* Enable privileged securitycontext when deviceList is used */}}
@@ -46,13 +56,13 @@
   {{/* Append requered groups to supplementalgroups when deviceList is used */}}
   {{- if .Values.deviceList}}
   {{- $devGroups := list 5 20 24 }}
-  {{- $supGroups := list ( concat $supGroups $devGroups) ) }}
+  {{- $supGroups := list ( concat $supGroups $devGroups ) }}
   {{- end }}
 
   {{/* Append requered groups to supplementalgroups when scaleGPU is used */}}
   {{- if .Values.scaleGPU }}
   {{- $gpuGroups := list 44 107 }}
-  {{- $supGroups := list ( concat $supGroups $gpuGroups) ) }}
+  {{- $supGroups := list ( concat $supGroups $gpuGroups ) }}
   {{- end }}
 
   {{/* write appended supplementalgroups to .Values */}}
