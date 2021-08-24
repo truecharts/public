@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 5.6.13](https://img.shields.io/badge/Version-5.6.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 5.6.17](https://img.shields.io/badge/Version-5.6.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Plex Media Server
 
@@ -15,7 +15,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 6.8.3 |
+| https://truecharts.org/ | common | 6.8.4 |
 
 ## Installing the Chart
 
