@@ -9,11 +9,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 5.4.6
 
-# 5=tty 20=dialout 24=cdrom
-podSecurityContext:
-  runAsNonRoot: true
-  supplementalGroups: [5, 20, 24]
-
 probes:
   liveness:
     enabled: true
