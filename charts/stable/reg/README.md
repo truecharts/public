@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.6.14](https://img.shields.io/badge/Version-1.6.14-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.7.1](https://img.shields.io/badge/Version-1.7.1-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Docker registry v2 command line client and repo listing generator with security checks.
 
@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 6.8.4 |
+| https://truecharts.org/ | common | 6.9.1 |
 
 ## Installing the Chart
 

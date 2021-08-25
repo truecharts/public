@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.4.16](https://img.shields.io/badge/Version-1.4.16-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.5.2](https://img.shields.io/badge/Version-1.5.2-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 A comics/mangas server to serve/stream pages via API
 
@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 6.8.4 |
+| https://truecharts.org | common | 6.9.1 |
 
 ## Installing the Chart
 

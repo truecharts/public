@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.4.14](https://img.shields.io/badge/Version-1.4.14-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.5.1](https://img.shields.io/badge/Version-1.5.1-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Mylar is the automated Comic Book downloader (cbr/cbz) for use with various download clients.
 
@@ -21,7 +21,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 6.8.4 |
+| https://truecharts.org | common | 6.9.1 |
 
 ## Installing the Chart
 
