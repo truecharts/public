@@ -135,6 +135,7 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
     tests := map[string]struct {
         values          []string
         expectedCommand []string
+        expectedArgs []string
     }{
         "DefaultPermissionsForMultipleMounts": {
             values: baseValues,
