@@ -139,7 +139,7 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
         "DefaultPermissionsForMultipleMounts": {
             values: baseValues,
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R :568 /config\nchown -R :568 /data\n",
+                "/bin/sh", "-c",
             },
         },
         "DefaultPermissionsForDisabledpodSecurityContext": {
@@ -147,7 +147,7 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
                 "podSecurityContext.allowPrivilegeEscalation=false",
             ),
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R :568 /config\nchown -R :568 /data\n",
+                "/bin/sh", "-c",
             },
         },
         "PermissionsForFsGroup": {
@@ -155,7 +155,7 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
                 "podSecurityContext.fsGroup=666",
             ),
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R :666 /config\nchown -R :666 /data\n",
+                "/bin/sh", "-c",
             },
         },
         "PermissionsForPgid": {
@@ -163,7 +163,7 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
                 "env.PGID=666",
             ),
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R :666 /config\nchown -R :666 /data\n",
+                "/bin/sh", "-c",
             },
         },
     }
