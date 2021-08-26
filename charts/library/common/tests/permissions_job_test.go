@@ -141,6 +141,9 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
             expectedCommand: []string{
                 "/bin/sh", "-c",
             },
+            expectedArgs: []string{
+                "chown -R :568 '/config'", "chown -R :568 '/data'",
+            },
         },
         "DefaultPermissionsForDisabledpodSecurityContext": {
             values: append(baseValues,
@@ -148,6 +151,9 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
             ),
             expectedCommand: []string{
                 "/bin/sh", "-c",
+            },
+            expectedArgs: []string{
+                "chown -R :568 '/config'", "chown -R :568 '/data'",
             },
         },
         "PermissionsForFsGroup": {
@@ -157,6 +163,9 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
             expectedCommand: []string{
                 "/bin/sh", "-c",
             },
+            expectedArgs: []string{
+                "chown -R :666 '/config'", "chown -R :666 '/data'",
+            },
         },
         "PermissionsForPgid": {
             values: append(baseValues,
@@ -164,6 +173,9 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
             ),
             expectedCommand: []string{
                 "/bin/sh", "-c",
+            },
+            expectedArgs: []string{
+                "chown -R :666 '/config'", "chown -R :666 '/data'",
             },
         },
     }
@@ -189,6 +201,17 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
                 suite.Assertions.EqualValues(tc.expectedCommand, actualCommand)
             } else {
                 suite.Assertions.Empty(command)
+            }
+            if tc.expectedArgs != nil {
+                actualArgs := []string{}
+
+                for _, v := range args {
+                    actualArgs = append(actualArgs, v.Data().(string))
+                }
+
+                suite.Assertions.EqualValues(tc.expectedArgs, actualArgs)
+            } else {
+                suite.Assertions.Empty(args)
             }
         })
     }
