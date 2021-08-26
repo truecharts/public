@@ -135,11 +135,15 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
     tests := map[string]struct {
         values          []string
         expectedCommand []string
+        expectedArgs []string
     }{
         "DefaultPermissionsForMultipleMounts": {
             values: baseValues,
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R :568 /config\nchown -R :568 /data\n",
+                "/bin/sh", "-c",
+            },
+            expectedArgs: []string{
+                "chown -R :568 '/config'", "chown -R :568 '/data'",
             },
         },
         "DefaultPermissionsForDisabledpodSecurityContext": {
@@ -147,7 +151,10 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
                 "podSecurityContext.allowPrivilegeEscalation=false",
             ),
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R :568 /config\nchown -R :568 /data\n",
+                "/bin/sh", "-c",
+            },
+            expectedArgs: []string{
+                "chown -R :568 '/config'", "chown -R :568 '/data'",
             },
         },
         "PermissionsForFsGroup": {
@@ -155,7 +162,10 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
                 "podSecurityContext.fsGroup=666",
             ),
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R :666 /config\nchown -R :666 /data\n",
+                "/bin/sh", "-c",
+            },
+            expectedArgs: []string{
+                "chown -R :666 '/config'", "chown -R :666 '/data'",
             },
         },
         "PermissionsForPgid": {
@@ -163,7 +173,10 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
                 "env.PGID=666",
             ),
             expectedCommand: []string{
-                "/bin/sh", "-c", "chown -R :666 /config\nchown -R :666 /data\n",
+                "/bin/sh", "-c",
+            },
+            expectedArgs: []string{
+                "chown -R :666 '/config'", "chown -R :666 '/data'",
             },
         },
     }
@@ -179,6 +192,7 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
 
             containers, _ := jobManifest.Path("spec.template.spec.containers").Children()
             command, _ := containers[0].Path("command").Children()
+            args, _ := containers[0].Path("args").Children()
             if tc.expectedCommand != nil {
                 actualCommand := []string{}
 
@@ -189,6 +203,17 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
                 suite.Assertions.EqualValues(tc.expectedCommand, actualCommand)
             } else {
                 suite.Assertions.Empty(command)
+            }
+            if tc.expectedArgs != nil {
+                actualArgs := []string{}
+
+                for _, v := range args {
+                    actualArgs = append(actualArgs, v.Data().(string))
+                }
+
+                suite.Assertions.EqualValues(tc.expectedArgs, actualArgs)
+            } else {
+                suite.Assertions.Empty(args)
             }
         })
     }
