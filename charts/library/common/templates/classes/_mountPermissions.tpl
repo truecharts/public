@@ -42,7 +42,7 @@ spec:
             - -c
             - |
               {{- range $_, $hpm := $hostPathMounts }}
-              chown -R {{ printf ":%d %s" (int $group) $hpm.mountPath }}
+              chown -R {{ printf ":%d %s" (int $group) ( $hpm.mountPath | quote ) }}
               {{- end }}
           volumeMounts:
             {{- range $name, $hpm := $hostPathMounts }}
