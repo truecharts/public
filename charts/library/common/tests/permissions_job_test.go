@@ -192,6 +192,7 @@ func (suite *PermissionsJobTestSuite) TestCommand() {
 
             containers, _ := jobManifest.Path("spec.template.spec.containers").Children()
             command, _ := containers[0].Path("command").Children()
+            args, _ := containers[0].Path("command").Children()
             if tc.expectedCommand != nil {
                 actualCommand := []string{}
 
