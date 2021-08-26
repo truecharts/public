@@ -37,7 +37,7 @@ spec:
       containers:
         - name: set-mount-permissions
           image: alpine:3.3
-          command: ["/bin/bash", "-c"]
+          command: ["/bin/sh", "-c"]
           args:
             {{- range $_, $hpm := $hostPathMounts }}
             - chown -R {{ printf ":%d %s" (int $group) ( $hpm.mountPath | quote ) }}
