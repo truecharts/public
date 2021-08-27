@@ -34,13 +34,13 @@ persistence:
 postgresqlPassword: "testpass"
 postgresqlUsername: "test"
 postgresqlDatabase: "test"
-# existingSecret: ""
+existingSecret: ""
 
 
 envValueFrom:
   POSTGRES_PASSWORD:
     secretKeyRef:
-      name: '{{ .Values.existingSecret | default ( include "common.names.fullname" . ) }}'
+      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
       key: "postgresql-password"
 
 envTpl:
