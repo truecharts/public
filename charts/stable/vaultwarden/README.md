@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 4.2.1](https://img.shields.io/badge/Version-4.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 4.2.3](https://img.shields.io/badge/Version-4.2.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Unofficial Bitwarden compatible server written in Rust
 
@@ -19,7 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 6.9.1 |
+| https://truecharts.org/ | common | 6.9.2 |
 | https://truecharts.org/ | postgresql | 1.1.0 |
 
 ## Installing the Chart
