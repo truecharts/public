@@ -90,7 +90,7 @@
     {{- else if  $value.configMapRef }}
     - configMapRef:
       name: {{ tpl $value.configMapRef.name $ | quote }}
-    {- else }}
+    {{- else }}
       {{- toYaml $value | nindent 4 }}
     {{- end }}
   {{- end }}
