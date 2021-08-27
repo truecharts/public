@@ -87,12 +87,12 @@ data:
   {{- end }}
   {{- if $redisprevious }}
   REDIS_PASSWORD: {{ ( index $redisprevious.data "redis-password" ) }}
-  {{- if .Values.session.redis.high_availability.enabled}}
+  {{- if .Values.redisProvider.high_availability.enabled}}
   REDIS_SENTINEL_PASSWORD: {{ ( index $redisprevious.data "sentinel-password" ) }}
   {{- end }}
   {{- else }}
   REDIS_PASSWORD: {{ $redisPass | b64enc | quote }}
-  {{- if .Values.session.redis.high_availability.enabled}}
+  {{- if .Values.redisProvider.high_availability.enabled}}
   REDIS_SENTINEL_PASSWORD: {{ $sentinelPass | b64enc | quote }}
   {{- end }}
   {{- end }}

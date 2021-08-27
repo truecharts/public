@@ -85,299 +85,7 @@ questions:
               - value: "OnDelete"
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
 
-  - variable: authelia
-    label: ""
-    group: "App Configuration"
-    schema:
-      type: dict
-      attrs:
-        - variable: yubico
-          label: "Yubico OTP authentication"
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Yubico OTP authentication"
-                description: "Please refer to the manual at: https://github.com/dani-garcia/authelia/wiki/Enabling-Yubikey-OTP-authentication"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: server
-                      label: "Yubico server"
-                      description: "Defaults to YubiCloud"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: clientId
-                      label: "Yubico ID"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: secretKey
-                      label: "Yubico Secret Key"
-                      schema:
-                        type: string
-                        default: ""
-        - variable: admin
-          label: "Admin Portal"
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable Admin Portal"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: disableAdminToken
-                      label: "Make Accessible Without Password/Token"
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: token
-                      label: "Admin Portal Password/Token"
-                      description: "Will be automatically generated if not defined"
-                      schema:
-                        type: string
-                        default: ""
-        - variable: icons
-          label: "Icon Download Settings"
-          schema:
-            type: dict
-            attrs:
-              - variable: disableDownload
-                label: "Disable Icon Download"
-                description: "Disables download of external icons. Setting to true will still serve icons from cache (/data/icon_cache)"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: cache
-                label: "Cache time-to-live"
-                description: "Cache time-to-live for icons fetched. 0 means no purging"
-                schema:
-                  type: int
-                  default: 2592000
-              - variable: token
-                label: "Failed Downloads Cache time-to-live"
-                description: "Cache time-to-live for icons that were not available. 0 means no purging."
-                schema:
-                  type: int
-                  default: 2592000
-        - variable: log
-          label: "Logging"
-          schema:
-            type: dict
-            attrs:
-              - variable: level
-                label: "Log level"
-                schema:
-                  type: string
-                  default: "info"
-                  required: true
-                  enum:
-                    - value: "trace"
-                      description: "trace"
-                    - value: "debug"
-                      description: "debug"
-                    - value: "info"
-                      description: "info"
-                    - value: "warn"
-                      description: "warn"
-                    - value: "error"
-                      description: "error"
-                    - value: "off"
-                      description: "off"
-              - variable: file
-                label: "Log-File Location"
-                schema:
-                  type: string
-                  default: ""
-        - variable: smtp
-          label: "SMTP Settings (Email)"
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable SMTP Support"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: host
-                      label: "SMTP hostname"
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
-                    - variable: from
-                      label: "SMTP sender e-mail address"
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
-                    - variable: fromName
-                      label: "SMTP sender name"
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
-                    - variable: user
-                      label: "SMTP username"
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
-                    - variable: password
-                      label: "SMTP password"
-                      description: "Required is user is specified, ignored if no user provided"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: ssl
-                      label: "Enable SSL connection"
-                      schema:
-                        type: boolean
-                        default: true
-                    - variable: port
-                      label: "SMTP port"
-                      description: "Usually: 25 without SSL, 587 with SSL"
-                      schema:
-                        type: int
-                        default: 587
-                    - variable: authMechanism
-                      label: "SMTP Authentication Mechanisms"
-                      description: "Comma-separated options: Plain, Login and Xoauth2"
-                      schema:
-                        type: string
-                        default: "Plain"
-                    - variable: heloName
-                      label: "SMTP HELO - Hostname"
-                      description: "Hostname to be sent for SMTP HELO. Defaults to pod name"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: port
-                      label: "SMTP timeout"
-                      schema:
-                        type: int
-                        default: 15
-                    - variable: invalidHostname
-                      label: "Accept Invalid Hostname"
-                      description: "Accept SSL session if certificate is valid but hostname doesn't match. DANGEROUS, vulnerable to men-in-the-middle attacks!"
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: invalidCertificate
-                      label: "Accept Invalid Certificate"
-                      description: "Accept invalid certificates. DANGEROUS, vulnerable to men-in-the-middle attacks!"
-                      schema:
-                        type: boolean
-                        default: false
-        - variable: allowSignups
-          label: "Allow Signup"
-          description: "Allow any user to sign-up: https://github.com/dani-garcia/authelia/wiki/Disable-registration-of-new-users"
-          schema:
-            type: boolean
-            default: true
-        - variable: allowInvitation
-          label: "Always allow Invitation"
-          description: "Allow invited users to sign-up even feature is disabled: https://github.com/dani-garcia/authelia/wiki/Disable-invitations"
-          schema:
-            type: boolean
-            default: true
-        - variable: defaultInviteName
-          label: "Default Invite Organisation Name"
-          description: "Default organization name in invitation e-mails that are not coming from a specific organization."
-          schema:
-            type: string
-            default: ""
-        - variable: showPasswordHint
-          label: "Show password hints"
-          description: "https://github.com/dani-garcia/authelia/wiki/Password-hint-display"
-          schema:
-            type: boolean
-            default: true
-        - variable: signupwhitelistenable
-          label: "Enable Signup Whitelist"
-          description: "allowSignups is ignored if set"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: signupDomains
-                label: "Signup Whitelist Domains"
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: domain
-                      label: "Domain"
-                      schema:
-                        type: string
-                        default: ""
-        - variable: verifySignup
-          label: "Verifiy Signup"
-          description: "Verify e-mail before login is enabled. SMTP must be enabled"
-          schema:
-            type: boolean
-            default: false
-        - variable: requireEmail
-          label: "Block Login if email fails"
-          description: "When a user logs in an email is required to be sent. If sending the email fails the login attempt will fail. SMTP must be enabled"
-          schema:
-            type: boolean
-            default: false
-        - variable: emailAttempts
-          label: "Email token reset attempts"
-          description: "Maximum attempts before an email token is reset and a new email will need to be sent"
-          schema:
-            type: int
-            default: 3
-        - variable: emailTokenExpiration
-          label: "Email token validity in seconds"
-          schema:
-            type: int
-            default: 600
-        - variable: enableWebsockets
-          label: "Enable Websocket Connections"
-          description: "Enable Websockets for notification. https://github.com/dani-garcia/authelia/wiki/Enabling-WebSocket-notifications"
-          schema:
-            type: boolean
-            default: true
-            hidden: true
-        - variable: enableWebVault
-          label: "Enable Webvault"
-          description: "Enable Web Vault (static content). https://github.com/dani-garcia/authelia/wiki/Disabling-or-overriding-the-Vault-interface-hosting"
-          schema:
-            type: boolean
-            default: true
-        - variable: orgCreationUsers
-          label: "Limit Organisation Creation to (users)"
-          description: "Restrict creation of orgs. Options are: 'all', 'none' or a comma-separated list of users."
-          schema:
-            type: string
-            default: "all"
-        - variable: attachmentLimitOrg
-          label: "Limit Attachment Disk Usage per Organisation"
-          schema:
-            type: string
-            default: ""
-        - variable: attachmentLimitUser
-          label: "Limit Attachment Disk Usage per User"
-          schema:
-            type: string
-            default: ""
-        - variable: hibpApiKey
-          label: "HaveIBeenPwned API Key"
-          description: "Can be purchased at https://haveibeenpwned.com/API/Key"
-          schema:
-            type: string
-            default: ""
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -418,6 +126,202 @@ questions:
                 label: "Value"
                 schema:
                   type: string
+
+  - variable: domain
+    group: "App Configuration"
+    label: "Domain"
+    description: "The highest domain level possible, for example: domain.com when using app.domain.com"
+    schema:
+      type: string
+      default: ""
+      required: true
+
+  - variable: default_redirection_url
+    group: "App Configuration"
+    label: "Default Redirection Url"
+    description: "If user tries to authenticate without any referer, this is used"
+    schema:
+      type: string
+      default: ""
+      required: false
+
+  - variable: theme
+    group: "App Configuration"
+    label: "Theme"
+    schema:
+      type: string
+      default: "light"
+      enum:
+        - value: "light"
+          description: "info"
+        - value: "gray"
+          description: "gray"
+        - value: "dark"
+          description: "dark"
+
+  - variable: log
+    group: "App Configuration"
+    label: "Log Configuration "
+    schema:
+      type: dict
+      attrs:
+        - variable: level
+          label: "Log Level"
+          schema:
+            type: string
+            default: "info"
+            enum:
+              - value: "info"
+                description: "info"
+              - value: "debug"
+                description: "debug"
+              - value: "trace"
+                description: "trace"
+        - variable: format
+          label: "Log Format"
+          schema:
+            type: string
+            default: "text"
+            enum:
+              - value: "json"
+                description: "json"
+              - value: "text"
+                description: "text"
+
+  - variable: totp
+    group: "App Configuration"
+    label: "TOTP Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: issuer
+          label: "Issuer"
+          description: "The issuer name displayed in the Authenticator application of your choice"
+          schema:
+            type: string
+            default: ""
+        - variable: period
+          label: "Period"
+          description: "The period in seconds a one-time password is current for"
+          schema:
+            type: int
+            default: 30
+        - variable: skew
+          label: "skew"
+          description: "Controls number of one-time passwords either side of the current one that are valid."
+          schema:
+            type: int
+            default: 1
+
+  - variable: duo_api
+    group: "App Configuration"
+    label: "DUO API Configuration"
+    description: "Parameters used to contact the Duo API."
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: hostname
+                label: "Hostname"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+
+              - variable: integration_key
+                label: "integration_key"
+                schema:
+                  type: string
+                  defaults: ""
+                  required: true
+              - variable: plain_api_key
+                label: "plain_api_key"
+                schema:
+                  type: string
+                  defaults: ""
+                  required: true
+
+  - variable: session
+    group: "App Configuration"
+    label: "Session Provider"
+    description: "The session cookies identify the user once logged in."
+    schema:
+      type: dict
+      attrs:
+        - variable: name
+          label: "Cookie Name"
+          description: "The name of the session cookie."
+          schema:
+            type: string
+            required: true
+            default: "authelia_session"
+        - variable: same_site
+          label: "SameSite Value"
+          description: "Sets the Cookie SameSite value"
+          schema:
+            type: string
+            default: "lax"
+            enum:
+              - value: "lax"
+                description: "lax"
+              - value: "strict"
+                description: "strict"
+        - variable: expiration
+          label: "Expiration Time"
+          description: "The time in seconds before the cookie expires and session is reset."
+          schema:
+            type: string
+            defaults: "1h"
+            required: true
+        - variable: inactivity
+          label: "Inactivity Time"
+          description: "The inactivity time in seconds before the session is reset."
+          schema:
+            type: string
+            defaults: "5m"
+            required: true
+        - variable: inactivity
+          label: "Remember-Me duration"
+          description: "The remember me duration"
+          schema:
+            type: string
+            defaults: "5M"
+            required: true
+
+  - variable: regulation
+    group: "App Configuration"
+    label: "Regulation Configuration"
+    description: "his mechanism prevents attackers from brute forcing the first factor."
+    schema:
+      type: dict
+      attrs:
+        - variable: max_retries
+          label: "Maximum Retries"
+          description: "The number of failed login attempts before user is banned. Set it to 0 to disable regulation."
+          schema:
+            type: int
+            default: 3
+        - variable: find_time
+          label: "Find Time"
+          description: "The time range during which the user can attempt login before being banned."
+          schema:
+            type: string
+            defaults: "2m"
+            required: true
+        - variable: ban_time
+          label: "Ban Duration"
+          description: "The length of time before a banned user can login again"
+          schema:
+            type: string
+            defaults: "5m"
+            required: true
+
 
   - variable: hostNetwork
     group: "Networking and Services"
@@ -510,7 +414,7 @@ questions:
                             label: "Container Port"
                             schema:
                               type: int
-                              default: 8080
+                              default: 9091
                               editable: false
                               hidden: true
                           - variable: targetport
@@ -518,7 +422,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 8080
+                              default: 9091
                               editable: true
                               required: true
                           - variable: nodePort
@@ -530,104 +434,6 @@ questions:
                               max: 65535
                               default: 36000
                               required: true
-        - variable: ws
-          label: "WebSocket Service"
-          description: "WebSocket Service"
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable the service"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-              - variable: type
-                label: "Service Type"
-                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
-                schema:
-                  type: string
-                  default: "ClusterIP"
-                  enum:
-                    - value: "NodePort"
-                      description: "NodePort"
-                    - value: "ClusterIP"
-                      description: "ClusterIP"
-                    - value: "LoadBalancer"
-                      description: "LoadBalancer"
-              - variable: loadBalancerIP
-                label: "LoadBalancer IP"
-                description: "LoadBalancerIP"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: string
-                  default: ""
-              - variable: externalIPs
-                label: "External IP's"
-                description: "External IP's"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: list
-                  default: []
-                  items:
-                    - variable: externalIP
-                      label: "External IP"
-                      schema:
-                        type: string
-              - variable: ports
-                label: "Service's Port(s) Configuration"
-                schema:
-                  type: dict
-                  attrs:
-                    - variable: ws
-                      label: "WebSocket Service Port Configuration"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
-                          - variable: protocol
-                            label: "Port Type"
-                            schema:
-                              type: string
-                              default: "HTTP"
-                              enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                                - value: "UDP"
-                                  description: "UDP"
-                          - variable: port
-                            label: "Container Port"
-                            schema:
-                              type: int
-                              default: 3012
-                              editable: false
-                              hidden: true
-                          - variable: targetport
-                            label: "Target Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 3012
-                              editable: true
-                              required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
-                              default: 36001
-                              required: true
 
   - variable: persistence
     label: "Integrated Persistent Storage"
@@ -636,7 +442,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: data
+        - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
@@ -646,7 +452,7 @@ questions:
                 label: "Enable the storage"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: type
                 label: "(Advanced) Type of Storage"
                 description: "Sets the persistence type"
@@ -713,7 +519,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/data"
+                  default: "/config"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
@@ -979,7 +785,17 @@ questions:
       type: dict
       attrs:
         - variable: privileged
-          label: "Enable privileged mode for Common-Chart based charts"
+          label: "Privileged mode"
+          schema:
+            type: boolean
+            default: false
+        - variable: readOnlyRootFilesystem
+          label: "ReadOnly Root Filesystem"
+          schema:
+            type: boolean
+            default: true
+        - variable: allowPrivilegeEscalation
+          label: "Allow Privilege Escalation"
           schema:
             type: boolean
             default: false

@@ -17,7 +17,7 @@ data:
   AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE: "/secrets/SMTP_PASSWORD"
   {{- end }}
   AUTHELIA_SESSION_REDIS_PASSWORD_FILE: "/secrets/REDIS_PASSWORD"
-  {{- if and .Values.session.redis.high_availability.enabled}}
+  {{- if and .Values.redisProvider.high_availability.enabled}}
   AUTHELIA_SESSION_REDIS_HIGH_AVAILABILITY_SENTINEL_PASSWORD_FILE: "/secrets/REDIS_SENTINEL_PASSWORD"
   {{- end }}
   {{- if .Values.duo_api.enabled }}
@@ -123,30 +123,33 @@ data:
       expiration: {{ default "1M" $session.expiration }}
       inactivity: {{ default "5m" $session.inactivity }}
       remember_me_duration: {{ default "1M" $session.remember_me_duration }}
+    {{- end }}
       redis:
-        port: {{ default 6379 $session.redis.port }}
-        {{- if not (eq $session.redis.username "") }}
-        username: {{ $session.redis.username }}
-        {{- end }}
-        maximum_active_connections: {{ default 8 $session.redis.maximum_active_connections }}
-        minimum_idle_connections: {{ default 0 $session.redis.minimum_idle_connections }}
-    {{- if $session.redis.tls.enabled }}
-        tls:
-          server_name: {{ $session.redis.tls.server_name }}
-          minimum_version: {{ default "TLS1.2" $session.redis.tls.minimum_version }}
-          skip_verify: {{ $session.redis.tls.skip_verify }}
-    {{- end }}
-    {{- if $session.redis.high_availability.enabled }}
-        high_availability:
-          sentinel_name: {{ $session.redis.high_availability.sentinel_name }}
-    {{- if $session.redis.high_availability.nodes }}
-          nodes: {{ toYaml $session.redis.high_availability.nodes | nindent 10 }}
-    {{- end }}
-          route_by_latency: {{ $session.redis.high_availability.route_by_latency }}
-          route_randomly: {{ $session.redis.high_availability.route_randomly }}
-    {{- end }}
-    {{- end }}
         host: {{ ( printf "%v-%v" .Release.Name "redis-master" ) }}
+      {{- with $redis := .Values.redisProvider }}
+        port: {{ default 6379 $redis.port }}
+        {{- if not (eq $redis.username "") }}
+        username: {{ $redis.username }}
+        {{- end }}
+        maximum_active_connections: {{ default 8 $redis.maximum_active_connections }}
+        minimum_idle_connections: {{ default 0 $redis.minimum_idle_connections }}
+    {{- if $redis.tls.enabled }}
+        tls:
+          server_name: {{ $redis.tls.server_name }}
+          minimum_version: {{ default "TLS1.2" $redis.tls.minimum_version }}
+          skip_verify: {{ $redis.tls.skip_verify }}
+    {{- end }}
+    {{- if $redis.high_availability.enabled }}
+        high_availability:
+          sentinel_name: {{ $redis.high_availability.sentinel_name }}
+    {{- if $redis.high_availability.nodes }}
+          nodes: {{ toYaml $redis.high_availability.nodes | nindent 10 }}
+    {{- end }}
+          route_by_latency: {{ $redis.high_availability.route_by_latency }}
+          route_randomly: {{ $redis.high_availability.route_randomly }}
+      {{- end }}
+    {{- end }}
+
     regulation: {{ toYaml .Values.regulation | nindent 6 }}
     storage:
       postgres:

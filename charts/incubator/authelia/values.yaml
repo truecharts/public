@@ -60,9 +60,9 @@ redis:
 
 
 podSecurityContext:
-  runAsUser: 2000
-  runAsGroup: 2000
-  fsGroup: 2000
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
 
 securityContext:
   readOnlyRootFilesystem: true
@@ -432,66 +432,66 @@ session:
   ## spy or attack. Currently the default is 1M or 1 month.
   remember_me_duration: 1M
 
-  ##
-  ## Redis Provider
-  ##
-  ## Important: Kubernetes (or HA) users must read https://www.authelia.com/docs/features/statelessness.html
-  ##
-  ## The redis connection details
-  redis:
-    port: 6379
+##
+## Redis Provider
+##
+## Important: Kubernetes (or HA) users must read https://www.authelia.com/docs/features/statelessness.html
+##
+## The redis connection details
+redisProvider:
+  port: 6379
 
-    ## Optional username to be used with authentication.
-    # username: authelia
-    username: ""
+  ## Optional username to be used with authentication.
+  # username: authelia
+  username: ""
 
-    ## This is the Redis DB Index https://redis.io/commands/select (sometimes referred to as database number, DB, etc).
-    database_index: 0
+  ## This is the Redis DB Index https://redis.io/commands/select (sometimes referred to as database number, DB, etc).
+  database_index: 0
 
-    ## The maximum number of concurrent active connections to Redis.
-    maximum_active_connections: 8
+  ## The maximum number of concurrent active connections to Redis.
+  maximum_active_connections: 8
 
-    ## The target number of idle connections to have open ready for work. Useful when opening connections is slow.
-    minimum_idle_connections: 0
+  ## The target number of idle connections to have open ready for work. Useful when opening connections is slow.
+  minimum_idle_connections: 0
 
-    ## The Redis TLS configuration. If defined will require a TLS connection to the Redis instance(s).
-    tls:
-      enabled: false
+  ## The Redis TLS configuration. If defined will require a TLS connection to the Redis instance(s).
+  tls:
+    enabled: false
 
-      ## Server Name for certificate validation (in case you are using the IP or non-FQDN in the host option).
-      server_name: ""
+    ## Server Name for certificate validation (in case you are using the IP or non-FQDN in the host option).
+    server_name: ""
 
-      ## Skip verifying the server certificate (to allow a self-signed certificate).
-      ## In preference to setting this we strongly recommend you add the public portion of the certificate to the
-      ## certificates directory which is defined by the `certificates_directory` option at the top of the config.
-      skip_verify: false
+    ## Skip verifying the server certificate (to allow a self-signed certificate).
+    ## In preference to setting this we strongly recommend you add the public portion of the certificate to the
+    ## certificates directory which is defined by the `certificates_directory` option at the top of the config.
+    skip_verify: false
 
-      ## Minimum TLS version for the connection.
-      minimum_version: TLS1.2
+    ## Minimum TLS version for the connection.
+    minimum_version: TLS1.2
 
-    ## The Redis HA configuration options.
-    ## This provides specific options to Redis Sentinel, sentinel_name must be defined (Master Name).
-    high_availability:
-      enabled: false
-      enabledSecret: false
-      ## Sentinel Name / Master Name
-      sentinel_name: mysentinel
+  ## The Redis HA configuration options.
+  ## This provides specific options to Redis Sentinel, sentinel_name must be defined (Master Name).
+  high_availability:
+    enabled: false
+    enabledSecret: false
+    ## Sentinel Name / Master Name
+    sentinel_name: mysentinel
 
-      ## The additional nodes to pre-seed the redis provider with (for sentinel).
-      ## If the host in the above section is defined, it will be combined with this list to connect to sentinel.
-      ## For high availability to be used you must have either defined; the host above or at least one node below.
-      nodes: []
-      # nodes:
-      #   - host: sentinel-0.databases.svc.cluster.local
-      #     port: 26379
-      #   - host: sentinel-1.databases.svc.cluster.local
-      #     port: 26379
+    ## The additional nodes to pre-seed the redis provider with (for sentinel).
+    ## If the host in the above section is defined, it will be combined with this list to connect to sentinel.
+    ## For high availability to be used you must have either defined; the host above or at least one node below.
+    nodes: []
+    # nodes:
+    #   - host: sentinel-0.databases.svc.cluster.local
+    #     port: 26379
+    #   - host: sentinel-1.databases.svc.cluster.local
+    #     port: 26379
 
-      ## Choose the host with the lowest latency.
-      route_by_latency: false
+    ## Choose the host with the lowest latency.
+    route_by_latency: false
 
-      ## Choose the host randomly.
-      route_randomly: false
+    ## Choose the host randomly.
+    route_randomly: false
 
 ##
 ## Regulation Configuration
@@ -521,7 +521,6 @@ storage:
   ## PostgreSQL (Storage Provider)
   ##
   postgres:
-    host: 127.0.0.1
     port: 5432
     database: authelia
     username: authelia

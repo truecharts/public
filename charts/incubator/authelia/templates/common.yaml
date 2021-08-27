@@ -48,7 +48,7 @@ volumeSpec:
       {{- end }}
     - key: "REDIS_PASSWORD"
       path: REDIS_PASSWORD
-      {{- if .Values.session.redis.high_availability.enabled}}
+      {{- if .Values.redisProvider.high_availability.enabled}}
     - key: "REDIS_SENTINEL_PASSWORD"
       path: REDIS_SENTINEL_PASSWORD
       {{- end }}
