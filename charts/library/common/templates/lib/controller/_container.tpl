@@ -85,10 +85,10 @@
   {{- range .Values.envFrom -}}
   {{- if  .secretRef }}
     - secretRef:
-      name: {{ tpl .secretRef.name $ | quote }}
+        name: {{ tpl .secretRef.name $ | quote }}
   {{- else if  .configMapRef }}
     - configMapRef:
-      name: {{ tpl .configMapRef.name $ | quote }}
+        name: {{ tpl .configMapRef.name $ | quote }}
   {{- else }}
   {{- end }}
   {{- end -}}
