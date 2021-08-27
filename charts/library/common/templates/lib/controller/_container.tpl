@@ -86,10 +86,10 @@
   {{- range $key, $value := .Values.envFrom }}
     {{- if  $value.secretKeyRef }}
     - secretKeyRef:
-      name: {{ tpl $value.secretKeyRef.name $ | quote }}
+        name: {{ tpl $value.secretKeyRef.name $ | quote }}
     {{- else if  $value.configMapRef }}
     - configMapRef:
-      name: {{ tpl $value.configMapRef.name $ | quote }}
+        name: {{ tpl $value.configMapRef.name $ | quote }}
     {{- else }}
       {{- toYaml $value | nindent 4 }}
     {{- end }}
