@@ -81,23 +81,20 @@
       {{- end }}
     {{- end }}
   {{- end }}
-  {{- if or .Values.envFrom .Values.secret }}
   envFrom:
-  {{- range $key, $value := .Values.envFrom }}
-    {{- if  $value.secretKeyRef }}
-    - secretKeyRef:
-        name: {{ tpl $value.secretKeyRef.name $ | quote }}
-    {{- else if  $value.configMapRef }}
+  {{- range .Values.envFrom -}}
+  {{- if  .secretRef }}
+    - secretRef:
+      name: {{ tpl .secretRef.name $ | quote }}
+  {{- else if  .configMapRef }}
     - configMapRef:
-        name: {{ tpl $value.configMapRef.name $ | quote }}
-    {{- else }}
-      {{- toYaml $value | nindent 4 }}
-    {{- end }}
+      name: {{ tpl .configMapRef.name $ | quote }}
+  {{- else }}
   {{- end }}
+  {{- end -}}
   {{- if .Values.secret }}
-  - secretRef:
-      name: {{ include "common.names.fullname" . }}
-  {{- end }}
+    - secretRef:
+        name: {{ include "common.names.fullname" . }}
   {{- end }}
   {{- include "common.controller.ports" . | trim | nindent 2 }}
   {{- with (include "common.controller.volumeMounts" . | trim) }}
