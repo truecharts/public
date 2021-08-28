@@ -8,7 +8,7 @@ metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
   name: {{ .Release.Name }}-dbcreds
-{{- $dbprevious := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
+{{- $dbprevious := lookup "v1" "Secret" .Release.Namespace ( ( printf "%v-%v"  .Release.Name "dbcreds" ) | quote ) }}
 {{- $dbPass := "" }}
 data:
 {{- if $dbprevious }}
@@ -55,8 +55,9 @@ apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: {{ include "common.names.fullname" . }}-secrets
-{{- $autheliaprevious := lookup "v1" "Secret" .Release.Namespace "autheliadata" }}
+  {{- $authelianame := ( include "common.names.fullname" . )-secrets }}
+  name: {{ $authelianame }}
+{{- $autheliaprevious := lookup "v1" "Secret" .Release.Namespace $authelianame }}
 {{- $oidckey := "" }}
 {{- $oidcsecret := "" }}
 {{- $jwtsecret := "" }}
