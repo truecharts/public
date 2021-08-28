@@ -323,6 +323,509 @@ questions:
             required: true
 
 
+  - variable: authentication_backend
+    group: "App Configuration"
+    label: "Authentication Backend Provider"
+    description: "sed for verifying user passwords and retrieve information such as email address and groups users belong to."
+    schema:
+      type: dict
+      attrs:
+        - variable: disable_reset_password
+          label: "Disable Reset Password"
+          description: "Disable both the HTML element and the API for reset password functionality"
+          schema:
+            type: boolean
+            default: false
+        - variable: refresh_interval
+          label: "Reset Interval"
+          description: "The amount of time to wait before we refresh data from the authentication backend"
+          schema:
+            type: string
+            defaults: "5m"
+            required: true
+        - variable: ldap
+          label: "LDAP backend configuration"
+          description: "Used for verifying user passwords and retrieve information such as email address and groups users belong to"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: implementation
+                      label: "Implementation"
+                      description: "The LDAP implementation, this affects elements like the attribute utilised for resetting a password"
+                      schema:
+                        type: string
+                        default: "custom"
+                        enum:
+                          - value: "activedirectory"
+                            description: "activedirectory"
+                          - value: "custom"
+                            description: "custom"
+                    - variable: url
+                      label: "URL"
+                      description: "The url to the ldap server. Format: <scheme>://<address>[:<port>]"
+                      schema:
+                        type: string
+                        default: "ldap://openldap.default.svc.cluster.local"
+                        required: true
+                    - variable: timeout
+                      label: "Connection Timeout"
+                      schema:
+                        type: string
+                        default: "5s"
+                        required: true
+                    - variable: start_tls
+                      label: "Start TLS"
+                      description: "Use StartTLS with the LDAP connection"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: tls
+                      label: "TLS Settings"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: server_name
+                            label: "Server Name"
+                            description: "Server Name for certificate validation (in case it's not set correctly in the URL)."
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: skip_verify
+                            label: "Skip Certificate Verification"
+                            description: "Skip verifying the server certificate (to allow a self-signed certificate)"
+                            schema:
+                              type: boolean
+                              default: false
+                          - variable: minimum_version
+                            label: "Minimum TLS version"
+                            description: "Minimum TLS version for either Secure LDAP or LDAP StartTLS."
+                            schema:
+                              type: string
+                              default: "TLS1.2"
+                              enum:
+                                - value: "TLS1.0"
+                                  description: "TLS1.0"
+                                - value: "TLS1.1"
+                                  description: "TLS1.1"
+                                - value: "TLS1.2"
+                                  description: "TLS1.2"
+                                - value: "TLS1.3"
+                                  description: "TLS1.3"
+                    - variable: base_dn
+                      label: "Base DN"
+                      description: "The base dn for every LDAP query."
+                      schema:
+                        type: string
+                        defaults: "DC=example,DC=com"
+                        required: true
+                    - variable: username_attribute
+                      label: "Username Attribute"
+                      description: "The attribute holding the username of the user"
+                      schema:
+                        type: string
+                        defaults: ""
+                        required: true
+                    - variable: additional_users_dn
+                      label: "Additional Users DN"
+                      description: "An additional dn to define the scope to all users."
+                      schema:
+                        type: string
+                        defaults: "OU=Users"
+                        required: true
+                    - variable: users_filter
+                      label: "Users Filter"
+                      description: "The groups filter used in search queries to find the groups of the user."
+                      schema:
+                        type: string
+                        defaults: ""
+                        required: true
+                    - variable: additional_groups_dn
+                      label: "Additional Groups DN"
+                      description: "An additional dn to define the scope of groups."
+                      schema:
+                        type: string
+                        defaults: "OU=Groups"
+                        required: true
+                    - variable: groups_filter
+                      label: "Groups Filter"
+                      description: "The groups filter used in search queries to find the groups of the user."
+                      schema:
+                        type: string
+                        defaults: ""
+                        required: true
+                    - variable: group_name_attribute
+                      label: "Group name Attribute"
+                      description: "The attribute holding the name of the group"
+                      schema:
+                        type: string
+                        defaults: ""
+                        required: true
+                    - variable: mail_attribute
+                      label: "Mail Attribute"
+                      description: "The attribute holding the primary mail address of the user"
+                      schema:
+                        type: string
+                        defaults: ""
+                        required: true
+                    - variable: display_name_attribute
+                      label: "Display Name Attribute"
+                      description: "he attribute holding the display name of the user. This will be used to greet an authenticated user."
+                      schema:
+                        type: string
+                        defaults: ""
+                    - variable: user
+                      label: "Admin User"
+                      description: "The username of the admin user used to connect to LDAP."
+                      schema:
+                        type: string
+                        defaults: "CN=Authelia,DC=example,DC=com"
+                        required: true
+                    - variable: plain_password
+                      label: "Password"
+                      schema:
+                        type: string
+                        defaults: ""
+                        required: true
+        - variable: file
+          label: "File backend configuration"
+          description: "With this backend, the users database is stored in a file which is updated when users reset their passwords."
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: path
+                      label: "Path"
+                      schema:
+                        type: string
+                        defaults: "/config/users_database.yml"
+                        required: true
+                    - variable: password
+                      label: "Password Settings"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: algorithm
+                            label: "Algorithm"
+                            schema:
+                              type: string
+                              default: "argon2id"
+                              enum:
+                                - value: "argon2id"
+                                  description: "argon2id"
+                                - value: "sha512"
+                                  description: "sha512"
+                          - variable: iterations
+                            label: "Iterations"
+                            schema:
+                              type: int
+                              default: 1
+                              required: true
+                          - variable: key_length
+                            label: "Key Length"
+                            schema:
+                              type: int
+                              default: 32
+                              required: true
+                          - variable: salt_length
+                            label: "Salt Length"
+                            schema:
+                              type: int
+                              default: 16
+                              required: true
+                          - variable: memory
+                            label: "Memory"
+                            schema:
+                              type: int
+                              default: 1024
+                              required: true
+                          - variable: parallelism
+                            label: "Parallelism"
+                            schema:
+                              type: int
+                              default: 8
+                              required: true
+
+
+  - variable: notifier
+    group: "App Configuration"
+    label: "Notifier Configuration"
+    description: "otifications are sent to users when they require a password reset, a u2f registration or a TOTP registration."
+    schema:
+      type: dict
+      attrs:
+        - variable: disable_startup_check
+          label: "Disable Startup Check"
+          schema:
+            type: boolean
+            default: false
+        - variable: filesystem
+          label: "Filesystem Provider"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: filename
+                      label: "File Path"
+                      schema:
+                        type: string
+                        defaults: "/config/notification.txt"
+                        required: true
+        - variable: smtp
+          label: "SMTP Provider"
+          description: "Use a SMTP server for sending notifications. Authelia uses the PLAIN or LOGIN methods to authenticate."
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable"
+                schema:
+                  type: boolean
+                  default: true
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: host
+                      label: "Host"
+                      schema:
+                        type: string
+                        defaults: "smtp.mail.svc.cluster.local"
+                        required: true
+                    - variable: port
+                      label: "Port"
+                      schema:
+                        type: int
+                        defaults: 25
+                        required: true
+                    - variable: timeout
+                      label: "Timeout"
+                      schema:
+                        type: string
+                        defaults: "5s"
+                        required: true
+                    - variable: username
+                      label: "Username"
+                      schema:
+                        type: string
+                        defaults: ""
+                        required: true
+                    - variable: plain_password
+                      label: "Password"
+                      schema:
+                        type: string
+                        defaults: ""
+                        required: true
+                    - variable: sender
+                      label: "Sender"
+                      schema:
+                        type: string
+                        defaults: ""
+                        required: true
+                    - variable: identifier
+                      label: "Identifier"
+                      description: "HELO/EHLO Identifier. Some SMTP Servers may reject the default of localhost."
+                      schema:
+                        type: string
+                        defaults: "localhost"
+                        required: true
+                    - variable: subject
+                      label: "Subject"
+                      description: "Subject configuration of the emails sent, {title} is replaced by the text from the notifier"
+                      schema:
+                        type: string
+                        defaults: "[Authelia] {title}"
+                        required: true
+                    - variable: startup_check_address
+                      label: "Startup Check Address"
+                      description: "This address is used during the startup check to verify the email configuration is correct."
+                      schema:
+                        type: string
+                        defaults: "test@authelia.com"
+                        required: true
+                    - variable: disable_require_tls
+                      label: "Disable Require TLS"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: disable_html_emails
+                      label: "Disable HTML emails"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: tls
+                      label: "TLS Settings"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: server_name
+                            label: "Server Name"
+                            description: "Server Name for certificate validation (in case it's not set correctly in the URL)."
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: skip_verify
+                            label: "Skip Certificate Verification"
+                            description: "Skip verifying the server certificate (to allow a self-signed certificate)"
+                            schema:
+                              type: boolean
+                              default: false
+                          - variable: minimum_version
+                            label: "Minimum TLS version"
+                            description: "Minimum TLS version for either Secure LDAP or LDAP StartTLS."
+                            schema:
+                              type: string
+                              default: "TLS1.2"
+                              enum:
+                                - value: "TLS1.0"
+                                  description: "TLS1.0"
+                                - value: "TLS1.1"
+                                  description: "TLS1.1"
+                                - value: "TLS1.2"
+                                  description: "TLS1.2"
+                                - value: "TLS1.3"
+                                  description: "TLS1.3"
+  - variable: access_control
+    group: "App Configuration"
+    label: "Access Control Configuration"
+    description: "Access control is a list of rules defining the authorizations applied for one resource to users or group of users."
+    schema:
+      type: dict
+      attrs:
+        - variable: default_policy
+          label: "Default Policy"
+          description: "Default policy can either be 'bypass', 'one_factor', 'two_factor' or 'deny'."
+          schema:
+            type: string
+            default: "two_factor"
+            enum:
+              - value: "bypass"
+                description: "bypass"
+              - value: "one_factor"
+                description: "one_factor"
+              - value: "two_factor"
+                description: "two_factor"
+              - value: "deny"
+                description: "deny"
+
+        - variable: networks
+          label: "Networks"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: networkItem
+                label: "Network Item"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: networks
+                      label: "Networks"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: network
+                            label: "network"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+
+        - variable: rules
+          label: "Rules"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: rulesItem
+                label: "Rule"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: domain
+                      label: "Domain"
+                      description: "defines which domain or set of domains the rule applies to."
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: policy
+                      label: "Policy"
+                      description: "The policy to apply to resources. It must be either 'bypass', 'one_factor', 'two_factor' or 'deny'."
+                      schema:
+                        type: string
+                        default: "two_factor"
+                        enum:
+                          - value: "bypass"
+                            description: "bypass"
+                          - value: "one_factor"
+                            description: "one_factor"
+                          - value: "two_factor"
+                            description: "two_factor"
+                          - value: "deny"
+                            description: "two_factor"
+                    - variable: subject
+                      label: "Subject"
+                      description: "defines the subject to apply authorizations to. This parameter is optional and matching any user if not provided"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: subjectitem
+                            label: "Subject"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                    - variable: networks
+                      label: "Networks"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: network
+                            label: "Network"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                    - variable: resources
+                      label: "Resources"
+                      description: "is a list of regular expressions that matches a set of resources to apply the policy to"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: resource
+                            label: "Resource"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+
   - variable: hostNetwork
     group: "Networking and Services"
     label: "Enable Host Networking"
@@ -452,7 +955,7 @@ questions:
                 label: "Enable the storage"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: type
                 label: "(Advanced) Type of Storage"
                 description: "Sets the persistence type"

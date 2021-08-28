@@ -37,7 +37,7 @@ postgresql:
   enabled: true
   postgresqlUsername: authelia
   postgresqlDatabase: authelia
-  existingSecret: dbcreds
+  existingSecret: "{{ .Release.Name }}-dbcreds"
 
 # Enabled redis
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
@@ -86,12 +86,15 @@ envFrom:
 
 probes:
   liveness:
+    type: HTTP
     path: /api/health"
 
   readiness:
+    type: HTTP
     path: "/api/health"
 
   startup:
+    type: HTTP
     path: "/api/health"
 
 domain: example.com

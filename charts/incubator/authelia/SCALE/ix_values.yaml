@@ -14,7 +14,7 @@ postgresql:
   enabled: true
   postgresqlUsername: authelia
   postgresqlDatabase: authelia
-  existingSecret: dbcreds
+  existingSecret: "{{ .Release.Name }}-dbcreds"
   persistence:
     db:
       storageClass: "SCALE-ZFS"
@@ -46,12 +46,15 @@ envFrom:
 
 probes:
   liveness:
+    type: HTTP
     path: /api/health"
 
   readiness:
+    type: HTTP
     path: "/api/health"
 
   startup:
+    type: HTTP
     path: "/api/health"
 
 ##
