@@ -598,10 +598,20 @@ questions:
       type: dict
       attrs:
         - variable: privileged
-          label: "Enable privileged mode for Common-Chart based charts"
+          label: Privileged mode"
           schema:
             type: boolean
             default: false
+        - variable: readOnlyRootFilesystem
+          label: "ReadOnly Root Filesystem"
+          schema:
+            type: boolean
+            default: false
+        - variable: allowPrivilegeEscalation
+          label: "Allow Privilege Escalation"
+          schema:
+            type: boolean
+            default: true
 
   - variable: resources
     group: "Resources and Devices"
