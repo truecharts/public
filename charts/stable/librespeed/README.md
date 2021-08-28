@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.5.3](https://img.shields.io/badge/Version-1.5.3-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.6.2](https://img.shields.io/badge/Version-1.6.2-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Librespeed is a HTML5 webpage to test upload and download speeds
 
@@ -21,7 +21,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 6.9.2 |
+| https://truecharts.org | common | 6.10.6 |
 
 ## Installing the Chart
 
