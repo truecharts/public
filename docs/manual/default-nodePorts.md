@@ -2,6 +2,8 @@
 
 | App                 |  Service  | NodePort |
 | :------------------ | :-------: | :------: |
+| unifi               |   comm    |  8080    |
+| jdownloader2        |   myjd    |  36092   |
 | Plex                |   Main    |  32400   |
 | Handbrake           |   Main    |  36002   |
 | Handbrake           |    VNC    |  36003   |
@@ -99,5 +101,8 @@
 | Resillio-sync       |    TCP    |  36090   |
 | Nextcloud           |   Main    |  36091   |
 | LittleLink          |   Main    |  36092   |
+| jdownloader2        |   Main    |  36093   |
+| jdownloader2        |   VNC     |  36094   |
+| authelia            |   Main    |  36095   |
 
 #### Note: TCP and UPD ports that are the same in each App, are not by mistake.
