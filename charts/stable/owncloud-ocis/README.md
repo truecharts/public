@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.6.2](https://img.shields.io/badge/Version-1.6.2-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.6.6](https://img.shields.io/badge/Version-1.6.6-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 ownCloud Infinite Scale is a self-hosted file sync and share server.
 
@@ -20,7 +20,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 6.10.6 |
+| https://truecharts.org | common | 6.10.7 |
 
 ## Installing the Chart
 

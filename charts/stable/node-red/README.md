@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 6.8.2](https://img.shields.io/badge/Version-6.8.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 6.8.5](https://img.shields.io/badge/Version-6.8.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Node-RED is low-code programming for event-driven applications
 
@@ -19,7 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 6.10.6 |
+| https://truecharts.org/ | common | 6.10.7 |
 
 ## Installing the Chart
 

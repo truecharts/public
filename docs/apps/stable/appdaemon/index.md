@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 3.8.2](https://img.shields.io/badge/Version-3.8.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v4.0.8](https://img.shields.io/badge/AppVersion-v4.0.8-informational?style=flat-square)
+![Version: 3.8.5](https://img.shields.io/badge/Version-3.8.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: v4.0.8](https://img.shields.io/badge/AppVersion-v4.0.8-informational?style=flat-square)
 
 AppDaemon is a loosely coupled, multithreaded, sandboxed python execution environment for writing automation apps for Home Assistant home automation software. It also provides a configurable dashboard (HADashboard) suitable for wall mounted tablets.
 
@@ -19,7 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 6.10.6 |
+| https://truecharts.org/ | common | 6.10.7 |
 
 ## Installing the Chart
 
