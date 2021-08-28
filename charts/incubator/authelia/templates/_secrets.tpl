@@ -55,9 +55,8 @@ apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  {{- $authelianame := ( include "common.names.fullname" . )-secrets }}
-  name: {{ $authelianame }}
-{{- $autheliaprevious := lookup "v1" "Secret" .Release.Namespace $authelianame }}
+  name: {{ include "common.names.fullname" . }}-secrets
+{{- $autheliaprevious := lookup "v1" "Secret" .Release.Namespace ( ( printf "%v-%v" ( ( include "common.names.fullname" . ) | quote ) "-secrets" ) | quote ) }}
 {{- $oidckey := "" }}
 {{- $oidcsecret := "" }}
 {{- $jwtsecret := "" }}
