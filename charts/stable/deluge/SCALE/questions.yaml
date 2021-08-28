@@ -218,7 +218,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36026
-                              required: true
         - variable: torrent
           label: "Torrent Service"
           description: "Torrent Service"
@@ -316,7 +315,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 51413
-                              required: true
                     - variable: udp
                       label: "UDP Service Port Configuration"
                       schema:
@@ -365,7 +363,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 51413
-                              required: true
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -707,6 +704,27 @@ questions:
                               type: string
                               default: ""
                               required: true
+  - variable: securityContext
+    group: "Security and Permissions"
+    label: "Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: privileged
+          label: Privileged mode"
+          schema:
+            type: boolean
+            default: false
+        - variable: readOnlyRootFilesystem
+          label: "ReadOnly Root Filesystem"
+          schema:
+            type: boolean
+            default: false
+        - variable: allowPrivilegeEscalation
+          label: "Allow Privilege Escalation"
+          schema:
+            type: boolean
+            default: true
   - variable: resources
     group: "Resources and Devices"
     label: ""
