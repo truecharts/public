@@ -1,0 +1,48 @@
+# Default values for jdownloader2.
+
+image:
+  repository: jlesage/jdownloader-2
+  pullPolicy: IfNotPresent
+  tag: v1.7.1
+
+strategy:
+  type: Recreate
+
+service:
+  main:
+    ports:
+      main:
+        port: 5800
+  vnc:
+    enabled: true
+    type: ClusterIP
+    ports:
+      vnc:
+        enabled: true
+        port: 5900
+        protocol: "TCP"
+
+# All values here are set as the docker defaults.
+envTpl:
+  # Permissions Settings
+  USER_ID: "{{ .Values.env.PUID }}"
+  GROUP_ID: "{{ .Values.env.PGID }}"
+
+env:
+  # Permissions Settings
+  PUID: "568"
+  PGID: "568"
+  # General Settings
+  KEEP_APP_RUNNING: "0"
+  CLEAN_TMP_DIR: "1"
+  # GUI Settings
+  DISPLAY_WIDTH: "1280"
+  DISPLAY_HEIGHT: "768"
+  SECURE_CONNECTION: "0"
+  VNC_PASSWORD:
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    type: emptyDir
