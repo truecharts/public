@@ -131,7 +131,11 @@ enableServiceLinks: true
 podSecurityContext: {}
 
 # -- Configure the Security Context for the main container
-securityContext: {}
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+
 
 # -- Configure the lifecycle for the main container
 lifecycle: {}
