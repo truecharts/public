@@ -229,7 +229,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36024
-                              required: true
         - variable: listeners
           label: "Syncthing Listening Service"
           description: "This service is used to process incoming connections directly to this Syncthing instance"
@@ -335,7 +334,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 22000
-                              required: true
                     - variable: udp
                       label: "UDP Service Port Configuration"
                       schema:
@@ -390,7 +388,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 22000
-                              required: true
         - variable: discovery
           label: "Syncthing Listening Service"
           description: "This service is used to process incoming connections directly to this Syncthing instance"
@@ -496,7 +493,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 21027
-                              required: true
 
   - variable: persistence
     label: "Integrated Persistent Storage"

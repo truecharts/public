@@ -272,7 +272,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36055
-                              required: true
         - variable: websocket
           label: "websocket Service"
           description: "The websocket service"
@@ -370,7 +369,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36056
-                              required: true
         - variable: vnc
           label: "vnc Service"
           description: "The vnc service"
@@ -468,7 +466,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36057
-                              required: true
 
   - variable: persistence
     label: "Integrated Persistent Storage"

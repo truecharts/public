@@ -349,7 +349,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36094
-                              required: true
         - variable: ldaps
           label: "ldaps Service"
           description: "The ldaps service"
@@ -447,7 +446,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36095
-                              required: true
 
   - variable: volumeClaimTemplates
     label: "Integrated Persistent Storage"

@@ -247,7 +247,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36088
-                              required: true
         - variable: bt-udp
           label: "bt-udp Service"
           description: "The bt-udp service"
@@ -345,7 +344,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36089
-                              required: true
         - variable: bt-tcp
           label: "bt-tcp Service"
           description: "The bt-tcp service"
@@ -443,7 +441,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36090
-                              required: true
 
   - variable: persistence
     label: "Integrated Persistent Storage"

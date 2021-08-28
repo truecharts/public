@@ -235,7 +235,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36039
-                              required: true
         - variable: torrent
           label: "Torrent Service"
           description: "Torrent Service"
@@ -333,7 +332,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36040
-                              required: true
                     - variable: udp
                       label: "UDP Service Port Configuration"
                       schema:
@@ -382,7 +380,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36040
-                              required: true
 
   - variable: persistence
     label: "Integrated Persistent Storage"

@@ -529,7 +529,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36000
-                              required: true
         - variable: ws
           label: "WebSocket Service"
           description: "WebSocket Service"
@@ -627,7 +626,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36001
-                              required: true
 
   - variable: persistence
     label: "Integrated Persistent Storage"

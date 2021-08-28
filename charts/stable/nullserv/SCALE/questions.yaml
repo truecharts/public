@@ -235,7 +235,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36069
-                              required: true
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -339,7 +338,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36070
-                              required: true
 
   - variable: persistence
     label: "Integrated Persistent Storage"

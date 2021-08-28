@@ -247,7 +247,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36035
-                              required: true
         - variable: comm
           label: "Unifi Device Communication Service"
           description: "Unifi Device Communication Service"
@@ -345,7 +344,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36036
-                              required: true
         - variable: stun
           label: "STUN Device Communication Service"
           description: "STUN Device Communication Service"
@@ -443,7 +441,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36037
-                              required: true
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"

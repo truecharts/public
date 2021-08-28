@@ -246,7 +246,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36042
-                              required: true
         - variable: htsp
           label: "HTSP Service"
           description: "HTSP service"
@@ -344,7 +343,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36043
-                              required: true
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
