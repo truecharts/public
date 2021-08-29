@@ -404,7 +404,9 @@ persistence:
   # @default -- See below
   shared:
     enabled: false
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
     mountPath: /shared
 
     # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead

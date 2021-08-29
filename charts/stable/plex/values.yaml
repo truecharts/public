@@ -26,7 +26,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
 
 env:
   ALLOWED_NETWORKS: "172.16.0.0/16"

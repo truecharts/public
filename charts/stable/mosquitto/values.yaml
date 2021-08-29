@@ -27,13 +27,17 @@ persistence:
   # When enabled, this enables `persistence` and `persistence_location` in the mosquitto config.
   # @default -- See values.yaml
   data:
-    enabled: false
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
     mountPath: /mosquitto/data
   # -- Configure a persistent volume to place *.conf mosquitto-config-files in.
   # When enabled, this gets set as `include_dir` in the mosquitto config.
   # @default -- See values.yaml
   configinc:
-    enabled: false
-    mountPath: /mosquitto/configinc
+    enabled: true
+    type: pvc
     accessMode: ReadWriteOnce
-    size: 100Mi
+    size: "100Gi"
+    mountPath: /mosquitto/configinc

@@ -37,7 +37,8 @@ ingress:
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
-persistence:
-  config:
-    enabled: false
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
     mountPath: /app/data/
