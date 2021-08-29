@@ -21,19 +21,19 @@ service:
         port: 8443
   comm:
     enabled: true
-    type: ClusterIP
     ports:
       tcp:
         enabled: true
         port: 8080
+        targetPort: 8080
         protocol: TCP
   stun:
     enabled: true
-    type: ClusterIP
     ports:
       udp:
         enabled: true
         port: 3478
+        targetPort: 3478
         protocol: UDP
 
 env:
