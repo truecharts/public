@@ -15,16 +15,16 @@ When given a priority the following is taken into account:
 
 ##### GUI suggestions
 
-- Add more bulk options, like bulk upgrade and restart.
-- Default tab should be "Installed Apps" or have an option to set the default.
-- Use blue for the Official Catalog/Train boxes in the available/installed apps tabs.
-- Allow showing 1 or more default entries when creating a list (instead of an empty list)
-- When using rollback display a dropdown of available versions, instead of a textbox.
-- Allow fields of type `text` in questions.yaml, instead of just `string`
+- Add more bulk options, like bulk upgrade and restart. https://jira.ixsystems.com/browse/NAS-112055
+- Default tab should be "Installed Apps" or have an option to set the default. https://jira.ixsystems.com/browse/NAS-112057
+- Use blue for the Official Catalog/Train boxes in the available/installed apps tabs. https://jira.ixsystems.com/browse/NAS-112059
+- Allow showing 1 or more default entries when creating a list (instead of an empty list)[NAS-109761](https://jira.ixsystems.com/browse/NAS-109761)
+- When using rollback display a dropdown of available versions, instead of a textbox. https://jira.ixsystems.com/browse/NAS-112060
+- Allow fields of type `text` in questions.yaml, instead of just `string` https://jira.ixsystems.com/browse/NAS-112061
 
 ##### Backend suggestions
 
-- Allow multiple Containers to all consume the same intel GPU
+- Allow multiple Containers to all consume the same intel GPU https://jira.ixsystems.com/browse/NAS-112058
 
 
 ### Priority: Medium/U1
@@ -42,6 +42,7 @@ When given a priority the following is taken into account:
 
 - Add ability to save a PVC backup even on app delete
 - Add ability to restore a PVC backup from a deleted app
+- Add MetalLB Loadbalancer https://jira.ixsystems.com/browse/NAS-111019
 
 
 ### Priority: Low/Post-U1
@@ -69,12 +70,12 @@ When given a priority the following is taken into account:
 
 
 
-### Priority: Not sure if possible
+### Priority: Not sure if possible/reasonable
 
 - Add ability to set which app will start on boot (Auto start)
 - Add ability to set a delay before an app starts on boot (Delayed auto start)
 - Investigate if we can show/mount the PVC path to the host (maybe show only if the App is `stopped`?)
-
+- Allow to auto update Apps https://jira.ixsystems.com/browse/NAS-112056
 
 
 ### Done Already
