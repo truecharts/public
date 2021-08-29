@@ -33,6 +33,8 @@ service:
 persistence:
   config:
     enabled: true
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
 
     mountPath: "/var/syncthing/"

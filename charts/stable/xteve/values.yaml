@@ -30,4 +30,7 @@ service:
 # @default -- See values.yaml
 persistence:
   config:
-    enabled: false
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

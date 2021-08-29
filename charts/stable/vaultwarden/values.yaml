@@ -149,7 +149,9 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
 
 # Enabled postgres
 postgresql:
