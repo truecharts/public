@@ -23,9 +23,9 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: {{ $pvcName }}
-  {{- if or $values.skipuninstall $values.annotations }}
+  {{- if or $values.retain $values.annotations }}
   annotations:
-    {{- if $values.skipuninstall }}
+    {{- if $values.retain }}
     "helm.sh/resource-policy": keep
     {{- end }}
     {{- with $values.annotations }}
@@ -34,6 +34,9 @@ metadata:
   {{- end }}
   labels:
   {{- include "common.labels" . | nindent 4 }}
+  {{- with $values.labels }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   accessModes:
     - {{ required (printf "accessMode is required for PVC %v" $pvcName) $values.accessMode | quote }}

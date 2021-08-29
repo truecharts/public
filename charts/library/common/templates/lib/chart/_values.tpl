@@ -7,6 +7,40 @@
     {{- $_ := set . "Values" (deepCopy $mergedValues) -}}
   {{- end -}}
 
+   {{/* merge podAnnotationsList with podAnnotations */}}
+   {{- $podAnnotationsDict := dict }}
+   {{- range .Values.podAnnotationsList }}
+   {{- $_ := set $podAnnotationsDict .name .value }}
+   {{- end }}
+   {{- $podanno := merge .Values.podAnnotations $podAnnotationsDict }}
+   {{- $_ := set .Values "podAnnotations" (deepCopy $podanno) -}}
+
+   {{/* merge podLabelsList with podLabels */}}
+   {{- $podLabelsDict := dict }}
+   {{- range .Values.controller.labelsList }}
+   {{- $_ := set $podLabelsDict .name .value }}
+   {{- end }}
+   {{- $podlab := merge .Values.controller.labels $podLabelsDict }}
+   {{- $_ := set .Values.controller "labels" (deepCopy $podlab) -}}
+
+   {{/* merge controllerAnnotationsList with controllerAnnotations */}}
+   {{- $controllerAnnotationsDict := dict }}
+   {{- range .Values.controller.annotationsList }}
+   {{- $_ := set $controllerAnnotationsDict .name .value }}
+   {{- end }}
+   {{- $controlleranno := merge .Values.controller.annotations $controllerAnnotationsDict }}
+   {{- $_ := set .Values.controller "annotations" (deepCopy $controlleranno) -}}
+
+   {{/* merge controllerLabelsList with controllerLabels */}}
+   {{- $controllerLabelsDict := dict }}
+   {{- range .Values.controller.labelsList }}
+   {{- $_ := set $controllerLabelsDict .name .value }}
+   {{- end }}
+   {{- $controllerlab := merge .Values.controller.labels $controllerLabelsDict }}
+   {{- $_ := set .Values "labels" (deepCopy $controllerlab) -}}
+
+
+
   {{/* merge persistenceList with Persitence */}}
   {{- $perDict := dict }}
   {{- range $index, $item := .Values.persistenceList -}}
@@ -29,6 +63,30 @@
   {{- $_ := set .Values "persistence" (deepCopy $per) -}}
 
 
+   {{/* merge persistenceAnnotationsList with persistenceAnnotations */}}
+   {{- range $index, $item := .Values.persistence }}
+   {{- $persistenceAnnotationsDict := dict }}
+   {{- range $item.annotationsList }}
+   {{- $_ := set $persistenceAnnotationsDict .name .value }}
+   {{- end }}
+   {{- $tmp := $item.annotations }}
+   {{- $persistenceanno := merge $tmp $persistenceAnnotationsDict }}
+   {{- $_ := set $item "annotations" (deepCopy $persistenceanno) -}}
+   {{- end }}
+
+
+   {{/* merge persistenceLabelsList with persistenceLabels */}}
+   {{- range $index, $item := .Values.persistence }}
+   {{- $persistenceLabelsDict := dict }}
+   {{- range $item.labelsList }}
+   {{- $_ := set $persistenceLabelsDict .name .value }}
+   {{- end }}
+   {{- $tmp := $item.labels }}
+   {{- $persistencelab := merge $tmp $persistenceLabelsDict }}
+   {{- $_ := set $item "labels" (deepCopy $persistencelab) -}}
+   {{- end }}
+
+
   {{/* merge ingressList with ingress */}}
   {{- $ingDict := dict }}
   {{- range $index, $item := .Values.ingressList -}}
@@ -40,6 +98,30 @@
   {{- end }}
   {{- $ing := merge .Values.ingress $ingDict }}
   {{- $_ := set .Values "ingress" (deepCopy $ing) -}}
+
+
+   {{/* merge ingressAnnotationsList with ingressAnnotations */}}
+   {{- range $index, $item := .Values.ingress }}
+   {{- $ingressAnnotationsDict := dict }}
+   {{- range $item.annotationsList }}
+   {{- $_ := set $ingressAnnotationsDict .name .value }}
+   {{- end }}
+   {{- $tmp := $item.annotations }}
+   {{- $ingressanno := merge $tmp $ingressAnnotationsDict }}
+   {{- $_ := set $item "annotations" (deepCopy $ingressanno) -}}
+   {{- end }}
+
+
+   {{/* merge ingressLabelsList with ingressLabels */}}
+   {{- range $index, $item := .Values.ingress }}
+   {{- $ingressLabelsDict := dict }}
+   {{- range $item.labelsList }}
+   {{- $_ := set $ingressLabelsDict .name .value }}
+   {{- end }}
+   {{- $tmp := $item.labels }}
+   {{- $ingresslab := merge $tmp $ingressLabelsDict }}
+   {{- $_ := set $item "labels" (deepCopy $ingresslab) -}}
+   {{- end }}
 
   {{/* Enable privileged securitycontext when deviceList is used */}}
   {{- if .Values.securityContext.privileged }}

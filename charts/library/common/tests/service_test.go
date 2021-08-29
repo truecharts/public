@@ -1,7 +1,6 @@
 package common
 
 import (
-    "fmt"
     "testing"
 
     "github.com/truecharts/apps/tests/helmunit"
@@ -99,40 +98,6 @@ func (suite *ServiceTestSuite) TestPortProtocol() {
             suite.Assertions.NotEmpty(serviceManifest)
             servicePorts, _ := serviceManifest.Path("spec.ports").Children()
             suite.Assertions.EqualValues(tc.expectedProtocol, servicePorts[0].Path("protocol").Data())
-        })
-    }
-}
-
-func (suite *ServiceTestSuite) TestAnnotations() {
-    tests := map[string]struct {
-        values              []string
-        expectedAnnotations map[string]string
-    }{
-        "Default":       {values: nil, expectedAnnotations: nil},
-        "ExplicitTCP":   {values: []string{"service.main.ports.main.protocol=TCP"}, expectedAnnotations: nil},
-        "ExplicitHTTP":  {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedAnnotations: nil},
-        "ExplicitHTTPS": {values: []string{"service.main.ports.main.protocol=HTTPS"}, expectedAnnotations: map[string]string{"traefik.ingress.kubernetes.io/service.serversscheme": "https"}},
-        "ExplicitUDP":   {values: []string{"service.main.ports.main.protocol=UDP"}, expectedAnnotations: nil},
-    }
-    for name, tc := range tests {
-        suite.Suite.Run(name, func() {
-            err := suite.Chart.Render(nil, tc.values, nil)
-            if err != nil {
-                suite.FailNow(err.Error())
-            }
-
-            serviceManifest := suite.Chart.Manifests.Get("Service", "common-test")
-            suite.Assertions.NotEmpty(serviceManifest)
-            serviceAnnotations, _ := serviceManifest.Path("metadata.annotations").Children()
-            if tc.expectedAnnotations == nil {
-                suite.Assertions.Empty(serviceAnnotations)
-            } else {
-                for annotation, value := range tc.expectedAnnotations {
-                    serviceAnnotation := serviceManifest.Path("metadata.annotations").Search(annotation)
-                    suite.Assertions.NotEmpty(serviceAnnotation, fmt.Sprintf("Annotation %s not found", annotation))
-                    suite.Assertions.EqualValues(value, serviceAnnotation.Data(), fmt.Sprintf("Invalid value for annotation %s", annotation))
-                }
-            }
         })
     }
 }

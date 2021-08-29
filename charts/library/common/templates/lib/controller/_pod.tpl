@@ -35,6 +35,9 @@ dnsConfig:
     {{- toYaml . | nindent 2 }}
   {{- end }}
 enableServiceLinks: {{ .Values.enableServiceLinks }}
+  {{- with .Values.termination.gracePeriodSeconds }}
+terminationGracePeriodSeconds: {{ . }}
+  {{- end }}
   {{- with .Values.initContainers }}
 initContainers:
     {{- toYaml . | nindent 2 }}
