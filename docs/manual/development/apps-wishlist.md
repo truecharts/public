@@ -1,4 +1,4 @@
-# Apps GUI Suggestions
+# Apps Development Suggestions
 
 The goal is to gather some suggestions and forward them to iX-Systems.
 
