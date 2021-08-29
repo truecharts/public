@@ -21,6 +21,8 @@ When given a priority the following is taken into account:
 - Allow showing 1 or more default entries when creating a list (instead of an empty list)[NAS-109761](https://jira.ixsystems.com/browse/NAS-109761)
 - When using rollback display a dropdown of available versions, instead of a textbox. https://jira.ixsystems.com/browse/NAS-112060
 - Allow fields of type `text` in questions.yaml, instead of just `string` https://jira.ixsystems.com/browse/NAS-112061
+- Show App internal DNS name in App Overview https://jira.ixsystems.com/browse/NAS-112063
+
 
 ##### Backend suggestions
 
@@ -32,16 +34,14 @@ When given a priority the following is taken into account:
 ##### GUI suggestions
 
 - Use all screen on install / edit app, not just a sidebar. [NAS-110183](https://jira.ixsystems.com/browse/NAS-110183)
-- Add service information (Service name and ports) to the App Overview (In the card displayed when clicking an installed app).
-- The "Application Events" in the App Overview should be shown in a similar UI widget as the container logs. This would improve the readability.
-- Allow changing colors (yellow/gold default) of catalogs/trains boxes in the available/installed apps tabs, to be easier to distinguish between catalog/train.
+- Add service information (Service name and ports) to the App Overview (In the card displayed when clicking an installed app). https://jira.ixsystems.com/browse/NAS-112062
+- Allow changing colors (yellow/gold default) of catalogs/trains boxes in the available/installed apps tabs, to be easier to distinguish between catalog/train. https://jira.ixsystems.com/browse/NAS-112065
 - Add option for separators and whitespace in questions.yaml [NAS-110750](https://jira.ixsystems.com/browse/NAS-110750)
 
 
 ##### Backend suggestions
 
-- Add ability to save a PVC backup even on app delete
-- Add ability to restore a PVC backup from a deleted app
+- Add ability to save and restore a PVC backup even on app delete https://jira.ixsystems.com/browse/NAS-112066
 - Add MetalLB Loadbalancer https://jira.ixsystems.com/browse/NAS-111019
 
 
@@ -62,6 +62,8 @@ When given a priority the following is taken into account:
 ##### Backend suggestions
 
 - Allow `show_if` and `show_subquestions_if` to to use values for evaluation from parent variables [NAS-110751](https://jira.ixsystems.com/browse/NAS-110751)
+- Add a feature to allow App creators to show a dropdown listing other Apps to connect to https://jira.ixsystems.com/browse/NAS-112064
+- The "Application Events" in the App Overview should be shown in a similar UI widget as the container logs. This would improve the readability.
 
 ##### Documentation suggestions
 
