@@ -1024,16 +1024,6 @@ questions:
                 label: "supplemental Group"
                 schema:
                   type: int
-        - variable: supplementalGroups
-          label: "supplemental Groups"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: supplementalGroupsEntry
-                label: "supplemental Group"
-                schema:
-                  type: int
         - variable: fsGroupChangePolicy
           label: "When should we take ownership?"
           schema:
