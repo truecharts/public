@@ -150,4 +150,31 @@
   {{/* write appended supplementalGroups to .Values */}}
   {{- $_ := set .Values.podSecurityContext "supplementalGroups" $supGroups -}}
 
+  {{/* merge serviceList with service */}}
+  {{- $portsDict := dict }}
+  {{- range $index, $item := .Values.serviceList -}}
+    {{- $name := ( printf "list-%s" ( $index | toString ) ) }}
+    {{- if $item.name }}
+      {{- $name = $item.name }}
+    {{- end }}
+    {{- $_ := set $portsDict $name $item }}
+  {{- end }}
+  {{- $srv := merge .Values.service $portsDict }}
+  {{- $_ := set .Values "service" (deepCopy $srv) -}}
+
+  {{/* merge portsList with ports */}}
+  {{- range $index, $item := .Values.service -}}
+  {{- $portsDict := dict }}
+  {{- range $item.portsList -}}
+    {{- $name := ( printf "list-%s" ( $index | toString ) ) }}
+    {{- if $item.name }}
+      {{- $name = $item.name }}
+    {{- end }}
+    {{- $_ := set $portsDict $name $item }}
+  {{- end }}
+  {{- $tmp := $item.ports }}
+  {{- $ports := merge $tmp $portsDict }}
+  {{- $_ := set $item "ports" (deepCopy $ports) -}}
+  {{- end }}
+
 {{- end -}}

@@ -43,6 +43,38 @@ questions:
             editable: false
             type: boolean
             default: true
+
+  - variable: image
+    group: "Container Image"
+    label: "Container"
+    schema:
+      type: dict
+      attrs:
+        - variable: repository
+          label: "Container Repository"
+          schema:
+            type: string
+            default: "ghcr.io/k8s-at-home/jackett"
+            required: true
+        - variable: tag
+          label: "Container Tag"
+          schema:
+            type: string
+            default: "v0.18.616"
+            required: true
+        - variable: pullPolicy
+          label: "Container Pullpolicy"
+          schema:
+            type: string
+            default: "IfNotPresent"
+            enum:
+              - value: "IfNotPresent"
+                description: "IfNotPresent"
+              - value: "Always"
+                description: "Always"
+              - value: "Never"
+                description: "Never"
+
   - variable: controller
     group: "Controller"
     label: ""
@@ -123,48 +155,47 @@ questions:
                       schema:
                         type: string
 
-
-        - variable: podLabelsList
-          group: "Container Configuration"
-          label: "Pod Labels"
+  - variable: podLabelsList
+    group: "Container Configuration"
+    label: "Pod Labels"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: podLabelItem
+          label: "Label"
           schema:
-            type: list
-            default: []
-            items:
-              - variable: podLabelItem
-                label: "Label"
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
                 schema:
-                  type: dict
-                  attrs:
-                    - variable: name
-                      label: "Name"
-                      schema:
-                        type: string
-                    - variable: value
-                      label: "Value"
-                      schema:
-                        type: string
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
 
-        - variable: podAnnotationsList
-          group: "Container Configuration"
-          label: "Pod Annotations"
+  - variable: podAnnotationsList
+    group: "Container Configuration"
+    label: "Pod Annotations"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: podAnnotationItem
+          label: "Label"
           schema:
-            type: list
-            default: []
-            items:
-              - variable: podAnnotationItem
-                label: "Label"
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
                 schema:
-                  type: dict
-                  attrs:
-                    - variable: name
-                      label: "Name"
-                      schema:
-                        type: string
-                    - variable: value
-                      label: "Value"
-                      schema:
-                        type: string
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
 
   - variable: termination
     group: "Container Configuration"
@@ -191,12 +222,6 @@ questions:
             default: "Etc/UTC"
             $ref:
               - "definitions/timezone"
-        - variable: UMASK
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "002"
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
@@ -310,16 +335,12 @@ questions:
                             label: "Container Port"
                             schema:
                               type: int
-                              default: 9117
-                              editable: false
-                              hidden: true
+                              required: true
                           - variable: targetPort
                             label: "Target Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9117
-                              editable: true
                               required: true
                           - variable: nodePort
                             label: "Node Port (Optional)"
@@ -328,7 +349,6 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36009
               - variable: portsList
                 label: "Additional Service Ports"
                 schema:
