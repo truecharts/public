@@ -2,17 +2,14 @@ apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: splunk
 version: 8.1.5
-upstream_version: 1.1.0
 appVersion: auto
-description: Splunk App for TrueNAS SCALE
+description: Splunk for TrueNAS SCALE
 type: application
 deprecated: false
-home: https://github.com/truecharts/apps/tree/master/charts/splunk
-icon: https://raw.githubusercontent.com/truecharts/apps/master/stable/splunk/icon.png?raw=true
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/splunk
+icon: https://upload.wikimedia.org/wikipedia/commons/f/f8/Splunk_logo.png
 keywords:
   - splunk
-sources:
-  - https://github.com/truecharts/apps/tree/master/charts/splunk
 dependencies:
   - name: common
     repository: https://charts.truecharts.com/
@@ -21,5 +18,8 @@ dependencies:
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
+    url: truecharts.org
+  - name: James Garside
+    email: james@jgarside.co.uk
     url: truecharts.org
 # annotations:
