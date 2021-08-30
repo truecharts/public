@@ -343,7 +343,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 3804
+                              default: 36096
         - variable: protobufservice
           label: "protobufservice Service"
           description: "The protobufservice service"
@@ -440,7 +440,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 3805
+                              default: 36097
         - variable: boblightservice
           label: "boblightservice Service"
           description: "The boblightservice service"
@@ -537,7 +537,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 3806
+                              default: 36098
 
   - variable: persistence
     label: "Integrated Persistent Storage"
