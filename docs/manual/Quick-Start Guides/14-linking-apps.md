@@ -13,28 +13,22 @@ Please replace `$NAME` with the name you gave your App when installing and `$APP
 
 **If your app has the _same_ name as in the catalog, the format is as follows.**
 
-- `$NAME.ix-$NAME.svc.cluster.local`
+- `$NAME.ix-$APPNAME.svc.cluster.local`
 
 **If your app has _different_ name than in the catalog, the format is as follows**
 
-- `$NAME-$APPNAME.ix-$NAME.svc.cluster.local`
+- `$NAME-$APPNAME.ix-$APPNAME.svc.cluster.local`
 
-Kubernetes can usually identify the app when omitting `svc.cluster.local` as well:
-
-- `$NAME.ix-$NAME` or
-- `$NAME-$APPNAME.ix-$NAME`
 
 If you need to reach a different service (which is not often the case!), you need a slightly different format, where `$SVCNAME` is the name of the service you want to reach:
 
 **If your app has the _same_ name as in the catalog, the format is as follows.**
 
-- `$NAME-$SVCNAME.ix-$NAME.svc.cluster.local` or
-- `$NAME-$SVCNAME.ix-$NAME`
+- `$NAME-$SVCNAME.ix-$APPNAME.svc.cluster.local`
 
 **If your app has _different_ name than in the catalog, the format is as follows**
 
-- `$NAME-$APPNAME-$SVCNAME.ix-$NAME.svc.cluster.local` or
-- `$NAME-$APPNAME-$SVCNAME.ix-$NAME`
+- `$NAME-$APPNAME-$SVCNAME.ix-$APPNAME.svc.cluster.local`
 
 ##### Internal Domain Name generator
 
@@ -81,7 +75,7 @@ function submit(event) {
     if (service.value) {
       svcname = svcname + "-" + service.value ;
     }
-    let svcdns = svcname + "." + "ix-" + name.value + ".svc.cluster.local" ;
+    let svcdns = svcname + "." + "ix-" + app.value + ".svc.cluster.local" ;
     alert ("Service DNS Name: " + svcdns);
      console.log(svcdns)
     return false;

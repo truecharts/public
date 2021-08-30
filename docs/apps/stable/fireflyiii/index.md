@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 5.0.19](https://img.shields.io/badge/Version-5.0.19-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 5.2.1](https://img.shields.io/badge/Version-5.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 A free and open source personal finance manager
 
@@ -19,8 +19,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | common | 6.8.4 |
-| https://truecharts.org/ | postgresql | 1.0.13 |
+| https://truecharts.org/ | common | 6.9.1 |
+| https://truecharts.org/ | postgresql | 1.1.0 |
 
 ## Installing the Chart
 
