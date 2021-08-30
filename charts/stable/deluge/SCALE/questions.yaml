@@ -44,18 +44,140 @@ questions:
             editable: false
             type: boolean
             default: true
-  ## Update Policy
-  - variable: strategyType
-    group: "Container Image"
-    label: "Update Strategy"
+  - variable: controller
+    group: "Controller"
+    label: ""
     schema:
-      type: string
-      default: "Recreate"
-      enum:
-        - value: "RollingUpdate"
-          description: "Create new pods and then kill old ones"
-        - value: "Recreate"
-          description: "Kill existing pods before creating new ones"
+      type: dict
+      attrs:
+        - variable: type
+          description: "Please specify type of workload to deploy"
+          label: "(Advanced) Controller Type"
+          schema:
+            type: string
+            default: "deployment"
+            required: true
+            enum:
+              - value: "deployment"
+                description: "Deployment"
+              - value: "statefulset"
+                description: "Statefulset"
+              - value: "daemonset"
+                description: "Daemonset"
+        - variable: replicas
+          description: "Number of desired pod replicas"
+          label: "Desired Replicas"
+          schema:
+            type: int
+            default: 1
+            required: true
+        - variable: strategy
+          description: "Please specify type of workload to deploy"
+          label: "(Advanced) Update Strategy"
+          schema:
+            type: string
+            default: "Recreate"
+            required: true
+            enum:
+              - value: "Recreate"
+                description: "Recreate: Kill existing pods before creating new ones"
+              - value: "RollingUpdate"
+                description: "RollingUpdate: Create new pods and then kill old ones"
+              - value: "OnDelete"
+                description: "(Legacy) OnDelete: ignore .spec.template changes"
+        - variable: labelsList
+          label: "Controller Labels"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: labelItem
+                label: "Label"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                    - variable: value
+                      label: "Value"
+                      schema:
+                        type: string
+        - variable: annotationsList
+          label: " Controller Annotations"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: annotationItem
+                label: "Label"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                    - variable: value
+                      label: "Value"
+                      schema:
+                        type: string
+
+
+  - variable: podLabelsList
+    group: "Container Configuration"
+    label: "Pod Labels"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: podLabelItem
+          label: "Label"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
+
+  - variable: podAnnotationsList
+    group: "Container Configuration"
+    label: "Pod Annotations"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: podAnnotationItem
+          label: "Label"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
+
+  - variable: termination
+    group: "Container Configuration"
+    label: "Termination settings"
+    schema:
+      type: dict
+      attrs:
+        - variable: gracePeriodSeconds
+          label: "Grace Period Seconds"
+          schema:
+            type: int
+            default: 10
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
