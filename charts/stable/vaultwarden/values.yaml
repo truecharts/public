@@ -26,9 +26,9 @@ envTpl:
 
 envFrom:
   - configMapRef:
-      name: vaultwardenconfig
+      name: "{{ .Release.Name }}-vaultwardenconfig"
   - secretRef:
-      name: vaultwardensecret
+      name: "{{ .Release.Name }}-vaultwardensecret"
 
 envValueFrom:
   DATABASE_URL:

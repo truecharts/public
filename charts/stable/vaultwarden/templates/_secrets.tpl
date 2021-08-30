@@ -20,7 +20,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: vaultwardensecret
+  name: {{ .Release.Name }}-vaultwardensecret
 data:
   {{- if ne $adminToken "" }}
   ADMIN_TOKEN: {{ $adminToken }}
