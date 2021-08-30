@@ -295,14 +295,14 @@ questions:
                                   description: "TCP"
                                 - value: "UDP"
                                   description: "UDP"
-                          - variable: port
-                            label: "Container Port"
-                            schema:
-                              type: int
-                              required: true
                           - variable: targetPort
                             label: "Target Port"
                             description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              required: true
+                          - variable: port
+                            label: "Container Port"
                             schema:
                               type: int
                               required: true

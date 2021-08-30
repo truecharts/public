@@ -317,16 +317,16 @@ questions:
                                   description: "TCP"
                                 - value: "UDP"
                                   description: "UDP"
-                          - variable: port
-                            label: "Container Port"
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8443
                               editable: false
                               hidden: true
-                          - variable: targetPort
-                            label: "Target Port"
-                            description: "This port exposes the container port on the service"
+                          - variable: port
+                            label: "Container Port"
                             schema:
                               type: int
                               default: 8443
@@ -414,16 +414,16 @@ questions:
                                   description: "TCP"
                                 - value: "UDP"
                                   description: "UDP"
-                          - variable: port
-                            label: "Container Port"
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8080
                               editable: false
                               hidden: true
-                          - variable: targetPort
-                            label: "Target Port"
-                            description: "This port exposes the container port on the service"
+                          - variable: port
+                            label: "Container Port"
                             schema:
                               type: int
                               default: 8080
@@ -510,16 +510,16 @@ questions:
                                   description: "TCP"
                                 - value: "UDP"
                                   description: "UDP"
-                          - variable: port
-                            label: "Container Port"
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 3478
                               editable: false
                               hidden: true
-                          - variable: targetPort
-                            label: "Target Port"
-                            description: "This port exposes the container port on the service"
+                          - variable: port
+                            label: "Container Port"
                             schema:
                               type: int
                               default: 3478
@@ -624,14 +624,14 @@ questions:
                                   description: "TCP"
                                 - value: "UDP"
                                   description: "UDP"
-                          - variable: port
-                            label: "Container Port"
-                            schema:
-                              type: int
-                              required: true
                           - variable: targetPort
                             label: "Target Port"
                             description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              required: true
+                          - variable: port
+                            label: "Container Port"
                             schema:
                               type: int
                               required: true
