@@ -18,6 +18,9 @@
       {{- with $item.readOnly }}
   readOnly: {{ . }}
       {{- end }}
+      {{- with $item.mountPropagation }}
+  mountPropagation: {{ . }}
+      {{- end }}
     {{- end }}
   {{- end }}
   {{- end }}

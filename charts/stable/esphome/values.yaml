@@ -3,7 +3,7 @@
 image:
   repository: esphome/esphome
   pullPolicy: IfNotPresent
-  tag: 2021.8.1
+  tag: 2021.8.2
 
 strategy:
   type: Recreate
@@ -27,4 +27,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

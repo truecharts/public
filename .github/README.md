@@ -36,21 +36,20 @@ Still something not working as expected? [Contact us!](https://truecharts.org/ab
 
 ### Roadmap
 
-For big "breaking" changes we do have a roadmap during the ALPHA and BETA stages of TrueNAS SCALE.
-Assuming the release dates of TrueNAS SCALE will keep following the previous 2 months between releases, we will have the following big milestones:
+For big changes we do have a roadmap, every spot on the roadmap is synced to a TrueNAS SCALE Release and should be read as "Should be added before this release"
 
-
-
-**Features and Polishing - TrueNAS SCALE 21.06**
-
-_This release going to focus on polishing some of the ugly ALPHA code we wrote and add some exciting new features._
-_We'll also start working on providing more solid testing and compatibility with users that want to use native-helm on SCALE._
 
 <br>
 
-**SCALE ALL THE APPS - TrueNAS SCALE 21.08**
+**Documentation and DNS - TrueNAS SCALE 21.10**
 
-_Beta has landed by now and people want their apps available on scale. Lets give them what they want!_
+_We aim to improve our quick-start guides the comming few months and at the same time dail with DNS related Apps such as ExternalDNS_
+
+<br>
+
+**Email and VPN - TrueNAS SCALE 21.12**
+
+_Our goal these months will be enabling users to run an Email server on their SCALE machine and allow using our software with VPN sidecards_
 
 <br>
 

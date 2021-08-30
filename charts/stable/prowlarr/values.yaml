@@ -9,7 +9,7 @@ image:
   # -- image repository
   repository: ghcr.io/k8s-at-home/prowlarr
   # -- image tag
-  tag: v0.1.1.875
+  tag: v0.1.1.885
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -42,4 +42,7 @@ ingress:
 # @default -- See values.yaml
 persistence:
   config:
-    enabled: false
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

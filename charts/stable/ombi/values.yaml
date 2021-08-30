@@ -3,7 +3,7 @@
 image:
   repository: ghcr.io/truecharts/ombi
   pullPolicy: IfNotPresent
-  tag: v4.0.1466
+  tag: v4.0.1468
 
 strategy:
   type: Recreate
@@ -23,7 +23,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
 
 
 # Enabled mariadb

@@ -3,7 +3,7 @@
 image:
   repository: deluan/navidrome
   pullPolicy: IfNotPresent
-  tag: 0.45.0
+  tag: 0.45.1
 
 strategy:
   type: Recreate
@@ -25,4 +25,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

@@ -49,5 +49,8 @@ service:
 
 persistence:
   config:
-    enabled: false
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
     mountPath: /root/.hyperion

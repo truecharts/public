@@ -12,7 +12,7 @@ image:
   # -- image repository
   repository: linuxserver/calibre
   # -- image tag
-  tag: version-v5.25.0
+  tag: version-v5.26.0
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -55,4 +55,7 @@ service:
 # @default -- See values.yaml
 persistence:
   config:
-    enabled: false
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

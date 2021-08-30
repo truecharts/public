@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 2.2.1](https://img.shields.io/badge/Version-2.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 3.1.4](https://img.shields.io/badge/Version-3.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 A private cloud server that puts the control and security of your own data back into your hands.
 
@@ -20,9 +20,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | redis | 14.8.11 |
-| https://truecharts.org/ | common | 6.9.1 |
-| https://truecharts.org/ | postgresql | 1.1.0 |
+| https://charts.bitnami.com/bitnami | redis | 15.0.3 |
+| https://truecharts.org/ | common | 6.10.7 |
+| https://truecharts.org/ | postgresql | 1.2.4 |
 
 ## Installing the Chart
 

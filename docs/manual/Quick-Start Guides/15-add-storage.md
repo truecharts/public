@@ -17,6 +17,7 @@ Please be aware that automatically setting ownership/permissions, does mean it o
 
 #### Video Guide
 
-TBD
+![type:video](https://www.youtube.com/embed/E0kGqij1tKA)
+
 
 ##### Additional Documentation

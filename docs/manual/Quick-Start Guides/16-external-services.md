@@ -1,8 +1,9 @@
-# 15 - Setting up External-Services
+# 16 - Setting up External-Services
 
 
 #### Video Guide
 
-TBD
+![type:video](https://www.youtube.com/embed/DO0CjFdBC9Q)
+
 
 ##### Additional Documentation

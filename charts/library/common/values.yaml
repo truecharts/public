@@ -10,8 +10,16 @@ controller:
   # -- Set the controller type.
   # Valid options are deployment, daemonset or statefulset
   type: deployment
-  # -- Set annotations on the deployment/statefulset/daemonset
+  # -- Set additional annotations on the deployment/statefulset/daemonset
+  annotationsList: []
+  # - name: somename
+  #   value: somevalue
+  # -- Set  annotations on the deployment/statefulset/daemonset
   annotations: {}
+  # -- Set additional labels on the deployment/statefulset/daemonset
+  labelsList: []
+  # - name: somename
+  #   value: somevalue
   # -- Set labels on the deployment/statefulset/daemonset
   labels: {}
   # -- Number of desired pods
@@ -44,8 +52,19 @@ command: []
 # -- Override the args for the default container
 args: []
 
+# -- Set additional annotations on the pod
+podAnnotationsList: []
+# - name: somename
+#   value: somevalue
+
+#
 # -- Set annotations on the pod
 podAnnotations: {}
+
+# -- Set additional labels on the pod
+podLabelsList: []
+# - name: somename
+#   value: somevalue
 
 # -- Set labels on the pod
 podLabels: {}
@@ -131,7 +150,11 @@ enableServiceLinks: true
 podSecurityContext: {}
 
 # -- Configure the Security Context for the main container
-securityContext: {}
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+
 
 # -- Configure the lifecycle for the main container
 lifecycle: {}
@@ -213,6 +236,25 @@ probes:
       periodSeconds: 5
       failureThreshold: 60
 
+termination:
+  # -- Configure the path at which the file to which the main container's termination message will be written.
+  # -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)]
+  messagePath:
+
+  # -- Indicate how the main container's termination message should be populated.
+  # Valid options are `File` and `FallbackToLogsOnError`.
+  # -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)]
+  messagePolicy:
+
+  # -- Duration in seconds the pod needs to terminate gracefully
+  # -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)]
+  gracePeriodSeconds: 10
+
+
+# -- Configure additional services for the chart here.
+# @default -- See below
+serviceList: []
+
 # -- Configure the services for the chart here.
 # Additional services can be added by adding a dictionary key similar to the 'main' service.
 # @default -- See below
@@ -230,12 +272,22 @@ service:
 
     # -- Set the service type
     type: ClusterIP
-
+    annotationsList: []
+    # - name: somename
+    #   value: somevalue
     # -- Provide additional annotations which may be required.
     annotations: {}
 
+    labelsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Set labels on the deployment/statefulset/daemonset
     # -- Provide additional labels which may be required.
     labels: {}
+
+    # -- Configure additional Service port information here.
+    # @default -- See below
+    portsList: []
 
     # -- Configure the Service port information here.
     # Additional ports can be added by adding a dictionary key similar to the 'http' service.
@@ -296,12 +348,19 @@ ingress:
     # -- Additional List of middlewares in the traefikmiddlewares k8s namespace to add automatically
     # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
     middlewares: []
-
+    annotationsList: []
+    # - name: somename
+    #   value: somevalue
     # -- Provide additional annotations which may be required.
     annotations: {}
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
 
+    labelsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Set labels on the deployment/statefulset/daemonset
+    # -- Provide additional labels which may be required.
     # -- Provide additional labels which may be required.
     labels: {}
 
@@ -353,6 +412,19 @@ persistence:
   config:
     # -- Enables or disables the persistence item
     enabled: false
+    annotationsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Add annotations to PVC object
+    annotations: {}
+
+    labelsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Set labels on the deployment/statefulset/daemonset
+    # -- Provide additional labels which may be required.
+    # -- Add labels to PVC object
+    labels: {}
 
     # -- Sets the persistence type
     # Valid options are pvc, emptyDir, hostPath or custom
@@ -384,6 +456,8 @@ persistence:
     # -- Used in conjunction with `existingClaim`. Specifies a sub-path inside the referenced volume instead of its root
     subPath:  # some-subpath
 
+    # mountPropagation: {}
+
     # -- AccessMode for the persistent volume.
     # Make sure to select an access mode that is supported by your storage provider!
     # [[ref]](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
@@ -393,7 +467,7 @@ persistence:
     size: 1Gi
 
     # - Set to true to retain the PVC upon `helm uninstall`
-    skipuninstall: false
+    retain: false
 
   # -- Create an emptyDir volume to share between all containers
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)

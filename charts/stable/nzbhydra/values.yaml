@@ -3,7 +3,7 @@
 image:
   repository: ghcr.io/k8s-at-home/nzbhydra2
   pullPolicy: IfNotPresent
-  tag: v3.15.1
+  tag: v3.15.2
 
 strategy:
   type: Recreate
@@ -59,4 +59,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
