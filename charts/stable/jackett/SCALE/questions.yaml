@@ -685,7 +685,7 @@ questions:
                 label: "hostPath"
                 description: "Path inside the container the storage is mounted"
                 schema:
-                    show_if: [["type", "=", "hostPath"]]
+                  show_if: [["type", "=", "hostPath"]]
                   type: hostpath
               - variable: hostPathType
                 label: "hostPath Type"
