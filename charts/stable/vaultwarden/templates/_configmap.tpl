@@ -4,7 +4,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: vaultwardenconfig
+  name: {{ .Release.Name }}-vaultwardenconfig
 data:
   ROCKET_PORT: "8080"
   SIGNUPS_ALLOWED: {{ .Values.vaultwarden.allowSignups | quote }}
