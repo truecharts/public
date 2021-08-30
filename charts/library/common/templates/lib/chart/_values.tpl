@@ -165,12 +165,12 @@
   {{/* merge portsList with ports */}}
   {{- range $index, $item := .Values.service -}}
   {{- $portsDict := dict }}
-  {{- range $item.portsList -}}
-    {{- $name := ( printf "list-%s" ( $index | toString ) ) }}
-    {{- if $item.name }}
-      {{- $name = $item.name }}
+  {{- range $index2, $item2 :=  $item.portsList -}}
+    {{- $name := ( printf "list-%s" ( $index2 | toString ) ) }}
+    {{- if $item2.name }}
+      {{- $name = $item2.name }}
     {{- end }}
-    {{- $_ := set $portsDict $name $item }}
+    {{- $_ := set $portsDict $name $item2 }}
   {{- end }}
   {{- $tmp := $item.ports }}
   {{- $ports := merge $tmp $portsDict }}
