@@ -41,8 +41,8 @@ kind: Secret
 metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
-  name: dbcreds
-{{- $previous := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
+  name: {{ .Release.Name }}-dbcreds
+{{- $previous := lookup "v1" "Secret" .Release.Namespace ( ( printf "%v-%v"  .Release.Name "dbcreds" ) | quote ) }}
 {{- $dbPass := "" }}
 data:
 {{- if $previous }}

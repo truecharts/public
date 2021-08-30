@@ -33,7 +33,7 @@ envFrom:
 envValueFrom:
   DATABASE_URL:
     secretKeyRef:
-      name: dbcreds
+      name: {{ .Release.Name }}-dbcreds
       key: url
 
 database:
@@ -158,4 +158,4 @@ postgresql:
   enabled: true
   postgresqlUsername: vaultwarden
   postgresqlDatabase: vaultwarden
-  existingSecret: dbcreds
+  existingSecret: {{ .Release.Name }}-dbcreds
