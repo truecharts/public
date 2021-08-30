@@ -1,13 +1,14 @@
 appVolumeMounts:
-  data:
+  config:
     emptyDir: true
     mountPath: /data
-  staging:
+  plots:
     emptyDir: true
     mountPath: /plots
-farmr_env: 'off'
 image:
   pullPolicy: IfNotPresent
-  repository: ixsystems/chia-docker
-  tag: v1.2.3_7
+  repository: ghcr.io/guydavis/machinaris
+  tag: v0.5.3
+machinaris_ui_port: 31003
+timezone: America/Edmonton
 updateStrategy: Recreate
