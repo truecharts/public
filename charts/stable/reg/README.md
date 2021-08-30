@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.8.5](https://img.shields.io/badge/Version-1.8.5-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.8.7](https://img.shields.io/badge/Version-1.8.7-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Docker registry v2 command line client and repo listing generator with security checks.
 

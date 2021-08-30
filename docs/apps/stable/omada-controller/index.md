@@ -1,6 +1,6 @@
 # Introduction
 
-![Version: 1.6.5](https://img.shields.io/badge/Version-1.6.5-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
+![Version: 1.6.7](https://img.shields.io/badge/Version-1.6.7-informational?style=flat-square) ![AppVersion: auto](https://img.shields.io/badge/AppVersion-auto-informational?style=flat-square)
 
 Omada enables the network administrators to monitor and manage all the Omada products in the network with a centralized management platform.
 
