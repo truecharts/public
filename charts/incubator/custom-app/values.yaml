@@ -15,6 +15,17 @@ service:
     ports:
       main:
         port: 9117
+    portsList:
+      - name: "extraport"
+        enabled: true
+        port: 9118
+
+serviceList:
+  - name: extraservice
+    enabled: true
+    portsList:
+      - name: "extraserviceport"
+        port: 9119
 
 env: {}
   # TZ: UTC
