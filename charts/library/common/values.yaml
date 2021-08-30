@@ -250,6 +250,11 @@ termination:
   # -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)]
   gracePeriodSeconds: 10
 
+
+# -- Configure additional services for the chart here.
+# @default -- See below
+serviceList: []
+
 # -- Configure the services for the chart here.
 # Additional services can be added by adding a dictionary key similar to the 'main' service.
 # @default -- See below
@@ -279,6 +284,10 @@ service:
     # -- Set labels on the deployment/statefulset/daemonset
     # -- Provide additional labels which may be required.
     labels: {}
+
+    # -- Configure additional Service port information here.
+    # @default -- See below
+    portsList: []
 
     # -- Configure the Service port information here.
     # Additional ports can be added by adding a dictionary key similar to the 'http' service.
