@@ -329,6 +329,60 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36009
+              - variable: portsList
+                label: "Additional Service Ports"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: portsListEntry
+                      label: "Custom ports"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: name
+                            label: "Port Name"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: protocol
+                            label: "Port Type"
+                            schema:
+                              type: string
+                              default: "TCP"
+                              enum:
+                                - value: HTTP
+                                  description: "HTTP"
+                                - value: "HTTPS"
+                                  description: "HTTPS"
+                                - value: TCP
+                                  description: "TCP"
+                                - value: "UDP"
+                                  description: "UDP"
+                          - variable: port
+                            label: "Container Port"
+                            schema:
+                              type: int
+                              required: true
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              required: true
+                          - variable: nodePort
+                            label: "Node Port (Optional)"
+                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
+                            schema:
+                              type: int
+                              min: 9000
+                              max: 65535
 
   - variable: persistence
     label: "Integrated Persistent Storage"
