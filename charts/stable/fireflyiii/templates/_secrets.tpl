@@ -6,7 +6,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   {{- $dbcredsname := ( printf "%v-%v"  .Release.Name "dbcreds" ) }}
-  name: $dbcredsname
+  name: {{ $dbcredsname }}
 {{- $previous := lookup "v1" "Secret" .Release.Namespace $dbcredsname }}
 {{- $dbPass := "" }}
 data:
