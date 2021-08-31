@@ -182,11 +182,12 @@ jobs:
                   sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
               fi
             done
-          mkdir -p docs/apps/common || echo "app path already exists, continuing..."
-          yes | cp -rf charts/library/common/README.md  docs/apps/common/index.md || echo "common readme copy failed, continuing..."
           echo "Processed charts for ${train}:"
           ls docs/apps/${train}/ || echo "no Apps in train"
           done
+          mkdir -p docs/apps/common || echo "common docs path already exists, continuing..."
+          yes | cp -rf charts/library/common/README.md  docs/apps/common/index.md || echo "common readme copy failed, continuing..."
+          yes | cp -rf charts/library/common/helm-values.md  docs/apps/common/helm-values.md || echo "common readme copy failed, continuing..."
 
       - name: Cleanup
         run: |
