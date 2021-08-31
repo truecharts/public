@@ -6,7 +6,7 @@
   "reviewersFromCodeOwners": true,
   "suppressNotifications": ["prIgnoreNotification"],
   "rebaseWhen": "conflicted",
-  "prConcurrentLimit": 5,
+  "prConcurrentLimit": 7,
   "helm-values": {
     "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
   },
@@ -39,7 +39,10 @@
       "bumpVersion": "major",
       "labels": ["dependency/major"],
       "packageNames": ["common"],
-      "groupName": ["internal major dep"]
+      "groupName": ["internal major dep"],
+      "schedule": [
+        "on tuesday"
+      ]
     },
     {
       "matchDatasources": ["helm"],
@@ -47,7 +50,10 @@
       "bumpVersion": "minor",
       "labels": ["dependency/minor"],
       "packageNames": ["common"],
-      "groupName": ["internal minor dep"]
+      "groupName": ["internal minor dep"],
+      "schedule": [
+        "on tuesday"
+      ]
     },
     {
       "matchDatasources": ["helm"],
@@ -56,7 +62,10 @@
       "bumpVersion": "patch",
       "labels": ["dependency/patch"],
       "packageNames": ["common"],
-      "groupName": ["internal patch dep"]
+      "groupName": ["internal patch dep"],
+      "schedule": [
+        "on tuesday"
+      ]
     },
     //
     // External helm deps

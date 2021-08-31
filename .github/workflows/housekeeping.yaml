@@ -112,6 +112,10 @@ jobs:
               --template-files="/home/runner/work/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
               --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
 
+      - name: run pre-commit checks
+        continue-on-error: true
+        uses: pre-commit/action@v2.0.3
+
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -148,11 +152,6 @@ jobs:
               echo "Bumping patch version for ${train}/${chart}"
               pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
             done
-
-      - name: run pre-commit checks
-        continue-on-error: true
-        uses: pre-commit/action@v2.0.3
-
 
       - name: Copy general readme to website
         run: |
@@ -192,7 +191,6 @@ jobs:
       - name: Cleanup
         run: |
           rm -rf changes.json
-          rm -rf /home/runner/work/apps/apps/charts/library/common/helm-values.md
 
       - name: Commit and Push Housekeeping
         run: |
