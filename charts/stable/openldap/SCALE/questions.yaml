@@ -446,7 +446,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36094
+                              default: 36099
         - variable: ldaps
           label: "ldaps Service"
           description: "The ldaps service"
@@ -496,8 +496,8 @@ questions:
                 schema:
                   type: dict
                   attrs:
-                    - variable: main
-                      label: "Main Service Port Configuration"
+                    - variable: https
+                      label: "https Service Port Configuration"
                       schema:
                         type: dict
                         attrs:
@@ -543,7 +543,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36095
+                              default: 36100
 
 
   - variable: serviceList

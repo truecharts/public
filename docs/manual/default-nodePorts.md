@@ -107,5 +107,7 @@
 | Hyperion-ng         |   json    |  36096   |
 | Hyperion-ng         |  protobuf |  36097   |
 | Hyperion-ng         |  boblight |  36098   |
+| OpenLDAP            |  main     |  36099   |
+| OpenLDAP            |  https    |  36100   |
 
 #### Note: TCP and UPD ports that are the same in each App, are not by mistake.
