@@ -14,8 +14,8 @@ https://truecharts.org
 {{ template "custom.repository.organization" . }}/{{ template "chart.name" . }}
 {{- end -}}
 {{- define "custom.notes" -}}
-TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
-**This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
+Function library for TrueCharts
+Since a lot of the TrueCharts Apps and Charts follow a similar pattern, this library was built to reduce maintenance cost between the charts that use it and try achieve a goal of being DRY.
 {{- end -}}
 {{- define "custom.requirements" -}}
 ## Requirements
@@ -30,12 +30,8 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 {{- define "custom.install" -}}
 ## Installing the Chart
 
-To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/03-Installing-an-App/).
-{{- end -}}
-{{- define "custom.uninstall" -}}
-## Uninstalling the Chart
-
-To remove this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/07-Deleting-an-App/).
+This is a Helm Library Chart.
+WARNING: THIS CHART IS NOT MEANT TO BE INSTALLED DIRECTLY
 {{- end -}}
 {{- define "custom.support" -}}
 ## Support
@@ -64,7 +60,6 @@ All Rights Reserved - The TrueCharts Project
 
 {{ template "custom.install" . }}
 
-{{ template "custom.uninstall" . }}
 
 {{ template "custom.support" . }}
 ---

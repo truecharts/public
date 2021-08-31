@@ -97,6 +97,21 @@ jobs:
             done
           done
 
+      - name: generate common docs
+        run: |
+          mkdir -p docs/apps/common || echo "common path already exists, continuing..."
+          echo "Copying common templates to docs"
+          helm-docs \
+              --ignore-file=".helmdocsignore" \
+              --output-file="README.md" \
+              --template-files="/home/runner/work/apps/apps/templates/docs/common-README.md.gotmpl" \
+              --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
+          helm-docs \
+              --ignore-file=".helmdocsignore" \
+              --output-file="/home/runner/work/apps/apps/docs/apps/common/helm-values.md" \
+              --template-files="/home/runner/work/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
+              --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
+
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -165,10 +180,10 @@ jobs:
                   yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md || echo "readme copy failed, continuing..."
                   yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
                   yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md || echo "config copy failed, continuing..."
-                  yes | cp -rf ${chart}/LICENSE docs/apps/${train}/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
                   sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
               fi
             done
+          yes | cp -rf /home/runner/work/apps/apps/docs/apps/common/README.md  docs/apps/common/index.md || echo "common readme copy failed, continuing..."
           echo "Processed charts for ${train}:"
           ls docs/apps/${train}/ || echo "no Apps in train"
           done
