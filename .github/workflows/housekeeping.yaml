@@ -65,10 +65,6 @@ jobs:
             fi
           done
 
-      - name: run pre-commit checks
-        continue-on-error: true
-        uses: pre-commit/action@v2.0.3
-
       - name: update versions in docs
         run: |
           for train in stable incubator; do
@@ -91,6 +87,11 @@ jobs:
                       --ignore-file=".helmdocsignore" \
                       --output-file="app-readme.md" \
                       --template-files="/home/runner/work/apps/apps/templates/docs/app-readme.md.gotmpl" \
+                      --chart-search-root="${chart}"
+                  helm-docs \
+                      --ignore-file=".helmdocsignore" \
+                      --output-file="helm-values.md" \
+                      --template-files="/home/runner/work/apps/apps/templates/docs/helm-values.md.gotmpl" \
                       --chart-search-root="${chart}"
               fi
             done
@@ -133,36 +134,10 @@ jobs:
               pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
             done
 
-      - name: update versions in docs
-        run: |
-          for train in stable incubator; do
-            for chart in charts/${train}/*; do
-              if [ -d "${chart}" ]; then
-                  maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-                  chartname=$(basename ${chart})
-                  echo "Copying templates to ${chart}"
-                  helm-docs \
-                      --ignore-file=".helmdocsignore" \
-                      --output-file="README.md" \
-                      --template-files="/home/runner/work/apps/apps/templates/docs/README.md.gotmpl" \
-                      --chart-search-root="${chart}"
-                  helm-docs \
-                      --ignore-file=".helmdocsignore" \
-                      --output-file="CONFIG.md" \
-                      --template-files="/home/runner/work/apps/apps/templates/docs/CONFIG.md.gotmpl" \
-                      --chart-search-root="${chart}"
-                  helm-docs \
-                      --ignore-file=".helmdocsignore" \
-                      --output-file="app-readme.md" \
-                      --template-files="/home/runner/work/apps/apps/templates/docs/app-readme.md.gotmpl" \
-                      --chart-search-root="${chart}"
-              fi
-            done
-          done
-
-      - name: rerun pre-commit checks
+      - name: run pre-commit checks
         continue-on-error: true
         uses: pre-commit/action@v2.0.3
+
 
       - name: Copy general readme to website
         run: |
@@ -189,6 +164,7 @@ jobs:
                   mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
                   yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md || echo "readme copy failed, continuing..."
                   yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md || echo "config copy failed, continuing..."
+                  yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md || echo "config copy failed, continuing..."
                   yes | cp -rf ${chart}/LICENSE docs/apps/${train}/${chartname}/LICENSE.md || echo "license copy failed, continuing..."
                   sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md || echo "license edit failed, continuing..."
               fi
