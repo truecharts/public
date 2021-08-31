@@ -9,6 +9,8 @@ image:
   pullPolicy: IfNotPresent
   tag: "4.30.4"
 
+enableServiceLinks: false
+
 # Enabled postgres
 postgresql:
   enabled: true

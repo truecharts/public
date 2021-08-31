@@ -11,6 +11,8 @@ args: ["--config=/configuration.yaml"]
 strategy:
   type: Recreate
 
+enableServiceLinks: false
+
 service:
   main:
     ports:
