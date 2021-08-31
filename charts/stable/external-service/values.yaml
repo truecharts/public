@@ -1,4 +1,8 @@
-# Default values for Jackett.
+# Fake external service image
+image:
+  repository: ghcr.io/truecharts/bs
+  pullPolicy: IfNotPresent
+  tag: v0.66.6
 
 # Disable Deployment
 controller:
