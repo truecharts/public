@@ -78,11 +78,11 @@ envFrom:
 volumeClaimTemplates:
   data:
     enabled: true
-    mountPath: "/var/lib/ldap"
+    mountPath: "/var/lib/ldap/"
     accessMode: ReadWriteOnce
     size: "100Gi"
   slapd:
     enabled: true
-    mountPath: "/etc/ldap/slapd.d"
+    mountPath: "/etc/ldap/slapd.d/"
     accessMode: ReadWriteOnce
     size: "100Gi"
