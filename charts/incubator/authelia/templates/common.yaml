@@ -25,7 +25,7 @@ volumeSpec:
 {{/* Append the general secret volumes to the volumes */}}
 {{- define "authelia.secretVolumes" -}}
 enabled: "true"
-mountPath: " /secrets"
+mountPath: "/secrets"
 readOnly: true
 type: "custom"
 volumeSpec:

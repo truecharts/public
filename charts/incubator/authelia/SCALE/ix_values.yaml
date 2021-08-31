@@ -11,6 +11,9 @@ image:
 
 enableServiceLinks: false
 
+command: ["authelia"]
+args: ["--config=/configuration.yaml"]
+
 # Enabled postgres
 postgresql:
   enabled: true
