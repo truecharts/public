@@ -7,13 +7,14 @@ kind: Secret
 metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
-  name: {{ .Release.Name }}-dbcreds
-{{- $dbprevious := lookup "v1" "Secret" .Release.Namespace ( ( printf "%v-%v"  .Release.Name "dbcreds" ) | quote ) }}
+  name: dbcreds
+{{- $previous := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
 {{- $dbPass := "" }}
 data:
-{{- if $dbprevious }}
-  postgresql-password: {{ ( index $dbprevious.data "postgresql-password" ) }}
-  postgresql-postgres-password: {{ ( index $dbprevious.data "postgresql-postgres-password" ) }}
+{{- if $previous }}
+  {{- $dbPass = ( index $previous.data "postgresql-password" ) | b64dec  }}
+  postgresql-password: {{ ( index $previous.data "postgresql-password" ) }}
+  postgresql-postgres-password: {{ ( index $previous.data "postgresql-postgres-password" ) }}
 {{- else }}
   {{- $dbPass = randAlphaNum 50 }}
   postgresql-password: {{ $dbPass | b64enc | quote }}
