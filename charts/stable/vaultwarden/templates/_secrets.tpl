@@ -20,7 +20,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ .Release.Name }}-vaultwardensecret
+  name: vaultwardensecret
 data:
   {{- if ne $adminToken "" }}
   ADMIN_TOKEN: {{ $adminToken }}
@@ -41,28 +41,19 @@ kind: Secret
 metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
-  {{- $dbcredsname := ( printf "%v-%v"  .Release.Name "dbcreds" ) }}
-  name: {{ $dbcredsname }}
+  name: dbcreds
+{{- $previous := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
+{{- $dbPass := "" }}
 data:
-  {{- $dbPass := "" }}
-  {{ $rootPass := "" }}
-  {{ $urlPass := "" }}
-
-  {{- if .Release.IsInstall }}
-  {{ $dbPass = ( randAlphaNum 50 | b64enc | quote )  }}
-  {{ $rootPass = ( randAlphaNum 50 | b64enc | quote )  }}
-  {{ $urlPass = $dbPass }}
-  {{ else }}
-  # `index` function is necessary because the property name contains a dash.
-  # Otherwise (...).data.db_password would have worked too.
-  {{ $dbPass = ( index (lookup "v1" "Secret" .Release.Namespace ( $dbcredsname | quote ) ).data "postgresql-postgres-password" ) }}
-  {{ $rootPass = ( index (lookup "v1" "Secret" .Release.Namespace ( $dbcredsname | quote ) ).data "postgresql-postgres-password" ) }}
-  {{ $urlPass = ( ( index (lookup "v1" "Secret" .Release.Namespace ( $dbcredsname | quote ) ).data "postgresql-postgres-password" ) | b64dec | quote ) }}
-  {{ end }}
-
-  postgresql-password: {{ $dbPass }}
-  postgresql-postgres-password: {{ $rootPass }}
-  url: {{ ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $urlPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
-  postgresql_host: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
+{{- if $previous }}
+  {{- $dbPass = ( index $previous.data "postgresql-password" ) | b64dec  }}
+  postgresql-password: {{ ( index $previous.data "postgresql-password" ) }}
+  postgresql-postgres-password: {{ ( index $previous.data "postgresql-postgres-password" ) }}
+{{- else }}
+  {{- $dbPass = randAlphaNum 50 }}
+  postgresql-password: {{ $dbPass | b64enc | quote }}
+  postgresql-postgres-password: {{ randAlphaNum 50 | b64enc | quote }}
+{{- end }}
+  url: {{ ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
 type: Opaque
 {{- end -}}

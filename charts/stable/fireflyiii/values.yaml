@@ -48,11 +48,11 @@ env:
 envValueFrom:
   DB_HOST:
     secretKeyRef:
-      name: "{{ .Release.Name }}-dbcreds"
+      name: dbcreds
       key: postgresql_host
   DB_PASSWORD:
     secretKeyRef:
-      name: "{{ .Release.Name }}-dbcreds"
+      name: dbcreds
       key: postgresql-password
 
 persistence:
@@ -69,4 +69,4 @@ postgresql:
   enabled: true
   postgresqlUsername: firefly
   postgresqlDatabase: firefly
-  existingSecret: "{{ .Release.Name }}-dbcreds"
+  existingSecret: dbcreds

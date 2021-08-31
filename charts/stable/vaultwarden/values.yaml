@@ -26,14 +26,14 @@ envTpl:
 
 envFrom:
   - configMapRef:
-      name: "{{ .Release.Name }}-vaultwardenconfig"
+      name: vaultwardenconfig
   - secretRef:
-      name: "{{ .Release.Name }}-vaultwardensecret"
+      name: vaultwardensecret
 
 envValueFrom:
   DATABASE_URL:
     secretKeyRef:
-      name: "{{ .Release.Name }}-dbcreds"
+      name: dbcreds
       key: url
 
 database:
@@ -158,4 +158,4 @@ postgresql:
   enabled: true
   postgresqlUsername: vaultwarden
   postgresqlDatabase: vaultwarden
-  existingSecret: "{{ .Release.Name }}-dbcreds"
+  existingSecret: dbcreds
