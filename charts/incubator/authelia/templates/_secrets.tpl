@@ -39,7 +39,7 @@ data:
 {{- if $redisprevious }}
   {{- $redisPass = ( index $redisprevious.data "redis-password" ) | b64dec  }}
   {{- $sentinelPass = ( index $redisprevious.data "redis-password" ) | b64dec  }}
-  redis-password: {{ ( index $redisprevious.data "sentinel-password" ) }}
+  redis-password: {{ ( index $redisprevious.data "redis-password" ) }}
   sentinel-password: {{ ( index $redisprevious.data "sentinel-password" ) }}
 {{- else }}
   {{- $redisPass = randAlphaNum 50 }}
