@@ -7,17 +7,16 @@ kind: Secret
 metadata:
   {{- $dbcredsname := ( printf "%v-%v"  .Release.Name "dbcreds" ) }}
   name: {{ $dbcredsname }}
-{{- $previous := lookup "v1" "Secret" .Release.Namespace $dbcredsname }}
-{{- $dbPass := "" }}
 data:
-{{- if $previous }}
-  postgresql-password: {{ ( index $previous.data "postgresql-password" ) }}
-  postgresql-postgres-password: {{ ( index $previous.data "postgresql-postgres-password" ) }}
-{{- else }}
-  {{- $dbPass = randAlphaNum 50 }}
-  postgresql-password: {{ $dbPass | b64enc | quote }}
+  {{- if .Release.IsInstall }}
+  postgresql-password: {{ randAlphaNum 50 | b64enc | quote }}
   postgresql-postgres-password: {{ randAlphaNum 50 | b64enc | quote }}
-{{- end }}
+  {{ else }}
+  # `index` function is necessary because the property name contains a dash.
+  # Otherwise (...).data.db_password would have worked too.
+  postgresql-password: {{ index (lookup "v1" "Secret" .Release.Namespace ( $dbcredsname | quote ) ).data "postgresql-password" }}
+  postgresql-postgres-password: {{ index (lookup "v1" "Secret" .Release.Namespace ( $dbcredsname | quote ) ).data "postgresql-postgres-password" }}
+  {{ end }}
   url: {{ ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
   postgresql_host: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
 type: Opaque
