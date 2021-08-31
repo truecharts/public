@@ -3,11 +3,11 @@ appVersion: auto
 dependencies:
 - name: common
   repository: https://truecharts.org/
-  version: 6.12.2
+  version: 6.12.3
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 1.5.7
+  version: 1.5.8
 - condition: redis.enabled
   name: redis
   repository: https://charts.bitnami.com/bitnami
@@ -38,4 +38,4 @@ sources:
 - https://github.com/authelia/chartrepo
 - https://github.com/authelia/authelia
 type: application
-version: 1.6.5
+version: 1.6.6
