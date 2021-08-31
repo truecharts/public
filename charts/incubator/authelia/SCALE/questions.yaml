@@ -331,13 +331,13 @@ questions:
                 label: "integration_key"
                 schema:
                   type: string
-                  defaults: ""
+                  default: ""
                   required: true
               - variable: plain_api_key
                 label: "plain_api_key"
                 schema:
                   type: string
-                  defaults: ""
+                  default: ""
                   required: true
 
   - variable: session
@@ -370,21 +370,21 @@ questions:
           description: "The time in seconds before the cookie expires and session is reset."
           schema:
             type: string
-            defaults: "1h"
+            default: "1h"
             required: true
         - variable: inactivity
           label: "Inactivity Time"
           description: "The inactivity time in seconds before the session is reset."
           schema:
             type: string
-            defaults: "5m"
+            default: "5m"
             required: true
         - variable: inactivity
           label: "Remember-Me duration"
           description: "The remember me duration"
           schema:
             type: string
-            defaults: "5M"
+            default: "5M"
             required: true
 
   - variable: regulation
@@ -405,14 +405,14 @@ questions:
           description: "The time range during which the user can attempt login before being banned."
           schema:
             type: string
-            defaults: "2m"
+            default: "2m"
             required: true
         - variable: ban_time
           label: "Ban Duration"
           description: "The length of time before a banned user can login again"
           schema:
             type: string
-            defaults: "5m"
+            default: "5m"
             required: true
 
 
@@ -434,7 +434,7 @@ questions:
           description: "The amount of time to wait before we refresh data from the authentication backend"
           schema:
             type: string
-            defaults: "5m"
+            default: "5m"
             required: true
         - variable: ldap
           label: "LDAP backend configuration"
@@ -516,75 +516,75 @@ questions:
                       description: "The base dn for every LDAP query."
                       schema:
                         type: string
-                        defaults: "DC=example,DC=com"
+                        default: "DC=example,DC=com"
                         required: true
                     - variable: username_attribute
                       label: "Username Attribute"
                       description: "The attribute holding the username of the user"
                       schema:
                         type: string
-                        defaults: ""
+                        default: ""
                         required: true
                     - variable: additional_users_dn
                       label: "Additional Users DN"
                       description: "An additional dn to define the scope to all users."
                       schema:
                         type: string
-                        defaults: "OU=Users"
+                        default: "OU=Users"
                         required: true
                     - variable: users_filter
                       label: "Users Filter"
                       description: "The groups filter used in search queries to find the groups of the user."
                       schema:
                         type: string
-                        defaults: ""
+                        default: ""
                         required: true
                     - variable: additional_groups_dn
                       label: "Additional Groups DN"
                       description: "An additional dn to define the scope of groups."
                       schema:
                         type: string
-                        defaults: "OU=Groups"
+                        default: "OU=Groups"
                         required: true
                     - variable: groups_filter
                       label: "Groups Filter"
                       description: "The groups filter used in search queries to find the groups of the user."
                       schema:
                         type: string
-                        defaults: ""
+                        default: ""
                         required: true
                     - variable: group_name_attribute
                       label: "Group name Attribute"
                       description: "The attribute holding the name of the group"
                       schema:
                         type: string
-                        defaults: ""
+                        default: ""
                         required: true
                     - variable: mail_attribute
                       label: "Mail Attribute"
                       description: "The attribute holding the primary mail address of the user"
                       schema:
                         type: string
-                        defaults: ""
+                        default: ""
                         required: true
                     - variable: display_name_attribute
                       label: "Display Name Attribute"
                       description: "he attribute holding the display name of the user. This will be used to greet an authenticated user."
                       schema:
                         type: string
-                        defaults: ""
+                        default: ""
                     - variable: user
                       label: "Admin User"
                       description: "The username of the admin user used to connect to LDAP."
                       schema:
                         type: string
-                        defaults: "CN=Authelia,DC=example,DC=com"
+                        default: "CN=Authelia,DC=example,DC=com"
                         required: true
                     - variable: plain_password
                       label: "Password"
                       schema:
                         type: string
-                        defaults: ""
+                        default: ""
                         required: true
         - variable: file
           label: "File backend configuration"
@@ -603,7 +603,7 @@ questions:
                       label: "Path"
                       schema:
                         type: string
-                        defaults: "/config/users_database.yml"
+                        default: "/config/users_database.yml"
                         required: true
                     - variable: password
                       label: "Password Settings"
@@ -680,7 +680,7 @@ questions:
                       label: "File Path"
                       schema:
                         type: string
-                        defaults: "/config/notification.txt"
+                        default: "/config/notification.txt"
                         required: true
         - variable: smtp
           label: "SMTP Provider"
@@ -699,58 +699,58 @@ questions:
                       label: "Host"
                       schema:
                         type: string
-                        defaults: "smtp.mail.svc.cluster.local"
+                        default: "smtp.mail.svc.cluster.local"
                         required: true
                     - variable: port
                       label: "Port"
                       schema:
                         type: int
-                        defaults: 25
+                        default: 25
                         required: true
                     - variable: timeout
                       label: "Timeout"
                       schema:
                         type: string
-                        defaults: "5s"
+                        default: "5s"
                         required: true
                     - variable: username
                       label: "Username"
                       schema:
                         type: string
-                        defaults: ""
+                        default: ""
                         required: true
                     - variable: plain_password
                       label: "Password"
                       schema:
                         type: string
-                        defaults: ""
+                        default: ""
                         required: true
                     - variable: sender
                       label: "Sender"
                       schema:
                         type: string
-                        defaults: ""
+                        default: ""
                         required: true
                     - variable: identifier
                       label: "Identifier"
                       description: "HELO/EHLO Identifier. Some SMTP Servers may reject the default of localhost."
                       schema:
                         type: string
-                        defaults: "localhost"
+                        default: "localhost"
                         required: true
                     - variable: subject
                       label: "Subject"
                       description: "Subject configuration of the emails sent, {title} is replaced by the text from the notifier"
                       schema:
                         type: string
-                        defaults: "[Authelia] {title}"
+                        default: "[Authelia] {title}"
                         required: true
                     - variable: startup_check_address
                       label: "Startup Check Address"
                       description: "This address is used during the startup check to verify the email configuration is correct."
                       schema:
                         type: string
-                        defaults: "test@authelia.com"
+                        default: "test@authelia.com"
                         required: true
                     - variable: disable_require_tls
                       label: "Disable Require TLS"
