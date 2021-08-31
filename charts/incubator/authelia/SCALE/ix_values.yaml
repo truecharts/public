@@ -14,7 +14,7 @@ postgresql:
   enabled: true
   postgresqlUsername: authelia
   postgresqlDatabase: authelia
-  existingSecret: "{{ .Release.Name }}-dbcreds"
+  existingSecret: dbcreds
   persistence:
     db:
       storageClass: "SCALE-ZFS"
@@ -42,7 +42,7 @@ redis:
 
 envFrom:
   - configMapRef:
-      name: '{{ include "common.names.fullname" . }}-paths'
+      name: authelia-paths
 
 probes:
   liveness:

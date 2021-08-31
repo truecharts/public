@@ -37,7 +37,9 @@ metadata:
 {{- $sentinelPass := "" }}
 data:
 {{- if $redisprevious }}
-  redis-password: {{ ( index $redisprevious.data "redis-password" ) }}
+  {{- $redisPass = ( index $redisprevious.data "redis-password" ) | b64dec  }}
+  {{- $sentinelPass = ( index $redisprevious.data "redis-password" ) | b64dec  }}
+  redis-password: {{ ( index $redisprevious.data "sentinel-password" ) }}
   sentinel-password: {{ ( index $redisprevious.data "sentinel-password" ) }}
 {{- else }}
   {{- $redisPass = randAlphaNum 50 }}
@@ -46,7 +48,7 @@ data:
   sentinel-password: {{ $sentinelPass | b64enc | quote }}
 {{- end }}
   masterhost: {{ ( printf "%v-%v" .Release.Name "redis-master" ) | b64enc | quote }}
-  slavehost: {{ ( printf "%v-%v" .Release.Name "redis-master" ) | b64enc | quote }}
+  slavehost: {{ ( printf "%v-%v" .Release.Name "redis-slave" ) | b64enc | quote }}
 type: Opaque
 
 
@@ -56,8 +58,8 @@ apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: {{ include "common.names.fullname" . }}-secrets
-{{- $autheliaprevious := lookup "v1" "Secret" .Release.Namespace ( ( printf "%v-%v" ( ( include "common.names.fullname" . ) | quote ) "-secrets" ) | quote ) }}
+  name: authelia-secrets
+{{- $autheliaprevious := lookup "v1" "Secret" .Release.Namespace "authelia-secrets" }}
 {{- $oidckey := "" }}
 {{- $oidcsecret := "" }}
 {{- $jwtsecret := "" }}
@@ -72,20 +74,25 @@ data:
   SESSION_ENCRYPTION_KEY: {{ $jwtsecret | b64enc | quote }}
   JWT_TOKEN: {{ $jwtsecret | b64enc | quote }}
   {{- end }}
+
   {{- if .Values.authentication_backend.ldap.enabled }}
   LDAP_PASSWORD: {{ .Values.authentication_backend.ldap.plain_password }}
   {{- end }}
+
   {{- if .Values.notifier.smtp.enabled }}
   SMTP_PASSWORD: {{ .Values.notifier.smtp.plain_password }}
   {{- end }}
+
   {{- if .Values.duo_api.enabled }}
   DUO_API_KEY: {{ .Values.duo_api.plain_api_key | b64enc }}
   {{- end }}
+
   {{- if $dbprevious }}
   STORAGE_PASSWORD: {{ ( index $dbprevious.data "postgresql-password" ) }}
   {{- else }}
   STORAGE_PASSWORD: {{ $dbPass | b64enc | quote }}
   {{- end }}
+
   {{- if $redisprevious }}
   REDIS_PASSWORD: {{ ( index $redisprevious.data "redis-password" ) }}
   {{- if .Values.redisProvider.high_availability.enabled}}
@@ -97,6 +104,7 @@ data:
   REDIS_SENTINEL_PASSWORD: {{ $sentinelPass | b64enc | quote }}
   {{- end }}
   {{- end }}
+
   {{- if .Values.identity_providers.oidc.enabled }}
   {{- if $autheliaprevious }}
   OIDC_PRIVATE_KEY: {{ index $autheliaprevious.data "OIDC_PRIVATE_KEY"  }}

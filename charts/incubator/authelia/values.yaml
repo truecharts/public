@@ -82,7 +82,7 @@ resources:
 
 envFrom:
   - configMapRef:
-      name: '{{ include "common.names.fullname" . }}-paths'
+      name: authelia-paths
 
 probes:
   liveness:

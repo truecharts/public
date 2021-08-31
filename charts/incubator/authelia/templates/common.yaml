@@ -16,7 +16,7 @@ subPath: configuration.yaml
 type: "custom"
 volumeSpec:
   configMap:
-    name: {{ include "common.names.fullname" . }}-configfile
+    name: authelia-configfile
     items:
     - key: configuration.yaml
       path: configuration.yaml
@@ -30,7 +30,7 @@ readOnly: true
 type: "custom"
 volumeSpec:
   secret:
-    secretName: {{ include "common.names.fullname" . }}-secrets
+    secretName: authelia-secrets
     items:
     - key: "JWT_TOKEN"
       path: JWT_TOKEN

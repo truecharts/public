@@ -4,7 +4,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "common.names.fullname" . }}-paths
+  name: authelia-paths
 data:
   AUTHELIA_SERVER_DISABLE_HEALTHCHECK: "true"
   AUTHELIA_JWT_SECRET_FILE: "/secrets/JWT_TOKEN"
@@ -33,7 +33,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "common.names.fullname" . }}-configfile
+  name: authelia-configfile
 data:
   configuration.yaml: |
     ---
