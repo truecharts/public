@@ -28,7 +28,7 @@
       {{- toYaml . | nindent 6 }}
       {{- end }}
       containers:
-      - image: "{{ .Values.image.name }}:{{ default .Chart.AppVersion .Values.image.tag }}"
+      - image: "{{ .Values.image.repository }}:{{ default .Chart.AppVersion .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: {{ template "traefik.fullname" . }}
         resources:
