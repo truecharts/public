@@ -309,8 +309,19 @@ questions:
             type: string
             required: true
             default: ""
+        - variable: LDAP_CONFIG_PASSWORD
+          label: "LDAP_CONFIG_PASSWORD"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: LDAP_BASE_DN
+          label: "LDAP_BASE_DN"
+          schema:
+            type: string
+            required: true
+            default: ""
 
-  # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
     group: "Container Configuration"
