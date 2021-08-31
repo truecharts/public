@@ -6,5 +6,3 @@ https://truecharts.org/manual/Quick-Start%20Guides/14-linking-apps/
 
 ##### Available config options
 In the future this page is going to contain an automated list of options available in the installation/edit UI.
-
----
