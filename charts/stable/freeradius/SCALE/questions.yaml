@@ -558,6 +558,10 @@ questions:
                   enum:
                     - value: "pvc"
                       description: "pvc"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "hostPath"
+                      description: "hostPath"
               - variable: storageClass
                 label: "(Advanced) storageClass"
                 description: " Warning: Anything other than SCALE-ZFS will break rollback!"
@@ -611,7 +615,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/etc/raddb"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
