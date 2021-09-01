@@ -19,6 +19,21 @@ service:
       main:
         port: 9091
 
+initContainers:
+  - name: init-postgresdb
+    image: postgres:13.1
+    command:
+      - "sh"
+      - "-c"
+      - "until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: pghost
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+
 persistence:
   config:
     enabled: true
