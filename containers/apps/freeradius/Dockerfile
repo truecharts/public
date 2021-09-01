@@ -9,8 +9,7 @@ VOLUME /config
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
 RUN \
   rm /docker-entrypoint.sh && \
-  rm -Rf /etc/raddb && \
-  ln -s  /config /etc/raddb
+  rm -Rf /etc/raddb
 
 
 COPY ./containers/apps/freeradius/entrypoint.sh /docker-entrypoint.sh
