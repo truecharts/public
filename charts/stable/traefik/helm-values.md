@@ -36,8 +36,8 @@ You will, however, be able to use all values referenced in the common chart here
 | experimental.plugins.enabled | bool | `false` |  |
 | globalArguments[0] | string | `"--global.checknewversion"` |  |
 | hostNetwork | bool | `false` |  |
-| image.name | string | `"traefik"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"traefik"` |  |
 | image.tag | string | `"v2.4"` |  |
 | ingressClass.enabled | bool | `false` |  |
 | ingressClass.fallbackApiVersion | string | `nil` |  |

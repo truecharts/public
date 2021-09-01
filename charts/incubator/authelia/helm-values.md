@@ -51,7 +51,8 @@ You will, however, be able to use all values referenced in the common chart here
 | duo_api.hostname | string | `"api-123456789.example.com"` |  |
 | duo_api.integration_key | string | `"ABCDEF"` |  |
 | duo_api.plain_api_key | string | `""` |  |
-| envFrom[0].configMapRef.name | string | `"{{ include \"common.names.fullname\" . }}-paths"` |  |
+| enableServiceLinks | bool | `false` |  |
+| envFrom[0].configMapRef.name | string | `"authelia-paths"` |  |
 | identity_providers.oidc.access_token_lifespan | string | `"1h"` |  |
 | identity_providers.oidc.authorize_code_lifespan | string | `"1m"` |  |
 | identity_providers.oidc.clients | list | `[]` |  |
@@ -99,7 +100,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsGroup | int | `568` |  |
 | podSecurityContext.runAsUser | int | `568` |  |
 | postgresql.enabled | bool | `true` |  |
-| postgresql.existingSecret | string | `"{{ .Release.Name }}-dbcreds"` |  |
+| postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"authelia"` |  |
 | postgresql.postgresqlUsername | string | `"authelia"` |  |
 | probes.liveness.path | string | `"/api/health\""` |  |
