@@ -76,11 +76,11 @@ data:
   {{- end }}
 
   {{- if .Values.authentication_backend.ldap.enabled }}
-  LDAP_PASSWORD: {{ .Values.authentication_backend.ldap.plain_password }}
+  LDAP_PASSWORD: {{ .Values.authentication_backend.ldap.plain_password | b64enc | quote }}
   {{- end }}
 
   {{- if .Values.notifier.smtp.enabled }}
-  SMTP_PASSWORD: {{ .Values.notifier.smtp.plain_password }}
+  SMTP_PASSWORD: {{ .Values.notifier.smtp.plain_password | b64enc | quote }}
   {{- end }}
 
   {{- if .Values.duo_api.enabled }}
