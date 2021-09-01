@@ -46,7 +46,7 @@ questions:
           label: "(Advanced) Controller Type"
           schema:
             type: string
-            default: "Statefulset"
+            default: "deployment"
             required: true
             enum:
               - value: "deployment"
@@ -243,7 +243,7 @@ questions:
                 description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
                 schema:
                   type: string
-                  default: "NodePort"
+                  default: "LoadBalancer"
                   enum:
                     - value: "NodePort"
                       description: "NodePort"
@@ -322,9 +322,8 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36096
-        - variable: administration
-          label: "administration Service"
+        - variable: accounting
+          label: "accounting Service"
           description: "The administration service"
           schema:
             type: dict
@@ -340,7 +339,7 @@ questions:
                 description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
                 schema:
                   type: string
-                  default: "NodePort"
+                  default: "LoadBalancer"
                   enum:
                     - value: "NodePort"
                       description: "NodePort"
@@ -372,8 +371,8 @@ questions:
                 schema:
                   type: dict
                   attrs:
-                    - variable: main
-                      label: "Main Service Port Configuration"
+                    - variable: accounting
+                      label: "accounting Service Port Configuration"
                       schema:
                         type: dict
                         attrs:
@@ -419,7 +418,6 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36097
 
 
   - variable: serviceList
