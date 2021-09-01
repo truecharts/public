@@ -5,7 +5,7 @@ if [ -f "/config/clients.conf" ]; then
   echo "Radius config already exists, skipping config copy..."
 else
   echo "Radius config does not exist, copying..."
-  cp -Rf /etc/raddbbak/* /config/
+  cp -Rf /defaults/raddb/* /config/
 fi
 
 chown -R freerad:freerad /config
