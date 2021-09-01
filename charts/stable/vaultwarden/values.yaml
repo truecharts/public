@@ -21,6 +21,21 @@ service:
 
 env: {}
 
+initContainers:
+  - name: init-postgresdb
+    image: postgres:13.1
+    command:
+      - "sh"
+      - "-c"
+      - "until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: pghost
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+
 envTpl:
   DOMAIN: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
 

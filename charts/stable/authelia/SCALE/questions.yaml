@@ -15,7 +15,7 @@ groups:
     description: "Ingress Configuration"
   - name: "Security and Permissions"
     description: "Configure security context and permissions"
-  - name: "Resources and Devices"
+    - name: "Resources and Devices"
     description: "Specify resources/devices to be allocated to workload"
   - name: "Advanced"
     description: "Advanced Configuration"
@@ -859,12 +859,18 @@ questions:
                   type: dict
                   attrs:
                     - variable: domain
-                      label: "Domain"
+                      label: "Domains"
                       description: "defines which domain or set of domains the rule applies to."
                       schema:
-                        type: string
-                        default: ""
-                        required: true
+                        type: list
+                        default: []
+                        items:
+                          - variable: domainEntry
+                            label: "Domain"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
                     - variable: policy
                       label: "Policy"
                       description: "The policy to apply to resources. It must be either 'bypass', 'one_factor', 'two_factor' or 'deny'."
