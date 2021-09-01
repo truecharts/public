@@ -13,7 +13,7 @@ RUN \
   rm /docker-entrypoint.sh && \
   rm -Rf /etc/raddb && \
   rm -Rf /etc/freeradius && \
-  ln -s  /config /etc/raddb
+  ln -s  /config /etc/raddb && \
   ln -s  /config /etc/freeradius
 
 
