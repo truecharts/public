@@ -212,7 +212,7 @@ questions:
             type: dict
             attrs:
               - variable: name
-                label: "Name"
+                  label: "Name"
                 schema:
                   type: string
               - variable: value
@@ -885,7 +885,7 @@ questions:
                           - value: "two_factor"
                             description: "two_factor"
                           - value: "deny"
-                            description: "two_factor"
+                            description: "deny"
                     - variable: subject
                       label: "Subject"
                       description: "defines the subject to apply authorizations to. This parameter is optional and matching any user if not provided"
