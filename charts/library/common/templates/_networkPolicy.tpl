@@ -7,6 +7,8 @@ Blueprint for the NetworkPolicy object that can be included in the addon.
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
   name: {{ include "common.names.fullname" . }}
 spec:
   podSelector:

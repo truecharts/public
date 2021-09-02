@@ -71,7 +71,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: portal
-  labels: {{ include "common.labels" . | nindent 4 }}
+  labels:
+  {{ include "common.labels" . | nindent 4 }}
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
 data:
