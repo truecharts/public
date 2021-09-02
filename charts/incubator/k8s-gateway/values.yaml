@@ -105,7 +105,7 @@ probes:
         path: /ready
         port: 8181
         scheme: HTTP
-      initialDelaySeconds: 10
-      timeoutSeconds: 5
-      successThreshold: 1
-      failureThreshold: 5
+      initialDelaySeconds: 3
+      timeoutSeconds: 2
+      periodSeconds: 5
+      failureThreshold: 60

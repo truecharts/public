@@ -5,5 +5,20 @@
 {{/* Render configmap for nextcloud */}}
 {{- include "k8s-gateway.configmap" . }}
 
+{{/* Append the general configMap volume to the volumes */}}
+{{- define "k8s-gateway.configvolume" -}}
+enabled: "true"
+mountPath: " /etc/coredns"
+readOnly: true
+type: "custom"
+volumeSpec:
+  configMap:
+    name: config-volume
+    items:
+    - key: Corefile
+      path: Corefile
+{{- end -}}
+
+{{- $_ := set .Values.persistence "config-volume" (include "k8s-gateway.configvolume" . | fromYaml) -}}
 {{/* Render the templates */}}
 {{ include "common.all" . }}
