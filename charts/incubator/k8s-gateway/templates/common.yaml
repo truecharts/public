@@ -13,7 +13,7 @@ readOnly: true
 type: "custom"
 volumeSpec:
   configMap:
-    name: config-volume
+    name: {{ include "common.names.fullname" . }}-corefile
     items:
     - key: Corefile
       path: Corefile
