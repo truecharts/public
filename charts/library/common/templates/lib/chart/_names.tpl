@@ -56,3 +56,10 @@ If release name contains chart name it will be used as a full name.
     {{- fail (printf "Not a valid controller.type (%s)" .Values.controller.type) -}}
   {{- end -}}
 {{- end -}}
+
+{{/*
+Create the "name" + "." + "namespace" fqdn
+*/}}
+{{- define "common.names.fqdn" -}}
+{{- printf "%s.%s" (include "common.names.fullname" .) .Release.Namespace | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}

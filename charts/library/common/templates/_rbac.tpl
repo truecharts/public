@@ -10,6 +10,7 @@ kind: ClusterRole
 metadata:
   name: {{ include "common.names.fullname" . -}}
   labels:
+    {{- include "common.labels" . | nindent 4 }}
     {{- with .Values.rbac.labels }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
@@ -27,6 +28,7 @@ kind: ClusterRoleBinding
 metadata:
   name: {{ include "common.names.fullname" . -}}
   labels:
+    {{- include "common.labels" . | nindent 4 }}
     {{- with .Values.rbac.labels }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
