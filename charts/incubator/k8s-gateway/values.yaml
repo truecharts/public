@@ -33,8 +33,8 @@ forward:
   primary: tls://1.1.1.1
   secondary: tls://1.0.0.1
   options:
-   - name: tls_servername
-     value: cloudflare-dns.com
+    - name: tls_servername
+      value: cloudflare-dns.com
 
 serviceAccount:
   # -- Specifies whether a service account should be created
