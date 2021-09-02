@@ -4,10 +4,29 @@
 # Example: Everything under "image" is not included in questions.yaml but is included here.
 ##
 
+# Default values for Jackett.
+
 image:
   repository: quay.io/oriedge/k8s_gateway
   pullPolicy: IfNotPresent
   tag: v0.1.8
+
+args: ["-conf", "/etc/coredns/Corefile"]
+
+# -- Delegated domain
+domain: "example.com"
+
+# -- TTL for non-apex responses (in seconds)
+ttl: 300
+
+# -- Limit what kind of resources to watch, e.g. watchedResources: ["Ingress"]
+watchedResources: ["Ingress"]
+
+# -- Service name of a secondary DNS server (should be `serviceName.namespace`)
+secondary: ""
+
+# -- Override the default `serviceName.namespace` domain apex
+apex: ""
 
 serviceAccount:
   # -- Specifies whether a service account should be created
@@ -43,6 +62,7 @@ service:
     enabled: true
     ports:
       main:
+        protocol: UDP
         port: 53
 
 probes:
@@ -78,10 +98,11 @@ probes:
         path: /ready
         port: 8181
         scheme: HTTP
-      initialDelaySeconds: 10
-      timeoutSeconds: 5
-      successThreshold: 1
-      failureThreshold: 5
+      initialDelaySeconds: 3
+      timeoutSeconds: 2
+      periodSeconds: 5
+      failureThreshold: 60
+
 
 ##
 # Most other defaults are set in questions.yaml
