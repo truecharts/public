@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 6.13.3
+deprecated: false
+description: A Helm chart for the k8s_gateway CoreDNS plugin
+home: https://github.com/truecharts/apps/tree/master/charts/stable/k8s-gateway
+icon: https://cncf-branding.netlify.app/img/projects/coredns/icon/black/coredns-icon-black.png
+keywords:
+- DNS
+- networking
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+name: k8s-gateway
+sources:
+- https://github.com/ori-edge/k8s_gatewa
+type: application
+version: 0.0.1
