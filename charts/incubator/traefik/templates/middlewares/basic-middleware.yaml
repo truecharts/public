@@ -1,0 +1,58 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: compress
+  namespace: traefikmiddlewares
+spec:
+  compress: {}
+---
+# Here, an average of 300 requests per second is allowed.
+# In addition, a burst of 200 requests is allowed.
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: basic-ratelimit
+  namespace: traefikmiddlewares
+spec:
+  rateLimit:
+    average: 300
+    burst: 200
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: basic-secure-headers
+  namespace: traefikmiddlewares
+spec:
+  headers:
+    accessControlAllowMethods:
+      - GET
+      - OPTIONS
+      - HEAD
+      - PUT
+    accessControlMaxAge: 100
+    sslRedirect: true
+    # stsSeconds: 63072000
+    # stsIncludeSubdomains: false
+    # stsPreload: false
+    # forceSTSHeader: true
+    contentTypeNosniff: true
+    browserXssFilter: true
+    sslForceHost: true
+    referrerPolicy: same-origin
+    customResponseHeaders:
+      X-Robots-Tag: 'none'
+      server: ''
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: chain-basic
+  namespace: traefikmiddlewares
+spec:
+  chain:
+    middlewares:
+    - name: basic-ratelimit
+    - name: basic-secure-headers
+    - name: compress
