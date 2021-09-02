@@ -237,7 +237,7 @@ questions:
                   type: dict
                   attrs:
                     - variable: enabled
-                      label: "Enable Ingress"
+                      label: "Enable"
                       schema:
                         type: boolean
                         default: false
@@ -412,7 +412,7 @@ questions:
 
   - variable: serviceList
     label: "Additional Services"
-    group: "Storage and Persistence"
+    group: "Configure Service(s)"
     schema:
       type: list
       default: []
