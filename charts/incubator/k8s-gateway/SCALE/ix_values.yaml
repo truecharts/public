@@ -38,6 +38,51 @@ rbac:
     - list
     - watch
 
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 53
+
+probes:
+  liveness:
+    custom: true
+    spec:
+      httpGet:
+        path: /health
+        port: 8080
+        scheme: HTTP
+      initialDelaySeconds: 60
+      timeoutSeconds: 5
+      successThreshold: 1
+      failureThreshold: 5
+
+  readiness:
+    custom: true
+    spec:
+      httpGet:
+        path: /ready
+        port: 8181
+        scheme: HTTP
+      initialDelaySeconds: 10
+      timeoutSeconds: 5
+      successThreshold: 1
+      failureThreshold: 5
+
+
+  startup:
+    custom: true
+    spec:
+      httpGet:
+        path: /ready
+        port: 8181
+        scheme: HTTP
+      initialDelaySeconds: 10
+      timeoutSeconds: 5
+      successThreshold: 1
+      failureThreshold: 5
+
 ##
 # Most other defaults are set in questions.yaml
 # For other options please refer to the wiki, default_values.yaml or the common library chart

@@ -2,11 +2,11 @@
 Create the matchable regex from domain
 */}}
 {{- define "k8s-gateway.configmap.regex" -}}
-{{- if .Values.domain -}}
+{{- if .Values.domain }}
 {{- .Values.domain | replace "." "[.]" -}}
 {{- else -}}
     {{ "unset" }}
-{{- end -}}
+{{- end }}
 {{- end -}}
 
 {{/* Define the configmap */}}
@@ -16,7 +16,7 @@ Create the matchable regex from domain
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "common.names.fullname" . -}}-corefile
+  name: {{ include "common.names.fullname" . }}-corefile
   labels:
     {{- include "common.labels" . | nindent 4 }}
 data:
