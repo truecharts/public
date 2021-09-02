@@ -1,4 +1,4 @@
-{{- define "common.class.portal" -}}
+{{- define "common.configmap.portal" -}}
 
 {{- if .Values.portal }}
 {{- if .Values.portal.enabled }}
