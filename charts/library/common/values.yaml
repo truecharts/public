@@ -120,25 +120,21 @@ rbac:
 
 # -- Configure networkPolicy for the chart here.
 # @default -- See below
-networkpolicy:
+networkPolicy:
   # -- Enables or disables the networkPolicy
   enabled: false
 
-  # -- customizes the podSelector (defaults to the helm-chart selector-labels
+  # customizes the podSelector (defaults to the helm-chart selector-labels
   # podSelector:
 
   # -- add or remove Policy types
-  policyTypes:
-  - Egress
-  - Ingress
+  policyTypes: []
 
   # -- add or remove egress policies
-  egress:
-    - {}
+  egress: []
 
   # -- add or remove egress policies
-  ingress:
-    - {}
+  ingress: []
 
 # -- Use this to populate a secret with the values you specify.
 # Be aware that these values are not encrypted by default, and could therefore visible
