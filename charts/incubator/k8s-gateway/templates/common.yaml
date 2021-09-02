@@ -9,6 +9,7 @@
 {{- define "k8s-gateway.configvolume" -}}
 enabled: "true"
 mountPath: " /etc/coredns"
+readOnly: true
 type: "custom"
 volumeSpec:
   configMap:

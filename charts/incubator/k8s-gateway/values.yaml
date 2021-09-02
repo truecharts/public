@@ -5,6 +5,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.1.8
 
+args: [ "-conf", "/etc/coredns/Corefile" ]
+
 # -- Delegated domain
 domain: "example.com"
 
