@@ -24,7 +24,9 @@ Main entrypoint for the common library chart. It will render all underlying temp
     {{- end -}}
  {{- end -}}
 
-  {{ include "common.classes.hpa" . | nindent 0 }}
+  {{ include "common.rbac" . | nindent 0 }}
+
+  {{ include "common.hpa" . | nindent 0 }}
 
   {{ include "common.service" . | nindent 0 }}
 
@@ -33,9 +35,11 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{- if .Values.secret -}}
     {{ include "common.secret" .  | nindent 0 }}
   {{- end -}}
-  {{ include "common.class.portal" .  | nindent 0 }}
 
-  {{ include "common.class.mountPermissions" .  | nindent 0 }}
-  {{ include "common.classes.externalInterfaces" .  | nindent 0 }}
+  {{ include "common.configmap.portal" .  | nindent 0 }}
+
+  {{ include "common.job.mountPermissions" .  | nindent 0 }}
+
+  {{ include "common.networkpolicy" . | nindent 0 }}
 
 {{- end -}}

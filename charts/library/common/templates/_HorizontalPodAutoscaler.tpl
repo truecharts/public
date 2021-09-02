@@ -2,7 +2,7 @@
 This template serves as a blueprint for horizontal pod autoscaler objects that are created
 using the common library.
 */}}
-{{- define "common.classes.hpa" -}}
+{{- define "common.hpa" -}}
   {{- if .Values.autoscaling.enabled -}}
     {{- $hpaName := include "common.names.fullname" . -}}
     {{- $targetName := include "common.names.fullname" . }}

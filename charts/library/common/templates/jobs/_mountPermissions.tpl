@@ -2,7 +2,7 @@
 This template serves as the blueprint for the mountPermissions job that is run
 before chart installation.
 */}}
-{{- define "common.class.mountPermissions" -}}
+{{- define "common.job.mountPermissions" -}}
   {{- if .Values.persistence -}}
     {{- $jobName := include "common.names.fullname" . -}}
     {{- $group := 568 -}}

@@ -79,6 +79,8 @@ autoscaling:
   targetCPUUtilizationPercentage:  # 80
   targetMemoryUtilizationPercentage:  # 80
 
+# -- Create serviceaccount
+# @default -- See below
 serviceAccount:
   # -- Specifies whether a service account should be created
   create: false
@@ -89,6 +91,50 @@ serviceAccount:
   # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
+
+# -- Create a ClusterRole and ClusterRoleBinding
+# @default -- See below
+rbac:
+  # -- Enables or disables the ClusterRole and ClusterRoleBinding
+  enabled: false
+
+  # -- Set Annotations on the ClusterRole
+  clusterRoleLabels: {}
+
+  # -- Set labels on the ClusterRole
+  clusterRoleAnnotations: {}
+
+  # -- Set Annotations on the ClusterRoleBinding
+
+  clusterRoleBindingLabels: {}
+
+  # -- Set labels on the ClusterRoleBinding
+  clusterRoleBindingAnnotations: {}
+
+  # -- Set Rules on the ClusterRole
+  rules: {}
+
+  # -- Add subjects to the ClusterRoleBinding.
+  # includes the above created serviceaccount
+  subjects: {}
+
+# -- Configure networkPolicy for the chart here.
+# @default -- See below
+networkPolicy:
+  # -- Enables or disables the networkPolicy
+  enabled: false
+
+  # customizes the podSelector (defaults to the helm-chart selector-labels
+  # podSelector:
+
+  # -- add or remove Policy types
+  policyTypes: []
+
+  # -- add or remove egress policies
+  egress: []
+
+  # -- add or remove egress policies
+  ingress: []
 
 # -- Use this to populate a secret with the values you specify.
 # Be aware that these values are not encrypted by default, and could therefore visible
