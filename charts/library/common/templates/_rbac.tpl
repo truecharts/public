@@ -8,7 +8,7 @@ within the common library.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: {{ include "common.names.fullname" . -}}
+  name: {{ include "common.names.fullname" . }}
   labels:
     {{- include "common.labels" . | nindent 4 }}
     {{- with .Values.rbac.labels }}
@@ -21,12 +21,13 @@ metadata:
 {{- with .Values.rbac.rules }}
 rules:
   {{- . | toYaml | nindent 4 }}
-{{- end -}}
+{{- end}}
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: {{ include "common.names.fullname" . -}}
+  name: {{ include "common.names.fullname" . }}
   labels:
     {{- include "common.labels" . | nindent 4 }}
     {{- with .Values.rbac.labels }}
@@ -39,7 +40,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: {{ include "common.names.fullname" . -}}
+  name: {{ include "common.names.fullname" . }}
 subjects:
   {{- if .Values.serviceAccount }}
   - kind: ServiceAccount
