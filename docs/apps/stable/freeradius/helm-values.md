@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v3.0.23"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
+| persistence.config.mountPath | string | `"/etc/raddb"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
