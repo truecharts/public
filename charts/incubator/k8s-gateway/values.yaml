@@ -70,6 +70,7 @@ service:
     enabled: true
     ports:
       main:
+        protocol: UDP
         port: 53
 
 probes:
