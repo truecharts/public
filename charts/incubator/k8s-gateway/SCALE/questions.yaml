@@ -212,6 +212,7 @@ questions:
                   type: string
 
   - variable: domains
+    group: "App Configuration"
     label: "Domains"
     description: "Please refer to CoreDNS docs for options"
     schema:
@@ -230,7 +231,6 @@ questions:
                   required: true
                   default: "example.com"
               - variable: dnsChallenge
-                group: "App Configuration"
                 label: "Forward dnsChallenge"
                 description: "Optional configuration option for DNS01 challenge that will redirect all acme"
                 schema:
