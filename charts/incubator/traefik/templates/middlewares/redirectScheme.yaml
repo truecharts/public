@@ -1,5 +1,8 @@
-{{- $values := $values }}
-{{- $namespace := {{ if or ( not $values.ingressClass.enabled ) ( and ( $values.ingressClass.enabled ) ( $values.ingressClass.isDefaultClass ) ) }}traefikmiddlewares{{ else }}ix-{{ .Release.Name }}{{ end }} }}
+{{- $values := .Values }}
+{{- $namespace := "traefikmiddlewares" }}
+{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
+{{- $namespace = ( printf "ix-%s" .Release.Name ) }}
+{{- end }}
 {{ range $index, $middlewareData := .Values.middlewares.redirectScheme }}
 
 ---
