@@ -46,6 +46,7 @@ data:
           {{- if $values.watchedResources }}
           resources {{ join " " $values.watchedResources }}
           {{- end }}
+          fallthrough
         }
         {{- end }}
         prometheus 0.0.0.0:9153
