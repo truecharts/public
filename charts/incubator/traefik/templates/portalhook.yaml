@@ -18,6 +18,6 @@ data:
   {{- end }}
   {{- end }}
   {{- range $name, $value := $ports }}
-  {{ $name }}: {{ $value.port }}
+  {{ $name }}: {{ $value.port | quote }}
   {{- end }}
 {{- end }}
