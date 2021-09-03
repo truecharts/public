@@ -7,7 +7,7 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 ## Source Code
 
-* <https://github.com/ori-edge/k8s_gatewa>
+* <https://github.com/ori-edge/k8s_gateway>
 
 ## Requirements
 
