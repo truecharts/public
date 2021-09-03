@@ -88,7 +88,7 @@ You will, however, be able to use all values referenced in the common chart here
 | providers.kubernetesCRD.namespaces | list | `[]` |  |
 | providers.kubernetesIngress.enabled | bool | `true` |  |
 | providers.kubernetesIngress.namespaces | list | `[]` |  |
-| providers.kubernetesIngress.publishedService.enabled | bool | `false` |  |
+| providers.kubernetesIngress.publishedService.enabled | bool | `true` |  |
 | rbac.enabled | bool | `true` |  |
 | rbac.namespaced | bool | `false` |  |
 | resources | object | `{}` |  |

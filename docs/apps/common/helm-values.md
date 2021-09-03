@@ -57,6 +57,10 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | ingressList | list | [] | Configure ingressList for the chart here. Additional items can be added by adding a items similar to ingress |
 | initContainers | list | `[]` | Specify any initContainers here. Yaml will be passed in to the Pod as-is. |
 | lifecycle | object | `{}` | Configure the lifecycle for the main container |
+| networkPolicy | object | See below | Configure networkPolicy for the chart here. |
+| networkPolicy.egress | list | `[]` | add or remove egress policies |
+| networkPolicy.enabled | bool | `false` | Enables or disables the networkPolicy |
+| networkPolicy.ingress | list | `[]` | add or remove egress policies |
 | nodeSelector | object | `{}` |  |
 | persistence | object | See below | Configure persistence for the chart here. Additional items can be added by adding a dictionary key similar to the 'config' key. |
 | persistence.config | object | See below | Default persistence for configuration files. |
@@ -108,6 +112,14 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | probes.startup.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.startup.spec | object | See below | The spec field contains the values for the default startupProbe. If you selected `custom: true`, this field holds the definition of the startupProbe. |
 | probes.startup.type | string | "TCP" | sets the probe type when not using a custom probe |
+| rbac | object | See below | Create a ClusterRole and ClusterRoleBinding |
+| rbac.clusterRoleAnnotations | object | `{}` | Set labels on the ClusterRole |
+| rbac.clusterRoleBindingAnnotations | object | `{}` | Set labels on the ClusterRoleBinding |
+| rbac.clusterRoleBindingLabels | object | `{}` | Set Annotations on the ClusterRoleBinding |
+| rbac.clusterRoleLabels | object | `{}` | Set Annotations on the ClusterRole |
+| rbac.enabled | bool | `false` | Enables or disables the ClusterRole and ClusterRoleBinding |
+| rbac.rules | object | `{}` | Set Rules on the ClusterRole |
+| rbac.subjects | object | `{}` | Add subjects to the ClusterRoleBinding. includes the above created serviceaccount |
 | resources | object | `{}` | Set the resource requests / limits for the main container. |
 | schedulerName | string | `nil` | Allows specifying a custom scheduler name |
 | secret | object | `{}` | Use this to populate a secret with the values you specify. Be aware that these values are not encrypted by default, and could therefore visible to anybody with access to the values.yaml file. |
@@ -125,6 +137,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | service.main.portsList | list | See below | Configure additional Service port information here. |
 | service.main.primary | bool | `true` | Make this the primary service (used in probes, notes, etc...). If there is more than 1 service, make sure that only 1 service is marked as primary. |
 | service.main.type | string | `"ClusterIP"` | Set the service type |
+| serviceAccount | object | See below | Create serviceaccount |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `false` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
