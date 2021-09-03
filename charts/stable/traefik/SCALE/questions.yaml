@@ -780,6 +780,18 @@ questions:
                               default: 9443
                               editable: true
                               required: true
+                          - variable: tls
+                            label: "websecure Entrypoints Configuration"
+                            schema:
+                              type: dict
+                              hidden: true
+                              attrs:
+                                - variable: enabled
+                                  label: "Enable the port"
+                                  schema:
+                                    type: boolean
+                                    default: true
+                                    hidden: true
               - variable: portsList
                 label: "Additional TCP Entrypoints"
                 schema:
@@ -819,6 +831,16 @@ questions:
                             schema:
                               type: int
                               required: true
+                          - variable: tls
+                            label: "websecure Entrypoints Configuration"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: "Enable the port"
+                                  schema:
+                                    type: boolean
+                                    default: true
         - variable: udp
           label: "UDP Service"
           description: "The UDP service for entrypoints"
