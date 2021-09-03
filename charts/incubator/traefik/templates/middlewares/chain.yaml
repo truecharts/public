@@ -1,0 +1,16 @@
+{{ range $index, $middlewareData := .Values.middlewares.chain }}
+
+---
+# Declaring the user list
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $middlewareData.name }}
+  namespace: traefikmiddlewares
+spec:
+  chain:
+    middlewares:
+      {{ range $index, $chainData := .Values.middlewares.chainmiddlewares }}
+      - name: {{ printf "%v-%v@%v" "traefikmiddlewares" $chainData.name "kubernetescrd" }}
+      {{ end }}
+{{ end }}

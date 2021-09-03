@@ -1,0 +1,1142 @@
+groups:
+  - name: "Container Image"
+    description: "Image to be used for container"
+  - name: "Controller"
+    description: "Configure workload deployment"
+  - name: "Container Configuration"
+    description: "additional container configuration"
+  - name: "App Configuration"
+    description: "App specific config options"
+  - name: "Networking and Services"
+    description: "Configure Network and Services for container"
+  - name: "Storage and Persistence"
+    description: "Persist and share data that is separate from the container"
+  - name: "Ingress"
+    description: "Ingress Configuration"
+  - name: "Security and Permissions"
+    description: "Configure security context and permissions"
+  - name: "Resources and Devices"
+    description: "Specify resources/devices to be allocated to workload"
+  - name: "Middlewares"
+    description: "Traefik Middlewares"
+  - name: "Advanced"
+    description: "Advanced Configuration"
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+    path: "/dashboard/"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: type
+          description: "Please specify type of workload to deploy"
+          label: "(Advanced) Controller Type"
+          schema:
+            type: string
+            default: "daemonset"
+            enum:
+              - value: "deployment"
+                description: "Deployment"
+              - value: "statefulset"
+                description: "Statefulset"
+              - value: "daemonset"
+                description: "Daemonset"
+        - variable: replicas
+          description: "Number of desired pod replicas"
+          label: "Desired Replicas"
+          schema:
+            type: int
+            default: 1
+            required: true
+        - variable: strategy
+          description: "Please specify type of workload to deploy"
+          label: "(Advanced) Update Strategy"
+          schema:
+            type: string
+            default: "RollingUpdate"
+            required: true
+            enum:
+              - value: "Recreate"
+                description: "Recreate: Kill existing pods before creating new ones"
+              - value: "RollingUpdate"
+                description: "RollingUpdate: Create new pods and then kill old ones"
+              - value: "OnDelete"
+                description: "(Legacy) OnDelete: ignore .spec.template changes"
+        - variable: labelsList
+          label: "Controller Labels"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: labelItem
+                label: "Label"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                    - variable: value
+                      label: "Value"
+                      schema:
+                        type: string
+        - variable: annotationsList
+          label: " Controller Annotations"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: annotationItem
+                label: "Label"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                    - variable: value
+                      label: "Value"
+                      schema:
+                        type: string
+
+
+  - variable: podLabelsList
+    group: "Container Configuration"
+    label: "Pod Labels"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: podLabelItem
+          label: "Label"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
+
+  - variable: podAnnotationsList
+    group: "Container Configuration"
+    label: "Pod Annotations"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: podAnnotationItem
+          label: "Label"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
+
+  - variable: termination
+    group: "Container Configuration"
+    label: "Termination settings"
+    schema:
+      type: dict
+      attrs:
+        - variable: gracePeriodSeconds
+          label: "Grace Period Seconds"
+          schema:
+            type: int
+            default: 10
+
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+        - variable: TZ
+          label: "Timezone"
+          schema:
+            type: string
+            default: "Etc/UTC"
+            $ref:
+              - "definitions/timezone"
+        - variable: UMASK
+          label: "UMASK"
+          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: string
+            default: "002"
+  # Configure Enviroment Variables
+  - variable: envList
+    label: "Image environment"
+    group: "Container Configuration"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: envItem
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
+
+  - variable: pilot
+    label: "Traefik Pilot"
+    group: "App Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: token
+                label: "token"
+                schema:
+                  type: string
+                  default: ""
+              - variable: dashboard
+                label: "Pilot Dashboard"
+                schema:
+                  type: boolean
+                  default: false
+
+  - variable: ingressClass
+    label: "ingressClass"
+    group: "App Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: isDefaultClass
+                label: "isDefaultClass"
+                schema:
+                  type: boolean
+                  default: false
+
+  - variable: logs
+    label: "Logs"
+    group: "App Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: general
+          label: "General Logs"
+          schema:
+            type: dict
+            attrs:
+              - variable: level
+                label: "Log Level"
+                schema:
+                  type: string
+                  default: "Error"
+                  enum:
+                    - value: "INFO"
+                      description: "Info"
+                    - value: "WARN"
+                      description: "Warnings"
+                    - value: "ERROR"
+                      description: "Errors"
+                    - value: "FATAL"
+                      description: "Fatal Errors"
+                    - value: "PANIC"
+                      description: "Panics"
+                    - value: "DEBUG"
+                      description: "Debug"
+        - variable: access
+          label: "Access Logs"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: enabledFilters
+                      label: "Enable Filters"
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: filters
+                            label: "Filters"
+                            schema:
+                              type: dict
+                              attrs:
+                              - variable: statuscodes
+                                label: "Status codes"
+                                schema:
+                                  type: string
+                                  default: "200,300-302"
+                              - variable: retryattempts
+                                label: "retryattempts"
+                                schema:
+                                  type: boolean
+                                  default: true
+                              - variable: minduration
+                                label: "minduration"
+                                schema:
+                                  type: string
+                                  default: "10ms"
+              - variable: fields
+                label: "Fields"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: general
+                      label: "General"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: defaultmode
+                            label: "Default Mode"
+                            schema:
+                              type: string
+                              default: "keep"
+                              enum:
+                                - value: "keep"
+                                  description: "Keep"
+                                - value: "drop"
+                                  description: "Drop"
+                    - variable: headers
+                      label: "Headers"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: defaultmode
+                            label: "Default Mode"
+                            schema:
+                              type: string
+                              default: "drop"
+                              enum:
+                                - value: "keep"
+                                  description: "Keep"
+                                - value: "drop"
+                                  description: "Drop"
+
+  - variable: middlewares
+    label: ""
+    group: "Middlewares"
+    schema:
+      type: dict
+      attrs:
+        - variable: basicAuth
+          label: "basicAuth"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: basicAuthEntry
+                label: ""
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: users
+                      label: "Users"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: usersEntry
+                            label: ""
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: username
+                                  label: "Username"
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: password
+                                  label: "Password"
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+
+
+        - variable: forwardAuth
+          label: "forwardAuth"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: basicAuthEntry
+                label: ""
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: address
+                      label: "Address"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: trustForwardHeader
+                      label: "trustForwardHeader"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: authResponseHeadersRegex
+                      label: "authResponseHeadersRegex"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: authResponseHeaders
+                      label: "authResponseHeaders"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: authResponseHeadersEntry
+                            label: ""
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: authRequestHeaders
+                      label: "authRequestHeaders"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: authRequestHeadersEntry
+                            label: ""
+                            schema:
+                              type: string
+                              default: ""
+        - variable: chain
+          label: "chain"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: chainEntry
+                label: ""
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
+                    - variable: middlewares
+                      label: "Middlewares to Chain"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+
+        - variable: redirectScheme
+          label: "redirectScheme"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: redirectSchemeEntry
+                label: ""
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
+                    - variable: scheme
+                      label: "Scheme"
+                      schema:
+                        type: string
+                        required: true
+                        default: "https"
+                        enum:
+                          - value: "https"
+                            description: "https"
+                          - value: "http"
+                            description: "http"
+                    - variable: permanent
+                      label: "Permanent"
+                      schema:
+                        type: boolean
+                        required: true
+                        default: false
+
+        - variable: rateLimit
+          label: "rateLimit"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: rateLimitEntry
+                label: ""
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                        required: true
+                    - variable: average
+                      label: "Average"
+                      schema:
+                        type: int
+                        required: true
+                        default: 300
+                    - variable: burst
+                      label: "Burst"
+                      schema:
+                        type: int
+                        required: true
+                        default: 200
+
+  - variable: hostNetwork
+    group: "Networking and Services"
+    label: "Enable Host Networking"
+    schema:
+      type: boolean
+      default: false
+
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service Entrypoint"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "NodePort"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Entrypoints Configurations"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: main
+                      label: "Main Entrypoint Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: protocol
+                            label: "Port Type"
+                            schema:
+                              type: string
+                              default: "HTTP"
+                              enum:
+                                - value: HTTP
+                                  description: "HTTP"
+                                - value: "HTTPS"
+                                  description: "HTTPS"
+                                - value: TCP
+                                  description: "TCP"
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9000
+                              editable: false
+                              hidden: true
+                          - variable: port
+                            label: "Entrypoints Port"
+                            schema:
+                              type: int
+                              default: 9000
+                              editable: true
+                              required: true
+                          - variable: nodePort
+                            label: "Node Port (Optional)"
+                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
+                            schema:
+                              type: int
+                              min: 9000
+                              max: 65535
+                              default: 9000
+        - variable: tcp
+          label: "Main Service"
+          description: "The tcp Entrypoint service"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "LoadBalancer"
+                  enum:
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Entrypoints Configurations"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: web
+                      label: "web Entrypoint Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: protocol
+                            label: "Port Type"
+                            schema:
+                              type: string
+                              default: "HTTP"
+                              enum:
+                                - value: HTTP
+                                  description: "HTTP"
+                                - value: "HTTPS"
+                                  description: "HTTPS"
+                                - value: TCP
+                                  description: "TCP"
+                          - variable: port
+                            label: "Entrypoints Port"
+                            schema:
+                              type: int
+                              default: 9080
+                              editable: true
+                              required: true
+                    - variable: websecure
+                      label: "websecure Entrypoints Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: protocol
+                            label: "Port Type"
+                            schema:
+                              type: string
+                              default: "HTTPS"
+                              enum:
+                                - value: HTTP
+                                  description: "HTTP"
+                                - value: "HTTPS"
+                                  description: "HTTPS"
+                                - value: TCP
+                                  description: "TCP"
+                          - variable: port
+                            label: "Entrypoints Port"
+                            schema:
+                              type: int
+                              default: 9443
+                              editable: true
+                              required: true
+              - variable: portsList
+                label: "Additional TCP Entrypoints"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: portsListEntry
+                      label: "Custom Entrypoints"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: name
+                            label: "Entrypoints Name"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: protocol
+                            label: "Entrypoints Type"
+                            schema:
+                              type: string
+                              default: "TCP"
+                              enum:
+                                - value: HTTP
+                                  description: "HTTP"
+                                - value: "HTTPS"
+                                  description: "HTTPS"
+                                - value: TCP
+                                  description: "TCP"
+                          - variable: port
+                            label: "Container Port"
+                            schema:
+                              type: int
+                              required: true
+        - variable: udp
+          label: "UDP Service"
+          description: "The UDP service for entrypoints"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "LoadBalancer"
+                  enum:
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: portsList
+                label: "Additional TCP Entrypoints"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: portsListEntry
+                      label: "Custom Entrypoints"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: name
+                            label: "Entrypoints Name"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: protocol
+                            label: "Entrypoints Type"
+                            schema:
+                              type: string
+                              default: "UDP"
+                              enum:
+                                - value: UDP
+                                  description: "UDP"
+                          - variable: port
+                            label: "Container Port"
+                            schema:
+                              type: int
+                              required: true
+        - variable: metrics
+          label: "metrics Service"
+          description: "The metrics Entrypoint service"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "NodePort"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Entrypoints Configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: metrics
+                      label: "metrics Entrypoints Configurations"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: protocol
+                            label: "Port Type"
+                            schema:
+                              type: string
+                              default: "HTTP"
+                              enum:
+                                - value: HTTP
+                                  description: "HTTP"
+                                - value: "HTTPS"
+                                  description: "HTTPS"
+                                - value: TCP
+                                  description: "TCP"
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9100
+                              editable: false
+                              hidden: true
+                          - variable: port
+                            label: "Container Port"
+                            schema:
+                              type: int
+                              default: 9100
+                              editable: true
+                              required: true
+                          - variable: nodePort
+                            label: "Node Port (Optional)"
+                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
+                            schema:
+                              type: int
+                              min: 9000
+                              max: 65535
+                              default: 9100
+
+  - variable: securityContext
+    group: "Security and Permissions"
+    label: "Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: privileged
+          label: "Privileged mode"
+          schema:
+            type: boolean
+            default: false
+        - variable: readOnlyRootFilesystem
+          label: "ReadOnly Root Filesystem"
+          schema:
+            type: boolean
+            default: true
+        - variable: allowPrivilegeEscalation
+          label: "Allow Privilege Escalation"
+          schema:
+            type: boolean
+            default: false
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: runAsNonRoot
+          label: "runAsNonRoot"
+          schema:
+            type: boolean
+            default: true
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+        - variable: supplementalGroups
+          label: "supplemental Groups"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: supplementalGroupsEntry
+                label: "supplemental Group"
+                schema:
+                  type: int
+        - variable: fsGroupChangePolicy
+          label: "When should we take ownership?"
+          schema:
+            type: string
+            default: "OnRootMismatch"
+            enum:
+              - value: "OnRootMismatch"
+                description: "OnRootMismatch"
+              - value: "Always"
+                description: "Always"
+
+
+  - variable: resources
+    group: "Resources and Devices"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: limits
+          label: "Advanced Limit Resource Consumption"
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: "CPU"
+                schema:
+                  type: string
+                  default: "2000m"
+              - variable: memory
+                label: "Memory RAM"
+                schema:
+                  type: string
+                  default: "2Gi"
+        - variable: requests
+          label: "Advanced Request minimum resources required"
+          schema:
+            type: dict
+            attrs:
+              - variable: cpu
+                label: "CPU"
+                schema:
+                  type: string
+                  default: "10m"
+              - variable: memory
+                label: "Memory RAM"
+                schema:
+                  type: string
+                  default: "50Mi"
+
+  - variable: autoscaling
+    group: "Resources and Devices"
+    label: "Horizontal Pod Autoscaler"
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "enabled"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: target
+                label: "Target"
+                description: "deployment name, defaults to main deployment"
+                schema:
+                  type: string
+                  default: ""
+              - variable: minReplicas
+                label: "Minimum Replicas"
+                schema:
+                  type: int
+                  default: 1
+              - variable: maxReplicas
+                label: "Maximum Replicas"
+                schema:
+                  type: int
+                  default: 5
+              - variable: targetCPUUtilizationPercentage
+                label: "Target CPU Utilization Percentage"
+                schema:
+                  type: int
+                  default: 80
+              - variable: targetMemoryUtilizationPercentage
+                label: "Target Memory Utilization Percentage"
+                schema:
+                  type: int
+                  default: 80
