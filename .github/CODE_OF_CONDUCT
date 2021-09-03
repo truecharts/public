@@ -2,37 +2,40 @@
 
 ## Our Pledge
 
-In the interest of fostering an open and welcoming environment, we as
+In the interest of fostering a open and productive environment, we as
 contributors and maintainers pledge to making participation in our project and
 our community a harassment-free experience for everyone, regardless of age, body
 size, disability, ethnicity, sex characteristics, gender, level of experience,
 education, socio-economic status, nationality, personal appearance, race,
 religion, or sexual identity and orientation.
 
-## Our Standards
+## Our Rules
 
-Examples of behavior that contributes to creating a positive environment
-include:
+We are a dedicated bunch of people, working on Community Apps for TrueNAS SCALE.
 
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
+1. Keep the chat somewhat friendly - You can be an jerk, just don't go on a rampage.
+2. Keep things on-topic and arguments to designated channels - Check channel descriptions and pins for channel-specific rules
+3. No trolling - This includes feigning idiocy and “shitposting”. Keeping chat light-hearted and fun is one thing. However, moronic behavior, false information and shitposting will not be tolerated.
+4. No spamming - No link, text, or ASCII spam; no giant walls of text/links; and no all CAPS posts.
+5. No NSFW/NSFL content outside of designated channels- This includes your avatar.
+6. Use appropriate usernames - No blank names, no long names, no URLs, no emojis and no character breaking names.
+7. No begging - This includes soft begging.
+8. No advertising - No referral links. No buying/selling/trading.
+9. Comply to the platform ToS and Community Guidelines
+10. If you ask for support, please always add as much information as you can - Screenshots, Logs etc. are needed to help you!
+11. We expect some basic research first. Specifically: try to find related information in our Announcements, our Docs, the TrueNAS forum and/or TrueNAS Docs.
+12. Keep personal feedback private. Got issues with someone? Send them a private message instead!
+13. Encounter an App not working as expected? You can directly file a bug on our Github, no need to verify with anyone!
 
-Examples of unacceptable behavior by participants include:
-
-* The use of sexual imagery and unwelcome sexual advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
- address, without explicit permission
+If you see something against the rules or something that makes you feel unsafe, let the Moderators know or us the contact information under `Enforcement`.
 
 ## Our Responsibilities
 
-Project maintainers are responsible for clarifying the standards of acceptable
+Project maintainers and moderators are responsible for clarifying the standards of acceptable
 behavior and are expected to take appropriate and fair corrective action in
 response to any instances of unacceptable behavior.
 
-Project maintainers have the right and responsibility to remove, edit, or
+Project maintainers and moderators have the right and responsibility to remove, edit, or
 reject comments, commits, code, wiki edits, issues, and other contributions
 that are not aligned to this Code of Conduct, or to ban temporarily or
 permanently any contributor for other behaviors that they deem inappropriate,
@@ -50,22 +53,13 @@ further defined and clarified by project maintainers.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at truecharts@schouten-lebbing.nl. All
+reported by contacting the project team at moderation@truecharts.org. All
 complaints will be reviewed and investigated and will result in a response that
 is deemed necessary and appropriate to the circumstances. The project team is
 obligated to maintain confidentiality with regard to the reporter of an incident.
 Further details of specific enforcement policies may be posted separately.
 
-Project maintainers who do not follow or enforce the Code of Conduct in good
-faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
+## Appeal
 
-## Attribution
-
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
-
-[homepage]: https://www.contributor-covenant.org
-
-For answers to common questions about this code of conduct, see
-https://www.contributor-covenant.org/faq
+Everyone has the right to appeal a Ban decision. Appeals can be submitted by contacting the project team at appeals@truecharts.org
+Appeals will always be processed by a maintainer or moderator that was not involved in the original decision or, in case all moderators where involved, by a majority decision of staff.
