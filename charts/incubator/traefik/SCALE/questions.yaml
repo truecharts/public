@@ -24,7 +24,7 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "$kubernetes-resource_configmap_portal_protocol"
+      - "http"
     host:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
