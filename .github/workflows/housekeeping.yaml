@@ -36,7 +36,7 @@ jobs:
       - name: Containers - Fetch new application versions
         run: |
           find ./containers/apps -maxdepth 1 -mindepth 1 -type d -exec basename {} \; | while read app; do
-            if test -f "./containers/apps/${app}/latest-version.sh"; then
+              if test -f "./containers/apps/${app}/latest-version.sh"; then
               version=$(bash "./containers/apps/${app}/latest-version.sh")
               if [[ ! -z "${version}" || "${version}" != "null" ]]; then
                 echo "${version}" | tee "./containers/apps/${app}/VERSION" > /dev/null
@@ -136,13 +136,13 @@ jobs:
             echo "changed apps: ${APPS[*]}"
             for chart in ${APPS[*]}
             do
-              if [[ "${chart}" == '.gitkee' ]]; then
+              if test -f "./charts/incubator/${chart}/Chart.yaml"; then
+                train="incubator"
+              elif [[ "${chart}" == '.gitkee' ]]; then
                 echo "Skipping..."
                 return
               elif test -f "./charts/stable/${chart}/Chart.yaml"; then
                 train="stable"
-              elif test -f "./charts/incubator/${chart}/Chart.yaml"; then
-                train="incubator"
               elif test -f "./charts/library/${chart}/Chart.yaml"; then
                 train="library"
               else
