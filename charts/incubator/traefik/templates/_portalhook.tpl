@@ -1,3 +1,5 @@
+{{/* Define the portalHook */}}
+{{- define "traefik.portalhook" -}}
 {{- if .Values.portalhook.enabled }}
 {{- $namespace := ( printf "ix-%s" .Release.Name ) }}
 {{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
@@ -22,3 +24,4 @@ data:
   {{ $name }}: {{ $value.port | quote }}
   {{- end }}
 {{- end }}
+{{- end -}}

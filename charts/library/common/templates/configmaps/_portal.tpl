@@ -10,13 +10,10 @@
 {{- $protocol := "https" }}
 {{- $path := "/" }}
 {{- $ingressport := 443 }}
-{{- $test := "" }}
 
 {{- if $ingr }}
   {{- if $ingr.enabled }}
-    {{- $test = "blabla" }}
     {{- range $ingr.hosts }}
-
       {{- if .hostTpl }}
         {{ $host = ( tpl .hostTpl $ ) }}
       {{- else if .host }}
@@ -88,7 +85,6 @@ metadata:
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
 data:
-  test: {{ $test | quote }}
   protocol: {{ $protocol }}
   host: {{ $host | quote }}
   port: {{ $port | quote }}
