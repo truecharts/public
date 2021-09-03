@@ -98,10 +98,10 @@ jobs:
         if: ${{ matrix.app != '.gitkee' }}
         id: prep-lint
         run: |
-            if test -f "./charts/stable/${{ matrix.app }}/Chart.yaml"; then
-              train="stable"
-            elif test -f "./charts/incubator/${{ matrix.app }}/Chart.yaml"; then
+            if test -f "./charts/incubator/${{ matrix.app }}/Chart.yaml"; then
               train="incubator"
+            else if test -f "./charts/stable/${{ matrix.app }}/Chart.yaml"; then
+              train="stable"
             elif test -f "./charts/library/${{ matrix.app }}/Chart.yaml"; then
               train="library"
             else
