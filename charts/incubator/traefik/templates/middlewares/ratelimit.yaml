@@ -1,7 +1,7 @@
 {{- $values := .Values }}
-{{- $namespace := "traefikmiddlewares" }}
+{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
 {{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
-{{- $namespace = ( printf "ix-%s" .Release.Name ) }}
+{{- $namespace = "traefikmiddlewares" }}
 {{- end }}
 {{ range $index, $middlewareData := .Values.middlewares.rateLimit }}
 
