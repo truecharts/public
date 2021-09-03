@@ -6,7 +6,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: {{ $middlewareData.name }}
-  namespace: traefikmiddlewares
+  namespace: {{ if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}traefikmiddlewares{{ else }}ix-{{ .Release.Name }}{{ end }}
 spec:
   chain:
     middlewares:

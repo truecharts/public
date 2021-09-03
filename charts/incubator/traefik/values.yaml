@@ -117,6 +117,7 @@ additionalArguments:
   - "--metrics.prometheus"
   - "--ping"
   - "--serverstransport.insecureskipverify=true"
+  - "--providers.kubernetesingress.allowexternalnameservices=true"
 
 
 # -- TLS Options to be created as TLSOption CRDs

@@ -58,7 +58,7 @@ additionalArguments:
   - "--metrics.prometheus"
   - "--ping"
   - "--serverstransport.insecureskipverify=true"
-
+  - "--providers.kubernetesingress.allowexternalnameservices=true"
 
 # TLS Options are created as TLSOption CRDs
 # https://doc.traefik.io/traefik/https/tls/#tls-options
