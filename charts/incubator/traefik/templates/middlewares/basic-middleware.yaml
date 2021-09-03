@@ -1,9 +1,11 @@
+{{- $values := $values }}
+{{- $namespace := {{ if or ( not $values.ingressClass.enabled ) ( and ( $values.ingressClass.enabled ) ( $values.ingressClass.isDefaultClass ) ) }}traefikmiddlewares{{ else }}ix-{{ .Release.Name }}{{ end }} }}
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: compress
-  namespace: {{ if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}traefikmiddlewares{{ else }}ix-{{ .Release.Name }}{{ end }}
+  namespace: {{ $namespace }}
 spec:
   compress: {}
 ---
@@ -13,7 +15,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: basic-ratelimit
-  namespace: {{ if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}traefikmiddlewares{{ else }}ix-{{ .Release.Name }}{{ end }}
+  namespace: {{ $namespace }}
 spec:
   rateLimit:
     average: 300
@@ -23,7 +25,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: basic-secure-headers
-  namespace: {{ if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}traefikmiddlewares{{ else }}ix-{{ .Release.Name }}{{ end }}
+  namespace: {{ $namespace }}
 spec:
   headers:
     accessControlAllowMethods:
@@ -49,7 +51,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: chain-basic
-  namespace: {{ if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}traefikmiddlewares{{ else }}ix-{{ .Release.Name }}{{ end }}
+  namespace: {{ $namespace }}
 spec:
   chain:
     middlewares:

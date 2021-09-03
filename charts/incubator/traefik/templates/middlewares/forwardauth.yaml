@@ -1,10 +1,12 @@
+{{- $values := $values }}
+{{- $namespace := {{ if or ( not $values.ingressClass.enabled ) ( and ( $values.ingressClass.enabled ) ( $values.ingressClass.isDefaultClass ) ) }}traefikmiddlewares{{ else }}ix-{{ .Release.Name }}{{ end }} }}
 {{ range $index, $middlewareData := .Values.middlewares.forwardAuth }}
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: {{ $middlewareData.name }}
-  namespace: {{ if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}traefikmiddlewares{{ else }}ix-{{ .Release.Name }}{{ end }}
+  namespace: {{ $namespace }}
 spec:
   forwardAuth:
     address: {{ $middlewareData.address }}
