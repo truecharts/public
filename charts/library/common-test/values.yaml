@@ -2,3 +2,47 @@ image:
   repository: b4bz/homer
   tag: latest
   pullPolicy: IfNotPresent
+
+portal:
+  enabled: true
+
+service:
+  main:
+    enabled: true
+    type: LoadBalancer
+    ports:
+      main:
+        enabled: true
+        port: 9000
+        protocol: HTTP
+        nodePort: 9001
+
+ingress:
+  main:
+      # -- Enables or disables the ingress
+    enabled: false
+
+
+    ## Configure the hosts for the ingress
+    hosts:
+      -  # -- Host address. Helm template can be passed.
+        host: chart-example.local
+        ## Configure the paths for the host
+        paths:
+          -  # -- Path.  Helm template can be passed.
+            path: /
+            # -- Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
+            service:
+              # -- Overrides the service name reference for this path
+              name:
+              # -- Overrides the service port reference for this path
+              port:
+
+    # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
+    #tls: []
+    #  - secretName: chart-example-tls
+    # -- Create a secret from a GUI selected TrueNAS SCALE certificate
+    #    scaleCert: true
+    #    hosts:
+    #      - chart-example.local
