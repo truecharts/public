@@ -8,13 +8,15 @@
 {{- $host := "$node_ip" }}
 {{- $port := 443 }}
 {{- $protocol := "https" }}
-{{- $portProtocol := "" }}
 {{- $path := "/" }}
 {{- $ingressport := 443 }}
+{{- $test := "" }}
 
 {{- if $ingr }}
   {{- if $ingr.enabled }}
+    {{- $test = "blabla" }}
     {{- range $ingr.hosts }}
+
       {{- if .hostTpl }}
         {{ $host = ( tpl .hostTpl $ ) }}
       {{- else if .host }}
@@ -29,33 +31,43 @@
   {{- end }}
 {{- end }}
 
-{{- $traefikportalhook := lookup "v1" "ConfigMap" "traefikmiddlewares" "portalhook" }}
+{{- $namespace := "traefikmiddlewares" }}
+
+{{- if $ingr.ingressClassName }}
+{{- $namespace := ( printf "ix-%s" $ingr.ingressClassName ) }}
+{{- end }}
+{{- $traefikportalhook := lookup "v1" "ConfigMap" $namespace "portalhook" }}
+
+{{- $entrypoint := "websecure" }}
+{{- if $ingr.entrypoint }}
+  {{- $entrypoint = $ingr.entrypoint }}
+{{- end }}
+
 {{- if .Values.portal.ingressPort  }}
   {{- $ingressport = .Values.portal.ingressPort }}
 {{- else if $traefikportalhook }}
-  {{- if $traefikportalhook.data.websecureport }}
-    {{- $ingressport = ( index $traefikportalhook.data "websecureport" ) }}
+  {{- if ( index $traefikportalhook.data $entrypoint ) }}
+    {{- $ingressport = ( index $traefikportalhook.data $entrypoint ) }}
   {{- end }}
 {{- end }}
 
-{{- if ne $host "$node_ip" }}
-  {{- $port = $ingressport }}
-{{- else  if eq $host "$node_ip" }}
+{{- if eq $host "$node_ip" }}
   {{- if eq $primaryService.type "NodePort" }}
     {{- $port = $primaryPort.nodePort }}
-    {{- if or ( eq $primaryPort.protocol "HTTP" ) ( eq $primaryPort.protocol "HTTPS" ) }}
-      {{- $portProtocol = $primaryPort.protocol }}
-    {{- end }}
   {{- end }}
-{{- end }}
-
-{{- if and ( $portProtocol ) ( eq $host "$node_ip" ) }}
-  {{- $protocol = $portProtocol }}
-{{- else if and ( ne $host "$node_ip" ) }}
+  {{- if eq $primaryService.type "LoadBalancer" }}
+    {{- $port = $primaryPort.port }}
+  {{- end }}
+    {{- if eq $primaryPort.protocol "HTTP" }}
+      {{- $protocol = "http" }}
+    {{- end }}
+{{- else }}
+  {{- $port = $ingressport }}
   {{- if $ingr.tls }}
     {{- $protocol = "https" }}
   {{- end }}
 {{- end }}
+
 
 {{- if and ( .Values.portal.host ) ( eq $host "$node_ip" ) }}
   {{- $host = .Values.portal.host }}
@@ -76,6 +88,7 @@ metadata:
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
 data:
+  test: {{ $test | quote }}
   protocol: {{ $protocol }}
   host: {{ $host | quote }}
   port: {{ $port | quote }}
