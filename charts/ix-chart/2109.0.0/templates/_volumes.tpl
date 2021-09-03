@@ -2,7 +2,7 @@
 Volumes Configuration
 */}}
 {{- define "volumeConfiguration" }}
-{{- if or .Values.ixVolumes .Values.hostPathVolumes }}
+{{- if or .Values.ixVolumes .Values.hostPathVolumes .Values.emptyDirVolumes }}
 volumes:
 {{- range $index, $hostPathConfiguration := .Values.hostPathVolumes }}
   - name: ix-host-path-{{ $.Release.Name }}-{{ $index }}
@@ -15,6 +15,11 @@ volumes:
     hostPath:
       path: {{ $hostPathConfiguration.hostPath }}
 {{- end }}
+{{- range $index, $emptyDirConfiguration := .Values.emptyDirVolumes }}
+  - name: ix-emptydir-volume-{{ $.Release.Name }}-{{ $index }}
+    emptyDir:
+      medium: Memory
+{{- end }}
 {{- end }}
 {{- end }}
 
@@ -23,7 +28,7 @@ volumes:
 Volume Mounts Configuration
 */}}
 {{- define "volumeMountsConfiguration" }}
-{{- if or .Values.hostPathVolumes .Values.ixVolumes }}
+{{- if or .Values.hostPathVolumes .Values.ixVolumes .Values.emptyDirVolumes }}
 volumeMounts:
   {{- range $index, $hostPathConfiguration := .Values.hostPathVolumes }}
   - mountPath: {{ $hostPathConfiguration.mountPath }}
@@ -33,6 +38,10 @@ volumeMounts:
   {{- range $index, $hostPathConfiguration := .Values.volumes }}
   - mountPath: {{ $hostPathConfiguration.mountPath }}
     name: ix-host-volume-{{ $.Release.Name }}-{{ $hostPathConfiguration.datasetName }}
+  {{- end }}
+  {{- range $index, $emptyDirConfiguration := .Values.emptyDirVolumes }}
+  - mountPath: {{ $emptyDirConfiguration.mountPath }}
+    name: ix-emptydir-volume-{{ $.Release.Name }}-{{ $index }}
   {{- end }}
 {{- end }}
 {{- end }}
