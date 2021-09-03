@@ -9,7 +9,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: portalhook
-  namespace: $namespace
+  namespace: {{ $namespace }}
 data:
   {{- $ports := dict }}
   {{- range $.Values.service }}
