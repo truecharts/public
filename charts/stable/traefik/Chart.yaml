@@ -3,9 +3,9 @@ appVersion: '2.4'
 dependencies:
 - name: common
   repository: https://truecharts.org/
-  version: 6.12.4
+  version: 6.13.6
 deprecated: false
-description: A Traefik based Reverse Proxy and Certificate Manager
+description: Test App for Traefik
 home: https://github.com/truecharts/apps/tree/master/charts/stable/traefik
 icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets/img/traefik.logo.png
 keywords:
@@ -16,14 +16,10 @@ maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: truecharts.org
-- email: kjeld@schouten-lebbing.nl
-  name: Ornias1993
-  url: truecharts.org
 name: traefik
 sources:
 - https://github.com/traefik/traefik
 - https://github.com/traefik/traefik-helm-chart
 - https://traefik.io/
 type: application
-upstream_version: v9.19.2
-version: 6.13.19
+version: 7.0.0
