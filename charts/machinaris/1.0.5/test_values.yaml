@@ -1,0 +1,14 @@
+appVolumeMounts:
+  config:
+    emptyDir: true
+    mountPath: /data
+  plots:
+    emptyDir: true
+    mountPath: /plots
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/guydavis/machinaris
+  tag: v0.5.4
+machinaris_ui_port: 31003
+timezone: America/Edmonton
+updateStrategy: Recreate

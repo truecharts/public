@@ -1,0 +1,22 @@
+apiVersion: v2
+appVersion: 22.1.1
+dependencies:
+- name: common
+  repository: file://../../../library/common/2105.0.0
+  version: 2105.0.0
+description: A file sharing server that puts the control and security of your own
+  data back into your hands.
+home: https://nextcloud.com/
+icon: https://cdn.rawgit.com/docker-library/docs/defa5ffc7123177acd60ddef6e16bddf694cc35f/nextcloud/logo.svg
+keywords:
+- nextcloud
+- storage
+- http
+- web
+- php
+name: nextcloud
+sources:
+- https://github.com/nextcloud/docker
+- https://github.com/nextcloud/helm
+upstream_version: 2.3.2
+version: 1.3.4

@@ -1,0 +1,13 @@
+appVolumeMounts:
+  data:
+    emptyDir: true
+    mountPath: /data
+  staging:
+    emptyDir: true
+    mountPath: /plots
+farmr_env: 'off'
+image:
+  pullPolicy: IfNotPresent
+  repository: ixsystems/chia-docker
+  tag: v1.2.5
+updateStrategy: Recreate

@@ -1,0 +1,35 @@
+appVolumeMounts:
+  nextcloud-data:
+    emptyDir: true
+    mountPath: /var/www
+dnsConfig:
+  options: []
+emptyDirVolumes: true
+environmentVariables: []
+image:
+  pullPolicy: IfNotPresent
+  repository: nextcloud
+  tag: 22.1.1
+ixChartContext: {}
+nextcloud:
+  datadir: /var/www/html/data
+  host: nextcloud.kube.home
+  password: changeme
+  username: admin
+postgresAppVolumeMounts:
+  postgres-backup:
+    emptyDir: true
+    mountPath: /postgres_backups
+  postgres-data:
+    emptyDir: true
+    mountPath: /var/lib/postgresql/data
+postgresql:
+  backupVolume:
+    datasetName: ix-postgres_backups
+    mountPath: /postgres_backups
+  dataVolume:
+    datasetName: ix-postgres_data
+    mountPath: /var/lib/postgresql/data
+service:
+  nodePort: 31000
+updateStrategy: Recreate
