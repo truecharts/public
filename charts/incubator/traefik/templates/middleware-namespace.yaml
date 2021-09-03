@@ -4,7 +4,4 @@ kind: Namespace
 metadata:
   name: traefikmiddlewares
   namespace: traefikmiddlewares
-  annotations:
-    "helm.sh/hook": pre-install
-    "helm.sh/hook-delete-policy": before-hook-creation,hook-failed
 {{- end }}

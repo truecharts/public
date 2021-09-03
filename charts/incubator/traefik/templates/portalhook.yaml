@@ -17,6 +17,7 @@ data:
   {{- $_ := set $ports $name $value }}
   {{- end }}
   {{- end }}
+  websecureport: {{ $ports.websecure.exposedPort | quote }}
   {{- range $name, $value := $ports }}
   {{ $name }}: {{ $value.port | quote }}
   {{- end }}
