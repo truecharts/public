@@ -1,6 +1,6 @@
 {{/* Define the ingressClass */}}
 {{- define "traefik.ingressClass" -}}
-{{- if and .Values.ingressClass.enabled }}
+{{- if .Values.ingressClass.enabled }}
 ---
 kind: IngressClass
 metadata:

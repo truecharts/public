@@ -57,7 +57,7 @@ questions:
           label: "(Advanced) Controller Type"
           schema:
             type: string
-            default: "daemonset"
+            default: "deployment"
             enum:
               - value: "deployment"
                 description: "Deployment"
@@ -280,7 +280,7 @@ questions:
                 label: "Log Level"
                 schema:
                   type: string
-                  default: "Error"
+                  default: "ERROR"
                   enum:
                     - value: "INFO"
                       description: "Info"
@@ -333,41 +333,41 @@ questions:
                                 schema:
                                   type: string
                                   default: "10ms"
-              - variable: fields
-                label: "Fields"
-                schema:
-                  type: dict
-                  attrs:
-                    - variable: general
-                      label: "General"
+                    - variable: fields
+                      label: "Fields"
                       schema:
                         type: dict
                         attrs:
-                          - variable: defaultmode
-                            label: "Default Mode"
+                          - variable: general
+                            label: "General"
                             schema:
-                              type: string
-                              default: "keep"
-                              enum:
-                                - value: "keep"
-                                  description: "Keep"
-                                - value: "drop"
-                                  description: "Drop"
-                    - variable: headers
-                      label: "Headers"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: defaultmode
-                            label: "Default Mode"
+                              type: dict
+                              attrs:
+                                - variable: defaultmode
+                                  label: "Default Mode"
+                                  schema:
+                                    type: string
+                                    default: "keep"
+                                    enum:
+                                      - value: "keep"
+                                        description: "Keep"
+                                      - value: "drop"
+                                        description: "Drop"
+                          - variable: headers
+                            label: "Headers"
                             schema:
-                              type: string
-                              default: "drop"
-                              enum:
-                                - value: "keep"
-                                  description: "Keep"
-                                - value: "drop"
-                                  description: "Drop"
+                              type: dict
+                              attrs:
+                                - variable: defaultmode
+                                  label: "Default Mode"
+                                  schema:
+                                    type: string
+                                    default: "drop"
+                                    enum:
+                                      - value: "keep"
+                                        description: "Keep"
+                                      - value: "drop"
+                                        description: "Drop"
 
   - variable: middlewares
     label: ""
@@ -830,71 +830,73 @@ questions:
                 schema:
                   type: boolean
                   default: false
-              - variable: type
-                label: "Service Type"
-                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
-                schema:
-                  type: string
-                  default: "LoadBalancer"
-                  enum:
-                    - value: "ClusterIP"
-                      description: "ClusterIP"
-                    - value: "LoadBalancer"
-                      description: "LoadBalancer"
-              - variable: loadBalancerIP
-                label: "LoadBalancer IP"
-                description: "LoadBalancerIP"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: string
-                  default: ""
-              - variable: externalIPs
-                label: "External IP's"
-                description: "External IP's"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: list
-                  default: []
-                  items:
-                    - variable: externalIP
-                      label: "External IP"
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: type
+                      label: "Service Type"
+                      description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
                       schema:
                         type: string
-              - variable: portsList
-                label: "Additional TCP Entrypoints"
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: portsListEntry
-                      label: "Custom Entrypoints"
+                        default: "LoadBalancer"
+                        enum:
+                          - value: "ClusterIP"
+                            description: "ClusterIP"
+                          - value: "LoadBalancer"
+                            description: "LoadBalancer"
+                    - variable: loadBalancerIP
+                      label: "LoadBalancer IP"
+                      description: "LoadBalancerIP"
                       schema:
-                        type: dict
-                        attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
-                          - variable: name
-                            label: "Entrypoints Name"
-                            schema:
-                              type: string
-                              default: ""
-                          - variable: protocol
-                            label: "Entrypoints Type"
+                        show_if: [["type", "=", "LoadBalancer"]]
+                        type: string
+                        default: ""
+                    - variable: externalIPs
+                      label: "External IP's"
+                      description: "External IP's"
+                      schema:
+                        show_if: [["type", "=", "LoadBalancer"]]
+                        type: list
+                        default: []
+                        items:
+                          - variable: externalIP
+                            label: "External IP"
                             schema:
                               type: string
-                              default: "UDP"
-                              enum:
-                                - value: UDP
-                                  description: "UDP"
-                          - variable: port
-                            label: "Container Port"
+                    - variable: portsList
+                      label: "Additional TCP Entrypoints"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: portsListEntry
+                            label: "Custom Entrypoints"
                             schema:
-                              type: int
-                              required: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: "Enable the port"
+                                  schema:
+                                    type: boolean
+                                    default: true
+                                    hidden: true
+                                - variable: name
+                                  label: "Entrypoints Name"
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: protocol
+                                  label: "Entrypoints Type"
+                                  schema:
+                                    type: string
+                                    default: "UDP"
+                                    enum:
+                                      - value: UDP
+                                        description: "UDP"
+                                - variable: port
+                                  label: "Container Port"
+                                  schema:
+                                    type: int
+                                    required: true
         - variable: metrics
           label: "metrics Service"
           description: "The metrics Entrypoint service"

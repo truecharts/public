@@ -14,7 +14,7 @@ metadata:
     {{- include "common.labels" . | nindent 4 }}
 spec:
   entryPoints:
-    - traefik
+    - main
   routes:
   - match: PathPrefix(`/dashboard`) || PathPrefix(`/api`)
     kind: Rule
