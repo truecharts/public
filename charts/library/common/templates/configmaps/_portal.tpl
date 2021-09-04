@@ -28,8 +28,7 @@
   {{- end }}
 {{- end }}
 
-{{- $namespace := "traefikmiddlewares" }}
-
+{{- $namespace := "default" }}
 {{- if $ingr.ingressClassName }}
 {{- $namespace := ( printf "ix-%s" $ingr.ingressClassName ) }}
 {{- end }}

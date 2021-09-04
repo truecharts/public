@@ -3,7 +3,7 @@
 {{- if .Values.portalhook.enabled }}
 {{- $namespace := ( printf "ix-%s" .Release.Name ) }}
 {{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
-{{- $namespace = "traefikmiddlewares" }}
+{{- $namespace = "default" }}
 {{- end }}
 ---
 
@@ -19,7 +19,6 @@ data:
   {{- $_ := set $ports $name $value }}
   {{- end }}
   {{- end }}
-  websecureport: {{ $ports.websecure.exposedPort | quote }}
   {{- range $name, $value := $ports }}
   {{ $name }}: {{ $value.port | quote }}
   {{- end }}
