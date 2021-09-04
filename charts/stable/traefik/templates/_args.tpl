@@ -48,7 +48,7 @@ args:
   {{- end }}
   {{- if .Values.providers.kubernetesIngress.enabled }}
   - "--providers.kubernetesingress"
-  {{- if and .Values.service.enabled .Values.providers.kubernetesIngress.publishedService.enabled }}
+  {{- if and .Values.providers.kubernetesIngress.publishedService.enabled }}
   - "--providers.kubernetesingress.ingressendpoint.publishedservice={{ template "providers.kubernetesIngress.publishedServicePath" . }}"
   {{- end }}
   {{- if .Values.providers.kubernetesIngress.labelSelector }}
