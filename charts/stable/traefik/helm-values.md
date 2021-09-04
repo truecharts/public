@@ -14,8 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | additionalArguments[0] | string | `"--metrics.prometheus"` |  |
 | additionalArguments[1] | string | `"--ping"` |  |
 | additionalArguments[2] | string | `"--serverstransport.insecureskipverify=true"` |  |
-| controller.strategy | string | `"RollingUpdate"` |  |
-| controller.type | string | `"daemonset"` |  |
+| additionalArguments[3] | string | `"--providers.kubernetesingress.allowexternalnameservices=true"` |  |
 | globalArguments[0] | string | `"--global.checknewversion"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"traefik"` |  |
@@ -27,6 +26,7 @@ You will, however, be able to use all values referenced in the common chart here
 | middlewares | object | `{"basicAuth":[],"chain":[],"forwardAuth":[],"rateLimit":[],"redirectScheme":[]}` | SCALE Middleware Handlers |
 | pilot | object | `{"enabled":false,"token":""}` | Activate Pilot integration |
 | podSecurityContext.fsGroup | int | `568` |  |
+| portalhook.enabled | bool | `true` |  |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.liveness.type | string | "TCP" | sets the probe type when not using a custom probe |

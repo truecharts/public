@@ -14,111 +14,37 @@ You will, however, be able to use all values referenced in the common chart here
 | additionalArguments[0] | string | `"--metrics.prometheus"` |  |
 | additionalArguments[1] | string | `"--ping"` |  |
 | additionalArguments[2] | string | `"--serverstransport.insecureskipverify=true"` |  |
-| additionalVolumeMounts | list | `[]` |  |
-| affinity | object | `{}` |  |
-| autoscaling.enabled | bool | `false` |  |
-| deployment.additionalContainers | list | `[]` |  |
-| deployment.additionalVolumes | list | `[]` |  |
-| deployment.annotations | object | `{}` |  |
-| deployment.enabled | bool | `true` |  |
-| deployment.imagePullSecrets | list | `[]` |  |
-| deployment.initContainers | list | `[]` |  |
-| deployment.kind | string | `"Deployment"` |  |
-| deployment.labels | object | `{}` |  |
-| deployment.podAnnotations | object | `{}` |  |
-| deployment.podLabels | object | `{}` |  |
-| deployment.replicas | int | `1` |  |
-| env | list | `[]` |  |
-| envFrom | list | `[]` |  |
-| experimental.kubernetesGateway.appLabelSelector | string | `"traefik"` |  |
-| experimental.kubernetesGateway.certificates | list | `[]` |  |
-| experimental.kubernetesGateway.enabled | bool | `false` |  |
-| experimental.plugins.enabled | bool | `false` |  |
+| additionalArguments[3] | string | `"--providers.kubernetesingress.allowexternalnameservices=true"` |  |
 | globalArguments[0] | string | `"--global.checknewversion"` |  |
-| hostNetwork | bool | `false` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"traefik"` |  |
-| image.tag | string | `"v2.4"` |  |
-| ingressClass.enabled | bool | `false` |  |
-| ingressClass.fallbackApiVersion | string | `nil` |  |
-| ingressClass.isDefaultClass | bool | `false` |  |
-| ingressRoute.dashboard.annotations | object | `{}` |  |
-| ingressRoute.dashboard.enabled | bool | `true` |  |
-| ingressRoute.dashboard.labels | object | `{}` |  |
-| logs.access.enabled | bool | `false` |  |
-| logs.access.fields.general.defaultmode | string | `"keep"` |  |
-| logs.access.fields.general.names | object | `{}` |  |
-| logs.access.fields.headers.defaultmode | string | `"drop"` |  |
-| logs.access.fields.headers.names | object | `{}` |  |
-| logs.access.filters | object | `{}` |  |
-| logs.general.level | string | `"INFO"` |  |
-| middlewares.basicAuth | list | `[]` |  |
-| middlewares.chain | list | `[]` |  |
-| middlewares.forwardAuth | list | `[]` |  |
-| middlewares.rateLimit | list | `[]` |  |
-| middlewares.redirectScheme | list | `[]` |  |
-| nodeSelector | object | `{}` |  |
-| persistence.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.enabled | bool | `false` |  |
-| persistence.name | string | `"data"` |  |
-| persistence.path | string | `"/data"` |  |
-| persistence.size | string | `"128Mi"` |  |
-| pilot.enabled | bool | `false` |  |
-| pilot.token | string | `""` |  |
-| podDisruptionBudget.enabled | bool | `false` |  |
-| podSecurityContext.fsGroup | int | `65532` |  |
-| podSecurityPolicy.enabled | bool | `false` |  |
+| image.tag | string | `"v2.5"` |  |
+| ingressClass | object | `{"enabled":false,"fallbackApiVersion":"","isDefaultClass":false}` | Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x |
+| ingressRoute | object | `{"dashboard":{"annotations":{},"enabled":true,"labels":{}}}` | Create an IngressRoute for the dashboard |
+| logs | object | `{"access":{"enabled":false,"fields":{"general":{"defaultmode":"keep","names":{}},"headers":{"defaultmode":"drop","names":{}}},"filters":{}},"general":{"level":"ERROR"}}` | Logs https://docs.traefik.io/observability/logs/ |
+| metrics.prometheus.entryPoint | string | `"metrics"` |  |
+| middlewares | object | `{"basicAuth":[],"chain":[],"forwardAuth":[],"rateLimit":[],"redirectScheme":[]}` | SCALE Middleware Handlers |
+| pilot | object | `{"enabled":false,"token":""}` | Activate Pilot integration |
+| podSecurityContext.fsGroup | int | `568` |  |
 | portalhook.enabled | bool | `true` |  |
-| ports.traefik.expose | bool | `false` |  |
-| ports.traefik.exposedPort | int | `9000` |  |
-| ports.traefik.port | int | `9000` |  |
-| ports.traefik.protocol | string | `"TCP"` |  |
-| ports.web.expose | bool | `true` |  |
-| ports.web.exposedPort | int | `80` |  |
-| ports.web.port | int | `9080` |  |
-| ports.web.protocol | string | `"TCP"` |  |
-| ports.web.redirectTo | string | `"websecure"` |  |
-| ports.websecure.expose | bool | `true` |  |
-| ports.websecure.exposedPort | int | `443` |  |
-| ports.websecure.port | int | `9443` |  |
-| ports.websecure.protocol | string | `"TCP"` |  |
-| ports.websecure.tls.enabled | bool | `true` |  |
-| priorityClassName | string | `""` |  |
+| probes.liveness | object | See below | Liveness probe configuration |
+| probes.liveness.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
+| probes.liveness.type | string | "TCP" | sets the probe type when not using a custom probe |
+| probes.readiness | object | See below | Redainess probe configuration |
+| probes.readiness.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
+| probes.readiness.type | string | "TCP" | sets the probe type when not using a custom probe |
+| probes.startup | object | See below | Startup probe configuration |
+| probes.startup.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
+| probes.startup.type | string | "TCP" | sets the probe type when not using a custom probe |
 | providers.kubernetesCRD.enabled | bool | `true` |  |
 | providers.kubernetesCRD.namespaces | list | `[]` |  |
 | providers.kubernetesIngress.enabled | bool | `true` |  |
 | providers.kubernetesIngress.namespaces | list | `[]` |  |
 | providers.kubernetesIngress.publishedService.enabled | bool | `true` |  |
-| rbac.enabled | bool | `true` |  |
-| rbac.namespaced | bool | `false` |  |
-| resources | object | `{}` |  |
-| rollingUpdate.maxSurge | int | `1` |  |
-| rollingUpdate.maxUnavailable | int | `1` |  |
-| securityContext.capabilities.drop[0] | string | `"ALL"` |  |
-| securityContext.readOnlyRootFilesystem | bool | `true` |  |
-| securityContext.runAsGroup | int | `65532` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
-| securityContext.runAsUser | int | `65532` |  |
-| service.annotations | object | `{}` |  |
-| service.enabled | bool | `true` |  |
-| service.externalIPs | list | `[]` |  |
-| service.labels | object | `{}` |  |
-| service.loadBalancerSourceRanges | list | `[]` |  |
-| service.spec | object | `{}` |  |
-| service.type | string | `"LoadBalancer"` |  |
-| serviceAccount.name | string | `""` |  |
-| serviceAccountAnnotations | object | `{}` |  |
-| tlsOptions.default.cipherSuites[0] | string | `"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"` |  |
-| tlsOptions.default.cipherSuites[1] | string | `"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"` |  |
-| tlsOptions.default.cipherSuites[2] | string | `"TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305"` |  |
-| tlsOptions.default.cipherSuites[3] | string | `"TLS_AES_128_GCM_SHA256"` |  |
-| tlsOptions.default.cipherSuites[4] | string | `"TLS_AES_256_GCM_SHA384"` |  |
-| tlsOptions.default.cipherSuites[5] | string | `"TLS_CHACHA20_POLY1305_SHA256"` |  |
-| tlsOptions.default.curvePreferences[0] | string | `"CurveP521"` |  |
-| tlsOptions.default.curvePreferences[1] | string | `"CurveP384"` |  |
-| tlsOptions.default.minVersion | string | `"VersionTLS12"` |  |
-| tlsOptions.default.sniStrict | bool | `false` |  |
-| tolerations | list | `[]` |  |
-| volumes | list | `[]` |  |
+| rbac | object | `{"enabled":true,"rules":[{"apiGroups":[""],"resources":["services","endpoints","secrets"],"verbs":["get","list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses","ingressclasses"],"verbs":["get","list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses/status"],"verbs":["update"]},{"apiGroups":["traefik.containo.us"],"resources":["ingressroutes","ingressroutetcps","ingressrouteudps","middlewares","middlewaretcps","tlsoptions","tlsstores","traefikservices","serverstransports"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
+| securityContext | object | `{"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true,"runAsGroup":568,"runAsNonRoot":true,"runAsUser":568}` | Set the container security context To run the container with ports below 1024 this will need to be adjust to run as root |
+| service | object | `{"main":{"enabled":true,"ports":{"main":{"enabled":true,"port":9000,"protocol":"HTTP"}},"type":"LoadBalancer"},"metrics":{"enabled":true,"ports":{"metrics":{"enabled":true,"port":9100,"protocol":"HTTP"}},"type":"LoadBalancer"},"tcp":{"enabled":true,"ports":{"web":{"enabled":true,"port":9080,"protocol":"HTTP","redirectTo":"websecure"},"websecure":{"enabled":true,"port":9443,"protocol":"HTTPS"}},"type":"LoadBalancer"},"udp":{"enabled":false}}` | Options for the main traefik service, where the entrypoints traffic comes from from. |
+| serviceAccount | object | `{"enabled":true,"name":""}` | The service account the pods will use to interact with the Kubernetes API |
+| tlsOptions | object | `{"default":{"cipherSuites":["TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256","TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384","TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305","TLS_AES_128_GCM_SHA256","TLS_AES_256_GCM_SHA384","TLS_CHACHA20_POLY1305_SHA256"],"curvePreferences":["CurveP521","CurveP384"],"minVersion":"VersionTLS12","sniStrict":false}}` | TLS Options to be created as TLSOption CRDs https://doc.traefik.io/traefik/https/tls/#tls-options Example: |
 
 All Rights Reserved - The TrueCharts Project
