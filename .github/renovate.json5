@@ -19,7 +19,6 @@
       "datasources": ["helm"],
       "matchManagers": ["helmv3"],
       "commitMessageTopic": "Helm chart {{depName}}",
-      "separateMinorPatch": true
     },
     // global docker datasource settings
     {
@@ -47,10 +46,14 @@
     {
       "matchDatasources": ["helm"],
       "automerge": true,
-      "updateTypes": ["patch","minor"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "bumpVersion": "patch",
       "labels": ["dependency/patch-minor"],
-      "groupName": ["patch/minor dep"],
+      "groupName": "non-major helm deps",
+      "groupSlug": "all-minor-patch"
       "schedule": [
         "on tuesday"
       ]
