@@ -27,7 +27,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
-    path: "/web/"
+    path: "/transmission/web/#files"
 questions:
   - variable: portal
     group: "Container Image"
@@ -442,7 +442,7 @@ questions:
           label: TRANSMISSION_RPC_URL
           schema:
             type: string
-            default: "/"
+            default: "/transmission/"
         - variable: TRANSMISSION_RPC_USERNAME
           label: TRANSMISSION_RPC_USERNAME
           schema:
