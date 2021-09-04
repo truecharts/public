@@ -5,6 +5,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v5.8.1
 
+envFrom:
+  - configMapRef:
+      name: pihole-env
 
 service:
   main:
@@ -25,8 +28,8 @@ service:
         enabled: true
         port: 53
 
-env:
-  WEBPASSWORD: "somepassword"
+pihole:
+  WEBPASSWORD:  "somepassword"
   DNS1: "1.1.1.1"
   DNS2: "1.0.0.1"
 

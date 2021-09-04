@@ -197,25 +197,7 @@ questions:
           schema:
             type: string
             default: "002"
-        - variable: WEBPASSWORD
-          label: "WEBPASSWORD"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: DNS1
-          label: "DNS1"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "1.1.1.1"
-        - variable: DNS2
-          label: "DNS2"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "1.0.0.1"
+
   # Configure Enviroment Variables
   - variable: envList
     label: "Image environment"
@@ -237,6 +219,33 @@ questions:
                 label: "Value"
                 schema:
                   type: string
+
+  - variable: pihole
+    group: "App Configuration"
+    label: "Pi-Hole Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: WEBPASSWORD
+          label: "WEBPASSWORD"
+          description: "Sets admin password for the GUI"
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: DNS1
+          label: "DNS1"
+          description: "Sets the first DNS server (use #port suffix for ports)"
+          schema:
+            type: string
+            default: "1.1.1.1"
+        - variable: DNS2
+          label: "DNS2"
+          description: "Sets the second DNS server (use #port suffix for ports), only if DNS1 is entered"
+          schema:
+            type: string
+            default: "1.0.0.1"
+
 
   - variable: hostNetwork
     group: "Networking and Services"
