@@ -41,3 +41,9 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
+  dnsmasq:
+    enabled: true
+    mountPath: "/etc/dnsmasq.d"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
