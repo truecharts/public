@@ -41,6 +41,7 @@ spec:
           args:
             {{- range $_, $hpm := $hostPathMounts }}
             - chown -R {{ printf ":%d %s" (int $group) ( $hpm.mountPath | squote ) }}
+            - chmod -R g+w {{ $hpm.mountPath | squote }}
             {{- end }}
           volumeMounts:
             {{- range $name, $hpm := $hostPathMounts }}

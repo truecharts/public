@@ -1,0 +1,40 @@
+# Default values for Jackett.
+
+image:
+  repository: pihole/pihole
+  pullPolicy: IfNotPresent
+  tag: v5.8.1
+
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 80
+  dns-tcp:
+    enabled: true
+    ports:
+      https:
+        enabled: true
+        port: 53
+  dns:
+    enabled: true
+    ports:
+      dns:
+        enabled: true
+        port: 53
+
+env:
+  WEBPASSWORD: "somepassword"
+  DNS1: "1.1.1.1"
+  DNS2: "1.0.0.1"
+
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/etc/pihole"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
