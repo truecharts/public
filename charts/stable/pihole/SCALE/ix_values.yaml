@@ -10,7 +10,7 @@ image:
   tag: v5.8.1
 
 envFrom:
-    - configMapRef:
+  - configMapRef:
       name: pihole-env
 
 ##

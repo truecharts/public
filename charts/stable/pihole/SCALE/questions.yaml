@@ -238,13 +238,13 @@ questions:
           description: "Sets the first DNS server (use #port suffix for ports)"
           schema:
             type: string
-            default: "1.1.1.1"
+            default: "9.9.9.9"
         - variable: DNS2
           label: "DNS2"
           description: "Sets the second DNS server (use #port suffix for ports), only if DNS1 is entered"
           schema:
             type: string
-            default: "1.0.0.1"
+            default: "149.112.112.112"
 
 
   - variable: hostNetwork
