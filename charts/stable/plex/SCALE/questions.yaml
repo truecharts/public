@@ -202,7 +202,7 @@ questions:
           description: "Networks allowed to connect to plex. Add your local network IP to this list"
           schema:
             type: string
-            default: "172.16.0.0/16,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+            default: "172.16.0.0/12,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         - variable: PLEX_CLAIM
           label: "Plex Claim Token"
           description: "Claim token to use to register the plex server (Max. 4 minutes old!)"
