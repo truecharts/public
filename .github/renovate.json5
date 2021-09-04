@@ -47,25 +47,14 @@
     {
       "matchDatasources": ["helm"],
       "automerge": true,
-      "updateTypes": ["minor"],
-      "bumpVersion": "minor",
-      "labels": ["dependency/minor"],
-      "groupName": ["minor dep"],
-      "schedule": [
-        "on tuesday"
-      ]
-    },
-    {
-      "matchDatasources": ["helm"],
-      "automerge": true,
-      "updateTypes": ["patch"],
+      "updateTypes": ["patch","minor"],
       "bumpVersion": "patch",
-      "labels": ["dependency/patch"],
-      "groupName": ["patch dep"],
+      "labels": ["dependency/patch-minor"],
+      "groupName": ["patch/minor dep"],
       "schedule": [
         "on tuesday"
       ]
-    },
+    }
     //
     // Tag updates for semantic tags
     //
