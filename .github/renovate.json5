@@ -18,7 +18,7 @@
     {
       "datasources": ["helm"],
       "matchManagers": ["helmv3"],
-      "commitMessageTopic": "Helm chart {{depName}}",
+      "commitMessageTopic": "Helm chart {{depName}}"
     },
     // global docker datasource settings
     {
@@ -53,7 +53,6 @@
       "bumpVersion": "patch",
       "labels": ["dependency/patch-minor"],
       "groupName": "non-major helm deps",
-      "groupSlug": "all-minor-patch"
       "schedule": [
         "on tuesday"
       ]
