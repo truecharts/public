@@ -2,8 +2,8 @@
 FROM ghcr.io/truecharts/ubuntu:latest AS build
 
 # Change your name and email address
-DEBFULLNAME="TrueCharts"
-DEBEMAIL="info@truecharts.org"
+ARG DEBFULLNAME=TrueCharts
+ARG DEBEMAIL=info@truecharts.org
 
 ARG TARGETPLATFORM
 ARG VERSION
