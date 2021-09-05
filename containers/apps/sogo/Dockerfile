@@ -54,6 +54,8 @@ RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build 
     gettext \
     gnupg \
     mariadb-client \
+    libmariadb3 \
+    libcurl3-gnutls \
     rsync \
     supervisor \
     syslog-ng \
