@@ -69,6 +69,7 @@ dch --newversion "$VERSION" "Automated build for version $VERSION"
 dpkg-checkbuilddeps && dpkg-buildpackage -b
 
 ls "$PACKAGES_DIR"
+cd $PACKAGES_DIR
 rm *dev*
 rm -Rf sogo || echo "sogo folder not found in output, no problem..."
 mkdir output
