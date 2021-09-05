@@ -72,6 +72,7 @@ ls "$PACKAGES_DIR"
 cd $PACKAGES_DIR
 rm *dev*
 rm -Rf sogo || echo "sogo folder not found in output, no problem..."
+mv sogo_${VERSION}_amd64.deb _sogo_${VERSION}_amd64.deb
 mkdir output
 mv *deb output/
 
