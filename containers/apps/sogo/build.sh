@@ -12,7 +12,7 @@ SOGO_GIT_TAG="SOGo-${VERSION}"
 SOPE_GIT_TAG="SOPE-${VERSION}"
 
 PACKAGES_DIR="${BASE_DIR}/vendor"
-PACKAGES_TO_INSTALL="git zip wget make debhelper gnustep-make libssl-dev libgnustep-base-dev libldap2-dev libytnef0-dev zlib1g-dev libpq-dev libmariadbclient-dev-compat libmemcached-dev liblasso3-dev libcurl4-gnutls-dev devscripts libexpat1-dev libpopt-dev libsbjson-dev libsbjson2.3 libcurl4 liboath-dev libsodium-dev libzip-dev"
+PACKAGES_TO_INSTALL="build-essential git zip wget make debhelper gnustep-make libssl-dev libgnustep-base-dev libldap2-dev libytnef0-dev zlib1g-dev libpq-dev libmariadbclient-dev-compat libmemcached-dev liblasso3-dev libcurl4-gnutls-dev devscripts libexpat1-dev libpopt-dev libsbjson-dev libsbjson2.3 libcurl4 liboath-dev libsodium-dev libzip-dev"
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -68,9 +68,9 @@ dch --newversion "$VERSION" "Automated build for version $VERSION"
 
 dpkg-checkbuilddeps && dpkg-buildpackage -b
 
-cd "$PACKAGES_DIR"
+ls "$PACKAGES_DIR"
 
 # Install the built packages
-dpkg -i sope4.9-gdl1-mysql_4.9.r1664_amd64.deb
-dpkg -i sope4.9-libxmlsaxdriver_4.9.r1664_amd64.deb
-dpkg -i "sogo_${VERSION}_amd64.deb"
+# dpkg -i sope4.9-gdl1-mysql_4.9.r1664_amd64.deb
+# dpkg -i sope4.9-libxmlsaxdriver_4.9.r1664_amd64.deb
+# dpkg -i "sogo_${VERSION}_amd64.deb"
