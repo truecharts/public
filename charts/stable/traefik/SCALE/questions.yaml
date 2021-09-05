@@ -750,6 +750,11 @@ questions:
                               default: 9080
                               editable: true
                               required: true
+                          - variable: redirectTo
+                            label: "Redirect to"
+                            schema:
+                              type: string
+                              default: "websecure"
                     - variable: websecure
                       label: "websecure Entrypoints Configuration"
                       schema:

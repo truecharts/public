@@ -27,6 +27,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
+    path: "/admin/"
 questions:
   - variable: portal
     group: "Container Image"
@@ -961,7 +962,7 @@ questions:
                 schema:
                   show_if: [["type", "=", "pvc"]]
                   type: string
-                  default: "100Gi"                  
+                  default: "100Gi"
   - variable: persistenceList
     label: "Additional app storage"
     group: "Storage and Persistence"
