@@ -84,7 +84,7 @@ RUN chmod +x /bootstrap-sogo.sh \
   /usr/local/sbin/stop-supervisor.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["exec","/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
+CMD ["exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"
