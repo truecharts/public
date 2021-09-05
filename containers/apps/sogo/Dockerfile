@@ -80,6 +80,7 @@ RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build 
   mkdir /usr/share/doc/sogo && \
   touch /usr/share/doc/sogo/empty.sh && \
   cd /build && \
+  (echo "$(dpkg-deb -I _sogo_${VERSION}_amd64.deb | grep -E "Depends" | tr -d "|," | sed "s/([^)]*)/()/g" | tr -d "()" | tr " " "\n" | grep -Ev "Depends|Recommends|Suggests|Pre\-Depends|sogo|sope" | xargs)" | xargs -n 1 apt-get install -y || true) && \
   apt install -y ./*.deb && \
   apt-get install -f && \
   apt-get clean && \
