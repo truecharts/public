@@ -56,7 +56,6 @@ RUN \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   a2enmod headers proxy proxy_http rewrite ssl && \
   usermod --home /srv/lib/sogo sogo && \
-  sed -i -e 's/#RedirectMatch \^\/\$ https:\/\/mail.yourdomain.com\/SOGo/RedirectMatch \^\/\$ \/SOGo/' /etc/apache2/conf-enabled/SOGo.conf && \
   mkdir -p /var/run/memcached/ && \
   chown memcache:memcache /var/run/memcached
 
