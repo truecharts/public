@@ -4,9 +4,6 @@
 source "/shim/umask.sh"
 source "/shim/vpn.sh"
 
-Executable File  21 lines (17 sloc)  387 Bytes
-
-#!/bin/bash
 
 if [[ "${SKIP_SOGO}" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
   echo "SKIP_SOGO=y, skipping SOGo..."
