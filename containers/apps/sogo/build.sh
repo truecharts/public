@@ -69,6 +69,10 @@ dch --newversion "$VERSION" "Automated build for version $VERSION"
 dpkg-checkbuilddeps && dpkg-buildpackage -b
 
 ls "$PACKAGES_DIR"
+rm *dev*
+rm -Rf sogo || echo "sogo folder not found in output, no problem..."
+mkdir output
+mv *deb output/
 
 # Install the built packages
 # dpkg -i sope4.9-gdl1-mysql_4.9.r1664_amd64.deb

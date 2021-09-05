@@ -21,6 +21,8 @@ COPY ./containers/apps/sogo/build.sh /buildtmp/build.sh
 RUN \
   mkdir /build && \
   cd /buildtmp && \
+  chmod 777 build.sh && \
+  chmod +x build.sh && \
   ./build.sh
 
 
@@ -41,7 +43,7 @@ USER root
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3047
-RUN --mount=type=bind,from=builder,source=/buildtmp/vendor,target=/build \
+RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build \
   cat /build/sogo/README.md && \
   apt-get -qq update \
   && \
@@ -64,21 +66,20 @@ RUN --mount=type=bind,from=builder,source=/buildtmp/vendor,target=/build \
     wget \
     patch \
     apache2 \
+    gnupg2 \
   && \
   case "${TARGETPLATFORM}" in \
     'linux/amd64') export ARCH='linux-x64' ;; \
   esac \
   && \
-  echo "Building from repository $SOGO_UBUNTU_REPOSITORY" && \
-  apt-get install -yq --no-install-recommends apt-transport-https ca-certificates dirmngr gnupg2 && \
   mkdir ~/.gnupg && \
   echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf && \
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0x810273C4 && \
-  echo "deb ${SOGO_UBUNTU_REPOSITORY} focal focal" > /etc/apt/sources.list.d/SOGo.list && \
   mkdir /usr/share/doc/sogo && \
   touch /usr/share/doc/sogo/empty.sh && \
   apt-get update -qq && \
-  apt-get install -yq --no-install-recommends sogo sogo-activesync sope4.9-gdl1-postgresql sope4.9-gdl1-mysql && \
+  cd /build && \
+  dpkg -i *.deb && \
+  apt-get install -f && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   a2enmod headers proxy proxy_http rewrite ssl && \
