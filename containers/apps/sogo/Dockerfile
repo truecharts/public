@@ -45,7 +45,7 @@ RUN \
 
 EXPOSE 80 443
 
-COPY etc /etc
+COPY ./containers/apps/sogo/etc /etc
 COPY ./containers/apps/sogo/entrypoint.sh /entrypoint.sh
 
 
