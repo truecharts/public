@@ -15,7 +15,7 @@ USER root
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 WORKDIR /buildtmp
-COPY ./containers/apps/build.sh /buildtmp/build.sh
+COPY ./containers/apps/sogo/build.sh /buildtmp/build.sh
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3047
 RUN \
