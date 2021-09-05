@@ -39,10 +39,10 @@ ENV GOSU_VERSION 1.12
 USER root
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-COPY --from=builder /buildtmp/vendor/ /build
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3047
-RUN \
+RUN --mount=type=bind,from=builder,source=/buildtmp/vendor,target=/build \
+  cat /build/sogo/README.md && \
   apt-get -qq update \
   && \
   apt-get -qq install -y \
