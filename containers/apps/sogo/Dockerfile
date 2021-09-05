@@ -1,6 +1,31 @@
 # hadolint ignore=DL3007
-FROM ghcr.io/truecharts/ubuntu:latest
+FROM ghcr.io/truecharts/ubuntu:latest AS build
 
+# Change your name and email address
+DEBFULLNAME="TrueCharts"
+DEBEMAIL="info@truecharts.org"
+
+ARG TARGETPLATFORM
+ARG VERSION
+
+
+# hadolint ignore=DL3002
+USER root
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+WORKDIR /buildtmp
+COPY ./containers/apps/build.sh /buildtmp/build.sh
+
+# hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3047
+RUN \
+  mkdir /build && \
+  cd /buildtmp && \
+  ./build.sh
+
+
+# hadolint ignore=DL3007
+FROM ghcr.io/truecharts/ubuntu:latest
 
 ARG TARGETPLATFORM
 ARG VERSION
@@ -14,6 +39,7 @@ ENV GOSU_VERSION 1.12
 USER root
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+COPY --from=builder /buildtmp/vendor/ /build
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3047
 RUN \
