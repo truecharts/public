@@ -44,7 +44,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3047
 RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build \
-  cat /build/sogo/README.md && \
   apt-get -qq update \
   && \
   apt-get -qq install -y \
@@ -77,7 +76,6 @@ RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build 
   echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf && \
   mkdir /usr/share/doc/sogo && \
   touch /usr/share/doc/sogo/empty.sh && \
-  apt-get update -qq && \
   cd /build && \
   dpkg -i *.deb && \
   apt-get install -f && \
