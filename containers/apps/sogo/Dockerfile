@@ -27,65 +27,29 @@ RUN \
     'linux/amd64') export ARCH='linux-x64' ;; \
   esac \
   && \
-  echo "Building from repository $SOGO_UBUNTU_REPOSITORY" \
-  && apt-get update && apt-get install -y --no-install-recommends \
-  apt-transport-https \
-  ca-certificates \
-  gettext \
-  gnupg \
-  mariadb-client \
-  rsync \
-  supervisor \
-  syslog-ng \
-  syslog-ng-core \
-  syslog-ng-mod-redis \
-  dirmngr \
-  netcat \
-  psmisc \
-  wget \
-  patch \
-  && dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" \
-  && wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch" \
-  && chmod +x /usr/local/bin/gosu \
-  && gosu nobody true \
-  && mkdir /usr/share/doc/sogo \
-  && touch /usr/share/doc/sogo/empty.sh \
-  && apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0x810273C4 \
-  && echo "deb ${SOGO_UBUNTU_REPOSITORY} focal focal" > /etc/apt/sources.list.d/sogo.list \
-  && apt-get update && apt-get install -y --no-install-recommends \
-    sogo \
-    sogo-activesync \
-  && apt-get autoclean \
-  && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/sogo.list \
-  && touch /etc/default/locale \
-  && apt-get remove -y \
-    jq \
-  && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
-  && apt-get autoremove -y \
-  && apt-get clean \
-  && \
-  rm -rf \
-    /tmp/* \
-    /var/lib/apt/lists/* \
-    /var/tmp/ \
-  && chmod -R u=rwX,go=rX /app \
-  && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
-  && update-ca-certificates
+  echo "Building from repository $SOGO_UBUNTU_REPOSITORY" && \
+  apt-get install -yq --no-install-recommends apt-transport-https ca-certificates dirmngr gnupg2 && \
+  mkdir ~/.gnupg && \
+  echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf && \
+  (apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-key 0x810273C4 || apt-key adv --keyserver ipv4.pool.sks-keyservers.net --recv-key 0x810273C4) && \
+  echo "deb https://packages.inverse.ca/SOGo/nightly/5/ubuntu/ focal focal" > /etc/apt/sources.list.d/SOGo.list && \
+  apt-get update -qq && \
+  apt-get install -yq --no-install-recommends apache2 sogo sope4.9-gdl1-postgresql sope4.9-gdl1-mysql supervisor memcached memcached && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+  a2enmod headers proxy proxy_http rewrite ssl && \
+  usermod --home /srv/lib/sogo sogo && \
+  sed -i -e 's/#RedirectMatch \^\/\$ https:\/\/mail.yourdomain.com\/SOGo/RedirectMatch \^\/\$ \/SOGo/' /etc/apache2/conf-enabled/SOGo.conf && \
+  mkdir -p /var/run/memcached/ && \
+  chown memcache:memcache /var/run/memcached
 
 EXPOSE 80 443
 
+COPY etc /etc
 COPY ./containers/apps/sogo/entrypoint.sh /entrypoint.sh
-COPY ./containers/apps/sogo/bootstrap-sogo.sh /bootstrap-sogo.sh
-COPY ./containers/apps/sogo/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
-COPY ./containers/apps/sogo/supervisord.conf /etc/supervisor/supervisord.conf
-COPY ./containers/apps/sogo/stop-supervisor.sh /usr/local/sbin/stop-supervisor.sh
 
-RUN chmod +x /bootstrap-sogo.sh \
-  /usr/local/sbin/stop-supervisor.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
-# hadolint ignore=DL3025
-CMD exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"
