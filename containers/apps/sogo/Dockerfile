@@ -56,7 +56,7 @@ RUN \
     sogo-activesync \
   && apt-get autoclean \
   && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/sogo.list \
-  && touch /etc/default/locale
+  && touch /etc/default/locale \
   && apt-get remove -y \
     jq \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
