@@ -79,6 +79,7 @@ RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build 
   mkdir /usr/share/doc/sogo && \
   touch /usr/share/doc/sogo/empty.sh && \
   cd /build && \
+  apt-get install $(apt-cache depends sogo | sed 's/<[^>]*>//g' | awk '$1~/Depends/{printf $2" "}') && \
   apt install ./*.deb && \
   apt-get install -f && \
   apt-get clean && \
