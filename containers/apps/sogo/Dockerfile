@@ -37,6 +37,7 @@ RUN \
     psmisc \
     wget \
     patch \
+    apache2 \
   && \
   case "${TARGETPLATFORM}" in \
     'linux/amd64') export ARCH='linux-x64' ;; \
@@ -47,20 +48,18 @@ RUN \
   mkdir ~/.gnupg && \
   echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf && \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0x810273C4 && \
-  echo "deb https://packages.inverse.ca/SOGo/nightly/5/ubuntu/ focal focal" > /etc/apt/sources.list.d/SOGo.list && \
+  echo "deb ${SOGO_UBUNTU_REPOSITORY} focal focal" > /etc/apt/sources.list.d/SOGo.list && \
   mkdir /usr/share/doc/sogo && \
   touch /usr/share/doc/sogo/empty.sh && \
   apt-get update -qq && \
-  apt-get install -yq --no-install-recommends apache2 sogo sogo-activesync sope4.9-gdl1-postgresql sope4.9-gdl1-mysql supervisor memcached memcached && \
+  apt-get install -yq --no-install-recommends sogo sogo-activesync sope4.9-gdl1-postgresql sope4.9-gdl1-mysql && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   a2enmod headers proxy proxy_http rewrite ssl && \
   cp /etc/apache2/conf.d/SOGo.conf /etc/apache2/conf-available/ && \
   sed -i -e 's/#RedirectMatch \^\/\$ https:\/\/mail.yourdomain.com\/SOGo/RedirectMatch \^\/\$ \/SOGo/' /etc/apache2/conf-available/SOGo.conf && \
   a2enconf SOGo && \
-  usermod --home /srv/lib/sogo sogo && \
-  mkdir -p /var/run/memcached/ && \
-  chown memcache:memcache /var/run/memcached
+  usermod --home /srv/lib/sogo sogo
 
 EXPOSE 80 443
 
