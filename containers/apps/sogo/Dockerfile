@@ -75,7 +75,7 @@ RUN \
 EXPOSE 80 443
 
 COPY ./containers/apps/sogo/entrypoint.sh /entrypoint.sh
-COPY ./bootstrap-sogo.sh /bootstrap-sogo.sh
+COPY ./containers/apps/sogo/bootstrap-sogo.sh /bootstrap-sogo.sh
 COPY ./containers/apps/sogo/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 COPY ./containers/apps/sogo/supervisord.conf /etc/supervisor/supervisord.conf
 COPY ./containers/apps/sogo/stop-supervisor.sh /usr/local/sbin/stop-supervisor.sh
