@@ -77,7 +77,7 @@ RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build 
   mkdir /usr/share/doc/sogo && \
   touch /usr/share/doc/sogo/empty.sh && \
   cd /build && \
-  dpkg -i *.deb && \
+  apt install ./*.deb && \
   apt-get install -f && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
