@@ -815,8 +815,8 @@ questions:
                   type: string
                   default: "100Gi"
         - variable: dnsmasq
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: "App dnsmasq.d Storage"
+          description: "Stores the Application dnsmasq.d."
           schema:
             type: dict
             attrs:
