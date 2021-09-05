@@ -16,6 +16,7 @@ PACKAGES_TO_INSTALL="git zip wget make debhelper gnustep-make libssl-dev libgnus
 
 export DEBIAN_FRONTEND=noninteractive
 
+mkdir $PACKAGES_DIR
 cd "$PACKAGES_DIR"
 
 # Do not install recommended or suggested packages
