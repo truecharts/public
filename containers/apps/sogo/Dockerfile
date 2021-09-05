@@ -69,6 +69,7 @@ RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build 
     apache2 \
     gnupg2 \
     memcached \
+    postgresql-client \
   && \
   case "${TARGETPLATFORM}" in \
     'linux/amd64') export ARCH='linux-x64' ;; \
