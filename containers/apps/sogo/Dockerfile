@@ -10,11 +10,12 @@ ARG SOGO_DEBIAN_REPOSITORY=https://packages.inverse.ca/SOGo/nightly/5/ubuntu/
 ENV LC_ALL C
 ENV GOSU_VERSION 1.12
 
+# hadolint ignore=DL3002
 USER root
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# hadolint ignore=DL3008,DL3015,SC2086,SC2155
+# hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3047
 RUN \
   apt-get -qq update \
   && \
@@ -83,7 +84,7 @@ RUN chmod +x /bootstrap-sogo.sh \
   /usr/local/sbin/stop-supervisor.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD exec /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+CMD ["exec","/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"
