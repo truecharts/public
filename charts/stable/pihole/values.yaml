@@ -29,7 +29,7 @@ service:
         port: 53
 
 pihole:
-  WEBPASSWORD:  "somepassword"
+  WEBPASSWORD: "somepassword"
   DNS1: "9.9.9.9"
   DNS2: "149.112.112.112"
 
@@ -38,6 +38,12 @@ persistence:
   config:
     enabled: true
     mountPath: "/etc/pihole"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+  dnsmasq:
+    enabled: true
+    mountPath: "/etc/dnsmasq.d"
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
