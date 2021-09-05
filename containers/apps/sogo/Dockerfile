@@ -22,6 +22,21 @@ RUN \
   apt-get -qq install -y \
     libicu66 \
     jq \
+    apt-transport-https \
+    ca-certificates \
+    gettext \
+    gnupg \
+    mariadb-client \
+    rsync \
+    supervisor \
+    syslog-ng \
+    syslog-ng-core \
+    syslog-ng-mod-redis \
+    dirmngr \
+    netcat \
+    psmisc \
+    wget \
+    patch \
   && \
   case "${TARGETPLATFORM}" in \
     'linux/amd64') export ARCH='linux-x64' ;; \
@@ -33,8 +48,10 @@ RUN \
   echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf && \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-key 0x810273C4 && \
   echo "deb https://packages.inverse.ca/SOGo/nightly/5/ubuntu/ focal focal" > /etc/apt/sources.list.d/SOGo.list && \
+  mkdir /usr/share/doc/sogo && \
+  touch /usr/share/doc/sogo/empty.sh && \
   apt-get update -qq && \
-  apt-get install -yq --no-install-recommends apache2 sogo sope4.9-gdl1-postgresql sope4.9-gdl1-mysql supervisor memcached memcached && \
+  apt-get install -yq --no-install-recommends apache2 sogo sogo-activesync sope4.9-gdl1-postgresql sope4.9-gdl1-mysql supervisor memcached memcached && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
   a2enmod headers proxy proxy_http rewrite ssl && \
