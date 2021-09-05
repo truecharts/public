@@ -67,6 +67,7 @@ RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build 
     patch \
     apache2 \
     gnupg2 \
+    memcached \
   && \
   case "${TARGETPLATFORM}" in \
     'linux/amd64') export ARCH='linux-x64' ;; \
@@ -86,7 +87,9 @@ RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build 
   cp /etc/apache2/conf.d/SOGo.conf /etc/apache2/conf-available/ && \
   sed -i -e 's/#RedirectMatch \^\/\$ https:\/\/mail.yourdomain.com\/SOGo/RedirectMatch \^\/\$ \/SOGo/' /etc/apache2/conf-available/SOGo.conf && \
   a2enconf SOGo && \
-  usermod --home /srv/lib/sogo sogo
+  usermod --home /srv/lib/sogo sogo && \
+  mkdir -p /var/run/memcached/ && \
+    chown memcache:memcache /var/run/memcached
 
 EXPOSE 80 443
 
