@@ -3,7 +3,7 @@ appVersion: auto
 dependencies:
 - name: common
   repository: https://truecharts.org/
-  version: 6.13.7
+  version: 6.13.8
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -38,4 +38,4 @@ sources:
 - https://github.com/authelia/chartrepo
 - https://github.com/authelia/authelia
 type: application
-version: 1.6.22
+version: 1.7.0
