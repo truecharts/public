@@ -20,6 +20,11 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/etc/pihole"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
+| persistence.dnsmasq.accessMode | string | `"ReadWriteOnce"` |  |
+| persistence.dnsmasq.enabled | bool | `true` |  |
+| persistence.dnsmasq.mountPath | string | `"/etc/dnsmasq.d"` |  |
+| persistence.dnsmasq.size | string | `"100Gi"` |  |
+| persistence.dnsmasq.type | string | `"pvc"` |  |
 | pihole.DNS1 | string | `"9.9.9.9"` |  |
 | pihole.DNS2 | string | `"149.112.112.112"` |  |
 | pihole.WEBPASSWORD | string | `"somepassword"` |  |
