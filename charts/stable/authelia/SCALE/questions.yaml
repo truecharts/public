@@ -1701,3 +1701,195 @@ questions:
                 schema:
                   type: int
                   default: 80
+
+  - variable: identity_providers
+    group: "Advanced"
+    label: "Authelia Identity Providers (BETA)"
+    schema:
+      type: dict
+      attrs:
+        - variable: oidc
+          label: "OpenID Connect(BETA)"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: access_token_lifespan
+                      label: "Access Token Lifespan"
+                      schema:
+                        type: string
+                        default: "1h"
+                        required: true
+                    - variable: authorize_code_lifespan
+                      label: "Authorize Code Lifespan"
+                      schema:
+                        type: string
+                        default: "1m"
+                        required: true
+                    - variable: id_token_lifespan
+                      label: "ID Token Lifespan"
+                      schema:
+                        type: string
+                        default: "1h"
+                        required: true
+                    - variable: refresh_token_lifespan
+                      label: "Refresh Token Lifespan"
+                      schema:
+                        type: string
+                        default: "90m"
+                        required: true
+                    - variable: enable_client_debug_messages
+                      label: "Enable Client Debug Messages"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: minimum_parameter_entropy
+                      label: "Minimum Parameter Entropy"
+                      schema:
+                        type: int
+                        default: 8
+                        hidden: true
+                    - variable: clients
+                      label: "Clients"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: clientEntry
+                            label: "Client"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: id
+                                  label: "ID/Name"
+                                  description: "The ID is the OpenID Connect ClientID which is used to link an application to a configuration."
+                                  schema:
+                                    type: string
+                                    default: "myapp"
+                                    required: true
+                                - variable: description
+                                  label: "Description"
+                                  description: "The description to show to users when they end up on the consent screen. Defaults to the ID above."
+                                  schema:
+                                    type: string
+                                    default: "My Application"
+                                    required: true
+                                - variable: secret
+                                  label: "Secret"
+                                  description: "The client secret is a shared secret between Authelia and the consumer of this client."
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    required: true
+                                - variable: public
+                                  label: "public"
+                                  description: "Sets the client to public. This should typically not be set, please see the documentation for usage."
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                - variable: authorization_policy
+                                  label: "Authorization Policy"
+                                  description: "The policy to require for this client; one_factor or two_factor."
+                                  schema:
+                                    type: string
+                                    default: "two_factor"
+                                    enum:
+                                      - value: "one_factor"
+                                        description: "one_factor"
+                                      - value: "two_factor"
+                                        description: "two_factor"
+                                - variable: userinfo_signing_algorithm
+                                  label: "Userinfo Signing Algorithm"
+                                  description: "The algorithm used to sign userinfo endpoint responses for this client, either none or RS256."
+                                  schema:
+                                    type: string
+                                    default: "none"
+                                    enum:
+                                      - value: "none"
+                                        description: "none"
+                                      - value: "RS256"
+                                        description: "RS256"
+                                - variable: audience
+                                  label: "Audience"
+                                  description: "Audience this client is allowed to request."
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: audienceEntry
+                                        label: ""
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                - variable: scopes
+                                  label: "Scopes"
+                                  description: "Scopes this client is allowed to request."
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: ScopeEntry
+                                        label: "Scope"
+                                        schema:
+                                          type: string
+                                          default: "openid"
+                                          required: true
+                                - variable: redirect_uris
+                                  label: "redirect_uris"
+                                  description: "Redirect URI's specifies a list of valid case-sensitive callbacks for this client."
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: uriEntry
+                                        label: "Url"
+                                        schema:
+                                          type: string
+                                          default: "https://oidc.example.com/oauth2/callback"
+                                          required: true
+                                - variable: grant_types
+                                  description: "Grant Types configures which grants this client can obtain."
+                                  label: "grant_types"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: grantEntry
+                                        label: "Grant"
+                                        schema:
+                                          type: string
+                                          default: "refresh_token"
+                                          required: true
+                                - variable: response_types
+                                  description: "Response Types configures which responses this client can be sent."
+                                  label: "response_types"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: responseEntry
+                                        label: "type"
+                                        schema:
+                                          type: string
+                                          default: "code"
+                                          required: true
+                                - variable: response_modes
+                                  description: "Response Modes configures which response modes this client supports."
+                                  label: "response_modes"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: modeEntry
+                                        label: "Mode"
+                                        schema:
+                                          type: string
+                                          default: "form_post"
+                                          required: true
