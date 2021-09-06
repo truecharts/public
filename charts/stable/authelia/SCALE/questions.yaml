@@ -1701,3 +1701,111 @@ questions:
                 schema:
                   type: int
                   default: 80
+
+  - variable: identity_providers
+    group: "Advanced"
+    label: "Authelia Identity Providers (BETA)"
+    schema:
+      type: dict
+      attrs:
+        - variable: oidc
+          label: "OpenID Connect(BETA)"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: access_token_lifespan
+                      label: "Access Token Lifespan"
+                      schema:
+                        type: string
+                        default: "1h"
+                        required: true
+                    - variable: authorize_code_lifespan
+                      label: "Authorize Code Lifespan"
+                      schema:
+                        type: string
+                        default: "1m"
+                        required: true
+                    - variable: id_token_lifespan
+                      label: "ID Token Lifespan"
+                      schema:
+                        type: string
+                        default: "1h"
+                        required: true
+                    - variable: refresh_token_lifespan
+                      label: "Refresh Token Lifespan"
+                      schema:
+                        type: string
+                        default: "90m"
+                        required: true
+                    - variable: enable_client_debug_messages
+                      label: "Enable Client Debug Messages"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: minimum_parameter_entropy
+                      label: "Minimum Parameter Entropy"
+                      schema:
+                        type: int
+                        default: 8
+                        hidden: true
+                    - variable: clients
+                      label: "Clients"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: clientEntry
+                            label: "Client"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: id
+                                  label: "ID/Name"
+                                  schema:
+                                    type: string
+                                    default: "myapp"
+                                    required: true
+                                - variable: description
+                                  label: "Description"
+                                  schema:
+                                    type: string
+                                    default: "My Application"
+                                    required: true
+                                - variable: secret
+                                  label: "Secret"
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    required: true
+                                - variable: public
+                                  label: "public"
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                - variable: authorization_policy
+                                  label: "Authorization Policy"
+                                  schema:
+                                    type: string
+                                    default: "two_factor"
+                                    enum:
+                                      - value: "one_factor"
+                                        description: "one_factor"
+                                      - value: "two_factor"
+                                        description: "two_factor"
+                                - variable: userinfo_signing_algorithm
+                                  label: "Userinfo Signing Algorithm"
+                                  schema:
+                                    type: string
+                                    default: "none"
+                                    enum:
+                                      - value: "none"
+                                        description: "none"
+                                      - value: "RS256"
+                                        description: "RS256"
