@@ -17,6 +17,12 @@ spec:
       hostNetwork: true
       containers:
         - name: {{ .Chart.Name }}
+          {{ if .Values.enableResourceLimits }}
+          resources:
+            limits:
+              cpu: {{ .Values.cpuLimit }}
+              memory: {{ .Values.memLimit }}
+          {{ end }}
           tty: true
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
