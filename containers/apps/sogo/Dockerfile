@@ -88,6 +88,8 @@ RUN --mount=type=bind,from=builder,source=/buildtmp/vendor/output,target=/build 
   a2enmod headers proxy proxy_http rewrite ssl && \
   cp /etc/apache2/conf.d/SOGo.conf /etc/apache2/conf-available/ && \
   sed -i -e 's/#RedirectMatch \^\/\$ https:\/\/mail.yourdomain.com\/SOGo/RedirectMatch \^\/\$ \/SOGo/' /etc/apache2/conf-available/SOGo.conf && \
+  sed -i -e 's|"x-webobjects-server-url" "https://|"x-webobjects-server-url" "http://|' /etc/apache2/conf-available/SOGo.conf && \
+  sed -i -e 's|"x-webobjects-server-port" "443"|"x-webobjects-server-port" "80"|' /etc/apache2/conf-available/SOGo.conf && \
   a2enconf SOGo && \
   usermod --home /srv/lib/sogo sogo && \
   mkdir -p /var/run/memcached/ && \
