@@ -330,16 +330,16 @@ questions:
                   type: string
                   default: "example.com"
                   required: true
-               - variable: SOGoMailingMechanism
-                 label: "SOGoMailingMechanism"
-                 schema:
-                   type: string
-                   default: "smtp"
-                   enum:
-                     - value: "smtp"
-                       description: "smtp"
-                     - value: "sendmail"
-                       description: "sendmail"
+              - variable: SOGoMailingMechanism
+                label: "SOGoMailingMechanism"
+                schema:
+                  type: string
+                  default: "smtp"
+                  enum:
+                    - value: "smtp"
+                      description: "smtp"
+                    - value: "sendmail"
+                      description: "sendmail"
               - variable: SOGoSMTPServer
                 label: "SOGoSMTPServer"
                 schema:
