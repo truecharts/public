@@ -85,8 +85,8 @@ data:
       SOGoUserSources = (
   {{- range $index, $value := .Values.sogo.usersources }}
         {
-      type = {{ $value.type | default "ldap" }};
-    {{- if eq $value.type "ldap" }}
+      type = {{ $value.type | default "LDAP" }};
+    {{- if eq $value.type "LDAP" }}
       CNFieldName = {{ $value.CNFieldName | default "cn" }};
       UIDFieldName = {{ $value.UIDFieldName | default "uid" }};
       IDFieldName = {{ $value.IDFieldName | default "uid" }}; // first field of the DN for direct binds
@@ -99,7 +99,7 @@ data:
       hostname = {{ $value.hostname | default "ldap://127.0.0.1:389" }};
       id = {{ $value.id | default "public" }};
       isAddressBook = {{ if $value.isAddressBook }}"YES"{{ else }}"NO"{{ end }};
-    {{- else if eq $value.type "sql"  }}
+    {{- else if eq $value.type "SQL"  }}
       id = {{ $value.sql.id | default "directory" }};
       viewURL = {{ ( $value.sql.viewURL | default "postgresql://sogo:sogo@127.0.0.1:5432/sogo/sogo_view" ) | quote }};
       canAuthenticate = {{ if $value.sql.canAuthenticate }}"YES"{{ else }}"NO"{{ end }};
