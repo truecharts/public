@@ -75,7 +75,15 @@ jobs:
 
       - name: Chart Releaser Package
         run: |
-          cr package --config ".github/cr.yaml"
+          for train in stable incubator
+          do
+            for chart in charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                cr package ${chart} --config ".github/cr.yaml"
+              fi
+            done
+          done
+
 
       - name: Chart Releaser Upload
         run: |
