@@ -235,7 +235,7 @@ jobs:
       - uses: actions/checkout@v2
         name: Checkout
         with:
-          fetch-depth: 0
+          fetch-depth: 100
 
       - name: Checkout
         uses: actions/checkout@v2
