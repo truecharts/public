@@ -65,6 +65,10 @@ jobs:
         with:
           version: v3.5.3
 
+      - name: install chart releaser
+        run: |
+          brew tap helm/tap
+          brew install chart-releaser
 
       - name: update helm repo cache
         run: |
