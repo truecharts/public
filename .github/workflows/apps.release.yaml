@@ -75,7 +75,7 @@ jobs:
 
       - name: Chart Releaser Package
         run: |
-          cr package -c ".github/cr.yaml"
+          cr package
 
       - name: Chart Releaser Upload
         run: |
