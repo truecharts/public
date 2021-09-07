@@ -42,10 +42,13 @@ main() {
     local repo=
     local production=
     local charts_repo_url=
+    local token=${CR_TOKEN:-none}
 
     parse_command_line "$@"
-
-    : "${CR_TOKEN:?Environment variable CR_TOKEN must be set}"
+    if [ "${token}" == "none" ]; then
+        echo "env CR_TOKEN not found, defaulting to production=false"
+        production="false"
+    fi
 
     local repo_root
     repo_root=$(git rev-parse --show-toplevel)
@@ -75,7 +78,7 @@ main() {
                 prep_app "${chart}"
                 helm dependency update "${chart}" --skip-refresh
                 package_chart "$chart"
-                if [ -d "${chart}/SCALE" ]; then
+                if [[ -d "${chart}/SCALE" ]]; then
                   clean_apps "$chart" "$chartname" "$train" "$chartversion"
                   patch_apps "$chart" "$chartname" "$train" "$chartversion"
                   copy_apps "$chart" "$chartname" "$train" "$chartversion"
@@ -86,7 +89,7 @@ main() {
                 echo "Chart '$chart' no longer exists in repo. Skipping it..."
             fi
         done
-        if [[ -n "${production}" ]]
+        if [ "${production}" == "true" ]; then
         release_charts
         fi
         update_index
@@ -158,9 +161,8 @@ parse_command_line() {
                     config="$2"
                     shift
                 else
-                    echo "ERROR: '--config' cannot be empty." >&2
-                    show_help
-                    exit 1
+                    config=".github/cr.yaml"
+                    shift
                 fi
                 ;;
             -v|--version)
@@ -225,15 +227,13 @@ parse_command_line() {
     done
 
     if [[ -z "$owner" ]]; then
-        echo "ERROR: '-o|--owner' is required." >&2
-        show_help
-        exit 1
+        echo "No owner configured, defaulting to truecharts" >&2
+        owner="truecharts"
     fi
 
     if [[ -z "$repo" ]]; then
-        echo "ERROR: '-r|--repo' is required." >&2
-        show_help
-        exit 1
+        echo "No repo configured, defaulting to apps" >&2
+        repo="apps"
     fi
 
     if [[ -z "$charts_repo_url" ]]; then
