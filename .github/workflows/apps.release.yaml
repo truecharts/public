@@ -43,7 +43,7 @@ jobs:
 
       - name: build-and-run
         run: |
-          tools/build-release.sh --config .github/cr.yaml
+          tools/build-release.sh -p --config .github/cr.yaml
         env:
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
