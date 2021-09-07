@@ -63,7 +63,7 @@ main() {
     echo "Discovering changed charts since '$latest_tag'..."
     local changed_charts=()
     readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
-
+    copy_general_docs
     if [[ -n "${changed_charts[*]}" ]]; then
 
         rm -rf .cr-release-packages
@@ -104,6 +104,20 @@ main() {
 
     popd > /dev/null
 }
+
+copy_general_docs() {
+	yes | cp -rf index.yaml docs/index.yaml 2>/dev/null || :
+    yes | cp -rf .github/README.md docs/index.md 2>/dev/null || :
+    sed -i '1s/^/---\nhide:\n  - navigation\n  - toc\n---\n/' docs/index.md
+    sed -i 's~<!-- INSERT-DISCORD-WIDGET -->~<iframe src="https://discord.com/widget?id=830763548678291466\&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>~g' docs/index.md
+    yes | cp -rf .github/CODE_OF_CONDUCT docs/about/code_of_conduct.md 2>/dev/null || :
+    yes | cp -rf .github/CONTRIBUTING docs/development/contributing.md 2>/dev/null || :
+    yes | cp -rf .github/SUPPORT.md docs/manual/SUPPORT.md 2>/dev/null || :
+    yes | cp -rf LICENSE docs/about/legal/LICENSE.md 2>/dev/null || :
+    sed -i '1s/^/# License<br>\n\n/' docs/about/legal/LICENSE.md
+    yes | cp -rf NOTICE docs/about/legal/NOTICE.md 2>/dev/null || :
+    sed -i '1s/^/# NOTICE<br>\n\n/' docs/about/legal/NOTICE.md
+	}
 
 generate_docs() {
     local chart="$1"
