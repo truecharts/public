@@ -3,11 +3,11 @@ appVersion: auto
 dependencies:
 - name: common
   repository: https://truecharts.org/
-  version: 6.13.7
+  version: 6.13.8
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 1.6.1
+  version: 1.6.5
 - condition: memcached.enabled
   name: memcached
   repository: https://charts.bitnami.com/bitnami
@@ -27,4 +27,4 @@ name: sogo
 sources:
 - https://www.sogo.nu/
 type: application
-version: 1.0.2
+version: 1.0.3
