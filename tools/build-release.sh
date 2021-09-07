@@ -72,6 +72,7 @@ main() {
         rm -rf .cr-index
         mkdir -p .cr-index
 
+		prep_helm
         for chart in "${changed_charts[@]}"; do
             if [[ -d "$chart" ]]; then
                 chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
@@ -100,6 +101,14 @@ main() {
 
     popd > /dev/null
 }
+
+prep_helm() {
+	if [[ -z "$standalone" ]]; then
+	helm repo add truecharts https://truecharts.org
+    helm repo add bitnami https://charts.bitnami.com/bitnami
+    helm repo update
+	fi
+	}
 
 clean_apps() {
     local chart="$1"
