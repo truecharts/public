@@ -75,15 +75,15 @@ jobs:
 
       - name: Chart Releaser Package
         run: |
-          cr package
+          cr package --config ".github/cr.yaml"
 
       - name: Chart Releaser Upload
         run: |
-          cr upload -t ${{ secrets.GITHUB_TOKEN }} -c ".github/cr.yaml"
+          cr upload -t ${{ secrets.GITHUB_TOKEN }} --config ".github/cr.yaml"
 
       - name: Chart Releaser create index
         run: |
-          cr index -c ".github/cr.yaml"
+          cr index --config ".github/cr.yaml"
 
       # SCALE Release
       - name: fetch dependencies
