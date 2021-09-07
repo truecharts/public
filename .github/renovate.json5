@@ -28,6 +28,13 @@
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch"],
+      "postUpgradeTasks": {
+      "commands": [
+        "sed -i \"s/^version:.*/version: $(grep '^version:' Chart.yaml | awk '{print $2}' | awk -F '[.\"]' '{$NF = $NF + 1;} 1' | sed 's/ /./g')/\" Chart.yaml",
+      ],
+      "fileFilters": ["Chart.yaml"],
+      "executionMode": "branch"
+      },
     },
     //
     // helm deps
