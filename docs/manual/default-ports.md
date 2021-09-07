@@ -121,5 +121,7 @@ These defaults can ofcoarse be changed, but as we guarantee "sane, working defau
 | OpenLDAP            |  main     |  36099   |                   |                                      |
 | OpenLDAP            |  https    |  36100   |                   |                                      |
 | pihole              |  main     |  36101   |                   |                                      |
+| Sogo                |  main     |  36102   |                   |                                      |
+| oscam               |  main     |  36103   |                   |                                      |
 
 #### Note: TCP and UPD ports that are the same in each App, are not by mistake.
