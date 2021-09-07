@@ -7,10 +7,9 @@ kind: IngressRoute
 metadata:
   name: {{ include "common.names.fullname" . }}-dashboard
   annotations:
-    helm.sh/hook: "post-install,post-upgrade"
-    {{- with .Values.ingressRoute.dashboard.annotations }}
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
+  {{- with .Values.ingressRoute.dashboard.annotations }}
+  {{- toYaml . | nindent 4 }}
+  {{- end }}
   labels:
     {{- include "common.labels" . | nindent 4 }}
 spec:
