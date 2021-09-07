@@ -635,7 +635,7 @@ questions:
 
   - variable: serviceList
     label: "Additional Services"
-    group: "Storage and Persistence"
+    group: "Networking and Services"
     schema:
       type: list
       default: []
@@ -826,7 +826,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/root/.hyperion"
+                  default: "/.hyperion"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
@@ -1264,7 +1264,7 @@ questions:
       type: dict
       attrs:
         - variable: privileged
-          label: Privileged mode"
+          label: "Privileged mode"
           schema:
             type: boolean
             default: false
