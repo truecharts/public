@@ -65,8 +65,12 @@ jobs:
         with:
           version: v3.5.3
 
-      - name: install chart releaser
+      - name: install brew and chart releaser
         run: |
+          test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+          test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+          test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+          echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
           brew tap helm/tap
           brew install chart-releaser
 
