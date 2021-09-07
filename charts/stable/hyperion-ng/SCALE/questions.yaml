@@ -826,7 +826,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/root/.hyperion"
+                  default: "/.hyperion"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
