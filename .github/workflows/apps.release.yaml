@@ -65,10 +65,6 @@ jobs:
         with:
           version: v3.5.3
 
-      - name: install brew and chart releaser
-        run: |
-          cr --help
-
       - name: update helm repo cache
         run: |
           helm repo add truecharts https://truecharts.org
@@ -77,13 +73,17 @@ jobs:
 
       # HELM Release
 
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
-        with:
-          config: .github/cr.yaml
-          charts_dir: charts/*
-        env:
-          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
+      - name: Chart Releaser Package
+        run: |
+          cr package -c ".github/cr.yaml"
+
+      - name: Chart Releaser Upload
+        run: |
+          cr upload -t ${{ secrets.GITHUB_TOKEN }} -c ".github/cr.yaml"
+
+      - name: Chart Releaser create index
+        run: |
+          cr index -c ".github/cr.yaml"
 
       # SCALE Release
       - name: fetch dependencies
