@@ -19,7 +19,7 @@ jobs:
     concurrency: gitpush
     runs-on: ubuntu-latest
     container:
-      image: ixsystems/catalog_validation:latest
+      image: ghcr.io/truecharts/truecharts-release:v1.0.0
     steps:
       # wait and Prep cache
       - name: Block concurrent jobs
@@ -67,14 +67,7 @@ jobs:
 
       - name: install brew and chart releaser
         run: |
-          apt-get install build-essential curl file git
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-          test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-          test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-          test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-          echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
-          brew tap helm/tap
-          brew install chart-releaser
+          cr --help
 
       - name: update helm repo cache
         run: |
