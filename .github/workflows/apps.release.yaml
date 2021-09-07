@@ -53,6 +53,7 @@ jobs:
           git config user.email "bot@truecharts.org"
           git add --all
           git commit -sm "Commit released Helm Chart and docs for TrueCharts" || exit 0
+          git push
 
       - name: Commit and Push new App releases
         run: |
