@@ -15,35 +15,13 @@ on:
       - '.github/cr.yaml'
 
 jobs:
-  prephelm:
-    name: Prepare Helm
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Install Helm
-        uses: azure/setup-helm@v1
-        with:
-          version: v3.5.3
-
-      - name: Cache helm repo cache
-        uses: actions/cache@v2
-        with:
-          key: helmrepocache-${{ github.sha }}
-          path: |
-            ~/.cache/helm/repository
-            ~/.config/helm/repositories.yaml
-
-      - name: update helm repo cache
-        run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
-
-  catalog-release:
-    needs: [prephelm]
+  app-release:
+    concurrency: gitpush
     runs-on: ubuntu-latest
     container:
       image: ixsystems/catalog_validation:latest
     steps:
+      # Prep
       - name: Cache helm repo cache
         id: cache
         uses: actions/cache@v2
@@ -59,8 +37,13 @@ jobs:
           continue-after-seconds: 180
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-      - uses: actions/checkout@v2
-        name: Checkout
+
+      - name: Configure Git
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+
+
 
       - name: Install Helm
         uses: azure/setup-helm@v1
@@ -68,19 +51,26 @@ jobs:
           version: v3.5.3
 
 
-      - name: Cache-Error-Fix
-        if: steps.cache.outputs.cache-hit != 'true'
+      - name: update helm repo cache
         run: |
           helm repo add truecharts https://truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm repo update
+
+      # Checkout repo's
+      - name: Block concurrent jobs
+        uses: softprops/turnstyle@v1
+        with:
+          continue-after-seconds: 180
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
 
       - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
           token: ${{ secrets.BOT_TOKEN }}
-          path: master
+
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -88,11 +78,37 @@ jobs:
           repository: truecharts/catalog
           token: ${{ secrets.BOT_TOKEN }}
           path: catalog
+
+
+      - name: fetch dependencies
+        run: |
+          for train in stable incubator
+          do
+            for chart in charts/${train}/*; do
+              if [ -d "${chart}" ]; then
+                cd ${chart}
+                helm dependency update --skip-refresh
+                cd -
+              fi
+            done
+          done
+
+      # HELM Release
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.2.1
+        with:
+          config: .github/cr.yaml
+          charts_dir: charts/*
+        env:
+          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
+
+      # SCALE Release
       - name: Remove if release already exists
         run: |
           for train in stable incubator
           do
-            for chart in master/charts/${train}/*; do
+            for chart in charts/${train}/*; do
               if [ -d "${chart}/SCALE" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
@@ -104,23 +120,12 @@ jobs:
               fi
             done
           done
-      - name: fetch dependencies
-        run: |
-          for train in stable incubator
-          do
-            for chart in master/charts/${train}/*; do
-              if [ -d "${chart}" ]; then
-                cd ${chart}
-                helm dependency update --skip-refresh
-                cd -
-              fi
-            done
-          done
+
       - name: Apply SCALE Patches
         run: |
           for train in stable incubator
           do
-            for chart in master/charts/${train}/*; do
+            for chart in charts/${train}/*; do
               if [ -d "${chart}/SCALE" ]; then
                 chartname=$(basename ${chart})
                 echo "Processing... Applying SCALE patch... Chart: ${chartname} - Version: ${maxfolderversion}"
@@ -142,7 +147,7 @@ jobs:
         run: |
           for train in stable incubator
           do
-            for chart in master/charts/${train}/*; do
+            for chart in charts/${train}/*; do
               if [ -f "${chart}/item.yaml" ]; then
                 maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
@@ -167,55 +172,3 @@ jobs:
           git add --all
           git commit -sm "Commit new App releases for TrueCharts" || exit 0
           git push
-
-  helm-release:
-    needs: [prephelm]
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Cache helm repo cache
-        id: cache
-        uses: actions/cache@v2
-        with:
-          key: helmrepocache-${{ github.sha }}
-          path: |
-            ~/.cache/helm/repository
-            ~/.config/helm/repositories.yaml
-
-      - name: Block concurrent jobs
-        uses: softprops/turnstyle@v1
-        with:
-          continue-after-seconds: 180
-        env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.BOT_TOKEN }}
-
-      - name: Configure Git
-        run: |
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-
-      - name: Install Helm
-        uses: azure/setup-helm@v1
-        with:
-          version: v3.5.3
-
-      - name: Cache-Error-Fix
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
-
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
-        with:
-          config: .github/cr.yaml
-          charts_dir: charts/*
-        env:
-          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
