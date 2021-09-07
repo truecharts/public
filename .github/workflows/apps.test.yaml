@@ -217,7 +217,7 @@ jobs:
       - name: complete message
         run: echo "App Tests Completed Successfully"
 
-  catalog-test:
+  release-test:
     needs: [prephelm]
     runs-on: ubuntu-latest
     container:
@@ -234,6 +234,7 @@ jobs:
 
       - uses: actions/checkout@v2
         name: Checkout
+        with:
           fetch-depth: 0
 
       - name: Checkout
@@ -247,6 +248,6 @@ jobs:
         with:
           version: v3.5.3
 
-      - name: Cache-Error-Fix
+      - name: build-and-run
         run: |
           tools/build-release.sh --config .github/cr.yaml
