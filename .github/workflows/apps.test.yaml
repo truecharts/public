@@ -234,11 +234,11 @@ jobs:
 
       - uses: actions/checkout@v2
         name: Checkout
+          fetch-depth: 0
 
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
           repository: truecharts/catalog
           path: catalog
 
