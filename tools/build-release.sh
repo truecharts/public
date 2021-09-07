@@ -78,6 +78,8 @@ main() {
                 chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 train=$(basename $(dirname "$chart"))
+				generate_docs "$chart" "$chartname" "$train" "$chartversion"
+				copy_docs "$chart" "$chartname" "$train" "$chartversion"
                 helm dependency update "${chart}" --skip-refresh
                 package_chart "$chart"
                 if [[ -d "${chart}/SCALE" ]]; then
@@ -102,6 +104,69 @@ main() {
 
     popd > /dev/null
 }
+
+generate_docs() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+	if [[ -z "$standalone" ]]; then
+         echo "Generating Docs"
+         if [ "${chartname}" == "common" ]; then
+             helm-docs \
+                 --ignore-file=".helmdocsignore" \
+                 --output-file="README.md" \
+                 --template-files="/home/runner/work/apps/apps/templates/docs/common-README.md.gotmpl" \
+                 --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
+             helm-docs \
+                 --ignore-file=".helmdocsignore" \
+                 --output-file="helm-values.md" \
+                 --template-files="/home/runner/work/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
+                 --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
+	     else
+             helm-docs \
+                 --ignore-file=".helmdocsignore" \
+                 --output-file="README.md" \
+                 --template-files="/home/runner/work/apps/apps/templates/docs/README.md.gotmpl" \
+                 --chart-search-root="${chart}"
+             helm-docs \
+                 --ignore-file=".helmdocsignore" \
+                 --output-file="CONFIG.md" \
+                 --template-files="/home/runner/work/apps/apps/templates/docs/CONFIG.md.gotmpl" \
+                 --chart-search-root="${chart}"
+             helm-docs \
+                 --ignore-file=".helmdocsignore" \
+                 --output-file="app-readme.md" \
+                 --template-files="/home/runner/work/apps/apps/templates/docs/app-readme.md.gotmpl" \
+                 --chart-search-root="${chart}"
+             helm-docs \
+                 --ignore-file=".helmdocsignore" \
+                 --output-file="helm-values.md" \
+                 --template-files="/home/runner/work/apps/apps/templates/docs/helm-values.md.gotmpl" \
+                 --chart-search-root="${chart}"
+         fi
+	fi
+	}
+
+
+copy_docs() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+	echo "Copying docs for: ${chart}"
+    if [ "${chartname}" == "common" ]; then
+	    mkdir -p docs/apps/common || :
+	    yes | cp -rf charts/library/common/README.md  docs/apps/common/index.md 2>/dev/null || :
+        yes | cp -rf charts/library/common/helm-values.md  docs/apps/common/helm-values.md 2>/dev/null || :
+	else
+        mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
+        yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md 2>/dev/null || :
+        yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
+        yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
+        sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
+	fi
+	}
 
 prep_helm() {
 	if [[ -z "$standalone" ]]; then
