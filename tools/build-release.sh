@@ -150,7 +150,7 @@ copy_apps() {
 validate_catalog() {
     if [[ -z "$standalone" ]]; then
     echo "Starting Catalog Validation"
-    /usr/local/bin/catalog_validate validate --path $PWD/catalog"
+    /usr/local/bin/catalog_validate validate --path "${PWD}/catalog"
     fi
 }
 
