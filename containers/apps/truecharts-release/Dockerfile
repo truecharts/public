@@ -20,7 +20,7 @@ RUN --mount=type=bind,from=cr,source=/usr/local/bin,target=/crbin \
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
 RUN --mount=type=bind,from=hd,source=/usr/bin/,target=/hdbin \
-  cp /hdbin/"helm-docs /usr/local/bin/helm-docs
+  cp /hdbin/helm-docs /usr/local/bin/helm-docs
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"
