@@ -194,13 +194,13 @@ questions:
           description: "Sets the userID inside the container"
           schema:
             type: string
-            default: "1000"
+            default: "568"
         - variable: PGID
           label: "PGID"
           description: "Sets the GroupID inside the container"
           schema:
             type: string
-            default: "20"
+            default: "568"
         - variable: UMASK
           label: "UMASK"
           description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
