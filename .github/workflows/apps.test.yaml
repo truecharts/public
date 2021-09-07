@@ -13,29 +13,6 @@ on:
       - '.github/ct-lint.yaml'
 
 jobs:
-  prephelm:
-    name: Prepare Helm
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Install Helm
-        uses: azure/setup-helm@v1
-        with:
-          version: v3.5.3
-
-      - name: Cache helm repo cache
-        uses: actions/cache@v2
-        with:
-          key: helmrepocache-${{ github.sha }}
-          path: |
-            ~/.cache/helm/repository
-            ~/.config/helm/repositories.yaml
-
-      - name: update helm repo cache
-        run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
-
   changes:
     name: Get changed Apps
     runs-on: ubuntu-20.04
@@ -68,7 +45,7 @@ jobs:
         fi
 
   app-tests:
-    needs: [changes, prephelm]
+    needs: [changes]
     if: ${{ needs.changes.outputs.empty_matrix == 'false' }}
     name: App Tests
     runs-on: ubuntu-latest
@@ -122,8 +99,7 @@ jobs:
         with:
           version: v3.5.3
 
-      - name: Cache-Error-Fix
-        if: steps.cache.outputs.cache-hit != 'true'
+      - name: update helm repo cache
         run: |
           helm repo add truecharts https://truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -218,7 +194,6 @@ jobs:
         run: echo "App Tests Completed Successfully"
 
   release-test:
-    needs: [prephelm]
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/truecharts/truecharts-release:v1.0.0
