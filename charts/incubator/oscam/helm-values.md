@@ -11,7 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGID | string | `"1000"` | Specify the group ID the application will run as |
+| env.PGID | string | `"568"` | Specify the group ID the application will run as |
 | env.PUID | string | `"20"` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
