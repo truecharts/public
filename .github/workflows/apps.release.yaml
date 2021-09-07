@@ -6,29 +6,14 @@ on:
       - 'master'
     tags-ignore:
       - '**'
-    paths:
-      - 'charts/**/chart.yaml'
-      - 'charts/**/Chart.yaml'
-      - '.github/workflows/apps.release.yaml'
-      - '.github/ct-install.yaml'
-      - '.github/ct-lint.yaml'
-      - '.github/cr.yaml'
 
 jobs:
-  app-release:
-    concurrency: gitpush
+  release:
     runs-on: ubuntu-latest
+    concurrency: gitpush
     container:
       image: ghcr.io/truecharts/truecharts-release:v1.0.0
     steps:
-      # wait and Prep cache
-      - name: Block concurrent jobs
-        uses: softprops/turnstyle@v1
-        with:
-          continue-after-seconds: 180
-        env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-
       - name: Cache helm repo cache
         id: cache
         uses: actions/cache@v2
@@ -38,127 +23,33 @@ jobs:
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
 
-      # Checkout repo's
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        name: Checkout
         with:
-          fetch-depth: 0
-          token: ${{ secrets.BOT_TOKEN }}
-      - name: Configure Git
-        run: |
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-
+          fetch-depth: 100
 
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
           repository: truecharts/catalog
-          token: ${{ secrets.BOT_TOKEN }}
           path: catalog
 
-
-      # Setup Helm
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
           version: v3.5.3
 
-      - name: install brew and chart releaser
+      - name: build-and-run
         run: |
-          cr --help
+          tools/build-release.sh --config .github/cr.yaml
 
-      - name: update helm repo cache
+      - name: Commit and Push new Helm Charts and docs
         run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit released Helm Chart and docs for TrueCharts" || exit 0
 
-      # HELM Release
-
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
-        with:
-          config: .github/cr.yaml
-          charts_dir: charts/*
-        env:
-          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
-
-      # SCALE Release
-      - name: fetch dependencies
-        run: |
-          for train in stable incubator
-          do
-            for chart in charts/${train}/*; do
-              if [ -d "${chart}" ]; then
-                cd ${chart}
-                helm dependency update --skip-refresh
-                cd -
-              fi
-            done
-          done
-
-      - name: Remove if release already exists
-        run: |
-          for train in stable incubator
-          do
-            for chart in charts/${train}/*; do
-              if [ -d "${chart}/SCALE" ]; then
-                maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-                chartname=$(basename ${chart})
-                echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
-                rm -Rf catalog/${train}/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
-                rm -Rf catalog/${train}/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
-              else
-                echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
-              fi
-            done
-          done
-
-      - name: Apply SCALE Patches
-        run: |
-          for train in stable incubator
-          do
-            for chart in charts/${train}/*; do
-              if [ -d "${chart}/SCALE" ]; then
-                chartname=$(basename ${chart})
-                echo "Processing... Applying SCALE patch... Chart: ${chartname} - Version: ${maxfolderversion}"
-                mv ${chart}/SCALE/item.yaml ${chart}/
-                mv ${chart}/SCALE/ix_values.yaml ${chart}/
-                mv ${chart}/SCALE/questions.yaml ${chart}/
-                cp -rf ${chart}/SCALE/templates/* ${chart}/templates || echo "ignoring templates directory..."
-                rm -rf ${chart}/SCALE
-                mv ${chart}/values.yaml ${chart}/test_values.yaml
-                touch ${chart}/values.yaml
-                description=$(cat ${chart}/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
-                echo "${description}" >> ${chart}/app-readme.md
-              else
-                echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
-              fi
-            done
-          done
-      - name: Add Chart release
-        run: |
-          for train in stable incubator
-          do
-            for chart in charts/${train}/*; do
-              if [ -f "${chart}/item.yaml" ]; then
-                maxchartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-                chartname=$(basename ${chart})
-                  echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
-                  mkdir -p catalog/${train}/${chartname}/${maxchartversion}
-                  cp -Rf ${chart}/* catalog/${train}/${chartname}/${maxchartversion}/
-                  mv catalog/${train}/${chartname}/${maxchartversion}/item.yaml catalog/${train}/${chartname}/item.yaml
-              else
-                echo "Skipping, chart ${chart} does not contain SCALE compatibility layer..."
-              fi
-            done
-          done
-      - name: Validate catalog format
-        run: |
-          cd catalog
-          /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
       - name: Commit and Push new App releases
         run: |
           cd catalog
