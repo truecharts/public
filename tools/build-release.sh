@@ -31,22 +31,24 @@ Usage: $(basename "$0") <options>
     -o, --owner              The repo owner
     -r, --repo               The repo name
     -p, --production         Enables uploading releases to github releases
+    -s, --standalone         Disables Chart Releaser and Catalog Validation, for local generation
 EOF
 }
 
 main() {
     local version="$DEFAULT_CHART_RELEASER_VERSION"
     local config=
-    local charts_dir=charts
+    local standalone=
+    local charts_dir=charts/**
     local owner=
     local repo=
     local production=
     local charts_repo_url=
-    local token=${CR_TOKEN:-none}
+    local token=${CR_TOKEN:-false}
 
     parse_command_line "$@"
-    if [ "${token}" == "none" ]; then
-        echo "env CR_TOKEN not found, defaulting to production=false"
+    if [ "${token}" == "false" ]; then
+        echo "env #cr_TOKEN not found, defaulting to production=false"
         production="false"
     fi
 
@@ -63,7 +65,6 @@ main() {
     readarray -t changed_charts <<< "$(lookup_changed_charts "$latest_tag")"
 
     if [[ -n "${changed_charts[*]}" ]]; then
-        install_chart_releaser
 
         rm -rf .cr-release-packages
         mkdir -p .cr-release-packages
@@ -75,7 +76,7 @@ main() {
             if [[ -d "$chart" ]]; then
                 chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
-                prep_app "${chart}"
+                train=$(basename $(dirname "$chart"))
                 helm dependency update "${chart}" --skip-refresh
                 package_chart "$chart"
                 if [[ -d "${chart}/SCALE" ]]; then
@@ -100,21 +101,14 @@ main() {
     popd > /dev/null
 }
 
-prep_app() {
-    local chart="$1"
-    echo "Creating app-readme.md for App: ${chartname}"
-    description=$(cat ${chart}/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
-    echo "${description}" >> ${chart}/app-readme.md
-}
-
 clean_apps() {
     local chart="$1"
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
     echo "Cleaning SCALE catalog for App: ${chartname}"
-    rm -Rf catalog/${train}/${chartname}/${chartversion} || true
-    rm -Rf catalog/${train}/${chartname}/item.yaml || true
+    rm -Rf catalog/${train}/${chartname}/${chartversion} 2>/dev/null || :
+    rm -Rf catalog/${train}/${chartname}/item.yaml 2>/dev/null || :
 }
 
 patch_apps() {
@@ -126,7 +120,7 @@ patch_apps() {
     mv ${chart}/SCALE/item.yaml ${chart}/
     mv ${chart}/SCALE/ix_values.yaml ${chart}/
     mv ${chart}/SCALE/questions.yaml ${chart}/
-    cp -rf ${chart}/SCALE/templates/* ${chart}/templates || echo "ignoring templates directory..."
+    cp -rf ${chart}/SCALE/templates/* ${chart}/templates 2>/dev/null || :
     rm -rf ${chart}/SCALE
     mv ${chart}/values.yaml ${chart}/test_values.yaml
     touch ${chart}/values.yaml
@@ -144,8 +138,10 @@ copy_apps() {
 }
 
 validate_catalog() {
+    if [[ -z "$standalone" ]]; then
     echo "Starting Catalog Validation"
     /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD/catalog"
+	fi
 }
 
 
@@ -218,6 +214,9 @@ parse_command_line() {
             -p|--production)
                 production="true"
                 ;;
+            -s|--standalone)
+                standalone="true"
+                ;;
             *)
                 break
                 ;;
@@ -265,7 +264,7 @@ lookup_changed_charts() {
     local commit="$1"
 
     local changed_files
-    changed_files=$(git diff --find-renames --name-only "$commit" -- "$charts_dir")
+    changed_files=$(git diff --find-renames --name-only "$commit" -- "$charts_dir" | grep "Chart.yaml")
 
     local depth=$(( $(tr "/" "\n" <<< "$charts_dir" | sed '/^\(\.\)*$/d' | wc -l) + 1 ))
     local fields="1-${depth}"
@@ -275,14 +274,15 @@ lookup_changed_charts() {
 
 package_chart() {
     local chart="$1"
-
     local args=("$chart" --package-path .cr-release-packages)
     if [[ -n "$config" ]]; then
         args+=(--config "$config")
     fi
 
+    if [[ -z "$standalone" ]]; then
     echo "Packaging chart '$chart'..."
     cr package "${args[@]}"
+	fi
 }
 
 release_charts() {
@@ -291,8 +291,10 @@ release_charts() {
         args+=(--config "$config")
     fi
 
+    if [[ -z "$standalone" ]]; then
     echo 'Releasing charts...'
     cr upload "${args[@]}"
+    fi
 }
 
 update_index() {
@@ -301,8 +303,10 @@ update_index() {
         args+=(--config "$config")
     fi
 
+    if [[ -z "$standalone" ]]; then
     echo 'Updating charts repo index...'
     cr index "${args[@]}"
+	fi
 }
 
 main "$@"
