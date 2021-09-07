@@ -91,6 +91,7 @@ main() {
                 echo "Chart '$chart' no longer exists in repo. Skipping it..."
             fi
         done
+        validate_catalog
         if [ "${production}" == "true" ]; then
         release_charts
         update_index
