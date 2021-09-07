@@ -169,33 +169,33 @@ generate_docs() {
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="README.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/common-README.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/common-README.md.gotmpl" \
                  --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="helm-values.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
                  --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
 	     else
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="README.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/README.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/README.md.gotmpl" \
                  --chart-search-root="${chart}"
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="CONFIG.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/CONFIG.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/CONFIG.md.gotmpl" \
                  --chart-search-root="${chart}"
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="app-readme.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/app-readme.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/app-readme.md.gotmpl" \
                  --chart-search-root="${chart}"
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="helm-values.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/helm-values.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/helm-values.md.gotmpl" \
                  --chart-search-root="${chart}"
          fi
 	fi
