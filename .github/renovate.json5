@@ -51,7 +51,7 @@
         "patch"
       ],
       "bumpVersion": "patch",
-      "labels": ["dependency/patch-minor"],
+      "labels": ["dependency/non-major"],
       "groupName": "non-major deps",
       "schedule": [
         "on tuesday"
@@ -73,20 +73,14 @@
     },
     {
       "matchDatasources": ["docker"],
-      "updateTypes": ["minor"],
-      "bumpVersion": "minor",
-      "labels": ["tag/minor"],
-      "groupName": ["minor"],
-      "schedule": [
-        "on tuesday"
-      ]
-    },
-    {
-      "matchDatasources": ["docker"],
-      "updateTypes": ["patch"],
+      "automerge": true,
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "bumpVersion": "patch",
-      "labels": ["tag/patch"],
-      "groupName": ["patch"],
+      "labels": ["tag/non-major"],
+      "groupName": ["non-major"],
       "schedule": [
         "on tuesday"
       ]
