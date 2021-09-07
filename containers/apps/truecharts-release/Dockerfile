@@ -8,7 +8,7 @@ FROM jnorwood/helm-docs:v1.5.0 AS hd
 FROM mogensen/helm-changelog:v0.0.1 AS hcl
 
 # hadolint ignore=DL3007
-FROM quay.io/git-chglog/git-chglog:latest:v0.15.0 AS gcl
+FROM quay.io/git-chglog/git-chglog:v0.15.0 AS gcl
 
 # hadolint ignore=DL3007
 FROM ixsystems/catalog_validation:latest
