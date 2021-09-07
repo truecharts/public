@@ -93,8 +93,8 @@ main() {
         done
         if [ "${production}" == "true" ]; then
         release_charts
-        fi
         update_index
+        fi
     else
         echo "Nothing to do. No chart changes detected."
     fi
