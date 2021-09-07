@@ -196,7 +196,7 @@ jobs:
   release-test:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/truecharts-release:v1.0.0
+      image: ghcr.io/truecharts/truecharts-release:v1.2.0
     steps:
       - name: Cache helm repo cache
         id: cache
