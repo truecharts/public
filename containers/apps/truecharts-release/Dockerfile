@@ -3,7 +3,7 @@ FROM quay.io/helmpack/chart-releaser:v1.2.1 AS cr
 
 
 # hadolint ignore=DL3007
-FROM ixsystems/catalog_validation:latest
+FROM registry.hub.docker.com/ixsystems/catalog_validation:latest
 
 ARG TARGETPLATFORM
 ARG VERSION
