@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"sirfragalot/hyperion.ng"` | image repository |
-| image.tag | string | `"2.0.0-alpha.9-x86_64"` | image tag |
+| image.tag | string | `"2.0.0-alpha.10-x86_64"` | image tag |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/root/.hyperion"` |  |
