@@ -82,8 +82,8 @@ main() {
                 package_chart "$chart"
                 if [[ -d "${chart}/SCALE" ]]; then
                   clean_apps "$chart" "$chartname" "$train" "$chartversion"
-                  patch_apps "$chart" "$chartname" "$train" "$chartversion"
                   copy_apps "$chart" "$chartname" "$train" "$chartversion"
+                  patch_apps "$chart" "$chartname" "$train" "$chartversion"
                 else
                   echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
                 fi
@@ -126,14 +126,15 @@ patch_apps() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
+    local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Applying SCALE patches for App: ${chartname}"
-    mv ${chart}/SCALE/item.yaml ${chart}/
-    mv ${chart}/SCALE/ix_values.yaml ${chart}/
-    mv ${chart}/SCALE/questions.yaml ${chart}/
-    cp -rf ${chart}/SCALE/templates/* ${chart}/templates 2>/dev/null || :
-    rm -rf ${chart}/SCALE
-    mv ${chart}/values.yaml ${chart}/test_values.yaml
-    touch ${chart}/values.yaml
+    mv ${target}/SCALE/ix_values.yaml ${target}/
+    mv ${target}/SCALE/questions.yaml ${target}/
+    cp -rf ${target}/SCALE/templates/* ${target}/templates 2>/dev/null || :
+    mv ${target}/SCALE/item.yaml catalog/${train}/${chartname}/item.yaml
+    rm -rf ${target}/SCALE
+    mv ${target}/values.yaml ${target}/test_values.yaml
+    touch ${target}/values.yaml
 }
 
 copy_apps() {
@@ -144,7 +145,7 @@ copy_apps() {
     echo "Copying App to Catalog: ${2}"
     mkdir -p catalog/${train}/${chartname}/${chartversion}
     cp -Rf ${chart}/* catalog/${train}/${chartname}/${chartversion}/
-    mv catalog/${train}/${chartname}/${chartversion}/item.yaml catalog/${train}/${chartname}/item.yaml
+
 }
 
 validate_catalog() {
