@@ -130,11 +130,17 @@ create_changelog() {
     local chartversion="$4"
 	local prevversion="$(git tag -l "${chartname}-*" --sort=-v:refname  | head -n 1)"
     if [[ -z "$standalone" ]]; then
-	echo "Generating changelogs for: ${chartname}"
-	# SCALE "Changelog" containing only last change
-	git-chglog --next-tag ${chartversion} --tag-filter-pattern ${chartname} --path ${chart} ${chartversion} -o ${chart}/SCALE/CHANGELOG.md
-	# Append SCALE changelog to actual changelog
-	cat ${chart}/SCALE/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
+	    echo "Generating changelogs for: ${chartname}"
+	    # SCALE "Changelog" containing only last change
+	    git-chglog --next-tag ${chartname}-${chartversion} --tag-filter-pattern ${chartname} --path ${chart} -o ${chart}/SCALE/CHANGELOG.md ${chartname}-${chartversion}
+	    # Append SCALE changelog to actual changelog
+
+	    if [[ -f "${chart}/CHANGELOG.md" ]]; then
+            cat ${chart}/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
+        else
+		   touch ${chart}/CHANGELOG.md
+           cat ${chart}/SCALE/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
+        fi
 	fi
 	}
 
