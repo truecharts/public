@@ -1,0 +1,30 @@
+# Default values for oscam
+
+image:
+  repository: ghcr.io/linuxserver/oscam
+  pullPolicy: IfNotPresent
+  tag: latest
+
+
+
+env:
+  TZ: UTC
+  PUID: "1000"
+  # currently needed for working with /dev/ttyXYZ devices
+  # see: https://github.com/linuxserver/docker-oscam/issues/21
+  PGID: "20"
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 8888
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
