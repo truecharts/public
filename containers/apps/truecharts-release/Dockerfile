@@ -13,7 +13,7 @@ USER root
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # hadolint ignore=DL3008,DL3015,SC2086,SC2155
-RUN --mount=type=bind,from=cr,source=/usr/local/bin/cr,target=/crbin \
+RUN --mount=type=bind,from=cr,source=/usr/local/bin,target=/crbin \
   cp /crbin/cr /usr/local/bin/cr
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
