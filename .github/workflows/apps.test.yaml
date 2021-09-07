@@ -13,29 +13,6 @@ on:
       - '.github/ct-lint.yaml'
 
 jobs:
-  prephelm:
-    name: Prepare Helm
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Install Helm
-        uses: azure/setup-helm@v1
-        with:
-          version: v3.5.3
-
-      - name: Cache helm repo cache
-        uses: actions/cache@v2
-        with:
-          key: helmrepocache-${{ github.sha }}
-          path: |
-            ~/.cache/helm/repository
-            ~/.config/helm/repositories.yaml
-
-      - name: update helm repo cache
-        run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
-
   changes:
     name: Get changed Apps
     runs-on: ubuntu-20.04
@@ -68,7 +45,7 @@ jobs:
         fi
 
   app-tests:
-    needs: [changes, prephelm]
+    needs: [changes]
     if: ${{ needs.changes.outputs.empty_matrix == 'false' }}
     name: App Tests
     runs-on: ubuntu-latest
@@ -122,8 +99,7 @@ jobs:
         with:
           version: v3.5.3
 
-      - name: Cache-Error-Fix
-        if: steps.cache.outputs.cache-hit != 'true'
+      - name: update helm repo cache
         run: |
           helm repo add truecharts https://truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
@@ -217,11 +193,10 @@ jobs:
       - name: complete message
         run: echo "App Tests Completed Successfully"
 
-  catalog-test:
-    needs: [prephelm]
+  release-test:
     runs-on: ubuntu-latest
     container:
-      image: ixsystems/catalog_validation:latest
+      image: ghcr.io/truecharts/truecharts-release:v1.0.0
     steps:
       - name: Cache helm repo cache
         id: cache
@@ -234,16 +209,12 @@ jobs:
 
       - uses: actions/checkout@v2
         name: Checkout
+        with:
+          fetch-depth: 100
 
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0
-          path: master
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
           repository: truecharts/catalog
           path: catalog
 
@@ -252,96 +223,6 @@ jobs:
         with:
           version: v3.5.3
 
-      - name: Cache-Error-Fix
-        if: steps.cache.outputs.cache-hit != 'true'
+      - name: build-and-run
         run: |
-          helm repo add truecharts https://truecharts.org
-          helm repo add bitnami https://charts.bitnami.com/bitnami
-          helm repo update
-
-      - name: Remove if release already exists
-        run: |
-          removetask(){
-            if [ -d "$2/SCALE" ]; then
-              maxchartversion=$(cat $2/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-              chartname=$(basename $2)
-              echo "Processing... cleanup-existing... Chart: ${chartname} - Version: ${maxchartversion}"
-              rm -Rf catalog/$1/${chartname}/${maxchartversion} || echo "Chart release ${chartname} with version ${maxchartversion} does not exist yet... Skipping..."
-              rm -Rf catalog/$1/${chartname}/item.yaml || echo "No old catalog item.yaml found for ${chartname}"
-            else
-              echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
-            fi
-          }
-          for train in stable incubator
-          do
-            for chart in master/charts/${train}/*; do
-              removetask "${train}" "${chart}" &
-            done
-          done
-          wait
-      - name: fetch dependencies
-        run: |
-          fetchtask(){
-            if [ -d "$1" ]; then
-              cd $1
-              helm dependency update --skip-refresh
-              cd -
-            fi
-          }
-          for train in stable incubator
-          do
-            for chart in master/charts/${train}/*; do
-              fetchtask "${chart}"
-            done
-          done
-      - name: Apply SCALE Patches
-        run: |
-          patchtask(){
-            if [ -d "$1/SCALE" ]; then
-              chartname=$(basename $1)
-              echo "Processing... Applying SCALE patch... Chart: ${chartname}"
-              mv $1/SCALE/item.yaml $1/
-              mv $1/SCALE/ix_values.yaml $1/
-              mv $1/SCALE/questions.yaml $1/
-              cp -rf $1/SCALE/templates/* $1/templates || echo "ignoring templates directory..."
-              rm -rf $1/SCALE
-              mv $1/values.yaml $1/test_values.yaml
-              touch $1/values.yaml
-              description=$(cat $1/Chart.yaml | grep "^description: " | sed -r 's/^description: //')
-              echo "${description}" >> $1/app-readme.md
-            else
-              echo "Skipping chart $1, no correct SCALE compatibility layer detected"
-            fi
-          }
-          for train in stable incubator
-          do
-            for chart in master/charts/${train}/*; do
-              patchtask "${chart}" &
-            done
-          done
-          wait
-      - name: Add Chart release
-        run: |
-          addtask(){
-            if [ -f "$1/item.yaml" ]; then
-              maxchartversion=$(cat $1/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-              chartname=$(basename $1)
-                echo "Processing... Copying charts... Chart: ${chartname} - Version: ${maxchartversion}"
-                mkdir -p catalog/${train}/${chartname}/${maxchartversion}
-                cp -Rf $1/* catalog/${train}/${chartname}/${maxchartversion}/
-                mv catalog/${train}/${chartname}/${maxchartversion}/item.yaml catalog/${train}/${chartname}/item.yaml
-            else
-              echo "Skipping, chart $1 does not contain SCALE compatibility layer..."
-            fi
-          }
-          for train in stable incubator
-          do
-            for chart in master/charts/${train}/*; do
-              addtask "${chart}" &
-            done
-          done
-          wait
-      - name: Validate catalog format
-        run: |
-          cd catalog
-          /bin/bash -c "PWD=${pwd}; /usr/local/bin/catalog_validate validate --path $PWD"
+          tools/build-release.sh --config .github/cr.yaml
