@@ -21,7 +21,14 @@ jobs:
     container:
       image: ixsystems/catalog_validation:latest
     steps:
-      # Prep
+      # wait and Prep cache
+      - name: Block concurrent jobs
+        uses: softprops/turnstyle@v1
+        with:
+          continue-after-seconds: 180
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+
       - name: Cache helm repo cache
         id: cache
         uses: actions/cache@v2
@@ -31,20 +38,28 @@ jobs:
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
 
-      - name: Block concurrent jobs
-        uses: softprops/turnstyle@v1
+      # Checkout repo's
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          continue-after-seconds: 180
-        env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
-
+          fetch-depth: 0
+          token: ${{ secrets.BOT_TOKEN }}
       - name: Configure Git
         run: |
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
 
 
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          repository: truecharts/catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          path: catalog
 
+
+      # Setup Helm
       - name: Install Helm
         uses: azure/setup-helm@v1
         with:
@@ -57,29 +72,17 @@ jobs:
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm repo update
 
-      # Checkout repo's
-      - name: Block concurrent jobs
-        uses: softprops/turnstyle@v1
+      # HELM Release
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.2.1
         with:
-          continue-after-seconds: 180
+          config: .github/cr.yaml
+          charts_dir: charts/*
         env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
 
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.BOT_TOKEN }}
-
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          repository: truecharts/catalog
-          token: ${{ secrets.BOT_TOKEN }}
-          path: catalog
-
-
+      # SCALE Release
       - name: fetch dependencies
         run: |
           for train in stable incubator
@@ -93,17 +96,6 @@ jobs:
             done
           done
 
-      # HELM Release
-
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
-        with:
-          config: .github/cr.yaml
-          charts_dir: charts/*
-        env:
-          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
-
-      # SCALE Release
       - name: Remove if release already exists
         run: |
           for train in stable incubator
