@@ -94,6 +94,7 @@ main() {
                 echo "Chart '$chart' no longer exists in repo. Skipping it..."
             fi
         done
+        pre_commit
         validate_catalog
         if [ "${production}" == "true" ]; then
         release_charts
@@ -113,6 +114,14 @@ main() {
 
     popd > /dev/null
 }
+
+pre_commit() {
+    if [[ -z "$standalone" ]]; then
+      echo "Running pre-commit test-and-cleanup..."
+      # TO BE ENABLED
+      # pre-commit run --all
+    fi
+    }
 
 edit_release() {
     local chart="$1"
