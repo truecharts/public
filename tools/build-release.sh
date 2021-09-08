@@ -122,20 +122,20 @@ sync_tag() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-    echo "Attempting to sync primary tag with Charts.yaml for: ${chartname}"
+    echo "Attempting to sync primary tag with appversion for: ${chartname}"
     local tag="$(cat ${chart}/Values.yaml | grep "^  tag: " | awk -F" " '{ print $2 }')"
     tag="${tag:-auto}"
     tag="${tag#*release-}"
     tag="${tag#*version-}"
     tag="${tag#*v}"
+    tag="${tag:0:10}"
     sed -i -e "s|appVersion: .*|appVersion: ${tag}|" "${chart}/Chart.yaml"
     }
 
 pre_commit() {
     if [[ -z "$standalone" ]]; then
       echo "Running pre-commit test-and-cleanup..."
-      # TO BE ENABLED
-      # pre-commit run --all ||:
+       pre-commit run --all ||:
       # Fix sh files to always be executable
       find . -name '*.sh' | xargs chmod +x
     fi

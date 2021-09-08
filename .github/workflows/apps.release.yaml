@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: gitpush
     container:
-      image: ghcr.io/truecharts/truecharts-release:v1.2.0
+      image: ghcr.io/truecharts/truecharts-release:v1.3.0
     steps:
 
       - uses: actions/checkout@v2
