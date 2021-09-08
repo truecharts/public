@@ -35,6 +35,27 @@ service:
         port: 3478
         targetPort: 3478
         protocol: UDP
+  speedtest:
+    enabled: false
+    ports:
+      tcp:
+        enabled: true
+        port: 6789
+        targetPort: 6789
+        protocol: TCP
+  guestportal:
+    enabled: false
+    ports:
+      web:
+        enabled: true
+        port: 8880
+        targetPort: 8880
+        protocol: HTTP
+      websecure:
+        enabled: true
+        port: 8843
+        targetPort: 8843
+        protocol: HTTPS
 
 env:
   # TZ:
