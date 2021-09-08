@@ -1047,6 +1047,7 @@ questions:
                 schema:
                   type: string
                   default: "2000m"
+                  valid_chars: '^([0-9]+)(\.[0-9]?|m?)$'
               - variable: memory
                 label: "Memory RAM"
                 schema:
@@ -1063,6 +1064,7 @@ questions:
                 schema:
                   type: string
                   default: "10m"
+                  valid_chars: '^([0-9]+)(\.[0-9]?|m?)$'
               - variable: memory
                 label: "Memory RAM"
                 schema:
