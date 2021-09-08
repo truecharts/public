@@ -1,0 +1,65 @@
+{{- $values := .Values }}
+{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
+{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
+{{- $namespace = "default" }}
+{{- end }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: tc-nextcloud-headers
+  namespace: {{ $namespace }}
+spec:
+  headers:
+    stsSeconds: 63072000
+    forceSTSHeader: true
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: tc-nextcloud-redirectregex-dav
+spec:
+  redirectRegex:
+    regex: "https://(.*)/.well-known/(card|cal)dav"
+    replacement: "https://${1}/remote.php/dav/"
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: tc-nextcloud-redirectregex-finger
+spec:
+  redirectRegex:
+    regex: "https://(.*)/.well-known/webfinger"
+    replacement: "https://${1}/public.php?service=webfinger"
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: tc-nextcloud-redirectregex-hostmeta
+spec:
+  redirectRegex:
+    regex: "https://(.*)/.well-known/host-meta"
+    replacement: "https://${1}/public.php?service=host-meta"
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: tc-nextcloud-redirectregex-hostmetajson
+spec:
+  redirectRegex:
+    regex: "https://(.*)/.well-known/host-meta.json"
+    replacement: "https://${1}/public.php?service=host-meta-json"
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: tc-nextcloud-chain
+  namespace: {{ $namespace }}
+spec:
+  chain:
+    middlewares:
+    - name: tc-nextcloud-headers
+    - name: tc-nextcloud-redirectregex-dav
+    - name: tc-nextcloud-redirectregex-finger
+    - name: tc-nextcloud-redirectregex-hostmetajson
+    - name: tc-nextcloud-redirectregex-hostmeta

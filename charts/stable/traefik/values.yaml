@@ -306,15 +306,28 @@ middlewares:
   #   authResponseHeadersRegex: "^X-"
   #   trustForwardHeader: true
   chain: []
-  # name: chainname
-  # middlewares:
-  #  - name: compress
+  # - name: chainname
+  #   middlewares:
+  #    - name: compress
   redirectScheme: []
-  #  scheme: https
-  #  permanent: true
+  # - name: redirectSchemeName
+  #   scheme: https
+  #   permanent: true
   rateLimit: []
-  #  average: 300
-  #  burst: 200
+  # - name: rateLimitName
+  #   average: 300
+  #   burst: 200
+  redirectRegex: []
+  # - name: redirectRegexName
+  #   regex: putregexhere
+  #   replacement: replacementurlhere
+  #   permanent: false
+  ipWhiteList: []
+  # - name: ipWhiteListName
+  #   sourceRange: []
+  #   ipStrategy:
+  #     depth: 2
+  #     excludedIPs: []
 
 portalhook:
   enabled: true
