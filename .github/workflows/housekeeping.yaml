@@ -116,43 +116,6 @@ jobs:
         continue-on-error: true
         uses: pre-commit/action@v2.0.3
 
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          list-files: json
-          base: HEAD
-          filters: |
-            changed:
-            - 'charts/stable/**'
-            - 'charts/incubator/**'
-            - 'charts/library/**'
-
-      - name: Filter filter-output
-        run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
-
-      - name: Bump
-        run: |
-            APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json  |  jq -r '.[]')
-            echo "changed apps: ${APPS[*]}"
-            for chart in ${APPS[*]}
-            do
-              if test -f "./charts/incubator/${chart}/Chart.yaml"; then
-                train="incubator"
-              elif [[ "${chart}" == '.gitkee' ]]; then
-                echo "Skipping..."
-                return
-              elif test -f "./charts/stable/${chart}/Chart.yaml"; then
-                train="stable"
-              elif test -f "./charts/library/${chart}/Chart.yaml"; then
-                train="library"
-              else
-                train="incubator"
-              fi
-              echo "Comparing versions for ${train}/${chart}"
-              echo "Bumping patch version for ${train}/${chart}"
-              pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
-            done
-
       - name: Copy general readme to website
         run: |
           yes | cp -rf index.yaml docs/index.yaml || echo "chart-index copy failed, continuing..."
@@ -189,9 +152,6 @@ jobs:
           yes | cp -rf charts/library/common/README.md  docs/apps/common/index.md || echo "common readme copy failed, continuing..."
           yes | cp -rf charts/library/common/helm-values.md  docs/apps/common/helm-values.md || echo "common readme copy failed, continuing..."
 
-      - name: Cleanup
-        run: |
-          rm -rf changes.json
 
       - name: Commit and Push Housekeeping
         run: |
