@@ -37,7 +37,7 @@ RUN pip install --no-cache-dir pre-commit && \
   pre-commit install-hooks && \
   rm -Rf /App/* && \
   echo "installed pre-commit hooks:" && \
-  ls ~/.cache/pre-commit
+  ls ~/.cache/pre-commit/*
 
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
