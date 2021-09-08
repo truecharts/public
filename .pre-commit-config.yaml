@@ -14,3 +14,9 @@ repos:
   - id: check-symlinks
   - id: destroyed-symlinks
   - id: fix-byte-order-marker
+
+- repo: https://github.com/Lucas-C/pre-commit-hooks
+  rev: v1.1.10
+  hooks:
+  - id: remove-crlf
+  - id: remove-tabs
