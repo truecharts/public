@@ -1,0 +1,13 @@
+appVolumeMounts:
+  data:
+    emptyDir: true
+    mountPath: /data
+  staging:
+    emptyDir: true
+    mountPath: /plots
+image:
+  pullPolicy: IfNotPresent
+  repository: collabora/code
+  tag: 6.4.10.10
+updateStrategy: Recreate
+
