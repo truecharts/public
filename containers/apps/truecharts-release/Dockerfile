@@ -35,7 +35,9 @@ COPY ./.pre-commit-config.yaml /app/.pre-commit-config.yaml
 RUN pip install --no-cache-dir pre-commit && \
   git init . && \
   pre-commit install-hooks && \
-  rm -Rf /App/*
+  rm -Rf /App/* && \
+  echo "installed pre-commit hooks:" && \
+  ls ~/.cache/pre-commit
 
 
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
