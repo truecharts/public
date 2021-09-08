@@ -412,11 +412,10 @@ lookup_latest_tag() {
 filter_charts() {
     while read -r chart; do
         [[ ! -d "$chart" ]] && continue
-        local file="$chart/Chart.yaml"
-        if [[ -f "$file" ]]; then
+        if [[ $(git diff $latest_tag $chart/Chart.yaml | grep "+version") ]]; then
             echo "$chart"
         else
-           echo "WARNING: $file is missing, assuming that '$chart' is not a Helm chart. Skipping." 1>&2
+           echo "Version not bumped. Skipping." 1>&2
         fi
     done
 }
