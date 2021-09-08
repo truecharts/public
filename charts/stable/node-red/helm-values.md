@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nodered/node-red"` |  |
-| image.tag | string | `"2.0.5"` |  |
+| image.tag | string | `"2.0.6"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |

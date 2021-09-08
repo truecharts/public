@@ -78,6 +78,7 @@ main() {
                 chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 train=$(basename $(dirname "$chart"))
+				create_changelog "$chart" "$chartname" "$train" "$chartversion"
 				generate_docs "$chart" "$chartname" "$train" "$chartversion"
 				copy_docs "$chart" "$chartname" "$train" "$chartversion"
                 helm dependency update "${chart}" --skip-refresh
@@ -98,12 +99,50 @@ main() {
         release_charts
         update_index
         fi
+		for chart in "${changed_charts[@]}"; do
+            if [[ -d "$chart" ]]; then
+			    chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                chartname=$(basename ${chart})
+				train=$(basename $(dirname "$chart"))
+			    edit_release "$chart" "$chartname" "$train" "$chartversion"
+            fi
+        done
     else
         echo "Nothing to do. No chart changes detected."
     fi
 
     popd > /dev/null
 }
+
+edit_release() {
+	local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+	# In here we can in the future add code to edit the release notes of the github releases
+	# For example: using the github API: https://docs.github.com/en/rest/reference/repos#update-a-release
+	}
+
+create_changelog() {
+	local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+	local prevversion="$(git tag -l "${chartname}-*" --sort=-v:refname  | head -n 1)"
+    if [[ -z "$standalone" ]]; then
+	    echo "Generating changelogs for: ${chartname}"
+	    # SCALE "Changelog" containing only last change
+	    git-chglog --next-tag ${chartname}-${chartversion} --tag-filter-pattern ${chartname} --path ${chart} -o ${chart}/SCALE/CHANGELOG.md ${chartname}-${chartversion}
+	    # Append SCALE changelog to actual changelog
+
+	    if [[ -f "${chart}/CHANGELOG.md" ]]; then
+            cat ${chart}/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
+        else
+		   touch ${chart}/CHANGELOG.md
+           cat ${chart}/SCALE/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
+        fi
+	fi
+	}
 
 copy_general_docs() {
 	yes | cp -rf index.yaml docs/index.yaml 2>/dev/null || :
@@ -130,33 +169,33 @@ generate_docs() {
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="README.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/common-README.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/common-README.md.gotmpl" \
                  --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="helm-values.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
                  --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
 	     else
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="README.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/README.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/README.md.gotmpl" \
                  --chart-search-root="${chart}"
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="CONFIG.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/CONFIG.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/CONFIG.md.gotmpl" \
                  --chart-search-root="${chart}"
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="app-readme.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/app-readme.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/app-readme.md.gotmpl" \
                  --chart-search-root="${chart}"
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="helm-values.md" \
-                 --template-files="/home/runner/work/apps/apps/templates/docs/helm-values.md.gotmpl" \
+                 --template-files="/__w/apps/apps/templates/docs/helm-values.md.gotmpl" \
                  --chart-search-root="${chart}"
          fi
 	fi
@@ -176,6 +215,7 @@ copy_docs() {
 	else
         mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
         yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md 2>/dev/null || :
+		yes | cp -rf ${chart}/CHANGELOG.md docs/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
         yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
         yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
         sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
@@ -207,12 +247,14 @@ patch_apps() {
     local chartversion="$4"
     local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Applying SCALE patches for App: ${chartname}"
-    mv ${target}/SCALE/ix_values.yaml ${target}/
-    mv ${target}/SCALE/questions.yaml ${target}/
+	rm -rf ${target}/CHANGELOG.md 2>/dev/null || :
+	mv ${target}/SCALE/CHANGELOG.md ${target}/CHANGELOG.md 2>/dev/null || :
+    mv ${target}/SCALE/ix_values.yaml ${target}/ 2>/dev/null || :
+    mv ${target}/SCALE/questions.yaml ${target}/ 2>/dev/null || :
     cp -rf ${target}/SCALE/templates/* ${target}/templates 2>/dev/null || :
     mv ${target}/SCALE/item.yaml catalog/${train}/${chartname}/item.yaml
-    rm -rf ${target}/SCALE
-    mv ${target}/values.yaml ${target}/test_values.yaml
+    rm -rf ${target}/SCALE 2>/dev/null || :
+    mv ${target}/values.yaml ${target}/test_values.yaml 2>/dev/null || :
     touch ${target}/values.yaml
 }
 

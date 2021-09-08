@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"mikenye/piaware"` | image repository |
-| image.tag | string | `"v5.0"` | image tag |
+| image.tag | string | `"v6.0"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | persistence.usb | object | See values.yaml | Configure a hostPathMount to mount a USB device in the container. |
 | securityContext.privileged | bool | `true` | (bool) Privileged securityContext may be required if USB device is accessed directly through the host machine |

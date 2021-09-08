@@ -429,7 +429,7 @@ questions:
 
   - variable: serviceList
     label: "Additional Services"
-    group: "Storage and Persistence"
+    group: "Networking and Services"
     schema:
       type: list
       default: []
@@ -1058,7 +1058,7 @@ questions:
       type: dict
       attrs:
         - variable: privileged
-          label: Privileged mode"
+          label: "Privileged mode"
           schema:
             type: boolean
             default: false
