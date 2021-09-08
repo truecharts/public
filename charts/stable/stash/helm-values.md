@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.STASH_PORT | int | `9999` | Set the container port |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"stashapp/stash"` | image repository |
-| image.tag | string | `"latest@sha256:020ef83cbcb739e7842bc8282696357f337c61bc85b68cfbc051ad3193d65a20"` | image tag |
+| image.tag | string | `"latest@sha256:603658da6c0e3ce687adec4e1e73417d0560967101441ce6301b29e67cc47490"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
