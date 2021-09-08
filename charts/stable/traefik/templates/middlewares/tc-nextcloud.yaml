@@ -18,6 +18,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: tc-nextcloud-redirectregex-dav
+  namespace: {{ $namespace }}
 spec:
   redirectRegex:
     regex: "https://(.*)/.well-known/(card|cal)dav"
@@ -27,6 +28,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: tc-nextcloud-redirectregex-finger
+  namespace: {{ $namespace }}
 spec:
   redirectRegex:
     regex: "https://(.*)/.well-known/webfinger"
@@ -36,6 +38,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: tc-nextcloud-redirectregex-hostmeta
+  namespace: {{ $namespace }}
 spec:
   redirectRegex:
     regex: "https://(.*)/.well-known/host-meta"
@@ -45,6 +48,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
   name: tc-nextcloud-redirectregex-hostmetajson
+  namespace: {{ $namespace }}
 spec:
   redirectRegex:
     regex: "https://(.*)/.well-known/host-meta.json"
