@@ -6,7 +6,7 @@ For easy reference the priorities are linked to a future release for reference p
 When given a priority the following is taken into account:
 - The amount of complaints about something
 - How invasive the change is, most likely, going to be vs. the time till the aimed release.
-- If there are any TrueCharts features that are currently "on-hold" or struggeling, due to the lack of a certain feature
+- If there are any TrueCharts features that are currently "on-hold" or struggling, due to the lack of a certain feature
 - The added value a feature is going to have for TrueNAS SCALE
 
 
@@ -61,7 +61,6 @@ When given a priority the following is taken into account:
 - Show statistics per app (cpu / network / ram) [NAS-112071](https://jira.ixsystems.com/browse/NAS-112071)
 - Validate regex defined in questions.yaml when focus leaves input field. [NAS-112072](https://jira.ixsystems.com/browse/NAS-112072)
 - Set custom message to display when `valid_chars` is not matched. [NAS-112073](https://jira.ixsystems.com/browse/NAS-112073)
-- Application Events should be auto-updated, instead of having to re-open the app card to see the new events. [NAS-111626](https://jira.ixsystems.com/browse/NAS-111626)
 - Make timezone searchable and sorted in Scale Apps installation [NAS-109524](https://jira.ixsystems.com/browse/NAS-109524)
 
 ##### Backend suggestions
