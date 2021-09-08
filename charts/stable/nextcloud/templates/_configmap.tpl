@@ -3,13 +3,15 @@
 
 {{- $hosts := "" }}
 {{- if .Values.ingress.main.enabled }}
-{{ range $index, $host := .Values.ingress.main.hosts }}
+{{- range .Values.ingress }}
+{{- range $index, $host := .hosts }}
     {{- if $index }}
     {{ $hosts = ( printf "%v %v" $hosts $host.host ) }}
     {{- else }}
     {{ $hosts = ( printf "%s" $host.host ) }}
     {{- end }}
-{{ end }}
+{{- end }}
+{{- end }}
 {{- end }}
 ---
 apiVersion: v1
