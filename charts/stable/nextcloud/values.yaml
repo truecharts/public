@@ -83,6 +83,9 @@ initContainers:
             key: plainhost
   - name: injectconfig
     image: nextcloud:22.1.1
+    envFrom:
+      - configMapRef:
+          name: nextcloudconfig
     command:
       - "su"
       - "-p"
