@@ -1049,11 +1049,13 @@ questions:
                 schema:
                   type: string
                   default: "2000m"
+                  valid_chars: '^([0-9]+)(\.[0-9]?|m?)$'
               - variable: memory
                 label: "Memory RAM"
                 schema:
                   type: string
                   default: "2Gi"
+                  valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
         - variable: requests
           label: "Advanced Request minimum resources required"
           schema:
@@ -1064,11 +1066,13 @@ questions:
                 schema:
                   type: string
                   default: "10m"
+                  valid_chars: '^([0-9]+)(\.[0-9]?|m?)$'
               - variable: memory
                 label: "Memory RAM"
                 schema:
                   type: string
                   default: "50Mi"
+                  valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
 
 
   - variable: autoscaling
