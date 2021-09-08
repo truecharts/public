@@ -391,6 +391,25 @@ questions:
                   type: boolean
                   default: false
 
+  - variable: emptyDirVolumes
+    label: "Memory Backed Volumes"
+    description: "Mount memory based temporary volumes for fast access i.e consuming /dev/shm"
+    group: "Storage"
+    schema:
+      type: list
+      items:
+        - variable: emptyDirVolume
+          label: "Memory Backed Volume"
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: "Mount Path"
+                description: "Path where temporary path will be mounted inside the pod"
+                schema:
+                  type: path
+                  required: true
+
   # Volumes
   - variable: volumes
     label: "Volumes"
