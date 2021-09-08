@@ -1,8 +1,8 @@
-Chia Network
+Collabora Online Development Edition
 =====
 
-[CHIA](https://www.chia.net/) is a new blockchain and smart transaction platform that is easier to use, more efficient, and secure.
+Collabora Online Development Edition - An awesome, Online Office suite image suitable for home use!
 Introduction
 ------------
 
-This chart bootstraps CHIA deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart bootstraps Collabora deployment on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
