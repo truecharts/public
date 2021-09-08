@@ -41,6 +41,18 @@ You will, however, be able to use all values referenced in the common chart here
 | initContainers[0].image | string | `"postgres:13.1"` |  |
 | initContainers[0].imagePullPolicy | string | `"IfNotPresent"` |  |
 | initContainers[0].name | string | `"init-postgresdb"` |  |
+| initContainers[1].args[0] | string | `"if [ -f /var/www/html/occ ]; then if [ -n \"${NEXTCLOUD_TRUSTED_DOMAINS+x}\" ]; then echo \"setting trusted domains…\"; NC_TRUSTED_DOMAIN_IDX=1; for DOMAIN in $NEXTCLOUD_TRUSTED_DOMAINS ; do DOMAIN=$(echo \"$DOMAIN\" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'); php /var/www/html/occ config:system:set trusted_domains $NC_TRUSTED_DOMAIN_IDX --value=$DOMAIN; NC_TRUSTED_DOMAIN_IDX=$(($NC_TRUSTED_DOMAIN_IDX+1)); done; fi; fi;"` |  |
+| initContainers[1].command[0] | string | `"su"` |  |
+| initContainers[1].command[1] | string | `"-p"` |  |
+| initContainers[1].command[2] | string | `"www-data"` |  |
+| initContainers[1].command[3] | string | `"-s"` |  |
+| initContainers[1].command[4] | string | `"/bin/sh"` |  |
+| initContainers[1].command[5] | string | `"-c"` |  |
+| initContainers[1].envFrom[0].configMapRef.name | string | `"nextcloudconfig"` |  |
+| initContainers[1].image | string | `"nextcloud:22.1.1"` |  |
+| initContainers[1].name | string | `"injectconfig"` |  |
+| initContainers[1].volumeMounts[0].mountPath | string | `"/var/www/html"` |  |
+| initContainers[1].volumeMounts[0].name | string | `"data"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html"` |  |
