@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | ingressRoute | object | `{"dashboard":{"annotations":{},"enabled":true,"labels":{}}}` | Create an IngressRoute for the dashboard |
 | logs | object | `{"access":{"enabled":false,"fields":{"general":{"defaultmode":"keep","names":{}},"headers":{"defaultmode":"drop","names":{}}},"filters":{}},"general":{"level":"ERROR"}}` | Logs https://docs.traefik.io/observability/logs/ |
 | metrics.prometheus.entryPoint | string | `"metrics"` |  |
-| middlewares | object | `{"basicAuth":[],"chain":[],"forwardAuth":[],"rateLimit":[],"redirectScheme":[]}` | SCALE Middleware Handlers |
+| middlewares | object | `{"basicAuth":[],"chain":[],"forwardAuth":[],"ipWhiteList":[],"rateLimit":[],"redirectRegex":[],"redirectScheme":[]}` | SCALE Middleware Handlers |
 | pilot | object | `{"enabled":false,"token":""}` | Activate Pilot integration |
 | podSecurityContext.fsGroup | int | `568` |  |
 | portalhook.enabled | bool | `true` |  |
