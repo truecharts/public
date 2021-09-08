@@ -17,7 +17,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
-		path: "/"
+        path: "/"
 
 questions:
 
