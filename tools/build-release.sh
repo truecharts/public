@@ -84,7 +84,7 @@ main() {
                 copy_docs "$chart" "$chartname" "$train" "$chartversion"
                 helm dependency update "${chart}" --skip-refresh
                 package_chart "$chart"
-                if [[ -d "${chart}/SCALE" ]]; then
+                if [[ -f "${chart}/SCALE/item.yaml" ]]; then
                   clean_apps "$chart" "$chartname" "$train" "$chartversion"
                   copy_apps "$chart" "$chartname" "$train" "$chartversion"
                   patch_apps "$chart" "$chartname" "$train" "$chartversion"
@@ -199,12 +199,12 @@ generate_docs() {
                  --ignore-file=".helmdocsignore" \
                  --output-file="README.md" \
                  --template-files="/__w/apps/apps/templates/docs/common-README.md.gotmpl" \
-                 --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
+                 --chart-search-root="${chart}"
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="helm-values.md" \
                  --template-files="/__w/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
-                 --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
+                 --chart-search-root="${chart}"
          else
              helm-docs \
                  --ignore-file=".helmdocsignore" \
