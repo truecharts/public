@@ -7,7 +7,8 @@ from catalog_update.upgrade_strategy import semantic_versioning
 
 def newer_mapping(image_tags):
     key = list(image_tags.keys())[0]
-    version = semantic_versioning(image_tags[key])
+    # 21.1 is greater then 21.1.0 so we reverse sort bfeore doing semantic versioning
+    version = semantic_versioning(sorted(image_tags[key], reverse=True))
     if not version:
         return {}
 
