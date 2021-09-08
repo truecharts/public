@@ -13,4 +13,3 @@
 ### Fix
 
 * repair Hyperion and some misplaced GUI elements ([#922](https://github.com/truecharts/apps/issues/922))
-

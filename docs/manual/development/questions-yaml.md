@@ -7,27 +7,27 @@ In this document we give you a short reference guide (ported from IX Official) w
 #### Question Variable Reference
 | Variable  | Type | Required | Description |
 | ------------- | ------------- | --- |------------- |
-| 	variable                    | string        | true       |  define the variable name specified in the `values.yaml`file. |
-| 	label                       | string        | true       |  define the UI label. |
-| 	description                 | string        | false      |  specify the description of the variable. |
-| 	group                       | string        | false      |  group questions by input value. |
-| 	schema                      | dictionary    | true       |  specify schema details for the `variable` |
-| 	schema.type                 | string        | true       |  specify type of value for `variable` (current supported types are string, int, boolean, path, hostpath, list, dict, ipaddr, and cron).|
-| 	schema.required             | bool          | false      |  define if the variable is required or not (true \ false), defaults to false |
-| 	schema.default              | object        | false      |  specify the default value. |
-| 	schema.min_length           | int           | false      |  min character length for string type variable.|
-| 	schema.max_length           | int           | false      |  max character length for string type variable.|
-| 	schema.min                  | int           | false      |  min integer length. |
-| 	schema.max                  | int           | false      |  max integer length. |
-| 	schema.enum                 | []dictionary  | false      |  specify the options when the variable type is `string`, for example, <br><br>enum:<br> - value: "RollingUpdate" <br>&nbsp;&nbsp;description: "Create new pods and then kill old ones"<br> - value: "Recreate"<br>&nbsp;&nbsp;description: "Kill existing pods before creating new ones"|
-| 	schema.valid_chars          | string        | false      |  regular expression for input chars validation. |
-| 	schema.subquestions         | []subquestion | false      |  add an array of subquestions.|
-| 	schema.show_if              | string        | false      | show current variable if condition specified is true, for example `show_if: [["workloadType", "=", "CronJob"]]` |
-| 	schema.show_subquestions_if | string        | false      | show subquestions if is true or equal to one of the options. for example `show_subquestion_if: "static"`. system will convert this to the filters format specifid for `shcema.show_if` automatically.|
-| 	schema.attrs                | []variables   | false      | specified when `schema.type` is dictionary to declare attributes allowed in the dictionary. |
-| 	schema.items                | []variables   | false      | specified when `schema.type` is list to declare attributes allowed in the list. |
-| 	schema.private              | bool          | false      | specified for declaring information sensitive fields. |
-| 	schema.null                 | bool          | false      | specifies if the value for the variable can be null. defaults to false. |
+|     variable                    | string        | true       |  define the variable name specified in the `values.yaml`file. |
+|     label                       | string        | true       |  define the UI label. |
+|     description                 | string        | false      |  specify the description of the variable. |
+|     group                       | string        | false      |  group questions by input value. |
+|     schema                      | dictionary    | true       |  specify schema details for the `variable` |
+|     schema.type                 | string        | true       |  specify type of value for `variable` (current supported types are string, int, boolean, path, hostpath, list, dict, ipaddr, and cron).|
+|     schema.required             | bool          | false      |  define if the variable is required or not (true \ false), defaults to false |
+|     schema.default              | object        | false      |  specify the default value. |
+|     schema.min_length           | int           | false      |  min character length for string type variable.|
+|     schema.max_length           | int           | false      |  max character length for string type variable.|
+|     schema.min                  | int           | false      |  min integer length. |
+|     schema.max                  | int           | false      |  max integer length. |
+|     schema.enum                 | []dictionary  | false      |  specify the options when the variable type is `string`, for example, <br><br>enum:<br> - value: "RollingUpdate" <br>&nbsp;&nbsp;description: "Create new pods and then kill old ones"<br> - value: "Recreate"<br>&nbsp;&nbsp;description: "Kill existing pods before creating new ones"|
+|     schema.valid_chars          | string        | false      |  regular expression for input chars validation. |
+|     schema.subquestions         | []subquestion | false      |  add an array of subquestions.|
+|     schema.show_if              | string        | false      | show current variable if condition specified is true, for example `show_if: [["workloadType", "=", "CronJob"]]` |
+|     schema.show_subquestions_if | string        | false      | show subquestions if is true or equal to one of the options. for example `show_subquestion_if: "static"`. system will convert this to the filters format specifid for `shcema.show_if` automatically.|
+|     schema.attrs                | []variables   | false      | specified when `schema.type` is dictionary to declare attributes allowed in the dictionary. |
+|     schema.items                | []variables   | false      | specified when `schema.type` is list to declare attributes allowed in the list. |
+|     schema.private              | bool          | false      | specified for declaring information sensitive fields. |
+|     schema.null                 | bool          | false      | specifies if the value for the variable can be null. defaults to false. |
 
 ##### Subquestions
 `subquestions[]` cannot contain `subquestions` or `show_subquestions_if` keys, but all other keys in the above table are supported. Also variables having `schema.type` list do not support `subquestions`.

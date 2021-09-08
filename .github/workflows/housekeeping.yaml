@@ -116,6 +116,8 @@ jobs:
         continue-on-error: true
         uses: pre-commit/action@v2.0.3
 
+
+
       - name: Copy general readme to website
         run: |
           yes | cp -rf index.yaml docs/index.yaml || echo "chart-index copy failed, continuing..."

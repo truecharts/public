@@ -29,5 +29,16 @@ RUN --mount=type=bind,from=hd,source=/usr/bin/,target=/hdbin \
 RUN --mount=type=bind,from=gcl,source=/usr/local/bin,target=/gclbin \
   cp /gclbin/git-chglog /usr/local/bin/git-chglog
 
+COPY ./.pre-commit-config.yaml /app/.pre-commit-config.yaml
+
+# hadolint ignore=DL3008,DL3015,SC2086,SC2155,DL3013
+RUN pip install --no-cache-dir pre-commit && \
+  git init . && \
+  pre-commit install-hooks && \
+  rm -Rf /App/* && \
+  echo "installed pre-commit hooks:" && \
+  ls ~/.cache/pre-commit/*
+
+
 LABEL "maintainer"="TrueCharts <info@truecharts.org>"
 LABEL "org.opencontainers.image.source"="https://github.com/truecharts/apps"

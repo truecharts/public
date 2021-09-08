@@ -14,14 +14,6 @@ jobs:
     container:
       image: ghcr.io/truecharts/truecharts-release:v1.2.0
     steps:
-      - name: Cache helm repo cache
-        id: cache
-        uses: actions/cache@v2
-        with:
-          key: helmrepocache-${{ github.sha }}
-          path: |
-            ~/.cache/helm/repository
-            ~/.config/helm/repositories.yaml
 
       - uses: actions/checkout@v2
         name: Checkout

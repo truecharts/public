@@ -5,4 +5,3 @@
 ### Feat
 
 * unifi guest portal and speedtest ([#921](https://github.com/truecharts/apps/issues/921))
-

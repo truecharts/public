@@ -72,15 +72,16 @@ main() {
         rm -rf .cr-index
         mkdir -p .cr-index
 
-		prep_helm
+        prep_helm
         for chart in "${changed_charts[@]}"; do
             if [[ -d "$chart" ]]; then
                 chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 train=$(basename $(dirname "$chart"))
-				create_changelog "$chart" "$chartname" "$train" "$chartversion"
-				generate_docs "$chart" "$chartname" "$train" "$chartversion"
-				copy_docs "$chart" "$chartname" "$train" "$chartversion"
+                sync_tag "$chart" "$chartname" "$train" "$chartversion"
+                create_changelog "$chart" "$chartname" "$train" "$chartversion"
+                generate_docs "$chart" "$chartname" "$train" "$chartversion"
+                copy_docs "$chart" "$chartname" "$train" "$chartversion"
                 helm dependency update "${chart}" --skip-refresh
                 package_chart "$chart"
                 if [[ -d "${chart}/SCALE" ]]; then
@@ -94,17 +95,18 @@ main() {
                 echo "Chart '$chart' no longer exists in repo. Skipping it..."
             fi
         done
+        pre_commit
         validate_catalog
         if [ "${production}" == "true" ]; then
         release_charts
         update_index
         fi
-		for chart in "${changed_charts[@]}"; do
+        for chart in "${changed_charts[@]}"; do
             if [[ -d "$chart" ]]; then
-			    chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+                chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
-				train=$(basename $(dirname "$chart"))
-			    edit_release "$chart" "$chartname" "$train" "$chartversion"
+                train=$(basename $(dirname "$chart"))
+                edit_release "$chart" "$chartname" "$train" "$chartversion"
             fi
         done
     else
@@ -114,38 +116,63 @@ main() {
     popd > /dev/null
 }
 
-edit_release() {
-	local chart="$1"
+# Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
+sync_tag() {
+    local chart="$1"
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-	# In here we can in the future add code to edit the release notes of the github releases
-	# For example: using the github API: https://docs.github.com/en/rest/reference/repos#update-a-release
-	}
+    echo "Attempting to sync primary tag with Charts.yaml for: ${chartname}"
+    local tag="$(cat ${chart}/Values.yaml | grep "^  tag: " | awk -F" " '{ print $2 }')"
+    tag="${tag:-auto}"
+    tag="${tag#*release-}"
+    tag="${tag#*version-}"
+    tag="${tag#*v}"
+    sed -i -e "s|appVersion: .*|appVersion: ${tag}|" "${chart}/Chart.yaml"
+    }
+
+pre_commit() {
+    if [[ -z "$standalone" ]]; then
+      echo "Running pre-commit test-and-cleanup..."
+      # TO BE ENABLED
+      # pre-commit run --all ||:
+      # Fix sh files to always be executable
+      find . -name '*.sh' | xargs chmod +x
+    fi
+    }
+
+edit_release() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    # In here we can in the future add code to edit the release notes of the github releases
+    # For example: using the github API: https://docs.github.com/en/rest/reference/repos#update-a-release
+    }
 
 create_changelog() {
-	local chart="$1"
+    local chart="$1"
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-	local prevversion="$(git tag -l "${chartname}-*" --sort=-v:refname  | head -n 1)"
+    local prevversion="$(git tag -l "${chartname}-*" --sort=-v:refname  | head -n 1)"
     if [[ -z "$standalone" ]]; then
-	    echo "Generating changelogs for: ${chartname}"
-	    # SCALE "Changelog" containing only last change
-	    git-chglog --next-tag ${chartname}-${chartversion} --tag-filter-pattern ${chartname} --path ${chart} -o ${chart}/SCALE/CHANGELOG.md ${chartname}-${chartversion}
-	    # Append SCALE changelog to actual changelog
+        echo "Generating changelogs for: ${chartname}"
+        # SCALE "Changelog" containing only last change
+        git-chglog --next-tag ${chartname}-${chartversion} --tag-filter-pattern ${chartname} --path ${chart} -o ${chart}/SCALE/CHANGELOG.md ${chartname}-${chartversion}
+        # Append SCALE changelog to actual changelog
 
-	    if [[ -f "${chart}/CHANGELOG.md" ]]; then
+        if [[ -f "${chart}/CHANGELOG.md" ]]; then
             cat ${chart}/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
         else
-		   touch ${chart}/CHANGELOG.md
+           touch ${chart}/CHANGELOG.md
            cat ${chart}/SCALE/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
         fi
-	fi
-	}
+    fi
+    }
 
 copy_general_docs() {
-	yes | cp -rf index.yaml docs/index.yaml 2>/dev/null || :
+    yes | cp -rf index.yaml docs/index.yaml 2>/dev/null || :
     yes | cp -rf .github/README.md docs/index.md 2>/dev/null || :
     sed -i '1s/^/---\nhide:\n  - navigation\n  - toc\n---\n/' docs/index.md
     sed -i 's~<!-- INSERT-DISCORD-WIDGET -->~<iframe src="https://discord.com/widget?id=830763548678291466\&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>~g' docs/index.md
@@ -156,14 +183,14 @@ copy_general_docs() {
     sed -i '1s/^/# License<br>\n\n/' docs/about/legal/LICENSE.md
     yes | cp -rf NOTICE docs/about/legal/NOTICE.md 2>/dev/null || :
     sed -i '1s/^/# NOTICE<br>\n\n/' docs/about/legal/NOTICE.md
-	}
+    }
 
 generate_docs() {
     local chart="$1"
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-	if [[ -z "$standalone" ]]; then
+    if [[ -z "$standalone" ]]; then
          echo "Generating Docs"
          if [ "${chartname}" == "common" ]; then
              helm-docs \
@@ -176,7 +203,7 @@ generate_docs() {
                  --output-file="helm-values.md" \
                  --template-files="/__w/apps/apps/templates/docs/common-helm-values.md.gotmpl" \
                  --chart-search-root="/home/runner/work/apps/apps/charts/library/common"
-	     else
+         else
              helm-docs \
                  --ignore-file=".helmdocsignore" \
                  --output-file="README.md" \
@@ -198,8 +225,8 @@ generate_docs() {
                  --template-files="/__w/apps/apps/templates/docs/helm-values.md.gotmpl" \
                  --chart-search-root="${chart}"
          fi
-	fi
-	}
+    fi
+    }
 
 
 copy_docs() {
@@ -207,28 +234,28 @@ copy_docs() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-	echo "Copying docs for: ${chart}"
+    echo "Copying docs for: ${chart}"
     if [ "${chartname}" == "common" ]; then
-	    mkdir -p docs/apps/common || :
-	    yes | cp -rf charts/library/common/README.md  docs/apps/common/index.md 2>/dev/null || :
+        mkdir -p docs/apps/common || :
+        yes | cp -rf charts/library/common/README.md  docs/apps/common/index.md 2>/dev/null || :
         yes | cp -rf charts/library/common/helm-values.md  docs/apps/common/helm-values.md 2>/dev/null || :
-	else
+    else
         mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
         yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md 2>/dev/null || :
-		yes | cp -rf ${chart}/CHANGELOG.md docs/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
+        yes | cp -rf ${chart}/CHANGELOG.md docs/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
         yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
         yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
         sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
-	fi
-	}
+    fi
+    }
 
 prep_helm() {
-	if [[ -z "$standalone" ]]; then
-	helm repo add truecharts https://truecharts.org
+    if [[ -z "$standalone" ]]; then
+    helm repo add truecharts https://truecharts.org
     helm repo add bitnami https://charts.bitnami.com/bitnami
     helm repo update
-	fi
-	}
+    fi
+    }
 
 clean_apps() {
     local chart="$1"
@@ -247,8 +274,8 @@ patch_apps() {
     local chartversion="$4"
     local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Applying SCALE patches for App: ${chartname}"
-	rm -rf ${target}/CHANGELOG.md 2>/dev/null || :
-	mv ${target}/SCALE/CHANGELOG.md ${target}/CHANGELOG.md 2>/dev/null || :
+    rm -rf ${target}/CHANGELOG.md 2>/dev/null || :
+    mv ${target}/SCALE/CHANGELOG.md ${target}/CHANGELOG.md 2>/dev/null || :
     mv ${target}/SCALE/ix_values.yaml ${target}/ 2>/dev/null || :
     mv ${target}/SCALE/questions.yaml ${target}/ 2>/dev/null || :
     cp -rf ${target}/SCALE/templates/* ${target}/templates 2>/dev/null || :
@@ -414,7 +441,7 @@ package_chart() {
     if [[ -z "$standalone" ]]; then
     echo "Packaging chart '$chart'..."
     cr package "${args[@]}"
-	fi
+    fi
 }
 
 release_charts() {
@@ -438,7 +465,7 @@ update_index() {
     if [[ -z "$standalone" ]]; then
     echo 'Updating charts repo index...'
     cr index "${args[@]}"
-	fi
+    fi
 }
 
 main "$@"

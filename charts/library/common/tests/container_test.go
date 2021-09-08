@@ -3,7 +3,7 @@ package common
 import (
     "testing"
 
-	"github.com/truecharts/apps/tests/helmunit"
+    "github.com/truecharts/apps/tests/helmunit"
     "github.com/stretchr/testify/suite"
 )
 
@@ -13,7 +13,7 @@ type ContainerTestSuite struct {
 }
 
 func (suite *ContainerTestSuite) SetupSuite() {
-	suite.Chart = helmunit.New("common-test", "../../common-test")
+    suite.Chart = helmunit.New("common-test", "../../common-test")
     suite.Chart.UpdateDependencies()
 }
 
