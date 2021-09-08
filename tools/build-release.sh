@@ -163,11 +163,13 @@ create_changelog() {
         # Append SCALE changelog to actual changelog
 
         if [[ -f "${chart}/CHANGELOG.md" ]]; then
-            cat ${chart}/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
+           true
         else
            touch ${chart}/CHANGELOG.md
-           cat ${chart}/SCALE/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
         fi
+        sed -i '1d' ${chart}/CHANGELOG.md
+        cat ${chart}/SCALE/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
+        sed -i '1s/^/# Changelog<br>\n\n/' ${chart}/CHANGELOG.md
     fi
     }
 
