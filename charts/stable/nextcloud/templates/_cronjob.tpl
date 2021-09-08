@@ -1,6 +1,6 @@
 {{/* Define the cronjob */}}
 {{- define "nextcloud.cronjob" -}}
-{{- $jobName := include "common.names.fullname" . -}}
+{{- $jobName := include "common.names.fullname" . }}
 
 ---
 apiVersion: batch/v1beta1
