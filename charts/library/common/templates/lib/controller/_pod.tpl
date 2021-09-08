@@ -38,8 +38,9 @@ enableServiceLinks: {{ .Values.enableServiceLinks }}
   {{- with .Values.termination.gracePeriodSeconds }}
 terminationGracePeriodSeconds: {{ . }}
   {{- end }}
-  {{- with .Values.initContainers }}
 initContainers:
+   {{- include "common.controller.autopermissions" . | nindent 2 }}
+  {{- with .Values.initContainers }}
     {{- toYaml . | nindent 2 }}
   {{- end }}
 containers:

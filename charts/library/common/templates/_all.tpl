@@ -38,8 +38,6 @@ Main entrypoint for the common library chart. It will render all underlying temp
 
   {{ include "common.configmap.portal" .  | nindent 0 }}
 
-  {{ include "common.job.mountPermissions" .  | nindent 0 }}
-
   {{ include "common.networkpolicy" . | nindent 0 }}
 
 {{- end -}}

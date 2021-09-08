@@ -1,0 +1,39 @@
+{{/*
+This template serves as the blueprint for the mountPermissions job that is run
+before chart installation.
+*/}}
+{{- define "common.controller.autopermissions" -}}
+
+{{- $group := 568 -}}
+{{- if .Values.env -}}
+    {{- $group = dig "PGID" $group .Values.env -}}
+{{- end -}}
+{{- $group = dig "fsGroup" $group .Values.podSecurityContext -}}
+{{- $hostPathMounts := dict -}}
+{{- range $name, $mount := .Values.persistence -}}
+  {{- if and $mount.enabled $mount.setPermissions -}}
+    {{- $name = default ( $name| toString ) $mount.name -}}
+    {{- $_ := set $hostPathMounts $name $mount -}}
+  {{- end -}}
+{{- end }}
+- name: autopermissions
+  image: alpine:3.3
+  securityContext:
+    allowPrivilegeEscalation: false
+    runAsUser: 0
+    runAsGroup: 0
+    privileged: true
+    allowPrivilegeEscalation: true
+  command:
+    - "/bin/sh"
+    - "-c"
+    - "echo 'Automatically correcting permissions...';{{ range $_, $hpm := $hostPathMounts }}chown -R {{ $group }} {{ $hpm.mountPath | squote }}; chmod -R g+w {{ $hpm.mountPath | squote }};{{ end }}"
+  volumeMounts:
+    {{- range $name, $hpm := $hostPathMounts }}
+    - name: {{ $name }}
+      mountPath: {{ $hpm.mountPath }}
+      {{- if $hpm.subPath }}
+      subPath: {{ $hpm.subPath }}
+      {{- end }}
+    {{- end }}
+{{- end -}}
