@@ -78,6 +78,7 @@ main() {
                 chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 train=$(basename $(dirname "$chart"))
+                sync_tag "$chart" "$chartname" "$train" "$chartversion"
                 create_changelog "$chart" "$chartname" "$train" "$chartversion"
                 generate_docs "$chart" "$chartname" "$train" "$chartversion"
                 copy_docs "$chart" "$chartname" "$train" "$chartversion"
@@ -115,11 +116,28 @@ main() {
     popd > /dev/null
 }
 
+# Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
+sync_tag() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    echo "Attempting to sync primary tag with Charts.yaml for: ${chartname}"
+    local tag="$(cat ${chart}/Values.yaml | grep "^  tag: " | awk -F" " '{ print $2 }')"
+    tag="${tag:-auto}"
+    tag="${tag#*release-}"
+    tag="${tag#*version-}"
+    tag="${tag#*v}"
+    sed -i -e "s|appVersion: .*|appVersion: ${tag}|" "${chart}/Chart.yaml"
+    }
+
 pre_commit() {
     if [[ -z "$standalone" ]]; then
       echo "Running pre-commit test-and-cleanup..."
       # TO BE ENABLED
-      # pre-commit run --all
+      # pre-commit run --all ||:
+      # Fix sh files to always be executable
+      find . -name '*.sh' | xargs chmod +x
     fi
     }
 
