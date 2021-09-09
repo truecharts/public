@@ -22,7 +22,7 @@ service:
   comm:
     enabled: true
     ports:
-      tcp:
+      comm:
         enabled: true
         port: 8080
         targetPort: 8080
@@ -30,7 +30,7 @@ service:
   stun:
     enabled: true
     ports:
-      udp:
+      stun:
         enabled: true
         port: 3478
         targetPort: 3478
@@ -38,7 +38,7 @@ service:
   speedtest:
     enabled: false
     ports:
-      tcp:
+      speedtest:
         enabled: true
         port: 6789
         targetPort: 6789
