@@ -327,7 +327,7 @@ questions:
                             label: "Container Port"
                             schema:
                               type: int
-                              default: 51080
+                              default: 8080
                               editable: true
                               required: true
                           - variable: nodePort
@@ -338,7 +338,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36048
-
 
   - variable: serviceList
     label: "Additional Services"
