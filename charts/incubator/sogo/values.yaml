@@ -14,7 +14,7 @@ service:
 # -- initcontainers
 initContainers:
   # -- wait for database before starting sogo
-  - name: init-postgresdb
+  init-postgresdb:
     image: postgres:13.1
     command:
       - "sh"
