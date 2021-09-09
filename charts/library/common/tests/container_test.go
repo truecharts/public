@@ -41,14 +41,14 @@ func (suite *ContainerTestSuite) TestCommand() {
 
             deploymentManifest := suite.Chart.Manifests.Get("Deployment", "common-test")
             suite.Assertions.NotEmpty(deploymentManifest)
-            containers, _ := deploymentManifest.Path("spec.template.spec.containers").Children()
+            containers := deploymentManifest.Path("spec.template.spec.containers").Children()
             containerCommand := containers[0].Path("command")
 
             if tc.expectedCommand == nil {
                 suite.Assertions.Empty(containerCommand)
             } else {
                 var actualDataList []string
-                actualData, _ := containerCommand.Children()
+                actualData := containerCommand.Children()
                 for _, key := range actualData {
                     actualDataList = append(actualDataList, key.Data().(string))
                 }
@@ -76,14 +76,14 @@ func (suite *ContainerTestSuite) TestArgs() {
 
             deploymentManifest := suite.Chart.Manifests.Get("Deployment", "common-test")
             suite.Assertions.NotEmpty(deploymentManifest)
-            containers, _ := deploymentManifest.Path("spec.template.spec.containers").Children()
+            containers := deploymentManifest.Path("spec.template.spec.containers").Children()
             containerArgs := containers[0].Path("args")
 
             if tc.expectedArgs == nil {
                 suite.Assertions.Empty(containerArgs)
             } else {
                 var actualDataList []string
-                actualData, _ := containerArgs.Children()
+                actualData := containerArgs.Children()
                 for _, key := range actualData {
                     actualDataList = append(actualDataList, key.Data().(string))
                 }
@@ -130,16 +130,16 @@ func (suite *ContainerTestSuite) TestEnv() {
 
             deploymentManifest := suite.Chart.Manifests.Get("Deployment", "common-test")
             suite.Assertions.NotEmpty(deploymentManifest)
-            containers, _ := deploymentManifest.Path("spec.template.spec.containers").Children()
+            containers := deploymentManifest.Path("spec.template.spec.containers").Children()
             containerEnv := containers[0].Path("env")
 
             if tc.expectedEnv == nil {
                 suite.Assertions.Empty(containerEnv)
             } else {
                 actualDataMap := make(map[string]string)
-                actualData, _ := containerEnv.Children()
+                actualData := containerEnv.Children()
                 for _, value := range actualData {
-                    envVar, _ := value.ChildrenMap()
+                    envVar := value.ChildrenMap()
                     envName := envVar["name"].Data().(string)
                     var envValue string
                     if _, ok := envVar["valueFrom"]; ok {
@@ -181,8 +181,8 @@ func (suite *ContainerTestSuite) TestEnvFrom() {
             deploymentManifest := suite.Chart.Manifests.Get("Deployment", "common-test")
             suite.Assertions.NotEmpty(deploymentManifest)
 
-            containers, _ := deploymentManifest.Path("spec.template.spec.containers").Children()
-            containerEnvFrom, _ := containers[0].Path("envFrom").Children()
+            containers := deploymentManifest.Path("spec.template.spec.containers").Children()
+            containerEnvFrom := containers[0].Path("envFrom").Children()
 
             if !tc.expectSecret {
                 suite.Assertions.Empty(containerEnvFrom)
@@ -215,8 +215,8 @@ func (suite *ContainerTestSuite) TestPorts() {
 
             deploymentManifest := suite.Chart.Manifests.Get("Deployment", "common-test")
             suite.Assertions.NotEmpty(deploymentManifest)
-            containers, _ := deploymentManifest.Path("spec.template.spec.containers").Children()
-            containerPorts, _ := containers[0].Path("ports").Children()
+            containers := deploymentManifest.Path("spec.template.spec.containers").Children()
+            containerPorts := containers[0].Path("ports").Children()
             suite.Assertions.NotEmpty(containerPorts[0])
             suite.Assertions.EqualValues(tc.expectedPortName, containerPorts[0].Path("name").Data())
             suite.Assertions.EqualValues(tc.expectedProtocol, containerPorts[0].Path("protocol").Data())
@@ -280,8 +280,8 @@ func (suite *ContainerTestSuite) TestPersistenceVolumeMounts() {
 
             deploymentManifest := suite.Chart.Manifests.Get("Deployment", "common-test")
             suite.Assertions.NotEmpty(deploymentManifest)
-            containers, _ := deploymentManifest.Path("spec.template.spec.containers").Children()
-            containerVolumeMounts, _ := containers[0].Path("volumeMounts").Children()
+            containers := deploymentManifest.Path("spec.template.spec.containers").Children()
+            containerVolumeMounts := containers[0].Path("volumeMounts").Children()
             suite.Assertions.NotEmpty(containerVolumeMounts)
 
             for _, volumeMount := range containerVolumeMounts {

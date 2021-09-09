@@ -109,7 +109,7 @@ func (suite *PodTestSuite) TestAdditionalContainers() {
 
             deploymentManifest := suite.Chart.Manifests.Get("Deployment", "common-test")
             containers := deploymentManifest.Path("spec.template.spec.containers")
-            suite.Assertions.Contains(containers.Search("name").Data(), tc.expectedContainer)
+            suite.Assertions.Contains(containers.Search("*", "name").Data(), tc.expectedContainer)
         })
     }
 }
@@ -155,7 +155,7 @@ func (suite *PodTestSuite) TestPersistenceItems() {
                 suite.Assertions.EqualValues(nil, volumes.Data())
             } else {
                 suite.Assertions.NotEmpty(volumes)
-                searchVolumes := volumes.Search("name").Data()
+                searchVolumes := volumes.Search("*", "name").Data()
                 for _, expectedVolume := range tc.expectedVolumes {
                     suite.Assertions.Contains(searchVolumes, expectedVolume)
                 }
@@ -201,7 +201,7 @@ func (suite *PodTestSuite) TestPersistenceClaimNames() {
             }
 
             deploymentManifest := suite.Chart.Manifests.Get("Deployment", "common-test")
-            volumes, _ := deploymentManifest.Path("spec.template.spec.volumes").Children()
+            volumes := deploymentManifest.Path("spec.template.spec.volumes").Children()
 
             for _, volume := range volumes {
                 volumeName := volume.Path("name").Data().(string)
@@ -238,7 +238,7 @@ func (suite *PodTestSuite) TestPersistenceEmptyDir() {
             }
 
             deploymentManifest := suite.Chart.Manifests.Get("Deployment", "common-test")
-            volumes, _ := deploymentManifest.Path("spec.template.spec.volumes").Children()
+            volumes := deploymentManifest.Path("spec.template.spec.volumes").Children()
             volume := volumes[0]
             suite.Assertions.NotEmpty(volume.Data())
 
@@ -294,7 +294,7 @@ func (suite *PodTestSuite) TestHostPathVolumes() {
                 suite.Assertions.EqualValues(nil, volumes.Data())
             } else {
                 suite.Assertions.NotEmpty(volumes)
-                searchVolumes := volumes.Search("name").Data()
+                searchVolumes := volumes.Search("*", "name").Data()
                 for _, expectedVolume := range tc.expectedVolumes {
                     suite.Assertions.Contains(searchVolumes, expectedVolume)
                 }
@@ -330,7 +330,7 @@ func (suite *PodTestSuite) TestVolumeClaimTemplates() {
             controllerManifest := suite.Chart.Manifests.Get("StatefulSet", "common-test")
             suite.Assertions.NotEmpty(controllerManifest)
 
-            volumeClaimTemplates, _ := controllerManifest.Path("spec.volumeClaimTemplates").Children()
+            volumeClaimTemplates := controllerManifest.Path("spec.volumeClaimTemplates").Children()
             suite.Assertions.NotEmpty(volumeClaimTemplates)
 
             for _, volumeClaimTemplate := range volumeClaimTemplates {
@@ -339,7 +339,7 @@ func (suite *PodTestSuite) TestVolumeClaimTemplates() {
                     if tc.expectedAccessMode == "" {
                         suite.Assertions.Empty(controllerManifest)
                     } else {
-                        accessModes, _ := volumeClaimTemplate.Path("spec.accessModes").Children()
+                        accessModes := volumeClaimTemplate.Path("spec.accessModes").Children()
                         suite.Assertions.EqualValues(tc.expectedAccessMode, accessModes[0].Data())
                     }
 

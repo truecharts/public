@@ -3,7 +3,7 @@ module github.com/truecharts/apps
 go 1.16
 
 require (
-    github.com/Jeffail/gabs v1.4.0
+    github.com/Jeffail/gabs/v2 v2.6.1
     github.com/stretchr/testify v1.7.0
     helm.sh/helm/v3 v3.6.1
     sigs.k8s.io/yaml v1.2.0

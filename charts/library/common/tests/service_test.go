@@ -69,7 +69,7 @@ func (suite *ServiceTestSuite) TestPortNames() {
 
             serviceManifest := suite.Chart.Manifests.Get("Service", "common-test")
             suite.Assertions.NotEmpty(serviceManifest)
-            servicePorts, _ := serviceManifest.Path("spec.ports").Children()
+            servicePorts := serviceManifest.Path("spec.ports").Children()
             suite.Assertions.EqualValues(tc.expectedName, servicePorts[0].Path("name").Data())
             suite.Assertions.EqualValues(tc.expectedTargetPort, servicePorts[0].Path("targetPort").Data())
         })
@@ -96,7 +96,7 @@ func (suite *ServiceTestSuite) TestPortProtocol() {
 
             serviceManifest := suite.Chart.Manifests.Get("Service", "common-test")
             suite.Assertions.NotEmpty(serviceManifest)
-            servicePorts, _ := serviceManifest.Path("spec.ports").Children()
+            servicePorts := serviceManifest.Path("spec.ports").Children()
             suite.Assertions.EqualValues(tc.expectedProtocol, servicePorts[0].Path("protocol").Data())
         })
     }

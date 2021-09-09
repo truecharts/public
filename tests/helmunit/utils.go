@@ -1,7 +1,7 @@
 package helmunit
 
 import (
-    "github.com/Jeffail/gabs"
+    "github.com/Jeffail/gabs/v2"
     "sigs.k8s.io/yaml"
 )
 
