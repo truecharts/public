@@ -5,9 +5,6 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{- /* Merge the local chart values and the common chart defaults */ -}}
   {{- include "common.values.setup" . }}
 
-  {{- /* Build the templates */ -}}
-  {{- include "common.pvc" . }}
-
   {{- /* Enable code-server add-on if required */ -}}
   {{- if .Values.addons.codeserver.enabled }}
     {{- include "common.addon.codeserver" . }}
@@ -27,6 +24,9 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{- if .Values.addons.netshoot.enabled }}
     {{- include "common.addon.netshoot" . }}
   {{- end -}}
+
+  {{- /* Build the templates */ -}}
+  {{- include "common.pvc" . }}
 
   {{- if .Values.serviceAccount.create -}}
     {{- include "common.serviceAccount" . }}

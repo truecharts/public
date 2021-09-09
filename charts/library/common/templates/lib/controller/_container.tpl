@@ -102,7 +102,8 @@
     - secretRef:
         name: {{ include "common.names.fullname" . }}
   {{- end }}
-  {{- include "common.controller.ports" . | trim | nindent 2 }}
+  ports:
+  {{- include "common.controller.ports" . | trim | nindent 4 }}
   {{- with (include "common.controller.volumeMounts" . | trim) }}
   volumeMounts:
     {{ nindent 4 . }}

@@ -1,5 +1,5 @@
 {{/*
-Return the name of the primary port for a given Service object.
+Return the primary port for a given Service object.
 */}}
 {{- define "common.classes.service.ports.primary" -}}
   {{- $enabledPorts := dict -}}

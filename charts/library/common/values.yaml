@@ -205,11 +205,13 @@ securityContext:
 # -- Configure the lifecycle for the main container
 lifecycle: {}
 
-# -- Specify any initContainers here. Yaml will be passed in to the Pod as-is.
-initContainers: []
+# -- Specify any initContainers here as dictionary items. Each initContainer should have its own key.
+# The dictionary item key will determine the order. Helm templates can be used.
+initContainers: {}
 
-# -- Specify any additional containers here. Yaml will be passed in to the Pod as-is.
-additionalContainers: []
+# -- Specify any additional containers here as dictionary items. Each additional container should have its own key.
+# Helm templates can be used.
+additionalContainers: {}
 
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
@@ -588,6 +590,14 @@ nodeSelector: {}
 # -- Defines affinity constraint rules.
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
 affinity: {}
+
+# -- Defines topologySpreadConstraint rules.
+# [[ref]](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/)
+topologySpreadConstraints: []
+# - maxSkew: <integer>
+#   topologyKey: <string>
+#   whenUnsatisfiable: <string>
+#   labelSelector: <object>
 
 # -- Specify taint tolerations
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
