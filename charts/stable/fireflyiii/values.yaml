@@ -19,14 +19,6 @@ service:
     ports:
       main:
         port: 8080
-  tcp:
-    enabled: true
-    type: ClusterIP
-    ports:
-      tcp:
-        enabled: true
-        port: 51080
-        protocol: TCP
 
 initContainers:
   - name: init-postgresdb
