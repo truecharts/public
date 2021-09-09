@@ -129,25 +129,29 @@
   {{- $_ := set .Values.securityContext "privileged" true -}}
   {{- end }}
 
-  {{/* save supplementalGroups to placeholder variable */}}
-  {{- $supGroups := list }}
-  {{ if .Values.podSecurityContext.supplementalGroups }}
-  {{- $supGroups = .Values.podSecurityContext.supplementalGroups }}
+  {{/* save supplementalGroups to placeholder variables */}}
+  {{- $fixedGroups := list 568 }}
+  {{- $valuegroups := list }}
+  {{- $devGroups := list }}
+  {{- $gpuGroups := list }}
+
+  {{/* put user-entered supplementalgroups in placeholder variable */}}
+  {{- if .Values.podSecurityContext.supplementalGroups }}
+  {{- $valuegroups = .Values.podSecurityContext.supplementalGroups }}
   {{- end }}
 
   {{/* Append requered groups to supplementalGroups when deviceList is used */}}
   {{- if .Values.deviceList}}
-  {{- $devGroups := list 5 20 24 }}
-  {{- $supGroups := list ( concat $supGroups $devGroups ) }}
+  {{- $devGroups = list 5 20 24 }}
   {{- end }}
 
   {{/* Append requered groups to supplementalGroups when scaleGPU is used */}}
   {{- if .Values.scaleGPU }}
-  {{- $gpuGroups := list 44 107 }}
-  {{- $supGroups := list ( concat $supGroups $gpuGroups ) }}
+  {{- $gpuGroups = list 44 107 }}
   {{- end }}
 
-  {{/* write appended supplementalGroups to .Values */}}
+  {{/* combine and write all supplementalGroups to .Values */}}
+  {{- $supGroups := concat $fixedGroups $valuegroups $devGroups $gpuGroups }}
   {{- $_ := set .Values.podSecurityContext "supplementalGroups" $supGroups -}}
 
   {{/* merge serviceList with service */}}
