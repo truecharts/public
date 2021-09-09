@@ -7,8 +7,7 @@ It will include / inject the required templates based on the given values.
   {{/* Append the netshoot container to the additionalContainers */}}
   {{- $container := include "common.addon.netshoot.container" . | fromYaml -}}
   {{- if $container -}}
-    {{- $additionalContainers := append .Values.additionalContainers $container -}}
-    {{- $_ := set .Values "additionalContainers" $additionalContainers -}}
+    {{- $_ := set .Values.additionalContainers "addon-netshoot" $container -}}
   {{- end -}}
 {{- end -}}
 {{- end -}}

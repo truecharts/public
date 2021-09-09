@@ -40,13 +40,26 @@ terminationGracePeriodSeconds: {{ . }}
   {{- end }}
 initContainers:
    {{- include "common.controller.autopermissions" . | nindent 2 }}
-  {{- with .Values.initContainers }}
-    {{- toYaml . | nindent 2 }}
+    {{- $initContainers := list }}
+    {{- range $index, $key := (keys .Values.initContainers | uniq | sortAlpha) }}
+      {{- $container := get $.Values.initContainers $key }}
+      {{- if not $container.name -}}
+        {{- $_ := set $container "name" $key }}
+      {{- end }}
+      {{- $initContainers = append $initContainers $container }}
+    {{- end }}
+    {{- tpl (toYaml $initContainers) $ | nindent 2 }}
   {{- end }}
 containers:
   {{- include "common.controller.mainContainer" . | nindent 2 }}
   {{- with .Values.additionalContainers }}
-    {{- tpl (toYaml .) $ | nindent 2 }}
+    {{- $additionalContainers := list }}
+    {{- range $name, $container := . }}
+      {{- if not $container.name -}}
+        {{- $_ := set $container "name" $name }}
+      {{- end }}
+      {{- $additionalContainers = append $additionalContainers $container }}
+    {{- tpl (toYaml $additionalContainers) $ | nindent 2 }}
   {{- end }}
   {{- with (include "common.controller.volumes" . | trim) }}
 volumes:
@@ -62,6 +75,10 @@ nodeSelector:
   {{- end }}
   {{- with .Values.affinity }}
 affinity:
+    {{- toYaml . | nindent 2 }}
+  {{- end }}
+  {{- with .Values.topologySpreadConstraints }}
+topologySpreadConstraints:
     {{- toYaml . | nindent 2 }}
   {{- end }}
   {{- with .Values.tolerations }}
