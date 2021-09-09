@@ -292,6 +292,26 @@ questions:
                 label: "Search Entry"
                 schema:
                   type: string
+        - variable: options
+          label: "DNS Options"
+          schema:
+            type: list
+            items:
+              - variable: optionsEntry
+                label: "Option Entry Configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Option Name"
+                      schema:
+                        type: string
+                        required: true
+                    - variable: value
+                      label: "Option Value"
+                      schema:
+                        type: string
+                        required: true
 
   - variable: hostNetwork
     label: "Provide access to node network namespace for the workload"
