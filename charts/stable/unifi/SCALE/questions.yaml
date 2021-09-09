@@ -389,7 +389,7 @@ questions:
                 schema:
                   type: dict
                   attrs:
-                    - variable: tcp
+                    - variable: comm
                       label: "TCP Service Port Configuration"
                       schema:
                         type: dict
@@ -485,7 +485,7 @@ questions:
                 schema:
                   type: dict
                   attrs:
-                    - variable: udp
+                    - variable: stun
                       label: "TCP Service Port Configuration"
                       schema:
                         type: dict
@@ -580,7 +580,7 @@ questions:
                 schema:
                   type: dict
                   attrs:
-                    - variable: tcp
+                    - variable: speedtest
                       label: "TCP Service Port Configuration"
                       schema:
                         type: dict
