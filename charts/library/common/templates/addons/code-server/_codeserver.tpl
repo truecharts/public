@@ -7,7 +7,8 @@ It will include / inject the required templates based on the given values.
   {{/* Append the code-server container to the additionalContainers */}}
   {{- $container := include "common.addon.codeserver.container" . | fromYaml -}}
   {{- if $container -}}
-    {{- $_ := set .Values.additionalContainers "addon-codeserver" $container -}}
+    {{- $additionalContainers := append .Values.additionalContainers $container -}}
+    {{- $_ := set .Values "additionalContainers" $additionalContainers -}}
   {{- end -}}
 
   {{/* Include the deployKeySecret if not empty */}}

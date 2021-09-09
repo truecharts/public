@@ -6,7 +6,8 @@ and add a credentials secret if speciffied.
   {{/* Append the openVPN container to the additionalContainers */}}
   {{- $container := include "common.addon.openvpn.container" . | fromYaml -}}
   {{- if $container -}}
-    {{- $_ := set .Values.additionalContainers "addon-openvpn" $container -}}
+    {{- $additionalContainers := append .Values.additionalContainers $container -}}
+    {{- $_ := set .Values "additionalContainers" $additionalContainers -}}
   {{- end -}}
 
   {{/* Include the secret if not empty */}}
