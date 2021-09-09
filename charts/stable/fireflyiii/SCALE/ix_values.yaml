@@ -10,7 +10,7 @@ image:
   tag: version-5.5.12
 
 initContainers:
-  - name: init-postgresdb
+  init-postgresdb:
     image: postgres:13.1
     command:
       - "sh"

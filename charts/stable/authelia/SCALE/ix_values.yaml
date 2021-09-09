@@ -16,7 +16,7 @@ args: ["--config=/configuration.yaml"]
 
 
 initContainers:
-  - name: init-postgresdb
+  init-postgresdb:
     image: postgres:13.1
     command:
       - "sh"

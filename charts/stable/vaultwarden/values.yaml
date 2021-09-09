@@ -90,7 +90,7 @@ ingress:
     #      - chart-example.local
 
 initContainers:
-  - name: init-postgresdb
+  init-postgresdb:
     image: postgres:13.1
     command:
       - "sh"
