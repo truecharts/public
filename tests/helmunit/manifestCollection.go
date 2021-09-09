@@ -4,7 +4,7 @@ import (
     "errors"
     "strings"
 
-    "github.com/Jeffail/gabs"
+    "github.com/Jeffail/gabs/v2"
 )
 
 type manifestCollection map[string]map[string]gabs.Container

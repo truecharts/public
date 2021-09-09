@@ -94,7 +94,7 @@ func (suite *HorizontalPodAutoscalerTestSuite) TestMetrics() {
             manifest := suite.Chart.Manifests.Get("HorizontalPodAutoscaler", "common-test")
             suite.Assertions.NotEmpty(manifest)
 
-            manifestMetrics, _ := manifest.Path("spec.metrics").Children()
+            manifestMetrics := manifest.Path("spec.metrics").Children()
 
             metricsMap := make(map[string]int)
             for _, manifestMetric := range manifestMetrics {

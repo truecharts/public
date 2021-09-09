@@ -85,13 +85,13 @@ func (suite *IngressTestSuite) TestValues() {
             if tc.expectedIngress {
                 suite.Assertions.NotEmpty(ingressManifest)
 
-                ingressRules, _ := ingressManifest.Path("spec.rules").Children()
+                ingressRules := ingressManifest.Path("spec.rules").Children()
                 if tc.expectedHostName != "" {
                     suite.Assertions.EqualValues(tc.expectedHostName, ingressRules[0].Path("host").Data())
                 }
 
                 if tc.expectedPath != "" {
-                    paths, _ := ingressRules[0].Path("http.paths").Children()
+                    paths := ingressRules[0].Path("http.paths").Children()
                     suite.Assertions.EqualValues(tc.expectedPath, paths[0].Path("path").Data())
                 }
             } else {
@@ -134,8 +134,8 @@ func (suite *IngressTestSuite) TestPathServices() {
             ingressManifest := suite.Chart.Manifests.Get("Ingress", "common-test")
             suite.Assertions.NotEmpty(ingressManifest)
 
-            ingressRules, _ := ingressManifest.Path("spec.rules").Children()
-            paths, _ := ingressRules[0].Path("http.paths").Children()
+            ingressRules := ingressManifest.Path("spec.rules").Children()
+            paths := ingressRules[0].Path("http.paths").Children()
             primaryPath := paths[0]
 
             if tc.expectedServiceName == "" {
@@ -205,8 +205,8 @@ func (suite *IngressTestSuite) TestTLS() {
 
             if tc.expectedTLS {
                 suite.Assertions.NotEmpty(ingressManifest.Path("spec.tls").Data())
-                tlsSpec, _ := ingressManifest.Path("spec.tls").Children()
-                tlsHostsSpec, _ := tlsSpec[0].Path("hosts").Children()
+                tlsSpec := ingressManifest.Path("spec.tls").Children()
+                tlsHostsSpec := tlsSpec[0].Path("hosts").Children()
                 suite.Assertions.EqualValues(tc.expectedHostName, tlsHostsSpec[0].Data())
 
                 if tc.expectedSecretName == "" {
