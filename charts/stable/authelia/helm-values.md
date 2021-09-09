@@ -64,15 +64,14 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/authelia/authelia"` |  |
 | image.tag | string | `"4.30.4"` |  |
-| initContainers[0].command[0] | string | `"sh"` |  |
-| initContainers[0].command[1] | string | `"-c"` |  |
-| initContainers[0].command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
-| initContainers[0].env[0].name | string | `"pghost"` |  |
-| initContainers[0].env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
-| initContainers[0].env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| initContainers[0].image | string | `"postgres:13.1"` |  |
-| initContainers[0].imagePullPolicy | string | `"IfNotPresent"` |  |
-| initContainers[0].name | string | `"init-postgresdb"` |  |
+| initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
+| initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
+| initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
+| initContainers.init-postgresdb.env[0].name | string | `"pghost"` |  |
+| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
+| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
+| initContainers.init-postgresdb.image | string | `"postgres:13.1"` |  |
+| initContainers.init-postgresdb.imagePullPolicy | string | `"IfNotPresent"` |  |
 | log.format | string | `"text"` |  |
 | log.level | string | `"trace"` |  |
 | notifier.disable_startup_check | bool | `false` |  |

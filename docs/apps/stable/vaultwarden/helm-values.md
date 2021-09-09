@@ -22,15 +22,27 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"vaultwarden/server"` |  |
 | image.tag | string | `"1.22.2"` |  |
-| initContainers[0].command[0] | string | `"sh"` |  |
-| initContainers[0].command[1] | string | `"-c"` |  |
-| initContainers[0].command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
-| initContainers[0].env[0].name | string | `"pghost"` |  |
-| initContainers[0].env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
-| initContainers[0].env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| initContainers[0].image | string | `"postgres:13.1"` |  |
-| initContainers[0].imagePullPolicy | string | `"IfNotPresent"` |  |
-| initContainers[0].name | string | `"init-postgresdb"` |  |
+| ingress | object | See below | Configure the ingresses for the chart here. Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress. |
+| ingress.main.enabled | bool | `true` | Enables or disables the ingress |
+| ingress.main.fixedMiddlewares | list | `["chain-basic"]` | List of middlewares in the traefikmiddlewares k8s namespace to add automatically Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user |
+| ingress.main.hosts[0].host | string | `"chart-example.local"` | Host address. Helm template can be passed. |
+| ingress.main.hosts[0].paths[0].path | string | `"/"` | Path.  Helm template can be passed. |
+| ingress.main.hosts[0].paths[0].pathType | string | `"Prefix"` | Ignored if not kubeVersion >= 1.14-0 |
+| ingress.main.hosts[0].paths[0].service.name | string | `nil` | Overrides the service name reference for this path |
+| ingress.main.hosts[0].paths[0].service.port | string | `nil` | Overrides the service port reference for this path |
+| ingress.main.ingressClassName | string | `nil` | Set the ingressClass that is used for this ingress. Requires Kubernetes >=1.19 |
+| ingress.main.middlewares | list | `[]` | Additional List of middlewares in the traefikmiddlewares k8s namespace to add automatically Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names |
+| ingress.main.nameOverride | string | `nil` | Override the name suffix that is used for this ingress. |
+| ingress.main.primary | bool | `true` | Make this the primary ingress (used in probes, notes, etc...). If there is more than 1 ingress, make sure that only 1 ingress is marked as primary. |
+| ingress.main.tls | list | `[]` | Configure TLS for the ingress. Both secretName and hosts can process a Helm template. |
+| initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
+| initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
+| initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
+| initContainers.init-postgresdb.env[0].name | string | `"pghost"` |  |
+| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
+| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
+| initContainers.init-postgresdb.image | string | `"postgres:13.1"` |  |
+| initContainers.init-postgresdb.imagePullPolicy | string | `"IfNotPresent"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |

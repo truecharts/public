@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/sogo"` |  |
 | image.tag | string | `"v5.2.0"` |  |
-| initContainers | list | `[{"command":["sh","-c","until pg_isready -U sogo -h ${pghost} ; do sleep 2 ; done"],"env":[{"name":"pghost","valueFrom":{"secretKeyRef":{"key":"plainhost","name":"dbcreds"}}}],"image":"postgres:13.1","imagePullPolicy":"IfNotPresent","name":"init-postgresdb"}]` | initcontainers |
-| initContainers[0] | object | `{"command":["sh","-c","until pg_isready -U sogo -h ${pghost} ; do sleep 2 ; done"],"env":[{"name":"pghost","valueFrom":{"secretKeyRef":{"key":"plainhost","name":"dbcreds"}}}],"image":"postgres:13.1","imagePullPolicy":"IfNotPresent","name":"init-postgresdb"}` | wait for database before starting sogo |
+| initContainers | object | `{"init-postgresdb":{"command":["sh","-c","until pg_isready -U sogo -h ${pghost} ; do sleep 2 ; done"],"env":[{"name":"pghost","valueFrom":{"secretKeyRef":{"key":"plainhost","name":"dbcreds"}}}],"image":"postgres:13.1","imagePullPolicy":"IfNotPresent"}}` | initcontainers |
+| initContainers.init-postgresdb | object | `{"command":["sh","-c","until pg_isready -U sogo -h ${pghost} ; do sleep 2 ; done"],"env":[{"name":"pghost","valueFrom":{"secretKeyRef":{"key":"plainhost","name":"dbcreds"}}}],"image":"postgres:13.1","imagePullPolicy":"IfNotPresent"}` | wait for database before starting sogo |
 | memcached | object | `{"enabled":true}` | memcached dependency settings |
 | persistence | object | `{"data":{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/data/conf/sogo/","size":"100Gi","type":"pvc"},"drafts":{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/var/spool/sogo","size":"100Gi","type":"pvc"},"mimetmp":{"enabled":true,"mountPath":"/mimetmp","type":"emptyDir"}}` | persistence settings |
 | postgresql | object | `{"enabled":true,"existingSecret":"dbcreds","postgresqlDatabase":"sogo","postgresqlUsername":"sogo"}` | postgres dependency settings |
