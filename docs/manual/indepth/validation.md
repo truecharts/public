@@ -4,11 +4,11 @@ Validation makes sure that your input is in the desired format, so the applicati
 Below you can find more info about which fields have the mentioned validation and what formats are accepted.
 
 ### All Apps
+---
 
-##### Resources and Devices
+#### Resources and Devices
 
-__CPU__
-
+__`CPU`__
 Accepted formats are:
 
 - Plain integer (eg. `1`) - This means 1 hyperthread
@@ -19,8 +19,7 @@ Regex used to match those: `^([0-9]+)(\.[0-9]?|m?)$`
 You can try live [here](https://regex101.com/r/pFoJTx/1)
 More detailed info can be found [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu)
 
-__Memory RAM__
-
+__`Memory RAM`__
 Accepted formats are:
 
 - Suffixed with E, P, T, G, M, K (eg. `5G`) - This means 5Gigabyte of RAM
@@ -32,14 +31,14 @@ Regex uesd to match those: `^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$`
 You can try live [here](https://regex101.com/r/TUkZhN/1)
 More detailed info can be found [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
----
 
 ### Per app validation
 
-##### Appdaemon
+---
 
-__LATITUDE__ and __LONGITUDE__
+#### Appdaemon
 
+__`LATITUDE`__ and __`LONGITUDE`__
 Accepted formats are:
 
 - Float (eg. `24.2028`)
@@ -47,10 +46,10 @@ Accepted formats are:
 Regex used to match this: `^[0-9]{1,}\.{1}[0-9]{1,}$`
 You can try live [here](https://regex101.com/r/xsLGWN/1)
 
-##### Collabora
 
-__Domain(s) using collabora__
+#### Collabora
 
+__`Domain(s) using collabora`__
 Accepted formats are:
 
 - Single domain (eg. `cloud\.mydomain\.com`) - Each `.` has to be escaped with `\`
@@ -59,8 +58,7 @@ Accepted formats are:
 Regex used to match those: `^([a-z]{1,}\\{1}\.{1}[a-z]{1,}\\{1}\.{1}[a-z]{1,}\|{0,1})*$`
 You can try live [here](https://regex101.com/r/LK02xa/1)
 
-__Password for WebUI__
-
+__`Password for WebUI`__
 Accepted formats are:
 
 - Letters, Numbers, Symbols, Minimum 8 characters (eg. `dg523$*a`) - It accepts `a-z`, `A-Z`, `0-9` and `!@#$%^&*?`
@@ -68,10 +66,10 @@ Accepted formats are:
 Regex used to match those: `[a-zA-Z0-9!@#$%^&*?]{8,}`
 You can try live [here](https://regex101.com/r/ef3V88/1)
 
-##### Fireflyiii
 
-__APP_KEY__
+#### Fireflyiii
 
+__`APP_KEY`__
 Accepted formats are:
 
 - Letters, Numbers, Symbols, Exactly 32 characters (eg. `!oqVA9o2@br#$6vAyk8LLrDm54X5EtjD`) - It accepts `a-z`, `A-Z`, `0-9` and `!@#$%^&*?`
