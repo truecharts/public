@@ -5,4 +5,3 @@
 #### Fix
 
 * ensure supplementalgroups when using devices are actually added ([#942](https://github.com/truecharts/apps/issues/942))
-

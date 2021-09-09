@@ -24,10 +24,10 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | service.comm.enabled | bool | `true` |  |
-| service.comm.ports.tcp.enabled | bool | `true` |  |
-| service.comm.ports.tcp.port | int | `8080` |  |
-| service.comm.ports.tcp.protocol | string | `"TCP"` |  |
-| service.comm.ports.tcp.targetPort | int | `8080` |  |
+| service.comm.ports.comm.enabled | bool | `true` |  |
+| service.comm.ports.comm.port | int | `8080` |  |
+| service.comm.ports.comm.protocol | string | `"TCP"` |  |
+| service.comm.ports.comm.targetPort | int | `8080` |  |
 | service.guestportal.enabled | bool | `false` |  |
 | service.guestportal.ports.web.enabled | bool | `true` |  |
 | service.guestportal.ports.web.port | int | `8880` |  |
@@ -40,15 +40,15 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.ports.main.port | int | `8443` |  |
 | service.main.ports.main.protocol | string | `"HTTPS"` |  |
 | service.speedtest.enabled | bool | `false` |  |
-| service.speedtest.ports.tcp.enabled | bool | `true` |  |
-| service.speedtest.ports.tcp.port | int | `6789` |  |
-| service.speedtest.ports.tcp.protocol | string | `"TCP"` |  |
-| service.speedtest.ports.tcp.targetPort | int | `6789` |  |
+| service.speedtest.ports.speedtest.enabled | bool | `true` |  |
+| service.speedtest.ports.speedtest.port | int | `6789` |  |
+| service.speedtest.ports.speedtest.protocol | string | `"TCP"` |  |
+| service.speedtest.ports.speedtest.targetPort | int | `6789` |  |
 | service.stun.enabled | bool | `true` |  |
-| service.stun.ports.udp.enabled | bool | `true` |  |
-| service.stun.ports.udp.port | int | `3478` |  |
-| service.stun.ports.udp.protocol | string | `"UDP"` |  |
-| service.stun.ports.udp.targetPort | int | `3478` |  |
+| service.stun.ports.stun.enabled | bool | `true` |  |
+| service.stun.ports.stun.port | int | `3478` |  |
+| service.stun.ports.stun.protocol | string | `"UDP"` |  |
+| service.stun.ports.stun.targetPort | int | `3478` |  |
 | strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project
