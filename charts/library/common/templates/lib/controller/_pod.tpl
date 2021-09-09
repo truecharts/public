@@ -39,7 +39,8 @@ enableServiceLinks: {{ .Values.enableServiceLinks }}
 terminationGracePeriodSeconds: {{ . }}
   {{- end }}
 initContainers:
-   {{- include "common.controller.autopermissions" . | nindent 2 }}
+  {{-  include "common.controller.autopermissions" . | nindent 2 }}
+  {{- if .Values.initContainers }}
     {{- $initContainers := list }}
     {{- range $index, $key := (keys .Values.initContainers | uniq | sortAlpha) }}
       {{- $container := get $.Values.initContainers $key }}
@@ -50,6 +51,7 @@ initContainers:
     {{- end }}
     {{- tpl (toYaml $initContainers) $ | nindent 2 }}
   {{- end }}
+
 containers:
   {{- include "common.controller.mainContainer" . | nindent 2 }}
   {{- with .Values.additionalContainers }}
@@ -59,6 +61,7 @@ containers:
         {{- $_ := set $container "name" $name }}
       {{- end }}
       {{- $additionalContainers = append $additionalContainers $container }}
+    {{- end }}
     {{- tpl (toYaml $additionalContainers) $ | nindent 2 }}
   {{- end }}
   {{- with (include "common.controller.volumes" . | trim) }}
