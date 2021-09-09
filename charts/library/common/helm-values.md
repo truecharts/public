@@ -8,7 +8,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| additionalContainers | list | `[]` | Specify any additional containers here. Yaml will be passed in to the Pod as-is. |
+| additionalContainers | object | `{}` | Specify any additional containers here as dictionary items. Each additional container should have its own key. Helm templates can be used. |
 | addons | object | See below | The common chart supports several add-ons. These can be configured under this key. |
 | addons.codeserver | object | See values.yaml | The common library supports adding a code-server add-on to access files. It can be configured under this key. For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#code-server) |
 | addons.codeserver.args | list | `["--auth","none"]` | Set codeserver command line arguments. Consider setting --user-data-dir to a persistent location to preserve code-server setting changes |
@@ -106,7 +106,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | ingress.main.primary | bool | `true` | Make this the primary ingress (used in probes, notes, etc...). If there is more than 1 ingress, make sure that only 1 ingress is marked as primary. |
 | ingress.main.tls | list | `[]` | Configure TLS for the ingress. Both secretName and hosts can process a Helm template. |
 | ingressList | list | [] | Configure ingressList for the chart here. Additional items can be added by adding a items similar to ingress |
-| initContainers | list | `[]` | Specify any initContainers here. Yaml will be passed in to the Pod as-is. |
+| initContainers | object | `{}` | Specify any initContainers here as dictionary items. Each initContainer should have its own key. The dictionary item key will determine the order. Helm templates can be used. |
 | lifecycle | object | `{}` | Configure the lifecycle for the main container |
 | networkPolicy | object | See below | Configure networkPolicy for the chart here. |
 | networkPolicy.egress | list | `[]` | add or remove egress policies |
@@ -197,6 +197,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | termination.messagePath | string | `nil` | Configure the path at which the file to which the main container's termination message will be written. -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)] |
 | termination.messagePolicy | string | `nil` | Indicate how the main container's termination message should be populated. Valid options are `File` and `FallbackToLogsOnError`. -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)] |
 | tolerations | list | `[]` | Specify taint tolerations [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) |
+| topologySpreadConstraints | list | `[]` | Defines topologySpreadConstraint rules. [[ref]](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) |
 | volumeClaimTemplates | list | `[]` | Used in conjunction with `controller.type: statefulset` to create individual disks for each instance. |
 
 All Rights Reserved - The TrueCharts Project
