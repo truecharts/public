@@ -1,3 +1,57 @@
+# -- OpenVPN specific configuration
+# @default -- See below
+openvpnImage:
+  # -- Specify the openvpn client image
+  repository: dperson/openvpn-client
+  # -- Specify the openvpn client image tag
+  tag: latest
+  # -- Specify the openvpn client image pull policy
+  pullPolicy: IfNotPresent
+
+
+# -- WireGuard specific configuration
+# @default -- See below
+wireguardImage:
+  # -- Specify the WireGuard image
+  repository: ghcr.io/k8s-at-home/wireguard
+  # -- Specify the WireGuard image tag
+  tag: v1.0.20210424
+  # -- Specify the WireGuard image pull policy
+  pullPolicy: IfNotPresent
+
+promtailImage:
+  # -- Specify the promtail image
+  repository: grafana/promtail
+  # -- Specify the promtail image tag
+  tag: 2.2.0
+  # -- Specify the promtail image pull policy
+  pullPolicy: IfNotPresent
+
+
+netshootImage:
+  # -- Specify the netshoot image
+  repository: nicolaka/netshoot
+  # -- Specify the netshoot image tag
+  tag: latest
+  # -- Specify the netshoot image pull policy
+  pullPolicy: Always
+
+codeserverImage:
+  # -- Specify the code-server image
+  repository: codercom/code-server
+  # -- Specify the code-server image tag
+  tag: 3.9.2
+  # -- Specify the code-server image pull policy
+  pullPolicy: IfNotPresent
+
+alpineImage:
+  # -- Specify the code-server image
+  repository: alpine
+  # -- Specify the code-server image tag
+  tag: "3.3"
+  # -- Specify the code-server image pull policy
+  pullPolicy: IfNotPresent
+
 global:
   # -- Set an override for the prefix of the fullname
   nameOverride:
@@ -641,30 +695,14 @@ addons:
     # -- OpenVPN specific configuration
     # @default -- See below
     openvpn:
-      image:
-        # -- Specify the openvpn client image
-        repository: dperson/openvpn-client
-        # -- Specify the openvpn client image tag
-        tag: latest
-        # -- Specify the openvpn client image pull policy
-        pullPolicy: IfNotPresent
-
       # -- Credentials to connect to the VPN Service (used with -a)
       auth:  # "user;password"
       # -- Optionally specify an existing secret that contains the credentials.
       # Credentials should be stored under the `VPN_AUTH` key
       authSecret:  # my-vpn-secret
-
     # -- WireGuard specific configuration
     # @default -- See below
-    wireguard:
-      image:
-        # -- Specify the WireGuard image
-        repository: ghcr.io/k8s-at-home/wireguard
-        # -- Specify the WireGuard image tag
-        tag: v1.0.20210424
-        # -- Specify the WireGuard image pull policy
-        pullPolicy: IfNotPresent
+    wireguard: {}
 
     # -- Set the VPN container securityContext
     # @default -- See values.yaml
@@ -690,7 +728,6 @@ addons:
       # See Kubernetes documentation for options.
       hostPathType: "File"
 
-
     # -- Provide custom up/down scripts that can be used by the vpn configuration.
     # @default -- See values.yaml
     scripts:
@@ -709,18 +746,9 @@ addons:
     # -- Enable running a code-server container in the pod
     enabled: false
 
-    image:
-      # -- Specify the code-server image
-      repository: codercom/code-server
-      # -- Specify the code-server image tag
-      tag: 3.9.2
-      # -- Specify the code-server image pull policy
-      pullPolicy: IfNotPresent
-
     # -- Set any environment variables for code-server here
     env: {}
       # TZ: UTC
-
     # -- Set codeserver command line arguments.
     # Consider setting --user-data-dir to a persistent location to preserve code-server setting changes
     args:
@@ -794,24 +822,12 @@ addons:
   promtail:
     # -- Enable running a promtail container in the pod
     enabled: false
-
-    image:
-      # -- Specify the promtail image
-      repository: grafana/promtail
-      # -- Specify the promtail image tag
-      tag: 2.2.0
-      # -- Specify the promtail image pull policy
-      pullPolicy: IfNotPresent
-
     # -- Set any environment variables for promtail here
     env: {}
-
     # -- Set promtail command line arguments
     args: []
-
     # -- The URL to Loki
     loki: ""
-
     # -- The paths to logs on the volume
     logs: []
     # - name: log
@@ -832,14 +848,6 @@ addons:
   netshoot:
     # -- Enable running a netshoot container in the pod
     enabled: false
-
-    image:
-      # -- Specify the netshoot image
-      repository: nicolaka/netshoot
-      # -- Specify the netshoot image tag
-      tag: latest
-      # -- Specify the netshoot image pull policy
-      pullPolicy: Always
 
     # -- Set any environment variables for netshoot here
     env: {}

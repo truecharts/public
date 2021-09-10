@@ -6,8 +6,8 @@ The code-server sidecar container to be inserted.
 {{- fail "At least 1 volumeMount is required for codeserver container" }}
 {{- end -}}
 name: codeserver
-image: "{{ .Values.addons.codeserver.image.repository }}:{{ .Values.addons.codeserver.image.tag }}"
-imagePullPolicy: {{ .Values.addons.codeserver.pullPolicy }}
+image: "{{ .Values.codeserverImage.repository }}:{{ .Values.codeserverImage.tag }}"
+imagePullPolicy: {{ .Values.codeserverImage.pullPolicy }}
 {{- with .Values.addons.codeserver.securityContext }}
 securityContext:
   {{- toYaml . | nindent 2 }}

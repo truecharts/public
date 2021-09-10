@@ -5,6 +5,11 @@ image:
   pullPolicy: IfNotPresent
   tag: 22.1.1
 
+postgresqlImage:
+  repository: postgres
+  pullPolicy: IfNotPresent
+  tag: "13.1"
+
 strategy:
   type: Recreate
 
@@ -69,7 +74,7 @@ persistence:
 
 initContainers:
   init-postgresdb:
-    image: postgres:13.1
+    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
     command:
       - "sh"
       - "-c"
