@@ -24,7 +24,7 @@ before chart installation.
     runAsGroup: 0
     privileged: true
     allowPrivilegeEscalation: true
-    runAsRoot: true
+    runAsNonRoot: false
   command:
     - "/bin/sh"
     - "-c"
