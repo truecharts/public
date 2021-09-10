@@ -13,10 +13,18 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
-podSecurityContext:
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
   runAsNonRoot: true
+
+podSecurityContext:
   runAsUser: 568
   runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables.
 # @default -- See below
