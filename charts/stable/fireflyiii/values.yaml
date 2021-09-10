@@ -11,8 +11,7 @@ postgresqlImage:
   pullPolicy: IfNotPresent
   tag: 13.4-alpine
 
-strategy:
-  type: Recreate
+
 
 podSecurityContext:
   runAsNonRoot: false

@@ -7,8 +7,7 @@ image:
   pullPolicy: IfNotPresent
   tag: 5.5.3
 
-strategy:
-  type: Recreate
+
 
 # 5=tty 20=dialout 24=cdrom
 podSecurityContext:

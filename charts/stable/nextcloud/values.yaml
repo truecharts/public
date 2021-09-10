@@ -10,8 +10,7 @@ postgresqlImage:
   pullPolicy: IfNotPresent
   tag: "13.1"
 
-strategy:
-  type: Recreate
+
 
 service:
   main:

@@ -13,8 +13,7 @@ image:
   # -- image tag
   tag: latest
 
-strategy:
-  type: Recreate
+
 
 podSecurityContext:
   runAsNonRoot: true

@@ -3,8 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: "v4.0.8"
 
-strategy:
-  type: Recreate
+
 
 # Configure the Security Context for the Pod
 podSecurityContext:

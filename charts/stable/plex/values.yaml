@@ -5,8 +5,7 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.24.1.4931-1a38e63c6
 
-strategy:
-  type: Recreate
+
 
 # 44=video 107=render
 podSecurityContext:
