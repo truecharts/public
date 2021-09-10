@@ -13,6 +13,19 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+securityContext:
+  privileged: true
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
 # -- environment variables. See [application docs](https://flightaware.com/adsb/piaware/advanced_configuration) for more details.
 # @default -- See below
 env:
@@ -26,11 +39,6 @@ service:
     ports:
       main:
         port: 8080
-
-
-securityContext:
-  # -- (bool) Privileged securityContext may be required if USB device is accessed directly through the host machine
-  privileged: true
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml

@@ -5,9 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: cpu-2021.02.1
 
-strategy:
-  type: Recreate
-
 service:
   main:
     enabled: true

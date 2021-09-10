@@ -5,9 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: latest
 
-strategy:
-  type: Recreate
-
 
 service:
   main:

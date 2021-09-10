@@ -5,6 +5,18 @@ image:
   pullPolicy: IfNotPresent
   tag: "4.30.4"
 
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
 
 postgresqlImage:
   repository: postgres
@@ -13,9 +25,6 @@ postgresqlImage:
 
 command: ["authelia"]
 args: ["--config=/configuration.yaml"]
-
-strategy:
-  type: Recreate
 
 enableServiceLinks: false
 
@@ -80,18 +89,6 @@ redis:
     replicaCount: 0
     persistence:
       enabled: false
-
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-
-securityContext:
-  readOnlyRootFilesystem: true
-  allowPrivilegeEscalation: false
-  privileged: false
-
 
 resources:
   limits: {}

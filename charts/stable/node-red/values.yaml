@@ -5,8 +5,18 @@ image:
   pullPolicy: IfNotPresent
   tag: 2.0.6
 
-strategy:
-  type: Recreate
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
 
 # See more environment varaibles in the node-red documentation
 # https://nodered.org/docs/getting-started/docker

@@ -5,9 +5,6 @@ image:
   tag: v6.2.26
   pullPolicy: IfNotPresent
 
-strategy:
-  type: Recreate
-
 envTpl:
   # Permissions Settings
   UNIFI_GID: "{{ .Values.env.PUID }}"

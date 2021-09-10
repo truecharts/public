@@ -13,6 +13,19 @@ image:
   # -- image tag
   tag: 0.8.0
 
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
 # -- environment variables. See more environment variables in the [image entrypoint script](https://github.com/FlipEnergy/container-images/blob/main/focalboard/entrypoint.sh)
 # @default -- See below
 env: {}

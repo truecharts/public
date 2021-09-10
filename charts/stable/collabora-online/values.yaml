@@ -3,9 +3,6 @@ image:
   tag: 6.4.10.10
   pullPolicy: IfNotPresent
 
-strategy:
-  type: Recreate
-
 service:
   main:
     type: NodePort

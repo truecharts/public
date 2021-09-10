@@ -11,14 +11,18 @@ postgresqlImage:
   pullPolicy: IfNotPresent
   tag: 13.4-alpine
 
-strategy:
-  type: Recreate
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
 
 podSecurityContext:
-  runAsNonRoot: false
   runAsUser: 0
   runAsGroup: 0
   fsGroup: 0
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:

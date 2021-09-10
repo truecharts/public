@@ -5,8 +5,18 @@ image:
   pullPolicy: IfNotPresent
   tag: v3.3.1
 
-strategy:
-  type: Recreate
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:

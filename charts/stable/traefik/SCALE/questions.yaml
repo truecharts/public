@@ -1140,11 +1140,6 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: runAsNonRoot
-          label: "runAsNonRoot"
-          schema:
-            type: boolean
-            default: true
         - variable: runAsUser
           label: "runAsUser"
           description: "The UserID of the user running the application"

@@ -5,14 +5,24 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.22.2
 
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
 postgresqlImage:
   repository: postgres
   pullPolicy: IfNotPresent
   tag: 13.4-alpine
 
-
-strategy:
-  type: Recreate
 
 service:
   main:

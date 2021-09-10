@@ -5,9 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: minimal
 
-strategy:
-  type: Recreate
-
 service:
   main:
     ports:

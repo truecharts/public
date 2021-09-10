@@ -13,6 +13,19 @@ image:
   # -- image pull policy
   pullPolicy: Always
 
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
 # -- environment variables. See [image docs](https://github.com/tenstartups/ser2sock) for more details.
 # @default -- See below
 env:
@@ -45,10 +58,6 @@ persistence:
     enabled: false
     type: hostPath
     mountPath: /dev/ttyUSB0
-
-securityContext:
-  # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
-  privileged:  # true
 
 # -- Affinity constraint rules to place the Pod on a specific node.
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
