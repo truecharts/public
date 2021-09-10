@@ -5,6 +5,19 @@ image:
   pullPolicy: IfNotPresent
   tag: 22.1.1
 
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 33
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
 postgresqlImage:
   repository: postgres
   pullPolicy: IfNotPresent
@@ -85,10 +98,6 @@ initContainers:
           secretKeyRef:
             name: dbcreds
             key: plainhost
-
-
-podSecurityContext:
-  fsGroup: 33
 
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)

@@ -7,15 +7,19 @@ image:
   pullPolicy: IfNotPresent
   tag: 5.5.3
 
-
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
 
 # 5=tty 20=dialout 24=cdrom
 podSecurityContext:
-  runAsNonRoot: true
   runAsUser: 568
   runAsGroup: 568
   fsGroup: 568
   supplementalGroups: [5, 20, 24]
+  fsGroupChangePolicy: "OnRootMismatch"
 
 # # See more environment variables in the zwavejs2mqtt documentation
 # https://zwave-js.github.io/zwavejs2mqtt/#/guide/env-vars
