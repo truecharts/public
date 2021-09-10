@@ -986,6 +986,11 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: runAsNonRoot
+          label: "runAsNonRoot"
+          schema:
+            type: boolean
+            default: false
 
   - variable: podSecurityContext
     group: "Security and Permissions"
@@ -993,11 +998,6 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: runAsNonRoot
-          label: "runAsNonRoot"
-          schema:
-            type: boolean
-            default: false
         - variable: runAsUser
           label: "runAsUser"
           description: "The UserID of the user running the application"

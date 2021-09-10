@@ -989,6 +989,11 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: runAsNonRoot
+          label: "runAsNonRoot"
+          schema:
+            type: boolean
+            default: false
 
   - variable: resources
     group: "Resources and Devices"

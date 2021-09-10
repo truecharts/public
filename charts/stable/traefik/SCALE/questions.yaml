@@ -1128,6 +1128,11 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: runAsNonRoot
+          label: "runAsNonRoot"
+          schema:
+            type: boolean
+            default: false
 
   - variable: podSecurityContext
     group: "Security and Permissions"
