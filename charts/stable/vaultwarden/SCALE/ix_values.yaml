@@ -9,6 +9,12 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.22.2
 
+postgresqlImage:
+  repository: postgres
+  pullPolicy: IfNotPresent
+  tag: 13.4-alpine
+
+
 envTpl:
   DOMAIN: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
 
@@ -20,7 +26,7 @@ envFrom:
 
 initContainers:
   init-postgresdb:
-    image: postgres:13.1
+    image: "{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"
     command:
       - "sh"
       - "-c"

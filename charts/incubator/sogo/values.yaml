@@ -2,7 +2,12 @@
 image:
   repository: ghcr.io/truecharts/sogo
   pullPolicy: IfNotPresent
-  tag: "v5.2.0"
+  tag: v5.2.0
+
+postgresqlImage:
+  repository: postgres
+  pullPolicy: IfNotPresent
+  tag: 13.4-alpine
 
 # -- services
 service:
@@ -15,7 +20,7 @@ service:
 initContainers:
   # -- wait for database before starting sogo
   init-postgresdb:
-    image: postgres:13.1
+    image: "{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"
     command:
       - "sh"
       - "-c"

@@ -3,8 +3,8 @@ The netshoot sidecar container to be inserted.
 */}}
 {{- define "common.addon.netshoot.container" -}}
 name: netshoot
-image: "{{ .Values.addons.netshoot.image.repository }}:{{ .Values.addons.netshoot.image.tag }}"
-imagePullPolicy: {{ .Values.addons.netshoot.pullPolicy }}
+image: "{{ .Values.netshootImage.repository }}:{{ .Values.netshootImage.tag }}"
+imagePullPolicy: {{ .Values.netshootImage.pullPolicy }}
 {{- with .Values.addons.netshoot.securityContext }}
 securityContext:
   {{- toYaml . | nindent 2 }}

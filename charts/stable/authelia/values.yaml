@@ -5,6 +5,12 @@ image:
   pullPolicy: IfNotPresent
   tag: "4.30.4"
 
+
+postgresqlImage:
+  repository: postgres
+  pullPolicy: IfNotPresent
+  tag: 13.4-alpine
+
 command: ["authelia"]
 args: ["--config=/configuration.yaml"]
 
@@ -21,7 +27,7 @@ service:
 
 initContainers:
   init-postgresdb:
-    image: postgres:13.1
+    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
     command:
       - "sh"
       - "-c"

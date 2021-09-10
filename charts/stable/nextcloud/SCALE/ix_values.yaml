@@ -9,6 +9,11 @@ image:
   pullPolicy: IfNotPresent
   tag: 22.1.1
 
+postgresqlImage:
+  repository: postgres
+  pullPolicy: IfNotPresent
+  tag: 13.4-alpine
+
 strategy:
   type: Recreate
 
@@ -43,7 +48,7 @@ envValueFrom:
 
 initContainers:
   init-postgresdb:
-    image: postgres:13.1
+    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
     command:
       - "sh"
       - "-c"
@@ -55,7 +60,6 @@ initContainers:
           secretKeyRef:
             name: dbcreds
             key: plainhost
-
 
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)

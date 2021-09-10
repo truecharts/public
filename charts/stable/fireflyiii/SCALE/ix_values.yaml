@@ -9,9 +9,15 @@ image:
   pullPolicy: IfNotPresent
   tag: version-5.5.12
 
+
+postgresqlImage:
+  repository: postgres
+  pullPolicy: IfNotPresent
+  tag: 13.4-alpine
+
 initContainers:
   init-postgresdb:
-    image: postgres:13.1
+    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
     command:
       - "sh"
       - "-c"

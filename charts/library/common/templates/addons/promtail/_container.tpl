@@ -6,8 +6,8 @@ The promtail sidecar container to be inserted.
 {{- fail "At least 1 volumeMount is required for the promtail container" }}
 {{- end -}}
 name: promtail
-image: "{{ .Values.addons.promtail.image.repository }}:{{ .Values.addons.promtail.image.tag }}"
-imagePullPolicy: {{ .Values.addons.promtail.pullPolicy }}
+image: "{{ .Values.promtailImage.repository }}:{{ .Values.promtailImage.tag }}"
+imagePullPolicy: {{ .Values.promtailImage.pullPolicy }}
 {{- with .Values.addons.promtail.securityContext }}
 securityContext:
   {{- toYaml . | nindent 2 }}
