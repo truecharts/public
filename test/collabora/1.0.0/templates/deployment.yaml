@@ -13,28 +13,29 @@ spec:
       name: {{ template "common.names.fullname" . }}
       labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
     spec:
-      # FIXME: Let's please remove hostnetwork when upstream hostport issue is sorted out with kube-router
-      hostNetwork: true
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
-          volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
+          {{ if .Values.extraAppVolumeMounts }}
+          volumeMounts:
           {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}
+          {{ end }}
           ports:
             - name: chia-network
               protocol: TCP
-              containerPort: 8444
-              hostPort: 8444
+              containerPort: 9980
           {{ $envList := (default list .Values.environmentVariables) }}
           {{ $envList = mustAppend $envList (dict "name" "keys" "value" "/plots/keyfile") }}
           {{ $envList = mustAppend $envList (dict "name" "farmr" "value" $.Values.farmr_env) }}
           {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
-      volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
+      {{ if .Values.extraAppVolumeMounts }}
+      volumes:
       {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
         - name: extrappvolume-{{ $index }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
+      {{ end }}
       {{ end }}
