@@ -11,16 +11,12 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | additionalContainers | object | `{}` | Specify any additional containers here as dictionary items. Each additional container should have its own key. Helm templates can be used. |
 | addons | object | See below | The common chart supports several add-ons. These can be configured under this key. |
 | addons.codeserver | object | See values.yaml | The common library supports adding a code-server add-on to access files. It can be configured under this key. For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#code-server) |
-| addons.codeserver.args | list | `["--auth","none"]` | Set codeserver command line arguments. Consider setting --user-data-dir to a persistent location to preserve code-server setting changes |
 | addons.codeserver.enabled | bool | `false` | Enable running a code-server container in the pod |
 | addons.codeserver.env | object | `{}` | Set any environment variables for code-server here |
 | addons.codeserver.git | object | See below | Optionally allow access a Git repository by passing in a private SSH key |
 | addons.codeserver.git.deployKey | string | `""` | Raw SSH private key |
 | addons.codeserver.git.deployKeyBase64 | string | `""` | Base64-encoded SSH private key. When both variables are set, the raw SSH key takes precedence. |
 | addons.codeserver.git.deployKeySecret | string | `""` | Existing secret containing SSH private key The chart expects it to be present under the `id_rsa` key. |
-| addons.codeserver.image.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
-| addons.codeserver.image.repository | string | `"codercom/code-server"` | Specify the code-server image |
-| addons.codeserver.image.tag | string | `"3.9.2"` | Specify the code-server image tag |
 | addons.codeserver.ingress.enabled | bool | `false` | Enable an ingress for the code-server add-on. |
 | addons.codeserver.service.enabled | bool | `true` | Enable a service for the code-server add-on. |
 | addons.codeserver.volumeMounts | list | `[]` | Specify a list of volumes that get mounted in the code-server container. At least 1 volumeMount is required! |
@@ -28,16 +24,10 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | addons.netshoot | object | See values.yaml | The common library supports adding a netshoot add-on to troubleshoot network issues within a Pod. It can be configured under this key. |
 | addons.netshoot.enabled | bool | `false` | Enable running a netshoot container in the pod |
 | addons.netshoot.env | object | `{}` | Set any environment variables for netshoot here |
-| addons.netshoot.image.pullPolicy | string | `"Always"` | Specify the netshoot image pull policy |
-| addons.netshoot.image.repository | string | `"nicolaka/netshoot"` | Specify the netshoot image |
-| addons.netshoot.image.tag | string | `"latest"` | Specify the netshoot image tag |
 | addons.promtail | object | See values.yaml | The common library supports adding a promtail add-on to to access logs and ship them to loki. It can be configured under this key. |
 | addons.promtail.args | list | `[]` | Set promtail command line arguments |
 | addons.promtail.enabled | bool | `false` | Enable running a promtail container in the pod |
 | addons.promtail.env | object | `{}` | Set any environment variables for promtail here |
-| addons.promtail.image.pullPolicy | string | `"IfNotPresent"` | Specify the promtail image pull policy |
-| addons.promtail.image.repository | string | `"grafana/promtail"` | Specify the promtail image |
-| addons.promtail.image.tag | string | `"2.2.0"` | Specify the promtail image tag |
 | addons.promtail.logs | list | `[]` | The paths to logs on the volume |
 | addons.promtail.loki | string | `""` | The URL to Loki |
 | addons.promtail.volumeMounts | list | `[]` | Specify a list of volumes that get mounted in the promtail container. At least 1 volumeMount is required! |
@@ -50,19 +40,19 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | addons.vpn.openvpn | object | See below | OpenVPN specific configuration |
 | addons.vpn.openvpn.auth | string | `nil` | Credentials to connect to the VPN Service (used with -a) |
 | addons.vpn.openvpn.authSecret | string | `nil` | Optionally specify an existing secret that contains the credentials. Credentials should be stored under the `VPN_AUTH` key |
-| addons.vpn.openvpn.image.pullPolicy | string | `"IfNotPresent"` | Specify the openvpn client image pull policy |
-| addons.vpn.openvpn.image.repository | string | `"dperson/openvpn-client"` | Specify the openvpn client image |
-| addons.vpn.openvpn.image.tag | string | `"latest"` | Specify the openvpn client image tag |
 | addons.vpn.scripts | object | See values.yaml | Provide custom up/down scripts that can be used by the vpn configuration. |
 | addons.vpn.securityContext | object | See values.yaml | Set the VPN container securityContext |
 | addons.vpn.type | string | `"openvpn"` | Specify the VPN type. Valid options are openvpn or wireguard |
 | addons.vpn.wireguard | object | See below | WireGuard specific configuration |
-| addons.vpn.wireguard.image.pullPolicy | string | `"IfNotPresent"` | Specify the WireGuard image pull policy |
-| addons.vpn.wireguard.image.repository | string | `"ghcr.io/k8s-at-home/wireguard"` | Specify the WireGuard image |
-| addons.vpn.wireguard.image.tag | string | `"v1.0.20210424"` | Specify the WireGuard image tag |
 | affinity | object | `{}` | Defines affinity constraint rules. [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) |
+| alpineImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
+| alpineImage.repository | string | `"ghcr.io/truecharts/alpine"` | Specify the code-server image |
+| alpineImage.tag | string | `"v3.14.1"` | Specify the code-server image tag |
 | args | list | `[]` | Override the args for the default container |
 | autoscaling | object | <disabled> | Add a Horizontal Pod Autoscaler |
+| codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
+| codeserverImage.repository | string | `"codercom/code-server"` | Specify the code-server image |
+| codeserverImage.tag | string | `"3.9.2"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | controller.annotations | object | `{}` |  |
 | controller.annotationsList | list | `[]` | Set additional annotations on the deployment/statefulset/daemonset |
@@ -108,11 +98,18 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | ingressList | list | [] | Configure ingressList for the chart here. Additional items can be added by adding a items similar to ingress |
 | initContainers | object | `{}` | Specify any initContainers here as dictionary items. Each initContainer should have its own key. The dictionary item key will determine the order. Helm templates can be used. |
 | lifecycle | object | `{}` | Configure the lifecycle for the main container |
+| netshootImage.pullPolicy | string | `"Always"` | Specify the netshoot image pull policy |
+| netshootImage.repository | string | `"nicolaka/netshoot"` | Specify the netshoot image |
+| netshootImage.tag | string | `"latest"` | Specify the netshoot image tag |
 | networkPolicy | object | See below | Configure networkPolicy for the chart here. |
 | networkPolicy.egress | list | `[]` | add or remove egress policies |
 | networkPolicy.enabled | bool | `false` | Enables or disables the networkPolicy |
 | networkPolicy.ingress | list | `[]` | add or remove egress policies |
 | nodeSelector | object | `{}` |  |
+| openvpnImage | object | See below | OpenVPN specific configuration |
+| openvpnImage.pullPolicy | string | `"IfNotPresent"` | Specify the openvpn client image pull policy |
+| openvpnImage.repository | string | `"dperson/openvpn-client"` | Specify the openvpn client image |
+| openvpnImage.tag | string | `"latest"` | Specify the openvpn client image tag |
 | persistence | object | See below | Configure persistence for the chart here. Additional items can be added by adding a dictionary key similar to the 'config' key. |
 | persistence.config | object | See below | Default persistence for configuration files. |
 | persistence.config.enabled | bool | `false` | Enables or disables the persistence item |
@@ -163,6 +160,9 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | probes.startup.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.startup.spec | object | See below | The spec field contains the values for the default startupProbe. If you selected `custom: true`, this field holds the definition of the startupProbe. |
 | probes.startup.type | string | "TCP" | sets the probe type when not using a custom probe |
+| promtailImage.pullPolicy | string | `"IfNotPresent"` | Specify the promtail image pull policy |
+| promtailImage.repository | string | `"ghcr.io/truecharts/promtail"` | Specify the promtail image |
+| promtailImage.tag | string | `"v2.3.0"` | Specify the promtail image tag |
 | rbac | object | See below | Create a ClusterRole and ClusterRoleBinding |
 | rbac.clusterRoleAnnotations | object | `{}` | Set labels on the ClusterRole |
 | rbac.clusterRoleBindingAnnotations | object | `{}` | Set labels on the ClusterRoleBinding |
@@ -199,5 +199,9 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | tolerations | list | `[]` | Specify taint tolerations [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) |
 | topologySpreadConstraints | list | `[]` | Defines topologySpreadConstraint rules. [[ref]](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) |
 | volumeClaimTemplates | list | `[]` | Used in conjunction with `controller.type: statefulset` to create individual disks for each instance. |
+| wireguardImage | object | See below | WireGuard specific configuration |
+| wireguardImage.pullPolicy | string | `"IfNotPresent"` | Specify the WireGuard image pull policy |
+| wireguardImage.repository | string | `"ghcr.io/k8s-at-home/wireguard"` | Specify the WireGuard image |
+| wireguardImage.tag | string | `"v1.0.20210424"` | Specify the WireGuard image tag |
 
 All Rights Reserved - The TrueCharts Project
