@@ -7,11 +7,11 @@
 
 image:
   # -- image repository
-  repository: flipenergy/focalboard
+  repository: ghcr.io/truecharts/focalboard
   # -- image pull policy
   pullPolicy: IfNotPresent
   # -- image tag
-  tag: 0.8.0
+  tag: v0.8.0
 
 securityContext:
   privileged: false
