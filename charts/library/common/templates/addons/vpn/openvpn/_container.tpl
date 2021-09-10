@@ -44,6 +44,7 @@ volumeMounts:
 {{- end }}
   - mountPath: {{ .Values.persistence.shared.mountPath }}
     name: shared
+{{- end }}
 {{- with .Values.addons.vpn.livenessProbe }}
 livenessProbe:
   {{- toYaml . | nindent 2 }}
