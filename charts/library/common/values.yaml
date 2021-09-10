@@ -21,9 +21,9 @@ wireguardImage:
 
 promtailImage:
   # -- Specify the promtail image
-  repository: grafana/promtail
+  repository: ghcr.io/truecharts/promtail
   # -- Specify the promtail image tag
-  tag: 2.2.0
+  tag: v2.3.0
   # -- Specify the promtail image pull policy
   pullPolicy: IfNotPresent
 
@@ -46,9 +46,9 @@ codeserverImage:
 
 alpineImage:
   # -- Specify the code-server image
-  repository: alpine
+  repository: ghcr.io/truecharts/alpine
   # -- Specify the code-server image tag
-  tag: "3.3"
+  tag: v3.14.1
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
