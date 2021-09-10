@@ -3,14 +3,18 @@ image:
   pullPolicy: IfNotPresent
   tag: "v4.0.8"
 
-
-
-# Configure the Security Context for the Pod
-podSecurityContext:
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
   runAsNonRoot: true
+
+podSecurityContext:
   runAsUser: 568
   runAsGroup: 568
   fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
 
 env:
   TZ: "America/Chicago"
