@@ -5,15 +5,19 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.24.1.4931-1a38e63c6
 
-
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
 
 # 44=video 107=render
 podSecurityContext:
-  runAsNonRoot: true
   runAsUser: 568
   runAsGroup: 568
   fsGroup: 568
   supplementalGroups: [44, 107]
+  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
