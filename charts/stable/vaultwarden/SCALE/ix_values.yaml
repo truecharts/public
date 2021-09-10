@@ -5,9 +5,9 @@
 ##
 
 image:
-  repository: vaultwarden/server
+  repository: ghcr.io/truecharts/vaultwarden
   pullPolicy: IfNotPresent
-  tag: 1.22.2
+  tag: v1.22.2
 
 postgresqlImage:
   repository: postgres
