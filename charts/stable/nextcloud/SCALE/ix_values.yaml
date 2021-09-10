@@ -42,7 +42,7 @@ envValueFrom:
       key: redis-password
 
 initContainers:
-  - name: init-postgresdb
+  init-postgresdb:
     image: postgres:13.1
     command:
       - "sh"
