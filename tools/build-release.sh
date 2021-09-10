@@ -123,7 +123,7 @@ sync_tag() {
     local train="$3"
     local chartversion="$4"
     echo "Attempting to sync primary tag with appversion for: ${chartname}"
-    local tag="$(cat ${chart}/values.yaml | grep "^  tag: " | awk -F" " '{ print $2 }')"
+    local tag="$(cat ${chart}/values.yaml | grep '^  tag: ' | awk -F" " '{ print $2 }')"
     tag="${tag:-auto}"
     tag="${tag#*release-}"
     tag="${tag#*version-}"
