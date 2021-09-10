@@ -26,8 +26,6 @@ postgresqlImage:
 command: ["authelia"]
 args: ["--config=/configuration.yaml"]
 
-
-
 enableServiceLinks: false
 
 service:
