@@ -25,9 +25,9 @@ envFrom:
       name: {{ include "common.names.fullname" . }}-openvpn
     {{- end }}
 {{- end }}
-{{- if or .Values.addons.vpn.configFile .Values.addons.vpn.configFileSecret .Values.addons.vpn.scripts.up .Values.addons.vpn.scripts.down .Values.addons.vpn.additionalVolumeMounts .Values.persistence.shared.enabled }}
+{{- if or .Values.addons.vpn.configFile .Values.addons.vpn.scripts.up .Values.addons.vpn.scripts.down .Values.addons.vpn.additionalVolumeMounts .Values.persistence.shared.enabled }}
 volumeMounts:
-{{- if or .Values.addons.vpn.configFile .Values.addons.vpn.configFileSecret }}
+{{- if or .Values.addons.vpn.configFile }}
   - name: vpnconfig
     mountPath: /vpn/vpn.conf
     subPath: vpnConfigfile
@@ -42,13 +42,8 @@ volumeMounts:
     mountPath: /vpn/down.sh
     subPath: down.sh
 {{- end }}
-{{- if .Values.persistence.shared.enabled }}
   - mountPath: {{ .Values.persistence.shared.mountPath }}
     name: shared
-{{- end }}
-{{- with .Values.addons.vpn.additionalVolumeMounts }}
-  {{- toYaml . | nindent 2 }}
-{{- end }}
 {{- end }}
 {{- with .Values.addons.vpn.livenessProbe }}
 livenessProbe:

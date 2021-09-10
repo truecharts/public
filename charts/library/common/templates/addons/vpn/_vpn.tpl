@@ -18,11 +18,7 @@ It will include / inject the required templates based on the given values.
     {{- $configmap | nindent 0 -}}
   {{- end -}}
 
-  {{/* Include the secret if not empty */}}
-  {{- $secret := include "common.addon.vpn.secret" . -}}
-  {{- if $secret -}}
-    {{- $secret | nindent 0 -}}
-  {{- end -}}
+  {{- $_ := set .Values.persistence "vpnConfig" .Values.addons.vpn.configFile -}}
 
   {{/* Append the vpn scripts volume to the volumes */}}
   {{- $scriptVolume := include "common.addon.vpn.scriptsVolumeSpec" . | fromYaml -}}

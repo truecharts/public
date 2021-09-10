@@ -521,7 +521,7 @@ persistence:
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
   # @default -- See below
   shared:
-    enabled: false
+    enabled: true
     type: emptyDir
     mountPath: /shared
 
@@ -680,59 +680,27 @@ addons:
       # TZ: UTC
 
     # -- Provide a customized vpn configuration file to be used by the VPN.
-    configFile:  # |-
-      # Some Example Config
-      # remote greatvpnhost.com 8888
-      # auth-user-pass
-      # Cipher AES
+    configFile:
+      enabled: false
+      type: hostPath
+      # -- Which path on the host should be mounted.
+      hostPath: /vpn/vpn.conf
+      noMount: true
+      # -- Specifying a hostPathType adds a check before trying to mount the path.
+      # See Kubernetes documentation for options.
+      hostPathType: "File"
 
-    # -- Reference an existing secret that contains the VPN configuration file
-    # The chart expects it to be present under the `vpnConfigfile` key.
-    configFileSecret:
 
     # -- Provide custom up/down scripts that can be used by the vpn configuration.
     # @default -- See values.yaml
     scripts:
-      up:  # |-
-        # #!/bin/bash
-        # echo "connected" > /shared/vpnstatus
-      down:  # |-
-        # #!/bin/bash
-        # echo "disconnected" > /shared/vpnstatus
+      up: |-
+        #!/bin/bash
+        echo "connected" > /shared/vpnstatus
+      down: |-
+        #!/bin/bash
+        echo "disconnected" > /shared/vpnstatus
 
-    additionalVolumeMounts: []
-
-    # -- Optionally specify a livenessProbe, e.g. to check if the connection is still
-    # being protected by the VPN
-    livenessProbe: {}
-      # exec:
-      #   command:
-      #     - sh
-      #     - -c
-      #     - if [ $(curl -s https://ipinfo.io/country) == 'US' ]; then exit 0; else exit $?; fi
-      # initialDelaySeconds: 30
-      # periodSeconds: 60
-      # failureThreshold: 1
-
-    # If set to true, will deploy a network policy that blocks all outbound
-    # traffic except traffic specified as allowed
-    networkPolicy:
-      enabled: false
-
-      # The egress configuration for your network policy, All outbound traffic
-      # From the pod will be blocked unless specified here. Your cluster must
-      # have a CNI that supports network policies (Canal, Calico, etc...)
-      # https://kubernetes.io/docs/concepts/services-networking/network-policies/
-      # https://github.com/ahmetb/kubernetes-network-policy-recipes
-      egress:
-        # - to:
-        #   - ipBlock:
-        #       cidr: 0.0.0.0/0
-        #   ports:
-        #   - port: 53
-        #     protocol: UDP
-        #   - port: 53
-        #     protocol: TCP
 
   # -- The common library supports adding a code-server add-on to access files. It can be configured under this key.
   # For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#code-server)

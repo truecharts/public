@@ -138,7 +138,7 @@ func (suite *PodTestSuite) TestPersistenceItems() {
         values          *string
         expectedVolumes []string
     }{
-        "Default":       {values: nil, expectedVolumes: nil},
+        "Default":       {values: nil, expectedVolumes: []string{"shared"}},
         "MultipleItems": {values: &values, expectedVolumes: []string{"config", "cache", "data", "custom-mount"}},
     }
     for name, tc := range tests {
@@ -277,7 +277,7 @@ func (suite *PodTestSuite) TestHostPathVolumes() {
         values          *string
         expectedVolumes []string
     }{
-        "Default":       {values: nil, expectedVolumes: nil},
+        "Default":       {values: nil, expectedVolumes: []string{"shared"}},
         "MultipleItems": {values: &values, expectedVolumes: []string{"hostpathmounts-data", "hostpathmounts-with-type"}},
     }
     for name, tc := range tests {
