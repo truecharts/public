@@ -24,7 +24,7 @@ spec:
           {{ end }}
           {{ end }}
           ports:
-            - name: chia-network
+            - name: collabora
               protocol: TCP
               containerPort: 9980
           {{ $envList := (default list .Values.environmentVariables) }}
