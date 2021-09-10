@@ -5,12 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 22.1.1
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
