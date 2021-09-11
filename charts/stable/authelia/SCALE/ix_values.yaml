@@ -7,12 +7,12 @@
 image:
   repository: ghcr.io/authelia/authelia
   pullPolicy: IfNotPresent
-  tag: "4.30.4"
+  tag: "4.30.4"@sha256:42
 
 postgresqlImage:
   repository: postgres
   pullPolicy: IfNotPresent
-  tag: 13.4-alpine
+  tag: 13.4-alpine@sha256:42
 
 
 enableServiceLinks: false

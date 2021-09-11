@@ -3,7 +3,7 @@
 image:
   repository: nextcloud
   pullPolicy: IfNotPresent
-  tag: 22.1.1
+  tag: 22.1.1@sha256:42
 
 podSecurityContext:
   runAsUser: 0
@@ -15,7 +15,7 @@ podSecurityContext:
 postgresqlImage:
   repository: postgres
   pullPolicy: IfNotPresent
-  tag: "13.1"
+  tag: "13.1"@sha256:42
 
 service:
   main:

@@ -4,7 +4,7 @@ openvpnImage:
   # -- Specify the openvpn client image
   repository: dperson/openvpn-client
   # -- Specify the openvpn client image tag
-  tag: latest
+  tag: latest@sha256:42
   # -- Specify the openvpn client image pull policy
   pullPolicy: IfNotPresent
 
@@ -15,7 +15,7 @@ wireguardImage:
   # -- Specify the WireGuard image
   repository: ghcr.io/k8s-at-home/wireguard
   # -- Specify the WireGuard image tag
-  tag: v1.0.20210424
+  tag: v1.0.20210424@sha256:42
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
@@ -23,7 +23,7 @@ promtailImage:
   # -- Specify the promtail image
   repository: ghcr.io/truecharts/promtail
   # -- Specify the promtail image tag
-  tag: v2.3.0
+  tag: v2.3.0@sha256:42
   # -- Specify the promtail image pull policy
   pullPolicy: IfNotPresent
 
@@ -32,7 +32,7 @@ netshootImage:
   # -- Specify the netshoot image
   repository: nicolaka/netshoot
   # -- Specify the netshoot image tag
-  tag: latest
+  tag: latest@sha256:42
   # -- Specify the netshoot image pull policy
   pullPolicy: Always
 
@@ -40,7 +40,7 @@ codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: 3.9.2
+  tag: 3.9.2@sha256:42
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
@@ -48,7 +48,7 @@ alpineImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/alpine
   # -- Specify the code-server image tag
-  tag: v3.14.1
+  tag: v3.14.1@sha256:42
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 

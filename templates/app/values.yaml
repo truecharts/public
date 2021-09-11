@@ -8,7 +8,7 @@
 image:
   repository: ${CHARTNAME}/${CHARTNAME}
   pullPolicy: IfNotPresent
-  tag: 1.0.0
+  tag: 1.0.0@sha256:42
 
 securityContext:
   privileged: false
