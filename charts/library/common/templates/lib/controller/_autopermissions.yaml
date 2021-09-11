@@ -19,7 +19,6 @@ before chart installation.
 - name: autopermissions
   image: {{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}
   securityContext:
-    allowPrivilegeEscalation: false
     runAsUser: 0
     runAsGroup: 0
     privileged: true
