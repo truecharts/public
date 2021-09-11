@@ -51,7 +51,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | args | list | `[]` | Override the args for the default container |
 | autoscaling | object | <disabled> | Add a Horizontal Pod Autoscaler |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
-| codeserverImage.repository | string | `"codercom/code-server"` | Specify the code-server image |
+| codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
 | codeserverImage.tag | string | `"3.9.2"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | controller.annotations | object | `{}` |  |

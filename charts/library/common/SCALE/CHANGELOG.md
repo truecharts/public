@@ -1,11 +1,11 @@
 
-<a name="common-7.0.2"></a>
-### [common-7.0.2](https://github.com/truecharts/apps/compare/common-7.0.1...common-7.0.2) (2021-09-10)
+<a name="common-7.0.3"></a>
+### [common-7.0.3](https://github.com/truecharts/apps/compare/common-7.0.2...common-7.0.3) (2021-09-11)
 
-#### Feat
+#### Chore
 
-* Move some common containers to our own containers
+* move more dockerhub containers to GHCR mirror ([#958](https://github.com/truecharts/apps/issues/958))
 
-#### Refactor
+#### Fix
 
-* change image layout to enable renovate updates of sidecarts ([#955](https://github.com/truecharts/apps/issues/955))
+* remove duplicate securitycontext from autopermissions
