@@ -7,11 +7,11 @@
 
 image:
   # -- image repository
-  repository: thelounge/thelounge
+  repository: ghcr.io/truecharts/thelounge
   # -- image pull policy
   pullPolicy: IfNotPresent
   # -- image tag
-  tag: 4.2.0-alpine
+  tag: v4.2.0
 
 # -- environment variables. See [image docs](https://hub.docker.com/r/thelounge/thelounge/) for more details.
 # @default -- See below
