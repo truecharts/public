@@ -3,7 +3,7 @@
 image:
   repository: ghcr.io/authelia/authelia
   pullPolicy: IfNotPresent
-  tag: "4.30.4"@sha256:42
+  tag: 4.30.4@sha256:42
 
 securityContext:
   privileged: false
@@ -19,7 +19,7 @@ podSecurityContext:
   fsGroupChangePolicy: "OnRootMismatch"
 
 postgresqlImage:
-  repository: postgres
+  repository: docker.io/postgres
   pullPolicy: IfNotPresent
   tag: 13.4-alpine@sha256:42
 

@@ -1,9 +1,9 @@
 # Default values for Jackett.
 
 image:
-  repository: dpage/pgadmin4
+  repository: docker.io/dpage/pgadmin4
   pullPolicy: IfNotPresent
-  tag: "5.6"@sha256:42
+  tag: 5.6@sha256:42
 
 securityContext:
   privileged: false

@@ -1,7 +1,7 @@
 # Default values for Bitwarden.
 
 image:
-  repository: nextcloud
+  repository: docker.io/nextcloud
   pullPolicy: IfNotPresent
   tag: 22.1.1@sha256:42
 
@@ -13,7 +13,7 @@ podSecurityContext:
   fsGroupChangePolicy: "OnRootMismatch"
 
 postgresqlImage:
-  repository: postgres
+  repository: docker.io/postgres
   pullPolicy: IfNotPresent
   tag: "13.1"@sha256:42
 
