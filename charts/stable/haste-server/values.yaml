@@ -11,7 +11,7 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
   # -- image tag
-  tag: latest
+  tag: latest@sha256:42
 
 securityContext:
   privileged: false

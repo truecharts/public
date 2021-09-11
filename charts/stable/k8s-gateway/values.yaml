@@ -3,7 +3,7 @@
 image:
   repository: quay.io/oriedge/k8s_gateway
   pullPolicy: IfNotPresent
-  tag: v0.1.8
+  tag: v0.1.8@sha256:42
 
 args: ["-conf", "/etc/coredns/Corefile"]
 
