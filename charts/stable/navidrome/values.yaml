@@ -1,9 +1,9 @@
 # Default values for Navidrome.
 
 image:
-  repository: deluan/navidrome
+  repository: ghcr.io/truecharts/navidrome
   pullPolicy: IfNotPresent
-  tag: 0.45.1
+  tag: v0.45.1
 
 securityContext:
   privileged: false

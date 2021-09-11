@@ -5,9 +5,9 @@
 ##
 
 image:
-  repository: nextcloud
+  repository: ghcr.io/truecharts/nextcloud
   pullPolicy: IfNotPresent
-  tag: 22.1.1
+  tag: v22.1.1
 
 postgresqlImage:
   repository: postgres
