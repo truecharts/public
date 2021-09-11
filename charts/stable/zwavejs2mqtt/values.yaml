@@ -3,9 +3,9 @@
 # https://github.com/k8s-at-home/charts/tree/master/charts/common
 
 image:
-  repository: zwavejs/zwavejs2mqtt
+  repository: ghcr.io/truecharts/zwavejs2mqtt
   pullPolicy: IfNotPresent
-  tag: 5.5.3
+  tag: v5.5.4
 
 securityContext:
   privileged: false
