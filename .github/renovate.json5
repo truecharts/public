@@ -25,6 +25,7 @@
       "datasources": ["docker"],
       "matchManagers": ["helm-values"],
       "enabled": true,
+      "pinDigests": true,
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch"],
@@ -87,7 +88,6 @@
       "bumpVersion": "patch",
       "labels": ["tag/non-major"],
       "groupName": ["non-major"],
-      "pinDigests": true,
       "schedule": [
         "on tuesday"
       ]
