@@ -6,12 +6,12 @@
 image:
   repository: ghcr.io/truecharts/sogo
   pullPolicy: IfNotPresent
-  tag: v5.2.0@sha256:42
+  tag: v5.2.0@sha256:8fc7bb87b77d76d929bcd36403d4f27878fa3e99f5448fb05ed64829078665a4
 
 postgresqlImage:
   repository: postgres
   pullPolicy: IfNotPresent
-  tag: 13.4-alpine@sha256:42
+  tag: 13.4-alpine@sha256:a70babcd0e8f86272c35d6efcf8070c597c1f31b3d19727eece213a09929dd55
 
 initContainers:
   - name: init-postgresdb

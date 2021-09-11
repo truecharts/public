@@ -4,7 +4,7 @@ openvpnImage:
   # -- Specify the openvpn client image
   repository: dperson/openvpn-client
   # -- Specify the openvpn client image tag
-  tag: latest@sha256:42
+  tag: latest@sha256:d174047b57d51734143325ad7395210643025e6516ba60a937e9319dbb462293
   # -- Specify the openvpn client image pull policy
   pullPolicy: IfNotPresent
 
@@ -15,7 +15,7 @@ wireguardImage:
   # -- Specify the WireGuard image
   repository: ghcr.io/k8s-at-home/wireguard
   # -- Specify the WireGuard image tag
-  tag: v1.0.20210424@sha256:42
+  tag: v1.0.20210424@sha256:448045c4270b818ded47ec82b934e7227235402fbefa16e29800c2fb51d6de39
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
@@ -23,7 +23,7 @@ promtailImage:
   # -- Specify the promtail image
   repository: ghcr.io/truecharts/promtail
   # -- Specify the promtail image tag
-  tag: v2.3.0@sha256:42
+  tag: v2.3.0@sha256:90019c5e4198d3253126fcc0c90db11b961ddf0a3c2906766f4611770beabdf2
   # -- Specify the promtail image pull policy
   pullPolicy: IfNotPresent
 
@@ -32,7 +32,7 @@ netshootImage:
   # -- Specify the netshoot image
   repository: nicolaka/netshoot
   # -- Specify the netshoot image tag
-  tag: latest@sha256:42
+  tag: latest@sha256:ebc03105d7b4341723052b06d18b58698a0b7f88afc7b6fffd8a188fb729b85e
   # -- Specify the netshoot image pull policy
   pullPolicy: Always
 
@@ -40,7 +40,7 @@ codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: 3.9.2@sha256:42
+  tag: v3.11.1@sha256:b23b9ba33c9c648c27427b4243585c1a3c6cc4d5408ab3b3e18bdc97302c4862
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
@@ -48,7 +48,7 @@ alpineImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/alpine
   # -- Specify the code-server image tag
-  tag: v3.14.1@sha256:42
+  tag: v3.14.2@sha256:cfc1d8be3d2d397ec18af71caab3e96581fc4d43417400ef744d87201642ddad
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
