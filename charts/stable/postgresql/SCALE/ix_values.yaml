@@ -5,10 +5,38 @@
 ##
 
 image:
-  repository: docker.io/postgres
+  repository: bitnami/postgresql
   pullPolicy: IfNotPresent
-  tag: "13.4"@sha256:42
+  tag: 13.4.0@sha256:7fff0f7e827cd8e1daa3adbf0ca3f19e21006023c0f6d1c2d835718961516a87
 
+
+initContainers:
+  migrate-db:
+    image: "{{ .Values.alpineImage.repository}}:{{ .Values.alpineImage.tag }}"
+    securityContext:
+      runAsUser: 0
+      privileged: true
+      allowPrivilegeEscalation: true
+      runAsNonRoot: false
+    command:
+      - /bin/sh
+      - -cx
+      - |
+        echo 'trying to migrate old db to new location...'
+        chown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/data /bitnami/postgresql/old
+        chmod 775 /bitnami/postgresql/data/ bitnami/postgresql/data /bitnami/postgresql/old
+        mkdir -p /bitnami/postgresql/data
+        mkdir -p /bitnami/postgresql/conf
+        mv -f /bitnami/postgresql/old/* /bitnami/postgresql/data/ || true
+        mv -f /bitnami/postgresql/data/pg_hba.conf /bitnami/postgresql/conf/pg_hba.conf || true
+        chown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/data
+        chmod 775 /bitnami/postgresql/data
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - name: db
+        mountPath: /bitnami/postgresql/old
+      - name: data
+        mountPath: /bitnami/postgresql
 
 envValueFrom:
   POSTGRES_PASSWORD:
