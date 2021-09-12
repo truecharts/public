@@ -1393,8 +1393,8 @@ questions:
                     - variable: KILLSWITCH
                       label: "Enable killswitch"
                       schema:
-                        type: string
-                        default: ""
+                        type: boolean
+                        default: false
                     - variable: KILLSWITCH_EXCLUDEDNETWORKS_IPV4
                       label: "Killswitch Excluded IPv4 networks"
                       description: "list of killswitch excluded ipv4 addresses seperated by ;"
