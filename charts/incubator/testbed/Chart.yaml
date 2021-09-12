@@ -1,0 +1,27 @@
+apiVersion: v2
+appVersion: 0.18.729
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 6.13.8
+deprecated: false
+description: A internal TrueCharts testbed
+home: https://github.com/truecharts/apps/tree/master/charts/stable/jackett
+icon: https://truecharts.org/_static/img/jackett-icon.png
+keywords:
+- jackett
+- torrent
+- usenet
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: testbed
+sources:
+- https://github.com/Jackett/Jackett
+type: application
+version: 7.0.0
