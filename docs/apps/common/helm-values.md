@@ -35,24 +35,23 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | addons.vpn.configFile | object | `{"enabled":false,"hostPath":"/vpn/vpn.conf","hostPathType":"File","noMount":true,"type":"hostPath"}` | Provide a customized vpn configuration file to be used by the VPN. |
 | addons.vpn.configFile.hostPath | string | `"/vpn/vpn.conf"` | Which path on the host should be mounted. |
 | addons.vpn.configFile.hostPathType | string | `"File"` | Specifying a hostPathType adds a check before trying to mount the path. See Kubernetes documentation for options. |
-| addons.vpn.enabled | bool | `false` | Enable running a VPN in the pod to route traffic through a VPN |
 | addons.vpn.env | object | `{}` | All variables specified here will be added to the vpn sidecar container See the documentation of the VPN image for all config values |
+| addons.vpn.envList | list | `[]` | All variables specified here will be added to the vpn sidecar container See the documentation of the VPN image for all config values |
 | addons.vpn.openvpn | object | See below | OpenVPN specific configuration |
 | addons.vpn.openvpn.auth | string | `nil` | Credentials to connect to the VPN Service (used with -a) |
 | addons.vpn.openvpn.authSecret | string | `nil` | Optionally specify an existing secret that contains the credentials. Credentials should be stored under the `VPN_AUTH` key |
 | addons.vpn.scripts | object | See values.yaml | Provide custom up/down scripts that can be used by the vpn configuration. |
-| addons.vpn.securityContext | object | See values.yaml | Set the VPN container securityContext |
-| addons.vpn.type | string | `"openvpn"` | Specify the VPN type. Valid options are openvpn or wireguard |
-| addons.vpn.wireguard | object | See below | WireGuard specific configuration |
+| addons.vpn.securityContext | object | See values.yaml | Set the VPN container specific securityContext |
+| addons.vpn.type | string | `"disabled"` | Specify the VPN type. Valid options are disabled, openvpn or wireguard |
 | affinity | object | `{}` | Defines affinity constraint rules. [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) |
 | alpineImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | alpineImage.repository | string | `"ghcr.io/truecharts/alpine"` | Specify the code-server image |
-| alpineImage.tag | string | `"v3.14.1"` | Specify the code-server image tag |
+| alpineImage.tag | string | `"v3.14.2@sha256:cfc1d8be3d2d397ec18af71caab3e96581fc4d43417400ef744d87201642ddad"` | Specify the code-server image tag |
 | args | list | `[]` | Override the args for the default container |
 | autoscaling | object | <disabled> | Add a Horizontal Pod Autoscaler |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
-| codeserverImage.tag | string | `"3.9.2"` | Specify the code-server image tag |
+| codeserverImage.tag | string | `"v3.11.1@sha256:b23b9ba33c9c648c27427b4243585c1a3c6cc4d5408ab3b3e18bdc97302c4862"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | controller.annotations | object | `{}` |  |
 | controller.annotationsList | list | `[]` | Set additional annotations on the deployment/statefulset/daemonset |
@@ -67,7 +66,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | controller.strategy | string | `nil` | Set the controller upgrade strategy For Deployments, valid values are Recreate (default) and RollingUpdate. For StatefulSets, valid values are OnDelete and RollingUpdate (default). DaemonSets ignore this. |
 | controller.type | string | `"deployment"` | Set the controller type. Valid options are deployment, daemonset or statefulset |
 | deviceList | list | [] | Configure persistenceList for the chart here. Used to create an additional GUI element in SCALE for mounting USB devices Additional items can be added by adding a items similar to persistence |
-| dnsConfig | object | `{}` | Optional DNS settings, configuring the ndots option may resolve nslookup issues on some Kubernetes setups. |
+| dnsConfig | object | `{"nameservers":[],"options":[],"searches":[]}` | Optional DNS settings, configuring the ndots option may resolve nslookup issues on some Kubernetes setups. |
 | dnsPolicy | string | `nil` | Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true. |
 | enableServiceLinks | bool | `false` | Enable/disable the generation of environment variables for services. [[ref]](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service) |
 | env | object | `{}` | Main environment variables. Template enabled. Syntax options: A) TZ: UTC B) PASSWD: '{{ .Release.Name }}' C) PASSWD:      envFrom:        ... |
@@ -100,7 +99,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | lifecycle | object | `{}` | Configure the lifecycle for the main container |
 | netshootImage.pullPolicy | string | `"Always"` | Specify the netshoot image pull policy |
 | netshootImage.repository | string | `"nicolaka/netshoot"` | Specify the netshoot image |
-| netshootImage.tag | string | `"latest"` | Specify the netshoot image tag |
+| netshootImage.tag | string | `"latest@sha256:ebc03105d7b4341723052b06d18b58698a0b7f88afc7b6fffd8a188fb729b85e"` | Specify the netshoot image tag |
 | networkPolicy | object | See below | Configure networkPolicy for the chart here. |
 | networkPolicy.egress | list | `[]` | add or remove egress policies |
 | networkPolicy.enabled | bool | `false` | Enables or disables the networkPolicy |
@@ -109,7 +108,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | openvpnImage | object | See below | OpenVPN specific configuration |
 | openvpnImage.pullPolicy | string | `"IfNotPresent"` | Specify the openvpn client image pull policy |
 | openvpnImage.repository | string | `"dperson/openvpn-client"` | Specify the openvpn client image |
-| openvpnImage.tag | string | `"latest"` | Specify the openvpn client image tag |
+| openvpnImage.tag | string | `"latest@sha256:d174047b57d51734143325ad7395210643025e6516ba60a937e9319dbb462293"` | Specify the openvpn client image tag |
 | persistence | object | See below | Configure persistence for the chart here. Additional items can be added by adding a dictionary key similar to the 'config' key. |
 | persistence.config | object | See below | Default persistence for configuration files. |
 | persistence.config.enabled | bool | `false` | Enables or disables the persistence item |
@@ -162,7 +161,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | probes.startup.type | string | "TCP" | sets the probe type when not using a custom probe |
 | promtailImage.pullPolicy | string | `"IfNotPresent"` | Specify the promtail image pull policy |
 | promtailImage.repository | string | `"ghcr.io/truecharts/promtail"` | Specify the promtail image |
-| promtailImage.tag | string | `"v2.3.0"` | Specify the promtail image tag |
+| promtailImage.tag | string | `"v2.3.0@sha256:90019c5e4198d3253126fcc0c90db11b961ddf0a3c2906766f4611770beabdf2"` | Specify the promtail image tag |
 | rbac | object | See below | Create a ClusterRole and ClusterRoleBinding |
 | rbac.clusterRoleAnnotations | object | `{}` | Set labels on the ClusterRole |
 | rbac.clusterRoleBindingAnnotations | object | `{}` | Set labels on the ClusterRoleBinding |
@@ -171,7 +170,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | rbac.enabled | bool | `false` | Enables or disables the ClusterRole and ClusterRoleBinding |
 | rbac.rules | object | `{}` | Set Rules on the ClusterRole |
 | rbac.subjects | object | `{}` | Add subjects to the ClusterRoleBinding. includes the above created serviceaccount |
-| resources | object | `{}` | Set the resource requests / limits for the main container. |
+| resources | object | `{"limits":{"cpu":"2000m","memory":"2Gi"},"requests":{"cpu":"10m","memory":"50Mi"}}` | Set the resource requests / limits for the main container. |
 | schedulerName | string | `nil` | Allows specifying a custom scheduler name |
 | secret | object | `{}` | Use this to populate a secret with the values you specify. Be aware that these values are not encrypted by default, and could therefore visible to anybody with access to the values.yaml file. |
 | securityContext | object | `{"allowPrivilegeEscalation":true,"privileged":false,"readOnlyRootFilesystem":false}` | Configure the Security Context for the main container |
@@ -202,6 +201,6 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | wireguardImage | object | See below | WireGuard specific configuration |
 | wireguardImage.pullPolicy | string | `"IfNotPresent"` | Specify the WireGuard image pull policy |
 | wireguardImage.repository | string | `"ghcr.io/k8s-at-home/wireguard"` | Specify the WireGuard image |
-| wireguardImage.tag | string | `"v1.0.20210424"` | Specify the WireGuard image tag |
+| wireguardImage.tag | string | `"v1.0.20210424@sha256:448045c4270b818ded47ec82b934e7227235402fbefa16e29800c2fb51d6de39"` | Specify the WireGuard image tag |
 
 All Rights Reserved - The TrueCharts Project
