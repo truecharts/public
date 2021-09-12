@@ -45,12 +45,12 @@ env:
 {{- end }}
 
 {{- end }}
-{{- if or .Values.addons.vpn.configFile .Values.addons.vpn.scripts.up .Values.addons.vpn.scripts.down .Values.addons.vpn.additionalVolumeMounts .Values.persistence.shared.enabled }}
 volumeMounts:
+  - mountPath: {{ .Values.persistence.shared.mountPath }}
+    name: shared
 {{- if or .Values.addons.vpn.configFile }}
   - name: vpnconfig
     mountPath: /etc/wireguard/wg0.conf
-    subPath: vpnConfigfile
 {{- end }}
 {{- if .Values.addons.vpn.scripts.up }}
   - name: vpnscript
@@ -61,9 +61,6 @@ volumeMounts:
   - name: vpnscript
     mountPath: /config/down.sh
     subPath: down.sh
-{{- end }}
-  - mountPath: {{ .Values.persistence.shared.mountPath }}
-    name: shared
 {{- end }}
 {{- with .Values.addons.vpn.livenessProbe }}
 livenessProbe:
