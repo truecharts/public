@@ -681,12 +681,10 @@ resources:
 # -- The common chart supports several add-ons. These can be configured under this key.
 # @default -- See below
 addons:
-
   # -- The common chart supports adding a VPN add-on. It can be configured under this key.
   # For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#wireguard-vpn)
   # @default -- See values.yaml
   vpn:
-
     # -- Specify the VPN type. Valid options are disabled, openvpn or wireguard
     type: disabled
 
@@ -700,7 +698,7 @@ addons:
       authSecret:  # my-vpn-secret
 
     wireguard:
-      KILLSWITCH: true
+      KILLSWITCH: false
       KILLSWITCH_EXCLUDEDNETWORKS_IPV4:
         - 192.168.0.0.1
     # -- Set the VPN container specific securityContext
@@ -729,16 +727,6 @@ addons:
       # -- Specifying a hostPathType adds a check before trying to mount the path.
       # See Kubernetes documentation for options.
       hostPathType: "File"
-
-    # -- Provide custom up/down scripts that can be used by the vpn configuration.
-    # @default -- See values.yaml
-    scripts:
-      up: |-
-        #!/bin/bash
-        echo "connected" > /shared/vpnstatus
-      down: |-
-        #!/bin/bash
-        echo "disconnected" > /shared/vpnstatus
 
 
   # -- The common library supports adding a code-server add-on to access files. It can be configured under this key.

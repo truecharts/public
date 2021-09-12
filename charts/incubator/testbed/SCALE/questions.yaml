@@ -1413,6 +1413,12 @@ questions:
                   type: dict
                   show_if: [["type", "!=", "disabled"]]
                   attrs:
+                    - variable: enabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
                     - variable: type
                       label: "type"
                       schema:
