@@ -88,6 +88,7 @@ main() {
                   clean_apps "$chart" "$chartname" "$train" "$chartversion"
                   copy_apps "$chart" "$chartname" "$train" "$chartversion"
                   patch_apps "$chart" "$chartname" "$train" "$chartversion"
+                  clean_catalog "$chart" "$chartname" "$train" "$chartversion"
                 else
                   echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
                 fi
@@ -115,6 +116,22 @@ main() {
 
     popd > /dev/null
 }
+
+clean_catalog() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    local catalogchart="catalog/${train}/${chartname}"
+    local majorversions=$( (find ${catalogchart} -mindepth 1 -maxdepth 1 -type d  \( ! -iname ".*" \) | sed 's|^\./||g') | sort -Vr | cut -c1 | uniq)
+    cd ${catalogchart}
+    for majorversion in ${majorversions}; do
+      local maxofmajor=$( (find ${catalogchart} -mindepth 1 -maxdepth 1 -type d  \( -iname "${majorversion}.*" \) | sed 's|^\./||g') | sort -Vr | head -n1 )
+      local rmversions=$( (find ${catalogchart} -mindepth 1 -maxdepth 1 -type d  \( -iname "${majorversion}.*" \) \( ! -iname "${maxofmajor}" \) | sed 's|^\./||g') | sort -Vr )
+      rm -Rf ${rmversions}
+    done
+    cd -
+    }
 
 # Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
 sync_tag() {
