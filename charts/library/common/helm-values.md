@@ -40,7 +40,6 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | addons.vpn.openvpn | object | See below | OpenVPN specific configuration |
 | addons.vpn.openvpn.auth | string | `nil` | Credentials to connect to the VPN Service (used with -a) |
 | addons.vpn.openvpn.authSecret | string | `nil` | Optionally specify an existing secret that contains the credentials. Credentials should be stored under the `VPN_AUTH` key |
-| addons.vpn.scripts | object | See values.yaml | Provide custom up/down scripts that can be used by the vpn configuration. |
 | addons.vpn.securityContext | object | See values.yaml | Set the VPN container specific securityContext |
 | addons.vpn.type | string | `"disabled"` | Specify the VPN type. Valid options are disabled, openvpn or wireguard |
 | affinity | object | `{}` | Defines affinity constraint rules. [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) |
