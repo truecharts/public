@@ -65,6 +65,7 @@
 
    {{/* merge persistenceAnnotationsList with persistenceAnnotations */}}
    {{- range $index, $item := .Values.persistence }}
+   {{- if $item.enabled }}
    {{- $persistenceAnnotationsDict := dict }}
    {{- range $item.annotationsList }}
    {{- $_ := set $persistenceAnnotationsDict .name .value }}
@@ -73,10 +74,12 @@
    {{- $persistenceanno := merge $tmp $persistenceAnnotationsDict }}
    {{- $_ := set $item "annotations" (deepCopy $persistenceanno) -}}
    {{- end }}
+   {{- end }}
 
 
    {{/* merge persistenceLabelsList with persistenceLabels */}}
    {{- range $index, $item := .Values.persistence }}
+   {{- if $item.enabled }}
    {{- $persistenceLabelsDict := dict }}
    {{- range $item.labelsList }}
    {{- $_ := set $persistenceLabelsDict .name .value }}
@@ -84,6 +87,7 @@
    {{- $tmp := $item.labels }}
    {{- $persistencelab := merge $tmp $persistenceLabelsDict }}
    {{- $_ := set $item "labels" (deepCopy $persistencelab) -}}
+   {{- end }}
    {{- end }}
 
 
@@ -102,6 +106,7 @@
 
    {{/* merge ingressAnnotationsList with ingressAnnotations */}}
    {{- range $index, $item := .Values.ingress }}
+   {{- if $item.enabled }}
    {{- $ingressAnnotationsDict := dict }}
    {{- range $item.annotationsList }}
    {{- $_ := set $ingressAnnotationsDict .name .value }}
@@ -110,10 +115,12 @@
    {{- $ingressanno := merge $tmp $ingressAnnotationsDict }}
    {{- $_ := set $item "annotations" (deepCopy $ingressanno) -}}
    {{- end }}
+   {{- end }}
 
 
    {{/* merge ingressLabelsList with ingressLabels */}}
    {{- range $index, $item := .Values.ingress }}
+   {{- if $item.enabled }}
    {{- $ingressLabelsDict := dict }}
    {{- range $item.labelsList }}
    {{- $_ := set $ingressLabelsDict .name .value }}
@@ -121,6 +128,7 @@
    {{- $tmp := $item.labels }}
    {{- $ingresslab := merge $tmp $ingressLabelsDict }}
    {{- $_ := set $item "labels" (deepCopy $ingresslab) -}}
+   {{- end }}
    {{- end }}
 
   {{/* Enable privileged securitycontext when deviceList is used */}}
@@ -157,19 +165,23 @@
   {{/* merge serviceList with service */}}
   {{- $portsDict := dict }}
   {{- range $index, $item := .Values.serviceList -}}
+  {{- if $item.enabled }}
     {{- $name := ( printf "list-%s" ( $index | toString ) ) }}
     {{- if $item.name }}
       {{- $name = $item.name }}
     {{- end }}
     {{- $_ := set $portsDict $name $item }}
   {{- end }}
+  {{- end }}
   {{- $srv := merge .Values.service $portsDict }}
   {{- $_ := set .Values "service" (deepCopy $srv) -}}
 
   {{/* merge portsList with ports */}}
   {{- range $index, $item := .Values.service -}}
+  {{- if $item.enabled }}
   {{- $portsDict := dict }}
   {{- range $index2, $item2 :=  $item.portsList -}}
+  {{- if $item2.enabled }}
     {{- $name := ( printf "list-%s" ( $index2 | toString ) ) }}
     {{- if $item2.name }}
       {{- $name = $item2.name }}
@@ -179,6 +191,8 @@
   {{- $tmp := $item.ports }}
   {{- $ports := merge $tmp $portsDict }}
   {{- $_ := set $item "ports" (deepCopy $ports) -}}
+  {{- end }}
+  {{- end }}
   {{- end }}
 
 {{- end -}}
