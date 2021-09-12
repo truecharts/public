@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="testbed-7.0.0"></a>
+### [testbed-7.0.0](https://github.com/truecharts/apps/compare/testbed-6.11.22...testbed-7.0.0) (2021-09-12)
+
+
+
 <a name="testbed-6.11.22"></a>
 ### [testbed-6.11.22](https://github.com/truecharts/apps/compare/testbed-6.11.21...testbed-6.11.22) (2021-09-12)
 
