@@ -14,12 +14,21 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/jackett"` |  |
-| image.tag | string | `"v0.18.686"` |  |
+| image.tag | string | `"v0.18.729@sha256:7b814d426af9f3329edeb17cedab01217f7eee638f12e32f91c56d27aba48b6c"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
+| podSecurityContext.fsGroup | int | `568` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| podSecurityContext.runAsGroup | int | `568` |  |
+| podSecurityContext.runAsUser | int | `568` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `9117` |  |
 | service.main.portsList[0].enabled | bool | `true` |  |
@@ -30,6 +39,5 @@ You will, however, be able to use all values referenced in the common chart here
 | serviceList[0].portsList[0].enabled | bool | `true` |  |
 | serviceList[0].portsList[0].name | string | `"extrasvcport"` |  |
 | serviceList[0].portsList[0].port | int | `9119` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project
