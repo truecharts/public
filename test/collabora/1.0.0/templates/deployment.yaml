@@ -28,15 +28,16 @@ spec:
               protocol: TCP
               containerPort: 9980
           {{ $envList := (default list .Values.environmentVariables) }}
+          {{ $secretName := (include "secretName" .) }}
           {{ $envConfig := .Values.config }}
           {{ $envList = mustAppend $envList (dict "name" "timezone" "value" $envConfig.timezone) }}
           {{ $envList = mustAppend $envList (dict "name" "domain" "value" $envConfig.domain) }}
-          {{ $envList = mustAppend $envList (dict "name" "username" "value" $envConfig.username) }}
-          {{ $envList = mustAppend $envList (dict "name" "password" "value" $envConfig.password) }}
           {{ $envList = mustAppend $envList (dict "name" "dictionaries" "value" $envConfig.dictionaries) }}
           {{ $envList = mustAppend $envList (dict "name" "extra_params" "value" $envConfig.extra_params) }}
           {{ $envList = mustAppend $envList (dict "name" "DONT_GEN_SSL_CERT" "value" $envConfig.DONT_GEN_SSL_CERT) }}
           {{ $envList = mustAppend $envList (dict "name" "server_name" "value" $envConfig.server_name) }}
+          {{ $envList = mustAppend $envList (dict "name" "username" "valueFromSecret" true "secretName" $secretName "secretKey" "username") }}
+          {{ $envList = mustAppend $envList (dict "name" "password" "valueFromSecret" true "secretName" $secretName "secretKey" "password") }}
           {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
       {{ if .Values.extraAppVolumeMounts }}
       volumes:
