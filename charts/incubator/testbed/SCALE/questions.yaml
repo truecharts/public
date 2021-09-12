@@ -1305,45 +1305,45 @@ questions:
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
 
-        - variable: autoscaling
-          group: "Resources and Devices"
-          label: "(Advanced) Horizontal Pod Autoscaler"
+  - variable: autoscaling
+    group: "Resources and Devices"
+    label: "(Advanced) Horizontal Pod Autoscaler"
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "enabled"
           schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "enabled"
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: target
+                label: "Target"
+                description: "deployment name, defaults to main deployment"
                 schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: target
-                      label: "Target"
-                      description: "deployment name, defaults to main deployment"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: minReplicas
-                      label: "Minimum Replicas"
-                      schema:
-                        type: int
-                        default: 1
-                    - variable: maxReplicas
-                      label: "Maximum Replicas"
-                      schema:
-                        type: int
-                        default: 5
-                    - variable: targetCPUUtilizationPercentage
-                      label: "Target CPU Utilization Percentage"
-                      schema:
-                        type: int
-                        default: 80
-                    - variable: targetMemoryUtilizationPercentage
-                      label: "Target Memory Utilization Percentage"
-                      schema:
-                        type: int
-                        default: 80
+                  type: string
+                  default: ""
+              - variable: minReplicas
+                label: "Minimum Replicas"
+                schema:
+                  type: int
+                  default: 1
+              - variable: maxReplicas
+                label: "Maximum Replicas"
+                schema:
+                  type: int
+                  default: 5
+              - variable: targetCPUUtilizationPercentage
+                label: "Target CPU Utilization Percentage"
+                schema:
+                  type: int
+                  default: 80
+              - variable: targetMemoryUtilizationPercentage
+                label: "Target Memory Utilization Percentage"
+                schema:
+                  type: int
+                  default: 80
 
   - variable: addons
     group: "Addons"
@@ -1407,28 +1407,6 @@ questions:
                       schema:
                         type: string
                         default: ""
-              - variable: envList
-                label: "Image environment"
-                schema:
-                  type: list
-                  show_if: [["type", "!=", "openvpn"]]
-                  default: []
-                  items:
-                    - variable: envItem
-                      label: "Environment Variable"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: "Name"
-                            schema:
-                              type: string
-                              required: true
-                          - variable: value
-                            label: "Value"
-                            schema:
-                              type: string
-                              required: true
               - variable: configFile
                 label: "VPN Config File Location"
                 schema:
@@ -1459,3 +1437,25 @@ questions:
                         type: string
                         default: "/mnt/tank/config/YourVPN-Config.conf"
                         required: true
+              - variable: envList
+                label: "VPN environment Variables"
+                schema:
+                  type: list
+                  show_if: [["type", "!=", "disabled"]]
+                  default: []
+                  items:
+                    - variable: envItem
+                      label: "Environment Variable"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                              required: true
+                          - variable: value
+                            label: "Value"
+                            schema:
+                              type: string
+                              required: true
