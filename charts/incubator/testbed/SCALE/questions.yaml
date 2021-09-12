@@ -468,7 +468,7 @@ questions:
                         hidden: true
                     - variable: type
                       label: "(Advanced) Type of Storage"
-                      description: "Type of storage. Warning: Anything other than pvc will not work with rollback!""
+                      description: "Type of storage. Warning: Anything other than pvc will not work with rollback!"
                       schema:
                         type: string
                         default: "pvc"
