@@ -299,7 +299,7 @@ questions:
                   hidden: true
               - variable: type
                 label: "(Advanced) Type of Storage"
-                description: "Type of storage. Warning: Anything other than pvc will not work with rollback!"
+                description: "Type of storage. Warning: Anything other than pvc will not work with rollback!""
                 schema:
                   type: string
                   default: "pvc"
@@ -468,7 +468,7 @@ questions:
                         hidden: true
                     - variable: type
                       label: "(Advanced) Type of Storage"
-                      description: "Type of storage. Warning: Anything other than pvc will not work with rollback!"
+                      description: "Type of storage. Warning: Anything other than pvc will not work with rollback!""
                       schema:
                         type: string
                         default: "pvc"
@@ -725,11 +725,13 @@ questions:
                       schema:
                         type: boolean
                         default: false
-                     - variable: ingressClassName
-                       label: "IngressClass Name"
-                       schema:
-                         type: string
-                         default: ""
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: ingressClassName
+                            label: "IngressClass Name"
+                            schema:
+                              type: string
+                              default: ""
                     - variable: labelsList
                       label: "Labels"
                       schema:
