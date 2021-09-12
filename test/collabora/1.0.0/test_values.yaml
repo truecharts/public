@@ -1,13 +1,15 @@
-appVolumeMounts:
-  data:
-    emptyDir: true
-    mountPath: /data
-  staging:
-    emptyDir: true
-    mountPath: /plots
 image:
   pullPolicy: IfNotPresent
   repository: collabora/code
   tag: 6.4.10.10
 updateStrategy: Recreate
+config:
+  timezone: "America/Los_Angeles"
+  domain: "somedomain"
+  username: "admin"
+  password: "changeme"
+  dictionaries: "de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"
+  extra_params: "--o:welcome.enable=false --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false"
+  DONT_GEN_SSL_CERT: "true"
+  server_name: "collabora"
 

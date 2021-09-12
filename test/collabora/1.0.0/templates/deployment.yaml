@@ -28,8 +28,15 @@ spec:
               protocol: TCP
               containerPort: 9980
           {{ $envList := (default list .Values.environmentVariables) }}
-          {{ $envList = mustAppend $envList (dict "name" "keys" "value" "/plots/keyfile") }}
-          {{ $envList = mustAppend $envList (dict "name" "farmr" "value" $.Values.farmr_env) }}
+          {{ $envConfig := .Values.config }}
+          {{ $envList = mustAppend $envList (dict "name" "timezone" "value" $envConfig.timezone) }}
+          {{ $envList = mustAppend $envList (dict "name" "domain" "value" $envConfig.domain) }}
+          {{ $envList = mustAppend $envList (dict "name" "username" "value" $envConfig.username) }}
+          {{ $envList = mustAppend $envList (dict "name" "password" "value" $envConfig.password) }}
+          {{ $envList = mustAppend $envList (dict "name" "dictionaries" "value" $envConfig.dictionaries) }}
+          {{ $envList = mustAppend $envList (dict "name" "extra_params" "value" $envConfig.extra_params) }}
+          {{ $envList = mustAppend $envList (dict "name" "DONT_GEN_SSL_CERT" "value" $envConfig.DONT_GEN_SSL_CERT) }}
+          {{ $envList = mustAppend $envList (dict "name" "server_name" "value" $envConfig.server_name) }}
           {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
       {{ if .Values.extraAppVolumeMounts }}
       volumes:
