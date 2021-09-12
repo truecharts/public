@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="common-7.0.6"></a>
+### [common-7.0.6](https://github.com/truecharts/apps/compare/common-7.0.5...common-7.0.6) (2021-09-12)
+
+
+
 <a name="common-7.0.5"></a>
 ### [common-7.0.5](https://github.com/truecharts/apps/compare/common-7.0.4...common-7.0.5) (2021-09-12)
 
