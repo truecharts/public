@@ -8,7 +8,6 @@ imagePullPolicy: {{ .Values.wireguardImage.pullPolicy }}
 securityContext:
   runAsUser: 568
   runAsGroup: 568
-  fsGroup: 568
   capabilities:
     add:
       - NET_ADMIN
