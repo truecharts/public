@@ -122,12 +122,12 @@ clean_catalog() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
-    local catalogchart="catalog/${train}/${chartname}"
-    local majorversions=$( (find ${catalogchart} -mindepth 1 -maxdepth 1 -type d  \( ! -iname ".*" \) | sed 's|^\./||g') | sort -Vr | cut -c1 | uniq)
-    cd ${catalogchart}
+    cd catalog/${train}/${chartname}
+    local majorversions=$( (find . -mindepth 1 -maxdepth 1 -type d  \( ! -iname ".*" \) | sed 's|^\./||g') | sort -Vr | cut -c1 | uniq)
+    echo "Removing old versions for: ${chartname}"
     for majorversion in ${majorversions}; do
-      local maxofmajor=$( (find ${catalogchart} -mindepth 1 -maxdepth 1 -type d  \( -iname "${majorversion}.*" \) | sed 's|^\./||g') | sort -Vr | head -n1 )
-      local rmversions=$( (find ${catalogchart} -mindepth 1 -maxdepth 1 -type d  \( -iname "${majorversion}.*" \) \( ! -iname "${maxofmajor}" \) | sed 's|^\./||g') | sort -Vr )
+      local maxofmajor=$( (find . -mindepth 1 -maxdepth 1 -type d  \( -iname "${majorversion}.*" \) | sed 's|^\./||g') | sort -Vr | head -n1 )
+      local rmversions=$( (find . -mindepth 1 -maxdepth 1 -type d  \( -iname "${majorversion}.*" \) \( ! -iname "${maxofmajor}" \) | sed 's|^\./||g') | sort -Vr )
       rm -Rf ${rmversions}
     done
     cd -
