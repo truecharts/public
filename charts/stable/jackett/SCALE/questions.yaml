@@ -748,8 +748,6 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "100Gi"
-=======
->>>>>>> Work on GUI and VPN support:charts/incubator/testbed/SCALE/questions.yaml
 
   - variable: ingress
     label: ""
@@ -901,7 +899,6 @@ questions:
                               type: string
                               default: ""
                               required: true
-<<<<<<< HEAD:charts/stable/jackett/SCALE/questions.yaml
 
 
 
@@ -947,28 +944,6 @@ questions:
                         attrs:
                           - variable: name
                             label: "Name"
-=======
-              - variable: expert
-                label: "Show Expert Configuration Options"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: ingressClassName
-                      label: "IngressClass Name"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: labelsList
-                      label: "Labels"
-                      schema:
-                        type: list
-                        default: []
-                        items:
-                          - variable: labelItem
-                            label: "Label"
->>>>>>> Work on GUI and VPN support:charts/incubator/testbed/SCALE/questions.yaml
                             schema:
                               type: string
                           - variable: value
@@ -984,18 +959,10 @@ questions:
                     - variable: annotationItem
                       label: "Label"
                       schema:
-<<<<<<< HEAD:charts/stable/jackett/SCALE/questions.yaml
                         type: dict
                         attrs:
                           - variable: name
                             label: "Name"
-=======
-                        type: list
-                        default: []
-                        items:
-                          - variable: annotationItem
-                            label: "Label"
->>>>>>> Work on GUI and VPN support:charts/incubator/testbed/SCALE/questions.yaml
                             schema:
                               type: string
                           - variable: value
@@ -1220,132 +1187,9 @@ questions:
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
 
 
-<<<<<<< HEAD:charts/stable/jackett/SCALE/questions.yaml
   - variable: autoscaling
     group: "Resources and Devices"
     label: "Horizontal Pod Autoscaler"
-=======
-  - variable: addons
-    group: "Addons"
-    label: ""
-    schema:
-      type: dict
-      attrs:
-        - variable: vpn
-          label: "VPN"
-          schema:
-            type: dict
-            attrs:
-              - variable: type
-                label: "Type"
-                schema:
-                  type: string
-                  default: "openvpn"
-                  enum:
-                    - value: "disabled"
-                      description: "disabled"
-                    - value: "openvpn"
-                      description: "OpenVPN"
-                    - value: "ClusterIP"
-                      description: "Wireguard"
-              - variable: openvpn
-                label: "OpenVPN Settings"
-                schema:
-                  type: dict
-                  show_if: [["type", "=", "openvpn"]]
-                  attrs:
-                    - variable: auth
-                      label: "auth"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: authSecret
-                      label: "authSecret"
-                      schema:
-                        type: string
-                        default: ""
-              - variable: wireguard
-                label: "Wireguard Settings"
-                schema:
-                  type: dict
-                  show_if: [["type", "=", "wireguard"]]
-                  attrs:
-                    - variable: KILLSWITCH
-                      label: "Enable killswitch"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: KILLSWITCH_EXCLUDEDNETWORKS_IPV4
-                      label: "Killswitch Excluded IPv4 networks"
-                      description: "list of killswitch excluded ipv4 addresses seperated by ;"
-                      schema:
-                        type: string
-                        default: "172.16.0.0/12"
-                    - variable: KILLSWITCH_EXCLUDEDNETWORKS_IPV6
-                      label: "Killswitch Excluded IPv6 networks"
-                      description: "list of killswitch excluded ipv4 addresses seperated by ;"
-                      schema:
-                        type: string
-                        default: ""
-              - variable: envList
-                label: "Image environment"
-                group: "Container Configuration"
-                schema:
-                  type: list
-                  show_if: [["type", "!=", "openvpn"]]
-                  default: []
-                  items:
-                    - variable: envItem
-                      label: "Environment Variable"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: "Name"
-                            schema:
-                              type: string
-                              required: true
-                          - variable: value
-                            label: "Value"
-                            schema:
-                              type: string
-                              required: true
-              - variable: configFile
-                label: "VPN Config File Location"
-                schema:
-                  type: dict
-                  show_if: [["type", "!=", "disabled"]]
-                  attrs:
-                    - variable: type
-                      label: "type"
-                      schema:
-                        type: string
-                        default: "hostPath"
-                        hidden: true
-                    - variable: hostPathType
-                      label: "hostPathType"
-                      schema:
-                        type: string
-                        default: "File"
-                        hidden: true
-                    - variable: noMount
-                      label: "noMount"
-                      schema:
-                        type: boolean
-                        default: true
-                        hidden: true
-                    - variable: hostPath
-                      label: "Full path to file"
-                      schema:
-                        type: string
-                        default: "/mnt/tank/config/YourVPN-Config.conf"
-                        required: true
-
-
-  - variable: expertmenu
-    group: "Advanced"
-    label: "Unlock Expert Config Menu"
->>>>>>> Work on GUI and VPN support:charts/incubator/testbed/SCALE/questions.yaml
     schema:
       type: dict
       attrs:
@@ -1371,84 +1215,9 @@ questions:
                 label: "Maximum Replicas"
                 schema:
                   type: int
-<<<<<<< HEAD:charts/stable/jackett/SCALE/questions.yaml
                   default: 5
               - variable: targetCPUUtilizationPercentage
                 label: "Target CPU Utilization Percentage"
-=======
-                  default: 10
-
-        - variable: dnsPolicy
-          group: "Advanced"
-          label: "dnsPolicy"
-          schema:
-            type: string
-            default: ""
-            enum:
-              - value: ""
-                description: "Default"
-              - value: "ClusterFirst"
-                description: "ClusterFirst"
-              - value: "ClusterFirstWithHostNet"
-                description: "ClusterFirstWithHostNet"
-              - value: "None"
-                description: "None"
-
-        - variable: dnsConfig
-          label: "DNS Configuration"
-          group: "Advanced"
-          description: "Specify custom DNS configuration which will be applied to the pod"
-          schema:
-            type: dict
-            attrs:
-              - variable: nameservers
-                label: "Nameservers"
-                schema:
-                  default: []
-                  type: list
-                  items:
-                    - variable: nameserver
-                      label: "Nameserver"
-                      schema:
-                        type: string
-              - variable: options
-                label: "options"
-                schema:
-                  default: []
-                  type: list
-                  items:
-                    - variable: option
-                      label: "Option Entry"
-                      schema:
-                        type: string
-              - variable: searches
-                label: "Searches"
-                schema:
-                  default: []
-                  type: list
-                  items:
-                    - variable: search
-                      label: "Search Entry"
-                      schema:
-                        type: string
-
-        - variable: hostNetwork
-          group: "Advanced"
-          label: "Host-Networking (Complicated)"
-          schema:
-            type: boolean
-            default: false
-
-        - variable: serviceList
-          label: "Add Manual Custom Services"
-          group: "Advanced"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: serviceListEntry
-                label: "Custom Service"
->>>>>>> Work on GUI and VPN support:charts/incubator/testbed/SCALE/questions.yaml
                 schema:
                   type: int
                   default: 80
