@@ -359,7 +359,7 @@ questions:
                 label: "(Advanced) storageClass"
                 description: " Warning: Anything other than SCALE-ZFS will break rollback!"
                 schema:
-                  show_if: [["type", "=", "pvc"]]
+                  show_if: [["type", "=", "pvc"],["expert", "=", true]]
                   type: string
                   default: "SCALE-ZFS"
               - variable: setPermissions
@@ -383,7 +383,7 @@ questions:
               - variable: hostPathType
                 label: "(Advanced) hostPath Type"
                 schema:
-                  show_if: [["type", "=", "hostPath"]]
+                  show_if: [["type", "=", "hostPath"],["expert", "=", true]]
                   type: string
                   default: ""
                   enum:
@@ -425,7 +425,7 @@ questions:
                 label: "(Advanced) Access Mode"
                 description: "Allow or disallow multiple PVC's writhing to the same PV"
                 schema:
-                  show_if: [["type", "=", "pvc"]]
+                  show_if: [["type", "=", "pvc"],["expert", "=", true]]
                   type: string
                   default: "ReadWriteOnce"
                   enum:
