@@ -237,10 +237,10 @@ hostNetwork: false
 dnsPolicy:  # ClusterFirst
 
 # -- Optional DNS settings, configuring the ndots option may resolve nslookup issues on some Kubernetes setups.
-dnsConfig: {}
-#   options:
-#     - name: ndots
-#       value: "1"
+dnsConfig:
+  options: []
+  nameservers: []
+  searches: []
 
 # -- Enable/disable the generation of environment variables for services.
 # [[ref]](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)
@@ -686,11 +686,9 @@ addons:
   # For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#wireguard-vpn)
   # @default -- See values.yaml
   vpn:
-    # -- Enable running a VPN in the pod to route traffic through a VPN
-    enabled: false
 
-    # -- Specify the VPN type. Valid options are openvpn or wireguard
-    type: openvpn
+    # -- Specify the VPN type. Valid options are disabled, openvpn or wireguard
+    type: disabled
 
     # -- OpenVPN specific configuration
     # @default -- See below
@@ -700,22 +698,26 @@ addons:
       # -- Optionally specify an existing secret that contains the credentials.
       # Credentials should be stored under the `VPN_AUTH` key
       authSecret:  # my-vpn-secret
-    # -- WireGuard specific configuration
-    # @default -- See below
-    wireguard: {}
 
-    # -- Set the VPN container securityContext
+    wireguard:
+      KILLSWITCH: true
+      KILLSWITCH_EXCLUDEDNETWORKS_IPV4:
+        - 192.168.0.0.1
+    # -- Set the VPN container specific securityContext
     # @default -- See values.yaml
-    securityContext:
-      capabilities:
-        add:
-          - NET_ADMIN
-          - SYS_MODULE
+    securityContext: {}
 
     # -- All variables specified here will be added to the vpn sidecar container
     # See the documentation of the VPN image for all config values
     env: {}
       # TZ: UTC
+
+    # -- All variables specified here will be added to the vpn sidecar container
+    # See the documentation of the VPN image for all config values
+    envList: []
+      # name: someenv
+      # value: somevalue
+
 
     # -- Provide a customized vpn configuration file to be used by the VPN.
     configFile:

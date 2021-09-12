@@ -11,7 +11,7 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{- end -}}
 
   {{- /* Enable VPN add-on if required */ -}}
-  {{- if .Values.addons.vpn.enabled }}
+  {{- if ne "disabled" .Values.addons.vpn.type -}}
     {{- include "common.addon.vpn" . }}
   {{- end -}}
 
