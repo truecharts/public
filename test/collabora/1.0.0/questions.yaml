@@ -1,10 +1,12 @@
 groups:
   - name: "Collabora Configuration"
     description: "Configure Collabora"
-  - name: "Storage"
-    description: "Configure Storage for Collabora"
   - name: "Collabora Environment Variables"
     description: "Set the environment that will be visible to the container"
+  - name: "Networking"
+    description: "Configure Networking for Collabora"
+  - name: "Storage"
+    description: "Configure Storage for Collabora"
 
 portals:
   web_portal:
@@ -13,7 +15,7 @@ portals:
     host:
       - "$node_ip"
     ports:
-      - "9980"
+      - "$variable-nodePort"
     path: "/loleaflet/dist/admin/admin.html"
 
 questions:
@@ -127,3 +129,12 @@ questions:
                 label: "Value"
                 schema:
                   type: string
+
+  - variable: nodePort
+    label: "Node Port to use for Collabora"
+    group: "Networking"
+    schema:
+      type: int
+      default: 9980
+      min: 9000
+      max: 65535
