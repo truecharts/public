@@ -5,12 +5,24 @@ The OpenVPN sidecar container to be inserted.
 name: openvpn
 image: "{{ .Values.openvpnImage.repository }}:{{ .Values.openvpnImage.tag }}"
 imagePullPolicy: {{ .Values.openvpnImage.pullPolicy }}
-{{- with .Values.addons.vpn.securityContext }}
 securityContext:
+  capabilities:
+    add:
+      - NET_ADMIN
+      - SYS_MODULE
+{{- with .Values.addons.vpn.securityContext }}
   {{- toYaml . | nindent 2 }}
 {{- end }}
-{{- with .Values.addons.vpn.env }}
 env:
+{{- range $envList := .Values.addons.vpn.envList }}
+  {{- if and $envList.name $envList.value }}
+  - name: {{ $envList.name }}
+    value: {{ $envList.value | quote }}
+  {{- else }}
+  {{- fail "Please specify name/value for VPN environment variable" }}
+  {{- end }}
+{{- end}}
+{{- with .Values.addons.vpn.env }}
 {{- range $k, $v := . }}
   - name: {{ $k }}
     value: {{ $v | quote }}

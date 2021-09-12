@@ -30,10 +30,21 @@ dnsPolicy: ClusterFirstWithHostNet
   {{- else }}
 dnsPolicy: ClusterFirst
   {{- end }}
-  {{- with .Values.dnsConfig }}
+{{- if or .Values.dnsConfig.options .Values.dnsConfig.nameservers .Values.dnsConfig.searches }}
 dnsConfig:
-    {{- toYaml . | nindent 2 }}
+  {{- with .Values.dnsConfig.options }}
+  options:
+    {{- toYaml . | nindent 4 }}
   {{- end }}
+  {{- with .Values.dnsConfig.nameservers }}
+  nameservers: []
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.dnsConfig.searches }}
+  searches: []
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+{{- end }}
 enableServiceLinks: {{ .Values.enableServiceLinks }}
   {{- with .Values.termination.gracePeriodSeconds }}
 terminationGracePeriodSeconds: {{ . }}
@@ -51,7 +62,6 @@ initContainers:
     {{- end }}
     {{- tpl (toYaml $initContainers) $ | nindent 2 }}
   {{- end }}
-
 containers:
   {{- include "common.controller.mainContainer" . | nindent 2 }}
   {{- with .Values.additionalContainers }}

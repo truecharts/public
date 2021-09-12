@@ -17,7 +17,7 @@ type AddonVpnTestSuite struct {
 func (suite *AddonVpnTestSuite) SetupSuite() {
     suite.Chart = helmunit.New("common-test", "../../common-test")
     suite.Chart.UpdateDependencies()
-    suite.baseValues = []string{"addons.vpn.enabled=true"}
+    suite.baseValues = []string{"addons.vpn.type=openvpn"}
 }
 
 // We need this function to kick off the test suite, otherwise

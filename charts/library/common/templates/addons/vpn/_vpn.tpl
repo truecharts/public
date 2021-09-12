@@ -3,7 +3,7 @@ Template to render VPN addon
 It will include / inject the required templates based on the given values.
 */}}
 {{- define "common.addon.vpn" -}}
-{{- if .Values.addons.vpn.enabled -}}
+{{- if ne .Values.addons.vpn.type "disabled" -}}
   {{- if eq "openvpn" .Values.addons.vpn.type -}}
     {{- include "common.addon.openvpn" . }}
   {{- end -}}
