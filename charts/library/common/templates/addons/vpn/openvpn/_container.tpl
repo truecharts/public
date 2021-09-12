@@ -44,16 +44,6 @@ volumeMounts:
   - name: vpnconfig
     mountPath: /vpn/vpn.conf
 {{- end }}
-{{- if .Values.addons.vpn.scripts.up }}
-  - name: vpnscript
-    mountPath: /vpn/up.sh
-    subPath: up.sh
-{{- end }}
-{{- if .Values.addons.vpn.scripts.down }}
-  - name: vpnscript
-    mountPath: /vpn/down.sh
-    subPath: down.sh
-{{- end }}
 {{- with .Values.addons.vpn.livenessProbe }}
 livenessProbe:
   {{- toYaml . | nindent 2 }}

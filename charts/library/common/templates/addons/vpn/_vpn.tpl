@@ -12,11 +12,6 @@ It will include / inject the required templates based on the given values.
     {{- include "common.addon.wireguard" . }}
   {{- end -}}
 
-  {{/* Include the configmap if not empty */}}
-  {{- $configmap := include "common.addon.vpn.configmap" . -}}
-  {{- if $configmap -}}
-    {{- $configmap | nindent 0 -}}
-  {{- end -}}
 
   {{- $_ := set .Values.persistence "vpnconfig" .Values.addons.vpn.configFile -}}
 

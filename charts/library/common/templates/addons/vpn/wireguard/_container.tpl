@@ -52,16 +52,6 @@ volumeMounts:
   - name: vpnconfig
     mountPath: /etc/wireguard/wg0.conf
 {{- end }}
-{{- if .Values.addons.vpn.scripts.up }}
-  - name: vpnscript
-    mountPath: /config/up.sh
-    subPath: up.sh
-{{- end }}
-{{- if .Values.addons.vpn.scripts.down }}
-  - name: vpnscript
-    mountPath: /config/down.sh
-    subPath: down.sh
-{{- end }}
 {{- with .Values.addons.vpn.livenessProbe }}
 livenessProbe:
   {{- toYaml . | nindent 2 }}
