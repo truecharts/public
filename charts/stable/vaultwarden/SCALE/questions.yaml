@@ -66,6 +66,27 @@ questions:
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+        - variable: TZ
+          label: "Timezone"
+          schema:
+            type: string
+            default: "Etc/UTC"
+            $ref:
+              - "definitions/timezone"
+        - variable: UMASK
+          label: "UMASK"
+          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: string
+            default: "002"
+# Include{containerConfig}
+
   - variable: vaultwarden
     label: ""
     group: "App Configuration"
@@ -359,26 +380,7 @@ questions:
           schema:
             type: string
             default: ""
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      type: dict
-      attrs:
-        - variable: TZ
-          label: "Timezone"
-          schema:
-            type: string
-            default: "Etc/UTC"
-            $ref:
-              - "definitions/timezone"
-        - variable: UMASK
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "002"
-# Include{containerConfig}
+
 
   - variable: hostNetwork
     group: "Networking and Services"
