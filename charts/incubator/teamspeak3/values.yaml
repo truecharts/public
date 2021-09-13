@@ -14,7 +14,7 @@ service:
       main:
         port: 9987
         protocol: "UDP"
-  server_query:
+  query:
     enabled: true
     type: ClusterIP
     ports:
