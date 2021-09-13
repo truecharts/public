@@ -18,7 +18,7 @@ service:
     enabled: true
     type: ClusterIP
     ports:
-      server_query:
+      query:
         enabled: true
         port: 10011
         protocol: "TCP"
