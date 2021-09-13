@@ -1,0 +1,81 @@
+  - variable: envList
+    label: "Image environment"
+    group: "Container Configuration"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: envItem
+          label: "Environment Variable"
+          schema:
+            type: dict
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+              - variable: value
+                label: "Value"
+                schema:
+                  type: string
+
+  - variable: expertpodconf
+    group: "Container Configuration"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: termination
+          group: "Container Configuration"
+          label: "Termination settings"
+          schema:
+            type: dict
+            attrs:
+              - variable: gracePeriodSeconds
+                label: "Grace Period Seconds"
+                schema:
+                  type: int
+                  default: 10
+        - variable: podLabelsList
+          group: "Container Configuration"
+          label: "Pod Labels"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: podLabelItem
+                label: "Label"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                    - variable: value
+                      label: "Value"
+                      schema:
+                        type: string
+
+        - variable: podAnnotationsList
+          group: "Container Configuration"
+          label: "Pod Annotations"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: podAnnotationItem
+                label: "Label"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Name"
+                      schema:
+                        type: string
+                    - variable: value
+                      label: "Value"
+                      schema:
+                        type: string
