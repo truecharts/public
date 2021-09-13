@@ -128,7 +128,7 @@ include_questions(){
     # Replace # Include{VPN} with the standard VPN codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{VPN}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/vpn.yaml ${target}/questions.yaml
+    1' templates/questions/vpn.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
     }
 
 clean_catalog() {
