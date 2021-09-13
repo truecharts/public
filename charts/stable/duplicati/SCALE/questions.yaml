@@ -98,12 +98,7 @@ questions:
             default: "002"
 # Include{containerConfig}
 
-  - variable: hostNetwork
-    group: "Networking and Services"
-    label: "Enable Host Networking"
-    schema:
-      type: boolean
-      default: false
+
 
   - variable: service
     group: "Networking and Services"
@@ -209,6 +204,75 @@ questions:
                               max: 65535
                               default: 36059
 
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+        - variable: dnsPolicy
+          group: "Networking and Services"
+          label: "dnsPolicy"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "ClusterFirst"
+                description: "ClusterFirst"
+              - value: "ClusterFirstWithHostNet"
+                description: "ClusterFirstWithHostNet"
+              - value: "None"
+                description: "None"
+
+        - variable: dnsConfig
+          label: "DNS Configuration"
+          group: "Networking and Services"
+          description: "Specify custom DNS configuration which will be applied to the pod"
+          schema:
+            type: dict
+            attrs:
+              - variable: nameservers
+                label: "Nameservers"
+                schema:
+                  default: []
+                  type: list
+                  items:
+                    - variable: nameserver
+                      label: "Nameserver"
+                      schema:
+                        type: string
+              - variable: options
+                label: "options"
+                schema:
+                  default: []
+                  type: list
+                  items:
+                    - variable: option
+                      label: "Option Entry"
+                      schema:
+                        type: string
+              - variable: searches
+                label: "Searches"
+                schema:
+                  default: []
+                  type: list
+                  items:
+                    - variable: search
+                      label: "Search Entry"
+                      schema:
+                        type: string
 
 # Include{serviceList}
 
@@ -418,7 +482,7 @@ questions:
                                     $ref:
                                       - "definitions/certificate"
                     - variable: entrypoint
-                      label: "Traefik Entrypoint"
+                      label: "(Advanced) Traefik Entrypoint"
                       description: "Entrypoint used by Traefik when using Traefik as Ingress Provider"
                       schema:
                         type: string
@@ -437,6 +501,57 @@ questions:
                               type: string
                               default: ""
                               required: true
+
+              - variable: expert
+                label: "Show Expert Configuration Options"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: ingressClassName
+                      label: "IngressClass Name"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: labelsList
+                      label: "Labels"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: labelItem
+                            label: "Label"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                    - variable: annotationsList
+                      label: "Annotations"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: annotationItem
+                            label: "Label"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
 
 
 

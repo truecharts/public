@@ -198,7 +198,7 @@ sync_tag() {
     tag="${tag#*version-}"
     tag="${tag#*v}"
     tag="${tag:0:10}"
-    sed -i -e "s|appVersion: .*|appVersion: ${tag}|" "${chart}/Chart.yaml"
+    sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
     }
 
 pre_commit() {
