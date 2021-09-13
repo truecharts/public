@@ -26,20 +26,20 @@ questions:
       type: dict
       attrs:
         - variable: timezone
-            label: "Timezone"
-            group: "Collabora Configuration"
-            schema:
-              type: string
-              $ref:
-                - "definitions/timezone"
+          label: "Timezone"
+          group: "Collabora Configuration"
+          schema:
+            type: string
+            $ref:
+              - "definitions/timezone"
         - variable: domain
-            label: "Domain(s) using collabora"
-            description: 'Use backslash "\" before dots ".". Use pipe "|" to separate multiple domains'
-            schema:
-              type: string
-              default: 'nextcloud\.domain\.tld|othernextcloud\.domain\.tld'
-              valid_chars: '^([a-z]{1,}\\{1}\.{1}[a-z]{1,}\\{1}\.{1}[a-z]{1,}\|{0,1})*$'
-              required: true
+          label: "Domain(s) using collabora"
+          description: 'Use backslash "\" before dots ".". Use pipe "|" to separate multiple domains'
+          schema:
+            type: string
+            default: 'nextcloud\.domain\.tld|othernextcloud\.domain\.tld'
+            # valid_chars: '^$|^([a-z]{1,}\\{1}\.{1}[a-z]{1,}\\{1}\.{1}[a-z]{1,}\|{0,1})*$'
+            required: false
         - variable: username
           label: "Username for WebUI"
           schema:
@@ -82,7 +82,7 @@ questions:
           schema:
             type: string
             default: ''
-            valid_chars: '^[a-z]{1,}\\{1}\.{1}[a-z]{1,}\\{1}\.{1}[a-z]{1,}$'
+            valid_chars: '^$|^[a-z]{1,}\\{1}\.{1}[a-z]{1,}\\{1}\.{1}[a-z]{1,}$'
 
   - variable: extraAppVolumeMounts
     label: "Collabora Extra Host Path Volumes"

@@ -33,6 +33,7 @@ spec:
           {{ $envList = mustAppend $envList (dict "name" "timezone" "value" $envConfig.timezone) }}
           {{ $envList = mustAppend $envList (dict "name" "domain" "value" $envConfig.domain) }}
           {{ $envList = mustAppend $envList (dict "name" "dictionaries" "value" $envConfig.dictionaries) }}
+          {{ $envList = mustAppend $envList (dict "name" "cert_domain" "value" "192.168.0.3") }}
           {{ $envList = mustAppend $envList (dict "name" "extra_params" "value" $envConfig.extra_params) }}
           {{ $envList = mustAppend $envList (dict "name" "DONT_GEN_SSL_CERT" "value" $envConfig.DONT_GEN_SSL_CERT) }}
           {{ $envList = mustAppend $envList (dict "name" "server_name" "value" $envConfig.server_name) }}
