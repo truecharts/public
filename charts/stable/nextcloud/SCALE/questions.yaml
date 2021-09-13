@@ -116,12 +116,7 @@ questions:
 
 # Include{containerConfig}
 
-  - variable: hostNetwork
-    group: "Networking and Services"
-    label: "Enable Host Networking"
-    schema:
-      type: boolean
-      default: false
+
 
   - variable: service
     group: "Networking and Services"
@@ -520,7 +515,7 @@ questions:
                                     $ref:
                                       - "definitions/certificate"
                     - variable: entrypoint
-                      label: "Traefik Entrypoint"
+                      label: "(Advanced) Traefik Entrypoint"
                       description: "Entrypoint used by Traefik when using Traefik as Ingress Provider"
                       schema:
                         type: string
@@ -539,6 +534,57 @@ questions:
                               type: string
                               default: ""
                               required: true
+
+              - variable: expert
+                label: "Show Expert Configuration Options"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: ingressClassName
+                      label: "IngressClass Name"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: labelsList
+                      label: "Labels"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: labelItem
+                            label: "Label"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                    - variable: annotationsList
+                      label: "Annotations"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: annotationItem
+                            label: "Label"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
 
 # Include{ingressList}
   - variable: podSecurityContext
