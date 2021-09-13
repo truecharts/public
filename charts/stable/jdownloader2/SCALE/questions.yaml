@@ -96,7 +96,7 @@ questions:
           description: "Sets the UMASK env var for jdownloader2 containers"
           schema:
             type: string
-            default: "022"
+            default: "002"
         - variable: KEEP_APP_RUNNING
           label: "KEEP_APP_RUNNING"
           description: "When set to 1, the application will be automatically restarted if it crashes or if a user quits it."
