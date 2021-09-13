@@ -1,0 +1,44 @@
+# Default values for teamspeak3.
+
+image:
+  repository: teamspeak
+  pullPolicy: IfNotPresent
+  tag: 3.13.6
+
+#  9987 default voice
+# 10011 server query
+# 30033 file transport
+service:
+  main:
+    ports:
+      main:
+        port: 9987
+        protocol: "UDP"
+  server_query:
+    enabled: true
+    type: ClusterIP
+    ports:
+      server_query:
+        enabled: true
+        port: 10011
+        protocol: "TCP"
+  file_transport:
+    enabled: true
+    type: ClusterIP
+    ports:
+      server_query:
+        enabled: true
+        port: 30033
+        protocol: "TCP"
+
+env:
+  #TeamSpeak 3 settings
+  TS3SERVER_LICENSE: accept
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/ts3server/"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
