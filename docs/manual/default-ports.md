@@ -124,7 +124,7 @@ These defaults can ofcoarse be changed, but as we guarantee "sane, working defau
 | Sogo                |  main     |  36102   |                   |                                      |
 | oscam               |  main     |  36103   |                   |                                      |
 | teamspeak3          |  main     |  36104   |                   |                                      |
-| teamspeak3          |  server_query     |  36105   |                   |                                      |
-| teamspeak3          |  file_transport     |  36106   |                   |                                      |
+| teamspeak3          |  query    |  36105   |                   |                                      |
+| teamspeak3          |  files    |  36106   |                   |                                      |
 
 #### Note: TCP and UPD ports that are the same in each App, are not by mistake.
