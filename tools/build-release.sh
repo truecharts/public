@@ -88,6 +88,7 @@ main() {
                   clean_apps "$chart" "$chartname" "$train" "$chartversion"
                   copy_apps "$chart" "$chartname" "$train" "$chartversion"
                   patch_apps "$chart" "$chartname" "$train" "$chartversion"
+                  include_questions "$chart" "$chartname" "$train" "$chartversion"
                   clean_catalog "$chart" "$chartname" "$train" "$chartversion"
                 else
                   echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
@@ -116,6 +117,19 @@ main() {
 
     popd > /dev/null
 }
+
+include_questions(){
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    local target="catalog/${train}/${chartname}/${chartversion}"
+    echo "Including standardised questions.yaml includes for: ${chartname}"
+    # Replace # Include{VPN} with the standard VPN codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{VPN}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/vpn.yaml ${target}/questions.yaml
+    }
 
 clean_catalog() {
     local chart="$1"
