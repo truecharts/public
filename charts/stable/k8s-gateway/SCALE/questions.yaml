@@ -1,24 +1,4 @@
-groups:
-  - name: "Container Image"
-    description: "Image to be used for container"
-  - name: "Controller"
-    description: "Configure workload deployment"
-  - name: "Container Configuration"
-    description: "additional container configuration"
-  - name: "App Configuration"
-    description: "App specific config options"
-  - name: "Networking and Services"
-    description: "Configure Network and Services for container"
-  - name: "Storage and Persistence"
-    description: "Persist and share data that is separate from the container"
-  - name: "Ingress"
-    description: "Ingress Configuration"
-  - name: "Security and Permissions"
-    description: "Configure security context and permissions"
-  - name: "Resources and Devices"
-    description: "Specify resources/devices to be allocated to workload"
-  - name: "Advanced"
-    description: "Advanced Configuration"
+# Include{groups}
 questions:
   - variable: portal
     group: "Container Image"
