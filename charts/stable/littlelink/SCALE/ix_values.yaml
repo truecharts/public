@@ -1,0 +1,19 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: ghcr.io/techno-tim/littlelink-server
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:10dafadbf081fe014799f028024ccb4da2ba566d0413c3d6ebce6fc051a9f3f3
+
+envFrom:
+  - configMapRef:
+      name: littlelinkconfig
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##

@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 6.13.8
+deprecated: false
+description: Node-RED is low-code programming for event-driven applications
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/node-red
+icon: https://nodered.org/about/resources/media/node-red-icon-2.png
+keywords:
+- node-red
+- nodered
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+name: node-red
+sources:
+- https://github.com/node-red/node-red-docker
+type: application
+version: 6.11.16

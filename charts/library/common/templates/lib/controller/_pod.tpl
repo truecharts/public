@@ -30,19 +30,49 @@ dnsPolicy: ClusterFirstWithHostNet
   {{- else }}
 dnsPolicy: ClusterFirst
   {{- end }}
-  {{- with .Values.dnsConfig }}
+{{- if or .Values.dnsConfig.options .Values.dnsConfig.nameservers .Values.dnsConfig.searches }}
 dnsConfig:
-    {{- toYaml . | nindent 2 }}
+  {{- with .Values.dnsConfig.options }}
+  options:
+    {{- toYaml . | nindent 4 }}
   {{- end }}
+  {{- with .Values.dnsConfig.nameservers }}
+  nameservers: []
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.dnsConfig.searches }}
+  searches: []
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+{{- end }}
 enableServiceLinks: {{ .Values.enableServiceLinks }}
-  {{- with .Values.initContainers }}
+  {{- with .Values.termination.gracePeriodSeconds }}
+terminationGracePeriodSeconds: {{ . }}
+  {{- end }}
 initContainers:
-    {{- toYaml . | nindent 2 }}
+  {{-  include "common.controller.autopermissions" . | nindent 2 }}
+  {{- if .Values.initContainers }}
+    {{- $initContainers := list }}
+    {{- range $index, $key := (keys .Values.initContainers | uniq | sortAlpha) }}
+      {{- $container := get $.Values.initContainers $key }}
+      {{- if not $container.name -}}
+        {{- $_ := set $container "name" $key }}
+      {{- end }}
+      {{- $initContainers = append $initContainers $container }}
+    {{- end }}
+    {{- tpl (toYaml $initContainers) $ | nindent 2 }}
   {{- end }}
 containers:
   {{- include "common.controller.mainContainer" . | nindent 2 }}
   {{- with .Values.additionalContainers }}
-    {{- tpl (toYaml .) $ | nindent 2 }}
+    {{- $additionalContainers := list }}
+    {{- range $name, $container := . }}
+      {{- if not $container.name -}}
+        {{- $_ := set $container "name" $name }}
+      {{- end }}
+      {{- $additionalContainers = append $additionalContainers $container }}
+    {{- end }}
+    {{- tpl (toYaml $additionalContainers) $ | nindent 2 }}
   {{- end }}
   {{- with (include "common.controller.volumes" . | trim) }}
 volumes:
@@ -58,6 +88,10 @@ nodeSelector:
   {{- end }}
   {{- with .Values.affinity }}
 affinity:
+    {{- toYaml . | nindent 2 }}
+  {{- end }}
+  {{- with .Values.topologySpreadConstraints }}
+topologySpreadConstraints:
     {{- toYaml . | nindent 2 }}
   {{- end }}
   {{- with .Values.tolerations }}

@@ -7,15 +7,8 @@
 image:
   repository: ghcr.io/k8s-at-home/emby
   pullPolicy: IfNotPresent
-  tag: v4.6.1.0
+  tag: v4.6.4.0@sha256:3921a37cfd43abbc5be6fd6a2141488573c64f70d628b4a4731415713cbb12cd
 
-# 44=video 107=render
-podSecurityContext:
-  runAsNonRoot: true
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: [44, 107]
 ##
 # Most other defaults are set in questions.yaml
 # For other options please refer to the wiki, default_values.yaml or the common library chart

@@ -1,0 +1,40 @@
+# Default values for Navidrome.
+
+image:
+  repository: ghcr.io/truecharts/navidrome
+  pullPolicy: IfNotPresent
+  tag: v0.45.1@sha256:2600dc55b2ac7ae31d5c3a657e731a4fde56d76903a6b6e4fb0cfc7007091a0e
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
+service:
+  main:
+    ports:
+      main:
+        port: 4533
+
+env:
+  ND_SCANINTERVAL: "15m"
+  ND_LOGLEVEL: "info"
+  ND_SESSIONTIMEOUT: "24h"
+  ND_ENABLETRANSCODINGCONFIG: "true"
+  ND_MUSICFOLDER: "/music"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

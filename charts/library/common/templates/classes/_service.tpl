@@ -27,6 +27,7 @@ metadata:
     {{ toYaml $values.labels | nindent 4 }}
   {{- end }}
   annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
   {{- if eq ( $primaryPort.protocol | default "" ) "HTTPS" }}
     traefik.ingress.kubernetes.io/service.serversscheme: https
   {{- end }}
@@ -39,6 +40,10 @@ spec:
   {{- if $values.clusterIP }}
   clusterIP: {{ $values.clusterIP }}
   {{end}}
+  {{- else if eq $svcType "ExternalName" }}
+  type: {{ $svcType }}
+  externalName: {{ $values.externalName }}
+  {{- else if eq $svcType "ExternalIP" }}
   {{- else if eq $svcType "LoadBalancer" }}
   type: {{ $svcType }}
   {{- if $values.loadBalancerIP }}
@@ -88,6 +93,27 @@ spec:
     {{ end }}
   {{- end }}
   {{- end }}
+  {{- if and ( ne $svcType "ExternalName" ) ( ne $svcType "ExternalIP" )}}
   selector:
     {{- include "common.labels.selectorLabels" . | nindent 4 }}
+  {{- end }}
+{{- if eq $svcType "ExternalIP" }}
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: {{ $serviceName }}
+  labels:
+    {{- include "common.labels" $ | nindent 4 }}
+subsets:
+  - addresses:
+      - ip: {{ $values.externalIP }}
+    ports:
+    {{- range $name, $port := $values.ports }}
+    {{- if $port.enabled }}
+      - port: {{ $port.port | default 80 }}
+        name: {{ $name }}
+    {{- end }}
+    {{- end }}
+{{- end }}
 {{- end }}

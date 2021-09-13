@@ -1,0 +1,61 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: ghcr.io/linuxserver/mylar3
+  # -- image tag
+  tag: version-v0.5.3@sha256:b96f0e97ab3f4bf4e4320670aa932d0f7df39d1ddce0bbf62808bd509209d78f
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
+# -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-mylar3#environment-variables-e) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+    # -- Specify the user ID the application will run as
+  PUID: "1000"
+  # -- Specify the group ID the application will run as
+  PGID: "1000"
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 8090
+
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+  comics:
+    enabled: false
+    mountPath: /comics
+  downloads:
+    enabled: false
+    mountPath: /downloads

@@ -13,12 +13,15 @@
       {{- $_ := set $ "ObjectValues" (dict "ingress" $ingressValues) -}}
       {{- include "common.classes.ingress" $ }}
 
-      {{- range $name, $tlsValues :=  $ingressValues.tls }}
+      {{- range $index, $tlsValues :=  $ingressValues.tls }}
         {{- if .scaleCert }}
-          {{- $nameOverride := ( printf "%v-%v-%v" $ingressValues.nameOverride "tls" $name ) -}}
+          {{- $nameOverride := ( printf "%v-%v" "tls" $index ) -}}
+          {{- if $ingressValues.nameOverride -}}
+          {{- $nameOverride = ( printf "%v-%v-%v" $ingressValues.nameOverride "tls" $index ) -}}
+          {{- end }}
           {{- $_ := set $tlsValues "nameOverride" $nameOverride -}}
           {{- $_ := set $ "ObjectValues" (dict "certHolder" $tlsValues) -}}
-          {{- include "common.cert.secret" $ -}}
+          {{- include "common.cert.secret" $ }}
         {{- end }}
       {{- end }}
     {{- end }}

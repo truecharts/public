@@ -1,10 +1,7 @@
 image:
-  repository: collabora/code
-  tag: 6.4.9.3
+  repository: ghcr.io/truecharts/collabora
+  tag: v6.4.10.10@sha256:9b44b62b0d7894b4bdd6db6c4a5be66b4a2b14920f2d6401252e57641975d911
   pullPolicy: IfNotPresent
-
-strategy:
-  type: Recreate
 
 service:
   main:

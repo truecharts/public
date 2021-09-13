@@ -1,0 +1,19 @@
+{{- $values := .Values }}
+{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
+{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
+{{- $namespace = "default" }}
+{{- end }}
+{{ range $index, $middlewareData := .Values.middlewares.redirectScheme }}
+
+---
+# Declaring the user list
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $middlewareData.name }}
+  namespace: {{ $namespace }}
+spec:
+  redirectScheme:
+    scheme: {{ $middlewareData.scheme }}
+    permanent: {{ $middlewareData.permanent }}
+{{ end }}

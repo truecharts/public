@@ -3,6 +3,7 @@ This template serves as the blueprint for the StatefulSet objects that are creat
 within the common library.
 */}}
 {{- define "common.statefulset" }}
+{{- $releaseName := .Release.Name }}
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -49,8 +50,12 @@ spec:
       {{- include "common.controller.pod" . | nindent 6 }}
   volumeClaimTemplates:
     {{- range $index, $vct := .Values.volumeClaimTemplates }}
+    {{- $vctname := $index }}
+    {{- if $vct.name }}
+    {{- $vctname := $vct.name }}
+    {{- end }}
     - metadata:
-        name: {{ $vct.name }}
+        name: {{ $vctname }}
       spec:
         accessModes:
           - {{ required (printf "accessMode is required for vCT %v" $vct.name) $vct.accessMode  | quote }}
@@ -58,7 +63,7 @@ spec:
           requests:
             storage: {{ required (printf "size is required for PVC %v" $vct.name) $vct.size | quote }}
         {{- if $vct.storageClass }}
-        storageClassName: {{ if (eq "-" $vct.storageClass) }}""{{- else }}{{ $vct.storageClass | quote }}{{- end }}
+        storageClassName: {{ if (eq "-" $vct.storageClass) }}""{{- else if (eq "SCALE-ZFS" $vct.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" $releaseName ) }}{{- else }}{{ $vct.storageClass | quote }}{{- end }}
         {{- end }}
     {{- end }}
 {{- end }}

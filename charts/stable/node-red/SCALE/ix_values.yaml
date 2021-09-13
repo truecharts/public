@@ -1,0 +1,15 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: ghcr.io/truecharts/node-red
+  pullPolicy: IfNotPresent
+  tag: v2.0.6@sha256:b772bf702782d81b124453477846b15ddef0253c67ac6135a8c3d96128d9f9a3
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##

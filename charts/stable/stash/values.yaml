@@ -1,0 +1,47 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: ghcr.io/truecharts/stash
+  # -- image tag
+  tag: v0.9.0@sha256:2859ab5c5792f6df06fe09497153bcea780f135883b618dcc1d5a78e4212b594
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See more environment variables in the [stashapp documentation](https://raw.githubusercontent.com/stashapp/stash/master/docker/production/docker-compose.yml)
+# @default -- See below
+env:
+  # -- Set the container port
+  STASH_PORT: 9999
+  # STASH_STASH:
+  # STASH_GENERATED:
+  # STASH_METADATA:
+  # STASH_CACHE:
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 9999
+
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+    mountPath: /root/.stash
+
+  media:
+    enabled: false
+    mountPath: /media

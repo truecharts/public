@@ -1,12 +1,22 @@
 # Default values for esphome.
 
 image:
-  repository: esphome/esphome
+  repository: ghcr.io/truecharts/esphome
   pullPolicy: IfNotPresent
-  tag: 1.19.2
+  tag: v2021.8.2@sha256:09e69633ab9fd4441cd3dbc086418981891ebeea775cfacfd26b0bc201403c13
 
-strategy:
-  type: Recreate
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
@@ -27,4 +37,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

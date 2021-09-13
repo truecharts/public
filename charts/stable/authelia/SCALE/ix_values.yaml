@@ -1,0 +1,258 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: ghcr.io/authelia/authelia
+  pullPolicy: IfNotPresent
+  tag: "4.30.4"@sha256:42
+
+postgresqlImage:
+  repository: bitnami/postgresql
+  pullPolicy: IfNotPresent
+  tag: 13.4.0@sha256:7fff0f7e827cd8e1daa3adbf0ca3f19e21006023c0f6d1c2d835718961516a87
+
+
+enableServiceLinks: false
+
+command: ["authelia"]
+args: ["--config=/configuration.yaml"]
+
+
+initContainers:
+  init-postgresdb:
+    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
+    command:
+      - "sh"
+      - "-c"
+      - "until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: pghost
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  postgresqlUsername: authelia
+  postgresqlDatabase: authelia
+  existingSecret: dbcreds
+  persistence:
+    db:
+      storageClass: "SCALE-ZFS"
+    dbbackups:
+      storageClass: "SCALE-ZFS"
+
+# Enabled redis
+# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
+redis:
+  volumePermissions:
+    enabled: true
+  architecture: standalone
+  enabled: true
+  auth:
+    existingSecret: rediscreds
+    existingSecretPasswordKey: redis-password
+  master:
+    persistence:
+      enabled: false
+      existingClaim: redismaster
+  replica:
+    replicaCount: 0
+    persistence:
+      enabled: false
+
+envFrom:
+  - configMapRef:
+      name: authelia-paths
+
+probes:
+  liveness:
+    type: HTTP
+    path: /api/health"
+
+  readiness:
+    type: HTTP
+    path: "/api/health"
+
+  startup:
+    type: HTTP
+    path: "/api/health"
+
+##
+## Storage Provider Configuration
+##
+## The available providers are: `local`, `mysql`, `postgres`. You must use one and only one of these providers.
+storage:
+  ##
+  ## PostgreSQL (Storage Provider)
+  ##
+  postgres:
+    port: 5432
+    database: authelia
+    username: authelia
+    sslmode: disable
+    timeout: 5s
+
+##
+## Server Configuration
+##
+server:
+  ##
+  ## Port sets the configured port for the daemon, service, and the probes.
+  ## Default is 9091 and should not need to be changed.
+  ##
+  port: 9091
+
+  ## Buffers usually should be configured to be the same value.
+  ## Explanation at https://www.authelia.com/docs/configuration/server.html
+  ## Read buffer size adjusts the server's max incoming request size in bytes.
+  ## Write buffer size does the same for outgoing responses.
+  read_buffer_size: 4096
+  write_buffer_size: 4096
+  ## Set the single level path Authelia listens on.
+  ## Must be alphanumeric chars and should not contain any slashes.
+  path: ""
+
+##
+## Redis Provider
+##
+## Important: Kubernetes (or HA) users must read https://www.authelia.com/docs/features/statelessness.html
+##
+## The redis connection details
+redisProvider:
+  port: 6379
+
+  ## Optional username to be used with authentication.
+  # username: authelia
+  username: ""
+
+  ## This is the Redis DB Index https://redis.io/commands/select (sometimes referred to as database number, DB, etc).
+  database_index: 0
+
+  ## The maximum number of concurrent active connections to Redis.
+  maximum_active_connections: 8
+
+  ## The target number of idle connections to have open ready for work. Useful when opening connections is slow.
+  minimum_idle_connections: 0
+
+  ## The Redis TLS configuration. If defined will require a TLS connection to the Redis instance(s).
+  tls:
+    enabled: false
+
+    ## Server Name for certificate validation (in case you are using the IP or non-FQDN in the host option).
+    server_name: ""
+
+    ## Skip verifying the server certificate (to allow a self-signed certificate).
+    ## In preference to setting this we strongly recommend you add the public portion of the certificate to the
+    ## certificates directory which is defined by the `certificates_directory` option at the top of the config.
+    skip_verify: false
+
+    ## Minimum TLS version for the connection.
+    minimum_version: TLS1.2
+
+  ## The Redis HA configuration options.
+  ## This provides specific options to Redis Sentinel, sentinel_name must be defined (Master Name).
+  high_availability:
+    enabled: false
+    enabledSecret: false
+    ## Sentinel Name / Master Name
+    sentinel_name: mysentinel
+
+    ## The additional nodes to pre-seed the redis provider with (for sentinel).
+    ## If the host in the above section is defined, it will be combined with this list to connect to sentinel.
+    ## For high availability to be used you must have either defined; the host above or at least one node below.
+    nodes: []
+    # nodes:
+    #   - host: sentinel-0.databases.svc.cluster.local
+    #     port: 26379
+    #   - host: sentinel-1.databases.svc.cluster.local
+    #     port: 26379
+
+    ## Choose the host with the lowest latency.
+    route_by_latency: false
+
+    ## Choose the host randomly.
+    route_randomly: false
+
+identity_providers:
+  oidc:
+    ## Enables this in the config map. Currently in beta stage.
+    ## See https://www.authelia.com/docs/configuration/identity-providers/oidc.html#roadmap
+    enabled: false
+
+    access_token_lifespan: 1h
+    authorize_code_lifespan: 1m
+    id_token_lifespan: 1h
+    refresh_token_lifespan: 90m
+
+    enable_client_debug_messages: false
+
+    ## SECURITY NOTICE: It's not recommended changing this option, and highly discouraged to have it below 8 for
+    ## security reasons.
+    minimum_parameter_entropy: 8
+
+    clients: []
+    # clients:
+      # -
+        ## The ID is the OpenID Connect ClientID which is used to link an application to a configuration.
+        # id: myapp
+
+        ## The description to show to users when they end up on the consent screen. Defaults to the ID above.
+        # description: My Application
+
+        ## The client secret is a shared secret between Authelia and the consumer of this client.
+        # secret: apple123
+
+        ## Sets the client to public. This should typically not be set, please see the documentation for usage.
+        # public: false
+
+        ## The policy to require for this client; one_factor or two_factor.
+        # authorization_policy: two_factor
+
+        ## Audience this client is allowed to request.
+        # audience: []
+
+        ## Scopes this client is allowed to request.
+        # scopes:
+        #   - openid
+        #   - profile
+        #   - email
+        #   - groups
+
+        ## Redirect URI's specifies a list of valid case-sensitive callbacks for this client.
+        # redirect_uris:
+        #   - https://oidc.example.com/oauth2/callback
+
+        ## Grant Types configures which grants this client can obtain.
+        ## It's not recommended to configure this unless you know what you're doing.
+        # grant_types:
+        #   - refresh_token
+        #   - authorization_code
+
+        ## Response Types configures which responses this client can be sent.
+        ## It's not recommended to configure this unless you know what you're doing.
+        # response_types:
+        #   - code
+
+        ## Response Modes configures which response modes this client supports.
+        ## It's not recommended to configure this unless you know what you're doing.
+        # response_modes:
+        #   - form_post
+        #   - query
+        #   - fragment
+
+        ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
+        # userinfo_signing_algorithm: none
+
+
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##

@@ -1,0 +1,44 @@
+# Default values for healthchecks.
+
+image:
+  # -- image repository
+  repository: ghcr.io/linuxserver/healthchecks
+  # -- image tag
+  tag: version-v1.22.0@sha256:f2e6865c909a1eeebf8bbe2736c0a3145ed5e9fa1bddde0809993a74963bc14a
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 8000
+
+# -- environment variables. See [image docs](https://github.com/linuxserver/docker-healthchecks#parameters) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Set to true to always override the local_settings.py file with values from environment variables. Do not set to True if you have made manual modifications to this file.
+  REGENERATE_SETTINGS: "True"
+  # -- The site's top-level URL and the port it listens to
+  SITE_ROOT: https://healthchecks.domain
+  # -- The site's name (e.g., "Example Corp HealthChecks")
+  SITE_NAME: 8265
+  # -- Superuser email
+  SUPERUSER_EMAIL: email@healthchecks.io
+  # -- Superuser password
+  SUPERUSER_PASSWORD: myVeryStrongPassword
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+# -- Volume used for configuration
+  config:
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+    mountpath: /config

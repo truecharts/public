@@ -1,0 +1,49 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: ghcr.io/linuxserver/librespeed
+  # -- image tag
+  tag: version-5.2.4@sha256:eb7eb6e42682cc941742bb626c66927fa8b9fb456bc7f7aa6535f24f2df4c2be
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [image docs](https://hub.docker.com/r/linuxserver/librespeed) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Specify the user ID the application will run as
+  PUID: "1001"
+  # -- Specify the group ID the application will run as
+  PGID: "1001"
+  # PASSWORD:
+  # CUSTOM_RESULTS:
+  # DB_TYPE:
+  # DB_NAME:
+  # DB_HOSTNAME:
+  # DB_USERNAME:
+  # DB_PASSWORD:
+  # DB_PORT:
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

@@ -1,11 +1,38 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "common.values.setup" . }}
 
-{{/* Render the templates */}}
-{{ include "common.all" . }}
 
 {{/* Render configmap for vaultwarden */}}
 {{- include "vaultwarden.configmap" . }}
 
 {{/* Render secrets for vaultwarden */}}
 {{- include "vaultwarden.secrets" . }}
+
+{{/* Define path for websocket */}}
+{{- define "vaultwarden.websocket" -}}
+path: "/notifications/hub"
+# -- Ignored if not kubeVersion >= 1.14-0
+pathType: Prefix
+service:
+  # -- Overrides the service name reference for this path
+  name: ws
+  port: {{ .Values.service.ws.ports.ws.port }}
+{{- end -}}
+
+{{/* inject websocket path to all main ingress hosts*/}}
+{{- define "vaultwarden.websocketinjector" -}}
+{{- $path := list (include "vaultwarden.websocket" . | fromYaml) -}}
+{{- if .Values.ingress.main.enabled }}
+{{- range .Values.ingress.main.hosts }}
+{{- $newpaths := list }}
+{{- $newpaths := concat .paths $path }}
+{{- $_ := set . "paths" ( deepCopy $newpaths ) -}}
+{{- end }}
+{{- end }}
+{{- end -}}
+
+{{/* inject websocket paths in ingress */}}
+{{- include "vaultwarden.websocketinjector" . }}
+
+{{/* Render the templates */}}
+{{ include "common.all" . }}

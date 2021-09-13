@@ -1,0 +1,57 @@
+name: "Apps: Release"
+
+on:
+  push:
+    branches:
+      - 'master'
+    tags-ignore:
+      - '**'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    concurrency: gitpush
+    container:
+      image: ghcr.io/truecharts/truecharts-release:v1.3.0
+    steps:
+
+      - uses: actions/checkout@v2
+        name: Checkout
+        with:
+          fetch-depth: 100
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: truecharts/catalog
+          token: ${{ secrets.BOT_TOKEN }}
+          path: catalog
+
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+
+      - name: build-and-run
+        run: |
+          tools/build-release.sh -p --config .github/cr.yaml
+        env:
+          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and Push new Helm Charts and docs
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit released Helm Chart and docs for TrueCharts" || exit 0
+          git push
+
+      - name: Commit and Push new App releases
+        run: |
+          cd catalog
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit new App releases for TrueCharts" || exit 0
+          git push

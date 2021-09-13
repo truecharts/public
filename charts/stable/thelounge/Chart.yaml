@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 6.13.8
+description: The Lounge, modern web IRC client designed for self-hosting
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/thelounge
+icon: https://avatars.githubusercontent.com/u/14336958?s=200&v=4
+keywords:
+- thelounge
+- IRC
+- The Lounge
+- docker
+- thelounge-docker
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+name: thelounge
+sources:
+- https://github.com/thelounge/thelounge
+version: 1.11.15

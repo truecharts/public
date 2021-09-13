@@ -1,0 +1,52 @@
+# Default values for Jackett.
+
+image:
+  repository: ghcr.io/k8s-at-home/jackett
+  pullPolicy: IfNotPresent
+  tag: v0.18.746@sha256:4caa9f57a10c07cca49935b6e039aa4c15eb20f28add18983bb62b028e245edd
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 9117
+    portsList:
+      - name: "extraport"
+        enabled: true
+        port: 9118
+
+serviceList:
+  - name: extraservice
+    enabled: true
+    portsList:
+      - name: "extrasvcport"
+        enabled: true
+        port: 9119
+
+env: {}
+  # TZ: UTC
+  # PUID: 1001
+  # PGID: 1001
+
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

@@ -1,0 +1,121 @@
+
+  - variable: addons
+    group: "Addons"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: vpn
+          label: "VPN"
+          schema:
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type"
+                schema:
+                  type: string
+                  default: "disabled"
+                  enum:
+                    - value: "disabled"
+                      description: "disabled"
+                    - value: "openvpn"
+                      description: "OpenVPN"
+                    - value: "wireguard"
+                      description: "Wireguard"
+              - variable: openvpn
+                label: "OpenVPN Settings"
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "openvpn"]]
+                  attrs:
+                    - variable: auth
+                      label: "auth"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: authSecret
+                      label: "authSecret"
+                      schema:
+                        type: string
+                        default: ""
+              - variable: wireguard
+                label: "Wireguard Settings"
+                schema:
+                  type: dict
+                  show_if: [["type", "=", "wireguard"]]
+                  attrs:
+                    - variable: KILLSWITCH
+                      label: "Enable killswitch"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: KILLSWITCH_EXCLUDEDNETWORKS_IPV4
+                      label: "Killswitch Excluded IPv4 networks"
+                      description: "list of killswitch excluded ipv4 addresses seperated by ;"
+                      schema:
+                        type: string
+                        default: "172.16.0.0/12"
+                    - variable: KILLSWITCH_EXCLUDEDNETWORKS_IPV6
+                      label: "Killswitch Excluded IPv6 networks"
+                      description: "list of killswitch excluded ipv4 addresses seperated by ;"
+                      schema:
+                        type: string
+                        default: ""
+              - variable: configFile
+                label: "VPN Config File Location"
+                schema:
+                  type: dict
+                  show_if: [["type", "!=", "disabled"]]
+                  attrs:
+                    - variable: enabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: type
+                      label: "type"
+                      schema:
+                        type: string
+                        default: "hostPath"
+                        hidden: true
+                    - variable: hostPathType
+                      label: "hostPathType"
+                      schema:
+                        type: string
+                        default: "File"
+                        hidden: true
+                    - variable: noMount
+                      label: "noMount"
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: hostPath
+                      label: "Full path to file"
+                      schema:
+                        type: string
+                        default: "/mnt/tank/config/YourVPN-Config.conf"
+                        required: true
+              - variable: envList
+                label: "VPN environment Variables"
+                schema:
+                  type: list
+                  show_if: [["type", "!=", "disabled"]]
+                  default: []
+                  items:
+                    - variable: envItem
+                      label: "Environment Variable"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                              required: true
+                          - variable: value
+                            label: "Value"
+                            schema:
+                              type: string
+                              required: true

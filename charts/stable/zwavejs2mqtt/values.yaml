@@ -3,20 +3,23 @@
 # https://github.com/k8s-at-home/charts/tree/master/charts/common
 
 image:
-  repository: zwavejs/zwavejs2mqtt
+  repository: ghcr.io/truecharts/zwavejs2mqtt
   pullPolicy: IfNotPresent
-  tag: 5.0.4
+  tag: v5.5.4@sha256:8b5946e5e3384f8818766e20da7f576e243a364369366d631a80e7794cfdfa3b
 
-strategy:
-  type: Recreate
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
 
 # 5=tty 20=dialout 24=cdrom
 podSecurityContext:
-  runAsNonRoot: true
   runAsUser: 568
   runAsGroup: 568
   fsGroup: 568
   supplementalGroups: [5, 20, 24]
+  fsGroupChangePolicy: "OnRootMismatch"
 
 # # See more environment variables in the zwavejs2mqtt documentation
 # https://zwave-js.github.io/zwavejs2mqtt/#/guide/env-vars
@@ -89,7 +92,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
 
 
 # affinity:

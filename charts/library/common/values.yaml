@@ -1,3 +1,57 @@
+# -- OpenVPN specific configuration
+# @default -- See below
+openvpnImage:
+  # -- Specify the openvpn client image
+  repository: dperson/openvpn-client
+  # -- Specify the openvpn client image tag
+  tag: latest@sha256:d174047b57d51734143325ad7395210643025e6516ba60a937e9319dbb462293
+  # -- Specify the openvpn client image pull policy
+  pullPolicy: IfNotPresent
+
+
+# -- WireGuard specific configuration
+# @default -- See below
+wireguardImage:
+  # -- Specify the WireGuard image
+  repository: ghcr.io/k8s-at-home/wireguard
+  # -- Specify the WireGuard image tag
+  tag: v1.0.20210424@sha256:448045c4270b818ded47ec82b934e7227235402fbefa16e29800c2fb51d6de39
+  # -- Specify the WireGuard image pull policy
+  pullPolicy: IfNotPresent
+
+promtailImage:
+  # -- Specify the promtail image
+  repository: ghcr.io/truecharts/promtail
+  # -- Specify the promtail image tag
+  tag: v2.3.0@sha256:90019c5e4198d3253126fcc0c90db11b961ddf0a3c2906766f4611770beabdf2
+  # -- Specify the promtail image pull policy
+  pullPolicy: IfNotPresent
+
+
+netshootImage:
+  # -- Specify the netshoot image
+  repository: nicolaka/netshoot
+  # -- Specify the netshoot image tag
+  tag: latest@sha256:ebc03105d7b4341723052b06d18b58698a0b7f88afc7b6fffd8a188fb729b85e
+  # -- Specify the netshoot image pull policy
+  pullPolicy: Always
+
+codeserverImage:
+  # -- Specify the code-server image
+  repository: ghcr.io/truecharts/code-server
+  # -- Specify the code-server image tag
+  tag: v3.11.1@sha256:b23b9ba33c9c648c27427b4243585c1a3c6cc4d5408ab3b3e18bdc97302c4862
+  # -- Specify the code-server image pull policy
+  pullPolicy: IfNotPresent
+
+alpineImage:
+  # -- Specify the code-server image
+  repository: ghcr.io/truecharts/alpine
+  # -- Specify the code-server image tag
+  tag: v3.14.2@sha256:cfc1d8be3d2d397ec18af71caab3e96581fc4d43417400ef744d87201642ddad
+  # -- Specify the code-server image pull policy
+  pullPolicy: IfNotPresent
+
 global:
   # -- Set an override for the prefix of the fullname
   nameOverride:
@@ -10,8 +64,16 @@ controller:
   # -- Set the controller type.
   # Valid options are deployment, daemonset or statefulset
   type: deployment
-  # -- Set annotations on the deployment/statefulset/daemonset
+  # -- Set additional annotations on the deployment/statefulset/daemonset
+  annotationsList: []
+  # - name: somename
+  #   value: somevalue
+  # -- Set  annotations on the deployment/statefulset/daemonset
   annotations: {}
+  # -- Set additional labels on the deployment/statefulset/daemonset
+  labelsList: []
+  # - name: somename
+  #   value: somevalue
   # -- Set labels on the deployment/statefulset/daemonset
   labels: {}
   # -- Number of desired pods
@@ -44,8 +106,19 @@ command: []
 # -- Override the args for the default container
 args: []
 
+# -- Set additional annotations on the pod
+podAnnotationsList: []
+# - name: somename
+#   value: somevalue
+
+#
 # -- Set annotations on the pod
 podAnnotations: {}
+
+# -- Set additional labels on the pod
+podLabelsList: []
+# - name: somename
+#   value: somevalue
 
 # -- Set labels on the pod
 podLabels: {}
@@ -60,6 +133,8 @@ autoscaling:
   targetCPUUtilizationPercentage:  # 80
   targetMemoryUtilizationPercentage:  # 80
 
+# -- Create serviceaccount
+# @default -- See below
 serviceAccount:
   # -- Specifies whether a service account should be created
   create: false
@@ -70,6 +145,50 @@ serviceAccount:
   # -- The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
+
+# -- Create a ClusterRole and ClusterRoleBinding
+# @default -- See below
+rbac:
+  # -- Enables or disables the ClusterRole and ClusterRoleBinding
+  enabled: false
+
+  # -- Set Annotations on the ClusterRole
+  clusterRoleLabels: {}
+
+  # -- Set labels on the ClusterRole
+  clusterRoleAnnotations: {}
+
+  # -- Set Annotations on the ClusterRoleBinding
+
+  clusterRoleBindingLabels: {}
+
+  # -- Set labels on the ClusterRoleBinding
+  clusterRoleBindingAnnotations: {}
+
+  # -- Set Rules on the ClusterRole
+  rules: {}
+
+  # -- Add subjects to the ClusterRoleBinding.
+  # includes the above created serviceaccount
+  subjects: {}
+
+# -- Configure networkPolicy for the chart here.
+# @default -- See below
+networkPolicy:
+  # -- Enables or disables the networkPolicy
+  enabled: false
+
+  # customizes the podSelector (defaults to the helm-chart selector-labels
+  # podSelector:
+
+  # -- add or remove Policy types
+  policyTypes: []
+
+  # -- add or remove egress policies
+  egress: []
+
+  # -- add or remove egress policies
+  ingress: []
 
 # -- Use this to populate a secret with the values you specify.
 # Be aware that these values are not encrypted by default, and could therefore visible
@@ -118,29 +237,35 @@ hostNetwork: false
 dnsPolicy:  # ClusterFirst
 
 # -- Optional DNS settings, configuring the ndots option may resolve nslookup issues on some Kubernetes setups.
-dnsConfig: {}
-#   options:
-#     - name: ndots
-#       value: "1"
+dnsConfig:
+  options: []
+  nameservers: []
+  searches: []
 
 # -- Enable/disable the generation of environment variables for services.
 # [[ref]](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)
-enableServiceLinks: true
+enableServiceLinks: false
 
 # -- Configure the Security Context for the Pod
 podSecurityContext: {}
 
 # -- Configure the Security Context for the main container
-securityContext: {}
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+
 
 # -- Configure the lifecycle for the main container
 lifecycle: {}
 
-# -- Specify any initContainers here. Yaml will be passed in to the Pod as-is.
-initContainers: []
+# -- Specify any initContainers here as dictionary items. Each initContainer should have its own key.
+# The dictionary item key will determine the order. Helm templates can be used.
+initContainers: {}
 
-# -- Specify any additional containers here. Yaml will be passed in to the Pod as-is.
-additionalContainers: []
+# -- Specify any additional containers here as dictionary items. Each additional container should have its own key.
+# Helm templates can be used.
+additionalContainers: {}
 
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
@@ -153,6 +278,9 @@ probes:
     enabled: true
     # -- Set this to `true` if you wish to specify your own livenessProbe
     custom: false
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: TCP
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: "/"
@@ -172,6 +300,9 @@ probes:
     enabled: true
     # -- Set this to `true` if you wish to specify your own readinessProbe
     custom: false
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: TCP
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: "/"
@@ -191,6 +322,9 @@ probes:
     enabled: true
     # -- Set this to `true` if you wish to specify your own startupProbe
     custom: false
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: TCP
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: "/"
@@ -203,6 +337,25 @@ probes:
       ## This means it has a maximum of 5*30=150 seconds to start up before it fails
       periodSeconds: 5
       failureThreshold: 60
+
+termination:
+  # -- Configure the path at which the file to which the main container's termination message will be written.
+  # -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)]
+  messagePath:
+
+  # -- Indicate how the main container's termination message should be populated.
+  # Valid options are `File` and `FallbackToLogsOnError`.
+  # -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)]
+  messagePolicy:
+
+  # -- Duration in seconds the pod needs to terminate gracefully
+  # -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)]
+  gracePeriodSeconds: 10
+
+
+# -- Configure additional services for the chart here.
+# @default -- See below
+serviceList: []
 
 # -- Configure the services for the chart here.
 # Additional services can be added by adding a dictionary key similar to the 'main' service.
@@ -221,12 +374,22 @@ service:
 
     # -- Set the service type
     type: ClusterIP
-
+    annotationsList: []
+    # - name: somename
+    #   value: somevalue
     # -- Provide additional annotations which may be required.
     annotations: {}
 
+    labelsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Set labels on the deployment/statefulset/daemonset
     # -- Provide additional labels which may be required.
     labels: {}
+
+    # -- Configure additional Service port information here.
+    # @default -- See below
+    portsList: []
 
     # -- Configure the Service port information here.
     # Additional ports can be added by adding a dictionary key similar to the 'http' service.
@@ -257,6 +420,12 @@ service:
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
 
+
+# -- Configure ingressList for the chart here.
+# Additional items can be added by adding a items similar to ingress
+# @default -- []
+ingressList: []
+
 # -- Configure the ingresses for the chart here.
 # Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
 # @default -- See below
@@ -272,11 +441,28 @@ ingress:
     # -- Override the name suffix that is used for this ingress.
     nameOverride:
 
+    # -- List of middlewares in the traefikmiddlewares k8s namespace to add automatically
+    # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
+    # Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user
+    fixedMiddlewares:
+      - chain-basic
+
+    # -- Additional List of middlewares in the traefikmiddlewares k8s namespace to add automatically
+    # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
+    middlewares: []
+    annotationsList: []
+    # - name: somename
+    #   value: somevalue
     # -- Provide additional annotations which may be required.
     annotations: {}
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
 
+    labelsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Set labels on the deployment/statefulset/daemonset
+    # -- Provide additional labels which may be required.
     # -- Provide additional labels which may be required.
     labels: {}
 
@@ -328,6 +514,19 @@ persistence:
   config:
     # -- Enables or disables the persistence item
     enabled: false
+    annotationsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Add annotations to PVC object
+    annotations: {}
+
+    labelsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Set labels on the deployment/statefulset/daemonset
+    # -- Provide additional labels which may be required.
+    # -- Add labels to PVC object
+    labels: {}
 
     # -- Sets the persistence type
     # Valid options are pvc, emptyDir, hostPath or custom
@@ -359,6 +558,8 @@ persistence:
     # -- Used in conjunction with `existingClaim`. Specifies a sub-path inside the referenced volume instead of its root
     subPath:  # some-subpath
 
+    # mountPropagation: {}
+
     # -- AccessMode for the persistent volume.
     # Make sure to select an access mode that is supported by your storage provider!
     # [[ref]](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
@@ -368,13 +569,13 @@ persistence:
     size: 1Gi
 
     # - Set to true to retain the PVC upon `helm uninstall`
-    skipuninstall: false
+    retain: false
 
   # -- Create an emptyDir volume to share between all containers
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
   # @default -- See below
   shared:
-    enabled: false
+    enabled: true
     type: emptyDir
     mountPath: /shared
 
@@ -423,10 +624,12 @@ persistence:
 
 # -- Used in conjunction with `controller.type: statefulset` to create individual disks for each instance.
 volumeClaimTemplates: []
-# - name: data
+# data:
 #   mountPath: /data
 #   accessMode: "ReadWriteOnce"
 #   size: 1Gi
+
+## Or use a list
 # - name: backup
 #   mountPath: /backup
 #   subPath: theSubPath
@@ -442,6 +645,14 @@ nodeSelector: {}
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
 affinity: {}
 
+# -- Defines topologySpreadConstraint rules.
+# [[ref]](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/)
+topologySpreadConstraints: []
+# - maxSkew: <integer>
+#   topologyKey: <string>
+#   whenUnsatisfiable: <string>
+#   labelSelector: <object>
+
 # -- Specify taint tolerations
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)
 tolerations: []
@@ -455,14 +666,183 @@ hostAliases: []
 #   - "www.example.com"
 
 # -- Set the resource requests / limits for the main container.
-resources: {}
-  ## We usually recommend not to specify default resources and to leave this as a conscious
-  ## choice for the user. This also increases chances charts run on environments with little
-  ## resources, such as Minikube. If you do want to specify resources, uncomment the following
-  ## lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+resources:
+ # We usually recommend not to specify default resources and to leave this as a conscious
+ # choice for the user. This also increases chances charts run on environments with little
+ # resources, such as Minikube. If you do want to specify resources, uncomment the following
+ # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  limits:
+    cpu: 2000m
+    memory: 2Gi
+  requests:
+    cpu: 10m
+    memory: 50Mi
+
+# -- The common chart supports several add-ons. These can be configured under this key.
+# @default -- See below
+addons:
+  # -- The common chart supports adding a VPN add-on. It can be configured under this key.
+  # For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#wireguard-vpn)
+  # @default -- See values.yaml
+  vpn:
+    # -- Specify the VPN type. Valid options are disabled, openvpn or wireguard
+    type: disabled
+
+    # -- OpenVPN specific configuration
+    # @default -- See below
+    openvpn:
+      # -- Credentials to connect to the VPN Service (used with -a)
+      auth:  # "user;password"
+      # -- Optionally specify an existing secret that contains the credentials.
+      # Credentials should be stored under the `VPN_AUTH` key
+      authSecret:  # my-vpn-secret
+
+    wireguard:
+      KILLSWITCH: false
+      KILLSWITCH_EXCLUDEDNETWORKS_IPV4:
+        - 192.168.0.0.1
+    # -- Set the VPN container specific securityContext
+    # @default -- See values.yaml
+    securityContext: {}
+
+    # -- All variables specified here will be added to the vpn sidecar container
+    # See the documentation of the VPN image for all config values
+    env: {}
+      # TZ: UTC
+
+    # -- All variables specified here will be added to the vpn sidecar container
+    # See the documentation of the VPN image for all config values
+    envList: []
+      # name: someenv
+      # value: somevalue
+
+
+    # -- Provide a customized vpn configuration file to be used by the VPN.
+    configFile:
+      enabled: false
+      type: hostPath
+      # -- Which path on the host should be mounted.
+      hostPath: /vpn/vpn.conf
+      noMount: true
+      # -- Specifying a hostPathType adds a check before trying to mount the path.
+      # See Kubernetes documentation for options.
+      hostPathType: "File"
+
+
+  # -- The common library supports adding a code-server add-on to access files. It can be configured under this key.
+  # For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#code-server)
+  # @default -- See values.yaml
+  codeserver:
+    # -- Enable running a code-server container in the pod
+    enabled: false
+
+    # -- Set any environment variables for code-server here
+    env: {}
+      # TZ: UTC
+    # -- Set codeserver command line arguments.
+    # Consider setting --user-data-dir to a persistent location to preserve code-server setting changes
+    args:
+      - --auth
+      - none
+      # - --user-data-dir
+      # - "/config/.vscode"
+
+    # -- Specify a list of volumes that get mounted in the code-server container.
+    # At least 1 volumeMount is required!
+    volumeMounts: []
+    # - name: config
+    #   mountPath: /data/config
+
+    # -- Specify the working dir that will be opened when code-server starts
+    # If not given, the app will default to the mountpah of the first specified volumeMount
+    workingDir: ""
+
+    # -- Optionally allow access a Git repository by passing in a private SSH key
+    # @default -- See below
+    git:
+      # -- Raw SSH private key
+      deployKey: ""
+      # -- Base64-encoded SSH private key. When both variables are set, the raw SSH key takes precedence.
+      deployKeyBase64: ""
+      # -- Existing secret containing SSH private key
+      # The chart expects it to be present under the `id_rsa` key.
+      deployKeySecret: ""
+
+    service:
+      # -- Enable a service for the code-server add-on.
+      enabled: true
+      type: ClusterIP
+      # Specify the default port information
+      ports:
+        codeserver:
+          port: 12321
+          enabled: true
+          protocol: TCP
+          targetPort: codeserver
+          ## Specify the nodePort value for the LoadBalancer and NodePort service types.
+          ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
+          ##
+          # nodePort:
+      annotations: {}
+      labels: {}
+
+    ingress:
+      # -- Enable an ingress for the code-server add-on.
+      enabled: false
+      annotations: {}
+        # kubernetes.io/ingress.class: nginx
+        # kubernetes.io/tls-acme: "true"
+      labels: {}
+      hosts:
+        - host: code.chart-example.local
+          paths:
+            - path: /
+              # Ignored if not kubeVersion >= 1.14-0
+              pathType: Prefix
+      tls: []
+      #  - secretName: chart-example-tls
+      #    hosts:
+      #      - code.chart-example.local
+
+    securityContext:
+      runAsUser: 0
+
+  # -- The common library supports adding a promtail add-on to to access logs and ship them to loki. It can be configured under this key.
+  # @default -- See values.yaml
+  promtail:
+    # -- Enable running a promtail container in the pod
+    enabled: false
+    # -- Set any environment variables for promtail here
+    env: {}
+    # -- Set promtail command line arguments
+    args: []
+    # -- The URL to Loki
+    loki: ""
+    # -- The paths to logs on the volume
+    logs: []
+    # - name: log
+    #   path: /config/logs/*.log
+
+    # -- Specify a list of volumes that get mounted in the promtail container.
+    # At least 1 volumeMount is required!
+    volumeMounts: []
+    # - name: config
+    #   mountPath: /config
+    #   readOnly: true
+
+    securityContext:
+      runAsUser: 0
+
+  # -- The common library supports adding a netshoot add-on to troubleshoot network issues within a Pod. It can be configured under this key.
+  # @default -- See values.yaml
+  netshoot:
+    # -- Enable running a netshoot container in the pod
+    enabled: false
+
+    # -- Set any environment variables for netshoot here
+    env: {}
+
+    securityContext:
+      capabilities:
+        add:
+          - NET_ADMIN

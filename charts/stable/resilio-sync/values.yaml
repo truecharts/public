@@ -1,0 +1,88 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: ghcr.io/linuxserver/resilio-sync
+  # -- image tag
+  tag: version-2.7.2.1375@sha256:605b6d54402830fddfbadcdc8e12ab57015743a889e2f0a02641c8601afa42ba
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
+# -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-resilio-sync#environment-variables-e) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Specify the user ID the application will run as
+  PUID: "1001"
+  # -- Specify the group ID the application will run as
+  PGID: "1001"
+  # -- Sets default UMASK
+  UMASK:  # 022
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 8888
+  bt-tcp:
+    enabled: false
+    type: ClusterIP
+    ports:
+      bt-tcp:
+        enabled: true
+        port: 55555
+        protocol: TCP
+        targetPort: 55555
+  bt-udp:
+    enabled: false
+    type: ClusterIP
+    ports:
+      bt-udp:
+        enabled: true
+        port: 55555
+        protocol: UDP
+        targetPort: 55555
+
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+    mountPath: /config
+
+  media:
+    enabled: false
+    mountPath: /media
+
+  downloads:
+    enabled: false
+    mountPath: /downloads
+
+  sync:
+    enabled: false
+    mountPath: /sync

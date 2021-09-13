@@ -1,12 +1,22 @@
 # Default values for Syncthing.
 
 image:
-  repository: syncthing/syncthing
+  repository: ghcr.io/truecharts/syncthing
   pullPolicy: IfNotPresent
-  tag: "1.17"
+  tag: v1.18.2@sha256:780c4924c4739d707295bd74fd21a186a640bd71f15efc2fcbc9fb9b05162a0d
 
-strategy:
-  type: Recreate
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
@@ -33,6 +43,8 @@ service:
 persistence:
   config:
     enabled: true
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
 
     mountPath: "/var/syncthing/"

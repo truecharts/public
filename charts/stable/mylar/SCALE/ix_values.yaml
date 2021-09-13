@@ -1,0 +1,15 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: ghcr.io/linuxserver/mylar3
+  pullPolicy: IfNotPresent
+  tag: version-v0.5.3@sha256:b96f0e97ab3f4bf4e4320670aa932d0f7df39d1ddce0bbf62808bd509209d78f
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##

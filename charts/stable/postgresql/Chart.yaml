@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: 13.4.0
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 7.0.12
+deprecated: false
+description: PostgresSQL
+home: https://github.com/truecharts/apps/tree/master/stable/postgres
+icon: https://d1q6f0aelx0por.cloudfront.net/product-logos/library-postgres-logo.png
+keywords:
+- postgres
+- postgressql
+- dtabase
+- sql
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: postgresql
+sources:
+- https://www.postgresql.org/
+type: application
+version: 2.2.0

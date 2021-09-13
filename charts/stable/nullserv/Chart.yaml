@@ -1,0 +1,20 @@
+apiVersion: v2
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 6.13.8
+description: A simple null file http and https server
+home: https://github.com/truechartsapps/tree/master/charts/incubator/nullserv
+icon: https://miro.medium.com/max/800/1*UL9RWkTUtJlyHW7kGm20hQ.png
+keywords:
+- nullserv
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: truecharts
+  url: https://truecharts.org
+name: nullserv
+sources:
+- https://github.com/bmrzycki/nullserv
+version: 1.9.15

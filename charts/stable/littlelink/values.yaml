@@ -1,0 +1,39 @@
+# Default values for Jackett.
+
+image:
+  repository: ghcr.io/techno-tim/littlelink-server
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:10dafadbf081fe014799f028024ccb4da2ba566d0413c3d6ebce6fc051a9f3f3
+
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 3000
+
+envFrom:
+  - configMapRef:
+      name: littlelinkconfig
+
+littlelink:
+  meta_title: "techno tim"
+  meta_description: "techno tim link page"
+  meta_author: "techno tim"
+  theme: "dark"
+  favicon_url: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"
+  avatar_url: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"
+  avatar_2x_url: "https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_400x400.jpg"
+  avatar_alt: "techno tim profile pic"
+  name: "technotim"
+  bio: "hey! just a place where you can connect with me!"
+  github: "https://github.com/timothystewart6"
+  twitter: "https://twitter.com/technotimlive"
+  instagram: "https://www.instagram.com/techno.tim"
+  youtube: "https://www.youtube.com/channel/ucok-ghyjcwznj3br4oxwh0a"
+  twitch: "https://www.twitch.tv/technotim/"
+  discord: "https://discord.gg/djkexrj"
+  tiktok: "https://www.tiktok.com/@technotim"
+  kit: "https://kit.co/technotim"
+  footer: "thanks for stopping by!"

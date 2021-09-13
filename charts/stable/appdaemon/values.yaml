@@ -1,0 +1,46 @@
+image:
+  repository: docker.io/acockburn/appdaemon
+  pullPolicy: IfNotPresent
+  tag: v4.1.0@sha256:209ee1c83b4c0794dd6f50333f60a212d0df7c4205e7e374ac78d988ffc3d8fd
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
+env:
+  TZ: "America/Chicago"
+  LATITUDE: 46
+  LONGITUDE: -94
+  ELEVATION: 1217
+  DASH_URL: "http://$HOSTNAME:5050"
+
+service:
+  main:
+    ports:
+      main:
+        port: 5050
+  tcp:
+    enabled: true
+    type: ClusterIP
+    ports:
+      tcp:
+        enabled: true
+        port: 51050
+        protocol: TCP
+
+hostPathMounts:
+  - name: config
+    enabled: true
+    mountPath: /conf
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

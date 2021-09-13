@@ -1,0 +1,75 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: fireflyiii/core
+  pullPolicy: IfNotPresent
+  tag: version-5.5.12@sha256:9a1f87a8ad38694675390756be9686fe9d8ba941fe1f145641626135c7eb5e4b
+
+
+postgresqlImage:
+  repository: bitnami/postgresql
+  pullPolicy: IfNotPresent
+  tag: 13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2
+
+initContainers:
+  init-postgresdb:
+    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
+    command:
+      - "sh"
+      - "-c"
+      - "until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: pghost
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+
+probes:
+  liveness:
+    path: "/login"
+
+  readiness:
+    path: "/login"
+
+  startup:
+    path: "/login"
+
+env:
+  DB_USERNAME: fireflyiii
+  DB_DATABASE: fireflyiii
+  DB_CONNECTION: pgsql
+  DB_PORT: 5432
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql_host
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  postgresqlUsername: fireflyiii
+  postgresqlDatabase: fireflyiii
+  existingSecret: dbcreds
+  persistence:
+    db:
+      storageClass: "SCALE-ZFS"
+    dbbackups:
+      storageClass: "SCALE-ZFS"
+
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##

@@ -18,6 +18,8 @@ extra:
 theme:
   name: 'material'
   language: 'en'
+  logo: _static/img/logo1024.png
+  favicon: _static/img/favicon.png
   icon:
     repo: fontawesome/brands/github-alt
   language: en
@@ -28,8 +30,6 @@ theme:
   - search.highlight
   - search.share
   - search.suggest
-  palette:
-    scheme: slate
   font:
     text: Roboto
     code: Roboto Mono
@@ -40,8 +40,10 @@ extra_css:
 # Plugins
 plugins:
   - search
+  - mkdocs-video
   - minify:
       minify_html: true
+
 
 markdown_extensions:
   - admonition

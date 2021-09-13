@@ -1,20 +1,23 @@
 # Default values for jellyfin.
 
 image:
-  repository: jellyfin/jellyfin
+  repository: ghcr.io/truecharts/jellyfin
   pullPolicy: IfNotPresent
-  tag: 10.7.6
+  tag: v10.7.7@sha256:2fa78e734903d95f8b530d2f3203f5ce5d9ff891cc8a70c0e80e828e336b4abb
 
-strategy:
-  type: Recreate
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
 
 # 44=video 107=render
 podSecurityContext:
-  runAsNonRoot: true
   runAsUser: 568
   runAsGroup: 568
   fsGroup: 568
   supplementalGroups: [44, 107]
+  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
@@ -26,4 +29,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

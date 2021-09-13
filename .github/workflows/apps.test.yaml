@@ -1,0 +1,228 @@
+name: "Apps: Tests"
+
+on:
+  pull_request:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+    paths:
+      - 'charts/**'
+      - '.github/workflows/apps.test.yaml'
+      - '.github/ct-install.yaml'
+      - '.github/ct-lint.yaml'
+
+jobs:
+  changes:
+    name: Get changed Apps
+    runs-on: ubuntu-20.04
+    outputs:
+      matrix: "{\"app\": ${{ steps.reduce.outputs.apps }} }"
+      empty_matrix: ${{ steps.reduce.outputs.empty_matrix }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        list-files: json
+        filters: |
+          changed:
+          - 'charts/stable/**'
+          - 'charts/incubator/**'
+          - 'charts/library/**'
+    - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
+    - id: reduce
+      run: |
+        APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json)
+        echo ::set-output name=apps::${APPS}
+        if [ -z "${APPS[0]}" ]; then
+          echo "No Changed Apps"
+          echo "::set-output name=empty_matrix::true"
+        else
+          echo "Changed Apps: ${APPS[*]}"
+          echo "::set-output name=empty_matrix::false"
+        fi
+
+  app-tests:
+    needs: [changes]
+    if: ${{ needs.changes.outputs.empty_matrix == 'false' }}
+    name: App Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.changes.outputs.matrix) }}
+      fail-fast: false
+    steps:
+    ##
+    # GENERAL SECTION
+    ##
+      - name: Checkout
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Cache helm repo cache
+        id: cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache-${{ github.sha }}
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
+
+      - name: Prepare-Lint
+        if: ${{ matrix.app != '.gitkee' }}
+        id: prep-lint
+        run: |
+            if test -f "./charts/incubator/${{ matrix.app }}/Chart.yaml"; then
+              train="incubator"
+            elif test -f "./charts/stable/${{ matrix.app }}/Chart.yaml"; then
+              train="stable"
+            elif test -f "./charts/library/${{ matrix.app }}/Chart.yaml"; then
+              train="library"
+            else
+              train="incubator"
+            fi
+            echo ::set-output name=train::${train}
+            if test -d "./charts/${train}/${{ matrix.app }}/tests/"; then
+                unittests='true'
+            echo "::set-output name=unittests::true"
+            else
+              unittests="false"
+            echo "::set-output name=unittests::false"
+            fi
+
+      - name: Install Helm
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+
+      - name: update helm repo cache
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
+
+      - uses: actions/setup-python@v2
+        if: ${{ matrix.app != '.gitkee' }}
+        with:
+          python-version: 3.7
+
+      - name: Set up chart-testing
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: helm/chart-testing-action@v2.1.0
+
+      - uses: actions/setup-go@v2
+        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
+        with:
+          go-version: '^1.16'
+
+    ##
+    # Unit-Test section
+    ##
+
+      # Get values for cache paths to be used in later steps
+      - id: go-cache-paths
+        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
+        run: |
+          echo "::set-output name=go-build::$(go env GOCACHE)"
+          echo "::set-output name=go-mod::$(go env GOMODCACHE)"
+
+      # Cache go build cache, used to speedup go test
+      - name: Go Build Cache
+        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.go-cache-paths.outputs.go-build }}
+          key: ${{ runner.os }}-go-build-${{ hashFiles('**/go.sum') }}
+
+      - name: Download modules
+        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
+        run: |
+          go mod download
+      - name: Run unit tests
+        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
+        run: |
+          go test ./charts/.../tests -json | tee test.json
+      - name: Annotate unit tests
+        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
+        uses: guyarb/golang-test-annotations@v0.4.0
+        with:
+          test-results: test.json
+
+      - name: Parse Unit Tests
+        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
+        run: |
+         if grep -q "FAIL"  test.json
+         then
+            echo "Unit Test reported FAILED";
+            exit 1
+         else
+            echo "Unit Test reported OK";
+            exit 0
+         fi
+
+
+    ##
+    # Chart-Testing Section
+    ##
+
+      - name: Run chart-testing (lint)
+        if: ${{ matrix.app != '.gitkee' }}
+        id: lint
+        run: ct lint --config .github/ct-lint.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
+
+      - name: Create k3d cluster
+        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' }}
+        uses: nolar/setup-k3d-k3s@v1
+        with:
+          version: v1.19
+
+      ## TODO: Fix common-test
+      - name: Run chart-testing (install)
+        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' }}
+        run: ct install --config .github/ct-install.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
+
+  app-tests-complete:
+    needs: [app-tests]
+    name: Apps Test Complete
+    runs-on: ubuntu-latest
+    steps:
+      - name: complete message
+        run: echo "App Tests Completed Successfully"
+
+  release-test:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/truecharts/truecharts-release:v1.3.0
+    steps:
+      - name: Cache helm repo cache
+        id: cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache-${{ github.sha }}
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
+
+      - uses: actions/checkout@v2
+        name: Checkout
+        with:
+          fetch-depth: 100
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: truecharts/catalog
+          path: catalog
+
+      - name: Install Helm
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+
+      - name: build-and-run
+        run: |
+          tools/build-release.sh --config .github/cr.yaml

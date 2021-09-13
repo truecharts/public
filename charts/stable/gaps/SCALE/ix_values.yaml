@@ -1,0 +1,15 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: ghcr.io/truecharts/gaps
+  pullPolicy: IfNotPresent
+  tag: v0.8.8@sha256:2e4b3b4e677be68b947517b0077aec719db8c382dad2952421b746060bbd6513
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##

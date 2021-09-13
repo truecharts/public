@@ -6,7 +6,7 @@
   "reviewersFromCodeOwners": true,
   "suppressNotifications": ["prIgnoreNotification"],
   "rebaseWhen": "conflicted",
-  "prConcurrentLimit": 5,
+  "prConcurrentLimit": 7,
   "helm-values": {
     "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
   },
@@ -18,79 +18,48 @@
     {
       "datasources": ["helm"],
       "matchManagers": ["helmv3"],
-      "commitMessageTopic": "Helm chart {{depName}}",
-      "separateMinorPatch": true
+      "commitMessageTopic": "Helm chart {{depName}}"
     },
     // global docker datasource settings
     {
       "datasources": ["docker"],
       "matchManagers": ["helm-values"],
       "enabled": true,
+      "pinDigests": true,
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
       "matchUpdateTypes": ["major", "minor", "patch"],
+      "postUpgradeTasks": {
+      "commands": [
+        "sed -i \"s/^version:.*/version: $(grep '^version:' Chart.yaml | awk '{print $2}' | awk -F '[.\"]' '{$NF = $NF + 1;} 1' | sed 's/ /./g')/\" Chart.yaml",
+      ],
+      "fileFilters": ["Chart.yaml"],
+      "executionMode": "branch"
+      },
     },
     //
-    // Common library dep
+    // helm deps
     //
     {
       "matchDatasources": ["helm"],
       "updateTypes": ["major"],
       "bumpVersion": "major",
       "labels": ["dependency/major"],
-      "packageNames": ["common"],
-      "groupName": ["internal major dep"]
-    },
-    {
-      "matchDatasources": ["helm"],
-      "updateTypes": ["minor"],
-      "bumpVersion": "minor",
-      "labels": ["dependency/minor"],
-      "packageNames": ["common"],
-      "groupName": ["internal minor dep"]
+      "groupName": ["major deps"],
+      "schedule": [
+        "on tuesday"
+      ]
     },
     {
       "matchDatasources": ["helm"],
       "automerge": true,
-      "updateTypes": ["patch"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "bumpVersion": "patch",
-      "labels": ["dependency/patch"],
-      "packageNames": ["common"],
-      "groupName": ["internal patch dep"]
-    },
-    //
-    // External helm deps
-    //
-    {
-      "matchDatasources": ["helm"],
-      "commitMessagePrefix": "[{{{parentDir}}}]",
-      "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
-      "updateTypes": ["major"],
-      "bumpVersion": "major",
-      "labels": ["dependency/major"],
-      "excludePackageNames": ["common"],
-      "schedule": [
-        "on tuesday"
-      ]
-    },
-    {
-      "matchDatasources": ["helm"],
-      "updateTypes": ["minor"],
-      "bumpVersion": "minor",
-      "labels": ["dependency/minor"],
-      "excludePackageNames": ["common"],
-      "groupName": ["external minor dep"],
-      "schedule": [
-        "on tuesday"
-      ]
-    },
-    {
-      "matchDatasources": ["helm"],
-      "updateTypes": ["patch"],
-      "bumpVersion": "patch",
-      "labels": ["dependency/patch"],
-      "excludePackageNames": ["common"],
-      "groupName": ["external patch dep"],
+      "labels": ["dependency/non-major"],
+      "groupName": "non-major deps",
       "schedule": [
         "on tuesday"
       ]
@@ -100,31 +69,25 @@
     //
     {
       "matchDatasources": ["docker"],
-      "commitMessagePrefix": "[{{{parentDir}}}]",
-      "branchTopic": "{{{parentDir}}}-{{{depNameSanitized}}}-{{{newMajor}}}{{#if isPatch}}.{{{newMinor}}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
       "updateTypes": ["major"],
-      "bumpVersion": "major",
-      "labels": ["tag/major"],
-      "schedule": [
-        "on tuesday"
-      ]
-    },
-    {
-      "matchDatasources": ["docker"],
-      "updateTypes": ["minor"],
-      "bumpVersion": "minor",
-      "labels": ["tag/minor"],
-      "groupName": ["minor"],
-      "schedule": [
-        "on tuesday"
-      ]
-    },
-    {
-      "matchDatasources": ["docker"],
-      "updateTypes": ["patch"],
       "bumpVersion": "patch",
-      "labels": ["tag/patch"],
-      "groupName": ["patch"],
+      "labels": ["tag/major"],
+      "groupName": ["major"],
+      "schedule": [
+        "on tuesday"
+      ]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "automerge": false,
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest"
+      ],
+      "bumpVersion": "patch",
+      "labels": ["tag/non-major"],
+      "groupName": ["non-major"],
       "schedule": [
         "on tuesday"
       ]
@@ -142,8 +105,9 @@
       "matchDatasources": ["docker"],
       "versioning": "loose",
       "matchPackageNames": [
-        "ghcr.io/truecharts/plex",
-        "ghcr.io/truecharts/qbittorrent",
+        "ghcr.io/k8s-at-home/plex",
+        "ghcr.io/k8s-at-home/qbittorrent",
+        "sirfragalot/hyperion.ng",
       ],
     },
   ]

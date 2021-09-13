@@ -1,0 +1,42 @@
+# Default values for node-red.
+
+image:
+  repository: ghcr.io/truecharts/node-red
+  pullPolicy: IfNotPresent
+  tag: v2.0.6@sha256:b772bf702782d81b124453477846b15ddef0253c67ac6135a8c3d96128d9f9a3
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
+# See more environment varaibles in the node-red documentation
+# https://nodered.org/docs/getting-started/docker
+env: {}
+  # TZ:
+  # NODE_OPTIONS:
+  # NODE_RED_ENABLE_PROJECTS:
+  # NODE_RED_ENABLE_SAFE_MODE:
+  # FLOWS:
+
+service:
+  main:
+    ports:
+      main:
+        port: 1880
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

@@ -27,6 +27,12 @@
   lifecycle:
     {{- toYaml . | nindent 4 }}
   {{- end }}
+  {{- with .Values.termination.messagePath }}
+  terminationMessagePath: {{ . }}
+  {{- end }}
+  {{- with .Values.termination.messagePolicy }}
+  terminationMessagePolicy: {{ . }}
+  {{- end }}
 
   env:
    {{- range $key, $value := .Values.envTpl }}
@@ -36,7 +42,17 @@
    {{- range $key, $value := .Values.envValueFrom }}
     - name: {{ $key }}
       valueFrom:
+        {{- if $value.secretKeyRef }}
+        secretKeyRef:
+          name: {{ tpl $value.secretKeyRef.name $ | quote }}
+          key: {{ tpl $value.secretKeyRef.key $ | quote }}
+        {{- else if $value.configMapRef }}
+        configMapRef:
+          name: {{ tpl $value.configMapRef.name $ | quote }}
+          key: {{ tpl $value.configMapRef.key $ | quote }}
+        {{- else }}
         {{- $value | toYaml | nindent 8 }}
+        {{- end }}
    {{- end }}
   {{- range $envList := .Values.envList }}
     {{- if and $envList.name $envList.value }}
@@ -71,17 +87,23 @@
       {{- end }}
     {{- end }}
   {{- end }}
-  {{- if or .Values.envFrom .Values.secret }}
   envFrom:
-    {{- with .Values.envFrom }}
-      {{- toYaml . | nindent 4 }}
-    {{- end }}
-    {{- if .Values.secret }}
+  {{- range .Values.envFrom -}}
+  {{- if  .secretRef }}
+    - secretRef:
+        name: {{ tpl .secretRef.name $ | quote }}
+  {{- else if  .configMapRef }}
+    - configMapRef:
+        name: {{ tpl .configMapRef.name $ | quote }}
+  {{- else }}
+  {{- end }}
+  {{- end -}}
+  {{- if .Values.secret }}
     - secretRef:
         name: {{ include "common.names.fullname" . }}
-    {{- end }}
   {{- end }}
-  {{- include "common.controller.ports" . | trim | nindent 2 }}
+  ports:
+  {{- include "common.controller.ports" . | trim | nindent 4 }}
   {{- with (include "common.controller.volumeMounts" . | trim) }}
   volumeMounts:
     {{ nindent 4 . }}

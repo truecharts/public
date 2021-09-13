@@ -1,0 +1,71 @@
+{{- define "custom.introheader" -}}
+# Introduction
+{{- end -}}
+{{- define "custom.repository.organization" -}}
+TrueCharts
+{{- end -}}
+{{- define "custom.repository.url" -}}
+https://github.com/truecharts/apps
+{{- end -}}
+{{- define "custom.helm.url" -}}
+https://truecharts.org
+{{- end -}}
+{{- define "custom.helm.path" -}}
+{{ template "custom.repository.organization" . }}/{{ template "chart.name" . }}
+{{- end -}}
+{{- define "custom.notes" -}}
+TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
+**This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
+{{- end -}}
+{{- define "custom.requirements" -}}
+## Requirements
+
+{{ template "chart.kubeVersionLine" . }}
+{{- end -}}
+{{- define "custom.dependencies" -}}
+## Dependencies
+
+{{ template "chart.requirementsTable" . }}
+{{- end -}}
+{{- define "custom.install" -}}
+## Installing the Chart
+
+To install this App on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/03-Installing-an-App/).
+{{- end -}}
+{{- define "custom.uninstall" -}}
+## Uninstalling the Chart
+
+To remove this App from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/Quick-Start%20Guides/07-Deleting-an-App/).
+{{- end -}}
+{{- define "custom.support" -}}
+## Support
+
+- Please check our [quick-start guides](https://truecharts.org/manual/Quick-Start%20Guides/01-Open-Apps/) first.
+- See the [Wiki](https://truecharts.org)
+- Check our [Discord](https://discord.gg/tVsPTHWTtr)
+- Open a [issue](https://github.com/truecharts/apps/issues/new/choose)
+{{- end -}}
+{{- define "custom.copyright" -}}
+All Rights Reserved - The TrueCharts Project
+{{- end -}}
+{{ template "custom.introheader" . }}
+
+{{ template "chart.description" . }}
+
+{{ template "chart.deprecationWarning" . }}
+
+{{ template "custom.notes" . }}
+
+{{ template "chart.sourcesSection" . }}
+
+{{ template "custom.requirements" . }}
+
+{{ template "custom.dependencies" . }}
+
+{{ template "custom.install" . }}
+
+{{ template "custom.uninstall" . }}
+
+{{ template "custom.support" . }}
+---
+{{ template "custom.copyright" . }}

@@ -1,0 +1,22 @@
+apiVersion: v2
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 6.13.8
+deprecated: false
+description: qBittorrent is a cross-platform free and open-source BitTorrent client
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/qbittorrent
+icon: https://cloud.githubusercontent.com/assets/14862437/23586868/89ef2922-01c4-11e7-869c-52aafcece17f.png
+keywords:
+- qbittorrent
+- torrrent
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+name: qbittorrent
+sources: null
+type: application
+version: 6.11.15

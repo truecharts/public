@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org/
+  version: 6.13.8
+deprecated: false
+description: Community developed LDAP software
+home: https://www.openldap.org
+icon: https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Database-openldap.svg/640px-Database-openldap.svg.png
+keywords:
+- ldap
+- openldap
+- iam-stack
+- high availability
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+- email: kjeld@schouten-lebbing.nl
+  name: Ornias1993
+  url: truecharts.org
+name: openldap
+sources:
+- https://github.com/jp-gouin/helm-openldap
+- https://github.com/osixia/docker-openldap
+type: application
+version: 1.7.19

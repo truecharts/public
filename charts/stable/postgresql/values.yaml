@@ -1,0 +1,91 @@
+image:
+  repository: bitnami/postgresql
+  pullPolicy: IfNotPresent
+  tag: 13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2
+
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 5432
+
+## TODO: Fix the backup-on-upgrade system
+enableUpgradeBackup: false
+
+initContainers:
+  migrate-db:
+    image: "{{ .Values.alpineImage.repository}}:{{ .Values.alpineImage.tag }}"
+    securityContext:
+      runAsUser: 0
+      privileged: true
+      allowPrivilegeEscalation: true
+      runAsNonRoot: false
+    command:
+      - /bin/sh
+      - -cx
+      - |
+        echo 'trying to migrate old db to new location...'
+        mkdir -p /bitnami/postgresql/data
+        mv -f /bitnami/postgresql/old/* /bitnami/postgresql/data/ || true
+        chown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/data
+        chmod 775 /bitnami/postgresql/data
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - name: db
+        mountPath: /bitnami/postgresql/old
+      - name: data
+        mountPath: /bitnami/postgresql
+
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 0
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
+persistence:
+  db:
+    enabled: true
+    mountPath: "/bitnami/postgresql/old"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "999Gi"
+  data:
+    enabled: true
+    mountPath: "/bitnami/postgresql"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "999Gi"
+  dbbackups:
+    enabled: true
+    mountPath: "/dbbackups"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "999Gi"
+
+postgresqlPassword: "testpass"
+postgresqlUsername: "test"
+postgresqlDatabase: "test"
+existingSecret: ""
+
+
+envValueFrom:
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+      key: "postgresql-password"
+
+envTpl:
+  POSTGRES_USER: "{{ .Values.postgresqlUsername }}"
+  POSTGRES_DB: "{{ .Values.postgresqlDatabase }}"
+# POSTGRESQL_POSTGRES_PASSWORD: "{{ .Values.postgrespassword }}"
+# POSTGRESQL_PASSWORD: "{{ .Values.password }}"

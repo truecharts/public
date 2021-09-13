@@ -1,0 +1,21 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: shenxn/protonmail-bridge
+  pullPolicy: IfNotPresent
+  tag: 1.8.7-1@sha256:acf31af7c111e6558f3a93bebada2b0bb8af3dcc72929bd6ae3907e65bee3ca4
+
+service:
+  main:
+    ports:
+      main:
+        enabled: false
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##

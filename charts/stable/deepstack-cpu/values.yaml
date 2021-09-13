@@ -3,10 +3,7 @@
 image:
   repository: deepquestai/deepstack
   pullPolicy: IfNotPresent
-  tag: cpu-2021.02.1
-
-strategy:
-  type: Recreate
+  tag: cpu-2021.02.1@sha256:db1876e7a5c73111e0cd18e26b2401c20997afdea3f8f9f9116ef951b49ba5be
 
 service:
   main:
@@ -36,4 +33,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/datastore"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

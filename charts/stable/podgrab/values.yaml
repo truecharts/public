@@ -1,0 +1,64 @@
+# Default values for podgrab.
+
+image:
+  repository: ghcr.io/truecharts/podgrab
+  pullPolicy: Always
+  tag: v1.0.0@sha256:17a92f111c5840f1fb78f216e4191ec1f5eeeb04ad5a1a5bdde0df35fdbe8910
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+  tcp:
+    enabled: true
+    type: ClusterIP
+    ports:
+      tcp:
+        enabled: true
+        port: 51080
+        protocol: TCP
+
+env:
+  PASSWORD: secretpasswordgoeshere
+  CHECK_FREQUENCY: 240
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+
+
+hostPathMounts:
+  - name: assets
+    enabled: true
+    mountPath: "/assets"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+
+probes:
+  liveness:
+    enabled: false
+
+  readiness:
+    enabled: false
+
+  startup:
+    enabled: false

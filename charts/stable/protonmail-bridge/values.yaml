@@ -1,0 +1,56 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: shenxn/protonmail-bridge
+  # -- image tag
+  tag: 1.8.7-1@sha256:acf31af7c111e6558f3a93bebada2b0bb8af3dcc72929bd6ae3907e65bee3ca4
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
+# -- environment variables.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        enabled: false
+      smtp:
+        enabled: true
+        protocol: TCP
+        port: 25
+
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    mountPath: /root
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

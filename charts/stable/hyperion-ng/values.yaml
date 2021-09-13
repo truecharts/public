@@ -1,0 +1,69 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: sirfragalot/hyperion.ng
+  # -- image tag
+  tag: 2.0.0-alpha.9-x86_64@sha256:34577843cb7b64a27b2e772a54886b54d8e0393230b18c6502309ab8221095a0
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
+
+# -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-airsonic#environment-variables-e) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Specify the user ID the application will run as
+  PUID: "1001"
+  # -- Specify the group ID the application will run as
+  PGID: "1001"
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 8090
+      jsonservice:
+        enabled: true
+        port: 19444
+        protocol: TCP
+        targetPort: 19444
+      protobufservice:
+        enabled: true
+        port: 19445
+        protocol: TCP
+        targetPort: 19445
+      boblightservice:
+        enabled: true
+        port: 19333
+        protocol: TCP
+        targetPort: 19333
+
+
+persistence:
+  config:
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+    mountPath: /root/.hyperion

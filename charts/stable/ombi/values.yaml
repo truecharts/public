@@ -3,10 +3,20 @@
 image:
   repository: ghcr.io/truecharts/ombi
   pullPolicy: IfNotPresent
-  tag: v4.0.1425
+  tag: v4.0.1482@sha256:0fa4e81029d9adef9d773ce99db13ff3039fd087d58d7266cbcfd7462e7afc56
 
-strategy:
-  type: Recreate
+securityContext:
+  privileged: false
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
@@ -23,7 +33,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
 
 
 # Enabled mariadb

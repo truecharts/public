@@ -1,0 +1,21 @@
+apiVersion: v2
+appVersion: auto
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 6.13.8
+description: Calibre is a powerful and easy to use e-book manager.
+home: https://github.com/truechartsapps/tree/master/charts/incubator/calibre
+icon: https://github.com/kovidgoyal/calibre/raw/master/resources/images/lt.png
+keywords:
+- calibre
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: truecharts
+  url: https://truecharts.org
+name: calibre
+sources:
+- https://hub.docker.com/r/linuxserver/calibre/
+- https://github.com/kovidgoyal/calibre/
+version: 1.9.15

@@ -1,0 +1,56 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: ghcr.io/truecharts/octoprint
+  # -- image tag
+  tag: v1.6.1@sha256:3e54ffdf99ab297b2b70289d72f880cd52aad5f6a55ab3005f38a25a7115e692
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Enable MJPG Streamer
+  # Enable this to ensure camera streaming is enabled you add a video device.
+  ENABLE_MJPG_STREAMER: "true"
+  # -- MJPG Streamer input parameters
+  MJPG_STREAMER_INPUT:  # "-y -n -r 640x480"
+  # -- MJPG Streamer camera device
+  CAMERA_DEV:  # /dev/video0
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+
+securityContext:
+  # -- (bool) Privileged securityContext may be required if USB devics are accessed directly through the host machine
+  privileged: true
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  data:
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+    mountPath: /octoprint
+  # -- Configure a hostPathMount to mount a USB device in the container.
+  # @default -- See values.yaml
+  printer:
+    enabled: false
+    type: hostPath
+    hostPath: /dev/ttyACM0

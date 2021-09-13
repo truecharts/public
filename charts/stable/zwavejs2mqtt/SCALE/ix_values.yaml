@@ -5,14 +5,9 @@
 ##
 
 image:
-  repository: zwavejs/zwavejs2mqtt
+  repository: ghcr.io/truecharts/zwavejs2mqtt
   pullPolicy: IfNotPresent
-  tag: 5.0.4
-
-# 5=tty 20=dialout 24=cdrom
-podSecurityContext:
-  runAsNonRoot: true
-  supplementalGroups: [5, 20, 24]
+  tag: v5.5.4@sha256:8b5946e5e3384f8818766e20da7f576e243a364369366d631a80e7794cfdfa3b
 
 probes:
   liveness:

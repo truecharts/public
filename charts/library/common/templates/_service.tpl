@@ -19,7 +19,7 @@ Renders the Service objects required by the chart.
 {{- end }}
 
 {{/*
-Return the name of the primary service object
+Return the primary service object
 */}}
 {{- define "common.service.primary" -}}
   {{- $enabledServices := dict -}}

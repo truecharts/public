@@ -1,0 +1,75 @@
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
+
+image:
+  # -- image repository
+  repository: ghcr.io/truecharts/deconz
+    # -- image tag
+  tag: v2.12.06@sha256:738ebf8eb35c8025c070a4feeb7d7a48b15739dfe71cf338e80a03f932c1cf52
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [image docs](https://github.com/marthoc/docker-deconz/blob/master/README.md) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Override the location where deCONZ looks for the RaspBee/Conbee device.
+  DECONZ_DEVICE:  # /dev/ttyUSB0
+  # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
+  DECONZ_VNC_MODE: 1
+  # -- Web UI listen port
+  DECONZ_WEB_PORT: 80
+  # -- Websocket listen port
+  DECONZ_WS_PORT: 443
+  # -- VNC server listen port
+  DECONZ_VNC_PORT: 5900
+  # -- If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password "changeme" using a Secret.
+  DECONZ_VNC_PASSWORD:
+    # secretKeyRef:
+    #   name: deconz-vnc-password
+    #   key: password
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 80
+      websocket:
+        enabled: true
+        port: 443
+      vnc:
+        enabled: true
+        port: 5900
+
+securityContext:
+  # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
+  privileged:  # true
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+    mountPath: /root/.local/share/dresden-elektronik/deCONZ
+
+# -- Affinity constraint rules to place the Pod on a specific node.
+# [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
+affinity: {}
+#   nodeAffinity:
+#     requiredDuringSchedulingIgnoredDuringExecution:
+#       nodeSelectorTerms:
+#       - matchExpressions:
+#         - key: app
+#           operator: In
+#           values:
+#           - zigbee-controller

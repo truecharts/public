@@ -1,0 +1,68 @@
+# Default values for Unifi.
+
+image:
+  repository: ghcr.io/truecharts/unifi
+  tag: v6.2.26@sha256:cb9fc82546bfd94d5a10da131468695fa56e2f021895f56255464efaf492b6bc
+  pullPolicy: IfNotPresent
+
+envTpl:
+  # Permissions Settings
+  UNIFI_GID: "{{ .Values.env.PUID }}"
+  UNIFI_UID: "{{ .Values.env.PGID }}"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: HTTPS
+        port: 8443
+  comm:
+    enabled: true
+    ports:
+      comm:
+        enabled: true
+        port: 8080
+        targetPort: 8080
+        protocol: TCP
+  stun:
+    enabled: true
+    ports:
+      stun:
+        enabled: true
+        port: 3478
+        targetPort: 3478
+        protocol: UDP
+  speedtest:
+    enabled: false
+    ports:
+      speedtest:
+        enabled: true
+        port: 6789
+        targetPort: 6789
+        protocol: TCP
+  guestportal:
+    enabled: false
+    ports:
+      web:
+        enabled: true
+        port: 8880
+        targetPort: 8880
+        protocol: HTTP
+      websecure:
+        enabled: true
+        port: 8843
+        targetPort: 8843
+        protocol: HTTPS
+
+env:
+  # TZ:
+  PUID: "568"
+  PGID: "568"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/unifi"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

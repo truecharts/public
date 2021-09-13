@@ -1,12 +1,9 @@
 # Default values for Jackett.
 
 image:
-  repository: ixsystems/truecommand
+  repository: ghcr.io/truecharts/truecommand
   pullPolicy: IfNotPresent
-  tag: "2.0"
-
-strategy:
-  type: Recreate
+  tag: v2.0.2@sha256:7b9ccdab38c82efd0a04e0bef8b99877c1efd25d88e319d1188fd3686ae29c22
 
 service:
   main:
@@ -23,4 +20,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    type: emptyDir
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
