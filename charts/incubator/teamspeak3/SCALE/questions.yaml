@@ -72,6 +72,14 @@ questions:
             default: "Etc/UTC"
             $ref:
               - "definitions/timezone"
+        - variable: TS3SERVER_LICENSE
+          label: "TS3SERVER_LICENSE"
+          description: "Accept TS3SERVER LICENSE"
+          schema:
+            hidden: true
+            editable: false
+            type: string
+            default: "accept"
 
 # Include{containerConfig}
 
