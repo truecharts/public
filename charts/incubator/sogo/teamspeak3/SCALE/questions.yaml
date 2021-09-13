@@ -57,6 +57,7 @@ questions:
                 description: "RollingUpdate: Create new pods and then kill old ones"
               - value: "OnDelete"
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
+
 # Include{controllerExpert}
   - variable: env
     group: "Container Configuration"
@@ -72,7 +73,6 @@ questions:
             $ref:
               - "definitions/timezone"
         
-  
 # Include{containerConfig}
 
   - variable: service
@@ -560,7 +560,9 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "100Gi"
+
 # Include{persistenceList}
+
   - variable: ingress
     label: ""
     group: "Ingress"
@@ -720,9 +722,8 @@ questions:
                                   schema:
                                     type: string
 
-
-
 # Include{ingressList}
+
   - variable: securityContext
     group: "Security and Permissions"
     label: "Security Context"
@@ -784,9 +785,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
-
-
   - variable: autoscaling
     group: "Resources and Devices"
     label: "(Advanced) Horizontal Pod Autoscaler"
