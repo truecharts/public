@@ -169,26 +169,7 @@ questions:
                   type: string
                   default: "ignore"
                   required: true
-  - variable: envList
-    label: "Image environment"
-    group: "Container Configuration"
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: envItem
-          label: "Environment Variable"
-          schema:
-            type: dict
-            attrs:
-              - variable: name
-                label: "Name"
-                schema:
-                  type: string
-              - variable: value
-                label: "Value"
-                schema:
-                  type: string
+# Include{containerConfig}
 
   - variable: hostNetwork
     group: "Networking and Services"

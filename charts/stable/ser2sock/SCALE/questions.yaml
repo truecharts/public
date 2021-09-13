@@ -104,27 +104,7 @@ questions:
             type: string
             hidden: true
             default: "{{ .Values.service.main.ports.main.port }}"
-  # Configure Enviroment Variables
-  - variable: envList
-    label: "Image environment"
-    group: "Container Configuration"
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: envItem
-          label: "Environment Variable"
-          schema:
-            type: dict
-            attrs:
-              - variable: name
-                label: "Name"
-                schema:
-                  type: string
-              - variable: value
-                label: "Value"
-                schema:
-                  type: string
+# Include{containerConfig}
 
   - variable: hostNetwork
     group: "Networking and Services"
