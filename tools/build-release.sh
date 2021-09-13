@@ -131,35 +131,41 @@ include_questions(){
     /# Include{groups}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/groups.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
-     # Replace # Include{controllerExpert} with the standard VPN codesnippet
+     # Replace # Include{controllerExpert} with the standard controllerExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{controllerExpert}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/controllerExpert.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
-    # Replace # Include{containerConfig} with the standard VPN codesnippet
+    # Replace # Include{containerConfig} with the standard containerConfig codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{containerConfig}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/containerConfig.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
-    # Replace # Include{serviceList} with the standard VPN codesnippet
+    # Replace # Include{serviceList} with the standard serviceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceList}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/serviceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
-    # Replace # Include{persistenceList} with the standard VPN codesnippet
+    # Replace # Include{persistenceList} with the standard persistenceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceList}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/persistenceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
-    # Replace # Include{ingressList} with the standard VPN codesnippet
+    # Replace # Include{ingressList} with the standard ingressList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressList}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/ingressList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
-    # Replace # Include{addons} with the standard VPN codesnippet
+    # Replace # Include{addons} with the standard addons codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{addons}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/addons.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
+    # Replace # Include{deviceList} with the standard deviceList codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{deviceList}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/deviceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
     }
 
 clean_catalog() {

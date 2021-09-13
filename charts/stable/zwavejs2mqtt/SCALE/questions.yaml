@@ -519,46 +519,7 @@ questions:
 
 
 # Include{ingressList}
-  - variable: deviceList
-    label: "Mount USB devices"
-    group: "Resources and Devices"
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: deviceListEntry
-          label: "Device"
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-              - variable: type
-                label: "(Advanced) Type of Storage"
-                description: "Sets the persistence type"
-                schema:
-                  type: string
-                  default: "hostPath"
-                  hidden: true
-              - variable: readOnly
-                label: "readOnly"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: hostPath
-                label: "Host Device Path"
-                description: "Path to the device on the host system"
-                schema:
-                  type: path
-              - variable: mountPath
-                label: "Container Device Path"
-                description: "Path inside the container the device is mounted"
-                schema:
-                  type: string
-                  default: "/dev/ttyACM0"
+
 
   - variable: securityContext
     group: "Security and Permissions"
@@ -631,6 +592,7 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+
   - variable: resources
     group: "Resources and Devices"
     label: ""
@@ -672,6 +634,7 @@ questions:
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
 
+# Include{deviceList}
 
   - variable: autoscaling
     group: "Resources and Devices"
