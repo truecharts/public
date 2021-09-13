@@ -16,6 +16,8 @@ securityContext:
   {{- toYaml . | nindent 2 }}
 {{- end }}
 env:
+  - name: SEPARATOR
+    value: ";"
 {{- range $envList := .Values.addons.vpn.envList }}
   {{- if and $envList.name $envList.value }}
   - name: {{ $envList.name }}
@@ -24,13 +26,14 @@ env:
   {{- fail "Please specify name/value for VPN environment variable" }}
   {{- end }}
 {{- end}}
+
 {{- with .Values.addons.vpn.env }}
 {{- range $k, $v := . }}
   - name: {{ $k }}
     value: {{ $v | quote }}
 {{- end }}
-  - name: SEPARATOR
-    value: ";"
+{{- end }}
+
 {{- if .Values.addons.vpn.wireguard.KILLSWITCH }}
   - name: KILLSWITCH
     value: "true"
@@ -44,7 +47,6 @@ env:
 {{- end }}
 {{- end }}
 
-{{- end }}
 volumeMounts:
   - mountPath: {{ .Values.persistence.shared.mountPath }}
     name: shared
