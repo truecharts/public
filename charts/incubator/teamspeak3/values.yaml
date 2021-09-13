@@ -10,18 +10,18 @@ image:
 # 30033 file transport
 service:
   main:
-    ports:
-      main:
-        port: 9987
-        protocol: "UDP"
-  query:
     enabled: true
     type: ClusterIP
     ports:
-      query:
+      main:
         enabled: true
         port: 10011
         protocol: "TCP"
+  voice:
+    ports:
+      voice:
+        port: 9987
+        protocol: "UDP"
   files:
     enabled: true
     type: ClusterIP
