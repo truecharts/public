@@ -22,7 +22,7 @@ service:
         enabled: true
         port: 10011
         protocol: "TCP"
-  file_transport:
+  files:
     enabled: true
     type: ClusterIP
     ports:
