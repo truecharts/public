@@ -1039,7 +1039,7 @@ questions:
 
   - variable: autoscaling
     group: "Resources and Devices"
-    label: "Horizontal Pod Autoscaler"
+    label: "(Advanced) Horizontal Pod Autoscaler"
     schema:
       type: dict
       attrs:
@@ -1076,3 +1076,5 @@ questions:
                 schema:
                   type: int
                   default: 80
+
+# Include{addons}
