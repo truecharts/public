@@ -581,6 +581,8 @@ questions:
                               default: 36102
                               required: true
 
+# Include{serviceList}
+
   - variable: persistence
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
@@ -906,7 +908,7 @@ questions:
                   type: string
                   default: "ReadWriteOnce"
                   enum:
-                    - value: "ReadWriteOnce"
+                      - value: "ReadWriteOnce"
                       description: "ReadWriteOnce"
                     - value: "ReadOnlyMany"
                       description: "ReadOnlyMany"
