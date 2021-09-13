@@ -3,7 +3,7 @@
 image:
   repository: teamspeak
   pullPolicy: IfNotPresent
-  tag: 3.13.6
+  tag: 3.13.6@sha256:ff7a92727ffbf05925b54bb12e65bfee311d4193fc68e175dacd63a0048c28bf
 
 #  9987 default voice
 # 10011 server query
@@ -32,7 +32,6 @@ service:
         protocol: "TCP"
 
 env:
-  #TeamSpeak 3 settings
   TS3SERVER_LICENSE: accept
 
 persistence:
