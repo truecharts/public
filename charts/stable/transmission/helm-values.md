@@ -14,12 +14,21 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/transmission"` |  |
-| image.tag | string | `"v3.00"` |  |
+| image.tag | string | `"v3.00@sha256:355f4036c53c782df1957de0e16c63f4298f5b596ae5e621fea8f9ef02dd09e6"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
+| podSecurityContext.fsGroup | int | `568` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| podSecurityContext.runAsGroup | int | `568` |  |
+| podSecurityContext.runAsUser | int | `568` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `9091` |  |
 | service.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.tcp.enabled | bool | `true` |  |
@@ -29,6 +38,5 @@ You will, however, be able to use all values referenced in the common chart here
 | service.torrent.ports.udp.port | int | `51413` |  |
 | service.torrent.ports.udp.protocol | string | `"UDP"` |  |
 | service.torrent.type | string | `"ClusterIP"` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

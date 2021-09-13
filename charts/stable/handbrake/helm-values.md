@@ -26,8 +26,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envTpl.GROUP_ID | string | `"{{ .Values.env.PGID }}"` |  |
 | envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"jlesage/handbrake"` |  |
-| image.tag | string | `"v1.24.1"` |  |
+| image.repository | string | `"ghcr.io/truecharts/handbrake"` |  |
+| image.tag | string | `"v1.24.1@sha256:465f3116359c0b40497f0f2249cb1326047208d2aa70c0822df73e3d6e49eee7"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
@@ -39,6 +39,5 @@ You will, however, be able to use all values referenced in the common chart here
 | service.vnc.ports.vnc.port | int | `5900` |  |
 | service.vnc.ports.vnc.protocol | string | `"TCP"` |  |
 | service.vnc.type | string | `"ClusterIP"` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

@@ -13,14 +13,13 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"lycheeorg/lychee-laravel"` |  |
-| image.tag | string | `"v4.3.4"` |  |
+| image.repository | string | `"ghcr.io/truecharts/lychee-laravel"` |  |
+| image.tag | string | `"v4.3.4@sha256:b6ce78acde58c303b4c91d78d899317ee4de6a9c44343b263155497c1bcd762c"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | service.main.ports.main.port | int | `80` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

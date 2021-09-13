@@ -18,10 +18,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env.server_name | string | `"collabora\\.domain\\.tld"` |  |
 | env.username | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"collabora/code"` |  |
-| image.tag | string | `"6.4.10.10"` |  |
+| image.repository | string | `"ghcr.io/truecharts/collabora"` |  |
+| image.tag | string | `"v6.4.10.10@sha256:9b44b62b0d7894b4bdd6db6c4a5be66b4a2b14920f2d6401252e57641975d911"` |  |
 | service.main.ports.main.port | int | `9980` |  |
 | service.main.type | string | `"NodePort"` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

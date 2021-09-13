@@ -14,10 +14,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PHPLDAPADMIN_HTTPS | string | `"false"` |  |
 | env.PHPLDAPADMIN_TRUST_PROXY_SSL | string | `"true"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"osixia/phpldapadmin"` |  |
-| image.tag | string | `"0.9.0"` |  |
+| image.repository | string | `"ghcr.io/truecharts/phpldapadmin"` |  |
+| image.tag | string | `"v0.9.0@sha256:e633aefd9a89e9c1492bef151eb81d718b5b9ecc7bf1bc80e64b36e5ac480158"` |  |
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `80` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

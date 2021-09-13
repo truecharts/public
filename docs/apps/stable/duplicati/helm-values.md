@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/duplicati"` | image repository |
-| image.tag | string | `"latest"` | image tag |
+| image.tag | string | `"latest@sha256:9ab28cc15af085072ed3f0872355c72bf7daa1bd8a8205322571e0e351b2d522"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

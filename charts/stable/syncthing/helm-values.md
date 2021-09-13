@@ -12,13 +12,22 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"syncthing/syncthing"` |  |
-| image.tag | string | `"1.18"` |  |
+| image.repository | string | `"ghcr.io/truecharts/syncthing"` |  |
+| image.tag | string | `"v1.18.2@sha256:780c4924c4739d707295bd74fd21a186a640bd71f15efc2fcbc9fb9b05162a0d"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/syncthing/"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
+| podSecurityContext.fsGroup | int | `568` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| podSecurityContext.runAsGroup | int | `568` |  |
+| podSecurityContext.runAsUser | int | `568` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
 | service.discovery.ports.discovery.enabled | bool | `true` |  |
 | service.discovery.ports.discovery.port | int | `21027` |  |
 | service.discovery.ports.discovery.protocol | string | `"UDP"` |  |
@@ -29,6 +38,5 @@ You will, however, be able to use all values referenced in the common chart here
 | service.listeners.ports.udp.port | int | `22000` |  |
 | service.listeners.ports.udp.protocol | string | `"UDP"` |  |
 | service.main.ports.main.port | int | `8384` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

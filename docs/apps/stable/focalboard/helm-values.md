@@ -13,9 +13,18 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See more environment variables in the [image entrypoint script](https://github.com/FlipEnergy/container-images/blob/main/focalboard/entrypoint.sh) |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"flipenergy/focalboard"` | image repository |
-| image.tag | string | `"0.8.0"` | image tag |
+| image.repository | string | `"ghcr.io/truecharts/focalboard"` | image repository |
+| image.tag | string | `"v0.8.0@sha256:c8a81de85722b1d8ce728222cd5b77ea9f8e4ca33c91787a8a3eb0a49f6fa432"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| podSecurityContext.fsGroup | int | `568` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| podSecurityContext.runAsGroup | int | `568` |  |
+| podSecurityContext.runAsUser | int | `568` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

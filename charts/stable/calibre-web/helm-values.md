@@ -13,14 +13,13 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"linuxserver/calibre-web"` |  |
-| image.tag | string | `"version-0.6.12"` |  |
+| image.repository | string | `"ghcr.io/linuxserver/calibre-web"` |  |
+| image.tag | string | `"version-0.6.12@sha256:d2e3980e7d0257c28d1e06a10d7f9cb0b3de6865a8d987e10af590fa6c4ebb77"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | service.main.ports.main.port | int | `8083` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

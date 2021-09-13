@@ -18,8 +18,17 @@ You will, however, be able to use all values referenced in the common chart here
 | env.UMASK | string | `nil` | Sets default UMASK |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/resilio-sync"` | image repository |
-| image.tag | string | `"version-2.7.2.1375"` | image tag |
+| image.tag | string | `"version-2.7.2.1375@sha256:605b6d54402830fddfbadcdc8e12ab57015743a889e2f0a02641c8601afa42ba"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| podSecurityContext.fsGroup | int | `568` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

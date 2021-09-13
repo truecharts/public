@@ -15,8 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | git.deployKey | string | `""` |  |
 | git.deployKeyBase64 | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"homeassistant/home-assistant"` |  |
-| image.tag | string | `"2021.9.4"` |  |
+| image.repository | string | `"ghcr.io/truecharts/home-assistant"` |  |
+| image.tag | string | `"v2021.9.6@sha256:74644684cd6d96bdeab87586e21235ee48d0dac44285cd0b68b12ce0e11895db"` |  |
 | influxdb.architecture | string | `"standalone"` |  |
 | influxdb.authEnabled | bool | `false` |  |
 | influxdb.database | string | `"home_assistant"` |  |
@@ -34,6 +34,5 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"home-assistant"` |  |
 | prometheus.serviceMonitor.enabled | bool | `false` |  |
 | service.main.ports.main.port | int | `8123` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

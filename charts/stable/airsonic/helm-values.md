@@ -18,8 +18,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | string | `"1001"` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"linuxserver/airsonic"` | image repository |
-| image.tag | string | `"version-v10.6.2"` | image tag |
+| image.repository | string | `"ghcr.io/linuxserver/airsonic"` | image repository |
+| image.tag | string | `"version-v10.6.2@sha256:531bdcbb5362bbd72d13ea91f11d386542f04a6cced1d8614e2091685c262057"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. Normally this does not need to be modified. |

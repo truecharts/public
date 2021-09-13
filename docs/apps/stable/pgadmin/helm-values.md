@@ -14,15 +14,23 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PGADMIN_DEFAULT_EMAIL | string | `"replace@this.now"` |  |
 | env.PGADMIN_DEFAULT_PASSWORD | string | `"changeme"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"dpage/pgadmin4"` |  |
-| image.tag | string | `"5.6"` |  |
+| image.repository | string | `"docker.io/dpage/pgadmin4"` |  |
+| image.tag | string | `"5.7@sha256:64475197fc11cb8169de7e59cd4ea15872b3edafe22f87ea7bc23ba7f00bbe96"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/lib/pgadmin"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
+| podSecurityContext.fsGroup | int | `5050` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `80` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

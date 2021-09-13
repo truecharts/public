@@ -63,14 +63,14 @@ You will, however, be able to use all values referenced in the common chart here
 | identity_providers.oidc.refresh_token_lifespan | string | `"90m"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/authelia/authelia"` |  |
-| image.tag | string | `"4.30.4"` |  |
+| image.tag | string | `"4.30.4@sha256:956a7577adeb3d430bb1fc00b08baa8aecddec3949dd767363a43fcc6465d34a"` |  |
 | initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
 | initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
 | initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
 | initContainers.init-postgresdb.env[0].name | string | `"pghost"` |  |
 | initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
 | initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| initContainers.init-postgresdb.image | string | `"postgres:13.1"` |  |
+| initContainers.init-postgresdb.image | string | `"{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"` |  |
 | initContainers.init-postgresdb.imagePullPolicy | string | `"IfNotPresent"` |  |
 | log.format | string | `"text"` |  |
 | log.level | string | `"trace"` |  |
@@ -105,12 +105,17 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.redismaster.size | string | `"100Gi"` |  |
 | persistence.redismaster.type | string | `"pvc"` |  |
 | podSecurityContext.fsGroup | int | `568` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
 | podSecurityContext.runAsGroup | int | `568` |  |
 | podSecurityContext.runAsUser | int | `568` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"authelia"` |  |
 | postgresql.postgresqlUsername | string | `"authelia"` |  |
+| postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
+| postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
+| postgresqlImage.tag | string | `"13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2"` |  |
 | probes.liveness.path | string | `"/api/health\""` |  |
 | probes.liveness.type | string | `"HTTP"` |  |
 | probes.readiness.path | string | `"/api/health"` |  |
@@ -149,6 +154,7 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.allowPrivilegeEscalation | bool | `false` |  |
 | securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `true` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
 | server.path | string | `""` |  |
 | server.port | int | `9091` |  |
 | server.read_buffer_size | int | `4096` |  |
@@ -164,7 +170,6 @@ You will, however, be able to use all values referenced in the common chart here
 | storage.postgres.sslmode | string | `"disable"` |  |
 | storage.postgres.timeout | string | `"5s"` |  |
 | storage.postgres.username | string | `"authelia"` |  |
-| strategy.type | string | `"Recreate"` |  |
 | theme | string | `"light"` |  |
 | totp.issuer | string | `""` |  |
 | totp.period | int | `30` |  |

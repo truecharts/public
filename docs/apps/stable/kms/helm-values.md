@@ -13,9 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"pykmsorg/py-kms"` |  |
-| image.tag | string | `"minimal"` |  |
+| image.tag | string | `"minimal@sha256:f60edd7b3e7d59b5a2759584a3bf844cf41a3f1a1346186bb77409e0cb0a143c"` |  |
 | service.main.ports.main.port | int | `1688` |  |
 | service.main.ports.main.protocol | string | `"TCP"` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

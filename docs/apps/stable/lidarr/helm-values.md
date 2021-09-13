@@ -14,12 +14,17 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/lidarr"` |  |
-| image.tag | string | `"v1.0.0.2255"` |  |
+| image.tag | string | `"v1.0.0.2255@sha256:54ebc1f90963b16889e9e1b915eced4efd45ae489805aa996faf519430a4322f"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
+| podSecurityContext.fsGroup | int | `568` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| podSecurityContext.runAsGroup | int | `568` |  |
+| podSecurityContext.runAsUser | int | `568` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
 | probes.liveness.custom | bool | `true` |  |
 | probes.liveness.enabled | bool | `true` |  |
 | probes.liveness.spec.exec.command[0] | string | `"/usr/bin/env"` |  |
@@ -31,7 +36,10 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.liveness.spec.periodSeconds | int | `10` |  |
 | probes.liveness.spec.successThreshold | int | `1` |  |
 | probes.liveness.spec.timeoutSeconds | int | `10` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `8686` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project
