@@ -8,6 +8,11 @@ spec: {{ include "common.deployment.common_spec" $values | nindent 2 }}
       - name: {{ .Chart.Name }}-nginx
         image: {{ printf "%s:%s" .Values.nginx.image.repository .Values.nginx.image.tag }}
         imagePullPolicy: {{ .Values.nginx.image.pullPolicy }}
+        volumeMounts:
+          - name: configuration
+            mountPath: /etc/nginx/nginx.conf
+            readOnly: true
+            subPath: config
         ports:
         - name: http
           containerPort: 80
@@ -15,3 +20,8 @@ spec: {{ include "common.deployment.common_spec" $values | nindent 2 }}
         - name: https
           containerPort: 443
           protocol: TCP
+      volumes:
+        - name: configuration
+        configMap:
+          defaultMode: 0700
+          name: "nginx-config"
