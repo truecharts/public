@@ -1,6 +1,6 @@
 {{ $port := .Values.nodePort }}
 {{ $ports := list }}
-{{ $ports = mustAppend $ports (dict "name" "collabora" "port" $port "nodePort" $port "targetPort" "collabora") }}
+{{ $ports = mustAppend $ports (dict "name" "collabora" "port" 9980 "targetPort" "collabora") }}
 {{ $params := . }}
 {{ $_ := set $params "commonService" (dict "ports" $ports "type" "ClusterIP" ) }}
 {{ include "common.classes.service" $params }}

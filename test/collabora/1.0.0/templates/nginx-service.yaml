@@ -1,6 +1,7 @@
 {{ $port := .Values.nodePort }}
 {{ $ports := list }}
-{{ $ports = mustAppend $ports (dict "name" "https" "port" $port "nodePort" $port "targetPort" "collabora") }}
+{{ $ports = mustAppend $ports (dict "name" "https" "port" $port "nodePort" $port "targetPort" "https") }}
 {{ $params := (. | mustDeepCopy) }}
-{{ $_ := set $params "common" (dict "nameSuffix" "nginx") "commonService" (dict "ports" $ports "type" "NodePort" ) }}
+{{ $_ := set $params "common" (dict "nameSuffix" "nginx") }}
+{{ $_2 := set $params "commonService" (dict "ports" $ports "type" "NodePort" ) }}
 {{ include "common.classes.service" $params }}
