@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envFrom[0].configMapRef.name | string | `"pihole-env"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/pihole"` |  |
-| image.tag | string | `"2021.09@sha256:4653aee50cff8a679e03f2bcd1b05fc2f8b6614896c5554e081b08a3ce60a578"` |  |
+| image.tag | string | `"v2021.09@sha256:e043ab188da4c36abb11d70d82bbfb394ef5054abff21dafbaf54bc21861bd1e"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/pihole"` |  |
