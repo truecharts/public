@@ -7,6 +7,8 @@ groups:
     description: "Configure Storage for Machinaris"
   - name: "Machinaris Environment Variables"
     description: "Set the environment that will be visible to the container"
+  - name: "Resource Limits"
+    description: "Set CPU/memory limits for Kubernetes Pod"
 
 portals:
   web_portal:
@@ -157,3 +159,22 @@ questions:
                 label: "Value"
                 schema:
                   type: string
+  - variable: enableResourceLimits
+    label: "Enable Pod resource limits"
+    group: "Resource Limits"
+    schema:
+      type: boolean
+  - variable: cpuLimit
+    label: "CPU limit"
+    group: "Resource Limits"
+    schema:
+      type: string
+      show_if: [["enableResourceLimits", "=", true]]
+      valid_chars: "^\\d+(?:\\.\\d+(?!.*m$)|m?$)"
+  - variable: memLimit
+    label: "Memory limit"
+    group: "Resource Limits"
+    schema:
+      type: string
+      show_if: [["enableResourceLimits", "=", true]]
+      valid_chars: "^([+-]?[0-9.]+)([eEinumkKMGTP]*[-+]?[0-9]*)$"
