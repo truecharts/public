@@ -80,8 +80,8 @@ func (suite *PersistenceVolumeClaimTestSuite) TestMetaData() {
         "app.kubernetes.io/instance":   "common-test",
         "app.kubernetes.io/managed-by": "Helm",
         "app.kubernetes.io/name":       "common-test",
-        "app.kubernetes.io/version":"none",
-        "helm.sh/chart":                "common-test-3.1.0",
+        "app.kubernetes.io/version":"latest",
+        "helm.sh/chart":                "common-test-3.1.2",
     }
 
     tests := map[string]struct {

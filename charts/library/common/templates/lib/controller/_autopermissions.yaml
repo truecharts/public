@@ -27,7 +27,7 @@ before chart installation.
   command:
     - "/bin/sh"
     - "-c"
-    - "echo 'Automatically correcting permissions...';{{ range $_, $hpm := $hostPathMounts }}chown -R {{ $group }} {{ $hpm.mountPath | squote }}; chmod -R g+w {{ $hpm.mountPath | squote }};{{ end }}"
+    - "echo 'Automatically correcting permissions...';{{ range $_, $hpm := $hostPathMounts }}chown -R :{{ $group }} {{ $hpm.mountPath | squote }}; chmod -R g+w {{ $hpm.mountPath | squote }};{{ end }}"
   volumeMounts:
     {{- range $name, $hpm := $hostPathMounts }}
     - name: {{ $name }}
