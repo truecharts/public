@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See more environment variables in the [stashapp documentation](https://raw.githubusercontent.com/stashapp/stash/master/docker/production/docker-compose.yml) |
 | env.STASH_PORT | int | `9999` | Set the container port |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"stashapp/stash"` | image repository |
-| image.tag | string | `"latest@sha256:603658da6c0e3ce687adec4e1e73417d0560967101441ce6301b29e67cc47490"` | image tag |
+| image.repository | string | `"ghcr.io/truecharts/stash"` | image repository |
+| image.tag | string | `"v0.9.0@sha256:2859ab5c5792f6df06fe09497153bcea780f135883b618dcc1d5a78e4212b594"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

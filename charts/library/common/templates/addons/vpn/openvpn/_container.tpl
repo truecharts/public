@@ -28,14 +28,10 @@ env:
     value: {{ $v | quote }}
 {{- end }}
 {{- end }}
-{{- if or .Values.addons.vpn.openvpn.auth .Values.addons.vpn.openvpn.authSecret }}
+{{- if or .Values.addons.vpn.openvpn.auth }}
 envFrom:
   - secretRef:
-    {{- if .Values.addons.vpn.openvpn.authSecret }}
-      name: {{ .Values.addons.vpn.openvpn.authSecret }}
-    {{- else }}
       name: {{ include "common.names.fullname" . }}-openvpn
-    {{- end }}
 {{- end }}
 volumeMounts:
   - mountPath: {{ .Values.persistence.shared.mountPath }}

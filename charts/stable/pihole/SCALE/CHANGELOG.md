@@ -1,3 +1,7 @@
 
-<a name="pihole-1.0.7"></a>
-## [pihole-1.0.7](https://github.com/truecharts/apps/compare/pihole-1.0.6...pihole-1.0.7) (2021-09-08)
+<a name="pihole-2.0.3"></a>
+### [pihole-2.0.3](https://github.com/truecharts/apps/compare/pihole-2.0.2...pihole-2.0.3) (2021-09-14)
+
+#### Fix
+
+* update pihole digest and versioning to mirror

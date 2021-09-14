@@ -1,13 +1,14 @@
 # Introduction
 
-Open Source Conditional Access Module software
+TeamSpeak is software for quality voice communication via the Internet.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://trac.streamboard.tv/oscam/browser/trunk>
+* <https://hub.docker.com/_/teamspeak>
+* <https://www.teamspeak.com/en/>
 
 ## Requirements
 
@@ -17,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 6.13.8 |
+| https://truecharts.org/ | common | 7.0.12 |
 
 ## Installing the Chart
 

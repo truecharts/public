@@ -29,12 +29,8 @@
                   show_if: [["type", "=", "openvpn"]]
                   attrs:
                     - variable: auth
-                      label: "auth"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: authSecret
-                      label: "authSecret"
+                      label: "authentication credentials"
+                      description: "authentication credentials, seperated by ;  example: username;password"
                       schema:
                         type: string
                         default: ""

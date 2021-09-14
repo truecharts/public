@@ -23,18 +23,22 @@ You will, however, be able to use all values referenced in the common chart here
 | hostPathMounts[0].size | string | `"100Gi"` |  |
 | hostPathMounts[0].type | string | `"pvc"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/appdaemon"` |  |
-| image.tag | string | `"v4.0.8"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsNonRoot | bool | `true` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
+| image.repository | string | `"docker.io/acockburn/appdaemon"` |  |
+| image.tag | string | `"v4.1.0@sha256:209ee1c83b4c0794dd6f50333f60a212d0df7c4205e7e374ac78d988ffc3d8fd"` |  |
+| podSecurityContext.fsGroup | int | `0` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `5050` |  |
 | service.tcp.enabled | bool | `true` |  |
 | service.tcp.ports.tcp.enabled | bool | `true` |  |
 | service.tcp.ports.tcp.port | int | `51050` |  |
 | service.tcp.ports.tcp.protocol | string | `"TCP"` |  |
 | service.tcp.type | string | `"ClusterIP"` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

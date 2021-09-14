@@ -11,18 +11,28 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGID | string | `"20"` |  |
-| env.PUID | string | `"568"` |  |
-| env.TZ | string | `"UTC"` |  |
+| env.TS3SERVER_LICENSE | string | `"accept"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/oscam"` |  |
-| image.tag | string | `"version-11693"` |  |
+| image.repository | string | `"teamspeak"` |  |
+| image.tag | string | `"3.13.6@sha256:ff7a92727ffbf05925b54bb12e65bfee311d4193fc68e175dacd63a0048c28bf"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
+| persistence.config.mountPath | string | `"/var/ts3server/"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
+| service.files.enabled | bool | `true` |  |
+| service.files.ports.files.enabled | bool | `true` |  |
+| service.files.ports.files.port | int | `30033` |  |
+| service.files.ports.files.protocol | string | `"TCP"` |  |
+| service.files.type | string | `"ClusterIP"` |  |
 | service.main.enabled | bool | `true` |  |
-| service.main.ports.main.port | int | `8888` |  |
+| service.main.ports.main.enabled | bool | `true` |  |
+| service.main.ports.main.port | int | `10011` |  |
+| service.main.ports.main.protocol | string | `"TCP"` |  |
+| service.main.type | string | `"ClusterIP"` |  |
+| service.voice.enabled | bool | `true` |  |
+| service.voice.ports.voice.enabled | bool | `true` |  |
+| service.voice.ports.voice.port | int | `9987` |  |
+| service.voice.ports.voice.protocol | string | `"UDP"` |  |
 
 All Rights Reserved - The TrueCharts Project

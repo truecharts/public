@@ -13,14 +13,13 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"linuxserver/lazylibrarian"` |  |
-| image.tag | string | `"latest"` |  |
+| image.repository | string | `"ghcr.io/linuxserver/lazylibrarian"` |  |
+| image.tag | string | `"latest@sha256:15cb4204453e7f6d349575f9a616176eb1478ac91e9218e3bf6a4dd1c60490e1"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | service.main.ports.main.port | int | `5299` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

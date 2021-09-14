@@ -15,11 +15,19 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See [application docs](https://flightaware.com/adsb/piaware/advanced_configuration) for more details. |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"mikenye/piaware"` | image repository |
-| image.tag | string | `"v6.0"` | image tag |
+| image.repository | string | `"ghcr.io/truecharts/piaware"` | image repository |
+| image.tag | string | `"v6.1@sha256:9e143490fbe9d5d9e0004ed4b5c08f1f83b56dbbc3920fa47db806b7fdcb1aad"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | persistence.usb | object | See values.yaml | Configure a hostPathMount to mount a USB device in the container. |
-| securityContext.privileged | bool | `true` | (bool) Privileged securityContext may be required if USB device is accessed directly through the host machine |
+| podSecurityContext.fsGroup | int | `0` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `true` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

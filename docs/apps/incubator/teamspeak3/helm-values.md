@@ -11,28 +11,28 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
+| env.TS3SERVER_LICENSE | string | `"accept"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/jackett"` |  |
-| image.tag | string | `"v0.18.729@sha256:7b814d426af9f3329edeb17cedab01217f7eee638f12e32f91c56d27aba48b6c"` |  |
+| image.repository | string | `"teamspeak"` |  |
+| image.tag | string | `"3.13.6@sha256:ff7a92727ffbf05925b54bb12e65bfee311d4193fc68e175dacd63a0048c28bf"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
+| persistence.config.mountPath | string | `"/var/ts3server/"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| probes.liveness.path | string | `"/UI/Login"` |  |
-| probes.readiness.path | string | `"/UI/Login"` |  |
-| probes.startup.path | string | `"/UI/Login"` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
+| service.files.enabled | bool | `true` |  |
+| service.files.ports.files.enabled | bool | `true` |  |
+| service.files.ports.files.port | int | `30033` |  |
+| service.files.ports.files.protocol | string | `"TCP"` |  |
+| service.files.type | string | `"ClusterIP"` |  |
 | service.main.enabled | bool | `true` |  |
-| service.main.ports.main.port | int | `9117` |  |
+| service.main.ports.main.enabled | bool | `true` |  |
+| service.main.ports.main.port | int | `10011` |  |
+| service.main.ports.main.protocol | string | `"TCP"` |  |
+| service.main.type | string | `"ClusterIP"` |  |
+| service.voice.enabled | bool | `true` |  |
+| service.voice.ports.voice.enabled | bool | `true` |  |
+| service.voice.ports.voice.port | int | `9987` |  |
+| service.voice.ports.voice.protocol | string | `"UDP"` |  |
 
 All Rights Reserved - The TrueCharts Project

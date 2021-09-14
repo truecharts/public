@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"linuxserver/heimdall"` |  |
-| image.tag | string | `"version-2.2.2"` |  |
+| image.repository | string | `"ghcr.io/linuxserver/heimdall"` |  |
+| image.tag | string | `"version-2.2.2@sha256:f27eb3bb634df8370d5d96496e53c31174252d68e6bb792dddea2e80fb703213"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
@@ -22,6 +22,5 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.type | string | `"pvc"` |  |
 | probes.startup.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `80` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

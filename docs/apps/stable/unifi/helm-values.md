@@ -16,8 +16,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envTpl.UNIFI_GID | string | `"{{ .Values.env.PUID }}"` |  |
 | envTpl.UNIFI_UID | string | `"{{ .Values.env.PGID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"jacobalberty/unifi"` |  |
-| image.tag | string | `"v6.2.26"` |  |
+| image.repository | string | `"ghcr.io/truecharts/unifi"` |  |
+| image.tag | string | `"v6.2.26@sha256:cb9fc82546bfd94d5a10da131468695fa56e2f021895f56255464efaf492b6bc"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/unifi"` |  |
@@ -49,6 +49,5 @@ You will, however, be able to use all values referenced in the common chart here
 | service.stun.ports.stun.port | int | `3478` |  |
 | service.stun.ports.stun.protocol | string | `"UDP"` |  |
 | service.stun.ports.stun.targetPort | int | `3478` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

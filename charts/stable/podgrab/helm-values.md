@@ -20,26 +20,30 @@ You will, however, be able to use all values referenced in the common chart here
 | hostPathMounts[0].size | string | `"100Gi"` |  |
 | hostPathMounts[0].type | string | `"pvc"` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"akhilrex/podgrab"` |  |
-| image.tag | string | `"1.0.0"` |  |
+| image.repository | string | `"ghcr.io/truecharts/podgrab"` |  |
+| image.tag | string | `"v1.0.0@sha256:17a92f111c5840f1fb78f216e4191ec1f5eeeb04ad5a1a5bdde0df35fdbe8910"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | podSecurityContext.fsGroup | int | `568` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
 | podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsNonRoot | bool | `true` |  |
 | podSecurityContext.runAsUser | int | `568` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `8080` |  |
 | service.tcp.enabled | bool | `true` |  |
 | service.tcp.ports.tcp.enabled | bool | `true` |  |
 | service.tcp.ports.tcp.port | int | `51080` |  |
 | service.tcp.ports.tcp.protocol | string | `"TCP"` |  |
 | service.tcp.type | string | `"ClusterIP"` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

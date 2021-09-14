@@ -19,8 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.SUPERUSER_PASSWORD | string | `"myVeryStrongPassword"` | Superuser password |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"linuxserver/healthchecks"` | image repository |
-| image.tag | string | `"version-v1.22.0"` | image tag |
+| image.repository | string | `"ghcr.io/linuxserver/healthchecks"` | image repository |
+| image.tag | string | `"version-v1.22.0@sha256:f2e6865c909a1eeebf8bbe2736c0a3145ed5e9fa1bddde0809993a74963bc14a"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | persistence.config | object | `{"accessMode":"ReadWriteOnce","enabled":true,"mountpath":"/config","size":"100Gi","type":"pvc"}` | Volume used for configuration |
 | service | object | See values.yaml | Configures service settings for the chart. |

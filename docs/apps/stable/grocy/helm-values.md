@@ -13,14 +13,13 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"linuxserver/grocy"` |  |
-| image.tag | string | `"version-v3.1.1"` |  |
+| image.repository | string | `"ghcr.io/linuxserver/grocy"` |  |
+| image.tag | string | `"version-v3.1.1@sha256:0c57f3b4b8020f51305394a5d4b9824bc41cab92fc3c2df76f7212d2588ad9bf"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | service.main.ports.main.port | int | `80` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

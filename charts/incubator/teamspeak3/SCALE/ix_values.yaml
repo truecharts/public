@@ -5,19 +5,10 @@
 ##
 
 image:
-  repository: ghcr.io/k8s-at-home/jackett
+  repository: teamspeak
+  tag: 3.13.6@sha256:ff7a92727ffbf05925b54bb12e65bfee311d4193fc68e175dacd63a0048c28bf
   pullPolicy: IfNotPresent
-  tag: v0.18.746@sha256:4caa9f57a10c07cca49935b6e039aa4c15eb20f28add18983bb62b028e245edd
 
-probes:
-  liveness:
-    path: "/UI/Login"
-
-  readiness:
-    path: "/UI/Login"
-
-  startup:
-    path: "/UI/Login"
 
 ##
 # Most other defaults are set in questions.yaml

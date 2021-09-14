@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"linuxserver/tvheadend"` |  |
-| image.tag | string | `"version-63784405"` |  |
+| image.repository | string | `"ghcr.io/linuxserver/tvheadend"` |  |
+| image.tag | string | `"version-63784405@sha256:ae47a3f6a7d2d7efefb68087da7cbed786f801cb87c7c93b1e6b989c0021aefa"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
@@ -26,6 +26,5 @@ You will, however, be able to use all values referenced in the common chart here
 | service.htsp.ports.htsp.protocol | string | `"TCP"` |  |
 | service.htsp.type | string | `"ClusterIP"` |  |
 | service.main.ports.main.port | int | `9981` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

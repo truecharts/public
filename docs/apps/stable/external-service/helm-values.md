@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | controller.enabled | bool | `false` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/bs"` |  |
-| image.tag | string | `"v0.66.6"` |  |
+| image.tag | string | `"v0.66.6@sha256:666"` |  |
 | service.main.enabled | bool | `true` |  |
 | service.main.externalIP | string | `"1.1.1.1"` |  |
 | service.main.ports.main.Type | string | `"HTTPS"` |  |

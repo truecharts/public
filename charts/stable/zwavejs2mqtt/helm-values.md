@@ -13,16 +13,16 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"zwavejs/zwavejs2mqtt"` |  |
-| image.tag | string | `"5.5.3"` |  |
+| image.repository | string | `"ghcr.io/truecharts/zwavejs2mqtt"` |  |
+| image.tag | string | `"v5.5.4@sha256:8b5946e5e3384f8818766e20da7f576e243a364369366d631a80e7794cfdfa3b"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | podSecurityContext.fsGroup | int | `568` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
 | podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsNonRoot | bool | `true` |  |
 | podSecurityContext.runAsUser | int | `568` |  |
 | podSecurityContext.supplementalGroups[0] | int | `5` |  |
 | podSecurityContext.supplementalGroups[1] | int | `20` |  |
@@ -30,12 +30,15 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.liveness.enabled | bool | `true` |  |
 | probes.readiness.enabled | bool | `true` |  |
 | probes.startup.enabled | bool | `false` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `8091` |  |
 | service.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.port | int | `3000` |  |
 | service.ws.ports.ws.protocol | string | `"TCP"` |  |
 | service.ws.type | string | `"ClusterIP"` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project

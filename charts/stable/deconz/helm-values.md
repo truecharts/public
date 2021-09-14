@@ -21,8 +21,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DECONZ_WS_PORT | int | `443` | Websocket listen port |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"marthoc/deconz"` | image repository |
-| image.tag | string | `"2.12.06"` | image tag |
+| image.repository | string | `"ghcr.io/truecharts/deconz"` | image repository |
+| image.tag | string | `"v2.12.06@sha256:738ebf8eb35c8025c070a4feeb7d7a48b15739dfe71cf338e80a03f932c1cf52"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.privileged | bool | `nil` | Privileged securityContext may be required if USB controller is accessed directly through the host machine |
 | service | object | See values.yaml | Configures service settings for the chart. |

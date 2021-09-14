@@ -16,8 +16,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | string | `"1001"` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"linuxserver/librespeed"` | image repository |
-| image.tag | string | `"version-5.2.4"` | image tag |
+| image.repository | string | `"ghcr.io/linuxserver/librespeed"` | image repository |
+| image.tag | string | `"version-5.2.4@sha256:eb7eb6e42682cc941742bb626c66927fa8b9fb456bc7f7aa6535f24f2df4c2be"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

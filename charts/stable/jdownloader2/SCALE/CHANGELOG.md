@@ -1,3 +1,7 @@
 
-<a name="jdownloader2-1.0.5"></a>
-## [jdownloader2-1.0.5](https://github.com/truecharts/apps/compare/jdownloader2-1.0.4...jdownloader2-1.0.5) (2021-09-08)
+<a name="jdownloader2-2.0.2"></a>
+### [jdownloader2-2.0.2](https://github.com/truecharts/apps/compare/jdownloader2-2.0.1...jdownloader2-2.0.2) (2021-09-13)
+
+#### Fix
+
+* set jdownloader2 umask to 002 ([#982](https://github.com/truecharts/apps/issues/982))

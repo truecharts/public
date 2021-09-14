@@ -20,8 +20,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DATABASE_URL.secretKeyRef.key | string | `"url"` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"vaultwarden/server"` |  |
-| image.tag | string | `"1.22.2"` |  |
+| image.repository | string | `"ghcr.io/truecharts/vaultwarden"` |  |
+| image.tag | string | `"v1.22.2@sha256:8693c057298731f507128a395395172d60093be9b299f6bf9e5c35512a74d457"` |  |
 | ingress | object | See below | Configure the ingresses for the chart here. Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress. |
 | ingress.main.enabled | bool | `true` | Enables or disables the ingress |
 | ingress.main.fixedMiddlewares | list | `["chain-basic"]` | List of middlewares in the traefikmiddlewares k8s namespace to add automatically Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user |
@@ -41,21 +41,32 @@ You will, however, be able to use all values referenced in the common chart here
 | initContainers.init-postgresdb.env[0].name | string | `"pghost"` |  |
 | initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
 | initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| initContainers.init-postgresdb.image | string | `"postgres:13.1"` |  |
+| initContainers.init-postgresdb.image | string | `"{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"` |  |
 | initContainers.init-postgresdb.imagePullPolicy | string | `"IfNotPresent"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.data.size | string | `"100Gi"` |  |
 | persistence.data.type | string | `"pvc"` |  |
+| podSecurityContext.fsGroup | int | `568` |  |
+| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| podSecurityContext.runAsGroup | int | `568` |  |
+| podSecurityContext.runAsUser | int | `568` |  |
+| podSecurityContext.supplementalGroups | list | `[]` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"vaultwarden"` |  |
 | postgresql.postgresqlUsername | string | `"vaultwarden"` |  |
+| postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
+| postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
+| postgresqlImage.tag | string | `"13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2"` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `8080` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.port | int | `3012` |  |
-| strategy.type | string | `"Recreate"` |  |
 | vaultwarden.admin.disableAdminToken | bool | `false` |  |
 | vaultwarden.admin.enabled | bool | `false` |  |
 | vaultwarden.allowInvitation | bool | `true` |  |

@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"linuxserver/deluge"` |  |
-| image.tag | string | `"version-2.0.3-2201906121747ubuntu18.04.1"` |  |
+| image.repository | string | `"ghcr.io/linuxserver/deluge"` |  |
+| image.tag | string | `"version-2.0.3-2201906121747ubuntu18.04.1@sha256:a32d8680e315932b799c8267e2c0d630185aaf8b542d56a134c74c9a5c957c36"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
@@ -28,6 +28,5 @@ You will, however, be able to use all values referenced in the common chart here
 | service.torrent.ports.udp.port | int | `51413` |  |
 | service.torrent.ports.udp.protocol | string | `"UDP"` |  |
 | service.torrent.type | string | `"ClusterIP"` |  |
-| strategy.type | string | `"Recreate"` |  |
 
 All Rights Reserved - The TrueCharts Project
