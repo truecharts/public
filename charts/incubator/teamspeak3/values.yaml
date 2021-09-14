@@ -18,8 +18,10 @@ service:
         port: 10011
         protocol: "TCP"
   voice:
+    enabled: true
     ports:
       voice:
+        enabled: true
         port: 9987
         protocol: "UDP"
   files:
