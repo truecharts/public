@@ -149,7 +149,6 @@ data:
           route_randomly: {{ $redis.high_availability.route_randomly }}
       {{- end }}
     {{- end }}
-
     regulation: {{ toYaml .Values.regulation | nindent 6 }}
     storage:
       postgres:
@@ -201,18 +200,21 @@ data:
         - id: {{ $client.id }}
           description: {{ default $client.id $client.description }}
           secret: {{ default (randAlphaNum 128) $client.secret }}
-          {{- if hasKey $client "public" }}
+          {{- if $client.public }}
           public: {{ $client.public }}
           {{- end }}
           authorization_policy: {{ default "two_factor" $client.authorization_policy }}
-          redirect_uris: {{ toYaml $client.redirect_uris | nindent 10 }}
-          {{- if hasKey $client "audience" }}
+          redirect_uris:
+          {{- range $client.redirect_uris }}
+          - {{ . }}
+          {{- end }}
+          {{- if $client.audience }}
           audience: {{ toYaml $client.audience | nindent 10 }}
           {{- end }}
           scopes: {{ toYaml (default (list "openid" "profile" "email" "groups") $client.scopes) | nindent 10 }}
           grant_types: {{ toYaml (default (list "refresh_token" "authorization_code") $client.grant_types) | nindent 10 }}
           response_types: {{ toYaml (default (list "code") $client.response_types) | nindent 10 }}
-          {{- if hasKey $client "response_modes" }}
+          {{- if $client.response_modes }}
           response_modes: {{ toYaml $client.response_modes | nindent 10 }}
           {{- end }}
           userinfo_signing_algorithm: {{ default "none" $client.userinfo_signing_algorithm }}
