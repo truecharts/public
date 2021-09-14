@@ -2,5 +2,5 @@
 {{ $ports := list }}
 {{ $ports = mustAppend $ports (dict "name" "collabora" "port" $port "nodePort" $port "targetPort" "collabora") }}
 {{ $params := . }}
-{{ $_ := set $params "commonService" (dict "ports" $ports "type" "NodePort" ) }}
+{{ $_ := set $params "commonService" (dict "ports" $ports "type" "ClusterIP" ) }}
 {{ include "common.classes.service" $params }}
