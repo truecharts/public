@@ -106,10 +106,10 @@ data:
   {{- end }}
   {{- end }}
 
-  {{- if .Values.identity_providers.oidc.enabled }}
   {{- if $autheliaprevious }}
+  {{- if and ( hasKey $autheliaprevious.data "OIDC_PRIVATE_KEY" ) ( hasKey $autheliaprevious.data "OIDC_HMAC_SECRET" ) }}
   OIDC_PRIVATE_KEY: {{ index $autheliaprevious.data "OIDC_PRIVATE_KEY"  }}
-  OIDC_HMAC_SECRET: {{index $autheliaprevious.data "OIDC_HMAC_SECRET" }}
+  OIDC_HMAC_SECRET: {{ index $autheliaprevious.data "OIDC_HMAC_SECRET" }}
   {{- else }}
   {{- $oidckey := genPrivateKey "rsa"   }}
   {{- $oidcsecret := randAlphaNum 32 }}
