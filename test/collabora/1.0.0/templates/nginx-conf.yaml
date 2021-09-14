@@ -65,7 +65,7 @@ data:
             location ^~ /loleaflet {
                 proxy_pass http://collabora:9980;
                 proxy_set_header Host $host;
-                proxy_set_header Referer "http://nginx";
+                # proxy_set_header Referer "http://nginx";
             }
 
             # WOPI discovery URL
@@ -73,14 +73,14 @@ data:
                 set $upstream_collabora collabora;
                 proxy_pass http://$upstream_collabora:9980;
                 proxy_set_header Host $http_host;
-                proxy_set_header Referer "http://nginx";
+                # proxy_set_header Referer "http://nginx";
             }
 
             # Capabilities
             location ^~ /hosting/capabilities {
                 proxy_pass http://collabora:9980;
                 proxy_set_header Host $host;
-                proxy_set_header Referer "http://nginx";
+                # proxy_set_header Referer "http://nginx";
             }
 
             # main websocket
@@ -89,7 +89,7 @@ data:
                 proxy_set_header Host $host;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection "Upgrade";
-                proxy_set_header Referer "http://nginx";
+                # proxy_set_header Referer "http://nginx";
                 proxy_read_timeout 36000s;
             }
 
@@ -106,7 +106,7 @@ data:
                 proxy_set_header Host $host;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection "Upgrade";
-                proxy_set_header Referer "http://nginx";
+                # proxy_set_header Referer "http://nginx";
                 proxy_read_timeout 36000s;
             }
 
