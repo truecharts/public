@@ -2,4 +2,9 @@ image:
   pullPolicy: IfNotPresent
   repository: collabora/code
   tag: 6.4.10.10
+nginx:
+  image:
+    pullPolicy: IfNotPresent
+    repository: nginx
+    tag: 1.21.3
 updateStrategy: Recreate

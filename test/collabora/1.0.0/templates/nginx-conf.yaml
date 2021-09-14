@@ -1,0 +1,136 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "nginx-config"
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
+data:
+  config: |-
+    load_module modules/ngx_http_uploadprogress_module.so;
+    user www-data www-data;
+    worker_processes  1;
+
+    events {
+        worker_connections  1024;
+    }
+
+    http {
+        include       mime.types;
+        default_type  application/octet-stream;
+
+        # Types to enable gzip compression on
+        gzip_types
+            text/plain
+            text/css
+            text/js
+            text/xml
+            text/javascript
+            application/javascript
+            application/x-javascript
+            application/json
+            application/xml
+            application/rss+xml
+            image/svg+xml;
+
+        # reserve 1MB under the name 'proxied' to track uploads
+        upload_progress proxied 1m;
+
+        sendfile        on;
+        #tcp_nopush     on;
+        client_max_body_size 1000m;
+
+        #keepalive_timeout  0;
+        keepalive_timeout  65;
+
+        # Disable tokens for security (#23684)
+        server_tokens off;
+
+        gzip  on;
+        #upload_store /var/tmp/firmware;
+        client_body_temp_path /var/tmp/firmware;
+
+        error_log syslog:server=unix:/var/run/log,nohostname;
+        access_log syslog:server=unix:/var/run/log,nohostname;
+
+        server {
+            server_name  localhost;
+            listen                 0.0.0.0:443 default_server ssl http2;
+            listen                 [::]:443 default_server ssl http2;
+
+            ssl_certificate        "/nginx.crt";
+            ssl_certificate_key    "/nginx.key";
+
+            ssl_session_timeout    120m;
+            ssl_session_cache      shared:ssl:16m;
+
+            ssl_protocols TLSv1.2 TLSv1.3;
+            ssl_prefer_server_ciphers on;
+            ssl_ciphers EECDH+ECDSA+AESGCM:EECDH+aRSA+AESGCM:EECDH+ECDSA:EDH+aRSA:EECDH:!RC4:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS:!SHA1:!SHA256:!SHA384;
+            add_header Strict-Transport-Security max-age=31536000;
+
+            # Security Headers
+            add_header X-Content-Type-Options nosniff;
+            add_header X-XSS-Protection "1";
+
+            location = /robots.txt {
+              add_header Content-Type text/plain;
+              return 200 "User-agent: *\nDisallow: /loleaflet/*\n";
+            }
+
+            # static files
+            location ^~ /loleaflet {
+                set $upstream_collabora collabora;
+                proxy_pass http://$upstream_collabora:9980;
+                proxy_set_header Host $http_host;
+            }
+
+            # WOPI discovery URL
+            location ^~ /hosting/discovery {
+                set $upstream_collabora collabora;
+                proxy_pass http://$upstream_collabora:9980;
+                proxy_set_header Host $http_host;
+            }
+
+            # Capabilities
+            location ^~ /hosting/capabilities {
+                set $upstream_collabora collabora;
+                proxy_pass http://$upstream_collabora:9980;
+                proxy_set_header Host $http_host;
+            }
+
+            # main websocket
+            location ~ ^/lool/(.*)/ws$ {
+                set $upstream_collabora collabora;
+                proxy_pass http://$upstream_collabora:9980;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "Upgrade";
+                proxy_set_header Host $http_host;
+                proxy_read_timeout 36000s;
+            }
+
+            # download, presentation and image upload
+            location ~ ^/lool {
+                set $upstream_collabora collabora;
+                proxy_pass http://$upstream_collabora:9980;
+                proxy_set_header Host $http_host;
+            }
+
+            # Admin Console websocket
+            location ^~ /lool/adminws {
+                set $upstream_collabora collabora;
+                proxy_pass http://$upstream_collabora:9980;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection "Upgrade";
+                proxy_set_header Host $http_host;
+                proxy_read_timeout 36000s;
+            }
+
+        }
+        server {
+            listen    0.0.0.0:80;
+            listen    [::]:80;
+            server_name localhost;
+            return 307 https://$host:443$request_uri;
+        }
+
+    }
