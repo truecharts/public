@@ -74,6 +74,7 @@ data:
 
             location = /robots.txt {
               add_header Content-Type text/plain;
+              proxy_set_header Referer "http://nginx";
               return 200 "User-agent: *\nDisallow: /loleaflet/*\n";
             }
 
@@ -82,6 +83,7 @@ data:
                 set $upstream_collabora collabora;
                 proxy_pass http://$upstream_collabora:9980;
                 proxy_set_header Host $http_host;
+                proxy_set_header Referer "http://nginx";
             }
 
             # WOPI discovery URL
@@ -89,6 +91,7 @@ data:
                 set $upstream_collabora collabora;
                 proxy_pass http://$upstream_collabora:9980;
                 proxy_set_header Host $http_host;
+                proxy_set_header Referer "http://nginx";
             }
 
             # Capabilities
@@ -96,6 +99,7 @@ data:
                 set $upstream_collabora collabora;
                 proxy_pass http://$upstream_collabora:9980;
                 proxy_set_header Host $http_host;
+                proxy_set_header Referer "http://nginx";
             }
 
             # main websocket
@@ -105,6 +109,7 @@ data:
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection "Upgrade";
                 proxy_set_header Host $http_host;
+                proxy_set_header Referer "http://nginx";
                 proxy_read_timeout 36000s;
             }
 
@@ -113,6 +118,7 @@ data:
                 set $upstream_collabora collabora;
                 proxy_pass http://$upstream_collabora:9980;
                 proxy_set_header Host $http_host;
+                proxy_set_header Referer "http://nginx";
             }
 
             # Admin Console websocket
@@ -122,6 +128,7 @@ data:
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection "Upgrade";
                 proxy_set_header Host $http_host;
+                proxy_set_header Referer "http://nginx";
                 proxy_read_timeout 36000s;
             }
 
