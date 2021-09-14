@@ -1,7 +1,7 @@
 
-<a name="common-7.0.12"></a>
-### [common-7.0.12](https://github.com/truecharts/apps/compare/common-7.0.11...common-7.0.12) (2021-09-13)
+<a name="common-7.0.13"></a>
+### [common-7.0.13](https://github.com/truecharts/apps/compare/common-7.0.12...common-7.0.13) (2021-09-14)
 
-#### Fix
+#### Chore
 
-* ensure wireguard env vars get created
+* update non-major ([#987](https://github.com/truecharts/apps/issues/987))

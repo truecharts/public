@@ -1,7 +1,7 @@
 
-<a name="postgresql-2.2.1"></a>
-### [postgresql-2.2.1](https://github.com/truecharts/apps/compare/postgresql-2.2.0...postgresql-2.2.1) (2021-09-13)
+<a name="postgresql-2.2.2"></a>
+### [postgresql-2.2.2](https://github.com/truecharts/apps/compare/postgresql-2.2.1...postgresql-2.2.2) (2021-09-14)
 
-#### Feat
+#### Chore
 
-* add new GUI and VPN support to all Apps ([#977](https://github.com/truecharts/apps/issues/977))
+* update non-major ([#987](https://github.com/truecharts/apps/issues/987))

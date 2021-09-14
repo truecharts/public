@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/healthchecks"` | image repository |
-| image.tag | string | `"version-v1.22.0@sha256:f2e6865c909a1eeebf8bbe2736c0a3145ed5e9fa1bddde0809993a74963bc14a"` | image tag |
+| image.tag | string | `"version-v1.22.0@sha256:11b714fd49962069da7352d420e93800354e44cf00754bb3fafb4dbd03a6f716"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | persistence.config | object | `{"accessMode":"ReadWriteOnce","enabled":true,"mountpath":"/config","size":"100Gi","type":"pvc"}` | Volume used for configuration |
 | service | object | See values.yaml | Configures service settings for the chart. |

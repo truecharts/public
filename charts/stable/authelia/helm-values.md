@@ -63,7 +63,7 @@ You will, however, be able to use all values referenced in the common chart here
 | identity_providers.oidc.refresh_token_lifespan | string | `"90m"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/authelia/authelia"` |  |
-| image.tag | string | `"4.30.4@sha256:956a7577adeb3d430bb1fc00b08baa8aecddec3949dd767363a43fcc6465d34a"` |  |
+| image.tag | string | `"4.30.5@sha256:1b32c5c072de7522a84e2e0badc52bf981c8bf7a8369b752720fbfc597c35ea7"` |  |
 | initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
 | initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
 | initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
@@ -115,7 +115,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"authelia"` |  |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
 | postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2"` |  |
+| postgresqlImage.tag | string | `"13.4.0@sha256:0fa00d56daee4ab334e0b5aeabfb8674aadc501e498ca13feac5b5fdced4bcba"` |  |
 | probes.liveness.path | string | `"/api/health\""` |  |
 | probes.liveness.type | string | `"HTTP"` |  |
 | probes.readiness.path | string | `"/api/health"` |  |

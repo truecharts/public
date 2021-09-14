@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TS3SERVER_LICENSE | string | `"accept"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"teamspeak"` |  |
-| image.tag | string | `"3.13.6@sha256:ff7a92727ffbf05925b54bb12e65bfee311d4193fc68e175dacd63a0048c28bf"` |  |
+| image.tag | string | `"3.13.6@sha256:a88d61887cbfa78012ce8bf69e6fad5988d853b7b72a9483000b1af8a6083ff8"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/ts3server/"` |  |

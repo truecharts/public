@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/calibre-web"` |  |
-| image.tag | string | `"version-0.6.12@sha256:d2e3980e7d0257c28d1e06a10d7f9cb0b3de6865a8d987e10af590fa6c4ebb77"` |  |
+| image.tag | string | `"version-0.6.12@sha256:8537f4b8bc08f3d192e30f5eed777bbd1cc21424cc9a268c4a3589640b703b68"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
