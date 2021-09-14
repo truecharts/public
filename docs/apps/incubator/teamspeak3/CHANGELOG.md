@@ -7,4 +7,3 @@
 #### Add
 
 * Add TeamSpeak3 Server to incubator ([#985](https://github.com/truecharts/apps/issues/985))
-
