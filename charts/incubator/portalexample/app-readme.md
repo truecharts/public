@@ -1,3 +1,3 @@
-DNS and Ad-filtering for your network
+portal example
 
 This App is supplied by TrueCharts, for more information please visit https://truecharts.org
