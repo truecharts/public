@@ -7,7 +7,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
-    path: "/admin/"
+    path: "/"
   admin_portal:
     protocols:
       - "$kubernetes-resource_configmap_portal_protocol"
@@ -15,7 +15,7 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
-    path: "/"
+    path: "/admin/"
 questions:
   - variable: portal
     group: "Container Image"
