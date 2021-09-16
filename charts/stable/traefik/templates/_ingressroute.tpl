@@ -1,6 +1,6 @@
 {{/* Define the ingressRoute */}}
 {{- define "traefik.ingressRoute" -}}
-{{- if .Values.ingressRoute.dashboard.enabled -}}
+{{- if .Values.ingressRoute.dashboard.enabled }}
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute

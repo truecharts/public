@@ -8,5 +8,5 @@ metadata:
   name: {{ $name }}
 spec:
   {{- toYaml $config | nindent 2 }}
-{{- end -}}
+{{- end }}
 {{- end -}}
