@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="pihole-2.0.4"></a>
+### [pihole-2.0.4](https://github.com/truecharts/apps/compare/pihole-2.0.3...pihole-2.0.4) (2021-09-16)
+
+
+
 <a name="pihole-2.0.3"></a>
 ### [pihole-2.0.3](https://github.com/truecharts/apps/compare/pihole-2.0.2...pihole-2.0.3) (2021-09-14)
 
