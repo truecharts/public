@@ -1,10 +1,3 @@
-<!--
-MIND YOUR TITLE:
-- "App in a deploying state" is NOT the title/description of your actual bug.
-- "Appname not working" is NOT the title/description of your actual bug.
-- Don't refer to a version, bugs are always for latest version
--->
-
 ---
 name: Bug report
 about: Create a report to help us improve TrueCharts
@@ -13,6 +6,13 @@ labels: bug
 assignees: ''
 
 ---
+
+<!--
+MIND YOUR TITLE:
+- "App in a deploying state" is NOT the title/description of your actual bug.
+- "Appname not working" is NOT the title/description of your actual bug.
+- Don't refer to a version, bugs are always for latest version
+-->
 
 **Describe the bug**
 <!-- 
