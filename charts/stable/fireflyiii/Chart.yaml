@@ -3,11 +3,11 @@ appVersion: "5.5.12"
 dependencies:
 - name: common
   repository: https://truecharts.org/
-  version: 7.0.12
+  version: 7.0.14
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 2.2.0
+  version: 2.2.4
 deprecated: false
 description: A free and open source personal finance manager
 home: https://github.com/firefly-iii/firefly-iii/
@@ -27,4 +27,4 @@ name: fireflyiii
 sources:
 - https://github.com/firefly-iii/firefly-iii/
 type: application
-version: 8.0.4
+version: 8.0.5
