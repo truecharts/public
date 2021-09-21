@@ -59,7 +59,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"vaultwarden"` |  |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
 | postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:5a50f847555436a100f1b9653a5d50677e2a8e509779b80fd99217f16b35a19f"` |  |
+| postgresqlImage.tag | string | `"13.4.0@sha256:abfb7efd31afc36a8b16aa077bb9dd165c4f635412affef37c7859605fda762c"` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |
 | securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
