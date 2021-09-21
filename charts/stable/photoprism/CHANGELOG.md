@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-2.0.2"></a>
+### [photoprism-2.0.2](https://github.com/truecharts/apps/compare/photoprism-2.0.1...photoprism-2.0.2) (2021-09-21)
+
+#### Chore
+
+* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
+
+
+
 <a name="photoprism-2.0.1"></a>
 ### [photoprism-2.0.1](https://github.com/truecharts/apps/compare/photoprism-1.9.15...photoprism-2.0.1) (2021-09-13)
 

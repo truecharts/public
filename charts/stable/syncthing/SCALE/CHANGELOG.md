@@ -1,7 +1,7 @@
 
-<a name="syncthing-7.0.2"></a>
-### [syncthing-7.0.2](https://github.com/truecharts/apps/compare/syncthing-7.0.1...syncthing-7.0.2) (2021-09-13)
+<a name="syncthing-7.0.3"></a>
+### [syncthing-7.0.3](https://github.com/truecharts/apps/compare/syncthing-7.0.2...syncthing-7.0.3) (2021-09-21)
 
-#### Fix
+#### Chore
 
-* correct image tag for Syncthing on SCALE
+* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
