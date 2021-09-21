@@ -13,6 +13,6 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/homer"` |  |
-| image.tag | string | `"latest@sha256:6d4f5dd5b4cfb33ddbd5a7a896ba73fd96a352da57dd20600007a22f9aaa4fc3"` |  |
+| image.tag | string | `"latest@sha256:afa37f010ca951421e688b81a7ff3ef3bd58afe3d839c3f0f0870fccac17dfe7"` |  |
 
 All Rights Reserved - The TrueCharts Project

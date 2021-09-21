@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.username | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/collabora"` |  |
-| image.tag | string | `"v6.4.10.10@sha256:9b44b62b0d7894b4bdd6db6c4a5be66b4a2b14920f2d6401252e57641975d911"` |  |
+| image.tag | string | `"v6.4.11.3@sha256:30eab5f9807e006b90b2533ad3a60b84c6e744a6fed8a3be2bd3f1a839715456"` |  |
 | service.main.ports.main.port | int | `9980` |  |
 | service.main.type | string | `"NodePort"` |  |
 

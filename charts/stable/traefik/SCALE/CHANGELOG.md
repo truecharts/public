@@ -1,7 +1,7 @@
 
-<a name="traefik-8.0.2"></a>
-### [traefik-8.0.2](https://github.com/truecharts/apps/compare/traefik-8.0.1...traefik-8.0.2) (2021-09-16)
+<a name="traefik-8.0.3"></a>
+### [traefik-8.0.3](https://github.com/truecharts/apps/compare/traefik-8.0.2...traefik-8.0.3) (2021-09-21)
 
-#### Fix
+#### Chore
 
-* ensure traefik TLSOPtions get rendered correctly
+* update non-major ([#1013](https://github.com/truecharts/apps/issues/1013))

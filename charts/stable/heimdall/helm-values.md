@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/heimdall"` |  |
-| image.tag | string | `"version-2.2.2@sha256:f27eb3bb634df8370d5d96496e53c31174252d68e6bb792dddea2e80fb703213"` |  |
+| image.tag | string | `"version-2.2.2@sha256:823ce3c0e05b9bd7c011c03cea3af33b71efd726514d22b2d5b1d6989cefd5a7"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |

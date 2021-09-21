@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/truecharts/dizquetv"` | image repository |
-| image.tag | string | `"v1.4.3@sha256:25c9ed2581550fe15fffeae8a791dabf4119969dbb39b62c45bc8e18c31a52e0"` | image tag |
+| image.tag | string | `"v1.4.5@sha256:a6d6ad27279086a679386e8a86d891a01503134e893028f0db6d8a4578649f18"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
