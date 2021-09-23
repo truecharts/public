@@ -16,18 +16,16 @@ When given a priority the following is taken into account:
 ##### GUI suggestions
 
 - Add more bulk options, like bulk upgrade and restart. [NAS-112055](https://jira.ixsystems.com/browse/NAS-112055)
-- Default tab should be "Installed Apps" or have an option to set the default. [NAS-112057](https://jira.ixsystems.com/browse/NAS-112057)
 - Use blue for the Official Catalog/Train boxes in the available/installed apps tabs. [NAS-112059](https://jira.ixsystems.com/browse/NAS-112059)
 - Allow showing 1 or more default entries when creating a list (instead of an empty list)[NAS-109761](https://jira.ixsystems.com/browse/NAS-109761)
 - When using rollback display a dropdown of available versions, instead of a textbox. [NAS-112060](https://jira.ixsystems.com/browse/NAS-112060)
-- Allow fields of type `text` in questions.yaml, instead of just `string` [NAS-112061](https://jira.ixsystems.com/browse/NAS-112061)
-- Show App internal DNS name in App Overview [NAS-112063](https://jira.ixsystems.com/browse/NAS-112063)
+- Hide ServiceLB pods from podlog selector [NAS-112510](https://jira.ixsystems.com/browse/NAS-112510)
 
 
 ##### Backend suggestions
 
 - Allow multiple Containers to all consume the same intel GPU [NAS-112058](https://jira.ixsystems.com/browse/NAS-112058)
-- Mount the PVC dataset to the host [NAS-112078](https://jira.ixsystems.com/browse/NAS-112078)
+
 
 ##### Documentation suggestions
 
@@ -38,9 +36,10 @@ When given a priority the following is taken into account:
 ##### GUI suggestions
 
 - Use all screen on install / edit app, not just a sidebar. [NAS-110183](https://jira.ixsystems.com/browse/NAS-110183)
-- Add service information (Service name and ports) to the App Overview (In the card displayed when clicking an installed app). [NAS-112062](https://jira.ixsystems.com/browse/NAS-112062)
 - Allow changing colors (yellow/gold default) of catalogs/trains boxes in the available/installed apps tabs, to be easier to distinguish between catalog/train. [NAS-112065](https://jira.ixsystems.com/browse/NAS-112065)
 - Add option for separators and whitespace in questions.yaml [NAS-110750](https://jira.ixsystems.com/browse/NAS-110750)
+- Show App service internal DNS names in App Overview [NAS-112063](https://jira.ixsystems.com/browse/NAS-112063)
+- Allow fields of type `text` in questions.yaml, instead of just `string` [NAS-112061](https://jira.ixsystems.com/browse/NAS-112061)
 
 
 ##### Backend suggestions
@@ -50,12 +49,12 @@ When given a priority the following is taken into account:
 - Allow to auto update Apps [NAS-112056](https://jira.ixsystems.com/browse/NAS-112056)
 
 
+
 ### Priority: Low/Post-U1
 
 ##### GUI suggestions
 
 - Add sorting options in app catalog. [NAS-112067](https://jira.ixsystems.com/browse/NAS-112067)
-- Increase the size of App overview modal [NAS-112068](https://jira.ixsystems.com/browse/NAS-112068)
 - Fix some of the themes to work with apps section. [NAS-112069](https://jira.ixsystems.com/browse/NAS-112069)
 - Add ability to group apps. [NAS-112070](https://jira.ixsystems.com/browse/NAS-112070)
 - Show statistics per app (cpu / network / ram) [NAS-112071](https://jira.ixsystems.com/browse/NAS-112071)
@@ -67,7 +66,7 @@ When given a priority the following is taken into account:
 
 - Allow `show_if` and `show_subquestions_if` to to use values for evaluation from parent variables [NAS-110751](https://jira.ixsystems.com/browse/NAS-110751)
 - Add a feature to allow App creators to show a dropdown listing other Apps to connect to [NAS-112064](https://jira.ixsystems.com/browse/NAS-112064)
-- The "Application Events" in the App Overview should be shown in a similar UI widget as the container logs. [NAS-112074](https://jira.ixsystems.com/browse/NAS-112074)
+- Mount the PVC dataset to the host [NAS-112078](https://jira.ixsystems.com/browse/NAS-112078)
 
 
 ### Priority: Not sure if possible
