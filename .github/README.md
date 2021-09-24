@@ -41,15 +41,15 @@ For big changes we do have a roadmap, every spot on the roadmap is synced to a T
 
 <br>
 
-**Documentation and DNS - TrueNAS SCALE 21.10**
+**Documentation and Common - TrueNAS SCALE 21.10**
 
-_We aim to improve our quick-start guides the comming few months and at the same time dail with DNS related Apps such as ExternalDNS_
+_We aim to improve our quick-start guides the comming few months and at the same time ensure all common code works without issues_
 
 <br>
 
-**Email and VPN - TrueNAS SCALE 21.12**
+**Email and External-DNS - TrueNAS SCALE 21.12**
 
-_Our goal these months will be enabling users to run an Email server on their SCALE machine and allow using our software with VPN sidecards_
+_Our goal these months will be enabling users to run an Email server on their SCALE machine and work on adding external-dns support_
 
 <br>
 
