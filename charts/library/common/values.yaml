@@ -247,13 +247,19 @@ dnsConfig:
 enableServiceLinks: false
 
 # -- Configure the Security Context for the Pod
-podSecurityContext: {}
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: OnRootMismatch
 
 # -- Configure the Security Context for the main container
 securityContext:
   privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
 
 
 # -- Configure the lifecycle for the main container
