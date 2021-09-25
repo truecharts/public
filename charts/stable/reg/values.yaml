@@ -19,13 +19,6 @@ securityContext:
   allowPrivilegeEscalation: true
   runAsNonRoot: true
 
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 # -- environment variables. See more environment variables in the [reg documentation](https://github.com/genuinetools/reg).
 env:
   # -- Set the container timezone

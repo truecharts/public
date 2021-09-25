@@ -19,13 +19,6 @@ securityContext:
   allowPrivilegeEscalation: true
   runAsNonRoot: true
 
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 # -- environment variables. See [image docs](https://github.com/seejohnrun/haste-server) for more details.
 # @default -- See below
 env:

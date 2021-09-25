@@ -11,13 +11,6 @@ securityContext:
   allowPrivilegeEscalation: false
   runAsNonRoot: true
 
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 postgresqlImage:
   repository: bitnami/postgresql
   pullPolicy: IfNotPresent

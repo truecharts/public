@@ -11,13 +11,6 @@ securityContext:
   allowPrivilegeEscalation: true
   runAsNonRoot: true
 
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 service:
   main:
     enabled: true
