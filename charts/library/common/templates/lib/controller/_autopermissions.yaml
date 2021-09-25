@@ -27,7 +27,7 @@ before chart installation.
   command:
     - "/bin/sh"
     - "-c"
-    - "echo 'Automatically correcting permissions...';{{ if .Values.addons.vpn.configFile.enabled }}chown -R 568:568 /vpn/vpn.conf; chmod -R g+w /vpn/vpn.conf;{{ end }}{{ range $_, $hpm := $hostPathMounts }}chown -R :{{ $group }} {{ $hpm.mountPath | squote }}; chmod -R g+w {{ $hpm.mountPath | squote }};{{ end }}"
+    - "echo 'Automatically correcting permissions...';{{ if and ( .Values.addons.vpn.configFile.enabled ) ( not ( eq .Values.addons.vpn.type "disabled" )) }}chown -R 568:568 /vpn/vpn.conf; chmod -R g+w /vpn/vpn.conf;{{ end }}{{ range $_, $hpm := $hostPathMounts }}chown -R :{{ $group }} {{ $hpm.mountPath | squote }}; chmod -R g+w {{ $hpm.mountPath | squote }};{{ end }}"
   volumeMounts:
     {{- if .Values.addons.vpn.configFile }}
       - name: vpnconfig
