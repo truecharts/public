@@ -7,12 +7,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v5.6.0@sha256:469de8c0d224549bb051263603276a78a3c9281579d21ac3f71611cc17281457
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
 # 5=tty 20=dialout 24=cdrom
 podSecurityContext:
   runAsUser: 568
@@ -83,10 +77,6 @@ service:
         enabled: true
         port: 3000
         protocol: TCP
-
-# Privileged may be required if USB controller is accessed directly through the host machine
-# securityContext:
-#   privileged: true
 
 persistence:
   config:

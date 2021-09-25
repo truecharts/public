@@ -10,12 +10,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.0.0@sha256:42
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
 # See more environment variables in the ${CHARTNAME} documentation
 # https://${CHARTNAME}.org/docs
 env: {}

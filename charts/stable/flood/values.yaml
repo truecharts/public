@@ -13,12 +13,6 @@ image:
   # -- image tag
   tag: v4.6.1@sha256:268dc4b4eff08c6c5563b779a1b41370c5c509ff190fe38886a65f65c4174f85
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
 # -- environment variables. See more environment variables in the [flood documentation] (https://github.com/jesec/flood/blob/v4.6.0/config.ts)
 # Note: The environmental variables are not case sensitive (e.g. FLOOD_OPTION_port=FLOOD_OPTION_PORT).
 # @default -- See below

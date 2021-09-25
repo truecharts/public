@@ -5,12 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.22.2@sha256:8693c057298731f507128a395395172d60093be9b299f6bf9e5c35512a74d457
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
 postgresqlImage:
   repository: bitnami/postgresql
   pullPolicy: IfNotPresent

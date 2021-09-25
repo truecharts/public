@@ -5,12 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v4.3.7@sha256:a51b97508cfd5ec81e6693e7203490d275e76eaa0d7772d40512dea8d8509f45
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
 env: {}
     # TZ: UTC
   # PUID: 1001

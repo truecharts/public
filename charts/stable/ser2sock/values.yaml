@@ -13,12 +13,6 @@ image:
   # -- image pull policy
   pullPolicy: Always
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
 # -- environment variables. See [image docs](https://github.com/tenstartups/ser2sock) for more details.
 # @default -- See below
 env:

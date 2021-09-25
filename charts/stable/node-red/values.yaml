@@ -5,12 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v2.0.6@sha256:b772bf702782d81b124453477846b15ddef0253c67ac6135a8c3d96128d9f9a3
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
 # See more environment varaibles in the node-red documentation
 # https://nodered.org/docs/getting-started/docker
 env: {}

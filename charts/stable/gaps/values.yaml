@@ -5,12 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.8.8@sha256:2e4b3b4e677be68b947517b0077aec719db8c382dad2952421b746060bbd6513
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
 service:
   main:
     ports:

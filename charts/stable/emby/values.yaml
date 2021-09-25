@@ -5,12 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v4.6.4.0@sha256:3921a37cfd43abbc5be6fd6a2141488573c64f70d628b4a4731415713cbb12cd
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
 # 44=video 107=render
 podSecurityContext:
   runAsUser: 568
