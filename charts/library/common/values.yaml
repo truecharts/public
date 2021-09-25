@@ -698,15 +698,14 @@ addons:
     # @default -- See below
     openvpn:
       # -- Credentials to connect to the VPN Service (used with -a)
-      auth:  # "user;password"
-      # -- Optionally specify an existing secret that contains the credentials.
-      # Credentials should be stored under the `VPN_AUTH` key
-      authSecret:  # my-vpn-secret
+      # Only using password is enough
+      username: ""
+      password: ""
 
-    wireguard:
-      KILLSWITCH: false
-      KILLSWITCH_EXCLUDEDNETWORKS_IPV4:
-        - 192.168.0.0.1
+    killSwitch: true
+    excludedNetworks_IPv4: []
+    excludedNetworks_IPv6: []
+
     # -- Set the VPN container specific securityContext
     # @default -- See values.yaml
     securityContext: {}
@@ -725,7 +724,7 @@ addons:
 
     # -- Provide a customized vpn configuration file to be used by the VPN.
     configFile:
-      enabled: false
+      enabled: true
       type: hostPath
       # -- Which path on the host should be mounted.
       hostPath: /vpn/vpn.conf
