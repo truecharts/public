@@ -35,6 +35,10 @@
   {{- end }}
 
   env:
+   {{- if .Values.securityContext.readOnlyRootFilesystem }}
+    - name: S6_READ_ONLY_ROOT
+      value: "1"
+   {{- end }}
    {{- range $key, $value := .Values.envTpl }}
     - name: {{ $key }}
       value: {{ tpl $value $ | quote }}

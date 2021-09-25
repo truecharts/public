@@ -98,14 +98,14 @@ func (suite *ContainerTestSuite) TestEnv() {
         values      []string
         expectedEnv map[string]string
     }{
-        "Default":                    {values: nil, expectedEnv: nil},
-        "KeyValueString":             {values: []string{"env.string=value_of_env"}, expectedEnv: map[string]string{"string": "value_of_env"}},
-        "KeyValueFloat":              {values: []string{"env.float=4.2"}, expectedEnv: map[string]string{"float": "4.2"}},
-        "KeyValueBool":               {values: []string{"env.bool=false"}, expectedEnv: map[string]string{"bool": "false"}},
-        "KeyValueInt":                {values: []string{"env.int=42"}, expectedEnv: map[string]string{"int": "42"}},
-        "KeyValue+ExplicitValueFrom": {values: []string{"env.STATIC_ENV=value_of_env", "env.STATIC_ENV_FROM.valueFrom.fieldRef.fieldPath=spec.nodeName"}, expectedEnv: map[string]string{"STATIC_ENV": "value_of_env", "STATIC_ENV_FROM": "spec.nodeName"}},
-        "ImplicitValueFrom":          {values: []string{"env.NODE_NAME.fieldRef.fieldPath=spec.nodeName"}, expectedEnv: map[string]string{"NODE_NAME": "spec.nodeName"}},
-        "Templated":                  {values: []string{`env.DYN_ENV=\{\{ .Release.Name \}\}-admin`}, expectedEnv: map[string]string{"DYN_ENV": "common-test-admin"}},
+        "Default":                    {values: nil, expectedEnv: map[string]string{"S6_READ_ONLY_ROOT":"1"}},
+        "KeyValueString":             {values: []string{"env.string=value_of_env"}, expectedEnv: map[string]string{"S6_READ_ONLY_ROOT":"1", "string": "value_of_env"}},
+        "KeyValueFloat":              {values: []string{"env.float=4.2"}, expectedEnv: map[string]string{"S6_READ_ONLY_ROOT":"1", "float": "4.2"}},
+        "KeyValueBool":               {values: []string{"env.bool=false"}, expectedEnv: map[string]string{"S6_READ_ONLY_ROOT":"1", "bool":"false"}},
+        "KeyValueInt":                {values: []string{"env.int=42"}, expectedEnv: map[string]string{"S6_READ_ONLY_ROOT":"1", "int": "42"}},
+        "KeyValue+ExplicitValueFrom": {values: []string{"env.STATIC_ENV=value_of_env", "env.STATIC_ENV_FROM.valueFrom.fieldRef.fieldPath=spec.nodeName"}, expectedEnv: map[string]string{"S6_READ_ONLY_ROOT":"1", "STATIC_ENV": "value_of_env", "STATIC_ENV_FROM": "spec.nodeName"}},
+        "ImplicitValueFrom":          {values: []string{"env.NODE_NAME.fieldRef.fieldPath=spec.nodeName"}, expectedEnv: map[string]string{"NODE_NAME": "spec.nodeName", "S6_READ_ONLY_ROOT":"1"}},
+        "Templated":                  {values: []string{`env.DYN_ENV=\{\{ .Release.Name \}\}-admin`}, expectedEnv: map[string]string{"DYN_ENV": "common-test-admin", "S6_READ_ONLY_ROOT":"1"}},
         "Mixed": {
             values: []string{
                 `env.DYN_ENV=\{\{ .Release.Name \}\}-admin`,
@@ -115,6 +115,7 @@ func (suite *ContainerTestSuite) TestEnv() {
             },
             expectedEnv: map[string]string{
                 "DYN_ENV":                  "common-test-admin",
+                "S6_READ_ONLY_ROOT":        "1", "
                 "STATIC_ENV":               "value_of_env",
                 "STATIC_EXPLICIT_ENV_FROM": "spec.nodeName",
                 "STATIC_IMPLICIT_ENV_FROM": "spec.nodeName",
