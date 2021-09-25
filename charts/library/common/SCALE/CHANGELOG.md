@@ -1,7 +1,3 @@
 
-<a name="common-7.0.14"></a>
-### [common-7.0.14](https://github.com/truecharts/apps/compare/common-7.0.13...common-7.0.14) (2021-09-14)
-
-#### Fix
-
-* make sure autopermissions sets the group owner correctly ([#994](https://github.com/truecharts/apps/issues/994))
+<a name="common-8.0.0"></a>
+### [common-8.0.0](https://github.com/truecharts/apps/compare/common-test-3.1.3...common-8.0.0) (2021-09-25)

@@ -137,7 +137,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | podAnnotationsList | list | `[]` | Set additional annotations on the pod |
 | podLabels | object | `{}` | Set labels on the pod |
 | podLabelsList | list | `[]` | Set additional labels on the pod |
-| podSecurityContext | object | `{}` | Configure the Security Context for the Pod |
+| podSecurityContext | object | `{"fsGroup":568,"fsGroupChangePolicy":"OnRootMismatch","runAsGroup":568,"runAsUser":568,"supplementalGroups":[]}` | Configure the Security Context for the Pod |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
@@ -172,7 +172,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | resources | object | `{"limits":{"cpu":"2000m","memory":"2Gi"},"requests":{"cpu":"10m","memory":"50Mi"}}` | Set the resource requests / limits for the main container. |
 | schedulerName | string | `nil` | Allows specifying a custom scheduler name |
 | secret | object | `{}` | Use this to populate a secret with the values you specify. Be aware that these values are not encrypted by default, and could therefore visible to anybody with access to the values.yaml file. |
-| securityContext | object | `{"allowPrivilegeEscalation":true,"privileged":false,"readOnlyRootFilesystem":false}` | Configure the Security Context for the main container |
+| securityContext | object | `{"allowPrivilegeEscalation":false,"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true}` | Configure the Security Context for the main container |
 | service | object | See below | Configure the services for the chart here. Additional services can be added by adding a dictionary key similar to the 'main' service. |
 | service.main.enabled | bool | `true` | Enables or disables the service |
 | service.main.nameOverride | string | `nil` | Override the name suffix that is used for this service |
