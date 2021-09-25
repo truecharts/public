@@ -144,7 +144,7 @@ func (suite *IngressTestSuite) TestPathServices() {
                 suite.Assertions.EqualValues(tc.expectedServiceName, primaryPath.Path("backend.service.name").Data())
             }
 
-            if tc.expectedServicePort == 0 {
+            if tc.expectedServicePort == 8080 {
                 suite.Assertions.Empty(primaryPath.Path("backend.service.port.number").Data())
             } else {
                 suite.Assertions.EqualValues(tc.expectedServicePort, primaryPath.Path("backend.service.port.number").Data())
