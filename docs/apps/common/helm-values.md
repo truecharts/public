@@ -32,14 +32,13 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | addons.promtail.loki | string | `""` | The URL to Loki |
 | addons.promtail.volumeMounts | list | `[]` | Specify a list of volumes that get mounted in the promtail container. At least 1 volumeMount is required! |
 | addons.vpn | object | See values.yaml | The common chart supports adding a VPN add-on. It can be configured under this key. For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#wireguard-vpn) |
-| addons.vpn.configFile | object | `{"enabled":false,"hostPath":"/vpn/vpn.conf","hostPathType":"File","noMount":true,"type":"hostPath"}` | Provide a customized vpn configuration file to be used by the VPN. |
+| addons.vpn.configFile | object | `{"enabled":true,"hostPath":"/vpn/vpn.conf","hostPathType":"File","noMount":true,"type":"hostPath"}` | Provide a customized vpn configuration file to be used by the VPN. |
 | addons.vpn.configFile.hostPath | string | `"/vpn/vpn.conf"` | Which path on the host should be mounted. |
 | addons.vpn.configFile.hostPathType | string | `"File"` | Specifying a hostPathType adds a check before trying to mount the path. See Kubernetes documentation for options. |
 | addons.vpn.env | object | `{}` | All variables specified here will be added to the vpn sidecar container See the documentation of the VPN image for all config values |
 | addons.vpn.envList | list | `[]` | All variables specified here will be added to the vpn sidecar container See the documentation of the VPN image for all config values |
 | addons.vpn.openvpn | object | See below | OpenVPN specific configuration |
-| addons.vpn.openvpn.auth | string | `nil` | Credentials to connect to the VPN Service (used with -a) |
-| addons.vpn.openvpn.authSecret | string | `nil` | Optionally specify an existing secret that contains the credentials. Credentials should be stored under the `VPN_AUTH` key |
+| addons.vpn.openvpn.username | string | `""` | Credentials to connect to the VPN Service (used with -a) Only using password is enough |
 | addons.vpn.securityContext | object | See values.yaml | Set the VPN container specific securityContext |
 | addons.vpn.type | string | `"disabled"` | Specify the VPN type. Valid options are disabled, openvpn or wireguard |
 | affinity | object | `{}` | Defines affinity constraint rules. [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) |
