@@ -63,7 +63,7 @@ func (suite *ContainerTestSuite) TestArgs() {
         values       []string
         expectedArgs []string
     }{
-        "Default":      {values: nil, expectedArgs: nil},
+        "Default":      {values: nil, expectedArgs: []string{"--port","8080"}},
         "SingleString": {values: []string{"args=sleep infinity"}, expectedArgs: []string{"sleep infinity"}},
         "StringList":   {values: []string{"args={sleep,infinity}"}, expectedArgs: []string{"sleep", "infinity"}},
     }
@@ -115,7 +115,7 @@ func (suite *ContainerTestSuite) TestEnv() {
             },
             expectedEnv: map[string]string{
                 "DYN_ENV":                  "common-test-admin",
-                "S6_READ_ONLY_ROOT":        "1", "
+                "S6_READ_ONLY_ROOT":        "1",
                 "STATIC_ENV":               "value_of_env",
                 "STATIC_EXPLICIT_ENV_FROM": "spec.nodeName",
                 "STATIC_IMPLICIT_ENV_FROM": "spec.nodeName",
@@ -201,11 +201,11 @@ func (suite *ContainerTestSuite) TestPorts() {
         expectedPort     int
         expectedProtocol string
     }{
-        "Default":       {values: nil, expectedPortName: "main", expectedPort: 0, expectedProtocol: "TCP"},
+        "Default":       {values: nil, expectedPortName: "main", expectedPort: 8080, expectedProtocol: "TCP"},
         "CustomName":    {values: []string{"service.main.ports.main.enabled=false", "service.main.ports.server.enabled=true", "service.main.ports.server.port=8080"}, expectedPortName: "server", expectedPort: 8080, expectedProtocol: "TCP"},
-        "ProtocolHTTP":  {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedPortName: "main", expectedPort: 0, expectedProtocol: "TCP"},
-        "ProtocolHTTPS": {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedPortName: "main", expectedPort: 0, expectedProtocol: "TCP"},
-        "ProtocolUDP":   {values: []string{"service.main.ports.main.protocol=UDP"}, expectedPortName: "main", expectedPort: 0, expectedProtocol: "UDP"},
+        "ProtocolHTTP":  {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedPortName: "main", expectedPort: 8080, expectedProtocol: "TCP"},
+        "ProtocolHTTPS": {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedPortName: "main", expectedPort: 8080, expectedProtocol: "TCP"},
+        "ProtocolUDP":   {values: []string{"service.main.ports.main.protocol=UDP"}, expectedPortName: "main", expectedPort: 8080, expectedProtocol: "UDP"},
     }
     for name, tc := range tests {
         suite.Suite.Run(name, func() {
@@ -223,7 +223,7 @@ func (suite *ContainerTestSuite) TestPorts() {
             suite.Assertions.EqualValues(tc.expectedProtocol, containerPorts[0].Path("protocol").Data())
 
             if tc.expectedPort == 0 {
-                suite.Assertions.Empty(containerPorts[0].Path("containerPort").Data())
+                suite.Assertions.Empty(containerPorts[8080].Path("containerPort").Data())
             } else {
                 suite.Assertions.EqualValues(tc.expectedPort, containerPorts[0].Path("containerPort").Data())
             }
