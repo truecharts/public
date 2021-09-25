@@ -5,14 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.24.3.5033-757abe6b4@sha256:23a65cc78a0aab38f26a60d38f65eefcb2db7dc4e5d99c4ac7ad8f722c677654
 
-# 44=video 107=render
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: [44, 107]
-  fsGroupChangePolicy: "OnRootMismatch"
-
 service:
   main:
     ports:
