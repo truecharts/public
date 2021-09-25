@@ -201,7 +201,7 @@ func (suite *ContainerTestSuite) TestPorts() {
         expectedPort     int
         expectedProtocol string
     }{
-        "Default":       {values: nil, expectedPortName: "main", expectedPort: 0, expectedProtocol: "TCP"},
+        "Default":       {values: nil, expectedPortName: "main", expectedPort: 8080, expectedProtocol: "TCP"},
         "CustomName":    {values: []string{"service.main.ports.main.enabled=false", "service.main.ports.server.enabled=true", "service.main.ports.server.port=8080"}, expectedPortName: "server", expectedPort: 8080, expectedProtocol: "TCP"},
         "ProtocolHTTP":  {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedPortName: "main", expectedPort: 8080, expectedProtocol: "TCP"},
         "ProtocolHTTPS": {values: []string{"service.main.ports.main.protocol=HTTP"}, expectedPortName: "main", expectedPort: 8080, expectedProtocol: "TCP"},
@@ -223,7 +223,7 @@ func (suite *ContainerTestSuite) TestPorts() {
             suite.Assertions.EqualValues(tc.expectedProtocol, containerPorts[0].Path("protocol").Data())
 
             if tc.expectedPort == 0 {
-                suite.Assertions.Empty(containerPorts[0].Path("containerPort").Data())
+                suite.Assertions.Empty(containerPorts[8080].Path("containerPort").Data())
             } else {
                 suite.Assertions.EqualValues(tc.expectedPort, containerPorts[0].Path("containerPort").Data())
             }

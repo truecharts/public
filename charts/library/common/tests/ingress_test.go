@@ -110,6 +110,7 @@ func (suite *IngressTestSuite) TestPathServices() {
         "Default": {
             values:              []string{"ingress.main.enabled=true"},
             expectedServiceName: "common-test",
+            expectedServicePort: 8080,
         },
         "CustomService": {
             values: []string{
