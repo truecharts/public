@@ -28,35 +28,52 @@
                   type: dict
                   show_if: [["type", "=", "openvpn"]]
                   attrs:
-                    - variable: auth
-                      label: "authentication credentials"
-                      description: "authentication credentials, seperated by ;  example: username;password"
+                    - variable: username
+                      label: "authentication username"
+                      description: "authentication username, optional"
                       schema:
                         type: string
                         default: ""
-              - variable: wireguard
-                label: "Wireguard Settings"
+                    - variable: password
+                      label: "authentication password"
+                      description: "authentication credentials"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: killSwitch
+                label: "Enable killswitch"
                 schema:
-                  type: dict
-                  show_if: [["type", "=", "wireguard"]]
-                  attrs:
-                    - variable: KILLSWITCH
-                      label: "Enable killswitch"
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: KILLSWITCH_EXCLUDEDNETWORKS_IPV4
-                      label: "Killswitch Excluded IPv4 networks"
-                      description: "list of killswitch excluded ipv4 addresses seperated by ;"
-                      schema:
-                        type: string
-                        default: "172.16.0.0/12"
-                    - variable: KILLSWITCH_EXCLUDEDNETWORKS_IPV6
-                      label: "Killswitch Excluded IPv6 networks"
-                      description: "list of killswitch excluded ipv4 addresses seperated by ;"
+                  type: boolean
+                  show_if: [["type", "!=", "disabled"]]
+                  default: true
+              - variable: excludedNetworks_IPv4
+                label: "Killswitch Excluded IPv4 networks"
+                description: "list of killswitch excluded ipv4 addresses"
+                schema:
+                  type: list
+                  show_if: [["type", "!=", "disabled"]]
+                  default: []
+                  items:
+                    - variable: networkv4
+                      label: "IPv4 Network"
                       schema:
                         type: string
-                        default: ""
+                        required: true
+              - variable: excludedNetworks_IPv6
+                label: "Killswitch Excluded IPv6 networks"
+                description: "list of killswitch excluded ipv4 addresses"
+                schema:
+                  type: list
+                  show_if: [["type", "!=", "disabled"]]
+                  default: []
+                  items:
+                    - variable: networkv6
+                      label: "IPv6 Network"
+                      schema:
+                        type: string
+                        required: true
+
               - variable: configFile
                 label: "VPN Config File Location"
                 schema:
@@ -89,9 +106,10 @@
                         hidden: true
                     - variable: hostPath
                       label: "Full path to file"
+                      description: "path to your local VPN config file for example: /mnt/tank/vpn.conf or /mnt/tank/vpn.ovpn"
                       schema:
                         type: string
-                        default: "/mnt/tank/config/YourVPN-Config.conf"
+                        default: ""
                         required: true
               - variable: envList
                 label: "VPN environment Variables"

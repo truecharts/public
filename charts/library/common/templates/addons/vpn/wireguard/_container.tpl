@@ -34,16 +34,22 @@ env:
 {{- end }}
 {{- end }}
 
-{{- if .Values.addons.vpn.wireguard.KILLSWITCH }}
+{{- if .Values.addons.vpn.killSwitch }}
   - name: KILLSWITCH
     value: "true"
-{{- if .Values.addons.vpn.wireguard.KILLSWITCH_EXCLUDEDNETWORKS_IPV4 }}
+  {{- $excludednetworksv4 := "172.16.0.0/12"}}
+  {{- range .Values.addons.vpn.excludedNetworks_IPv4 }}
+    {{- $excludednetworksv4 =  ( printf "%v;%v" $excludednetworksv4 . ) }}
+  {{- end}}
   - name: KILLSWITCH_EXCLUDEDNETWORKS_IPV4
-    value: {{ .Values.addons.vpn.wireguard.KILLSWITCH_EXCLUDEDNETWORKS_IPV4 | quote }}
-{{- end }}
-{{- if .Values.addons.vpn.wireguard.KILLSWITCH_EXCLUDEDNETWORKS_IPV6 }}
-  - name: KILLSWITCH_EXCLUDEDNETWORKS_IPV4
-    value: {{ .Values.addons.vpn.wireguard.KILLSWITCH_EXCLUDEDNETWORKS_IPV6 | quote }}
+    value: {{ $excludednetworksv4 | quote }}
+{{- if .Values.addons.vpn.excludedNetworks_IPv6 }}
+  {{- $excludednetworksv6 := ""}}
+  {{- range .Values.addons.vpn.excludedNetworks_IPv4 }}
+    {{- $excludednetworksv6 =  ( printf "%v;%v" $excludednetworksv6 . ) }}
+  {{- end}}
+  - name: KILLSWITCH_EXCLUDEDNETWORKS_IPV6
+    value: {{ .Values.addons.vpn.excludedNetworks_IPv6 | quote }}
 {{- end }}
 {{- end }}
 
