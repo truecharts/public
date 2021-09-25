@@ -14,17 +14,13 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
   runAsNonRoot: false
+
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
+
 
 # -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-resilio-sync#environment-variables-e) for more details.
 # @default -- See below

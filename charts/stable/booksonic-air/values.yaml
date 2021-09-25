@@ -13,6 +13,16 @@ image:
   # -- image tag
   tag: version-v2009.1.0@sha256:e05e9b40b03ad4f7468c297f4282cd9a713de9513968b0872abf90b10cce00e7
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+
 # See more environment variables in the [booksonic-air documentation](https://github.com/linuxserver/docker-booksonic-air#parameters)
 # @default -- See below
 env:

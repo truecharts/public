@@ -13,6 +13,15 @@ image:
   # -- image tag
   tag: v4.2.0@sha256:1f879027a346429012acdb46fbd133b1627585e29d8bbfd915936b79cc04324b
 
+securityContext:
+  runAsNonRoot: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+
 # -- environment variables. See [image docs](https://hub.docker.com/r/thelounge/thelounge/) for more details.
 # @default -- See below
 env:

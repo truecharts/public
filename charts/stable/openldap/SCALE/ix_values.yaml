@@ -43,6 +43,10 @@ replication:
   starttls: "critical"
   tls_reqcert: "never"
 
+persistence:
+  varrun:
+    enabled: false
+
 
 ##
 # Most other defaults are set in questions.yaml

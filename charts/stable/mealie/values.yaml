@@ -13,6 +13,16 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+
 # -- environment variables. See [image docs](https://hay-kot.github.io/mealie/getting-started/install/#env-variables) for more details.
 # @default -- See below
 env:

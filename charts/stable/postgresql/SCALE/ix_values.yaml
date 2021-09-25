@@ -16,7 +16,7 @@ initContainers:
     securityContext:
       runAsUser: 0
       privileged: true
-      allowPrivilegeEscalation: true
+
       runAsNonRoot: false
     command:
       - /bin/sh

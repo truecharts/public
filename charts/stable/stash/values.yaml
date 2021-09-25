@@ -13,6 +13,15 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+securityContext:
+  runAsNonRoot: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+
 # -- environment variables. See more environment variables in the [stashapp documentation](https://raw.githubusercontent.com/stashapp/stash/master/docker/production/docker-compose.yml)
 # @default -- See below
 env:

@@ -5,6 +5,16 @@ image:
   pullPolicy: IfNotPresent
   tag: 3.13.6@sha256:a88d61887cbfa78012ce8bf69e6fad5988d853b7b72a9483000b1af8a6083ff8
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+
 #  9987 default voice
 # 10011 server query
 # 30033 file transport

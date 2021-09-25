@@ -14,17 +14,13 @@ image:
   tag: v0.13.1@sha256:14d01b4a1a90991097656975d0c8643a755323961bc5b5c657a5c96372024d5c
 
 securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
   runAsNonRoot: false
+
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
+
 
 # -- environment variables. See more environment variables in the [gonic documentation](https://github.com/sentriz/gonic#configuration-options)
 # @default -- See below

@@ -6,17 +6,7 @@ image:
   tag: v1.0.0.2255@sha256:54ebc1f90963b16889e9e1b915eced4efd45ae489805aa996faf519430a4322f
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:

@@ -5,6 +5,15 @@ image:
   pullPolicy: IfNotPresent
   tag: version-2.0.3-2201906121747ubuntu18.04.1@sha256:a32d8680e315932b799c8267e2c0d630185aaf8b542d56a134c74c9a5c957c36
 
+securityContext:
+  runAsNonRoot: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+
 service:
   main:
     ports:

@@ -659,6 +659,17 @@ questions:
     schema:
       type: dict
       attrs:
+        - variable: varrun
+          label: "varrun override"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
         - variable: data
           label: "App Data Storage"
           description: "Stores the Application Data."
@@ -1174,7 +1185,7 @@ questions:
           label: "Allow Privilege Escalation"
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: runAsNonRoot
           label: "runAsNonRoot"
           schema:
