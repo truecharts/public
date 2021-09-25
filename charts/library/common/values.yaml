@@ -592,6 +592,22 @@ persistence:
     # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
     # specify a size for memory backed volumes.
     sizeLimit:  # 1Gi
+  # -- Create an emptyDir volume to share between all containers
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  # @default -- See below
+  varrun:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/run
+
+    # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
+    # of the storage medium that backs the node.
+    medium: Memory
+
+    # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
+    # specify a size for memory backed volumes.
+    sizeLimit:  # 1Gi
+
 
   # -- Example of a hostPath mount
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
