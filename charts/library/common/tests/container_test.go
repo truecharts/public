@@ -115,7 +115,7 @@ func (suite *ContainerTestSuite) TestEnv() {
             },
             expectedEnv: map[string]string{
                 "DYN_ENV":                  "common-test-admin",
-                "S6_READ_ONLY_ROOT":        "1", "
+                "S6_READ_ONLY_ROOT":        "1",
                 "STATIC_ENV":               "value_of_env",
                 "STATIC_EXPLICIT_ENV_FROM": "spec.nodeName",
                 "STATIC_IMPLICIT_ENV_FROM": "spec.nodeName",
