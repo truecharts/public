@@ -11,8 +11,11 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| args[0] | string | `"--port"` |  |
+| args[1] | string | `"8080"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/homer"` |  |
-| image.tag | string | `"latest@sha256:afa37f010ca951421e688b81a7ff3ef3bd58afe3d839c3f0f0870fccac17dfe7"` |  |
+| image.repository | string | `"traefik/whoami"` |  |
+| image.tag | string | `"v1.6.1@sha256:16012fe4680ce69348d98627c7d42c1ea5ffde7bc4d66aaae426bd8d05af0d84"` |  |
+| service.main.ports.main.port | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project
