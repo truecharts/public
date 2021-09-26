@@ -166,6 +166,11 @@ include_questions(){
     /# Include{deviceList}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/deviceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
+    # Replace # Include{resources} with the standard deviceList codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{resources}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/resources.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
     }
 
 clean_catalog() {
