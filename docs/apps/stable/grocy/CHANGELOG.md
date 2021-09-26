@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="grocy-8.0.0"></a>
+### [grocy-8.0.0](https://github.com/truecharts/apps/compare/grocy-7.0.3...grocy-8.0.0) (2021-09-26)
+
+
+
 <a name="grocy-7.0.3"></a>
 ### [grocy-7.0.3](https://github.com/truecharts/apps/compare/grocy-7.0.2...grocy-7.0.3) (2021-09-21)
 

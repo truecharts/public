@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-3.0.0"></a>
+### [protonmail-bridge-3.0.0](https://github.com/truecharts/apps/compare/protonmail-bridge-2.0.3...protonmail-bridge-3.0.0) (2021-09-26)
+
+
+
 <a name="protonmail-bridge-2.0.3"></a>
 ### [protonmail-bridge-2.0.3](https://github.com/truecharts/apps/compare/protonmail-bridge-2.0.2...protonmail-bridge-2.0.3) (2021-09-21)
 

@@ -24,7 +24,10 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"ghcr.io/truecharts/deconz"` | image repository |
 | image.tag | string | `"v2.12.06@sha256:738ebf8eb35c8025c070a4feeb7d7a48b15739dfe71cf338e80a03f932c1cf52"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
-| securityContext.privileged | bool | `nil` | Privileged securityContext may be required if USB controller is accessed directly through the host machine |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

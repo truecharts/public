@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="radarr-8.0.0"></a>
+### [radarr-8.0.0](https://github.com/truecharts/apps/compare/radarr-7.0.2...radarr-8.0.0) (2021-09-26)
+
+
+
 <a name="radarr-7.0.2"></a>
 ### [radarr-7.0.2](https://github.com/truecharts/apps/compare/radarr-7.0.1...radarr-7.0.2) (2021-09-21)
 

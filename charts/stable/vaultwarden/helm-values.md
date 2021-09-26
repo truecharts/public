@@ -48,11 +48,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.data.size | string | `"100Gi"` |  |
 | persistence.data.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"vaultwarden"` |  |
@@ -60,10 +55,6 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
 | postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
 | postgresqlImage.tag | string | `"13.4.0@sha256:abfb7efd31afc36a8b16aa077bb9dd165c4f635412affef37c7859605fda762c"` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `8080` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.port | int | `3012` |  |

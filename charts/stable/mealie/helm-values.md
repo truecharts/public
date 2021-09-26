@@ -19,6 +19,10 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v0.5.2@sha256:e09dcdcdc812e3ef498953ceb268cbaedc031861219e7928e721c0729e97a4ae"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

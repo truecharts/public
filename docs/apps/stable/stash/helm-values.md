@@ -17,6 +17,9 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"ghcr.io/truecharts/stash"` | image repository |
 | image.tag | string | `"v0.9.0@sha256:2859ab5c5792f6df06fe09497153bcea780f135883b618dcc1d5a78e4212b594"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

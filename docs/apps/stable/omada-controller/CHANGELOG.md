@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="omada-controller-3.0.0"></a>
+### [omada-controller-3.0.0](https://github.com/truecharts/apps/compare/omada-controller-2.0.4...omada-controller-3.0.0) (2021-09-26)
+
+
+
 <a name="omada-controller-2.0.4"></a>
 ### [omada-controller-2.0.4](https://github.com/truecharts/apps/compare/omada-controller-2.0.3...omada-controller-2.0.4) (2021-09-21)
 

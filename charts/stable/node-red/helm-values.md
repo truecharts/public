@@ -20,15 +20,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.data.size | string | `"100Gi"` |  |
 | persistence.data.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `1880` |  |
 
 All Rights Reserved - The TrueCharts Project

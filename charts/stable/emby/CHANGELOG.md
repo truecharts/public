@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="emby-8.0.0"></a>
+### [emby-8.0.0](https://github.com/truecharts/apps/compare/emby-7.0.2...emby-8.0.0) (2021-09-26)
+
+
+
 <a name="emby-7.0.2"></a>
 ### [emby-7.0.2](https://github.com/truecharts/apps/compare/emby-7.0.1...emby-7.0.2) (2021-09-21)
 

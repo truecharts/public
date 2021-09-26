@@ -19,16 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups[0] | int | `44` |  |
-| podSecurityContext.supplementalGroups[1] | int | `107` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `8096` |  |
 
 All Rights Reserved - The TrueCharts Project

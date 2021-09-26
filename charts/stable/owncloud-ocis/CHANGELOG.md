@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-3.0.0"></a>
+### [owncloud-ocis-3.0.0](https://github.com/truecharts/apps/compare/owncloud-ocis-2.0.3...owncloud-ocis-3.0.0) (2021-09-26)
+
+
+
 <a name="owncloud-ocis-2.0.3"></a>
 ### [owncloud-ocis-2.0.3](https://github.com/truecharts/apps/compare/owncloud-ocis-2.0.2...owncloud-ocis-2.0.3) (2021-09-21)
 

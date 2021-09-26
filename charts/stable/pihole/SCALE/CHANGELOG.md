@@ -1,7 +1,3 @@
 
-<a name="pihole-2.0.6"></a>
-### [pihole-2.0.6](https://github.com/truecharts/apps/compare/pihole-2.0.5...pihole-2.0.6) (2021-09-21)
-
-#### Chore
-
-* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
+<a name="pihole-3.0.0"></a>
+### [pihole-3.0.0](https://github.com/truecharts/apps/compare/pihole-2.0.6...pihole-3.0.0) (2021-09-26)

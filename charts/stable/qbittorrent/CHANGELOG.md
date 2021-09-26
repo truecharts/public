@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-8.0.0"></a>
+### [qbittorrent-8.0.0](https://github.com/truecharts/apps/compare/qbittorrent-7.0.2...qbittorrent-8.0.0) (2021-09-26)
+
+
+
 <a name="qbittorrent-7.0.2"></a>
 ### [qbittorrent-7.0.2](https://github.com/truecharts/apps/compare/qbittorrent-7.0.1...qbittorrent-7.0.2) (2021-09-21)
 

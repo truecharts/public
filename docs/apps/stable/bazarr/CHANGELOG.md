@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="bazarr-8.0.0"></a>
+### [bazarr-8.0.0](https://github.com/truecharts/apps/compare/bazarr-7.0.2...bazarr-8.0.0) (2021-09-26)
+
+
+
 <a name="bazarr-7.0.2"></a>
 ### [bazarr-7.0.2](https://github.com/truecharts/apps/compare/bazarr-7.0.1...bazarr-7.0.2) (2021-09-21)
 

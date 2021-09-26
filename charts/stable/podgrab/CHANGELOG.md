@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="podgrab-6.0.0"></a>
+### [podgrab-6.0.0](https://github.com/truecharts/apps/compare/podgrab-5.0.2...podgrab-6.0.0) (2021-09-26)
+
+
+
 <a name="podgrab-5.0.2"></a>
 ### [podgrab-5.0.2](https://github.com/truecharts/apps/compare/podgrab-5.0.1...podgrab-5.0.2) (2021-09-21)
 

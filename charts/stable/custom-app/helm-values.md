@@ -20,15 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `9117` |  |
 | service.main.portsList[0].enabled | bool | `true` |  |

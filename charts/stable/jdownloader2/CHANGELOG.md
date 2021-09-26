@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-3.0.0"></a>
+### [jdownloader2-3.0.0](https://github.com/truecharts/apps/compare/jdownloader2-2.0.3...jdownloader2-3.0.0) (2021-09-26)
+
+
+
 <a name="jdownloader2-2.0.3"></a>
 ### [jdownloader2-2.0.3](https://github.com/truecharts/apps/compare/jdownloader2-2.0.2...jdownloader2-2.0.3) (2021-09-21)
 

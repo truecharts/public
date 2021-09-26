@@ -25,7 +25,6 @@ You will, however, be able to use all values referenced in the common chart here
 | initContainers.migrate-db.command[2] | string | `"echo 'trying to migrate old db to new location...'\nmkdir -p /bitnami/postgresql/data\nmv -f /bitnami/postgresql/old/* /bitnami/postgresql/data/ || true\nchown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/data\nchmod 775 /bitnami/postgresql/data\n"` |  |
 | initContainers.migrate-db.image | string | `"{{ .Values.alpineImage.repository}}:{{ .Values.alpineImage.tag }}"` |  |
 | initContainers.migrate-db.imagePullPolicy | string | `"IfNotPresent"` |  |
-| initContainers.migrate-db.securityContext.allowPrivilegeEscalation | bool | `true` |  |
 | initContainers.migrate-db.securityContext.privileged | bool | `true` |  |
 | initContainers.migrate-db.securityContext.runAsNonRoot | bool | `false` |  |
 | initContainers.migrate-db.securityContext.runAsUser | int | `0` |  |
@@ -48,18 +47,11 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.dbbackups.mountPath | string | `"/dbbackups"` |  |
 | persistence.dbbackups.size | string | `"999Gi"` |  |
 | persistence.dbbackups.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | postgresqlDatabase | string | `"test"` |  |
 | postgresqlPassword | string | `"testpass"` |  |
 | postgresqlUsername | string | `"test"` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `5432` |  |
 

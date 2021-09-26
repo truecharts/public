@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="home-assistant-8.0.0"></a>
+### [home-assistant-8.0.0](https://github.com/truecharts/apps/compare/home-assistant-7.0.3...home-assistant-8.0.0) (2021-09-26)
+
+
+
 <a name="home-assistant-7.0.3"></a>
 ### [home-assistant-7.0.3](https://github.com/truecharts/apps/compare/home-assistant-7.0.2...home-assistant-7.0.3) (2021-09-21)
 

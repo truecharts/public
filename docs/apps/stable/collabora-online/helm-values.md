@@ -20,6 +20,10 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/collabora"` |  |
 | image.tag | string | `"v6.4.11.3@sha256:30eab5f9807e006b90b2533ad3a60b84c6e744a6fed8a3be2bd3f1a839715456"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `104` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `9980` |  |
 | service.main.type | string | `"NodePort"` |  |
 

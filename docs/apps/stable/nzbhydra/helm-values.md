@@ -20,11 +20,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | probes.liveness.custom | bool | `true` |  |
 | probes.liveness.enabled | bool | `true` |  |
 | probes.liveness.spec.failureThreshold | int | `5` |  |
@@ -49,10 +44,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.spec.initialDelaySeconds | int | `30` |  |
 | probes.startup.spec.periodSeconds | int | `10` |  |
 | probes.startup.spec.timeoutSeconds | int | `10` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `5076` |  |
 
 All Rights Reserved - The TrueCharts Project

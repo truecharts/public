@@ -17,15 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"ghcr.io/truecharts/ocis"` | image repository |
 | image.tag | string | `"v1.12.0@sha256:dca60812fd8e47bbc0b554f8e768f0a8cebe467039cde09c76ce034a3b0fb47b"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

@@ -14,17 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See more environment variables in the [komga documentation](https://komga.org/installation/configuration.html#optional-configuration). |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/truecharts/komga"` | image repository |
-| image.tag | string | `"v0.128.2@sha256:a0478af8a7febac6ac424948efeb131ff908c3e55ebdb7b1c1250c8cc7184c0d"` | image tag |
+| image.tag | string | `"v0.128.3@sha256:7868a1e1362466c51e185b41a0715c27b6b7c67f3a9cc76f1f39243ad57c47a2"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

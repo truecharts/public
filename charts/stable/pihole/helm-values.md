@@ -28,6 +28,10 @@ You will, however, be able to use all values referenced in the common chart here
 | pihole.DNS1 | string | `"9.9.9.9"` |  |
 | pihole.DNS2 | string | `"149.112.112.112"` |  |
 | pihole.WEBPASSWORD | string | `"somepassword"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.dns-tcp.enabled | bool | `true` |  |
 | service.dns-tcp.ports.https.enabled | bool | `true` |  |
 | service.dns-tcp.ports.https.port | int | `53` |  |

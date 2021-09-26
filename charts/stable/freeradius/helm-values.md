@@ -20,10 +20,14 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/etc/raddb"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.readiness | object | See below | Redainess probe configuration |
 | probes.startup | object | See below | Startup probe configuration |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.accounting.ports.accounting.port | int | `1813` |  |
 | service.accounting.ports.accounting.protocol | string | `"UDP"` |  |
 | service.main.ports.main.port | int | `1812` |  |

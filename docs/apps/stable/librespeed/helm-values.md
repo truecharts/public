@@ -19,6 +19,10 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"ghcr.io/linuxserver/librespeed"` | image repository |
 | image.tag | string | `"version-5.2.4@sha256:3ced9c8c076f8a095b4d73094a8060f1b7d564642636de6f90b64ae6c385a16a"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

@@ -19,14 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"ghcr.io/linuxserver/mylar3"` | image repository |
 | image.tag | string | `"version-v0.5.3@sha256:b96f0e97ab3f4bf4e4320670aa932d0f7df39d1ddce0bbf62808bd509209d78f"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
-| podSecurityContext.fsGroup | int | `0` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

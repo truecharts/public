@@ -52,10 +52,8 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.redismaster.size | string | `"100Gi"` |  |
 | persistence.redismaster.type | string | `"pvc"` |  |
 | podSecurityContext.fsGroup | int | `33` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"nextcloud"` |  |
@@ -79,6 +77,8 @@ You will, however, be able to use all values referenced in the common chart here
 | redis.replica.persistence.enabled | bool | `false` |  |
 | redis.replica.replicaCount | int | `0` |  |
 | redis.volumePermissions.enabled | bool | `true` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.hpb.enabled | bool | `true` |  |
 | service.hpb.ports.hpb.enabled | bool | `true` |  |
 | service.hpb.ports.hpb.port | int | `7867` |  |

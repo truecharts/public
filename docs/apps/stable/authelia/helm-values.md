@@ -104,11 +104,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.redismaster.noMount | bool | `true` |  |
 | persistence.redismaster.size | string | `"100Gi"` |  |
 | persistence.redismaster.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"authelia"` |  |
@@ -151,10 +146,6 @@ You will, however, be able to use all values referenced in the common chart here
 | regulation.max_retries | int | `3` |  |
 | resources.limits | object | `{}` |  |
 | resources.requests | object | `{}` |  |
-| securityContext.allowPrivilegeEscalation | bool | `false` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `true` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | server.path | string | `""` |  |
 | server.port | int | `9091` |  |
 | server.read_buffer_size | int | `4096` |  |

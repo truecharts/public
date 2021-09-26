@@ -23,6 +23,10 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"version-v1.22.0@sha256:11b714fd49962069da7352d420e93800354e44cf00754bb3fafb4dbd03a6f716"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | persistence.config | object | `{"accessMode":"ReadWriteOnce","enabled":true,"mountpath":"/config","size":"100Gi","type":"pvc"}` | Volume used for configuration |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

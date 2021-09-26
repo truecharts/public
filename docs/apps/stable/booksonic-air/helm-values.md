@@ -18,6 +18,10 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"ghcr.io/linuxserver/booksonic-air"` | image repository |
 | image.tag | string | `"version-v2009.1.0@sha256:e05e9b40b03ad4f7468c297f4282cd9a713de9513968b0872abf90b10cce00e7"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

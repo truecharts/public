@@ -23,6 +23,9 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"ghcr.io/linuxserver/calibre"` | image repository |
 | image.tag | string | `"version-v5.26.0@sha256:b5ab76091fedea53422e0f4ab57c9a672f23599e0c6c003d11df1f6161a7006e"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

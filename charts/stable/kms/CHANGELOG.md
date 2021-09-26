@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="kms-8.0.0"></a>
+### [kms-8.0.0](https://github.com/truecharts/apps/compare/kms-7.0.2...kms-8.0.0) (2021-09-26)
+
+
+
 <a name="kms-7.0.2"></a>
 ### [kms-7.0.2](https://github.com/truecharts/apps/compare/kms-7.0.1...kms-7.0.2) (2021-09-21)
 

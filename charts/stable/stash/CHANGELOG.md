@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="stash-3.0.0"></a>
+### [stash-3.0.0](https://github.com/truecharts/apps/compare/stash-2.0.2...stash-3.0.0) (2021-09-26)
+
+
+
 <a name="stash-2.0.2"></a>
 ### [stash-2.0.2](https://github.com/truecharts/apps/compare/stash-2.0.1...stash-2.0.2) (2021-09-21)
 

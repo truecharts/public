@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="owncast-3.0.0"></a>
+### [owncast-3.0.0](https://github.com/truecharts/apps/compare/owncast-2.0.2...owncast-3.0.0) (2021-09-26)
+
+
+
 <a name="owncast-2.0.2"></a>
 ### [owncast-2.0.2](https://github.com/truecharts/apps/compare/owncast-2.0.1...owncast-2.0.2) (2021-09-21)
 

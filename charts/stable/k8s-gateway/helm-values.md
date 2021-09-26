@@ -25,6 +25,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"quay.io/oriedge/k8s_gateway"` |  |
 | image.tag | string | `"v0.1.8@sha256:4937e28bb5dc4bd9c700a72d28e50d43929b4a9e8f64b4a306346426e6ed01e2"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
 | probes.liveness.custom | bool | `true` |  |
 | probes.liveness.spec.failureThreshold | int | `5` |  |
 | probes.liveness.spec.httpGet.path | string | `"/health"` |  |
@@ -53,6 +55,7 @@ You will, however, be able to use all values referenced in the common chart here
 | rbac.enabled | bool | `true` | Enables or disables the ClusterRole and ClusterRoleBinding |
 | rbac.rules | list | `[{"apiGroups":[""],"resources":["services","namespaces"],"verbs":["list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses"],"verbs":["list","watch"]}]` | Set Rules on the ClusterRole |
 | secondary | string | `""` | Service name of a secondary DNS server (should be `serviceName.namespace`) |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `53` |  |
 | service.main.ports.main.protocol | string | `"UDP"` |  |

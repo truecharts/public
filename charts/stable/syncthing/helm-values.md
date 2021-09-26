@@ -19,15 +19,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/var/syncthing/"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.discovery.ports.discovery.enabled | bool | `true` |  |
 | service.discovery.ports.discovery.port | int | `21027` |  |
 | service.discovery.ports.discovery.protocol | string | `"UDP"` |  |

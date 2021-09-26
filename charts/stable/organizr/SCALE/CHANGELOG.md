@@ -1,7 +1,3 @@
 
-<a name="organizr-7.0.2"></a>
-### [organizr-7.0.2](https://github.com/truecharts/apps/compare/organizr-7.0.1...organizr-7.0.2) (2021-09-21)
-
-#### Chore
-
-* update non-major deps helm releases ([#1014](https://github.com/truecharts/apps/issues/1014))
+<a name="organizr-8.0.0"></a>
+### [organizr-8.0.0](https://github.com/truecharts/apps/compare/organizr-7.0.2...organizr-8.0.0) (2021-09-26)

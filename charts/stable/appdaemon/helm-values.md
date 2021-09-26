@@ -25,14 +25,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"docker.io/acockburn/appdaemon"` |  |
 | image.tag | string | `"v4.1.0@sha256:209ee1c83b4c0794dd6f50333f60a212d0df7c4205e7e374ac78d988ffc3d8fd"` |  |
-| podSecurityContext.fsGroup | int | `0` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `5050` |  |
 | service.tcp.enabled | bool | `true` |  |

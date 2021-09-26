@@ -21,7 +21,9 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v1.6.1@sha256:3e54ffdf99ab297b2b70289d72f880cd52aad5f6a55ab3005f38a25a7115e692"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | persistence.printer | object | See values.yaml | Configure a hostPathMount to mount a USB device in the container. |
-| securityContext.privileged | bool | `true` | (bool) Privileged securityContext may be required if USB devics are accessed directly through the host machine |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

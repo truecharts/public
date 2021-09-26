@@ -42,6 +42,9 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/openldap"` |  |
 | image.tag | string | `"v1.5.0@sha256:fd870eecad0a5a5097ec7377a4441aa77171b4e10d8336f63698144dc3a51a4b"` |  |
+| persistence.varrun.enabled | bool | `false` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
 | replication.clusterName | string | `"cluster.local"` |  |
 | replication.enabled | bool | `false` |  |
 | replication.interval | string | `"00:00:00:10"` |  |
@@ -49,6 +52,8 @@ You will, however, be able to use all values referenced in the common chart here
 | replication.starttls | string | `"critical"` |  |
 | replication.timeout | int | `1` |  |
 | replication.tls_reqcert | string | `"never"` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.https.ports.https.port | int | `636` |  |
 | service.main.ports.main.port | int | `389` |  |
 | volumeClaimTemplates | object | `{"data":{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/var/lib/ldap/","size":"100Gi"},"slapd":{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/etc/ldap/slapd.d/","size":"100Gi"}}` | Used in conjunction with `controller.type: statefulset` to create individual disks for each instance. |

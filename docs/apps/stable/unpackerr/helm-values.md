@@ -20,19 +20,10 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.downloads.mountPath | string | `"/downloads"` |  |
 | persistence.downloads.size | string | `"100Gi"` |  |
 | persistence.downloads.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | portal.enabled | bool | `false` |  |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.enabled | bool | `false` |  |
 | service.main.ports.main.enabled | bool | `false` |  |
 

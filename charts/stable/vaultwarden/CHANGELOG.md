@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-9.0.0"></a>
+### [vaultwarden-9.0.0](https://github.com/truecharts/apps/compare/vaultwarden-8.0.6...vaultwarden-9.0.0) (2021-09-26)
+
+
+
 <a name="vaultwarden-8.0.6"></a>
 ### [vaultwarden-8.0.6](https://github.com/truecharts/apps/compare/vaultwarden-8.0.5...vaultwarden-8.0.6) (2021-09-21)
 

@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="calibre-3.0.0"></a>
+### [calibre-3.0.0](https://github.com/truecharts/apps/compare/calibre-web-7.0.4...calibre-3.0.0) (2021-09-26)
+
+
+
 <a name="calibre-2.0.2"></a>
 ### [calibre-2.0.2](https://github.com/truecharts/apps/compare/calibre-web-7.0.2...calibre-2.0.2) (2021-09-21)
 

@@ -17,13 +17,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"shenxn/protonmail-bridge"` | image repository |
 | image.tag | string | `"1.8.9-1@sha256:b296e8dd5bc01af3e3bf769ed3be3b2cea689a88a1c097776322d2641a7b3ba4"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
-| podSecurityContext.fsGroup | int | `0` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |

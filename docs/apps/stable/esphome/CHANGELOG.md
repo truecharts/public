@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="esphome-8.0.0"></a>
+### [esphome-8.0.0](https://github.com/truecharts/apps/compare/esphome-7.0.3...esphome-8.0.0) (2021-09-26)
+
+
+
 <a name="esphome-7.0.3"></a>
 ### [esphome-7.0.3](https://github.com/truecharts/apps/compare/esphome-7.0.2...esphome-7.0.3) (2021-09-21)
 

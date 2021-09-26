@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="nzbget-8.0.0"></a>
+### [nzbget-8.0.0](https://github.com/truecharts/apps/compare/nzbget-7.0.2...nzbget-8.0.0) (2021-09-26)
+
+
+
 <a name="nzbget-7.0.2"></a>
 ### [nzbget-7.0.2](https://github.com/truecharts/apps/compare/nzbget-7.0.1...nzbget-7.0.2) (2021-09-21)
 

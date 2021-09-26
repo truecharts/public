@@ -25,7 +25,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"version-5.5.12@sha256:9a1f87a8ad38694675390756be9686fe9d8ba941fe1f145641626135c7eb5e4b"` |  |
 | initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
 | initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
-| initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
+| initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U firefly -h ${pghost} ; do sleep 2 ; done"` |  |
 | initContainers.init-postgresdb.env[0].name | string | `"pghost"` |  |
 | initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
 | initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
@@ -36,11 +36,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.data.mountPath | string | `"/var/www/html/storage/upload"` |  |
 | persistence.data.size | string | `"100Gi"` |  |
 | persistence.data.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `0` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `0` |  |
-| podSecurityContext.runAsUser | int | `0` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"firefly"` |  |
@@ -51,10 +46,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.liveness.path | string | `"/login"` |  |
 | probes.readiness.path | string | `"/login"` |  |
 | probes.startup.path | string | `"/login"` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project
