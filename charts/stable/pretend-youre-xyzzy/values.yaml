@@ -17,11 +17,9 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml

@@ -8,11 +8,9 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 postgresqlImage:
   repository: bitnami/postgresql
@@ -63,7 +61,6 @@ persistence:
     type: emptyDir
   varrun:
     enabled: false
-
 
 # -- postgres dependency settings
 postgresql:

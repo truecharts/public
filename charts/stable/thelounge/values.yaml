@@ -16,11 +16,9 @@ image:
 securityContext:
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 # -- environment variables. See [image docs](https://hub.docker.com/r/thelounge/thelounge/) for more details.
 # @default -- See below

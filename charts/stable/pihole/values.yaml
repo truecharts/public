@@ -9,11 +9,9 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 envFrom:
   - configMapRef:
@@ -42,7 +40,6 @@ pihole:
   WEBPASSWORD: "somepassword"
   DNS1: "9.9.9.9"
   DNS2: "149.112.112.112"
-
 
 persistence:
   config:

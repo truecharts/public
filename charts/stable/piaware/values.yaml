@@ -17,11 +17,9 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 # -- environment variables. See [application docs](https://flightaware.com/adsb/piaware/advanced_configuration) for more details.
 # @default -- See below

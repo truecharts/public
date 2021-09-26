@@ -17,11 +17,9 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 # -- environment variables. See [image docs](https://github.com/mbentley/docker-omada-controller) for more details.
 # @default -- See below
@@ -36,7 +34,6 @@ service:
     ports:
       main:
         port: 8043
-
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml

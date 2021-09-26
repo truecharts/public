@@ -17,11 +17,9 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 # See more environment variables in the [booksonic-air documentation](https://github.com/linuxserver/docker-booksonic-air#parameters)
 # @default -- See below
@@ -42,7 +40,6 @@ service:
     ports:
       main:
         port: 4040
-
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml

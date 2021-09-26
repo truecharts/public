@@ -40,7 +40,6 @@ initContainers:
       - name: data
         mountPath: /bitnami/postgresql
 
-
 podSecurityContext:
   runAsGroup: 0
 
@@ -68,7 +67,6 @@ postgresqlPassword: "testpass"
 postgresqlUsername: "test"
 postgresqlDatabase: "test"
 existingSecret: ""
-
 
 envValueFrom:
   POSTGRES_PASSWORD:

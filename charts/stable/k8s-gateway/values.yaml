@@ -8,17 +8,14 @@ image:
 securityContext:
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 args: ["-conf", "/etc/coredns/Corefile"]
 
 # -- TTL for non-apex responses (in seconds)
 ttl: 300
-
 
 # -- Limit what kind of resources to watch, e.g. watchedResources: ["Ingress"]
 watchedResources: []
@@ -109,7 +106,6 @@ probes:
       timeoutSeconds: 5
       successThreshold: 1
       failureThreshold: 5
-
 
   startup:
     custom: true

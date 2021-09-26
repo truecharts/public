@@ -20,11 +20,9 @@ image:
 securityContext:
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 # -- environment variables. See more environment variables in the [nullserv documentation](https://github.com/bmrzycki/nullserv/blob/master/README.md).
 # @default -- See below
@@ -44,7 +42,6 @@ service:
       https:
         enabled: true
         port: 443
-
 
 # -- Configures the probes for the main Pod.
 # @default -- See values.yaml

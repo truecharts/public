@@ -16,11 +16,9 @@ image:
 securityContext:
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 # -- environment variables. See more environment variables in the [stashapp documentation](https://raw.githubusercontent.com/stashapp/stash/master/docker/production/docker-compose.yml)
 # @default -- See below
@@ -39,7 +37,6 @@ service:
     ports:
       main:
         port: 9999
-
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml

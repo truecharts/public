@@ -9,7 +9,6 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
@@ -150,7 +149,6 @@ probes:
       periodSeconds: 10
       timeoutSeconds: 2
       failureThreshold: 5
-
 
 ## Cronjob to execute Nextcloud background tasks
 ## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#webcron

@@ -48,7 +48,6 @@ providers:
       # By default this Traefik service
       # pathOverride: ""
 
-
 # -- Logs
 # https://docs.traefik.io/observability/logs/
 logs:
@@ -114,7 +113,6 @@ additionalArguments:
   - "--ping"
   - "--serverstransport.insecureskipverify=true"
   - "--providers.kubernetesingress.allowexternalnameservices=true"
-
 
 # -- TLS Options to be created as TLSOption CRDs
 # https://doc.traefik.io/traefik/https/tls/#tls-options
@@ -183,7 +181,6 @@ service:
   udp:
     enabled: false
 
-
 probes:
   # -- Liveness probe configuration
   # @default -- See below
@@ -195,7 +192,6 @@ probes:
     # @default -- "/"
     path: "/ping"
 
-
   # -- Redainess probe configuration
   # @default -- See below
   readiness:
@@ -206,7 +202,6 @@ probes:
     # @default -- "/"
     path: "/ping"
 
-
   # -- Startup probe configuration
   # @default -- See below
   startup:
@@ -216,7 +211,6 @@ probes:
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: "/ping"
-
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
@@ -265,7 +259,6 @@ rbac:
         - get
         - list
         - watch
-
 
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:

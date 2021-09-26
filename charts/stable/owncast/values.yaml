@@ -17,11 +17,9 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
@@ -40,7 +38,6 @@ service:
         port: 1935
         protocol: TCP
         targetPort: 1935
-
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml

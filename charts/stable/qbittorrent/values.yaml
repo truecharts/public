@@ -40,7 +40,6 @@ persistence:
     accessMode: ReadWriteOnce
     size: "100Gi"
 
-
 additionalVolumes:
   - name: qbittorrent-scripts
     emptyDir: {}

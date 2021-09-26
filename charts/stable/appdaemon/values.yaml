@@ -6,11 +6,9 @@ image:
 securityContext:
   runAsNonRoot: false
 
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 env:
   TZ: "America/Chicago"
