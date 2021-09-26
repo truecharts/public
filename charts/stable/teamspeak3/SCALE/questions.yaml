@@ -580,7 +580,7 @@ questions:
       type: dict
       attrs:
         - variable: privileged
-          label: Privileged mode
+          label: "Privileged mode"
           schema:
             type: boolean
             default: false
@@ -588,7 +588,7 @@ questions:
           label: "ReadOnly Root Filesystem"
           schema:
             type: boolean
-            default: false
+            default: true
         - variable: allowPrivilegeEscalation
           label: "Allow Privilege Escalation"
           schema:
@@ -598,7 +598,7 @@ questions:
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: false
+            default: true
   - variable: resources
     group: "Resources and Devices"
     label: ""

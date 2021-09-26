@@ -993,7 +993,7 @@ questions:
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: false
+            default: true
 
   - variable: podSecurityContext
     group: "Security and Permissions"
