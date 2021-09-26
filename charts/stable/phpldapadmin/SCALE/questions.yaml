@@ -273,22 +273,6 @@ questions:
 
 # Include{serviceList}
 
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      type: dict
-      attrs:
-        - variable: varrun
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
 # Include{persistenceList}
 
   - variable: ingress
