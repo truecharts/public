@@ -31,10 +31,10 @@ service:
         port: 51050
         protocol: TCP
 
-hostPathMounts:
-  - name: config
+persistence:
+  conf:
     enabled: true
-    mountPath: /conf
+    mountPath: "/conf"
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
