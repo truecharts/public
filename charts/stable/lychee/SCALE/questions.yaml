@@ -390,6 +390,15 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "100Gi"
+        - variable: varrun
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
 # Include{persistenceList}
 
   - variable: ingress
