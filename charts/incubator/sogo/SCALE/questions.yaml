@@ -66,7 +66,6 @@ questions:
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -87,7 +86,6 @@ questions:
             type: string
             default: "002"
 # Include{containerConfig}
-
 
   - variable: sogo
     group: "App Configuration"
@@ -1161,8 +1159,6 @@ questions:
                                   label: "Value"
                                   schema:
                                     type: string
-
-
 
 # Include{ingressList}
   - variable: securityContext

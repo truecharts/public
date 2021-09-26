@@ -113,10 +113,7 @@ questions:
             $ref:
               - "definitions/nodeIP"
 
-
 # Include{containerConfig}
-
-
 
   - variable: service
     group: "Networking and Services"
@@ -700,8 +697,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
-
 
   - variable: autoscaling
     group: "Resources and Devices"

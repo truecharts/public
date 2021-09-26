@@ -86,8 +86,6 @@ questions:
             default: "002"
 # Include{containerConfig}
 
-
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -191,7 +189,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36062
-
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -541,8 +538,6 @@ questions:
                                   schema:
                                     type: string
 
-
-
 # Include{ingressList}
 
   - variable: securityContext
@@ -656,7 +651,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
 
   - variable: autoscaling
     group: "Resources and Devices"

@@ -168,8 +168,6 @@ questions:
                               required: true
                               default: ""
 
-
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -344,10 +342,7 @@ questions:
 
 # Include{serviceList}
 
-
 # Include{persistenceList}
-
-
 
   - variable: securityContext
     group: "Security and Permissions"
@@ -461,7 +456,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
 
   - variable: autoscaling
     group: "Resources and Devices"

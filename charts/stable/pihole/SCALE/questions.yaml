@@ -123,9 +123,6 @@ questions:
             type: string
             default: "149.112.112.112"
 
-
-
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -956,9 +953,6 @@ questions:
                                   schema:
                                     type: string
 
-
-
-
 # Include{ingressList}
 
   - variable: securityContext
@@ -1073,7 +1067,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
 
   - variable: autoscaling
     group: "Resources and Devices"
