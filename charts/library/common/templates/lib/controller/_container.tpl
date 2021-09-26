@@ -35,7 +35,7 @@
   {{- end }}
 
   env:
-   {{- if .Values.securityContext.readOnlyRootFilesystem }}
+   {{- if or ( .Values.securityContext.readOnlyRootFilesystem ) ( .Values.securityContext.runAsNonRoot ) }}
     - name: S6_READ_ONLY_ROOT
       value: "1"
    {{- end }}
