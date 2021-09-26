@@ -87,8 +87,6 @@ questions:
             default: "002"
 # Include{containerConfig}
 
-
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -579,9 +577,6 @@ questions:
                                   schema:
                                     type: string
 
-
-
-
 # Include{ingressList}
 
   - variable: securityContext
@@ -604,7 +599,7 @@ questions:
           label: "Allow Privilege Escalation"
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: runAsNonRoot
           label: "runAsNonRoot"
           schema:
@@ -636,13 +631,13 @@ questions:
             type: int
             default: 568
         - variable: supplementalGroups
-          label: "supplementalGroups"
+          label: "supplemental Groups"
           schema:
             type: list
             default: []
             items:
               - variable: supplementalGroupsEntry
-                label: "supplementalGroup"
+                label: "supplemental Group"
                 schema:
                   type: int
         - variable: fsGroupChangePolicy
@@ -655,6 +650,7 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+
   - variable: resources
     group: "Resources and Devices"
     label: "Resource Limits"
@@ -695,7 +691,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
 
   - variable: autoscaling
     group: "Resources and Devices"

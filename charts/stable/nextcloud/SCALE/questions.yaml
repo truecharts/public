@@ -113,10 +113,7 @@ questions:
             $ref:
               - "definitions/nodeIP"
 
-
 # Include{containerConfig}
-
-
 
   - variable: service
     group: "Networking and Services"
@@ -587,18 +584,68 @@ questions:
                                     type: string
 
 # Include{ingressList}
+
+  - variable: securityContext
+    group: "Security and Permissions"
+    label: "Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: privileged
+          label: "Privileged mode"
+          schema:
+            type: boolean
+            default: false
+        - variable: readOnlyRootFilesystem
+          label: "ReadOnly Root Filesystem"
+          schema:
+            type: boolean
+            default: false
+        - variable: allowPrivilegeEscalation
+          label: "Allow Privilege Escalation"
+          schema:
+            type: boolean
+            default: false
+        - variable: runAsNonRoot
+          label: "runAsNonRoot"
+          schema:
+            type: boolean
+            default: false
+
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
       type: dict
       attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
           schema:
             type: int
             default: 33
+        - variable: supplementalGroups
+          label: "supplemental Groups"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: supplementalGroupsEntry
+                label: "supplemental Group"
+                schema:
+                  type: int
         - variable: fsGroupChangePolicy
           label: "When should we take ownership?"
           schema:
@@ -609,6 +656,7 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+
   - variable: resources
     group: "Resources and Devices"
     label: ""
@@ -649,8 +697,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
-
 
   - variable: autoscaling
     group: "Resources and Devices"

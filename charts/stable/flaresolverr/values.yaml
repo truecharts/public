@@ -14,17 +14,7 @@ image:
   tag: v1.2.9@sha256:6f93f3359a8b2cbd268286ce460ff5ffa79a6f1d8c19097ed49097fbfab6a786
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables. See more environment variables in the [flaresolverr documentation](https://github.com/FlareSolverr/FlareSolverr#environment-variables).
 # @default -- See below

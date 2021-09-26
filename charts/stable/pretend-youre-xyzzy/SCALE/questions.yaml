@@ -86,8 +86,6 @@ questions:
             default: "002"
 # Include{containerConfig}
 
-
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -424,8 +422,6 @@ questions:
                                   schema:
                                     type: string
 
-
-
 # Include{ingressList}
 
   - variable: securityContext
@@ -448,7 +444,7 @@ questions:
           label: "Allow Privilege Escalation"
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: runAsNonRoot
           label: "runAsNonRoot"
           schema:
@@ -478,7 +474,7 @@ questions:
           description: "The group that should own ALL storage."
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: supplementalGroups
           label: "supplemental Groups"
           schema:
@@ -539,7 +535,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
 
   - variable: autoscaling
     group: "Resources and Devices"

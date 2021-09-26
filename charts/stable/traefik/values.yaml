@@ -5,23 +5,6 @@ image:
   tag: v2.5.3@sha256:f40028d9771cb29a35392b4cbdd655625596a319b915061e306c503059d0b6f4
   pullPolicy: IfNotPresent
 
-# -- Set the container security context
-# To run the container with ports below 1024 this will need to be adjust to run as root
-securityContext:
-  capabilities:
-    drop: [ALL]
-  privileged: false
-  readOnlyRootFilesystem: true
-  allowPrivilegeEscalation: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
 ingressClass:
   # true is not unit-testable yet, pending https://github.com/rancher/helm-unittest/pull/12
@@ -64,7 +47,6 @@ providers:
       # Published Kubernetes Service to copy status from. Format: namespace/servicename
       # By default this Traefik service
       # pathOverride: ""
-
 
 # -- Logs
 # https://docs.traefik.io/observability/logs/
@@ -131,7 +113,6 @@ additionalArguments:
   - "--ping"
   - "--serverstransport.insecureskipverify=true"
   - "--providers.kubernetesingress.allowexternalnameservices=true"
-
 
 # -- TLS Options to be created as TLSOption CRDs
 # https://doc.traefik.io/traefik/https/tls/#tls-options
@@ -200,7 +181,6 @@ service:
   udp:
     enabled: false
 
-
 probes:
   # -- Liveness probe configuration
   # @default -- See below
@@ -212,7 +192,6 @@ probes:
     # @default -- "/"
     path: "/ping"
 
-
   # -- Redainess probe configuration
   # @default -- See below
   readiness:
@@ -223,7 +202,6 @@ probes:
     # @default -- "/"
     path: "/ping"
 
-
   # -- Startup probe configuration
   # @default -- See below
   startup:
@@ -233,7 +211,6 @@ probes:
     # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
     # @default -- "/"
     path: "/ping"
-
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
@@ -282,7 +259,6 @@ rbac:
         - get
         - list
         - watch
-
 
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:

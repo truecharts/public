@@ -80,8 +80,6 @@ questions:
               - "definitions/timezone"
 # Include{containerConfig}
 
-
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -631,10 +629,7 @@ questions:
                                   schema:
                                     type: string
 
-
-
 # Include{ingressList}
-
 
   - variable: securityContext
     group: "Security and Permissions"
@@ -656,7 +651,7 @@ questions:
           label: "Allow Privilege Escalation"
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: runAsNonRoot
           label: "runAsNonRoot"
           schema:

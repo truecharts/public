@@ -8,7 +8,6 @@ openvpnImage:
   # -- Specify the openvpn client image pull policy
   pullPolicy: IfNotPresent
 
-
 # -- WireGuard specific configuration
 # @default -- See below
 wireguardImage:
@@ -26,7 +25,6 @@ promtailImage:
   tag: v2.3.0@sha256:90019c5e4198d3253126fcc0c90db11b961ddf0a3c2906766f4611770beabdf2
   # -- Specify the promtail image pull policy
   pullPolicy: IfNotPresent
-
 
 netshootImage:
   # -- Specify the netshoot image
@@ -261,7 +259,6 @@ securityContext:
   allowPrivilegeEscalation: false
   runAsNonRoot: true
 
-
 # -- Configure the lifecycle for the main container
 lifecycle: {}
 
@@ -358,7 +355,6 @@ termination:
   # -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)]
   gracePeriodSeconds: 10
 
-
 # -- Configure additional services for the chart here.
 # @default -- See below
 serviceList: []
@@ -425,7 +421,6 @@ service:
         # -- Specify the nodePort value for the LoadBalancer and NodePort service types.
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
-
 
 # -- Configure ingressList for the chart here.
 # Additional items can be added by adding a items similar to ingress
@@ -608,7 +603,6 @@ persistence:
     # specify a size for memory backed volumes.
     sizeLimit:  # 1Gi
 
-
   # -- Example of a hostPath mount
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
   # @default -- See below
@@ -737,7 +731,6 @@ addons:
       # name: someenv
       # value: somevalue
 
-
     # -- Provide a customized vpn configuration file to be used by the VPN.
     configFile:
       enabled: true
@@ -748,7 +741,6 @@ addons:
       # -- Specifying a hostPathType adds a check before trying to mount the path.
       # See Kubernetes documentation for options.
       hostPathType: "File"
-
 
   # -- The common library supports adding a code-server add-on to access files. It can be configured under this key.
   # For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#code-server)

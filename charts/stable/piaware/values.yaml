@@ -14,17 +14,12 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: true
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables. See [application docs](https://flightaware.com/adsb/piaware/advanced_configuration) for more details.
 # @default -- See below

@@ -5,19 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.18.2@sha256:780c4924c4739d707295bd74fd21a186a640bd71f15efc2fcbc9fb9b05162a0d
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 service:
   main:
     ports:

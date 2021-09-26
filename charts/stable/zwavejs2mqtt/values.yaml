@@ -8,18 +8,7 @@ image:
   tag: v5.6.0@sha256:469de8c0d224549bb051263603276a78a3c9281579d21ac3f71611cc17281457
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-# 5=tty 20=dialout 24=cdrom
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: [5, 20, 24]
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # # See more environment variables in the zwavejs2mqtt documentation
 # https://zwave-js.github.io/zwavejs2mqtt/#/guide/env-vars
@@ -84,10 +73,6 @@ service:
         port: 3000
         protocol: TCP
 
-# Privileged may be required if USB controller is accessed directly through the host machine
-# securityContext:
-#   privileged: true
-
 persistence:
   config:
     enabled: true
@@ -95,7 +80,6 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
-
 
 # affinity:
 #   nodeAffinity:

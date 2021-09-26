@@ -20,10 +20,6 @@ service:
 # # When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
 # dnsPolicy: ClusterFirstWithHostNet
 
-# # Enable passing thru a USB device to Home Assistant
-# securityContext:
-#   privileged: true
-
 # Allow access a Git repository by passing in a private SSH key
 git:
   # Raw SSH private key
@@ -45,7 +41,6 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
-
 
 # # Path to your Z-Wave / Zigbee device in the container
 # additionalVolumeMounts:

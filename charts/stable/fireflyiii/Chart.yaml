@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "5.5.12"
+appVersion: 5.5.12
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.14
+  repository: https://truecharts.org
+  version: 8.0.7
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -27,4 +27,4 @@ name: fireflyiii
 sources:
 - https://github.com/firefly-iii/firefly-iii/
 type: application
-version: 8.0.6
+version: 9.0.0

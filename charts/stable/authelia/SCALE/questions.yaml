@@ -66,7 +66,6 @@ questions:
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -282,7 +281,6 @@ questions:
             type: string
             default: "5m"
             required: true
-
 
   - variable: authentication_backend
     group: "App Configuration"
@@ -518,7 +516,6 @@ questions:
                               type: int
                               default: 8
                               required: true
-
 
   - variable: notifier
     group: "App Configuration"
@@ -792,8 +789,6 @@ questions:
                               type: string
                               default: ""
                               required: true
-
-
 
   - variable: service
     group: "Networking and Services"
@@ -1250,8 +1245,6 @@ questions:
                                   schema:
                                     type: string
 
-
-
 # Include{ingressList}
   - variable: securityContext
     group: "Security and Permissions"
@@ -1323,6 +1316,7 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+
   - variable: resources
     group: "Resources and Devices"
     label: ""
@@ -1363,8 +1357,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
-
 
   - variable: autoscaling
     group: "Resources and Devices"

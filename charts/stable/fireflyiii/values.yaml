@@ -5,24 +5,13 @@ image:
   pullPolicy: IfNotPresent
   tag: version-5.5.12@sha256:9a1f87a8ad38694675390756be9686fe9d8ba941fe1f145641626135c7eb5e4b
 
+securityContext:
+  readOnlyRootFilesystem: false
 
 postgresqlImage:
   repository: bitnami/postgresql
   pullPolicy: IfNotPresent
   tag: 13.4.0@sha256:abfb7efd31afc36a8b16aa077bb9dd165c4f635412affef37c7859605fda762c
-
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 0
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
@@ -79,7 +68,6 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
-
 
 # Enabled postgres
 postgresql:

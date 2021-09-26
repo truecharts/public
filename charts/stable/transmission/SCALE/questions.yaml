@@ -428,8 +428,6 @@ questions:
             default: false
 # Include{containerConfig}
 
-
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -678,7 +676,6 @@ questions:
                               min: 9000
                               max: 65535
                               default: 36020
-
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -1028,8 +1025,6 @@ questions:
                                   schema:
                                     type: string
 
-
-
 # Include{ingressList}
 
   - variable: securityContext
@@ -1047,12 +1042,12 @@ questions:
           label: "ReadOnly Root Filesystem"
           schema:
             type: boolean
-            default: false
+            default: true
         - variable: allowPrivilegeEscalation
           label: "Allow Privilege Escalation"
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: runAsNonRoot
           label: "runAsNonRoot"
           schema:
@@ -1103,6 +1098,7 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+
   - variable: resources
     group: "Resources and Devices"
     label: ""
@@ -1143,7 +1139,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
 
   - variable: autoscaling
     group: "Resources and Devices"

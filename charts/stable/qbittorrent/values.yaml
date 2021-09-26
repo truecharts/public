@@ -6,17 +6,7 @@ image:
   tag: v4.3.7@sha256:a51b97508cfd5ec81e6693e7203490d275e76eaa0d7772d40512dea8d8509f45
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 env: {}
     # TZ: UTC
@@ -49,7 +39,6 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
-
 
 additionalVolumes:
   - name: qbittorrent-scripts

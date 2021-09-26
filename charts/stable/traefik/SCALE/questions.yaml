@@ -66,7 +66,6 @@ questions:
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -281,7 +280,6 @@ questions:
                                     type: string
                                     required: true
                                     default: ""
-
 
         - variable: forwardAuth
           label: "forwardAuth"
@@ -515,9 +513,6 @@ questions:
                                     type: string
                                     required: true
                                     default: ""
-
-
-
 
 
   - variable: service
@@ -993,7 +988,7 @@ questions:
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: false
+            default: true
 
   - variable: podSecurityContext
     group: "Security and Permissions"
@@ -1039,7 +1034,6 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
-
 
   - variable: resources
     group: "Resources and Devices"

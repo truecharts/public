@@ -14,17 +14,12 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml

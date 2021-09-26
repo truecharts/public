@@ -4,6 +4,14 @@ image:
   pullPolicy: IfNotPresent
   tag: v5.2.0@sha256:8fc7bb87b77d76d929bcd36403d4f27878fa3e99f5448fb05ed64829078665a4
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 postgresqlImage:
   repository: bitnami/postgresql
   pullPolicy: IfNotPresent
@@ -51,7 +59,8 @@ persistence:
     enabled: true
     mountPath: "/mimetmp"
     type: emptyDir
-
+  varrun:
+    enabled: false
 
 # -- postgres dependency settings
 postgresql:

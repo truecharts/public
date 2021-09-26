@@ -6,17 +6,7 @@ image:
   tag: v4.0.1482@sha256:0fa4e81029d9adef9d773ce99db13ff3039fd087d58d7266cbcfd7462e7afc56
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
@@ -36,7 +26,6 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
-
 
 # Enabled mariadb
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/mariadb

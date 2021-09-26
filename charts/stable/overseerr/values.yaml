@@ -14,17 +14,7 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables.
 # @default -- See below
@@ -41,7 +31,6 @@ service:
     ports:
       main:
         port: 5055
-
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml

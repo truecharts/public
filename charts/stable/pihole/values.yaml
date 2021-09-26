@@ -5,6 +5,14 @@ image:
   pullPolicy: IfNotPresent
   tag: v2021.09@sha256:e043ab188da4c36abb11d70d82bbfb394ef5054abff21dafbaf54bc21861bd1e
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 envFrom:
   - configMapRef:
       name: pihole-env
@@ -32,7 +40,6 @@ pihole:
   WEBPASSWORD: "somepassword"
   DNS1: "9.9.9.9"
   DNS2: "149.112.112.112"
-
 
 persistence:
   config:

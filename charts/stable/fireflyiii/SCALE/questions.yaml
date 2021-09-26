@@ -97,8 +97,6 @@ questions:
             default: "002"
 # Include{containerConfig}
 
-
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -553,8 +551,6 @@ questions:
                                   schema:
                                     type: string
 
-
-
 # Include{ingressList}
 
   - variable: securityContext
@@ -577,12 +573,12 @@ questions:
           label: "Allow Privilege Escalation"
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: runAsNonRoot
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: false
+            default: true
 
   - variable: podSecurityContext
     group: "Security and Permissions"
@@ -595,19 +591,19 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: supplementalGroups
           label: "supplemental Groups"
           schema:
@@ -628,6 +624,7 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+
   - variable: resources
     group: "Resources and Devices"
     label: ""
@@ -668,7 +665,6 @@ questions:
                   type: string
                   default: "50Mi"
                   valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-
 
   - variable: autoscaling
     group: "Resources and Devices"

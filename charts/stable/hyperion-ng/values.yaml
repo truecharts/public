@@ -14,17 +14,11 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-airsonic#environment-variables-e) for more details.
 # @default -- See below
@@ -58,7 +52,6 @@ service:
         port: 19333
         protocol: TCP
         targetPort: 19333
-
 
 persistence:
   config:

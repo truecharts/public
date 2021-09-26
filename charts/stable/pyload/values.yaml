@@ -14,17 +14,11 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-pyload#environment-variables-e) for more details.
 # @default -- See below

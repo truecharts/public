@@ -3,6 +3,14 @@ image:
   tag: v1.24.1@sha256:465f3116359c0b40497f0f2249cb1326047208d2aa70c0822df73e3d6e49eee7
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 service:
   main:
     ports:

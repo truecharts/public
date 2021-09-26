@@ -113,8 +113,6 @@ questions:
               - "definitions/timezone"
 # Include{containerConfig}
 
-
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -500,9 +498,6 @@ questions:
                                   schema:
                                     type: string
 
-
-
-
 # Include{ingressList}
 
   - variable: securityContext
@@ -525,13 +520,12 @@ questions:
           label: "Allow Privilege Escalation"
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: runAsNonRoot
           label: "runAsNonRoot"
           schema:
             type: boolean
             default: true
-
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
@@ -557,13 +551,13 @@ questions:
             type: int
             default: 568
         - variable: supplementalGroups
-          label: "supplementalGroups"
+          label: "supplemental Groups"
           schema:
             type: list
             default: []
             items:
               - variable: supplementalGroupsEntry
-                label: "supplementalGroup"
+                label: "supplemental Group"
                 schema:
                   type: int
         - variable: fsGroupChangePolicy

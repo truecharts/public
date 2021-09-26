@@ -5,19 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 4.31.0@sha256:6036f2b1fa3214fdcf189a8f28f40a856372413984b08f15ba4fb5891d77bc0a
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: true
-  allowPrivilegeEscalation: false
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 postgresqlImage:
   repository: bitnami/postgresql
   pullPolicy: IfNotPresent
@@ -533,7 +520,6 @@ regulation:
   ## The length of time before a banned user can login again. Ban Time accepts duration notation.
   ## See: https://www.authelia.com/docs/configuration/index.html#duration-notation-format
   ban_time: 5m
-
 
 ##
 ## Storage Provider Configuration
