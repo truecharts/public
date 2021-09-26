@@ -36,7 +36,7 @@ initContainers:
     command:
       - "sh"
       - "-c"
-      - "until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"
+      - "until pg_isready -U firefly -h ${pghost} ; do sleep 2 ; done"
     imagePullPolicy: IfNotPresent
     env:
       - name: pghost
