@@ -568,6 +568,18 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "100Gi"
+        - variable: varrun
+          label: ""
+          schema:
+            type: dict
+            hidden: true
+            attrs:
+              - variable: enabled
+                label: ""
+                schema:
+                  type: boolean
+                  default: false
+                  hidden: true
 
 # Include{persistenceList}
 
