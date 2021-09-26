@@ -20,6 +20,10 @@ service:
       main:
         port: 80
 
+persistence:
+  varrun:
+    enabled: false
+
 env:
   PHPLDAPADMIN_HTTPS: "false"
   PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
