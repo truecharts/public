@@ -602,6 +602,12 @@ questions:
           schema:
             type: int
             default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
         - variable: supplementalGroups
           label: "supplemental Groups"
           schema:
@@ -622,6 +628,7 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+
   - variable: resources
     group: "Resources and Devices"
     label: ""

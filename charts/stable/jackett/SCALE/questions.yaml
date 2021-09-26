@@ -636,13 +636,13 @@ questions:
             type: int
             default: 568
         - variable: supplementalGroups
-          label: "supplementalGroups"
+          label: "supplemental Groups"
           schema:
             type: list
             default: []
             items:
               - variable: supplementalGroupsEntry
-                label: "supplementalGroup"
+                label: "supplemental Group"
                 schema:
                   type: int
         - variable: fsGroupChangePolicy
@@ -655,6 +655,7 @@ questions:
                 description: "OnRootMismatch"
               - value: "Always"
                 description: "Always"
+
   - variable: resources
     group: "Resources and Devices"
     label: "Resource Limits"
