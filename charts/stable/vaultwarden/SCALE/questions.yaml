@@ -1006,46 +1006,7 @@ questions:
               - value: "Always"
                 description: "Always"
 
-  - variable: resources
-    group: "Resources and Devices"
-    label: ""
-    schema:
-      type: dict
-      attrs:
-        - variable: limits
-          label: "Advanced Limit Resource Consumption"
-          schema:
-            type: dict
-            attrs:
-              - variable: cpu
-                label: "CPU"
-                schema:
-                  type: string
-                  default: "2000m"
-                  valid_chars: '^([0-9]+)(\.[0-9]?|m?)$'
-              - variable: memory
-                label: "Memory RAM"
-                schema:
-                  type: string
-                  default: "2Gi"
-                  valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
-        - variable: requests
-          label: "Advanced Request minimum resources required"
-          schema:
-            type: dict
-            attrs:
-              - variable: cpu
-                label: "CPU"
-                schema:
-                  type: string
-                  default: "10m"
-                  valid_chars: '^([0-9]+)(\.[0-9]?|m?)$'
-              - variable: memory
-                label: "Memory RAM"
-                schema:
-                  type: string
-                  default: "50Mi"
-                  valid_chars: '^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$'
+# Include{resources}
 
   - variable: autoscaling
     group: "Resources and Devices"
