@@ -456,7 +456,7 @@ questions:
           label: "ReadOnly Root Filesystem"
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: allowPrivilegeEscalation
           label: "Allow Privilege Escalation"
           schema:
@@ -466,7 +466,7 @@ questions:
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: true
+            default: false
 
   - variable: podSecurityContext
     group: "Security and Permissions"

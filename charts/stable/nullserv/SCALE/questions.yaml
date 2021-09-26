@@ -673,7 +673,7 @@ questions:
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: true
+            default: false
 
   - variable: podSecurityContext
     group: "Security and Permissions"
