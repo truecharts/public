@@ -16,6 +16,11 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/flaresolverr/flaresolverr"` | image repository |
 | image.tag | string | `"v1.2.9@sha256:6f93f3359a8b2cbd268286ce460ff5ffa79a6f1d8c19097ed49097fbfab6a786"` | image tag |
+| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| persistence.config.enabled | bool | `true` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
+| persistence.config.size | string | `"100Gi"` |  |
+| persistence.config.type | string | `"pvc"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

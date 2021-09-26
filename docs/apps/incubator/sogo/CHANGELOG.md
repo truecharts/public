@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sogo-4.0.2"></a>
+### [sogo-4.0.2](https://github.com/truecharts/apps/compare/sogo-4.0.0...sogo-4.0.2) (2021-09-26)
+
+#### Chore
+
+* update non-major deps helm releases ([#1040](https://github.com/truecharts/apps/issues/1040))
+
+
+
 <a name="sogo-4.0.0"></a>
 ### [sogo-4.0.0](https://github.com/truecharts/apps/compare/sogo-3.0.6...sogo-4.0.0) (2021-09-26)
 

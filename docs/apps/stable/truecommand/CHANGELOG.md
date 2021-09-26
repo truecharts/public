@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="truecommand-8.0.1"></a>
+### [truecommand-8.0.1](https://github.com/truecharts/apps/compare/truecommand-8.0.0...truecommand-8.0.1) (2021-09-26)
+
+
+
 <a name="truecommand-8.0.0"></a>
 ### [truecommand-8.0.0](https://github.com/truecharts/apps/compare/truecommand-7.0.2...truecommand-8.0.0) (2021-09-26)
 

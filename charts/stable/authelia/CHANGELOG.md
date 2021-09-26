@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-4.0.2"></a>
+### [authelia-4.0.2](https://github.com/truecharts/apps/compare/authelia-4.0.0...authelia-4.0.2) (2021-09-26)
+
+#### Chore
+
+* update non-major deps helm releases ([#1040](https://github.com/truecharts/apps/issues/1040))
+
+
+
 <a name="authelia-4.0.0"></a>
 ### [authelia-4.0.0](https://github.com/truecharts/apps/compare/authelia-3.0.9...authelia-4.0.0) (2021-09-26)
 

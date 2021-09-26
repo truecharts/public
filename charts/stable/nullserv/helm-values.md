@@ -17,6 +17,11 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/k8s-at-home/nullserv"` | image repository |
 | image.tag | string | `"v1.3.0@sha256:0792c7e6d814bf292455da3f40aa5d56c465f2b5024e786ac3bf3dc3b16cc757"` | image tag |
+| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| persistence.config.enabled | bool | `true` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
+| persistence.config.size | string | `"100Gi"` |  |
+| persistence.config.type | string | `"pvc"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | probes | object | See values.yaml | Configures the probes for the main Pod. |

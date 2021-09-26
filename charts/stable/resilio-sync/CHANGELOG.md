@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-3.0.1"></a>
+### [resilio-sync-3.0.1](https://github.com/truecharts/apps/compare/resilio-sync-3.0.0...resilio-sync-3.0.1) (2021-09-26)
+
+
+
 <a name="resilio-sync-3.0.0"></a>
 ### [resilio-sync-3.0.0](https://github.com/truecharts/apps/compare/resilio-sync-2.0.2...resilio-sync-3.0.0) (2021-09-26)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-6.0.2"></a>
+### [nextcloud-6.0.2](https://github.com/truecharts/apps/compare/nextcloud-6.0.0...nextcloud-6.0.2) (2021-09-26)
+
+#### Chore
+
+* update non-major deps helm releases ([#1040](https://github.com/truecharts/apps/issues/1040))
+
+
+
 <a name="nextcloud-6.0.0"></a>
 ### [nextcloud-6.0.0](https://github.com/truecharts/apps/compare/nextcloud-5.0.6...nextcloud-6.0.0) (2021-09-26)
 

@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="dizquetv-3.0.1"></a>
+### [dizquetv-3.0.1](https://github.com/truecharts/apps/compare/dizquetv-3.0.0...dizquetv-3.0.1) (2021-09-26)
+
+
+
 <a name="dizquetv-3.0.0"></a>
 ### [dizquetv-3.0.0](https://github.com/truecharts/apps/compare/dizquetv-2.0.3...dizquetv-3.0.0) (2021-09-26)
 

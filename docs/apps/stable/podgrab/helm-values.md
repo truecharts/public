@@ -13,12 +13,6 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.CHECK_FREQUENCY | int | `240` |  |
 | env.PASSWORD | string | `"secretpasswordgoeshere"` |  |
-| hostPathMounts[0].accessMode | string | `"ReadWriteOnce"` |  |
-| hostPathMounts[0].enabled | bool | `true` |  |
-| hostPathMounts[0].mountPath | string | `"/assets"` |  |
-| hostPathMounts[0].name | string | `"assets"` |  |
-| hostPathMounts[0].size | string | `"100Gi"` |  |
-| hostPathMounts[0].type | string | `"pvc"` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.repository | string | `"ghcr.io/truecharts/podgrab"` |  |
 | image.tag | string | `"v1.0.0@sha256:17a92f111c5840f1fb78f216e4191ec1f5eeeb04ad5a1a5bdde0df35fdbe8910"` |  |

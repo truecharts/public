@@ -16,6 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/phpldapadmin"` |  |
 | image.tag | string | `"v0.9.0@sha256:e633aefd9a89e9c1492bef151eb81d718b5b9ecc7bf1bc80e64b36e5ac480158"` |  |
+| persistence.varrun.enabled | bool | `false` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

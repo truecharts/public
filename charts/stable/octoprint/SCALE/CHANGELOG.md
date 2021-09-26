@@ -1,3 +1,3 @@
 
-<a name="octoprint-3.0.0"></a>
-### [octoprint-3.0.0](https://github.com/truecharts/apps/compare/octoprint-2.0.2...octoprint-3.0.0) (2021-09-26)
+<a name="octoprint-3.0.1"></a>
+### [octoprint-3.0.1](https://github.com/truecharts/apps/compare/octoprint-3.0.0...octoprint-3.0.1) (2021-09-26)
