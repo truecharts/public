@@ -595,10 +595,10 @@ persistence:
   # -- Create an emptyDir volume to share between all containers
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
   # @default -- See below
-  varrun:
+  varruns6:
     enabled: true
     type: emptyDir
-    mountPath: /var/run
+    mountPath: /var/run/s6
 
     # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
     # of the storage medium that backs the node.
