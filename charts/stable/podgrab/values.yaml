@@ -31,14 +31,6 @@ persistence:
     accessMode: ReadWriteOnce
     size: "100Gi"
 
-hostPathMounts:
-  - name: assets
-    enabled: true
-    mountPath: "/assets"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-
 probes:
   liveness:
     enabled: false

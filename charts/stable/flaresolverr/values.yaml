@@ -29,3 +29,11 @@ service:
     ports:
       main:
         port: 8191
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"

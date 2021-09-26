@@ -28,6 +28,14 @@ service:
       main:
         port: 8080
 
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
   # @default -- See values.yaml
