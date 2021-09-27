@@ -661,9 +661,10 @@ questions:
           label: "varrun override"
           schema:
             type: dict
+            hidden: true
             attrs:
               - variable: enabled
-                label: "Enable the storage"
+                label: ""
                 schema:
                   type: boolean
                   default: false
