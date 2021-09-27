@@ -7,7 +7,7 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 2.2.5
+  version: 3.0.1
 - condition: memcached.enabled
   name: memcached
   repository: https://charts.bitnami.com/bitnami
@@ -27,4 +27,4 @@ name: sogo
 sources:
 - https://www.sogo.nu/
 type: application
-version: 4.0.2
+version: 5.0.0
