@@ -38,19 +38,10 @@ RUN \
   apt-get -y install --no-install-recommends \
     libonig-dev \
     gnupg2 \
-    libjq \
-    libjq-dev \
-    python3-pip \
-    python3-setuptools \
-    debhelper-compat \
-    dh-python \
-    python3-dev \
-    devscripts \
-    python3-jsonschema \
-    python3-semantic-version \
-    python3-kubernetes \
-    python3-yaml \
   && \
+  cd /tmp && \
+  wget https://raw.githubusercontent.com/truecharts/apps/master/Gemfile && \
+  cd - && \
   sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin \
   && \
   curl -o /tmp/helm.tar.gz "https://get.helm.sh/helm-v${HELM_VERSION}-linux-$(dpkg --print-architecture).tar.gz" \
@@ -63,24 +54,29 @@ RUN \
   && tar xvzf /tmp/ct.tar.gz --strip-components=1 -C /etc/ct "etc/" \
   && chmod +x /usr/local/bin/ct \
   && \
-  pip3 install \
-    pre-commit \
-    yamale \
-    yamllint \
-  && \
-  mkdir /tmp/precommit/ && \
-  cd /tmp && \
-  wget https://raw.githubusercontent.com/truecharts/apps/master/Gemfile && \
-  cd - && \
-  cd /tmp/precommit && \
-  wget https://raw.githubusercontent.com/truecharts/apps/master/.pre-commit-config.yaml && \
-  git init . && \
-  pre-commit install-hooks && \
-  echo "installed pre-commit hooks:" && \
-  ls ~/.cache/pre-commit/* \
-  && \
   bundle config set system 'true' \
   && bundle install --gemfile /tmp/Gemfile \
+  && \
+  rm -Rf \
+    /tmp/Gemfile \
+    /tmp/Gemfile.lock \
+    /tmp/helm.tar.gz \
+    /tmp/ct.tar.gz
+
+RUN \
+  apt-get update \
+  && \
+  apt-get -y install --no-install-recommends \
+    python3-pip \
+    python3-setuptools \
+    debhelper-compat \
+    dh-python \
+    python3-dev \
+    devscripts \
+    python3-jsonschema \
+    python3-semantic-version \
+    python3-kubernetes \
+    python3-yaml \
   && \
   cd /tmp && \
   git clone https://github.com/truenas/catalog_validation.git && \
@@ -90,10 +86,26 @@ RUN \
   pip install -U . && \
   cd - && \
   rm -Rf \
-    /tmp/Gemfile \
-    /tmp/Gemfile.lock \
-    /tmp/helm.tar.gz \
-    /tmp/ct.tar.gz \
-    /tmp/catalog_validation \
-    /tmp/precommit \
-    || true
+    /tmp/catalog_validation
+
+RUN \
+  apt-get update \
+  && \
+  apt-get -y install --no-install-recommends \
+    python3-pip \
+  && \
+  pip3 install \
+    pre-commit \
+    yamale \
+    yamllint \
+  && \
+  mkdir /tmp/precommit/ && \
+  cd /tmp/precommit && \
+  wget https://raw.githubusercontent.com/truecharts/apps/master/.pre-commit-config.yaml && \
+  git init . && \
+  pre-commit install-hooks && \
+  echo "installed pre-commit hooks:" && \
+  ls ~/.cache/pre-commit/* && \
+  cd - && \
+  rm -Rf \
+    /tmp/precommit
