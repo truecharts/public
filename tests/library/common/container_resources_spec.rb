@@ -6,11 +6,11 @@ class Test < ChartTest
 
   describe @@chart.name do
     describe 'container::resources' do
-      it 'no resources added by default' do
+      it 'specific resources added by default' do
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal({"limits"=>{}}, mainContainer["resources"])
+        assert_equal({"limits"=>{"cpu"=>"4000m", "memory"=>"8Gi"}, "requests"=>{"cpu"=>"10m", "memory"=>"50Mi"}}, mainContainer["resources"])
       end
       it 'resources can be added' do
         values = {
@@ -22,7 +22,7 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal({"limits"=>{}, "testresourcename"=>"testresourcevalue"}, mainContainer["resources"])
+        assert_equal({"limits"=>{"cpu"=>"4000m", "memory"=>"8Gi"}, "requests"=>{"cpu"=>"10m", "memory"=>"50Mi"}, "testresourcename"=>"testresourcevalue"}, mainContainer["resources"])
       end
       it 'resources.limits can be added' do
         values = {
@@ -36,7 +36,7 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal({"limits"=>{"testlimitkey"=>"testlimitvalue"}}, mainContainer["resources"])
+        assert_equal({"limits"=>{"cpu"=>"4000m", "memory"=>"8Gi", "testlimitkey"=>"testlimitvalue"}, "requests"=>{"cpu"=>"10m", "memory"=>"50Mi"}}, mainContainer["resources"])
       end
       it 'resources and resources.limits can both be added' do
         values = {
@@ -51,7 +51,7 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal({"limits"=>{"testlimitkey"=>"testlimitvalue"}, "testresourcekey"=>"testresourcevalue"}, mainContainer["resources"])
+        assert_equal({"limits"=>{"cpu"=>"4000m", "memory"=>"8Gi", "testlimitkey"=>"testlimitvalue"}, "requests"=>{"cpu"=>"10m", "memory"=>"50Mi"}, "testresourcekey"=>"testresourcevalue"}, mainContainer["resources"])
       end
     end
     describe 'container::resources-scaleGPU' do
@@ -65,7 +65,7 @@ class Test < ChartTest
           deployment = chart.resources(kind: "Deployment").first
           containers = deployment["spec"]["template"]["spec"]["containers"]
           mainContainer = containers.find{ |c| c["name"] == "common-test" }
-          assert_equal({"limits"=>{"intelblabla"=>1}}, mainContainer["resources"])
+          assert_equal({"limits"=>{"cpu"=>"4000m", "intelblabla"=>1, "memory"=>"8Gi"}, "requests"=>{"cpu"=>"10m", "memory"=>"50Mi"}}, mainContainer["resources"])
         end
         it 'scaleGPU can be combined with resources and resource values' do
           values = {
@@ -83,7 +83,7 @@ class Test < ChartTest
           deployment = chart.resources(kind: "Deployment").first
           containers = deployment["spec"]["template"]["spec"]["containers"]
           mainContainer = containers.find{ |c| c["name"] == "common-test" }
-          assert_equal({"limits"=>{"intelblabla"=>1, "testlimitkey"=>"testlimitvalue"}, "testresourcekey"=>"testresourcevalue"}, mainContainer["resources"])
+          assert_equal({"limits"=>{"cpu"=>"4000m", "intelblabla"=>1, "memory"=>"8Gi", "testlimitkey"=>"testlimitvalue"}, "requests"=>{"cpu"=>"10m", "memory"=>"50Mi"}, "testresourcekey"=>"testresourcevalue"}, mainContainer["resources"])
         end
       end
   end

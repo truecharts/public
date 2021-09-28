@@ -5,13 +5,13 @@ class Test < ChartTest
   @@chart = Chart.new('charts/library/common-test')
 
   describe @@chart.name do
-    describe 'configmap::portal-defaults' do
+    describe 'portal::configmap::defaults' do
       it 'no configmap exists by default' do
         configmap = chart.resources(kind: "ConfigMap").first
         assert_nil(configmap)
       end
 
-      it 'creates configmap whe enabled' do
+      it 'creates configmap when enabled' do
         values = {
           portal: {
             enabled: true
@@ -65,7 +65,7 @@ class Test < ChartTest
         assert_equal("443", configmap["data"]["port"])
       end
 
-      it 'uses protocol "https" by default' do
+      it 'uses protocol "http" by default' do
         values = {
           portal: {
             enabled: true
@@ -78,7 +78,7 @@ class Test < ChartTest
         }
         chart.value values
         configmap = chart.resources(kind: "ConfigMap").first
-        assert_equal("https", configmap["data"]["protocol"])
+        assert_equal("http", configmap["data"]["protocol"])
       end
 
       it 'uses path "/" by default' do
@@ -98,7 +98,7 @@ class Test < ChartTest
       end
     end
 
-    describe 'configmap::portal-overrides' do
+    describe 'portal::configmap::overrides' do
       it 'ingressPort can be overridden' do
         values = {
           portal: {
@@ -151,7 +151,7 @@ class Test < ChartTest
       end
     end
 
-    describe 'configmap::portal-nodePort' do
+    describe 'portal::configmap::nodeport' do
       it 'nodePort host defaults to "$node_ip"' do
         values = {
           portal: {
@@ -162,13 +162,15 @@ class Test < ChartTest
               enabled: false
             }
           },
-          services: {
+          service: {
             main: {
-            type: "NodePort",
-            port: {
-              nodePort: 666
+              type: "NodePort",
+              ports: {
+                main: {
+                nodePort: 666
+                }
+              }
             }
-          }
           }
         }
         chart.value values
@@ -181,18 +183,17 @@ class Test < ChartTest
           portal: {
             enabled: true
           },
-          ingress: {
+          service: {
             main: {
-              enabled: false
+              type: "NodePort",
+              ports: {
+                main: {
+                  enabled: true,
+                  port: 8080,
+                  nodePort: 666
+                }
+              }
             }
-          },
-          services: {
-            main: {
-            type: "NodePort",
-            port: {
-              nodePort: 666
-            }
-          }
           }
         }
         chart.value values
@@ -205,24 +206,23 @@ class Test < ChartTest
           portal: {
             enabled: true
           },
-          ingress: {
+          service: {
             main: {
-              enabled: false
+              type: "NodePort",
+              ports: {
+                main: {
+                  enabled: true,
+                  port: 8080,
+                  nodePort: 666,
+                  protocol: "HTTPS"
+                }
+              }
             }
-          },
-          services: {
-            main: {
-            type: "NodePort",
-            port: {
-              nodePort: 666,
-              protocol: "HTTPS"
-            }
-          }
           }
         }
         chart.value values
         configmap = chart.resources(kind: "ConfigMap").first
-        assert_equal(values[:services][:main][:port][:protocol], configmap["data"]["protocol"])
+        assert_equal("https", configmap["data"]["protocol"])
       end
 
       it 'uses nodeport port protocol as protocol (HTTP)' do
@@ -230,28 +230,26 @@ class Test < ChartTest
           portal: {
             enabled: true
           },
-          ingress: {
+          service: {
             main: {
-              enabled: false
+              type: "NodePort",
+              ports: {
+                main: {
+                  enabled: true,
+                  nodePort: 666,
+                  protocol: "HTTP"
+                }
+              }
             }
-          },
-          services: {
-            main: {
-            type: "NodePort",
-            port: {
-              nodePort: 666,
-              protocol: "HTTP"
-            }
-          }
           }
         }
         chart.value values
         configmap = chart.resources(kind: "ConfigMap").first
-        assert_equal(values[:services][:main][:port][:protocol], configmap["data"]["protocol"])
+        assert_equal("http", configmap["data"]["protocol"])
       end
     end
 
-    describe 'configmap::portal-Ingress' do
+    describe 'portal::configmap::ingress' do
       it 'uses ingress host' do
         values = {
           portal: {

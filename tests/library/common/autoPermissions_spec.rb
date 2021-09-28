@@ -5,15 +5,16 @@ class Test < ChartTest
   @@chart = Chart.new('charts/library/common-test')
 
   describe @@chart.name do
-    describe 'job::permissions' do
-      it 'no job exists by default' do
-        job = chart.resources(kind: "Job").first
-        assert_nil(job)
+    describe 'initContainer::permissions' do
+      it 'initContainer exists by default' do
+        deployment = chart.resources(kind: "Deployment").first
+        initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
+        refute_nil(initContainer)
       end
 
-      it 'hostPathMounts do not affect permissions job by default' do
+      it 'persistenceList do not affect permissions job by default' do
         values = {
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
@@ -23,13 +24,12 @@ class Test < ChartTest
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        assert_nil(job["spec"]["template"]["spec"]["volumes"])
-        assert_nil(job["spec"]["template"]["spec"]["containers"][0]["volumeMounts"])
+        deployment = chart.resources(kind: "Deployment").first
+        assert_nil(deployment["spec"]["template"]["spec"]["initContainers"][0]["volumeMounts"])
       end
-      it 'hostPathMounts.setPermissions adds volume(mounts)' do
+      it 'persistenceList.setPermissions adds volume(mounts)' do
         values = {
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
@@ -40,13 +40,13 @@ class Test < ChartTest
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        assert_equal("hostpathmounts-data", job["spec"]["template"]["spec"]["volumes"][0]["name"])
-        assert_equal("hostpathmounts-data", job["spec"]["template"]["spec"]["containers"][0]["volumeMounts"][0]["name"])
+        deployment = chart.resources(kind: "Deployment").first
+        assert_equal("data", deployment["spec"]["template"]["spec"]["volumes"][0]["name"])
+        assert_equal("data", deployment["spec"]["template"]["spec"]["initContainers"][0]["volumeMounts"][0]["name"])
       end
-      it 'supports multiple hostPathMounts' do
+      it 'supports multiple persistenceList' do
         values = {
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
@@ -55,28 +55,28 @@ class Test < ChartTest
                 hostPath: "/tmp"
           },
           {
-                name: "config",
+                name: "configlist",
                 enabled: true,
                 setPermissions: true,
-                mountPath: "/config",
+                mountPath: "/configlist",
                 hostPath: "/tmp"
           }
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        mainContainer = job["spec"]["template"]["spec"]["containers"][0]
+        deployment = chart.resources(kind: "Deployment").first
+        initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
 
-        # Check that all hostPathMounts volumes have mounts
-        values[:hostPathMounts].each { |value|
-          volumeMount = mainContainer["volumeMounts"].find{ |v| v["name"] == "hostpathmounts-" + value[:name].to_s }
+        # Check that all persistenceList volumes have mounts
+        values[:persistenceList].each { |value|
+          volumeMount = initContainer["volumeMounts"].find{ |v| v["name"] == "" + value[:name].to_s }
           refute_nil(volumeMount)
         }
       end
 
       it 'supports setting mountPath' do
         values = {
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
@@ -87,107 +87,87 @@ class Test < ChartTest
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        mainContainer = job["spec"]["template"]["spec"]["containers"][0]
+        deployment = chart.resources(kind: "Deployment").first
+        initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
 
-        volumeMount = mainContainer["volumeMounts"].find{ |v| v["name"] == "hostpathmounts-data" }
+        volumeMount = initContainer["volumeMounts"].find{ |v| v["name"] == "data" }
         refute_nil(volumeMount)
         assert_equal("/data", volumeMount["mountPath"])
       end
 
       it 'could mount multiple volumes' do
         values = {
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
+                type: "hostPath",
                 setPermissions: true,
                 mountPath: "/data",
                 hostPath: "/tmp1"
           },
           {
-                name: "config",
+                name: "configlist",
                 enabled: true,
+                type: "hostPath",
                 setPermissions: true,
-                mountPath: "/config",
+                mountPath: "/configlist",
                 hostPath: "/tmp2"
           }
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        volumes = job["spec"]["template"]["spec"]["volumes"]
+        deployment = chart.resources(kind: "Deployment").first
+        volumes = deployment["spec"]["template"]["spec"]["volumes"]
 
-        volume = volumes.find{ |v| v["name"] == "hostpathmounts-data"}
+        volume = volumes.find{ |v| v["name"] == "data"}
         refute_nil(volume)
         assert_equal('/tmp1', volume["hostPath"]["path"])
 
-        volume = volumes.find{ |v| v["name"] == "hostpathmounts-config"}
+        volume = volumes.find{ |v| v["name"] == "configlist"}
         refute_nil(volume)
         assert_equal('/tmp2', volume["hostPath"]["path"])
       end
 
-      it 'emptyDir can be enabled' do
-        values = {
-          hostPathMounts: [
-          {
-                name: "data",
-                enabled: true,
-                setPermissions: true,
-                emptyDir: true,
-                mountPath: "/data"
-          }
-          ]
-        }
-        chart.value values
-        job = chart.resources(kind: "Job").first
-        volumes = job["spec"]["template"]["spec"]["volumes"]
-        volume = volumes.find{ |v| v["name"] == "hostpathmounts-data"}
-        refute_nil(volume)
-        assert_equal(Hash.new, volume["emptyDir"])
-      end
-
       it 'can process default (568:568) permissions for multiple volumes' do
         results= {
-          command: ["/bin/sh", "-c", "chown -R 568:568 /data
-chown -R 568:568 /config
-"]
+          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :568 '/configlist'; chmod -R g+w '/configlist';chown -R :568 '/data'; chmod -R g+w '/data';"]
         }
         values = {
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
+                type: "hostPath",
                 setPermissions: true,
                 mountPath: "/data",
                 hostPath: "/tmp1"
           },
           {
-                name: "config",
+                name: "configlist",
                 enabled: true,
+                type: "hostPath",
                 setPermissions: true,
-                mountPath: "/config",
+                mountPath: "/configlist",
                 hostPath: "/tmp2"
           }
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        mainContainer = job["spec"]["template"]["spec"]["containers"][0]
-        assert_equal(results[:command], mainContainer["command"])
+        deployment = chart.resources(kind: "Deployment").first
+        initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
+        assert_equal(results[:command], initContainer["command"])
       end
 
       it 'outputs default permissions with irrelevant podSecurityContext' do
         results= {
-          command: ["/bin/sh", "-c", "chown -R 568:568 /data
-chown -R 568:568 /config
-"]
+          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :568 '/configlist'; chmod -R g+w '/configlist';chown -R :568 '/data'; chmod -R g+w '/data';"]
         }
         values = {
           podSecurityContext: {
-            allowPrivilegeEscalation: false
+              allowPrivilegeEscalation: false
           },
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
@@ -196,31 +176,29 @@ chown -R 568:568 /config
                 hostPath: "/tmp1"
           },
           {
-                name: "config",
+                name: "configlist",
                 enabled: true,
                 setPermissions: true,
-                mountPath: "/config",
+                mountPath: "/configlist",
                 hostPath: "/tmp2"
           }
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        mainContainer = job["spec"]["template"]["spec"]["containers"][0]
-        assert_equal(results[:command], mainContainer["command"])
+        deployment = chart.resources(kind: "Deployment").first
+        initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
+        assert_equal(results[:command], initContainer["command"])
       end
 
       it 'outputs fsgroup permissions for multiple volumes when set' do
         results= {
-          command: ["/bin/sh", "-c", "chown -R 568:666 /data
-chown -R 568:666 /config
-"]
+          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :666 '/configlist'; chmod -R g+w '/configlist';chown -R :666 '/data'; chmod -R g+w '/data';"]
         }
         values = {
           podSecurityContext: {
             fsGroup: 666
           },
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
@@ -229,31 +207,29 @@ chown -R 568:666 /config
                 hostPath: "/tmp1"
           },
           {
-                name: "config",
+                name: "configlist",
                 enabled: true,
                 setPermissions: true,
-                mountPath: "/config",
+                mountPath: "/configlist",
                 hostPath: "/tmp2"
           }
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        mainContainer = job["spec"]["template"]["spec"]["containers"][0]
-        assert_equal(results[:command], mainContainer["command"])
+        deployment = chart.resources(kind: "Deployment").first
+        initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
+        assert_equal(results[:command], initContainer["command"])
       end
 
       it 'outputs runAsUser permissions for multiple volumes when set' do
         results= {
-          command: ["/bin/sh", "-c", "chown -R 999:568 /data
-chown -R 999:568 /config
-"]
+          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :568 '/configlist'; chmod -R g+w '/configlist';chown -R :568 '/data'; chmod -R g+w '/data';"]
         }
         values = {
           podSecurityContext: {
             runAsUser: 999
           },
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
@@ -262,32 +238,30 @@ chown -R 999:568 /config
                 hostPath: "/tmp1"
           },
           {
-                name: "config",
+                name: "configlist",
                 enabled: true,
                 setPermissions: true,
-                mountPath: "/config",
+                mountPath: "/configlist",
                 hostPath: "/tmp2"
           }
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        mainContainer = job["spec"]["template"]["spec"]["containers"][0]
-        assert_equal(results[:command], mainContainer["command"])
+        deployment = chart.resources(kind: "Deployment").first
+        initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
+        assert_equal(results[:command], initContainer["command"])
       end
 
       it 'outputs fsGroup AND runAsUser permissions for multiple volumes when both are set' do
         results= {
-          command: ["/bin/sh", "-c", "chown -R 999:666 /data
-chown -R 999:666 /config
-"]
+          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :666 '/configlist'; chmod -R g+w '/configlist';chown -R :666 '/data'; chmod -R g+w '/data';"]
         }
         values = {
           podSecurityContext: {
             fsGroup: 666,
             runAsUser: 999
           },
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
@@ -296,31 +270,29 @@ chown -R 999:666 /config
                 hostPath: "/tmp1"
           },
           {
-                name: "config",
+                name: "configlist",
                 enabled: true,
                 setPermissions: true,
-                mountPath: "/config",
+                mountPath: "/configlist",
                 hostPath: "/tmp2"
           }
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        mainContainer = job["spec"]["template"]["spec"]["containers"][0]
-        assert_equal(results[:command], mainContainer["command"])
+        deployment = chart.resources(kind: "Deployment").first
+        initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
+        assert_equal(results[:command], initContainer["command"])
       end
       it 'outputs PUID AND PGID permissions for multiple volumes when both are set' do
         results= {
-          command: ["/bin/sh", "-c", "chown -R 999:666 /data
-chown -R 999:666 /config
-"]
+          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :568 '/configlist'; chmod -R g+w '/configlist';chown -R :568 '/data'; chmod -R g+w '/data';"]
         }
         values = {
           env: {
             PGID: 666,
             PUID: 999
           },
-          hostPathMounts: [
+          persistenceList: [
           {
                 name: "data",
                 enabled: true,
@@ -329,18 +301,18 @@ chown -R 999:666 /config
                 hostPath: "/tmp1"
           },
           {
-                name: "config",
+                name: "configlist",
                 enabled: true,
                 setPermissions: true,
-                mountPath: "/config",
+                mountPath: "/configlist",
                 hostPath: "/tmp2"
           }
           ]
         }
         chart.value values
-        job = chart.resources(kind: "Job").first
-        mainContainer = job["spec"]["template"]["spec"]["containers"][0]
-        assert_equal(results[:command], mainContainer["command"])
+        deployment = chart.resources(kind: "Deployment").first
+        initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
+        assert_equal(results[:command], initContainer["command"])
       end
     end
   end
