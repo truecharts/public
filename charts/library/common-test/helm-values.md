@@ -11,8 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| args[0] | string | `"--port"` |  |
-| args[1] | string | `"8080"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"traefik/whoami"` |  |
 | image.tag | string | `"v1.6.1@sha256:2c52bb2c848038a33e40415c300b655d7976bafaf033ecf4a6679cb9e1715917"` |  |

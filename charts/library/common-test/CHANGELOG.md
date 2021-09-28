@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="common-test-3.2.0"></a>
+### [common-test-3.2.0](https://github.com/truecharts/apps/compare/common-test-3.1.5...common-test-3.2.0) (2021-09-28)
+
+
+
 <a name="common-test-3.1.5"></a>
 ### [common-test-3.1.5](https://github.com/truecharts/apps/compare/common-test-3.1.4...common-test-3.1.5) (2021-09-28)
 
