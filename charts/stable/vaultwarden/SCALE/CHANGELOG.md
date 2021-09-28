@@ -1,7 +1,7 @@
 
-<a name="vaultwarden-9.0.4"></a>
-### [vaultwarden-9.0.4](https://github.com/truecharts/apps/compare/vaultwarden-9.0.3...vaultwarden-9.0.4) (2021-09-28)
+<a name="vaultwarden-9.0.5"></a>
+### [vaultwarden-9.0.5](https://github.com/truecharts/apps/compare/vaultwarden-9.0.4...vaultwarden-9.0.5) (2021-09-28)
 
 #### Chore
 
-* update non-major ([#1048](https://github.com/truecharts/apps/issues/1048))
+* update helm chart postgresql to v3.0.2 ([#1049](https://github.com/truecharts/apps/issues/1049))
