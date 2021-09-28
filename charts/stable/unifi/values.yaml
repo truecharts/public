@@ -54,6 +54,14 @@ service:
         targetPort: 8843
         protocol: HTTPS
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
 env:
   # TZ:
   PUID: "568"
