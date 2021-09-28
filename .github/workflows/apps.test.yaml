@@ -48,9 +48,7 @@ jobs:
     needs: [changes]
     if: ${{ needs.changes.outputs.empty_matrix == 'false' }}
     name: App Tests
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/truecharts/devcontainer:v2.0.0
+    runs-on: ubuntu-20.04
     strategy:
       matrix: ${{ fromJson(needs.changes.outputs.matrix) }}
       fail-fast: false
@@ -95,37 +93,33 @@ jobs:
             echo "::set-output name=unittests::false"
             fi
 
+      - name: Install Helm
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+
       - name: update helm repo cache
         run: |
           helm repo add truecharts https://truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm repo update
 
+      - uses: actions/setup-python@v2
+        if: ${{ matrix.app != '.gitkee' }}
+        with:
+          python-version: 3.7
+
       - name: Set up chart-testing
         if: ${{ matrix.app != '.gitkee' }}
         uses: helm/chart-testing-action@v2.1.0
-
-
-    ##
-    # Unit-Test section
-    ##
-
-      - name: Install dependencies
-        if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
-        run: |
-          bundle install
-
-      - name: Run common unit tests
-        if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
-        run: |
-          bundle exec m -r tests
 
     ##
     # Chart-Testing Section
     ##
 
       - name: Run chart-testing (lint)
-        if: ${{ matrix.app != '.gitkee' }}
+        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' }}
         id: lint
         run: ct lint --config .github/ct-lint.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
 

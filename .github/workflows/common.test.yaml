@@ -1,0 +1,103 @@
+name: "common: Tests"
+
+on:
+  pull_request:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+    paths:
+      - 'charts/library/**'
+      - '.github/workflows/common.test.yaml'
+      - '.github/ct-install.yaml'
+      - '.github/ct-lint.yaml'
+
+jobs:
+  unit-and-lint:
+    name: Unit and Lint tests
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/truecharts/devcontainer:v2.0.0
+    steps:
+      - name: Cache helm repo cache
+        id: cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache-${{ github.sha }}
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
+
+      - uses: actions/checkout@v2
+        name: Checkout
+        with:
+          fetch-depth: 100
+
+      - name: update helm repo cache
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
+
+      - name: Run chart-testing (lint)
+        run: ct lint --config .github/ct-lint.yaml --charts 'charts/library/common-test'
+
+      - name: Run common unit tests
+        run: |
+          bundle exec m -r tests
+
+  run-tests:
+    name: Run tests
+    runs-on: ubuntu-latest
+    needs: [unit-and-lint]
+    steps:
+      - name: Cache helm repo cache
+        id: cache
+        uses: actions/cache@v2
+        with:
+          key: helmrepocache-${{ github.sha }}
+          path: |
+            ~/.cache/helm/repository
+            ~/.config/helm/repositories.yaml
+
+      - uses: actions/checkout@v2
+        name: Checkout
+        with:
+          fetch-depth: 100
+
+      - name: Install Helm
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: azure/setup-helm@v1
+        with:
+          version: v3.5.3
+
+      - name: update helm repo cache
+        run: |
+          helm repo add truecharts https://truecharts.org
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo update
+
+      - uses: actions/setup-python@v2
+        if: ${{ matrix.app != '.gitkee' }}
+        with:
+          python-version: 3.7
+
+      - name: Set up chart-testing
+        if: ${{ matrix.app != '.gitkee' }}
+        uses: helm/chart-testing-action@v2.1.0
+    ##
+    # Chart-Testing Section
+    ##
+
+      - uses: actions/setup-python@v2
+        if: ${{ matrix.app != '.gitkee' }}
+        with:
+          python-version: 3.7
+
+      - name: Create k3d cluster
+        uses: nolar/setup-k3d-k3s@v1
+        with:
+          version: v1.19
+
+      - name: Run chart-testing (install)
+        run: ct install --config .github/ct-install.yaml --charts 'charts/library/common-test'

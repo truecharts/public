@@ -88,7 +88,7 @@ class Test < ChartTest
         chart.value values
         refute_nil(resource('Secret'))
         secret = chart.resources(kind: "Secret").first
-        assert_equal("common-test-main-tls-0-ixcert-1", secret["metadata"]["name"])
+        assert_equal("common-test-tls-0-ixcert-1", secret["metadata"]["name"])
         refute_nil(secret["data"]["tls.crt"])
         refute_nil(secret["data"]["tls.key"])
       end
@@ -166,13 +166,13 @@ class Test < ChartTest
         chart.value values
         refute_nil(resource('Secret'))
         secret = chart.resources(kind: "Secret").first
-        assert_equal("common-test-main-tls-0-ixcert-1", secret["metadata"]["name"])
+        assert_equal("common-test-tls-0-ixcert-1", secret["metadata"]["name"])
         refute_nil(secret["data"]["tls.crt"])
         refute_nil(secret["data"]["tls.key"])
 
-        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test-main" }
+        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test" }
         refute_nil(ingress)
-        assert_equal("common-test-main-tls-0-ixcert-1", ingress["spec"]["tls"][0]["secretName"])
+        assert_equal("common-test-tls-0-ixcert-1", ingress["spec"]["tls"][0]["secretName"])
       end
       it 'multiple tls sections generate multiple secrets' do
         values = {
@@ -304,18 +304,18 @@ class Test < ChartTest
         chart.value values
         refute_nil(resource('Secret'))
         secret1 = chart.resources(kind: "Secret").first
-        assert_equal("common-test-main-tls-0-ixcert-1", secret1["metadata"]["name"])
+        assert_equal("common-test-tls-0-ixcert-1", secret1["metadata"]["name"])
         refute_nil(secret1["data"]["tls.crt"])
         refute_nil(secret1["data"]["tls.key"])
-        secret2 = chart.resources(kind: "Secret").find{ |s| s["metadata"]["name"] == "common-test-main-tls-1-ixcert-2" }
+        secret2 = chart.resources(kind: "Secret").find{ |s| s["metadata"]["name"] == "common-test-tls-1-ixcert-2" }
         refute_nil(secret2)
         refute_nil(secret2["data"]["tls.crt"])
         refute_nil(secret2["data"]["tls.key"])
 
-        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test-main" }
+        ingress = chart.resources(kind: "Ingress").find{ |s| s["metadata"]["name"] == "common-test" }
         refute_nil(ingress)
-        assert_equal("common-test-main-tls-0-ixcert-1", ingress["spec"]["tls"][0]["secretName"])
-        assert_equal("common-test-main-tls-1-ixcert-2", ingress["spec"]["tls"][1]["secretName"])
+        assert_equal("common-test-tls-0-ixcert-1", ingress["spec"]["tls"][0]["secretName"])
+        assert_equal("common-test-tls-1-ixcert-2", ingress["spec"]["tls"][1]["secretName"])
       end
     end
   end

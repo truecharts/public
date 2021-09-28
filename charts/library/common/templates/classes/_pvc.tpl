@@ -39,10 +39,10 @@ metadata:
   {{- end }}
 spec:
   accessModes:
-    - {{ required (printf "accessMode is required for PVC %v" $pvcName) $values.accessMode | quote }}
+    - {{ ( $values.accessMode | default "ReadWriteOnce" ) | quote }}
   resources:
     requests:
-      storage: {{ required (printf "size is required for PVC %v" $pvcName) $values.size | quote }}
+      storage: {{ $values.size | default "100Gi" | quote }}
   {{- if $values.storageClass }}
   storageClassName: {{ if (eq "-" $values.storageClass) }}""{{- else if (eq "SCALE-ZFS" $values.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" .Release.Name ) }}{{- else }}{{ $values.storageClass | quote }}{{- end }}
   {{- end }}

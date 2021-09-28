@@ -9,6 +9,10 @@ service:
       main:
         port: 8080
 
+args:
+  - --port
+  - '8080'
+
 ingress:
   main:
     enabled: true

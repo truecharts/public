@@ -27,7 +27,6 @@ metadata:
     {{ toYaml $values.labels | nindent 4 }}
   {{- end }}
   annotations:
-    rollme: {{ randAlphaNum 5 | quote }}
   {{- if eq ( $primaryPort.protocol | default "" ) "HTTPS" }}
     traefik.ingress.kubernetes.io/service.serversscheme: https
   {{- end }}
