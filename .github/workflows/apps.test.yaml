@@ -123,47 +123,22 @@ jobs:
     # Unit-Test section
     ##
 
-      # Get values for cache paths to be used in later steps
-      - id: go-cache-paths
-        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
-        run: |
-          echo "::set-output name=go-build::$(go env GOCACHE)"
-          echo "::set-output name=go-mod::$(go env GOMODCACHE)"
-
-      # Cache go build cache, used to speedup go test
-      - name: Go Build Cache
-        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
-        uses: actions/cache@v2
+      - name: Install Ruby for unittests
+        if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
+        uses: ruby/setup-ruby@v1
         with:
-          path: ${{ steps.go-cache-paths.outputs.go-build }}
-          key: ${{ runner.os }}-go-build-${{ hashFiles('**/go.sum') }}
+          ruby-version: 2.7
 
-      - name: Download modules
-        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
+      - name: Install dependencies
+        if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
         run: |
-          go mod download
-      - name: Run unit tests
-        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
-        run: |
-          go test ./charts/.../tests -json | tee test.json
-      - name: Annotate unit tests
-        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
-        uses: guyarb/golang-test-annotations@v0.5.0
-        with:
-          test-results: test.json
+          export RUBYJQ_USE_SYSTEM_LIBRARIES=1
+          bundle install
 
-      - name: Parse Unit Tests
-        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
+      - name: Run common unit tests
+        if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
         run: |
-         if grep -q "FAIL"  test.json
-         then
-            echo "Unit Test reported FAILED";
-            exit 1
-         else
-            echo "Unit Test reported OK";
-            exit 0
-         fi
-
+          bundle exec m -r tests
 
     ##
     # Chart-Testing Section
