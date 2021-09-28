@@ -7,7 +7,7 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 3.0.2
+  version: 3.0.3
 - condition: redis.enabled
   name: redis
   repository: https://charts.bitnami.com/bitnami
@@ -33,4 +33,4 @@ sources:
 - https://github.com/nextcloud/docker
 - https://github.com/nextcloud/helm
 type: application
-version: 6.0.6
+version: 6.0.7
