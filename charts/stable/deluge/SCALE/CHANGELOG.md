@@ -1,3 +1,7 @@
 
-<a name="deluge-8.0.1"></a>
-### [deluge-8.0.1](https://github.com/truecharts/apps/compare/deluge-8.0.0...deluge-8.0.1) (2021-09-26)
+<a name="deluge-8.0.2"></a>
+### [deluge-8.0.2](https://github.com/truecharts/apps/compare/deluge-8.0.1...deluge-8.0.2) (2021-09-28)
+
+#### Chore
+
+* update non-major ([#1046](https://github.com/truecharts/apps/issues/1046))

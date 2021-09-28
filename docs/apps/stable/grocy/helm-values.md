@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/grocy"` |  |
-| image.tag | string | `"version-v3.1.1@sha256:26537103c844e83316d64c4c42f11ea2225f878930c590d1c9048b49ad902188"` |  |
+| image.tag | string | `"version-v3.1.1@sha256:f67e4ce1c7498f5360d874955b0baf3b6b4ae88f5411094d32f7bfb93ddd4a5a"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |

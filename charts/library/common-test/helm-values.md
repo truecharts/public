@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | args[1] | string | `"8080"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"traefik/whoami"` |  |
-| image.tag | string | `"v1.6.1@sha256:16012fe4680ce69348d98627c7d42c1ea5ffde7bc4d66aaae426bd8d05af0d84"` |  |
+| image.tag | string | `"v1.6.1@sha256:2c52bb2c848038a33e40415c300b655d7976bafaf033ecf4a6679cb9e1715917"` |  |
 | service.main.ports.main.port | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project

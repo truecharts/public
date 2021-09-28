@@ -1,3 +1,7 @@
 
-<a name="freshrss-8.0.1"></a>
-### [freshrss-8.0.1](https://github.com/truecharts/apps/compare/freshrss-8.0.0...freshrss-8.0.1) (2021-09-26)
+<a name="freshrss-8.0.2"></a>
+### [freshrss-8.0.2](https://github.com/truecharts/apps/compare/freshrss-8.0.1...freshrss-8.0.2) (2021-09-28)
+
+#### Chore
+
+* update non-major ([#1046](https://github.com/truecharts/apps/issues/1046))

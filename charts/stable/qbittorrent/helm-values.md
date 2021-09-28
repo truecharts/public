@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/qbittorrent"` |  |
-| image.tag | string | `"v4.3.7@sha256:a51b97508cfd5ec81e6693e7203490d275e76eaa0d7772d40512dea8d8509f45"` |  |
+| image.tag | string | `"v4.3.8@sha256:d224ead6e97bbd655a18b6d23a76c8bed23098c9c9d745bcd6e84feea31fd494"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
