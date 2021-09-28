@@ -49,6 +49,8 @@ jobs:
     if: ${{ needs.changes.outputs.empty_matrix == 'false' }}
     name: App Tests
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/truecharts/devcontainer:v2.0.0
     strategy:
       matrix: ${{ fromJson(needs.changes.outputs.matrix) }}
       fail-fast: false
@@ -93,46 +95,24 @@ jobs:
             echo "::set-output name=unittests::false"
             fi
 
-      - name: Install Helm
-        if: ${{ matrix.app != '.gitkee' }}
-        uses: azure/setup-helm@v1
-        with:
-          version: v3.5.3
-
       - name: update helm repo cache
         run: |
           helm repo add truecharts https://truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm repo update
 
-      - uses: actions/setup-python@v2
-        if: ${{ matrix.app != '.gitkee' }}
-        with:
-          python-version: 3.7
-
       - name: Set up chart-testing
         if: ${{ matrix.app != '.gitkee' }}
         uses: helm/chart-testing-action@v2.1.0
 
-      - uses: actions/setup-go@v2
-        if: ${{ steps.prep-lint.outputs.unittests == 'true' }}
-        with:
-          go-version: '^1.16'
 
     ##
     # Unit-Test section
     ##
 
-      - name: Install Ruby for unittests
-        if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-
       - name: Install dependencies
         if: ${{ matrix.app == 'common' &&  matrix.app != '.gitkee' }}
         run: |
-          export RUBYJQ_USE_SYSTEM_LIBRARIES=1
           bundle install
 
       - name: Run common unit tests
@@ -171,7 +151,7 @@ jobs:
   release-test:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/truecharts-release:v1.3.0
+      image: ghcr.io/truecharts/devcontainer:v2.0.0
     steps:
       - name: Cache helm repo cache
         id: cache
@@ -192,11 +172,6 @@ jobs:
         with:
           repository: truecharts/catalog
           path: catalog
-
-      - name: Install Helm
-        uses: azure/setup-helm@v1
-        with:
-          version: v3.5.3
 
       - name: build-and-run
         run: |
