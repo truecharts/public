@@ -54,7 +54,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"vaultwarden"` |  |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
 | postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:8649fbdf99edc80f42620ae946255fcae687e9b9071ab7e635680828ef212de4"` |  |
+| postgresqlImage.tag | string | `"13.4.0@sha256:157b3a69567fe84148860f2f03526750dc3f8d7c8d03d2488e7077030b3b925c"` |  |
 | service.main.ports.main.port | int | `8080` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.port | int | `3012` |  |

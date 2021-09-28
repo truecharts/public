@@ -1,7 +1,8 @@
 
-<a name="nextcloud-6.0.4"></a>
-### [nextcloud-6.0.4](https://github.com/truecharts/apps/compare/nextcloud-6.0.3...nextcloud-6.0.4) (2021-09-27)
+<a name="nextcloud-6.0.5"></a>
+### [nextcloud-6.0.5](https://github.com/truecharts/apps/compare/nextcloud-6.0.4...nextcloud-6.0.5) (2021-09-28)
 
 #### Chore
 
-* update helm chart redis to v15.4.0
+* update non-major ([#1048](https://github.com/truecharts/apps/issues/1048))
+* update non-major ([#1046](https://github.com/truecharts/apps/issues/1046))
