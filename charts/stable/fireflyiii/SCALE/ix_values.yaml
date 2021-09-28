@@ -13,7 +13,7 @@ image:
 postgresqlImage:
   repository: bitnami/postgresql
   pullPolicy: IfNotPresent
-  tag: 13.4.0@sha256:157b3a69567fe84148860f2f03526750dc3f8d7c8d03d2488e7077030b3b925c
+  tag: 13.4.0@sha256:33c276dffe6140d32f357753993c4088cf945a2d02d4c20d310f5a5e9d6e4a36
 
 initContainers:
   init-postgresdb:
