@@ -1,0 +1,122 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: gitea/gitea
+  tag: 1.15.3-rootless
+  pullPolicy: IfNotPresent
+
+postgresqlImage:
+  repository: bitnami/postgresql
+  pullPolicy: IfNotPresent
+  tag: 13.4.0@sha256:33c276dffe6140d32f357753993c4088cf945a2d02d4c20d310f5a5e9d6e4a36
+
+envFrom:
+  - configMapRef:
+      name: gitea-env
+
+initContainers:
+  0-init-postgresdb:
+    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
+    command:
+      - "sh"
+      - "-c"
+      - "until pg_isready -U gitea -h ${pghost} ; do sleep 2 ; done"
+    imagePullPolicy: IfNotPresent
+    env:
+      - name: pghost
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
+  1-init-directories:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    command: ["/usr/sbin/init_directory_structure.sh"]
+    securityContext:
+      runAsUser: 0
+      runAsNonRoot: false
+    envFrom:
+      - configMapRef:
+          name: gitea-env
+    volumeMounts:
+      - name: init
+        mountPath: /usr/sbin
+      - name: temp
+        mountPath: /tmp
+      - name: config
+        mountPath: /etc/gitea/conf
+      - name: data
+        mountPath: /data
+  2-configure-gitea:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    command: ["/usr/sbin/configure_gitea.sh"]
+    envFrom:
+      - configMapRef:
+          name: gitea-env
+    volumeMounts:
+      - name: init
+        mountPath: /usr/sbin
+      - name: temp
+        mountPath: /tmp
+      - name: data
+        mountPath: /data
+
+# Configure commit/action signing prerequisites
+signing:
+  enabled: true
+  gpgHome: /data/git/.gnupg
+
+metrics:
+  enabled: false
+  serviceMonitor:
+    enabled: false
+    #  additionalLabels:
+    #    prometheus-release: prom1
+
+ldap:
+  enabled: false
+  # name:
+  # securityProtocol:
+  # host:
+  # port:
+  # userSearchBase:
+  # userFilter:
+  # adminFilter:
+  # emailAttribute:
+  # bindDn:
+  # bindPassword:
+  # usernameAttribute:
+  # sshPublicKeyAttribute:
+
+oauth:
+  enabled: false
+  # name:
+  # provider:
+  # key:
+  # secret:
+  # autoDiscoverUrl:
+  # useCustomUrls:
+  # customAuthUrl:
+  # customTokenUrl:
+  # customProfileUrl:
+  # customEmailUrl:
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  postgresqlUsername: gitea
+  postgresqlDatabase: gitea
+  existingSecret: dbcreds
+
+# --  memcached dependency settings
+memcached:
+  enabled: true
+
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##
