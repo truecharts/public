@@ -1,7 +1,7 @@
 
-<a name="custom-app-2.0.3"></a>
-### [custom-app-2.0.3](https://github.com/truecharts/apps/compare/custom-app-2.0.2...custom-app-2.0.3) (2021-09-28)
+<a name="custom-app-2.0.5"></a>
+### [custom-app-2.0.5](https://github.com/truecharts/apps/compare/custom-app-2.0.4...custom-app-2.0.5) (2021-09-29)
 
 #### Chore
 
-* update container image ghcr.io/k8s-at-home/jackett to v0.18.827 ([#1052](https://github.com/truecharts/apps/issues/1052))
+* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))

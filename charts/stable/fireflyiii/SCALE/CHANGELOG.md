@@ -1,7 +1,7 @@
 
-<a name="fireflyiii-9.0.7"></a>
-### [fireflyiii-9.0.7](https://github.com/truecharts/apps/compare/fireflyiii-9.0.6...fireflyiii-9.0.7) (2021-09-29)
+<a name="fireflyiii-9.0.9"></a>
+### [fireflyiii-9.0.9](https://github.com/truecharts/apps/compare/fireflyiii-9.0.8...fireflyiii-9.0.9) (2021-09-29)
 
 #### Chore
 
-* update bitnami/postgresql:13.4.0 docker digest to 33c276d ([#1055](https://github.com/truecharts/apps/issues/1055))
+* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))

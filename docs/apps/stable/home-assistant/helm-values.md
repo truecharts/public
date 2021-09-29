@@ -27,6 +27,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
+| persistence.varrun.enabled | bool | `true` |  |
 | postgresql.enabled | bool | `false` |  |
 | postgresql.persistence.enabled | bool | `false` |  |
 | postgresql.postgresqlDatabase | string | `"home-assistant"` |  |

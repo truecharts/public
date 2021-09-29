@@ -24,6 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.conf.mountPath | string | `"/conf"` |  |
 | persistence.conf.size | string | `"100Gi"` |  |
 | persistence.conf.type | string | `"pvc"` |  |
+| persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |

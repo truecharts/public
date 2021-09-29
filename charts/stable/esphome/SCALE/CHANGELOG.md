@@ -1,7 +1,7 @@
 
-<a name="esphome-8.0.2"></a>
-### [esphome-8.0.2](https://github.com/truecharts/apps/compare/esphome-8.0.1...esphome-8.0.2) (2021-09-28)
+<a name="esphome-8.0.4"></a>
+### [esphome-8.0.4](https://github.com/truecharts/apps/compare/esphome-8.0.3...esphome-8.0.4) (2021-09-29)
 
 #### Chore
 
-* update non-major ([#1048](https://github.com/truecharts/apps/issues/1048))
+* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))

@@ -1,7 +1,7 @@
 
-<a name="nzbhydra-8.0.3"></a>
-### [nzbhydra-8.0.3](https://github.com/truecharts/apps/compare/nzbhydra-8.0.2...nzbhydra-8.0.3) (2021-09-28)
+<a name="nzbhydra-8.0.5"></a>
+### [nzbhydra-8.0.5](https://github.com/truecharts/apps/compare/nzbhydra-8.0.4...nzbhydra-8.0.5) (2021-09-29)
 
 #### Chore
 
-* update non-major ([#1046](https://github.com/truecharts/apps/issues/1046))
+* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))

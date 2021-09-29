@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="node-red-8.0.3"></a>
+### [node-red-8.0.3](https://github.com/truecharts/apps/compare/node-red-8.0.2...node-red-8.0.3) (2021-09-29)
+
+#### Chore
+
+* update helm chart common to v8.0.13 ([#1060](https://github.com/truecharts/apps/issues/1060))
+
+
+
 <a name="node-red-8.0.1"></a>
 ### [node-red-8.0.1](https://github.com/truecharts/apps/compare/node-red-8.0.0...node-red-8.0.1) (2021-09-26)
 
