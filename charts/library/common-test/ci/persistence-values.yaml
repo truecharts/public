@@ -122,19 +122,19 @@ persistence:
   emptydir-mem:
     enabled: true
     type: emptyDir
-    mountPath: /emptydir
+    mountPath: /emptydirmem
     medium: Memory
     sizeLimit:
   emptydir-size:
     enabled: true
     type: emptyDir
-    mountPath: /emptydir
+    mountPath: /emptydirsize
     medium:
     sizeLimit: 1Gi
   emptydir-memsize:
     enabled: true
     type: emptyDir
-    mountPath: /emptydir
+    mountPath: /emptydirmemsize
     medium: Memory
     sizeLimit: 1Gi
 
