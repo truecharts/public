@@ -35,12 +35,12 @@ persistence:
     labels: {}
     type: pvc
     forceName: ""
-    mountPath:  # /config
+    mountPath: # /config
     readOnly: false
     nameOverride:
-    storageClass:  # "-"
-    existingClaim:  # your-claim
-    subPath:  # some-subpath
+    storageClass: # "-"
+    existingClaim: # your-claim
+    subPath: # some-subpath
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
@@ -52,12 +52,12 @@ persistence:
     labels: {}
     type: pvc
     forceName: "testname"
-    mountPath:  # /config
+    mountPath: # /config
     readOnly: false
     nameOverride:
-    storageClass:  # "-"
-    existingClaim:  # your-claim
-    subPath:  # some-subpath
+    storageClass: # "-"
+    existingClaim: # your-claim
+    subPath: # some-subpath
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
@@ -69,12 +69,12 @@ persistence:
     labels: {}
     type: pvc
     forceName: ""
-    mountPath:  # /config
+    mountPath: # /config
     readOnly: true
     nameOverride:
-    storageClass:  # "-"
-    existingClaim:  # your-claim
-    subPath:  # some-subpath
+    storageClass: # "-"
+    existingClaim: # your-claim
+    subPath: # some-subpath
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
@@ -86,12 +86,12 @@ persistence:
     labels: {}
     type: pvc
     forceName: ""
-    mountPath:  # /config
+    mountPath: # /config
     readOnly: false
     nameOverride:
-    storageClass:  # "-"
-    existingClaim:  # your-claim
-    subPath:  # some-subpath
+    storageClass: # "-"
+    existingClaim: # your-claim
+    subPath: # some-subpath
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
@@ -103,12 +103,12 @@ persistence:
     labels: {}
     type: pvc
     forceName: ""
-    mountPath:  # /config
+    mountPath: # /config
     readOnly: false
     nameOverride:
-    storageClass:  # "-"
-    existingClaim:  # your-claim
-    subPath:  # some-subpath
+    storageClass: # "-"
+    existingClaim: # your-claim
+    subPath: # some-subpath
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
@@ -117,49 +117,48 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /emptydir
-    medium:  # Memory
-    sizeLimit:  # 1Gi
+    medium: # Memory
+    sizeLimit: # 1Gi
   emptydir-mem:
     enabled: true
     type: emptyDir
     mountPath: /emptydir
-    medium:  Memory
-    sizeLimit:  # 1Gi
+    medium: Memory
+    sizeLimit: # 1Gi
   emptydir-size:
     enabled: true
     type: emptyDir
     mountPath: /emptydir
     medium:
-    sizeLimit:  1Gi
+    sizeLimit: 1Gi
   emptydir-memsize:
     enabled: true
     type: emptyDir
     mountPath: /emptydir
     medium: Memory
-    sizeLimit:  1Gi
+    sizeLimit: 1Gi
 
   hostpath-stock:
     enabled: true
     type: hostPath
     hostPath: /tmp
-    mountPath:  # /myDev
+    mountPath: # /myDev
     hostPathType: ""
     readOnly: false
   hostpath-ro:
     enabled: true
     type: hostPath
     hostPath: /tmp
-    mountPath:  # /myDev
+    mountPath: # /myDev
     hostPathType: ""
     readOnly: true
   hostpath-dir:
     enabled: true
     type: hostPath
     hostPath: /tmp
-    mountPath:  # /myDev
+    mountPath: # /myDev
     hostPathType: "Directory"
     readOnly: false
-
 
 
 "ixCertificateAuthorities": {}
