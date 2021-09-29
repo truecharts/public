@@ -5,10 +5,10 @@ The promtail sidecar container to be inserted.
 name: promtail
 image: "{{ .Values.promtailImage.repository }}:{{ .Values.promtailImage.tag }}"
 imagePullPolicy: {{ .Values.promtailImage.pullPolicy }}
-{{- with .Values.addons.promtail.securityContext }}
+
 securityContext:
-  {{- toYaml . | nindent 2 }}
-{{- end }}
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
 {{- range $envList := .Values.addons.promtail.envList }}

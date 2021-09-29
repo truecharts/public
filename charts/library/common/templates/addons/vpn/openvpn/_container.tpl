@@ -12,9 +12,6 @@ securityContext:
     add:
       - NET_ADMIN
       - SYS_MODULE
-{{- with .Values.addons.vpn.securityContext }}
-  {{- toYaml . | nindent 2 }}
-{{- end }}
 env:
 {{- range $envList := .Values.addons.vpn.envList }}
   {{- if and $envList.name $envList.value }}

@@ -764,12 +764,6 @@ addons:
       # - --user-data-dir
       # - "/config/.vscode"
 
-    # -- Specify a list of volumes that get mounted in the code-server container.
-    # At least 1 volumeMount is required!
-    volumeMounts: []
-    # - name: config
-    #   mountPath: /data/config
-
     # -- Specify the working dir that will be opened when code-server starts
     # If not given, the app will default to the mountpah of the first specified volumeMount
     workingDir: ""
@@ -821,9 +815,6 @@ addons:
       #    hosts:
       #      - code.chart-example.local
 
-    securityContext:
-      runAsUser: 0
-
   # -- The common library supports adding a promtail add-on to to access logs and ship them to loki. It can be configured under this key.
   # @default -- See values.yaml
   promtail:
@@ -845,13 +836,6 @@ addons:
     # - name: log
     #   path: /config/logs/*.log
 
-    # -- Specify a list of volumes that get mounted in the promtail container.
-    # At least 1 volumeMount is required!
-    volumeMounts: []
-    # - name: config
-    #   mountPath: /config
-    #   readOnly: true
-
     securityContext:
       runAsUser: 0
 
@@ -868,8 +852,3 @@ addons:
     envList: []
       #- name: someenv
       #  value: somevalue
-
-    securityContext:
-      capabilities:
-        add:
-          - NET_ADMIN

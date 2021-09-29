@@ -5,10 +5,9 @@ The code-server sidecar container to be inserted.
 name: codeserver
 image: "{{ .Values.codeserverImage.repository }}:{{ .Values.codeserverImage.tag }}"
 imagePullPolicy: {{ .Values.codeserverImage.pullPolicy }}
-{{- with .Values.addons.codeserver.securityContext }}
 securityContext:
-  {{- toYaml . | nindent 2 }}
-{{- end }}
+  runAsUser: 0
+  runAsGroup: 0
 env:
 {{- range $envList := .Values.addons.codeserver.envList }}
   {{- if and $envList.name $envList.value }}
