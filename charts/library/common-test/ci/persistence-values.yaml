@@ -35,12 +35,12 @@ persistence:
     labels: {}
     type: pvc
     forceName: ""
-    mountPath: # /config
+    mountPath:
     readOnly: false
     nameOverride:
-    storageClass: # "-"
-    existingClaim: # your-claim
-    subPath: # some-subpath
+    storageClass:
+    existingClaim:
+    subPath:
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
@@ -52,12 +52,12 @@ persistence:
     labels: {}
     type: pvc
     forceName: "testname"
-    mountPath: # /config
+    mountPath:
     readOnly: false
     nameOverride:
-    storageClass: # "-"
-    existingClaim: # your-claim
-    subPath: # some-subpath
+    storageClass:
+    existingClaim:
+    subPath:
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
@@ -69,12 +69,12 @@ persistence:
     labels: {}
     type: pvc
     forceName: ""
-    mountPath: # /config
+    mountPath:
     readOnly: true
     nameOverride:
-    storageClass: # "-"
-    existingClaim: # your-claim
-    subPath: # some-subpath
+    storageClass:
+    existingClaim:
+    subPath:
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
@@ -86,12 +86,12 @@ persistence:
     labels: {}
     type: pvc
     forceName: ""
-    mountPath: # /config
+    mountPath:
     readOnly: false
     nameOverride:
-    storageClass: # "-"
-    existingClaim: # your-claim
-    subPath: # some-subpath
+    storageClass:
+    existingClaim:
+    subPath:
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
@@ -103,12 +103,12 @@ persistence:
     labels: {}
     type: pvc
     forceName: ""
-    mountPath: # /config
+    mountPath:
     readOnly: false
     nameOverride:
-    storageClass: # "-"
-    existingClaim: # your-claim
-    subPath: # some-subpath
+    storageClass:
+    existingClaim:
+    subPath:
     accessMode: ReadWriteOnce
     size: 1Gi
     retain: false
@@ -117,14 +117,14 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /emptydir
-    medium: # Memory
-    sizeLimit: # 1Gi
+    medium:
+    sizeLimit:
   emptydir-mem:
     enabled: true
     type: emptyDir
     mountPath: /emptydir
     medium: Memory
-    sizeLimit: # 1Gi
+    sizeLimit:
   emptydir-size:
     enabled: true
     type: emptyDir
@@ -142,21 +142,21 @@ persistence:
     enabled: true
     type: hostPath
     hostPath: /tmp
-    mountPath: # /myDev
+    mountPath:
     hostPathType: ""
     readOnly: false
   hostpath-ro:
     enabled: true
     type: hostPath
     hostPath: /tmp
-    mountPath: # /myDev
+    mountPath:
     hostPathType: ""
     readOnly: true
   hostpath-dir:
     enabled: true
     type: hostPath
     hostPath: /tmp
-    mountPath: # /myDev
+    mountPath:
     hostPathType: "Directory"
     readOnly: false
 
