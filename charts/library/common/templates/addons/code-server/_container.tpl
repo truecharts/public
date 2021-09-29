@@ -12,8 +12,16 @@ imagePullPolicy: {{ .Values.codeserverImage.pullPolicy }}
 securityContext:
   {{- toYaml . | nindent 2 }}
 {{- end }}
-{{- with .Values.addons.codeserver.env }}
 env:
+{{- range $envList := .Values.addons.codeserver.envList }}
+  {{- if and $envList.name $envList.value }}
+  - name: {{ $envList.name }}
+    value: {{ $envList.value | quote }}
+  {{- else }}
+  {{- fail "Please specify name/value for codeserver environment variable" }}
+  {{- end }}
+{{- end}}
+{{- with .Values.addons.codeserver.env }}
 {{- range $k, $v := . }}
   - name: {{ $k }}
     value: {{ $v | quote }}

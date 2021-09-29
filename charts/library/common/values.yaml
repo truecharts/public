@@ -726,8 +726,8 @@ addons:
     # -- All variables specified here will be added to the vpn sidecar container
     # See the documentation of the VPN image for all config values
     envList: []
-      # name: someenv
-      # value: somevalue
+      #- name: someenv
+      #  value: somevalue
 
     # -- Provide a customized vpn configuration file to be used by the VPN.
     configFile:
@@ -750,6 +750,12 @@ addons:
     # -- Set any environment variables for code-server here
     env: {}
       # TZ: UTC
+
+    # -- All variables specified here will be added to the codeserver sidecar container
+    # See the documentation of the codeserver image for all config values
+    envList: []
+      #- name: someenv
+      #  value: somevalue
     # -- Set codeserver command line arguments.
     # Consider setting --user-data-dir to a persistent location to preserve code-server setting changes
     args:
@@ -825,6 +831,11 @@ addons:
     enabled: false
     # -- Set any environment variables for promtail here
     env: {}
+    # -- All variables specified here will be added to the promtail sidecar container
+    # See the documentation of the promtail image for all config values
+    envList: []
+      #- name: someenv
+      #  value: somevalue
     # -- Set promtail command line arguments
     args: []
     # -- The URL to Loki
@@ -852,6 +863,11 @@ addons:
 
     # -- Set any environment variables for netshoot here
     env: {}
+    # -- All variables specified here will be added to the netshoot sidecar container
+    # See the documentation of the netshoot image for all config values
+    envList: []
+      #- name: someenv
+      #  value: somevalue
 
     securityContext:
       capabilities:

@@ -12,8 +12,17 @@ imagePullPolicy: {{ .Values.promtailImage.pullPolicy }}
 securityContext:
   {{- toYaml . | nindent 2 }}
 {{- end }}
-{{- with .Values.addons.promtail.env }}
+
 env:
+{{- range $envList := .Values.addons.promtail.envList }}
+  {{- if and $envList.name $envList.value }}
+  - name: {{ $envList.name }}
+    value: {{ $envList.value | quote }}
+  {{- else }}
+  {{- fail "Please specify name/value for promtail environment variable" }}
+  {{- end }}
+{{- end}}
+{{- with .Values.addons.promtail.env }}
 {{- range $k, $v := . }}
   - name: {{ $k }}
     value: {{ $v | quote }}

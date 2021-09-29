@@ -9,8 +9,17 @@ imagePullPolicy: {{ .Values.netshootImage.pullPolicy }}
 securityContext:
   {{- toYaml . | nindent 2 }}
 {{- end }}
-{{- with .Values.addons.netshoot.env }}
+
 env:
+{{- range $envList := .Values.addons.netshoot.envList }}
+  {{- if and $envList.name $envList.value }}
+  - name: {{ $envList.name }}
+    value: {{ $envList.value | quote }}
+  {{- else }}
+  {{- fail "Please specify name/value for netshoot environment variable" }}
+  {{- end }}
+{{- end}}
+{{- with .Values.addons.netshoot.env }}
 {{- range $k, $v := . }}
   - name: {{ $k }}
     value: {{ $v | quote }}
