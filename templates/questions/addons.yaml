@@ -134,8 +134,8 @@
                               type: string
                               required: true
 
-        - variable: promtail
-          label: "Promtail"
+        - variable: codeserver
+          label: "Codeserver"
           schema:
             type: dict
             attrs:
@@ -146,18 +146,81 @@
                   default: false
                   show_subquestions_if: true
                   subquestions:
+                    - variable: git
+                      label: "Git Settings"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: deployKey
+                            description: "Raw SSH private key"
+                            label: "deployKey"
+                            schema:
+                              type: string
+                          - variable: deployKeyBase64
+                            description: "Base64-encoded SSH private key. When both variables are set, the raw SSH key takes precedence"
+                            label: "deployKeyBase64"
+                            schema:
+                              type: string
+                    - variable: service
+                      label: ""
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: type
+                            label: "Service Type"
+                            description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                            schema:
+                              type: string
+                              default: "NodePort"
+                              enum:
+                                - value: "NodePort"
+                                  description: "NodePort"
+                                - value: "ClusterIP"
+                                  description: "ClusterIP"
+                                - value: "LoadBalancer"
+                                  description: "LoadBalancer"
+                          - variable: loadBalancerIP
+                            label: "LoadBalancer IP"
+                            description: "LoadBalancerIP"
+                            schema:
+                              show_if: [["type", "=", "LoadBalancer"]]
+                              type: string
+                              default: ""
+                          - variable: externalIPs
+                            label: "External IP's"
+                            description: "External IP's"
+                            schema:
+                              show_if: [["type", "=", "LoadBalancer"]]
+                              type: list
+                              default: []
+                              items:
+                                - variable: externalIP
+                                  label: "External IP"
+                                  schema:
+                                    type: string
+                          - variable: ports
+                            label: ""
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: codeserver
+                                  label: ""
+                                  schema:
+                                    type: dict
+                                    attrs:
+                                      - variable: nodePort
+                                        description: "leave empty to disable"
+                                        label: "nodePort"
+                                        schema:
+                                          type: int
+                                          default: 12321
                     - variable: envList
-                      label: "Promtail environment Variables"
+                      label: "Codeserver environment Variables"
                       schema:
                         type: list
                         show_if: [["type", "!=", "disabled"]]
                         default: []
                         items:
-                          - variable: loki
-                            label: "Loki URL"
-                            schema:
-                              type: string
-                              required: true
                           - variable: envItem
                             label: "Environment Variable"
                             schema:
@@ -173,20 +236,61 @@
                                   schema:
                                     type: string
                                     required: true
-                          - variable: args
-                            label: "Promtail ecommand line arguments"
+
+
+        - variable: promtail
+          label: "Promtail"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: loki
+                          label: "Loki URL"
+                          schema:
+                            type: string
+                            required: true
+                    - variable: logs
+                      label: "Log Paths"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
                             schema:
-                              type: list
-                              show_if: [["type", "!=", "disabled"]]
-                              default: []
-                              items:
-                                - variable: arg
-                                  label: "Arg"
-                                  schema:
-                                    type: string
-                                    required: true
-                          - variable: logs
-                            label: "Log Paths"
+                              type: string
+                              required: true
+                          - variable: path
+                            label: "Path"
+                            schema:
+                              type: string
+                              required: true
+                    - variable: args
+                      label: "Promtail ecommand line arguments"
+                      schema:
+                        type: list
+                        show_if: [["type", "!=", "disabled"]]
+                        default: []
+                        items:
+                          - variable: arg
+                            label: "Arg"
+                            schema:
+                              type: string
+                              required: true
+                    - variable: envList
+                      label: "Promtail environment Variables"
+                      schema:
+                        type: list
+                        show_if: [["type", "!=", "disabled"]]
+                        default: []
+                        items:
+                          - variable: envItem
+                            label: "Environment Variable"
                             schema:
                               type: dict
                               attrs:
@@ -195,11 +299,14 @@
                                   schema:
                                     type: string
                                     required: true
-                                - variable: path
-                                  label: "Path"
+                                - variable: value
+                                  label: "Value"
                                   schema:
                                     type: string
                                     required: true
+
+
+
 
         - variable: netshoot
           label: "Netshoot"
