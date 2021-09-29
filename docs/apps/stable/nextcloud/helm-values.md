@@ -60,7 +60,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"nextcloud"` |  |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
 | postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:157b3a69567fe84148860f2f03526750dc3f8d7c8d03d2488e7077030b3b925c"` |  |
+| postgresqlImage.tag | string | `"13.4.0@sha256:33c276dffe6140d32f357753993c4088cf945a2d02d4c20d310f5a5e9d6e4a36"` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |

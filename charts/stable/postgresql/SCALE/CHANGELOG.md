@@ -1,7 +1,7 @@
 
-<a name="postgresql-3.0.3"></a>
-### [postgresql-3.0.3](https://github.com/truecharts/apps/compare/postgresql-3.0.2...postgresql-3.0.3) (2021-09-28)
+<a name="postgresql-3.0.4"></a>
+### [postgresql-3.0.4](https://github.com/truecharts/apps/compare/postgresql-3.0.3...postgresql-3.0.4) (2021-09-29)
 
 #### Chore
 
-* update non-major ([#1048](https://github.com/truecharts/apps/issues/1048))
+* update bitnami/postgresql:13.4.0 docker digest to 33c276d ([#1055](https://github.com/truecharts/apps/issues/1055))

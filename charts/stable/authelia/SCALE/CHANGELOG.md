@@ -1,7 +1,7 @@
 
-<a name="authelia-4.0.7"></a>
-### [authelia-4.0.7](https://github.com/truecharts/apps/compare/authelia-4.0.6...authelia-4.0.7) (2021-09-28)
+<a name="authelia-4.0.8"></a>
+### [authelia-4.0.8](https://github.com/truecharts/apps/compare/authelia-4.0.7...authelia-4.0.8) (2021-09-29)
 
 #### Chore
 
-* update helm chart postgresql to v3.0.3 ([#1050](https://github.com/truecharts/apps/issues/1050))
+* update bitnami/postgresql:13.4.0 docker digest to 33c276d ([#1055](https://github.com/truecharts/apps/issues/1055))
