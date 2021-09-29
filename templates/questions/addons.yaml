@@ -223,3 +223,38 @@
                                     required: true
                                     default: true
                                     hidden: true
+
+        - variable: netshoot
+          label: "Netshoot"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: envList
+                      label: "Netshoot environment Variables"
+                      schema:
+                        type: list
+                        show_if: [["type", "!=", "disabled"]]
+                        default: []
+                        items:
+                          - variable: envItem
+                            label: "Environment Variable"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                                    required: true
