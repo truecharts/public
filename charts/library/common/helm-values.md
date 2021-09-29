@@ -13,24 +13,24 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | addons.codeserver | object | See values.yaml | The common library supports adding a code-server add-on to access files. It can be configured under this key. For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#code-server) |
 | addons.codeserver.enabled | bool | `false` | Enable running a code-server container in the pod |
 | addons.codeserver.env | object | `{}` | Set any environment variables for code-server here |
+| addons.codeserver.envList | list | `[]` | All variables specified here will be added to the codeserver sidecar container See the documentation of the codeserver image for all config values |
 | addons.codeserver.git | object | See below | Optionally allow access a Git repository by passing in a private SSH key |
 | addons.codeserver.git.deployKey | string | `""` | Raw SSH private key |
 | addons.codeserver.git.deployKeyBase64 | string | `""` | Base64-encoded SSH private key. When both variables are set, the raw SSH key takes precedence. |
 | addons.codeserver.git.deployKeySecret | string | `""` | Existing secret containing SSH private key The chart expects it to be present under the `id_rsa` key. |
 | addons.codeserver.ingress.enabled | bool | `false` | Enable an ingress for the code-server add-on. |
 | addons.codeserver.service.enabled | bool | `true` | Enable a service for the code-server add-on. |
-| addons.codeserver.volumeMounts | list | `[]` | Specify a list of volumes that get mounted in the code-server container. At least 1 volumeMount is required! |
-| addons.codeserver.workingDir | string | `""` | Specify the working dir that will be opened when code-server starts If not given, the app will default to the mountpah of the first specified volumeMount |
+| addons.codeserver.workingDir | string | `"/"` | Specify the working dir that will be opened when code-server starts If not given, the app will default to the mountpah of the first specified volumeMount |
 | addons.netshoot | object | See values.yaml | The common library supports adding a netshoot add-on to troubleshoot network issues within a Pod. It can be configured under this key. |
 | addons.netshoot.enabled | bool | `false` | Enable running a netshoot container in the pod |
 | addons.netshoot.env | object | `{}` | Set any environment variables for netshoot here |
+| addons.netshoot.envList | list | `[]` | All variables specified here will be added to the netshoot sidecar container See the documentation of the netshoot image for all config values |
 | addons.promtail | object | See values.yaml | The common library supports adding a promtail add-on to to access logs and ship them to loki. It can be configured under this key. |
-| addons.promtail.args | list | `[]` | Set promtail command line arguments |
 | addons.promtail.enabled | bool | `false` | Enable running a promtail container in the pod |
 | addons.promtail.env | object | `{}` | Set any environment variables for promtail here |
+| addons.promtail.envList | list | `[]` | All variables specified here will be added to the promtail sidecar container See the documentation of the promtail image for all config values |
 | addons.promtail.logs | list | `[]` | The paths to logs on the volume |
 | addons.promtail.loki | string | `""` | The URL to Loki |
-| addons.promtail.volumeMounts | list | `[]` | Specify a list of volumes that get mounted in the promtail container. At least 1 volumeMount is required! |
 | addons.vpn | object | See values.yaml | The common chart supports adding a VPN add-on. It can be configured under this key. For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#wireguard-vpn) |
 | addons.vpn.configFile | object | `{"enabled":true,"hostPath":"/vpn/vpn.conf","hostPathType":"File","noMount":true,"type":"hostPath"}` | Provide a customized vpn configuration file to be used by the VPN. |
 | addons.vpn.configFile.hostPath | string | `"/vpn/vpn.conf"` | Which path on the host should be mounted. |
