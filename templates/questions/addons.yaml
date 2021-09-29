@@ -133,3 +133,93 @@
                             schema:
                               type: string
                               required: true
+
+        - variable: promtail
+          label: "Promtail"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: envList
+                      label: "Promtail environment Variables"
+                      schema:
+                        type: list
+                        show_if: [["type", "!=", "disabled"]]
+                        default: []
+                        items:
+                          - variable: loki
+                            label: "Loki URL"
+                            schema:
+                              type: string
+                              required: true
+                          - variable: envItem
+                            label: "Environment Variable"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                                    required: true
+                          - variable: args
+                            label: "Promtail ecommand line arguments"
+                            schema:
+                              type: list
+                              show_if: [["type", "!=", "disabled"]]
+                              default: []
+                              items:
+                                - variable: arg
+                                  label: "Arg"
+                                  schema:
+                                    type: string
+                                    required: true
+                          - variable: logs
+                            label: "Log Paths"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: path
+                                  label: "Path"
+                                  schema:
+                                    type: string
+                                    required: true
+                          - variable: volumeMounts
+                            label: "volumeMounts"
+                            description: "At least 1 volumeMount is required!"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: mountPath
+                                  label: "mountPath"
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: readOnly
+                                  label: "readOnly"
+                                  schema:
+                                    type: boolean
+                                    required: true
+                                    default: true
+                                    hidden: true
