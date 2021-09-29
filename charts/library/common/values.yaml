@@ -793,7 +793,7 @@ addons:
           ## Specify the nodePort value for the LoadBalancer and NodePort service types.
           ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
           ##
-          # nodePort:
+          # nodePort: 36107
 
     ingress:
       # -- Enable an ingress for the code-server add-on.
