@@ -9,13 +9,7 @@ class Test < ChartTest
       baseValues = {
         addons: {
           codeserver: {
-            enabled: true,
-            volumeMounts: [
-              {
-                name: "config",
-                mountPath: "/data/config"
-              }
-            ]
+            enabled: true
           }
         }
       }
@@ -109,39 +103,6 @@ class Test < ChartTest
         deploykeyVolume = volumes.find{ |v| v["name"] == "deploykey" }
         refute_nil(deploykeyVolume)
         assert_equal("common-test-deploykey", deploykeyVolume["secret"]["secretName"])
-      end
-
-      it 'an existing secret can be passed as a git deployKey' do
-        values = baseValues.deep_merge_override({
-          addons: {
-            codeserver: {
-              git: {
-                deployKeySecret: "existingSecret"
-              }
-            }
-          }
-        })
-
-        chart.value values
-        deployment = chart.resources(kind: "Deployment").first
-        secret = chart.resources(kind: "Secret").first
-        containers = deployment["spec"]["template"]["spec"]["containers"]
-        volumes = deployment["spec"]["template"]["spec"]["volumes"]
-        codeserverContainer = containers.find{ |c| c["name"] == "codeserver" }
-
-        # Check that the secret has not been created
-        assert_nil(secret)
-
-        # Make sure the deployKey volumeMount is present in the sidecar container
-        deploykeyVolumeMount = codeserverContainer["volumeMounts"].find { |v| v["name"] == "deploykey"}
-        refute_nil(deploykeyVolumeMount)
-        assert_equal("/root/.ssh/id_rsa", deploykeyVolumeMount["mountPath"])
-        assert_equal("id_rsa", deploykeyVolumeMount["subPath"])
-
-        # Make sure the deployKey volume is present in the Deployment
-        deploykeyVolume = volumes.find{ |v| v["name"] == "deploykey" }
-        refute_nil(deploykeyVolume)
-        assert_equal(values[:addons][:codeserver][:git][:deployKeySecret], deploykeyVolume["secret"]["secretName"])
       end
     end
   end

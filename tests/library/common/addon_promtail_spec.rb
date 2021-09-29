@@ -18,14 +18,7 @@ class Test < ChartTest
         values = {
         addons: {
           promtail: {
-            enabled: true,
-            volumeMounts: [
-              {
-              name: "config",
-              mountPath: "/tmp",
-              readOnly: true
-          }
-        ]
+            enabled: true
           }
         }
       }

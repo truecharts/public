@@ -764,15 +764,9 @@ addons:
       # - --user-data-dir
       # - "/config/.vscode"
 
-    # -- Specify a list of volumes that get mounted in the code-server container.
-    # At least 1 volumeMount is required!
-    volumeMounts: []
-    # - name: config
-    #   mountPath: /data/config
-
     # -- Specify the working dir that will be opened when code-server starts
     # If not given, the app will default to the mountpah of the first specified volumeMount
-    workingDir: ""
+    workingDir: "/"
 
     # -- Optionally allow access a Git repository by passing in a private SSH key
     # @default -- See below
@@ -799,16 +793,13 @@ addons:
           ## Specify the nodePort value for the LoadBalancer and NodePort service types.
           ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
           ##
-          # nodePort:
-      annotations: {}
-      labels: {}
+          # nodePort: 36107
 
     ingress:
       # -- Enable an ingress for the code-server add-on.
       enabled: false
       annotations: {}
         # kubernetes.io/ingress.class: nginx
-        # kubernetes.io/tls-acme: "true"
       labels: {}
       hosts:
         - host: code.chart-example.local
@@ -817,12 +808,7 @@ addons:
               # Ignored if not kubeVersion >= 1.14-0
               pathType: Prefix
       tls: []
-      #  - secretName: chart-example-tls
-      #    hosts:
-      #      - code.chart-example.local
 
-    securityContext:
-      runAsUser: 0
 
   # -- The common library supports adding a promtail add-on to to access logs and ship them to loki. It can be configured under this key.
   # @default -- See values.yaml
@@ -845,13 +831,6 @@ addons:
     # - name: log
     #   path: /config/logs/*.log
 
-    # -- Specify a list of volumes that get mounted in the promtail container.
-    # At least 1 volumeMount is required!
-    volumeMounts: []
-    # - name: config
-    #   mountPath: /config
-    #   readOnly: true
-
     securityContext:
       runAsUser: 0
 
@@ -868,8 +847,3 @@ addons:
     envList: []
       #- name: someenv
       #  value: somevalue
-
-    securityContext:
-      capabilities:
-        add:
-          - NET_ADMIN
