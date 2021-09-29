@@ -15,11 +15,11 @@ args:
 
 probes:
   liveness:
-    enabled: false
+    enabled: true
   readiness:
-    enabled: false
+    enabled: true
   startup:
-    enabled: false
+    enabled: true
 
 
 # -- Configure the ingresses for the chart here.
