@@ -33,7 +33,7 @@ args:
 {{- end }}
 - "--port"
 - "{{ .Values.addons.codeserver.service.ports.codeserver.port }}"
-- {{ .Values.addons.codeserver.workingDir | default (first .Values.addons.codeserver.volumeMounts).mountPath }}
+- {{ .Values.addons.codeserver.workingDir | default "/" }}
 {{- with (include "common.controller.volumeMounts" . | trim) }}
 volumeMounts:
   {{ nindent 2 . }}
