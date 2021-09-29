@@ -26,143 +26,97 @@ probes:
     enabled: true
 
 
-persistence:
-  pvc-stock:
+# -- Configure the ingresses for the chart here.
+# Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
+# @default -- See below
+ingress:
+  main:
     enabled: true
+    primary: true
+    nameOverride:
+    fixedMiddlewares:
+      - chain-basic
+    middlewares: []
     annotationsList: []
     annotations: {}
+
     labelsList: []
     labels: {}
-    type: pvc
-    forceName: ""
-    mountPath:
-    readOnly: false
-    nameOverride:
-    storageClass:
-    existingClaim:
-    subPath:
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    retain: false
-  pvc-forcedname:
+    ingressClassName:  # "nginx"
+    hosts:
+      -  host: chart-example.local
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              name:
+              port:
+    tls: []
+
+  label:
     enabled: true
-    annotationsList: []
-    annotations: {}
-    labelsList: []
-    labels: {}
-    type: pvc
-    forceName: "testname"
-    mountPath:
-    readOnly: false
     nameOverride:
-    storageClass:
-    existingClaim:
-    subPath:
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    retain: false
-  pvc-readonly:
-    enabled: true
-    annotationsList: []
-    annotations: {}
-    labelsList: []
-    labels: {}
-    type: pvc
-    forceName: ""
-    mountPath:
-    readOnly: true
-    nameOverride:
-    storageClass:
-    existingClaim:
-    subPath:
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    retain: false
-  pvc-labeled:
-    enabled: true
+    fixedMiddlewares:
+      - chain-basic
+    middlewares: []
     annotationsList: []
     annotations: {}
     labelsList: []
     labels:
       labelexample1: labelvalue2
-    type: pvc
-    forceName: ""
-    mountPath:
-    readOnly: false
-    nameOverride:
-    storageClass:
-    existingClaim:
-    subPath:
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    retain: false
-  pvc-labeled-list:
+    ingressClassName:  # "nginx"
+    hosts:
+      -  host: label.chart-example.local
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              name:
+              port:
+    tls: []
+
+  labellist:
     enabled: true
+    nameOverride:
+    fixedMiddlewares:
+      - chain-basic
+    middlewares: []
     annotationsList: []
     annotations: {}
     labelsList:
       - name: labelexample
         value: labelcontent
     labels: {}
-    type: pvc
-    forceName: ""
-    mountPath:
-    readOnly: false
+    ingressClassName:  # "nginx"
+    hosts:
+      -  host: labellist.chart-example.local
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              name:
+              port:
+    tls: []
+
+  notls:
+    enabled: true
     nameOverride:
-    storageClass:
-    existingClaim:
-    subPath:
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    retain: false
-
-  emptydir:
-    enabled: true
-    type: emptyDir
-    mountPath: /emptydir
-    medium:
-    sizeLimit:
-  emptydir-mem:
-    enabled: true
-    type: emptyDir
-    mountPath: /emptydirmem
-    medium: Memory
-    sizeLimit:
-  emptydir-size:
-    enabled: true
-    type: emptyDir
-    mountPath: /emptydirsize
-    medium:
-    sizeLimit: 1Gi
-  emptydir-memsize:
-    enabled: true
-    type: emptyDir
-    mountPath: /emptydirmemsize
-    medium: Memory
-    sizeLimit: 1Gi
-
-  hostpath-stock:
-    enabled: true
-    type: hostPath
-    hostPath: /tmp1
-    mountPath:
-    hostPathType: ""
-    readOnly: false
-  hostpath-ro:
-    enabled: true
-    type: hostPath
-    hostPath: /tmp2
-    mountPath:
-    hostPathType: ""
-    readOnly: true
-  hostpath-dir:
-    enabled: true
-    type: hostPath
-    hostPath: /tmp3
-    mountPath:
-    hostPathType: "Directory"
-    readOnly: false
-
+    fixedMiddlewares:
+      - chain-basic
+    middlewares: []
+    annotationsList: []
+    annotations: {}
+    labelsList: []
+    labels: {}
+    ingressClassName:  # "nginx"
+    hosts:
+      -  host: notls.chart-example.local
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              name:
+              port:
 
 "ixCertificateAuthorities": {}
 "ixCertificates":
