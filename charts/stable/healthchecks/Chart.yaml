@@ -3,7 +3,7 @@ appVersion: "1.22.0"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.0.8
+  version: 8.0.9
 description: Healthchecks is a cron job monitoring service. It listens for HTTP requests
   and email messages ("pings") from your cron jobs and scheduled tasks ("checks").
   When a ping does not arrive on time, Healthchecks sends out alerts.
@@ -22,4 +22,4 @@ name: healthchecks
 sources:
 - https://github.com/healthchecks/healthchecks
 - https://hub.docker.com/r/linuxserver/healthchecks
-version: 3.0.1
+version: 3.0.2
