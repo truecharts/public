@@ -2,14 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.154.0/containers/ruby
 {
     "name": "Ruby",
-    "build": {
-        "context": "..",
-        "dockerfile": "Dockerfile",
-        "args": {
-            // Update 'VARIANT' to pick a Ruby version: 2, 2.7, 2.6, 2.5
-            "VARIANT": "2.7",
-        }
-    },
+    "image": "ghcr.io/truecharts/devcontainer:v2.0.1"
 
     // Set *default* container specific settings.json values on container create.
     "settings": {
@@ -19,7 +12,19 @@
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
         "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "rebornix.Ruby"
+        "rebornix.Ruby",
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "2gua.rainbow-brackets",
+        "bmuskalla.vscode-tldr",
+        "visualstudioexptteam.vscodeintellicode",
+        "wingrunr21.vscode-ruby",
+        "redhat.vscode-yaml",
+        "spmeesseman.vscode-taskexplorer",
+        "formulahendry.code-runner"
     ],
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.

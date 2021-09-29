@@ -5,20 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "UnitTest - active spec file only",
-            "type": "Ruby",
-            "request": "launch",
-            "cwd": "${workspaceRoot}",
-            "program": "/usr/local/bin/bundle",
-            "args": [
-                "exec",
-                "m",
-                "-r",
-                "${relativeFile}"
-            ]
-        },
-        {
-            "name": "UnitTest - all spec files",
+            "name": "Common UnitTest - all tests",
             "type": "Ruby",
             "request": "launch",
             "cwd": "${workspaceRoot}",
@@ -28,6 +15,19 @@
                 "m",
                 "-r",
                 "${workspaceFolder}/tests"
+            ]
+        },
+        {
+            "name": "Common UnitTest - active spec file only",
+            "type": "Ruby",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "program": "/usr/local/bin/bundle",
+            "args": [
+                "exec",
+                "m",
+                "-r",
+                "${relativeFile}"
             ]
         }
     ]
