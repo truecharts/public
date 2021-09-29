@@ -13,10 +13,6 @@ args:
   - --port
   - '8080'
 
-ingress:
-  main:
-    enabled: true
-
 probes:
   liveness:
     enabled: true
@@ -44,7 +40,7 @@ ingress:
     labels: {}
     ingressClassName:  # "nginx"
     hosts:
-      -  host: chart-example.local
+      - host: chart-example.local
         paths:
           - path: /
             pathType: Prefix
@@ -66,7 +62,7 @@ ingress:
       labelexample1: labelvalue2
     ingressClassName:  # "nginx"
     hosts:
-      -  host: label.chart-example.local
+      - host: label.chart-example.local
         paths:
           - path: /
             pathType: Prefix
@@ -89,7 +85,7 @@ ingress:
     labels: {}
     ingressClassName:  # "nginx"
     hosts:
-      -  host: labellist.chart-example.local
+      - host: labellist.chart-example.local
         paths:
           - path: /
             pathType: Prefix
@@ -110,7 +106,7 @@ ingress:
     labels: {}
     ingressClassName:  # "nginx"
     hosts:
-      -  host: notls.chart-example.local
+      - host: notls.chart-example.local
         paths:
           - path: /
             pathType: Prefix
