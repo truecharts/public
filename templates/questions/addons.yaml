@@ -200,29 +200,6 @@
                                   schema:
                                     type: string
                                     required: true
-                          - variable: volumeMounts
-                            label: "volumeMounts"
-                            description: "At least 1 volumeMount is required!"
-                            schema:
-                              type: dict
-                              attrs:
-                                - variable: name
-                                  label: "Name"
-                                  schema:
-                                    type: string
-                                    required: true
-                                - variable: mountPath
-                                  label: "mountPath"
-                                  schema:
-                                    type: string
-                                    required: true
-                                - variable: readOnly
-                                  label: "readOnly"
-                                  schema:
-                                    type: boolean
-                                    required: true
-                                    default: true
-                                    hidden: true
 
         - variable: netshoot
           label: "Netshoot"
