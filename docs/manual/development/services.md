@@ -4,21 +4,6 @@ Every App needs to be exposed to something, either an UI, API or other container
 
 ### Two kinds of services
 
-##### First: hostNetwork
-
-Always add the hostNetwork option above the "services" section.
-This is to try and keep things clear for the user.
-
-```
-  # Enable Host Networking
-  - variable: hostNetwork
-    group: "Networking"
-    label: "Enable Host Networking"
-    schema:
-      type: boolean
-      default: false
-```
-
 ##### Main Service
 
 Every App is required to have a main service, the primary thing that users (or other Apps!) connect with. No mater if it's a webUI, an API, a database connection or something totally else, A service is always required.
