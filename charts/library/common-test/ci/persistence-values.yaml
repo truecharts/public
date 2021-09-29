@@ -144,23 +144,9 @@ persistence:
   hostpath-stock:
     enabled: true
     type: hostPath
-    hostPath: /tmp1
+    hostPath: /tmp
     mountPath:
     hostPathType: ""
-    readOnly: false
-  hostpath-ro:
-    enabled: true
-    type: hostPath
-    hostPath: /tmp2
-    mountPath:
-    hostPathType: ""
-    readOnly: true
-  hostpath-dir:
-    enabled: true
-    type: hostPath
-    hostPath: /tmp3
-    mountPath:
-    hostPathType: "Directory"
     readOnly: false
 
 
