@@ -49,7 +49,7 @@ env:
 {{- end }}
 {{- end }}
 
-{{- if or .Values.addons.vpn.openvpn.auth }}
+{{- if or ( .Values.addons.vpn.openvpn.username ) ( .Values.addons.vpn.openvpn.password ) }}
 envFrom:
   - secretRef:
       name: {{ include "common.names.fullname" . }}-openvpn
