@@ -657,18 +657,6 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: varrun
-          label: "varrun override"
-          schema:
-            type: dict
-            hidden: true
-            attrs:
-              - variable: enabled
-                label: ""
-                schema:
-                  type: boolean
-                  default: false
-                  hidden: true
         - variable: data
           label: "App Data Storage"
           description: "Stores the Application Data."

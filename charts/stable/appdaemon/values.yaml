@@ -21,7 +21,7 @@ service:
   main:
     ports:
       main:
-        port: 5050
+          port: 5050
   tcp:
     enabled: true
     type: ClusterIP
@@ -38,3 +38,5 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
+  varrun:
+    enabled: true

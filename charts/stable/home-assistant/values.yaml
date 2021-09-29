@@ -41,6 +41,8 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
+  varrun:
+    enabled: true
 
 # # Path to your Z-Wave / Zigbee device in the container
 # additionalVolumeMounts:

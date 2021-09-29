@@ -280,6 +280,18 @@ questions:
     schema:
       type: dict
       attrs:
+        - variable: varrun
+          label: "varrun override for S6 Readonly Root"
+          schema:
+            type: dict
+            hidden: true
+            attrs:
+              - variable: enabled
+                label: ""
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
@@ -295,7 +307,7 @@ questions:
                 label: "(Advanced) Type of Storage"
                 description: "Sets the persistence type"
                 schema:
-                  type: string
+                    type: string
                   default: "pvc"
                   enum:
                     - value: "pvc"
