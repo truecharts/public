@@ -13,8 +13,8 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
-securityContext:
-  readOnlyRootFilesystem: false
+# securityContext:
+#   readOnlyRootFilesystem: false
 #   runAsNonRoot: false
 
 # podSecurityContext:
