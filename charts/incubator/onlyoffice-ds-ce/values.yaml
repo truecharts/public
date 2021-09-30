@@ -15,11 +15,16 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: false
+#   runAsNonRoot: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+persistence:
+  varrun:
+    enabled: true
+
 
 # -- environment variables. See [image docs](https://github.com/ONLYOFFICE/Docker-DocumentServer#available-configuration-parameters) for more details.
 env:
