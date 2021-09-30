@@ -116,13 +116,8 @@ questions:
           label: "DONT_GEN_SSL_CERT"
           description: "When set to true it does NOT generate an SSL cert, you have to use your own"
           schema:
-            type: string
-            default: "true"
-            enum:
-              - value: "true"
-                description: "true"
-              - value: ""
-                description: "false"
+            type: boolean
+            default: true
         - variable: server_name
           label: "Server Name"
           description: "When this environment variable is set (is not “”), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."

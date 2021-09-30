@@ -13,7 +13,6 @@ podSecurityContext:
 
 service:
   main:
-    type: NodePort
     ports:
       main:
         port: 9980
