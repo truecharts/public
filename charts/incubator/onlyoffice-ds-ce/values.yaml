@@ -13,6 +13,14 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+  # runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
 # -- environment variables. See [image docs](https://github.com/ONLYOFFICE/Docker-DocumentServer#available-configuration-parameters) for more details.
 env:
   WOPI_ENABLED: true
@@ -21,6 +29,7 @@ env:
 
 # TODO: Enable auto self signed certs
 # TODO: Serve over https.
+# TODO: GUI Option to autostart example
 
 service:
   main:
