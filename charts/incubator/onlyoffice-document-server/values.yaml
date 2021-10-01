@@ -14,12 +14,16 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
+  # readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+persistence:
+  varrun:
+    enabled: true
 
 # -- environment variables. See [image docs](https://github.com/ONLYOFFICE/Docker-DocumentServer#available-configuration-parameters) for more details.
 env:
@@ -43,11 +47,3 @@ ingress:
   # @default -- See values.yaml
   main:
     enabled: false
-
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
