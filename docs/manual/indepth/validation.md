@@ -15,8 +15,8 @@ Accepted formats are:
 - Float (eg. `0.5`) - This means half hyperthread
 - Milicpu (eg. `500m`) This means also half hyperthread
 
-Regex used to match those: `^([0-9]+)(\.[0-9]?|m?)$`
-You can try live [here](https://regex101.com/r/pFoJTx/1)
+Regex used to match those: `^([0-9]+)(\.[0-9]|m?)$`
+You can try live [here](https://regex101.com/r/4K1r6K/1)
 More detailed info can be found [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu)
 
 __`Memory RAM`__
@@ -27,8 +27,8 @@ Accepted formats are:
 - Plain integer (eg. `134217728`) - This means 128Megabyte of RAM
 - As an exponent format (eg. `134e6`) This means ~128Megabyte of RAM
 
-Regex uesd to match those: `^([0-9.]+)([EPTGMK]i?|[EPTGMK]?|e[0-9]+)$`
-You can try live [here](https://regex101.com/r/TUkZhN/1)
+Regex uesd to match those: `^([0-9]+)(|[EPTGMK]i?|e[0-9]+)$`
+You can try live [here](https://regex101.com/r/IWemtb/1)
 More detailed info can be found [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
 
