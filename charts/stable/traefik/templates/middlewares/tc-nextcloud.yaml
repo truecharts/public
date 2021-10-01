@@ -7,16 +7,6 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: tc-nextcloud-headers
-  namespace: {{ $namespace }}
-spec:
-  headers:
-    stsSeconds: 63072000
-    forceSTSHeader: true
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
   name: tc-nextcloud-redirectregex-dav
   namespace: {{ $namespace }}
 spec:
@@ -32,5 +22,4 @@ metadata:
 spec:
   chain:
     middlewares:
-    - name: tc-nextcloud-headers
     - name: tc-nextcloud-redirectregex-dav

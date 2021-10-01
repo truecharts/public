@@ -38,14 +38,16 @@ spec:
       - PUT
     accessControlMaxAge: 100
     sslRedirect: true
-    # stsSeconds: 63072000
+    stsSeconds: 63072000
     # stsIncludeSubdomains: false
     # stsPreload: false
-    # forceSTSHeader: true
+    forceSTSHeader: true
     contentTypeNosniff: true
     browserXssFilter: true
     sslForceHost: true
     referrerPolicy: same-origin
+    customrequestheaders:
+      X-Forwarded-Proto: "https"
     customResponseHeaders:
       X-Robots-Tag: 'none'
       server: ''
