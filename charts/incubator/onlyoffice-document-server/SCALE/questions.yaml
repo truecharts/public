@@ -93,12 +93,14 @@ questions:
           description: "Specifies the enabling the JSON Web Token validation by the ONLYOFFICE Document Server."
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: JWT_SECRET
           label: "JWT_SECRET"
           description: "Defines the secret key to validate the JSON Web Token in the request to the ONLYOFFICE Document Server."
           schema:
+            show_if: [["JWT_ENABLED", "=", true]]
             type: string
+            required: true
             default: ""
 
 # Include{containerConfig}
