@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="traefik-9.0.4"></a>
+### [traefik-9.0.4](https://github.com/truecharts/apps/compare/traefik-9.0.3...traefik-9.0.4) (2021-10-01)
+
+
+
 <a name="traefik-9.0.3"></a>
 ### [traefik-9.0.3](https://github.com/truecharts/apps/compare/traefik-9.0.2...traefik-9.0.3) (2021-09-29)
 
