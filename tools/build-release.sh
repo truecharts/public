@@ -202,6 +202,7 @@ sync_tag() {
     tag="${tag#*release-}"
     tag="${tag#*version-}"
     tag="${tag#*v}"
+    tag="${tag%-*}"
     tag="${tag:0:10}"
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
     }
