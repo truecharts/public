@@ -169,7 +169,7 @@ stringData:
 
     # Copy config file to writable volume
     cp /etc/gitea/conf/app.ini /data/gitea/conf/app.ini
-    chown -Rf {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }}  "/data/gitea"
+    chown -Rf {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }}  "/data"
     chmod a+rwx /data/gitea/conf/app.ini
 
     # Patch dockercontainer for dynamic users
