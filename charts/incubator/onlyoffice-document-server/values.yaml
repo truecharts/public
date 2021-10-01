@@ -14,27 +14,18 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  # readOnlyRootFilesystem: false
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-persistence:
-  varrun:
-    enabled: true
-
 # -- environment variables. See [image docs](https://github.com/ONLYOFFICE/Docker-DocumentServer#available-configuration-parameters) for more details.
 env:
   WOPI_ENABLED: true
   JWT_ENABLED: true
   JWT_SECRET: randomgeneratedstring
-
-# TODO: Enable auto self signed certs
-# TODO: Serve over https.
-# TODO: GUI Option to autostart example
-# TODO: Document for nextcloud you need: 'allow_local_remote_servers' => true,
 
 service:
   main:

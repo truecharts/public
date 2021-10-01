@@ -188,7 +188,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9980
+                              default: 80
                               editable: false
                               hidden: true
                           - variable: port
@@ -463,7 +463,7 @@ questions:
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: true
+            default: false
 
   - variable: podSecurityContext
     group: "Security and Permissions"
