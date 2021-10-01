@@ -9,6 +9,7 @@ These defaults can ofcoarse be changed, but as we guarantee "sane, working defau
 | k8s-gateway         |  main     |          |   53/UDP          |   Potenial conflict with pihole      |
 | pihole              |  dns      |          |   53/UDP          | Potenial conflict with k8s-gateway   |
 | pihole              |  dns-tcp  |          |   53              |                                      |
+| Gitea               |  ssh      |          |    2222           |                                      |
 | Unifi               |   comm    |          |   8080            |                                      |
 | traefik             |   main    |   9000   |                   |                                      |
 | traefik             |   web     |          |       9080        |  Adviced to be changed to 80         |
@@ -127,6 +128,6 @@ These defaults can ofcoarse be changed, but as we guarantee "sane, working defau
 | teamspeak3          |  query    |  36105   |                   |                                      |
 | teamspeak3          |  files    |  36106   |                   |                                      |
 | CodeServer          |  ADDON    |  36107   |                   |                                      |
+| Gitea               |  main     |  36108   |                   |                                      |
 
-
-#### Note: TCP and UPD ports that are the same in each App, are not by mistake.
+##### Note: TCP and UPD ports that are the same in each App, are not by mistake.
