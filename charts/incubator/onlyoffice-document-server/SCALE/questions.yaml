@@ -87,7 +87,7 @@ questions:
           description: "Specifies the enabling the wopi handlers."
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: JWT_ENABLED
           label: "JWT_ENABLED"
           description: "Specifies the enabling the JSON Web Token validation by the ONLYOFFICE Document Server."
