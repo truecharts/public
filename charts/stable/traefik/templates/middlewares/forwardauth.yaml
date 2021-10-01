@@ -13,11 +13,13 @@ metadata:
 spec:
   forwardAuth:
     address: {{ $middlewareData.address }}
-    {{- if $middlewareData.authResponseHeaders }}
-    authResponseHeaders: {{ $middlewareData.authResponseHeaders }}
+    {{- with $middlewareData.authResponseHeaders }}
+    authResponseHeaders:
+    {{- toYaml . | nindent 4 }}
     {{- end }}
-    {{- if $middlewareData.authRequestHeaders }}
-    authRequestHeaders: {{ $middlewareData.authRequestHeaders }}
+    {{- with $middlewareData.authRequestHeaders }}
+    authRequestHeaders:
+    {{- toYaml . | nindent 4 }}
     {{- end }}
     {{- if $middlewareData.authResponseHeadersRegex }}
     authResponseHeadersRegex: {{ $middlewareData.authResponseHeadersRegex }}
