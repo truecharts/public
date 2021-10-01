@@ -85,7 +85,7 @@ questions:
           schema:
             type: string
             default: 'nextcloud\.domain\.tld|othernextcloud\.domain\.tld'
-            valid_chars: '^([a-z]{1,}\\{1}\.{1}[a-z]{1,}\\{1}\.{1}[a-z]{1,}\|{0,1})*$'
+            valid_chars: '^([a-z]{1,}\\\.[a-z]{1,}\\\.[a-z]{1,})((\|[a-z]{1,}\\\.[a-z]{1,}\\\.[a-z]{1,}))*$'
             required: true
         - variable: username
           label: "Username for WebUI"

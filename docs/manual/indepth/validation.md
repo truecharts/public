@@ -55,8 +55,8 @@ Accepted formats are:
 - Single domain (eg. `cloud\.mydomain\.com`) - Each `.` has to be escaped with `\`
 - Multiple domains (eg. `cloud\.mydomain\.com|nextcloud\.mydomain\.com`) - Each `.` has to be escaped with `\` and each domain is separated with `|`
 
-Regex used to match those: `^([a-z]{1,}\\{1}\.{1}[a-z]{1,}\\{1}\.{1}[a-z]{1,}\|{0,1})*$`
-You can try live [here](https://regex101.com/r/LK02xa/1)
+Regex used to match those: `^([a-z]{1,}\\\.[a-z]{1,}\\\.[a-z]{1,})((\|[a-z]{1,}\\\.[a-z]{1,}\\\.[a-z]{1,}))*$`
+You can try live [here](https://regex101.com/r/SKQFz7/1)
 
 __`Password for WebUI`__
 Accepted formats are:
