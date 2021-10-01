@@ -93,7 +93,6 @@ stringData:
 
     [security]
     INSTALL_LOCK = true
-    PASSWORD_COMPLEXITY = spec
     {{- range $catindex, $catvalue := .Values.customConfig }}
     {{- if eq $catvalue.name "security" }}
     {{- range $index, $value := $catvalue.keys }}
