@@ -271,6 +271,8 @@ _These Apps have specific requirements or need specific customisation and care_
 
 :x: diun ( The general feature is already integrated into SCALE)
 
+:x: pterodactyl (Not natively compatible with k8s, would most likely go totally haywire when clustering launches)
+
 ### Completed App Requests
 
 - [x] JDownloader2 #613
