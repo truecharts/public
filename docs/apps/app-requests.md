@@ -79,10 +79,10 @@ This is a list of Helm charts in the popular[ k8s-at-home ](https://github.com/k
 
 It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes some "sister" repositories, that feature Charts that are very close to  [k8s-at-home ](https://github.com/k8s-at-home/charts), but not quite. However the porting process should be relatively similair.
 
-[ k8s-at-home ](https://github.com/k8s-at-home/charts)
----
+#### [ k8s-at-home ](https://github.com/k8s-at-home/charts)
 
-**TODO: Should be relatively easy to port**
+
+##### TODO: Should be relatively easy to port
 
 - [ ] apache-musicindex
 - [ ] aria2
@@ -95,7 +95,7 @@ It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes 
 - [ ] whoogle
 - [ ] xbackbone
 
-**TODO: Require custom care to handle their configuration**
+##### TODO: Require custom care to handle their configuration
 
 - [ ] adguard-home
 - [ ] blocky
@@ -114,13 +114,13 @@ It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes 
 - [ ] sharry
 
 
-**TODO: Requires device-mount section to be included**
+##### TODO: Requires device-mount section to be included
 
 - [ ] zigbee2mqtt
 - [ ] leaf2mqtt
 - [ ] amcrest2mqtt
 
-**TODO: Requires Postgresql customisation**
+##### TODO: Requires Postgresql customisation
 
 - [ ] dsmr-reader
 - [ ] joplin-server
@@ -138,7 +138,7 @@ It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes 
 - [ ] wallabag
 - [ ] wikijs
 
-**TODO: Requires Prometheus to be added first**
+##### TODO: Requires Prometheus to be added first
 
 - [ ] alertmanager-bot
 - [ ] promcord
@@ -151,11 +151,11 @@ It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes 
 - [ ] vikunja
 - [ ] youtubedl-material
 
-**TODO: Requires MongoDB to be added first**
+##### TODO: Requires MongoDB to be added first
 
 - [ ] overleaf
 
-**TODO: Requires MariaDB to be added first**
+##### TODO: Requires MariaDB to be added first
 
 - [ ] anonaddy
 - [ ] baikal
@@ -164,7 +164,7 @@ It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes 
 - [ ] monica
 - [ ] openemr
 
-**TODO: Other Complications**
+##### TODO: Other Complications
 
 _These Apps have specific requirements or need specific customisation and care_
 
@@ -178,8 +178,7 @@ _These Apps have specific requirements or need specific customisation and care_
 
 
 
-[ nicholaswilde ](https://github.com/nicholaswilde/helm-charts)
----
+#### [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts)
 
 - [ ] audacity
 - [ ] babybuddy
