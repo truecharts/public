@@ -1,5 +1,3 @@
-
-
 image:
   repository: ghcr.io/nicholaswilde/novnc
   pullPolicy: IfNotPresent
@@ -11,8 +9,6 @@ env:
 
   REMOTE_HOST: "localhost"
   REMOTE_PORT: "5900"
-
-
 
 service:
   main:

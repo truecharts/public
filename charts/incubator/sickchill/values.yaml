@@ -1,4 +1,3 @@
-
 # Default values for template.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -10,11 +9,8 @@ image:
 
 secret: {}
 
-env:
+env: {}
   # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-
-
 
 service:
   main:
@@ -27,7 +23,7 @@ persistence:
     mountPath: /config
     ## Template downloads data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If set to "-", storageClassName:, which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)

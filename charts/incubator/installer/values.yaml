@@ -1,18 +1,16 @@
-
-
 image:
   repository: ghcr.io/nicholaswilde/installer
   pullPolicy: IfNotPresent
   tag: "version-0.2.9"
 
 secret: {}
-  # USER: ""
-  # GH_TOKEN: ""
+  # USER:
+  # GH_TOKEN:
 
 # See more environment variables in the installer documentation
 # https://github.com/nicholaswilde/docker-installer
 env: {}
- ""
+
 
 service:
   main:

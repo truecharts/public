@@ -1,5 +1,3 @@
-
-
 image:
   repository: ghcr.io/linuxserver/booksonic
   pullPolicy: IfNotPresent
@@ -15,6 +13,7 @@ service:
     ports:
       main:
         port: 4040
+
 persistence:
   config:
     enabled: false

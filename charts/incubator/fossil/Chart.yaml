@@ -1,4 +1,5 @@
 apiVersion: v2
+kubeVersion: '>=1.16.0-0'
 appVersion: "2.15.1"
 version: 0.0.1
 name: fossil
@@ -7,9 +8,9 @@ type: application
 home: "https://github.com/truecharts/apps/tree/master/charts/stable/fossil"
 icon: "https://fossil-scm.org/home/doc/trunk/www/fossil3.gif"
 dependencies:
-  - name: common
-    version: ~0.1.9
-    repository: https://nicholaswilde.github.io/helm-charts/
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
 keywords:
   - fossil
   - scm

@@ -1,12 +1,12 @@
 apiVersion: v2
+kubeVersion: '>=1.16.0-0'
 appVersion: v0.31.8
 version: 0.0.1
 name: bookstack
-description: ⛔ DEPRECATED A simple, self-hosted, easy-to-use platform for organising and storing information.
+description: A simple, self-hosted, easy-to-use platform for organising and storing information.
 type: application
 home: "https://github.com/truecharts/apps/tree/master/charts/stable/bookstack"
 icon: "https://avatars3.githubusercontent.com/u/20912696"
-deprecated: true
 dependencies:
 - name: common
   repository: https://truecharts.org

@@ -1,5 +1,3 @@
-
-
 image:
   repository: ghcr.io/nicholaswilde/twtxt
   pullPolicy: IfNotPresent
@@ -11,9 +9,6 @@ secret:
 # See more environment variables in the twtxt documentation
 # https://github.com/nicholaswilde/docker-twtxt
 env:
-
-
-
   OPEN_PROFILES: "true"
   OPEN_REGISTRATIONS: "true"
 

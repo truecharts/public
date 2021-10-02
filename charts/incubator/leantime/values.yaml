@@ -1,4 +1,3 @@
-
 # Default values for leantime.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -12,9 +11,8 @@ secret: {}
   # LEAN_DB_USER: "admin"
   # LEAN_DB_PASSWORD: "321.qwerty"
 
-env:
+env: {}
   # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
   # LEAN_DB_HOST: "mysql_leantime"
   # LEAN_DB_DATABASE: "leantime"
 
@@ -33,7 +31,7 @@ persistence:
     mountPath: /sessions
     ## Template downloads data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If set to "-", storageClassName:, which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
@@ -47,9 +45,3 @@ persistence:
     size: 1Gi
     ## Do not delete the pvc upon helm uninstall
     skipuninstall: false
-
-#probes:
-#  liveness:
-#    enabled: false
-#  readiness:
-#    enabled: false

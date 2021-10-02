@@ -1,5 +1,3 @@
-
-
 image:
   # -- image repository
   repository: benbusby/whoogle-search
@@ -28,11 +26,5 @@ env:
 service:
   main:
     ports:
-      http:
+      main:
         port: 5000
-
-ingress:
-  # -- Enable and configure ingress settings for the chart under this key.
-  # @default -- See values.yaml
-  main:
-    enabled: false
