@@ -81,11 +81,11 @@ questions:
               - "definitions/timezone"
         - variable: domain
           label: "Domain(s) using collabora"
-          description: 'Use backslash "\" before dots ".". Use pipe "|" to separate multiple domains'
+          description: 'Use pipe "|" to separate multiple domains'
           schema:
             type: string
-            default: 'nextcloud\.domain\.tld|othernextcloud\.domain\.tld'
-            valid_chars: '^([a-z]{1,}\\\.[a-z]{1,}\\\.[a-z]{1,})((\|[a-z]{1,}\\\.[a-z]{1,}\\\.[a-z]{1,}))*$'
+            default: 'nextcloud.domain.tld|othernextcloud.domain.tld'
+            valid_chars: '^([a-z]{1,}\.[a-z]{1,}\.[a-z]{1,})((\|[a-z]{1,}\.[a-z]{1,}\.[a-z]{1,}))*$'
             required: true
         - variable: username
           label: "Username for WebUI"
@@ -123,8 +123,8 @@ questions:
           description: "When this environment variable is set (is not “”), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."
           schema:
             type: string
-            default: 'collabora\.domain\.tld'
-            valid_chars: '^[a-z]{1,}\\{1}\.{1}[a-z]{1,}\\{1}\.{1}[a-z]{1,}$'
+            default: 'collabora.domain.tld'
+            valid_chars: '^([a-z]{1,}\.[a-z]{1,}\.[a-z]{1,})$'
 # Include{containerConfig}
 
   - variable: service
@@ -484,7 +484,7 @@ questions:
           label: "Allow Privilege Escalation"
           schema:
             type: boolean
-            default: false
+            default: true
         - variable: runAsNonRoot
           label: "runAsNonRoot"
           schema:
