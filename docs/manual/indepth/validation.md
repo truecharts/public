@@ -31,52 +31,6 @@ Regex uesd to match those: `^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0
 You can try live [here](https://regex101.com/r/LyDc6u/1)
 More detailed info can be found [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
-
-### Per app validation
-
----
-
-#### Appdaemon
-
-__`LATITUDE`__ and __`LONGITUDE`__
-Accepted formats are:
-
-- Float (eg. `24.2028`)
-
-Regex used to match this: `^[0-9]{1,}\.{1}[0-9]{1,}$`
-You can try live [here](https://regex101.com/r/xsLGWN/1)
-
-
-#### Collabora
-
-__`Domain(s) using collabora`__
-Accepted formats are:
-
-- Single domain (eg. `cloud\.mydomain\.com`) - Each `.` has to be escaped with `\`
-- Multiple domains (eg. `cloud\.mydomain\.com|nextcloud\.mydomain\.com`) - Each `.` has to be escaped with `\` and each domain is separated with `|`
-
-Regex used to match those: `^([a-z]{1,}\\\.[a-z]{1,}\\\.[a-z]{1,})((\|[a-z]{1,}\\\.[a-z]{1,}\\\.[a-z]{1,}))*$`
-You can try live [here](https://regex101.com/r/SKQFz7/1)
-
-__`Password for WebUI`__
-Accepted formats are:
-
-- Letters, Numbers, Symbols, Minimum 8 characters (eg. `dg523$*a`) - It accepts `a-z`, `A-Z`, `0-9` and `!@#$%^&*?`
-
-Regex used to match those: `[a-zA-Z0-9!@#$%^&*?]{8,}`
-You can try live [here](https://regex101.com/r/ef3V88/1)
-
-
-#### Fireflyiii
-
-__`APP_KEY`__
-Accepted formats are:
-
-- Letters, Numbers, Symbols, Exactly 32 characters (eg. `!oqVA9o2@br#$6vAyk8LLrDm54X5EtjD`) - It accepts `a-z`, `A-Z`, `0-9` and `!@#$%^&*?`
-
-You can try live [here](https://regex101.com/r/OR879w/1)
-Regex used to match this: `[a-zA-Z0-9!@#$%^&*?]{32}`
-
 ---
 
 _If you find a field that you think it needs validation, please open an issue on github_
