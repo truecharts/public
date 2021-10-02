@@ -8,6 +8,7 @@ _This list is to track `App Requests` from one place._
 
 - [ ] Still to be added to TrueCharts
 - [x] Already added to TrueCharts
+
 ❌ Not likely to be added to TrueCharts (Please add reason)
 
 ### Apps
@@ -237,12 +238,19 @@ _These Apps have specific requirements or need specific customisation and care_
 ### Not Likely to be added
 
 :x: pod-gateway (while a one-vpn-app app sounds nice, it would be extremely complicated to give it an acceptable user experience)
+
 :x: dnsmadeeasy-webhook (We do not support the underlaying cert-manager system as we use TrueNAS SCALE Certs)
+
 :x: intel-gpu-plugin (Already Integrated in TrueNAS SCALE)
+
 :x: multus (We use the CNI supplied by TrueNAS SCALE)
+
 :x: samba (Already Integrated into TrueNAS SCALE)
+
 :x: smarter-device-manager (preferably iX finds a way of implementing something like this)
+
 :x: zalando-postgres-cluster (We need to deploy the actual operator as an app instead)
+
 :x:  Nginx Proxy Manager #1019 (Doesn't fit very well in the kubernetes ecosystem, might cause confusion and or support issues)
 
 
