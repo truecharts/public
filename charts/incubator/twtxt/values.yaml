@@ -5,7 +5,13 @@ image:
 
 secret:
   COOKIE_SECRET: supersecretchangeme
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 # See more environment variables in the twtxt documentation
 # https://github.com/nicholaswilde/docker-twtxt
 env:
@@ -26,3 +32,5 @@ persistence:
     mountPath: /data
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

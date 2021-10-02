@@ -7,7 +7,13 @@ image:
 # https://github.com/nicholaswilde/docker-shorturl
 env: {}
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 service:
   main:
     ports:
@@ -24,3 +30,5 @@ persistence:
     mountPath: /data
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

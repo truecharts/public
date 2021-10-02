@@ -6,7 +6,13 @@ image:
 # See more environment variables in the filezilla documentation
 # https://github.com/linuxserver/docker-filezilla#parameters
 env: {}
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 service:
   main:
     ports:
@@ -16,3 +22,5 @@ persistence:
   config:
     enabled: false
     mountPath: /config
+  varrun:
+    enabled: true

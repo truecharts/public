@@ -4,7 +4,13 @@ image:
   tag: "version-4.10.0"
 
 env: {}
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
@@ -40,3 +46,5 @@ persistence:
     mountPath: /datasource
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

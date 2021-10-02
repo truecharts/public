@@ -7,7 +7,13 @@ secret: {}
 # PASSWORD: password
 # SUDO_PASSWORD: password
 # HASHED_PASSWORD
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 # See more environment variables in the code-server documentation
 # https://github.com/linuxserver/docker-code-server#parameters
 env: {}
@@ -22,3 +28,5 @@ persistence:
   config:
     enabled: false
     mountPath: /config
+  varrun:
+    enabled: true

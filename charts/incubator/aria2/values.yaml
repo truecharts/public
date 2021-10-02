@@ -30,6 +30,14 @@ service:
         enabled: true
         port: 6888
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
   # -- Configure persistence settings for the chart under this key.
   # @default -- See values.yaml
 persistence:
@@ -39,3 +47,5 @@ persistence:
   config:
     enabled: false
     mountpath: /config
+  varrun:
+    enabled: true

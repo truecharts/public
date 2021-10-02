@@ -6,9 +6,16 @@ image:
 # See more environment variables in the novnc documentation
 # https://github.com/nicholaswilde/docker-novnc
 env:
-
   REMOTE_HOST: "localhost"
   REMOTE_PORT: "5900"
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
@@ -21,3 +28,5 @@ persistence:
     mountPath: /app
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

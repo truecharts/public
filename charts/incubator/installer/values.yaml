@@ -11,9 +11,20 @@ secret: {}
 # https://github.com/nicholaswilde/docker-installer
 env: {}
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 3000
+
+persistence:
+  varrun:
+    enabled: true

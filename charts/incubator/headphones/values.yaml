@@ -6,7 +6,13 @@ image:
 # See more environment variables in the headphones documentation
 # https://github.com/linuxserver/docker-headphones#parameters
 env: {}
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
@@ -27,3 +33,5 @@ persistence:
     mountPath: /music
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

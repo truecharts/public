@@ -31,3 +31,8 @@ service:
     ports:
       main:
         port: 9090
+securityContext:
+  readOnlyRootFilesystem: false
+persistence:
+  varrun:
+    enabled: true

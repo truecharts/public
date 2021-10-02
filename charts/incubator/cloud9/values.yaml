@@ -11,7 +11,13 @@ secret: {}
 # https://github.com/linuxserver/docker-cloud9#parameters
 env: {}
   # GITURL=https://github.com/linuxserver/docker-cloud9.git #optional
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 service:
   main:
     ports:
@@ -28,3 +34,5 @@ persistence:
     mountPath: /var/run/docker.sock
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

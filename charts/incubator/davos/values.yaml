@@ -6,7 +6,13 @@ image:
 # See more environment variables in the davos documentation
 # https://github.com/linuxserver/docker-davos#parameters
 env: {}
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 service:
   main:
     ports:
@@ -21,3 +27,5 @@ persistence:
     mountPath: /download
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

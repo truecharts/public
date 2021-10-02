@@ -8,7 +8,13 @@ secret: {}
 # See more environment variables in the pixapop documentation
 # https://github.com/linuxserver/docker-pixapop#application-setup
 env: {}
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
@@ -24,3 +30,5 @@ persistence:
     mountPath: /photos
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

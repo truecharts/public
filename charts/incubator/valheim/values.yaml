@@ -29,7 +29,13 @@ env:
   # STEAMCMD_ARGS: validate
   # DNS_1: 8.8.8.8
   # DNS_2: 8.8.4.4
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
 service:

@@ -7,7 +7,13 @@ image:
 # https://github.com/linuxserver/docker-muximux#parameters
 env: {}
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 service:
   main:
     ports:
@@ -17,3 +23,5 @@ persistence:
   config:
     enabled: false
     mountPath: /config
+  varrun:
+    enabled: true

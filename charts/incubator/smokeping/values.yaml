@@ -11,7 +11,13 @@ service:
     ports:
       main:
         port: 80
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 # See more environment variables in the smokeping documentation
 # https://github.com/linuxserver/docker-smokeping#parameters
 env: {}

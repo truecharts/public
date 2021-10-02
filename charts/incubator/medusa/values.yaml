@@ -9,7 +9,13 @@ secret: {}
 # https://github.com/linuxserver/docker-medusa#parameters
 env: {}
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 service:
   main:
     ports:
@@ -29,3 +35,5 @@ persistence:
     mountPath: /tv
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

@@ -10,6 +10,13 @@ secret: {}
 # https://github.com/IrosTheBeggar/mStream/blob/master/docs/docker.md
 env: {}
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
@@ -25,3 +32,5 @@ persistence:
     mountPath: /music
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

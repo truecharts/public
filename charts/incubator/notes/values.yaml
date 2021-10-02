@@ -4,7 +4,13 @@ image:
   tag: "version-ee287b9"
 
 env: {}
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
@@ -17,3 +23,5 @@ persistence:
     mountPath: /data
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

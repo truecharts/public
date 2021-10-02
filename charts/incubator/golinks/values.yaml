@@ -12,7 +12,13 @@ env: {}
   # SUGGEST=https://suggestqueries.google.com/complete/search?client=firefox&q=%s `# optional` \
   # TITLE=Search `# optional` \
   # URL=https://www.google.com/search?q=%s&btnK
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 service:
   main:
     ports:
@@ -29,3 +35,5 @@ persistence:
     mountPath: /data
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

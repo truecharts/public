@@ -9,7 +9,13 @@ secret: {}
 # https://github.com/nicholaswilde/docker-fossil/
 env: {}
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 service:
   main:
     ports:
@@ -21,3 +27,5 @@ persistence:
     mountPath: /app
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true

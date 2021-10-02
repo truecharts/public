@@ -6,9 +6,13 @@ image:
 # See more environment variables in the sickgear documentation
 # https://github.com/linuxserver/docker-sickgear#parameters
 env: {}
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-
-
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 service:
   main:
     ports:
@@ -28,3 +32,5 @@ persistence:
     mountPath: /downloads
     accessMode: ReadWriteOnce
     size: 1Gi
+  varrun:
+    enabled: true
