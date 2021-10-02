@@ -5,6 +5,7 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
   runAsNonRoot: false
 
 podSecurityContext:
