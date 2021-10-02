@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: 1.2.0
+version: 0.0.1
+name: novnc
+description: The open source VNC client
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/novnc"
+icon: "https://github.com/truecharts/apps/raw/main/images/novnc.png"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - novnc
+  - vnc
+  - remote
+  - desktop
+sources:
+  - https://novnc.com/
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

@@ -1,0 +1,27 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/davos
+  pullPolicy: IfNotPresent
+  tag: "2.2.1-ls76"
+
+# See more environment variables in the davos documentation
+# https://github.com/linuxserver/docker-davos#parameters
+env: {}
+
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+persistence:
+  config:
+    enabled: false
+    mountPath: /config
+  download:
+    enabled: false
+    mountPath: /download
+    accessMode: ReadWriteOnce
+    size: 1Gi

@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "ee287b9"
+version: 0.0.1
+name: notes
+description: A self-hosted note taking web app that lets you keep track of your notes and search them in a easy and minimal way.
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/notes"
+icon: ""
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - markdown
+  - notes
+  - app
+  - web
+  - webapp
+sources:
+  - https://github.com/prologic/notes
+  - https://github.com/nicholaswilde/docker-notes
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

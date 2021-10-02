@@ -1,0 +1,27 @@
+
+
+image:
+  repository: ghcr.io/nicholaswilde/novnc
+  pullPolicy: IfNotPresent
+  tag: "version-1.2.0"
+
+# See more environment variables in the novnc documentation
+# https://github.com/nicholaswilde/docker-novnc
+env:
+
+  REMOTE_HOST: "localhost"
+  REMOTE_PORT: "5900"
+
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 6080
+persistence:
+  app:
+    enabled: false
+    mountPath: /app
+    accessMode: ReadWriteOnce
+    size: 1Gi

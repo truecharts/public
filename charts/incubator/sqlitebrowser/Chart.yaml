@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: "3.12.2"
+version: 0.0.1
+name: sqlitebrowser
+description: A high quality, visual, open source tool to create, design, and edit database files compatible with SQLite
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/sqlitebrowser"
+icon: "https://sqlitebrowser.org/images/sqlitebrowser.svg"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - sqlite
+  - browser
+  - sqlitebrowser
+  - database
+sources:
+  - https://github.com/linuxserver/docker-sqlitebrowser
+  - https://sqlitebrowser.org/
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

@@ -1,0 +1,23 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/remmina
+  pullPolicy: IfNotPresent
+  tag: "version-1.2.0-rcgit.29dfsg-1ubuntu1"
+
+secret: {}
+
+# See more environment variables in the remmina documentation
+# https://github.com/linuxserver/docker-remmina#parameters
+env: {}
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+persistence:
+  config:
+    enabled: false
+    mountPath: /config

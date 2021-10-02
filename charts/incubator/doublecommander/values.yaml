@@ -1,0 +1,26 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/doublecommander
+  pullPolicy: IfNotPresent
+  tag: "version-0.8.2-1"
+
+# See more environment variables in the doublecommander documentation
+# https://github.com/linuxserver/docker-doublecommander#parameters
+env: {}
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+persistence:
+  config:
+    enabled: false
+    mountPath: /config
+  data:
+    enabled: false
+    mountPath: /data
+    accessMode: ReadWriteOnce
+    size: 1Gi

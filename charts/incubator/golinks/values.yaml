@@ -1,0 +1,33 @@
+
+
+image:
+  repository: ghcr.io/nicholaswilde/golinks
+  pullPolicy: IfNotPresent
+  tag: "version-154c581"
+
+secret: {}
+
+# See more environment variables in the golinks documentation
+# https://github.com/nicholaswilde/docker-golinks
+env: {}
+
+  # SUGGEST=https://suggestqueries.google.com/complete/search?client=firefox&q=%s `# optional` \
+  # TITLE=Search `# optional` \
+  # URL=https://www.google.com/search?q=%s&btnK
+
+service:
+  main:
+    ports:
+      main:
+        port: 8000
+persistence:
+  app:
+    enabled: false
+    mountPath: /app
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  data:
+    enabled: false
+    mountPath: /data
+    accessMode: ReadWriteOnce
+    size: 1Gi

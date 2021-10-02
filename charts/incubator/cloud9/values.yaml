@@ -1,0 +1,32 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/cloud9
+  pullPolicy: IfNotPresent
+  tag: "version-1.29.2"
+
+secret: {}
+# USERNAME="" #optional
+# PASSWORD="" #optional
+
+# See more environment variables in the cloud9 documentation
+# https://github.com/linuxserver/docker-cloud9#parameters
+env: {}
+  # GITURL=https://github.com/linuxserver/docker-cloud9.git #optional
+
+service:
+  main:
+    ports:
+      main:
+        port: 8000
+persistence:
+  code:
+    enabled: false
+    mountPath: /code
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  sock:
+    enabled: false
+    mountPath: /var/run/docker.sock
+    accessMode: ReadWriteOnce
+    size: 1Gi

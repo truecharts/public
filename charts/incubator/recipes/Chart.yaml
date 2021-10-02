@@ -1,0 +1,22 @@
+apiVersion: v2
+appVersion: 0.16.7
+description: Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.
+name: recipes
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+- recipes
+- cooking
+home: https://github.com/truecharts/apps/tree/master/charts/stable/recipes
+icon: https://raw.githubusercontent.com/vabene1111/recipes/develop/docs/logo_color.svg
+sources:
+- https://github.com/vabene1111/recipes
+- https://hub.docker.com/r/vabene1111/recipes
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13

@@ -1,0 +1,66 @@
+
+
+image:
+  # -- image repository
+  repository: ghcr.io/lloesche/valheim-server
+  # -- image tag
+  tag: latest
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [image docs](https://github.com/lloesche/valheim-server-docker#environment-variables) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # SERVER_NAME: My Server
+  # SERVER_PORT: 2456
+  # WORLD_NAME: Dedicated
+  # SERVER_PASS: secret
+  # SERVER_PUBLIC: 1
+  # UPDATE_INTERVAL: 10800 # every 3 hours
+  # BACKUPS: true
+  # BACKUPS_INTERVAL: 43200 # every 12 hours
+  # BACKUPS_DIRECTORY: /config/backups
+  # BACKUPS_MAX_AGE: 3
+  # BACKUPS_DIRECTORY_PERMISSIONS: 755
+  # BACKUPS_FILE_PERMISSIONS: 644
+  # CONFIG_DIRECTORY_PERMISSIONS: 755
+  # WORLDS_DIRECTORY_PERMISSIONS: 755
+  # WORLDS_FILE_PERMISSIONS: 644
+  # STEAMCMD_ARGS: validate
+  # DNS_1: 8.8.8.8
+  # DNS_2: 8.8.4.4
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    type: LoadBalancer
+    externalTrafficPolicy: Cluster
+    loadBalancerIP:
+    ports:
+      http:
+        enabled: false
+      valheim-1:
+        enabled: true
+        port: 2456
+        protocol: UDP
+        targetPort: 2456
+      valheim-2:
+        enabled: false
+        port: 2457
+        protocol: UDP
+        targetPort: 2457
+      valheim-3:
+        enabled: false
+        port: 2458
+        protocol: UDP
+        targetPort: 2458
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: false
+    mountPath: /config

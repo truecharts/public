@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: "58edc604"
+version: 0.0.1
+name: headphones
+description: An automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent and Blackhole.
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/headphones"
+icon: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/headphones-banner.png"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+sources:
+  - https://github.com/linuxserver/docker-headphones
+  - https://github.com/rembo10/headphones
+keywords:
+  - headphones
+  - music
+  - downloader
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

@@ -1,0 +1,33 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/photoshow
+  pullPolicy: IfNotPresent
+  tag: "version-48aabb98"
+
+# See more environment variables in the photoshow documentation
+# https://github.com/linuxserver/docker-photoshow#parameters
+env: {}
+
+
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+persistence:
+  config:
+    enabled: false
+    mountPath: /config
+  pictures:
+    enabled: false
+    mountPath: /Pictures
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  thumbs:
+    enabled: false
+    mountPath: /Thumbs
+    accessMode: ReadWriteOnce
+    size: 1Gi

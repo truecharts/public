@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: 4.10.0
+version: 0.0.1
+name: cryptpad
+description: A Zero Knowledge realtime collaborative editor.
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/cryptpad"
+icon: "https://github.com/truecharts/apps/raw/main/images/cryptpad.jpg"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - cryptpad
+  - pad
+  - text
+  - editor
+  - collaborate
+sources:
+  - https://cryptpad.fr/
+  - https://hub.docker.com/r/nicholaswilde/cryptpad
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

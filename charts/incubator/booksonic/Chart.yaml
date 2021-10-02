@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: "1.2"
+version: 0.0.1
+name: booksonic
+description: The selfhosted audiobook server
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/booksonic"
+icon: "http://booksonic.org/assets/img/booksonic.png"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - audio
+  - audiobook
+  - server
+  - book
+sources:
+  - http://booksonic.org/
+  - https://hub.docker.com/r/linuxserver/booksonic
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

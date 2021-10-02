@@ -1,0 +1,33 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/medusa
+  pullPolicy: IfNotPresent
+  tag: "version-v0.5.17"
+
+secret: {}
+
+# See more environment variables in the template documentation
+# https://github.com/linuxserver/docker-medusa#parameters
+env: {}
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 8081
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  downloads:
+    enabled: false
+    mountPath: /downloads
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  tv:
+    enabled: false
+    mountPath: /tv
+    accessMode: ReadWriteOnce
+    size: 1Gi

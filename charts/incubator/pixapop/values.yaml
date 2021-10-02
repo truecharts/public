@@ -1,0 +1,28 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/pixapop
+  pullPolicy: IfNotPresent
+  tag: "v1.2-ls15"
+
+secret: {}
+
+# See more environment variables in the pixapop documentation
+# https://github.com/linuxserver/docker-pixapop#application-setup
+env: {}
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+persistence:
+  config:
+    enabled: false
+    mountPath: /config
+  photos:
+    enabled: false
+    mountPath: /photos
+    accessMode: ReadWriteOnce
+    size: 1Gi

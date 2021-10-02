@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "v0.5.17"
+version: 0.0.1
+name: medusa
+description: An automatic Video Library Manager for TV Shows
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/medusa"
+icon: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/medusa-icon.png"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - medusa
+  - video
+  - library
+  - manager
+  - tv
+  - shows
+sources:
+  - https://github.com/linuxserver/docker-medusa
+  - https://pymedusa.com/
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

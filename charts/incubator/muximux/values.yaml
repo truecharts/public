@@ -1,0 +1,21 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/muximux
+  pullPolicy: IfNotPresent
+  tag: "version-057352e8"
+
+# See more environment variables in the muximux documentation
+# https://github.com/linuxserver/docker-muximux#parameters
+env: {}
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+persistence:
+  config:
+    enabled: false
+    mountPath: /config

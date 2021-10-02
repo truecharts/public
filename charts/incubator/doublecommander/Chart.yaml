@@ -1,0 +1,23 @@
+apiVersion: v2
+appVersion: "0.8.2-1"
+version: 0.0.1
+name: doublecommander
+description: A free cross platform open source file manager with two panels side by side.
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/doublecommander"
+icon: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/doublecommander-icon.png"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - doublecommander
+  - file
+  - manager
+sources:
+  - https://github.com/linuxserver/docker-doublecommander
+  - https://doublecmd.sourceforge.io/
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

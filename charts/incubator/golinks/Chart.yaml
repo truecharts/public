@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "154c581"
+version: 0.0.1
+name: golinks
+description: A web app that allows you to create smart bookmarks, commands and aliases by pointing your web browser's default search engine at a running instance.
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/golinks"
+icon: ""
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - search
+  - browser
+  - bookmarks
+  - smart-bookmarks
+  - golinks
+sources:
+  - https://github.com/prologic/golinks
+  - https://github.com/nicholaswilde/docker-golinks
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

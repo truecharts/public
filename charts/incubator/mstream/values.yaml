@@ -1,0 +1,29 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/mstream
+  pullPolicy: IfNotPresent
+  tag: "version-v5.2.5"
+
+secret: {}
+  # PASSWORD: password
+
+# See more environment variables in the template documentation
+# https://github.com/IrosTheBeggar/mStream/blob/master/docs/docker.md
+env: {}
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+persistence:
+  config:
+    enabled: false
+    mountPath: /config
+  music:
+    enabled: false
+    mountPath: /music
+    accessMode: ReadWriteOnce
+    size: 1Gi

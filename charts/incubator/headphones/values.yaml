@@ -1,0 +1,31 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/headphones
+  pullPolicy: IfNotPresent
+  tag: "version-58edc604"
+
+# See more environment variables in the headphones documentation
+# https://github.com/linuxserver/docker-headphones#parameters
+env: {}
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 8181
+persistence:
+  config:
+    enabled: false
+    mountPath: /config
+  downloads:
+    enabled: false
+    mountPath: /downloads
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  music:
+    enabled: false
+    mountPath: /music
+    accessMode: ReadWriteOnce
+    size: 1Gi

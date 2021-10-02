@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: "1.7.18"
+version: 0.0.1
+name: grav
+description: A Fast, Simple, and Flexible, file-based Web-platform.
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/grav"
+icon: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grav-logo.png"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - grav
+  - web
+  - platform
+  - file
+sources:
+  - https://github.com/linuxserver/docker-grav
+  - https://github.com/getgrav/grav/
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

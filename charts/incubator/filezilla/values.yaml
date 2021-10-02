@@ -1,0 +1,22 @@
+
+image:
+  repository: ghcr.io/linuxserver/filezilla
+  pullPolicy: IfNotPresent
+  tag: "version-3.51.0-r1"
+
+# See more environment variables in the filezilla documentation
+# https://github.com/linuxserver/docker-filezilla#parameters
+env: {}
+ ""
+
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+persistence:
+  config:
+    enabled: false
+    mountPath: /config

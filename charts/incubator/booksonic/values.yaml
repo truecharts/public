@@ -1,0 +1,36 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/booksonic
+  pullPolicy: IfNotPresent
+  tag: "version-1.2"
+
+# See more environment variables in the booksonic documentation
+# https://github.com/linuxserver/docker-booksonic#parameters
+env:
+  CONTEXT_PATH: "url-base"
+
+service:
+  main:
+    ports:
+      main:
+        port: 4040
+persistence:
+  config:
+    enabled: false
+    mountPath: /config
+  audiobooks:
+    enabled: false
+    mountPath: /audiobooks
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  podcasts:
+    enabled: false
+    mountPath: /podcasts
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  othermedia:
+    enabled: false
+    mountPath: /othermedia
+    accessMode: ReadWriteOnce
+    size: 1Gi

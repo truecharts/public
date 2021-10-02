@@ -1,0 +1,25 @@
+appVersion: 1.29.2
+apiVersion: v2
+version: 0.0.1
+name: cloud9
+description: A complete web based IDE with terminal access
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/cloud9"
+icon: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cloud9.png"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - cloud9
+  - ide
+  - terminal
+  - web
+sources:
+  - https://aws.amazon.com/cloud9/
+  - https://github.com/c9/core
+  - https://hub.docker.com/r/linuxserver/cloud9
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

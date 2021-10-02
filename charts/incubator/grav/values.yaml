@@ -1,0 +1,21 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/grav
+  pullPolicy: IfNotPresent
+  tag: "version-1.7.18"
+
+# See more environment variables in the grav documentation
+# https://github.com/linuxserver/docker-grav#parameters
+env: {}
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+persistence:
+  config:
+    enabled: false
+    mountPath: /config

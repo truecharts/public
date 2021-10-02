@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: 2.0.23
+version: 0.0.1
+name: gotify
+description: a simple server for sending and receiving messages
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/gotify"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - server
+  - gotify
+  - messages
+icon: https://gotify.net/img/logo.png
+sources:
+  - https://gotify.net/
+  - https://github.com/gotify/server
+  - https://hub.docker.com/r/gotify/server
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

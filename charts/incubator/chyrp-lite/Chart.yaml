@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "v2021.03"
+version: 0.0.1
+name: chyrp-lite
+description: An ultra-lightweight blogging engine, written in PHP.
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/chyrp-lite"
+icon: "https://github.com/truecharts/apps/raw/main/images/chyrp-lite.svg"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.0.13
+keywords:
+  - docker
+  - chyrp
+  - lite
+  - blog
+  - engine
+  - php
+  - twig
+  - html5
+sources:
+  - https://github.com/xenocrat/chyrp-lite
+  - https://github.com/nicholaswilde/docker-chyrp-lite
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

@@ -1,0 +1,23 @@
+
+
+image:
+  repository: ghcr.io/linuxserver/audacity
+  pullPolicy: IfNotPresent
+  tag: "version-3.0.2"
+
+secret: {}
+
+# See more environment variables in the audacity documentation
+# https://github.com/linuxserver/docker-audacity#parameters
+env: {}
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+persistence:
+  config:
+    enabled: false
+    mountPath: /config

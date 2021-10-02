@@ -1,0 +1,23 @@
+
+
+image:
+  repository: ghcr.io/nicholaswilde/wiki
+  pullPolicy: IfNotPresent
+  tag: "version-900b76a"
+
+# See more environment variables in the wiki documentation
+# https://github.com/nicholaswilde/docker-wiki
+env: {}
+
+
+service:
+  main:
+    ports:
+      main:
+        port: 8000
+persistence:
+  data:
+    enabled: false
+    mountPath: /data
+    accessMode: ReadWriteOnce
+    size: 1Gi
