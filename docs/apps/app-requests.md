@@ -180,59 +180,76 @@ _These Apps have specific requirements or need specific customisation and care_
 
 #### [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts)
 
+
+##### TODO: Should be relatively easy to port
+
 - [ ] audacity
-- [ ] babybuddy
 - [ ] beets
 - [ ] blog
-- [ ] boinc-client
+- [ ] booksonic
 - [ ] bookstack
 - [ ] chyrp-lite
-- [ ] clarkson
 - [ ] cloud9
 - [ ] code-server
 - [ ] cryptpad
 - [ ] davos
 - [ ] digikam
-- [ ] diun
 - [ ] doublecommander
-- [ ] etherpad
 - [ ] filezilla
 - [ ] firefox-syncserver
 - [ ] formalms
 - [ ] fossil
-- [ ] friendica
 - [ ] golinks
 - [ ] gotify
 - [ ] grav
 - [ ] headphones
-- [ ] hedgedoc
 - [ ] installer
 - [ ] leantime
-- [ ] mariadb
 - [ ] medusa
 - [ ] mstream
 - [ ] muximux
 - [ ] notes
 - [ ] novnc
-- [ ] odoo
-- [ ] papermerge
 - [ ] photoshow
 - [ ] piwigo
 - [ ] pixapop
 - [ ] podgrab
-- [ ] projectsend
 - [ ] remmina
-- [ ] shiori
 - [ ] shorturl
 - [ ] sickchill
 - [ ] sickgear
 - [ ] smokeping
-- [ ] snipe-it
 - [ ] sqlitebrowser
 - [ ] static
 - [ ] todo
 - [ ] twtxt
 - [ ] wiki
+
+##### TODO: Require custom care to handle their configuration
+
+- [ ] olivetin
+- [ ] writefreely
+
+##### TODO: Requires Postgresql customisation
+
+- [ ] babybuddy
+- [ ] etherpad
+- [ ] odoo
+- [ ] papermerge
+- [ ] shiori
+
+##### TODO: Requires MariaDB to be added first
+
+- [ ] clarkson
+- [ ] friendica
+- [ ] projectsend
+- [ ] snipe-it
+
+##### TODO: Other Complications
+
+- [ ] boinc-client
+- [ ] hedgedoc
+- [ ] mariadb
 
 ### Not Likely to be added
 
@@ -250,8 +267,9 @@ _These Apps have specific requirements or need specific customisation and care_
 
 :x: zalando-postgres-cluster (We need to deploy the actual operator as an app instead)
 
-:x:  Nginx Proxy Manager #1019 (Doesn't fit very well in the kubernetes ecosystem, might cause confusion and or support issues)
+:x: Nginx Proxy Manager #1019 (Doesn't fit very well in the kubernetes ecosystem, might cause confusion and or support issues)
 
+:x: diun ( The general feature is already integrated into SCALE)
 
 ### Completed App Requests
 
