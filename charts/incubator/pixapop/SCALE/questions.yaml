@@ -1,0 +1,696 @@
+# Include{groups}
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: type
+          description: "Please specify type of workload to deploy"
+          label: "(Advanced) Controller Type"
+          schema:
+            type: string
+            default: "deployment"
+            required: true
+            enum:
+              - value: "deployment"
+                description: "Deployment"
+              - value: "statefulset"
+                description: "Statefulset"
+              - value: "daemonset"
+                description: "Daemonset"
+        - variable: replicas
+          description: "Number of desired pod replicas"
+          label: "Desired Replicas"
+          schema:
+            type: int
+            default: 1
+            required: true
+        - variable: strategy
+          description: "Please specify type of workload to deploy"
+          label: "(Advanced) Update Strategy"
+          schema:
+            type: string
+            default: "Recreate"
+            required: true
+            enum:
+              - value: "Recreate"
+                description: "Recreate: Kill existing pods before creating new ones"
+              - value: "RollingUpdate"
+                description: "RollingUpdate: Create new pods and then kill old ones"
+              - value: "OnDelete"
+                description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+        - variable: TZ
+          label: "Timezone"
+          schema:
+            type: string
+            default: "Etc/UTC"
+            $ref:
+              - "definitions/timezone"
+        - variable: UMASK
+          label: "UMASK"
+          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: string
+            default: "002"
+# Include{containerConfig}
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "NodePort"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Port(s) Configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: protocol
+                            label: "Port Type"
+                            schema:
+                              type: string
+                              default: "HTTP"
+                              enum:
+                                - value: HTTP
+                                  description: "HTTP"
+                                - value: "HTTPS"
+                                  description: "HTTPS"
+                                - value: TCP
+                                  description: "TCP"
+                                - value: "UDP"
+                                  description: "UDP"
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 80
+                              editable: false
+                              hidden: true
+                          - variable: port
+                            label: "Container Port"
+                            schema:
+                              type: int
+                              default: 80
+                              editable: true
+                              required: true
+                          - variable: nodePort
+                            label: "Node Port (Optional)"
+                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
+                            schema:
+                              type: int
+                              min: 9000
+                              max: 65535
+                              default: 36135
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+        - variable: dnsPolicy
+          group: "Networking and Services"
+          label: "dnsPolicy"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "ClusterFirst"
+                description: "ClusterFirst"
+              - value: "ClusterFirstWithHostNet"
+                description: "ClusterFirstWithHostNet"
+              - value: "None"
+                description: "None"
+
+        - variable: dnsConfig
+          label: "DNS Configuration"
+          group: "Networking and Services"
+          description: "Specify custom DNS configuration which will be applied to the pod"
+          schema:
+            type: dict
+            attrs:
+              - variable: nameservers
+                label: "Nameservers"
+                schema:
+                  default: []
+                  type: list
+                  items:
+                    - variable: nameserver
+                      label: "Nameserver"
+                      schema:
+                        type: string
+              - variable: options
+                label: "options"
+                schema:
+                  default: []
+                  type: list
+                  items:
+                    - variable: option
+                      label: "Option Entry"
+                      schema:
+                        type: string
+              - variable: searches
+                label: "Searches"
+                schema:
+                  default: []
+                  type: list
+                  items:
+                    - variable: search
+                      label: "Search Entry"
+                      schema:
+                        type: string
+
+# Include{serviceList}
+
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      type: dict
+      attrs:
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: type
+                label: "(Advanced) Type of Storage"
+                description: "Sets the persistence type"
+                schema:
+                  type: string
+                  default: "pvc"
+                  enum:
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "hostPath"
+                      description: "hostPath"
+              - variable: storageClass
+                label: "(Advanced) storageClass"
+                description: " Warning: Anything other than SCALE-ZFS will break rollback!"
+                schema:
+                  show_if: [["type", "=", "pvc"]]
+                  type: string
+                  default: "SCALE-ZFS"
+              - variable: labelsList
+                label: "Labels"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: labelItem
+                      label: "Label"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                          - variable: value
+                            label: "Value"
+                            schema:
+                              type: string
+              - variable: annotationsList
+                label: "Annotations"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: annotationItem
+                      label: "Label"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                          - variable: value
+                            label: "Value"
+                            schema:
+                              type: string
+              - variable: setPermissions
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: boolean
+                  default: true
+              - variable: readOnly
+                label: "readOnly"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: hostPathType
+                label: "hostPath Type"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "DirectoryOrCreate"
+                      description: "DirectoryOrCreate"
+                    - value: "Directory"
+                      description: "Directory"
+                    - value: "FileOrCreate"
+                      description: "FileOrCreate"
+                    - value: "File"
+                      description: "File"
+                    - value: "Socket"
+                      description: "Socket"
+                    - value: "CharDevice"
+                      description: "CharDevice"
+                    - value: "BlockDevice"
+                      description: "BlockDevice"
+              - variable: mountPath
+                label: "mountPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  type: string
+                  default: "/config"
+                  hidden: true
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+              - variable: accessMode
+                label: "Access Mode (Advanced)"
+                description: "Allow or disallow multiple PVC's writhing to the same PV"
+                schema:
+                  show_if: [["type", "=", "pvc"]]
+                  type: string
+                  default: "ReadWriteOnce"
+                  enum:
+                    - value: "ReadWriteOnce"
+                      description: "ReadWriteOnce"
+                    - value: "ReadOnlyMany"
+                      description: "ReadOnlyMany"
+                    - value: "ReadWriteMany"
+                      description: "ReadWriteMany"
+              - variable: size
+                label: "Size quotum of storage"
+                schema:
+                  show_if: [["type", "=", "pvc"]]
+                  type: string
+                  default: "100Gi"
+# Include{persistenceList}
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Ingress"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: hosts
+                      label: "Hosts"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: hostEntry
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: host
+                                  label: "HostName"
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    required: true
+                                - variable: paths
+                                  label: "Paths"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: pathEntry
+                                        label: "Host"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                            - variable: path
+                                              label: "path"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "/"
+                                            - variable: pathType
+                                              label: "pathType"
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "Prefix"
+                    - variable: tls
+                      label: "TLS-Settings"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: tlsEntry
+                            label: "Host"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: hosts
+                                  label: "Certificate Hosts"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: host
+                                        label: "Host"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                - variable: scaleCert
+                                  label: "Select TrueNAS SCALE Certificate"
+                                  schema:
+                                    type: int
+                                    $ref:
+                                      - "definitions/certificate"
+                    - variable: entrypoint
+                      label: "(Advanced) Traefik Entrypoint"
+                      description: "Entrypoint used by Traefik when using Traefik as Ingress Provider"
+                      schema:
+                        type: string
+                        default: "websecure"
+                        required: true
+                    - variable: middlewares
+                      label: "Traefik Middlewares"
+                      description: "Add previously created Traefik Middlewares to this Ingress"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+
+              - variable: expert
+                label: "Show Expert Configuration Options"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: ingressClassName
+                      label: "IngressClass Name"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: labelsList
+                      label: "Labels"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: labelItem
+                            label: "Label"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                    - variable: annotationsList
+                      label: "Annotations"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: annotationItem
+                            label: "Label"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+
+# Include{ingressList}
+
+  - variable: securityContext
+    group: "Security and Permissions"
+    label: "Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: privileged
+          label: "Privileged mode"
+          schema:
+            type: boolean
+            default: false
+        - variable: readOnlyRootFilesystem
+          label: "ReadOnly Root Filesystem"
+          schema:
+            type: boolean
+            default: false
+        - variable: allowPrivilegeEscalation
+          label: "Allow Privilege Escalation"
+          schema:
+            type: boolean
+            default: false
+        - variable: runAsNonRoot
+          label: "runAsNonRoot"
+          schema:
+            type: boolean
+            default: true
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+        - variable: supplementalGroups
+          label: "supplemental Groups"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: supplementalGroupsEntry
+                label: "supplemental Group"
+                schema:
+                  type: int
+        - variable: fsGroupChangePolicy
+          label: "When should we take ownership?"
+          schema:
+            type: string
+            default: "OnRootMismatch"
+            enum:
+              - value: "OnRootMismatch"
+                description: "OnRootMismatch"
+              - value: "Always"
+                description: "Always"
+
+# Include{resources}
+
+  - variable: autoscaling
+    group: "Resources and Devices"
+    label: "(Advanced) Horizontal Pod Autoscaler"
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "enabled"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: target
+                label: "Target"
+                description: "deployment name, defaults to main deployment"
+                schema:
+                  type: string
+                  default: ""
+              - variable: minReplicas
+                label: "Minimum Replicas"
+                schema:
+                  type: int
+                  default: 1
+              - variable: maxReplicas
+                label: "Maximum Replicas"
+                schema:
+                  type: int
+                  default: 5
+              - variable: targetCPUUtilizationPercentage
+                label: "Target CPU Utilization Percentage"
+                schema:
+                  type: int
+                  default: 80
+              - variable: targetMemoryUtilizationPercentage
+                label: "Target Memory Utilization Percentage"
+                schema:
+                  type: int
+                  default: 80
+
+# Include{addons}
