@@ -23,10 +23,10 @@ service:
         port: 80
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config
   photos:
-    enabled: false
+    enabled: true
     mountPath: /photos
     accessMode: ReadWriteOnce
     size: 1Gi

@@ -21,15 +21,15 @@ service:
         port: 8337
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config
   music:
-    enabled: false
+    enabled: true
     mountPath: /music
     accessMode: ReadWriteOnce
     size: 1Gi
   downloads:
-    enabled: false
+    enabled: true
     mountPath: /downloads
     accessMode: ReadWriteOnce
     size: 1Gi

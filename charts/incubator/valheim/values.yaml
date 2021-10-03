@@ -11,6 +11,9 @@ image:
 env:
   # -- Set the container timezone
   TZ: UTC
+  STATUS_HTTP: true
+  STATUS_HTTP_PORT: 9000
+  SUPERVISOR_HTTP: true
   # SERVER_NAME: My Server
   # SERVER_PORT: 2456
   # WORLD_NAME: Dedicated
@@ -29,6 +32,7 @@ env:
   # STEAMCMD_ARGS: validate
   # DNS_1: 8.8.8.8
   # DNS_2: 8.8.4.4
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -36,35 +40,31 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
 service:
   main:
-    type: LoadBalancer
-    externalTrafficPolicy: Cluster
-    loadBalancerIP:
     ports:
       main:
-        enabled: false
+        port: 9000
+  supervisor:
+    ports:
+      supervisor:
+        port: 9001
+
+  valheim:
+    type: LoadBalancer
+    ports:
       valheim-1:
         enabled: true
         port: 2456
         protocol: UDP
         targetPort: 2456
-      valheim-2:
-        enabled: false
-        port: 2457
-        protocol: UDP
-        targetPort: 2457
-      valheim-3:
-        enabled: false
-        port: 2458
-        protocol: UDP
-        targetPort: 2458
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config

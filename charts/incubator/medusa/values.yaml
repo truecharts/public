@@ -26,12 +26,12 @@ persistence:
     enabled: true
     mountPath: /config
   downloads:
-    enabled: false
+    enabled: true
     mountPath: /downloads
     accessMode: ReadWriteOnce
     size: 1Gi
   tv:
-    enabled: false
+    enabled: true
     mountPath: /tv
     accessMode: ReadWriteOnce
     size: 1Gi

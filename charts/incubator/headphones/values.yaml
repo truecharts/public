@@ -21,15 +21,15 @@ service:
         port: 8181
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config
   downloads:
-    enabled: false
+    enabled: true
     mountPath: /downloads
     accessMode: ReadWriteOnce
     size: 1Gi
   music:
-    enabled: false
+    enabled: true
     mountPath: /music
     accessMode: ReadWriteOnce
     size: 1Gi

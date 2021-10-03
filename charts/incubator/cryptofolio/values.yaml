@@ -6,6 +6,16 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+  capabilities:
+    add: []
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 # -- environment variables. See more environment variables in the [cryptofolio documentation](https://cryptofolio.org/docs).
 # @default -- See below
 env:
@@ -22,7 +32,7 @@ service:
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
-persistence: {}
-  # data:
-  #   enabled: false
-  #   mountPath: /data
+persistence:
+  data:
+    enabled: true
+    mountPath: /data

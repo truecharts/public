@@ -28,3 +28,10 @@ service:
     ports:
       main:
         port: 5000
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0

@@ -21,7 +21,7 @@ service:
         port: 80
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config
   varrun:
     enabled: true

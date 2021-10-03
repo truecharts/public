@@ -19,19 +19,15 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 8000
 persistence:
-  app:
-    enabled: false
-    mountPath: /app
-    accessMode: ReadWriteOnce
-    size: 1Gi
   data:
-    enabled: false
+    enabled: true
     mountPath: /data
     accessMode: ReadWriteOnce
     size: 1Gi

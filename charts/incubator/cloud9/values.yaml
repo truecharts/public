@@ -25,12 +25,12 @@ service:
         port: 8000
 persistence:
   code:
-    enabled: false
+    enabled: true
     mountPath: /code
     accessMode: ReadWriteOnce
     size: 1Gi
   sock:
-    enabled: false
+    enabled: true
     mountPath: /var/run/docker.sock
     accessMode: ReadWriteOnce
     size: 1Gi

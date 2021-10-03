@@ -25,10 +25,10 @@ service:
         port: 3000
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config
   music:
-    enabled: false
+    enabled: true
     mountPath: /music
     accessMode: ReadWriteOnce
     size: 1Gi

@@ -20,7 +20,7 @@ service:
         port: 8000
 persistence:
   data:
-    enabled: false
+    enabled: true
     mountPath: /data
     accessMode: ReadWriteOnce
     size: 1Gi

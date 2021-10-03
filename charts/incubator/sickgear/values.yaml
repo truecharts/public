@@ -20,15 +20,15 @@ service:
         port: 8081
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config
   tv:
-    enabled: false
+    enabled: true
     mountPath: /tv
     accessMode: ReadWriteOnce
     size: 1Gi
   downloads:
-    enabled: false
+    enabled: true
     mountPath: /downloads
     accessMode: ReadWriteOnce
     size: 1Gi

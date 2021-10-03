@@ -21,7 +21,7 @@ service:
         port: 3000
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config
   varrun:
     enabled: true

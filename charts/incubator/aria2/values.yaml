@@ -42,10 +42,10 @@ podSecurityContext:
   # @default -- See values.yaml
 persistence:
   data:
-    enabled: false
+    enabled: true
     mountpath: /downloads
   config:
-    enabled: false
+    enabled: true
     mountpath: /config
   varrun:
     enabled: true

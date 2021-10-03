@@ -10,6 +10,12 @@ controller:
   # -- Set the controller upgrade strategy
   strategy: RollingUpdate
 
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+
 # -- Configures app settings. See [image docs](https://github.com/Hypfer/ICantBelieveItsNotValetudo) for more information.
 # @default -- See values.yaml
 config:
@@ -26,3 +32,5 @@ config:
     mapDataTopic: "valetudo/rockrobo/map_data"
     minMillisecondsBetweenMapUpdates: 10000
     publishMapImage: true
+  webserver:
+    enabled: true

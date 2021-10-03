@@ -20,10 +20,10 @@ service:
         port: 8080
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config
   download:
-    enabled: false
+    enabled: true
     mountPath: /download
     accessMode: ReadWriteOnce
     size: 1Gi

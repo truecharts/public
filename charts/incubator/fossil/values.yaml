@@ -22,10 +22,5 @@ service:
       main:
         port: 8080
 persistence:
-  app:
-    enabled: false
-    mountPath: /app
-    accessMode: ReadWriteOnce
-    size: 1Gi
   varrun:
     enabled: true

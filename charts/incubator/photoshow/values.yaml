@@ -20,15 +20,15 @@ service:
         port: 80
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config
   pictures:
-    enabled: false
+    enabled: true
     mountPath: /Pictures
     accessMode: ReadWriteOnce
     size: 1Gi
   thumbs:
-    enabled: false
+    enabled: true
     mountPath: /Thumbs
     accessMode: ReadWriteOnce
     size: 1Gi

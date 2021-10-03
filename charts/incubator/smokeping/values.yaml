@@ -24,10 +24,10 @@ env: {}
 
 persistence:
   config:
-    enabled: false
+    enabled: true
     mountPath: /config
   data:
-    enabled: false
+    enabled: true
     mountPath: /data
     accessMode: ReadWriteOnce
     size: 1Gi

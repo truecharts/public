@@ -9,8 +9,14 @@ image:
 # -- Allows to start web server on ports 80 and 443
 # @default -- See values.yaml
 securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
   capabilities:
-    add: ["CAP_NET_BIND_SERVICE"]
+    add: []
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
@@ -18,26 +24,14 @@ service:
   main:
     ports:
       main:
-        primary: false
         port: 80
-      https:
-        enabled: true
-        primary: true
-        port: 443
-        protocol: HTTPS
-
-
-    # If you use https as the backend, you need to enable tell your ingress
-    # annotations:
-    #  nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    #  ingress.kubernetes.io/protocol: https
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
   music:
-    enabled: false
+    enabled: true
     mountPath: /music
   cache:
-    enabled: false
+    enabled: true
     mountPath: /cache
