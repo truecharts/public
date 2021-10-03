@@ -244,6 +244,11 @@ dnsConfig:
 # [[ref]](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)
 enableServiceLinks: false
 
+# -- Can be used to set securityContext.capabilities outside of the GUI on TrueNAS SCALE
+customCapabilities:
+  drop: []
+  add: []
+
 # -- Configure the Security Context for the Pod
 podSecurityContext:
   runAsUser: 568
@@ -258,6 +263,10 @@ securityContext:
   readOnlyRootFilesystem: true
   allowPrivilegeEscalation: false
   runAsNonRoot: true
+  capabilities:
+    drop: []
+    add: []
+
 
 # -- Configure the lifecycle for the main container
 lifecycle: {}

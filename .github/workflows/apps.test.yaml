@@ -127,7 +127,7 @@ jobs:
         if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' }}
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.19
+          version: v1.22.2+k3s1
 
       ## TODO: Fix common-test
       - name: Run chart-testing (install)
