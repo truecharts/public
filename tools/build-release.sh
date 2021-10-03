@@ -199,11 +199,16 @@ sync_tag() {
     local tag="$(cat ${chart}/values.yaml | grep '^  tag: ' | awk -F" " '{ print $2 }' | head -1)"
     tag="${tag%%@*}"
     tag="${tag:-auto}"
-    tag="${tag#*release-}"
-    tag="${tag#*version-}"
+    tag=$(echo $tag | sed "s/release-//g")
+    tag=$(echo $tag | sed "s/release_//g")
+    tag=$(echo $tag | sed "s/version-//g")
+    tag=$(echo $tag | sed "s/version_//g")
     tag="${tag#*v}"
     tag="${tag%-*}"
     tag="${tag:0:10}"
+    tag="${tag%-}"
+    tag="${tag%_}"
+    tag="${tag%.}"
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
     }
 
