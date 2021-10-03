@@ -63,6 +63,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | controller.rollingUpdate.unavailable | string | `nil` | Set deployment RollingUpdate max unavailable |
 | controller.strategy | string | `nil` | Set the controller upgrade strategy For Deployments, valid values are Recreate (default) and RollingUpdate. For StatefulSets, valid values are OnDelete and RollingUpdate (default). DaemonSets ignore this. |
 | controller.type | string | `"deployment"` | Set the controller type. Valid options are deployment, daemonset or statefulset |
+| customCapabilities | object | `{"add":[],"drop":[]}` | Can be used to set securityContext.capabilities outside of the GUI on TrueNAS SCALE |
 | deviceList | list | [] | Configure persistenceList for the chart here. Used to create an additional GUI element in SCALE for mounting USB devices Additional items can be added by adding a items similar to persistence |
 | dnsConfig | object | `{"nameservers":[],"options":[],"searches":[]}` | Optional DNS settings, configuring the ndots option may resolve nslookup issues on some Kubernetes setups. |
 | dnsPolicy | string | `nil` | Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true. |
@@ -174,7 +175,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | resources | object | `{"limits":{"cpu":"4000m","memory":"8Gi"},"requests":{"cpu":"10m","memory":"50Mi"}}` | Set the resource requests / limits for the main container. |
 | schedulerName | string | `nil` | Allows specifying a custom scheduler name |
 | secret | object | `{}` | Use this to populate a secret with the values you specify. Be aware that these values are not encrypted by default, and could therefore visible to anybody with access to the values.yaml file. |
-| securityContext | object | `{"allowPrivilegeEscalation":false,"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true}` | Configure the Security Context for the main container |
+| securityContext | object | `{"allowPrivilegeEscalation":false,"capabilities":{"add":[],"drop":[]},"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true}` | Configure the Security Context for the main container |
 | service | object | See below | Configure the services for the chart here. Additional services can be added by adding a dictionary key similar to the 'main' service. |
 | service.main.enabled | bool | `true` | Enables or disables the service |
 | service.main.nameOverride | string | `nil` | Override the name suffix that is used for this service |
