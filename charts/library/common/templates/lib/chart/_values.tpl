@@ -226,7 +226,7 @@
   {{- if ( semverCompare "<= 1024" ( toString $values.targetPort ) ) }}
   {{- $privPort = true }}
   {{- end }}
-  {{- else }}
+  {{- else if and ( $values.port ) ( kindIs "int" $values.port )  }}
   {{- if ( semverCompare "<= 1024" ( toString $values.port ) ) }}
   {{- $privPort = true }}
   {{- end }}
