@@ -9,26 +9,26 @@ The backend for TrueNAS SCALE Apps is Kubernetes. Linking apps together in Kuber
 Instead we need to use their internal(!) domain name. Please beware: this name is only available between Apps and can not be reached from the host/node or your own PC.
 
 The format for internal domain name for the main service is explained bellow.
-Please replace `$NAME` with the name you gave your App when installing and `$APPNAME` with the name the app has on the catalog where is needed.
+Please replace `$NAME` with the name you gave your App when installing and `$APP` with the name the app has on the catalog where is needed.
 
 **If your app has the _same_ name as in the catalog, the format is as follows.**
 
-- `$NAME.ix-$APPNAME.svc.cluster.local`
+- `$NAME.ix-$NAME.svc.cluster.local`
 
 **If your app has _different_ name than in the catalog, the format is as follows**
 
-- `$NAME-$APPNAME.ix-$APPNAME.svc.cluster.local`
+- `$NAME-$APP.ix-$NAME.svc.cluster.local`
 
 
 If you need to reach a different service (which is not often the case!), you need a slightly different format, where `$SVCNAME` is the name of the service you want to reach:
 
 **If your app has the _same_ name as in the catalog, the format is as follows.**
 
-- `$NAME-$SVCNAME.ix-$APPNAME.svc.cluster.local`
+- `$NAME-$SVCNAME.ix-$NAME.svc.cluster.local`
 
 **If your app has _different_ name than in the catalog, the format is as follows**
 
-- `$NAME-$APPNAME-$SVCNAME.ix-$APPNAME.svc.cluster.local`
+- `$NAME-$APPNAME-$SVCNAME.ix-$NAME.svc.cluster.local`
 
 ##### Internal Domain Name generator
 
@@ -75,7 +75,7 @@ function submit(event) {
     if (service.value) {
       svcname = svcname + "-" + service.value ;
     }
-    let svcdns = svcname + "." + "ix-" + app.value + ".svc.cluster.local" ;
+    let svcdns = svcname + "." + "ix-" + name.value + ".svc.cluster.local" ;
     alert ("Service DNS Name: " + svcdns);
      console.log(svcdns)
     return false;
