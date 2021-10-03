@@ -239,7 +239,7 @@ create_changelog() {
     if [[ -z "$standalone" ]]; then
         echo "Generating changelogs for: ${chartname}"
         # SCALE "Changelog" containing only last change
-        git-chglog --next-tag ${chartname}-${chartversion} --tag-filter-pattern ${chartname} --path ${chart} -o ${chart}/SCALE/CHANGELOG.md ${chartname}-${chartversion}
+        git-chglog --next-tag ${chartname}-${chartversion} --tag-filter-pattern ${chartname} --path ${chart} -o ${chart}/app-changelog.md ${chartname}-${chartversion}
         # Append SCALE changelog to actual changelog
 
         if [[ -f "${chart}/CHANGELOG.md" ]]; then
@@ -248,7 +248,7 @@ create_changelog() {
            touch ${chart}/CHANGELOG.md
         fi
         sed -i '1d' ${chart}/CHANGELOG.md
-        cat ${chart}/SCALE/CHANGELOG.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
+        cat ${chart}/app-changelog.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
         sed -i '1s/^/# Changelog<br>\n\n/' ${chart}/CHANGELOG.md
     fi
     }
@@ -359,7 +359,7 @@ patch_apps() {
     local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Applying SCALE patches for App: ${chartname}"
     rm -rf ${target}/CHANGELOG.md 2>/dev/null || :
-    mv ${target}/SCALE/CHANGELOG.md ${target}/CHANGELOG.md 2>/dev/null || :
+    mv ${target}/app-changelog.md ${target}/CHANGELOG.md 2>/dev/null || :
     mv ${target}/SCALE/ix_values.yaml ${target}/ 2>/dev/null || :
     mv ${target}/SCALE/questions.yaml ${target}/ 2>/dev/null || :
     cp -rf ${target}/SCALE/templates/* ${target}/templates 2>/dev/null || :
