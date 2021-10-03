@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: version-1.7.18
 
-# See more environment variables in the grav documentation
-# https://github.com/linuxserver/docker-grav#parameters
-env: {}
+env:
+  PUID: 568
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -19,6 +19,7 @@ service:
     ports:
       main:
         port: 80
+
 persistence:
   config:
     enabled: true

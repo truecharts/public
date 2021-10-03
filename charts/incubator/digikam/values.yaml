@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: version-7.3.0
 
-# See more environment variables in the digikam documentation
-# https://github.com/linuxserver/docker-digikam#parameters
-env: {}
+env:
+  PUID: 568
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -19,6 +19,7 @@ service:
     ports:
       main:
         port: 3000
+
 persistence:
   config:
     enabled: true

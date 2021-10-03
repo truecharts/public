@@ -31,6 +31,7 @@ service:
     ports:
       main:
         port: 9090
+
 securityContext:
   readOnlyRootFilesystem: false
 persistence:

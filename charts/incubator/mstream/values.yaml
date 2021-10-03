@@ -6,9 +6,8 @@ image:
 secret: {}
   # PASSWORD: password
 
-# See more environment variables in the template documentation
-# https://github.com/IrosTheBeggar/mStream/blob/master/docs/docker.md
-env: {}
+env:
+  PUID: 568
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -23,6 +22,7 @@ service:
     ports:
       main:
         port: 3000
+
 persistence:
   config:
     enabled: true

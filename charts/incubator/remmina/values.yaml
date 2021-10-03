@@ -5,9 +5,8 @@ image:
 
 secret: {}
 
-# See more environment variables in the remmina documentation
-# https://github.com/linuxserver/docker-remmina#parameters
-env: {}
+env:
+  PUID: 568
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -16,11 +15,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 3000
+
 persistence:
   config:
     enabled: true

@@ -3,9 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: version-ee8a20c
 
-# See more environment variables in the static documentation
-# https://github.com/nicholaswilde/docker-static
-env: {}
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -19,6 +16,7 @@ service:
     ports:
       main:
         port: 8000
+
 persistence:
   data:
     enabled: true

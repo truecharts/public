@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: version-2.7.3-r5
 
+env:
+  PUID: 568
+
 strategy:
   type: Recreate
 
@@ -11,6 +14,7 @@ service:
     ports:
       main:
         port: 80
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -18,9 +22,7 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-# See more environment variables in the smokeping documentation
-# https://github.com/linuxserver/docker-smokeping#parameters
-env: {}
+
 
 persistence:
   config:

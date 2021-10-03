@@ -3,9 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: version-11.5.0
 
-# See more environment variables in the template documentation
-# https://template.org/docs
-env: {}
+env:
+  PUID: 568
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -14,11 +13,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 80
+
 persistence:
   config:
     enabled: true

@@ -3,10 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: version-v0.1.0
 
-# See more environment variables in the shorturl documentation
-# https://github.com/nicholaswilde/docker-shorturl
-env: {}
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -14,11 +10,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 8000
+
 persistence:
   data:
     enabled: true

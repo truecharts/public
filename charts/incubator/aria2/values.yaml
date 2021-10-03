@@ -10,10 +10,9 @@ image:
   # @default -- See below
 env:
   # -- Set the container timezone
-  # TZ: UTC
-  # PUID: 1000
-  # GUID: 1000
-  # UMASK_SET: 022
+  TZ: UTC
+  PUID: 568
+  UMASK_SET: 022
   RPC_SECRET: ChangemeNow  # Or From a secret
   RPC_PORT: 6800
   # LISTEN_PORT: 6888

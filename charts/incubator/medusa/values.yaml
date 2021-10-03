@@ -5,9 +5,8 @@ image:
 
 secret: {}
 
-# See more environment variables in the template documentation
-# https://github.com/linuxserver/docker-medusa#parameters
-env: {}
+env:
+  PUID: 568
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -21,6 +20,7 @@ service:
     ports:
       main:
         port: 8081
+
 persistence:
   config:
     enabled: true

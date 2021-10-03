@@ -5,9 +5,9 @@ image:
 
 secret: {}
 
-# See more environment variables in the pixapop documentation
-# https://github.com/linuxserver/docker-pixapop#application-setup
-env: {}
+env:
+  PUID: 568
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -21,6 +21,7 @@ service:
     ports:
       main:
         port: 80
+
 persistence:
   config:
     enabled: true

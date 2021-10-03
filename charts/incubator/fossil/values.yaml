@@ -5,10 +5,6 @@ image:
 
 secret: {}
 
-# See more environment variables in the fossil documentation
-# https://github.com/nicholaswilde/docker-fossil/
-env: {}
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -16,11 +12,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 8080
+
 persistence:
   varrun:
     enabled: true

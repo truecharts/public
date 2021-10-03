@@ -14,7 +14,6 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/k8s-at-home/apache-musicindex"` | image repository |
 | image.tag | string | `"v1.4.1-2"` | image tag |
-| persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext | object | See values.yaml | Allows to start web server on ports 80 and 443 |

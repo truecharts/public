@@ -3,9 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: version-0.8.2-1
 
-# See more environment variables in the doublecommander documentation
-# https://github.com/linuxserver/docker-doublecommander#parameters
-env: {}
+env:
+  PUID: 568
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -14,11 +13,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 3000
+
 persistence:
   config:
     enabled: true

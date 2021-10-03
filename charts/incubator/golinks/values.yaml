@@ -5,13 +5,11 @@ image:
 
 secret: {}
 
-# See more environment variables in the golinks documentation
-# https://github.com/nicholaswilde/docker-golinks
 env: {}
-
   # SUGGEST=https://suggestqueries.google.com/complete/search?client=firefox&q=%s `# optional` \
   # TITLE=Search `# optional` \
   # URL=https://www.google.com/search?q=%s&btnK
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -25,6 +23,7 @@ service:
     ports:
       main:
         port: 8000
+
 persistence:
   data:
     enabled: true

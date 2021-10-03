@@ -5,6 +5,9 @@ image:
 
 secret: {}
 
+env:
+  PUID: 568
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -12,15 +15,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-# See more environment variables in the audacity documentation
-# https://github.com/linuxserver/docker-audacity#parameters
-env: {}
 
 service:
   main:
     ports:
       main:
         port: 3000
+
 persistence:
   config:
     enabled: true

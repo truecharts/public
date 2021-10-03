@@ -11,8 +11,6 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-  capabilities:
-    add: []
 
 podSecurityContext:
   runAsUser: 0
@@ -25,13 +23,3 @@ service:
     ports:
       main:
         port: 80
-
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
-persistence:
-  music:
-    enabled: true
-    mountPath: /music
-  cache:
-    enabled: true
-    mountPath: /cache

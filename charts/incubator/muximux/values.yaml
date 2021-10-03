@@ -3,9 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: version-057352e8
 
-# See more environment variables in the muximux documentation
-# https://github.com/linuxserver/docker-muximux#parameters
-env: {}
+env:
+  PUID: 568
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -14,11 +13,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 80
+
 persistence:
   config:
     enabled: true

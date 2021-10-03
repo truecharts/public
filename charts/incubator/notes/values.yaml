@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: version-ee287b9
 
-env: {}
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -17,6 +17,7 @@ service:
     ports:
       main:
         port: 8000
+
 persistence:
   data:
     enabled: true

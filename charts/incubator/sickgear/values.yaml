@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: version-release_0.25.4
 
-# See more environment variables in the sickgear documentation
-# https://github.com/linuxserver/docker-sickgear#parameters
-env: {}
+env:
+  PUID: 568
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -13,11 +13,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 8081
+
 persistence:
   config:
     enabled: true

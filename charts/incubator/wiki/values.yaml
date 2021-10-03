@@ -3,9 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: version-900b76a
 
-# See more environment variables in the wiki documentation
-# https://github.com/nicholaswilde/docker-wiki
-env: {}
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -13,11 +11,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 8000
+
 persistence:
   data:
     enabled: true

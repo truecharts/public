@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: version-1.5.0
 
-# See more environment variables in the beets documentation
-# https://github.com/linuxserver/docker-beets#parameters
-env: {}
+env:
+  PUID: 568
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -19,6 +19,7 @@ service:
     ports:
       main:
         port: 8337
+
 persistence:
   config:
     enabled: true

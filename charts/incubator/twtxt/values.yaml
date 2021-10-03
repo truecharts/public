@@ -12,8 +12,7 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-# See more environment variables in the twtxt documentation
-# https://github.com/nicholaswilde/docker-twtxt
+
 env:
   OPEN_PROFILES: "true"
   OPEN_REGISTRATIONS: "true"
@@ -23,6 +22,7 @@ service:
     ports:
       main:
         port: 8000
+
 persistence:
   config:
     enabled: true

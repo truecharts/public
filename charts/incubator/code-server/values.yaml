@@ -7,6 +7,11 @@ secret: {}
 # PASSWORD: password
 # SUDO_PASSWORD: password
 # HASHED_PASSWORD
+
+env:
+  PUID: 568
+  # PROXY_DOMAIN: code-server.my.domain
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -14,16 +19,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-# See more environment variables in the code-server documentation
-# https://github.com/linuxserver/docker-code-server#parameters
-env: {}
-  # PROXY_DOMAIN: code-server.my.domain
 
 service:
   main:
     ports:
       main:
         port: 8443
+
 persistence:
   config:
     enabled: true

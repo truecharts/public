@@ -11,8 +11,11 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env.PUID | int | `568` |  |
 | env.RPC_PORT | int | `6800` |  |
-| env.RPC_SECRET | string | `"ChangemeNow"` | Set the container timezone TZ: UTC PUID: 1000 GUID: 1000 UMASK_SET: 022 |
+| env.RPC_SECRET | string | `"ChangemeNow"` |  |
+| env.TZ | string | `"UTC"` | Set the container timezone |
+| env.UMASK_SET | int | `18` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"p3terx/aria2-pro"` | image repository |
 | image.tag | string | `"latest"` | image tag |

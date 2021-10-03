@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: version-48aabb98
 
-# See more environment variables in the photoshow documentation
-# https://github.com/linuxserver/docker-photoshow#parameters
-env: {}
+env:
+  PUID: 568
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -13,11 +13,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 80
+
 persistence:
   config:
     enabled: true

@@ -7,10 +7,9 @@ secret: {}
 # USERNAME="" #optional
 # PASSWORD="" #optional
 
-# See more environment variables in the cloud9 documentation
-# https://github.com/linuxserver/docker-cloud9#parameters
-env: {}
-  # GITURL=https://github.com/linuxserver/docker-cloud9.git #optional
+env:
+  PUID: 568
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -18,11 +17,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 8000
+
 persistence:
   code:
     enabled: true

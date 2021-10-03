@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: version-3.51.0-r1
 
-# See more environment variables in the filezilla documentation
-# https://github.com/linuxserver/docker-filezilla#parameters
-env: {}
+env:
+  PUID: 568
+
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -13,11 +13,13 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 3000
+
 persistence:
   config:
     enabled: true
