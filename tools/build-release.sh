@@ -131,6 +131,11 @@ include_questions(){
     /# Include{groups}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/groups.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
+    # Replace # Include{fixedEnv} with the standard groups codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{fixedEnv}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/fixedEnv.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
      # Replace # Include{controllerExpert} with the standard controllerExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{controllerExpert}/ { for (i=0;i<n;++i) print a[i]; next }
