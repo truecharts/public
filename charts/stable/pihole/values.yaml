@@ -8,6 +8,7 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
+  allowPrivilegeEscalation: true
 
 podSecurityContext:
   runAsUser: 0
