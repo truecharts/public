@@ -86,12 +86,7 @@ questions:
             type: int
             default: 568
 
-        - variable: UMASK
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "002"
+
 
 # Include{containerConfig}
 

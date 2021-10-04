@@ -65,13 +65,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: TZ
-          label: "Timezone"
-          schema:
-            type: string
-            default: "Etc/UTC"
-            $ref:
-              - "definitions/timezone"
+# Include{fixedEnv}
         - variable: TS3SERVER_LICENSE
           label: "TS3SERVER_LICENSE"
           description: "Accept TS3SERVER LICENSE"

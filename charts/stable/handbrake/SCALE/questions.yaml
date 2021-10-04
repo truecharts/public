@@ -72,13 +72,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: TZ
-          label: "Timezone"
-          schema:
-            type: string
-            default: "Etc/UTC"
-            $ref:
-              - "definitions/timezone"
+# Include{fixedEnv}
         - variable: PUID
           label: "PUID"
           description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
@@ -86,12 +80,7 @@ questions:
             type: int
             default: 568
 
-        - variable: UMASK
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "002"
+
         - variable: gui
           label: "GUI Settings"
           description: "Always read description before changing a value here. Also refer to README"

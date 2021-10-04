@@ -71,19 +71,8 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: TZ
-          label: "Timezone"
-          schema:
-            type: string
-            default: "Etc/UTC"
-            $ref:
-              - "definitions/timezone"
-        - variable: UMASK
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "002"
+# Include{fixedEnv}
+
         - variable: FLOOD_OPTION_RUNDIR
           label: "FLOOD_OPTION_RUNDIR"
           description: "Where to store Flood's runtime files (eg. database)"
