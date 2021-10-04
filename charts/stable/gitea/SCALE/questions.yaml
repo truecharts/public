@@ -728,6 +728,12 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
+                    - variable: enableFixedMiddlewares
+                      description: "These middlewares enforce a number of best practices."
+                      label: "Enable Default Middlewares"
+                      schema:
+                        type: boolean
+                        default: true
                     - variable: ingressClassName
                       label: "IngressClass Name"
                       schema:

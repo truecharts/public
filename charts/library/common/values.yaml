@@ -451,6 +451,9 @@ ingress:
     # -- Override the name suffix that is used for this ingress.
     nameOverride:
 
+    # -- disable to ignore any default middlwares
+    enableFixedMiddlewares: true
+
     # -- List of middlewares in the traefikmiddlewares k8s namespace to add automatically
     # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
     # Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user
