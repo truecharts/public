@@ -79,18 +79,8 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: PGID
-          label: "PGID"
-          description: "Sets the PGID env var for jdownloader2 containers"
-          schema:
-            type: int
-            default: 568
-        - variable: UMASK
-          label: "UMASK"
-          description: "Sets the UMASK env var for jdownloader2 containers"
-          schema:
-            type: string
-            default: "002"
+
+
         - variable: KEEP_APP_RUNNING
           label: "KEEP_APP_RUNNING"
           description: "When set to 1, the application will be automatically restarted if it crashes or if a user quits it."

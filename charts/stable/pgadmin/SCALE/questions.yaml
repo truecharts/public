@@ -79,12 +79,7 @@ questions:
           schema:
             type: int
             default: 5050
-        - variable: PGID
-          label: "PGID"
-          description: "Sets the PGID env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: int
-            default: 5050
+
         - variable: PGADMIN_DEFAULT_EMAIL
           label: "PGADMIN_DEFAULT_EMAIL"
           schema:
