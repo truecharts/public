@@ -3,12 +3,7 @@ This template serves as the blueprint for the mountPermissions job that is run
 before chart installation.
 */}}
 {{- define "common.controller.autopermissions" -}}
-
-{{- $group := 568 -}}
-{{- if .Values.env -}}
-    {{- $group = dig "PGID" $group .Values.env -}}
-{{- end -}}
-{{- $group = dig "fsGroup" $group .Values.podSecurityContext -}}
+{{- $group := .Values.podSecurityContext.fsGroup -}}
 {{- $hostPathMounts := dict -}}
 {{- range $name, $mount := .Values.persistence -}}
   {{- if and $mount.enabled $mount.setPermissions -}}

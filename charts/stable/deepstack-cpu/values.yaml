@@ -23,11 +23,11 @@ podSecurityContext:
 envTpl:
   # Permissions Settings
   USER_ID: "{{ .Values.env.PUID }}"
-  GROUP_ID: "{{ .Values.env.PGID }}"
+
 
 env:
-  PUID: "568"
-  PGID: "568"
+  PUID: 568
+
   # TZ: UTC
   VISION-FACE: "True"
   VISION-DETECTION: "True"

@@ -283,37 +283,6 @@ class Test < ChartTest
         initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
         assert_equal(results[:command], initContainer["command"])
       end
-      it 'outputs PUID AND PGID permissions for multiple volumes when both are set' do
-        results= {
-          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :568 '/configlist'; chmod -R g+w '/configlist';chown -R :568 '/data'; chmod -R g+w '/data';"]
-        }
-        values = {
-          env: {
-            PGID: 666,
-            PUID: 999
-          },
-          persistenceList: [
-          {
-                name: "data",
-                enabled: true,
-                setPermissions: true,
-                mountPath: "/data",
-                hostPath: "/tmp1"
-          },
-          {
-                name: "configlist",
-                enabled: true,
-                setPermissions: true,
-                mountPath: "/configlist",
-                hostPath: "/tmp2"
-          }
-          ]
-        }
-        chart.value values
-        deployment = chart.resources(kind: "Deployment").first
-        initContainer = deployment["spec"]["template"]["spec"]["initContainers"][0]
-        assert_equal(results[:command], initContainer["command"])
-      end
     end
   end
 end
