@@ -104,13 +104,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: TZ
-          label: "Timezone"
-          schema:
-            type: string
-            default: "Etc/UTC"
-            $ref:
-              - "definitions/timezone"
+# Include{fixedEnv}
 # Include{containerConfig}
 
   - variable: service

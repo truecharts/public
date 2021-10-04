@@ -71,13 +71,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: TZ
-          label: "Timezone"
-          schema:
-            type: string
-            default: "Etc/UTC"
-            $ref:
-              - "definitions/timezone"
+# Include{fixedEnv}
         - variable: HOST_WHITELIST_ENTRIES
           label: "HostName Whitelist"
           description: "If you use a reverse proxy, you might need to enter your hostname's here (comma seperated)"
@@ -85,12 +79,7 @@ questions:
             type: string
             default: ""
             required: false
-        - variable: UMASK
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "002"
+
 # Include{containerConfig}
 
   - variable: service

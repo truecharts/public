@@ -72,13 +72,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: TZ
-          label: "Timezone"
-          schema:
-            type: string
-            default: "Etc/UTC"
-            $ref:
-              - "definitions/timezone"
+# Include{fixedEnv}
         - variable: APP_KEY
           label: "App Key"
           description: "Your unique 32 application character key"
@@ -89,12 +83,7 @@ questions:
             max_length: 32
             valid_chars: '[a-zA-Z0-9!@#$%^&*?]{32}'
             required: true
-        - variable: UMASK
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "002"
+
 # Include{containerConfig}
 
   - variable: service

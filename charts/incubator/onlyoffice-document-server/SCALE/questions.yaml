@@ -75,13 +75,7 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: TZ
-          label: "Timezone"
-          schema:
-            type: string
-            default: "Etc/UTC"
-            $ref:
-              - "definitions/timezone"
+# Include{fixedEnv}
         - variable: WOPI_ENABLED
           label: "WOPI_ENABLED"
           description: "Specifies the enabling the wopi handlers."
