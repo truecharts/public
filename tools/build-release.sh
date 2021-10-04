@@ -131,7 +131,7 @@ include_questions(){
     /# Include{groups}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/groups.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
-    # Replace # Include{fixedEnv} with the standard groups codesnippet
+    # Replace # Include{fixedEnv} with the standard fixedEnv codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{fixedEnv}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/fixedEnv.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
@@ -166,12 +166,12 @@ include_questions(){
     /# Include{addons}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/addons.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
-    # Replace # Include{deviceList} with the standard deviceList codesnippet
+    # Replace # Include{advanced} with the standard advanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
-    /# Include{deviceList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/deviceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    /# Include{advanced}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/advanced.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
-    # Replace # Include{resources} with the standard deviceList codesnippet
+    # Replace # Include{resources} with the standard resources codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{resources}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/resources.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
