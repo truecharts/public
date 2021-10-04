@@ -8,7 +8,7 @@ image:
 envTpl:
   # Permissions Settings
   UNIFI_GID: "{{ .Values.env.PUID }}"
-  UNIFI_UID: "{{ .Values.env.PGID }}"
+  UNIFI_UID: "{{ .Values.podSecurityContext.fsGroup }}"
 
 service:
   main:
@@ -65,7 +65,7 @@ podSecurityContext:
 env:
   # TZ:
   PUID: "568"
-  PGID: "568"
+
 
 persistence:
   config:

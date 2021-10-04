@@ -31,12 +31,12 @@ service:
 envTpl:
   # Permissions Settings
   USER_ID: "{{ .Values.env.PUID }}"
-  GROUP_ID: "{{ .Values.env.PGID }}"
+
 
 env:
   # Permissions Settings
   PUID: "568"
-  PGID: "568"
+
   # General Settings
   KEEP_APP_RUNNING: "0"
   CLEAN_TMP_DIR: "1"

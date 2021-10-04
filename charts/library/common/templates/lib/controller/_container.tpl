@@ -35,6 +35,12 @@
   {{- end }}
 
   env:
+    - name: PGID
+      value: {{ .Values.podSecurityContext.fsGroup }}
+    - name: GROUP_ID
+      value: {{ .Values.podSecurityContext.fsGroup }}
+    - name: GID
+      value: {{ .Values.podSecurityContext.fsGroup }}
    {{- if or ( .Values.securityContext.readOnlyRootFilesystem ) ( .Values.securityContext.runAsNonRoot ) }}
     - name: S6_READ_ONLY_ROOT
       value: "1"

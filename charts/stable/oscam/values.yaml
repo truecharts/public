@@ -10,14 +10,11 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 0
-  runAsGroup: 0
+  runAsGroup: 20
 
 env:
   TZ: UTC
   PUID: "568"
-  # currently needed for working with /dev/ttyXYZ devices
-  # see: https://github.com/linuxserver/docker-oscam/issues/21
-  PGID: "20"
 
 service:
   main:
