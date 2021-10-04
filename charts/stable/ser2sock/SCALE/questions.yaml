@@ -621,86 +621,9 @@ questions:
               - value: "Always"
                 description: "Always"
 
-  - variable: deviceList
-    label: "Mount USB devices"
-    group: "Resources and Devices"
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: deviceListEntry
-          label: "Device"
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-              - variable: type
-                label: "(Advanced) Type of Storage"
-                description: "Sets the persistence type"
-                schema:
-                  type: string
-                  default: "hostPath"
-                  hidden: true
-              - variable: readOnly
-                label: "readOnly"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: hostPath
-                label: "Host Device Path"
-                description: "Path to the device on the host system"
-                schema:
-                  type: path
-              - variable: mountPath
-                label: "Container Device Path"
-                description: "Path inside the container the device is mounted"
-                schema:
-                  type: string
-                  default: "/dev/ttyACM0"
+
 # Include{resources}
 
-  - variable: autoscaling
-    group: "Resources and Devices"
-    label: "(Advanced) Horizontal Pod Autoscaler"
-    schema:
-      type: dict
-      attrs:
-        - variable: enabled
-          label: "enabled"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: target
-                label: "Target"
-                description: "deployment name, defaults to main deployment"
-                schema:
-                  type: string
-                  default: ""
-              - variable: minReplicas
-                label: "Minimum Replicas"
-                schema:
-                  type: int
-                  default: 1
-              - variable: maxReplicas
-                label: "Maximum Replicas"
-                schema:
-                  type: int
-                  default: 5
-              - variable: targetCPUUtilizationPercentage
-                label: "Target CPU Utilization Percentage"
-                schema:
-                  type: int
-                  default: 80
-              - variable: targetMemoryUtilizationPercentage
-                label: "Target Memory Utilization Percentage"
-                schema:
-                  type: int
-                  default: 80
+# Include{advanced}
 
 # Include{addons}

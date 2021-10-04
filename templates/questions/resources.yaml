@@ -1,3 +1,14 @@
+
+  # Specify GPU configuration
+  - variable: scaleGPU
+    label: "GPU Configuration"
+    group: "Resources and Devices"
+    schema:
+      type: dict
+      $ref:
+        - "definitions/gpuConfiguration"
+      attrs: []
+
   - variable: resources
     group: "Resources and Devices"
     label: ""
@@ -38,3 +49,44 @@
                   type: string
                   default: "50Mi"
                   valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
+
+  - variable: deviceList
+    label: "Mount USB devices"
+    group: "Resources and Devices"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: deviceListEntry
+          label: "Device"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: type
+                label: "(Advanced) Type of Storage"
+                description: "Sets the persistence type"
+                schema:
+                  type: string
+                  default: "hostPath"
+                  hidden: true
+              - variable: readOnly
+                label: "readOnly"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: hostPath
+                label: "Host Device Path"
+                description: "Path to the device on the host system"
+                schema:
+                  type: path
+              - variable: mountPath
+                label: "Container Device Path"
+                description: "Path inside the container the device is mounted"
+                schema:
+                  type: string
+                  default: "/dev/ttyACM0"
