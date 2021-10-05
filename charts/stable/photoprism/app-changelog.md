@@ -5,4 +5,3 @@
 #### Chore
 
 * update container image docker.io/photoprism/photoprism to v20211002 ([#1100](https://github.com/truecharts/apps/issues/1100))
-

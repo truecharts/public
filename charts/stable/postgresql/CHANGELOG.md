@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="postgresql-3.0.7"></a>
+### [postgresql-3.0.7](https://github.com/truecharts/apps/compare/postgresql-3.0.6...postgresql-3.0.7) (2021-10-05)
+
+
+
 <a name="postgresql-3.0.6"></a>
 ### [postgresql-3.0.6](https://github.com/truecharts/apps/compare/postgresql-3.0.5...postgresql-3.0.6) (2021-09-29)
 
