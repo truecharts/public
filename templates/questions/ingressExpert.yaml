@@ -1,0 +1,56 @@
+              - variable: expert
+                label: "Show Expert Configuration Options"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: enableFixedMiddlewares
+                      description: "These middlewares enforce a number of best practices."
+                      label: "Enable Default Middlewares"
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: ingressClassName
+                      label: "IngressClass Name"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: labelsList
+                      label: "Labels"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: labelItem
+                            label: "Label"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                    - variable: annotationsList
+                      label: "Annotations"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: annotationItem
+                            label: "Label"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
