@@ -371,59 +371,7 @@ questions:
             type: boolean
             default: false
 
-        - variable: dnsPolicy
-          group: "Networking and Services"
-          label: "dnsPolicy"
-          schema:
-            type: string
-            default: ""
-            enum:
-              - value: ""
-                description: "Default"
-              - value: "ClusterFirst"
-                description: "ClusterFirst"
-              - value: "ClusterFirstWithHostNet"
-                description: "ClusterFirstWithHostNet"
-              - value: "None"
-                description: "None"
-
-        - variable: dnsConfig
-          label: "DNS Configuration"
-          group: "Networking and Services"
-          description: "Specify custom DNS configuration which will be applied to the pod"
-          schema:
-            type: dict
-            attrs:
-              - variable: nameservers
-                label: "Nameservers"
-                schema:
-                  default: []
-                  type: list
-                  items:
-                    - variable: nameserver
-                      label: "Nameserver"
-                      schema:
-                        type: string
-              - variable: options
-                label: "options"
-                schema:
-                  default: []
-                  type: list
-                  items:
-                    - variable: option
-                      label: "Option Entry"
-                      schema:
-                        type: string
-              - variable: searches
-                label: "Searches"
-                schema:
-                  default: []
-                  type: list
-                  items:
-                    - variable: search
-                      label: "Search Entry"
-                      schema:
-                        type: string
+# Include{serviceExpert}
 
 # Include{serviceList}
 
