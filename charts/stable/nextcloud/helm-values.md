@@ -31,7 +31,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"docker.io/nextcloud"` |  |
-| image.tag | string | `"22.2.0@sha256:295c5c72307c00fbd41fb446a085c65c5f1b302948f52304481d2ac4255912b9"` |  |
+| image.tag | string | `"22.2.0@sha256:50d4d103bf6a229ec0d589785e057ecdaa8cb718f197056739fa14f483e0071b"` |  |
 | initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
 | initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
 | initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U nextcloud -h ${pghost} ; do sleep 2 ; done"` |  |

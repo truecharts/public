@@ -5,4 +5,3 @@
 #### Chore
 
 * update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))
-
