@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/postgresql"` |  |
-| image.tag | string | `"13.4.0@sha256:33c276dffe6140d32f357753993c4088cf945a2d02d4c20d310f5a5e9d6e4a36"` |  |
+| image.tag | string | `"13.4.0@sha256:e7526fc32deec708740784d907bcea2ef6c78bc5ab5265026eff96e70082a54a"` |  |
 | initContainers.migrate-db.command[0] | string | `"/bin/sh"` |  |
 | initContainers.migrate-db.command[1] | string | `"-cx"` |  |
 | initContainers.migrate-db.command[2] | string | `"echo 'trying to migrate old db to new location...'\nmkdir -p /bitnami/postgresql/data\nmv -f /bitnami/postgresql/old/* /bitnami/postgresql/data/ || true\nchown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/data\nchmod 775 /bitnami/postgresql/data\n"` |  |

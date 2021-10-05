@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/syncthing"` |  |
-| image.tag | string | `"v1.18.2@sha256:780c4924c4739d707295bd74fd21a186a640bd71f15efc2fcbc9fb9b05162a0d"` |  |
+| image.tag | string | `"v1.18.3@sha256:d299f89bf7a3462953ca415c1dcea27ea1cd0eb776011905d6c37aef9a4fbea5"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/syncthing/"` |  |

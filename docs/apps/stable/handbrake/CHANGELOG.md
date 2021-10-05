@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-8.0.4"></a>
+### [handbrake-8.0.4](https://github.com/truecharts/apps/compare/handbrake-8.0.3...handbrake-8.0.4) (2021-10-05)
+
+#### Chore
+
+* update non-major ([#1098](https://github.com/truecharts/apps/issues/1098))
+
+
+
 <a name="handbrake-8.0.3"></a>
 ### [handbrake-8.0.3](https://github.com/truecharts/apps/compare/handbrake-8.0.2...handbrake-8.0.3) (2021-09-29)
 

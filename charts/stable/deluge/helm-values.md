@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/deluge"` |  |
-| image.tag | string | `"version-2.0.3-2201906121747ubuntu18.04.1@sha256:e9c5709346f2746b0b7a893c5c6a31a92617f685d053a0a17246707f80256e3e"` |  |
+| image.tag | string | `"version-2.0.3-2201906121747ubuntu18.04.1@sha256:1d9751eb58fe7d87f5bfb28154b135436a9bad800ccdca86081843437a63f2f9"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |

@@ -42,7 +42,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"firefly"` |  |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
 | postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:33c276dffe6140d32f357753993c4088cf945a2d02d4c20d310f5a5e9d6e4a36"` |  |
+| postgresqlImage.tag | string | `"13.4.0@sha256:e7526fc32deec708740784d907bcea2ef6c78bc5ab5265026eff96e70082a54a"` |  |
 | probes.liveness.path | string | `"/login"` |  |
 | probes.readiness.path | string | `"/login"` |  |
 | probes.startup.path | string | `"/login"` |  |

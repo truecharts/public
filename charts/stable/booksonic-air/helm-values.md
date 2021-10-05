@@ -11,12 +11,11 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGID | string | `"568"` | Specify the group ID the application will run as |
-| env.PUID | string | `"568"` | Specify the user ID the application will run as |
+| env.PUID | int | `568` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/booksonic-air"` | image repository |
-| image.tag | string | `"version-v2009.1.0@sha256:808cffbd67f61e636f61ed9eb03b52f7e3ff0ead77f1be5016f9518c43f15118"` | image tag |
+| image.tag | string | `"version-v2009.1.0@sha256:8af3c63dd755ced05cb7d997703491554096fba0afeae59b828e973a1c651c4b"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

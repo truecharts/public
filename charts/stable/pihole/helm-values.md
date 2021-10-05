@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envFrom[0].configMapRef.name | string | `"pihole-env"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/pihole"` |  |
-| image.tag | string | `"v2021.09@sha256:e043ab188da4c36abb11d70d82bbfb394ef5054abff21dafbaf54bc21861bd1e"` |  |
+| image.tag | string | `"v2021.10@sha256:764fce3e7a7925588be2ee976e7eeae3f09e504520fe1ff1579b666c6eb15226"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/pihole"` |  |
@@ -30,6 +30,7 @@ You will, however, be able to use all values referenced in the common chart here
 | pihole.WEBPASSWORD | string | `"somepassword"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.dns-tcp.enabled | bool | `true` |  |

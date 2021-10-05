@@ -11,12 +11,11 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGID | string | `"1000"` | Specify the group ID the application will run as |
-| env.PUID | string | `"1000"` | Specify the user ID the application will run as |
+| env.PUID | int | `568` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/duplicati"` | image repository |
-| image.tag | string | `"latest@sha256:153b177ece89a870e64aafba2897be258e6b2942289b2d05d33a642bfaeb5e31"` | image tag |
+| image.tag | string | `"latest@sha256:72e2dcb62c3f12b856b8ccbad0206e3ca0220f2afa018886dc8f2e5bf0f1d2ba"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

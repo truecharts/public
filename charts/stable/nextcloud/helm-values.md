@@ -31,7 +31,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"docker.io/nextcloud"` |  |
-| image.tag | string | `"22.1.1@sha256:470fddc9e4b5c09acaced5cac601f75113261c14cc8e62cc3e015b41afe06ff0"` |  |
+| image.tag | string | `"22.2.0@sha256:295c5c72307c00fbd41fb446a085c65c5f1b302948f52304481d2ac4255912b9"` |  |
 | initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
 | initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
 | initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U nextcloud -h ${pghost} ; do sleep 2 ; done"` |  |
@@ -60,7 +60,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"nextcloud"` |  |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
 | postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:33c276dffe6140d32f357753993c4088cf945a2d02d4c20d310f5a5e9d6e4a36"` |  |
+| postgresqlImage.tag | string | `"13.4.0@sha256:e7526fc32deec708740784d907bcea2ef6c78bc5ab5265026eff96e70082a54a"` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
