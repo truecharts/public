@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.UMASK | string | `nil` | Sets UMASK. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"docker.io/photoprism/photoprism"` | image repository |
-| image.tag | string | `"20210925@sha256:238e6955804d82097d08f0e4318835721f46bd844f9065a38aa7d112ab72906e"` | image tag |
+| image.tag | string | `"20211002@sha256:286aa5b95e7ff212f025923c75f8a46f0cc7a4754e7f65185e3116983264f1c2"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
