@@ -1,8 +1,7 @@
 
-<a name="vaultwarden-9.0.10"></a>
-### [vaultwarden-9.0.10](https://github.com/truecharts/apps/compare/vaultwarden-9.0.9...vaultwarden-9.0.10) (2021-10-05)
+<a name="vaultwarden-9.0.11"></a>
+### [vaultwarden-9.0.11](https://github.com/truecharts/apps/compare/vaultwarden-9.0.10...vaultwarden-9.0.11) (2021-10-05)
 
 #### Chore
 
-* update non-major ([#1098](https://github.com/truecharts/apps/issues/1098))
-
+* update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))

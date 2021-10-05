@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGID | string | `"20"` |  |
-| env.PUID | string | `"568"` |  |
+| env.PUID | int | `568` |  |
 | env.TZ | string | `"UTC"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/oscam"` |  |
@@ -23,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
-| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsGroup | int | `20` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.enabled | bool | `true` |  |

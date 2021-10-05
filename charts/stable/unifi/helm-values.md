@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGID | string | `"568"` |  |
-| env.PUID | string | `"568"` |  |
+| env.PUID | int | `568` |  |
 | envTpl.UNIFI_GID | string | `"{{ .Values.env.PUID }}"` |  |
-| envTpl.UNIFI_UID | string | `"{{ .Values.env.PGID }}"` |  |
+| envTpl.UNIFI_UID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/unifi"` |  |
 | image.tag | string | `"v6.4.54@sha256:2504771015b659dac1cf690317193f6e7fb94cf24efd89a3599d99b7bab9705e"` |  |

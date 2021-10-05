@@ -1,8 +1,7 @@
 
-<a name="healthchecks-3.0.4"></a>
-### [healthchecks-3.0.4](https://github.com/truecharts/apps/compare/healthchecks-3.0.3...healthchecks-3.0.4) (2021-10-05)
+<a name="healthchecks-3.0.5"></a>
+### [healthchecks-3.0.5](https://github.com/truecharts/apps/compare/healthchecks-3.0.4...healthchecks-3.0.5) (2021-10-05)
 
 #### Chore
 
-* update non-major ([#1098](https://github.com/truecharts/apps/issues/1098))
-
+* update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))

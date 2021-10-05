@@ -15,8 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.CLI_ARGS | string | `nil` | Optionally pass cli start arguments to calibre. |
 | env.GUAC_PASS | string | `nil` | Password's md5 hash for the calibre gui |
 | env.GUAC_USER | string | `nil` | Username for the calibre gui |
-| env.PGID | string | `"1001"` | Specify the group ID the application will run as |
-| env.PUID | string | `"1001"` | Specify the user ID the application will run as |
+| env.PUID | int | `568` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | env.UMASK_SET | string | `"022"` | for umask setting of Calibre, default if left unset is 022. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |

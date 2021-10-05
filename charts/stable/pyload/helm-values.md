@@ -12,8 +12,7 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://docs.linuxserver.io/images/docker-pyload#environment-variables-e) for more details. |
-| env.PGID | string | `"1001"` | Specify the group ID the application will run as |
-| env.PUID | string | `"1001"` | Specify the user ID the application will run as |
+| env.PUID | int | `568` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/pyload"` | image repository |
