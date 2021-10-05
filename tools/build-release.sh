@@ -146,6 +146,11 @@ include_questions(){
     /# Include{containerConfig}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/containerConfig.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
+    # Replace # Include{serviceExpert} with the standard serviceExpert codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{serviceExpert}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/serviceExpert.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
     # Replace # Include{serviceList} with the standard serviceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceList}/ { for (i=0;i<n;++i) print a[i]; next }
@@ -155,6 +160,26 @@ include_questions(){
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceList}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/persistenceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
+    # Replace # Include{ingressDefault} with the standard ingressDefault codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{ingressDefault}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/ingressDefault.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
+    # Replace # Include{ingressTLS} with the standard ingressTLS codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{ingressTLS}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/ingressTLS.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
+    # Replace # Include{ingressTraefik} with the standard ingressTraefik codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{ingressTraefik}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/ingressTraefik.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
+    # Replace # Include{ingressExpert} with the standard ingressExpert codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{ingressExpert}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/ingressExpert.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
     # Replace # Include{ingressList} with the standard ingressList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
