@@ -1,5 +1,5 @@
 {{ $svc := .Values.service }}
-{{ if ge $svc.nodePort 9000 }}
+{{ if ge ($svc.nodePort | int) 9000 }}
 {{ $ports := list }}
 {{ $ports = mustAppend $ports (dict "name" "chia-network" "port" $svc.nodePort "nodePort" $svc.nodePort "targetPort" 8444) }}
 {{ $params := . }}

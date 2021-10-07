@@ -157,18 +157,18 @@ questions:
                   type: string
 
   - variable: service
-      description: "Networking Configuration"
-      label: "Networking Configuration"
-      group: "Networking"
-      schema:
-        type: dict
-        required: true
-        attrs:
-          - variable: nodePort
-            label: "Node Port to use for Chia"
-            schema:
-              type: int
-              min: 8000
-              max: 65535
-              default: 8444
-              required: true
+    description: "Networking Configuration"
+    label: "Networking Configuration"
+    group: "Networking"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: nodePort
+          label: "Node Port to use for Chia"
+          schema:
+            type: int
+            min: 8000
+            max: 65535
+            default: 8444
+            required: true
