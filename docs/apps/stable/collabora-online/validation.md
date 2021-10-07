@@ -24,8 +24,8 @@ Each FQDN is split into parts
   * Must start with [a-z].
   * Must NOT end with `-`.
 
-Regex used to match those: `^(([a-z\d]{1,63}|[a-z\d](\-?[a-z\d]){1,62})\.)*([a-z\d]{1,63}|[a-z\d](\-?[a-z\d]){1,62})\.([a-z](\-?[a-z\d]){1,62})(\|(([a-z\d]{1,63}|[a-z\d](\-?[a-z\d]){1,62})\.)*([a-z\d]{1,63}|[a-z\d](\-?[a-z\d]){1,62})\.([a-z](\-?[a-z\d]){1,62}))*$`
-You can try live [here](https://regex101.com/r/Gm8lNp/1)
+Regex used to match those: `^(([a-z\d](-?[a-z\d]){0,62})\.)*(([a-z\d](-?[a-z\d]){0,62})\.)([a-z](-?[a-z\d]){1,62})((\|((([a-z\d](-?[a-z\d]){0,62})\.)*(([a-z\d](-?[a-z\d]){0,62})\.)([a-z](-?[a-z\d]){1,62})))*)$`
+You can try live [here](https://regex101.com/r/rIxhye/1)
 
 __`Server Name`__
 Accepted formats are:
@@ -34,8 +34,8 @@ Accepted formats are:
 
 _Same rules apply for FQDN as in the section above_
 
-Regex used to match this: `^(([a-z\d]{1,63}|[a-z\d](\-?[a-z\d]){1,62})\.)*([a-z\d]{1,63}|[a-z\d](\-?[a-z\d]){1,62})\.([a-z](\-?[a-z\d]){1,62})$`
-You can try live [here](https://regex101.com/r/2qGSDa/1)
+Regex used to match this: `^(([a-z\d](-?[a-z\d]){0,62})\.)*(([a-z\d](-?[a-z\d]){0,62})\.)([a-z](-?[a-z\d]){1,62})$`
+You can try live [here](https://regex101.com/r/0HpkSI/1)
 
 __`Password for WebUI`__
 Accepted formats are:
