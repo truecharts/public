@@ -1,0 +1,8 @@
+{{ $svc := .Values.service }}
+{{ if ge $svc.nodePort 9000 }}
+{{ $ports := list }}
+{{ $ports = mustAppend $ports (dict "name" "chia-network" "port" $svc.nodePort "nodePort" $svc.nodePort "targetPort" 8444) }}
+{{ $params := . }}
+{{ $_ := set $params "commonService" (dict "type" "NodePort" "ports" $ports ) }}
+{{ include "common.classes.service" $params }}
+{{ end }}
