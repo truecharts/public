@@ -3,19 +3,55 @@
 __`Domain(s) using collabora`__
 Accepted formats are:
 
-- Single domain (eg. `cloud.mydomain.com`)
-- Multiple domains (eg. `cloud.mydomain.com|nextcloud.mydomain.com`) - Each domain is separated with `|`
+- Single FQDN (eg. `cloud.mydomain.com`)
+- Multiple FQDN (eg. `cloud.mydomain.com|nextcloud.mydomain.com`) - Each FQDN is separated with `|`
 
-Regex used to match those: `^([a-z]{1,}\.[a-z]{1,}\.[a-z]{1,})((\|[a-z]{1,}\.[a-z]{1,}\.[a-z]{1,}))*$`
-You can try live [here](https://regex101.com/r/AQFh2g/1)
+Each FQDN is split into parts
+* Hostname (`cname`.domain.com)
+  * Can have from 1 up to 127 levels deep cnames.
+  * Can contain [0-9], [a-z] and `-`.
+  * Must be at least 1 char and no longer than 63 chars.
+  * Must start with [a-z], [0-9].
+  * Must NOT end with `-`.
+* Domain (cname.`domain`.com)
+  * Can contain [0-9], [a-z] and `-`.
+  * Must be at least 2 chars and no longer than 63 chars.
+  * Must start with [a-z], [0-9].
+  * Must NOT end with `-`.
+* Top-Level-Domains (cname.domain.`com`)
+  * Can contain [0-9], [a-z] and `-`.
+  * Must be at least 2 chars and no longer than 63 chars.
+  * Must start with [a-z].
+  * Must NOT end with `-`.
+
+Regex used to match those: `^(((([a-z0-9]{1,63}|[a-z0-9][a-z\-0-9]{1,61}[a-z0-9])\.){1,127}([a-z0-9][a-z\-0-9]{0,61}[a-z0-9])\.([a-z][a-z\-0-9]{0,61}[a-z0-9]))(\|(([a-z0-9]{1,63}|[a-z0-9][a-z\-0-9]{1,61}[a-z0-9])\.){1,127}([a-z0-9][a-z\-0-9]{0,61}[a-z0-9])\.([a-z][a-z\-0-9]{0,61}[a-z0-9]))*)*$`
+You can try live [here](https://regex101.com/r/Yyt6Ct/1)
 
 __`Server Name`__
 Accepted formats are:
 
-- Single domain (eg. `collabora.mydomain.com`)
+- Single FQDN (eg. `collabora.mydomain.com`)
 
-Regex used to match this: `^([a-z]{1,}\.[a-z]{1,}\.[a-z]{1,})$`
-You can try live [here](https://regex101.com/r/xCjpW7/1)
+The FQDN is split into parts
+* Hostname (`cname`.domain.com)
+  * Can have from 1 up to 127 levels deep cnames.
+  * Can contain [0-9], [a-z] and `-`.
+  * Must be at least 1 char and no longer than 63 chars.
+  * Must start with [a-z], [0-9].
+  * Must NOT end with `-`.
+* Domain (cname.`domain`.com)
+  * Can contain [0-9], [a-z] and `-`.
+  * Must be at least 2 chars and no longer than 63 chars.
+  * Must start with [a-z], [0-9].
+  * Must NOT end with `-`.
+* Top-Level-Domains (cname.domain.`com`)
+  * Can contain [0-9], [a-z] and `-`.
+  * Must be at least 2 chars and no longer than 63 chars.
+  * Must start with [a-z].
+  * Must NOT end with `-`.
+
+Regex used to match this: `^((([a-z0-9]{1,63}|[a-z0-9][a-z\-0-9]{1,61}[a-z0-9])\.){1,127}([a-z0-9][a-z\-0-9]{0,61}[a-z0-9])\.([a-z][a-z\-0-9]{0,61}[a-z0-9]))*$`
+You can try live [here](https://regex101.com/r/5m8oXl/1)
 
 __`Password for WebUI`__
 Accepted formats are:
