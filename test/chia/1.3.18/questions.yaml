@@ -172,3 +172,11 @@ questions:
             max: 65535
             default: 8444
             required: true
+        - variable: farmerPort
+          label: "Farmer Port to use for Chia"
+          schema:
+            type: int
+            min: 8000
+            max: 65535
+            default: 8447
+            required: true

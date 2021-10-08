@@ -16,7 +16,7 @@ spec:
       labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
     spec:
       # FIXME: Let's please remove hostnetwork when upstream hostport issue is sorted out with kube-router
-      {{ if lt (.Values.service.nodePort | int) 9000 }}
+      {{ if eq (include "hostNetworkingEnabled" .) "true" }}
       hostNetwork: true
       {{ end }}
       containers:
@@ -31,9 +31,9 @@ spec:
             - name: chia-network
               protocol: TCP
               containerPort: 8444
-              {{ if lt (.Values.service.nodePort | int) 9000 }}
-              hostPort: {{ .Values.service.nodePort }}
-              {{ end }}
+            - name: chia-farmer
+              protocol: TCP
+              containerPort: 8447
           {{ $envList := (default list .Values.environmentVariables) }}
           {{ $envList = mustAppend $envList (dict "name" "keys" "value" "/plots/keyfile") }}
           {{ $envList = mustAppend $envList (dict "name" "farmr" "value" $.Values.farmr_env) }}
