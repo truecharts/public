@@ -79,7 +79,7 @@ questions:
           schema:
             type: string
             default: 'nextcloud.domain.tld|othernextcloud.domain.tld'
-            valid_chars: '^([a-z]{1,}\.[a-z]{1,}\.[a-z]{1,})((\|[a-z]{1,}\.[a-z]{1,}\.[a-z]{1,}))*$'
+            valid_chars: '^(([a-z\d](-?[a-z\d]){0,62})\.)*(([a-z\d](-?[a-z\d]){0,62})\.)([a-z](-?[a-z\d]){1,62})((\|((([a-z\d](-?[a-z\d]){0,62})\.)*(([a-z\d](-?[a-z\d]){0,62})\.)([a-z](-?[a-z\d]){1,62})))*)$'
             required: true
         - variable: username
           label: "Username for WebUI"
@@ -118,7 +118,8 @@ questions:
           schema:
             type: string
             default: 'collabora.domain.tld'
-            valid_chars: '^([a-z]{1,}\.[a-z]{1,}\.[a-z]{1,})$'
+            valid_chars: '^(([a-z\d](-?[a-z\d]){0,62})\.)*(([a-z\d](-?[a-z\d]){0,62})\.)([a-z](-?[a-z\d]){1,62})$'
+
 # Include{containerConfig}
 
   - variable: service
