@@ -73,6 +73,12 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: int
+            default: 568
 
 # Include{containerConfig}
 
@@ -405,6 +411,18 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "100Gi"
+        - variable: varrun
+          label: "varrun override for S6 Readonly Root"
+          schema:
+            type: dict
+            hidden: true
+            attrs:
+              - variable: enabled
+                label: ""
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
 # Include{persistenceList}
 
   - variable: ingress
@@ -593,7 +611,7 @@ questions:
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: true
+            default: false
 
   - variable: podSecurityContext
     group: "Security and Permissions"
@@ -606,13 +624,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
