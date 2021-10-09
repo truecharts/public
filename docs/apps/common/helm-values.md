@@ -149,6 +149,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | podLabelsList | list | `[]` | Set additional labels on the pod |
 | podSecurityContext | object | `{"fsGroup":568,"fsGroupChangePolicy":"OnRootMismatch","runAsGroup":568,"runAsUser":568,"supplementalGroups":[]}` | Configure the Security Context for the Pod |
 | postgresql.enabled | bool | `false` |  |
+| postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
