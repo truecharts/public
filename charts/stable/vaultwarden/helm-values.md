@@ -35,14 +35,6 @@ You will, however, be able to use all values referenced in the common chart here
 | ingress.main.nameOverride | string | `nil` | Override the name suffix that is used for this ingress. |
 | ingress.main.primary | bool | `true` | Make this the primary ingress (used in probes, notes, etc...). If there is more than 1 ingress, make sure that only 1 ingress is marked as primary. |
 | ingress.main.tls | list | `[]` | Configure TLS for the ingress. Both secretName and hosts can process a Helm template. |
-| initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
-| initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
-| initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
-| initContainers.init-postgresdb.env[0].name | string | `"pghost"` |  |
-| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
-| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| initContainers.init-postgresdb.image | string | `"{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"` |  |
-| initContainers.init-postgresdb.imagePullPolicy | string | `"IfNotPresent"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
@@ -52,9 +44,6 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"vaultwarden"` |  |
 | postgresql.postgresqlUsername | string | `"vaultwarden"` |  |
-| postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
-| postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:e7526fc32deec708740784d907bcea2ef6c78bc5ab5265026eff96e70082a54a"` |  |
 | service.main.ports.main.port | int | `8080` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.port | int | `3012` |  |

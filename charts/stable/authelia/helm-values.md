@@ -64,14 +64,6 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/authelia/authelia"` |  |
 | image.tag | string | `"4.31.0@sha256:6036f2b1fa3214fdcf189a8f28f40a856372413984b08f15ba4fb5891d77bc0a"` |  |
-| initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
-| initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
-| initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
-| initContainers.init-postgresdb.env[0].name | string | `"pghost"` |  |
-| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
-| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| initContainers.init-postgresdb.image | string | `"{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"` |  |
-| initContainers.init-postgresdb.imagePullPolicy | string | `"IfNotPresent"` |  |
 | log.format | string | `"text"` |  |
 | log.level | string | `"trace"` |  |
 | notifier.disable_startup_check | bool | `false` |  |
@@ -108,9 +100,6 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"authelia"` |  |
 | postgresql.postgresqlUsername | string | `"authelia"` |  |
-| postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
-| postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:e7526fc32deec708740784d907bcea2ef6c78bc5ab5265026eff96e70082a54a"` |  |
 | probes.liveness.path | string | `"/api/health\""` |  |
 | probes.liveness.type | string | `"HTTP"` |  |
 | probes.readiness.path | string | `"/api/health"` |  |

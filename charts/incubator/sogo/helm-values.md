@@ -14,16 +14,11 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/sogo"` |  |
 | image.tag | string | `"v5.2.0@sha256:8fc7bb87b77d76d929bcd36403d4f27878fa3e99f5448fb05ed64829078665a4"` |  |
-| initContainers | object | `{"init-postgresdb":{"command":["sh","-c","until pg_isready -U sogo -h ${pghost} ; do sleep 2 ; done"],"env":[{"name":"pghost","valueFrom":{"secretKeyRef":{"key":"plainhost","name":"dbcreds"}}}],"image":"{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}","imagePullPolicy":"IfNotPresent"}}` | initcontainers |
-| initContainers.init-postgresdb | object | `{"command":["sh","-c","until pg_isready -U sogo -h ${pghost} ; do sleep 2 ; done"],"env":[{"name":"pghost","valueFrom":{"secretKeyRef":{"key":"plainhost","name":"dbcreds"}}}],"image":"{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}","imagePullPolicy":"IfNotPresent"}` | wait for database before starting sogo |
 | memcached | object | `{"enabled":true}` | memcached dependency settings |
 | persistence | object | `{"data":{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/data/conf/sogo/","size":"100Gi","type":"pvc"},"drafts":{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/var/spool/sogo","size":"100Gi","type":"pvc"},"mimetmp":{"enabled":true,"mountPath":"/mimetmp","type":"emptyDir"}}` | persistence settings |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql | object | `{"enabled":true,"existingSecret":"dbcreds","postgresqlDatabase":"sogo","postgresqlUsername":"sogo"}` | postgres dependency settings |
-| postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
-| postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:e7526fc32deec708740784d907bcea2ef6c78bc5ab5265026eff96e70082a54a"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | `{"main":{"ports":{"main":{"port":80}}}}` | services |

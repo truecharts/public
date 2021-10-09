@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="authelia-4.0.13"></a>
+### [authelia-4.0.13](https://github.com/truecharts/apps/compare/authelia-4.0.12...authelia-4.0.13) (2021-10-09)
+
+
+
 <a name="authelia-4.0.12"></a>
 ### [authelia-4.0.12](https://github.com/truecharts/apps/compare/authelia-4.0.11...authelia-4.0.12) (2021-10-05)
 
