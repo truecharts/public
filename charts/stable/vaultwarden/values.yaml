@@ -5,11 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.22.2@sha256:8693c057298731f507128a395395172d60093be9b299f6bf9e5c35512a74d457
 
-postgresqlImage:
-  repository: bitnami/postgresql
-  pullPolicy: IfNotPresent
-  tag: 13.4.0@sha256:e7526fc32deec708740784d907bcea2ef6c78bc5ab5265026eff96e70082a54a
-
 service:
   main:
     ports:
@@ -90,21 +85,6 @@ ingress:
     #    scaleCert: true
     #    hosts:
     #      - chart-example.local
-
-initContainers:
-  init-postgresdb:
-    image: "{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"
-    command:
-      - "sh"
-      - "-c"
-      - "until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"
-    imagePullPolicy: IfNotPresent
-    env:
-      - name: pghost
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
 
 envTpl:
   DOMAIN: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
@@ -243,4 +223,3 @@ postgresql:
   enabled: true
   postgresqlUsername: vaultwarden
   postgresqlDatabase: vaultwarden
-  existingSecret: dbcreds

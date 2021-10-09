@@ -7,31 +7,6 @@ kind: Secret
 metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
-  name: dbcreds
-{{- $dbprevious := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
-{{- $dbPass := "" }}
-data:
-{{- if $dbprevious }}
-  {{- $dbPass = ( index $dbprevious.data "postgresql-password" ) | b64dec  }}
-  postgresql-password: {{ ( index $dbprevious.data "postgresql-password" ) }}
-  postgresql-postgres-password: {{ ( index $dbprevious.data "postgresql-postgres-password" ) }}
-{{- else }}
-  {{- $dbPass = randAlphaNum 50 }}
-  postgresql-password: {{ $dbPass | b64enc | quote }}
-  postgresql-postgres-password: {{ randAlphaNum 50 | b64enc | quote }}
-{{- end }}
-  url: {{ ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
-  plainhost: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
-type: Opaque
-
-
----
-
-apiVersion: v1
-kind: Secret
-metadata:
-  labels:
-    {{- include "common.labels" . | nindent 4 }}
   name: rediscreds
 {{- $redisprevious := lookup "v1" "Secret" .Release.Namespace "rediscreds" }}
 {{- $redisPass := "" }}
@@ -88,11 +63,7 @@ data:
   DUO_API_KEY: {{ .Values.duo_api.plain_api_key | b64enc }}
   {{- end }}
 
-  {{- if $dbprevious }}
-  STORAGE_PASSWORD: {{ ( index $dbprevious.data "postgresql-password" ) }}
-  {{- else }}
-  STORAGE_PASSWORD: {{ $dbPass | b64enc | quote }}
-  {{- end }}
+  STORAGE_PASSWORD: {{ .Values.postgresql.postgresqlPassword }}
 
   {{- if $redisprevious }}
   REDIS_PASSWORD: {{ ( index $redisprevious.data "redis-password" ) }}
