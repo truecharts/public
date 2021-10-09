@@ -24,19 +24,6 @@ envFrom:
       name: gitea-env
 
 initContainers:
-  0-init-postgresdb:
-    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
-    command:
-      - "sh"
-      - "-c"
-      - "until pg_isready -U gitea -h ${pghost} ; do sleep 2 ; done"
-    imagePullPolicy: IfNotPresent
-    env:
-      - name: pghost
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
   1-init-directories:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     command: ["/usr/sbin/init_directory_structure.sh"]
@@ -145,7 +132,6 @@ postgresql:
   enabled: true
   postgresqlUsername: gitea
   postgresqlDatabase: gitea
-  existingSecret: dbcreds
 
 # --  memcached dependency settings
 memcached:
