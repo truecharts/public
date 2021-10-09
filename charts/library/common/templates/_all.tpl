@@ -2,8 +2,8 @@
 Main entrypoint for the common library chart. It will render all underlying templates based on the provided values.
 */}}
 {{- define "common.all" -}}
-  {{- /* Merge the local chart values and the common chart defaults */ -}}
-  {{- include "common.values.setup" . }}
+  {{- /* Generate chart and dependency values */ -}}
+  {{- include "common.setup" . }}
 
   {{- /* Enable code-server add-on if required */ -}}
   {{- if .Values.addons.codeserver.enabled }}
@@ -27,9 +27,6 @@ Main entrypoint for the common library chart. It will render all underlying temp
 
   {{- /* Build the templates */ -}}
   {{- include "common.pvc" . }}
-
-  {{- /* Autogenerate postgresql passwords if needed */ -}}
-  {{- include "common.dependencies.postgresql.injector" . }}
 
   {{- if .Values.serviceAccount.create -}}
     {{- include "common.serviceAccount" . }}
