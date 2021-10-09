@@ -42,11 +42,13 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | addons.vpn.securityContext | object | See values.yaml | Set the VPN container specific securityContext |
 | addons.vpn.type | string | `"disabled"` | Specify the VPN type. Valid options are disabled, openvpn or wireguard |
 | affinity | object | `{}` | Defines affinity constraint rules. [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) |
-| alpineImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
-| alpineImage.repository | string | `"ghcr.io/truecharts/alpine"` | Specify the code-server image |
-| alpineImage.tag | string | `"v3.14.2@sha256:cfc1d8be3d2d397ec18af71caab3e96581fc4d43417400ef744d87201642ddad"` | Specify the code-server image tag |
+| alpineImage | object | See below | alpine specific configuration |
+| alpineImage.pullPolicy | string | `"IfNotPresent"` | Specify the Alpine image pull policy |
+| alpineImage.repository | string | `"ghcr.io/truecharts/alpine"` | Specify the Alpine image |
+| alpineImage.tag | string | `"v3.14.2@sha256:cfc1d8be3d2d397ec18af71caab3e96581fc4d43417400ef744d87201642ddad"` | Specify the Alpine image tag |
 | args | list | `[]` | Override the args for the default container |
 | autoscaling | object | <disabled> | Add a Horizontal Pod Autoscaler |
+| codeserverImage | object | See below | codeserver specific configuration |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
 | codeserverImage.tag | string | `"v3.11.1@sha256:b23b9ba33c9c648c27427b4243585c1a3c6cc4d5408ab3b3e18bdc97302c4862"` | Specify the code-server image tag |
@@ -97,6 +99,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | ingressList | list | [] | Configure ingressList for the chart here. Additional items can be added by adding a items similar to ingress |
 | initContainers | object | `{}` | Specify any initContainers here as dictionary items. Each initContainer should have its own key. The dictionary item key will determine the order. Helm templates can be used. |
 | lifecycle | object | `{}` | Configure the lifecycle for the main container |
+| netshootImage | object | See below | netshoot specific configuration |
 | netshootImage.pullPolicy | string | `"Always"` | Specify the netshoot image pull policy |
 | netshootImage.repository | string | `"nicolaka/netshoot"` | Specify the netshoot image |
 | netshootImage.tag | string | `"latest@sha256:ebc03105d7b4341723052b06d18b58698a0b7f88afc7b6fffd8a188fb729b85e"` | Specify the netshoot image tag |
@@ -145,6 +148,12 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | podLabels | object | `{}` | Set labels on the pod |
 | podLabelsList | list | `[]` | Set additional labels on the pod |
 | podSecurityContext | object | `{"fsGroup":568,"fsGroupChangePolicy":"OnRootMismatch","runAsGroup":568,"runAsUser":568,"supplementalGroups":[]}` | Configure the Security Context for the Pod |
+| postgresql.enabled | bool | `false` |  |
+| postgresql.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
+| postgresqlImage | object | See below | postgresql specific configuration |
+| postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
+| postgresqlImage.repository | string | `"bitnami/postgresql"` | Specify the postgresql image |
+| postgresqlImage.tag | string | `"13.4.0@sha256:e7526fc32deec708740784d907bcea2ef6c78bc5ab5265026eff96e70082a54a"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
@@ -165,6 +174,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | probes.startup.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.startup.spec | object | See below | The spec field contains the values for the default startupProbe. If you selected `custom: true`, this field holds the definition of the startupProbe. |
 | probes.startup.type | string | "TCP" | sets the probe type when not using a custom probe |
+| promtailImage | object | See below | promtail specific configuration |
 | promtailImage.pullPolicy | string | `"IfNotPresent"` | Specify the promtail image pull policy |
 | promtailImage.repository | string | `"ghcr.io/truecharts/promtail"` | Specify the promtail image |
 | promtailImage.tag | string | `"v2.3.0@sha256:90019c5e4198d3253126fcc0c90db11b961ddf0a3c2906766f4611770beabdf2"` | Specify the promtail image tag |
