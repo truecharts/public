@@ -77,21 +77,6 @@ persistence:
     accessMode: ReadWriteOnce
     size: "100Gi"
 
-initContainers:
-  init-postgresdb:
-    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
-    command:
-      - "sh"
-      - "-c"
-      - "until pg_isready -U nextcloud -h ${pghost} ; do sleep 2 ; done"
-    imagePullPolicy: IfNotPresent
-    env:
-      - name: pghost
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
-
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
 # @default -- See below
@@ -167,7 +152,6 @@ postgresql:
   enabled: true
   postgresqlUsername: nextcloud
   postgresqlDatabase: nextcloud
-  existingSecret: dbcreds
 
 # Enabled redis
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
