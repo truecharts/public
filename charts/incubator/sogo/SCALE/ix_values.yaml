@@ -36,6 +36,7 @@ initContainers:
 # Enabled postgres
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: sogo
   postgresqlDatabase: sogo
 

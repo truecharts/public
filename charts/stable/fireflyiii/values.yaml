@@ -52,5 +52,6 @@ persistence:
 # Enabled postgres
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: firefly
   postgresqlDatabase: firefly

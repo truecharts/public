@@ -42,6 +42,7 @@ persistence:
 # -- postgres dependency settings
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: sogo
   postgresqlDatabase: sogo
 
