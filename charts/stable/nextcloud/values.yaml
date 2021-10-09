@@ -150,6 +150,7 @@ cronjob:
 # Enabled postgres
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: nextcloud
   postgresqlDatabase: nextcloud
 

@@ -38,6 +38,7 @@ envValueFrom:
 # Enabled postgres
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: fireflyiii
   postgresqlDatabase: fireflyiii
   persistence:

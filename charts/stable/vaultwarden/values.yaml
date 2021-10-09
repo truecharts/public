@@ -221,5 +221,6 @@ persistence:
 # Enabled postgres
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: vaultwarden
   postgresqlDatabase: vaultwarden

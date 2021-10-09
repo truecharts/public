@@ -34,6 +34,7 @@ persistence:
 # Enabled postgres
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: authelia
   postgresqlDatabase: authelia
 

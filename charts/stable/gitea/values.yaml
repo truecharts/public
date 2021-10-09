@@ -130,6 +130,7 @@ customConfig: []
 # Enabled postgres
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: gitea
   postgresqlDatabase: gitea
 
