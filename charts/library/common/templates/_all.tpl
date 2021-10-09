@@ -28,6 +28,9 @@ Main entrypoint for the common library chart. It will render all underlying temp
   {{- /* Build the templates */ -}}
   {{- include "common.pvc" . }}
 
+  {{- /* Autogenerate postgresql passwords if needed */ -}}
+  {{- include "common.dependencies.postgresql.injector" . }}
+
   {{- if .Values.serviceAccount.create -}}
     {{- include "common.serviceAccount" . }}
   {{- end -}}
