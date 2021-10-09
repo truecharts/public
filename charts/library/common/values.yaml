@@ -18,6 +18,8 @@ wireguardImage:
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
+# -- promtail specific configuration
+# @default -- See below
 promtailImage:
   # -- Specify the promtail image
   repository: ghcr.io/truecharts/promtail
@@ -26,6 +28,8 @@ promtailImage:
   # -- Specify the promtail image pull policy
   pullPolicy: IfNotPresent
 
+# -- netshoot specific configuration
+# @default -- See below
 netshootImage:
   # -- Specify the netshoot image
   repository: nicolaka/netshoot
@@ -34,6 +38,8 @@ netshootImage:
   # -- Specify the netshoot image pull policy
   pullPolicy: Always
 
+# -- codeserver specific configuration
+# @default -- See below
 codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
@@ -42,13 +48,26 @@ codeserverImage:
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
+# -- alpine specific configuration
+# @default -- See below
 alpineImage:
-  # -- Specify the code-server image
+  # -- Specify the Alpine image
   repository: ghcr.io/truecharts/alpine
-  # -- Specify the code-server image tag
+  # -- Specify the Alpine image tag
   tag: v3.14.2@sha256:cfc1d8be3d2d397ec18af71caab3e96581fc4d43417400ef744d87201642ddad
-  # -- Specify the code-server image pull policy
+  # -- Specify the Alpine image pull policy
   pullPolicy: IfNotPresent
+
+# -- postgresql specific configuration
+# @default -- See below
+postgresqlImage:
+  # -- Specify the postgresql image
+  repository: bitnami/postgresql
+  # -- Specify the postgresql image tag
+  tag: 13.4.0@sha256:e7526fc32deec708740784d907bcea2ef6c78bc5ab5265026eff96e70082a54a
+  # -- Specify the postgresql image pull policy
+  pullPolicy: IfNotPresent
+
 
 global:
   # -- Set an override for the prefix of the fullname
@@ -874,3 +893,12 @@ addons:
     envList: []
       #- name: someenv
       #  value: somevalue
+
+##
+# This section contains some-preconfig for frequently used dependencies
+##
+
+# -- Postgresql dependency configuration
+# @default -- See below
+postgresql:
+  enabled: false
