@@ -36,7 +36,6 @@ type: Opaque
 metadata:
   name: authelia-secrets
 {{- $autheliaprevious := lookup "v1" "Secret" .Release.Namespace "authelia-secrets" }}
-{{- $dbcreds := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
 {{- $oidckey := "" }}
 {{- $oidcsecret := "" }}
 {{- $jwtsecret := "" }}
@@ -64,11 +63,7 @@ data:
   DUO_API_KEY: {{ .Values.duo_api.plain_api_key | b64enc }}
   {{- end }}
 
-  {{- if $dbcreds }}
-  STORAGE_PASSWORD: {{ ( index $dbcreds.data "postgresql-password" ) | b64enc | quote }}
-  {{- else }}
-  STORAGE_PASSWORD: {{ ( .Values.postgresql.postgresqlPassword ) | b64enc | quote }}
-  {{- end }}
+  STORAGE_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
 
   {{- if $redisprevious }}
   REDIS_PASSWORD: {{ ( index $redisprevious.data "redis-password" ) }}
