@@ -65,9 +65,9 @@ data:
   {{- end }}
 
   {{- if $dbcreds }}
-  STORAGE_PASSWORD: {{ index $dbcreds.data "postgresql-password" }}
+  STORAGE_PASSWORD: {{ ( index $dbcreds.data "postgresql-password" ) | b64enc | quote }}
   {{- else }}
-  STORAGE_PASSWORD: {{ .Values.postgresql.postgresqlPassword }}
+  STORAGE_PASSWORD: {{ ( .Values.postgresql.postgresqlPassword ) | b64enc | quote }}
   {{- end }}
 
   {{- if $redisprevious }}
