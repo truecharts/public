@@ -27,6 +27,8 @@ data:
   plainhost: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
 type: Opaque
 {{- $_ := set .Values.postgresql "postgresqlPassword" ( $dbPass | quote ) }}
+{{- $_ := set .Values.postgresql.url "plain" ( ( printf "%v-%v" .Release.Name "postgresql" ) | quote ) }}
+{{- $_ := set .Values.postgresql.url "complete" ( ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | quote ) }}
 
 {{- end }}
 {{- end -}}

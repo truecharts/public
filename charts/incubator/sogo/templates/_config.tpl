@@ -27,9 +27,9 @@ data:
        * **************************************************************************/
 
       /* Database configuration (mysql:// or postgresql://) */
-      SOGoProfileURL = "{{ $url }}/sogo_user_profile";
-      OCSFolderInfoURL = "{{ $url }}/sogo_folder_info";
-      OCSSessionsFolderURL = "{{ $url }}/sogo_sessions_folder";
+      SOGoProfileURL = "{{ .Values.postgresql.url.complete }}/sogo_user_profile";
+      OCSFolderInfoURL = "{{ .Values.postgresql.url.complete }}/sogo_folder_info";
+      OCSSessionsFolderURL = "{{ .Values.postgresql.url.complete }}/sogo_sessions_folder";
 
       /* Mail */
       SOGoDraftsFolderName = {{ .Values.sogo.mail.SOGoDraftsFolderName | default "Drafts" }};
