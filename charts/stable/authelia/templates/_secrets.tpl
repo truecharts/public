@@ -63,7 +63,7 @@ data:
   DUO_API_KEY: {{ .Values.duo_api.plain_api_key | b64enc }}
   {{- end }}
 
-  STORAGE_PASSWORD: {{ .Values.postgresql.postgresqlPassword }}
+  STORAGE_PASSWORD: {{ .Values.postgresql.postgresqlPassword | b64enc }}
 
   {{- if $redisprevious }}
   REDIS_PASSWORD: {{ ( index $redisprevious.data "redis-password" ) }}
