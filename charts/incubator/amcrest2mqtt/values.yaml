@@ -24,21 +24,21 @@ env:
   # -- Set the container timezone
   TZ: UTC
   # -- Host name used to connect to the Amcrest device
-  AMCREST_HOST:
+  AMCREST_HOST: ""
   # -- Port used to connect to the Amcrest device
   AMCREST_PORT: 80
   # -- User name used to connect to the Amcrest device
-  AMCREST_USERNAME:
+  AMCREST_USERNAME: "admin"
   # -- Password used to connect to the Amcrest device
   AMCREST_PASSWORD:
   # -- Host name used to connect to the MQTT broker
-  MQTT_HOST: 1883
+  MQTT_HOST: "localhost"
   # -- Port used to connect to the MQTT broker
-  MQTT_PORT:
+  MQTT_PORT: 1883
   # -- User name used to connect to the MQTT broker
-  MQTT_USERNAME:
+  MQTT_USERNAME: ""
   # -- Password used to connect to the MQTT broker
-  MQTT_PASSWORD:
+  MQTT_PASSWORD: ""
   # -- Enable Home Assistant autodiscovery
   HOME_ASSISTANT: "false"
   # -- Home Assistant autodiscovery prefix

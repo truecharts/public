@@ -9,6 +9,18 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.1@sha256:42
 
+service:
+  main:
+    enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 ##
 # Most other defaults are set in questions.yaml
 # For other options please refer to the wiki, default_values.yaml or the common library chart
