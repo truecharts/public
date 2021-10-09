@@ -14,4 +14,4 @@ volumeSpec:
 {{- $_ := set .Values.persistence "mosquitto-config" (include "mosquitto.configVolume" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "common.all" . }}
+{{ include "common.postSetup" . }}

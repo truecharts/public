@@ -21,4 +21,4 @@ volumeSpec:
 
 {{- $_ := set .Values.persistence "config-volume" (include "k8s-gateway.configvolume" . | fromYaml) -}}
 {{/* Render the templates */}}
-{{ include "common.all" . }}
+{{ include "common.postSetup" . }}

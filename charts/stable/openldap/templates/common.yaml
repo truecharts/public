@@ -2,7 +2,7 @@
 {{- include "common.setup" . }}
 
 {{/* Render the templates */}}
-{{ include "common.all" . }}
+{{ include "common.postSetup" . }}
 
 {{/* Render configmap for openldap */}}
 {{- include "openldap.configmap" . }}
