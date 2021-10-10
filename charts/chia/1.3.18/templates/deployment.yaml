@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: {{ template "common.names.fullname" . }}
   labels: {{ include "common.labels" . | nindent 4 }}
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
 spec:
   strategy:
     type: {{ .Values.updateStrategy }}
@@ -14,7 +16,9 @@ spec:
       labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
     spec:
       # FIXME: Let's please remove hostnetwork when upstream hostport issue is sorted out with kube-router
+      {{ if eq (include "hostNetworkingEnabled" .) "true" }}
       hostNetwork: true
+      {{ end }}
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
@@ -27,7 +31,9 @@ spec:
             - name: chia-network
               protocol: TCP
               containerPort: 8444
-              hostPort: 8444
+            - name: chia-farmer
+              protocol: TCP
+              containerPort: 8447
           {{ $envList := (default list .Values.environmentVariables) }}
           {{ $envList = mustAppend $envList (dict "name" "keys" "value" "/plots/keyfile") }}
           {{ $envList = mustAppend $envList (dict "name" "farmr" "value" $.Values.farmr_env) }}
