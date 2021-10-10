@@ -85,12 +85,12 @@ jobs:
               train="incubator"
             fi
             echo ::set-output name=train::${train}
-            if test -d "./charts/${train}/${{ matrix.app }}/tests/"; then
-                unittests='true'
-            echo "::set-output name=unittests::true"
+            if test -f "./charts/${train}/${{ matrix.app }}/SKIPINSTALL"; then
+                install='false'
+            echo "::set-output name=install::false"
             else
-              unittests="false"
-            echo "::set-output name=unittests::false"
+              install="true"
+            echo "::set-output name=install::true"
             fi
 
       - name: Install Helm
@@ -124,14 +124,14 @@ jobs:
         run: ct lint --config .github/ct-lint.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
 
       - name: Create k3d cluster
-        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' }}
+        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' && steps.prep-lint.outputs.install != 'false' }}
         uses: nolar/setup-k3d-k3s@v1
         with:
           version: v1.22.2+k3s1
 
       ## TODO: Fix common-test
       - name: Run chart-testing (install)
-        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' }}
+        if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' && steps.prep-lint.outputs.install != 'false' }}
         run: ct install --config .github/ct-install.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
 
   app-tests-complete:
