@@ -61,6 +61,16 @@ _This list is to track `App Requests` from one place._
 - [ ] Quassel IRC #1070
 - [ ] KodBox #1079
 - [ ] oauth2-proxy
+- [ ] DokuWiki #1115
+- [ ] Storj Node #1086
+- [ ] Uptime Kuma #1097
+- [ ] PiGallery2 #1116
+
+##### TODO: Requires Postgresql customisation
+- [ ] Keycloack #1106
+
+##### TODO: Requires MariaDB to be added first
+- [ ] FreePBX #1111
 
 ### Apps that not have a specific candidate yet.
 
