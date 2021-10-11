@@ -18,11 +18,11 @@ service:
   main:
     ports:
       main:
-        port: 9000
-        nodePort: 9000 #Should be 9000 as the players expect to be able to contact the server on that port.
+        port: 9000        
+        nodePort: 9000     # Should be 9000 as the players expect to be able to contact the server on that port.
       cli:
-        port: 9090
-        nodePort: 9090 #Should be 9090 as remote control apps expect to be able to connect to the server on that port using telnet to send cli commands.
+        port: 9090        
+        nodePort: 9090     # Should be 9090 as remote control apps expect to be able to connect to the server on that port using telnet to send cli commands.
   commtcp:
     ports:
       playertcp:
@@ -48,4 +48,3 @@ persistence:
     enabled: true
     mountPath: "/playlists"
     type: "hostPath"
-    
