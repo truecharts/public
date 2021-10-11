@@ -1,0 +1,47 @@
+# Default values for Logitech Media Server.
+
+image:
+  repository: doliana/logitech-media-server
+  pullPolicy: IfNotPresent
+  tag: latest-8.2.0
+
+strategy:
+  type: Recreate
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+
+service:
+  main:
+    ports:
+      main:
+        port: 9000
+        nodePort: 9000 #Should be 9000 as the players expect to be able to contact the server on that port.
+      cli:
+        port: 9090
+        nodePort: 9090 #Should be 9090 as remote control apps expect to be able to connect to the server on that port using telnet to send cli commands.
+  comm:
+    ports:
+      playerTcp:
+        port: 3483
+      playerUdp:
+        port: 3483
+
+persistence:
+  config:
+    enabled: true
+    mounthPath: "/srv/squeezebox"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+  music:
+    enabled: true
+    mountPath: "/music"
+    type: "hostPath"
+  playlists:
+    enabled: true
+    mountPath: "/playlists"
+    type: "hostPath"
