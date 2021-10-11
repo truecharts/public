@@ -74,6 +74,88 @@ questions:
       attrs:
 # Include{fixedEnv}
 
+  - variable: config
+    group: "Container Configuration"
+    lable: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+        - variable: mapsettings
+          label: "Map Settings"
+          schema:
+            type: dict
+            attrs:
+              - variable: drawPath
+                label: "drawPath"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: drawCharger
+                label: "drawCharger"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: drawRobot
+                label: "drawRobot"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: scale
+                label: "scale"
+                schema:
+                  type: int
+                  default: 2
+        - variable: mqtt
+          label: "MQTT Settings"
+          schema:
+            type: dict
+            attrs:
+              - variable: identifier
+                label: "identifier"
+                schema:
+                  type: string
+                  default: "rockrobo"
+              - variable: topicPrefix
+                label: "topicPrefix"
+                schema:
+                  type: string
+                  default: "valetudo"
+              - variable: autoconfPrefix
+                label: "autoconfPrefix"
+                schema:
+                  type: string
+                  default: "homeassistant"
+              - variable: broker_url
+                label: "broker_url"
+                schema:
+                  type: string
+                  default: "mqtt://user:pass@example.com:port"
+              - variable: mapDataTopic
+                label: "mapDataTopic"
+                schema:
+                  type: string
+                  default: "valetudo/rockrobo/map_data"
+              - variable: minMillisecondsBetweenMapUpdates
+                label: "minMillisecondsBetweenMapUpdates"
+                schema:
+                  type: int
+                  default: 10000
+              - variable: publishMapImage
+                label: "publishMapImage"
+                schema:
+                  type: boolean
+                  default: true
+        - variable: webserver
+          label: "Webserver Settings"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: true
+
 # Include{containerConfig}
 
   - variable: service

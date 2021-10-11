@@ -66,6 +66,22 @@ questions:
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: CONSOLE_PBKDF_PASSPHRASE
+          label: "CONSOLE_PBKDF_PASSPHRASE"
+          schema:
+            type: string
+            default: "changeme"
+        - variable: CONSOLE_PBKDF_SALT
+          label: "CONSOLE_PBKDF_SALT"
+          schema:
+            type: string
+            default: "changeme"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -73,6 +89,11 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
+        - variable: CONSOLE_MINIO_SERVER
+          label: "CONSOLE_MINIO_SERVER"
+          schema:
+            type: string
+            default: ""
 
 # Include{containerConfig}
 

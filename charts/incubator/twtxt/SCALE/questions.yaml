@@ -66,6 +66,18 @@ questions:
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: COOKIE_SECRET
+          label: "COOKIE_SECRET"
+          description: "Sets the COOKIE_SECRET env var"
+          schema:
+            type: string
+            default: "supersecretchangeme"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

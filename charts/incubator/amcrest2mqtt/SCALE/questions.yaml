@@ -66,6 +66,35 @@ questions:
                 description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: AMCREST_USERNAME
+          label: "AMCREST_USERNAME"
+          schema:
+            type: string
+            default: "admin"
+        - variable: AMCREST_PASSWORD
+          label: "AMCREST_PASSWORD"
+          schema:
+            type: string
+            default: "changeme"
+            required: true
+        - variable: MQTT_USERNAME
+          label: "MQTT_USERNAME"
+          schema:
+            type: string
+            default: "mqttuser"
+            required: true
+        - variable: MQTT_PASSWORD
+          label: "MQTT_PASSWORD"
+          schema:
+            type: string
+            default: "changeme"
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -87,17 +116,6 @@ questions:
             type: int
             default: 80
             required: true
-        - variable: AMCREST_USERNAME
-          label: "AMCREST_USERNAME"
-          schema:
-            type: string
-            default: "admin"
-        - variable: AMCREST_PASSWORD
-          label: "AMCREST_PASSWORD"
-          schema:
-            type: string
-            default: ""
-            required: true
         - variable: MQTT_HOST
           label: "MQTT_HOST"
           schema:
@@ -110,17 +128,6 @@ questions:
             type: int
             default: 1883
             required: true
-        - variable: MQTT_USERNAME
-          label: "MQTT_USERNAME"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: MQTT_PASSWORD
-          label: "MQTT_PASSWORD"
-          schema:
-            type: string
-            default: ""
         - variable: HOME_ASSISTANT
           label: "HOME_ASSISTANT"
           schema:

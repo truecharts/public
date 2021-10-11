@@ -9,8 +9,6 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-  capabilities:
-    add: []
 
 podSecurityContext:
   runAsUser: 0

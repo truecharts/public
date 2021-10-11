@@ -73,6 +73,22 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
+        - variable: STATUS_HTTP
+          label: "STATUS_HTTP"
+          schema:
+            type: boolean
+            default: true
+        - variable: STATUS_HTTP_PORT
+          label: "STATUS_HTTP_PORT"
+          schema:
+            type: int
+            default: 9000
+        - variable: SUPERVISOR_HTTP
+          label: "SUPERVISOR_HTTP"
+          schema:
+            type: boolean
+            default: true
+
 
 # Include{containerConfig}
 

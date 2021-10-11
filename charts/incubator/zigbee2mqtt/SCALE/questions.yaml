@@ -72,6 +72,11 @@ questions:
     schema:
       type: dict
       attrs:
+        - variable: ZIGBEE2MQTT_DATA
+          label: "ZIGBEE2MQTT_DATA"
+          schema:
+            type: string
+            default: "/data"
 # Include{fixedEnv}
 
 # Include{containerConfig}

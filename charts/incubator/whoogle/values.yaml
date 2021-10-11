@@ -11,15 +11,15 @@ image:
 env:
   # -- Set the container timezone
   TZ: UTC
-  # WHOOGLE_CONFIG_COUNTRY:
-  # WHOOGLE_CONFIG_DARK: 1
-  # WHOOGLE_CONFIG_SAFE:
-  # WHOOGLE_CONFIG_ALTS:
-  # WHOOGLE_CONFIG_TOR:
-  # WHOOGLE_CONFIG_NEW_TAB:
-  # WHOOGLE_CONFIG_GET_ONLY:
-  # WHOOGLE_CONFIG_URL: https://<your url>/
-  # WHOOGLE_CONFIG_STYLE:
+  WHOOGLE_CONFIG_COUNTRY: ""
+  WHOOGLE_CONFIG_THEME: "dark"
+  WHOOGLE_CONFIG_SAFE: true
+  WHOOGLE_CONFIG_ALTS: false
+  WHOOGLE_CONFIG_TOR: false
+  WHOOGLE_CONFIG_NEW_TAB: false
+  WHOOGLE_CONFIG_GET_ONLY: false
+  WHOOGLE_CONFIG_URL: https://<your url>/
+  WHOOGLE_CONFIG_STYLE: ""
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
