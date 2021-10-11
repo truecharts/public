@@ -8,10 +8,15 @@ image:
 strategy:
   type: Recreate
 
+env:
+  # Permissions Settings
+  SQUEEZE_UID: 568
+  SQUEEZE_GID: 568
+
 podSecurityContext:
-  runAsNonRoot: true
-  runAsUser: 568
-  runAsGroup: 568
+  runAsNonRoot: false
+  runAsUser: 0
+  runAsGroup: 0
   fsGroup: 568
 
 service:
