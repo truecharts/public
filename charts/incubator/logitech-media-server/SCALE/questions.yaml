@@ -72,9 +72,15 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+        - variable: SQUEEZE_UID
+          label: "SQUEEZE_UID"
+          description: "Sets the User ID the Logitech Server Application should use."
+          schema:
+            type: int
+            default: 568
+        - variable: SQUEEZE_GID
+          label: "SQUEEZE_GID"
+          description: "Sets the Group ID the Logitech Server Application should use."
           schema:
             type: int
             default: 568
@@ -233,7 +239,7 @@ questions:
                               min: 9000
                               max: 65535
                               default: 9090
-        - variable: comm
+        - variable: commtcp
           label: "Logitech Media Server Player Service"
           description: "Logitech Media Server Player Communcation"
           schema:
@@ -282,7 +288,7 @@ questions:
                 schema:
                   type: dict
                   attrs:
-                    - variable: playerTcp
+                    - variable: playertcp
                       label: "Player TCP Service Port Configuration"
                       schema:
                         type: dict
@@ -328,8 +334,57 @@ questions:
                             schema:
                               type: int
                               min: 9000
-                              max: 65535
-                    - variable: playerUdp
+                              max: 65535                   
+        - variable: commudp
+          label: "Logitech Media Server Player Service"
+          description: "Logitech Media Server Player Communcation"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "LoadBalancer"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Port(s) Configuration"
+                schema:
+                  type: dict
+                  attrs:                    
+                    - variable: playerudp
                       label: "Player UDP Service Port Configuration"
                       schema:
                         type: dict
@@ -793,13 +848,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."

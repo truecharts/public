@@ -23,12 +23,15 @@ service:
       cli:
         port: 9090
         nodePort: 9090 #Should be 9090 as remote control apps expect to be able to connect to the server on that port using telnet to send cli commands.
-  comm:
+  commtcp:
     ports:
-      playerTcp:
+      playertcp:
         port: 3483
-      playerUdp:
+  commudp:
+    ports:
+      playerudp:
         port: 3483
+
 
 persistence:
   config:
