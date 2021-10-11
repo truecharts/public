@@ -83,13 +83,13 @@ questions:
           description: "Photoprism originals path"
           schema:
             type: string
-            default: "/user/originals"
+            default: "/photoprism/originals"
         - variable: PHOTOPRISM_IMPORT_PATH
           label: "PHOTOPRISM_IMPORT_PATH"
           description: "Photoprism import path"
           schema:
             type: string
-            default: "/user/import"
+            default: "/photoprism/import"
         - variable: PHOTOPRISM_TEMP_PATH
           label: "PHOTOPRISM_TEMP_PATH"
           description: "Photoprism temp path"
