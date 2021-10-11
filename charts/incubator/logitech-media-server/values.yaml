@@ -43,8 +43,10 @@ persistence:
   music:
     enabled: true
     mountPath: "/music"
+    hostPath: "/media/music"
     type: "hostPath"
   playlists:
     enabled: true
     mountPath: "/playlists"
+    hostPath: "/media/playlists"
     type: "hostPath"
