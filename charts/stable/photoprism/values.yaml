@@ -13,6 +13,9 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 # -- environment variables. See [image docs](https://docs.photoprism.org/getting-started/config-options/) for more details.
 # @default -- See below
 env:
