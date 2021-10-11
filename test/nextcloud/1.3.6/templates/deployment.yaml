@@ -10,6 +10,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           command: ['sh', '-c', "until pg_isready -h {{ template "common.names.fullname" $postgres_values }}; do echo waiting for postgres; sleep 2; done"]
           imagePullPolicy: {{ .Values.image.pullPolicy }}
       containers:
+      {{ if eq (include "nginx.certAvailable" .) "true" }}
       - name: nginx
         {{ include "common.containers.imageConfig" .Values.nginx.image | nindent 8 }}
         volumeMounts:
@@ -24,6 +25,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           - name: nginx-https
             containerPort: 8443
             protocol: TCP
+      {{ end }}
       - name: {{ .Chart.Name }}
         {{ include "common.containers.imageConfig" .Values.image | nindent 8 }}
         env: {{ include "postgres.envVariableConfiguration" $postgres_values | nindent 10 }}

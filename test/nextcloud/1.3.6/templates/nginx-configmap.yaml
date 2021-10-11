@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: "nginx-configuration"
 data:
+  protocol: {{ include "nginx.scheme" . }}
   config: |-
     http {
       # redirects all http requests to https requests
