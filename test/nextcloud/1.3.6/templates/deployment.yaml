@@ -10,6 +10,20 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           command: ['sh', '-c', "until pg_isready -h {{ template "common.names.fullname" $postgres_values }}; do echo waiting for postgres; sleep 2; done"]
           imagePullPolicy: {{ .Values.image.pullPolicy }}
       containers:
+      - name: nginx
+        {{ include "common.containers.imageConfig" .Values.nginx.image | nindent 8 }}
+        volumeMounts:
+          - name: nginx-configuration
+            mountPath: /etc/nginx/nginx.conf
+            subPath: config
+          {{ include "nginx.tlsKeysVolumeMount" . | nindent 10 }}
+        ports:
+          - name: nginx-http
+            containerPort: 8000
+            protocol: TCP
+          - name: nginx-https
+            containerPort: 8443
+            protocol: TCP
       - name: {{ .Chart.Name }}
         {{ include "common.containers.imageConfig" .Values.image | nindent 8 }}
         env: {{ include "postgres.envVariableConfiguration" $postgres_values | nindent 10 }}
@@ -53,7 +67,14 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           mountPath: {{ $hostPathConfiguration.mountPath }}
         {{ end }}
 {{ include "common.networking.dnsConfiguration" .Values | nindent 6 }}
-{{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
+      volumes:
+        - name: nginx-configuration
+          configMap:
+            defaultMode: 0700
+            name: "nginx-configuration"
+{{ if .Values.appVolumeMounts }}
+{{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
+{{ end }}
       {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
         - name: extrappvolume-{{ $index }}
           hostPath:
