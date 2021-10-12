@@ -22,8 +22,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env.UMASK | string | `nil` | Sets UMASK. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"docker.io/photoprism/photoprism"` | image repository |
-| image.tag | string | `"20211002@sha256:286aa5b95e7ff212f025923c75f8a46f0cc7a4754e7f65185e3116983264f1c2"` | image tag |
+| image.tag | string | `"20211010@sha256:f4687352985a7859fdec43851ffbe559a09c50eea1660f320d7e59a1968269a7"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

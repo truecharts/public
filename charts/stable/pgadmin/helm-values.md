@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PGADMIN_DEFAULT_PASSWORD | string | `"changeme"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"docker.io/dpage/pgadmin4"` |  |
-| image.tag | string | `"5.7@sha256:64475197fc11cb8169de7e59cd4ea15872b3edafe22f87ea7bc23ba7f00bbe96"` |  |
+| image.tag | string | `"6.0@sha256:e8d18f941264a82c6fbe81ce60503f2b00823a36e571cd383ca1f462b578f691"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/lib/pgadmin"` |  |
