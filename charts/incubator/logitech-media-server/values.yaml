@@ -11,6 +11,7 @@ env:
   SQUEEZE_GID: 568
 
 securityContext:
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
