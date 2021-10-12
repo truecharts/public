@@ -78,20 +78,66 @@ questions:
           schema:
             type: string
             default: "568"
-
-
-        - variable: PHOTOPRISM_STORAGE_PATH
-          label: "PHOTOPRISM_STORAGE_PATH"
-          description: "Photoprism storage path"
-          schema:
-            type: string
-            default: "/photoprism/storage"
         - variable: PHOTOPRISM_ORIGINALS_PATH
           label: "PHOTOPRISM_ORIGINALS_PATH"
           description: "Photoprism originals path"
           schema:
             type: string
             default: "/photoprism/originals"
+        - variable: PHOTOPRISM_IMPORT_PATH
+          label: "PHOTOPRISM_IMPORT_PATH"
+          description: "Photoprism import path"
+          schema:
+            type: string
+            default: "/photoprism/import"
+        - variable: PHOTOPRISM_TEMP_PATH
+          label: "PHOTOPRISM_TEMP_PATH"
+          description: "Photoprism temp path"
+          schema:
+            hidden: true
+            editable: false
+            type: string
+            default: "/photoprism/temp"
+        - variable: PHOTOPRISM_STORAGE_PATH
+          label: "PHOTOPRISM_STORAGE_PATH"
+          description: "Photoprism storage path"
+          schema:
+            hidden: true
+            editable: false
+            type: string
+            default: "/assets/storage"
+        - variable: PHOTOPRISM_SIDECAR_PATH
+          label: "PHOTOPRISM_SIDECAR_PATH"
+          description: "Photoprism sidecar path"
+          schema:
+            hidden: true
+            editable: false
+            type: string
+            default: "/assets/sidecar"
+        - variable: PHOTOPRISM_CACHE_PATH
+          label: "PHOTOPRISM_CACHE_PATH"
+          description: "Photoprism cache path"
+          schema:
+            hidden: true
+            editable: false
+            type: string
+            default: "/assets/cache"
+        - variable: PHOTOPRISM_CONFIG_PATH
+          label: "PHOTOPRISM_CONFIG_PATH"
+          description: "Photoprism config path"
+          schema:
+            hidden: true
+            editable: false
+            type: string
+            default: "/assets/config"
+        - variable: PROTOPRISM_BACKUP_PATH
+          label: "PROTOPRISM_BACKUP_PATH"
+          description: "Photoprism backup path"
+          schema:
+            hidden: true
+            editable: false
+            type: string
+            default: "/assets/backup"
         - variable: PHOTOPRISM_ADMIN_PASSWORD
           label: "PHOTOPRISM_ADMIN_PASSWORD"
           description: "Initial admin password. **BE SURE TO CHANGE THIS!**"
@@ -236,8 +282,8 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
+        - variable: storage
+          label: "App Storage"
           description: "Stores the Application Configuration."
           schema:
             type: dict
@@ -313,7 +359,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/photoprism/storage"
+                  default: "/assets"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
@@ -346,6 +392,33 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "100Gi"
+        - variable: temp
+          label: "App temp mount"
+          description: "Stores some temporary files"
+          schema:
+            type: dict
+            hidden: true
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  hidden: true
+                  default: true
+              - variable: type
+                label: "(Advanced) Type of Storage"
+                description: "Sets the persistence type"
+                schema:
+                  type: string
+                  default: "emptyDir"
+                  hidden: true
+              - variable: mountPath
+                label: "mountPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  type: string
+                  default: "/photoprism/temp"
+                  hidden: true
 # Include{persistenceList}
 
   - variable: ingress
