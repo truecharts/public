@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/airsonic"` | image repository |
-| image.tag | string | `"version-v10.6.2@sha256:ec2f1c13d8933eb7a8515b1de546e1a1cbd346cfb9753c49bfd9404ac6ba1ad1"` | image tag |
+| image.tag | string | `"version-v10.6.2@sha256:c75d6d3ab20d48af0203a3a4d34a5a1b79bf73cb5139a40328ecac55bc65d44d"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |

@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/k8s-at-home/prowlarr"` | image repository |
-| image.tag | string | `"v0.1.1.976@sha256:22e6a4917fcaad043d00f8c313ba87796292b75ec8b9f979e022747b344b712f"` | image tag |
+| image.tag | string | `"v0.1.1.1006@sha256:573b1936d8261262c3e463aadaf5824145fd81bf847b8af64b045ee3c4629ac8"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

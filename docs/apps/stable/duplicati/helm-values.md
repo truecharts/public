@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/duplicati"` | image repository |
-| image.tag | string | `"latest@sha256:72e2dcb62c3f12b856b8ccbad0206e3ca0220f2afa018886dc8f2e5bf0f1d2ba"` | image tag |
+| image.tag | string | `"latest@sha256:524542a5b61a63db0985944a1618fd37c026b18dd6f8d0d61b670123dad7481e"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

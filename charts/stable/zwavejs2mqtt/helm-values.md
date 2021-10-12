@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/zwavejs2mqtt"` |  |
-| image.tag | string | `"v5.7.3@sha256:5aa458cd1cdd468d42cacbafe4ecd606faac5dc10f3c7d531cd6fbeff50fbc57"` |  |
+| image.tag | string | `"v5.8.0@sha256:4701b08731f069a296e44d25aae6c203d9fca5b8faa34c3eefbbe4833987e53b"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-8.0.8"></a>
+### [heimdall-8.0.8](https://github.com/truecharts/apps/compare/heimdall-8.0.7...heimdall-8.0.8) (2021-10-12)
+
+#### Chore
+
+* update non-major ([#1122](https://github.com/truecharts/apps/issues/1122))
+
+
+
 <a name="heimdall-8.0.7"></a>
 ### [heimdall-8.0.7](https://github.com/truecharts/apps/compare/heimdall-8.0.6...heimdall-8.0.7) (2021-10-12)
 

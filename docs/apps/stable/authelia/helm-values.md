@@ -63,7 +63,7 @@ You will, however, be able to use all values referenced in the common chart here
 | identity_providers.oidc.refresh_token_lifespan | string | `"90m"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/authelia/authelia"` |  |
-| image.tag | string | `"4.31.0@sha256:6036f2b1fa3214fdcf189a8f28f40a856372413984b08f15ba4fb5891d77bc0a"` |  |
+| image.tag | string | `"4.32.2@sha256:4c46e56d219424542349fee05b643d854ab74df7a10207dc247dd36366ecfc25"` |  |
 | log.format | string | `"text"` |  |
 | log.level | string | `"trace"` |  |
 | notifier.disable_startup_check | bool | `false` |  |
