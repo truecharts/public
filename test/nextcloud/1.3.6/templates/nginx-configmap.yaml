@@ -23,18 +23,6 @@ data:
         ssl_certificate '/etc/nginx-certs/public.crt';
         ssl_certificate_key '/etc/nginx-certs/private.key';
 
-        # ssl_session_timeout 120m;
-        # ssl_session_cache   shared:ssl:16m;
-
-        # ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
-        # ssl_prefer_server_ciphers on;
-        # ssl_ciphers EECDH+ECDSA+AESGCM:EECDH+aRSA+AESGCM:EECDH+ECDSA:EDH+aRSA:EECDH:!RC4:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS;
-
-        # add_header Strict-Transport-Security max-age=31536000;
-        # add_header X-Content-Type-Options nosniff;
-        # add_header X-XSS-Protection "1";
-
-
         # maximum 3GB Upload File; change to fit your needs
         client_max_body_size 3G;
 
@@ -67,38 +55,11 @@ data:
           proxy_set_header X-Forwarded-Proto https;
           proxy_set_header X-Forwarded-Host  $host;
           proxy_set_header X-Forwarded-Port  $server_port;
-          # proxy_redirect http://localhost https://ssh.sonicaj.com:39001;
 
           # Proxy timeouts
           proxy_connect_timeout              60s;
           proxy_send_timeout                 60s;
           proxy_read_timeout                 60s;
-
-
-          # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          # proxy_set_header Connection keep-alive;
-          # proxy_set_header X-Forwarded-Proto $scheme;
-          # proxy_set_header Host $http_host;
-
-          # we don't want nginx trying to do something clever with
-
-          # redirects, we set the Host: header above already.
-          # proxy_redirect off;
-          # proxy_pass http://localhost:80;
-
-          # We clear this as we will be adding it in our reverse proxy
-          # more_clear_headers 'Strict-Transport-Security';
-          # proxy_pass http://localhost:80;
-          # set proper x-forwarded-headers
-          # proxy_set_header 'X-Forwarded-Host' nextcloud.domain.tld;
-          # proxy_set_header 'X-Forwarded-Proto' https;
-          # -For and -IP:
-          # see https://stackoverflow.com/questions/19366090/what-is-the-difference-between-x-forwarded-for-and-x-forwarded-ip
-          # proxy_set_header 'X-Forwarded-For' $remote_addr;
-          # proxy_set_header 'X-Forwarded-IP' $remote_addr;
-          # proxy_set_header Host $host;
-          # proxy_set_header X-Real-IP $remote_addr;
-          # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
       }
     }

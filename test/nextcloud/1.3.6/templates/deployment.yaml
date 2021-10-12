@@ -34,9 +34,11 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
         {{ $envList = mustAppend $envList (dict "name" "POSTGRES_HOST" "value" (printf "%s:5432" (include "common.names.fullname" $postgres_values))) }}
         {{ $envList = mustAppend $envList (dict "name" "POSTGRES_DB" "value" (include "postgres.DatabaseName" .)) }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_DATA_DIR" "value" .Values.nextcloud.datadir) }}
+        {{ if eq (include "nginx.certAvailable" .) "true" }}
         {{ $envList = mustAppend $envList (dict "name" "APACHE_DISABLE_REWRITE_IP" "value" "1") }}
-        {{ $envList = mustAppend $envList (dict "name" "OVERWRITEHOST" "value" "ssh.sonicaj.com:39001") }}
+        {{ $envList = mustAppend $envList (dict "name" "OVERWRITEHOST" "value" (printf "%v:%v" .Values.nextcloud.host .Values.service.nodePort)) }}
         {{ $envList = mustAppend $envList (dict "name" "OVERWRITEPROTOCOL" "value" "https") }}
+        {{ end }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_TRUSTED_DOMAINS" "value" .Values.nextcloud.host) }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_ADMIN_USER" "valueFromSecret" true "secretName" $secretName "secretKey" "nextcloud-username") }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_ADMIN_PASSWORD" "valueFromSecret" true "secretName" $secretName "secretKey" "nextcloud-password") }}
