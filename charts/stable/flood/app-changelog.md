@@ -1,7 +1,7 @@
 
-<a name="flood-3.0.6"></a>
-### [flood-3.0.6](https://github.com/truecharts/apps/compare/flood-3.0.5...flood-3.0.6) (2021-10-12)
+<a name="flood-3.0.7"></a>
+### [flood-3.0.7](https://github.com/truecharts/apps/compare/flood-3.0.6...flood-3.0.7) (2021-10-12)
 
 #### Chore
 
-* update non-major ([#1122](https://github.com/truecharts/apps/issues/1122))
+* update non-major deps helm releases ([#1126](https://github.com/truecharts/apps/issues/1126))

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosquitto-3.0.6"></a>
+### [mosquitto-3.0.6](https://github.com/truecharts/apps/compare/mosquitto-3.0.5...mosquitto-3.0.6) (2021-10-12)
+
+#### Chore
+
+* update non-major deps helm releases ([#1126](https://github.com/truecharts/apps/issues/1126))
+
+
+
 <a name="mosquitto-3.0.5"></a>
 ### [mosquitto-3.0.5](https://github.com/truecharts/apps/compare/mosquitto-3.0.4...mosquitto-3.0.5) (2021-10-12)
 
