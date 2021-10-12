@@ -9,6 +9,24 @@ image:
   pullPolicy: IfNotPresent
   tag: v2021.10.4@sha256:6f5892e307edd0b135f4ccab1ecee70518e0418b26e6264c23c67d1982eece86
 
+initContainers:
+  init-db:
+    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+    command: ["/usr/sbin/init.sh"]
+    volumeMounts:
+      - name: init
+        mountPath: /usr/sbin
+      - name: config
+        mountPath: /config
+
+# -- Enable and configure postgresql database subchart under this key.
+#    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+# @default -- See values.yaml
+postgresql:
+  enabled: true
+  postgresqlUsername: home-assistant
+  postgresqlDatabase: home-assistant
+
 ##
 # Most other defaults are set in questions.yaml
 # For other options please refer to the wiki, default_values.yaml or the common library chart
