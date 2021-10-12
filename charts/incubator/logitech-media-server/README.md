@@ -9,7 +9,7 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 * home: https://www.mysqueezebox.com/
 * github: https://github.com/Logitech/slimserver
-* docker: https://hub.docker.com/r/doliana/logitech-media-server/tags
+* docker: https://hub.docker.com/r/lmscommunity/logitechmediaserver
 
 ## Requirements
 

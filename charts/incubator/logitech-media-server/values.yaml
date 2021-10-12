@@ -1,14 +1,16 @@
 # Default values for Logitech Media Server.
 
 image:
-  repository: doliana/logitech-media-server
+  repository: lmscommunity/logitechmediaserver
   pullPolicy: IfNotPresent
-  tag: latest-8.2.0
+  tag: 8.2.1
 
 env:
   # Permissions Settings
-  SQUEEZE_UID: 568
-  SQUEEZE_GID: 568
+  PUID: 568
+  GGID: 568
+  # Port to host the web service on. This will be the internal container port exposed and needs to be the same as the node port. 
+  HTTP_PORT: 36110
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -22,11 +24,13 @@ service:
   main:
     ports:
       main:
-        port: 9000
-        nodePort: 9000     # Should be 9000 as the players expect to be able to contact the server on that port.
+        # Please note that the main http port always has to be a 1:1 mapping between external and internal port.
+        # You can't just map it like -p 9002:9000, as Logitech Media Server is telling players on which port to connect.
+        # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
+        port: 36110
       cli:
         port: 9090
-        nodePort: 9090     # Should be 9090 as remote control apps expect to be able to connect to the server on that port using telnet to send cli commands.
+        nodePort: 9090
   commtcp:
     ports:
       playertcp:
@@ -36,11 +40,10 @@ service:
       playerudp:
         port: 3483
 
-
 persistence:
   config:
     enabled: true
-    mounthPath: "/srv/squeezebox"
+    mounthPath: "/config"
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"

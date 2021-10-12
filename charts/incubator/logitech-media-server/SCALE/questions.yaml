@@ -72,18 +72,25 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: SQUEEZE_UID
-          label: "SQUEEZE_UID"
+        - variable: PUID
+          label: "PUID"
           description: "Sets the User ID the Logitech Server Application should use."
           schema:
             type: int
             default: 568
-        - variable: SQUEEZE_GID
-          label: "SQUEEZE_GID"
+        - variable: PGID
+          label: "PGID"
           description: "Sets the Group ID the Logitech Server Application should use."
           schema:
             type: int
             default: 568
+        - variable: HTTP_PORT
+          label: "HTTP_PORT"
+          description: "Sets the HTTP port for the Logitech Media Server"
+          schema:
+            type: string
+            default: "{{ .Values.service.main.ports.main.port }}"
+            hidden: true
 
 
 # Include{containerConfig}
@@ -173,14 +180,14 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9000
+                              default: "{{ .Values.service.main.ports.main.port }}"
                               editable: false
                               hidden: true
                           - variable: port
                             label: "Container Port"
                             schema:
                               type: int
-                              default: 9000
+                              default: 36110
                               editable: true
                               required: true
                           - variable: nodePort
@@ -190,7 +197,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 9000
+                              default: "{{ .Values.service.main.ports.main.port }}"
                     - variable: cli
                       label: "CLI Service Port Configuration (for example used by Android app Squeezer)"
                       schema:
@@ -535,7 +542,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/srv/squeezebox"
+                  default: "/config"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
