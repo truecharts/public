@@ -16,14 +16,14 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
         volumeMounts:
           - name: nginx-configuration
             mountPath: /etc/nginx/nginx.conf
-            subPath: config
+            subPath: nginx.conf
           {{ include "nginx.tlsKeysVolumeMount" . | nindent 10 }}
         ports:
           - name: nginx-http
             containerPort: 8000
             protocol: TCP
           - name: nginx-https
-            containerPort: 8443
+            containerPort: 443
             protocol: TCP
       {{ end }}
       - name: {{ .Chart.Name }}
@@ -34,6 +34,9 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
         {{ $envList = mustAppend $envList (dict "name" "POSTGRES_HOST" "value" (printf "%s:5432" (include "common.names.fullname" $postgres_values))) }}
         {{ $envList = mustAppend $envList (dict "name" "POSTGRES_DB" "value" (include "postgres.DatabaseName" .)) }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_DATA_DIR" "value" .Values.nextcloud.datadir) }}
+        {{ $envList = mustAppend $envList (dict "name" "APACHE_DISABLE_REWRITE_IP" "value" "1") }}
+        {{ $envList = mustAppend $envList (dict "name" "OVERWRITEHOST" "value" "ssh.sonicaj.com:39001") }}
+        {{ $envList = mustAppend $envList (dict "name" "OVERWRITEPROTOCOL" "value" "https") }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_TRUSTED_DOMAINS" "value" .Values.nextcloud.host) }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_ADMIN_USER" "valueFromSecret" true "secretName" $secretName "secretKey" "nextcloud-username") }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_ADMIN_PASSWORD" "valueFromSecret" true "secretName" $secretName "secretKey" "nextcloud-password") }}
@@ -74,6 +77,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
           configMap:
             defaultMode: 0700
             name: "nginx-configuration"
+{{ include "nginx.tlsKeysVolume" . | nindent 8 }}
 {{ if .Values.appVolumeMounts }}
 {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
 {{ end }}

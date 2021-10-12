@@ -58,7 +58,7 @@ Formats volumeMount for tls keys and trusted certs
 {{- define "nginx.tlsKeysVolumeMount" -}}
 {{- if eq (include "nginx.certAvailable" .) "true" -}}
 - name: cert-secret-volume
-  mountPath: "/etc/nginx"
+  mountPath: "/etc/nginx-certs"
 {{- end -}}
 {{- end -}}
 

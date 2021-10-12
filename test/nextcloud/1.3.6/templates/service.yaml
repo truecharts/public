@@ -1,7 +1,7 @@
 {{ $svc := .Values.service }}
 {{ $ports := list }}
 {{ if eq (include "nginx.certAvailable" .) "true" }}
-{{ $ports = mustAppend $ports (dict "name" "nginx-https" "port" 8443 "nodePort" $svc.nodePort) }}
+{{ $ports = mustAppend $ports (dict "name" "nginx-https" "targetPort" 443 "port" 443 "nodePort" $svc.nodePort) }}
 {{ else }}
 {{ $ports = mustAppend $ports (dict "name" "http" "port" 80 "nodePort" $svc.nodePort) }}
 {{ end }}
