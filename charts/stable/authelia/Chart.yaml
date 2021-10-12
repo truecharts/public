@@ -7,7 +7,7 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 3.0.14
+  version: 3.0.15
 - condition: redis.enabled
   name: redis
   repository: https://charts.bitnami.com/bitnami
@@ -38,4 +38,4 @@ sources:
 - https://github.com/authelia/chartrepo
 - https://github.com/authelia/authelia
 type: application
-version: 4.0.16
+version: 4.0.17
