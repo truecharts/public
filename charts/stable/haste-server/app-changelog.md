@@ -1,7 +1,7 @@
 
-<a name="haste-server-3.0.4"></a>
-### [haste-server-3.0.4](https://github.com/truecharts/apps/compare/haste-server-3.0.3...haste-server-3.0.4) (2021-10-05)
+<a name="haste-server-3.0.5"></a>
+### [haste-server-3.0.5](https://github.com/truecharts/apps/compare/haste-server-3.0.4...haste-server-3.0.5) (2021-10-12)
 
 #### Chore
 
-* update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))
+* update non-major deps helm releases ([#1123](https://github.com/truecharts/apps/issues/1123))

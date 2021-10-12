@@ -17,7 +17,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | postgresql | 3.0.12 |
+| https://truecharts.org/ | postgresql | 3.0.13 |
 | https://truecharts.org | common | 8.3.4 |
 
 ## Installing the Chart

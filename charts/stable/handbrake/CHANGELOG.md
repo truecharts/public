@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-8.0.6"></a>
+### [handbrake-8.0.6](https://github.com/truecharts/apps/compare/handbrake-8.0.5...handbrake-8.0.6) (2021-10-12)
+
+#### Chore
+
+* update non-major deps helm releases ([#1123](https://github.com/truecharts/apps/issues/1123))
+
+
+
 <a name="handbrake-8.0.5"></a>
 ### [handbrake-8.0.5](https://github.com/truecharts/apps/compare/handbrake-8.0.4...handbrake-8.0.5) (2021-10-05)
 

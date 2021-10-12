@@ -1,7 +1,7 @@
 
-<a name="dizquetv-3.0.5"></a>
-### [dizquetv-3.0.5](https://github.com/truecharts/apps/compare/dizquetv-3.0.4...dizquetv-3.0.5) (2021-10-05)
+<a name="dizquetv-3.0.6"></a>
+### [dizquetv-3.0.6](https://github.com/truecharts/apps/compare/dizquetv-3.0.5...dizquetv-3.0.6) (2021-10-12)
 
 #### Chore
 
-* update non-major deps helm releases ([#1099](https://github.com/truecharts/apps/issues/1099))
+* update non-major deps helm releases ([#1123](https://github.com/truecharts/apps/issues/1123))
