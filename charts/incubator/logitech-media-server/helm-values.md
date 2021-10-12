@@ -20,16 +20,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/srv/squeezebox"` | Path inside the container for configuration data |
 | persistence.config.size | string | `"100Gi"` | Size of persistent volume claim |
 | persistence.config.type | string | `"pvc"` | Type of persistent volume |
-| persistence.playlists.accessMode | string | `"ReadWriteOnce"` | Persistence access modes |
-| persistence.playlists.enabled | bool | `true` | Use persistent volume to store config |
-| persistence.playlists.mountPath | string | `"/playlists"` | Path inside the container for configuration data |
-| persistence.playlists.size | string | `"100Gi"` | Size of persistent volume claim |
-| persistence.playlists.type | string | `"hostPath"` | Type of persistent volume |
-| persistence.music.accessMode | string | `"ReadWriteOnce"` | Persistence access modes |
-| persistence.music.enabled | bool | `true` | Use persistent volume to store config |
-| persistence.music.mountPath | string | `"/music"` | Path inside the container for configuration data |
-| persistence.music.size | string | `"100Gi"` | Size of persistent volume claim |
-| persistence.music.type | string | `"hostPath"` | Type of persistent volume |
 | podSecurityContext.fsGroup | int | `568` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsNonRoot | bool | `false` |  |
