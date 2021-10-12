@@ -14,9 +14,15 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See [image docs](https://docs.photoprism.org/getting-started/config-options/) for more details. |
 | env.GID | string | `nil` | Sets GID Photoprism runs under. |
 | env.PHOTOPRISM_ADMIN_PASSWORD | string | `"please-change"` | Initial admin password. **BE SURE TO CHANGE THIS!** |
+| env.PHOTOPRISM_CACHE_PATH | string | `"/assets/cache"` | Photoprism cache path |
+| env.PHOTOPRISM_CONFIG_PATH | string | `"/assets/config"` | Photoprism config path |
+| env.PHOTOPRISM_IMPORT_PATH | string | `"/photoprism/import"` | Photoprism import path |
 | env.PHOTOPRISM_ORIGINALS_PATH | string | `"/photoprism/originals"` | Photoprism originals path |
 | env.PHOTOPRISM_PUBLIC | string | `"false"` | Disable authentication / password protection |
-| env.PHOTOPRISM_STORAGE_PATH | string | `"/photoprism/storage"` | Photoprism storage path |
+| env.PHOTOPRISM_SIDECAR_PATH | string | `"/assets/sidecar"` | Photoprism sidecar path |
+| env.PHOTOPRISM_STORAGE_PATH | string | `"/assets/storage"` | Photoprism storage path |
+| env.PHOTOPRISM_TEMP_PATH | string | `"/photoprism/temp"` | Photoprism temp path |
+| env.PROTOPRISM_BACKUP_PATH | string | `"/assets/backup"` | Photoprism backup path |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | env.UID | string | `nil` | Sets UID Photoprism runs under. |
 | env.UMASK | string | `nil` | Sets UMASK. |
