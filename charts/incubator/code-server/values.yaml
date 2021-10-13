@@ -1,0 +1,33 @@
+image:
+  repository: ghcr.io/linuxserver/code-server
+  pullPolicy: IfNotPresent
+  tag: version-v3.11.1
+
+# PASSWORD: password
+# SUDO_PASSWORD: password
+# HASHED_PASSWORD
+
+env:
+  PUID: 568
+  # PROXY_DOMAIN: code-server.my.domain
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8443
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  varrun:
+    enabled: true

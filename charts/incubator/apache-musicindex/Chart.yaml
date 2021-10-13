@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: "1.4.1"
+description: Index and stream music using apache-musicindex and m3u playlists
+name: apache-musicindex
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+
+keywords:
+- apache-musicindex
+- streaming
+- m3u
+- playlist
+home: https://github.com/truecharts/apps/tree/master/charts/stable/apache-musicindex
+icon: https://en.wikipedia.org/wiki/Apache_HTTP_Server#/media/File:Apache_HTTP_server_logo_(2019-present).svg
+sources:
+- http://hacks.slashdirt.org/sw/musicindex/
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.2.1

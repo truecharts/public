@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "3.11.1"
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+name: code-server
+description: Run VS Code on any machine anywhere and access it in the browser.
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/code-server"
+icon: "https://github.com/truecharts/apps/raw/main/images/code-server.jpg"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.2.1
+keywords:
+  - code
+  - vs
+  - visual studio
+  - vscode
+sources:
+  - https://github.com/cdr/code-server
+  - https://hub.docker.com/r/linuxserver/code-server
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

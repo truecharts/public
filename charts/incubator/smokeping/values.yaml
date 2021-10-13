@@ -1,0 +1,35 @@
+image:
+  repository: ghcr.io/linuxserver/smokeping
+  pullPolicy: IfNotPresent
+  tag: version-2.7.3-r5
+
+env:
+  PUID: 568
+
+strategy:
+  type: Recreate
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  data:
+    enabled: true
+    mountPath: /data
+    accessMode: ReadWriteOnce
+    size: 1Gi

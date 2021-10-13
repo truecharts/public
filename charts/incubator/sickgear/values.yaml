@@ -1,0 +1,38 @@
+image:
+  repository: ghcr.io/linuxserver/sickgear
+  pullPolicy: IfNotPresent
+  tag: version-release_0.25.4
+
+env:
+  PUID: 568
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8081
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  tv:
+    enabled: true
+    mountPath: /tv
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  downloads:
+    enabled: true
+    mountPath: /downloads
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  varrun:
+    enabled: true

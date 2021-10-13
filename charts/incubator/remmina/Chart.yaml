@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "1.2.0-rcgi"
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+name: remmina
+description: A remote desktop client written in GTK
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/remmina"
+icon: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/remmina-icon.png"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.2.1
+keywords:
+  - remina
+  - remote
+  - desktop
+  - client
+sources:
+  - https://github.com/linuxserver/docker-remmina
+  - https://remmina.org/
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

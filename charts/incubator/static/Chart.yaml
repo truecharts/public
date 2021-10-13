@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "ee8a20c"
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+name: static
+description: A self-hosted static file serving app which does nothing more than just serve up static files from a mounted volume.
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/static"
+icon: ""
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.2.1
+keywords:
+  - app
+  - web
+  - filesystem
+  - static
+sources:
+  - https://github.com/prologic/static
+  - https://github.com/nicholaswilde/docker-static
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

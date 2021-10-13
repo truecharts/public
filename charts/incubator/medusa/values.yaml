@@ -1,0 +1,38 @@
+image:
+  repository: ghcr.io/linuxserver/medusa
+  pullPolicy: IfNotPresent
+  tag: version-v0.5.17
+
+
+env:
+  PUID: 568
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8081
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  downloads:
+    enabled: true
+    mountPath: /downloads
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  tv:
+    enabled: true
+    mountPath: /tv
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  varrun:
+    enabled: true

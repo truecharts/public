@@ -1,0 +1,22 @@
+apiVersion: v2
+appVersion: "0.7.4"
+description: A management console for minio server and operator
+name: minio-console
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+- minio-console
+- minio
+- s3
+home: https://github.com/truecharts/apps/tree/master/charts/stable/minio-console
+icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+sources:
+- https://github.com/minio/console
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.2.1

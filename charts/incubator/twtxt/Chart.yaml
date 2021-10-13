@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "0.1.1"
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+name: twtxt
+description: A Self-Hosted, Twitter™-like Decentralised microBlogging platform. No ads, no tracking, your content, your data!
+type: application
+home: "https://github.com/truecharts/apps/tree/master/charts/stable/twtxt"
+icon: "https://twtxt.net/media/XsLsDHuisnXcL6NuUkYguK.png"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.2.1
+keywords:
+  - twtxt
+  - blogging
+  - blog
+  - social-network
+sources:
+  - https://github.com/prologic/twtxt
+  - https://github.com/nicholaswilde/docker-twtxt
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org

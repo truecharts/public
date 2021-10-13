@@ -1,0 +1,38 @@
+image:
+  repository: ghcr.io/linuxserver/beets
+  pullPolicy: IfNotPresent
+  tag: version-1.5.0
+
+env:
+  PUID: 568
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8337
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  music:
+    enabled: true
+    mountPath: /music
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  downloads:
+    enabled: true
+    mountPath: /downloads
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  varrun:
+    enabled: true

@@ -1,0 +1,28 @@
+image:
+  repository: ghcr.io/nicholaswilde/notes
+  pullPolicy: IfNotPresent
+  tag: version-ee287b9
+
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  varrun:
+    enabled: true

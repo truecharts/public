@@ -1,0 +1,33 @@
+image:
+  repository: ghcr.io/linuxserver/piwigo
+  pullPolicy: IfNotPresent
+  tag: version-11.5.0
+
+env:
+  PUID: 568
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  gallery:
+    enabled: true
+    mountPath: /gallery
+    accessMode: ReadWriteOnce
+    size: 1Gi
+  varrun:
+    enabled: true

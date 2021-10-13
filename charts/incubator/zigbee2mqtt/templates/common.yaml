@@ -1,0 +1,17 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "common.values.setup" . }}
+
+{{/* Append the configMap volume to the volumes */}}
+{{- define "zigbee2mqtt.settingsVolume" -}}
+enabled: "true"
+mountPath: "/app/configuration.yaml"
+subPath: "configuration.yaml"
+type: "custom"
+volumeSpec:
+  configMap:
+    name: {{ include "common.names.fullname" . }}-settings
+{{- end -}}
+{{- $_ := set .Values.persistence "zigbee2mqtt-settings" (include "zigbee2mqtt.settingsVolume" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "common.all" . }}
