@@ -8,7 +8,6 @@ metadata:
 data:
   init.sh: |-
     #!/bin/sh
-    echo "postgresql password: {{ ( printf "%v%v:%v@%v-%v:%v/%v?client_encoding=utf8" "postgresql://" .Values.postgresql.postgresqlUsername .Values.postgresql.Password .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | quote }}"
     if test -f "/config/configuration.yaml"; then
       echo "configuration.yaml exists."
       if grep -q recorder: "/config/configuration.yaml"; then
@@ -35,9 +34,11 @@ data:
     # script: !include scripts.yaml
     # scene: !include scenes.yaml
   recorder.default: |-
+
     recorder:
-      db_url: {{ ( printf "%s?client_encoding=utf8" ( .Values.postgresql.url.complete | trimAll "\"" ) ) | quote }}
       purge_keep_days: 30
       commit_interval: 3
+      db_url: {{ ( printf "%s?client_encoding=utf8" ( .Values.postgresql.url.complete | trimAll "\"" ) ) | quote }}
+
 
 {{- end -}}
