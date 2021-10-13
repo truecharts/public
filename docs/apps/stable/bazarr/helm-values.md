@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/bazarr"` |  |
-| image.tag | string | `"v0.9.9@sha256:889f97670f5af6b39896a89c76652e346693b446bc9097988ff8eb32141fc38f"` |  |
+| image.tag | string | `"v1.0.0@sha256:b9f8768f7c9a5d6dfe633fe6b4afe71ef4d1efae3ae992c7dd7b4da651725af0"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
