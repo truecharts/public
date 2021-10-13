@@ -1,22 +1,23 @@
 apiVersion: v2
-appVersion: "2.15.1"
-version: 0.0.1
-kubeVersion: ">=1.16.0-0"
-name: fossil
-description: A simple, high-reliability, distributed software configuration management system
-type: application
-home: "https://github.com/truecharts/apps/tree/master/charts/stable/fossil"
-icon: "https://fossil-scm.org/home/doc/trunk/www/fossil3.gif"
+appVersion: 2.15.1
 dependencies:
 - name: common
   repository: https://truecharts.org
   version: 8.2.1
+description: A simple, high-reliability, distributed software configuration management
+  system
+home: https://github.com/truecharts/apps/tree/master/charts/stable/fossil
+icon: https://fossil-scm.org/home/doc/trunk/www/fossil3.gif
 keywords:
-  - fossil
-  - scm
-sources:
-  - https://fossil-scm.org/
+- fossil
+- scm
+kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: truecharts.org
+name: fossil
+sources:
+- https://fossil-scm.org/
+type: application
+version: 0.0.2

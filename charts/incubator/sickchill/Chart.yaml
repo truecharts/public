@@ -1,25 +1,25 @@
 apiVersion: v2
-appVersion: "2021.5.10"
-version: 0.0.1
-kubeVersion: ">=1.16.0-0"
-name: sickchill
-description: An Automatic Video Library Manager for TV Shows
-type: application
-home: "https://github.com/truecharts/apps/tree/master/charts/stable/sickchill"
-icon: "https://github.com/SickChill/SickChill/raw/master/sickchill/gui/slick/images/ico/android-chrome-256x256.png"
+appVersion: 2021.5.10
 dependencies:
 - name: common
   repository: https://truecharts.org
   version: 8.2.1
+description: An Automatic Video Library Manager for TV Shows
+home: https://github.com/truecharts/apps/tree/master/charts/stable/sickchill
+icon: https://github.com/SickChill/SickChill/raw/master/sickchill/gui/slick/images/ico/android-chrome-256x256.png
 keywords:
-  - sickchill
-  - video
-  - library
-  - manager
-sources:
-  - https://github.com/linuxserver/docker-sickchill
-  - https://github.com/SickChill/SickChill
+- sickchill
+- video
+- library
+- manager
+kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: truecharts.org
+name: sickchill
+sources:
+- https://github.com/linuxserver/docker-sickchill
+- https://github.com/SickChill/SickChill
+type: application
+version: 0.0.2
