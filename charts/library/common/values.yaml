@@ -44,7 +44,7 @@ codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: v3.11.1@sha256:b23b9ba33c9c648c27427b4243585c1a3c6cc4d5408ab3b3e18bdc97302c4862
+  tag: v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
@@ -54,7 +54,7 @@ alpineImage:
   # -- Specify the Alpine image
   repository: ghcr.io/truecharts/alpine
   # -- Specify the Alpine image tag
-  tag: v3.14.2@sha256:cfc1d8be3d2d397ec18af71caab3e96581fc4d43417400ef744d87201642ddad
+  tag: v3.14.2@sha256:a537d87e3d22c5b3f695218ca1fb5a031fb0ccafa0e3e256ef45188ab0575be6
   # -- Specify the Alpine image pull policy
   pullPolicy: IfNotPresent
 
