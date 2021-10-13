@@ -37,7 +37,7 @@ data:
     echo "Downloading HACS"
     wget "https://github.com/hacs/integration/releases/latest/download/hacs.zip" || exit 0
 
-    if -d "/config/custom_components/hacs"; then
+    if [ -d "/config/custom_components/hacs" ]; then
         echo "HACS directory already exist, cleaning up..."
         rm -R "/config/custom_components/hacs"
     fi
