@@ -12,26 +12,21 @@ env:
   # -- Set the container timezone
   TZ: UTC
   STATUS_HTTP: true
-  STATUS_HTTP_PORT: 9000
+  STATUS_HTTP_PORT: 9010
+  SUPERVISOR_HTTP_PORT: 9011
   SUPERVISOR_HTTP: true
-  # SERVER_NAME: My Server
-  # SERVER_PORT: 2456
-  # WORLD_NAME: Dedicated
-  # SERVER_PASS: secret
-  # SERVER_PUBLIC: 1
-  # UPDATE_INTERVAL: 10800 # every 3 hours
-  # BACKUPS: true
-  # BACKUPS_INTERVAL: 43200 # every 12 hours
-  # BACKUPS_DIRECTORY: /config/backups
-  # BACKUPS_MAX_AGE: 3
-  # BACKUPS_DIRECTORY_PERMISSIONS: 755
-  # BACKUPS_FILE_PERMISSIONS: 644
-  # CONFIG_DIRECTORY_PERMISSIONS: 755
-  # WORLDS_DIRECTORY_PERMISSIONS: 755
-  # WORLDS_FILE_PERMISSIONS: 644
-  # STEAMCMD_ARGS: validate
-  # DNS_1: 8.8.8.8
-  # DNS_2: 8.8.4.4
+  SUPERVISOR_HTTP_USER: admin
+  SUPERVISOR_HTTP_PASS: secret
+  SERVER_NAME: My Server
+  SERVER_PORT: 2456
+  WORLD_NAME: Dedicated
+  SERVER_PASS: secret
+  SERVER_PUBLIC: true
+  UPDATE_INTERVAL: 10800 # every 3 hours
+  BACKUPS: true
+  BACKUPS_INTERVAL: 43200 # every 12 hours
+  BACKUPS_DIRECTORY: /backups
+  BACKUPS_MAX_AGE: 3
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -47,11 +42,11 @@ service:
   main:
     ports:
       main:
-        port: 9000
+        port: 9010
   supervisor:
     ports:
       supervisor:
-        port: 9001
+        port: 9011
   valheim:
     type: LoadBalancer
     ports:
@@ -60,6 +55,16 @@ service:
         port: 2456
         protocol: UDP
         targetPort: 2456
+      valheim-2:
+        enabled: true
+        port: 2457
+        protocol: UDP
+        targetPort: 2457
+      valheim-3:
+        enabled: true
+        port: 2458
+        protocol: UDP
+        targetPort: 2458
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
@@ -67,3 +72,6 @@ persistence:
   config:
     enabled: true
     mountPath: /config
+  backups:
+    enabled: true
+    mountPath: /backups
