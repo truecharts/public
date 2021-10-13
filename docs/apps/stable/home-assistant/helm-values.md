@@ -22,17 +22,19 @@ You will, however, be able to use all values referenced in the common chart here
 | influxdb.database | string | `"home_assistant"` |  |
 | influxdb.enabled | bool | `false` |  |
 | influxdb.persistence.enabled | bool | `false` |  |
+| initContainers.init-db.command[0] | string | `"/config/init/init.sh"` |  |
+| initContainers.init-db.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
+| initContainers.init-db.volumeMounts[0].mountPath | string | `"/config/init"` |  |
+| initContainers.init-db.volumeMounts[0].name | string | `"init"` |  |
+| initContainers.init-db.volumeMounts[1].mountPath | string | `"/config"` |  |
+| initContainers.init-db.volumeMounts[1].name | string | `"config"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
-| postgresql.enabled | bool | `false` |  |
-| postgresql.persistence.enabled | bool | `false` |  |
-| postgresql.postgresqlDatabase | string | `"home-assistant"` |  |
-| postgresql.postgresqlPassword | string | `"home-assistant-pass"` |  |
-| postgresql.postgresqlUsername | string | `"home-assistant"` |  |
+| postgresql | object | See values.yaml | Enable and configure postgresql database subchart under this key.    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql) |
 | prometheus.serviceMonitor.enabled | bool | `false` |  |
 | service.main.ports.main.port | int | `8123` |  |
 
