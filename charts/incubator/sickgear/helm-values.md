@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/sickgear"` |  |
-| image.tag | string | `"version-release_0.25.4"` |  |
+| image.tag | string | `"version-release_0.25.4@sha256:ad0e59d0590906f7c303926a316a357c8541986205c40cae5848a1ea5e552399"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.downloads.accessMode | string | `"ReadWriteOnce"` |  |

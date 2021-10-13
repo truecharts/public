@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/headphones"` |  |
-| image.tag | string | `"version-58edc604"` |  |
+| image.tag | string | `"version-58edc604@sha256:43f2d40be460ac59c6b80d6ea1307f14dad11379ac607b6752f84a758da6b118"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.downloads.accessMode | string | `"ReadWriteOnce"` |  |

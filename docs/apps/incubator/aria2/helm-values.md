@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.UMASK_SET | int | `18` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"p3terx/aria2-pro"` | image repository |
-| image.tag | string | `"latest"` | image tag |
+| image.tag | string | `"latest@sha256:2589527dfef6351d459f3a6781e4efef41d694878765b107413a6eb4bb6bbca7"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountpath | string | `"/config"` |  |
 | persistence.data.enabled | bool | `true` |  |

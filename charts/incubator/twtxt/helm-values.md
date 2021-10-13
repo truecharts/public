@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.OPEN_REGISTRATIONS | string | `"true"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/nicholaswilde/twtxt"` |  |
-| image.tag | string | `"version-0.1.1"` |  |
+| image.tag | string | `"version-0.1.1@sha256:58736a73ca1000cc93258efe0cd91270c6b8480a84b98b05a056234d271f92e3"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |

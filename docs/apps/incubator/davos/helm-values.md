@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/davos"` |  |
-| image.tag | string | `"2.2.1-ls76"` |  |
+| image.tag | string | `"2.2.1-ls76@sha256:24ba55aeaa4f86a76dc2664e1bb090f315279ec84e1e603e24713cfe0538d890"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.download.accessMode | string | `"ReadWriteOnce"` |  |

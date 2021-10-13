@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/nicholaswilde/static"` |  |
-| image.tag | string | `"version-ee8a20c"` |  |
+| image.tag | string | `"version-ee8a20c@sha256:d1d47c730bc41c4ae46de8df0c9c76bb803927fcbe3446b6ff4f7cd152972940"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |

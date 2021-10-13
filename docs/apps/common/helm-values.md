@@ -45,13 +45,13 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | alpineImage | object | See below | alpine specific configuration |
 | alpineImage.pullPolicy | string | `"IfNotPresent"` | Specify the Alpine image pull policy |
 | alpineImage.repository | string | `"ghcr.io/truecharts/alpine"` | Specify the Alpine image |
-| alpineImage.tag | string | `"v3.14.2@sha256:cfc1d8be3d2d397ec18af71caab3e96581fc4d43417400ef744d87201642ddad"` | Specify the Alpine image tag |
+| alpineImage.tag | string | `"v3.14.2@sha256:a537d87e3d22c5b3f695218ca1fb5a031fb0ccafa0e3e256ef45188ab0575be6"` | Specify the Alpine image tag |
 | args | list | `[]` | Override the args for the default container |
 | autoscaling | object | <disabled> | Add a Horizontal Pod Autoscaler |
 | codeserverImage | object | See below | codeserver specific configuration |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
-| codeserverImage.tag | string | `"v3.11.1@sha256:b23b9ba33c9c648c27427b4243585c1a3c6cc4d5408ab3b3e18bdc97302c4862"` | Specify the code-server image tag |
+| codeserverImage.tag | string | `"v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | controller.annotations | object | `{}` |  |
 | controller.annotationsList | list | `[]` | Set additional annotations on the deployment/statefulset/daemonset |

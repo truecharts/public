@@ -12,23 +12,23 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See more environment variables in the [amcrest2mqtt repo](https://github.com/dchesterton/amcrest2mqtt). |
-| env.AMCREST_HOST | string | `nil` | Host name used to connect to the Amcrest device |
-| env.AMCREST_PASSWORD | string | `nil` | Password used to connect to the Amcrest device |
+| env.AMCREST_HOST | string | `""` | Host name used to connect to the Amcrest device |
 | env.AMCREST_PORT | int | `80` | Port used to connect to the Amcrest device |
-| env.AMCREST_USERNAME | string | `nil` | User name used to connect to the Amcrest device |
 | env.HOME_ASSISTANT | string | `"false"` | Enable Home Assistant autodiscovery |
 | env.HOME_ASSISTANT_PREFIX | string | `"homeassistant"` | Home Assistant autodiscovery prefix |
-| env.MQTT_HOST | int | `1883` | Host name used to connect to the MQTT broker |
-| env.MQTT_PASSWORD | string | `nil` | Password used to connect to the MQTT broker |
-| env.MQTT_PORT | string | `nil` | Port used to connect to the MQTT broker |
-| env.MQTT_USERNAME | string | `nil` | User name used to connect to the MQTT broker |
+| env.MQTT_HOST | string | `"localhost"` | Host name used to connect to the MQTT broker |
+| env.MQTT_PORT | int | `1883` | Port used to connect to the MQTT broker |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"dchesterton/amcrest2mqtt"` | image repository |
-| image.tag | string | `"1.0.9"` | image tag |
+| image.tag | string | `"1.0.9@sha256:cc70f2238aa9fdc77185eced6131190d4b159e7b88591ca238aee3ab863cca65"` | image tag |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
+| secret.AMCREST_PASSWORD | string | `"changeme"` | Password used to connect to the Amcrest device |
+| secret.AMCREST_USERNAME | string | `"admin"` | User name used to connect to the Amcrest device |
+| secret.MQTT_PASSWORD | string | `"changeme"` | Password used to connect to the MQTT broker |
+| secret.MQTT_USERNAME | string | `"mqttuser"` | User name used to connect to the MQTT broker |
 | service.main.enabled | bool | `false` |  |
 
 All Rights Reserved - The TrueCharts Project

@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.REMOTE_PORT | string | `"5900"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/nicholaswilde/novnc"` |  |
-| image.tag | string | `"version-1.2.0"` |  |
+| image.tag | string | `"version-1.2.0@sha256:5d0d02fa11dabb607ddf293b3b3794ef15f2a9b32e41078de5ed24ad3cfad095"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

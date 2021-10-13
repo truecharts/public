@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/cloud9"` |  |
-| image.tag | string | `"version-1.29.2"` |  |
+| image.tag | string | `"version-1.29.2@sha256:f35f53e0b9084d7da25242f46cc02d66ee3f4764b17930ef61b11eabc0c5b1c8"` |  |
 | persistence.code.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.code.enabled | bool | `true` |  |
 | persistence.code.mountPath | string | `"/code"` |  |
@@ -26,7 +26,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| secret | object | `{}` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8000` |  |

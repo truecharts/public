@@ -13,14 +13,14 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | args | list | `["server"]` | Override the args for the default container. |
 | env | object | See below | environment variables. See more environment variables in the [minio-console documentation](https://minio-console.org/docs). |
-| env.CONSOLE_MINIO_SERVER | string | `nil` | Required: Minio server URL Example: https://minio.server:9000 |
-| env.CONSOLE_PBKDF_PASSPHRASE | string | `nil` | Required: Passphrase to derive keys (generate own) Example: D6vpras1xpUgrcFpOIGA4crHvzUDQb48 |
-| env.CONSOLE_PBKDF_SALT | string | `nil` | Required: Salt for derived keys (generate own) Example: ILy2FWzwjjYi1TeTEpBjEsPrwLfKZxgi |
+| env.CONSOLE_MINIO_SERVER | string | `""` | Required: Minio server URL Example: https://minio.server:9000 |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"minio/console"` | image repository |
-| image.tag | string | `"v0.7.4"` | image tag |
+| image.tag | string | `"v0.10.4@sha256:3aa27c8325a30b8f188d646bb1c7a8ad0a81b41a1099d1d9e4b29b2c76c731dd"` | image tag |
 | persistence.varrun.enabled | bool | `true` |  |
+| secret.CONSOLE_PBKDF_PASSPHRASE | string | `"changeme"` | Required: Passphrase to derive keys (generate own) Example: D6vpras1xpUgrcFpOIGA4crHvzUDQb48 |
+| secret.CONSOLE_PBKDF_SALT | string | `"changeme"` | Required: Salt for derived keys (generate own) Example: ILy2FWzwjjYi1TeTEpBjEsPrwLfKZxgi |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

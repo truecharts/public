@@ -1,5 +1,14 @@
 # Changelog<br>
 
 
+<a name="valheim-0.0.2"></a>
+### [valheim-0.0.2](https://github.com/truecharts/apps/compare/valheim-0.0.1...valheim-0.0.2) (2021-10-13)
+
+#### Chore
+
+* update non-major docker tags ([#1134](https://github.com/truecharts/apps/issues/1134))
+
+
+
 <a name="valheim-0.0.1"></a>
 ### valheim-0.0.1 (2021-10-04)

@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.ALLOWED_NETWORKS | string | `"172.16.0.0/16"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/plex"` |  |
-| image.tag | string | `"v1.24.3.5033-757abe6b4@sha256:23a65cc78a0aab38f26a60d38f65eefcb2db7dc4e5d99c4ac7ad8f722c677654"` |  |
+| image.tag | string | `"v1.24.4.5081-e362dc1ee@sha256:76cf477469c9ba3951917188d662234032212f8e02f0a17f27036040cde509fc"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |

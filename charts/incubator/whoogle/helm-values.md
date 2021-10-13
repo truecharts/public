@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"benbusby/whoogle-search"` | image repository |
-| image.tag | string | `"0.5.4"` | image tag |
+| image.tag | string | `"0.6.0@sha256:6a3e25c63ec09645cb3ee91f4a12b551882e694609c842ee49aa8fcd218fcad8"` | image tag |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |

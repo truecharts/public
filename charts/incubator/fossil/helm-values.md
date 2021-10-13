@@ -13,11 +13,10 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/nicholaswilde/fossil"` |  |
-| image.tag | string | `"2.15.1-ls4"` |  |
+| image.tag | string | `"2.15.1-ls4@sha256:a0a819ed2707e8e829dec371de0e166fbcf0499d3d12005880f603b2b95bf64d"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| secret | object | `{}` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8080` |  |

@@ -14,11 +14,18 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See [image docs](https://github.com/mitsumaui/leaf2mqtt) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
 | image.repository | string | `"ghcr.io/k8s-at-home/leaf2mqtt"` | Image repository |
-| image.tag | string | `"v0.1"` | Image tag |
+| image.tag | string | `"v0.5@sha256:38af096ee01683a958ff457dea40325bf841d87cb9e95ec2c41ae8fb20ab575a"` | Image tag |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
-| service.enabled | bool | `false` |  |
-| service.main | string | `nil` |  |
+| secret.LEAF_PASSWORD | string | `"changeme"` |  |
+| secret.LEAF_USERNAME | string | `"leafuser"` |  |
+| secret.MQTT_PASSWORD | string | `"changeme"` |  |
+| secret.MQTT_USERNAME | string | `"mqttuser"` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
+| service.main.enabled | bool | `false` |  |
 
 All Rights Reserved - The TrueCharts Project

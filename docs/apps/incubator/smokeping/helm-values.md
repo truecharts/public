@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/smokeping"` |  |
-| image.tag | string | `"version-2.7.3-r5"` |  |
+| image.tag | string | `"version-2.7.3-r5@sha256:bdb817109b80a24cba5512ec5ffab2cbc9492bd0d17eae41aa0e1c7f883b7e01"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |

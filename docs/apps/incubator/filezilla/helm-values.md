@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/filezilla"` |  |
-| image.tag | string | `"version-3.51.0-r1"` |  |
+| image.tag | string | `"version-3.51.0-r1@sha256:5103cdd266ceb61cebabae6629e418570a5094e3f61ef2f405f6e24d4fc7f6a4"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
