@@ -210,8 +210,8 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
+        - variable: data
+          label: "App Data Storage"
           description: "Stores the Application Configuration."
           schema:
             type: dict
@@ -325,7 +325,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/data"
                   hidden: true
               - variable: medium
                 label: "EmptyDir Medium"

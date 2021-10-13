@@ -31,6 +31,7 @@ persistence:
 # This will be copied into the container's persistent storage at first run only.
 # Further configuration should be done in the application itself!
 # See [project documentation](https://www.zigbee2mqtt.io/information/configuration.html) for more information.
+# these are mostly just defaults and any further tweaking should be done using env-vars
 # @default -- See values.yaml
 config:
   # These will be applied ONLY on first run
