@@ -7,7 +7,7 @@ metadata:
   name: {{ include "common.names.fullname" . }}-init
 data:
   init.sh: |-
-    #!/bin/bash
+    #!/bin/sh
     if test -f "/config/configuration.yaml"; then
       echo "configuration.yaml exists."
       if grep -q recorder: "/config/configuration.yaml"; then
@@ -27,32 +27,30 @@ data:
     cat /config/init/http.default >> /config/configuration.yaml
     fi
 
-    cd "/config" || error "Could not change path to /config"
-    if [ ! -d "/config/custom_components" ]; then
-        info "Creating custom_components directory..."
-        mkdir "/config/custom_components"
-    fi
+    cd "/config" || echo "Could not change path to /config"
+    echo "Creating custom_components directory..."
+    mkdir "/config/custom_components" || echo "custom_components directory already exists"
 
-    info "Changing to the custom_components directory..."
-    cd "/config/custom_components" || error "Could not change path to /config/custom_components"
+    echo "Changing to the custom_components directory..."
+    cd "/config/custom_components" || echo "Could not change path to /config/custom_components"
 
-    info "Downloading HACS"
+    echo "Downloading HACS"
     wget "https://github.com/hacs/integration/releases/latest/download/hacs.zip" || exit 0
 
-    if [ -d "/config/custom_components/hacs" ]; then
-        warn "HACS directory already exist, cleaning up..."
+    if -d "/config/custom_components/hacs"; then
+        echo "HACS directory already exist, cleaning up..."
         rm -R "/config/custom_components/hacs"
     fi
 
-    info "Creating HACS directory..."
+    echo "Creating HACS directory..."
     mkdir "/config/custom_components/hacs"
 
-    info "Unpacking HACS..."
+    echo "Unpacking HACS..."
     unzip "/config/custom_components/hacs.zip" -d "/config/custom_components/hacs" >/dev/null 2>&1
 
-    info "Removing HACS zip file..."
+    echo "Removing HACS zip file..."
     rm "/config/custom_components/hacs.zip"
-    info "Installation complete."
+    echo "Installation complete."
 
   configuration.yaml.default: |-
     # Configure a default setup of Home Assistant (frontend, api, etc)
