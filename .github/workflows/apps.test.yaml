@@ -92,6 +92,8 @@ jobs:
               install="true"
             echo "::set-output name=install::true"
             fi
+            groupadd apps -g 568
+            useradd apps -u 568 -g 568 -d /home/apps -s /bin/bash
 
       - name: Install Helm
         if: ${{ matrix.app != '.gitkee' }}
