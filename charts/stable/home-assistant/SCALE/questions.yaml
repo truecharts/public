@@ -227,18 +227,6 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: varrun
-          label: "varrun override for S6 Readonly Root"
-          schema:
-            type: dict
-            hidden: true
-            attrs:
-              - variable: enabled
-                label: ""
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
@@ -387,7 +375,7 @@ questions:
           label: "ReadOnly Root Filesystem"
           schema:
             type: boolean
-            default: true
+            default: false
         - variable: allowPrivilegeEscalation
           label: "Allow Privilege Escalation"
           schema:
@@ -397,7 +385,7 @@ questions:
           label: "runAsNonRoot"
           schema:
             type: boolean
-            default: true
+            default: false
 
   - variable: podSecurityContext
     group: "Security and Permissions"
@@ -410,13 +398,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
