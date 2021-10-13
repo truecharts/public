@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-9.0.16"></a>
+### [fireflyiii-9.0.16](https://github.com/truecharts/apps/compare/fireflyiii-9.0.15...fireflyiii-9.0.16) (2021-10-13)
+
+#### Chore
+
+* update non-major deps helm releases ([#1133](https://github.com/truecharts/apps/issues/1133))
+
+
+
 <a name="fireflyiii-9.0.15"></a>
 ### [fireflyiii-9.0.15](https://github.com/truecharts/apps/compare/fireflyiii-9.0.14...fireflyiii-9.0.15) (2021-10-12)
 
