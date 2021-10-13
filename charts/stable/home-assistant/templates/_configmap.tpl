@@ -7,7 +7,7 @@ metadata:
   name: {{ include "common.names.fullname" . }}-init
 data:
   init.sh: |-
-    #!/bin/sh
+    #!/bin/bash
     if test -f "/config/configuration.yaml"; then
       echo "configuration.yaml exists."
       if grep -q recorder: "/config/configuration.yaml"; then
@@ -37,7 +37,7 @@ data:
     cd "/config/custom_components" || error "Could not change path to /config/custom_components"
 
     info "Downloading HACS"
-    curl -O "https://github.com/hacs/integration/releases/latest/download/hacs.zip" || exit 0
+    wget "https://github.com/hacs/integration/releases/latest/download/hacs.zip" || exit 0
 
     if [ -d "/config/custom_components/hacs" ]; then
         warn "HACS directory already exist, cleaning up..."
