@@ -14,6 +14,16 @@ service:
       main:
         port: 8123
 
+initContainers:
+  init-db:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    command: ["/config/init/init.sh"]
+    volumeMounts:
+      - name: init
+        mountPath: /config/init
+      - name: config
+        mountPath: /config
+
 # # Enable devices to be discoverable
 # hostNetwork: true
 
@@ -44,27 +54,14 @@ persistence:
   varrun:
     enabled: true
 
-# # Path to your Z-Wave / Zigbee device in the container
-# additionalVolumeMounts:
-#   - name: zwave-usb
-#     mountPath: /dev/serial/by-id/usb-0658_0200-if00
-
-# # Path to your Z-Wave / Zigbee device on the host
-# additionalVolumes:
-#   - name: zwave-usb
-#     hostPath:
-#       path: /dev/serial/by-id/usb-0658_0200-if00
-
-# Enabled postgres
-# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+# -- Enable and configure postgresql database subchart under this key.
+#    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+# @default -- See values.yaml
 postgresql:
-  enabled: false
+  enabled: true
   postgresqlUsername: home-assistant
-  postgresqlPassword: home-assistant-pass
   postgresqlDatabase: home-assistant
-  persistence:
-    enabled: false
-    # storageClass: ""
+  existingSecret: "dbcreds"
 
 # Enable influxdb
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/influxdb
