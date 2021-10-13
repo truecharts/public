@@ -1,4 +1,4 @@
-{{- include "common.values.setup" . }}
+{{- include "common.setup" . }}
 
 {{/* Append the hardcoded settings */}}
 {{- define "icantbelieveitsnotvaletudo.harcodedValues" -}}
@@ -27,4 +27,4 @@ service:
 {{- $_ := mergeOverwrite .Values (include "icantbelieveitsnotvaletudo.harcodedValues" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "common.all" . }}
+{{ include "common.postSetup" . }}

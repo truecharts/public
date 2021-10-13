@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "common.values.setup" . }}
+{{- include "common.setup" . }}
 
 {{/* Append the configMap volume to the volumes */}}
 {{- define "zigbee2mqtt.settingsVolume" -}}
@@ -14,4 +14,4 @@ volumeSpec:
 {{- $_ := set .Values.persistence "zigbee2mqtt-settings" (include "zigbee2mqtt.settingsVolume" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "common.all" . }}
+{{ include "common.postSetup" . }}
