@@ -15,10 +15,16 @@ data:
       else
       cat /config/init/recorder.default >> /config/configuration.yaml
       fi
+      if grep -q http: "/config/configuration.yaml"; then
+      echo "configuration.yaml already contains http section"
+      else
+      cat /config/init/http.default >> /config/configuration.yaml
+      fi
     else
     echo "configuration.yaml does NOT exist."
     cp /config/init/configuration.yaml.default /config/configuration.yaml
     cat /config/init/recorder.default >> /config/configuration.yaml
+    cat /config/init/http.default >> /config/configuration.yaml
     fi
   configuration.yaml.default: |-
     # Configure a default setup of Home Assistant (frontend, api, etc)
@@ -39,6 +45,11 @@ data:
       purge_keep_days: 30
       commit_interval: 3
       db_url: {{ ( printf "%s?client_encoding=utf8" ( .Values.postgresql.url.complete | trimAll "\"" ) ) | quote }}
+  http.default: |-
 
+    http:
+      use_x_forwarded_for: true
+      trusted_proxies:
+        - 172.16.0.0/16
 
 {{- end -}}
