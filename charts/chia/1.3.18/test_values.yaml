@@ -11,3 +11,6 @@ image:
   repository: ixsystems/chia-docker
   tag: v1.2.8
 updateStrategy: Recreate
+service:
+  nodePort: 31121
+  farmerPort: 31122

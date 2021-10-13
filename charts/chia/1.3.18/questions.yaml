@@ -5,6 +5,8 @@ groups:
     description: "Configure farmr.net support"
   - name: "Chia Environment Variables"
     description: "Set the environment that will be visible to the container"
+  - name: "Networking"
+    description: "Configure networking for Chia container"
 
 portals:
   web_portal:
@@ -153,3 +155,28 @@ questions:
                 label: "Value"
                 schema:
                   type: string
+
+  - variable: service
+    description: "Networking Configuration"
+    label: "Networking Configuration"
+    group: "Networking"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: nodePort
+          label: "Node Port to use for Chia"
+          schema:
+            type: int
+            min: 8000
+            max: 65535
+            default: 8444
+            required: true
+        - variable: farmerPort
+          label: "Farmer Port to use for Chia"
+          schema:
+            type: int
+            min: 8000
+            max: 65535
+            default: 8447
+            required: true
