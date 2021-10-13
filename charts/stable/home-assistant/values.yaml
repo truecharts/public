@@ -5,8 +5,16 @@ image:
   pullPolicy: IfNotPresent
   tag: v2021.10.4@sha256:6f5892e307edd0b135f4ccab1ecee70518e0418b26e6264c23c67d1982eece86
 
-env: {}
-    # TZ:
+env:
+  PUID: 568
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
@@ -16,7 +24,7 @@ service:
 
 initContainers:
   init-db:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
     command: ["/config/init/init.sh"]
     volumeMounts:
       - name: init
@@ -51,8 +59,6 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
-  varrun:
-    enabled: true
 
 # -- Enable and configure postgresql database subchart under this key.
 #    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
