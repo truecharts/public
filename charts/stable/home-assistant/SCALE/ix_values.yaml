@@ -12,10 +12,10 @@ image:
 initContainers:
   init-db:
     image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
-    command: ["/usr/sbin/init.sh"]
+    command: ["/config/init/init.sh"]
     volumeMounts:
       - name: init
-        mountPath: /usr/sbin
+        mountPath: /config/init
       - name: config
         mountPath: /config
 
