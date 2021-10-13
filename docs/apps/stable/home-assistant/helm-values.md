@@ -11,7 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
+| env.PUID | int | `568` |  |
 | git.deployKey | string | `""` |  |
 | git.deployKeyBase64 | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | influxdb.enabled | bool | `false` |  |
 | influxdb.persistence.enabled | bool | `false` |  |
 | initContainers.init-db.command[0] | string | `"/config/init/init.sh"` |  |
-| initContainers.init-db.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
+| initContainers.init-db.image | string | `"{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"` |  |
 | initContainers.init-db.volumeMounts[0].mountPath | string | `"/config/init"` |  |
 | initContainers.init-db.volumeMounts[0].name | string | `"init"` |  |
 | initContainers.init-db.volumeMounts[1].mountPath | string | `"/config"` |  |
@@ -33,9 +33,12 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
-| persistence.varrun.enabled | bool | `true` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
 | postgresql | object | See values.yaml | Enable and configure postgresql database subchart under this key.    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql) |
 | prometheus.serviceMonitor.enabled | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8123` |  |
 
 All Rights Reserved - The TrueCharts Project
