@@ -23,8 +23,8 @@ service:
         port: 8123
 
 initContainers:
-  init-db:
-    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+  init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     command: ["/config/init/init.sh"]
     volumeMounts:
       - name: init

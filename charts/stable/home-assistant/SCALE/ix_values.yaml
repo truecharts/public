@@ -10,8 +10,8 @@ image:
   tag: v2021.10.4@sha256:6f5892e307edd0b135f4ccab1ecee70518e0418b26e6264c23c67d1982eece86
 
 initContainers:
-  init-db:
-    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+  init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     command: ["/config/init/init.sh"]
     volumeMounts:
       - name: init

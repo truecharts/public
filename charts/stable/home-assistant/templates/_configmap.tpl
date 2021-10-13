@@ -26,6 +26,32 @@ data:
     cat /config/init/recorder.default >> /config/configuration.yaml
     cat /config/init/http.default >> /config/configuration.yaml
     fi
+
+    cd "/config" || echo "Could not change path to /config"
+    echo "Creating custom_components directory..."
+    mkdir "/config/custom_components" || echo "custom_components directory already exists"
+
+    echo "Changing to the custom_components directory..."
+    cd "/config/custom_components" || echo "Could not change path to /config/custom_components"
+
+    echo "Downloading HACS"
+    wget "https://github.com/hacs/integration/releases/latest/download/hacs.zip" || exit 0
+
+    if [ -d "/config/custom_components/hacs" ]; then
+        echo "HACS directory already exist, cleaning up..."
+        rm -R "/config/custom_components/hacs"
+    fi
+
+    echo "Creating HACS directory..."
+    mkdir "/config/custom_components/hacs"
+
+    echo "Unpacking HACS..."
+    unzip "/config/custom_components/hacs.zip" -d "/config/custom_components/hacs" >/dev/null 2>&1
+
+    echo "Removing HACS zip file..."
+    rm "/config/custom_components/hacs.zip"
+    echo "Installation complete."
+
   configuration.yaml.default: |-
     # Configure a default setup of Home Assistant (frontend, api, etc)
     default_config:
