@@ -91,20 +91,6 @@ It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes 
 
 #### [ k8s-at-home ](https://github.com/k8s-at-home/charts)
 
-
-##### TODO: Should be relatively easy to port
-
-- [ ] apache-musicindex
-- [ ] aria2
-- [ ] booksonic-air
-- [ ] cryptofolio
-- [ ] icantbelieveitsnotvaletudo
-- [ ] minio-console
-- [ ] recipes
-- [ ] valheim
-- [ ] whoogle
-- [ ] xbackbone
-
 ##### TODO: Require custom care to handle their configuration
 
 - [ ] adguard-home
@@ -123,13 +109,6 @@ It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes 
 - [ ] searx
 - [ ] sharry
 
-
-##### TODO: Requires device-mount section to be included
-
-- [ ] zigbee2mqtt
-- [ ] leaf2mqtt
-- [ ] amcrest2mqtt
-
 ##### TODO: Requires Postgresql customisation
 
 - [ ] dsmr-reader
@@ -147,6 +126,7 @@ It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes 
 - [ ] tt-rss
 - [ ] wallabag
 - [ ] wikijs
+- [ ] recipes
 
 ##### TODO: Requires Prometheus to be added first
 
@@ -173,6 +153,7 @@ It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes 
 - [ ] icinga2
 - [ ] monica
 - [ ] openemr
+- [ ] xbackbone
 
 ##### TODO: Other Complications
 
@@ -186,54 +167,7 @@ _These Apps have specific requirements or need specific customisation and care_
 
 
 
-
-
 #### [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts)
-
-
-##### TODO: Should be relatively easy to port
-
-- [ ] audacity
-- [ ] beets
-- [ ] blog
-- [ ] booksonic
-- [ ] bookstack
-- [ ] chyrp-lite
-- [ ] cloud9
-- [ ] code-server
-- [ ] cryptpad
-- [ ] davos
-- [ ] digikam
-- [ ] doublecommander
-- [ ] filezilla
-- [ ] firefox-syncserver
-- [ ] formalms
-- [ ] fossil
-- [ ] golinks
-- [ ] gotify
-- [ ] grav
-- [ ] headphones
-- [ ] installer
-- [ ] leantime
-- [ ] medusa
-- [ ] mstream
-- [ ] muximux
-- [ ] notes
-- [ ] novnc
-- [ ] photoshow
-- [ ] piwigo
-- [ ] pixapop
-- [ ] podgrab
-- [ ] remmina
-- [ ] shorturl
-- [ ] sickchill
-- [ ] sickgear
-- [ ] smokeping
-- [ ] sqlitebrowser
-- [ ] static
-- [ ] todo
-- [ ] twtxt
-- [ ] wiki
 
 ##### TODO: Require custom care to handle their configuration
 
@@ -247,6 +181,9 @@ _These Apps have specific requirements or need specific customisation and care_
 - [ ] odoo
 - [ ] papermerge
 - [ ] shiori
+- [ ] firefox-syncserver
+- [ ] gotify
+- [ ] chyrp-lite
 
 ##### TODO: Requires MariaDB to be added first
 
@@ -254,12 +191,17 @@ _These Apps have specific requirements or need specific customisation and care_
 - [ ] friendica
 - [ ] projectsend
 - [ ] snipe-it
+- [ ] formalms
+- [ ] leantime
+- [ ] blog
+- [ ] bookstack
 
 ##### TODO: Other Complications
 
 - [ ] boinc-client
 - [ ] hedgedoc
 - [ ] mariadb
+- [ ] cryptpad
 
 ### Not Likely to be added
 
@@ -282,6 +224,14 @@ _These Apps have specific requirements or need specific customisation and care_
 :x: diun ( The general feature is already integrated into SCALE)
 
 :x: pterodactyl (Not natively compatible with k8s, would most likely go totally haywire when clustering launches)
+
+:x: booksonic (is *depricated* by upstream )
+
+:x: installer (an installer-ecosystem, within an installer ecosystem (scale) seems a bit weird)
+
+:x: static (Upstream project disapeared)
+
+:x: todo (Upstream project disapeared)
 
 ### Completed App Requests
 
@@ -366,3 +316,43 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] postgres
 - [x] syncthing
 - [x] transmission
+- [x] apache-musicindex
+- [x] aria2
+- [x] booksonic-air
+- [x] cryptofolio
+- [x] icantbelieveitsnotvaletudo
+- [x] minio-console
+- [x] valheim
+- [x] whoogle
+- [x] amcrest2mqtt
+- [x] audacity
+- [x] beets
+- [x] cloud9
+- [x] code-server
+- [x] davos
+- [x] digikam
+- [x] doublecommander
+- [x] filezilla
+- [x] fossil
+- [x] golinks
+- [x] grav
+- [x] headphones
+- [x] leaf2mqtt
+- [x] medusa
+- [x] mstream
+- [x] muximux
+- [x] notes
+- [x] novnc
+- [x] photoshow
+- [x] piwigo
+- [x] pixapop
+- [x] remmina
+- [x] shorturl
+- [x] sickchill
+- [x] sickgear
+- [x] smokeping
+- [x] sqlitebrowser
+- [x] twtxt
+- [x] wiki
+- [x] zigbee2mqtt
+- [x] podgrab
