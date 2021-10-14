@@ -166,7 +166,15 @@ questions:
                                 - value: TCP
                                   description: "TCP"
                                 - value: "UDP"
-                                  description: "UDP"                         
+                                  description: "UDP"
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 7000
+                              editable: false
+                              hidden: true
                           - variable: port
                             label: "Container Port"
                             schema:
@@ -206,6 +214,14 @@ questions:
                                   description: "TCP"
                                 - value: "UDP"
                                   description: "UDP"
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9090
+                              editable: false
+                              hidden: true
                           - variable: port
                             label: "Container Port"
                             schema:
@@ -244,7 +260,15 @@ questions:
                                 - value: TCP
                                   description: "TCP"
                                 - value: "UDP"
-                                  description: "UDP"                          
+                                  description: "UDP"
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 3483
+                              editable: false
+                              hidden: true
                           - variable: port
                             label: "Container Port"
                             schema:
@@ -332,7 +356,15 @@ questions:
                                 - value: TCP
                                   description: "TCP"
                                 - value: "UDP"
-                                  description: "UDP"                          
+                                  description: "UDP"
+                          - variable: targetPort
+                            label: "Target Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 3483
+                              editable: false
+                              hidden: true
                           - variable: port
                             label: "Container Port"
                             schema:
