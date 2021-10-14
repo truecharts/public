@@ -7,7 +7,8 @@
 image:
   repository: lmscommunity/logitechmediaserver
   pullPolicy: IfNotPresent
-  tag: 8.2.1
+  tag: 8.3.0@sha256:de999c6c3d74e35ec6092cc0564044fa59b6295a69ec398c7b1e669b7c9047ef
+
 
 envTpl:
   # Port to host the web service on. This will be the internal container port exposed and needs to be the same as the public service port.
