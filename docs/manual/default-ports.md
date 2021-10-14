@@ -20,7 +20,7 @@ These defaults can ofcoarse be changed, but as we guarantee "sane, working defau
 | Handbrake                  |    main    |  36002   |                   |                                    |
 | Handbrake                  |    vnc     |  36003   |                   |                                    |
 | Collabora                  |    main    |  36004   |                   |                                    |
-| Deepstack                  |    main    |  36005   |                   |                                    |
+| Deepstack-cpu              |    main    |  36005   |                   |                                    |
 | Emby                       |    main    |  36006   |                   |                                    |
 | ESPHome                    |    main    |  36007   |                   |                                    |
 | Home Assistant             |    main    |  36008   |                   |                                    |
@@ -168,6 +168,7 @@ These defaults can ofcoarse be changed, but as we guarantee "sane, working defau
 | Cryptfolio                 |    main    |  36145   |                   |                                    |
 | Valheim                    |    main    |  36146   |                   |                                    |
 | Valheim                    | supervisor |  36147   |                   |                                    |
+| Deepstack-gpu              |    main    |  36148   |                   |                                    |
 | Uptime-Kuma                |    main    |  36149   |                   |                                    |
 
 ##### Note: TCP and UPD ports that are the same in each App, are not by mistake.
