@@ -55,7 +55,7 @@ questions:
           label: "(Advanced) Update Strategy"
           schema:
             type: string
-            default: "Recreate"
+            default: "RollingUpdate"
             required: true
             enum:
               - value: "Recreate"
