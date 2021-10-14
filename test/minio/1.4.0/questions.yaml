@@ -3,10 +3,10 @@ groups:
     description: "Image to be used for container"
   - name: "Workload Configuration"
     description: "Configure workload deployment"
-  - name: "Storage"
-    description: "Configure Storage for Nextcloud"
   - name: "Minio Configuration"
     description: "Configure Minio credentials"
+  - name: "Storage"
+    description: "Configure Storage for Nextcloud"
   - name: "Advanced DNS Settings"
     description: "Configure DNS settings"
 
@@ -186,6 +186,7 @@ questions:
     group: "Storage"
     schema:
       type: dict
+      show_if: [["distributedMode", "=", false]]
       attrs:
         - variable: export
           label: "Data Volume"
@@ -222,3 +223,28 @@ questions:
                       schema:
                         type: hostpath
                         required: true
+
+  - variable: extraAppVolumeMounts
+    label: "Extra Host Path Volumes"
+    group: "Storage"
+    schema:
+      type: list
+      items:
+        - variable: extraAppVolume
+          label: "Host Path Volume"
+          description: "Add an extra host path volume for Minio application"
+          schema:
+            type: dict
+            attrs:
+              - variable: mountPath
+                label: "Mount Path in Pod"
+                description: "Path where the volume will be mounted inside the pod"
+                schema:
+                  type: path
+                  required: true
+              - variable: hostPath
+                label: "Host Path"
+                description: "Host path"
+                schema:
+                  type: hostpath
+                  required: true

@@ -30,6 +30,10 @@ spec:
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
           {{- include "minio.tlsKeysVolumeMount" . | nindent 12 }}
+          {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+            - name: extrappvolume-{{ $index }}
+              mountPath: {{ $hostPathConfiguration.mountPath }}
+          {{ end }}
           command:
             - "/bin/sh"
             - "-ce"
@@ -50,5 +54,10 @@ spec:
             {{ $envList = mustAppend $envList (dict "name" "MINIO_ROOT_PASSWORD" "valueFromSecret" true "secretName" $secretName "secretKey" "secretkey") }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
 {{ include "common.networking.dnsConfiguration" .Values | nindent 6 }}
-{{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
-{{- include "minio.tlsKeysVolume" . | nindent 8 }}
+      volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
+      {{- include "minio.tlsKeysVolume" . | nindent 8 }}
+      {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+        - name: extrappvolume-{{ $index }}
+          hostPath:
+            path: {{ $hostPathConfiguration.hostPath }}
+    {{ end }}
