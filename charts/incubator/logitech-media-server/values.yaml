@@ -28,7 +28,7 @@ podSecurityContext:
 service:
   main:
     ports:
-      http:
+      main:
         # Please note that the main http port always has to be a 1:1 mapping between external and internal port.
         # You can't just map it like -p 7000:9000, as Logitech Media Server is telling players on which port to connect.
         # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
