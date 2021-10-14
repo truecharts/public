@@ -168,5 +168,6 @@ These defaults can ofcoarse be changed, but as we guarantee "sane, working defau
 | Cryptfolio                 |    main    |  36145   |                   |                                    |
 | Valheim                    |    main    |  36146   |                   |                                    |
 | Valheim                    | supervisor |  36147   |                   |                                    |
+| Uptime-Kuma                |    main    |  36149   |                   |                                    |
 
 ##### Note: TCP and UPD ports that are the same in each App, are not by mistake.
