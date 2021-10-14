@@ -8,7 +8,6 @@ image:
 env:
   # Permissions Settings
   PUID: 568
-  GGID: 568
 
 envTpl:
   # Port to host the web service on. This will be the internal container port exposed and needs to be the same as the public service port.
@@ -33,8 +32,12 @@ service:
         # You can't just map it like -p 7000:9000, as Logitech Media Server is telling players on which port to connect.
         # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
         port: 7000
-      cli:
+  cli:
+    ports:
+      cli: 
         port: 9090
+  playertcp:
+    ports:
       slimprototcp:
         port: 3483
   playerudp:

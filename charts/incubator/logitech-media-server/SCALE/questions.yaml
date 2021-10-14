@@ -78,12 +78,6 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: PGID
-          label: "PGID"
-          description: "Sets the Group ID the Logitech Server Application should use."
-          schema:
-            type: int
-            default: 568
 
 # Include{containerConfig}
 
@@ -95,7 +89,7 @@ questions:
       attrs:
         - variable: main
           label: "Main Service"
-          description: "Logitech Media Web UI and Player TCP Communication"
+          description: "Logitech Media Web UI and music streaming"
           schema:
             type: dict
             attrs:
@@ -189,6 +183,55 @@ questions:
                               type: int
                               min: 9000
                               max: 65535                   
+        - variable: cli
+          label: "CLI Service"
+          description: "Logitech Media Server Telnet Command Line Interface"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "LoadBalancer"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Port(s) Configuration"
+                schema:
+                  type: dict
+                  attrs:
                     - variable: cli
                       label: "Port used for remote control using the Telnet Command Line interface"
                       schema:
@@ -236,8 +279,57 @@ questions:
                               type: int
                               min: 9000
                               max: 65535                   
-                    - variable: slimprototcp
-                      label: "Player to server TCP communication"
+        - variable: playertcp
+          label: "Logitech Media Server Player TCP Communcation"
+          description: "Logitech Media Server Player Service for TCP communication"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the service"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Service Type"
+                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                schema:
+                  type: string
+                  default: "LoadBalancer"
+                  enum:
+                    - value: "NodePort"
+                      description: "NodePort"
+                    - value: "ClusterIP"
+                      description: "ClusterIP"
+                    - value: "LoadBalancer"
+                      description: "LoadBalancer"
+              - variable: loadBalancerIP
+                label: "LoadBalancer IP"
+                description: "LoadBalancerIP"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: string
+                  default: ""
+              - variable: externalIPs
+                label: "External IP's"
+                description: "External IP's"
+                schema:
+                  show_if: [["type", "=", "LoadBalancer"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: externalIP
+                      label: "External IP"
+                      schema:
+                        type: string
+              - variable: ports
+                label: "Service's Port(s) Configuration"
+                schema:
+                  type: dict
+                  attrs:                    
+                    - variable: slimprotoudp
+                      label: "Player to server UDP communication"
                       schema:
                         type: dict
                         attrs:
@@ -282,7 +374,7 @@ questions:
                             schema:
                               type: int
                               min: 9000
-                              max: 65535                   
+                              max: 65535
         - variable: playerUdp
           label: "Logitech Media Server Player Communcation"
           description: "Logitech Media Server Player Service for UDP communication"
