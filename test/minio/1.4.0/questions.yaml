@@ -60,6 +60,28 @@ questions:
         - value: "Recreate"
           description: "Kill existing pods before creating new ones"
 
+  - variable: distributedMode
+    label: "Enable Distributed Mode"
+    group: "Minio Configuration"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: distributedIps
+          label: "Distributed Minio URI(s)"
+          schema:
+            type: list
+            required: true
+            default: []
+            items:
+              - variable: ip
+                label: "Distributed Minio URI"
+                schema:
+                  type: string
+                  empty: false
+
+
   - variable: extraArgs
     label: "Minio Extra Arguments"
     group: "Minio Configuration"
