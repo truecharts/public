@@ -1,0 +1,92 @@
+image:
+  # -- image repository
+  repository: vabene1111/recipes
+  # -- image tag
+  tag: 0.17.2@sha256:01e5f436ac192ee1cca996e628a3dee1029b99f7b4489bdeeaaf74aaf923538e
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+nginxImage:
+  # -- nginx sidecar image repository
+  repository: nginx
+  # -- nginx sidecar image tag
+  tag: 1.21.3@sha256:7250923ba3543110040462388756ef099331822c6172a050b12c7a38361ea46f
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- environment variables. See [project docs](https://raw.githubusercontent.com/vabene1111/recipes/master/.env.template) for more details.
+# @default -- See below
+env:
+  TIMEZONE: UTC
+  DEBUG: 0
+  ALLOWED_HOSTS: "*"
+  SECRET_KEY: "changeme"
+  GUNICORN_MEDIA: 0
+  FRACTION_PREF_DEFAULT: 0
+  COMMENT_PREF_DEFAULT: 1
+  SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
+
+envTpl:
+  DB_ENGINE: "django.db.backends.postgresql"
+  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRES_PORT: "5432"
+
+envValueFrom:
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+additionalContainers:
+  nginx:
+    name: nginx
+    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
+    ports:
+      - containerPort: 80
+        name: main
+    volumeMounts:
+    - name: recipes-config
+      mountPath: /etc/nginx/nginx.conf
+      subPath: nginx-config
+      readOnly: true
+    - name: media
+      mountPath: '/media'
+    - name: static
+      mountPath: '/static'
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  media:
+    enabled: true
+    mountPath: /opt/recipes/mediafiles
+  static:
+    enabled: true
+    type: emptyDir
+    mountPath: /opt/recipes/staticfiles
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: recipes
+  postgresqlDatabase: recipes

@@ -173,5 +173,25 @@ These defaults can ofcoarse be changed, but as we guarantee "sane, working defau
 | Tdarr-node                 |    main    |  36150   |                   |                                    |
 | Tdarr                      |    main    |  36151   |                   |                                    |
 | Tdarr                      |    comm    |  36152   |                   |                                    |
+| Babybuddy                  |    main    |  36153   |                   |                                    |
+| Dsmr-reader                |    main    |  36154   |                   |                                    |
+| WIkijs                     |    main    |  36155   |                   |                                    |
+| Etherpad                   |    main    |  36156   |                   |                                    |
+| Firefox-syncserver         |    main    |  36157   |                   |                                    |
+| Gotify                     |    main    |  36158   |                   |                                    |
+| Joplin-server              |    main    |  36159   |                   |                                    |
+| Kanboard                   |    main    |  36160   |                   |                                    |
+| Librespeed                 |    main    |  36161   |                   |                                    |
+| Miniflux                   |    main    |  36162   |                   |                                    |
+| Odoo                       |    main    |  36163   |                   |                                    |
+| Odoo                       |   odoo-1   |  36164   |                   |                                    |
+| Odoo                       |   odoo-2   |  36165   |                   |                                    |
+| Openkm                     |    main    |  36166   |                   |                                    |
+| Recipes                    |    main    |  36167   |                   |                                    |
+| Shiori                     |    main    |  36168   |                   |                                    |
+| Statping                   |    main    |  36169   |                   |                                    |
+| Teedy                      |    main    |  36170   |                   |                                    |
+| Traccar                    |    main    |  36171   |                   |                                    |
+| Tt-rss                     |    main    |  36172   |                   |                                    |
 
 ##### Note: TCP and UPD ports that are the same in each App, are not by mistake.

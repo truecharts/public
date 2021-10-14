@@ -1,0 +1,68 @@
+image:
+  # -- image repository
+  repository: kanboard/kanboard
+  # -- image tag
+  tag: v1.2.20@sha256:d6d3bab5ca3f079ca782a7dc63e370e0ee3a006c596ba51ff6beb24d051528fc
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- environment variables. See [image docs](https://docs.kanboard.org/en/latest/admin_guide/docker.html#environment-variables)
+# and [application docs](# https://docs.kanboard.org/en/latest/admin_guide/config_file.html) for more details.
+# @default -- See below (only deviations from the default settings are specified)
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Enable/disable email configuration from the user interface
+  MAIL_CONFIGURATION: false
+  # -- log driver: syslog, stderr, stdout or file
+  LOG_DRIVER: stdout
+
+envTpl:
+  DB_DRIVER: "postgres"
+  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PORT: "5432"
+
+envValueFrom:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOSTNAME:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/app/data
+  ssl:
+    enabled: true
+    mountPath: /etc/nginx/ssl
+
+# -- Enable and configure postgresql database subchart under this key.
+# @default -- See values.yaml
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: kanboard
+  postgresqlDatabase: kanboard

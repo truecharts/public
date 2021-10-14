@@ -1,0 +1,53 @@
+image:
+  # -- image repository
+  repository: openkm/openkm-ce
+  # -- image tag
+  tag: 6.3.11@sha256:15bf6110539b02795a52f4472d95511736cfbdedef8396baf24c65a3aae28814
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+initContainers:
+  init:
+    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+    command: ["/config/init/init.sh"]
+    volumeMounts:
+      - name: init
+        mountPath: /config/init
+      - name: config
+        mountPath: /opt/tomcat
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- environment variables. See more environment variables in the [openkm documentation](https://openkm.org/docs).
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 8080
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/tomcat/repository
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: openkm
+  postgresqlDatabase: openkm

@@ -1,0 +1,55 @@
+image:
+  # -- image repository
+  repository: ghcr.io/k8s-at-home/tt-rss
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+  # -- image tag
+  tag: v1.9027.0@sha256:f095b43364f4ceaefd82648778e3cef2d0aec19c183fbdae98e6804c2139b495
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- See more environment variables in the tt-rss documentation
+# https://git.tt-rss.org/fox/tt-rss/src/branch/master/classes/config.php#L9
+# @default -- See below.
+env:
+  # -- External URL you use to connect to the RSS (the one you enter in your browser)
+  TTRSS_SELF_URL_PATH: ""
+
+envTpl:
+  TTRSS_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  TTRSS_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  TTRSS_DB_PORT: "5432"
+
+envValueFrom:
+  TTRSS_DB_PASS:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  TTRSS_DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+# -- Configure the services for the chart here.
+# @default -- See below.
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+
+# @default -- see bellow
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  # -- Postgres database user name
+  postgresqlUsername: tt-rss
+  # -- Postgres database password
+  postgresqlDatabase: tt-rss

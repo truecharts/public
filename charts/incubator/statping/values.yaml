@@ -1,0 +1,73 @@
+image:
+  # -- image repository
+  repository: statping/statping
+  # -- image tag
+  tag: v0.90.74@sha256:d55c3ea8b64411199f7952fc6e00b2090bb6f1691a1d197a2a7e237e92384523
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [application docs](https://github.com/statping/statping/wiki/Config-with-.env-File) for more details.
+# @default -- See below
+secret:
+  # -- dashboard admin user (needed to edit)
+  ADMIN_USER: "admin"
+  # -- dashboard admin password (needed to edit)
+  ADMIN_PASSWORD: "changeme"
+  # -- dashboard admin email
+  ADMIN_EMAIL: "info@example.com"
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Name of the Statping instance
+  NAME: "Statping Example"
+  # -- Description of the Statping instance
+  DESCRIPTION: "This is a Statping instance deployed as Helm chart"
+  # -- External URL you use to connect to the statping (the one you enter in your browser)
+  VIRTUAL_HOST: ""
+  # -- Use CDN for static context from third-parties
+  USE_CDN: false
+  # -- Disable logs from appearing and writing to disk
+  DISABLE_LOGS: false
+
+
+envTpl:
+  DB_CONN: "postgres"
+  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PORT: "5432"
+  POSTGRES_SSLMODE: "disable"
+
+envValueFrom:
+  DB_PASS:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  data:
+    enabled: true
+    mountPath: /app
+
+# -- Enable and configure postgresql database subchart under this key.
+# @default -- See values.yaml
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: postgres
+  postgresqlDatabase: postgres

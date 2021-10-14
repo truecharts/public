@@ -1,0 +1,53 @@
+image:
+  # -- image repository
+  repository: requarks/wiki
+  # -- image tag
+  tag: 2.5@sha256:22660a3f33a8719d69cb62b6eb520dfcf1d3cfc5b787b88cc444bd969ca7533a
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-wikijs#environment-variables-e) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  PUID: 568
+  TZ: UTC
+
+envTpl:
+  DB_TYPE: "postgres"
+  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PORT: "5432"
+
+envValueFrom:
+  DB_PASS:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: wikijs
+  postgresqlDatabase: wikijs

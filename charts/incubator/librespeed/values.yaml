@@ -1,0 +1,58 @@
+image:
+  # -- image repository
+  repository: ghcr.io/linuxserver/librespeed
+  # -- image tag
+  tag: 5.2.4@sha256:6a8a801f5531de520ff07fa123cabbb7a39c4bba05a093be4832cd85e18e2489
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [image docs](https://hub.docker.com/r/linuxserver/librespeed) for more details.
+# @default -- See below
+secret:
+  PASSWORD: "changeme"
+
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Specify the user ID the application will run as
+  PUID: "568"
+  CUSTOM_RESULTS: false
+
+envTpl:
+  DB_TYPE: "postgresql"
+  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PORT: "5432"
+
+envValueFrom:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOSTNAME:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 80
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+# -- Enable and configure postgresql database subchart under this key.
+# @default -- Enabled (see values.yaml for more details)
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlDatabase: librespeed
+  postgresqlUsername: librespeed

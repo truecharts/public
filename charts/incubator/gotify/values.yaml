@@ -1,0 +1,53 @@
+image:
+  repository: gotify/server
+  pullPolicy: IfNotPresent
+  tag: 2.1.0@sha256:57aa2aabac035c16118f625dd6d3d2c3ca421b43b28cb27512f3212193d65771
+
+secret:
+  user: "admin"
+  pass: "admin"
+
+# See more environment variables in the gotify documentation
+# https://gotify.net/docs/config#environment-variables
+env:
+  # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  TZ: "America/Los_Angeles"
+  GOTIFY_SERVER_PORT: 8080
+  GOTIFY_SERVER_KEEPALIVEPERIODSECONDS: 0
+  GOTIFY_SERVER_LISTENADDR: ""
+  GOTIFY_SERVER_SSL_ENABLED: false
+  # lists are a little weird but do-able (:
+  # GOTIFY_SERVER_SSL_LETSENCRYPT_HOSTS: "- mydomain.tld\n- myotherdomain.tld"
+  GOTIFY_SERVER_RESPONSEHEADERS: "X-Custom-Header: \"custom value\""
+  # GOTIFY_SERVER_CORS_ALLOWORIGINS: "- \".+.example.com\"\n- \"otherdomain.com\""
+  # GOTIFY_SERVER_CORS_ALLOWMETHODS: "- \"GET\"\n- \"POST\""
+  # GOTIFY_SERVER_CORS_ALLOWHEADERS: "- \"Authorization\"\n- \"content-type\""
+  # GOTIFY_SERVER_STREAM_ALLOWEDORIGINS: "- \".+.example.com\"\n- \"otherdomain.com\""
+  GOTIFY_SERVER_STREAM_PINGPERIODSECONDS: 45
+  GOTIFY_PASSSTRENGTH: 10
+  GOTIFY_UPLOADEDIMAGESDIR: "data/images"
+  GOTIFY_PLUGINSDIR: "data/plugins"
+
+envFrom:
+  - configMapRef:
+      name: gotifyenv
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+    accessMode: ReadWriteOnce
+    size: 1Gi
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: gotify
+  postgresqlDatabase: gotify
