@@ -9,8 +9,13 @@ env:
   # Permissions Settings
   PUID: 568
   GGID: 568
-  # Port to host the web service on. This will be the internal container port exposed and needs to be the same as the node port.
-  HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+envTpl:
+  # Port to host the web service on. This will be the internal container port exposed and needs to be the same as the public service port.
+  # The main http port always has to be a 1:1 mapping between external and internal port.
+  # You can't just map it like -p 9002:9000, as Logitech Media Server is telling players on which port to connect.
+  # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
+  HTTP_PORT: "{{ .Values.service.main.ports.main.http }}"
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -23,22 +28,18 @@ podSecurityContext:
 service:
   main:
     ports:
-      main:
+      http:
         # Please note that the main http port always has to be a 1:1 mapping between external and internal port.
-        # You can't just map it like -p 9002:9000, as Logitech Media Server is telling players on which port to connect.
+        # You can't just map it like -p 7000:9000, as Logitech Media Server is telling players on which port to connect.
         # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
-        port: 36110
-        nodePort: "{{ .Values.service.main.ports.main.port }}"
+        port: 7000
       cli:
         port: 9090
-        nodePort: 9090
-  commtcp:
-    ports:
-      playertcp:
+      slimprototcp:
         port: 3483
-  commudp:
+  playerudp:
     ports:
-      playerudp:
+      slimprotoudp:
         port: 3483
 
 persistence:
