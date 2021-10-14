@@ -63,7 +63,6 @@ _This list is to track `App Requests` from one place._
 - [ ] oauth2-proxy
 - [ ] DokuWiki #1115
 - [ ] Storj Node #1086
-- [ ] Uptime Kuma #1097
 - [ ] PiGallery2 #1116
 
 ##### TODO: Requires Postgresql customisation
@@ -356,3 +355,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] wiki
 - [x] zigbee2mqtt
 - [x] podgrab
+- [x] Uptime Kuma #1097

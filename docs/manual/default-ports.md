@@ -169,5 +169,6 @@ These defaults can ofcoarse be changed, but as we guarantee "sane, working defau
 | Valheim                    |    main    |  36146   |                   |                                    |
 | Valheim                    | supervisor |  36147   |                   |                                    |
 | Deepstack-gpu              |    main    |  36148   |                   |                                    |
+| Uptime-Kuma                |    main    |  36149   |                   |                                    |
 
 ##### Note: TCP and UPD ports that are the same in each App, are not by mistake.

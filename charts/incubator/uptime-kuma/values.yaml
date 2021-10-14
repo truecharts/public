@@ -1,0 +1,28 @@
+# Default values for Uptime Kuma.
+
+image:
+  repository: louislam/uptime-kuma
+  pullPolicy: IfNotPresent
+  tag: 1.8.0-debian@sha256:c775044689c432e282df0adc2fb6f0706513e87d6ff73fcafe0149a729a5e383
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 3001
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/data"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
