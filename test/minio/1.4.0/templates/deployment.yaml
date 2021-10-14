@@ -7,6 +7,8 @@ metadata:
     chart: {{ template "common.names.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
 spec:
   replicas: {{ (default 1 .Values.replicas) }}
   strategy:
@@ -25,6 +27,7 @@ spec:
       annotations: {{ include "common.annotations" . | nindent 8 }}
     spec:
       serviceAccountName: {{ include "common.names.serviceAccountName" . | quote }}
+      hostNetwork: {{ include "minio.hostNetworking" . }}
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
