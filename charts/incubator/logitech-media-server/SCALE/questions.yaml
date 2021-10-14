@@ -174,7 +174,7 @@ questions:
                             schema:
                               type: int
                               min: 9000
-                              max: 65535                   
+                              max: 65535
         - variable: cli
           label: "CLI Service"
           description: "Logitech Media Server Telnet Command Line Interface"
@@ -262,7 +262,7 @@ questions:
                             schema:
                               type: int
                               min: 9000
-                              max: 65535                   
+                              max: 65535
         - variable: playertcp
           label: "Logitech Media Server Player TCP Communcation"
           description: "Logitech Media Server Player Service for TCP communication"
@@ -311,7 +311,7 @@ questions:
                 label: "Service's Port(s) Configuration"
                 schema:
                   type: dict
-                  attrs:                    
+                  attrs:
                     - variable: slimprotoudp
                       label: "Player to server UDP communication"
                       schema:
@@ -399,7 +399,7 @@ questions:
                 label: "Service's Port(s) Configuration"
                 schema:
                   type: dict
-                  attrs:                    
+                  attrs:
                     - variable: slimprotoudp
                       label: "Player to server UDP communication"
                       schema:
@@ -439,7 +439,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-        
+
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
