@@ -1,0 +1,23 @@
+##
+# This file contains Values.yaml content that gets added to the output of questions.yaml
+# It's ONLY meant for content that the user is NOT expected to change.
+# Example: Everything under "image" is not included in questions.yaml but is included here.
+##
+
+image:
+  repository: lmscommunity/logitechmediaserver
+  pullPolicy: IfNotPresent
+  tag: 8.3.0@sha256:9af934afc408a7521dc29074a8cd1813b3460a5eec4216713699fce6bd734879
+
+
+envTpl:
+  # Port to host the web service on. This will be the internal container port exposed and needs to be the same as the public service port.
+  # The main http port always has to be a 1:1 mapping between external and internal port.
+  # You can't just map it like -p 9002:9000, as Logitech Media Server is telling players on which port to connect.
+  # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
+  HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+##
+# Most other defaults are set in questions.yaml
+# For other options please refer to the wiki, default_values.yaml or the common library chart
+##

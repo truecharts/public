@@ -1,0 +1,55 @@
+# Default values for Logitech Media Server.
+
+image:
+  repository: lmscommunity/logitechmediaserver
+  pullPolicy: IfNotPresent
+  tag: 8.3.0@sha256:9af934afc408a7521dc29074a8cd1813b3460a5eec4216713699fce6bd734879
+
+
+env:
+  # Permissions Settings
+  PUID: 568
+
+envTpl:
+  # Port to host the web service on. This will be the internal container port exposed and needs to be the same as the public service port.
+  # The main http port always has to be a 1:1 mapping between external and internal port.
+  # You can't just map it like -p 9002:9000, as Logitech Media Server is telling players on which port to connect.
+  # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
+  HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        # Please note that the main http port always has to be a 1:1 mapping between external and internal port.
+        # You can't just map it like -p 7000:9000, as Logitech Media Server is telling players on which port to connect.
+        # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
+        port: 7000
+  cli:
+    ports:
+      cli:
+        port: 9090
+  playertcp:
+    ports:
+      slimprototcp:
+        port: 3483
+  playerudp:
+    ports:
+      slimprotoudp:
+        port: 3483
+
+persistence:
+  config:
+    enabled: true
+    mounthPath: "/config"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
