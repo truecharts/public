@@ -619,6 +619,22 @@ persistence:
     # specify a size for memory backed volumes.
     sizeLimit:  # 1Gi
 
+  # -- Create an emptyDir volume to share between all containers
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  # @default -- See below
+  varlogs:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/logs
+
+    # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
+    # of the storage medium that backs the node.
+    medium:  # Memory
+
+    # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
+    # specify a size for memory backed volumes.
+    sizeLimit:  # 1Gi
+
   # -- Create an emptyDir volume to share between all containers for temporary storage
   # @default -- See below
   temp:
