@@ -23,7 +23,8 @@ data:
   postgresql-password: {{ $dbPass | b64enc | quote }}
   postgresql-postgres-password: {{ randAlphaNum 50 | b64enc | quote }}
 {{- end }}
-  url: {{ ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
+  url: {{ ( printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
+  urlnossl: {{ ( printf "postgresql://%v:%v@%v-postgresql:5432/%v?sslmode=disable" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
   plainporthost: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
   plainhost: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
 type: Opaque
