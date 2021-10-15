@@ -28,6 +28,7 @@ jobs:
         list-files: json
         filters: |
           changed:
+          - 'charts/dev/**'
           - 'charts/stable/**'
           - 'charts/incubator/**'
           - 'charts/library/**'
@@ -81,6 +82,8 @@ jobs:
               train="stable"
             elif test -f "./charts/library/${{ matrix.app }}/Chart.yaml"; then
               train="library"
+            elif test -f "./charts/dev/${{ matrix.app }}/Chart.yaml"; then
+              train="dev"
             else
               train="incubator"
             fi
