@@ -5,4 +5,3 @@
 #### Feat
 
 * Add deepstack-gpu ([#1141](https://github.com/truecharts/apps/issues/1141))
-
