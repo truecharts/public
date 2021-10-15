@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.3.9"></a>
+### [common-8.3.9](https://github.com/truecharts/apps/compare/common-8.3.8...common-8.3.9) (2021-10-15)
+
+#### Chore
+
+* add varlog storage and streamline db urls again
+
+
+
 <a name="common-8.3.8"></a>
 ### [common-8.3.8](https://github.com/truecharts/apps/compare/common-8.3.7...common-8.3.8) (2021-10-15)
 
