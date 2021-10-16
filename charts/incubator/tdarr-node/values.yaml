@@ -41,9 +41,5 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
-  transcode-cache:
-    enabled: true
-    mountPath: "/temp"
-    type: emptyDir
   varrun:
     enabled: true
