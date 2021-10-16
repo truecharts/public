@@ -941,6 +941,18 @@ questions:
                   hidden: true
 # Include{persistenceList}
 
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            type: dict
+            attrs:
+
 # Include{ingressDefault}
 
 # Include{ingressTLS}
