@@ -7,22 +7,22 @@ Accepted formats are:
 - Multiple FQDN (eg. `cloud.mydomain.com|nextcloud.mydomain.com` or `mydomain.com|cname.mydomain.com`) - Each FQDN is separated with `|`
 
 Each FQDN is split into parts
-* Hostname (`cname`.domain.com) _Optional_
-  * Can have from 1 up to 127 levels deep cnames.
-  * Can contain [0-9], [a-z] and `-`.
-  * Must be at least 1 char and no longer than 63 chars.
-  * Must start with [a-z], [0-9].
-  * Must NOT end with `-`.
-* Domain (cname.`domain`.com)
-  * Can contain [0-9], [a-z] and `-`.
-  * Must be at least 1 chars and no longer than 63 chars.
-  * Must start with [a-z], [0-9].
-  * Must NOT end with `-`.
-* Top-Level-Domains (cname.domain.`com`)
-  * Can contain [0-9], [a-z] and `-`.
-  * Must be at least 2 chars and no longer than 63 chars.
-  * Must start with [a-z].
-  * Must NOT end with `-`.
+__Hostname (`cname`.domain.com)__ _Optional_
+* Can have from 1 up to 127 levels deep cnames.
+* Can contain [0-9], [a-z] and `-`.
+* Must be at least 1 char and no longer than 63 chars.
+* Must start with [a-z], [0-9].
+* Must NOT end with `-`.
+__Domain (cname.`domain`.com)__
+* Can contain [0-9], [a-z] and `-`.
+* Must be at least 1 chars and no longer than 63 chars.
+* Must start with [a-z], [0-9].
+* Must NOT end with `-`.
+__Top-Level-Domains (cname.domain.`com`)__
+* Can contain [0-9], [a-z] and `-`.
+* Must be at least 2 chars and no longer than 63 chars.
+* Must start with [a-z].
+* Must NOT end with `-`.
 
 Regex used to match those: `^(([a-z\d](-?[a-z\d]){0,62})\.)*(([a-z\d](-?[a-z\d]){0,62})\.)([a-z](-?[a-z\d]){1,62})((\|((([a-z\d](-?[a-z\d]){0,62})\.)*(([a-z\d](-?[a-z\d]){0,62})\.)([a-z](-?[a-z\d]){1,62})))*)$`
 You can try live [here](https://regex101.com/r/rIxhye/1)
