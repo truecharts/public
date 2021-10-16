@@ -120,8 +120,8 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: comm
-          label: "comm Service"
+        - variable: main
+          label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             type: dict
@@ -169,8 +169,8 @@ questions:
                 schema:
                   type: dict
                   attrs:
-                    - variable: comm
-                      label: "comm Service Port Configuration"
+                    - variable: main
+                      label: "Main Service Port Configuration"
                       schema:
                         type: dict
                         attrs:

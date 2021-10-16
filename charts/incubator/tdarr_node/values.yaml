@@ -14,10 +14,10 @@ env:
   PUID: 568
 
 service:
-  comm:
+  main:
     enabled: true
     ports:
-      comm:
+      main:
         port: 8267
 
 persistence:
