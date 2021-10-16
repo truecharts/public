@@ -5,6 +5,9 @@ image:
   pullPolicy: IfNotPresent
   tag: 2.00.10@sha256:1e3f9328327d7d5597c414e6cf2b609e9e4a2854385e03c009814ad03c3c210c
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 env:
   serverIP: "0.0.0.0"
   serverPort: 8266
