@@ -162,9 +162,6 @@ _These Apps have specific requirements or need specific customisation and care_
 - [ ] homebridge
 - [ ] jetbrains-projector
 - [ ] paperless
-- [ ] tdarr
-
-
 
 #### [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts)
 
@@ -356,3 +353,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] zigbee2mqtt
 - [x] podgrab
 - [x] Uptime Kuma #1097
+- [x] tdarr / tdarr-node
