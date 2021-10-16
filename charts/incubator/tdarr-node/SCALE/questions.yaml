@@ -407,7 +407,7 @@ questions:
                 description: "Sets the persistence type"
                 schema:
                   type: string
-                  default: "pvc"
+                  default: "emptyDir"
                   enum:
                     - value: "pvc"
                       description: "pvc"
