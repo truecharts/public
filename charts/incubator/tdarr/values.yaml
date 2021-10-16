@@ -1,0 +1,54 @@
+# Default values for tdarr_node.
+
+image:
+  repository: haveagitgat/tdarr
+  pullPolicy: IfNotPresent
+  tag: 2.00.10@sha256:63b95a5897f7be1841f4f4e192ab978ec4afc2d81d6fcc150f4785071560ed86
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  webUIPort: 8265
+  serverIP: "0.0.0.0"
+  serverPort: 8266
+  PUID: 568
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 8265
+  comm:
+    enabled: true
+    ports:
+      comm:
+        port: 8266
+
+persistence:
+  server:
+    enabled: true
+    mountPath: "/app/server"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+  configs:
+    enabled: true
+    mountPath: "/app/configs"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+  logs:
+    enabled: true
+    mountPath: "/app/logs"
+    type: pvc
+    accessMode: ReadWriteOnce
+    size: "100Gi"
+  varrun:
+    enabled: true
