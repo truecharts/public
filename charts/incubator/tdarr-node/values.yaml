@@ -14,12 +14,12 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  serverIP: "0.0.0.0"
-  serverPort: 8266
+  PUID: 568
   nodeID: "myFirstTdarrNode"
   nodeIP: "0.0.0.0"
   nodePort: 8267
-  PUID: 568
+  serverIP: "0.0.0.0"
+  serverPort: 8266
 
 service:
   main:

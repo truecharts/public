@@ -87,11 +87,10 @@ questions:
           schema:
             type: string
             required: true
-            $ref:
-              - "definitions/nodeIP"
+            default: "tdarr-node.ix-tdarr-node.svc.cluster.local"
         - variable: nodePort
           label: "nodePort"
-          description: "Sets the port of this node"
+          description: "Sets the port of this node."
           schema:
             type: int
             required: true
@@ -625,6 +624,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   show_if: [["type", "=", "hostPath"]]
+                  required: true
                   type: hostpath
               - variable: hostPathType
                 label: "hostPath Type"

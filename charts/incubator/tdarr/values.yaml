@@ -14,10 +14,10 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  webUIPort: 8265
-  serverIP: "0.0.0.0"
-  serverPort: 8266
   PUID: 568
+  serverIP: "localhost"
+  serverPort: 8266
+  webUIPort: 8265
 
 service:
   main:
