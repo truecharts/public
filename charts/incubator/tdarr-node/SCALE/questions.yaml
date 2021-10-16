@@ -539,6 +539,18 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "100Gi"
+        - variable: varrun
+          label: "varrun override for S6 Readonly Root"
+          schema:
+            type: dict
+            hidden: true
+            attrs:
+              - variable: enabled
+                label: ""
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
 # Include{persistenceList}
 
 # Include{ingressDefault}
