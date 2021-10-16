@@ -170,6 +170,6 @@ These defaults can ofcoarse be changed, but as we guarantee "sane, working defau
 | Valheim                    | supervisor |  36147   |                   |                                    |
 | Deepstack-gpu              |    main    |  36148   |                   |                                    |
 | Uptime-Kuma                |    main    |  36149   |                   |                                    |
-| Tdarr_node                |    comm    |  36150   |                   |                                    |
+| Tdarr-node                |    comm    |  36150   |                   |                                    |
 
 ##### Note: TCP and UPD ports that are the same in each App, are not by mistake.
