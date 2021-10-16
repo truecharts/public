@@ -592,7 +592,7 @@ questions:
                 description: "Sets the persistence type"
                 schema:
                   type: string
-                  default: "emptyDir"
+                  default: "hostPath"
                   enum:
                     - value: "pvc"
                       description: "pvc"
@@ -702,7 +702,7 @@ questions:
                 description: "Sets the persistence type"
                 schema:
                   type: string
-                  default: "emptyDir"
+                  default: "hostPath"
                   enum:
                     - value: "pvc"
                       description: "pvc"

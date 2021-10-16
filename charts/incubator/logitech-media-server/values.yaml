@@ -56,9 +56,9 @@ persistence:
   playlist:
     enabled: true
     mounthPath: "/playlist"
-    type: emptyDir
+    type: hostPath
   music:
     enabled: true
     mountPath: "/music"
-    type: emptyDir
+    type: hostPath
     readOnly: true
