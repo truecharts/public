@@ -1,4 +1,4 @@
-# Default values for tdarr_node.
+# Default values for tdarr
 
 image:
   repository: haveagitgat/tdarr
@@ -26,7 +26,6 @@ service:
       main:
         port: 8265
   comm:
-    enabled: true
     ports:
       comm:
         port: 8266
