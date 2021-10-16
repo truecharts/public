@@ -7,4 +7,3 @@
 #### Feat
 
 * Add tdarr-node ([#1150](https://github.com/truecharts/apps/issues/1150))
-
