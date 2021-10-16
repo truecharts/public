@@ -53,12 +53,3 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
-  playlist:
-    enabled: true
-    mounthPath: "/playlist"
-    type: hostPath
-  music:
-    enabled: true
-    mountPath: "/music"
-    type: hostPath
-    readOnly: true
