@@ -391,7 +391,7 @@ questions:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: "100Gi"
-        - variable: transcode_cache
+        - variable: transcode-cache
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:

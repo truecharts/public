@@ -33,7 +33,7 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
-  transcode_cache:
+  transcode-cache:
     enabled: true
     mountPath: "/temp"
     type: pvc
