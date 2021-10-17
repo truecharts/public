@@ -131,7 +131,7 @@ class Test < ChartTest
 
       it 'can process default (568:568) permissions for multiple volumes' do
         results= {
-          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :666 '/configlist'; chmod -R g+w || echo 'chmod failed for /configlist, are you running NFSv4 ACLs?' '/configlist';chown -R :666 '/data'; chmod -R g+w || echo 'chmod failed for /data, are you running NFSv4 ACLs?' '/data';"]
+          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :568 '/configlist'; chmod -R g+w || echo 'chmod failed for /configlist, are you running NFSv4 ACLs?' '/configlist';chown -R :568 '/data'; chmod -R g+w || echo 'chmod failed for /data, are you running NFSv4 ACLs?' '/data';"]
         }
         values = {
           persistenceList: [
@@ -161,7 +161,7 @@ class Test < ChartTest
 
       it 'outputs default permissions with irrelevant podSecurityContext' do
         results= {
-          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :666 '/configlist'; chmod -R g+w || echo 'chmod failed for /configlist, are you running NFSv4 ACLs?' '/configlist';chown -R :666 '/data'; chmod -R g+w || echo 'chmod failed for /data, are you running NFSv4 ACLs?' '/data';"]
+          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :568 '/configlist'; chmod -R g+w || echo 'chmod failed for /configlist, are you running NFSv4 ACLs?' '/configlist';chown -R :568 '/data'; chmod -R g+w || echo 'chmod failed for /data, are you running NFSv4 ACLs?' '/data';"]
         }
         values = {
           podSecurityContext: {
@@ -223,7 +223,7 @@ class Test < ChartTest
 
       it 'outputs runAsUser permissions for multiple volumes when set' do
         results= {
-          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :666 '/configlist'; chmod -R g+w || echo 'chmod failed for /configlist, are you running NFSv4 ACLs?' '/configlist';chown -R :666 '/data'; chmod -R g+w || echo 'chmod failed for /data, are you running NFSv4 ACLs?' '/data';"]
+          command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :568 '/configlist'; chmod -R g+w || echo 'chmod failed for /configlist, are you running NFSv4 ACLs?' '/configlist';chown -R :568 '/data'; chmod -R g+w || echo 'chmod failed for /data, are you running NFSv4 ACLs?' '/data';"]
         }
         values = {
           podSecurityContext: {
