@@ -62,6 +62,7 @@ questions:
 
   - variable: distributedMode
     label: "Enable Distributed Mode"
+    description: "Run Minio instance to connect to a distributed minio cluster"
     group: "Minio Configuration"
     schema:
       type: boolean
@@ -69,14 +70,14 @@ questions:
       show_subquestions_if: true
       subquestions:
         - variable: distributedIps
-          label: "Distributed Minio URI(s)"
+          label: "Distributed Minio Instance URI(s)"
           schema:
             type: list
             required: true
             default: []
             items:
               - variable: ip
-                label: "Distributed Minio URI"
+                label: "Distributed Minio Instance URI"
                 schema:
                   type: string
                   empty: false
