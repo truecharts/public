@@ -162,7 +162,6 @@ class Test < ChartTest
       it 'outputs default permissions with irrelevant podSecurityContext' do
         results= {
           command: ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :666 '/configlist'; chmod -R g+w || echo 'chmod failed for /configlist, are you running NFSv4 ACLs?' '/configlist';chown -R :666 '/data'; chmod -R g+w || echo 'chmod failed for /data, are you running NFSv4 ACLs?' '/data';"]
-                   ["/bin/sh", "-c", "echo 'Automatically correcting permissions...';chown -R :666 '/configlist'; chmod -R g+w || echo 'chmod failed for /configlist, are you running NFSv4 ACLs?' '/configlist';chown -R :666 '/data'; chmod -R g+w || echo 'chmod failed for /data, are you running NFSv4 ACLs?' '/data';"]
         }
         values = {
           podSecurityContext: {
