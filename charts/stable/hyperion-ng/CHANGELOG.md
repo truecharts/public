@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-3.0.8"></a>
+### [hyperion-ng-3.0.8](https://github.com/truecharts/apps/compare/hyperion-ng-3.0.7...hyperion-ng-3.0.8) (2021-10-17)
+
+#### Chore
+
+* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+
+#### Fix
+
+* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+
+
+
 <a name="hyperion-ng-3.0.7"></a>
 ### [hyperion-ng-3.0.7](https://github.com/truecharts/apps/compare/hyperion-ng-3.0.6...hyperion-ng-3.0.7) (2021-10-13)
 

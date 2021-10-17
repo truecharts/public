@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="readarr-8.0.11"></a>
+### [readarr-8.0.11](https://github.com/truecharts/apps/compare/readarr-8.0.10...readarr-8.0.11) (2021-10-17)
+
+#### Chore
+
+* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+
+#### Fix
+
+* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+
+
+
 <a name="readarr-8.0.10"></a>
 ### [readarr-8.0.10](https://github.com/truecharts/apps/compare/readarr-8.0.9...readarr-8.0.10) (2021-10-13)
 
