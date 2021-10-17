@@ -452,6 +452,7 @@ questions:
                   type: string
                   default: "/app/configs"
                   hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -600,6 +601,7 @@ questions:
                   type: string
                   default: "/app/server"
                   hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -748,6 +750,7 @@ questions:
                   type: string
                   default: "/app/logs"
                   hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -897,6 +900,7 @@ questions:
                   type: string
                   default: "/temp"
                   hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
