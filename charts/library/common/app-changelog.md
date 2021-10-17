@@ -1,7 +1,7 @@
 
-<a name="common-8.3.9"></a>
-### [common-8.3.9](https://github.com/truecharts/apps/compare/common-8.3.8...common-8.3.9) (2021-10-15)
+<a name="common-8.3.10"></a>
+### [common-8.3.10](https://github.com/truecharts/apps/compare/common-8.3.9...common-8.3.10) (2021-10-17)
 
-#### Chore
+#### Fix
 
-* add varlog storage and streamline db urls again
+* Just provide warning when chmod fails on autopermissions ([#1157](https://github.com/truecharts/apps/issues/1157))
