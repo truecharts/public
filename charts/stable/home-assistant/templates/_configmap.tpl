@@ -60,11 +60,10 @@ data:
     tts:
       - platform: google_translate
 
-    # Example Includes
-    # group: !include groups.yaml
-    # automation: !include automations.yaml
-    # script: !include scripts.yaml
-    # scene: !include scenes.yaml
+    group: !include groups.yaml
+    automation: !include automations.yaml
+    script: !include scripts.yaml
+    scene: !include scenes.yaml
   recorder.default: |-
 
     recorder:
