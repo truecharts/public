@@ -88,11 +88,11 @@ questions:
           schema:
             type: string
             required: true
-            $ref:
-              - "definitions/nodeIP"
+            hidden: true
+            default: "localhost"
         - variable: serverPort
           label: "serverPort"
-          description: "Sets the server port."
+          description: "Sets the server's comm port."
           schema:
             type: int
             required: true
@@ -865,6 +865,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   show_if: [["type", "=", "hostPath"]]
+                  required: true
                   type: hostpath
               - variable: hostPathType
                 label: "hostPath Type"

@@ -9,16 +9,20 @@ Make sure the Node and Server instances have the same media library and transcod
 
 ## Connecting Node with a Server
 
-__If the node is running on the same cluster:__
+__If the node is running on the same cluster with the tdarr server:__
 
-Assuming the server is named as `tdarr`.
+Assuming the node is named `tdarr-node` and server is named as `tdarr`.
 
-* serverIP: tdarr-comm.ix-tdarr.svc.cluster.local
-* serverPort: 8266 (The internal port used by the app)
+* nodeIP: `tdarr-node.ix-tdarr-node.svc.cluster.local`
+* serverIP: `tdarr-comm.ix-tdarr.svc.cluster.local`
+* serverPort: `8266` (The internal port used by the app)
 
-For more info on how to generate the internal dns, visit our website. Check the linking apps internally section on the manual.
+For more info on how to generate the internal dns, visit our website [here](https://truecharts.org/manual/Quick-Start%20Guides/14-linking-apps/). Check the linking apps internally section on the manual.
 
-__If the node is running on a different cluster or non-SCALE machine:__
+__If the node is running on a different cluster or SCALE machine than the tdarr server:__
 
-* serverIP: YOUR.HOST.SERVER.IP
-* serverPort: 36152 (Default nodePort)
+Assuming the node is named `tdarr-node`
+
+* nodeIP: `tdarr-node.ix-tdarr-node.svc.cluster.local`
+* serverIP: YOUR.ACTUALHOST.SERVER.IP
+* serverPort: `36152` (Default nodePort)
