@@ -299,6 +299,7 @@ questions:
                   type: string
                   default: "/var/lib/postgresql/data"
                   hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -409,6 +410,7 @@ questions:
                   type: string
                   default: "/bitnami/postgresql"
                   hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -520,6 +522,7 @@ questions:
                   type: string
                   default: "/dbbackups"
                   hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:

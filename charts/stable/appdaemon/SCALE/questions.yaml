@@ -341,6 +341,7 @@ questions:
                   type: string
                   default: "/conf"
                   hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:

@@ -290,6 +290,7 @@ questions:
                   type: string
                   default: "/app/data/"
                   hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
