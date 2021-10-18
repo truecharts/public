@@ -1,11 +1,7 @@
 
-<a name="home-assistant-8.2.2"></a>
-### [home-assistant-8.2.2](https://github.com/truecharts/apps/compare/home-assistant-8.2.1...home-assistant-8.2.2) (2021-10-17)
-
-#### Chore
-
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+<a name="home-assistant-8.2.3"></a>
+### [home-assistant-8.2.3](https://github.com/truecharts/apps/compare/home-assistant-8.2.2...home-assistant-8.2.3) (2021-10-18)
 
 #### Fix
 
-* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+* Fix invisible items in Automation Dashboard ([#1163](https://github.com/truecharts/apps/issues/1163))
