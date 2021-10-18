@@ -82,7 +82,7 @@ main() {
                 create_changelog "$chart" "$chartname" "$train" "$chartversion"
                 generate_docs "$chart" "$chartname" "$train" "$chartversion"
                 copy_docs "$chart" "$chartname" "$train" "$chartversion"
-                helm dependency update "${chart}" --skip-refresh
+                helm dependency update "${chart}" --skip-refresh || sleep 10 && helm dependency update "${chart}" --skip-refresh || sleep 10 &&  helm dependency update "${chart}" --skip-refresh
                 package_chart "$chart"
                 if [[ -f "${chart}/SCALE/item.yaml" ]]; then
                   clean_apps "$chart" "$chartname" "$train" "$chartversion"
@@ -397,7 +397,6 @@ patch_apps() {
     cp -rf ${target}/SCALE/templates/* ${target}/templates 2>/dev/null || :
     mv ${target}/SCALE/item.yaml catalog/${train}/${chartname}/item.yaml
     rm -rf ${target}/SCALE 2>/dev/null || :
-    mv ${target}/values.yaml ${target}/test_values.yaml 2>/dev/null || :
     touch ${target}/values.yaml
 }
 
