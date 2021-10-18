@@ -64,6 +64,9 @@ _This list is to track `App Requests` from one place._
 - [ ] DokuWiki #1115
 - [ ] Storj Node #1086
 - [ ] PiGallery2 #1116
+- [ ] LANraragi #1159
+- [ ] ArchiSteamFarm #1164
+- [ ] Docker Registry #1165
 
 ##### TODO: Requires Postgresql customisation
 - [ ] Keycloack #1106
