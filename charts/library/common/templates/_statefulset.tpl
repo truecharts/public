@@ -64,6 +64,8 @@ spec:
             storage: {{ required (printf "size is required for PVC %v" $vct.name) $vct.size | quote }}
         {{- if $vct.storageClass }}
         storageClassName: {{ if (eq "-" $vct.storageClass) }}""{{- else if (eq "SCALE-ZFS" $vct.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" $releaseName ) }}{{- else }}{{ $vct.storageClass | quote }}{{- end }}
+        {{- else if .Values.ixChartContext }}
+        storageClassName: {{ printf "%v-%v"  "ix-storage-class" .Release.Name }}
         {{- end }}
     {{- end }}
 {{- end }}
