@@ -27,6 +27,16 @@ data:
     cat /config/init/http.default >> /config/configuration.yaml
     fi
 
+    echo "Creating include files..."
+    for include_file in groups.yaml automations.yaml scripts.yaml scenes.yaml; do
+      if test -f "/config/$include_file"; then
+      echo "$include_file exists."
+      else
+      echo "$include_file does NOT exist."
+      touch "/config/$include_file"
+      fi
+    done
+
     cd "/config" || echo "Could not change path to /config"
     echo "Creating custom_components directory..."
     mkdir "/config/custom_components" || echo "custom_components directory already exists"
@@ -60,11 +70,10 @@ data:
     tts:
       - platform: google_translate
 
-    # Example Includes
-    # group: !include groups.yaml
-    # automation: !include automations.yaml
-    # script: !include scripts.yaml
-    # scene: !include scenes.yaml
+    group: !include groups.yaml
+    automation: !include automations.yaml
+    script: !include scripts.yaml
+    scene: !include scenes.yaml
   recorder.default: |-
 
     recorder:
