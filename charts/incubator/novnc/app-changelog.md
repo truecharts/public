@@ -1,7 +1,7 @@
 
-<a name="novnc-0.0.4"></a>
-### [novnc-0.0.4](https://github.com/truecharts/apps/compare/novnc-0.0.3...novnc-0.0.4) (2021-10-17)
+<a name="novnc-0.0.5"></a>
+### [novnc-0.0.5](https://github.com/truecharts/apps/compare/novnc-0.0.4...novnc-0.0.5) (2021-10-18)
 
-#### Chore
+#### Refactor
 
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))

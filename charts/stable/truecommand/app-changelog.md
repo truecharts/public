@@ -1,11 +1,7 @@
 
-<a name="truecommand-8.0.8"></a>
-### [truecommand-8.0.8](https://github.com/truecharts/apps/compare/truecommand-8.0.7...truecommand-8.0.8) (2021-10-17)
+<a name="truecommand-8.0.9"></a>
+### [truecommand-8.0.9](https://github.com/truecharts/apps/compare/truecommand-8.0.8...truecommand-8.0.9) (2021-10-18)
 
-#### Chore
+#### Refactor
 
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
-
-#### Fix
-
-* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))

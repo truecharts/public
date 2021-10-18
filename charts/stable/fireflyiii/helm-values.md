@@ -28,6 +28,8 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.data.mountPath | string | `"/var/www/html/storage/upload"` |  |
 | persistence.data.size | string | `"100Gi"` |  |
 | persistence.data.type | string | `"pvc"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"firefly"` |  |
@@ -36,6 +38,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.readiness.path | string | `"/login"` |  |
 | probes.startup.path | string | `"/login"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project

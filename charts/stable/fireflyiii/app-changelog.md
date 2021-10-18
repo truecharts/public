@@ -1,11 +1,11 @@
 
-<a name="fireflyiii-9.0.17"></a>
-### [fireflyiii-9.0.17](https://github.com/truecharts/apps/compare/fireflyiii-9.0.16...fireflyiii-9.0.17) (2021-10-17)
-
-#### Chore
-
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+<a name="fireflyiii-9.0.18"></a>
+### [fireflyiii-9.0.18](https://github.com/truecharts/apps/compare/fireflyiii-9.0.17...fireflyiii-9.0.18) (2021-10-18)
 
 #### Fix
 
-* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+* Change default permissions ([#1170](https://github.com/truecharts/apps/issues/1170))
+
+#### Refactor
+
+* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))

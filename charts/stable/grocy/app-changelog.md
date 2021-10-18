@@ -1,11 +1,7 @@
 
-<a name="grocy-8.0.9"></a>
-### [grocy-8.0.9](https://github.com/truecharts/apps/compare/grocy-8.0.8...grocy-8.0.9) (2021-10-17)
+<a name="grocy-8.0.10"></a>
+### [grocy-8.0.10](https://github.com/truecharts/apps/compare/grocy-8.0.9...grocy-8.0.10) (2021-10-18)
 
-#### Chore
+#### Refactor
 
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
-
-#### Fix
-
-* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))

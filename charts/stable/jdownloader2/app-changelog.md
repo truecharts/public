@@ -1,11 +1,11 @@
 
-<a name="jdownloader2-3.0.8"></a>
-### [jdownloader2-3.0.8](https://github.com/truecharts/apps/compare/jdownloader2-3.0.7...jdownloader2-3.0.8) (2021-10-17)
+<a name="jdownloader2-3.0.9"></a>
+### [jdownloader2-3.0.9](https://github.com/truecharts/apps/compare/jdownloader2-3.0.8...jdownloader2-3.0.9) (2021-10-18)
 
 #### Chore
 
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+* Add description on persistence ([#1172](https://github.com/truecharts/apps/issues/1172))
 
-#### Fix
+#### Refactor
 
-* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))

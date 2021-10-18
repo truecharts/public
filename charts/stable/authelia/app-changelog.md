@@ -1,11 +1,7 @@
 
-<a name="authelia-4.0.19"></a>
-### [authelia-4.0.19](https://github.com/truecharts/apps/compare/authelia-4.0.18...authelia-4.0.19) (2021-10-17)
+<a name="authelia-4.0.20"></a>
+### [authelia-4.0.20](https://github.com/truecharts/apps/compare/authelia-4.0.19...authelia-4.0.20) (2021-10-18)
 
-#### Chore
+#### Refactor
 
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
-
-#### Fix
-
-* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))

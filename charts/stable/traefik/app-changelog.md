@@ -1,7 +1,7 @@
 
-<a name="traefik-9.0.11"></a>
-### [traefik-9.0.11](https://github.com/truecharts/apps/compare/traefik-9.0.10...traefik-9.0.11) (2021-10-17)
+<a name="traefik-9.0.12"></a>
+### [traefik-9.0.12](https://github.com/truecharts/apps/compare/traefik-9.0.11...traefik-9.0.12) (2021-10-18)
 
-#### Chore
+#### Refactor
 
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))

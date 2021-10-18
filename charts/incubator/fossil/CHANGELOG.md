@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fossil-0.0.5"></a>
+### [fossil-0.0.5](https://github.com/truecharts/apps/compare/fossil-0.0.4...fossil-0.0.5) (2021-10-18)
+
+#### Refactor
+
+* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
+
+
+
 <a name="fossil-0.0.4"></a>
 ### [fossil-0.0.4](https://github.com/truecharts/apps/compare/fossil-0.0.3...fossil-0.0.4) (2021-10-17)
 
