@@ -1,11 +1,7 @@
 
-<a name="nextcloud-6.0.21"></a>
-### [nextcloud-6.0.21](https://github.com/truecharts/apps/compare/nextcloud-6.0.20...nextcloud-6.0.21) (2021-10-17)
-
-#### Chore
-
-* update helm chart common to v8.3.10 ([#1160](https://github.com/truecharts/apps/issues/1160))
+<a name="nextcloud-6.0.22"></a>
+### [nextcloud-6.0.22](https://github.com/truecharts/apps/compare/nextcloud-6.0.21...nextcloud-6.0.22) (2021-10-18)
 
 #### Fix
 
-* force users using correct / prefix for mounPath ([#1156](https://github.com/truecharts/apps/issues/1156))
+* remove regex for mountPath on `redismaster` for now ([#1167](https://github.com/truecharts/apps/issues/1167))
