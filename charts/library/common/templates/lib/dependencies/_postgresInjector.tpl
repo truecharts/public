@@ -37,5 +37,12 @@ type: Opaque
 {{- $_ := set .Values.postgresql.url "complete" ( ( printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) | quote ) }}
 {{- $_ := set .Values.postgresql.url "jdbc" ( ( printf "jdbc:postgresql://%v-postgresql:5432/%v" .Release.Name .Values.postgresql.postgresqlDatabase  ) | quote ) }}
 
+{{/*
+Also inject the storageClassName into the child chart
+*/}}
+{{- if .Values.ixChartContext }}
+{{- $_ := set .Values.postgresql "ixChartContext" ( dict "storageClassName" ".Values.ixChartContext.storageClassName" ) }}
+{{- end }}
+
 {{- end }}
 {{- end -}}
