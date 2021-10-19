@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-8.0.18"></a>
+### [jackett-8.0.18](https://github.com/truecharts/apps/compare/jackett-8.0.17...jackett-8.0.18) (2021-10-19)
+
+#### Chore
+
+* Project-Eclipse 5, move app-readme to automatic generation script ([#1181](https://github.com/truecharts/apps/issues/1181))
+
+
+
 <a name="jackett-8.0.17"></a>
 ### [jackett-8.0.17](https://github.com/truecharts/apps/compare/jackett-8.0.16...jackett-8.0.17) (2021-10-19)
 
