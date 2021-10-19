@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/nicholaswilde/odoo"` |  |
-| image.tag | string | `"version-14.0@sha256:f66aa76c1070f1d71da0e96a8b1dd1e41ab00d4ae61692d7dfc2267b6f1f1244"` |  |
+| image.tag | string | `"version-14.0@sha256:7cff9672ce078f7e2cf132625f0bc0fa68e932955d23e2e8c2ce7c235d5c5f8d"` |  |
 | persistence.addons.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.addons.enabled | bool | `true` |  |
 | persistence.addons.mountPath | string | `"/mnt/extra-addons"` |  |

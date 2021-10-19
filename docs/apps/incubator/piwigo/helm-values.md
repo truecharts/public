@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/piwigo"` |  |
-| image.tag | string | `"version-11.5.0@sha256:03e1535d5b3aa7af602ae424502273212f7634c08ab519ab4bdf09ede91111de"` |  |
+| image.tag | string | `"version-11.5.0@sha256:66f35cfbe182ca3c2d483b30cce9d146a2148314e28cbed58b02100c386569f4"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.gallery.accessMode | string | `"ReadWriteOnce"` |  |

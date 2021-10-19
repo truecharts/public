@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/freshrss"` |  |
-| image.tag | string | `"version-1.18.1@sha256:aff3316a800c58ce7c670fc6cfbc3177ba5f12c0529a5824f7cbb96e9a9fa7e5"` |  |
+| image.tag | string | `"version-1.18.1@sha256:d0215533b25c467fda78d212207849ad879d7d57fc92da74adb391159db9faa1"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |

@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/sct/overseerr"` | image repository |
-| image.tag | string | `"1.26.1@sha256:254d16af8f71061d0f8feb0d4990078641eff13a17824938b60b43b334342f9d"` | image tag |
+| image.tag | string | `"1.27.0@sha256:061f876e32bd85050c767dee57e09593c293e8676e06a7dc40536f28bf55fc68"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |

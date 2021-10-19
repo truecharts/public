@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/digikam"` |  |
-| image.tag | string | `"version-7.3.0@sha256:e45af284c7334852596092d9310418e8143d0c29e6bc935265295d8dabfc27a0"` |  |
+| image.tag | string | `"version-7.3.0@sha256:2656cb2b71c64560ae175a021f8a40326269429742b6a2c67a7bf4a7bc174e43"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

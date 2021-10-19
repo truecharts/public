@@ -25,7 +25,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"kanboard/kanboard"` | image repository |
-| image.tag | string | `"v1.2.20@sha256:d6d3bab5ca3f079ca782a7dc63e370e0ee3a006c596ba51ff6beb24d051528fc"` | image tag |
+| image.tag | string | `"v1.2.20@sha256:0b6d33dbbc16e86094b92ed8461659280773bd66a6ff5ee1a380c643aac4ef16"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

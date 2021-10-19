@@ -28,7 +28,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"statping/statping"` | image repository |
-| image.tag | string | `"v0.90.74@sha256:d55c3ea8b64411199f7952fc6e00b2090bb6f1691a1d197a2a7e237e92384523"` | image tag |
+| image.tag | string | `"v0.90.74@sha256:e874da513a5cf0375fc8e7e8cde533934b57804760c9e2d745a584fc26a664cb"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | postgresql | object | See values.yaml | Enable and configure postgresql database subchart under this key. |
 | secret | object | See below | environment variables. See [application docs](https://github.com/statping/statping/wiki/Config-with-.env-File) for more details. |

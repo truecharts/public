@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"shenxn/protonmail-bridge"` | image repository |
-| image.tag | string | `"1.8.9-1@sha256:b296e8dd5bc01af3e3bf769ed3be3b2cea689a88a1c097776322d2641a7b3ba4"` | image tag |
+| image.tag | string | `"1.8.10-1@sha256:c4e426125864f255c70b882b658b4af6830f1caa920da94140166a4a9e40dfc8"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

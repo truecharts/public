@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/crazy-max/firefox-syncserver"` |  |
-| image.tag | string | `"1.8.0@sha256:15aeaaec65295711260807fe49020b2e446e60d6e094d60a1cfd96c7ebf2b9ce"` |  |
+| image.tag | string | `"1.8.0@sha256:ab1a959d8105c478f0f1523c8c3bbdc53bb8d44f325501b93297bc80cf627da6"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |

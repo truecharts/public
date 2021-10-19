@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="jackett-8.0.19"></a>
+### [jackett-8.0.19](https://github.com/truecharts/apps/compare/jackett-8.0.18...jackett-8.0.19) (2021-10-19)
+
+#### Chore
+
+* update helm chart common to v8.3.13 ([#1184](https://github.com/truecharts/apps/issues/1184))
+* update non-major ([#1174](https://github.com/truecharts/apps/issues/1174))
+
+#### Refactor
+
+* Project Eclipse Part 6, move questions.yaml to root App folder ([#1182](https://github.com/truecharts/apps/issues/1182))
+
+
+
 <a name="jackett-8.0.18"></a>
 ### [jackett-8.0.18](https://github.com/truecharts/apps/compare/jackett-8.0.17...jackett-8.0.18) (2021-10-19)
 

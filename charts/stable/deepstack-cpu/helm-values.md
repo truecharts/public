@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"deepquestai/deepstack"` |  |
-| image.tag | string | `"cpu-2021.02.1@sha256:db1876e7a5c73111e0cd18e26b2401c20997afdea3f8f9f9116ef951b49ba5be"` |  |
+| image.tag | string | `"cpu-2021.09.1@sha256:359dc8c6c5056891b2a4f419902616b8b8b9bc9068b0c20fd40e13bc7a5583b5"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/datastore"` |  |

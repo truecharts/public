@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{"JWT_ENABLED":true,"JWT_SECRET":"randomgeneratedstring","WOPI_ENABLED":true}` | environment variables. See [image docs](https://github.com/ONLYOFFICE/Docker-DocumentServer#available-configuration-parameters) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"onlyoffice/documentserver"` | image repository |
-| image.tag | string | `"6.4.1.45@sha256:ba4d4bbdc0eef02e3706a039b757b3e8c512f5c741299ffaf0a1dc8c2421be2f"` | image tag |
+| image.tag | string | `"6.4.2.6@sha256:7e4a36f99966640fa7d0298ec3334309331229f61bdce7280667575ba9c8f7f6"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

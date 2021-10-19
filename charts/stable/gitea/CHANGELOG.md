@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-1.0.16"></a>
+### [gitea-1.0.16](https://github.com/truecharts/apps/compare/gitea-1.0.15...gitea-1.0.16) (2021-10-19)
+
+#### Chore
+
+* update helm chart common to v8.3.13 ([#1184](https://github.com/truecharts/apps/issues/1184))
+
+
+
 <a name="gitea-1.0.15"></a>
 ### [gitea-1.0.15](https://github.com/truecharts/apps/compare/gitea-1.0.14...gitea-1.0.15) (2021-10-19)
 

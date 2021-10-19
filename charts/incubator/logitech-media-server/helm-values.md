@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envTpl.HTTP_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"lmscommunity/logitechmediaserver"` |  |
-| image.tag | string | `"8.3.0@sha256:9af934afc408a7521dc29074a8cd1813b3460a5eec4216713699fce6bd734879"` |  |
+| image.tag | string | `"8.3.0@sha256:febec35fa5b69732b352ec2cc885f6eb5a07ba9ee90b96b28c47ddef2143d09e"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mounthPath | string | `"/config"` |  |

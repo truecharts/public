@@ -21,7 +21,7 @@ Kubernetes: `>=1.16.0-0`
 |------------|------|---------|
 | https://charts.bitnami.com/bitnami | memcached | 5.15.6 |
 | https://truecharts.org/ | postgresql | 3.0.20 |
-| https://truecharts.org | common | 8.3.12 |
+| https://truecharts.org | common | 8.3.13 |
 
 ## Installing the Chart
 

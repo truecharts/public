@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"requarks/wiki"` | image repository |
-| image.tag | string | `"2.5@sha256:22660a3f33a8719d69cb62b6eb520dfcf1d3cfc5b787b88cc444bd969ca7533a"` | image tag |
+| image.tag | string | `"2.5@sha256:4241796c343106f89fdc585229993df05c0ae81bdbbfc13a6f6a5be9b23d662e"` | image tag |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |

@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.SHIORI_PG_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/nicholaswilde/shiori"` |  |
-| image.tag | string | `"version-v1.5.0@sha256:399e73a1c5a99bd2ccd46314918b6f189ec865405a09219fe99b5663ab4c1dbe"` |  |
+| image.tag | string | `"version-v1.5.0@sha256:e0645abe677786f79bde80ac81f8d79c915e05cba2991c4cecd335f54335431c"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |

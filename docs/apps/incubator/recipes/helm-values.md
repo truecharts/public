@@ -34,9 +34,9 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"vabene1111/recipes"` | image repository |
-| image.tag | string | `"0.17.2@sha256:01e5f436ac192ee1cca996e628a3dee1029b99f7b4489bdeeaaf74aaf923538e"` | image tag |
+| image.tag | string | `"0.17.2@sha256:9eba376b008e94ce4273e61c11cefcc029c7dc617fba9202bee8486fe85f4538"` | image tag |
 | nginxImage.repository | string | `"nginx"` | nginx sidecar image repository |
-| nginxImage.tag | string | `"1.21.3@sha256:7250923ba3543110040462388756ef099331822c6172a050b12c7a38361ea46f"` | nginx sidecar image tag |
+| nginxImage.tag | string | `"1.21.3@sha256:644a70516a26004c97d0d85c7fe1d0c3a67ea8ab7ddf4aff193d9f301670cf36"` | nginx sidecar image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
