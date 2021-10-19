@@ -1,3 +1,7 @@
+{{- $serviceName := include "common.names.fullname" . -}}
+  {{- if hasKey .Values "nameSuffix" -}}
+    {{- $serviceName = (printf "%v-%v" $serviceName .Values.nameSuffix) -}}
+{{- end -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -63,14 +67,14 @@ data:
 
             # static files
             location ^~ /loleaflet {
-                proxy_pass http://collabora:9980;
+                proxy_pass http://{{ $serviceName }}:9980;
                 proxy_set_header Host $host;
                 # proxy_set_header Referer "http://nginx";
             }
 
             # WOPI discovery URL
             location ^~ /hosting/discovery {
-                set $upstream_collabora collabora;
+                set $upstream_collabora {{ $serviceName }};
                 proxy_pass http://$upstream_collabora:9980;
                 proxy_set_header Host $http_host;
                 # proxy_set_header Referer "http://nginx";
@@ -78,14 +82,14 @@ data:
 
             # Capabilities
             location ^~ /hosting/capabilities {
-                proxy_pass http://collabora:9980;
+                proxy_pass http://{{ $serviceName }}:9980;
                 proxy_set_header Host $host;
                 # proxy_set_header Referer "http://nginx";
             }
 
             # main websocket
             location ~ ^/lool/(.*)/ws$ {
-                proxy_pass http://collabora:9980;
+                proxy_pass http://{{ $serviceName }}:9980;
                 proxy_set_header Host $host;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection "Upgrade";
@@ -95,14 +99,14 @@ data:
 
             # download, presentation and image upload
             location ~ ^/lool {
-                proxy_pass http://collabora:9980;
+                proxy_pass http://{{ $serviceName }}:9980;
                 proxy_set_header Host $host;
                 proxy_set_header Referer "http://nginx";
             }
 
             # Admin Console websocket
             location ^~ /lool/adminws {
-                proxy_pass http://collabora:9980;
+                proxy_pass http://{{ $serviceName }}:9980;
                 proxy_set_header Host $host;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection "Upgrade";

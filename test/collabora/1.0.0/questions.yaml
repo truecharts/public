@@ -64,7 +64,7 @@ questions:
           description: 'e.g. "--o:welcome.enable=false", See more on /etc/loolwsd/loowsd.xml. Separate params with space'
           schema:
             type: string
-            default: "--o:welcome.enable=false --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false --o:net.proto=IPv4"
+            default: "--o:welcome.enable=false --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false --o:net.proto=IPv4 --o:net.post_allow.host[0]=.+ --o:storage.wopi.host[0]=.+"
         - variable: DONT_GEN_SSL_CERT
           label: "DONT_GEN_SSL_CERT"
           description: "When set to true it does NOT generate an SSL cert, you have to use your own"
@@ -82,7 +82,6 @@ questions:
           schema:
             type: string
             default: ''
-            valid_chars: '^$|^[a-z]{1,}\\{1}\.{1}[a-z]{1,}\\{1}\.{1}[a-z]{1,}$'
 
   - variable: certificate
     description: "Collabora Certificate"
@@ -92,6 +91,7 @@ questions:
       type: int
       $ref:
         - "definitions/certificate"
+      null: false
 
   - variable: extraAppVolumeMounts
     label: "Collabora Extra Host Path Volumes"
