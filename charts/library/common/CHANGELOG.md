@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="common-8.3.13"></a>
+### [common-8.3.13](https://github.com/truecharts/apps/compare/common-8.3.12...common-8.3.13) (2021-10-19)
+
+#### Chore
+
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update non-major ([#1174](https://github.com/truecharts/apps/issues/1174))
+
+#### Fix
+
+* correct SCALE detection on statefullset
+
+
+
 <a name="common-8.3.12"></a>
 ### [common-8.3.12](https://github.com/truecharts/apps/compare/common-8.3.11...common-8.3.12) (2021-10-18)
 
