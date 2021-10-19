@@ -393,7 +393,7 @@ patch_apps() {
     rm -rf ${target}/CHANGELOG.md 2>/dev/null || :
     mv ${target}/app-changelog.md ${target}/CHANGELOG.md 2>/dev/null || :
     # Temporary fix to prevent the UI from bugging out on 21.08
-    mv ${target}/values.yaml ${target}/ 2>/dev/null || :
+    mv ${target}/values.yaml ${target}/ix_values.yaml 2>/dev/null || :
     touch ${target}/values.yaml
     # mv ${target}/SCALE/ix_values.yaml ${target}/ 2>/dev/null || :
     mv ${target}/SCALE/questions.yaml ${target}/ 2>/dev/null || :
