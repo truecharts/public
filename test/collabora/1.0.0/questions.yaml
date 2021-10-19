@@ -32,14 +32,6 @@ questions:
             type: string
             $ref:
               - "definitions/timezone"
-        - variable: domain
-          label: "Domain(s) using collabora"
-          description: 'Use backslash "\" before dots ".". Use pipe "|" to separate multiple domains'
-          schema:
-            type: string
-            default: 'nextcloud\.domain\.tld|othernextcloud\.domain\.tld'
-            # valid_chars: '^$|^([a-z]{1,}\\{1}\.{1}[a-z]{1,}\\{1}\.{1}[a-z]{1,}\|{0,1})*$'
-            required: false
         - variable: username
           label: "Username for WebUI"
           schema:
@@ -65,23 +57,13 @@ questions:
           schema:
             type: string
             default: "--o:welcome.enable=false --o:user_interface.mode=notebookbar --o:ssl.termination=true --o:ssl.enable=false --o:net.proto=IPv4 --o:net.post_allow.host[0]=.+ --o:storage.wopi.host[0]=.+"
-        - variable: DONT_GEN_SSL_CERT
-          label: "DONT_GEN_SSL_CERT"
-          description: "When set to true it does NOT generate an SSL cert, you have to use your own"
-          schema:
-            type: string
-            default: "true"
-            enum:
-              - value: "true"
-                description: "true"
-              - value: ""
-                description: "false"
         - variable: server_name
           label: "Server Name"
           description: "When this environment variable is set (is not “”), then its value will be used as server name in /etc/loolwsd/loolwsd.xml. Without this, CODE is not delivering a correct host for the websocket connection in case of a proxy in front of it."
           schema:
             type: string
-            default: ''
+            $ref:
+              - "definitions/nodeIP"
 
   - variable: certificate
     description: "Collabora Certificate"
