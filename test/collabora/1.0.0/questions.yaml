@@ -11,9 +11,9 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "http"
+      - "https"
     host:
-      - "$node_ip"
+      - "$variable-server_name"
     ports:
       - "$variable-nodePort"
     path: "/loleaflet/dist/admin/admin.html"
