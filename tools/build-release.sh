@@ -404,7 +404,7 @@ patch_apps() {
     touch ${target}/values.yaml
     # Generate item.yaml
     cat ${target}/Chart.yaml | grep "icon" >> catalog/${train}/${chartname}/item.yaml
-    echo "catagories:" >> catalog/${train}/${chartname}/item.yaml
+    echo "categories:" >> catalog/${train}/${chartname}/item.yaml
     cat ${target}/Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
 }
 
