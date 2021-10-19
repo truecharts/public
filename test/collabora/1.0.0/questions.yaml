@@ -13,7 +13,7 @@ portals:
     protocols:
       - "https"
     host:
-      - "$variable-server_name"
+      - "$variable-config.server_name"
     ports:
       - "$variable-nodePort"
     path: "/loleaflet/dist/admin/admin.html"

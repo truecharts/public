@@ -57,7 +57,7 @@ spec:
           {{ $envList = mustAppend $envList (dict "name" "cert_domain" "value" "192.168.0.3") }}
           {{ $envList = mustAppend $envList (dict "name" "extra_params" "value" $envConfig.extra_params) }}
           {{ $envList = mustAppend $envList (dict "name" "DONT_GEN_SSL_CERT" "value" $envConfig.DONT_GEN_SSL_CERT) }}
-          {{ $envList = mustAppend $envList (dict "name" "server_name" "value" $envConfig.server_name) }}
+          {{ $envList = mustAppend $envList (dict "name" "server_name" "value" (printf "%v:%v" $envConfig.server_name .Values.nodePort)) }}
           {{ $envList = mustAppend $envList (dict "name" "username" "valueFromSecret" true "secretName" $secretName "secretKey" "username") }}
           {{ $envList = mustAppend $envList (dict "name" "password" "valueFromSecret" true "secretName" $secretName "secretKey" "password") }}
           {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
