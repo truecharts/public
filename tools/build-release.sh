@@ -282,6 +282,7 @@ create_changelog() {
         sed -i '1d' ${chart}/CHANGELOG.md
         cat ${chart}/app-changelog.md | cat - ${chart}/CHANGELOG.md > temp && mv temp ${chart}/CHANGELOG.md
         sed -i '1s/^/# Changelog<br>\n\n/' ${chart}/CHANGELOG.md
+        rm ${chart}/app-changelog.md || echo "changelog not found..."
     fi
     }
 
@@ -390,7 +391,7 @@ patch_apps() {
     local chartversion="$4"
     local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Applying SCALE patches for App: ${chartname}"
-    rm -rf ${target}/CHANGELOG.md 2>/dev/null || :
+    sed -i '100,$ d' ${target}/CHANGELOG.md || :
     mv ${target}/app-changelog.md ${target}/CHANGELOG.md 2>/dev/null || :
     # Temporary fix to prevent the UI from bugging out on 21.08
     mv ${target}/values.yaml ${target}/ix_values.yaml 2>/dev/null || :
