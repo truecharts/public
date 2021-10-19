@@ -332,11 +332,6 @@ generate_docs() {
                  --chart-search-root="${chart}"
              helm-docs \
                  --ignore-file=".helmdocsignore" \
-                 --output-file="app-readme.md" \
-                 --template-files="/__w/apps/apps/templates/docs/app-readme.md.gotmpl" \
-                 --chart-search-root="${chart}"
-             helm-docs \
-                 --ignore-file=".helmdocsignore" \
                  --output-file="helm-values.md" \
                  --template-files="/__w/apps/apps/templates/docs/helm-values.md.gotmpl" \
                  --chart-search-root="${chart}"
@@ -406,6 +401,10 @@ patch_apps() {
     cat ${target}/Chart.yaml | grep "icon" >> catalog/${train}/${chartname}/item.yaml
     echo "categories:" >> catalog/${train}/${chartname}/item.yaml
     cat ${target}/Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
+    # Generate SCALE App description file
+    cat ${target}/Chart.yaml | yq .description -r >> ${target}/app-readme.md
+    echo "" >> ${target}/app-readme.md
+    echo "This App is supplied by TrueCharts, for more information please visit https://truecharts.org" >> ${target}/app-readme.md
 }
 
 copy_apps() {
