@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-9.0.21"></a>
+### [fireflyiii-9.0.21](https://github.com/truecharts/apps/compare/fireflyiii-9.0.20...fireflyiii-9.0.21) (2021-10-19)
+
+#### Chore
+
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update helm chart postgresql to v3.0.20 ([#1177](https://github.com/truecharts/apps/issues/1177))
+
+
+
 <a name="fireflyiii-9.0.20"></a>
 ### [fireflyiii-9.0.20](https://github.com/truecharts/apps/compare/fireflyiii-9.0.19...fireflyiii-9.0.20) (2021-10-19)
 

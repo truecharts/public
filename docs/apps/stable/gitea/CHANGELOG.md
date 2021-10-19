@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="gitea-1.0.14"></a>
+### [gitea-1.0.14](https://github.com/truecharts/apps/compare/gitea-1.0.13...gitea-1.0.14) (2021-10-19)
+
+#### Chore
+
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update helm chart postgresql to v3.0.20 ([#1177](https://github.com/truecharts/apps/issues/1177))
+
+
+
 <a name="gitea-1.0.13"></a>
 ### [gitea-1.0.13](https://github.com/truecharts/apps/compare/gitea-1.0.12...gitea-1.0.13) (2021-10-19)
 
