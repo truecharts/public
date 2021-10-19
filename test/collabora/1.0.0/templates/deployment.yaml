@@ -14,6 +14,27 @@ spec:
       labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
     spec:
       containers:
+        - name: {{ .Chart.Name }}-nginx
+          image: {{ printf "%s:%s" .Values.nginx.image.repository .Values.nginx.image.tag }}
+          imagePullPolicy: {{ .Values.nginx.image.pullPolicy }}
+          volumeMounts:
+            - name: configuration
+              mountPath: /etc/nginx/nginx.conf
+              readOnly: true
+              subPath: config
+            - name: certs
+              mountPath: /etc/nginx/server.crt
+              subPath: certPublicKey
+            - name: certs
+              mountPath: /etc/nginx/server.key
+              subPath: certPrivateKey
+          ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
+          - name: https
+            containerPort: 443
+            protocol: TCP
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           {{ if .Values.extraAppVolumeMounts }}
@@ -40,11 +61,16 @@ spec:
           {{ $envList = mustAppend $envList (dict "name" "username" "valueFromSecret" true "secretName" $secretName "secretKey" "username") }}
           {{ $envList = mustAppend $envList (dict "name" "password" "valueFromSecret" true "secretName" $secretName "secretKey" "password") }}
           {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
-      {{ if .Values.extraAppVolumeMounts }}
       volumes:
+        - name: configuration
+          configMap:
+            defaultMode: 0700
+            name: "nginx-config"
+        - name: certs
+          secret:
+            secretName: {{ include "secretName" . }}
       {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
         - name: extrappvolume-{{ $index }}
           hostPath:
             path: {{ $hostPathConfiguration.hostPath }}
-      {{ end }}
       {{ end }}

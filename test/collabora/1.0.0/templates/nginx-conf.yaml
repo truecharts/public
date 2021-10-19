@@ -1,7 +1,4 @@
-{{- $serviceName := include "common.names.fullname" . -}}
-  {{- if hasKey .Values "nameSuffix" -}}
-    {{- $serviceName = (printf "%v-%v" $serviceName .Values.nameSuffix) -}}
-{{- end -}}
+{{- $serviceName := "localhost" -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
