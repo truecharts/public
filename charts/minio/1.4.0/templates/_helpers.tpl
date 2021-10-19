@@ -50,3 +50,28 @@ Retrieve scheme/protocol for minio
 {{- print "http" -}}
 {{- end -}}
 {{- end -}}
+
+
+{{/*
+Retrieve command for minio application
+*/}}
+{{- define "minio.commandArgs" -}}
+{{- $arg := "/usr/bin/docker-entrypoint.sh minio -S /etc/minio/certs server --console-address=':9001'" -}}
+{{- if .Values.distributedMode -}}
+{{- cat $arg (join " " (concat (.Values.distributedIps | default list) (.Values.extraArgs | default list))) -}}
+{{- else -}}
+{{- cat $arg ((concat (list "/export") (.Values.extraArgs | default list)) | join " ") -}}
+{{- end -}}
+{{- end -}}
+
+
+{{/*
+Enable host networking
+*/}}
+{{- define "minio.hostNetworking" -}}
+{{- if .Values.distributedMode -}}
+{{- print "true" -}}
+{{- else -}}
+{{- print "false" -}}
+{{- end -}}
+{{- end -}}

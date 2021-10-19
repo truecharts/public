@@ -7,6 +7,8 @@ metadata:
     chart: {{ template "common.names.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
 spec:
   replicas: {{ (default 1 .Values.replicas) }}
   strategy:
@@ -25,15 +27,20 @@ spec:
       annotations: {{ include "common.annotations" . | nindent 8 }}
     spec:
       serviceAccountName: {{ include "common.names.serviceAccountName" . | quote }}
+      hostNetwork: {{ include "minio.hostNetworking" . }}
       containers:
         - name: {{ .Chart.Name }}
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
           {{- include "minio.tlsKeysVolumeMount" . | nindent 12 }}
+          {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+            - name: extrappvolume-{{ $index }}
+              mountPath: {{ $hostPathConfiguration.mountPath }}
+          {{ end }}
           command:
             - "/bin/sh"
             - "-ce"
-            - "/usr/bin/docker-entrypoint.sh minio -S /etc/minio/certs server /export --console-address=':9001' {{ (.Values.extraArgs | default list) | join " " }}"
+            - {{ include "minio.commandArgs" . }}
           ports:
             - name: api
               containerPort: 9000
@@ -50,5 +57,10 @@ spec:
             {{ $envList = mustAppend $envList (dict "name" "MINIO_ROOT_PASSWORD" "valueFromSecret" true "secretName" $secretName "secretKey" "secretkey") }}
             {{ include "common.containers.environmentVariables" (dict "environmentVariables" $envList) | nindent 12 }}
 {{ include "common.networking.dnsConfiguration" .Values | nindent 6 }}
-{{ include "common.storage.allAppVolumes" .Values | nindent 6 }}
-{{- include "minio.tlsKeysVolume" . | nindent 8 }}
+      volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
+      {{- include "minio.tlsKeysVolume" . | nindent 8 }}
+      {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+        - name: extrappvolume-{{ $index }}
+          hostPath:
+            path: {{ $hostPathConfiguration.hostPath }}
+    {{ end }}
