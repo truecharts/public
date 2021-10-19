@@ -1,0 +1,31 @@
+appVolumeMounts:
+  config:
+    emptyDir: true
+    mountPath: /config
+  data:
+    emptyDir: true
+    mountPath: /data
+  shared:
+    emptyDir: true
+    mountPath: shared
+  shared-logs:
+    emptyDir: true
+    mountPath: /config/Library/Application Support/Plex Media Server/Logs
+  transcode:
+    emptyDir: true
+    mountPath: /transcode
+claimToken: ''
+dnsConfig:
+  options: []
+emptyDirVolumes: true
+environmentVariables: []
+gpuConfiguration: {}
+hostNetwork: false
+image:
+  pullPolicy: IfNotPresent
+  repository: plexinc/pms-docker
+  tag: 1.24.4.5081-e362dc1ee
+plexServiceTCP:
+  port: 32400
+timezone: Etc/UTC
+updateStrategy: Recreate

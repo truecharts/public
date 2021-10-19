@@ -1,0 +1,21 @@
+appVolumeMounts:
+  export:
+    emptyDir: true
+    mountPath: /export
+distributedIps: []
+distributedMode: false
+dnsConfig:
+  options: []
+emptyDirVolumes: true
+environmentVariables: []
+extraAppVolumeMounts: []
+extraArgs: []
+image:
+  pullPolicy: IfNotPresent
+  repository: minio/minio
+  tag: RELEASE.2021-10-13T00-23-17Z
+minioDomain: null
+service:
+  consolePort: 32325
+  nodePort: 32324
+updateStrategy: RollingUpdate
