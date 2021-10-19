@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="authelia-4.0.23"></a>
+### [authelia-4.0.23](https://github.com/truecharts/apps/compare/authelia-4.0.22...authelia-4.0.23) (2021-10-19)
+
+#### Chore
+
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update helm chart postgresql to v3.0.20 ([#1177](https://github.com/truecharts/apps/issues/1177))
+
+
+
 <a name="authelia-4.0.22"></a>
 ### [authelia-4.0.22](https://github.com/truecharts/apps/compare/authelia-4.0.21...authelia-4.0.22) (2021-10-19)
 

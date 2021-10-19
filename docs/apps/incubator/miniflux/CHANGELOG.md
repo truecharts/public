@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="miniflux-0.0.2"></a>
+### [miniflux-0.0.2](https://github.com/truecharts/apps/compare/miniflux-0.0.1...miniflux-0.0.2) (2021-10-19)
+
+#### Chore
+
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update helm chart postgresql to v3.0.20 ([#1177](https://github.com/truecharts/apps/issues/1177))
+
+
+
 <a name="miniflux-0.0.1"></a>
 ### miniflux-0.0.1 (2021-10-19)
 

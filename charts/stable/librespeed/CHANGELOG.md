@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="librespeed-3.0.15"></a>
+### [librespeed-3.0.15](https://github.com/truecharts/apps/compare/librespeed-0.0.1...librespeed-3.0.15) (2021-10-19)
+
+#### Chore
+
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update helm chart postgresql to v3.0.20 ([#1177](https://github.com/truecharts/apps/issues/1177))
+
+
+
 <a name="librespeed-3.0.14"></a>
 ### [librespeed-3.0.14](https://github.com/truecharts/apps/compare/librespeed-3.0.13...librespeed-3.0.14) (2021-10-19)
 

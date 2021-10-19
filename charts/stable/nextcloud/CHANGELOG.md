@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nextcloud-6.0.26"></a>
+### [nextcloud-6.0.26](https://github.com/truecharts/apps/compare/nextcloud-6.0.25...nextcloud-6.0.26) (2021-10-19)
+
+#### Chore
+
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update helm chart postgresql to v3.0.20 ([#1177](https://github.com/truecharts/apps/issues/1177))
+
+
+
 <a name="nextcloud-6.0.25"></a>
 ### [nextcloud-6.0.25](https://github.com/truecharts/apps/compare/nextcloud-6.0.24...nextcloud-6.0.25) (2021-10-19)
 
