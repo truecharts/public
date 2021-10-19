@@ -48,6 +48,8 @@ persistence:
   config:
     enabled: true
     mountPath: /config
+  varrun:
+    enabled: true
 
 # -- Enable and configure postgresql database subchart under this key.
 # @default -- Enabled (see values.yaml for more details)

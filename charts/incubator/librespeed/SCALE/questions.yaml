@@ -280,6 +280,18 @@ questions:
     schema:
       type: dict
       attrs:
+        - variable: varrun
+          label: "varrun Storage"
+          schema:
+            type: dict
+            hidden: true
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  hidden: true
+                  default: true
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
