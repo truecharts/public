@@ -1,7 +1,7 @@
 
-<a name="authelia-4.0.20"></a>
-### [authelia-4.0.20](https://github.com/truecharts/apps/compare/authelia-4.0.19...authelia-4.0.20) (2021-10-18)
+<a name="authelia-4.0.21"></a>
+### [authelia-4.0.21](https://github.com/truecharts/apps/compare/authelia-4.0.20...authelia-4.0.21) (2021-10-19)
 
-#### Refactor
+#### Fix
 
-* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
+* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))

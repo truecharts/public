@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-3.0.10"></a>
+### [piaware-3.0.10](https://github.com/truecharts/apps/compare/piaware-3.0.9...piaware-3.0.10) (2021-10-19)
+
+#### Fix
+
+* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
+
+
+
 <a name="piaware-3.0.9"></a>
 ### [piaware-3.0.9](https://github.com/truecharts/apps/compare/piaware-3.0.8...piaware-3.0.9) (2021-10-18)
 

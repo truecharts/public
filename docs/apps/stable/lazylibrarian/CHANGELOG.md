@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-8.0.13"></a>
+### [lazylibrarian-8.0.13](https://github.com/truecharts/apps/compare/lazylibrarian-8.0.12...lazylibrarian-8.0.13) (2021-10-19)
+
+#### Fix
+
+* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
+
+
+
 <a name="lazylibrarian-8.0.12"></a>
 ### [lazylibrarian-8.0.12](https://github.com/truecharts/apps/compare/lazylibrarian-8.0.11...lazylibrarian-8.0.12) (2021-10-18)
 

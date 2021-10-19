@@ -1,7 +1,7 @@
 
-<a name="littlelink-3.0.11"></a>
-### [littlelink-3.0.11](https://github.com/truecharts/apps/compare/littlelink-3.0.10...littlelink-3.0.11) (2021-10-18)
+<a name="littlelink-3.0.12"></a>
+### [littlelink-3.0.12](https://github.com/truecharts/apps/compare/littlelink-3.0.11...littlelink-3.0.12) (2021-10-19)
 
-#### Refactor
+#### Fix
 
-* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
+* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))

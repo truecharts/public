@@ -1,11 +1,7 @@
 
-<a name="jackett-8.0.14"></a>
-### [jackett-8.0.14](https://github.com/truecharts/apps/compare/jackett-8.0.13...jackett-8.0.14) (2021-10-18)
+<a name="jackett-8.0.15"></a>
+### [jackett-8.0.15](https://github.com/truecharts/apps/compare/jackett-8.0.14...jackett-8.0.15) (2021-10-19)
 
-#### Chore
+#### Fix
 
-* Add description on persistence ([#1172](https://github.com/truecharts/apps/issues/1172))
-
-#### Refactor
-
-* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
+* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))

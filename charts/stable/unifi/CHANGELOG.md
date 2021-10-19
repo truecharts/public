@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-8.0.11"></a>
+### [unifi-8.0.11](https://github.com/truecharts/apps/compare/unifi-8.0.10...unifi-8.0.11) (2021-10-19)
+
+#### Fix
+
+* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
+
+
+
 <a name="unifi-8.0.10"></a>
 ### [unifi-8.0.10](https://github.com/truecharts/apps/compare/unifi-8.0.9...unifi-8.0.10) (2021-10-18)
 

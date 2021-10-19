@@ -1,7 +1,7 @@
 
-<a name="tvheadend-9.0.9"></a>
-### [tvheadend-9.0.9](https://github.com/truecharts/apps/compare/tvheadend-9.0.8...tvheadend-9.0.9) (2021-10-18)
+<a name="tvheadend-9.0.10"></a>
+### [tvheadend-9.0.10](https://github.com/truecharts/apps/compare/tvheadend-9.0.9...tvheadend-9.0.10) (2021-10-19)
 
-#### Refactor
+#### Fix
 
-* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
+* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))

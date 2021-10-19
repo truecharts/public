@@ -1,7 +1,7 @@
 
-<a name="lychee-8.0.9"></a>
-### [lychee-8.0.9](https://github.com/truecharts/apps/compare/lychee-8.0.8...lychee-8.0.9) (2021-10-18)
+<a name="lychee-8.0.10"></a>
+### [lychee-8.0.10](https://github.com/truecharts/apps/compare/lychee-8.0.9...lychee-8.0.10) (2021-10-19)
 
-#### Refactor
+#### Fix
 
-* Project Eclipse - part 1 - remove ix_values.yaml ([#1168](https://github.com/truecharts/apps/issues/1168))
+* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
