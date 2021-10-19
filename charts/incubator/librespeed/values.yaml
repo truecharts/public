@@ -6,6 +6,9 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 # -- environment variables. See [image docs](https://hub.docker.com/r/linuxserver/librespeed) for more details.
 # @default -- See below
 secret:
