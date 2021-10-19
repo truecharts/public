@@ -17,7 +17,7 @@ groups:
 portals:
   web_portal:
     protocols:
-      - "http"
+      - "$kubernetes-resource_configmap_nginx-configuration_protocol"
     host:
       - "$variable-nextcloud.host"
     ports:
@@ -51,6 +51,15 @@ questions:
                       schema:
                         type: string
                         required: true
+
+  - variable: certificate
+    description: "Configure Certificate for Nextcloud"
+    label: "Certificate Configuration"
+    group: "Nextcloud Configuration"
+    schema:
+      type: int
+      $ref:
+        - "definitions/certificate"
 
   - variable: nextcloud
     description: "Nextcloud configuration details"
