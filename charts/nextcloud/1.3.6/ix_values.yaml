@@ -1,0 +1,9 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: nextcloud
+  tag: '22.2'
+nginx:
+  image:
+    repository: nginx
+    tag: 1.21.3
+    pullPolicy: IfNotPresent
