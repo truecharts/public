@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbget-8.0.11"></a>
+### [nzbget-8.0.11](https://github.com/truecharts/apps/compare/nzbget-8.0.10...nzbget-8.0.11) (2021-10-19)
+
+#### Fix
+
+* fix previous SCALE bugfix not correctly being applied
+
+
+
 <a name="nzbget-8.0.10"></a>
 ### [nzbget-8.0.10](https://github.com/truecharts/apps/compare/nzbget-8.0.9...nzbget-8.0.10) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-0.0.7"></a>
+### [sqlitebrowser-0.0.7](https://github.com/truecharts/apps/compare/sqlitebrowser-0.0.6...sqlitebrowser-0.0.7) (2021-10-19)
+
+#### Fix
+
+* fix previous SCALE bugfix not correctly being applied
+
+
+
 <a name="sqlitebrowser-0.0.6"></a>
 ### [sqlitebrowser-0.0.6](https://github.com/truecharts/apps/compare/sqlitebrowser-0.0.5...sqlitebrowser-0.0.6) (2021-10-19)
 

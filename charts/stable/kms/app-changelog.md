@@ -1,7 +1,7 @@
 
-<a name="kms-8.0.12"></a>
-### [kms-8.0.12](https://github.com/truecharts/apps/compare/kms-8.0.11...kms-8.0.12) (2021-10-19)
+<a name="kms-8.0.13"></a>
+### [kms-8.0.13](https://github.com/truecharts/apps/compare/kms-8.0.12...kms-8.0.13) (2021-10-19)
 
 #### Fix
 
-* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
+* fix previous SCALE bugfix not correctly being applied

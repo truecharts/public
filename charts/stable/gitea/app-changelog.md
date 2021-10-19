@@ -1,7 +1,7 @@
 
-<a name="gitea-1.0.12"></a>
-### [gitea-1.0.12](https://github.com/truecharts/apps/compare/gitea-1.0.11...gitea-1.0.12) (2021-10-19)
+<a name="gitea-1.0.13"></a>
+### [gitea-1.0.13](https://github.com/truecharts/apps/compare/gitea-1.0.12...gitea-1.0.13) (2021-10-19)
 
 #### Fix
 
-* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
+* fix previous SCALE bugfix not correctly being applied

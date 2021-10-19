@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wiki-0.0.7"></a>
+### [wiki-0.0.7](https://github.com/truecharts/apps/compare/wiki-0.0.6...wiki-0.0.7) (2021-10-19)
+
+#### Fix
+
+* fix previous SCALE bugfix not correctly being applied
+
+
+
 <a name="wiki-0.0.6"></a>
 ### [wiki-0.0.6](https://github.com/truecharts/apps/compare/wiki-0.0.5...wiki-0.0.6) (2021-10-19)
 

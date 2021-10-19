@@ -1,7 +1,7 @@
 
-<a name="deepstack-gpu-1.0.3"></a>
-### [deepstack-gpu-1.0.3](https://github.com/truecharts/apps/compare/deepstack-gpu-1.0.2...deepstack-gpu-1.0.3) (2021-10-19)
+<a name="deepstack-gpu-1.0.4"></a>
+### [deepstack-gpu-1.0.4](https://github.com/truecharts/apps/compare/deepstack-gpu-1.0.3...deepstack-gpu-1.0.4) (2021-10-19)
 
 #### Fix
 
-* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
+* fix previous SCALE bugfix not correctly being applied

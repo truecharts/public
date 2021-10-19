@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mealie-3.0.11"></a>
+### [mealie-3.0.11](https://github.com/truecharts/apps/compare/mealie-3.0.10...mealie-3.0.11) (2021-10-19)
+
+#### Fix
+
+* fix previous SCALE bugfix not correctly being applied
+
+
+
 <a name="mealie-3.0.10"></a>
 ### [mealie-3.0.10](https://github.com/truecharts/apps/compare/mealie-3.0.9...mealie-3.0.10) (2021-10-19)
 

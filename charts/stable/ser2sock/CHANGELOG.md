@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ser2sock-3.0.11"></a>
+### [ser2sock-3.0.11](https://github.com/truecharts/apps/compare/ser2sock-3.0.10...ser2sock-3.0.11) (2021-10-19)
+
+#### Fix
+
+* fix previous SCALE bugfix not correctly being applied
+
+
+
 <a name="ser2sock-3.0.10"></a>
 ### [ser2sock-3.0.10](https://github.com/truecharts/apps/compare/ser2sock-3.0.9...ser2sock-3.0.10) (2021-10-19)
 

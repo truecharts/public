@@ -1,7 +1,7 @@
 
-<a name="deluge-8.0.14"></a>
-### [deluge-8.0.14](https://github.com/truecharts/apps/compare/deluge-8.0.13...deluge-8.0.14) (2021-10-19)
+<a name="deluge-8.0.15"></a>
+### [deluge-8.0.15](https://github.com/truecharts/apps/compare/deluge-8.0.14...deluge-8.0.15) (2021-10-19)
 
 #### Fix
 
-* Solve issues regarding ix_values.yaml not containing the image and tag definitions. ([#1176](https://github.com/truecharts/apps/issues/1176))
+* fix previous SCALE bugfix not correctly being applied

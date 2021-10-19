@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-3.0.14"></a>
+### [duplicati-3.0.14](https://github.com/truecharts/apps/compare/duplicati-3.0.13...duplicati-3.0.14) (2021-10-19)
+
+#### Fix
+
+* fix previous SCALE bugfix not correctly being applied
+
+
+
 <a name="duplicati-3.0.13"></a>
 ### [duplicati-3.0.13](https://github.com/truecharts/apps/compare/duplicati-3.0.12...duplicati-3.0.13) (2021-10-19)
 

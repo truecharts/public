@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-7.0.12"></a>
+### [plex-7.0.12](https://github.com/truecharts/apps/compare/plex-7.0.11...plex-7.0.12) (2021-10-19)
+
+#### Fix
+
+* fix previous SCALE bugfix not correctly being applied
+
+
+
 <a name="plex-7.0.11"></a>
 ### [plex-7.0.11](https://github.com/truecharts/apps/compare/plex-7.0.10...plex-7.0.11) (2021-10-19)
 
