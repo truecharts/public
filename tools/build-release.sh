@@ -78,7 +78,7 @@ main() {
                 chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 train=$(basename $(dirname "$chart"))
-                SCALESUPPORT=$(cat Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
+                SCALESUPPORT=$(cat ${chart}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
                 sync_tag "$chart" "$chartname" "$train" "$chartversion"
                 create_changelog "$chart" "$chartname" "$train" "$chartversion"
                 generate_docs "$chart" "$chartname" "$train" "$chartversion"
@@ -403,9 +403,9 @@ patch_apps() {
     rm -rf ${target}/SCALE 2>/dev/null || :
     touch ${target}/values.yaml
     # Generate item.yaml
-    cat Chart.yaml | grep "icon" >> catalog/${train}/${chartname}/item.yaml
+    cat ${target}/Chart.yaml | grep "icon" >> catalog/${train}/${chartname}/item.yaml
     echo "catagories:" >> catalog/${train}/${chartname}/item.yaml
-    cat Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
+    cat ${target}/Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
 }
 
 copy_apps() {
