@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="photoprism-4.0.6"></a>
+### [photoprism-4.0.6](https://github.com/truecharts/apps/compare/photoprism-4.0.5...photoprism-4.0.6) (2021-10-19)
+
+#### Chore
+
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+* update container image docker.io/photoprism/photoprism to v20211018 ([#1175](https://github.com/truecharts/apps/issues/1175))
+
+
+
 <a name="photoprism-4.0.5"></a>
 ### [photoprism-4.0.5](https://github.com/truecharts/apps/compare/photoprism-4.0.4...photoprism-4.0.5) (2021-10-19)
 
