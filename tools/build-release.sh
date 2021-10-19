@@ -78,13 +78,14 @@ main() {
                 chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 train=$(basename $(dirname "$chart"))
+                SCALESUPPORT=$(cat Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
                 sync_tag "$chart" "$chartname" "$train" "$chartversion"
                 create_changelog "$chart" "$chartname" "$train" "$chartversion"
                 generate_docs "$chart" "$chartname" "$train" "$chartversion"
                 copy_docs "$chart" "$chartname" "$train" "$chartversion"
                 helm dependency update "${chart}" --skip-refresh || sleep 10 && helm dependency update "${chart}" --skip-refresh || sleep 10 &&  helm dependency update "${chart}" --skip-refresh
                 package_chart "$chart"
-                if [[ -f "${chart}/SCALE/item.yaml" ]]; then
+                if [[ "${SCALESUPPORT}" == "true" ]]; then
                   clean_apps "$chart" "$chartname" "$train" "$chartversion"
                   copy_apps "$chart" "$chartname" "$train" "$chartversion"
                   patch_apps "$chart" "$chartname" "$train" "$chartversion"
@@ -399,9 +400,12 @@ patch_apps() {
     # mv ${target}/SCALE/ix_values.yaml ${target}/ 2>/dev/null || :
     mv ${target}/SCALE/questions.yaml ${target}/ 2>/dev/null || :
     cp -rf ${target}/SCALE/templates/* ${target}/templates 2>/dev/null || :
-    mv ${target}/SCALE/item.yaml catalog/${train}/${chartname}/item.yaml
     rm -rf ${target}/SCALE 2>/dev/null || :
     touch ${target}/values.yaml
+    # Generate item.yaml
+    cat Chart.yaml | grep "icon" >> catalog/${train}/${chartname}/item.yaml
+    echo "catagories:" >> catalog/${train}/${chartname}/item.yaml
+    cat Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
 }
 
 copy_apps() {
