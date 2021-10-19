@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="jackett-8.0.17"></a>
+### [jackett-8.0.17](https://github.com/truecharts/apps/compare/jackett-8.0.16...jackett-8.0.17) (2021-10-19)
+
+#### Change
+
+* Project-Eclipse 3, Automatically generate item.yaml ([#1178](https://github.com/truecharts/apps/issues/1178))
+
+#### Chore
+
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+
+#### Feat
+
+* Project-Eclipse 4, Add App grading annotations to Chart.yaml ([#1180](https://github.com/truecharts/apps/issues/1180))
+
+
+
 <a name="jackett-8.0.16"></a>
 ### [jackett-8.0.16](https://github.com/truecharts/apps/compare/jackett-8.0.15...jackett-8.0.16) (2021-10-19)
 
