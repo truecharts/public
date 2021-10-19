@@ -150,7 +150,7 @@ jobs:
   release-test:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.0.0
+      image: ghcr.io/truecharts/devcontainer:v2.0.2
     steps:
       - name: Cache helm repo cache
         id: cache
