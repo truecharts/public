@@ -23,13 +23,6 @@ jobs:
           fetch-depth: 0
           ref: master
           path: master
-      - name: Set up Python
-        uses: actions/setup-python@v2
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pybump
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -68,7 +61,7 @@ jobs:
                 echo "Version does not have to be bumped"
               else
                 echo "Bumping patch version for ${train}/${chart}"
-                pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
+                ./bump.sh patch ./charts/${train}/${chart}/Chart.yaml
               fi
             done
       - name: Cleanup
