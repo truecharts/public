@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- networking
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "0.1.8"
+appVersion: 0.1.8
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -20,10 +26,4 @@ name: k8s-gateway
 sources:
 - https://github.com/ori-edge/k8s_gateway
 type: application
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - networking
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- AI
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "gpu"
+appVersion: gpu
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -25,10 +31,4 @@ sources:
 - https://hub.docker.com/r/deepquestai/deepstack
 - https://www.deepstack.cc/
 type: application
-version: 1.0.4
-annotations:
-  truecharts.org/catagories: |
-    - AI
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 1.0.5

@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "4.3.8"
+appVersion: 4.3.8
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -19,10 +25,4 @@ maintainers:
 name: qbittorrent
 sources: null
 type: application
-version: 8.0.12
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 8.0.13

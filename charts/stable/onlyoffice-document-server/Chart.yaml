@@ -1,5 +1,15 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- office
+
+    - documents
+
+    - productivity
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "6.4.1.45"
+appVersion: 6.4.1.45
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -25,11 +35,4 @@ sources:
 - https://github.com/ONLYOFFICE/DocumentServer
 - https://github.com/ONLYOFFICE/Docker-DocumentServer
 - https://hub.docker.com/r/onlyoffice/documentserver/
-version: 1.0.5
-annotations:
-  truecharts.org/catagories: |
-    - office
-    - documents
-    - productivity
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 1.0.6

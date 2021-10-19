@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "5.2.4"
+appVersion: 5.2.4
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -20,10 +26,4 @@ sources:
 - https://github.com/librespeed/speedtest
 - https://hub.docker.com/r/linuxserver/librespeed
 - https://github.com/truechartsapps/tree/master/charts/librespeed
-version: 3.0.15
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.16

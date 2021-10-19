@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "3.2.2.5080"
+appVersion: 3.2.2.5080
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -24,10 +30,4 @@ name: radarr
 sources:
 - https://github.com/Radarr/Radarr
 type: application
-version: 8.0.11
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 8.0.12

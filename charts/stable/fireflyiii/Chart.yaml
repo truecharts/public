@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- finacial
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "5.5.12"
+appVersion: 5.5.12
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -27,10 +33,4 @@ name: fireflyiii
 sources:
 - https://github.com/firefly-iii/firefly-iii/
 type: application
-version: 9.0.21
-annotations:
-  truecharts.org/catagories: |
-    - finacial
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 9.0.22

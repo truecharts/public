@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- networking
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "2021.10"
+appVersion: '2021.10'
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -21,10 +27,4 @@ sources:
 - https://github.com/pi-hole
 - https://github.com/pi-hole/docker-pi-hole
 type: application
-version: 3.0.12
-annotations:
-  truecharts.org/catagories: |
-    - networking
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.13

@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- GIT
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.15.4"
+appVersion: 1.15.4
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -34,10 +40,4 @@ sources:
 - https://github.com/go-gitea/gitea
 - https://hub.docker.com/r/gitea/gitea/
 type: application
-version: 1.0.15
-annotations:
-  truecharts.org/catagories: |
-    - GIT
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 1.0.16

@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- management
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "6.0"
+appVersion: '6.0'
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -24,10 +30,4 @@ name: pgadmin
 sources:
 - https://www.pgadmin.org/
 type: application
-version: 3.0.12
-annotations:
-  truecharts.org/catagories: |
-    - management
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.13

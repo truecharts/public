@@ -1,15 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.9027.0"
-description: Tiny Tiny RSS is a free and open source web-based news feed (RSS/Atom) reader and aggregator
-name: tt-rss
-version: 0.0.2
-kubeVersion: ">=1.16.0-0"
-keywords:
-- tt-rss
-home: https://github.com/truecharts/apps/tree/master/charts/stable/tt-rss
-icon: https://git.tt-rss.org/fox/tt-rss/raw/branch/master/images/favicon-72px.png
-sources:
-- https://git.tt-rss.org/fox/tt-rss
+appVersion: 1.9027.0
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -18,13 +14,18 @@ dependencies:
   name: postgresql
   repository: https://truecharts.org/
   version: 3.0.20
+description: Tiny Tiny RSS is a free and open source web-based news feed (RSS/Atom)
+  reader and aggregator
+home: https://github.com/truecharts/apps/tree/master/charts/stable/tt-rss
+icon: https://git.tt-rss.org/fox/tt-rss/raw/branch/master/images/favicon-72px.png
+keywords:
+- tt-rss
+kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: truecharts.org
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+name: tt-rss
+sources:
+- https://git.tt-rss.org/fox/tt-rss
+version: 0.0.3

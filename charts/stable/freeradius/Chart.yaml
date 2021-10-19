@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- auth
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "3.0.23"
+appVersion: 3.0.23
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -24,10 +30,4 @@ sources:
 - https://hub.docker.com/r/freeradius/freeradius-server/
 - https://freeradius.org/
 type: application
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - auth
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

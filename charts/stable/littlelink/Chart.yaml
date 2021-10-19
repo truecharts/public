@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- social
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -23,10 +29,4 @@ sources:
 - https://github.com/techno-tim/littlelink-server
 - https://github.com/sethcottle/littlelink
 type: application
-version: 3.0.13
-annotations:
-  truecharts.org/catagories: |
-    - social
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.14

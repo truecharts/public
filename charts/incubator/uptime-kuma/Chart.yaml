@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- monitoring
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.8.0"
+appVersion: 1.8.0
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -23,10 +29,4 @@ name: uptime-kuma
 sources:
 - https://github.com/louislam/uptime-kuma
 type: application
-version: 0.0.5
-annotations:
-  truecharts.org/catagories: |
-    - monitoring
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 0.0.6

@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- security
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "4.32.2"
+appVersion: 4.32.2
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -38,10 +44,4 @@ sources:
 - https://github.com/authelia/chartrepo
 - https://github.com/authelia/authelia
 type: application
-version: 4.0.23
-annotations:
-  truecharts.org/catagories: |
-    - security
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 4.0.24

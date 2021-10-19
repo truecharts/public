@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -18,10 +24,4 @@ name: valheim
 sources:
 - https://github.com/lloesche/valheim-server-docker
 - https://hub.docker.com/r/lloesche/valheim-server
-version: 0.0.7
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 0.0.8

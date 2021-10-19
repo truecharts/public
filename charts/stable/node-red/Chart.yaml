@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- tools
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "2.0.6"
+appVersion: 2.0.6
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -20,10 +26,4 @@ name: node-red
 sources:
 - https://github.com/node-red/node-red-docker
 type: application
-version: 8.0.11
-annotations:
-  truecharts.org/catagories: |
-    - tools
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 8.0.12

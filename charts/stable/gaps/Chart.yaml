@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "0.8.8"
+appVersion: 0.8.8
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -22,10 +28,4 @@ name: gaps
 sources:
 - https://github.com/JasonHHouse/gaps
 type: application
-version: 8.0.11
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 8.0.12

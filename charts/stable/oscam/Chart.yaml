@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- DIY
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "11693"
+appVersion: '11693'
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -19,10 +25,4 @@ name: oscam
 sources:
 - https://trac.streamboard.tv/oscam/browser/trunk
 type: application
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - DIY
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

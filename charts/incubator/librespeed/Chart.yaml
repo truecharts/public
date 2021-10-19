@@ -1,18 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "5.2.4"
-description: Librespeed is a HTML5 webpage to test upload and download speeds
-name: librespeed
-version: 0.0.2
-kubeVersion: ">=1.16.0-0"
-keywords:
-- librespeed
-- speedtest
-home: https://github.com/truecharts/apps/tree/master/charts/stable/librespeed
-icon: https://github.com/librespeed/speedtest/blob/master/.logo/icon_huge.png?raw=true
-sources:
-- https://github.com/librespeed/speedtest
-- https://hub.docker.com/r/linuxserver/librespeed
-- https://github.com/truecharts/apps/tree/master/charts/librespeed
+appVersion: 5.2.4
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -21,13 +14,20 @@ dependencies:
   name: postgresql
   repository: https://truecharts.org/
   version: 3.0.20
+description: Librespeed is a HTML5 webpage to test upload and download speeds
+home: https://github.com/truecharts/apps/tree/master/charts/stable/librespeed
+icon: https://github.com/librespeed/speedtest/blob/master/.logo/icon_huge.png?raw=true
+keywords:
+- librespeed
+- speedtest
+kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: truecharts.org
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+name: librespeed
+sources:
+- https://github.com/librespeed/speedtest
+- https://hub.docker.com/r/linuxserver/librespeed
+- https://github.com/truecharts/apps/tree/master/charts/librespeed
+version: 0.0.3

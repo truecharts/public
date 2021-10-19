@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.7.0"
+appVersion: 1.7.0
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -20,10 +26,4 @@ name: octoprint
 sources:
 - https://github.com/OctoPrint/OctoPrint
 - https://hub.docker.com/r/octoprint/octoprint
-version: 3.0.12
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.13

@@ -1,18 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "2.5.1"
-description: This server allows you to sync any Joplin client
-name: joplin-server
-version: 0.0.2
-kubeVersion: '>=1.16.0-0'
-keywords:
-  - joplin
-  - notes
-home: https://github.com/truecharts/apps/tree/master/charts/stable/jopplin-server
-icon: https://raw.githubusercontent.com/laurent22/joplin/master/Assets/LinuxIcons/256x256.png?raw=true
-sources:
-  - https://github.com/laurent22/joplin/tree/dev/packages/server
-  - https://github.com/laurent22/joplin
-  - https://hub.docker.com/r/joplin/server
+appVersion: 2.5.1
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -21,13 +14,20 @@ dependencies:
   name: postgresql
   repository: https://truecharts.org/
   version: 3.0.20
+description: This server allows you to sync any Joplin client
+home: https://github.com/truecharts/apps/tree/master/charts/stable/jopplin-server
+icon: https://raw.githubusercontent.com/laurent22/joplin/master/Assets/LinuxIcons/256x256.png?raw=true
+keywords:
+- joplin
+- notes
+kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: truecharts.org
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+name: joplin-server
+sources:
+- https://github.com/laurent22/joplin/tree/dev/packages/server
+- https://github.com/laurent22/joplin
+- https://hub.docker.com/r/joplin/server
+version: 0.0.3

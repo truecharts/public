@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "5.26.0"
+appVersion: 5.26.0
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -18,10 +24,4 @@ name: calibre
 sources:
 - https://hub.docker.com/r/linuxserver/calibre/
 - https://github.com/kovidgoyal/calibre/
-version: 3.0.12
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.13

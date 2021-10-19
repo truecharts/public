@@ -1,17 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "0.17.2"
-description: Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.
-name: recipes
-version: 0.0.2
-kubeVersion: ">=1.16.0-0"
-keywords:
-- recipes
-- cooking
-home: https://github.com/truecharts/apps/tree/master/charts/stable/recipes
-icon: https://raw.githubusercontent.com/vabene1111/recipes/develop/docs/logo_color.svg
-sources:
-- https://github.com/vabene1111/recipes
-- https://hub.docker.com/r/vabene1111/recipes
+appVersion: 0.17.2
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -20,13 +14,21 @@ dependencies:
   name: postgresql
   repository: https://truecharts.org/
   version: 3.0.20
+description: Recipes is a Django application to manage, tag and search recipes using
+  either built in models or external storage providers hosting PDF's, Images or other
+  files.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/recipes
+icon: https://raw.githubusercontent.com/vabene1111/recipes/develop/docs/logo_color.svg
+keywords:
+- recipes
+- cooking
+kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: truecharts.org
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+name: recipes
+sources:
+- https://github.com/vabene1111/recipes
+- https://hub.docker.com/r/vabene1111/recipes
+version: 0.0.3

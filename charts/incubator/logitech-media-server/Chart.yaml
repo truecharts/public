@@ -1,5 +1,13 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    - audio
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "8.3.0"
+appVersion: 8.3.0
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -26,10 +34,4 @@ sources:
 - https://github.com/Logitech/slimserver
 - https://hub.docker.com/r/lmscommunity/logitechmediaserver
 type: application
-version: 1.0.7
-annotations:
-  truecharts.org/catagories: |
-    - media
-    - audio
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 1.0.8

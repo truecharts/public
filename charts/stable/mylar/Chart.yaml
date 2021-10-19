@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "0.5.3"
+appVersion: 0.5.3
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -19,10 +25,4 @@ sources:
 - https://github.com/mylar3/mylar3
 - https://github.com/linuxserver/docker-mylar3
 - https://github.com/truechartsapps/tree/master/charts/mylar
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

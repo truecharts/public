@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.18.1"
+appVersion: 1.18.1
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -21,10 +27,4 @@ sources:
 - https://github.com/FreshRSS/FreshRSS
 - https://hub.docker.com/r/linuxserver/freshrss
 type: application
-version: 8.0.14
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 8.0.15

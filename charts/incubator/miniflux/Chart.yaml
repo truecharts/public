@@ -1,17 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "2.0.33"
-description: Miniflux is a minimalist and opinionated feed reader.
-name: miniflux
-version: 0.0.2
-kubeVersion: ">=1.16.0-0"
-keywords:
-- miniflux
-- rss
-- news
-home: https://github.com/truecharts/apps/tree/master/charts/miniflux
-icon: https://raw.githubusercontent.com/miniflux/logo/master/icon.svg
-sources:
-- https://github.com/miniflux/v2
+appVersion: 2.0.33
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -20,13 +14,19 @@ dependencies:
   name: postgresql
   repository: https://truecharts.org/
   version: 3.0.20
+description: Miniflux is a minimalist and opinionated feed reader.
+home: https://github.com/truecharts/apps/tree/master/charts/miniflux
+icon: https://raw.githubusercontent.com/miniflux/logo/master/icon.svg
+keywords:
+- miniflux
+- rss
+- news
+kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: truecharts.org
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+name: miniflux
+sources:
+- https://github.com/miniflux/v2
+version: 0.0.3

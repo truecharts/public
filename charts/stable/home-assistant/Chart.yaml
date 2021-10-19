@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- home-automation
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "2021.10.4"
+appVersion: 2021.10.4
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -29,10 +35,4 @@ sources:
 - https://github.com/home-assistant/home-assistant
 - https://github.com/cdr/code-server
 type: application
-version: 8.2.7
-annotations:
-  truecharts.org/catagories: |
-    - home-automation
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 8.2.8

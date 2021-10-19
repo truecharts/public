@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "5de90278"
+appVersion: 5de90278
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -21,10 +27,4 @@ name: pyload
 sources:
 - https://github.com/pyload/pyload
 - https://hub.docker.com/r/linuxserver/pyload
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

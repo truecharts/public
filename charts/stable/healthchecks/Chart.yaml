@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.22.0"
+appVersion: 1.22.0
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -22,10 +28,4 @@ name: healthchecks
 sources:
 - https://github.com/healthchecks/healthchecks
 - https://hub.docker.com/r/linuxserver/healthchecks
-version: 3.0.13
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.14

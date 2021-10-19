@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- networking
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "0.66.6"
+appVersion: 0.66.6
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -23,10 +29,4 @@ name: external-service
 sources:
 - https://github.com/truecharts/apps/tree/master/charts/stable/external-service
 type: application
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - networking
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

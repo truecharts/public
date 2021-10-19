@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "20211018"
+appVersion: '20211018'
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -22,10 +28,4 @@ name: photoprism
 sources:
 - https://github.com/photoprism/photoprism
 - https://hub.docker.com/r/photoprism/photoprism
-version: 4.0.6
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 4.0.7

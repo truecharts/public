@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.0.0.2255"
+appVersion: 1.0.0.2255
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -24,10 +30,4 @@ name: lidarr
 sources:
 - https://github.com/Lidarr/Lidarr
 type: application
-version: 8.0.11
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 8.0.12

@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "2.13.01"
+appVersion: 2.13.01
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -22,10 +28,4 @@ name: deconz
 sources:
 - https://github.com/dresden-elektronik/deconz-rest-plugin
 - https://github.com/marthoc/docker-deconz
-version: 3.0.12
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.13

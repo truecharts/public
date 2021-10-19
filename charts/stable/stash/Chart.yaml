@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "0.10.0"
+appVersion: 0.10.0
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -18,10 +24,4 @@ name: stash
 sources:
 - https://github.com/stashapp/stash
 - https://hub.docker.com/r/stashapp/stash
-version: 3.0.12
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.13

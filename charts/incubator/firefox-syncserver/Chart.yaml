@@ -1,20 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.8.0"
-version: 0.0.2
-kubeVersion: '>=1.16.0-0'
-name: firefox-syncserver
-description: This is an all-in-one package for running a self-hosted Firefox Sync server.
-type: application
-home: "https://github.com/truecharts/apps/tree/main/charts/firefox-syncserver"
-icon: "https://upload.wikimedia.org/wikipedia/en/0/01/Firefox_Sync_logo.png"
-keywords:
-  - server
-  - sync
-  - syncserver
-  - firefox
-sources:
-  - https://moz-services-docs.readthedocs.io/en/latest/howtos/run-sync-1.5.html
-  - https://hub.docker.com/r/crazymax/firefox-syncserver
+appVersion: 1.8.0
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -23,13 +14,23 @@ dependencies:
   name: postgresql
   repository: https://truecharts.org/
   version: 3.0.20
+description: This is an all-in-one package for running a self-hosted Firefox Sync
+  server.
+home: https://github.com/truecharts/apps/tree/main/charts/firefox-syncserver
+icon: https://upload.wikimedia.org/wikipedia/en/0/01/Firefox_Sync_logo.png
+keywords:
+- server
+- sync
+- syncserver
+- firefox
+kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: truecharts.org
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+name: firefox-syncserver
+sources:
+- https://moz-services-docs.readthedocs.io/en/latest/howtos/run-sync-1.5.html
+- https://hub.docker.com/r/crazymax/firefox-syncserver
+type: application
+version: 0.0.3

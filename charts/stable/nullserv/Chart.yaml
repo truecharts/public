@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.3.0"
+appVersion: 1.3.0
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -17,10 +23,4 @@ maintainers:
 name: nullserv
 sources:
 - https://github.com/bmrzycki/nullserv
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

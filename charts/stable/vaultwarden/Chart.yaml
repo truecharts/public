@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- security
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.22.2"
+appVersion: 1.22.2
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -28,10 +34,4 @@ name: vaultwarden
 sources:
 - https://github.com/dani-garcia/vaultwarden
 type: application
-version: 9.0.21
-annotations:
-  truecharts.org/catagories: |
-    - security
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 9.0.22

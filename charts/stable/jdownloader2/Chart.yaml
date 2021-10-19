@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- downloads
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.7.1"
+appVersion: 1.7.1
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -23,10 +29,4 @@ sources:
 - https://hub.docker.com/r/jlesage/jdownloader-2
 - https://jdownloader.org/
 type: application
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - downloads
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

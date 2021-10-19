@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "0.9.8"
+appVersion: 0.9.8
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -26,10 +32,4 @@ sources:
 - https://github.com/davidnewhall/unpackerr
 - https://hub.docker.com/r/golift/unpackerr
 type: application
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

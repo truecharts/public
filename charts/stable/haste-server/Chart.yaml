@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- utilities
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -21,10 +27,4 @@ name: haste-server
 sources:
 - https://github.com/seejohnrun/haste-server
 - https://github.com/k8s-at-home/container-images
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - utilities
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

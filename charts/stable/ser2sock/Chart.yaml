@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -18,10 +24,4 @@ name: ser2sock
 sources:
 - https://github.com/nutechsoftware/ser2sock
 - https://github.com/tenstartups/ser2sock
-version: 3.0.11
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.12

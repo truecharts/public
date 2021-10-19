@@ -1,18 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "1.9"
-description: Teedy is an open source, lightweight document management system for individuals and businesses.
-name: teedy
-version: 0.0.2
-kubeVersion: ">=1.16.0-0"
-keywords:
-- teedy
-- documents
-- management
-home: https://github.com/truecharts/apps/tree/master/charts/stable/teedy
-icon: https://raw.githubusercontent.com/sismics/docs/v1.9/docs-web/src/main/resources/image/logo.png
-sources:
-- https://github.com/sismics/docs
-- https://github.com/truecharts/apps/tree/master/charts/teedy
+appVersion: '1.9'
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -21,13 +14,21 @@ dependencies:
   name: postgresql
   repository: https://truecharts.org/
   version: 3.0.20
+description: Teedy is an open source, lightweight document management system for individuals
+  and businesses.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/teedy
+icon: https://raw.githubusercontent.com/sismics/docs/v1.9/docs-web/src/main/resources/image/logo.png
+keywords:
+- teedy
+- documents
+- management
+kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: truecharts.org
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+name: teedy
+sources:
+- https://github.com/sismics/docs
+- https://github.com/truecharts/apps/tree/master/charts/teedy
+version: 0.0.3

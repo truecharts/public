@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- organizers
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -20,10 +26,4 @@ sources:
 - https://github.com/causefx/Organizr
 - https://hub.docker.com/r/organizr/organizr
 type: application
-version: 8.0.12
-annotations:
-  truecharts.org/catagories: |
-    - organizers
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 8.0.13

@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "0.1.1.1006"
+appVersion: 0.1.1.1006
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -21,10 +27,4 @@ name: prowlarr
 sources:
 - https://github.com/Prowlarr/Prowlarr
 - https://github.com/k8s-at-home/container-images
-version: 3.0.15
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 3.0.16

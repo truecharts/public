@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- media
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "154c581"
+appVersion: 154c581
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -24,10 +30,4 @@ sources:
 - https://github.com/prologic/golinks
 - https://github.com/nicholaswilde/docker-golinks
 type: application
-version: 0.0.7
-annotations:
-  truecharts.org/catagories: |
-    - media
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 0.0.8

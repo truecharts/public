@@ -1,5 +1,11 @@
+annotations:
+  truecharts.org/SCALE-support: 'true'
+  truecharts.org/catagories: '- tools
+
+    '
+  truecharts.org/grade: U
 apiVersion: v2
-appVersion: "5.8.0"
+appVersion: 5.8.0
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -27,10 +33,4 @@ sources:
 - https://github.com/zwave-js/zwavejs2mqtt
 - https://hub.docker.com/r/zwavejs/zwavejs2mqtt
 type: application
-version: 8.0.14
-annotations:
-  truecharts.org/catagories: |
-    - tools
-
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 8.0.15
