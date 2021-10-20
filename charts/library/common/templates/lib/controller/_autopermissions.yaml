@@ -15,10 +15,15 @@ before chart installation.
   image: {{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}
   securityContext:
     runAsUser: 0
-    runAsGroup: 0
-    privileged: true
-    allowPrivilegeEscalation: true
-    runAsNonRoot: false
+    privileged: false
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+        - ALL
+  resources:
+  {{- with .Values.resources }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
   command:
     - "/bin/sh"
     - "-c"
