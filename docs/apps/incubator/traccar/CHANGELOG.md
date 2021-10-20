@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="traccar-1.0.0"></a>
+### [traccar-1.0.0](https://github.com/truecharts/apps/compare/traccar-0.0.4...traccar-1.0.0) (2021-10-20)
+
+#### Chore
+
+* update helm chart postgresql to v4 ([#1214](https://github.com/truecharts/apps/issues/1214))
+
+#### Fix
+
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="traccar-0.0.4"></a>
 ### [traccar-0.0.4](https://github.com/truecharts/apps/compare/traccar-0.0.3...traccar-0.0.4) (2021-10-20)
 

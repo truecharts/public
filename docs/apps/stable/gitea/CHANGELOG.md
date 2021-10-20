@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="gitea-2.0.0"></a>
+### [gitea-2.0.0](https://github.com/truecharts/apps/compare/gitea-1.0.17...gitea-2.0.0) (2021-10-20)
+
+#### Chore
+
+* update helm chart postgresql to v4 ([#1214](https://github.com/truecharts/apps/issues/1214))
+
+#### Fix
+
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="gitea-1.0.17"></a>
 ### [gitea-1.0.17](https://github.com/truecharts/apps/compare/gitea-1.0.16...gitea-1.0.17) (2021-10-20)
 

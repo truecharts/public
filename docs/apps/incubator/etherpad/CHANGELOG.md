@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="etherpad-1.0.0"></a>
+### [etherpad-1.0.0](https://github.com/truecharts/apps/compare/etherpad-0.0.4...etherpad-1.0.0) (2021-10-20)
+
+#### Chore
+
+* update helm chart postgresql to v4 ([#1214](https://github.com/truecharts/apps/issues/1214))
+
+#### Fix
+
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="etherpad-0.0.4"></a>
 ### [etherpad-0.0.4](https://github.com/truecharts/apps/compare/etherpad-0.0.3...etherpad-0.0.4) (2021-10-20)
 

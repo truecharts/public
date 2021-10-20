@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="wikijs-1.0.0"></a>
+### [wikijs-1.0.0](https://github.com/truecharts/apps/compare/wikijs-0.0.4...wikijs-1.0.0) (2021-10-20)
+
+#### Chore
+
+* update helm chart postgresql to v4 ([#1214](https://github.com/truecharts/apps/issues/1214))
+
+#### Fix
+
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="wikijs-0.0.4"></a>
 ### [wikijs-0.0.4](https://github.com/truecharts/apps/compare/wikijs-0.0.3...wikijs-0.0.4) (2021-10-20)
 

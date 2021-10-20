@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="odoo-1.0.0"></a>
+### [odoo-1.0.0](https://github.com/truecharts/apps/compare/odoo-0.0.4...odoo-1.0.0) (2021-10-20)
+
+#### Chore
+
+* update helm chart postgresql to v4 ([#1214](https://github.com/truecharts/apps/issues/1214))
+
+#### Fix
+
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="odoo-0.0.4"></a>
 ### [odoo-0.0.4](https://github.com/truecharts/apps/compare/odoo-0.0.3...odoo-0.0.4) (2021-10-20)
 

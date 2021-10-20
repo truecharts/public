@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-10.0.0"></a>
+### [fireflyiii-10.0.0](https://github.com/truecharts/apps/compare/fireflyiii-9.0.23...fireflyiii-10.0.0) (2021-10-20)
+
+#### Chore
+
+* update helm chart postgresql to v4 ([#1214](https://github.com/truecharts/apps/issues/1214))
+
+#### Fix
+
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="fireflyiii-9.0.23"></a>
 ### [fireflyiii-9.0.23](https://github.com/truecharts/apps/compare/fireflyiii-9.0.22...fireflyiii-9.0.23) (2021-10-20)
 
