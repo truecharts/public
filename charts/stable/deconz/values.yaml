@@ -51,9 +51,9 @@ service:
         port: 80
   websocket:
     enabled: true
-      ports:
-        websocket:
-          port: 443
+    ports:
+      websocket:
+        port: 443
   vnc:
     enabled: true
     ports:
