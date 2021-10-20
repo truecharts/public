@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.3.14"></a>
+### [common-8.3.14](https://github.com/truecharts/apps/compare/common-test-3.3.0...common-8.3.14) (2021-10-20)
+
+#### Fix
+
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="common-8.3.13"></a>
 ### [common-8.3.13](https://github.com/truecharts/apps/compare/common-8.3.12...common-8.3.13) (2021-10-19)
 
