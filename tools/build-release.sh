@@ -80,10 +80,10 @@ main() {
                 chartname=$(basename ${chart})
                 train=$(basename $(dirname "$chart"))
                 SCALESUPPORT=$(cat ${chart}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
-                sync_tag "$chart" "$chartname" "$train" "$chartversion"
-                create_changelog "$chart" "$chartname" "$train" "$chartversion"
-                generate_docs "$chart" "$chartname" "$train" "$chartversion"
-                copy_docs "$chart" "$chartname" "$train" "$chartversion"
+                sync_tag "$chart" "$chartname" "$train" "$chartversion" || echo "Tag sync failed..."
+                create_changelog "$chart" "$chartname" "$train" "$chartversion" || echo "changelog generation failed..."
+                generate_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs generation failed..."
+                copy_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs Copy failed..."
                 helm dependency update "${chart}" --skip-refresh || sleep 10 && helm dependency update "${chart}" --skip-refresh || sleep 10 &&  helm dependency update "${chart}" --skip-refresh
                 package_chart "$chart"
                 if [[ "${SCALESUPPORT}" == "true" ]]; then
