@@ -49,11 +49,15 @@ service:
     ports:
       main:
         port: 80
-      websocket:
-        enabled: true
-        port: 443
+  websocket:
+    enabled: true
+      ports:
+        websocket:
+          port: 443
+  vnc:
+    enabled: true
+    ports:
       vnc:
-        enabled: true
         port: 5900
 
 # -- Configure persistence settings for the chart under this key.
