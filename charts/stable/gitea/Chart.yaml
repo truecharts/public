@@ -3,7 +3,7 @@ appVersion: "1.15.4"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.3.13
+  version: 8.3.14
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -34,7 +34,7 @@ sources:
 - https://github.com/go-gitea/gitea
 - https://hub.docker.com/r/gitea/gitea/
 type: application
-version: 2.0.0
+version: 2.0.1
 annotations:
   truecharts.org/catagories: |
     - GIT
