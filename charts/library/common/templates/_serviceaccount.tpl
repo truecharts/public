@@ -7,7 +7,7 @@ The ServiceAccount object to be created.
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{- default (include "common.names.fullname" .) .Values.serviceAccount.name }}
+  name: {{ default (include "common.names.fullname" .) .Values.serviceAccount.name }}
   labels:
     {{- include "common.labels" . | nindent 4 }}
   {{- with .Values.serviceAccount.annotations }}
