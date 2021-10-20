@@ -4,16 +4,10 @@
     schema:
       type: dict
       hidden: true
-      items:
-        - variable: persistenceListEntry
-          label: "Custom Storage"
+      attrs:
+        - variable: isSCALE
+          label: "flag this is SCALE"
           schema:
-            type: dict
+            type: boolean
+            default: true
             hidden: true
-            attrs:
-              - variable: isSCALE
-                label: "flag this is SCALE"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
