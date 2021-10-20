@@ -3,6 +3,7 @@ This template generates a random password and ensures it persists across updates
 */}}
 {{- define "common.dependencies.postgresql.injector" -}}
 {{- $pghost := printf "%v-%v" .Release.Name "postgresql" }}
+
 {{- if .Values.postgresql.enabled }}
 ---
 apiVersion: v1
@@ -36,13 +37,6 @@ type: Opaque
 {{- $_ := set .Values.postgresql.url "plainporthost" ( ( printf "%v-%v:5432" .Release.Name "postgresql" ) | quote ) }}
 {{- $_ := set .Values.postgresql.url "complete" ( ( printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) | quote ) }}
 {{- $_ := set .Values.postgresql.url "jdbc" ( ( printf "jdbc:postgresql://%v-postgresql:5432/%v" .Release.Name .Values.postgresql.postgresqlDatabase  ) | quote ) }}
-
-{{/*
-Also inject the storageClassName into the child chart
-*/}}
-{{- if .Values.ixChartContext }}
-{{- $_ := set .Values.postgresql "ixChartContext" ( dict "storageClassName" ".Values.ixChartContext.storageClassName" ) }}
-{{- end }}
 
 {{- end }}
 {{- end -}}

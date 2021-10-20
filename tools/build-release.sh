@@ -130,6 +130,11 @@ include_questions(){
     local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Including standardised questions.yaml includes for: ${chartname}"
 
+    # Replace # Include{global} with the standard global codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{global}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/global.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
     # Replace # Include{groups} with the standard groups codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{groups}/ { for (i=0;i<n;++i) print a[i]; next }
