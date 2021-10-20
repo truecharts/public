@@ -75,6 +75,7 @@ main() {
         prep_helm
         for chart in "${changed_charts[@]}"; do
             if [[ -d "$chart" ]]; then
+                echo "Start processing $chart ..."
                 chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 chartname=$(basename ${chart})
                 train=$(basename $(dirname "$chart"))
@@ -97,7 +98,9 @@ main() {
             else
                 echo "Chart '$chart' no longer exists in repo. Skipping it..."
             fi
+            echo "Done processing $chart ..."
         done
+        echo "Starting post-processing"
         pre_commit
         validate_catalog
         if [ "${production}" == "true" ]; then
