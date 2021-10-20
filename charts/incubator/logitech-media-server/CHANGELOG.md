@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-1.0.9"></a>
+### [logitech-media-server-1.0.9](https://github.com/truecharts/apps/compare/logitech-media-server-1.0.8...logitech-media-server-1.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="logitech-media-server-1.0.8"></a>
 ### [logitech-media-server-1.0.8](https://github.com/truecharts/apps/compare/logitech-media-server-1.0.7...logitech-media-server-1.0.8) (2021-10-19)
 

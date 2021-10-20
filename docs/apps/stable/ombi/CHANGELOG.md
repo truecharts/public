@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ombi-8.0.13"></a>
+### [ombi-8.0.13](https://github.com/truecharts/apps/compare/ombi-8.0.12...ombi-8.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="ombi-8.0.12"></a>
 ### [ombi-8.0.12](https://github.com/truecharts/apps/compare/ombi-8.0.11...ombi-8.0.12) (2021-10-19)
 

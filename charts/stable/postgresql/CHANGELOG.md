@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="postgresql-4.0.0"></a>
+### [postgresql-4.0.0](https://github.com/truecharts/apps/compare/postgresql-3.0.21...postgresql-4.0.0) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+* update non-major ([#1185](https://github.com/truecharts/apps/issues/1185))
+
+#### Security
+
+* Improve Snyk hardening advisory ([#1208](https://github.com/truecharts/apps/issues/1208))
+
+
+
 <a name="postgresql-3.0.21"></a>
 ### [postgresql-3.0.21](https://github.com/truecharts/apps/compare/postgresql-3.0.20...postgresql-3.0.21) (2021-10-19)
 

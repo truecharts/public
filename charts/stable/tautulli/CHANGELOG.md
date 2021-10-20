@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tautulli-8.0.13"></a>
+### [tautulli-8.0.13](https://github.com/truecharts/apps/compare/tautulli-8.0.12...tautulli-8.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="tautulli-8.0.12"></a>
 ### [tautulli-8.0.12](https://github.com/truecharts/apps/compare/tautulli-8.0.11...tautulli-8.0.12) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-1.0.17"></a>
+### [gitea-1.0.17](https://github.com/truecharts/apps/compare/gitea-1.0.16...gitea-1.0.17) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="gitea-1.0.16"></a>
 ### [gitea-1.0.16](https://github.com/truecharts/apps/compare/gitea-1.0.15...gitea-1.0.16) (2021-10-19)
 

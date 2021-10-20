@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-8.0.14"></a>
+### [collabora-online-8.0.14](https://github.com/truecharts/apps/compare/collabora-online-8.0.13...collabora-online-8.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="collabora-online-8.0.13"></a>
 ### [collabora-online-8.0.13](https://github.com/truecharts/apps/compare/collabora-online-8.0.12...collabora-online-8.0.13) (2021-10-19)
 

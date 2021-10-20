@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dizquetv-3.0.14"></a>
+### [dizquetv-3.0.14](https://github.com/truecharts/apps/compare/dizquetv-3.0.13...dizquetv-3.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="dizquetv-3.0.13"></a>
 ### [dizquetv-3.0.13](https://github.com/truecharts/apps/compare/dizquetv-3.0.12...dizquetv-3.0.13) (2021-10-19)
 

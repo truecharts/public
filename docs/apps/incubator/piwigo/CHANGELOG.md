@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piwigo-0.0.9"></a>
+### [piwigo-0.0.9](https://github.com/truecharts/apps/compare/piwigo-0.0.8...piwigo-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="piwigo-0.0.8"></a>
 ### [piwigo-0.0.8](https://github.com/truecharts/apps/compare/piwigo-0.0.7...piwigo-0.0.8) (2021-10-19)
 

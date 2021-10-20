@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sonarr-8.0.15"></a>
+### [sonarr-8.0.15](https://github.com/truecharts/apps/compare/sonarr-8.0.14...sonarr-8.0.15) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="sonarr-8.0.14"></a>
 ### [sonarr-8.0.14](https://github.com/truecharts/apps/compare/sonarr-8.0.13...sonarr-8.0.14) (2021-10-19)
 

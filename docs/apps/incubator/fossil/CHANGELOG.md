@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fossil-0.0.9"></a>
+### [fossil-0.0.9](https://github.com/truecharts/apps/compare/fossil-0.0.8...fossil-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="fossil-0.0.8"></a>
 ### [fossil-0.0.8](https://github.com/truecharts/apps/compare/fossil-0.0.7...fossil-0.0.8) (2021-10-19)
 

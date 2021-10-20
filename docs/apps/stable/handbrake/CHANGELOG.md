@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-8.0.14"></a>
+### [handbrake-8.0.14](https://github.com/truecharts/apps/compare/handbrake-8.0.13...handbrake-8.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="handbrake-8.0.13"></a>
 ### [handbrake-8.0.13](https://github.com/truecharts/apps/compare/handbrake-8.0.12...handbrake-8.0.13) (2021-10-19)
 

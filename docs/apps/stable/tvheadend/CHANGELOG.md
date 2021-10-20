@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tvheadend-9.0.13"></a>
+### [tvheadend-9.0.13](https://github.com/truecharts/apps/compare/tvheadend-9.0.12...tvheadend-9.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="tvheadend-9.0.12"></a>
 ### [tvheadend-9.0.12](https://github.com/truecharts/apps/compare/tvheadend-9.0.11...tvheadend-9.0.12) (2021-10-19)
 

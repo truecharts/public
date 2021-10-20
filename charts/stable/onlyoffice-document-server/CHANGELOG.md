@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-1.0.7"></a>
+### [onlyoffice-document-server-1.0.7](https://github.com/truecharts/apps/compare/onlyoffice-document-server-1.0.6...onlyoffice-document-server-1.0.7) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="onlyoffice-document-server-1.0.6"></a>
 ### [onlyoffice-document-server-1.0.6](https://github.com/truecharts/apps/compare/onlyoffice-document-server-1.0.5...onlyoffice-document-server-1.0.6) (2021-10-19)
 

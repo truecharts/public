@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pixapop-0.0.9"></a>
+### [pixapop-0.0.9](https://github.com/truecharts/apps/compare/pixapop-0.0.8...pixapop-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="pixapop-0.0.8"></a>
 ### [pixapop-0.0.8](https://github.com/truecharts/apps/compare/pixapop-0.0.7...pixapop-0.0.8) (2021-10-19)
 

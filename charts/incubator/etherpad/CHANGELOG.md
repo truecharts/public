@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="etherpad-0.0.4"></a>
+### [etherpad-0.0.4](https://github.com/truecharts/apps/compare/etherpad-0.0.3...etherpad-0.0.4) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="etherpad-0.0.3"></a>
 ### [etherpad-0.0.3](https://github.com/truecharts/apps/compare/etherpad-0.0.2...etherpad-0.0.3) (2021-10-19)
 

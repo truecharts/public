@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kanboard-0.0.4"></a>
+### [kanboard-0.0.4](https://github.com/truecharts/apps/compare/kanboard-0.0.3...kanboard-0.0.4) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="kanboard-0.0.3"></a>
 ### [kanboard-0.0.3](https://github.com/truecharts/apps/compare/kanboard-0.0.2...kanboard-0.0.3) (2021-10-19)
 

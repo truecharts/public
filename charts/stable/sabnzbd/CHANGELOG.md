@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-8.0.14"></a>
+### [sabnzbd-8.0.14](https://github.com/truecharts/apps/compare/sabnzbd-8.0.13...sabnzbd-8.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="sabnzbd-8.0.13"></a>
 ### [sabnzbd-8.0.13](https://github.com/truecharts/apps/compare/sabnzbd-8.0.12...sabnzbd-8.0.13) (2021-10-19)
 

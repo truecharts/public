@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traccar-0.0.4"></a>
+### [traccar-0.0.4](https://github.com/truecharts/apps/compare/traccar-0.0.3...traccar-0.0.4) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="traccar-0.0.3"></a>
 ### [traccar-0.0.3](https://github.com/truecharts/apps/compare/traccar-0.0.2...traccar-0.0.3) (2021-10-19)
 

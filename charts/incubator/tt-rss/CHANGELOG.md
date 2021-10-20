@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-0.0.4"></a>
+### [tt-rss-0.0.4](https://github.com/truecharts/apps/compare/tt-rss-0.0.3...tt-rss-0.0.4) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="tt-rss-0.0.3"></a>
 ### [tt-rss-0.0.3](https://github.com/truecharts/apps/compare/tt-rss-0.0.2...tt-rss-0.0.3) (2021-10-19)
 

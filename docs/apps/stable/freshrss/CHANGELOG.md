@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freshrss-8.0.16"></a>
+### [freshrss-8.0.16](https://github.com/truecharts/apps/compare/freshrss-8.0.15...freshrss-8.0.16) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="freshrss-8.0.15"></a>
 ### [freshrss-8.0.15](https://github.com/truecharts/apps/compare/freshrss-8.0.14...freshrss-8.0.15) (2021-10-19)
 

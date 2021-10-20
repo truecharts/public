@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-gpu-1.0.6"></a>
+### [deepstack-gpu-1.0.6](https://github.com/truecharts/apps/compare/deepstack-gpu-1.0.5...deepstack-gpu-1.0.6) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="deepstack-gpu-1.0.5"></a>
 ### [deepstack-gpu-1.0.5](https://github.com/truecharts/apps/compare/deepstack-gpu-1.0.4...deepstack-gpu-1.0.5) (2021-10-19)
 

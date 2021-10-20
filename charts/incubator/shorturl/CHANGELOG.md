@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shorturl-0.0.9"></a>
+### [shorturl-0.0.9](https://github.com/truecharts/apps/compare/shorturl-0.0.8...shorturl-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="shorturl-0.0.8"></a>
 ### [shorturl-0.0.8](https://github.com/truecharts/apps/compare/shorturl-0.0.7...shorturl-0.0.8) (2021-10-19)
 

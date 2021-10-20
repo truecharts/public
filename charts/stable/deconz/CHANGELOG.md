@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-3.0.14"></a>
+### [deconz-3.0.14](https://github.com/truecharts/apps/compare/deconz-3.0.13...deconz-3.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="deconz-3.0.13"></a>
 ### [deconz-3.0.13](https://github.com/truecharts/apps/compare/deconz-3.0.12...deconz-3.0.13) (2021-10-19)
 

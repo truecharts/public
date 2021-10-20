@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpackerr-3.0.13"></a>
+### [unpackerr-3.0.13](https://github.com/truecharts/apps/compare/unpackerr-3.0.12...unpackerr-3.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="unpackerr-3.0.12"></a>
 ### [unpackerr-3.0.12](https://github.com/truecharts/apps/compare/unpackerr-3.0.11...unpackerr-3.0.12) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="smokeping-0.0.9"></a>
+### [smokeping-0.0.9](https://github.com/truecharts/apps/compare/smokeping-0.0.8...smokeping-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="smokeping-0.0.8"></a>
 ### [smokeping-0.0.8](https://github.com/truecharts/apps/compare/smokeping-0.0.7...smokeping-0.0.8) (2021-10-19)
 

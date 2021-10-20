@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lidarr-8.0.13"></a>
+### [lidarr-8.0.13](https://github.com/truecharts/apps/compare/lidarr-8.0.12...lidarr-8.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="lidarr-8.0.12"></a>
 ### [lidarr-8.0.12](https://github.com/truecharts/apps/compare/lidarr-8.0.11...lidarr-8.0.12) (2021-10-19)
 

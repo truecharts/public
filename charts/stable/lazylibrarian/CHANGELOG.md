@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-8.0.16"></a>
+### [lazylibrarian-8.0.16](https://github.com/truecharts/apps/compare/lazylibrarian-8.0.15...lazylibrarian-8.0.16) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+* update non-major ([#1185](https://github.com/truecharts/apps/issues/1185))
+
+
+
 <a name="lazylibrarian-8.0.15"></a>
 ### [lazylibrarian-8.0.15](https://github.com/truecharts/apps/compare/lazylibrarian-8.0.14...lazylibrarian-8.0.15) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mylar-3.0.13"></a>
+### [mylar-3.0.13](https://github.com/truecharts/apps/compare/mylar-3.0.12...mylar-3.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="mylar-3.0.12"></a>
 ### [mylar-3.0.12](https://github.com/truecharts/apps/compare/mylar-3.0.11...mylar-3.0.12) (2021-10-19)
 

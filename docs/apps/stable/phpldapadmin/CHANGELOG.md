@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-3.0.13"></a>
+### [phpldapadmin-3.0.13](https://github.com/truecharts/apps/compare/phpldapadmin-3.0.12...phpldapadmin-3.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="phpldapadmin-3.0.12"></a>
 ### [phpldapadmin-3.0.12](https://github.com/truecharts/apps/compare/phpldapadmin-3.0.11...phpldapadmin-3.0.12) (2021-10-19)
 

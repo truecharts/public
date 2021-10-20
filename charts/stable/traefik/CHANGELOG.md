@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="traefik-9.0.16"></a>
+### [traefik-9.0.16](https://github.com/truecharts/apps/compare/traefik-9.0.15...traefik-9.0.16) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+#### Security
+
+* Improve Snyk hardening advisory ([#1208](https://github.com/truecharts/apps/issues/1208))
+
+
+
 <a name="traefik-9.0.15"></a>
 ### [traefik-9.0.15](https://github.com/truecharts/apps/compare/traefik-9.0.14...traefik-9.0.15) (2021-10-19)
 

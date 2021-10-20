@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="littlelink-3.0.15"></a>
+### [littlelink-3.0.15](https://github.com/truecharts/apps/compare/littlelink-3.0.14...littlelink-3.0.15) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="littlelink-3.0.14"></a>
 ### [littlelink-3.0.14](https://github.com/truecharts/apps/compare/littlelink-3.0.13...littlelink-3.0.14) (2021-10-19)
 

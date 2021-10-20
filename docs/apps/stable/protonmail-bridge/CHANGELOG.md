@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-3.0.13"></a>
+### [protonmail-bridge-3.0.13](https://github.com/truecharts/apps/compare/protonmail-bridge-3.0.12...protonmail-bridge-3.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="protonmail-bridge-3.0.12"></a>
 ### [protonmail-bridge-3.0.12](https://github.com/truecharts/apps/compare/protonmail-bridge-3.0.11...protonmail-bridge-3.0.12) (2021-10-19)
 

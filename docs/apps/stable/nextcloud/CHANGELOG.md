@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-6.0.28"></a>
+### [nextcloud-6.0.28](https://github.com/truecharts/apps/compare/nextcloud-6.0.27...nextcloud-6.0.28) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="nextcloud-6.0.27"></a>
 ### [nextcloud-6.0.27](https://github.com/truecharts/apps/compare/nextcloud-6.0.26...nextcloud-6.0.27) (2021-10-19)
 

@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="common-test-3.3.0"></a>
+### [common-test-3.3.0](https://github.com/truecharts/apps/compare/common-test-3.2.0...common-test-3.3.0) (2021-10-20)
+
+#### Chore
+
+* Project-Eclipse 5, move app-readme to automatic generation script ([#1181](https://github.com/truecharts/apps/issues/1181))
+* Project-Eclipse part 2, adapting and cleaning changelog ([#1173](https://github.com/truecharts/apps/issues/1173))
+
+#### Security
+
+* Improve Snyk hardening advisory ([#1208](https://github.com/truecharts/apps/issues/1208))
+
+
+
 <a name="common-test-3.2.0"></a>
 ### [common-test-3.2.0](https://github.com/truecharts/apps/compare/common-test-3.1.5...common-test-3.2.0) (2021-09-28)
 

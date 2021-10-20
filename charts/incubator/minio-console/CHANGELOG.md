@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-console-0.0.9"></a>
+### [minio-console-0.0.9](https://github.com/truecharts/apps/compare/minio-console-0.0.8...minio-console-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="minio-console-0.0.8"></a>
 ### [minio-console-0.0.8](https://github.com/truecharts/apps/compare/minio-console-0.0.7...minio-console-0.0.8) (2021-10-19)
 

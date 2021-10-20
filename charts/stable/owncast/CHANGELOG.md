@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncast-3.0.15"></a>
+### [owncast-3.0.15](https://github.com/truecharts/apps/compare/owncast-3.0.14...owncast-3.0.15) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="owncast-3.0.14"></a>
 ### [owncast-3.0.14](https://github.com/truecharts/apps/compare/owncast-3.0.13...owncast-3.0.14) (2021-10-19)
 

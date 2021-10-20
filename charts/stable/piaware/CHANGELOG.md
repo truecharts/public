@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-3.0.13"></a>
+### [piaware-3.0.13](https://github.com/truecharts/apps/compare/piaware-3.0.12...piaware-3.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="piaware-3.0.12"></a>
 ### [piaware-3.0.12](https://github.com/truecharts/apps/compare/piaware-3.0.11...piaware-3.0.12) (2021-10-19)
 

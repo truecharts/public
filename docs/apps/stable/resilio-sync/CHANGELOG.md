@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-3.0.13"></a>
+### [resilio-sync-3.0.13](https://github.com/truecharts/apps/compare/resilio-sync-3.0.12...resilio-sync-3.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="resilio-sync-3.0.12"></a>
 ### [resilio-sync-3.0.12](https://github.com/truecharts/apps/compare/resilio-sync-3.0.11...resilio-sync-3.0.12) (2021-10-19)
 

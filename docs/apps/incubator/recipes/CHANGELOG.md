@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-0.0.4"></a>
+### [recipes-0.0.4](https://github.com/truecharts/apps/compare/recipes-0.0.3...recipes-0.0.4) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="recipes-0.0.3"></a>
 ### [recipes-0.0.3](https://github.com/truecharts/apps/compare/recipes-0.0.2...recipes-0.0.3) (2021-10-19)
 

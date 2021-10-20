@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-3.0.17"></a>
+### [omada-controller-3.0.17](https://github.com/truecharts/apps/compare/omada-controller-3.0.16...omada-controller-3.0.17) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="omada-controller-3.0.16"></a>
 ### [omada-controller-3.0.16](https://github.com/truecharts/apps/compare/omada-controller-3.0.15...omada-controller-3.0.16) (2021-10-19)
 

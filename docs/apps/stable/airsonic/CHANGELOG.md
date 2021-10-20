@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-3.0.16"></a>
+### [airsonic-3.0.16](https://github.com/truecharts/apps/compare/airsonic-3.0.15...airsonic-3.0.16) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="airsonic-3.0.15"></a>
 ### [airsonic-3.0.15](https://github.com/truecharts/apps/compare/airsonic-3.0.14...airsonic-3.0.15) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-0.0.7"></a>
+### [uptime-kuma-0.0.7](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.6...uptime-kuma-0.0.7) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="uptime-kuma-0.0.6"></a>
 ### [uptime-kuma-0.0.6](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.5...uptime-kuma-0.0.6) (2021-10-19)
 

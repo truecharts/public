@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="navidrome-8.0.14"></a>
+### [navidrome-8.0.14](https://github.com/truecharts/apps/compare/navidrome-8.0.13...navidrome-8.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="navidrome-8.0.13"></a>
 ### [navidrome-8.0.13](https://github.com/truecharts/apps/compare/navidrome-8.0.12...navidrome-8.0.13) (2021-10-19)
 

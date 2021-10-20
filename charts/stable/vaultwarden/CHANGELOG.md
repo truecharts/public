@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-9.0.23"></a>
+### [vaultwarden-9.0.23](https://github.com/truecharts/apps/compare/vaultwarden-9.0.22...vaultwarden-9.0.23) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="vaultwarden-9.0.22"></a>
 ### [vaultwarden-9.0.22](https://github.com/truecharts/apps/compare/vaultwarden-9.0.21...vaultwarden-9.0.22) (2021-10-19)
 

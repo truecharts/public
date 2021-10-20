@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-0.0.4"></a>
+### [miniflux-0.0.4](https://github.com/truecharts/apps/compare/miniflux-0.0.3...miniflux-0.0.4) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="miniflux-0.0.3"></a>
 ### [miniflux-0.0.3](https://github.com/truecharts/apps/compare/miniflux-0.0.2...miniflux-0.0.3) (2021-10-19)
 

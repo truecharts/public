@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-3.0.13"></a>
+### [focalboard-3.0.13](https://github.com/truecharts/apps/compare/focalboard-3.0.12...focalboard-3.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="focalboard-3.0.12"></a>
 ### [focalboard-3.0.12](https://github.com/truecharts/apps/compare/focalboard-3.0.11...focalboard-3.0.12) (2021-10-19)
 

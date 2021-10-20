@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="overseerr-3.0.13"></a>
+### [overseerr-3.0.13](https://github.com/truecharts/apps/compare/overseerr-3.0.12...overseerr-3.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="overseerr-3.0.12"></a>
 ### [overseerr-3.0.12](https://github.com/truecharts/apps/compare/overseerr-3.0.11...overseerr-3.0.12) (2021-10-19)
 

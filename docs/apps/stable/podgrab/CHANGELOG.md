@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-6.0.13"></a>
+### [podgrab-6.0.13](https://github.com/truecharts/apps/compare/podgrab-6.0.12...podgrab-6.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="podgrab-6.0.12"></a>
 ### [podgrab-6.0.12](https://github.com/truecharts/apps/compare/podgrab-6.0.11...podgrab-6.0.12) (2021-10-19)
 

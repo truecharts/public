@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-3.0.15"></a>
+### [healthchecks-3.0.15](https://github.com/truecharts/apps/compare/healthchecks-3.0.14...healthchecks-3.0.15) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="healthchecks-3.0.14"></a>
 ### [healthchecks-3.0.14](https://github.com/truecharts/apps/compare/healthchecks-3.0.13...healthchecks-3.0.14) (2021-10-19)
 

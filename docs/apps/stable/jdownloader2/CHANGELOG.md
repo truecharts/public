@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-3.0.13"></a>
+### [jdownloader2-3.0.13](https://github.com/truecharts/apps/compare/jdownloader2-3.0.12...jdownloader2-3.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="jdownloader2-3.0.12"></a>
 ### [jdownloader2-3.0.12](https://github.com/truecharts/apps/compare/jdownloader2-3.0.11...jdownloader2-3.0.12) (2021-10-19)
 

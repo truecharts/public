@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-8.0.17"></a>
+### [nzbhydra-8.0.17](https://github.com/truecharts/apps/compare/nzbhydra-8.0.16...nzbhydra-8.0.17) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="nzbhydra-8.0.16"></a>
 ### [nzbhydra-8.0.16](https://github.com/truecharts/apps/compare/nzbhydra-8.0.15...nzbhydra-8.0.16) (2021-10-19)
 

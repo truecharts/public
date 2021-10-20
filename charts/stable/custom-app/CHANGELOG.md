@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-2.0.18"></a>
+### [custom-app-2.0.18](https://github.com/truecharts/apps/compare/custom-app-2.0.17...custom-app-2.0.18) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="custom-app-2.0.17"></a>
 ### [custom-app-2.0.17](https://github.com/truecharts/apps/compare/custom-app-2.0.16...custom-app-2.0.17) (2021-10-19)
 

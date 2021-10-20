@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-0.0.8"></a>
+### [tdarr-0.0.8](https://github.com/truecharts/apps/compare/tdarr-node-0.0.7...tdarr-0.0.8) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="tdarr-0.0.7"></a>
 ### [tdarr-0.0.7](https://github.com/truecharts/apps/compare/tdarr-0.0.6...tdarr-0.0.7) (2021-10-19)
 

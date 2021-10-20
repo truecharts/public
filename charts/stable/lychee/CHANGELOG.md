@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lychee-8.0.13"></a>
+### [lychee-8.0.13](https://github.com/truecharts/apps/compare/lychee-8.0.12...lychee-8.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="lychee-8.0.12"></a>
 ### [lychee-8.0.12](https://github.com/truecharts/apps/compare/lychee-8.0.11...lychee-8.0.12) (2021-10-19)
 

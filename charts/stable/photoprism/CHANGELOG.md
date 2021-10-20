@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-4.0.8"></a>
+### [photoprism-4.0.8](https://github.com/truecharts/apps/compare/photoprism-4.0.7...photoprism-4.0.8) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="photoprism-4.0.7"></a>
 ### [photoprism-4.0.7](https://github.com/truecharts/apps/compare/photoprism-4.0.6...photoprism-4.0.7) (2021-10-19)
 

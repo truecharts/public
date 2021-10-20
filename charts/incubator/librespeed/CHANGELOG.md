@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-0.0.4"></a>
+### [librespeed-0.0.4](https://github.com/truecharts/apps/compare/librespeed-0.0.3...librespeed-0.0.4) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="librespeed-0.0.3"></a>
 ### [librespeed-0.0.3](https://github.com/truecharts/apps/compare/librespeed-0.0.2...librespeed-0.0.3) (2021-10-19)
 

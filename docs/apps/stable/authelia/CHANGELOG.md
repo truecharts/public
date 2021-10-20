@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-4.0.25"></a>
+### [authelia-4.0.25](https://github.com/truecharts/apps/compare/authelia-4.0.24...authelia-4.0.25) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="authelia-4.0.24"></a>
 ### [authelia-4.0.24](https://github.com/truecharts/apps/compare/authelia-4.0.23...authelia-4.0.24) (2021-10-19)
 

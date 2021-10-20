@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-0.0.4"></a>
+### [openkm-0.0.4](https://github.com/truecharts/apps/compare/openkm-0.0.3...openkm-0.0.4) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="openkm-0.0.3"></a>
 ### [openkm-0.0.3](https://github.com/truecharts/apps/compare/openkm-0.0.2...openkm-0.0.3) (2021-10-19)
 

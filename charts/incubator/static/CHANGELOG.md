@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="static-0.0.9"></a>
+### [static-0.0.9](https://github.com/truecharts/apps/compare/static-0.0.8...static-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="static-0.0.8"></a>
 ### [static-0.0.8](https://github.com/truecharts/apps/compare/static-0.0.7...static-0.0.8) (2021-10-19)
 

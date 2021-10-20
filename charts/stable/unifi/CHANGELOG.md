@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-8.0.14"></a>
+### [unifi-8.0.14](https://github.com/truecharts/apps/compare/unifi-8.0.13...unifi-8.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="unifi-8.0.13"></a>
 ### [unifi-8.0.13](https://github.com/truecharts/apps/compare/unifi-8.0.12...unifi-8.0.13) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radarr-8.0.13"></a>
+### [radarr-8.0.13](https://github.com/truecharts/apps/compare/radarr-8.0.12...radarr-8.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="radarr-8.0.12"></a>
 ### [radarr-8.0.12](https://github.com/truecharts/apps/compare/radarr-8.0.11...radarr-8.0.12) (2021-10-19)
 

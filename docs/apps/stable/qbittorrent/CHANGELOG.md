@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-8.0.14"></a>
+### [qbittorrent-8.0.14](https://github.com/truecharts/apps/compare/qbittorrent-8.0.13...qbittorrent-8.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="qbittorrent-8.0.13"></a>
 ### [qbittorrent-8.0.13](https://github.com/truecharts/apps/compare/qbittorrent-8.0.12...qbittorrent-8.0.13) (2021-10-19)
 

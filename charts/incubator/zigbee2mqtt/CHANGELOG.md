@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-0.0.9"></a>
+### [zigbee2mqtt-0.0.9](https://github.com/truecharts/apps/compare/zigbee2mqtt-0.0.8...zigbee2mqtt-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="zigbee2mqtt-0.0.8"></a>
 ### [zigbee2mqtt-0.0.8](https://github.com/truecharts/apps/compare/zigbee2mqtt-0.0.7...zigbee2mqtt-0.0.8) (2021-10-19)
 

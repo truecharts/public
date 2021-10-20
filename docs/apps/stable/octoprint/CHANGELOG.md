@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="octoprint-3.0.14"></a>
+### [octoprint-3.0.14](https://github.com/truecharts/apps/compare/octoprint-3.0.13...octoprint-3.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="octoprint-3.0.13"></a>
 ### [octoprint-3.0.13](https://github.com/truecharts/apps/compare/octoprint-3.0.12...octoprint-3.0.13) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-0.0.9"></a>
+### [medusa-0.0.9](https://github.com/truecharts/apps/compare/medusa-0.0.8...medusa-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="medusa-0.0.8"></a>
 ### [medusa-0.0.8](https://github.com/truecharts/apps/compare/medusa-0.0.7...medusa-0.0.8) (2021-10-19)
 

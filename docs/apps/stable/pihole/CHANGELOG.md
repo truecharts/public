@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-3.0.14"></a>
+### [pihole-3.0.14](https://github.com/truecharts/apps/compare/pihole-3.0.13...pihole-3.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="pihole-3.0.13"></a>
 ### [pihole-3.0.13](https://github.com/truecharts/apps/compare/pihole-3.0.12...pihole-3.0.13) (2021-10-19)
 

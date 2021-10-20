@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-1.0.14"></a>
+### [teamspeak3-1.0.14](https://github.com/truecharts/apps/compare/teamspeak3-1.0.13...teamspeak3-1.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="teamspeak3-1.0.13"></a>
 ### [teamspeak3-1.0.13](https://github.com/truecharts/apps/compare/teamspeak3-1.0.12...teamspeak3-1.0.13) (2021-10-19)
 

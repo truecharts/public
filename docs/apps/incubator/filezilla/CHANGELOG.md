@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filezilla-0.0.9"></a>
+### [filezilla-0.0.9](https://github.com/truecharts/apps/compare/filezilla-0.0.8...filezilla-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="filezilla-0.0.8"></a>
 ### [filezilla-0.0.8](https://github.com/truecharts/apps/compare/filezilla-0.0.7...filezilla-0.0.8) (2021-10-19)
 

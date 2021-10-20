@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbget-8.0.13"></a>
+### [nzbget-8.0.13](https://github.com/truecharts/apps/compare/nzbget-8.0.12...nzbget-8.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="nzbget-8.0.12"></a>
 ### [nzbget-8.0.12](https://github.com/truecharts/apps/compare/nzbget-8.0.11...nzbget-8.0.12) (2021-10-19)
 

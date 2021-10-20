@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-0.0.9"></a>
+### [code-server-0.0.9](https://github.com/truecharts/apps/compare/code-server-0.0.8...code-server-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="code-server-0.0.8"></a>
 ### [code-server-0.0.8](https://github.com/truecharts/apps/compare/code-server-0.0.7...code-server-0.0.8) (2021-10-19)
 

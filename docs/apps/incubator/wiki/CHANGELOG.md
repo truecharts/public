@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wiki-0.0.9"></a>
+### [wiki-0.0.9](https://github.com/truecharts/apps/compare/wikijs-0.0.3...wiki-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="wiki-0.0.8"></a>
 ### [wiki-0.0.8](https://github.com/truecharts/apps/compare/wikijs-0.0.2...wiki-0.0.8) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-8.0.15"></a>
+### [kms-8.0.15](https://github.com/truecharts/apps/compare/kms-8.0.14...kms-8.0.15) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="kms-8.0.14"></a>
 ### [kms-8.0.14](https://github.com/truecharts/apps/compare/kms-8.0.13...kms-8.0.14) (2021-10-19)
 

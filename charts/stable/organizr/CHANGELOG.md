@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="organizr-8.0.14"></a>
+### [organizr-8.0.14](https://github.com/truecharts/apps/compare/organizr-8.0.13...organizr-8.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="organizr-8.0.13"></a>
 ### [organizr-8.0.13](https://github.com/truecharts/apps/compare/organizr-8.0.12...organizr-8.0.13) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="golinks-0.0.9"></a>
+### [golinks-0.0.9](https://github.com/truecharts/apps/compare/golinks-0.0.8...golinks-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="golinks-0.0.8"></a>
 ### [golinks-0.0.8](https://github.com/truecharts/apps/compare/golinks-0.0.7...golinks-0.0.8) (2021-10-19)
 

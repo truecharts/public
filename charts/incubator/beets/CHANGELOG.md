@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="beets-0.0.9"></a>
+### [beets-0.0.9](https://github.com/truecharts/apps/compare/beets-0.0.8...beets-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="beets-0.0.8"></a>
 ### [beets-0.0.8](https://github.com/truecharts/apps/compare/beets-0.0.7...beets-0.0.8) (2021-10-19)
 

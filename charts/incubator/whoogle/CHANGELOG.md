@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="whoogle-0.0.9"></a>
+### [whoogle-0.0.9](https://github.com/truecharts/apps/compare/whoogle-0.0.8...whoogle-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+* update non-major ([#1185](https://github.com/truecharts/apps/issues/1185))
+
+
+
 <a name="whoogle-0.0.8"></a>
 ### [whoogle-0.0.8](https://github.com/truecharts/apps/compare/whoogle-0.0.7...whoogle-0.0.8) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-3.0.13"></a>
+### [pretend-youre-xyzzy-3.0.13](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-3.0.12...pretend-youre-xyzzy-3.0.13) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="pretend-youre-xyzzy-3.0.12"></a>
 ### [pretend-youre-xyzzy-3.0.12](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-3.0.11...pretend-youre-xyzzy-3.0.12) (2021-10-19)
 

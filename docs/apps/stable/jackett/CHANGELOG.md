@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-8.0.20"></a>
+### [jackett-8.0.20](https://github.com/truecharts/apps/compare/jackett-8.0.19...jackett-8.0.20) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="jackett-8.0.19"></a>
 ### [jackett-8.0.19](https://github.com/truecharts/apps/compare/jackett-8.0.18...jackett-8.0.19) (2021-10-19)
 

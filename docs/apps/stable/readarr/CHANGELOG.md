@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="readarr-8.0.16"></a>
+### [readarr-8.0.16](https://github.com/truecharts/apps/compare/readarr-8.0.15...readarr-8.0.16) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="readarr-8.0.15"></a>
 ### [readarr-8.0.15](https://github.com/truecharts/apps/compare/readarr-8.0.14...readarr-8.0.15) (2021-10-19)
 

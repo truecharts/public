@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="apache-musicindex-0.0.9"></a>
+### [apache-musicindex-0.0.9](https://github.com/truecharts/apps/compare/apache-musicindex-0.0.8...apache-musicindex-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="apache-musicindex-0.0.8"></a>
 ### [apache-musicindex-0.0.8](https://github.com/truecharts/apps/compare/apache-musicindex-0.0.7...apache-musicindex-0.0.8) (2021-10-19)
 

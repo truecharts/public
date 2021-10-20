@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-9.0.23"></a>
+### [fireflyiii-9.0.23](https://github.com/truecharts/apps/compare/fireflyiii-9.0.22...fireflyiii-9.0.23) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="fireflyiii-9.0.22"></a>
 ### [fireflyiii-9.0.22](https://github.com/truecharts/apps/compare/fireflyiii-9.0.21...fireflyiii-9.0.22) (2021-10-19)
 

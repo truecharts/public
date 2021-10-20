@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickgear-0.0.9"></a>
+### [sickgear-0.0.9](https://github.com/truecharts/apps/compare/sickgear-0.0.8...sickgear-0.0.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="sickgear-0.0.8"></a>
 ### [sickgear-0.0.8](https://github.com/truecharts/apps/compare/sickgear-0.0.7...sickgear-0.0.8) (2021-10-19)
 

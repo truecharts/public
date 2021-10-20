@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-8.2.9"></a>
+### [home-assistant-8.2.9](https://github.com/truecharts/apps/compare/home-assistant-8.2.8...home-assistant-8.2.9) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="home-assistant-8.2.8"></a>
 ### [home-assistant-8.2.8](https://github.com/truecharts/apps/compare/home-assistant-8.2.7...home-assistant-8.2.8) (2021-10-19)
 

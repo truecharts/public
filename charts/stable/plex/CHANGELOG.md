@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-7.0.14"></a>
+### [plex-7.0.14](https://github.com/truecharts/apps/compare/plex-7.0.13...plex-7.0.14) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="plex-7.0.13"></a>
 ### [plex-7.0.13](https://github.com/truecharts/apps/compare/plex-7.0.12...plex-7.0.13) (2021-10-19)
 

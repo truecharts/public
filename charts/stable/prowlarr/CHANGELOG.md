@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-3.0.17"></a>
+### [prowlarr-3.0.17](https://github.com/truecharts/apps/compare/prowlarr-3.0.16...prowlarr-3.0.17) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="prowlarr-3.0.16"></a>
 ### [prowlarr-3.0.16](https://github.com/truecharts/apps/compare/prowlarr-3.0.15...prowlarr-3.0.16) (2021-10-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-8.0.16"></a>
+### [zwavejs2mqtt-8.0.16](https://github.com/truecharts/apps/compare/zwavejs2mqtt-8.0.15...zwavejs2mqtt-8.0.16) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="zwavejs2mqtt-8.0.15"></a>
 ### [zwavejs2mqtt-8.0.15](https://github.com/truecharts/apps/compare/zwavejs2mqtt-8.0.14...zwavejs2mqtt-8.0.15) (2021-10-19)
 

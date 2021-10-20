@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-3.0.16"></a>
+### [duplicati-3.0.16](https://github.com/truecharts/apps/compare/duplicati-3.0.15...duplicati-3.0.16) (2021-10-20)
+
+#### Chore
+
+* bump versions to rerelease and fix icons
+
+
+
 <a name="duplicati-3.0.15"></a>
 ### [duplicati-3.0.15](https://github.com/truecharts/apps/compare/duplicati-3.0.14...duplicati-3.0.15) (2021-10-19)
 
