@@ -25,9 +25,7 @@ Secondary entrypoint and primary loader for the common chart
   {{- /* Build the templates */ -}}
   {{- include "common.pvc" . }}
 
-  {{- if .Values.serviceAccount.create -}}
-    {{- include "common.serviceAccount" . }}
-  {{- end -}}
+  {{- include "common.serviceAccount" . }}
 
   {{- if .Values.controller.enabled }}
     {{- if eq .Values.controller.type "deployment" }}
