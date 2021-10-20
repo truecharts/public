@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-1.0.12"></a>
+### [logitech-media-server-1.0.12](https://github.com/truecharts/apps/compare/logitech-media-server-1.0.9...logitech-media-server-1.0.12) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+* update non-major deps helm releases ([#1213](https://github.com/truecharts/apps/issues/1213))
+
+#### Fix
+
+* reenable postgresql migration scripting and bump all to force update
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="logitech-media-server-1.0.9"></a>
 ### [logitech-media-server-1.0.9](https://github.com/truecharts/apps/compare/logitech-media-server-1.0.8...logitech-media-server-1.0.9) (2021-10-20)
 

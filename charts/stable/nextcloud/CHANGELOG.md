@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="nextcloud-7.0.3"></a>
+### [nextcloud-7.0.3](https://github.com/truecharts/apps/compare/nextcloud-7.0.0...nextcloud-7.0.3) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+* update non-major deps helm releases ([#1213](https://github.com/truecharts/apps/issues/1213))
+
+#### Fix
+
+* reenable postgresql migration scripting and bump all to force update
+
+
+
 <a name="nextcloud-7.0.0"></a>
 ### [nextcloud-7.0.0](https://github.com/truecharts/apps/compare/nextcloud-6.0.28...nextcloud-7.0.0) (2021-10-20)
 

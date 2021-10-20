@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="prowlarr-3.0.20"></a>
+### [prowlarr-3.0.20](https://github.com/truecharts/apps/compare/prowlarr-3.0.17...prowlarr-3.0.20) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+* update non-major deps helm releases ([#1213](https://github.com/truecharts/apps/issues/1213))
+
+#### Fix
+
+* reenable postgresql migration scripting and bump all to force update
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="prowlarr-3.0.17"></a>
 ### [prowlarr-3.0.17](https://github.com/truecharts/apps/compare/prowlarr-3.0.16...prowlarr-3.0.17) (2021-10-20)
 

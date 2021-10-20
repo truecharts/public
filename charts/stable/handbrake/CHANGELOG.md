@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-8.0.17"></a>
+### [handbrake-8.0.17](https://github.com/truecharts/apps/compare/handbrake-8.0.16...handbrake-8.0.17) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="handbrake-8.0.14"></a>
 ### [handbrake-8.0.14](https://github.com/truecharts/apps/compare/handbrake-8.0.13...handbrake-8.0.14) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-8.0.17"></a>
+### [collabora-online-8.0.17](https://github.com/truecharts/apps/compare/collabora-online-8.0.16...collabora-online-8.0.17) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="collabora-online-8.0.14"></a>
 ### [collabora-online-8.0.14](https://github.com/truecharts/apps/compare/collabora-online-8.0.13...collabora-online-8.0.14) (2021-10-20)
 

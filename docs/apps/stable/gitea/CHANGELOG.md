@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-2.0.3"></a>
+### [gitea-2.0.3](https://github.com/truecharts/apps/compare/gitea-2.0.2...gitea-2.0.3) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="gitea-2.0.0"></a>
 ### [gitea-2.0.0](https://github.com/truecharts/apps/compare/gitea-1.0.17...gitea-2.0.0) (2021-10-20)
 

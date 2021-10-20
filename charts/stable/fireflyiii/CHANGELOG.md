@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-10.0.3"></a>
+### [fireflyiii-10.0.3](https://github.com/truecharts/apps/compare/fireflyiii-10.0.2...fireflyiii-10.0.3) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="fireflyiii-10.0.0"></a>
 ### [fireflyiii-10.0.0](https://github.com/truecharts/apps/compare/fireflyiii-9.0.23...fireflyiii-10.0.0) (2021-10-20)
 

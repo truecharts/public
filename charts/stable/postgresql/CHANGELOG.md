@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="postgresql-4.0.3"></a>
+### [postgresql-4.0.3](https://github.com/truecharts/apps/compare/postgresql-4.0.1...postgresql-4.0.3) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+#### Fix
+
+* reenable postgresql migration scripting and bump all to force update
+
+
+
 <a name="postgresql-4.0.1"></a>
 ### [postgresql-4.0.1](https://github.com/truecharts/apps/compare/postgresql-4.0.0...postgresql-4.0.1) (2021-10-20)
 

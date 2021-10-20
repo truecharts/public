@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-8.0.19"></a>
+### [lazylibrarian-8.0.19](https://github.com/truecharts/apps/compare/lazylibrarian-8.0.18...lazylibrarian-8.0.19) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="lazylibrarian-8.0.16"></a>
 ### [lazylibrarian-8.0.16](https://github.com/truecharts/apps/compare/lazylibrarian-8.0.15...lazylibrarian-8.0.16) (2021-10-20)
 

@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-10.0.3"></a>
+### [vaultwarden-10.0.3](https://github.com/truecharts/apps/compare/vaultwarden-10.0.0...vaultwarden-10.0.3) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+* update non-major deps helm releases ([#1213](https://github.com/truecharts/apps/issues/1213))
+
+#### Fix
+
+* reenable postgresql migration scripting and bump all to force update
+
+
+
 <a name="vaultwarden-10.0.0"></a>
 ### [vaultwarden-10.0.0](https://github.com/truecharts/apps/compare/vaultwarden-9.0.23...vaultwarden-10.0.0) (2021-10-20)
 

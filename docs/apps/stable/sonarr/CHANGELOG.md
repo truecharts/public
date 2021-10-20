@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="sonarr-8.0.18"></a>
+### [sonarr-8.0.18](https://github.com/truecharts/apps/compare/sonarr-8.0.15...sonarr-8.0.18) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+* update non-major deps helm releases ([#1213](https://github.com/truecharts/apps/issues/1213))
+
+#### Fix
+
+* reenable postgresql migration scripting and bump all to force update
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="sonarr-8.0.15"></a>
 ### [sonarr-8.0.15](https://github.com/truecharts/apps/compare/sonarr-8.0.14...sonarr-8.0.15) (2021-10-20)
 

@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="octoprint-3.0.17"></a>
+### [octoprint-3.0.17](https://github.com/truecharts/apps/compare/octoprint-3.0.14...octoprint-3.0.17) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+* update non-major deps helm releases ([#1213](https://github.com/truecharts/apps/issues/1213))
+
+#### Fix
+
+* reenable postgresql migration scripting and bump all to force update
+* use correct PVC storageClass when using postgresql as a dependency on SCALE ([#1212](https://github.com/truecharts/apps/issues/1212))
+
+
+
 <a name="octoprint-3.0.14"></a>
 ### [octoprint-3.0.14](https://github.com/truecharts/apps/compare/octoprint-3.0.13...octoprint-3.0.14) (2021-10-20)
 

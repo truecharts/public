@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-3.0.16"></a>
+### [k8s-gateway-3.0.16](https://github.com/truecharts/apps/compare/k8s-gateway-3.0.15...k8s-gateway-3.0.16) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="k8s-gateway-3.0.13"></a>
 ### [k8s-gateway-3.0.13](https://github.com/truecharts/apps/compare/k8s-gateway-3.0.12...k8s-gateway-3.0.13) (2021-10-20)
 

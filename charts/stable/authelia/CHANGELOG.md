@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-5.0.3"></a>
+### [authelia-5.0.3](https://github.com/truecharts/apps/compare/authelia-5.0.2...authelia-5.0.3) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="authelia-5.0.0"></a>
 ### [authelia-5.0.0](https://github.com/truecharts/apps/compare/authelia-4.0.25...authelia-5.0.0) (2021-10-20)
 

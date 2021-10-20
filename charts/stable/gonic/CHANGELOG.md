@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gonic-3.0.17"></a>
+### [gonic-3.0.17](https://github.com/truecharts/apps/compare/gonic-3.0.16...gonic-3.0.17) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="gonic-3.0.14"></a>
 ### [gonic-3.0.14](https://github.com/truecharts/apps/compare/gonic-3.0.13...gonic-3.0.14) (2021-10-20)
 

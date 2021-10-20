@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-9.0.3"></a>
+### [home-assistant-9.0.3](https://github.com/truecharts/apps/compare/home-assistant-9.0.2...home-assistant-9.0.3) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="home-assistant-9.0.0"></a>
 ### [home-assistant-9.0.0](https://github.com/truecharts/apps/compare/home-assistant-8.2.9...home-assistant-9.0.0) (2021-10-20)
 

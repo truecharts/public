@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-8.0.18"></a>
+### [esphome-8.0.18](https://github.com/truecharts/apps/compare/esphome-8.0.17...esphome-8.0.18) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="esphome-8.0.15"></a>
 ### [esphome-8.0.15](https://github.com/truecharts/apps/compare/esphome-8.0.14...esphome-8.0.15) (2021-10-20)
 
