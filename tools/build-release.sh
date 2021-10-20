@@ -398,6 +398,7 @@ patch_apps() {
     touch ${target}/values.yaml
     # Generate item.yaml
     cat ${target}/Chart.yaml | grep "icon" >> catalog/${train}/${chartname}/item.yaml
+    sed -i "s|^icon:|icon_url:|g" ${target}/chart.yaml
     echo "categories:" >> catalog/${train}/${chartname}/item.yaml
     cat ${target}/Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
     # Generate SCALE App description file
