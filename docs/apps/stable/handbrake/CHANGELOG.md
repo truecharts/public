@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-8.0.19"></a>
+### [handbrake-8.0.19](https://github.com/truecharts/apps/compare/handbrake-8.0.18...handbrake-8.0.19) (2021-10-21)
+
+#### Fix
+
+* null is obviously not a correct password.
+
+
+
 <a name="handbrake-8.0.18"></a>
 ### [handbrake-8.0.18](https://github.com/truecharts/apps/compare/handbrake-8.0.17...handbrake-8.0.18) (2021-10-21)
 
