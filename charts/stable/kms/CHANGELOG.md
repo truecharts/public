@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-8.0.18"></a>
+### [kms-8.0.18](https://github.com/truecharts/apps/compare/kms-8.0.17...kms-8.0.18) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="kms-8.0.15"></a>
 ### [kms-8.0.15](https://github.com/truecharts/apps/compare/kms-8.0.14...kms-8.0.15) (2021-10-20)
 

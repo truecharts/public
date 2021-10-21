@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-3.0.18"></a>
+### [booksonic-air-3.0.18](https://github.com/truecharts/apps/compare/booksonic-air-3.0.17...booksonic-air-3.0.18) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="booksonic-air-3.0.15"></a>
 ### [booksonic-air-3.0.15](https://github.com/truecharts/apps/compare/booksonic-air-3.0.14...booksonic-air-3.0.15) (2021-10-20)
 

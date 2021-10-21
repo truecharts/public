@@ -75,6 +75,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | envTpl | object | `{}` |  |
 | envValueFrom | object | `{}` |  |
 | global.fullnameOverride | string | `nil` | Set the entire name definition |
+| global.isSCALE | bool | `false` |  |
 | global.nameOverride | string | `nil` | Set an override for the prefix of the fullname |
 | hostAliases | list | `[]` | Use hostAliases to add custom entries to /etc/hosts - mapping IP addresses to hostnames. [[ref]](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/) |
 | hostNetwork | bool | `false` | When using hostNetwork make sure you set dnsPolicy to `ClusterFirstWithHostNet` |
@@ -157,7 +158,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"bitnami/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"13.4.0@sha256:2312f61d3c07ca3a05c1393ca3e02b210379dc0264610bf0c050e94bba9dd3ad"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"13.4.0@sha256:6ae26c46c20358fb2889a759d11d237b1d6d5f73ba206ef3d66f95448a859382"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |

@@ -16,6 +16,30 @@ service:
 ## TODO: Fix the backup-on-upgrade system
 enableUpgradeBackup: false
 
+initContainers:
+  migrate-db:
+    image: "{{ .Values.alpineImage.repository}}:{{ .Values.alpineImage.tag }}"
+    securityContext:
+      runAsUser: 0
+      privileged: true
+
+      runAsNonRoot: false
+    command:
+      - /bin/sh
+      - -cx
+      - |
+        echo 'trying to migrate old db to new location...'
+        mkdir -p /bitnami/postgresql/data
+        mv -f /bitnami/postgresql/old/* /bitnami/postgresql/data/ || true
+        chown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/data
+        chmod 775 /bitnami/postgresql/data
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - name: db
+        mountPath: /bitnami/postgresql
+      - name: data
+        mountPath: /bitnami/postgresql/old
+
 podSecurityContext:
   runAsGroup: 0
 
@@ -32,12 +56,7 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "999Gi"
-  dbbackups:
-    enabled: true
-    mountPath: "/dbbackups"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "999Gi"
+    storageClass: "-"
 
 postgresqlPassword: "testpass"
 postgresqlUsername: "test"

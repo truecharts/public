@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freshrss-8.0.19"></a>
+### [freshrss-8.0.19](https://github.com/truecharts/apps/compare/freshrss-8.0.18...freshrss-8.0.19) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="freshrss-8.0.16"></a>
 ### [freshrss-8.0.16](https://github.com/truecharts/apps/compare/freshrss-8.0.15...freshrss-8.0.16) (2021-10-20)
 

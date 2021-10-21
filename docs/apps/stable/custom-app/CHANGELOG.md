@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-2.0.21"></a>
+### [custom-app-2.0.21](https://github.com/truecharts/apps/compare/custom-app-2.0.20...custom-app-2.0.21) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="custom-app-2.0.18"></a>
 ### [custom-app-2.0.18](https://github.com/truecharts/apps/compare/custom-app-2.0.17...custom-app-2.0.18) (2021-10-20)
 

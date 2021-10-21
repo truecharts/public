@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-8.0.19"></a>
+### [heimdall-8.0.19](https://github.com/truecharts/apps/compare/heimdall-8.0.18...heimdall-8.0.19) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="heimdall-8.0.16"></a>
 ### [heimdall-8.0.16](https://github.com/truecharts/apps/compare/heimdall-8.0.15...heimdall-8.0.16) (2021-10-20)
 

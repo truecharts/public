@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-3.0.16"></a>
+### [jdownloader2-3.0.16](https://github.com/truecharts/apps/compare/jdownloader2-3.0.15...jdownloader2-3.0.16) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="jdownloader2-3.0.13"></a>
 ### [jdownloader2-3.0.13](https://github.com/truecharts/apps/compare/jdownloader2-3.0.12...jdownloader2-3.0.13) (2021-10-20)
 

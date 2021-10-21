@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gaps-8.0.16"></a>
+### [gaps-8.0.16](https://github.com/truecharts/apps/compare/gaps-8.0.15...gaps-8.0.16) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="gaps-8.0.13"></a>
 ### [gaps-8.0.13](https://github.com/truecharts/apps/compare/gaps-8.0.12...gaps-8.0.13) (2021-10-20)
 

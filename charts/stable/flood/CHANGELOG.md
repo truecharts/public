@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flood-3.0.17"></a>
+### [flood-3.0.17](https://github.com/truecharts/apps/compare/flood-3.0.16...flood-3.0.17) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="flood-3.0.14"></a>
 ### [flood-3.0.14](https://github.com/truecharts/apps/compare/flood-3.0.13...flood-3.0.14) (2021-10-20)
 

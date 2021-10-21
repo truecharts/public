@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-3.0.20"></a>
+### [airsonic-3.0.20](https://github.com/truecharts/apps/compare/airsonic-3.0.18...airsonic-3.0.20) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="airsonic-3.0.16"></a>
 ### [airsonic-3.0.16](https://github.com/truecharts/apps/compare/airsonic-3.0.15...airsonic-3.0.16) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-web-8.0.16"></a>
+### [calibre-web-8.0.16](https://github.com/truecharts/apps/compare/calibre-web-8.0.15...calibre-web-8.0.16) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="calibre-web-8.0.13"></a>
 ### [calibre-web-8.0.13](https://github.com/truecharts/apps/compare/calibre-web-8.0.12...calibre-web-8.0.13) (2021-10-20)
 

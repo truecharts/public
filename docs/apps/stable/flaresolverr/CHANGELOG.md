@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-3.0.16"></a>
+### [flaresolverr-3.0.16](https://github.com/truecharts/apps/compare/flaresolverr-3.0.15...flaresolverr-3.0.16) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="flaresolverr-3.0.13"></a>
 ### [flaresolverr-3.0.13](https://github.com/truecharts/apps/compare/flaresolverr-3.0.12...flaresolverr-3.0.13) (2021-10-20)
 

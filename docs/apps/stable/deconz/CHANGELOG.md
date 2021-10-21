@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-3.0.17"></a>
+### [deconz-3.0.17](https://github.com/truecharts/apps/compare/deconz-3.0.16...deconz-3.0.17) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="deconz-3.0.14"></a>
 ### [deconz-3.0.14](https://github.com/truecharts/apps/compare/deconz-3.0.13...deconz-3.0.14) (2021-10-20)
 

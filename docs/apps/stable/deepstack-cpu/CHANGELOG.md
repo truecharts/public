@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-cpu-6.0.17"></a>
+### [deepstack-cpu-6.0.17](https://github.com/truecharts/apps/compare/deepstack-cpu-6.0.16...deepstack-cpu-6.0.17) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="deepstack-cpu-6.0.14"></a>
 ### [deepstack-cpu-6.0.14](https://github.com/truecharts/apps/compare/deepstack-cpu-6.0.13...deepstack-cpu-6.0.14) (2021-10-20)
 
