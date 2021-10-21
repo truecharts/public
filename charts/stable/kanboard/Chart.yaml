@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "1.2.20"
+description: Kanboard is a free and open source Kanban project management software.
+name: kanboard
+version: 2.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+- kanboard
+- kanban
+home: https://github.com/truecharts/apps/tree/master/charts/stable/kanboard
+icon: https://raw.githubusercontent.com/kanboard/website/master/assets/img/icon.svg
+sources:
+- https://github.com/kanboard/kanboard
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.3.14
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://truecharts.org/
+  version: 4.0.1
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deluge-8.0.20"></a>
+### [deluge-8.0.20](https://github.com/truecharts/apps/compare/deluge-8.0.19...deluge-8.0.20) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="deluge-8.0.17"></a>
 ### [deluge-8.0.17](https://github.com/truecharts/apps/compare/deluge-8.0.16...deluge-8.0.17) (2021-10-20)
 

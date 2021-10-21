@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-3.0.16"></a>
+### [focalboard-3.0.16](https://github.com/truecharts/apps/compare/focalboard-3.0.15...focalboard-3.0.16) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="focalboard-3.0.13"></a>
 ### [focalboard-3.0.13](https://github.com/truecharts/apps/compare/focalboard-3.0.12...focalboard-3.0.13) (2021-10-20)
 

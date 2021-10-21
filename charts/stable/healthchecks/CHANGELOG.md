@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-3.0.18"></a>
+### [healthchecks-3.0.18](https://github.com/truecharts/apps/compare/healthchecks-3.0.17...healthchecks-3.0.18) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="healthchecks-3.0.15"></a>
 ### [healthchecks-3.0.15](https://github.com/truecharts/apps/compare/healthchecks-3.0.14...healthchecks-3.0.15) (2021-10-20)
 

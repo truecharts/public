@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-gpu-1.0.9"></a>
+### [deepstack-gpu-1.0.9](https://github.com/truecharts/apps/compare/deepstack-gpu-1.0.8...deepstack-gpu-1.0.9) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="deepstack-gpu-1.0.6"></a>
 ### [deepstack-gpu-1.0.6](https://github.com/truecharts/apps/compare/deepstack-gpu-1.0.5...deepstack-gpu-1.0.6) (2021-10-20)
 

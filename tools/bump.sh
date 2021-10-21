@@ -44,10 +44,10 @@ for train in stable incubator develop non-free deprecated; do
   for chart in charts/${train}/*; do
     if [ -d "${chart}" ]; then
       echo "Bumping patch version for ${train}/${chart}"
-      OLDVER=$(cat ${chart}/chart.yaml | grep "^version: ")
+      OLDVER=$(cat ${chart}/Chart.yaml | grep "^version: ")
       OLDVER=${OLDVER#version: }
       NEWVER=$(incr_semver ${OLDVER} ${BUMPTYPE})
-      sed -i "s|^version:.*|version: ${NEWVER}|g" ${chart}/chart.yaml
+      sed -i "s|^version:.*|version: ${NEWVER}|g" ${chart}/Chart.yaml
     fi
   done
 done
@@ -55,9 +55,9 @@ else
   chart=${2}
   if [ -d "${chart}" ]; then
     echo "Bumping patch version for ${chart}"
-    OLDVER=$(cat ${chart}/chart.yaml | grep "^version: ")
+    OLDVER=$(cat ${chart}/Chart.yaml | grep "^version: ")
     OLDVER=${OLDVER#version: }
     NEWVER=$(incr_semver ${OLDVER} ${BUMPTYPE})
-    sed -i "s|^version:.*|version: ${NEWVER}|g" ${chart}/chart.yaml
+    sed -i "s|^version:.*|version: ${NEWVER}|g" ${chart}/Chart.yaml
   fi
 fi

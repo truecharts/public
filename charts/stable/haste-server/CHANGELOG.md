@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="haste-server-3.0.16"></a>
+### [haste-server-3.0.16](https://github.com/truecharts/apps/compare/haste-server-3.0.15...haste-server-3.0.16) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="haste-server-3.0.13"></a>
 ### [haste-server-3.0.13](https://github.com/truecharts/apps/compare/haste-server-3.0.12...haste-server-3.0.13) (2021-10-20)
 

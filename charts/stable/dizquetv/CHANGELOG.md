@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dizquetv-3.0.17"></a>
+### [dizquetv-3.0.17](https://github.com/truecharts/apps/compare/dizquetv-3.0.16...dizquetv-3.0.17) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="dizquetv-3.0.14"></a>
 ### [dizquetv-3.0.14](https://github.com/truecharts/apps/compare/dizquetv-3.0.13...dizquetv-3.0.14) (2021-10-20)
 

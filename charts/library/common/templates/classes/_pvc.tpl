@@ -45,8 +45,8 @@ spec:
       storage: {{ $values.size | default "100Gi" | quote }}
   {{- if $values.storageClass }}
   storageClassName: {{ if (eq "-" $values.storageClass) }}""{{- else if (eq "SCALE-ZFS" $values.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" .Release.Name ) }}{{- else }}{{ $values.storageClass | quote }}{{- end }}
-  {{- else if .Values.ixChartContext }}
-  storageClassName: {{ printf "%v-%v"  "ix-storage-class" .Release.Name }}
+  {{- else if $.Values.global.isSCALE }}
+  storageClassName: {{ ( printf "%v-%v"  "ix-storage-class" .Release.Name ) }}
   {{- end }}
   {{- if $values.volumeName }}
   volumeName: {{ $values.volumeName | quote }}

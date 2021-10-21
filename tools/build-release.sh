@@ -80,10 +80,10 @@ main() {
                 chartname=$(basename ${chart})
                 train=$(basename $(dirname "$chart"))
                 SCALESUPPORT=$(cat ${chart}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
-                sync_tag "$chart" "$chartname" "$train" "$chartversion"
-                create_changelog "$chart" "$chartname" "$train" "$chartversion"
-                generate_docs "$chart" "$chartname" "$train" "$chartversion"
-                copy_docs "$chart" "$chartname" "$train" "$chartversion"
+                sync_tag "$chart" "$chartname" "$train" "$chartversion" || echo "Tag sync failed..."
+                create_changelog "$chart" "$chartname" "$train" "$chartversion" || echo "changelog generation failed..."
+                generate_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs generation failed..."
+                copy_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs Copy failed..."
                 helm dependency update "${chart}" --skip-refresh || sleep 10 && helm dependency update "${chart}" --skip-refresh || sleep 10 &&  helm dependency update "${chart}" --skip-refresh
                 package_chart "$chart"
                 if [[ "${SCALESUPPORT}" == "true" ]]; then
@@ -129,6 +129,11 @@ include_questions(){
     local chartversion="$4"
     local target="catalog/${train}/${chartname}/${chartversion}"
     echo "Including standardised questions.yaml includes for: ${chartname}"
+
+    # Replace # Include{global} with the standard global codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{global}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/global.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
     # Replace # Include{groups} with the standard groups codesnippet
     awk 'NR==FNR { a[n++]=$0; next }

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-8.0.23"></a>
+### [jackett-8.0.23](https://github.com/truecharts/apps/compare/jackett-8.0.22...jackett-8.0.23) (2021-10-20)
+
+#### Chore
+
+* bump apps, remove duplicates and move incubator to stable for RC1
+
+
+
 <a name="jackett-8.0.20"></a>
 ### [jackett-8.0.20](https://github.com/truecharts/apps/compare/jackett-8.0.19...jackett-8.0.20) (2021-10-20)
 
