@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-2.0.22"></a>
+### [custom-app-2.0.22](https://github.com/truecharts/apps/compare/custom-app-2.0.21...custom-app-2.0.22) (2021-10-21)
+
+#### Fix
+
+* Move test values to ci folder and use bare-bones values.yaml ([#1218](https://github.com/truecharts/apps/issues/1218))
+
+
+
 <a name="custom-app-2.0.21"></a>
 ### [custom-app-2.0.21](https://github.com/truecharts/apps/compare/custom-app-2.0.20...custom-app-2.0.21) (2021-10-20)
 

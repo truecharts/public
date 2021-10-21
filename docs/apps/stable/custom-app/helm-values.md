@@ -11,25 +11,8 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/jackett"` |  |
 | image.tag | string | `"v0.18.1025@sha256:fc255969e675bf34818450c9b4440403edd4b20f35bb148017c292186db381ff"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.enabled | bool | `true` |  |
-| service.main.ports.main.port | int | `9117` |  |
-| service.main.portsList[0].enabled | bool | `true` |  |
-| service.main.portsList[0].name | string | `"extraport"` |  |
-| service.main.portsList[0].port | int | `9118` |  |
-| serviceList[0].enabled | bool | `true` |  |
-| serviceList[0].name | string | `"extraservice"` |  |
-| serviceList[0].portsList[0].enabled | bool | `true` |  |
-| serviceList[0].portsList[0].name | string | `"extrasvcport"` |  |
-| serviceList[0].portsList[0].port | int | `9119` |  |
 
 All Rights Reserved - The TrueCharts Project
