@@ -87,6 +87,7 @@ questions:
           description: "Sets nextcloud admin password"
           schema:
             type: string
+            private: true
             required: true
             default: ""
         - variable: TRUSTED_PROXIES
