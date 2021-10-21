@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-8.0.18"></a>
+### [handbrake-8.0.18](https://github.com/truecharts/apps/compare/handbrake-8.0.17...handbrake-8.0.18) (2021-10-21)
+
+#### Fix
+
+* ensure PVC name is synced between questions.yaml and values.yaml.
+
+
+
 <a name="handbrake-8.0.17"></a>
 ### [handbrake-8.0.17](https://github.com/truecharts/apps/compare/handbrake-8.0.16...handbrake-8.0.17) (2021-10-20)
 
