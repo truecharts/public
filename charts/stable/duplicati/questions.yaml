@@ -284,7 +284,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/data"
                   hidden: true
                   valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
               - variable: medium
