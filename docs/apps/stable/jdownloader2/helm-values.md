@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.KEEP_APP_RUNNING | string | `"0"` |  |
 | env.PUID | int | `568` |  |
 | env.SECURE_CONNECTION | string | `"0"` |  |
-| env.VNC_PASSWORD | string | `nil` |  |
+| env.VNC_PASSWORD | string | `""` |  |
 | envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/jdownloader-2"` |  |

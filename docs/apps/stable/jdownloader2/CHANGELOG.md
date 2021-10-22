@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-3.0.17"></a>
+### [jdownloader2-3.0.17](https://github.com/truecharts/apps/compare/jdownloader2-3.0.16...jdownloader2-3.0.17) (2021-10-22)
+
+#### Fix
+
+* fix discrepancies between values.yaml and questions.yaml
+
+
+
 <a name="jdownloader2-3.0.16"></a>
 ### [jdownloader2-3.0.16](https://github.com/truecharts/apps/compare/jdownloader2-3.0.15...jdownloader2-3.0.16) (2021-10-20)
 
