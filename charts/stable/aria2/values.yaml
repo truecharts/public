@@ -25,6 +25,9 @@ service:
       main:
         enabled: true
         port: 6800
+  listen:
+    enabled: true
+    ports:
       listen:
         enabled: true
         port: 6888
