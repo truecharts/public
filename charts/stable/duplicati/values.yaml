@@ -6,6 +6,8 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
 
 # See more environment variables in the [duplicati documentation](https://github.com/linuxserver/docker-duplicati#parameters)
 # @default -- See below
