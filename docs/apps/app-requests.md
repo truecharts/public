@@ -68,11 +68,83 @@ _This list is to track `App Requests` from one place._
 - [ ] ArchiSteamFarm #1164
 - [ ] Docker Registry #1165
 
+##### TODO: Require custom care to handle their configuration
+
+- [ ] adguard-home ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] blocky ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] comcast ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] Frigate #871 ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] games-on-whales ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] gollum ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] homer ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] magic-mirror ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] modem-stats ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] neolink ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] network-ups-tools ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] onedrive ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] rtorrent-flood ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] searx ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] sharry ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] olivetin ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] writefreely ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+
 ##### TODO: Requires Postgresql customisation
 - [ ] Keycloack #1106
 
+##### TODO: Requires Postgresql+redis customisation
+
+- [ ] shlink ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] wallabag ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] papermerge ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+
 ##### TODO: Requires MariaDB to be added first
 - [ ] FreePBX #1111
+- [ ] anonaddy ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] baikal ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] bookstack ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] icinga2 ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] monica ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] openemr ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] xbackbone ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] clarkson ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] friendica ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] projectsend ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] snipe-it ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] formalms ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] leantime ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] blog ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] bookstack ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+
+##### TODO: Requires Prometheus to be added first
+
+- [ ] alertmanager-bot ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] promcord ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] prometheus-nut-exporter ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] speedtest-exporter ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] unifi-poller ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] uptimerobot-prometheus ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] traefik-forward-auth ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] uptimerobot ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] vikunja ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] youtubedl-material ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+
+##### TODO: Requires MongoDB to be added first
+
+- [ ] overleaf ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+
+
+##### TODO: Other Complications
+
+_These Apps have specific requirements or need specific customisation and care_
+
+- [ ] foundryvtt ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] homebridge ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] jetbrains-projector ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] paperless ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] boinc-client ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] hedgedoc ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] mariadb ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] cryptpad ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 
 ### Apps that not have a specific candidate yet.
 
@@ -84,123 +156,6 @@ _This list is to track `App Requests` from one place._
 - [ ] Minecraft Server #314
 - [ ] Printer/Scanner server (CUPS for example) #1024
 - [ ] Private torrent tracker (OpenTracker for example) #1025
-
-### Apps to port from a specific source
-
-This is a list of Helm charts in the popular[ k8s-at-home ](https://github.com/k8s-at-home/charts) repository that we aim to one day port all port to TrueCharts.
-
-It below [k8s-at-home ](https://github.com/k8s-at-home/charts) it also includes some "sister" repositories, that feature Charts that are very close to  [k8s-at-home ](https://github.com/k8s-at-home/charts), but not quite. However the porting process should be relatively similair.
-
-#### [ k8s-at-home ](https://github.com/k8s-at-home/charts)
-
-##### TODO: Require custom care to handle their configuration
-
-- [ ] adguard-home
-- [ ] blocky
-- [ ] comcast
-- [ ] Frigate #871
-- [ ] games-on-whales
-- [ ] gollum
-- [ ] homer
-- [ ] magic-mirror
-- [ ] modem-stats
-- [ ] neolink
-- [ ] network-ups-tools
-- [ ] onedrive
-- [ ] rtorrent-flood
-- [ ] searx
-- [ ] sharry
-
-##### TODO: Requires Postgresql customisation
-
-- [ ] dsmr-reader
-- [ ] joplin-server
-- [ ] kanboard
-- [ ] librespeed
-- [ ] miniflux
-- [ ] openkm
-- [ ] powerdns
-- [ ] shlink
-- [ ] statping
-- [ ] teedy
-- [ ] teslamate
-- [ ] traccar
-- [ ] tt-rss
-- [ ] wallabag
-- [ ] wikijs
-- [ ] recipes
-
-##### TODO: Requires Prometheus to be added first
-
-- [ ] alertmanager-bot
-- [ ] promcord
-- [ ] prometheus-nut-exporter
-- [ ] speedtest-exporter
-- [ ] unifi-poller
-- [ ] uptimerobot-prometheus
-- [ ] traefik-forward-auth
-- [ ] uptimerobot
-- [ ] vikunja
-- [ ] youtubedl-material
-
-##### TODO: Requires MongoDB to be added first
-
-- [ ] overleaf
-
-##### TODO: Requires MariaDB to be added first
-
-- [ ] anonaddy
-- [ ] baikal
-- [ ] bookstack
-- [ ] icinga2
-- [ ] monica
-- [ ] openemr
-- [ ] xbackbone
-
-##### TODO: Other Complications
-
-_These Apps have specific requirements or need specific customisation and care_
-
-- [ ] foundryvtt
-- [ ] homebridge
-- [ ] jetbrains-projector
-- [ ] paperless
-
-#### [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts)
-
-##### TODO: Require custom care to handle their configuration
-
-- [ ] olivetin
-- [ ] writefreely
-
-##### TODO: Requires Postgresql customisation
-
-- [ ] babybuddy
-- [ ] etherpad
-- [ ] odoo
-- [ ] papermerge
-- [ ] shiori
-- [ ] firefox-syncserver
-- [ ] gotify
-- [ ] chyrp-lite
-
-##### TODO: Requires MariaDB to be added first
-
-- [ ] clarkson
-- [ ] friendica
-- [ ] projectsend
-- [ ] snipe-it
-- [ ] formalms
-- [ ] leantime
-- [ ] blog
-- [ ] bookstack
-
-##### TODO: Other Complications
-
-- [ ] boinc-client
-- [ ] hedgedoc
-- [ ] mariadb
-- [ ] cryptpad
 
 ### Not Likely to be added
 
@@ -357,3 +312,24 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] podgrab
 - [x] Uptime Kuma #1097
 - [x] tdarr / tdarr-node
+- [x] dsmr-reader
+- [x] joplin-server
+- [x] kanboard
+- [x] librespeed
+- [x] miniflux
+- [x] openkm
+- [x] powerdns
+- [x] statping
+- [x] teedy
+- [x] teslamate
+- [x] traccar
+- [x] tt-rss
+- [x] wikijs
+- [x] recipes
+- [x] babybuddy
+- [x] etherpad
+- [x] odoo
+- [x] shiori
+- [x] firefox-syncserver
+- [x] gotify
+- [x] chyrp-lite
