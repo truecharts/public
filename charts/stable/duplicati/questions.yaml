@@ -73,12 +73,6 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the userID inside the container"
-          schema:
-            type: string
-            default: "568"
 
 
 # Include{containerConfig}
