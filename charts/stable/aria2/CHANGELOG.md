@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="aria2-1.0.2"></a>
+### [aria2-1.0.2](https://github.com/truecharts/apps/compare/aria2-1.0.1...aria2-1.0.2) (2021-10-22)
+
+#### Fix
+
+* sync values.yaml services with questions.yaml
+
+
+
 <a name="aria2-1.0.1"></a>
 ### [aria2-1.0.1](https://github.com/truecharts/apps/compare/aria2-0.0.11...aria2-1.0.1) (2021-10-20)
 
