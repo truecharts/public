@@ -11,16 +11,11 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/linuxserver/duplicati"` | image repository |
-| image.tag | string | `"latest@sha256:2d3a1b3dde2e737c2ae9b789d276cc0359259bf1c2f735ac25de9236bd569934"` | image tag |
+| image.repository | string | `"duplicati/duplicati"` | image repository |
+| image.tag | string | `"beta@sha256:3080419dc8612ac852db3a8e66407fd386efd2a27d467970ef7161bf27dd9717"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
-| podSecurityContext.runAsGroup | int | `0` |  |
-| podSecurityContext.runAsUser | int | `0` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

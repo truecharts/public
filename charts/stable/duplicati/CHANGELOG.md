@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-3.0.20"></a>
+### [duplicati-3.0.20](https://github.com/truecharts/apps/compare/duplicati-3.0.19...duplicati-3.0.20) (2021-10-22)
+
+#### Feat
+
+* use official docker container ([#1222](https://github.com/truecharts/apps/issues/1222))
+
+
+
 <a name="duplicati-3.0.19"></a>
 ### [duplicati-3.0.19](https://github.com/truecharts/apps/compare/duplicati-3.0.18...duplicati-3.0.19) (2021-10-20)
 
