@@ -1,33 +1,16 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/linuxserver/duplicati
+  repository: duplicati/duplicati
   # -- image tag
-  tag: latest@sha256:2d3a1b3dde2e737c2ae9b789d276cc0359259bf1c2f735ac25de9236bd569934
+  tag: beta@sha256:3080419dc8612ac852db3a8e66407fd386efd2a27d467970ef7161bf27dd9717
   # -- image pull policy
   pullPolicy: IfNotPresent
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
 
 # See more environment variables in the [duplicati documentation](https://github.com/linuxserver/docker-duplicati#parameters)
 # @default -- See below
 env:
   # -- Set the container timezone
   TZ: UTC
-  # -- Specify the user ID the application will run as
-  PUID: 568
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
@@ -45,7 +28,4 @@ persistence:
     type: pvc
     accessMode: ReadWriteOnce
     size: "100Gi"
-  source:
-    enabled: false
-  backups:
-    enabled: false
+    mountPath: "/data"
