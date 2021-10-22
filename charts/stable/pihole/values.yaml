@@ -27,7 +27,7 @@ service:
   dns-tcp:
     enabled: true
     ports:
-      https:
+      dns-tcp:
         enabled: true
         port: 53
   dns:
