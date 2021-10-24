@@ -28,6 +28,16 @@ questions:
       type: string
       $ref:
         - "definitions/timezone"
+
+  - variable: nodeIP
+    description: "LAN IP address of your TrueNAS server"
+    group: "Machinaris Configuration"
+    label: "Worker Address"
+    schema:
+      type: string
+      $ref:
+        - "definitions/nodeIP"
+
   - variable: machinaris_ui_port
     label: "Machinaris Web UI"
     group: "Networking"
