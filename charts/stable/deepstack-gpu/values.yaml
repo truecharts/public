@@ -38,7 +38,7 @@ env:
   MODE: "High"
 
 persistence:
-  config:
+  data:
     enabled: true
     mountPath: "/datastore"
     type: pvc
