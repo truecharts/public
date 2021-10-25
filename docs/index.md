@@ -41,23 +41,40 @@ Still something not working as expected? [Contact us!](https://truecharts.org/ab
 
 ### Roadmap
 
-For big changes we do have a roadmap, every spot on the roadmap is synced to a TrueNAS SCALE Release and should be read as "Should be added before this release"
+For big changes we do have a roadmap, every spot on the roadmap is synced to a TrueNAS SCALE Release and should be read as "Should be added at or before this release"
 
 
 <br>
 
-**Documentation and Common - TrueNAS SCALE 21.10**
+**MariaDB and InfluxDB - TrueNAS SCALE "Angelfish" RC2**
 
-_We aim to improve our quick-start guides the comming few months and at the same time ensure all common code works without issues_
-
-<br>
-
-**Email and External-DNS - TrueNAS SCALE 21.12**
-
-_Our goal these months will be enabling users to run an Email server on their SCALE machine and work on adding external-dns support_
+_There are many community requested containers that cannot be run using just a postgresql servers, we'll aim to streamline support for a few more dependencies_
 
 <br>
 
+**Documentation and External-DNS - TrueNAS SCALE "Angelfish" RELEASE**
+
+_While preparing for the formal release of TrueNAS SCALE, we still have some things to polish and some improved support for External-DNS to be added_
+
+<br>
+
+**Multi-Pod support for Common - TrueNAS SCALE "Bluefin" 22.xx ALPHA 1**
+
+_Our current common library is not fully supporting with multi-pod containers, while we cannot add everything we should support some basic multi-pod containers on common._
+
+<br>
+
+**Prometheus Support - TrueNAS SCALE "Bluefin" 22.xx ALPHA 2**
+
+_By this date it would be about a year after we first started considering adding Prometheus support, it's time to get it done._
+
+<br>
+
+**Mail server - TrueNAS SCALE "Bluefin" 22.xx BETA 1**
+
+_Great mail-server deployments require support for multi-pod containers, high availability and a solid backend. By this date, all those boxes should start to become checked and we should check the "mail server" box as well_
+
+<br>
 
 ## Development
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=for-the-badge)](https://github.com/pre-commit/pre-commit)
