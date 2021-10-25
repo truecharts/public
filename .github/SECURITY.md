@@ -8,7 +8,7 @@ However: We might provide extended support to older versions of TrueNAS SCALE as
 
 ## CVE's and you
 
-As depicted in our guidelines, we do NOT accept containers and/or Apps with known `high` or `critical` CVE's present. Unless those CVE's have been thoroughly mitigated and said mitigation has been both desclosed and thoroughly reviewed.
+When we build our own containers, we aim not to have any non-mitigated high or critical CVE's present. For the containers made by others, we aim to use the most secure container available, but we cannot guarantee they keep to the same high safetly standards as we do.
 
 
 ## Response timeframe
