@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freshrss-9.0.0"></a>
+### [freshrss-9.0.0](https://github.com/truecharts/apps/compare/freshrss-8.0.19...freshrss-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="freshrss-8.0.19"></a>
 ### [freshrss-8.0.19](https://github.com/truecharts/apps/compare/freshrss-8.0.18...freshrss-8.0.19) (2021-10-20)
 

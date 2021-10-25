@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickchill-1.0.0"></a>
+### [sickchill-1.0.0](https://github.com/truecharts/apps/compare/sickchill-0.0.12...sickchill-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="sickchill-0.0.12"></a>
 ### [sickchill-0.0.12](https://github.com/truecharts/apps/compare/sickchill-0.0.9...sickchill-0.0.12) (2021-10-20)
 

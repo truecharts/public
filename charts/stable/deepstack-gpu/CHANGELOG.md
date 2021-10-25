@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-gpu-2.0.0"></a>
+### [deepstack-gpu-2.0.0](https://github.com/truecharts/apps/compare/deepstack-gpu-1.0.9...deepstack-gpu-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="deepstack-gpu-1.0.9"></a>
 ### [deepstack-gpu-1.0.9](https://github.com/truecharts/apps/compare/deepstack-gpu-1.0.8...deepstack-gpu-1.0.9) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-4.0.0"></a>
+### [k8s-gateway-4.0.0](https://github.com/truecharts/apps/compare/k8s-gateway-3.0.16...k8s-gateway-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="k8s-gateway-3.0.16"></a>
 ### [k8s-gateway-3.0.16](https://github.com/truecharts/apps/compare/k8s-gateway-3.0.15...k8s-gateway-3.0.16) (2021-10-20)
 

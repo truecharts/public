@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pixapop-1.0.0"></a>
+### [pixapop-1.0.0](https://github.com/truecharts/apps/compare/pixapop-0.0.12...pixapop-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="pixapop-0.0.12"></a>
 ### [pixapop-0.0.12](https://github.com/truecharts/apps/compare/pixapop-0.0.9...pixapop-0.0.12) (2021-10-20)
 

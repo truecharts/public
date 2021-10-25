@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shorturl-1.0.0"></a>
+### [shorturl-1.0.0](https://github.com/truecharts/apps/compare/shorturl-0.0.12...shorturl-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="shorturl-0.0.12"></a>
 ### [shorturl-0.0.12](https://github.com/truecharts/apps/compare/shorturl-0.0.9...shorturl-0.0.12) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncast-4.0.0"></a>
+### [owncast-4.0.0](https://github.com/truecharts/apps/compare/owncast-3.0.18...owncast-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="owncast-3.0.18"></a>
 ### [owncast-3.0.18](https://github.com/truecharts/apps/compare/owncast-3.0.15...owncast-3.0.18) (2021-10-20)
 

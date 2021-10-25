@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-3.0.0"></a>
+### [babybuddy-3.0.0](https://github.com/truecharts/apps/compare/babybuddy-2.0.1...babybuddy-3.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="babybuddy-2.0.1"></a>
 ### [babybuddy-2.0.1](https://github.com/truecharts/apps/compare/babybuddy-1.0.2...babybuddy-2.0.1) (2021-10-20)
 

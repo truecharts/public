@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-9.0.0"></a>
+### [kms-9.0.0](https://github.com/truecharts/apps/compare/kms-8.0.18...kms-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="kms-8.0.18"></a>
 ### [kms-8.0.18](https://github.com/truecharts/apps/compare/kms-8.0.17...kms-8.0.18) (2021-10-20)
 

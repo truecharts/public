@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emby-9.0.0"></a>
+### [emby-9.0.0](https://github.com/truecharts/apps/compare/emby-8.0.16...emby-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="emby-8.0.16"></a>
 ### [emby-8.0.16](https://github.com/truecharts/apps/compare/emby-8.0.15...emby-8.0.16) (2021-10-20)
 

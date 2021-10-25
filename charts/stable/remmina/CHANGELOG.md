@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="remmina-1.0.0"></a>
+### [remmina-1.0.0](https://github.com/truecharts/apps/compare/remmina-0.0.12...remmina-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="remmina-0.0.12"></a>
 ### [remmina-0.0.12](https://github.com/truecharts/apps/compare/remmina-0.0.9...remmina-0.0.12) (2021-10-20)
 

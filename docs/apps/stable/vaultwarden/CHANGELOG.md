@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-11.0.0"></a>
+### [vaultwarden-11.0.0](https://github.com/truecharts/apps/compare/vaultwarden-10.0.3...vaultwarden-11.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="vaultwarden-10.0.3"></a>
 ### [vaultwarden-10.0.3](https://github.com/truecharts/apps/compare/vaultwarden-10.0.0...vaultwarden-10.0.3) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="organizr-9.0.0"></a>
+### [organizr-9.0.0](https://github.com/truecharts/apps/compare/organizr-8.0.17...organizr-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="organizr-8.0.17"></a>
 ### [organizr-8.0.17](https://github.com/truecharts/apps/compare/organizr-8.0.14...organizr-8.0.17) (2021-10-20)
 

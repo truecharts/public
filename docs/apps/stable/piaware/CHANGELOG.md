@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.0"></a>
+### [piaware-4.0.0](https://github.com/truecharts/apps/compare/piaware-3.0.16...piaware-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="piaware-3.0.16"></a>
 ### [piaware-3.0.16](https://github.com/truecharts/apps/compare/piaware-3.0.13...piaware-3.0.16) (2021-10-20)
 

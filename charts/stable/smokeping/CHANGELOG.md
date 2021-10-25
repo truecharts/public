@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="smokeping-1.0.0"></a>
+### [smokeping-1.0.0](https://github.com/truecharts/apps/compare/smokeping-0.0.12...smokeping-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="smokeping-0.0.12"></a>
 ### [smokeping-0.0.12](https://github.com/truecharts/apps/compare/smokeping-0.0.9...smokeping-0.0.12) (2021-10-20)
 

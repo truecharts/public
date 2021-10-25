@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-4.0.0"></a>
+### [flaresolverr-4.0.0](https://github.com/truecharts/apps/compare/flaresolverr-3.0.16...flaresolverr-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="flaresolverr-3.0.16"></a>
 ### [flaresolverr-3.0.16](https://github.com/truecharts/apps/compare/flaresolverr-3.0.15...flaresolverr-3.0.16) (2021-10-20)
 

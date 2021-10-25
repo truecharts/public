@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gotify-3.0.0"></a>
+### [gotify-3.0.0](https://github.com/truecharts/apps/compare/gotify-2.0.1...gotify-3.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="gotify-2.0.1"></a>
 ### [gotify-2.0.1](https://github.com/truecharts/apps/compare/gotify-1.0.2...gotify-2.0.1) (2021-10-20)
 

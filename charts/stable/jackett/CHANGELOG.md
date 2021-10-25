@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.0"></a>
+### [jackett-9.0.0](https://github.com/truecharts/apps/compare/jackett-8.0.23...jackett-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="jackett-8.0.23"></a>
 ### [jackett-8.0.23](https://github.com/truecharts/apps/compare/jackett-8.0.22...jackett-8.0.23) (2021-10-20)
 

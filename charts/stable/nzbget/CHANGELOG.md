@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbget-9.0.0"></a>
+### [nzbget-9.0.0](https://github.com/truecharts/apps/compare/nzbget-8.0.16...nzbget-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="nzbget-8.0.16"></a>
 ### [nzbget-8.0.16](https://github.com/truecharts/apps/compare/nzbget-8.0.13...nzbget-8.0.16) (2021-10-20)
 

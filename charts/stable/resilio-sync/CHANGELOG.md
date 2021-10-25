@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-4.0.0"></a>
+### [resilio-sync-4.0.0](https://github.com/truecharts/apps/compare/resilio-sync-3.0.16...resilio-sync-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="resilio-sync-3.0.16"></a>
 ### [resilio-sync-3.0.16](https://github.com/truecharts/apps/compare/resilio-sync-3.0.13...resilio-sync-3.0.16) (2021-10-20)
 

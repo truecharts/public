@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="octoprint-4.0.0"></a>
+### [octoprint-4.0.0](https://github.com/truecharts/apps/compare/octoprint-3.0.17...octoprint-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="octoprint-3.0.17"></a>
 ### [octoprint-3.0.17](https://github.com/truecharts/apps/compare/octoprint-3.0.14...octoprint-3.0.17) (2021-10-20)
 

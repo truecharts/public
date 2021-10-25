@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.0"></a>
+### [omada-controller-4.0.0](https://github.com/truecharts/apps/compare/omada-controller-3.0.20...omada-controller-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="omada-controller-3.0.20"></a>
 ### [omada-controller-3.0.20](https://github.com/truecharts/apps/compare/omada-controller-3.0.17...omada-controller-3.0.20) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sonarr-9.0.0"></a>
+### [sonarr-9.0.0](https://github.com/truecharts/apps/compare/sonarr-8.0.18...sonarr-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="sonarr-8.0.18"></a>
 ### [sonarr-8.0.18](https://github.com/truecharts/apps/compare/sonarr-8.0.15...sonarr-8.0.18) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-1.0.0"></a>
+### [zigbee2mqtt-1.0.0](https://github.com/truecharts/apps/compare/zigbee2mqtt-0.0.12...zigbee2mqtt-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="zigbee2mqtt-0.0.12"></a>
 ### [zigbee2mqtt-0.0.12](https://github.com/truecharts/apps/compare/zigbee2mqtt-0.0.9...zigbee2mqtt-0.0.12) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="notes-1.0.0"></a>
+### [notes-1.0.0](https://github.com/truecharts/apps/compare/notes-0.0.12...notes-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="notes-0.0.12"></a>
 ### [notes-0.0.12](https://github.com/truecharts/apps/compare/notes-0.0.9...notes-0.0.12) (2021-10-20)
 

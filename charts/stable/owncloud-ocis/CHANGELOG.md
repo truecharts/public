@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-4.0.0"></a>
+### [owncloud-ocis-4.0.0](https://github.com/truecharts/apps/compare/owncloud-ocis-3.0.17...owncloud-ocis-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="owncloud-ocis-3.0.17"></a>
 ### [owncloud-ocis-3.0.17](https://github.com/truecharts/apps/compare/owncloud-ocis-3.0.14...owncloud-ocis-3.0.17) (2021-10-20)
 

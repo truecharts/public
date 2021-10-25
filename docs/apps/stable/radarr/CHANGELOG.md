@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radarr-9.0.0"></a>
+### [radarr-9.0.0](https://github.com/truecharts/apps/compare/radarr-8.0.16...radarr-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="radarr-8.0.16"></a>
 ### [radarr-8.0.16](https://github.com/truecharts/apps/compare/radarr-8.0.13...radarr-8.0.16) (2021-10-20)
 

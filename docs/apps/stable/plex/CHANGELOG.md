@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.0"></a>
+### [plex-8.0.0](https://github.com/truecharts/apps/compare/plex-7.0.17...plex-8.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="plex-7.0.17"></a>
 ### [plex-7.0.17](https://github.com/truecharts/apps/compare/plex-7.0.14...plex-7.0.17) (2021-10-20)
 

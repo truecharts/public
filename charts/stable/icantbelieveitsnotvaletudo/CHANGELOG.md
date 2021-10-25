@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icantbelieveitsnotvaletudo-2.0.0"></a>
+### [icantbelieveitsnotvaletudo-2.0.0](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-1.0.1...icantbelieveitsnotvaletudo-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="icantbelieveitsnotvaletudo-1.0.1"></a>
 ### [icantbelieveitsnotvaletudo-1.0.1](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-0.0.11...icantbelieveitsnotvaletudo-1.0.1) (2021-10-20)
 

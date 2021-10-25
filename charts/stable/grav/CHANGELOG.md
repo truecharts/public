@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grav-2.0.0"></a>
+### [grav-2.0.0](https://github.com/truecharts/apps/compare/grav-1.0.1...grav-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="grav-1.0.1"></a>
 ### [grav-1.0.1](https://github.com/truecharts/apps/compare/grav-0.0.11...grav-1.0.1) (2021-10-20)
 

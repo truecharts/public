@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="external-service-4.0.0"></a>
+### [external-service-4.0.0](https://github.com/truecharts/apps/compare/external-service-3.0.16...external-service-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="external-service-3.0.16"></a>
 ### [external-service-3.0.16](https://github.com/truecharts/apps/compare/external-service-3.0.15...external-service-3.0.16) (2021-10-20)
 

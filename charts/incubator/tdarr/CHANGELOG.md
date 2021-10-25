@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-1.0.0"></a>
+### [tdarr-1.0.0](https://github.com/truecharts/apps/compare/tdarr-node-0.0.11...tdarr-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="tdarr-0.0.11"></a>
 ### [tdarr-0.0.11](https://github.com/truecharts/apps/compare/tdarr-node-0.0.8...tdarr-0.0.11) (2021-10-20)
 

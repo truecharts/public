@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jellyfin-9.0.0"></a>
+### [jellyfin-9.0.0](https://github.com/truecharts/apps/compare/jellyfin-8.0.16...jellyfin-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="jellyfin-8.0.16"></a>
 ### [jellyfin-8.0.16](https://github.com/truecharts/apps/compare/jellyfin-8.0.15...jellyfin-8.0.16) (2021-10-20)
 

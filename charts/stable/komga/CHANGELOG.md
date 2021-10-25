@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.0"></a>
+### [komga-4.0.0](https://github.com/truecharts/apps/compare/komga-3.0.20...komga-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="komga-3.0.20"></a>
 ### [komga-3.0.20](https://github.com/truecharts/apps/compare/komga-3.0.19...komga-3.0.20) (2021-10-20)
 

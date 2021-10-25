@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-5.0.0"></a>
+### [photoprism-5.0.0](https://github.com/truecharts/apps/compare/photoprism-4.0.11...photoprism-5.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="photoprism-4.0.11"></a>
 ### [photoprism-4.0.11](https://github.com/truecharts/apps/compare/photoprism-4.0.8...photoprism-4.0.11) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-2.0.0"></a>
+### [onlyoffice-document-server-2.0.0](https://github.com/truecharts/apps/compare/onlyoffice-document-server-1.0.10...onlyoffice-document-server-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="onlyoffice-document-server-1.0.10"></a>
 ### [onlyoffice-document-server-1.0.10](https://github.com/truecharts/apps/compare/onlyoffice-document-server-1.0.7...onlyoffice-document-server-1.0.10) (2021-10-20)
 

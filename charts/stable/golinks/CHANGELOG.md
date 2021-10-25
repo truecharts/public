@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="golinks-2.0.0"></a>
+### [golinks-2.0.0](https://github.com/truecharts/apps/compare/golinks-1.0.1...golinks-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="golinks-1.0.1"></a>
 ### [golinks-1.0.1](https://github.com/truecharts/apps/compare/golinks-0.0.11...golinks-1.0.1) (2021-10-20)
 

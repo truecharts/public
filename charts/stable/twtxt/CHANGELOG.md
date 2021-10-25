@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="twtxt-1.0.0"></a>
+### [twtxt-1.0.0](https://github.com/truecharts/apps/compare/twtxt-0.0.12...twtxt-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="twtxt-0.0.12"></a>
 ### [twtxt-0.0.12](https://github.com/truecharts/apps/compare/twtxt-0.0.9...twtxt-0.0.12) (2021-10-20)
 

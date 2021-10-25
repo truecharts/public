@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.0"></a>
+### [prowlarr-4.0.0](https://github.com/truecharts/apps/compare/prowlarr-3.0.20...prowlarr-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="prowlarr-3.0.20"></a>
 ### [prowlarr-3.0.20](https://github.com/truecharts/apps/compare/prowlarr-3.0.17...prowlarr-3.0.20) (2021-10-20)
 

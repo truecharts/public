@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-4.0.0"></a>
+### [airsonic-4.0.0](https://github.com/truecharts/apps/compare/airsonic-3.0.20...airsonic-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="airsonic-3.0.20"></a>
 ### [airsonic-3.0.20](https://github.com/truecharts/apps/compare/airsonic-3.0.18...airsonic-3.0.20) (2021-10-20)
 

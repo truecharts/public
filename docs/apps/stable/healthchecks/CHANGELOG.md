@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-4.0.0"></a>
+### [healthchecks-4.0.0](https://github.com/truecharts/apps/compare/healthchecks-3.0.18...healthchecks-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="healthchecks-3.0.18"></a>
 ### [healthchecks-3.0.18](https://github.com/truecharts/apps/compare/healthchecks-3.0.17...healthchecks-3.0.18) (2021-10-20)
 

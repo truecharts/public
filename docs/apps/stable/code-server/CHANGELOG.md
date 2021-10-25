@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-2.0.0"></a>
+### [code-server-2.0.0](https://github.com/truecharts/apps/compare/code-server-1.0.1...code-server-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="code-server-1.0.1"></a>
 ### [code-server-1.0.1](https://github.com/truecharts/apps/compare/code-server-0.0.11...code-server-1.0.1) (2021-10-20)
 

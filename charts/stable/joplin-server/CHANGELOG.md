@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="joplin-server-3.0.0"></a>
+### [joplin-server-3.0.0](https://github.com/truecharts/apps/compare/joplin-server-2.0.1...joplin-server-3.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="joplin-server-2.0.1"></a>
 ### [joplin-server-2.0.1](https://github.com/truecharts/apps/compare/joplin-server-1.0.2...joplin-server-2.0.1) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.0"></a>
+### [custom-app-3.0.0](https://github.com/truecharts/apps/compare/custom-app-2.0.22...custom-app-3.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="custom-app-2.0.22"></a>
 ### [custom-app-2.0.22](https://github.com/truecharts/apps/compare/custom-app-2.0.21...custom-app-2.0.22) (2021-10-21)
 

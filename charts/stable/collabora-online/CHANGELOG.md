@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-9.0.0"></a>
+### [collabora-online-9.0.0](https://github.com/truecharts/apps/compare/collabora-online-8.0.17...collabora-online-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="collabora-online-8.0.17"></a>
 ### [collabora-online-8.0.17](https://github.com/truecharts/apps/compare/collabora-online-8.0.16...collabora-online-8.0.17) (2021-10-20)
 

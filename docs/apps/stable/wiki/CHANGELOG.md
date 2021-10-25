@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wiki-1.0.0"></a>
+### [wiki-1.0.0](https://github.com/truecharts/apps/compare/wiki-0.0.12...wiki-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="wiki-0.0.12"></a>
 ### [wiki-0.0.12](https://github.com/truecharts/apps/compare/wikijs-1.0.0...wiki-0.0.12) (2021-10-20)
 

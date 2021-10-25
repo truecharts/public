@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nextcloud-8.0.0"></a>
+### [nextcloud-8.0.0](https://github.com/truecharts/apps/compare/nextcloud-7.0.3...nextcloud-8.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+* make admin password private ([#1219](https://github.com/truecharts/apps/issues/1219))
+
+
+
 <a name="nextcloud-7.0.3"></a>
 ### [nextcloud-7.0.3](https://github.com/truecharts/apps/compare/nextcloud-7.0.0...nextcloud-7.0.3) (2021-10-20)
 

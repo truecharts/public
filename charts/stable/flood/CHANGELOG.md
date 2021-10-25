@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flood-4.0.0"></a>
+### [flood-4.0.0](https://github.com/truecharts/apps/compare/flood-3.0.17...flood-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="flood-3.0.17"></a>
 ### [flood-3.0.17](https://github.com/truecharts/apps/compare/flood-3.0.16...flood-3.0.17) (2021-10-20)
 

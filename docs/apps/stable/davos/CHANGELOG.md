@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="davos-2.0.0"></a>
+### [davos-2.0.0](https://github.com/truecharts/apps/compare/davos-1.0.1...davos-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="davos-1.0.1"></a>
 ### [davos-1.0.1](https://github.com/truecharts/apps/compare/davos-0.0.11...davos-1.0.1) (2021-10-20)
 

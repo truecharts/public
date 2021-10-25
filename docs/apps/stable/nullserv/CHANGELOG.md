@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nullserv-4.0.0"></a>
+### [nullserv-4.0.0](https://github.com/truecharts/apps/compare/nullserv-3.0.16...nullserv-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="nullserv-3.0.16"></a>
 ### [nullserv-3.0.16](https://github.com/truecharts/apps/compare/nullserv-3.0.13...nullserv-3.0.16) (2021-10-20)
 

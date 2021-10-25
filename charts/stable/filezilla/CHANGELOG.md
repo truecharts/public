@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filezilla-2.0.0"></a>
+### [filezilla-2.0.0](https://github.com/truecharts/apps/compare/filezilla-1.0.1...filezilla-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="filezilla-1.0.1"></a>
 ### [filezilla-1.0.1](https://github.com/truecharts/apps/compare/filezilla-0.0.11...filezilla-1.0.1) (2021-10-20)
 

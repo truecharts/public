@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-2.0.0"></a>
+### [teamspeak3-2.0.0](https://github.com/truecharts/apps/compare/teamspeak3-1.0.17...teamspeak3-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="teamspeak3-1.0.17"></a>
 ### [teamspeak3-1.0.17](https://github.com/truecharts/apps/compare/teamspeak3-1.0.14...teamspeak3-1.0.17) (2021-10-20)
 

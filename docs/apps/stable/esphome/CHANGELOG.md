@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.0"></a>
+### [esphome-9.0.0](https://github.com/truecharts/apps/compare/esphome-8.0.18...esphome-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="esphome-8.0.18"></a>
 ### [esphome-8.0.18](https://github.com/truecharts/apps/compare/esphome-8.0.17...esphome-8.0.18) (2021-10-20)
 

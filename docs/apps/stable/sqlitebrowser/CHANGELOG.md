@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-1.0.0"></a>
+### [sqlitebrowser-1.0.0](https://github.com/truecharts/apps/compare/sqlitebrowser-0.0.12...sqlitebrowser-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="sqlitebrowser-0.0.12"></a>
 ### [sqlitebrowser-0.0.12](https://github.com/truecharts/apps/compare/sqlitebrowser-0.0.9...sqlitebrowser-0.0.12) (2021-10-20)
 

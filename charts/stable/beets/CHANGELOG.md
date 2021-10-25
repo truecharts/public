@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="beets-2.0.0"></a>
+### [beets-2.0.0](https://github.com/truecharts/apps/compare/beets-1.0.1...beets-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="beets-1.0.1"></a>
 ### [beets-1.0.1](https://github.com/truecharts/apps/compare/beets-0.0.11...beets-1.0.1) (2021-10-20)
 

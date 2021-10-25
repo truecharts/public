@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audacity-2.0.0"></a>
+### [audacity-2.0.0](https://github.com/truecharts/apps/compare/audacity-1.0.1...audacity-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="audacity-1.0.1"></a>
 ### [audacity-1.0.1](https://github.com/truecharts/apps/compare/audacity-0.0.11...audacity-1.0.1) (2021-10-20)
 

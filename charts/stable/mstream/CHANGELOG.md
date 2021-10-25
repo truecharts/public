@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mstream-1.0.0"></a>
+### [mstream-1.0.0](https://github.com/truecharts/apps/compare/mstream-0.0.12...mstream-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="mstream-0.0.12"></a>
 ### [mstream-0.0.12](https://github.com/truecharts/apps/compare/mstream-0.0.9...mstream-0.0.12) (2021-10-20)
 

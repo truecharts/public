@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-1.0.0"></a>
+### [valheim-1.0.0](https://github.com/truecharts/apps/compare/valheim-0.0.12...valheim-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="valheim-0.0.12"></a>
 ### [valheim-0.0.12](https://github.com/truecharts/apps/compare/valheim-0.0.9...valheim-0.0.12) (2021-10-20)
 

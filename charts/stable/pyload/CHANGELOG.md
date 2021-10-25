@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pyload-4.0.0"></a>
+### [pyload-4.0.0](https://github.com/truecharts/apps/compare/pyload-3.0.16...pyload-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="pyload-3.0.16"></a>
 ### [pyload-3.0.16](https://github.com/truecharts/apps/compare/pyload-3.0.13...pyload-3.0.16) (2021-10-20)
 

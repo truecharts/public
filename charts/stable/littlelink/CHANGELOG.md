@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.0"></a>
+### [littlelink-4.0.0](https://github.com/truecharts/apps/compare/littlelink-3.0.18...littlelink-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="littlelink-3.0.18"></a>
 ### [littlelink-3.0.18](https://github.com/truecharts/apps/compare/littlelink-3.0.15...littlelink-3.0.18) (2021-10-20)
 

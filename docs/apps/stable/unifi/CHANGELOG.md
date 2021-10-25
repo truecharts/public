@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-9.0.0"></a>
+### [unifi-9.0.0](https://github.com/truecharts/apps/compare/unifi-8.0.17...unifi-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="unifi-8.0.17"></a>
 ### [unifi-8.0.17](https://github.com/truecharts/apps/compare/unifi-8.0.14...unifi-8.0.17) (2021-10-20)
 

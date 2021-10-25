@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-3.0.0"></a>
+### [firefox-syncserver-3.0.0](https://github.com/truecharts/apps/compare/firefox-syncserver-2.0.1...firefox-syncserver-3.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="firefox-syncserver-2.0.1"></a>
 ### [firefox-syncserver-2.0.1](https://github.com/truecharts/apps/compare/firefox-syncserver-1.0.2...firefox-syncserver-2.0.1) (2021-10-20)
 

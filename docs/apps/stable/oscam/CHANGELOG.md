@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="oscam-4.0.0"></a>
+### [oscam-4.0.0](https://github.com/truecharts/apps/compare/oscam-3.0.16...oscam-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="oscam-3.0.16"></a>
 ### [oscam-3.0.16](https://github.com/truecharts/apps/compare/oscam-3.0.13...oscam-3.0.16) (2021-10-20)
 

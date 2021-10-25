@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-9.0.0"></a>
+### [syncthing-9.0.0](https://github.com/truecharts/apps/compare/syncthing-8.0.17...syncthing-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="syncthing-8.0.17"></a>
 ### [syncthing-8.0.17](https://github.com/truecharts/apps/compare/syncthing-8.0.14...syncthing-8.0.17) (2021-10-20)
 

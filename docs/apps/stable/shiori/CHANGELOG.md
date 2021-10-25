@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shiori-2.0.0"></a>
+### [shiori-2.0.0](https://github.com/truecharts/apps/compare/shiori-1.0.3...shiori-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="shiori-1.0.3"></a>
 ### [shiori-1.0.3](https://github.com/truecharts/apps/compare/shiori-1.0.0...shiori-1.0.3) (2021-10-20)
 

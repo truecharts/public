@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="whoogle-1.0.0"></a>
+### [whoogle-1.0.0](https://github.com/truecharts/apps/compare/whoogle-0.0.12...whoogle-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="whoogle-0.0.12"></a>
 ### [whoogle-0.0.12](https://github.com/truecharts/apps/compare/whoogle-0.0.9...whoogle-0.0.12) (2021-10-20)
 

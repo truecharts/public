@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-9.0.0"></a>
+### [nzbhydra-9.0.0](https://github.com/truecharts/apps/compare/nzbhydra-8.0.20...nzbhydra-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="nzbhydra-8.0.20"></a>
 ### [nzbhydra-8.0.20](https://github.com/truecharts/apps/compare/nzbhydra-8.0.17...nzbhydra-8.0.20) (2021-10-20)
 

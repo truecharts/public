@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-9.0.0"></a>
+### [transmission-9.0.0](https://github.com/truecharts/apps/compare/transmission-8.0.16...transmission-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="transmission-8.0.16"></a>
 ### [transmission-8.0.16](https://github.com/truecharts/apps/compare/transmission-8.0.13...transmission-8.0.16) (2021-10-20)
 

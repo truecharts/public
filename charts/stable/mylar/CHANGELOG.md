@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mylar-4.0.0"></a>
+### [mylar-4.0.0](https://github.com/truecharts/apps/compare/mylar-3.0.16...mylar-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="mylar-3.0.16"></a>
 ### [mylar-3.0.16](https://github.com/truecharts/apps/compare/mylar-3.0.13...mylar-3.0.16) (2021-10-20)
 

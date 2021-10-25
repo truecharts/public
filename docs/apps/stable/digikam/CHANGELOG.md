@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="digikam-2.0.0"></a>
+### [digikam-2.0.0](https://github.com/truecharts/apps/compare/digikam-1.0.1...digikam-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="digikam-1.0.1"></a>
 ### [digikam-1.0.1](https://github.com/truecharts/apps/compare/digikam-0.0.11...digikam-1.0.1) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.0"></a>
+### [zwavejs2mqtt-9.0.0](https://github.com/truecharts/apps/compare/zwavejs2mqtt-8.0.19...zwavejs2mqtt-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="zwavejs2mqtt-8.0.19"></a>
 ### [zwavejs2mqtt-8.0.19](https://github.com/truecharts/apps/compare/zwavejs2mqtt-8.0.16...zwavejs2mqtt-8.0.19) (2021-10-20)
 

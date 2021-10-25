@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="novnc-1.0.0"></a>
+### [novnc-1.0.0](https://github.com/truecharts/apps/compare/novnc-0.0.12...novnc-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="novnc-0.0.12"></a>
 ### [novnc-0.0.12](https://github.com/truecharts/apps/compare/novnc-0.0.9...novnc-0.0.12) (2021-10-20)
 

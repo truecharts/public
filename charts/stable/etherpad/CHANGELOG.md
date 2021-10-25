@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="etherpad-3.0.0"></a>
+### [etherpad-3.0.0](https://github.com/truecharts/apps/compare/etherpad-2.0.1...etherpad-3.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="etherpad-2.0.1"></a>
 ### [etherpad-2.0.1](https://github.com/truecharts/apps/compare/etherpad-1.0.2...etherpad-2.0.1) (2021-10-20)
 

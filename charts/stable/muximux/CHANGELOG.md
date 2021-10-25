@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="muximux-1.0.0"></a>
+### [muximux-1.0.0](https://github.com/truecharts/apps/compare/muximux-0.0.12...muximux-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="muximux-0.0.12"></a>
 ### [muximux-0.0.12](https://github.com/truecharts/apps/compare/muximux-0.0.9...muximux-0.0.12) (2021-10-20)
 

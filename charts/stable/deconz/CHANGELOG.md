@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-4.0.0"></a>
+### [deconz-4.0.0](https://github.com/truecharts/apps/compare/deconz-3.0.18...deconz-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="deconz-3.0.18"></a>
 ### [deconz-3.0.18](https://github.com/truecharts/apps/compare/deconz-3.0.17...deconz-3.0.18) (2021-10-21)
 

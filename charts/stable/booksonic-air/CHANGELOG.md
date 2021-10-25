@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.0"></a>
+### [booksonic-air-4.0.0](https://github.com/truecharts/apps/compare/booksonic-air-3.0.18...booksonic-air-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="booksonic-air-3.0.18"></a>
 ### [booksonic-air-3.0.18](https://github.com/truecharts/apps/compare/booksonic-air-3.0.17...booksonic-air-3.0.18) (2021-10-20)
 

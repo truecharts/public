@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-4.0.0"></a>
+### [phpldapadmin-4.0.0](https://github.com/truecharts/apps/compare/phpldapadmin-3.0.16...phpldapadmin-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="phpldapadmin-3.0.16"></a>
 ### [phpldapadmin-3.0.16](https://github.com/truecharts/apps/compare/phpldapadmin-3.0.13...phpldapadmin-3.0.16) (2021-10-20)
 

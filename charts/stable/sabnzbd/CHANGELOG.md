@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-9.0.0"></a>
+### [sabnzbd-9.0.0](https://github.com/truecharts/apps/compare/sabnzbd-8.0.17...sabnzbd-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="sabnzbd-8.0.17"></a>
 ### [sabnzbd-8.0.17](https://github.com/truecharts/apps/compare/sabnzbd-8.0.14...sabnzbd-8.0.17) (2021-10-20)
 

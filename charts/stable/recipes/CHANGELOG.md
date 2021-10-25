@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-2.0.0"></a>
+### [recipes-2.0.0](https://github.com/truecharts/apps/compare/recipes-1.0.3...recipes-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="recipes-1.0.3"></a>
 ### [recipes-1.0.3](https://github.com/truecharts/apps/compare/recipes-1.0.0...recipes-1.0.3) (2021-10-20)
 

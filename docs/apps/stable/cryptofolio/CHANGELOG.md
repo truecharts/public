@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cryptofolio-2.0.0"></a>
+### [cryptofolio-2.0.0](https://github.com/truecharts/apps/compare/cryptofolio-1.0.1...cryptofolio-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="cryptofolio-1.0.1"></a>
 ### [cryptofolio-1.0.1](https://github.com/truecharts/apps/compare/cryptofolio-0.0.11...cryptofolio-1.0.1) (2021-10-20)
 

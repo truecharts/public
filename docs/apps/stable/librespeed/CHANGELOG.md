@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-4.0.0"></a>
+### [librespeed-4.0.0](https://github.com/truecharts/apps/compare/librespeed-3.0.20...librespeed-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="librespeed-3.0.20"></a>
 ### [librespeed-3.0.20](https://github.com/truecharts/apps/compare/librespeed-1.0.0...librespeed-3.0.20) (2021-10-20)
 

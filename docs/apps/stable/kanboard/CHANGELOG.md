@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kanboard-3.0.0"></a>
+### [kanboard-3.0.0](https://github.com/truecharts/apps/compare/kanboard-2.0.1...kanboard-3.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="kanboard-2.0.1"></a>
 ### [kanboard-2.0.1](https://github.com/truecharts/apps/compare/kanboard-1.0.2...kanboard-2.0.1) (2021-10-20)
 

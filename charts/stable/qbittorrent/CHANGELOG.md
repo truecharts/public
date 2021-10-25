@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.0"></a>
+### [qbittorrent-9.0.0](https://github.com/truecharts/apps/compare/qbittorrent-8.0.17...qbittorrent-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="qbittorrent-8.0.17"></a>
 ### [qbittorrent-8.0.17](https://github.com/truecharts/apps/compare/qbittorrent-8.0.14...qbittorrent-8.0.17) (2021-10-20)
 

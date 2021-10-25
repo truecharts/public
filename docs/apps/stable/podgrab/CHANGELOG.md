@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-7.0.0"></a>
+### [podgrab-7.0.0](https://github.com/truecharts/apps/compare/podgrab-6.0.16...podgrab-7.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="podgrab-6.0.16"></a>
 ### [podgrab-6.0.16](https://github.com/truecharts/apps/compare/podgrab-6.0.13...podgrab-6.0.16) (2021-10-20)
 

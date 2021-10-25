@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-2.0.0"></a>
+### [openkm-2.0.0](https://github.com/truecharts/apps/compare/openkm-1.0.3...openkm-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="openkm-1.0.3"></a>
 ### [openkm-1.0.3](https://github.com/truecharts/apps/compare/openkm-1.0.0...openkm-1.0.3) (2021-10-20)
 

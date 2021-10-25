@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="haste-server-4.0.0"></a>
+### [haste-server-4.0.0](https://github.com/truecharts/apps/compare/haste-server-3.0.16...haste-server-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="haste-server-3.0.16"></a>
 ### [haste-server-3.0.16](https://github.com/truecharts/apps/compare/haste-server-3.0.15...haste-server-3.0.16) (2021-10-20)
 

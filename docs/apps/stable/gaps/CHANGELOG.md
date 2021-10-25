@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gaps-9.0.0"></a>
+### [gaps-9.0.0](https://github.com/truecharts/apps/compare/gaps-8.0.16...gaps-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="gaps-8.0.16"></a>
 ### [gaps-8.0.16](https://github.com/truecharts/apps/compare/gaps-8.0.15...gaps-8.0.16) (2021-10-20)
 

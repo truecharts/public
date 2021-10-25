@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-9.0.0"></a>
+### [heimdall-9.0.0](https://github.com/truecharts/apps/compare/heimdall-8.0.19...heimdall-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="heimdall-8.0.19"></a>
 ### [heimdall-8.0.19](https://github.com/truecharts/apps/compare/heimdall-8.0.18...heimdall-8.0.19) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.0"></a>
+### [traefik-10.0.0](https://github.com/truecharts/apps/compare/traefik-9.0.19...traefik-10.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="traefik-9.0.19"></a>
 ### [traefik-9.0.19](https://github.com/truecharts/apps/compare/traefik-9.0.16...traefik-9.0.19) (2021-10-20)
 

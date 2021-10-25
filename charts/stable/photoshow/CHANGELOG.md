@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoshow-1.0.0"></a>
+### [photoshow-1.0.0](https://github.com/truecharts/apps/compare/photoshow-0.0.12...photoshow-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="photoshow-0.0.12"></a>
 ### [photoshow-0.0.12](https://github.com/truecharts/apps/compare/photoshow-0.0.9...photoshow-0.0.12) (2021-10-20)
 

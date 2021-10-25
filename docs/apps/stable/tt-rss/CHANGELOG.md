@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-2.0.0"></a>
+### [tt-rss-2.0.0](https://github.com/truecharts/apps/compare/tt-rss-1.0.3...tt-rss-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="tt-rss-1.0.3"></a>
 ### [tt-rss-1.0.3](https://github.com/truecharts/apps/compare/tt-rss-1.0.0...tt-rss-1.0.3) (2021-10-20)
 

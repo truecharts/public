@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-2.0.0"></a>
+### [amcrest2mqtt-2.0.0](https://github.com/truecharts/apps/compare/amcrest2mqtt-1.0.1...amcrest2mqtt-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="amcrest2mqtt-1.0.1"></a>
 ### [amcrest2mqtt-1.0.1](https://github.com/truecharts/apps/compare/amcrest2mqtt-0.0.11...amcrest2mqtt-1.0.1) (2021-10-20)
 

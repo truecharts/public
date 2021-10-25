@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.0"></a>
+### [pihole-4.0.0](https://github.com/truecharts/apps/compare/pihole-3.0.18...pihole-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="pihole-3.0.18"></a>
 ### [pihole-3.0.18](https://github.com/truecharts/apps/compare/pihole-3.0.17...pihole-3.0.18) (2021-10-22)
 

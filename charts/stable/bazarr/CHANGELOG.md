@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bazarr-9.0.0"></a>
+### [bazarr-9.0.0](https://github.com/truecharts/apps/compare/bazarr-8.0.17...bazarr-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="bazarr-8.0.17"></a>
 ### [bazarr-8.0.17](https://github.com/truecharts/apps/compare/bazarr-8.0.16...bazarr-8.0.17) (2021-10-20)
 

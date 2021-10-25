@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-web-9.0.0"></a>
+### [calibre-web-9.0.0](https://github.com/truecharts/apps/compare/calibre-web-8.0.16...calibre-web-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="calibre-web-8.0.16"></a>
 ### [calibre-web-8.0.16](https://github.com/truecharts/apps/compare/calibre-web-8.0.15...calibre-web-8.0.16) (2021-10-20)
 

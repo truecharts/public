@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="overseerr-4.0.0"></a>
+### [overseerr-4.0.0](https://github.com/truecharts/apps/compare/overseerr-3.0.16...overseerr-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="overseerr-3.0.16"></a>
 ### [overseerr-3.0.16](https://github.com/truecharts/apps/compare/overseerr-3.0.13...overseerr-3.0.16) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freeradius-4.0.0"></a>
+### [freeradius-4.0.0](https://github.com/truecharts/apps/compare/freeradius-3.0.16...freeradius-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="freeradius-3.0.16"></a>
 ### [freeradius-3.0.16](https://github.com/truecharts/apps/compare/freeradius-3.0.15...freeradius-3.0.16) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-11.0.0"></a>
+### [fireflyiii-11.0.0](https://github.com/truecharts/apps/compare/fireflyiii-10.0.3...fireflyiii-11.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="fireflyiii-10.0.3"></a>
 ### [fireflyiii-10.0.3](https://github.com/truecharts/apps/compare/fireflyiii-10.0.2...fireflyiii-10.0.3) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-4.0.0"></a>
+### [protonmail-bridge-4.0.0](https://github.com/truecharts/apps/compare/protonmail-bridge-3.0.16...protonmail-bridge-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="protonmail-bridge-3.0.16"></a>
 ### [protonmail-bridge-3.0.16](https://github.com/truecharts/apps/compare/protonmail-bridge-3.0.13...protonmail-bridge-3.0.16) (2021-10-20)
 

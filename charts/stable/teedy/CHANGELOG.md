@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teedy-2.0.0"></a>
+### [teedy-2.0.0](https://github.com/truecharts/apps/compare/teedy-1.0.3...teedy-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="teedy-1.0.3"></a>
 ### [teedy-1.0.3](https://github.com/truecharts/apps/compare/teedy-1.0.0...teedy-1.0.3) (2021-10-20)
 

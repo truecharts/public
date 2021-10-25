@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-3.0.0"></a>
+### [dsmr-reader-3.0.0](https://github.com/truecharts/apps/compare/dsmr-reader-2.0.1...dsmr-reader-3.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="dsmr-reader-2.0.1"></a>
 ### [dsmr-reader-2.0.1](https://github.com/truecharts/apps/compare/dsmr-reader-1.0.2...dsmr-reader-2.0.1) (2021-10-20)
 

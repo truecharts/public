@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traccar-2.0.0"></a>
+### [traccar-2.0.0](https://github.com/truecharts/apps/compare/traccar-1.0.3...traccar-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="traccar-1.0.3"></a>
 ### [traccar-1.0.3](https://github.com/truecharts/apps/compare/traccar-1.0.0...traccar-1.0.3) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dizquetv-4.0.0"></a>
+### [dizquetv-4.0.0](https://github.com/truecharts/apps/compare/dizquetv-3.0.17...dizquetv-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="dizquetv-3.0.17"></a>
 ### [dizquetv-3.0.17](https://github.com/truecharts/apps/compare/dizquetv-3.0.16...dizquetv-3.0.17) (2021-10-20)
 

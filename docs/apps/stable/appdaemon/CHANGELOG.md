@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appdaemon-6.0.0"></a>
+### [appdaemon-6.0.0](https://github.com/truecharts/apps/compare/appdaemon-5.0.16...appdaemon-6.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="appdaemon-5.0.16"></a>
 ### [appdaemon-5.0.16](https://github.com/truecharts/apps/compare/appdaemon-5.0.15...appdaemon-5.0.16) (2021-10-20)
 

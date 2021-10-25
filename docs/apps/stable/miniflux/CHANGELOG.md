@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-2.0.0"></a>
+### [miniflux-2.0.0](https://github.com/truecharts/apps/compare/miniflux-1.0.3...miniflux-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="miniflux-1.0.3"></a>
 ### [miniflux-1.0.3](https://github.com/truecharts/apps/compare/miniflux-1.0.0...miniflux-1.0.3) (2021-10-20)
 

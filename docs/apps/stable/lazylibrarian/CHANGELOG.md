@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.0"></a>
+### [lazylibrarian-9.0.0](https://github.com/truecharts/apps/compare/lazylibrarian-8.0.19...lazylibrarian-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="lazylibrarian-8.0.19"></a>
 ### [lazylibrarian-8.0.19](https://github.com/truecharts/apps/compare/lazylibrarian-8.0.18...lazylibrarian-8.0.19) (2021-10-20)
 

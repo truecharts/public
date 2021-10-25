@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-4.0.0"></a>
+### [duplicati-4.0.0](https://github.com/truecharts/apps/compare/duplicati-3.0.20...duplicati-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="duplicati-3.0.20"></a>
 ### [duplicati-3.0.20](https://github.com/truecharts/apps/compare/duplicati-3.0.19...duplicati-3.0.20) (2021-10-22)
 

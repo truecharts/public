@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ser2sock-4.0.0"></a>
+### [ser2sock-4.0.0](https://github.com/truecharts/apps/compare/ser2sock-3.0.16...ser2sock-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="ser2sock-3.0.16"></a>
 ### [ser2sock-3.0.16](https://github.com/truecharts/apps/compare/ser2sock-3.0.13...ser2sock-3.0.16) (2021-10-20)
 

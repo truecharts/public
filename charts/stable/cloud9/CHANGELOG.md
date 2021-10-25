@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloud9-2.0.0"></a>
+### [cloud9-2.0.0](https://github.com/truecharts/apps/compare/cloud9-1.0.1...cloud9-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="cloud9-1.0.1"></a>
 ### [cloud9-1.0.1](https://github.com/truecharts/apps/compare/cloud9-0.0.11...cloud9-1.0.1) (2021-10-20)
 

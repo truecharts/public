@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="thelounge-4.0.0"></a>
+### [thelounge-4.0.0](https://github.com/truecharts/apps/compare/thelounge-3.0.16...thelounge-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="thelounge-3.0.16"></a>
 ### [thelounge-3.0.16](https://github.com/truecharts/apps/compare/thelounge-3.0.13...thelounge-3.0.16) (2021-10-20)
 

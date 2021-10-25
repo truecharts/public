@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosquitto-4.0.0"></a>
+### [mosquitto-4.0.0](https://github.com/truecharts/apps/compare/mosquitto-3.0.15...mosquitto-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="mosquitto-3.0.15"></a>
 ### [mosquitto-3.0.15](https://github.com/truecharts/apps/compare/mosquitto-3.0.12...mosquitto-3.0.15) (2021-10-20)
 

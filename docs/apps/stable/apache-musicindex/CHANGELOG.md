@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="apache-musicindex-2.0.0"></a>
+### [apache-musicindex-2.0.0](https://github.com/truecharts/apps/compare/apache-musicindex-1.0.1...apache-musicindex-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="apache-musicindex-1.0.1"></a>
 ### [apache-musicindex-1.0.1](https://github.com/truecharts/apps/compare/apache-musicindex-0.0.11...apache-musicindex-1.0.1) (2021-10-20)
 

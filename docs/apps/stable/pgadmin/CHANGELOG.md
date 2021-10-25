@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-4.0.0"></a>
+### [pgadmin-4.0.0](https://github.com/truecharts/apps/compare/pgadmin-3.0.17...pgadmin-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="pgadmin-3.0.17"></a>
 ### [pgadmin-3.0.17](https://github.com/truecharts/apps/compare/pgadmin-3.0.14...pgadmin-3.0.17) (2021-10-20)
 

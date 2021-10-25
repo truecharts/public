@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mealie-4.0.0"></a>
+### [mealie-4.0.0](https://github.com/truecharts/apps/compare/mealie-3.0.16...mealie-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="mealie-3.0.16"></a>
 ### [mealie-3.0.16](https://github.com/truecharts/apps/compare/mealie-3.0.13...mealie-3.0.16) (2021-10-20)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-9.0.0"></a>
+### [handbrake-9.0.0](https://github.com/truecharts/apps/compare/handbrake-8.0.19...handbrake-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="handbrake-8.0.19"></a>
 ### [handbrake-8.0.19](https://github.com/truecharts/apps/compare/handbrake-8.0.18...handbrake-8.0.19) (2021-10-21)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-4.0.0"></a>
+### [jdownloader2-4.0.0](https://github.com/truecharts/apps/compare/jdownloader2-3.0.17...jdownloader2-4.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="jdownloader2-3.0.17"></a>
 ### [jdownloader2-3.0.17](https://github.com/truecharts/apps/compare/jdownloader2-3.0.16...jdownloader2-3.0.17) (2021-10-22)
 

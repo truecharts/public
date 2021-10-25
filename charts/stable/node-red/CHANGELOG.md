@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="node-red-9.0.0"></a>
+### [node-red-9.0.0](https://github.com/truecharts/apps/compare/node-red-8.0.16...node-red-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="node-red-8.0.16"></a>
 ### [node-red-8.0.16](https://github.com/truecharts/apps/compare/node-red-8.0.13...node-red-8.0.16) (2021-10-20)
 

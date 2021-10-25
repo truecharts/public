@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-1.0.0"></a>
+### [uptime-kuma-1.0.0](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.10...uptime-kuma-1.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="uptime-kuma-0.0.10"></a>
 ### [uptime-kuma-0.0.10](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.7...uptime-kuma-0.0.10) (2021-10-20)
 

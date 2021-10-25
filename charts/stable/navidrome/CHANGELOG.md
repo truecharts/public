@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="navidrome-9.0.0"></a>
+### [navidrome-9.0.0](https://github.com/truecharts/apps/compare/navidrome-8.0.17...navidrome-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="navidrome-8.0.17"></a>
 ### [navidrome-8.0.17](https://github.com/truecharts/apps/compare/navidrome-8.0.14...navidrome-8.0.17) (2021-10-20)
 

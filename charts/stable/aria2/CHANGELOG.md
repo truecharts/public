@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="aria2-2.0.0"></a>
+### [aria2-2.0.0](https://github.com/truecharts/apps/compare/aria2-1.0.2...aria2-2.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="aria2-1.0.2"></a>
 ### [aria2-1.0.2](https://github.com/truecharts/apps/compare/aria2-1.0.1...aria2-1.0.2) (2021-10-22)
 

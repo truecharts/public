@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lidarr-9.0.0"></a>
+### [lidarr-9.0.0](https://github.com/truecharts/apps/compare/lidarr-8.0.16...lidarr-9.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="lidarr-8.0.16"></a>
 ### [lidarr-8.0.16](https://github.com/truecharts/apps/compare/lidarr-8.0.13...lidarr-8.0.16) (2021-10-20)
 

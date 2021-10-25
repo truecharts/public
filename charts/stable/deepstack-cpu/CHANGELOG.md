@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-cpu-7.0.0"></a>
+### [deepstack-cpu-7.0.0](https://github.com/truecharts/apps/compare/deepstack-cpu-6.0.17...deepstack-cpu-7.0.0) (2021-10-25)
+
+#### Chore
+
+* Adapt for TrueNAS SCALE RC1
+
+
+
 <a name="deepstack-cpu-6.0.17"></a>
 ### [deepstack-cpu-6.0.17](https://github.com/truecharts/apps/compare/deepstack-cpu-6.0.16...deepstack-cpu-6.0.17) (2021-10-20)
 
