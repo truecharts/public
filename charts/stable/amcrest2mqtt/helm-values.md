@@ -21,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"dchesterton/amcrest2mqtt"` | image repository |
-| image.tag | string | `"1.0.9@sha256:cc70f2238aa9fdc77185eced6131190d4b159e7b88591ca238aee3ab863cca65"` | image tag |
+| image.tag | string | `"1.0.10@sha256:02665e8aa973b27456cd7c468e1defe8497f47a38c4ce34c86e9e94fb77075c5"` | image tag |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
