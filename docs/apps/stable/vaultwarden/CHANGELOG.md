@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-11.0.5"></a>
+### [vaultwarden-11.0.5](https://github.com/truecharts/apps/compare/vaultwarden-10.1.0...vaultwarden-11.0.5) (2021-10-26)
+
+
+
 <a name="vaultwarden-10.1.0"></a>
 ### [vaultwarden-10.1.0](https://github.com/truecharts/apps/compare/vaultwarden-11.0.0...vaultwarden-10.1.0) (2021-10-26)
 

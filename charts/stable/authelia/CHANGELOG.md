@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="authelia-6.0.5"></a>
+### [authelia-6.0.5](https://github.com/truecharts/apps/compare/authelia-5.1.0...authelia-6.0.5) (2021-10-26)
+
+
+
 <a name="authelia-5.1.0"></a>
 ### [authelia-5.1.0](https://github.com/truecharts/apps/compare/authelia-6.0.1...authelia-5.1.0) (2021-10-26)
 
