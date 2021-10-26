@@ -158,7 +158,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"bitnami/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"13.4.0@sha256:6ae26c46c20358fb2889a759d11d237b1d6d5f73ba206ef3d66f95448a859382"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"13.4.0@sha256:bb3930e910886892d023bce133612e11a90c238d8b1f57125809b740b0f70f82"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
