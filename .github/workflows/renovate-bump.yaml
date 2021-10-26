@@ -61,7 +61,7 @@ jobs:
                 echo "Version does not have to be bumped"
               else
                 echo "Bumping patch version for ${train}/${chart}"
-                ./tools/bump.sh patch ./charts/${train}/${chart}/Chart.yaml
+                ./tools/bump.sh patch ./charts/${train}/${chart}
               fi
             done
       - name: Cleanup
