@@ -53,8 +53,8 @@ jobs:
                 train="incubator"
               fi
               echo "Comparing versions for ${train}/${chart}"
-              master=$(cat ./master/charts/${train}/${chart}/Chart.yaml | grep "version")
-              current=$(cat ./charts/${train}/${chart}/Chart.yaml | grep "version")
+              master=$(cat ./master/charts/${train}/${chart}/Chart.yaml | grep "^version")
+              current=$(cat ./charts/${train}/${chart}/Chart.yaml | grep "^version")
               echo "master version: ${master}"
               echo "current version: ${current}"
               if [[ "${master}" != "${current}" ]]; then
