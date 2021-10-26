@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statping-3.0.3"></a>
+### [statping-3.0.3](https://github.com/truecharts/apps/compare/statping-3.0.2...statping-3.0.3) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5.1.4 ([#1249](https://github.com/truecharts/apps/issues/1249))
+
+
+
 <a name="statping-3.0.2"></a>
 ### [statping-3.0.2](https://github.com/truecharts/apps/compare/statping-3.0.1...statping-3.0.2) (2021-10-26)
 

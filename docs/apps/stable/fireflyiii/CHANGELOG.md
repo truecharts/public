@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-12.0.3"></a>
+### [fireflyiii-12.0.3](https://github.com/truecharts/apps/compare/fireflyiii-12.0.2...fireflyiii-12.0.3) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5.1.4 ([#1249](https://github.com/truecharts/apps/issues/1249))
+
+
+
 <a name="fireflyiii-12.0.2"></a>
 ### [fireflyiii-12.0.2](https://github.com/truecharts/apps/compare/fireflyiii-12.0.1...fireflyiii-12.0.2) (2021-10-26)
 

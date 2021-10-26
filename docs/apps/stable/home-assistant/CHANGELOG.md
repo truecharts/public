@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-11.0.3"></a>
+### [home-assistant-11.0.3](https://github.com/truecharts/apps/compare/home-assistant-11.0.2...home-assistant-11.0.3) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5.1.4 ([#1249](https://github.com/truecharts/apps/issues/1249))
+
+
+
 <a name="home-assistant-11.0.2"></a>
 ### [home-assistant-11.0.2](https://github.com/truecharts/apps/compare/home-assistant-11.0.1...home-assistant-11.0.2) (2021-10-26)
 

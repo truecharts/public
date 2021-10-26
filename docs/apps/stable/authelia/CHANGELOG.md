@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-7.0.4"></a>
+### [authelia-7.0.4](https://github.com/truecharts/apps/compare/authelia-7.0.3...authelia-7.0.4) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5.1.4 ([#1249](https://github.com/truecharts/apps/issues/1249))
+
+
+
 <a name="authelia-7.0.3"></a>
 ### [authelia-7.0.3](https://github.com/truecharts/apps/compare/authelia-7.0.2...authelia-7.0.3) (2021-10-26)
 

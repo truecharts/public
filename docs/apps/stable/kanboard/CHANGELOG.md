@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kanboard-4.0.3"></a>
+### [kanboard-4.0.3](https://github.com/truecharts/apps/compare/kanboard-4.0.2...kanboard-4.0.3) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5.1.4 ([#1249](https://github.com/truecharts/apps/issues/1249))
+
+
+
 <a name="kanboard-4.0.2"></a>
 ### [kanboard-4.0.2](https://github.com/truecharts/apps/compare/kanboard-4.0.1...kanboard-4.0.2) (2021-10-26)
 
