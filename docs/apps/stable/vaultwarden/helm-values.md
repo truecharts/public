@@ -21,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DATABASE_URL.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/vaultwarden"` |  |
-| image.tag | string | `"v1.22.2@sha256:8693c057298731f507128a395395172d60093be9b299f6bf9e5c35512a74d457"` |  |
+| image.tag | string | `"v1.23.0@sha256:1e65dd23569e566576c3c80de76f711e0b9fc5e29a39d45f49f0a44d1282d869"` |  |
 | ingress | object | See below | Configure the ingresses for the chart here. Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress. |
 | ingress.main.enabled | bool | `true` | Enables or disables the ingress |
 | ingress.main.fixedMiddlewares | list | `["chain-basic"]` | List of middlewares in the traefikmiddlewares k8s namespace to add automatically Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user |

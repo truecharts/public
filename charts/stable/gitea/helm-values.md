@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envFrom[0].configMapRef.name | string | `"gitea-env"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"gitea/gitea"` |  |
-| image.tag | string | `"1.15.4-rootless"` |  |
+| image.tag | string | `"1.15.5-rootless"` |  |
 | initContainers.1-init-directories.command[0] | string | `"/usr/sbin/init_directory_structure.sh"` |  |
 | initContainers.1-init-directories.envFrom[0].configMapRef.name | string | `"gitea-env"` |  |
 | initContainers.1-init-directories.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |

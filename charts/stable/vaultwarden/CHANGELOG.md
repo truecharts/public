@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-12.0.0"></a>
+### [vaultwarden-12.0.0](https://github.com/truecharts/apps/compare/vaultwarden-11.0.5...vaultwarden-12.0.0) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5 ([#1234](https://github.com/truecharts/apps/issues/1234))
+* update non-major ([#1232](https://github.com/truecharts/apps/issues/1232))
+
+
+
 <a name="vaultwarden-11.0.5"></a>
 ### [vaultwarden-11.0.5](https://github.com/truecharts/apps/compare/vaultwarden-10.1.0...vaultwarden-11.0.5) (2021-10-26)
 

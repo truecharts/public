@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="traccar-3.0.0"></a>
+### [traccar-3.0.0](https://github.com/truecharts/apps/compare/traccar-2.0.0...traccar-3.0.0) (2021-10-26)
+
+#### Chore
+
+* update helm chart postgresql to v5 ([#1234](https://github.com/truecharts/apps/issues/1234))
+* update helm chart postgresql to v4.1.0 ([#1237](https://github.com/truecharts/apps/issues/1237))
+
+
+
 <a name="traccar-2.0.0"></a>
 ### [traccar-2.0.0](https://github.com/truecharts/apps/compare/traccar-1.0.3...traccar-2.0.0) (2021-10-25)
 
