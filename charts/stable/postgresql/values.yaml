@@ -46,13 +46,13 @@ podSecurityContext:
 persistence:
   db:
     enabled: true
-    mountPath: "/bitnami/postgresql/old"
+    mountPath: "/bitnami/postgresql"
     type: pvc
     accessMode: ReadWriteOnce
     size: "999Gi"
   data:
     enabled: true
-    mountPath: "/bitnami/postgresql"
+    mountPath: "/bitnami/postgresql/old"
     type: pvc
     accessMode: ReadWriteOnce
     size: "999Gi"
