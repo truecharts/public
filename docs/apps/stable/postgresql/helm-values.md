@@ -34,13 +34,13 @@ You will, however, be able to use all values referenced in the common chart here
 | initContainers.migrate-db.volumeMounts[1].name | string | `"data"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
-| persistence.data.mountPath | string | `"/bitnami/postgresql"` |  |
+| persistence.data.mountPath | string | `"/bitnami/postgresql/old"` |  |
 | persistence.data.size | string | `"999Gi"` |  |
 | persistence.data.storageClass | string | `"-"` |  |
 | persistence.data.type | string | `"pvc"` |  |
 | persistence.db.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.db.enabled | bool | `true` |  |
-| persistence.db.mountPath | string | `"/bitnami/postgresql/old"` |  |
+| persistence.db.mountPath | string | `"/bitnami/postgresql"` |  |
 | persistence.db.size | string | `"999Gi"` |  |
 | persistence.db.type | string | `"pvc"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
