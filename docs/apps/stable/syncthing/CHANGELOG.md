@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-9.0.1"></a>
+### [syncthing-9.0.1](https://github.com/truecharts/apps/compare/syncthing-9.0.0...syncthing-9.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="syncthing-9.0.0"></a>
 ### [syncthing-9.0.0](https://github.com/truecharts/apps/compare/syncthing-8.0.17...syncthing-9.0.0) (2021-10-25)
 

@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.1.1"></a>
+### [postgresql-5.1.1](https://github.com/truecharts/apps/compare/postgresql-5.1.0...postgresql-5.1.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+* update major docker tags (major) ([#1235](https://github.com/truecharts/apps/issues/1235))
+* update non-major ([#1232](https://github.com/truecharts/apps/issues/1232))
+
+
+
 <a name="postgresql-5.1.0"></a>
 ### [postgresql-5.1.0](https://github.com/truecharts/apps/compare/postgresql-4.1.0...postgresql-5.1.0) (2021-10-26)
 

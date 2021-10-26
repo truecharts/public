@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-2.0.1"></a>
+### [code-server-2.0.1](https://github.com/truecharts/apps/compare/code-server-2.0.0...code-server-2.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="code-server-2.0.0"></a>
 ### [code-server-2.0.0](https://github.com/truecharts/apps/compare/code-server-1.0.1...code-server-2.0.0) (2021-10-25)
 

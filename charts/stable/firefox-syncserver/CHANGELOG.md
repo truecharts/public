@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-4.0.1"></a>
+### [firefox-syncserver-4.0.1](https://github.com/truecharts/apps/compare/firefox-syncserver-4.0.0...firefox-syncserver-4.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="firefox-syncserver-4.0.0"></a>
 ### [firefox-syncserver-4.0.0](https://github.com/truecharts/apps/compare/firefox-syncserver-3.0.0...firefox-syncserver-4.0.0) (2021-10-26)
 

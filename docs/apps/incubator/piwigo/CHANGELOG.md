@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="piwigo-1.0.1"></a>
+### [piwigo-1.0.1](https://github.com/truecharts/apps/compare/piwigo-1.0.0...piwigo-1.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+* update non-major ([#1232](https://github.com/truecharts/apps/issues/1232))
+
+
+
 <a name="piwigo-1.0.0"></a>
 ### [piwigo-1.0.0](https://github.com/truecharts/apps/compare/piwigo-0.0.12...piwigo-1.0.0) (2021-10-25)
 

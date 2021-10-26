@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pgadmin-4.0.1"></a>
+### [pgadmin-4.0.1](https://github.com/truecharts/apps/compare/pgadmin-4.0.0...pgadmin-4.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+* update non-major ([#1232](https://github.com/truecharts/apps/issues/1232))
+
+
+
 <a name="pgadmin-4.0.0"></a>
 ### [pgadmin-4.0.0](https://github.com/truecharts/apps/compare/pgadmin-3.0.17...pgadmin-4.0.0) (2021-10-25)
 

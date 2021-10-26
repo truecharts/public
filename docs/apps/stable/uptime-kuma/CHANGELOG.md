@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-1.0.1"></a>
+### [uptime-kuma-1.0.1](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.0...uptime-kuma-1.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+#### Fix
+
+* apply same user to questions.yaml as in values.yaml ([#1229](https://github.com/truecharts/apps/issues/1229))
+
+
+
 <a name="uptime-kuma-1.0.0"></a>
 ### [uptime-kuma-1.0.0](https://github.com/truecharts/apps/compare/uptime-kuma-0.0.10...uptime-kuma-1.0.0) (2021-10-25)
 

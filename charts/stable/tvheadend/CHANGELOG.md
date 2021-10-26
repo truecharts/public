@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tvheadend-10.0.1"></a>
+### [tvheadend-10.0.1](https://github.com/truecharts/apps/compare/tvheadend-10.0.0...tvheadend-10.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="tvheadend-10.0.0"></a>
 ### [tvheadend-10.0.0](https://github.com/truecharts/apps/compare/tvheadend-9.0.16...tvheadend-10.0.0) (2021-10-25)
 

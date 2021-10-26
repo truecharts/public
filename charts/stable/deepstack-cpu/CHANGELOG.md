@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="deepstack-cpu-7.0.1"></a>
+### [deepstack-cpu-7.0.1](https://github.com/truecharts/apps/compare/deepstack-cpu-7.0.0...deepstack-cpu-7.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+#### Fix
+
+* sync persistense var on values.yaml from questions.yaml ([#1231](https://github.com/truecharts/apps/issues/1231))
+
+
+
 <a name="deepstack-cpu-7.0.0"></a>
 ### [deepstack-cpu-7.0.0](https://github.com/truecharts/apps/compare/deepstack-cpu-6.0.17...deepstack-cpu-7.0.0) (2021-10-25)
 

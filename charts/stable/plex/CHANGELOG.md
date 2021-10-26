@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.1"></a>
+### [plex-8.0.1](https://github.com/truecharts/apps/compare/plex-8.0.0...plex-8.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="plex-8.0.0"></a>
 ### [plex-8.0.0](https://github.com/truecharts/apps/compare/plex-7.0.17...plex-8.0.0) (2021-10-25)
 

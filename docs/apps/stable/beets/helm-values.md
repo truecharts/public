@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/beets"` |  |
-| image.tag | string | `"version-1.5.0@sha256:ebb8cf9f7182758427c3acda19d6077457090335685986440078fd436345d417"` |  |
+| image.tag | string | `"version-1.5.0@sha256:5fe39c13efe49f0c61a06f4298f75e844f34de2817802b1cbb06bed67168d093"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.downloads.accessMode | string | `"ReadWriteOnce"` |  |

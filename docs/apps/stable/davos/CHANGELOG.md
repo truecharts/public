@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="davos-2.0.1"></a>
+### [davos-2.0.1](https://github.com/truecharts/apps/compare/davos-2.0.0...davos-2.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="davos-2.0.0"></a>
 ### [davos-2.0.0](https://github.com/truecharts/apps/compare/davos-1.0.1...davos-2.0.0) (2021-10-25)
 

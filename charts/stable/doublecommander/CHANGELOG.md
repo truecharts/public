@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="doublecommander-2.0.1"></a>
+### [doublecommander-2.0.1](https://github.com/truecharts/apps/compare/doublecommander-2.0.0...doublecommander-2.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+* update non-major ([#1232](https://github.com/truecharts/apps/issues/1232))
+
+
+
 <a name="doublecommander-2.0.0"></a>
 ### [doublecommander-2.0.0](https://github.com/truecharts/apps/compare/doublecommander-1.0.1...doublecommander-2.0.0) (2021-10-25)
 

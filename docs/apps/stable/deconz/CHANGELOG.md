@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-4.0.1"></a>
+### [deconz-4.0.1](https://github.com/truecharts/apps/compare/deconz-4.0.0...deconz-4.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="deconz-4.0.0"></a>
 ### [deconz-4.0.0](https://github.com/truecharts/apps/compare/deconz-3.0.18...deconz-4.0.0) (2021-10-25)
 

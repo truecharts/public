@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"duplicati/duplicati"` | image repository |
-| image.tag | string | `"beta@sha256:3080419dc8612ac852db3a8e66407fd386efd2a27d467970ef7161bf27dd9717"` | image tag |
+| image.tag | string | `"beta@sha256:22f5231c3a36979750d10bc8df7fbbb7b112c9fca76d85288fa8e90afb6c9635"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

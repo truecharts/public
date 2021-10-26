@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="aria2-2.0.1"></a>
+### [aria2-2.0.1](https://github.com/truecharts/apps/compare/aria2-2.0.0...aria2-2.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="aria2-2.0.0"></a>
 ### [aria2-2.0.0](https://github.com/truecharts/apps/compare/aria2-1.0.2...aria2-2.0.0) (2021-10-25)
 

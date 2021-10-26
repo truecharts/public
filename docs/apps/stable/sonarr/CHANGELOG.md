@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sonarr-9.0.1"></a>
+### [sonarr-9.0.1](https://github.com/truecharts/apps/compare/sonarr-9.0.0...sonarr-9.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="sonarr-9.0.0"></a>
 ### [sonarr-9.0.0](https://github.com/truecharts/apps/compare/sonarr-8.0.18...sonarr-9.0.0) (2021-10-25)
 

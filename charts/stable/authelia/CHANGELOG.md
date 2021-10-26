@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-7.0.1"></a>
+### [authelia-7.0.1](https://github.com/truecharts/apps/compare/authelia-7.0.0...authelia-7.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="authelia-7.0.0"></a>
 ### [authelia-7.0.0](https://github.com/truecharts/apps/compare/authelia-6.0.5...authelia-7.0.0) (2021-10-26)
 

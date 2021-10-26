@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-4.0.1"></a>
+### [calibre-4.0.1](https://github.com/truecharts/apps/compare/calibre-web-9.0.0...calibre-4.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="calibre-4.0.0"></a>
 ### [calibre-4.0.0](https://github.com/truecharts/apps/compare/calibre-web-8.0.16...calibre-4.0.0) (2021-10-25)
 

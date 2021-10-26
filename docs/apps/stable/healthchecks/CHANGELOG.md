@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-4.0.1"></a>
+### [healthchecks-4.0.1](https://github.com/truecharts/apps/compare/healthchecks-4.0.0...healthchecks-4.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="healthchecks-4.0.0"></a>
 ### [healthchecks-4.0.0](https://github.com/truecharts/apps/compare/healthchecks-3.0.18...healthchecks-4.0.0) (2021-10-25)
 

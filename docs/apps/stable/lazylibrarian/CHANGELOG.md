@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.1"></a>
+### [lazylibrarian-9.0.1](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.0...lazylibrarian-9.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+* update non-major ([#1232](https://github.com/truecharts/apps/issues/1232))
+
+
+
 <a name="lazylibrarian-9.0.0"></a>
 ### [lazylibrarian-9.0.0](https://github.com/truecharts/apps/compare/lazylibrarian-8.0.19...lazylibrarian-9.0.0) (2021-10-25)
 

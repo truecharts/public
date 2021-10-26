@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="deepstack-gpu-2.0.1"></a>
+### [deepstack-gpu-2.0.1](https://github.com/truecharts/apps/compare/deepstack-gpu-2.0.0...deepstack-gpu-2.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+#### Fix
+
+* sync persistense var on values.yaml from questions.yaml ([#1231](https://github.com/truecharts/apps/issues/1231))
+
+
+
 <a name="deepstack-gpu-2.0.0"></a>
 ### [deepstack-gpu-2.0.0](https://github.com/truecharts/apps/compare/deepstack-gpu-1.0.9...deepstack-gpu-2.0.0) (2021-10-25)
 

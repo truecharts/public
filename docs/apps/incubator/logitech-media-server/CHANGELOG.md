@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.1"></a>
+### [logitech-media-server-2.0.1](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.0...logitech-media-server-2.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+* update non-major docker tags ([#1241](https://github.com/truecharts/apps/issues/1241))
+* update non-major ([#1232](https://github.com/truecharts/apps/issues/1232))
+
+
+
 <a name="logitech-media-server-2.0.0"></a>
 ### [logitech-media-server-2.0.0](https://github.com/truecharts/apps/compare/logitech-media-server-1.0.12...logitech-media-server-2.0.0) (2021-10-25)
 

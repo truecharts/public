@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/node-red"` |  |
-| image.tag | string | `"v2.0.6@sha256:b772bf702782d81b124453477846b15ddef0253c67ac6135a8c3d96128d9f9a3"` |  |
+| image.tag | string | `"v2.1.2@sha256:1bdc555a36417b165ed2ae1246a15321cdb476bfa1a0315c82d1931ad9beb04f"` |  |
 | persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |

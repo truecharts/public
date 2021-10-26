@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xteve-4.0.1"></a>
+### [xteve-4.0.1](https://github.com/truecharts/apps/compare/xteve-4.0.0...xteve-4.0.1) (2021-10-26)
+
+#### Chore
+
+* update helm chart common to v8.3.15 ([#1240](https://github.com/truecharts/apps/issues/1240))
+
+
+
 <a name="xteve-4.0.0"></a>
 ### [xteve-4.0.0](https://github.com/truecharts/apps/compare/xteve-3.0.17...xteve-4.0.0) (2021-10-25)
 
