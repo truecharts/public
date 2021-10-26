@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-2.0.4"></a>
+### [amcrest2mqtt-2.0.4](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.3...amcrest2mqtt-2.0.4) (2021-10-26)
+
+#### Chore
+
+* update non-major docker tags ([#1250](https://github.com/truecharts/apps/issues/1250))
+
+
+
 <a name="amcrest2mqtt-2.0.3"></a>
 ### [amcrest2mqtt-2.0.3](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.2...amcrest2mqtt-2.0.3) (2021-10-26)
 
