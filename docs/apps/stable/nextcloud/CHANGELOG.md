@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-7.1.0"></a>
+### [nextcloud-7.1.0](https://github.com/truecharts/apps/compare/nextcloud-8.0.1...nextcloud-7.1.0) (2021-10-26)
+
+#### Fix
+
+* fix patch for important postgresql consumping apps
+
+
+
 <a name="nextcloud-8.0.1"></a>
 ### [nextcloud-8.0.1](https://github.com/truecharts/apps/compare/nextcloud-8.0.0...nextcloud-8.0.1) (2021-10-26)
 

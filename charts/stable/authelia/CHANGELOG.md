@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-5.1.0"></a>
+### [authelia-5.1.0](https://github.com/truecharts/apps/compare/authelia-6.0.1...authelia-5.1.0) (2021-10-26)
+
+#### Fix
+
+* fix patch for important postgresql consumping apps
+
+
+
 <a name="authelia-6.0.1"></a>
 ### [authelia-6.0.1](https://github.com/truecharts/apps/compare/authelia-6.0.0...authelia-6.0.1) (2021-10-26)
 

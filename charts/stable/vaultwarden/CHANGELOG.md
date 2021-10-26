@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-10.1.0"></a>
+### [vaultwarden-10.1.0](https://github.com/truecharts/apps/compare/vaultwarden-11.0.0...vaultwarden-10.1.0) (2021-10-26)
+
+#### Fix
+
+* fix patch for important postgresql consumping apps
+
+
+
 <a name="vaultwarden-11.0.0"></a>
 ### [vaultwarden-11.0.0](https://github.com/truecharts/apps/compare/vaultwarden-10.0.3...vaultwarden-11.0.0) (2021-10-25)
 
