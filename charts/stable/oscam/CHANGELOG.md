@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="oscam-4.0.2"></a>
+### [oscam-4.0.2](https://github.com/truecharts/apps/compare/oscam-4.0.1...oscam-4.0.2) (2021-10-26)
+
+#### Chore
+
+* update non-major deps helm releases ([#1245](https://github.com/truecharts/apps/issues/1245))
+
+
+
 <a name="oscam-4.0.1"></a>
 ### [oscam-4.0.1](https://github.com/truecharts/apps/compare/oscam-4.0.0...oscam-4.0.1) (2021-10-26)
 
