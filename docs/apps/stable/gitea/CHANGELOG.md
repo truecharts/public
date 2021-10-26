@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-3.0.1"></a>
+### [gitea-3.0.1](https://github.com/truecharts/apps/compare/gitea-3.0.0...gitea-3.0.1) (2021-10-26)
+
+#### Chore
+
+* update non-major deps helm releases
+
+
+
 <a name="gitea-3.0.0"></a>
 ### [gitea-3.0.0](https://github.com/truecharts/apps/compare/gitea-2.0.3...gitea-3.0.0) (2021-10-25)
 
