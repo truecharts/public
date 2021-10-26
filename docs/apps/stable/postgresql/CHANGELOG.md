@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.1.2"></a>
+### [postgresql-5.1.2](https://github.com/truecharts/apps/compare/postgresql-5.1.1...postgresql-5.1.2) (2021-10-26)
+
+#### Chore
+
+* update bitnami/postgresql:14.0.0 docker digest to 6737f46 ([#1243](https://github.com/truecharts/apps/issues/1243))
+
+
+
 <a name="postgresql-5.1.1"></a>
 ### [postgresql-5.1.1](https://github.com/truecharts/apps/compare/postgresql-5.1.0...postgresql-5.1.1) (2021-10-26)
 

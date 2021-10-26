@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="common-8.3.16"></a>
+### [common-8.3.16](https://github.com/truecharts/apps/compare/common-8.3.15...common-8.3.16) (2021-10-26)
+
+#### Chore
+
+* update bitnami/postgresql:14.0.0 docker digest to 6737f46 ([#1243](https://github.com/truecharts/apps/issues/1243))
+* update major docker tags (major) ([#1235](https://github.com/truecharts/apps/issues/1235))
+
+
+
 <a name="common-8.3.15"></a>
 ### [common-8.3.15](https://github.com/truecharts/apps/compare/common-8.3.14...common-8.3.15) (2021-10-26)
 
