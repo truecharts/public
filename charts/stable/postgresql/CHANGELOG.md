@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.1.4"></a>
+### [postgresql-5.1.4](https://github.com/truecharts/apps/compare/postgresql-5.1.3...postgresql-5.1.4) (2021-10-26)
+
+#### Fix
+
+* correct group permissions on SCALE deployments of postgresql
+
+
+
 <a name="postgresql-5.1.3"></a>
 ### [postgresql-5.1.3](https://github.com/truecharts/apps/compare/postgresql-5.1.2...postgresql-5.1.3) (2021-10-26)
 
