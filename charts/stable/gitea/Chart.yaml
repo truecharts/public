@@ -11,7 +11,7 @@ dependencies:
 - condition: memcached.enabled
   name: memcached
   repository: https://charts.bitnami.com/bitnami
-  version: 5.15.6
+  version: 5.15.7
 deprecated: false
 description: Self hosted GIT repositories
 home: https://github.com/truecharts/apps/tree/master/charts/stable/gitea
@@ -34,7 +34,7 @@ sources:
 - https://github.com/go-gitea/gitea
 - https://hub.docker.com/r/gitea/gitea/
 type: application
-version: 3.0.0
+version: 3.0.1
 annotations:
   truecharts.org/catagories: |
     - GIT
