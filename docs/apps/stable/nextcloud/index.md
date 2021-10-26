@@ -18,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | redis | 15.5.1 |
+| https://charts.bitnami.com/bitnami | redis | 15.5.2 |
 | https://truecharts.org/ | postgresql | 5.1.2 |
 | https://truecharts.org | common | 8.3.16 |
 
