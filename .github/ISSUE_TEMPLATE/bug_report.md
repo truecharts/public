@@ -56,6 +56,7 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 <!--
+- make sure that if you follow these steps again yourself the bug happens again. if it doesnt its probbly a configuration error and should be handled with a support thread on the discord
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
