@@ -38,6 +38,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
         {{ $envList = mustAppend $envList (dict "name" "APACHE_DISABLE_REWRITE_IP" "value" "1") }}
         {{ $envList = mustAppend $envList (dict "name" "OVERWRITEHOST" "value" (printf "%v:%v" .Values.nextcloud.host .Values.service.nodePort)) }}
         {{ $envList = mustAppend $envList (dict "name" "OVERWRITEPROTOCOL" "value" "https") }}
+        {{ $envList = mustAppend $envList (dict "name" "TRUSTED_PROXIES" "value" "127.0.0.1") }}
         {{ end }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_TRUSTED_DOMAINS" "value" .Values.nextcloud.host) }}
         {{ $envList = mustAppend $envList (dict "name" "NEXTCLOUD_ADMIN_USER" "valueFromSecret" true "secretName" $secretName "secretKey" "nextcloud-username") }}
