@@ -19,25 +19,25 @@ MIND YOUR TITLE:
 ***SCALE version***
 <!--
 - the version of truenas scale you are currently running.
-- found in System settings > general > os version
+- FOUND IN: System settings > general > os version
 -->
 
 ***App Version***
 <!--
 - the version of the app having the issue and versions of any apps being used in conjunction
-- found in apps > installed applications
+- FOUND IN: apps > installed applications
 -->
 
 ***Application Events***
 <!--
 - debug information from the app(s) specifically
-- found in apps > installed applications > (click on the app name) > click the carrot next to application events and include a screenshot here
+- FOUND IN: apps > installed applications > (click on the app name) > click the carrot next to application events and include a screenshot here
 -->
 
 ***Application Logs***
 <!--
 - log output from the containers involved in the app
-- found in apps > installed applications > (click the 3 dots on the top right of the app box) > logs > open the logs for each pod used for the app and take a screenshot
+- FOUND IN: apps > installed applications > (click the 3 dots on the top right of the app box) > logs > open the logs for each pod used for the app and take a screenshot
 - it can take a moment for the logs to show on the logs screen
 -->
 
@@ -45,7 +45,7 @@ MIND YOUR TITLE:
 <!--
 - the configuration settings for the app (make sure to include what you have changed and what you didnt change
 - if possible use the edit features in your screenshot tool to highlight the portions you cnaged intentionally
-- found in apps > installed applications > (click the 3 dots on the top right of the app box) edit
+- FOUND IN: apps > installed applications > (click the 3 dots on the top right of the app box) edit
 -->
 
 
