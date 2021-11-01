@@ -40,7 +40,16 @@
                     - variable: option
                       label: "Option Entry"
                       schema:
-                        type: string
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                          - variable: value
+                            label: "Value"
+                            schema:
+                              type: string
               - variable: searches
                 label: "Searches"
                 schema:
