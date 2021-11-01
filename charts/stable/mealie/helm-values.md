@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/truecharts/mealie"` | image repository |
-| image.tag | string | `"v0.5.2@sha256:e09dcdcdc812e3ef498953ceb268cbaedc031861219e7928e721c0729e97a4ae"` | image tag |
+| image.tag | string | `"v0.5.3@sha256:2026a85abda3e3b6bb4bc8ed73ce9d47b6d2957189c4db887d406ed91956a890"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |

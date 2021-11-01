@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"pykmsorg/py-kms"` |  |
-| image.tag | string | `"minimal@sha256:bbbdfe08a58be8e98dd7c0d9070f99598e4eeb9de9700925b5b3a06e222e7114"` |  |
+| image.tag | string | `"minimal@sha256:a77083a54e6193fb7093353cdbaafd13735a3bdfe31695ff1325efb89fef56de"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

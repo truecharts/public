@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"docker.io/mbentley/omada-controller"` | image repository |
-| image.tag | string | `"4.4@sha256:73a19237abf90e9509cd75e2a96157f352ed9f5c7978908f731e0fe3c5f1707f"` | image tag |
+| image.tag | string | `"4.4@sha256:e2cecf684b2098a5818d119ef9d3451c03513f05e8708723dc4c5df33e842f1f"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

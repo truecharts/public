@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.3"></a>
+### [logitech-media-server-2.0.3](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.2...logitech-media-server-2.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
 <a name="logitech-media-server-2.0.2"></a>
 ### [logitech-media-server-2.0.2](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.1...logitech-media-server-2.0.2) (2021-10-26)
 

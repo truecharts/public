@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/truecharts/ocis"` | image repository |
-| image.tag | string | `"v1.13.0@sha256:8f1e2841849df772287d6ee6969b214b214c8200401a8491705305c12a85c50d"` | image tag |
+| image.tag | string | `"v1.14.0@sha256:d208ece842bae2df5c4c7149848037e5fc7667a3fc04a0c8dd62b54541857f9e"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |

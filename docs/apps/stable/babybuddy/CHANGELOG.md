@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-4.0.4"></a>
+### [babybuddy-4.0.4](https://github.com/truecharts/apps/compare/babybuddy-4.0.3...babybuddy-4.0.4) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
 <a name="babybuddy-4.0.3"></a>
 ### [babybuddy-4.0.3](https://github.com/truecharts/apps/compare/babybuddy-4.0.2...babybuddy-4.0.3) (2021-10-26)
 

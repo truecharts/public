@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-4.0.5"></a>
+### [gitea-4.0.5](https://github.com/truecharts/apps/compare/gitea-4.0.4...gitea-4.0.5) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
 <a name="gitea-4.0.4"></a>
 ### [gitea-4.0.4](https://github.com/truecharts/apps/compare/gitea-4.0.3...gitea-4.0.4) (2021-10-26)
 

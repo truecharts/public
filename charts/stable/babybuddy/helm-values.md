@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/babybuddy"` |  |
-| image.tag | string | `"1.9.0@sha256:1e00533d48c99360a198295170e2d0ce572255a349f4b9cfeeb1217d4df72a9f"` |  |
+| image.tag | string | `"1.9.0@sha256:841d90cf8e72cf583f915547a18b80a1b61bf9546e4414a306259c204f2bbc8b"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

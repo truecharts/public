@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freshrss-9.0.3"></a>
+### [freshrss-9.0.3](https://github.com/truecharts/apps/compare/freshrss-9.0.2...freshrss-9.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
 <a name="freshrss-9.0.2"></a>
 ### [freshrss-9.0.2](https://github.com/truecharts/apps/compare/freshrss-9.0.1...freshrss-9.0.2) (2021-10-26)
 

@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/muximux"` |  |
-| image.tag | string | `"version-057352e8@sha256:8d9cf5ab14853ed5caf7ec40ecce8d460b818222d59e9901cae80bee583909b9"` |  |
+| image.tag | string | `"version-057352e8@sha256:11f39a6af0290f2285e6452d5a10ad03aa67ede3a9f8e769fef006e33581d0e4"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

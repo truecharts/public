@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosquitto-4.0.3"></a>
+### [mosquitto-4.0.3](https://github.com/truecharts/apps/compare/mosquitto-4.0.2...mosquitto-4.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
 <a name="mosquitto-4.0.2"></a>
 ### [mosquitto-4.0.2](https://github.com/truecharts/apps/compare/mosquitto-4.0.1...mosquitto-4.0.2) (2021-10-26)
 

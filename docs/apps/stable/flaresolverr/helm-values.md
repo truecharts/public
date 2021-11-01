@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/flaresolverr/flaresolverr"` | image repository |
-| image.tag | string | `"v2.0.1@sha256:f53cb64232fe93d9ececb7433038aad972ef1b46657447c927343b16a8ce67cc"` | image tag |
+| image.tag | string | `"v2.0.2@sha256:f08e3442bc6d6f6328d98f2cebafd36c7442339c1f12cb6e531928a60d6dde3f"` | image tag |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |

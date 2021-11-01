@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.3.18"></a>
+### [common-8.3.18](https://github.com/truecharts/apps/compare/common-8.3.17...common-8.3.18) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
 <a name="common-8.3.17"></a>
 ### [common-8.3.17](https://github.com/truecharts/apps/compare/common-8.3.16...common-8.3.17) (2021-11-01)
 

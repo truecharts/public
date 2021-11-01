@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-4.0.3"></a>
+### [flaresolverr-4.0.3](https://github.com/truecharts/apps/compare/flaresolverr-4.0.2...flaresolverr-4.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
 <a name="flaresolverr-4.0.2"></a>
 ### [flaresolverr-4.0.2](https://github.com/truecharts/apps/compare/flaresolverr-4.0.1...flaresolverr-4.0.2) (2021-10-26)
 

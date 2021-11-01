@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloud9-2.0.3"></a>
+### [cloud9-2.0.3](https://github.com/truecharts/apps/compare/cloud9-2.0.2...cloud9-2.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major ([#1263](https://github.com/truecharts/apps/issues/1263))
+
+
+
 <a name="cloud9-2.0.2"></a>
 ### [cloud9-2.0.2](https://github.com/truecharts/apps/compare/cloud9-2.0.1...cloud9-2.0.2) (2021-10-26)
 
