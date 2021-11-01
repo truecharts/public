@@ -292,6 +292,26 @@ questions:
                 label: "Search Entry"
                 schema:
                   type: string
+        - variable: options
+          label: "DNS Options"
+          schema:
+            type: list
+            items:
+              - variable: optionsEntry
+                label: "Option Entry Configuration"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: "Option Name"
+                      schema:
+                        type: string
+                        required: true
+                    - variable: value
+                      label: "Option Value"
+                      schema:
+                        type: string
+                        required: true
 
   - variable: hostNetwork
     label: "Provide access to node network namespace for the workload"
@@ -494,3 +514,14 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: capabilities
+          label: "Capabilities"
+          description: "With Linux capabilities, you can grant certain privileges to a process without granting all the privileges of the root user."
+          schema:
+            type: list
+            items:
+              - variable: capability
+                description: "Add Capability"
+                label: "Add Capability"
+                schema:
+                  type: string
