@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cryptofolio-2.0.3"></a>
+### [cryptofolio-2.0.3](https://github.com/truecharts/apps/compare/cryptofolio-2.0.2...cryptofolio-2.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+
+
+
 <a name="cryptofolio-2.0.2"></a>
 ### [cryptofolio-2.0.2](https://github.com/truecharts/apps/compare/cryptofolio-2.0.1...cryptofolio-2.0.2) (2021-10-26)
 

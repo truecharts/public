@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pixapop-1.0.3"></a>
+### [pixapop-1.0.3](https://github.com/truecharts/apps/compare/pixapop-1.0.2...pixapop-1.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+
+
+
 <a name="pixapop-1.0.2"></a>
 ### [pixapop-1.0.2](https://github.com/truecharts/apps/compare/pixapop-1.0.1...pixapop-1.0.2) (2021-10-26)
 

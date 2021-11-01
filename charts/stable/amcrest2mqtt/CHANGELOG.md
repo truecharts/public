@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-2.0.5"></a>
+### [amcrest2mqtt-2.0.5](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.4...amcrest2mqtt-2.0.5) (2021-11-01)
+
+#### Chore
+
+* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+
+
+
 <a name="amcrest2mqtt-2.0.4"></a>
 ### [amcrest2mqtt-2.0.4](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.3...amcrest2mqtt-2.0.4) (2021-10-26)
 

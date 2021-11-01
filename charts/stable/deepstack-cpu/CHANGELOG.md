@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-cpu-7.0.3"></a>
+### [deepstack-cpu-7.0.3](https://github.com/truecharts/apps/compare/deepstack-cpu-7.0.2...deepstack-cpu-7.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+
+
+
 <a name="deepstack-cpu-7.0.2"></a>
 ### [deepstack-cpu-7.0.2](https://github.com/truecharts/apps/compare/deepstack-cpu-7.0.1...deepstack-cpu-7.0.2) (2021-10-26)
 

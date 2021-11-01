@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-4.0.3"></a>
+### [healthchecks-4.0.3](https://github.com/truecharts/apps/compare/healthchecks-4.0.2...healthchecks-4.0.3) (2021-11-01)
+
+#### Chore
+
+* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+
+
+
 <a name="healthchecks-4.0.2"></a>
 ### [healthchecks-4.0.2](https://github.com/truecharts/apps/compare/healthchecks-4.0.1...healthchecks-4.0.2) (2021-10-26)
 

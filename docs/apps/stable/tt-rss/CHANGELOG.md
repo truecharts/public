@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-3.0.6"></a>
+### [tt-rss-3.0.6](https://github.com/truecharts/apps/compare/tt-rss-3.0.5...tt-rss-3.0.6) (2021-11-01)
+
+#### Chore
+
+* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+
+
+
 <a name="tt-rss-3.0.5"></a>
 ### [tt-rss-3.0.5](https://github.com/truecharts/apps/compare/tt-rss-3.0.4...tt-rss-3.0.5) (2021-11-01)
 

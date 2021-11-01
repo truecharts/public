@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="smokeping-1.0.4"></a>
+### [smokeping-1.0.4](https://github.com/truecharts/apps/compare/smokeping-1.0.3...smokeping-1.0.4) (2021-11-01)
+
+#### Chore
+
+* update non-major deps helm releases ([#1264](https://github.com/truecharts/apps/issues/1264))
+
+
+
 <a name="smokeping-1.0.3"></a>
 ### [smokeping-1.0.3](https://github.com/truecharts/apps/compare/smokeping-1.0.2...smokeping-1.0.3) (2021-11-01)
 
