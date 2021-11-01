@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.3.17"></a>
+### [common-8.3.17](https://github.com/truecharts/apps/compare/common-8.3.16...common-8.3.17) (2021-11-01)
+
+#### Fix
+
+* set default ndots to 1 and fix dnsoptions in GUI ([#1262](https://github.com/truecharts/apps/issues/1262))
+
+
+
 <a name="common-8.3.16"></a>
 ### [common-8.3.16](https://github.com/truecharts/apps/compare/common-8.3.15...common-8.3.16) (2021-10-26)
 
