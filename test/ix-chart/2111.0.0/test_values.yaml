@@ -37,3 +37,6 @@ livenessProbe: null
 workloadType: "Deployment"
 
 gpuConfiguration: {}
+securityContext:
+  privileged: false
+  capabilities: []

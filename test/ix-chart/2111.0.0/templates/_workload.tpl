@@ -56,7 +56,11 @@ containers:
 - name: {{ .Chart.Name }}
   {{- include "volumeMountsConfiguration" . | indent 2}}
   securityContext:
-    {{- toYaml .Values.securityContext | nindent 12 }}
+    privileged: {{ .Values.securityContext.privileged }}
+    {{ if .Values.securityContext.capabilities }}
+    capabilities:
+      add: {{ toYaml .Values.securityContext.capabilities | nindent 8 }}
+    {{ end }}
   image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
   imagePullPolicy: {{ .Values.image.pullPolicy }}
   {{- include "containerCommand" . | indent 2 }}
