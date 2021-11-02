@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piwigo-1.0.4"></a>
+### [piwigo-1.0.4](https://github.com/truecharts/apps/compare/piwigo-1.0.3...piwigo-1.0.4) (2021-11-02)
+
+#### Chore
+
+* update non-major docker tags ([#1266](https://github.com/truecharts/apps/issues/1266))
+
+
+
 <a name="piwigo-1.0.3"></a>
 ### [piwigo-1.0.3](https://github.com/truecharts/apps/compare/piwigo-1.0.2...piwigo-1.0.3) (2021-11-01)
 

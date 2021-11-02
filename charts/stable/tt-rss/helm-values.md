@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.TTRSS_DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/k8s-at-home/tt-rss"` | image repository |
-| image.tag | string | `"v1.9037.0@sha256:2a0104460bcb4c2dd4f40085642a29e7c369d70bef10e16a640fad5df7d7fd09"` | image tag |
+| image.tag | string | `"v1.9038.0@sha256:d5375514fedaceefdb212d729830250ec2762fdcf7790d811b69deae95581b36"` | image tag |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |
