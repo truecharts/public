@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jellyfin-9.0.4"></a>
+### [jellyfin-9.0.4](https://github.com/truecharts/apps/compare/jellyfin-9.0.3...jellyfin-9.0.4) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
 <a name="jellyfin-9.0.3"></a>
 ### [jellyfin-9.0.3](https://github.com/truecharts/apps/compare/jellyfin-9.0.2...jellyfin-9.0.3) (2021-11-01)
 

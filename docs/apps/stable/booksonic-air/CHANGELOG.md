@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.4"></a>
+### [booksonic-air-4.0.4](https://github.com/truecharts/apps/compare/booksonic-air-4.0.3...booksonic-air-4.0.4) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
 <a name="booksonic-air-4.0.3"></a>
 ### [booksonic-air-4.0.3](https://github.com/truecharts/apps/compare/booksonic-air-4.0.2...booksonic-air-4.0.3) (2021-11-01)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-3.0.5"></a>
+### [wikijs-3.0.5](https://github.com/truecharts/apps/compare/wikijs-3.0.4...wikijs-3.0.5) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
 <a name="wikijs-3.0.4"></a>
 ### [wikijs-3.0.4](https://github.com/truecharts/apps/compare/wikijs-3.0.3...wikijs-3.0.4) (2021-11-01)
 

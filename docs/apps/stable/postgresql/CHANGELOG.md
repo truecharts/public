@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.1.8"></a>
+### [postgresql-5.1.8](https://github.com/truecharts/apps/compare/postgresql-5.1.7...postgresql-5.1.8) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
 <a name="postgresql-5.1.7"></a>
 ### [postgresql-5.1.7](https://github.com/truecharts/apps/compare/postgresql-5.1.6...postgresql-5.1.7) (2021-11-02)
 

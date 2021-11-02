@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-7.0.6"></a>
+### [authelia-7.0.6](https://github.com/truecharts/apps/compare/authelia-7.0.5...authelia-7.0.6) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
 <a name="authelia-7.0.5"></a>
 ### [authelia-7.0.5](https://github.com/truecharts/apps/compare/authelia-7.0.4...authelia-7.0.5) (2021-11-01)
 

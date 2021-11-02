@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statping-3.0.5"></a>
+### [statping-3.0.5](https://github.com/truecharts/apps/compare/statping-3.0.4...statping-3.0.5) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
 <a name="statping-3.0.4"></a>
 ### [statping-3.0.4](https://github.com/truecharts/apps/compare/statping-3.0.3...statping-3.0.4) (2021-11-01)
 

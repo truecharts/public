@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="navidrome-9.0.4"></a>
+### [navidrome-9.0.4](https://github.com/truecharts/apps/compare/navidrome-9.0.3...navidrome-9.0.4) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
 <a name="navidrome-9.0.3"></a>
 ### [navidrome-9.0.3](https://github.com/truecharts/apps/compare/navidrome-9.0.2...navidrome-9.0.3) (2021-11-01)
 

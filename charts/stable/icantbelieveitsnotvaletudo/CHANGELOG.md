@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icantbelieveitsnotvaletudo-2.0.4"></a>
+### [icantbelieveitsnotvaletudo-2.0.4](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-2.0.3...icantbelieveitsnotvaletudo-2.0.4) (2021-11-02)
+
+#### Chore
+
+* update non-major deps helm releases ([#1267](https://github.com/truecharts/apps/issues/1267))
+
+
+
 <a name="icantbelieveitsnotvaletudo-2.0.3"></a>
 ### [icantbelieveitsnotvaletudo-2.0.3](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-2.0.2...icantbelieveitsnotvaletudo-2.0.3) (2021-11-01)
 
