@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/remmina"` |  |
-| image.tag | string | `"version-1.2.0-rcgit.29dfsg-1ubuntu1@sha256:4c695da1fbaa9279b22f3088f7d0dce598148e87b967706ff4c64686fd84c5dd"` |  |
+| image.tag | string | `"version-1.2.0-rcgit.29dfsg-1ubuntu1@sha256:0e024b919b7e7c5b359436f118f782d3da426873be1fa15e49eaf544e950009e"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

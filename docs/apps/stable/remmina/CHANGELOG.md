@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="remmina-1.0.4"></a>
+### [remmina-1.0.4](https://github.com/truecharts/apps/compare/remmina-1.0.3...remmina-1.0.4) (2021-11-02)
+
+#### Chore
+
+* update non-major ([#1265](https://github.com/truecharts/apps/issues/1265))
+
+
+
 <a name="remmina-1.0.3"></a>
 ### [remmina-1.0.3](https://github.com/truecharts/apps/compare/remmina-1.0.2...remmina-1.0.3) (2021-11-01)
 

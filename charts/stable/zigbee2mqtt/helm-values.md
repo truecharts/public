@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.ZIGBEE2MQTT_DATA | string | `"/data"` | Set the data folder for Zigbee2MQTT. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"koenkk/zigbee2mqtt"` | image repository |
-| image.tag | string | `"1.21.2@sha256:22390a4ceb1c2849e6717aa8521fa50eaaa39e38abc103387076045161ebd351"` | image tag |
+| image.tag | string | `"1.22.0@sha256:a6c06a55616751cc5ac47897e0351143d979fbd6b7ca733f394946f8018db481"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. Normally this does not need to be modified. |
 

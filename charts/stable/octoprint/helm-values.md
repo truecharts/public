@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/truecharts/octoprint"` | image repository |
-| image.tag | string | `"v1.7.0@sha256:597bbb8c3df90ea8c7bfd731a08677fcd3eb4744d6acd6b6838c28460dc1e11f"` | image tag |
+| image.tag | string | `"v1.7.1@sha256:df4cc1d0e7461d6a402c8ac9dbf045714eb0812a9683eddaa1131869aebde18a"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | persistence.printer | object | See values.yaml | Configure a hostPathMount to mount a USB device in the container. |
 | podSecurityContext.runAsGroup | int | `0` |  |

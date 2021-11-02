@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="octoprint-4.0.4"></a>
+### [octoprint-4.0.4](https://github.com/truecharts/apps/compare/octoprint-4.0.3...octoprint-4.0.4) (2021-11-02)
+
+#### Chore
+
+* update non-major ([#1265](https://github.com/truecharts/apps/issues/1265))
+
+
+
 <a name="octoprint-4.0.3"></a>
 ### [octoprint-4.0.3](https://github.com/truecharts/apps/compare/octoprint-4.0.2...octoprint-4.0.3) (2021-11-01)
 
