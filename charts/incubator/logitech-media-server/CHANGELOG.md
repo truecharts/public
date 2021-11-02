@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.5"></a>
+### [logitech-media-server-2.0.5](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.4...logitech-media-server-2.0.5) (2021-11-02)
+
+#### Chore
+
+* update lmscommunity/logitechmediaserver:8.3.0 docker digest to 201247c ([#1268](https://github.com/truecharts/apps/issues/1268))
+
+
+
 <a name="logitech-media-server-2.0.4"></a>
 ### [logitech-media-server-2.0.4](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.3...logitech-media-server-2.0.4) (2021-11-01)
 
