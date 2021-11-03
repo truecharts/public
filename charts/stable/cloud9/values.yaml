@@ -29,10 +29,5 @@ persistence:
     mountPath: /code
     accessMode: ReadWriteOnce
     size: 1Gi
-  sock:
-    enabled: true
-    mountPath: /var/run/docker.sock
-    accessMode: ReadWriteOnce
-    size: 1Gi
   varrun:
     enabled: true
