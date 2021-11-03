@@ -70,6 +70,8 @@ _This list is to track `App Requests` from one place._
 - [ ] Trilium Notes #1261
 - [ ] Monero #1228
 - [ ] AriaNG #1224
+- [ ] FileBrowser #1278
+- [ ] Unmanic #1279
 
 ##### TODO: Require custom care to handle their configuration
 
