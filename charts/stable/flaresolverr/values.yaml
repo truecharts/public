@@ -15,7 +15,11 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 # -- environment variables. See more environment variables in the [flaresolverr documentation](https://github.com/FlareSolverr/FlareSolverr#environment-variables).
 # @default -- See below
 env:
