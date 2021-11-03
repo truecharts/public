@@ -67,6 +67,11 @@ _This list is to track `App Requests` from one place._
 - [ ] LANraragi #1159
 - [ ] ArchiSteamFarm #1164
 - [ ] Docker Registry #1165
+- [ ] Trilium Notes #1261
+- [ ] Monero #1228
+- [ ] AriaNG #1224
+- [ ] FileBrowser #1278
+- [ ] Unmanic #1279
 
 ##### TODO: Require custom care to handle their configuration
 
@@ -131,7 +136,7 @@ _This list is to track `App Requests` from one place._
 ##### TODO: Requires MongoDB to be added first
 
 - [ ] overleaf ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-
+- [ ] WeKan #1225
 
 ##### TODO: Other Complications
 
