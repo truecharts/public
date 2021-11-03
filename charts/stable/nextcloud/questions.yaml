@@ -76,15 +76,15 @@ questions:
 # Include{fixedEnv}
 
         - variable: NEXTCLOUD_ADMIN_USER
-          label: "NEXTCLOUD_ADMIN_USER"
-          description: "Sets nextcloud admin username"
+          label: "NEXTCLOUD_ADMIN_USER (Initial)"
+          description: "Sets the initial nextcloud's admin username, changing this variable after first launch will NOT change admin's username"
           schema:
             type: string
             required: true
             default: ""
         - variable: NEXTCLOUD_ADMIN_PASSWORD
-          label: "NEXTCLOUD_ADMIN_PASSWORD"
-          description: "Sets nextcloud admin password"
+          label: "NEXTCLOUD_ADMIN_PASSWORD (Initial)"
+          description: "Sets the initial nextcloud's admin password, changing this variable after first launch will NOT change admin's password"
           schema:
             type: string
             private: true
