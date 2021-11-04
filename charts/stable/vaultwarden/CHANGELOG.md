@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-12.0.6"></a>
+### [vaultwarden-12.0.6](https://github.com/truecharts/apps/compare/vaultwarden-12.0.5...vaultwarden-12.0.6) (2021-11-04)
+
+#### Fix
+
+* correctly define ingress ([#1283](https://github.com/truecharts/apps/issues/1283))
+
+
+
 <a name="vaultwarden-12.0.5"></a>
 ### [vaultwarden-12.0.5](https://github.com/truecharts/apps/compare/vaultwarden-12.0.4...vaultwarden-12.0.5) (2021-11-02)
 
