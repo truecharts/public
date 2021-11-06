@@ -249,7 +249,7 @@
   {{- end }}
 
   {{- range .Values.service }}
-  {{- if eq .type "simple" }}
+  {{- if eq .type "Simple" }}
   {{- $_ := set . "type" "LoadBalancer" }}
   {{- end }}
   {{- end }}

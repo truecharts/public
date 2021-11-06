@@ -28,6 +28,8 @@
                         type: string
                         default: "NodePort"
                         enum:
+                          - value: "Simple"
+                            description: "Simple"
                           - value: "NodePort"
                             description: "NodePort"
                           - value: "ClusterIP"
