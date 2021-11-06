@@ -11,8 +11,10 @@ securityContext:
 service:
   main:
     enabled: true
+    protocol: "HTTP"
     ports:
       main:
+        targetPort: 9117
         port: 9117
 
 probes:
