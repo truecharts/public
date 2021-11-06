@@ -26,5 +26,7 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `9117` |  |
+| service.main.ports.main.targetPort | int | `9117` |  |
+| service.main.protocol | string | `"HTTP"` |  |
 
 All Rights Reserved - The TrueCharts Project
