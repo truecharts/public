@@ -522,38 +522,25 @@ questions:
                 schema:
                   type: boolean
                   default: true
+                  hidden: true
               - variable: type
-                label: "(Advanced) Type of Storage"
-                description: "Sets the persistence type"
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
                 schema:
                   type: string
-                  default: "pvc"
+                  default: "simplePVC"
                   enum:
-                    - value: "pvc"
-                      description: "pvc"
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
                     - value: "emptyDir"
                       description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
                     - value: "hostPath"
                       description: "hostPath"
-              - variable: storageClass
-                label: "(Advanced) storageClass"
-                description: " Warning: Anything other than SCALE-ZFS will break rollback!"
-                schema:
-                  show_if: [["type", "=", "pvc"]]
-                  type: string
-                  default: "SCALE-ZFS"
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                description: "Automatically set permissions on install"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: boolean
-                  default: true
-              - variable: readOnly
-                label: "readOnly"
-                schema:
-                  type: boolean
-                  default: false
+# Include{persistenceBasic}
               - variable: hostPath
                 label: "hostPath"
                 description: "Path inside the container the storage is mounted"
