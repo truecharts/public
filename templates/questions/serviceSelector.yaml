@@ -13,12 +13,12 @@
                   enum:
                     - value: "Simple"
                       description: "Simple"
-                    - value: "NodePort"
-                      description: "NodePort"
                     - value: "ClusterIP"
                       description: "ClusterIP"
+                    - value: "NodePort"
+                      description: "NodePort (Advanced)"
                     - value: "LoadBalancer"
-                      description: "LoadBalancer"
+                      description: "LoadBalancer (Advanced)"
               - variable: loadBalancerIP
                 label: "LoadBalancer IP"
                 description: "LoadBalancerIP"
