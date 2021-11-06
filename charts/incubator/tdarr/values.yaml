@@ -30,7 +30,7 @@ service:
     ports:
       comm:
         port: 8266
-        port: 8266
+        targetPort: 8266
 
 persistence:
   server:
