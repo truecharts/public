@@ -49,7 +49,6 @@ service:
         port: 55555
         targetPort: 55555
         protocol: TCP
-        targetPort: 55555
   bt-udp:
     enabled: false
     type: ClusterIP
@@ -59,7 +58,6 @@ service:
         port: 55555
         targetPort: 55555
         protocol: UDP
-        targetPort: 55555
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
