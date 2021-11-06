@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.9"></a>
+### [jackett-9.0.9](https://github.com/truecharts/apps/compare/jackett-9.0.8...jackett-9.0.9) (2021-11-06)
+
+#### Fix
+
+* Correct label for port setting
+
+
+
 <a name="jackett-9.0.8"></a>
 ### [jackett-9.0.8](https://github.com/truecharts/apps/compare/jackett-9.0.7...jackett-9.0.8) (2021-11-06)
 
