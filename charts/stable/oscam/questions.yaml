@@ -147,7 +147,7 @@ questions:
                             description: "This port gets exposed to the node. Only considered when service type is NodePort"
                             schema:
                               type: int
-                              default: 36103
+
                               min: 9000
                               max: 65535
 

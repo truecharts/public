@@ -485,7 +485,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36019
+
         - variable: torrent
           label: "Torrent Service"
           description: "Torrent service"
@@ -540,7 +540,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36020
+
                     - variable: udp
                       label: "UDP Service Port Configuration"
                       schema:
@@ -588,7 +588,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36020
+
 
   - variable: serviceexpert
     group: "Networking and Services"

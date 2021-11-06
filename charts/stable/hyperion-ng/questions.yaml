@@ -150,7 +150,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36064
+
         - variable: jsonservice
           label: "jsonservice Service"
           description: "The jsonservice service"
@@ -205,7 +205,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36096
+
         - variable: protobufservice
           label: "protobufservice Service"
           description: "The protobufservice service"
@@ -260,7 +260,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36097
+
         - variable: boblightservice
           label: "boblightservice Service"
           description: "The boblightservice service"
@@ -315,7 +315,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36098
+
 
   - variable: serviceexpert
     group: "Networking and Services"

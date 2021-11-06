@@ -144,7 +144,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36163
+
         - variable: odoo
           label: "Odoo Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -199,7 +199,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36164
+
                     - variable: odoo-2
                       label: "Odoo-2 Service Port Configuration"
                       schema:
@@ -247,7 +247,7 @@ questions:
                               type: int
                               min: 9000
                               max: 65535
-                              default: 36165
+
 
   - variable: serviceexpert
     group: "Networking and Services"
