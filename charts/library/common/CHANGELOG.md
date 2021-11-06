@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.5.2"></a>
+### [common-8.5.2](https://github.com/truecharts/apps/compare/common-8.5.1...common-8.5.2) (2021-11-06)
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+
+
 <a name="common-8.5.1"></a>
 ### [common-8.5.1](https://github.com/truecharts/apps/compare/common-8.5.0...common-8.5.1) (2021-11-06)
 
