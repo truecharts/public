@@ -1,64 +1,64 @@
-        - variable: advanced
-          label: "Show Expert Configuration Options"
-          schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: extraArgs
-                label: "Extra Args"
+              - variable: advanced
+                label: "Show Expert Configuration Options"
                 schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: argItem
-                      label: "Arg"
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: extraArgs
+                      label: "Extra Args"
                       schema:
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: "Name"
+                        type: list
+                        default: []
+                        items:
+                          - variable: argItem
+                            label: "Arg"
                             schema:
-                              type: string
-                          - variable: value
-                            label: "Value"
-                            schema:
-                              type: string
-              - variable: labelsList
-                label: "Controller Labels"
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: labelItem
-                      label: "Label"
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                    - variable: labelsList
+                      label: "Controller Labels"
                       schema:
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: "Name"
+                        type: list
+                        default: []
+                        items:
+                          - variable: labelItem
+                            label: "Label"
                             schema:
-                              type: string
-                          - variable: value
-                            label: "Value"
-                            schema:
-                              type: string
-              - variable: annotationsList
-                label: " Controller Annotations"
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: annotationItem
-                      label: "Label"
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                    - variable: annotationsList
+                      label: " Controller Annotations"
                       schema:
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: "Name"
+                        type: list
+                        default: []
+                        items:
+                          - variable: annotationItem
+                            label: "Label"
                             schema:
-                              type: string
-                          - variable: value
-                            label: "Value"
-                            schema:
-                              type: string
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
