@@ -18,6 +18,7 @@ service:
   main:
     ports:
       main:
+        targetPort: 80
         port: 80
 
 persistence:

@@ -26,6 +26,7 @@ service:
     enabled: true
     ports:
       main:
+        targetPort: 8267
         port: 8267
 
 persistence:

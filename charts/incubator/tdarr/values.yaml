@@ -24,10 +24,12 @@ service:
     enabled: true
     ports:
       main:
+        targetPort: 8265
         port: 8265
   comm:
     ports:
       comm:
+        port: 8266
         port: 8266
 
 persistence:

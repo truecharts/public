@@ -32,18 +32,22 @@ service:
         # Please note that the main http port always has to be a 1:1 mapping between external and internal port.
         # You can't just map it like -p 7000:9000, as Logitech Media Server is telling players on which port to connect.
         # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
+        targetPort: 7000
         port: 7000
   cli:
     ports:
       cli:
+        targetPort: 9090
         port: 9090
   playertcp:
     ports:
       slimprototcp:
+        targetPort: 3483
         port: 3483
   playerudp:
     ports:
       slimprotoudp:
+        targetPort: 3483
         port: 3483
 
 persistence:
