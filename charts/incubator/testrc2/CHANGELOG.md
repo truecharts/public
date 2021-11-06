@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="testrc2-0.0.4"></a>
+### [testrc2-0.0.4](https://github.com/truecharts/apps/compare/testrc2-0.0.3...testrc2-0.0.4) (2021-11-06)
+
+#### Feat
+
+* Write new persistence GUI and move persistence into includes
+
+
+
 <a name="testrc2-0.0.3"></a>
 ### [testrc2-0.0.3](https://github.com/truecharts/apps/compare/testrc2-0.0.2...testrc2-0.0.3) (2021-11-06)
 
