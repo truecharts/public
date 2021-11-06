@@ -29,28 +29,13 @@ probes:
 persistence:
   simple-pvc:
     enabled: true
-    annotationsList: []
-    annotations: {}
-    labelsList: []
-    labels: {}
     type: simplePVC
-    forceName: ""
     mountPath:
-    readOnly: false
-    nameOverride:
-    storageClass:
-    existingClaim:
-    subPath:
-    accessMode: ReadWriteOnce
-    size: 1Gi
-    retain: false
   simple-hostpath:
     enabled: true
     type: simpleHP
-    hostPath: /usr
-    mountPath:
-    hostPathType: ""
-    readOnly: false
+    hostPathSimple: /usr
+    setPermissionsSimple: true
 
 "ixCertificateAuthorities": {}
 "ixCertificates":

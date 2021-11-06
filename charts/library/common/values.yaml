@@ -675,6 +675,27 @@ persistence:
     type: hostPath
     # -- Which path on the host should be mounted.
     hostPath: /dev
+    # -- Automatic set permissions using chown and chmod
+    setPermissions: false
+    # -- Where to mount the path in the main container.
+    # Defaults to the value of `hostPath`
+    mountPath:  # /myDev
+    # -- Specifying a hostPathType adds a check before trying to mount the path.
+    # See Kubernetes documentation for options.
+    hostPathType: ""
+    # -- Specify if the path should be mounted read-only.
+    readOnly: true
+
+  # -- Example of a Simple hostPath mount
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
+  # @default -- See below
+  host-simple-dev:
+    enabled: false
+    type: hostPath
+    # -- Which path on the host should be mounted.
+    hostPathSimple: /dev
+    # -- Automatic set permissions using chown and chmod
+    setPermissionsSimple: false
     # -- Where to mount the path in the main container.
     # Defaults to the value of `hostPath`
     mountPath:  # /myDev
