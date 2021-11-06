@@ -406,6 +406,7 @@ service:
     nameOverride:
 
     # -- Set the service type
+    # Options: Simple(Loadbalancer), LoadBalancer, ClusterIP, NodePort
     type: ClusterIP
     annotationsList: []
     # - name: somename

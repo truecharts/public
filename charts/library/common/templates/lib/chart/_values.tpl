@@ -247,4 +247,10 @@
   {{- if $CapAdd }}
   {{- $_ := set .Values.securityContext.capabilities "add" $CapAdd -}}
   {{- end }}
+
+  {{- range .Values.service }}
+  {{- if eq .type "Simple" }}
+  {{- $_ := set . "type" "LoadBalancer" }}
+  {{- end }}
+  {{- end }}
 {{- end -}}
