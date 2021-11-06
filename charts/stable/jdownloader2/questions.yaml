@@ -186,13 +186,7 @@ questions:
                               default: 5580
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
         - variable: myjd
           label: "MyJDownloader"
@@ -241,13 +235,7 @@ questions:
                               default: 3129
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
         - variable: vnc
           label: "VNC Service"
           description: "The VNC service"
@@ -295,13 +283,7 @@ questions:
                               default: 5900
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
 
   - variable: serviceexpert

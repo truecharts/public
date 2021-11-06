@@ -143,13 +143,7 @@ questions:
                               default: 8443
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
         - variable: comm
           label: "Unifi Device Communication Service"
@@ -198,13 +192,7 @@ questions:
                               default: 8080
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
         - variable: stun
           label: "STUN Device Communication Service"
           description: "STUN Device Communication Service"
@@ -252,13 +240,7 @@ questions:
                               default: 3478
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
         - variable: speedtest
           label: "Speedtest Service"
           description: "Speedtest Service"
@@ -347,13 +329,7 @@ questions:
                               default: 6789
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
         - variable: guestportal
           label: "Guest Portal Service"
           description: "Guest Portal Service"
@@ -442,13 +418,7 @@ questions:
                               default: 8880
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
                     - variable: websecure
                       label: "Secure Web Service Port Configuration"
                       schema:
@@ -489,13 +459,7 @@ questions:
                               default: 8843
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
   - variable: serviceexpert
     group: "Networking and Services"

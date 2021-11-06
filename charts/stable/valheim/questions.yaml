@@ -234,13 +234,7 @@ questions:
                               default: 9010
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
         - variable: supervisor
           label: "supervisor Service"
@@ -289,13 +283,7 @@ questions:
                               default: 9011
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
         - variable: valheim
           label: "valheim Service"
@@ -344,13 +332,7 @@ questions:
                               default: 2456
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
                     - variable: valheim-2
                       label: "valheim-2 Service Port Configuration"
                       schema:
@@ -391,13 +373,7 @@ questions:
                               default: 2457
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
                     - variable: valheim-3
                       label: "valheim-3 Service Port Configuration"
                       schema:
@@ -438,13 +414,7 @@ questions:
                               default: 2458
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
   - variable: serviceexpert
     group: "Networking and Services"

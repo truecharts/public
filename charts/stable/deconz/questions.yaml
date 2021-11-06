@@ -173,13 +173,7 @@ questions:
                               default: 80
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
         - variable: websocket
           label: "websocket Service"
@@ -228,13 +222,7 @@ questions:
                               default: 443
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
         - variable: vnc
           label: "vnc Service"
@@ -283,13 +271,7 @@ questions:
                               default: 5900
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
 
   - variable: serviceexpert

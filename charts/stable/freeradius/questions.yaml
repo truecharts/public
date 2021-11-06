@@ -130,13 +130,7 @@ questions:
                               default: 1812
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
         - variable: accounting
           label: "accounting Service"
           description: "The administration service"
@@ -184,13 +178,7 @@ questions:
                               default: 1813
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
   - variable: serviceexpert
     group: "Networking and Services"

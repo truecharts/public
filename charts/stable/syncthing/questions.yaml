@@ -135,13 +135,7 @@ questions:
                               default: 8384
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
         - variable: listeners
           label: "Syncthing Listening Service"
@@ -240,13 +234,7 @@ questions:
                               default: 22000
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
                               default: 22000
                     - variable: udp
                       label: "UDP Service Port Configuration"
@@ -294,13 +282,7 @@ questions:
                               default: 22000
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
                               default: 22000
         - variable: discovery
           label: "Syncthing Listening Service"
@@ -399,13 +381,7 @@ questions:
                               default: 21027
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
                               default: 21027
 
   - variable: serviceexpert

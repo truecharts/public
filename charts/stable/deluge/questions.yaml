@@ -151,13 +151,7 @@ questions:
                               default: 8112
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
 
         - variable: torrent
           label: "Torrent Service"
@@ -206,13 +200,7 @@ questions:
                               default: 51413
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
                               default: 51413
                     - variable: udp
                       label: "UDP Service Port Configuration"
@@ -254,13 +242,7 @@ questions:
                               default: 51413
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
                               default: 51413
 
   - variable: serviceexpert
