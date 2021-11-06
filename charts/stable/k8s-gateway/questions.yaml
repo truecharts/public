@@ -289,32 +289,39 @@ questions:
 
 # Include{persistenceList}
 
-  - variable: securityContext
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
     group: "Security and Permissions"
-    label: "Security Context"
     schema:
-      type: dict
-      attrs:
-        - variable: privileged
-          label: "Privileged mode"
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
           schema:
-            type: boolean
-            default: false
-        - variable: readOnlyRootFilesystem
-          label: "ReadOnly Root Filesystem"
-          schema:
-            type: boolean
-            default: true
-        - variable: allowPrivilegeEscalation
-          label: "Allow Privilege Escalation"
-          schema:
-            type: boolean
-            default: false
-        - variable: runAsNonRoot
-          label: "runAsNonRoot"
-          schema:
-            type: boolean
-            default: false
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
 
   - variable: podSecurityContext
     group: "Security and Permissions"
