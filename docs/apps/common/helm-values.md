@@ -121,10 +121,10 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | persistence.config.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.config.nameOverride | string | `nil` | Override the name suffix that is used for this volume. |
 | persistence.config.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
-| persistence.config.size | string | `"1Gi"` | The amount of storage that is requested for the persistent volume. |
+| persistence.config.size | string | `"999Gi"` | The amount of storage that is requested for the persistent volume. |
 | persistence.config.storageClass | string | `nil` | Storage Class for the config volume. If set to `-`, dynamic provisioning is disabled. If set to `SCALE-ZFS`, the default provisioner for TrueNAS SCALE is used. If set to something else, the given storageClass is used. If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner. |
 | persistence.config.subPath | string | `nil` | Used in conjunction with `existingClaim`. Specifies a sub-path inside the referenced volume instead of its root |
-| persistence.config.type | string | `"pvc"` | Sets the persistence type Valid options are pvc, emptyDir, hostPath or custom |
+| persistence.config.type | string | `"pvc"` | Sets the persistence type Valid options are: simplePVC, simpleHP, pvc, emptyDir, hostPath or custom |
 | persistence.custom-mount | object | See below | Example of a custom mount |
 | persistence.custom-mount.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.custom-mount.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |

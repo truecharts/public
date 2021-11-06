@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.5.0"></a>
+### [common-8.5.0](https://github.com/truecharts/apps/compare/common-8.4.0...common-8.5.0) (2021-11-06)
+
+#### Feat
+
+* introduce simplePVC and simplyHP aliasses for persistence types ([#1286](https://github.com/truecharts/apps/issues/1286))
+
+
+
 <a name="common-8.4.0"></a>
 ### [common-8.4.0](https://github.com/truecharts/apps/compare/common-8.3.19...common-8.4.0) (2021-11-06)
 
