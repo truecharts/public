@@ -30,41 +30,48 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: type
-          description: "Please specify type of workload to deploy"
-          label: "(Advanced) Controller Type"
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
           schema:
-            type: string
-            default: "deployment"
-            required: true
-            enum:
-              - value: "deployment"
-                description: "Deployment"
-              - value: "statefulset"
-                description: "Statefulset"
-              - value: "daemonset"
-                description: "Daemonset"
-        - variable: replicas
-          description: "Number of desired pod replicas"
-          label: "Desired Replicas"
-          schema:
-            type: int
-            default: 1
-            required: true
-        - variable: strategy
-          description: "Please specify type of workload to deploy"
-          label: "(Advanced) Update Strategy"
-          schema:
-            type: string
-            default: "Recreate"
-            required: true
-            enum:
-              - value: "Recreate"
-                description: "Recreate: Kill existing pods before creating new ones"
-              - value: "RollingUpdate"
-                description: "RollingUpdate: Create new pods and then kill old ones"
-              - value: "OnDelete"
-                description: "(Legacy) OnDelete: ignore .spec.template changes"
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
   - variable: env
     group: "Container Configuration"
