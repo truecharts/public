@@ -691,7 +691,7 @@ persistence:
   # @default -- See below
   host-simple-dev:
     enabled: false
-    type: hostPath
+    type: simpleHP
     # -- Which path on the host should be mounted.
     hostPathSimple: /dev
     # -- Automatic set permissions using chown and chmod
