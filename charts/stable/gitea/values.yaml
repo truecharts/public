@@ -8,10 +8,12 @@ service:
     ports:
       main:
         port: 3000
+        targetPort: 3000
   ssh:
     ports:
       ssh:
         port: 2222
+        targetPort: 2222
         targetPort: 2222
 
 envFrom:

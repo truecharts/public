@@ -16,12 +16,14 @@ service:
       main:
         protocol: HTTPS
         port: 8443
+        targetPort: 8443
   comm:
     enabled: true
     ports:
       comm:
         enabled: true
         port: 8080
+        targetPort: 8080
         targetPort: 8080
         protocol: TCP
   stun:
@@ -31,6 +33,7 @@ service:
         enabled: true
         port: 3478
         targetPort: 3478
+        targetPort: 3478
         protocol: UDP
   speedtest:
     enabled: false
@@ -38,6 +41,7 @@ service:
       speedtest:
         enabled: true
         port: 6789
+        targetPort: 6789
         targetPort: 6789
         protocol: TCP
   guestportal:
@@ -47,10 +51,12 @@ service:
         enabled: true
         port: 8880
         targetPort: 8880
+        targetPort: 8880
         protocol: HTTP
       websecure:
         enabled: true
         port: 8843
+        targetPort: 8843
         targetPort: 8843
         protocol: HTTPS
 

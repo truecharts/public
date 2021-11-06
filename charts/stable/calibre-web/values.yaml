@@ -18,6 +18,7 @@ service:
     ports:
       main:
         port: 8083
+        targetPort: 8083
 
 env: {}
   # TZ:

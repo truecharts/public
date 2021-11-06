@@ -28,6 +28,7 @@ service:
     ports:
       main:
         port: 7777
+        targetPort: 7777
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.

@@ -10,6 +10,7 @@ service:
     ports:
       main:
         port: 4533
+        targetPort: 4533
 
 env:
   ND_SCANINTERVAL: "15m"

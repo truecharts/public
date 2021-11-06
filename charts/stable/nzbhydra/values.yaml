@@ -13,6 +13,7 @@ service:
     ports:
       main:
         port: 5076
+        targetPort: 5076
 
 env: {}
   # TZ: UTC
@@ -28,6 +29,7 @@ probes:
       httpGet:
         path: /actuator/health/livenessState
         port: main
+        targetPort: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
@@ -39,6 +41,7 @@ probes:
       httpGet:
         path: /actuator/health/readinessState
         port: main
+        targetPort: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
@@ -50,6 +53,7 @@ probes:
       httpGet:
         path: /actuator/health/readinessState
         port: main
+        targetPort: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10

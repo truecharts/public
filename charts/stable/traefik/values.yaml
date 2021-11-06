@@ -142,6 +142,7 @@ service:
       main:
         enabled: true
         port: 9000
+        targetPort: 9000
         protocol: HTTP
   tcp:
     enabled: true
@@ -150,15 +151,17 @@ service:
       web:
         enabled: true
         port: 9080
+        targetPort: 9080
         protocol: HTTP
         redirectTo: websecure
       websecure:
         enabled: true
         port: 9443
+        targetPort: 9443
         protocol: HTTPS
 #      tcpexample:
 #        enabled: true
-#        port: 9443
+#        targetPort: 9443
 #        protocol: TCP
 #        tls:
 #          enabled: false
@@ -177,6 +180,7 @@ service:
       metrics:
         enabled: true
         port: 9100
+        targetPort: 9100
         protocol: HTTP
   udp:
     enabled: false

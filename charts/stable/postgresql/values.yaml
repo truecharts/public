@@ -12,6 +12,7 @@ service:
     ports:
       main:
         port: 5432
+        targetPort: 5432
 
 ## TODO: Fix the backup-on-upgrade system
 enableUpgradeBackup: false

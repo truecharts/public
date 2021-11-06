@@ -42,6 +42,7 @@ service:
     ports:
       main:
         port: 4040
+        targetPort: 4040
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.

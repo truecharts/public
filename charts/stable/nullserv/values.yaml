@@ -39,9 +39,11 @@ service:
     ports:
       main:
         port: 80
+        targetPort: 80
       https:
         enabled: true
         port: 443
+        targetPort: 443
 
 persistence:
   config:
@@ -61,3 +63,4 @@ probes:
       httpGet:
         path: /welcome.txt
         port: main
+        targetPort: main

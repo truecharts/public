@@ -24,18 +24,21 @@ service:
     ports:
       main:
         port: 80
+        targetPort: 80
   dns-tcp:
     enabled: true
     ports:
       dns-tcp:
         enabled: true
         port: 53
+        targetPort: 53
   dns:
     enabled: true
     ports:
       dns:
         enabled: true
         port: 53
+        targetPort: 53
 
 pihole:
   WEBPASSWORD: "somepassword"

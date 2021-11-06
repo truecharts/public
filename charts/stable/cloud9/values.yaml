@@ -22,6 +22,7 @@ service:
     ports:
       main:
         port: 8000
+        targetPort: 8000
 
 persistence:
   code:

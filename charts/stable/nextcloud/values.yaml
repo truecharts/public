@@ -19,12 +19,14 @@ service:
     ports:
       main:
         port: 80
+        targetPort: 80
   hpb:
     enabled: true
     ports:
       hpb:
         enabled: true
         port: 7867
+        targetPort: 7867
 
 env:
   NEXTCLOUD_ADMIN_USER: "admin"
@@ -87,6 +89,7 @@ probes:
       httpGet:
         path: /status.php
         port: 80
+        targetPort: 80
         httpHeaders:
         - name: Host
           value: "test.fakedomain.dns"
@@ -105,6 +108,7 @@ probes:
       httpGet:
         path: /status.php
         port: 80
+        targetPort: 80
         httpHeaders:
         - name: Host
           value: "test.fakedomain.dns"
@@ -123,6 +127,7 @@ probes:
       httpGet:
         path: /status.php
         port: 80
+        targetPort: 80
         httpHeaders:
         - name: Host
           value: "test.fakedomain.dns"

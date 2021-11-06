@@ -11,6 +11,7 @@ service:
     ports:
       main:
         port: 3000
+        targetPort: 3000
 
 envFrom:
   - configMapRef:

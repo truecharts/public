@@ -44,6 +44,7 @@ service:
     ports:
       main:
         port: 80
+        targetPort: 80
 
 # -- Enable and configure postgresql database subchart under this key.
 # @default -- See values.yaml

@@ -13,6 +13,7 @@ service:
     ports:
       main:
         port: 8787
+        targetPort: 8787
 
 env: {}
   # TZ: UTC

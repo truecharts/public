@@ -19,6 +19,7 @@ service:
     ports:
       main:
         port: 8081
+        targetPort: 8081
 
 persistence:
   config:

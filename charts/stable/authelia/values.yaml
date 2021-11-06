@@ -15,6 +15,7 @@ service:
     ports:
       main:
         port: 9091
+        targetPort: 9091
 
 persistence:
   config:

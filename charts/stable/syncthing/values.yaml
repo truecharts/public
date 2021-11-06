@@ -10,21 +10,25 @@ service:
     ports:
       main:
         port: 8384
+        targetPort: 8384
   listeners:
     ports:
       tcp:
         enabled: true
         port: 22000
+        targetPort: 22000
         protocol: TCP
       udp:
         enabled: true
         port: 22000
+        targetPort: 22000
         protocol: UDP
   discovery:
     ports:
       discovery:
         enabled: true
         port: 21027
+        targetPort: 21027
         protocol: UDP
 
 persistence:

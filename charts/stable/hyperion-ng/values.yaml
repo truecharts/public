@@ -35,19 +35,23 @@ service:
     ports:
       main:
         port: 8090
+        targetPort: 8090
       jsonservice:
         enabled: true
         port: 19444
+        targetPort: 19444
         protocol: TCP
         targetPort: 19444
       protobufservice:
         enabled: true
         port: 19445
+        targetPort: 19445
         protocol: TCP
         targetPort: 19445
       boblightservice:
         enabled: true
         port: 19333
+        targetPort: 19333
         protocol: TCP
         targetPort: 19333
 

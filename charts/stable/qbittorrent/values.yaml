@@ -19,6 +19,7 @@ service:
     ports:
       main:
         port: 8080
+        targetPort: 8080
   torrent:
     enabled: true
     type: ClusterIP
@@ -26,10 +27,12 @@ service:
       tcp:
         enabled: true
         port: 6881
+        targetPort: 6881
         protocol: TCP
       udp:
         enabled: true
         port: 6881
+        targetPort: 6881
         protocol: UDP
 
 persistence:

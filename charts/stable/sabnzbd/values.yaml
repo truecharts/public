@@ -10,6 +10,7 @@ service:
     ports:
       main:
         port: 8080
+        targetPort: 8080
 
 env: {}
   # TZ: UTC

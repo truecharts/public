@@ -40,6 +40,7 @@ service:
     ports:
       main:
         port: 4040
+        targetPort: 4040
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml

@@ -38,6 +38,7 @@ service:
     ports:
       main:
         port: 5000
+        targetPort: 5000
 
 # Enabled postgres
 postgresql:

@@ -30,13 +30,16 @@ service:
     ports:
       main:
         port: 8069
+        targetPort: 8069
   odoo:
     ports:
       odoo-1:
         port: 8071
+        targetPort: 8071
         protocol: TCP
       odoo-2:
         port: 8072
+        targetPort: 8072
         protocol: TCP
 
 persistence:

@@ -19,11 +19,13 @@ service:
       main:
         protocol: UDP
         port: 1812
+        targetPort: 1812
   accounting:
     ports:
       accounting:
         protocol: UDP
         port: 1813
+        targetPort: 1813
 
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)

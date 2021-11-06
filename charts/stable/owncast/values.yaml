@@ -28,6 +28,7 @@ service:
     ports:
       main:
         port: 8080
+        targetPort: 8080
   rtmp:
     enabled: true
     type: NodePort
@@ -36,6 +37,7 @@ service:
       rtmp:
         enabled: true
         port: 1935
+        targetPort: 1935
         protocol: TCP
         targetPort: 1935
 

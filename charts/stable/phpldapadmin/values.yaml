@@ -19,6 +19,7 @@ service:
     ports:
       main:
         port: 80
+        targetPort: 80
 
 persistence:
   varrun:

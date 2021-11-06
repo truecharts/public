@@ -33,6 +33,7 @@ service:
     ports:
       main:
         port: 8191
+        targetPort: 8191
 
 persistence:
   config:

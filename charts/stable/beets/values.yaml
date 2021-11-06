@@ -19,6 +19,7 @@ service:
     ports:
       main:
         port: 8337
+        targetPort: 8337
 
 persistence:
   config:

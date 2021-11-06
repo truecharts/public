@@ -25,12 +25,14 @@ service:
       main:
         enabled: true
         port: 6800
+        targetPort: 6800
   listen:
     enabled: true
     ports:
       listen:
         enabled: true
         port: 6888
+        targetPort: 6888
 
 securityContext:
   readOnlyRootFilesystem: false

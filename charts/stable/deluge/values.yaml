@@ -17,6 +17,7 @@ service:
     ports:
       main:
         port: 8112
+        targetPort: 8112
   torrent:
     enabled: true
     type: ClusterIP
@@ -24,10 +25,12 @@ service:
       tcp:
         enabled: true
         port: 51413
+        targetPort: 51413
         protocol: TCP
       udp:
         enabled: true
         port: 51413
+        targetPort: 51413
         protocol: UDP
 
 persistence:

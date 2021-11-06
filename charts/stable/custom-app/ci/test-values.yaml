@@ -12,10 +12,12 @@ service:
     ports:
       main:
         port: 9117
+        targetPort: 9117
     portsList:
       - name: "extraport"
         enabled: true
         port: 9118
+        targetPort: 9118
 
 serviceList:
   - name: extraservice
@@ -24,6 +26,7 @@ serviceList:
       - name: "extrasvcport"
         enabled: true
         port: 9119
+        targetPort: 9119
 
 env: {}
   # TZ: UTC

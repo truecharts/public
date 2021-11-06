@@ -21,6 +21,7 @@ service:
     ports:
       main:
         port: 8123
+        targetPort: 8123
 
 initContainers:
   init:

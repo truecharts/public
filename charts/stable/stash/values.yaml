@@ -37,6 +37,7 @@ service:
     ports:
       main:
         port: 9999
+        targetPort: 9999
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml

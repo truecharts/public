@@ -10,11 +10,13 @@ service:
     ports:
       main:
         port: 8080
+        targetPort: 8080
   ws:
     ports:
       ws:
         enabled: true
         port: 3012
+        targetPort: 3012
 
 env: {}
 

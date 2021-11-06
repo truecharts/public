@@ -15,6 +15,7 @@ service:
     ports:
       main:
         port: 3000
+        targetPort: 3000
 
 # -- Configures app settings. See [image docs](https://github.com/Hypfer/ICantBelieveItsNotValetudo) for more information.
 # @default -- See values.yaml

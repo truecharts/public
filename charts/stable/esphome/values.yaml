@@ -10,6 +10,7 @@ service:
     ports:
       main:
         port: 6052
+        targetPort: 6052
 
 env: {}
   # ESPHOME_DASHBOARD_USE_PING: true

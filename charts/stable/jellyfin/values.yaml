@@ -13,6 +13,7 @@ service:
     ports:
       main:
         port: 8096
+        targetPort: 8096
 
 persistence:
   config:

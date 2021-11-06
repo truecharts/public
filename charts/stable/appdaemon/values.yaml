@@ -22,6 +22,7 @@ service:
     ports:
       main:
         port: 5050
+        targetPort: 5050
   tcp:
     enabled: true
     type: ClusterIP
@@ -29,6 +30,7 @@ service:
       tcp:
         enabled: true
         port: 51050
+        targetPort: 51050
         protocol: TCP
 
 persistence:

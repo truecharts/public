@@ -17,6 +17,7 @@ service:
         protocol: TCP
         enabled: true
         port: 1883
+        targetPort: 1883
 
 auth:
   # -- By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config.

@@ -10,6 +10,7 @@ service:
     ports:
       main:
         port: 32400
+        targetPort: 32400
 
 persistence:
   config:

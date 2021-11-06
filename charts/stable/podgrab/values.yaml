@@ -10,6 +10,7 @@ service:
     ports:
       main:
         port: 8080
+        targetPort: 8080
   tcp:
     enabled: true
     type: ClusterIP
@@ -17,6 +18,7 @@ service:
       tcp:
         enabled: true
         port: 51080
+        targetPort: 51080
         protocol: TCP
 
 env:

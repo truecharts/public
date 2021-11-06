@@ -81,6 +81,7 @@ service:
       main:
         protocol: UDP
         port: 53
+        targetPort: 53
 
 probes:
   liveness:
@@ -89,6 +90,7 @@ probes:
       httpGet:
         path: /health
         port: 8080
+        targetPort: 8080
         scheme: HTTP
       initialDelaySeconds: 60
       timeoutSeconds: 5
@@ -101,6 +103,7 @@ probes:
       httpGet:
         path: /ready
         port: 8181
+        targetPort: 8181
         scheme: HTTP
       initialDelaySeconds: 10
       timeoutSeconds: 5
@@ -113,6 +116,7 @@ probes:
       httpGet:
         path: /ready
         port: 8181
+        targetPort: 8181
         scheme: HTTP
       initialDelaySeconds: 3
       timeoutSeconds: 2

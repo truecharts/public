@@ -16,6 +16,7 @@ service:
       main:
         targetPort: 9117
         port: 9117
+        targetPort: 9117
 
 probes:
   liveness:

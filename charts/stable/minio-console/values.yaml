@@ -33,6 +33,7 @@ service:
     ports:
       main:
         port: 9090
+        targetPort: 9090
 
 securityContext:
   readOnlyRootFilesystem: false

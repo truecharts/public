@@ -10,6 +10,7 @@ service:
     ports:
       main:
         port: 6789
+        targetPort: 6789
 
 probes:
   liveness:

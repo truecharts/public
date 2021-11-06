@@ -17,6 +17,7 @@ service:
     ports:
       main:
         port: 9980
+        targetPort: 9980
 
 env:
   domain: nextcloud\.domain\.tld

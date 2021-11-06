@@ -39,6 +39,7 @@ service:
     ports:
       main:
         port: 8888
+        targetPort: 8888
   bt-tcp:
     enabled: false
     type: ClusterIP
@@ -46,6 +47,7 @@ service:
       bt-tcp:
         enabled: true
         port: 55555
+        targetPort: 55555
         protocol: TCP
         targetPort: 55555
   bt-udp:
@@ -55,6 +57,7 @@ service:
       bt-udp:
         enabled: true
         port: 55555
+        targetPort: 55555
         protocol: UDP
         targetPort: 55555
 

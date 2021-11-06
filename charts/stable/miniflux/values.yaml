@@ -32,6 +32,7 @@ service:
     ports:
       main:
         port: 8080
+        targetPort: 8080
 
 # -- Configures the probes for the main Pod.
 # @default -- See values.yaml
@@ -47,6 +48,7 @@ probes:
       httpGet:
         path: /healthcheck
         port: 8080
+        targetPort: 8080
 
 # -- Enable and configure postgresql database subchart under this key.
 # @default -- Enabled (see values.yaml for more details)

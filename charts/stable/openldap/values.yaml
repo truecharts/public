@@ -43,10 +43,12 @@ service:
     ports:
       main:
         port: 389
+        targetPort: 389
   https:
     ports:
       https:
         port: 636
+        targetPort: 636
 
 # Default configuration for openldap as environment variables. These get injected directly in the container.
 # Use the env variables from https://github.com/osixia/docker-openldap#beginner-guide

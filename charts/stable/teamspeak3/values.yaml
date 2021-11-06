@@ -24,6 +24,7 @@ service:
       main:
         enabled: true
         port: 10011
+        targetPort: 10011
         protocol: "TCP"
   voice:
     enabled: true
@@ -31,6 +32,7 @@ service:
       voice:
         enabled: true
         port: 9987
+        targetPort: 9987
         protocol: "UDP"
   files:
     enabled: true
@@ -39,6 +41,7 @@ service:
       files:
         enabled: true
         port: 30033
+        targetPort: 30033
         protocol: "TCP"
 
 env:

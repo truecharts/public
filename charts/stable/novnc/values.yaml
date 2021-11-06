@@ -22,6 +22,7 @@ service:
     ports:
       main:
         port: 6080
+        targetPort: 6080
 persistence:
   varrun:
     enabled: true
