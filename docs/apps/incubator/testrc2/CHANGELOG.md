@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="testrc2-0.0.5"></a>
+### [testrc2-0.0.5](https://github.com/truecharts/apps/compare/testrc2-0.0.4...testrc2-0.0.5) (2021-11-06)
+
+
+
 <a name="testrc2-0.0.4"></a>
 ### [testrc2-0.0.4](https://github.com/truecharts/apps/compare/testrc2-0.0.3...testrc2-0.0.4) (2021-11-06)
 
