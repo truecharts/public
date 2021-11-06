@@ -89,7 +89,6 @@ probes:
       httpGet:
         path: /status.php
         port: 80
-        targetPort: 80
         httpHeaders:
         - name: Host
           value: "test.fakedomain.dns"
@@ -108,7 +107,6 @@ probes:
       httpGet:
         path: /status.php
         port: 80
-        targetPort: 80
         httpHeaders:
         - name: Host
           value: "test.fakedomain.dns"
@@ -127,7 +125,6 @@ probes:
       httpGet:
         path: /status.php
         port: 80
-        targetPort: 80
         httpHeaders:
         - name: Host
           value: "test.fakedomain.dns"

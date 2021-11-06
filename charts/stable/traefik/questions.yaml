@@ -597,8 +597,7 @@ questions:
                             schema:
                               type: int
                               default: 9000
-                              editable: false
-                              hidden: true
+
                           - variable: port
                             label: "Entrypoints Port"
                             schema:
@@ -606,13 +605,7 @@ questions:
                               default: 9000
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
                               default: 9000
         - variable: tcp
           label: "Main Service"
@@ -943,8 +936,7 @@ questions:
                             schema:
                               type: int
                               default: 9100
-                              editable: false
-                              hidden: true
+
                           - variable: port
                             label: "Container Port"
                             schema:
@@ -952,13 +944,7 @@ questions:
                               default: 9100
                               editable: true
                               required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
+
                               default: 9100
 
   - variable: advancedSecurity
