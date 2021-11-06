@@ -248,10 +248,10 @@
   {{- end }}
 
   {{- range .Values.persistence }}
-  {{- if eq .type "SimplePVC" }}
+  {{- if eq .type "simplePVC" }}
   {{- $_ := set . "type" "pvc" }}
   {{- end }}
-  {{- if eq .type "SimpleHP" }}
+  {{- if eq .type "simpleHP" }}
   {{- $_ := set . "type" "hostPath" }}
   {{- end }}
   {{- end }}
