@@ -29,7 +29,6 @@ probes:
       httpGet:
         path: /actuator/health/livenessState
         port: main
-        targetPort: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
@@ -41,7 +40,6 @@ probes:
       httpGet:
         path: /actuator/health/readinessState
         port: main
-        targetPort: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
@@ -53,7 +51,6 @@ probes:
       httpGet:
         path: /actuator/health/readinessState
         port: main
-        targetPort: main
       initialDelaySeconds: 30
       periodSeconds: 10
       timeoutSeconds: 10
