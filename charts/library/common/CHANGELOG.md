@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.5.1"></a>
+### [common-8.5.1](https://github.com/truecharts/apps/compare/common-8.5.0...common-8.5.1) (2021-11-06)
+
+#### Chore
+
+* add additional aliasses for simple hostpath persistence ([#1287](https://github.com/truecharts/apps/issues/1287))
+
+
+
 <a name="common-8.5.0"></a>
 ### [common-8.5.0](https://github.com/truecharts/apps/compare/common-8.4.0...common-8.5.0) (2021-11-06)
 

@@ -132,8 +132,15 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | persistence.host-dev | object | See below | Example of a hostPath mount [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) |
 | persistence.host-dev.hostPath | string | `"/dev"` | Which path on the host should be mounted. |
 | persistence.host-dev.hostPathType | string | `""` | Specifying a hostPathType adds a check before trying to mount the path. See Kubernetes documentation for options. |
-| persistence.host-dev.mountPath | string | `nil` | Where to mount the path in the main container. Defaults to the value of `hostPath` |
+| persistence.host-dev.mountPath | string | `""` | Where to mount the path in the main container. Defaults to the value of `hostPath` |
 | persistence.host-dev.readOnly | bool | `true` | Specify if the path should be mounted read-only. |
+| persistence.host-dev.setPermissions | bool | `false` | Automatic set permissions using chown and chmod |
+| persistence.host-simple-dev | object | See below | Example of a Simple hostPath mount [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) |
+| persistence.host-simple-dev.hostPathSimple | string | `"/dev"` | Which path on the host should be mounted. |
+| persistence.host-simple-dev.hostPathType | string | `""` | Specifying a hostPathType adds a check before trying to mount the path. See Kubernetes documentation for options. |
+| persistence.host-simple-dev.mountPath | string | `""` | Where to mount the path in the main container. Defaults to the value of `hostPath` |
+| persistence.host-simple-dev.readOnly | bool | `true` | Specify if the path should be mounted read-only. |
+| persistence.host-simple-dev.setPermissionsSimple | bool | `false` | Automatic set permissions using chown and chmod |
 | persistence.shared | object | See below | Create an emptyDir volume to share between all containers [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) |
 | persistence.shared.medium | string | `nil` | Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead of the storage medium that backs the node. |
 | persistence.shared.sizeLimit | string | `nil` | If the `SizeMemoryBackedVolumes` feature gate is enabled, you can specify a size for memory backed volumes. |
