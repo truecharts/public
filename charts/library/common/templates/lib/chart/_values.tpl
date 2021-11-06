@@ -264,6 +264,14 @@
   {{- end }}
   {{- end }}
 
+  {{- range .Values.volumeClaimTemplates }}
+  {{- if .type }}
+  {{- if eq .type "simplePVC" }}
+  {{- $_ := set . "type" "pvc" }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+
   {{- range .Values.service }}
   {{- if .type }}
   {{- if eq .type "Simple" }}

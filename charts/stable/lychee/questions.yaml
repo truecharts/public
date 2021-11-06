@@ -30,41 +30,48 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: type
-          description: "Please specify type of workload to deploy"
-          label: "(Advanced) Controller Type"
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
           schema:
-            type: string
-            default: "deployment"
-            required: true
-            enum:
-              - value: "deployment"
-                description: "Deployment"
-              - value: "statefulset"
-                description: "Statefulset"
-              - value: "daemonset"
-                description: "Daemonset"
-        - variable: replicas
-          description: "Number of desired pod replicas"
-          label: "Desired Replicas"
-          schema:
-            type: int
-            default: 1
-            required: true
-        - variable: strategy
-          description: "Please specify type of workload to deploy"
-          label: "(Advanced) Update Strategy"
-          schema:
-            type: string
-            default: "Recreate"
-            required: true
-            enum:
-              - value: "Recreate"
-                description: "Recreate: Kill existing pods before creating new ones"
-              - value: "RollingUpdate"
-                description: "RollingUpdate: Create new pods and then kill old ones"
-              - value: "OnDelete"
-                description: "(Legacy) OnDelete: ignore .spec.template changes"
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
   - variable: env
     group: "Container Configuration"
@@ -224,67 +231,31 @@ questions:
                 schema:
                   type: boolean
                   default: true
+                  hidden: true
               - variable: type
-                label: "(Advanced) Type of Storage"
-                description: "Sets the persistence type"
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
                 schema:
                   type: string
-                  default: "pvc"
+                  default: "simplePVC"
                   enum:
-                    - value: "pvc"
-                      description: "pvc"
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
                     - value: "emptyDir"
                       description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
                     - value: "hostPath"
                       description: "hostPath"
-              - variable: storageClass
-                label: "(Advanced) storageClass"
-                description: " Warning: Anything other than SCALE-ZFS will break rollback!"
-                schema:
-                  show_if: [["type", "=", "pvc"]]
-                  type: string
-                  default: "SCALE-ZFS"
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                description: "Automatically set permissions on install"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: boolean
-                  default: true
-              - variable: readOnly
-                label: "readOnly"
-                schema:
-                  type: boolean
-                  default: false
+# Include{persistenceBasic}
               - variable: hostPath
                 label: "hostPath"
                 description: "Path inside the container the storage is mounted"
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: hostPathType
-                label: "hostPath Type"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "DirectoryOrCreate"
-                      description: "DirectoryOrCreate"
-                    - value: "Directory"
-                      description: "Directory"
-                    - value: "FileOrCreate"
-                      description: "FileOrCreate"
-                    - value: "File"
-                      description: "File"
-                    - value: "Socket"
-                      description: "Socket"
-                    - value: "CharDevice"
-                      description: "CharDevice"
-                    - value: "BlockDevice"
-                      description: "BlockDevice"
               - variable: mountPath
                 label: "mountPath"
                 description: "Path inside the container the storage is mounted"
@@ -304,26 +275,7 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-              - variable: accessMode
-                label: "Access Mode (Advanced)"
-                description: "Allow or disallow multiple PVC's writhing to the same PV"
-                schema:
-                  show_if: [["type", "=", "pvc"]]
-                  type: string
-                  default: "ReadWriteOnce"
-                  enum:
-                    - value: "ReadWriteOnce"
-                      description: "ReadWriteOnce"
-                    - value: "ReadOnlyMany"
-                      description: "ReadOnlyMany"
-                    - value: "ReadWriteMany"
-                      description: "ReadWriteMany"
-              - variable: size
-                label: "Size quotum of storage"
-                schema:
-                  show_if: [["type", "=", "pvc"]]
-                  type: string
-                  default: "100Gi"
+# Include{persistenceAdvanced}
 
 # Include{persistenceList}
 
@@ -347,32 +299,39 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
-  - variable: securityContext
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
     group: "Security and Permissions"
-    label: "Security Context"
     schema:
-      type: dict
-      attrs:
-        - variable: privileged
-          label: "Privileged mode"
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
           schema:
-            type: boolean
-            default: false
-        - variable: readOnlyRootFilesystem
-          label: "ReadOnly Root Filesystem"
-          schema:
-            type: boolean
-            default: false
-        - variable: allowPrivilegeEscalation
-          label: "Allow Privilege Escalation"
-          schema:
-            type: boolean
-            default: false
-        - variable: runAsNonRoot
-          label: "runAsNonRoot"
-          schema:
-            type: boolean
-            default: false
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
 
   - variable: podSecurityContext
     group: "Security and Permissions"
