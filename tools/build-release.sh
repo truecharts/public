@@ -155,6 +155,11 @@ include_questions(){
     /# Include{containerConfig}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/containerConfig.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
+    # Replace # Include{serviceSelector} with the standard serviceSelector codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{serviceSelector}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/serviceSelector.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
     # Replace # Include{serviceExpert} with the standard serviceExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceExpert}/ { for (i=0;i<n;++i) print a[i]; next }
