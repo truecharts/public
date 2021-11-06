@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.4.0"></a>
+### [common-8.4.0](https://github.com/truecharts/apps/compare/common-8.3.19...common-8.4.0) (2021-11-06)
+
+#### Feat
+
+* Add simple servicetype as a LoadBalancer Alias ([#1284](https://github.com/truecharts/apps/issues/1284))
+
+
+
 <a name="common-8.3.19"></a>
 ### [common-8.3.19](https://github.com/truecharts/apps/compare/common-8.3.18...common-8.3.19) (2021-11-02)
 

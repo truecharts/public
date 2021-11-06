@@ -207,7 +207,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | service.main.ports.main.targetPort | string | `nil` | Specify a service targetPort if you wish to differ the service port from the application port. If `targetPort` is specified, this port number is used in the container definition instead of the `port` value. Therefore named ports are not supported for this field. |
 | service.main.portsList | list | See below | Configure additional Service port information here. |
 | service.main.primary | bool | `true` | Make this the primary service (used in probes, notes, etc...). If there is more than 1 service, make sure that only 1 service is marked as primary. |
-| service.main.type | string | `"ClusterIP"` | Set the service type |
+| service.main.type | string | `"ClusterIP"` | Set the service type Options: Simple(Loadbalancer), LoadBalancer, ClusterIP, NodePort |
 | serviceAccount | object | See below | Create serviceaccount |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `false` | Specifies whether a service account should be created |
