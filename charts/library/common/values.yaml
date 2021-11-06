@@ -679,7 +679,7 @@ persistence:
     setPermissions: false
     # -- Where to mount the path in the main container.
     # Defaults to the value of `hostPath`
-    mountPath:  # /myDev
+    mountPath: "" # /myDev
     # -- Specifying a hostPathType adds a check before trying to mount the path.
     # See Kubernetes documentation for options.
     hostPathType: ""
@@ -698,7 +698,7 @@ persistence:
     setPermissionsSimple: false
     # -- Where to mount the path in the main container.
     # Defaults to the value of `hostPath`
-    mountPath:  # /myDev
+    mountPath: "" # /myDev
     # -- Specifying a hostPathType adds a check before trying to mount the path.
     # See Kubernetes documentation for options.
     hostPathType: ""
