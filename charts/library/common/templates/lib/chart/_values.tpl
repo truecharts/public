@@ -248,6 +248,7 @@
   {{- end }}
 
   {{- range .Values.persistence }}
+  {{- if .type }}
   {{- if eq .type "simplePVC" }}
   {{- $_ := set . "type" "pvc" }}
   {{- end }}
@@ -255,10 +256,13 @@
   {{- $_ := set . "type" "hostPath" }}
   {{- end }}
   {{- end }}
+  {{- end }}
 
   {{- range .Values.service }}
+  {{- if .type }}
   {{- if eq .type "Simple" }}
   {{- $_ := set . "type" "LoadBalancer" }}
+  {{- end }}
   {{- end }}
   {{- end }}
 {{- end -}}
