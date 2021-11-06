@@ -143,7 +143,8 @@ questions:
                                     type: int
                                     default: 9117
                           - variable: port
-                            label: "This port exposes the container port on the service"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 9117
