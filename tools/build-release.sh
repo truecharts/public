@@ -170,6 +170,16 @@ include_questions(){
     /# Include{serviceList}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/serviceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
+    # Replace # Include{persistenceBasic} with the standard persistenceBasic codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{persistenceBasic}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/persistenceBasic.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
+    # Replace # Include{persistenceAdvanced} with the standard persistenceAdvanced codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{persistenceAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/persistenceAdvanced.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
     # Replace # Include{persistenceList} with the standard persistenceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceList}/ { for (i=0;i<n;++i) print a[i]; next }
