@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="testrc2-0.0.1"></a>
+### testrc2-0.0.1 (2021-11-06)
+
+
+
 <a name="jackett-9.0.9"></a>
 ### [jackett-9.0.9](https://github.com/truecharts/apps/compare/jackett-9.0.8...jackett-9.0.9) (2021-11-06)
 
