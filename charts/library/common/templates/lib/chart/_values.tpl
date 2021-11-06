@@ -90,7 +90,6 @@
    {{- end }}
    {{- end }}
 
-
   {{/* merge ingressList with ingress */}}
   {{- $ingDict := dict }}
   {{- range $index, $item := .Values.ingressList -}}
@@ -246,6 +245,15 @@
   {{- end }}
   {{- if $CapAdd }}
   {{- $_ := set .Values.securityContext.capabilities "add" $CapAdd -}}
+  {{- end }}
+
+  {{- range .Values.persistence }}
+  {{- if eq .type "SimplePVC" }}
+  {{- $_ := set . "type" "pvc" }}
+  {{- end }}
+  {{- if eq .type "SimpleHP" }}
+  {{- $_ := set . "type" "hostPath" }}
+  {{- end }}
   {{- end }}
 
   {{- range .Values.service }}

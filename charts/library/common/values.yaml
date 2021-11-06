@@ -565,7 +565,7 @@ persistence:
     labels: {}
 
     # -- Sets the persistence type
-    # Valid options are pvc, emptyDir, hostPath or custom
+    # Valid options are: simplePVC, simpleHP, pvc, emptyDir, hostPath or custom
     type: pvc
 
     # -- force the complete PVC name
@@ -602,7 +602,7 @@ persistence:
     accessMode: ReadWriteOnce
 
     # -- The amount of storage that is requested for the persistent volume.
-    size: 1Gi
+    size: 999Gi
 
     # - Set to true to retain the PVC upon `helm uninstall`
     retain: false
