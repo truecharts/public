@@ -407,26 +407,7 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-              - variable: accessMode
-                label: "Access Mode (Advanced)"
-                description: "Allow or disallow multiple PVC's writhing to the same PV"
-                schema:
-                  show_if: [["type", "=", "pvc"]]
-                  type: string
-                  default: "ReadWriteOnce"
-                  enum:
-                    - value: "ReadWriteOnce"
-                      description: "ReadWriteOnce"
-                    - value: "ReadOnlyMany"
-                      description: "ReadOnlyMany"
-                    - value: "ReadWriteMany"
-                      description: "ReadWriteMany"
-              - variable: size
-                label: "Size quotum of storage"
-                schema:
-                  show_if: [["type", "=", "pvc"]]
-                  type: string
-                  default: "100Gi"
+# Include{persistenceAdvanced}
 # Include{persistenceList}
 
   - variable: ingress
