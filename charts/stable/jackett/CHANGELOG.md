@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.8"></a>
+### [jackett-9.0.8](https://github.com/truecharts/apps/compare/jackett-9.0.7...jackett-9.0.8) (2021-11-06)
+
+#### Fix
+
+* correct typo in include
+* correct duplicate variable name in questions.yaml
+
+
+
 <a name="jackett-9.0.7"></a>
 ### [jackett-9.0.7](https://github.com/truecharts/apps/compare/jackett-9.0.6...jackett-9.0.7) (2021-11-06)
 
