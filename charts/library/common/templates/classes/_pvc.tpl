@@ -42,7 +42,7 @@ spec:
     - {{ ( $values.accessMode | default "ReadWriteOnce" ) | quote }}
   resources:
     requests:
-      storage: {{ $values.size | default "100Gi" | quote }}
+      storage: {{ $values.size | default "999Gi" | quote }}
   {{- if $values.storageClass }}
   storageClassName: {{ if (eq "-" $values.storageClass) }}""{{- else if (eq "SCALE-ZFS" $values.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" .Release.Name ) }}{{- else }}{{ $values.storageClass | quote }}{{- end }}
   {{- else if $.Values.global.isSCALE }}

@@ -33,11 +33,18 @@
                       description: "pvc"
                     - value: "hostPath"
                       description: "hostPath"
+              - variable: setPermissionsSimple
+                label: "Automatic Permissions"
+                description: "Automatically set permissions on install"
+                schema:
+                  show_if: [["type", "=", "simpleHP"]]
+                  type: boolean
+                  default: true
               - variable: setPermissions
                 label: "Automatic Permissions"
                 description: "Automatically set permissions on install"
                 schema:
-                  show_if: [["type", "=", "hostPath"],["type", "=", "simpleHP"]]
+                  show_if: [["type", "=", "hostPath"]]
                   type: boolean
                   default: true
               - variable: readOnly
@@ -45,11 +52,17 @@
                 schema:
                   type: boolean
                   default: false
+              - variable: hostPathSimple
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "simpleHP"]]
+                  type: hostpath
               - variable: hostPath
                 label: "hostPath"
                 description: "Path inside the container the storage is mounted"
                 schema:
-                  show_if: [["type", "=", "hostPath"],["type", "=", "simpleHP"]]
+                  show_if: [["type", "=", "hostPath"]]
                   type: hostpath
               - variable: mountPath
                 label: "mountPath"
@@ -73,9 +86,9 @@
               - variable: size
                 label: "Size quotum of storage"
                 schema:
-                  show_if: [["type", "=", "pvc"],["type", "=", "simplePVC"]]
+                  show_if: [["type", "=", "pvc"]]
                   type: string
-                  default: "100Gi"
+                  default: "999Gi"
               - variable: hostPathType
                 label: "(Advanced) hostPath Type"
                 schema:
