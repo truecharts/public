@@ -107,32 +107,40 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
+                          - variable: advanced
+                            label: "Show Advanced settings"
                             schema:
                               type: boolean
-                              default: true
-                              hidden: true
-                          - variable: protocol
-                            label: "Port Type"
-                            schema:
-                              type: string
-                              default: "HTTP"
-                              enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                                - value: "UDP"
-                                  description: "UDP"
-                          - variable: targetPort
-                            label: "Target Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 9000
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9000
 
                           - variable: port
                             label: "Container Port"
