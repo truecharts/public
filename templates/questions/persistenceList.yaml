@@ -37,7 +37,7 @@
                 label: "Automatic Permissions"
                 description: "Automatically set permissions on install"
                 schema:
-                  show_if: [["type", "=", "hostPath"],["type", "=", simpleHP]]
+                  show_if: [["type", "=", "hostPath"],["type", "=", "simpleHP"]]
                   type: boolean
                   default: true
               - variable: readOnly
@@ -49,7 +49,7 @@
                 label: "hostPath"
                 description: "Path inside the container the storage is mounted"
                 schema:
-                  show_if: [["type", "=", "hostPath"],["type", "=", simpleHP]]
+                  show_if: [["type", "=", "hostPath"],["type", "=", "simpleHP"]]
                   type: hostpath
               - variable: mountPath
                 label: "mountPath"
@@ -73,7 +73,7 @@
               - variable: size
                 label: "Size quotum of storage"
                 schema:
-                  show_if: [["type", "=", "pvc"],["type", "=", simplePVC]]
+                  show_if: [["type", "=", "pvc"],["type", "=", "simplePVC"]]
                   type: string
                   default: "100Gi"
               - variable: hostPathType
