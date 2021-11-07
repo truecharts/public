@@ -26,8 +26,12 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.cli.ports.cli.port | int | `9090` |  |
+| service.cli.ports.cli.targetPort | int | `9090` |  |
 | service.main.ports.main.port | int | `7000` |  |
+| service.main.ports.main.targetPort | int | `7000` |  |
 | service.playertcp.ports.slimprototcp.port | int | `3483` |  |
+| service.playertcp.ports.slimprototcp.targetPort | int | `3483` |  |
 | service.playerudp.ports.slimprotoudp.port | int | `3483` |  |
+| service.playerudp.ports.slimprotoudp.targetPort | int | `3483` |  |
 
 All Rights Reserved - The TrueCharts Project

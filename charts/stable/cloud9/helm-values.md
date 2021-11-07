@@ -19,15 +19,12 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.code.enabled | bool | `true` |  |
 | persistence.code.mountPath | string | `"/code"` |  |
 | persistence.code.size | string | `"1Gi"` |  |
-| persistence.sock.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.sock.enabled | bool | `true` |  |
-| persistence.sock.mountPath | string | `"/var/run/docker.sock"` |  |
-| persistence.sock.size | string | `"1Gi"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8000` |  |
+| service.main.ports.main.targetPort | int | `8000` |  |
 
 All Rights Reserved - The TrueCharts Project

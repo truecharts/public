@@ -1,6 +1,27 @@
 # Changelog<br>
 
 
+<a name="collabora-online-9.0.5"></a>
+### [collabora-online-9.0.5](https://github.com/truecharts/apps/compare/collabora-online-9.0.4...collabora-online-9.0.5) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+#### Fix
+
+* Update `valid_chars` regex to allow IP's also ([#1277](https://github.com/truecharts/apps/issues/1277))
+
+
+
 <a name="collabora-online-9.0.4"></a>
 ### [collabora-online-9.0.4](https://github.com/truecharts/apps/compare/collabora-online-9.0.3...collabora-online-9.0.4) (2021-11-02)
 

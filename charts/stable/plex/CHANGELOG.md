@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.6"></a>
+### [plex-8.0.6](https://github.com/truecharts/apps/compare/plex-8.0.5...plex-8.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+
+
 <a name="plex-8.0.5"></a>
 ### [plex-8.0.5](https://github.com/truecharts/apps/compare/plex-8.0.4...plex-8.0.5) (2021-11-02)
 

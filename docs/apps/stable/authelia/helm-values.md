@@ -140,6 +140,7 @@ You will, however, be able to use all values referenced in the common chart here
 | server.read_buffer_size | int | `4096` |  |
 | server.write_buffer_size | int | `4096` |  |
 | service.main.ports.main.port | int | `9091` |  |
+| service.main.ports.main.targetPort | int | `9091` |  |
 | session.expiration | string | `"1h"` |  |
 | session.inactivity | string | `"5m"` |  |
 | session.name | string | `"authelia_session"` |  |

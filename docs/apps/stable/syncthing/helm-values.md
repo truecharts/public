@@ -22,12 +22,16 @@ You will, however, be able to use all values referenced in the common chart here
 | service.discovery.ports.discovery.enabled | bool | `true` |  |
 | service.discovery.ports.discovery.port | int | `21027` |  |
 | service.discovery.ports.discovery.protocol | string | `"UDP"` |  |
+| service.discovery.ports.discovery.targetPort | int | `21027` |  |
 | service.listeners.ports.tcp.enabled | bool | `true` |  |
 | service.listeners.ports.tcp.port | int | `22000` |  |
 | service.listeners.ports.tcp.protocol | string | `"TCP"` |  |
+| service.listeners.ports.tcp.targetPort | int | `22000` |  |
 | service.listeners.ports.udp.enabled | bool | `true` |  |
 | service.listeners.ports.udp.port | int | `22000` |  |
 | service.listeners.ports.udp.protocol | string | `"UDP"` |  |
+| service.listeners.ports.udp.targetPort | int | `22000` |  |
 | service.main.ports.main.port | int | `8384` |  |
+| service.main.ports.main.targetPort | int | `8384` |  |
 
 All Rights Reserved - The TrueCharts Project

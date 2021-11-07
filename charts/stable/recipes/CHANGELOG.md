@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="recipes-3.0.9"></a>
+### [recipes-3.0.9](https://github.com/truecharts/apps/compare/recipes-3.0.8...recipes-3.0.9) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+
+
 <a name="recipes-3.0.8"></a>
 ### [recipes-3.0.8](https://github.com/truecharts/apps/compare/recipes-3.0.7...recipes-3.0.8) (2021-11-02)
 

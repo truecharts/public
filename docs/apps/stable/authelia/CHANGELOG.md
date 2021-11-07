@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="authelia-7.0.7"></a>
+### [authelia-7.0.7](https://github.com/truecharts/apps/compare/authelia-7.0.6...authelia-7.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+
+
 <a name="authelia-7.0.6"></a>
 ### [authelia-7.0.6](https://github.com/truecharts/apps/compare/authelia-7.0.5...authelia-7.0.6) (2021-11-02)
 

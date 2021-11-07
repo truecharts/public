@@ -59,6 +59,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `53` |  |
 | service.main.ports.main.protocol | string | `"UDP"` |  |
+| service.main.ports.main.targetPort | int | `53` |  |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | ttl | int | `300` | TTL for non-apex responses (in seconds) |
 | watchedResources | list | `[]` | Limit what kind of resources to watch, e.g. watchedResources: ["Ingress"] |

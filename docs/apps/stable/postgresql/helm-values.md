@@ -32,5 +32,6 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `5432` |  |
+| service.main.ports.main.targetPort | int | `5432` |  |
 
 All Rights Reserved - The TrueCharts Project

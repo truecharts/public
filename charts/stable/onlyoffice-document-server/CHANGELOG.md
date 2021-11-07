@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-2.0.5"></a>
+### [onlyoffice-document-server-2.0.5](https://github.com/truecharts/apps/compare/onlyoffice-document-server-2.0.4...onlyoffice-document-server-2.0.5) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+
+
 <a name="onlyoffice-document-server-2.0.4"></a>
 ### [onlyoffice-document-server-2.0.4](https://github.com/truecharts/apps/compare/onlyoffice-document-server-2.0.3...onlyoffice-document-server-2.0.4) (2021-11-02)
 

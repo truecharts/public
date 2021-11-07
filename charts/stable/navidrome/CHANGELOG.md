@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="navidrome-9.0.5"></a>
+### [navidrome-9.0.5](https://github.com/truecharts/apps/compare/navidrome-9.0.4...navidrome-9.0.5) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+
+
 <a name="navidrome-9.0.4"></a>
 ### [navidrome-9.0.4](https://github.com/truecharts/apps/compare/navidrome-9.0.3...navidrome-9.0.4) (2021-11-02)
 

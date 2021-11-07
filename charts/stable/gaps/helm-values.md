@@ -22,5 +22,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.data.type | string | `"pvc"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.ports.main.port | int | `8484` |  |
+| service.main.ports.main.targetPort | int | `8484` |  |
 
 All Rights Reserved - The TrueCharts Project

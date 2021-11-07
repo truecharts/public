@@ -46,5 +46,6 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.spec.timeoutSeconds | int | `10` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.ports.main.port | int | `5076` |  |
+| service.main.ports.main.targetPort | int | `5076` |  |
 
 All Rights Reserved - The TrueCharts Project

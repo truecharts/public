@@ -23,5 +23,6 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
 | service.main.ports.main.port | int | `6789` |  |
+| service.main.ports.main.targetPort | int | `6789` |  |
 
 All Rights Reserved - The TrueCharts Project

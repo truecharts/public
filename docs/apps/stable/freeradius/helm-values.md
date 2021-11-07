@@ -30,7 +30,9 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.accounting.ports.accounting.port | int | `1813` |  |
 | service.accounting.ports.accounting.protocol | string | `"UDP"` |  |
+| service.accounting.ports.accounting.targetPort | int | `1813` |  |
 | service.main.ports.main.port | int | `1812` |  |
 | service.main.ports.main.protocol | string | `"UDP"` |  |
+| service.main.ports.main.targetPort | int | `1812` |  |
 
 All Rights Reserved - The TrueCharts Project

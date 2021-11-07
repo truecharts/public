@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-4.0.6"></a>
+### [dsmr-reader-4.0.6](https://github.com/truecharts/apps/compare/dsmr-reader-4.0.5...dsmr-reader-4.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+
+
 <a name="dsmr-reader-4.0.5"></a>
 ### [dsmr-reader-4.0.5](https://github.com/truecharts/apps/compare/dsmr-reader-4.0.4...dsmr-reader-4.0.5) (2021-11-02)
 

@@ -33,5 +33,6 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.liveness.spec.timeoutSeconds | int | `10` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.ports.main.port | int | `8787` |  |
+| service.main.ports.main.targetPort | int | `8787` |  |
 
 All Rights Reserved - The TrueCharts Project

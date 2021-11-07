@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="nextcloud-9.0.7"></a>
+### [nextcloud-9.0.7](https://github.com/truecharts/apps/compare/nextcloud-9.0.6...nextcloud-9.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+* Update label / description on admin credentials ([#1274](https://github.com/truecharts/apps/issues/1274))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+#### Fix
+
+* make the env-var descriptions more clear
+
+
+
 <a name="nextcloud-9.0.6"></a>
 ### [nextcloud-9.0.6](https://github.com/truecharts/apps/compare/nextcloud-9.0.5...nextcloud-9.0.6) (2021-11-02)
 

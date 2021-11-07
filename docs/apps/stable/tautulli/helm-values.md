@@ -21,5 +21,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | service.main.ports.main.port | int | `8181` |  |
+| service.main.ports.main.targetPort | int | `8181` |  |
 
 All Rights Reserved - The TrueCharts Project

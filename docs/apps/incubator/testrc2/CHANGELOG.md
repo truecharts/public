@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="testrc2-0.0.6"></a>
+### [testrc2-0.0.6](https://github.com/truecharts/apps/compare/testrc2-0.0.5...testrc2-0.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+
+
 <a name="testrc2-0.0.5"></a>
 ### [testrc2-0.0.5](https://github.com/truecharts/apps/compare/testrc2-0.0.4...testrc2-0.0.5) (2021-11-06)
 

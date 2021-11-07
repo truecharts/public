@@ -64,6 +64,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlDatabase | string | `"gitea"` |  |
 | postgresql.postgresqlUsername | string | `"gitea"` |  |
 | service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.targetPort | int | `3000` |  |
 | service.ssh.ports.ssh.port | int | `2222` |  |
 | service.ssh.ports.ssh.targetPort | int | `2222` |  |
 | signing.enabled | bool | `true` |  |

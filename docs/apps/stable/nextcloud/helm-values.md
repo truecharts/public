@@ -71,6 +71,8 @@ You will, however, be able to use all values referenced in the common chart here
 | service.hpb.enabled | bool | `true` |  |
 | service.hpb.ports.hpb.enabled | bool | `true` |  |
 | service.hpb.ports.hpb.port | int | `7867` |  |
+| service.hpb.ports.hpb.targetPort | int | `7867` |  |
 | service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

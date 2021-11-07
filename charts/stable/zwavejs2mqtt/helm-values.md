@@ -25,10 +25,12 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.enabled | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.ports.main.port | int | `8091` |  |
+| service.main.ports.main.targetPort | int | `8091` |  |
 | service.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.port | int | `3000` |  |
 | service.ws.ports.ws.protocol | string | `"TCP"` |  |
+| service.ws.ports.ws.targetPort | int | `3000` |  |
 | service.ws.type | string | `"ClusterIP"` |  |
 
 All Rights Reserved - The TrueCharts Project

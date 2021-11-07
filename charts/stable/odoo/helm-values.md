@@ -34,9 +34,12 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"odoo"` |  |
 | secret | object | `{}` |  |
 | service.main.ports.main.port | int | `8069` |  |
+| service.main.ports.main.targetPort | int | `8069` |  |
 | service.odoo.ports.odoo-1.port | int | `8071` |  |
 | service.odoo.ports.odoo-1.protocol | string | `"TCP"` |  |
+| service.odoo.ports.odoo-1.targetPort | int | `8071` |  |
 | service.odoo.ports.odoo-2.port | int | `8072` |  |
 | service.odoo.ports.odoo-2.protocol | string | `"TCP"` |  |
+| service.odoo.ports.odoo-2.targetPort | int | `8072` |  |
 
 All Rights Reserved - The TrueCharts Project

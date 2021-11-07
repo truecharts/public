@@ -1,6 +1,27 @@
 # Changelog<br>
 
 
+<a name="openkm-3.0.6"></a>
+### [openkm-3.0.6](https://github.com/truecharts/apps/compare/openkm-3.0.5...openkm-3.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+#### Fix
+
+* prevent duplicate port use and fix some questions.yaml mistakes
+
+
+
 <a name="openkm-3.0.5"></a>
 ### [openkm-3.0.5](https://github.com/truecharts/apps/compare/openkm-3.0.4...openkm-3.0.5) (2021-11-02)
 

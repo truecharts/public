@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-2.0.7"></a>
+### [amcrest2mqtt-2.0.7](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.6...amcrest2mqtt-2.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+
+
 <a name="amcrest2mqtt-2.0.6"></a>
 ### [amcrest2mqtt-2.0.6](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.5...amcrest2mqtt-2.0.6) (2021-11-02)
 

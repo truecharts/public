@@ -19,6 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.externalIP | string | `"1.1.1.1"` |  |
 | service.main.ports.main.Type | string | `"HTTPS"` |  |
 | service.main.ports.main.port | int | `443` |  |
+| service.main.ports.main.targetPort | int | `443` |  |
 | service.main.type | string | `"ExternalIP"` |  |
 
 All Rights Reserved - The TrueCharts Project

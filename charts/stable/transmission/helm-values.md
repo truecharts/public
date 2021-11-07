@@ -21,13 +21,16 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.size | string | `"100Gi"` |  |
 | persistence.config.type | string | `"pvc"` |  |
 | service.main.ports.main.port | int | `9091` |  |
+| service.main.ports.main.targetPort | int | `9091` |  |
 | service.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.tcp.enabled | bool | `true` |  |
 | service.torrent.ports.tcp.port | int | `51413` |  |
 | service.torrent.ports.tcp.protocol | string | `"TCP"` |  |
+| service.torrent.ports.tcp.targetPort | int | `51413` |  |
 | service.torrent.ports.udp.enabled | bool | `true` |  |
 | service.torrent.ports.udp.port | int | `51413` |  |
 | service.torrent.ports.udp.protocol | string | `"UDP"` |  |
+| service.torrent.ports.udp.targetPort | int | `51413` |  |
 | service.torrent.type | string | `"ClusterIP"` |  |
 
 All Rights Reserved - The TrueCharts Project

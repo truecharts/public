@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.10"></a>
+### [jackett-9.0.10](https://github.com/truecharts/apps/compare/jackett-9.0.9...jackett-9.0.10) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Fix
+
+* prevent duplicate port use and fix some questions.yaml mistakes
+
+
+
 <a name="jackett-9.0.9"></a>
 ### [jackett-9.0.9](https://github.com/truecharts/apps/compare/jackett-9.0.8...jackett-9.0.9) (2021-11-06)
 

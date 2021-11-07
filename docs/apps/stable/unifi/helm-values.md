@@ -42,6 +42,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.guestportal.ports.websecure.targetPort | int | `8843` |  |
 | service.main.ports.main.port | int | `8443` |  |
 | service.main.ports.main.protocol | string | `"HTTPS"` |  |
+| service.main.ports.main.targetPort | int | `8443` |  |
 | service.speedtest.enabled | bool | `false` |  |
 | service.speedtest.ports.speedtest.enabled | bool | `true` |  |
 | service.speedtest.ports.speedtest.port | int | `6789` |  |

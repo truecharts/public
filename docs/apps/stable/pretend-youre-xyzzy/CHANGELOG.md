@@ -1,6 +1,27 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-4.0.5"></a>
+### [pretend-youre-xyzzy-4.0.5](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-4.0.4...pretend-youre-xyzzy-4.0.5) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1291](https://github.com/truecharts/apps/issues/1291))
+
+#### Chore
+
+* Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/truecharts/apps/issues/1289))
+
+#### Feat
+
+* Simplify the Services GUI ([#1290](https://github.com/truecharts/apps/issues/1290))
+
+#### Fix
+
+* prevent duplicate port use and fix some questions.yaml mistakes
+
+
+
 <a name="pretend-youre-xyzzy-4.0.4"></a>
 ### [pretend-youre-xyzzy-4.0.4](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-4.0.3...pretend-youre-xyzzy-4.0.4) (2021-11-02)
 

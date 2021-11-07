@@ -29,10 +29,12 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `5050` |  |
+| service.main.ports.main.targetPort | int | `5050` |  |
 | service.tcp.enabled | bool | `true` |  |
 | service.tcp.ports.tcp.enabled | bool | `true` |  |
 | service.tcp.ports.tcp.port | int | `51050` |  |
 | service.tcp.ports.tcp.protocol | string | `"TCP"` |  |
+| service.tcp.ports.tcp.targetPort | int | `51050` |  |
 | service.tcp.type | string | `"ClusterIP"` |  |
 
 All Rights Reserved - The TrueCharts Project
