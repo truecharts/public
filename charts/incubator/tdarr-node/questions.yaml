@@ -346,63 +346,7 @@ questions:
                       description: "emptyDir"
                     - value: "hostPath"
                       description: "hostPath"
-              - variable: storageClass
-                label: "(Advanced) storageClass"
-                description: " Warning: Anything other than SCALE-ZFS will break rollback!"
-                schema:
-                  show_if: [["type", "=", "pvc"]]
-                  type: string
-                  default: "SCALE-ZFS"
-              - variable: labelsList
-                label: "Labels"
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: labelItem
-                      label: "Label"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: "Name"
-                            schema:
-                              type: string
-                          - variable: value
-                            label: "Value"
-                            schema:
-                              type: string
-              - variable: annotationsList
-                label: "Annotations"
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: annotationItem
-                      label: "Label"
-                      schema:
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: "Name"
-                            schema:
-                              type: string
-                          - variable: value
-                            label: "Value"
-                            schema:
-                              type: string
-              - variable: setPermissions
-                label: "Automatic Permissions"
-                description: "Automatically set permissions on install"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: boolean
-                  default: true
-              - variable: readOnly
-                label: "readOnly"
-                schema:
-                  type: boolean
-                  default: false
+# Include{persistenceBasic}
               - variable: hostPath
                 label: "hostPath"
                 description: "Path inside the container the storage is mounted"
@@ -442,8 +386,20 @@ questions:
                   type: boolean
                   default: true
                   hidden: true
+
 # Include{persistenceList}
 
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            type: dict
+            attrs:
 # Include{ingressDefault}
 
 # Include{ingressTLS}
