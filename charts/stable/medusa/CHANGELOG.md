@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-1.0.7"></a>
+### [medusa-1.0.7](https://github.com/truecharts/apps/compare/medusa-1.0.6...medusa-1.0.7) (2021-11-07)
+
+#### Fix
+
+* update medusa manually
+
+
+
 <a name="medusa-1.0.6"></a>
 ### [medusa-1.0.6](https://github.com/truecharts/apps/compare/medusa-1.0.5...medusa-1.0.6) (2021-11-07)
 
