@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.6"></a>
+### [traefik-10.0.6](https://github.com/truecharts/apps/compare/traefik-10.0.5...traefik-10.0.6) (2021-11-07)
+
+#### Fix
+
+* Don't try to run udp services under SCALE (we don't actively test it anyway)
+
+
+
 <a name="traefik-10.0.5"></a>
 ### [traefik-10.0.5](https://github.com/truecharts/apps/compare/traefik-10.0.4...traefik-10.0.5) (2021-11-07)
 
