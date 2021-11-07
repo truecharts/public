@@ -12,7 +12,7 @@ image:
   # -- image repository
   repository: ghcr.io/linuxserver/calibre
   # -- image tag
-  tag: version-v5.26.0@sha256:b5ab76091fedea53422e0f4ab57c9a672f23599e0c6c003d11df1f6161a7006e
+  tag: 5.31.1@sha256:09519d76809cd8ff89fbe8469a7a11c7de3cc14c8d20207c8e6d5dcee60ac964
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -31,8 +31,6 @@ env:
   TZ: UTC
   # -- Specify the user ID the application will run as
   PUID: 568
-
-
   # -- Username for the calibre gui
   GUAC_USER:
   # -- Password's md5 hash for the calibre gui
