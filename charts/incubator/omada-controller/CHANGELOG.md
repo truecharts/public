@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.7"></a>
+### [omada-controller-4.0.7](https://github.com/truecharts/apps/compare/omada-controller-4.0.5...omada-controller-4.0.7) (2021-11-07)
+
+#### Chore
+
+* Move to incubator and initial fixes
+
+
+
 <a name="omada-controller-4.0.5"></a>
 ### [omada-controller-4.0.5](https://github.com/truecharts/apps/compare/omada-controller-4.0.4...omada-controller-4.0.5) (2021-11-02)
 
