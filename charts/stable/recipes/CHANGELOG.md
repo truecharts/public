@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-3.0.10"></a>
+### [recipes-3.0.10](https://github.com/truecharts/apps/compare/recipes-3.0.9...recipes-3.0.10) (2021-11-07)
+
+#### Chore
+
+* update container image vabene1111/recipes to v1.0.0 ([#1293](https://github.com/truecharts/apps/issues/1293))
+
+
+
 <a name="recipes-3.0.9"></a>
 ### [recipes-3.0.9](https://github.com/truecharts/apps/compare/recipes-3.0.8...recipes-3.0.9) (2021-11-07)
 
