@@ -738,48 +738,6 @@ questions:
                                   schema:
                                     type: boolean
                                     default: true
-        - variable: udp
-          label: "UDP Service"
-          description: "The UDP service for entrypoints"
-          schema:
-            type: dict
-            attrs:
-# Include{serviceSelector}
-                    - variable: portsList
-                      label: "Additional TCP Entrypoints"
-                      schema:
-                        type: list
-                        default: []
-                        items:
-                          - variable: portsListEntry
-                            label: "Custom Entrypoints"
-                            schema:
-                              type: dict
-                              attrs:
-                                - variable: enabled
-                                  label: "Enable the port"
-                                  schema:
-                                    type: boolean
-                                    default: true
-                                    hidden: true
-                                - variable: name
-                                  label: "Entrypoints Name"
-                                  schema:
-                                    type: string
-                                    default: ""
-                                - variable: protocol
-                                  label: "Entrypoints Type"
-                                  schema:
-                                    type: string
-                                    default: "UDP"
-                                    enum:
-                                      - value: UDP
-                                        description: "UDP"
-                                - variable: port
-                                  label: "Container Port"
-                                  schema:
-                                    type: int
-                                    required: true
         - variable: metrics
           label: "metrics Service"
           description: "The metrics Entrypoint service"
