@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.6"></a>
+### [komga-4.0.6](https://github.com/truecharts/apps/compare/komga-4.0.5...komga-4.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="komga-4.0.5"></a>
 ### [komga-4.0.5](https://github.com/truecharts/apps/compare/komga-4.0.4...komga-4.0.5) (2021-11-07)
 

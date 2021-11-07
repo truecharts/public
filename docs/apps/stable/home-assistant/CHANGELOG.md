@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-11.0.8"></a>
+### [home-assistant-11.0.8](https://github.com/truecharts/apps/compare/home-assistant-11.0.7...home-assistant-11.0.8) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="home-assistant-11.0.7"></a>
 ### [home-assistant-11.0.7](https://github.com/truecharts/apps/compare/home-assistant-11.0.6...home-assistant-11.0.7) (2021-11-07)
 

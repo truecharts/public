@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/postgresql"` |  |
-| image.tag | string | `"14.0.0@sha256:3e0b927bcc0a09956a4ea91bc90683c1ba198d2d2cf18797e8912ff2c9a9b37d"` |  |
+| image.tag | string | `"14.0.0@sha256:a95e5588c9f716bfc716b090f3cea41cbefb0d2c6e1c3c6de5514a5c2d1ce416"` |  |
 | persistence.db.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.db.enabled | bool | `true` |  |
 | persistence.db.mountPath | string | `"/bitnami/postgresql"` |  |

@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/booksonic-air"` | image repository |
-| image.tag | string | `"version-v2009.1.0@sha256:d80bedde84213913c3bdef5b314a6d218b423700f0d7af86138f29bbb5d1609a"` | image tag |
+| image.tag | string | `"version-v2009.1.0@sha256:ca74f3d0f0a4165f9ffaa3733274b5c14817ff977d04426ba71435c51b110d19"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

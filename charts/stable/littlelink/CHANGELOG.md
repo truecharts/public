@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.7"></a>
+### [littlelink-4.0.7](https://github.com/truecharts/apps/compare/littlelink-4.0.6...littlelink-4.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="littlelink-4.0.6"></a>
 ### [littlelink-4.0.6](https://github.com/truecharts/apps/compare/littlelink-4.0.5...littlelink-4.0.6) (2021-11-07)
 

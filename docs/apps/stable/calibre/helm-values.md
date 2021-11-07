@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.UMASK_SET | string | `"022"` | for umask setting of Calibre, default if left unset is 022. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/calibre"` | image repository |
-| image.tag | string | `"5.31.1@sha256:09519d76809cd8ff89fbe8469a7a11c7de3cc14c8d20207c8e6d5dcee60ac964"` | image tag |
+| image.tag | string | `"v5.31.1-ls136@sha256:09519d76809cd8ff89fbe8469a7a11c7de3cc14c8d20207c8e6d5dcee60ac964"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

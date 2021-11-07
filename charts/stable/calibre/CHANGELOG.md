@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-4.0.6"></a>
+### [calibre-4.0.6](https://github.com/truecharts/apps/compare/calibre-web-9.0.5...calibre-4.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="calibre-4.0.5"></a>
 ### [calibre-4.0.5](https://github.com/truecharts/apps/compare/calibre-web-9.0.4...calibre-4.0.5) (2021-11-07)
 

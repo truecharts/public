@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="muximux-1.0.7"></a>
+### [muximux-1.0.7](https://github.com/truecharts/apps/compare/muximux-1.0.6...muximux-1.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="muximux-1.0.6"></a>
 ### [muximux-1.0.6](https://github.com/truecharts/apps/compare/muximux-1.0.5...muximux-1.0.6) (2021-11-07)
 

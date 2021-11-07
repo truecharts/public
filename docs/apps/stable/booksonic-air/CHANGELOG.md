@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.6"></a>
+### [booksonic-air-4.0.6](https://github.com/truecharts/apps/compare/booksonic-air-4.0.5...booksonic-air-4.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="booksonic-air-4.0.5"></a>
 ### [booksonic-air-4.0.5](https://github.com/truecharts/apps/compare/booksonic-air-4.0.4...booksonic-air-4.0.5) (2021-11-07)
 

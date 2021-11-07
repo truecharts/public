@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.9"></a>
+### [omada-controller-4.0.9](https://github.com/truecharts/apps/compare/omada-controller-4.0.8...omada-controller-4.0.9) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="omada-controller-4.0.8"></a>
 ### [omada-controller-4.0.8](https://github.com/truecharts/apps/compare/omada-controller-4.0.7...omada-controller-4.0.8) (2021-11-07)
 

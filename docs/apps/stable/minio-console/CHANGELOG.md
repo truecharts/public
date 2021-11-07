@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-console-1.0.6"></a>
+### [minio-console-1.0.6](https://github.com/truecharts/apps/compare/minio-console-1.0.5...minio-console-1.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="minio-console-1.0.5"></a>
 ### [minio-console-1.0.5](https://github.com/truecharts/apps/compare/minio-console-1.0.4...minio-console-1.0.5) (2021-11-07)
 

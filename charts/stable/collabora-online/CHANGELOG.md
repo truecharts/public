@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-9.0.6"></a>
+### [collabora-online-9.0.6](https://github.com/truecharts/apps/compare/collabora-online-9.0.5...collabora-online-9.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="collabora-online-9.0.5"></a>
 ### [collabora-online-9.0.5](https://github.com/truecharts/apps/compare/collabora-online-9.0.4...collabora-online-9.0.5) (2021-11-07)
 

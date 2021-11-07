@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="digikam-2.0.7"></a>
+### [digikam-2.0.7](https://github.com/truecharts/apps/compare/digikam-2.0.6...digikam-2.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="digikam-2.0.6"></a>
 ### [digikam-2.0.6](https://github.com/truecharts/apps/compare/digikam-2.0.5...digikam-2.0.6) (2021-11-07)
 

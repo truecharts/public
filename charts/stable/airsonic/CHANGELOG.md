@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-4.0.7"></a>
+### [airsonic-4.0.7](https://github.com/truecharts/apps/compare/airsonic-4.0.6...airsonic-4.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="airsonic-4.0.6"></a>
 ### [airsonic-4.0.6](https://github.com/truecharts/apps/compare/airsonic-4.0.5...airsonic-4.0.6) (2021-11-07)
 

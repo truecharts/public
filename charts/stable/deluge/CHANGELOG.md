@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deluge-9.0.6"></a>
+### [deluge-9.0.6](https://github.com/truecharts/apps/compare/deluge-9.0.5...deluge-9.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major ([#1270](https://github.com/truecharts/apps/issues/1270))
+
+
+
 <a name="deluge-9.0.5"></a>
 ### [deluge-9.0.5](https://github.com/truecharts/apps/compare/deluge-9.0.4...deluge-9.0.5) (2021-11-07)
 
