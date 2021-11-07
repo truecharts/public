@@ -83,14 +83,14 @@ questions:
 # Include{fixedEnv}
 
         - variable: NEXTCLOUD_ADMIN_USER
-          label: "NEXTCLOUD_ADMIN_USER (Initial)"
+          label: "NEXTCLOUD_ADMIN_USER (First Install Only)"
           description: "Sets the initial nextcloud's admin username, changing this variable after first launch will NOT change admin's username"
           schema:
             type: string
             required: true
             default: ""
         - variable: NEXTCLOUD_ADMIN_PASSWORD
-          label: "NEXTCLOUD_ADMIN_PASSWORD (Initial)"
+          label: "NEXTCLOUD_ADMIN_PASSWORD (First Install Only)"
           description: "Sets the initial nextcloud's admin password, changing this variable after first launch will NOT change admin's password"
           schema:
             type: string
@@ -98,14 +98,14 @@ questions:
             required: true
             default: ""
         - variable: TRUSTED_PROXIES
-          label: "TRUSTED_PROXIES"
+          label: "Trusted Proxies (Advanced)"
           description: "Sets nextcloud Trusted Proxies"
           schema:
             type: string
             default: "172.16.0.0/16"
         - variable: NODE_IP
           label: "NODE_IP"
-          description: "Sets nextcloud nodeip for nodeport connections"
+          description: "Sets nextcloud nodeip for nodeport connections (Ensure this is correct at first install!)"
           schema:
             type: string
             $ref:
