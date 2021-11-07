@@ -16,6 +16,11 @@
                   type: boolean
                   default: true
                   hidden: true
+              - variable: name
+                label: "Name (optional)"
+                description: "Not required, please set to config when mounting /config or temp when mounting /tmp"
+                schema:
+                  type: string
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"

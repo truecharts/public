@@ -525,78 +525,46 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the service"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-              - variable: type
-                label: "Service Type"
-                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
-                schema:
-                  type: string
-                  default: "NodePort"
-                  enum:
-                    - value: "NodePort"
-                      description: "NodePort"
-                    - value: "ClusterIP"
-                      description: "ClusterIP"
-                    - value: "LoadBalancer"
-                      description: "LoadBalancer"
-              - variable: loadBalancerIP
-                label: "LoadBalancer IP"
-                description: "LoadBalancerIP"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: string
-                  default: ""
-              - variable: externalIPs
-                label: "External IP's"
-                description: "External IP's"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: list
-                  default: []
-                  items:
-                    - variable: externalIP
-                      label: "External IP"
-                      schema:
-                        type: string
-              - variable: ports
-                label: "Service's Entrypoints Configurations"
-                schema:
-                  type: dict
-                  attrs:
+# Include{serviceSelector}
                     - variable: main
                       label: "Main Entrypoint Configuration"
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
+                          - variable: advanced
+                            label: "Show Advanced settings"
                             schema:
                               type: boolean
-                              default: true
-                              hidden: true
-                          - variable: protocol
-                            label: "Port Type"
-                            schema:
-                              type: string
-                              default: "HTTP"
-                              enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                          - variable: targetPort
-                            label: "Target Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 9000
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9000
 
                           - variable: port
                             label: "Entrypoints Port"
@@ -605,78 +573,52 @@ questions:
                               default: 9000
                               editable: true
                               required: true
-
-                              default: 9000
         - variable: tcp
-          label: "Main Service"
+          label: "TCP Service"
           description: "The tcp Entrypoint service"
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the service"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-              - variable: type
-                label: "Service Type"
-                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
-                schema:
-                  type: string
-                  default: "LoadBalancer"
-                  enum:
-                    - value: "ClusterIP"
-                      description: "ClusterIP"
-                    - value: "LoadBalancer"
-                      description: "LoadBalancer"
-              - variable: loadBalancerIP
-                label: "LoadBalancer IP"
-                description: "LoadBalancerIP"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: string
-                  default: ""
-              - variable: externalIPs
-                label: "External IP's"
-                description: "External IP's"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: list
-                  default: []
-                  items:
-                    - variable: externalIP
-                      label: "External IP"
-                      schema:
-                        type: string
-              - variable: ports
-                label: "Service's Entrypoints Configurations"
-                schema:
-                  type: dict
-                  attrs:
+# Include{serviceSelector}
                     - variable: web
                       label: "web Entrypoint Configuration"
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
+                          - variable: advanced
+                            label: "Show Advanced settings"
                             schema:
                               type: boolean
-                              default: true
-                              hidden: true
-                          - variable: protocol
-                            label: "Port Type"
-                            schema:
-                              type: string
-                              default: "HTTP"
-                              enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9080
                           - variable: port
                             label: "Entrypoints Port"
                             schema:
@@ -694,24 +636,40 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
+                          - variable: advanced
+                            label: "Show Advanced settings"
                             schema:
                               type: boolean
-                              default: true
-                              hidden: true
-                          - variable: protocol
-                            label: "Port Type"
-                            schema:
-                              type: string
-                              default: "HTTPS"
-                              enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTPS"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9443
                           - variable: port
                             label: "Entrypoints Port"
                             schema:
@@ -726,7 +684,6 @@ questions:
                               hidden: true
                               attrs:
                                 - variable: enabled
-                                  label: "Enable the port"
                                   schema:
                                     type: boolean
                                     default: true
@@ -776,7 +733,6 @@ questions:
                               type: dict
                               attrs:
                                 - variable: enabled
-                                  label: "Enable the port"
                                   schema:
                                     type: boolean
                                     default: true
@@ -786,43 +742,7 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the service"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: type
-                      label: "Service Type"
-                      description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
-                      schema:
-                        type: string
-                        default: "LoadBalancer"
-                        enum:
-                          - value: "ClusterIP"
-                            description: "ClusterIP"
-                          - value: "LoadBalancer"
-                            description: "LoadBalancer"
-                    - variable: loadBalancerIP
-                      label: "LoadBalancer IP"
-                      description: "LoadBalancerIP"
-                      schema:
-                        show_if: [["type", "=", "LoadBalancer"]]
-                        type: string
-                        default: ""
-                    - variable: externalIPs
-                      label: "External IP's"
-                      description: "External IP's"
-                      schema:
-                        show_if: [["type", "=", "LoadBalancer"]]
-                        type: list
-                        default: []
-                        items:
-                          - variable: externalIP
-                            label: "External IP"
-                            schema:
-                              type: string
+# Include{serviceSelector}
                     - variable: portsList
                       label: "Additional TCP Entrypoints"
                       schema:
@@ -864,78 +784,46 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the service"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-              - variable: type
-                label: "Service Type"
-                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
-                schema:
-                  type: string
-                  default: "NodePort"
-                  enum:
-                    - value: "NodePort"
-                      description: "NodePort"
-                    - value: "ClusterIP"
-                      description: "ClusterIP"
-                    - value: "LoadBalancer"
-                      description: "LoadBalancer"
-              - variable: loadBalancerIP
-                label: "LoadBalancer IP"
-                description: "LoadBalancerIP"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: string
-                  default: ""
-              - variable: externalIPs
-                label: "External IP's"
-                description: "External IP's"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: list
-                  default: []
-                  items:
-                    - variable: externalIP
-                      label: "External IP"
-                      schema:
-                        type: string
-              - variable: ports
-                label: "Service's Entrypoints Configuration"
-                schema:
-                  type: dict
-                  attrs:
+# Include{serviceSelector}
                     - variable: metrics
                       label: "metrics Entrypoints Configurations"
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
+                          - variable: advanced
+                            label: "Show Advanced settings"
                             schema:
                               type: boolean
-                              default: true
-                              hidden: true
-                          - variable: protocol
-                            label: "Port Type"
-                            schema:
-                              type: string
-                              default: "HTTP"
-                              enum:
-                                - value: HTTP
-                                  description: "HTTP"
-                                - value: "HTTPS"
-                                  description: "HTTPS"
-                                - value: TCP
-                                  description: "TCP"
-                          - variable: targetPort
-                            label: "Target Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 9100
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9100
 
                           - variable: port
                             label: "Container Port"
