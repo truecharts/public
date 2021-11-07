@@ -3,11 +3,11 @@ appVersion: "1.15.6"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.5.2
+  version: 8.5.3
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 5.1.8
+  version: 5.1.10
 - condition: memcached.enabled
   name: memcached
   repository: https://charts.bitnami.com/bitnami
@@ -34,7 +34,7 @@ sources:
 - https://github.com/go-gitea/gitea
 - https://hub.docker.com/r/gitea/gitea/
 type: application
-version: 4.0.8
+version: 4.0.9
 annotations:
   truecharts.org/catagories: |
     - GIT
