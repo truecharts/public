@@ -35,6 +35,52 @@ service:
       main:
         port: 8043
         targetPort: 8043
+  omadaTCP:
+    enabled: true
+    ports:
+      omadaTCP1:
+        enabled: true
+        protocol: TCP
+        port: 29810
+        targetPort: 29810
+      omadaTCP2:
+        enabled: true
+        protocol: TCP
+        port: 29811
+        targetPort: 29811
+      omadaTCP3:
+        enabled: true
+        protocol: TCP
+        port: 29812
+        targetPort: 29812
+      omadaTCP4:
+        enabled: true
+        protocol: TCP
+        port: 29813
+        targetPort: 29813
+  omadaUDP:
+    enabled: true
+    ports:
+      omadaUDP1:
+        enabled: true
+        protocol: UDP
+        port: 29810
+        targetPort: 29810
+      omadaUDP2:
+        enabled: true
+        protocol: UDP
+        port: 29811
+        targetPort: 29811
+      omadaUDP3:
+        enabled: true
+        protocol: TCP
+        port: 29812
+        targetPort: 29812
+      omadaUDP4:
+        enabled: true
+        protocol: UDP
+        port: 29813
+        targetPort: 29813
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
