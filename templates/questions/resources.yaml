@@ -9,46 +9,54 @@
         - "definitions/gpuConfiguration"
       attrs: []
 
-  - variable: resources
+
+  - variable: advancedresources
+    label: "Set Custom Resource Limits/Requests (Advanced)"
     group: "Resources and Devices"
-    label: ""
     schema:
-      type: dict
-      attrs:
-        - variable: limits
-          label: "Advanced Limit Resource Consumption"
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: resources
+          label: ""
           schema:
             type: dict
             attrs:
-              - variable: cpu
-                label: "CPU"
+              - variable: limits
+                label: "Advanced Limit Resource Consumption"
                 schema:
-                  type: string
-                  default: "4000m"
-                  valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
-              - variable: memory
-                label: "Memory RAM"
+                  type: dict
+                  attrs:
+                    - variable: cpu
+                      label: "CPU"
+                      schema:
+                        type: string
+                        default: "4000m"
+                        valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
+                    - variable: memory
+                      label: "Memory RAM"
+                      schema:
+                        type: string
+                        default: "8Gi"
+                        valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
+              - variable: requests
+                label: "Advanced Request minimum resources required"
                 schema:
-                  type: string
-                  default: "8Gi"
-                  valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
-        - variable: requests
-          label: "Advanced Request minimum resources required"
-          schema:
-            type: dict
-            attrs:
-              - variable: cpu
-                label: "CPU"
-                schema:
-                  type: string
-                  default: "10m"
-                  valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
-              - variable: memory
-                label: "Memory RAM"
-                schema:
-                  type: string
-                  default: "50Mi"
-                  valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
+                  type: dict
+                  attrs:
+                    - variable: cpu
+                      label: "CPU"
+                      schema:
+                        type: string
+                        default: "10m"
+                        valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
+                    - variable: memory
+                      label: "Memory RAM"
+                      schema:
+                        type: string
+                        default: "50Mi"
+                        valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
 
   - variable: deviceList
     label: "Mount USB devices"
