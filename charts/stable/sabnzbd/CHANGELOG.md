@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-9.0.6"></a>
+### [sabnzbd-9.0.6](https://github.com/truecharts/apps/compare/sabnzbd-9.0.5...sabnzbd-9.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="sabnzbd-9.0.5"></a>
 ### [sabnzbd-9.0.5](https://github.com/truecharts/apps/compare/sabnzbd-9.0.4...sabnzbd-9.0.5) (2021-11-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-4.0.6"></a>
+### [k8s-gateway-4.0.6](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.5...k8s-gateway-4.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="k8s-gateway-4.0.5"></a>
 ### [k8s-gateway-4.0.5](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.4...k8s-gateway-4.0.5) (2021-11-07)
 

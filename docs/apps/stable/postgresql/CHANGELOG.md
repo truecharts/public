@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.1.11"></a>
+### [postgresql-5.1.11](https://github.com/truecharts/apps/compare/postgresql-5.1.10...postgresql-5.1.11) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="postgresql-5.1.10"></a>
 ### [postgresql-5.1.10](https://github.com/truecharts/apps/compare/postgresql-5.1.9...postgresql-5.1.10) (2021-11-07)
 

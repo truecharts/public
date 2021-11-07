@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ser2sock-4.0.6"></a>
+### [ser2sock-4.0.6](https://github.com/truecharts/apps/compare/ser2sock-4.0.5...ser2sock-4.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="ser2sock-4.0.5"></a>
 ### [ser2sock-4.0.5](https://github.com/truecharts/apps/compare/ser2sock-4.0.4...ser2sock-4.0.5) (2021-11-07)
 

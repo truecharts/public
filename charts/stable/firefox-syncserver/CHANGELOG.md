@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-4.0.7"></a>
+### [firefox-syncserver-4.0.7](https://github.com/truecharts/apps/compare/firefox-syncserver-4.0.6...firefox-syncserver-4.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="firefox-syncserver-4.0.6"></a>
 ### [firefox-syncserver-4.0.6](https://github.com/truecharts/apps/compare/firefox-syncserver-4.0.5...firefox-syncserver-4.0.6) (2021-11-07)
 

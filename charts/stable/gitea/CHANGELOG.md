@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-4.0.9"></a>
+### [gitea-4.0.9](https://github.com/truecharts/apps/compare/gitea-4.0.8...gitea-4.0.9) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="gitea-4.0.8"></a>
 ### [gitea-4.0.8](https://github.com/truecharts/apps/compare/gitea-4.0.7...gitea-4.0.8) (2021-11-07)
 

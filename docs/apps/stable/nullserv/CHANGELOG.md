@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nullserv-4.0.6"></a>
+### [nullserv-4.0.6](https://github.com/truecharts/apps/compare/nullserv-4.0.5...nullserv-4.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="nullserv-4.0.5"></a>
 ### [nullserv-4.0.5](https://github.com/truecharts/apps/compare/nullserv-4.0.4...nullserv-4.0.5) (2021-11-07)
 

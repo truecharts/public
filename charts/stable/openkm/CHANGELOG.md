@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-3.0.7"></a>
+### [openkm-3.0.7](https://github.com/truecharts/apps/compare/openkm-3.0.6...openkm-3.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="openkm-3.0.6"></a>
 ### [openkm-3.0.6](https://github.com/truecharts/apps/compare/openkm-3.0.5...openkm-3.0.6) (2021-11-07)
 

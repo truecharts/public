@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbget-9.0.6"></a>
+### [nzbget-9.0.6](https://github.com/truecharts/apps/compare/nzbget-9.0.5...nzbget-9.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="nzbget-9.0.5"></a>
 ### [nzbget-9.0.5](https://github.com/truecharts/apps/compare/nzbget-9.0.4...nzbget-9.0.5) (2021-11-07)
 

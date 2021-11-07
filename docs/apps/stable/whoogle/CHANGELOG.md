@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="whoogle-1.0.6"></a>
+### [whoogle-1.0.6](https://github.com/truecharts/apps/compare/whoogle-1.0.5...whoogle-1.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="whoogle-1.0.5"></a>
 ### [whoogle-1.0.5](https://github.com/truecharts/apps/compare/whoogle-1.0.4...whoogle-1.0.5) (2021-11-07)
 

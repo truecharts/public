@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audacity-2.0.6"></a>
+### [audacity-2.0.6](https://github.com/truecharts/apps/compare/audacity-2.0.5...audacity-2.0.6) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="audacity-2.0.5"></a>
 ### [audacity-2.0.5](https://github.com/truecharts/apps/compare/audacity-2.0.4...audacity-2.0.5) (2021-11-07)
 

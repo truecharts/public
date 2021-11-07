@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="organizr-9.0.7"></a>
+### [organizr-9.0.7](https://github.com/truecharts/apps/compare/organizr-9.0.6...organizr-9.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="organizr-9.0.6"></a>
 ### [organizr-9.0.6](https://github.com/truecharts/apps/compare/organizr-9.0.5...organizr-9.0.6) (2021-11-07)
 

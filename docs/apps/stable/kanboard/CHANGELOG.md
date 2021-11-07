@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kanboard-4.0.7"></a>
+### [kanboard-4.0.7](https://github.com/truecharts/apps/compare/kanboard-4.0.6...kanboard-4.0.7) (2021-11-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1295](https://github.com/truecharts/apps/issues/1295))
+
+
+
 <a name="kanboard-4.0.6"></a>
 ### [kanboard-4.0.6](https://github.com/truecharts/apps/compare/kanboard-4.0.5...kanboard-4.0.6) (2021-11-07)
 
