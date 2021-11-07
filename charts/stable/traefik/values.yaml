@@ -151,13 +151,11 @@ service:
       web:
         enabled: true
         port: 9080
-        targetPort: 9080
         protocol: HTTP
         redirectTo: websecure
       websecure:
         enabled: true
         port: 9443
-        targetPort: 9443
         protocol: HTTPS
 #      tcpexample:
 #        enabled: true
