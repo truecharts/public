@@ -19,9 +19,15 @@ service:
       main:
         port: 5800
         targetPort: 5800
+  myjd:
+    enabled: true
+    ports:
+      myjd:
+        enabled: true
+        port: 3129
+        targetPort: 3129
   vnc:
     enabled: true
-    type: ClusterIP
     ports:
       vnc:
         enabled: true
