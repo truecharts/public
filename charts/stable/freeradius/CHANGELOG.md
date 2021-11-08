@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="freeradius-4.0.8"></a>
+### [freeradius-4.0.8](https://github.com/truecharts/apps/compare/freeradius-4.0.7...freeradius-4.0.8) (2021-11-08)
+
+
+
 <a name="freeradius-4.0.7"></a>
 ### [freeradius-4.0.7](https://github.com/truecharts/apps/compare/freeradius-4.0.6...freeradius-4.0.7) (2021-11-08)
 
