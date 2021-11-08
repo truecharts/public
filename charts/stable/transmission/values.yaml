@@ -13,14 +13,16 @@ service:
         targetPort: 9091
   torrent:
     enabled: true
-    type: ClusterIP
     ports:
-      tcp:
+      torrent:
         enabled: true
         port: 51413
         targetPort: 51413
         protocol: TCP
-      udp:
+  torrentudp:
+    enabled: true
+    ports:
+      torrentudp:
         enabled: true
         port: 51413
         targetPort: 51413

@@ -22,14 +22,16 @@ service:
         targetPort: 8080
   torrent:
     enabled: true
-    type: ClusterIP
     ports:
-      tcp:
+      torrent:
         enabled: true
         port: 6881
         targetPort: 6881
         protocol: TCP
-      udp:
+  torrentudp:
+    enabled: true
+    ports:
+      torrentudp:
         enabled: true
         port: 6881
         targetPort: 6881

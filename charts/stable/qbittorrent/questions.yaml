@@ -146,13 +146,13 @@ questions:
 
 
         - variable: torrent
-          label: "Torrent Service"
-          description: "Torrent Service"
+          label: "TCP Torrent Service"
+          description: "Torrent service"
           schema:
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: tcp
+                    - variable: torrent
                       label: "TCP Service Port Configuration"
                       schema:
                         type: dict
@@ -190,18 +190,24 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 51413
+                                    default: 6881
 
                           - variable: port
                             label: "Container Port"
                             schema:
                               type: int
-                              default: 51413
+                              default: 6881
                               editable: true
                               required: true
 
-
-                    - variable: udp
+        - variable: torrentudp
+          label: "UDP Torrent Service"
+          description: "Torrent service"
+          schema:
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: torrentudp
                       label: "UDP Service Port Configuration"
                       schema:
                         type: dict
@@ -239,13 +245,13 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 51413
+                                    default: 6881
 
                           - variable: port
                             label: "Container Port"
                             schema:
                               type: int
-                              default: 51413
+                              default: 6881
                               editable: true
                               required: true
 
