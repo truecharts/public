@@ -21,8 +21,8 @@ service:
         port: 1812
         targetPort: 1812
   accounting:
+    enabled: true
     ports:
-      enabled: true
       accounting:
         enabled: true
         protocol: UDP

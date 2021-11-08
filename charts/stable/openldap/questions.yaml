@@ -272,8 +272,8 @@ questions:
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: https
-                      label: "https Service Port Configuration"
+                    - variable: ldaps
+                      label: "ldaps Service Port Configuration"
                       schema:
                         type: dict
                         attrs:

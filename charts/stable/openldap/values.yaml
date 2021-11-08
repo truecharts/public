@@ -44,10 +44,10 @@ service:
       main:
         port: 389
         targetPort: 389
-  https:
+  ldaps:
     enabled: true
     ports:
-      https:
+      ldaps:
         enabled: true
         port: 636
         targetPort: 636
