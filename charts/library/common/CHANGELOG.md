@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.5.4"></a>
+### [common-8.5.4](https://github.com/truecharts/apps/compare/common-8.5.3...common-8.5.4) (2021-11-08)
+
+#### Feat
+
+* also set and remember postgresql root password
+
+
+
 <a name="common-8.5.3"></a>
 ### [common-8.5.3](https://github.com/truecharts/apps/compare/common-8.5.2...common-8.5.3) (2021-11-07)
 

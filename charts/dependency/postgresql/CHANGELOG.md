@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.1.14"></a>
+### [postgresql-5.1.14](https://github.com/truecharts/apps/compare/postgresql-5.1.13...postgresql-5.1.14) (2021-11-08)
+
+#### Feat
+
+* also set and remember postgresql root password
+
+
+
 <a name="postgresql-5.1.13"></a>
 ### [postgresql-5.1.13](https://github.com/truecharts/apps/compare/postgresql-5.1.12...postgresql-5.1.13) (2021-11-08)
 

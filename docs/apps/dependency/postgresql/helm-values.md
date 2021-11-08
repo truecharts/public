@@ -14,6 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | enableUpgradeBackup | bool | `false` |  |
 | envTpl.POSTGRES_DB | string | `"{{ .Values.postgresqlDatabase }}"` |  |
 | envTpl.POSTGRES_USER | string | `"{{ .Values.postgresqlUsername }}"` |  |
+| envValueFrom.POSTGRESQL_POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-postgres-password"` |  |
+| envValueFrom.POSTGRESQL_POSTGRES_PASSWORD.secretKeyRef.name | string | `"{{ ( tpl .Values.existingSecret $ ) | default ( include \"common.names.fullname\" . ) }}"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"{{ ( tpl .Values.existingSecret $ ) | default ( include \"common.names.fullname\" . ) }}"` |  |
 | existingSecret | string | `""` |  |
@@ -26,6 +28,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.db.size | string | `"999Gi"` |  |
 | persistence.db.type | string | `"pvc"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
+| postgrespassword | string | `"testroot"` |  |
 | postgresqlDatabase | string | `"test"` |  |
 | postgresqlPassword | string | `"testpass"` |  |
 | postgresqlUsername | string | `"test"` |  |
