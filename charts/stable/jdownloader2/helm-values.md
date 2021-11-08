@@ -33,11 +33,14 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `5800` |  |
 | service.main.ports.main.targetPort | int | `5800` |  |
+| service.myjd.enabled | bool | `true` |  |
+| service.myjd.ports.myjd.enabled | bool | `true` |  |
+| service.myjd.ports.myjd.port | int | `3129` |  |
+| service.myjd.ports.myjd.targetPort | int | `3129` |  |
 | service.vnc.enabled | bool | `true` |  |
 | service.vnc.ports.vnc.enabled | bool | `true` |  |
 | service.vnc.ports.vnc.port | int | `5900` |  |
 | service.vnc.ports.vnc.protocol | string | `"TCP"` |  |
 | service.vnc.ports.vnc.targetPort | int | `5900` |  |
-| service.vnc.type | string | `"ClusterIP"` |  |
 
 All Rights Reserved - The TrueCharts Project

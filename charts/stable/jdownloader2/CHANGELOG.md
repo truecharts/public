@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-4.0.7"></a>
+### [jdownloader2-4.0.7](https://github.com/truecharts/apps/compare/jdownloader2-4.0.6...jdownloader2-4.0.7) (2021-11-08)
+
+#### Fix
+
+* Add missing service to values.yaml
+
+
+
 <a name="jdownloader2-4.0.6"></a>
 ### [jdownloader2-4.0.6](https://github.com/truecharts/apps/compare/jdownloader2-4.0.5...jdownloader2-4.0.6) (2021-11-07)
 
