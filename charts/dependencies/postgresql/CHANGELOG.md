@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.1.12"></a>
+### [postgresql-5.1.12](https://github.com/truecharts/apps/compare/postgresql-5.1.11...postgresql-5.1.12) (2021-11-08)
+
+#### Chore
+
+* Move postgresql to a seperate dependency train
+
+
+
 <a name="postgresql-5.1.11"></a>
 ### [postgresql-5.1.11](https://github.com/truecharts/apps/compare/postgresql-5.1.10...postgresql-5.1.11) (2021-11-07)
 
