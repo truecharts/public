@@ -32,6 +32,7 @@ persistence:
 postgresqlPassword: "testpass"
 postgresqlUsername: "test"
 postgresqlDatabase: "test"
+postgrespassword: "testroot"
 existingSecret: ""
 
 envValueFrom:
@@ -39,6 +40,10 @@ envValueFrom:
     secretKeyRef:
       name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
       key: "postgresql-password"
+  POSTGRESQL_POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+      key: "postgresql-postgres-password"
 
 envTpl:
   POSTGRES_USER: "{{ .Values.postgresqlUsername }}"
