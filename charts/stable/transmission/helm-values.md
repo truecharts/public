@@ -23,14 +23,14 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.ports.main.port | int | `9091` |  |
 | service.main.ports.main.targetPort | int | `9091` |  |
 | service.torrent.enabled | bool | `true` |  |
-| service.torrent.ports.tcp.enabled | bool | `true` |  |
-| service.torrent.ports.tcp.port | int | `51413` |  |
-| service.torrent.ports.tcp.protocol | string | `"TCP"` |  |
-| service.torrent.ports.tcp.targetPort | int | `51413` |  |
-| service.torrent.ports.udp.enabled | bool | `true` |  |
-| service.torrent.ports.udp.port | int | `51413` |  |
-| service.torrent.ports.udp.protocol | string | `"UDP"` |  |
-| service.torrent.ports.udp.targetPort | int | `51413` |  |
-| service.torrent.type | string | `"ClusterIP"` |  |
+| service.torrent.ports.torrent.enabled | bool | `true` |  |
+| service.torrent.ports.torrent.port | int | `51413` |  |
+| service.torrent.ports.torrent.protocol | string | `"TCP"` |  |
+| service.torrent.ports.torrent.targetPort | int | `51413` |  |
+| service.torrentudp.enabled | bool | `true` |  |
+| service.torrentudp.ports.torrentudp.enabled | bool | `true` |  |
+| service.torrentudp.ports.torrentudp.port | int | `51413` |  |
+| service.torrentudp.ports.torrentudp.protocol | string | `"UDP"` |  |
+| service.torrentudp.ports.torrentudp.targetPort | int | `51413` |  |
 
 All Rights Reserved - The TrueCharts Project

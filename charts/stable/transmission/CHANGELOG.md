@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-9.0.7"></a>
+### [transmission-9.0.7](https://github.com/truecharts/apps/compare/transmission-9.0.6...transmission-9.0.7) (2021-11-08)
+
+#### Fix
+
+* Split torrent service to allow for the use of LoadBalancer servicetype
+
+
+
 <a name="transmission-9.0.6"></a>
 ### [transmission-9.0.6](https://github.com/truecharts/apps/compare/transmission-9.0.5...transmission-9.0.6) (2021-11-07)
 

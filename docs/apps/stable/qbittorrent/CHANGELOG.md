@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.8"></a>
+### [qbittorrent-9.0.8](https://github.com/truecharts/apps/compare/qbittorrent-9.0.7...qbittorrent-9.0.8) (2021-11-08)
+
+#### Fix
+
+* Split torrent service to allow for the use of LoadBalancer servicetype
+
+
+
 <a name="qbittorrent-9.0.7"></a>
 ### [qbittorrent-9.0.7](https://github.com/truecharts/apps/compare/qbittorrent-9.0.6...qbittorrent-9.0.7) (2021-11-07)
 
