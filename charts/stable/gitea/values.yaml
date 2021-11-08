@@ -10,8 +10,10 @@ service:
         port: 3000
         targetPort: 3000
   ssh:
+    enabled: true
     ports:
       ssh:
+        enabled: true
         port: 2222
         targetPort: 2222
 

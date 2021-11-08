@@ -22,7 +22,9 @@ service:
         targetPort: 1812
   accounting:
     ports:
+      enabled: true
       accounting:
+        enabled: true
         protocol: UDP
         port: 1813
         targetPort: 1813

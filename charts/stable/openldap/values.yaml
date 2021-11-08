@@ -45,8 +45,10 @@ service:
         port: 389
         targetPort: 389
   https:
+    enabled: true
     ports:
       https:
+        enabled: true
         port: 636
         targetPort: 636
 
