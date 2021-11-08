@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="gitea-4.0.11"></a>
+### [gitea-4.0.11](https://github.com/truecharts/apps/compare/gitea-4.0.10...gitea-4.0.11) (2021-11-08)
+
+
+
 <a name="gitea-4.0.10"></a>
 ### [gitea-4.0.10](https://github.com/truecharts/apps/compare/gitea-4.0.9...gitea-4.0.10) (2021-11-08)
 
