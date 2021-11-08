@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-4.0.10"></a>
+### [gitea-4.0.10](https://github.com/truecharts/apps/compare/gitea-4.0.9...gitea-4.0.10) (2021-11-08)
+
+#### Fix
+
+* Correctly enable ports by default on some more Apps
+
+
+
 <a name="gitea-4.0.9"></a>
 ### [gitea-4.0.9](https://github.com/truecharts/apps/compare/gitea-4.0.8...gitea-4.0.9) (2021-11-07)
 

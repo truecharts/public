@@ -54,6 +54,8 @@ You will, however, be able to use all values referenced in the common chart here
 | replication.tls_reqcert | string | `"never"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.https.enabled | bool | `true` |  |
+| service.https.ports.https.enabled | bool | `true` |  |
 | service.https.ports.https.port | int | `636` |  |
 | service.https.ports.https.targetPort | int | `636` |  |
 | service.main.ports.main.port | int | `389` |  |
