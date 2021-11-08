@@ -232,8 +232,6 @@ questions:
                               editable: true
                               required: true
 
-
-                              required: true
         - variable: ssh
           label: "SSH Service"
           description: "The SSH service"
@@ -242,7 +240,7 @@ questions:
             attrs:
 # Include{serviceSelector}
                     - variable: ssh
-                      label: "Main Service Port Configuration"
+                      label: "SSH Service Port Configuration"
                       schema:
                         type: dict
                         attrs:
@@ -288,10 +286,6 @@ questions:
                               default: 2222
                               editable: true
                               required: true
-
-
-                              required: true
-
 
 
   - variable: serviceexpert
