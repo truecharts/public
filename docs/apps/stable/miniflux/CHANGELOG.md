@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-3.0.8"></a>
+### [miniflux-3.0.8](https://github.com/truecharts/apps/compare/miniflux-3.0.7...miniflux-3.0.8) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="miniflux-3.0.7"></a>
 ### [miniflux-3.0.7](https://github.com/truecharts/apps/compare/miniflux-3.0.6...miniflux-3.0.7) (2021-11-07)
 

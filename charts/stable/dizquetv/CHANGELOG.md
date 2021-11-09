@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dizquetv-4.0.7"></a>
+### [dizquetv-4.0.7](https://github.com/truecharts/apps/compare/dizquetv-4.0.6...dizquetv-4.0.7) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="dizquetv-4.0.6"></a>
 ### [dizquetv-4.0.6](https://github.com/truecharts/apps/compare/dizquetv-4.0.5...dizquetv-4.0.6) (2021-11-07)
 

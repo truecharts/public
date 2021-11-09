@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grav-2.0.7"></a>
+### [grav-2.0.7](https://github.com/truecharts/apps/compare/grav-2.0.6...grav-2.0.7) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="grav-2.0.6"></a>
 ### [grav-2.0.6](https://github.com/truecharts/apps/compare/grav-2.0.5...grav-2.0.6) (2021-11-07)
 

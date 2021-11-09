@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gotify-4.0.8"></a>
+### [gotify-4.0.8](https://github.com/truecharts/apps/compare/gotify-4.0.7...gotify-4.0.8) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="gotify-4.0.7"></a>
 ### [gotify-4.0.7](https://github.com/truecharts/apps/compare/gotify-4.0.6...gotify-4.0.7) (2021-11-07)
 

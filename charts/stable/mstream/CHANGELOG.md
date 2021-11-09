@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mstream-1.0.7"></a>
+### [mstream-1.0.7](https://github.com/truecharts/apps/compare/mstream-1.0.6...mstream-1.0.7) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="mstream-1.0.6"></a>
 ### [mstream-1.0.6](https://github.com/truecharts/apps/compare/mstream-1.0.5...mstream-1.0.6) (2021-11-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sonarr-9.0.8"></a>
+### [sonarr-9.0.8](https://github.com/truecharts/apps/compare/sonarr-9.0.7...sonarr-9.0.8) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="sonarr-9.0.7"></a>
 ### [sonarr-9.0.7](https://github.com/truecharts/apps/compare/sonarr-9.0.6...sonarr-9.0.7) (2021-11-07)
 

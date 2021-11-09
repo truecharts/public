@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | globalArguments[0] | string | `"--global.checknewversion"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"traefik"` |  |
-| image.tag | string | `"v2.5.3@sha256:f40028d9771cb29a35392b4cbdd655625596a319b915061e306c503059d0b6f4"` |  |
+| image.tag | string | `"v2.5.4@sha256:87863e384e0a6466bd88fe6295b5d76d26f4280d95cb58af91d8fc7160e35a50"` |  |
 | ingressClass | object | `{"enabled":false,"fallbackApiVersion":"","isDefaultClass":false}` | Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x |
 | ingressRoute | object | `{"dashboard":{"annotations":{},"enabled":true,"labels":{}}}` | Create an IngressRoute for the dashboard |
 | logs | object | `{"access":{"enabled":false,"fields":{"general":{"defaultmode":"keep","names":{}},"headers":{"defaultmode":"drop","names":{}}},"filters":{}},"general":{"level":"ERROR"}}` | Logs https://docs.traefik.io/observability/logs/ |

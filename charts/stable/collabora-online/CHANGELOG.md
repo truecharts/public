@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="collabora-online-9.0.8"></a>
+### [collabora-online-9.0.8](https://github.com/truecharts/apps/compare/collabora-online-9.0.7...collabora-online-9.0.8) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+* update non-major ([#1296](https://github.com/truecharts/apps/issues/1296))
+
+
+
 <a name="collabora-online-9.0.7"></a>
 ### [collabora-online-9.0.7](https://github.com/truecharts/apps/compare/collabora-online-9.0.6...collabora-online-9.0.7) (2021-11-07)
 

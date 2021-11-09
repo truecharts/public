@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wiki-1.0.7"></a>
+### [wiki-1.0.7](https://github.com/truecharts/apps/compare/wiki-1.0.6...wiki-1.0.7) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="wiki-1.0.6"></a>
 ### [wiki-1.0.6](https://github.com/truecharts/apps/compare/wiki-1.0.5...wiki-1.0.6) (2021-11-07)
 

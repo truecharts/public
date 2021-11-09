@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-9.0.8"></a>
+### [syncthing-9.0.8](https://github.com/truecharts/apps/compare/syncthing-9.0.7...syncthing-9.0.8) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="syncthing-9.0.7"></a>
 ### [syncthing-9.0.7](https://github.com/truecharts/apps/compare/syncthing-9.0.6...syncthing-9.0.7) (2021-11-07)
 

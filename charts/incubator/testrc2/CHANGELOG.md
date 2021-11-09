@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="testrc2-0.0.10"></a>
+### [testrc2-0.0.10](https://github.com/truecharts/apps/compare/testrc2-0.0.9...testrc2-0.0.10) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="testrc2-0.0.9"></a>
 ### [testrc2-0.0.9](https://github.com/truecharts/apps/compare/testrc2-0.0.8...testrc2-0.0.9) (2021-11-09)
 

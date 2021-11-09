@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.username | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/collabora"` |  |
-| image.tag | string | `"v6.4.14.2@sha256:5cc88d4e0b6e8ecb3f7b1f0f366f0f71040002d6c68f411d73d0dfdaffd47a0e"` |  |
+| image.tag | string | `"v6.4.14.3@sha256:d4a55425927736cb167a8df37ba6f2a60c0e3e0bacc0ee2496ecb5e535176f60"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `104` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mylar-4.0.7"></a>
+### [mylar-4.0.7](https://github.com/truecharts/apps/compare/mylar-4.0.6...mylar-4.0.7) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="mylar-4.0.6"></a>
 ### [mylar-4.0.6](https://github.com/truecharts/apps/compare/mylar-4.0.5...mylar-4.0.6) (2021-11-07)
 

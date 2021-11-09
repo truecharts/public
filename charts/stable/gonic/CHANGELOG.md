@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gonic-4.0.7"></a>
+### [gonic-4.0.7](https://github.com/truecharts/apps/compare/gonic-4.0.6...gonic-4.0.7) (2021-11-09)
+
+#### Chore
+
+* update non-major deps helm releases ([#1297](https://github.com/truecharts/apps/issues/1297))
+
+
+
 <a name="gonic-4.0.6"></a>
 ### [gonic-4.0.6](https://github.com/truecharts/apps/compare/gonic-4.0.5...gonic-4.0.6) (2021-11-07)
 

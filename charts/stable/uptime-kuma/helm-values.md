@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"louislam/uptime-kuma"` |  |
-| image.tag | string | `"1.10.0-debian@sha256:49e880112773ac264a3c842b139a1978f9a886c9ce047ac6a2651ebd8f3ac075"` |  |
+| image.tag | string | `"1.10.1-debian@sha256:525c48013c57604d0589dbba83f9ee2c17343615c7bf079f09368ba116098b05"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/app/data"` |  |

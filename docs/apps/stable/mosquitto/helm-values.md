@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | auth.enabled | bool | `false` | By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"eclipse-mosquitto"` | image repository |
-| image.tag | string | `"2.0.13@sha256:7deeb5a0b21511e4e4e0a30b8635f05910b13ebdd8fc6a78651ee2f9f21cd724"` | image tag |
+| image.tag | string | `"2.0.13@sha256:7733a3909736a1a5569e461b4d77b71ebcb43aee19156bacd93d20fd165df5f9"` | image tag |
 | persistence.configinc | object | See values.yaml | Configure a persistent volume to place *.conf mosquitto-config-files in. When enabled, this gets set as `include_dir` in the mosquitto config. |
 | persistence.data | object | See values.yaml | Configure a persistent volume to place mosquitto data in. When enabled, this enables `persistence` and `persistence_location` in the mosquitto config. |
 | service | object | See values.yaml | Configures service settings for the chart. Normally this does not need to be modified. |
