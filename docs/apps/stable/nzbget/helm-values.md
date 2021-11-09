@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/nzbget"` |  |
-| image.tag | string | `"v21.1@sha256:258c97cb99fea70b236b2f509bdb9bcad1a74658bdba441200d5e13c46c1437c"` |  |
+| image.tag | string | `"v21.1@sha256:a000653a171eb6779f2d87ddbf0cde5e0ed71a6bd89b35c1047fe67757b3ab1e"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |

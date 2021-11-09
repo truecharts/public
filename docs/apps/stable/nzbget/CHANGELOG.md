@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbget-9.0.7"></a>
+### [nzbget-9.0.7](https://github.com/truecharts/apps/compare/nzbget-9.0.6...nzbget-9.0.7) (2021-11-09)
+
+#### Chore
+
+* update non-major ([#1299](https://github.com/truecharts/apps/issues/1299))
+
+
+
 <a name="nzbget-9.0.6"></a>
 ### [nzbget-9.0.6](https://github.com/truecharts/apps/compare/nzbget-9.0.5...nzbget-9.0.6) (2021-11-07)
 

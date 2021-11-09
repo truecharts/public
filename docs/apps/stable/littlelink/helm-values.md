@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envFrom[0].configMapRef.name | string | `"littlelinkconfig"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/techno-tim/littlelink-server"` |  |
-| image.tag | string | `"latest@sha256:0970ab9be1900adddb660066ffba864eb57206bec3baa8c0b8827d9193136798"` |  |
+| image.tag | string | `"latest@sha256:f53be88801f44a3294679853aa1ece7f663414222e902ab8bd42fd6e9e66c2e6"` |  |
 | littlelink.avatar_2x_url | string | `"https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_400x400.jpg"` |  |
 | littlelink.avatar_alt | string | `"techno tim profile pic"` |  |
 | littlelink.avatar_url | string | `"https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"` |  |
