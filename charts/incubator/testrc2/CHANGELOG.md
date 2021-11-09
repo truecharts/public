@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="testrc2-0.0.9"></a>
+### [testrc2-0.0.9](https://github.com/truecharts/apps/compare/testrc2-0.0.8...testrc2-0.0.9) (2021-11-09)
+
+#### Chore
+
+* update non-major docker tags ([#1300](https://github.com/truecharts/apps/issues/1300))
+* update non-major ([#1296](https://github.com/truecharts/apps/issues/1296))
+
+
+
 <a name="testrc2-0.0.8"></a>
 ### [testrc2-0.0.8](https://github.com/truecharts/apps/compare/testrc2-0.0.7...testrc2-0.0.8) (2021-11-07)
 

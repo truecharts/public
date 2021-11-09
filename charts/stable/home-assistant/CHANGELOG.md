@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-11.0.10"></a>
+### [home-assistant-11.0.10](https://github.com/truecharts/apps/compare/home-assistant-11.0.9...home-assistant-11.0.10) (2021-11-09)
+
+#### Chore
+
+* update non-major docker tags ([#1300](https://github.com/truecharts/apps/issues/1300))
+
+
+
 <a name="home-assistant-11.0.9"></a>
 ### [home-assistant-11.0.9](https://github.com/truecharts/apps/compare/home-assistant-11.0.8...home-assistant-11.0.9) (2021-11-07)
 
