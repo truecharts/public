@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-9.0.9"></a>
+### [kms-9.0.9](https://github.com/truecharts/apps/compare/kms-9.0.8...kms-9.0.9) (2021-11-09)
+
+#### Chore
+
+* update pykmsorg/py-kms:minimal docker digest to 769cc69 ([#1303](https://github.com/truecharts/apps/issues/1303))
+
+
+
 <a name="kms-9.0.8"></a>
 ### [kms-9.0.8](https://github.com/truecharts/apps/compare/kms-9.0.7...kms-9.0.8) (2021-11-09)
 
