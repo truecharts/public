@@ -21,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/postgresql"` |  |
-| image.tag | string | `"14.0.0@sha256:a95e5588c9f716bfc716b090f3cea41cbefb0d2c6e1c3c6de5514a5c2d1ce416"` |  |
+| image.tag | string | `"14.0.0@sha256:87dda5bc47368d3a895c481ddabdb8b7bdfe8ab40fad599a8c0cc0673d619ce1"` |  |
 | persistence.db.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.db.enabled | bool | `true` |  |
 | persistence.db.mountPath | string | `"/bitnami/postgresql"` |  |
@@ -36,6 +36,5 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `5432` |  |
 | service.main.ports.main.targetPort | int | `5432` |  |
-| service.type | string | `"ClusterIP"` |  |
 
 All Rights Reserved - The TrueCharts Project
