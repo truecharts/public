@@ -29,6 +29,7 @@ service:
     enabled: true
     ports:
       dns-tcp:
+        type: TCP
         enabled: true
         port: 53
         targetPort: 53
@@ -36,6 +37,7 @@ service:
     enabled: true
     ports:
       dns:
+        type: UDP
         enabled: true
         port: 53
         targetPort: 53
