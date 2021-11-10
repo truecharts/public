@@ -111,6 +111,7 @@ jobs:
         run: |
           helm repo add truecharts https://truecharts.org
           helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add metallb https://metallb.github.io/metallb
           helm repo update
 
       - uses: actions/setup-python@v2
