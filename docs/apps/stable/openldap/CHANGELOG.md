@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-4.0.10"></a>
+### [openldap-4.0.10](https://github.com/truecharts/apps/compare/openldap-4.0.9...openldap-4.0.10) (2021-11-10)
+
+#### Fix
+
+* fix release.name issues when installing
+
+
+
 <a name="openldap-4.0.9"></a>
 ### [openldap-4.0.9](https://github.com/truecharts/apps/compare/openldap-4.0.8...openldap-4.0.9) (2021-11-09)
 
