@@ -31,6 +31,21 @@ Regex uesd to match those: `^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0
 You can try live [here](https://regex101.com/r/LyDc6u/1)
 More detailed info can be found [here](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory)
 
+#### Paths
+
+Accepted formats are:
+
+- Paths prefixed with `/`, without whitespace characters on begin or end of each segment (eg. `/media`, `/media/shows`, `/media/movies/`)
+
+Accepted characters are:
+
+- `a-z`, `A-Z`
+- `0-9`
+- `.`, `-`, `_`
+- ` ` (Whitespace, Not on begin or end)
+
+Regex used to match those: `^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$`
+You can try live [here](https://regex101.com/r/WjSpXg/1)
 ---
 
 _If you find a field that you think it needs validation, please open an issue on github_
