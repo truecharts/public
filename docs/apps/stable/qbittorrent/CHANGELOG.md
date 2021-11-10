@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.10"></a>
+### [qbittorrent-9.0.10](https://github.com/truecharts/apps/compare/qbittorrent-9.0.9...qbittorrent-9.0.10) (2021-11-09)
+
+#### Fix
+
+* fix some port issues
+
+
+
 <a name="qbittorrent-9.0.9"></a>
 ### [qbittorrent-9.0.9](https://github.com/truecharts/apps/compare/qbittorrent-9.0.8...qbittorrent-9.0.9) (2021-11-09)
 

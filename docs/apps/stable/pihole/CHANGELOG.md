@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.8"></a>
+### [pihole-4.0.8](https://github.com/truecharts/apps/compare/pihole-4.0.7...pihole-4.0.8) (2021-11-09)
+
+#### Fix
+
+* fix some port issues
+
+
+
 <a name="pihole-4.0.7"></a>
 ### [pihole-4.0.7](https://github.com/truecharts/apps/compare/pihole-4.0.6...pihole-4.0.7) (2021-11-09)
 
