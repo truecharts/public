@@ -389,6 +389,7 @@ prep_helm() {
     if [[ -z "$standalone" ]]; then
     helm repo add truecharts https://truecharts.org
     helm repo add bitnami https://charts.bitnami.com/bitnami
+    helm repo add metallb https://metallb.github.io/metallb
     helm repo update
     fi
     }
