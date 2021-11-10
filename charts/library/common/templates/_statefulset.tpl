@@ -66,7 +66,7 @@ spec:
         {{- if $vct.storageClass }}
         storageClassName: {{ if (eq "-" $vct.storageClass) }}""{{- else if (eq "SCALE-ZFS" $vct.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" $releaseName ) }}{{- else }}{{ $vct.storageClass | quote }}{{- end }}
         {{- else if $values.ixChartContext }}
-        storageClassName: {{ printf "%v-%v"  "ix-storage-class" .Release.Name }}
+        storageClassName: {{ printf "%v-%v"  "ix-storage-class" $releaseName }}
         {{- end }}
     {{- end }}
 {{- end }}
