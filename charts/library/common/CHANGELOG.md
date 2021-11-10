@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="common-8.5.5"></a>
+### [common-8.5.5](https://github.com/truecharts/apps/compare/common-8.5.4...common-8.5.5) (2021-11-10)
+
+#### Chore
+
+* update non-major ([#1302](https://github.com/truecharts/apps/issues/1302))
+* update non-major ([#1296](https://github.com/truecharts/apps/issues/1296))
+
+#### Fix
+
+* fix release.name issues when installing
+
+
+
 <a name="common-8.5.4"></a>
 ### [common-8.5.4](https://github.com/truecharts/apps/compare/common-8.5.3...common-8.5.4) (2021-11-08)
 
