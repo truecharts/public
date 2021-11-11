@@ -1,13 +1,13 @@
 # Introduction
 
-A management console for minio server and operator
+Minio server with web console
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://github.com/minio/console>
+* <https://github.com/minio/minio>
 
 ## Requirements
 
