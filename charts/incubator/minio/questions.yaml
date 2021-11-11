@@ -167,12 +167,6 @@ questions:
                               editable: true
                               required: true
 
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      type: dict
-      attrs:
         - variable: console
           label: "Console Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
