@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "0.12.2"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.5.4
+description: Minio server
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/minio
+icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+keywords:
+- minio
+- s3
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: truecharts.org
+name: minio
+sources:
+- https://github.com/minio/minio
+version: 1.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
