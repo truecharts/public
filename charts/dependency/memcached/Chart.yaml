@@ -3,7 +3,8 @@ appVersion: "1.6.12"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.5.4
+  version: 8.5.6
+  alias: common-memcached
 deprecated: false
 description: Memcached is a memory-backed database caching solution
 home: https://github.com/truecharts/apps/tree/master/stable/memcached
@@ -22,7 +23,7 @@ sources:
   - https://github.com/bitnami/bitnami-docker-memcached
   - http://memcached.org/
 type: application
-version: 0.0.1
+version: 1.0.0
 annotations:
   truecharts.org/catagories: |
     - database
