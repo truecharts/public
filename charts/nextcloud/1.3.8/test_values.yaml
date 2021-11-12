@@ -9,18 +9,18 @@ environmentVariables: []
 image:
   pullPolicy: IfNotPresent
   repository: nextcloud
-  tag: '22.2'
-nginx:
-  image:
-    repository: nginx
-    tag: 1.21.3
-    pullPolicy: IfNotPresent
+  tag: 22.2.1
 ixChartContext: {}
 nextcloud:
   datadir: /var/www/html/data
   host: nextcloud.kube.home
   password: changeme
   username: admin
+nginx:
+  image:
+    pullPolicy: IfNotPresent
+    repository: nginx
+    tag: 1.21.3
 postgresAppVolumeMounts:
   postgres-backup:
     emptyDir: true
