@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.1.16"></a>
+### [postgresql-5.1.16](https://github.com/truecharts/apps/compare/postgresql-5.1.15...postgresql-5.1.16) (2021-11-12)
+
+#### Chore
+
+* update non-major ([#1302](https://github.com/truecharts/apps/issues/1302))
+
+#### Feat
+
+* move deps to incubator ([#1311](https://github.com/truecharts/apps/issues/1311))
+
+#### Fix
+
+* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
+
+
+
 <a name="postgresql-5.1.15"></a>
 ### [postgresql-5.1.15](https://github.com/truecharts/apps/compare/postgresql-5.1.14...postgresql-5.1.15) (2021-11-09)
 
