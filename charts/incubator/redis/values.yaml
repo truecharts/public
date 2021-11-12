@@ -104,7 +104,17 @@ probes:
   # @default -- See below
   startup:
     # -- Enable the startup probe
-    enabled: false
+    enabled: true
+    custom: true
+    # -- The spec field contains the values for the default livenessProbe.
+    # If you selected `custom: true`, this field holds the definition of the livenessProbe.
+    # @default -- See below
+    spec:
+      exec:
+        command:
+          - sh
+          - -c
+          - /health/ping_readiness_local.sh 2
 
 persistence:
   # -- redis-health configmap mount
