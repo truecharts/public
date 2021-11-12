@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="gitea-4.0.13"></a>
+### [gitea-4.0.13](https://github.com/truecharts/apps/compare/gitea-4.0.12...gitea-4.0.13) (2021-11-12)
+
+#### Feat
+
+* move gitea to our own memcached chart ([#1313](https://github.com/truecharts/apps/issues/1313))
+
+#### Fix
+
+* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
+
+
+
 <a name="gitea-4.0.12"></a>
 ### [gitea-4.0.12](https://github.com/truecharts/apps/compare/gitea-4.0.11...gitea-4.0.12) (2021-11-09)
 
