@@ -4,9 +4,6 @@
 {{/* Render configmap for nextcloud */}}
 {{- include "nextcloud.configmap" . }}
 
-{{/* Render secrets for nextcloud */}}
-{{- include "nextcloud.secrets" . }}
-
 {{- $newMiddlewares :=  append .Values.ingress.main.fixedMiddlewares "tc-nextcloud-chain" }}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
 
