@@ -53,7 +53,7 @@ envValueFrom:
   REDIS_HOST:
     secretKeyRef:
       name: rediscreds
-      key: masterhost
+      key: plainhost
   REDIS_HOST_PASSWORD:
     secretKeyRef:
       name: rediscreds
@@ -64,16 +64,6 @@ persistence:
     enabled: true
     mountPath: "/var/www/html"
     type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-
-  redismaster:
-    noMount: true
-    forceName: "redismaster"
-    enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
 
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
@@ -155,18 +145,5 @@ postgresql:
 # Enabled redis
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
 redis:
-  volumePermissions:
-    enabled: true
-  architecture: standalone
   enabled: true
-  auth:
-    existingSecret: rediscreds
-    existingSecretPasswordKey: redis-password
-  master:
-    persistence:
-      enabled: false
-      existingClaim: redismaster
-  replica:
-    replicaCount: 0
-    persistence:
-      enabled: false
+  existingSecret: "rediscreds"
