@@ -7,11 +7,11 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 5.1.15
+  version: 5.1.16
 - condition: redis.enabled
   name: redis
   repository: https://truecharts.org
-  version: 0.0.2
+  version: 1.0.0
 deprecated: false
 description: A private cloud server that puts the control and security of your own
   data back into your hands.
