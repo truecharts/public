@@ -4,4 +4,7 @@
 
 {{- /* Autogenerate postgresql passwords if needed */ -}}
 {{- include "common.dependencies.postgresql.injector" . }}
+
+{{- /* Autogenerate redis passwords if needed */ -}}
+{{- include "common.dependencies.redis.injector" . }}
 {{- end -}}

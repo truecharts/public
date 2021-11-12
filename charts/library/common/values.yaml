@@ -946,3 +946,11 @@ postgresql:
   existingSecret: "dbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
+
+# -- Redis dependency configuration
+# @default -- See below
+redis:
+  enabled: false
+  existingSecret: "rediscreds"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  url: {}
