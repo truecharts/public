@@ -1,5 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "authelia.secrets" -}}
+---
 
 apiVersion: v1
 kind: Secret
