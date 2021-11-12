@@ -98,6 +98,7 @@ questions:
           schema:
             type: string
             default: "minio"
+            required: true
         - variable: MINIO_BROWSER_REDIRECT_URL
           label: "MINIO_BROWSER_REDIRECT_URL"
           schema:
