@@ -27,7 +27,6 @@ data:
   plainhost: {{ ( printf "%v-%v" .Release.Name "redis" ) | b64enc | quote }}
 type: Opaque
 {{- $_ := set .Values.redis "redisPassword" ( $dbPass | quote ) }}
-{{- $_ := set .Values.redis "redispassword" ( $pgPass | quote ) }}
 {{- $_ := set .Values.redis.url "plain" ( ( printf "%v-%v" .Release.Name "redis" ) | quote ) }}
 {{- $_ := set .Values.redis.url "plainhost" ( ( printf "%v-%v" .Release.Name "redis" ) | quote ) }}
 {{- $_ := set .Values.redis.url "plainport" ( ( printf "%v-%v:5432" .Release.Name "redis" ) | quote ) }}
