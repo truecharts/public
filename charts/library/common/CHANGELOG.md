@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.5.6"></a>
+### [common-8.5.6](https://github.com/truecharts/apps/compare/common-8.5.5...common-8.5.6) (2021-11-12)
+
+#### Feat
+
+* add redis App ([#1309](https://github.com/truecharts/apps/issues/1309))
+
+
+
 <a name="common-8.5.5"></a>
 ### [common-8.5.5](https://github.com/truecharts/apps/compare/common-8.5.4...common-8.5.5) (2021-11-10)
 

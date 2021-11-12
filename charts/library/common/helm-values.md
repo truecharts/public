@@ -198,6 +198,8 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | rbac.enabled | bool | `false` | Enables or disables the ClusterRole and ClusterRoleBinding |
 | rbac.rules | object | `{}` | Set Rules on the ClusterRole |
 | rbac.subjects | object | `{}` | Add subjects to the ClusterRoleBinding. includes the above created serviceaccount |
+| redis | object | See below | Redis dependency configuration |
+| redis.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
 | resources | object | `{"limits":{"cpu":"4000m","memory":"8Gi"},"requests":{"cpu":"10m","memory":"50Mi"}}` | Set the resource requests / limits for the main container. |
 | schedulerName | string | `nil` | Allows specifying a custom scheduler name |
 | secret | object | `{}` | Use this to populate a secret with the values you specify. Be aware that these values are not encrypted by default, and could therefore visible to anybody with access to the values.yaml file. |

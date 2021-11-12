@@ -7,4 +7,3 @@
 #### Feat
 
 * add memcached App ([#1307](https://github.com/truecharts/apps/issues/1307))
-

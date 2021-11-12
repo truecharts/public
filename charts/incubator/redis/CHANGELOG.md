@@ -1,0 +1,10 @@
+# Changelog<br>
+
+
+<a name="redis-0.0.1"></a>
+### redis-0.0.1 (2021-11-12)
+
+#### Feat
+
+* add redis App ([#1309](https://github.com/truecharts/apps/issues/1309))
+
