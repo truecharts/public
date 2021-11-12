@@ -4,34 +4,6 @@
 
 apiVersion: v1
 kind: Secret
-metadata:
-  labels:
-    {{- include "common.labels" . | nindent 4 }}
-  name: rediscreds
-{{- $redisprevious := lookup "v1" "Secret" .Release.Namespace "rediscreds" }}
-{{- $redisPass := "" }}
-{{- $sentinelPass := "" }}
-data:
-{{- if $redisprevious }}
-  {{- $redisPass = ( index $redisprevious.data "redis-password" ) | b64dec  }}
-  {{- $sentinelPass = ( index $redisprevious.data "redis-password" ) | b64dec  }}
-  redis-password: {{ ( index $redisprevious.data "redis-password" ) }}
-  sentinel-password: {{ ( index $redisprevious.data "sentinel-password" ) }}
-{{- else }}
-  {{- $redisPass = randAlphaNum 50 }}
-  {{- $sentinelPass = randAlphaNum 50 }}
-  redis-password: {{ $redisPass | b64enc | quote }}
-  sentinel-password: {{ $sentinelPass | b64enc | quote }}
-{{- end }}
-  masterhost: {{ ( printf "%v-%v" .Release.Name "redis-master" ) | b64enc | quote }}
-  slavehost: {{ ( printf "%v-%v" .Release.Name "redis-slave" ) | b64enc | quote }}
-type: Opaque
-
-
----
-
-apiVersion: v1
-kind: Secret
 type: Opaque
 metadata:
   name: authelia-secrets
@@ -65,16 +37,9 @@ data:
 
   STORAGE_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
 
-  {{- if $redisprevious }}
-  REDIS_PASSWORD: {{ ( index $redisprevious.data "redis-password" ) }}
+  REDIS_PASSWORD: {{ .Values.redis.redisPassword | trimAll "\"" | b64enc }}
   {{- if .Values.redisProvider.high_availability.enabled}}
-  REDIS_SENTINEL_PASSWORD: {{ ( index $redisprevious.data "sentinel-password" ) }}
-  {{- end }}
-  {{- else }}
-  REDIS_PASSWORD: {{ $redisPass | b64enc | quote }}
-  {{- if .Values.redisProvider.high_availability.enabled}}
-  REDIS_SENTINEL_PASSWORD: {{ $sentinelPass | b64enc | quote }}
-  {{- end }}
+  REDIS_SENTINEL_PASSWORD: {{ .Values.redis.sentinelPassword | trimAll "\"" | b64enc }}
   {{- end }}
 
   {{- if $autheliaprevious }}
