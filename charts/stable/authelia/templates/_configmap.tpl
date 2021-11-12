@@ -125,7 +125,7 @@ data:
       remember_me_duration: {{ default "1M" $session.remember_me_duration }}
     {{- end }}
       redis:
-        host: {{ ( printf "%v-%v" .Release.Name "redis-master" ) }}
+        host: {{ .Values.redis.url.plain | trimAll "\"" | b64enc }}
       {{- with $redis := .Values.redisProvider }}
         port: {{ default 6379 $redis.port }}
         {{- if not (eq $redis.username "") }}
