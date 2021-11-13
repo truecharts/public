@@ -249,7 +249,6 @@ questions:
                               editable: true
                               required: true
 
-                              default: 22000
                     - variable: udp
                       label: "UDP Service Port Configuration"
                       schema:
@@ -304,7 +303,6 @@ questions:
                               editable: true
                               required: true
 
-                              default: 22000
         - variable: discovery
           label: "Syncthing Listening Service"
           description: "This service is used to process incoming connections directly to this Syncthing instance"
@@ -410,7 +408,6 @@ questions:
                               editable: true
                               required: true
 
-                              default: 21027
 
   - variable: serviceexpert
     group: "Networking and Services"
