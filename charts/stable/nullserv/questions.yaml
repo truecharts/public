@@ -137,20 +137,14 @@ questions:
                                     default: 80
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 80
                               editable: true
                               required: true
 
-
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      type: dict
-      attrs:
         - variable: https
           label: "https Service"
           description: "The https service"
@@ -199,7 +193,8 @@ questions:
                                     default: 443
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 443

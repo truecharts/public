@@ -156,14 +156,14 @@ questions:
                                     default: 32400
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 32400
                               editable: true
                               required: true
 
-                              default: 32400
 
   - variable: serviceexpert
     group: "Networking and Services"

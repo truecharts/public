@@ -144,7 +144,8 @@ questions:
                                     default: 8090
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8090
@@ -200,7 +201,8 @@ questions:
                                     default: 19444
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 19444
@@ -256,7 +258,8 @@ questions:
                                     default: 19445
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 19445
@@ -312,7 +315,8 @@ questions:
                                     default: 19333
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 19333

@@ -161,7 +161,8 @@ questions:
                                     default: 9000
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 9002
@@ -206,7 +207,7 @@ questions:
                                   description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
                                   schema:
                                     type: int
-                                    min: 9001
+                                    min: 9000
                                     max: 65535
                                 - variable: targetPort
                                   label: "Target Port"
@@ -216,7 +217,8 @@ questions:
                                     default: 9001
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 9001

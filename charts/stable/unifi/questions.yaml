@@ -144,7 +144,8 @@ questions:
                                     default: 8443
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8443
@@ -200,7 +201,8 @@ questions:
                                     default: 8080
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8080
@@ -255,7 +257,8 @@ questions:
                                     default: 3478
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 3478
@@ -268,48 +271,7 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the service"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: type
-                label: "Service Type"
-                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
-                schema:
-                  type: string
-                  default: "LoadBalancer"
-                  enum:
-                    - value: "NodePort"
-                      description: "NodePort"
-                    - value: "ClusterIP"
-                      description: "ClusterIP"
-                    - value: "LoadBalancer"
-                      description: "LoadBalancer"
-              - variable: loadBalancerIP
-                label: "LoadBalancer IP"
-                description: "LoadBalancerIP"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: string
-                  default: ""
-              - variable: externalIPs
-                label: "External IP's"
-                description: "External IP's"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: list
-                  default: []
-                  items:
-                    - variable: externalIP
-                      label: "External IP"
-                      schema:
-                        type: string
-              - variable: ports
-                label: "Service's Port(s) Configuration"
-                schema:
-                  type: dict
-                  attrs:
+# Include{serviceSelector}
                     - variable: speedtest
                       label: "TCP Service Port Configuration"
                       schema:
@@ -351,7 +313,8 @@ questions:
                                     default: 6789
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 6789
@@ -364,48 +327,7 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the service"
-                schema:
-                  type: boolean
-                  default: false
-              - variable: type
-                label: "Service Type"
-                description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
-                schema:
-                  type: string
-                  default: "LoadBalancer"
-                  enum:
-                    - value: "NodePort"
-                      description: "NodePort"
-                    - value: "ClusterIP"
-                      description: "ClusterIP"
-                    - value: "LoadBalancer"
-                      description: "LoadBalancer"
-              - variable: loadBalancerIP
-                label: "LoadBalancer IP"
-                description: "LoadBalancerIP"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: string
-                  default: ""
-              - variable: externalIPs
-                label: "External IP's"
-                description: "External IP's"
-                schema:
-                  show_if: [["type", "=", "LoadBalancer"]]
-                  type: list
-                  default: []
-                  items:
-                    - variable: externalIP
-                      label: "External IP"
-                      schema:
-                        type: string
-              - variable: ports
-                label: "Service's Port(s) Configuration"
-                schema:
-                  type: dict
-                  attrs:
+# Include{serviceSelector}
                     - variable: web
                       label: "Web Service Port Configuration"
                       schema:
@@ -447,7 +369,8 @@ questions:
                                     default: 8880
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8880
@@ -495,7 +418,8 @@ questions:
                                     default: 8843
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8843

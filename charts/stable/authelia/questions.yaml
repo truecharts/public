@@ -841,14 +841,12 @@ questions:
                                     default: 9091
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 9091
                               editable: true
-                              required: true
-
-
                               required: true
 
   - variable: serviceexpert

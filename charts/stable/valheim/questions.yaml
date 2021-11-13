@@ -235,7 +235,8 @@ questions:
                                     default: 9010
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 9010
@@ -291,7 +292,8 @@ questions:
                                     default: 9011
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 9011
@@ -347,7 +349,8 @@ questions:
                                     default: 2456
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 2456
@@ -395,7 +398,8 @@ questions:
                                     default: 2457
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 2457
@@ -443,7 +447,8 @@ questions:
                                     default: 2458
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 2458

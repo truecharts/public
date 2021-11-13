@@ -167,15 +167,14 @@ questions:
                                     default: 80
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 80
                               editable: true
                               required: true
 
-
-                              required: true
 
   - variable: persistence
     label: "Integrated Persistent Storage"

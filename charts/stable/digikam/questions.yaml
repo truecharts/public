@@ -144,7 +144,8 @@ questions:
                                     default: 3000
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 3000
