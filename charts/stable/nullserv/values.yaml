@@ -40,6 +40,9 @@ service:
       main:
         port: 80
         targetPort: 80
+  https:
+    type: NodePort
+    ports:
       https:
         enabled: true
         port: 443

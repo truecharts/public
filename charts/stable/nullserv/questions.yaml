@@ -144,13 +144,6 @@ questions:
                               editable: true
                               required: true
 
-
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service(s)"
-    schema:
-      type: dict
-      attrs:
         - variable: https
           label: "https Service"
           description: "The https service"
