@@ -8,7 +8,7 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 ## Source Code
 
 * <https://github.com/transmission/transmission>
-* <https://hub.docker.com/r/linuxserver/transmission>
+* <https://ghcr.io/k8s-at-home/transmission>
 
 ## Requirements
 
