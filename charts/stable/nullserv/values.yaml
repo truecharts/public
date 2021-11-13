@@ -41,7 +41,7 @@ service:
         port: 80
         targetPort: 80
   https:
-    type: NodePort
+    enabled: true
     ports:
       https:
         enabled: true
