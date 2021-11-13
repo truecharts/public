@@ -294,7 +294,7 @@ questions:
                   type: string
                   default: "/data"
                   hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+\/?)+$'
+                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
