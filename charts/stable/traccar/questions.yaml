@@ -150,7 +150,8 @@ questions:
                                     default: 8082
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8082

@@ -724,7 +724,8 @@ questions:
                                 - value: TCP
                                   description: "TCP"
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               required: true
@@ -786,7 +787,8 @@ questions:
                                     default: 9100
 
                           - variable: port
-                            label: "Container Port"
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 9100
