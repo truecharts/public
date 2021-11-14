@@ -206,7 +206,13 @@ questions:
                               default: 22000
                               editable: true
                               required: true
-
+        - variable: listeners-udp
+          label: "Syncthing Listening Service"
+          description: "This service is used to process incoming connections directly to this Syncthing instance"
+          schema:
+            type: dict
+            attrs:
+# Include{serviceSelector}
                     - variable: udp
                       label: "UDP Service Port Configuration"
                       schema:
