@@ -1,6 +1,18 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.11"></a>
+### [traefik-10.0.11](https://github.com/truecharts/apps/compare/traefik-10.0.10...traefik-10.0.11) (2021-11-14)
+
+#### Chore
+
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
+
+
+
 <a name="traefik-10.0.10"></a>
 ### [traefik-10.0.10](https://github.com/truecharts/apps/compare/traefik-10.0.9...traefik-10.0.10) (2021-11-14)
 

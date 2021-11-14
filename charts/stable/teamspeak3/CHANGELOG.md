@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-2.0.8"></a>
+### [teamspeak3-2.0.8](https://github.com/truecharts/apps/compare/teamspeak3-2.0.7...teamspeak3-2.0.8) (2021-11-14)
+
+#### Chore
+
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
+
+#### Fix
+
+* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
+* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
+
+
+
 <a name="teamspeak3-2.0.7"></a>
 ### [teamspeak3-2.0.7](https://github.com/truecharts/apps/compare/teamspeak3-2.0.6...teamspeak3-2.0.7) (2021-11-09)
 

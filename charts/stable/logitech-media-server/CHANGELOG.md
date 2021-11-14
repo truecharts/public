@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.12"></a>
+### [logitech-media-server-2.0.12](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.11...logitech-media-server-2.0.12) (2021-11-14)
+
+#### Chore
+
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+
+
+
 <a name="logitech-media-server-2.0.11"></a>
 ### [logitech-media-server-2.0.11](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.10...logitech-media-server-2.0.11) (2021-11-14)
 

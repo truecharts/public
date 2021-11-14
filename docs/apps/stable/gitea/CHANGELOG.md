@@ -1,6 +1,18 @@
 # Changelog<br>
 
 
+<a name="gitea-4.0.14"></a>
+### [gitea-4.0.14](https://github.com/truecharts/apps/compare/gitea-4.0.13...gitea-4.0.14) (2021-11-14)
+
+#### Chore
+
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+
+
+
 <a name="gitea-4.0.13"></a>
 ### [gitea-4.0.13](https://github.com/truecharts/apps/compare/gitea-4.0.12...gitea-4.0.13) (2021-11-12)
 

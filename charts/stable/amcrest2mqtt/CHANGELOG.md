@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-2.0.10"></a>
+### [amcrest2mqtt-2.0.10](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.9...amcrest2mqtt-2.0.10) (2021-11-14)
+
+#### Chore
+
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+
+
+
 <a name="amcrest2mqtt-2.0.9"></a>
 ### [amcrest2mqtt-2.0.9](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.8...amcrest2mqtt-2.0.9) (2021-11-09)
 

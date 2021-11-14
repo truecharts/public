@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="unpackerr-4.0.8"></a>
+### [unpackerr-4.0.8](https://github.com/truecharts/apps/compare/unpackerr-4.0.7...unpackerr-4.0.8) (2021-11-14)
+
+#### Chore
+
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+
+#### Fix
+
+* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
+
+
+
 <a name="unpackerr-4.0.7"></a>
 ### [unpackerr-4.0.7](https://github.com/truecharts/apps/compare/unpackerr-4.0.6...unpackerr-4.0.7) (2021-11-09)
 

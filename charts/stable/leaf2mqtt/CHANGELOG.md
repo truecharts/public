@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-2.0.8"></a>
+### [leaf2mqtt-2.0.8](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.7...leaf2mqtt-2.0.8) (2021-11-14)
+
+#### Chore
+
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+
+
+
 <a name="leaf2mqtt-2.0.7"></a>
 ### [leaf2mqtt-2.0.7](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.6...leaf2mqtt-2.0.7) (2021-11-09)
 

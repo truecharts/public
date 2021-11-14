@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-1.0.9"></a>
+### [zigbee2mqtt-1.0.9](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.8...zigbee2mqtt-1.0.9) (2021-11-14)
+
+#### Chore
+
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+
+#### Fix
+
+* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
+* sync securityContext from values to questions ([#1323](https://github.com/truecharts/apps/issues/1323))
+* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
+
+
+
 <a name="zigbee2mqtt-1.0.8"></a>
 ### [zigbee2mqtt-1.0.8](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.7...zigbee2mqtt-1.0.8) (2021-11-09)
 

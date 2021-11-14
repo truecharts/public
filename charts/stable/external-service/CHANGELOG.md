@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="external-service-4.0.8"></a>
+### [external-service-4.0.8](https://github.com/truecharts/apps/compare/external-service-4.0.7...external-service-4.0.8) (2021-11-14)
+
+#### Chore
+
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+
+
+
 <a name="external-service-4.0.7"></a>
 ### [external-service-4.0.7](https://github.com/truecharts/apps/compare/external-service-4.0.6...external-service-4.0.7) (2021-11-09)
 

@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="wikijs-3.0.9"></a>
+### [wikijs-3.0.9](https://github.com/truecharts/apps/compare/wikijs-3.0.8...wikijs-3.0.9) (2021-11-14)
+
+#### Chore
+
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+
+#### Fix
+
+* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
+* Add env to load config file from persistence ([#1317](https://github.com/truecharts/apps/issues/1317))
+
+
+
 <a name="wikijs-3.0.8"></a>
 ### [wikijs-3.0.8](https://github.com/truecharts/apps/compare/wikijs-3.0.7...wikijs-3.0.8) (2021-11-09)
 

@@ -18,6 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"0.6.0@sha256:969fa0500d01b3759387fb779b8282c39676841e5e719c5396535f9f5eaf8d80"` | image tag |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-4.0.9"></a>
+### [k8s-gateway-4.0.9](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.8...k8s-gateway-4.0.9) (2021-11-14)
+
+#### Chore
+
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+
+
+
 <a name="k8s-gateway-4.0.8"></a>
 ### [k8s-gateway-4.0.8](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.7...k8s-gateway-4.0.8) (2021-11-14)
 

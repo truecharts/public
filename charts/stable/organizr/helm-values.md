@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.repository | string | `"organizr/organizr"` |  |
-| image.tag | string | `"latest@sha256:dd4561944732db61d69ea1d7c458049ac7c6bd987bf9f71d92df58eb69235964"` |  |
+| image.tag | string | `"latest@sha256:d8b03b33ea1c65023ef7085bf06d13b0045a099e82fc833c9ac35c071b3e88a8"` |  |
 | persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |

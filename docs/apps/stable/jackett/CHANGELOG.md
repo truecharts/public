@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.15"></a>
+### [jackett-9.0.15](https://github.com/truecharts/apps/compare/jackett-9.0.14...jackett-9.0.15) (2021-11-14)
+
+#### Chore
+
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
+
+#### Fix
+
+* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
+
+
+
 <a name="jackett-9.0.14"></a>
 ### [jackett-9.0.14](https://github.com/truecharts/apps/compare/jackett-9.0.13...jackett-9.0.14) (2021-11-09)
 

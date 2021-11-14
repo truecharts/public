@@ -1,6 +1,22 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.12"></a>
+### [custom-app-3.0.12](https://github.com/truecharts/apps/compare/custom-app-3.0.11...custom-app-3.0.12) (2021-11-14)
+
+#### Chore
+
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
+
+#### Fix
+
+* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
+
+
+
 <a name="custom-app-3.0.11"></a>
 ### [custom-app-3.0.11](https://github.com/truecharts/apps/compare/custom-app-3.0.10...custom-app-3.0.11) (2021-11-09)
 

@@ -25,24 +25,16 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
-| envValueFrom.REDIS_HOST.secretKeyRef.key | string | `"masterhost"` |  |
+| envValueFrom.REDIS_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.REDIS_HOST.secretKeyRef.name | string | `"rediscreds"` |  |
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.key | string | `"redis-password"` |  |
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"docker.io/nextcloud"` |  |
 | image.tag | string | `"22.2.0@sha256:3a10a9b27c467bd8129de22ce502cb7e8cb1476783740e307766eabdfa6f7c89"` |  |
-| persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html"` |  |
-| persistence.data.size | string | `"100Gi"` |  |
 | persistence.data.type | string | `"pvc"` |  |
-| persistence.redismaster.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.redismaster.enabled | bool | `true` |  |
-| persistence.redismaster.forceName | string | `"redismaster"` |  |
-| persistence.redismaster.noMount | bool | `true` |  |
-| persistence.redismaster.size | string | `"100Gi"` |  |
-| persistence.redismaster.type | string | `"pvc"` |  |
 | podSecurityContext.fsGroup | int | `33` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
@@ -57,15 +49,8 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.readiness.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.startup | object | See below | Startup probe configuration |
 | probes.startup.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
-| redis.architecture | string | `"standalone"` |  |
-| redis.auth.existingSecret | string | `"rediscreds"` |  |
-| redis.auth.existingSecretPasswordKey | string | `"redis-password"` |  |
 | redis.enabled | bool | `true` |  |
-| redis.master.persistence.enabled | bool | `false` |  |
-| redis.master.persistence.existingClaim | string | `"redismaster"` |  |
-| redis.replica.persistence.enabled | bool | `false` |  |
-| redis.replica.replicaCount | int | `0` |  |
-| redis.volumePermissions.enabled | bool | `true` |  |
+| redis.existingSecret | string | `"rediscreds"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.hpb.enabled | bool | `true` |  |

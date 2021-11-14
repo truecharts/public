@@ -1,6 +1,29 @@
 # Changelog<br>
 
 
+<a name="nextcloud-9.0.10"></a>
+### [nextcloud-9.0.10](https://github.com/truecharts/apps/compare/nextcloud-9.0.9...nextcloud-9.0.10) (2021-11-14)
+
+#### Chore
+
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major deps helm releases ([#1328](https://github.com/truecharts/apps/issues/1328))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
+
+#### Feat
+
+* use our own redis chart ([#1312](https://github.com/truecharts/apps/issues/1312))
+* use our own redis chart ([#1310](https://github.com/truecharts/apps/issues/1310))
+
+#### Fix
+
+* Allow spaces in paths ([#1306](https://github.com/truecharts/apps/issues/1306))
+* revert nextcloud container update due to upstream performance issues
+
+
+
 <a name="nextcloud-9.0.9"></a>
 ### [nextcloud-9.0.9](https://github.com/truecharts/apps/compare/nextcloud-9.0.8...nextcloud-9.0.9) (2021-11-09)
 
