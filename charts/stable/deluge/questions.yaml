@@ -162,8 +162,8 @@ questions:
 
 
         - variable: torrent
-          label: "Torrent Service"
-          description: "Torrent Service"
+          label: "TCP Torrent Service"
+          description: "TCP Torrent Service"
           schema:
             type: dict
             attrs:
@@ -216,6 +216,13 @@ questions:
                               default: 51413
                               editable: true
                               required: true
+        - variable: torrent-udp
+          label: "UDP Torrent Service"
+          description: "UDP Torrent Service"
+          schema:
+            type: dict
+            attrs:
+# Include{serviceSelector}
                     - variable: udp
                       label: "UDP Service Port Configuration"
                       schema:
