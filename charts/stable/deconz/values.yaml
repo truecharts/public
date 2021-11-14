@@ -70,7 +70,6 @@ service:
 persistence:
   config:
     enabled: true
-
     mountPath: "/root/.local/share/dresden-elektronik/deCONZ"
 
 # -- Affinity constraint rules to place the Pod on a specific node.

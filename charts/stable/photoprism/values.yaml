@@ -62,9 +62,7 @@ service:
 persistence:
   storage:
     enabled: true
-
     mountPath: "/assets"
-
   temp:
     enabled: true
     mountPath: "/photoprism/temp"
