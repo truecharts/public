@@ -52,10 +52,8 @@ persistence:
     enabled: true
     mountPath: "/etc/pihole"
 
-    accessMode: ReadWriteOnce
+
 
   dnsmasq:
     enabled: true
     mountPath: "/etc/dnsmasq.d"
-
-    accessMode: ReadWriteOnce

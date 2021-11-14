@@ -46,12 +46,12 @@ persistence:
   odoo:
     enabled: true
     mountPath: /var/lib/odoo
-    accessMode: ReadWriteOnce
+
 
   addons:
     enabled: true
     mountPath: /mnt/extra-addons
-    accessMode: ReadWriteOnce
+
 
 
 # Enabled postgres

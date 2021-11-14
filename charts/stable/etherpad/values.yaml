@@ -45,12 +45,12 @@ persistence:
   data:
     enabled: true
     mountPath: /opt/etherpad-lite/var
-    accessMode: ReadWriteOnce
+
 
   app:
     enabled: true
     mountPath: /opt/etherpad-lite/app
-    accessMode: ReadWriteOnce
+
 
 
 # Enabled postgres

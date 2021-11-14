@@ -37,19 +37,19 @@ persistence:
     enabled: true
     mountPath: "/app/server"
 
-    accessMode: ReadWriteOnce
+
 
   configs:
     enabled: true
     mountPath: "/app/configs"
 
-    accessMode: ReadWriteOnce
+
 
   logs:
     enabled: true
     mountPath: "/app/logs"
 
-    accessMode: ReadWriteOnce
+
 
   varrun:
     enabled: true

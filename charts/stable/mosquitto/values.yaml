@@ -30,7 +30,7 @@ persistence:
   data:
     enabled: true
 
-    accessMode: ReadWriteOnce
+
 
     mountPath: /mosquitto/data
   # -- Configure a persistent volume to place *.conf mosquitto-config-files in.
@@ -39,6 +39,6 @@ persistence:
   configinc:
     enabled: true
 
-    accessMode: ReadWriteOnce
+
 
     mountPath: /mosquitto/configinc
