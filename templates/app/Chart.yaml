@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: ${CHARTNAME}
-version: 1.0.7
+version: 1.0.8
 upstream_version: 1.1.0
 appVersion: 1.0.0
 description: ${CHARTNAME} App for TrueNAS SCALE
@@ -16,7 +16,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.5.4
+  version: 8.5.7
     # condition:
 maintainers:
 - email: info@truecharts.org
