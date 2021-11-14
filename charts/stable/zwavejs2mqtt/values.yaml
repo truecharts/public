@@ -78,7 +78,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: "/usr/src/app/store"
 
 
 # affinity:
