@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.11"></a>
+### [logitech-media-server-2.0.11](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.10...logitech-media-server-2.0.11) (2021-11-14)
+
+#### Chore
+
+* move to LMS to stable
+
+
+
 <a name="logitech-media-server-2.0.10"></a>
 ### [logitech-media-server-2.0.10](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.9...logitech-media-server-2.0.10) (2021-11-09)
 
