@@ -14,14 +14,14 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
+  url: https://truecharts.org
 name: heimdall
-sources: null
+sources:
+- https://github.com/linuxserver/Heimdall/
 type: application
 version: 9.0.9
 annotations:
   truecharts.org/catagories: |
     - organizers
-
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

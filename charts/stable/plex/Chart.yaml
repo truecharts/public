@@ -15,17 +15,14 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
-- email: kjeld@schouten-lebbing.nl
-  name: Ornias1993
-  url: truecharts.org
+  url: https://truecharts.org
 name: plex
-sources: null
+sources:
+- https://github.com/k8s-at-home/container-images/pkgs/container/plex
 type: application
 version: 8.0.8
 annotations:
   truecharts.org/catagories: |
     - media
-
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U
