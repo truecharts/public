@@ -49,7 +49,7 @@ ingress:
 persistence:
   config:
     enabled: true
-    type: pvc
+
     accessMode: ReadWriteOnce
 
     mountPath: /app/data/

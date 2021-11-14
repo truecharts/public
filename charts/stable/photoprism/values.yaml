@@ -62,7 +62,7 @@ service:
 persistence:
   storage:
     enabled: true
-    type: pvc
+
     accessMode: ReadWriteOnce
 
     mountPath: /assets

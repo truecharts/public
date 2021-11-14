@@ -70,7 +70,7 @@ service:
 persistence:
   config:
     enabled: true
-    type: pvc
+
     accessMode: ReadWriteOnce
 
     mountPath: /root/.local/share/dresden-elektronik/deCONZ

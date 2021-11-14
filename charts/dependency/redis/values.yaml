@@ -59,7 +59,7 @@ volumeClaimTemplates:
   data:
     enabled: true
     mountPath: "/bitnami/redis"
-    type: pvc
+
     accessMode: ReadWriteOnce
 
 

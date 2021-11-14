@@ -51,11 +51,11 @@ persistence:
   config:
     enabled: true
     mountPath: "/etc/pihole"
-    type: pvc
+
     accessMode: ReadWriteOnce
 
   dnsmasq:
     enabled: true
     mountPath: "/etc/dnsmasq.d"
-    type: pvc
+
     accessMode: ReadWriteOnce

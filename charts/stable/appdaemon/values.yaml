@@ -37,7 +37,7 @@ persistence:
   conf:
     enabled: true
     mountPath: "/conf"
-    type: pvc
+
     accessMode: ReadWriteOnce
 
   varrun:

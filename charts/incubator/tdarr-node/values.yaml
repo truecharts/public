@@ -33,13 +33,13 @@ persistence:
   configs:
     enabled: true
     mountPath: "/app/configs"
-    type: pvc
+
     accessMode: ReadWriteOnce
 
   logs:
     enabled: true
     mountPath: "/app/logs"
-    type: pvc
+
     accessMode: ReadWriteOnce
 
   varrun:
