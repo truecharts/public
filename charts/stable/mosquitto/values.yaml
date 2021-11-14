@@ -29,12 +29,10 @@ persistence:
   # @default -- See values.yaml
   data:
     enabled: true
-
     mountPath: "/mosquitto/data"
   # -- Configure a persistent volume to place *.conf mosquitto-config-files in.
   # When enabled, this gets set as `include_dir` in the mosquitto config.
   # @default -- See values.yaml
   configinc:
     enabled: true
-
     mountPath: "/mosquitto/configinc"
