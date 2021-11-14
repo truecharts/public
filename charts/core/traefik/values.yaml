@@ -2,7 +2,7 @@
 image:
   repository: traefik
   # defaults to appVersion
-  tag: v2.5.4@sha256:87863e384e0a6466bd88fe6295b5d76d26f4280d95cb58af91d8fc7160e35a50
+  tag: v2.5.4@sha256:7d0228d19042f1286765f0ef56ceba8e4e8a08ae9b45b854179cf09a9c3de633
   pullPolicy: IfNotPresent
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
