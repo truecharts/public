@@ -96,7 +96,9 @@ volumeClaimTemplates:
     enabled: true
     mountPath: "/var/lib/ldap/"
     accessMode: ReadWriteOnce
+    size: "100Gi"
   slapd:
     enabled: true
     mountPath: "/etc/ldap/slapd.d/"
     accessMode: ReadWriteOnce
+    size: "100Gi"
