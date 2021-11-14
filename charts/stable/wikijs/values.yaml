@@ -20,7 +20,6 @@ env:
   # -- Set the container timezone
   PUID: 568
   TZ: UTC
-  CONFIG_FILE: "/config/config.yml"
 
 envTpl:
   DB_TYPE: "postgres"
@@ -46,13 +45,6 @@ service:
       main:
         port: 3000
         targetPort: 3000
-
-persistence:
-  config:
-    enabled: true
-    mountPath: /config
-    accessMode: ReadWriteOnce
-    size: 1Gi
 
 # Enabled postgres
 postgresql:
