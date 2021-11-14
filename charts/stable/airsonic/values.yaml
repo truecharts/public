@@ -53,16 +53,4 @@ ingress:
 persistence:
   config:
     enabled: true
-
-  music:
-    enabled: false
-    mountPath: "/music"
-  playlists:
-    enabled: false
-    mountPath: "/playlists"
-  podcasts:
-    enabled: false
-    mountPath: "/podcasts"
-  media:
-    enabled: false
-    mountPath: "/media"
+    mountPath: "/config"
