@@ -95,6 +95,8 @@ volumeClaimTemplates:
   data:
     enabled: true
     mountPath: "/var/lib/ldap/"
+    accessMode: ReadWriteOnce
   slapd:
     enabled: true
     mountPath: "/etc/ldap/slapd.d/"
+    accessMode: ReadWriteOnce
