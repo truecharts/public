@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="common-8.5.7"></a>
+### [common-8.5.7](https://github.com/truecharts/apps/compare/common-8.5.6...common-8.5.7) (2021-11-14)
+
+#### Chore
+
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
+
+#### Chort
+
+* bump common
+
+
+
 <a name="common-8.5.6"></a>
 ### [common-8.5.6](https://github.com/truecharts/apps/compare/common-8.5.5...common-8.5.6) (2021-11-12)
 
