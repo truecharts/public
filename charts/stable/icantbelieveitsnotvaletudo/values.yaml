@@ -16,7 +16,10 @@ service:
       main:
         port: 3000
         targetPort: 3000
-
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
 # -- Configures app settings. See [image docs](https://github.com/Hypfer/ICantBelieveItsNotValetudo) for more information.
 # @default -- See values.yaml
 config:
