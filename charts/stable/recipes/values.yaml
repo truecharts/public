@@ -61,9 +61,9 @@ additionalContainers:
       subPath: nginx-config
       readOnly: true
     - name: media
-      mountPath: ""'/media'
+      mountPath: "/media"
     - name: static
-      mountPath: ""'/static'
+      mountPath: "/static"
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
