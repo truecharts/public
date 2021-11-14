@@ -33,17 +33,14 @@ service:
         targetPort: 8266
 
 persistence:
-  server:
-    enabled: true
-    mountPath: "/app/server"
-
   configs:
     enabled: true
     mountPath: "/app/configs"
-
+  server:
+    enabled: true
+    mountPath: "/app/server"
   logs:
     enabled: true
     mountPath: "/app/logs"
-
   varrun:
     enabled: true
