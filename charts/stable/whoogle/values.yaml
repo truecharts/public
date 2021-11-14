@@ -37,3 +37,11 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
+persistence:
+  config:
+    enabled: true
+    type: pvc
+    accessMode: ReadWriteOnce
+    mountPath: "/config"
+    size: "100Gi"
