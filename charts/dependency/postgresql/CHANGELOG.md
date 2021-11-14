@@ -1,6 +1,22 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.1.17"></a>
+### [postgresql-5.1.17](https://github.com/truecharts/apps/compare/postgresql-5.1.16...postgresql-5.1.17) (2021-11-14)
+
+#### Chore
+
+* fixes around the GUI refactor ([#1316](https://github.com/truecharts/apps/issues/1316))
+* move port above advanced in GUI ([#1326](https://github.com/truecharts/apps/issues/1326))
+* clean up Chart.yaml ([#1322](https://github.com/truecharts/apps/issues/1322))
+* update non-major ([#1327](https://github.com/truecharts/apps/issues/1327))
+
+#### Fix
+
+* split udp and tcp ports ([#1321](https://github.com/truecharts/apps/issues/1321))
+
+
+
 <a name="postgresql-5.1.16"></a>
 ### [postgresql-5.1.16](https://github.com/truecharts/apps/compare/postgresql-5.1.15...postgresql-5.1.16) (2021-11-12)
 

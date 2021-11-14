@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/memcached"` |  |
-| image.tag | string | `"1.6.12@sha256:f02e8e24e90ce1e3ce132964bea7a9af70d1e13510d8c1c8a6e66c2fed1f4621"` |  |
+| image.tag | string | `"1.6.12@sha256:ad5196e0fec12a025ba0535a973d676103dc66587344c59ac6b7f5a3925144ea"` |  |
 | service.main.ports.main.port | int | `11211` |  |
 | service.main.ports.main.targetPort | int | `11211` |  |
 
