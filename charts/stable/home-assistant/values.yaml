@@ -29,9 +29,9 @@ initContainers:
     command: ["/config/init/init.sh"]
     volumeMounts:
       - name: init
-        mountPath: /config/init
+        mountPath: "/config/init"
       - name: config
-        mountPath: /config
+        mountPath: "/config"
 
 # # Enable devices to be discoverable
 # hostNetwork: true

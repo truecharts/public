@@ -55,10 +55,10 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: /var/www/app/data
+    mountPath: "/var/www/app/data"
   ssl:
     enabled: true
-    mountPath: /etc/nginx/ssl
+    mountPath: "/etc/nginx/ssl"
 
 # -- Enable and configure postgresql database subchart under this key.
 # @default -- See values.yaml

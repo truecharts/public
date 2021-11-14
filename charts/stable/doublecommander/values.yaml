@@ -24,9 +24,9 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
+    mountPath: "/config"
   data:
     enabled: true
-    mountPath: /data
+    mountPath: "/data"
   varrun:
     enabled: true

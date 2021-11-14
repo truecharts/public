@@ -63,18 +63,18 @@ persistence:
   config:
     enabled: true
 
-    mountPath: /config
+    mountPath: "/config"
 
   media:
     enabled: false
-    mountPath: /media
+    mountPath: "/media"
   varrun:
     enabled: true
 
   downloads:
     enabled: false
-    mountPath: /downloads
+    mountPath: "/downloads"
 
   sync:
     enabled: false
-    mountPath: /sync
+    mountPath: "/sync"

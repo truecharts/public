@@ -23,12 +23,12 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
+    mountPath: "/config"
   downloads:
     enabled: true
-    mountPath: /downloads
+    mountPath: "/downloads"
   tv:
     enabled: true
-    mountPath: /tv
+    mountPath: "/tv"
   varrun:
     enabled: true

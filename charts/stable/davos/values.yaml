@@ -24,9 +24,9 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
+    mountPath: "/config"
   download:
     enabled: true
-    mountPath: /download
+    mountPath: "/download"
   varrun:
     enabled: true

@@ -37,7 +37,7 @@ persistence:
   config:
     enabled: true
 
-    mountPath: /config
+    mountPath: "/config"
   ocis:
     enabled: false
-    mountPath: /var/tmp/ocis
+    mountPath: "/var/tmp/ocis"

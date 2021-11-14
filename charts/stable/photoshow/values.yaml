@@ -24,12 +24,12 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
+    mountPath: "/config"
   pictures:
     enabled: true
-    mountPath: /Pictures
+    mountPath: "/Pictures"
   thumbs:
     enabled: true
-    mountPath: /Thumbs
+    mountPath: "/Thumbs"
   varrun:
     enabled: true

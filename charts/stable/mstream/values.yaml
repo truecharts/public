@@ -26,9 +26,9 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
+    mountPath: "/config"
   music:
     enabled: true
-    mountPath: /music
+    mountPath: "/music"
   varrun:
     enabled: true

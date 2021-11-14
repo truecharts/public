@@ -27,6 +27,6 @@ service:
 persistence:
   code:
     enabled: true
-    mountPath: /code
+    mountPath: "/code"
   varrun:
     enabled: true

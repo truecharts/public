@@ -42,7 +42,7 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: /app/data
+    mountPath: "/app/data"
 
 # Enabled postgres
 postgresql:

@@ -63,9 +63,9 @@ persistence:
   storage:
     enabled: true
 
-    mountPath: /assets
+    mountPath: "/assets"
 
   temp:
     enabled: true
-    mountPath: /photoprism/temp
+    mountPath: "/photoprism/temp"
     type: emptyDir

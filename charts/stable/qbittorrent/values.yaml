@@ -52,5 +52,5 @@ additionalVolumes:
     #   defaultMode: 511
 
 additionalVolumeMounts:
-  - mountPath: /config/custom-cont-init.d
+  - mountPath: "/config/custom-cont-init.d"
     name: qbittorrent-scripts

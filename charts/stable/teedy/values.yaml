@@ -54,7 +54,7 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: /data
+    mountPath: "/data"
 
 # -- Enable and configure postgresql database subchart under this key.
 # @default -- See values.yaml

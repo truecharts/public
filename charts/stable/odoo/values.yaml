@@ -45,10 +45,10 @@ service:
 persistence:
   odoo:
     enabled: true
-    mountPath: /var/lib/odoo
+    mountPath: "/var/lib/odoo"
   addons:
     enabled: true
-    mountPath: /mnt/extra-addons
+    mountPath: "/mnt/extra-addons"
 
 # Enabled postgres
 postgresql:

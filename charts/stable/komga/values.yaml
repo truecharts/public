@@ -32,7 +32,7 @@ persistence:
   config:
     enabled: true
 
-    mountPath: /config
+    mountPath: "/config"
   data:
     enabled: false
-    mountPath: /data
+    mountPath: "/data"

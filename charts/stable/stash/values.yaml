@@ -45,8 +45,8 @@ persistence:
   config:
     enabled: true
 
-    mountPath: /root/.stash
+    mountPath: "/root/.stash"
 
   media:
     enabled: false
-    mountPath: /media
+    mountPath: "/media"

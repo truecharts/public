@@ -23,9 +23,9 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
+    mountPath: "/config"
   photos:
     enabled: true
-    mountPath: /photos
+    mountPath: "/photos"
   varrun:
     enabled: true

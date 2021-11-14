@@ -26,7 +26,7 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: /data
+    mountPath: "/data"
 
 # -- zigbee2mqtt configuration settings.
 # This will be copied into the container's persistent storage at first run only.

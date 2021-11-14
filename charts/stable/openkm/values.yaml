@@ -12,9 +12,9 @@ initContainers:
     command: ["/config/init/init.sh"]
     volumeMounts:
       - name: init
-        mountPath: /config/init
+        mountPath: "/config/init"
       - name: config
-        mountPath: /opt/tomcat
+        mountPath: "/opt/tomcat"
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -45,7 +45,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /opt/tomcat/repository
+    mountPath: "/opt/tomcat/repository"
 
 postgresql:
   enabled: true

@@ -42,7 +42,7 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: /data
+    mountPath: "/data"
   varrun:
     enabled: true
 
