@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.10"></a>
+### [traefik-10.0.10](https://github.com/truecharts/apps/compare/traefik-10.0.9...traefik-10.0.10) (2021-11-14)
+
+#### Chore
+
+* move traefik and k8s gateway to core train
+
+
+
 <a name="traefik-10.0.9"></a>
 ### [traefik-10.0.9](https://github.com/truecharts/apps/compare/traefik-10.0.8...traefik-10.0.9) (2021-11-09)
 

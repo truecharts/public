@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-4.0.8"></a>
+### [k8s-gateway-4.0.8](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.7...k8s-gateway-4.0.8) (2021-11-14)
+
+#### Chore
+
+* move traefik and k8s gateway to core train
+
+
+
 <a name="k8s-gateway-4.0.7"></a>
 ### [k8s-gateway-4.0.7](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.6...k8s-gateway-4.0.7) (2021-11-09)
 
