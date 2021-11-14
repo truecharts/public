@@ -39,8 +39,6 @@ service:
 envTpl:
   # Permissions Settings
   USER_ID: "{{ .Values.env.PUID }}"
-
-
 env:
   # Permissions Settings
   PUID: 568

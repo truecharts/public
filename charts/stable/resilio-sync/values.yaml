@@ -27,8 +27,6 @@ env:
   TZ: UTC
   # -- Specify the user ID the application will run as
   PUID: 568
-
-
   # -- Sets default UMASK
   UMASK:  # 022
 
@@ -64,8 +62,6 @@ service:
 persistence:
   config:
     enabled: true
-
-
 
     mountPath: /config
 

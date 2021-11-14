@@ -28,8 +28,6 @@ env:
   DOCS_SMTP_HOSTNAME: ""
   # -- The port of the SMTP-Server which should be used
   DOCS_SMTP_PORT: 0
-
-
 envTpl:
   DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
 
@@ -42,8 +40,6 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: jdbc
-
-
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
 service:

@@ -2,8 +2,6 @@ image:
   repository: ghcr.io/linuxserver/sickchill
   pullPolicy: IfNotPresent
   tag: 2021.5.10-1-ls63@sha256:a607452a692a008eb397051c90603eb618c616855553dbde9a98675ca5043bd7
-
-
 env:
   PUID: 568
 
@@ -26,17 +24,11 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-
-
   downloads:
     enabled: true
     mountPath: /downloads
-
-
   tv:
     enabled: true
     mountPath: /tv
-
-
   varrun:
     enabled: true

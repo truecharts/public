@@ -2,8 +2,6 @@ image:
   repository: ghcr.io/nicholaswilde/wiki
   pullPolicy: IfNotPresent
   tag: version-900b76a@sha256:6c4f261d8f5e5dadd5ec97465465d434dc6730a85ccf9af415c03d1c0e8d1afd
-
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -23,7 +21,5 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-
-
   varrun:
     enabled: true

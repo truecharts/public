@@ -95,8 +95,6 @@ volumeClaimTemplates:
   data:
     enabled: true
     mountPath: "/var/lib/ldap/"
-
-
   slapd:
     enabled: true
     mountPath: "/etc/ldap/slapd.d/"

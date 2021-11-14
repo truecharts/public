@@ -24,8 +24,6 @@ podSecurityContext:
 envTpl:
   # Permissions Settings
   USER_ID: "{{ .Values.env.PUID }}"
-
-
 env:
   PUID: 568
 
