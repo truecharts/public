@@ -87,8 +87,8 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: downoads
-          label: "App downoads Storage"
+        - variable: downloads
+          label: "App downloads Storage"
           description: "Stores the Application Configuration."
           schema:
             type: dict
@@ -128,7 +128,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/downoads"
+                  default: "/downloads"
                   hidden: true
                   valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
