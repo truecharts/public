@@ -39,7 +39,10 @@ service:
       main:
         port: 5000
         targetPort: 5000
-
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
 # Enabled postgres
 postgresql:
   enabled: true
