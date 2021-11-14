@@ -197,6 +197,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9010
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -232,15 +240,6 @@ questions:
                                     type: int
                                     default: 9010
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 9010
-                              editable: true
-                              required: true
-
 
         - variable: supervisor
           label: "supervisor Service"
@@ -254,6 +253,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9011
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -289,15 +296,6 @@ questions:
                                     type: int
                                     default: 9011
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 9011
-                              editable: true
-                              required: true
-
 
         - variable: valheim
           label: "valheim Service"
@@ -311,6 +309,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 2456
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -346,20 +352,19 @@ questions:
                                     type: int
                                     default: 2456
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 2456
-                              editable: true
-                              required: true
-
                     - variable: valheim-2
                       label: "valheim-2 Service Port Configuration"
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 2457
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -395,20 +400,19 @@ questions:
                                     type: int
                                     default: 2457
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 2457
-                              editable: true
-                              required: true
-
                     - variable: valheim-3
                       label: "valheim-3 Service Port Configuration"
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 2458
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -443,15 +447,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 2458
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 2458
-                              editable: true
-                              required: true
 
 
   - variable: serviceexpert

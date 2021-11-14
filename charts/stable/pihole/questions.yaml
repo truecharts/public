@@ -138,6 +138,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 80
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -173,15 +181,6 @@ questions:
                                     type: int
                                     default: 80
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 80
-                              editable: true
-                              required: true
-
 
         - variable: dns
           label: "DNS Service"
@@ -195,6 +194,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 53
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -230,15 +237,6 @@ questions:
                                     type: int
                                     default: 53
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 53
-                              editable: true
-                              required: true
-
         - variable: dns-tcp
           label: "DNS-TCP Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -251,6 +249,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 53
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -285,15 +291,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 53
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 53
-                              editable: true
-                              required: true
 
 
   - variable: serviceexpert
