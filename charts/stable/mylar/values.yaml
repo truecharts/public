@@ -42,12 +42,6 @@ service:
 persistence:
   config:
     enabled: true
-
-  comics:
-    enabled: false
-    mountPath: "/comics"
-  downloads:
-    enabled: false
-    mountPath: "/downloads"
+    mountPath: "/config"
   varrun:
     enabled: true

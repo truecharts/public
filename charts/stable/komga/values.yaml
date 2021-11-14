@@ -31,8 +31,7 @@ service:
 persistence:
   config:
     enabled: true
-
     mountPath: "/config"
   data:
-    enabled: false
+    enabled: true
     mountPath: "/data"
