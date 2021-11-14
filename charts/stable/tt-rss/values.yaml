@@ -18,9 +18,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
 
 # -- See more environment variables in the tt-rss documentation
 # https://git.tt-rss.org/fox/tt-rss/src/branch/master/classes/config.php#L9

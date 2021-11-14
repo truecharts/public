@@ -41,7 +41,4 @@ podSecurityContext:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
     mountPath: "/config"
-    size: "100Gi"
