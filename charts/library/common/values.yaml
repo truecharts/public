@@ -599,7 +599,7 @@ persistence:
     # -- AccessMode for the persistent volume.
     # Make sure to select an access mode that is supported by your storage provider!
     # [[ref]](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
-
+    accessMode: ReadWriteOnce
 
     # -- The amount of storage that is requested for the persistent volume.
     size: 999Gi
