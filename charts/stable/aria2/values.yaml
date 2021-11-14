@@ -47,9 +47,9 @@ podSecurityContext:
 persistence:
   data:
     enabled: true
-    mountpath: /downloads
+    mountPath: "/downloads"
   config:
     enabled: true
-    mountpath: /config
+    mountPath: "/config"
   varrun:
     enabled: true
