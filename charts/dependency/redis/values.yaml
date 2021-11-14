@@ -61,7 +61,7 @@ volumeClaimTemplates:
     mountPath: "/bitnami/redis"
     type: pvc
     accessMode: ReadWriteOnce
-    size: "100Gi"
+
 
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)

@@ -29,11 +29,11 @@ persistence:
     enabled: true
     mountPath: /downloads
     accessMode: ReadWriteOnce
-    size: 1Gi
+
   music:
     enabled: true
     mountPath: /music
     accessMode: ReadWriteOnce
-    size: 1Gi
+
   varrun:
     enabled: true

@@ -33,7 +33,7 @@ persistence:
     enabled: true
     type: pvc
     accessMode: ReadWriteOnce
-    size: "100Gi"
+
     mountPath: /downloads
     ## Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
@@ -43,7 +43,7 @@ persistence:
     ##   GKE, AWS & OpenStack)
     # storageClass: "-"
     # accessMode: ReadWriteOnce
-    # size: 1Gi
+    #
     ## Do not delete the pvc upon helm uninstall
     # skipuninstall: false
     # existingClaim: ""

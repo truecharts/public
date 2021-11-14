@@ -72,7 +72,7 @@ persistence:
     enabled: true
     type: pvc
     accessMode: ReadWriteOnce
-    size: "100Gi"
+
     mountPath: /root/.local/share/dresden-elektronik/deCONZ
 
 # -- Affinity constraint rules to place the Pod on a specific node.

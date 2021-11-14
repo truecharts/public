@@ -47,12 +47,12 @@ persistence:
     enabled: true
     mountPath: /var/lib/odoo
     accessMode: ReadWriteOnce
-    size: 1Gi
+
   addons:
     enabled: true
     mountPath: /mnt/extra-addons
     accessMode: ReadWriteOnce
-    size: 1Gi
+
 
 # Enabled postgres
 postgresql:

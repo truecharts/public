@@ -29,11 +29,11 @@ persistence:
     enabled: true
     mountPath: /downloads
     accessMode: ReadWriteOnce
-    size: 1Gi
+
   tv:
     enabled: true
     mountPath: /tv
     accessMode: ReadWriteOnce
-    size: 1Gi
+
   varrun:
     enabled: true

@@ -43,7 +43,7 @@ persistence:
     mountPath: "/config"
     type: pvc
     accessMode: ReadWriteOnce
-    size: "100Gi"
+
 
 additionalVolumes:
   - name: qbittorrent-scripts

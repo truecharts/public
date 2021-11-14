@@ -59,7 +59,7 @@ persistence:
     mountPath: "/config"
     type: pvc
     accessMode: ReadWriteOnce
-    size: "100Gi"
+
 
 # -- Enable and configure postgresql database subchart under this key.
 #    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
@@ -80,4 +80,4 @@ influxdb:
   persistence:
     enabled: false
     # storageClass: ""
-    # size: 8Gi
+    #

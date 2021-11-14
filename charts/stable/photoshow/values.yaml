@@ -29,11 +29,11 @@ persistence:
     enabled: true
     mountPath: /Pictures
     accessMode: ReadWriteOnce
-    size: 1Gi
+
   thumbs:
     enabled: true
     mountPath: /Thumbs
     accessMode: ReadWriteOnce
-    size: 1Gi
+
   varrun:
     enabled: true

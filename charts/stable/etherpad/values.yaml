@@ -46,12 +46,12 @@ persistence:
     enabled: true
     mountPath: /opt/etherpad-lite/var
     accessMode: ReadWriteOnce
-    size: 1Gi
+
   app:
     enabled: true
     mountPath: /opt/etherpad-lite/app
     accessMode: ReadWriteOnce
-    size: 1Gi
+
 
 # Enabled postgres
 postgresql:

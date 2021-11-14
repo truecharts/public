@@ -38,7 +38,7 @@ persistence:
     enabled: true
     type: pvc
     accessMode: ReadWriteOnce
-    size: "100Gi"
+
     mountPath: /config
   ocis:
     enabled: false

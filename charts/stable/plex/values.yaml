@@ -18,7 +18,7 @@ persistence:
     mountPath: "/config"
     type: pvc
     accessMode: ReadWriteOnce
-    size: "100Gi"
+
 
 env:
   ALLOWED_NETWORKS: "172.16.0.0/16"
