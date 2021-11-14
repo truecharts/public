@@ -24,16 +24,6 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
-  pictures:
-    enabled: true
-    mountPath: /Pictures
-    accessMode: ReadWriteOnce
-    size: 1Gi
-  thumbs:
-    enabled: true
-    mountPath: /Thumbs
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/config"
   varrun:
     enabled: true

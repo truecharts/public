@@ -35,7 +35,4 @@ service:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /home/node/app/.dizquetv
+    mountPath: "/home/node/app/.dizquetv"

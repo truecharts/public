@@ -24,8 +24,6 @@ podSecurityContext:
 envTpl:
   # Permissions Settings
   USER_ID: "{{ .Values.env.PUID }}"
-
-
 env:
   PUID: 568
 
@@ -42,6 +40,3 @@ persistence:
   data:
     enabled: true
     mountPath: "/datastore"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

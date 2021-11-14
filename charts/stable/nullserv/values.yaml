@@ -52,9 +52,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+
 
 # -- Configures the probes for the main Pod.
 # @default -- See values.yaml

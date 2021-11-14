@@ -45,14 +45,10 @@ service:
 persistence:
   odoo:
     enabled: true
-    mountPath: /var/lib/odoo
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/var/lib/odoo"
   addons:
     enabled: true
-    mountPath: /mnt/extra-addons
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/mnt/extra-addons"
 
 # Enabled postgres
 postgresql:

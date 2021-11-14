@@ -2,8 +2,6 @@ image:
   repository: ghcr.io/linuxserver/pixapop
   pullPolicy: IfNotPresent
   tag: v1.2-ls15@sha256:605ebc091fa14b4ba82ceadda7f35c186d514e649c97913605384027c2750f4f
-
-
 env:
   PUID: 568
 
@@ -25,11 +23,6 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
-  photos:
-    enabled: true
-    mountPath: /photos
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/config"
   varrun:
     enabled: true

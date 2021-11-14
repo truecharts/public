@@ -44,14 +44,10 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: /opt/etherpad-lite/var
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/opt/etherpad-lite/var"
   app:
     enabled: true
-    mountPath: /opt/etherpad-lite/app
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/opt/etherpad-lite/app"
 
 # Enabled postgres
 postgresql:

@@ -29,9 +29,9 @@ initContainers:
     command: ["/config/init/init.sh"]
     volumeMounts:
       - name: init
-        mountPath: /config/init
+        mountPath: "/config/init"
       - name: config
-        mountPath: /config
+        mountPath: "/config"
 
 # # Enable devices to be discoverable
 # hostNetwork: true
@@ -57,9 +57,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+
 
 # -- Enable and configure postgresql database subchart under this key.
 #    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
@@ -80,4 +78,4 @@ influxdb:
   persistence:
     enabled: false
     # storageClass: ""
-    # size: 8Gi
+    #

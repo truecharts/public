@@ -43,7 +43,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
+    mountPath: "/config"
   varrun:
     enabled: true
 

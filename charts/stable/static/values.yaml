@@ -21,8 +21,6 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: /data
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/data"
   varrun:
     enabled: true

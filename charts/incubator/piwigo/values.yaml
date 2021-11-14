@@ -24,11 +24,6 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
-  gallery:
-    enabled: true
-    mountPath: /gallery
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/config"
   varrun:
     enabled: true

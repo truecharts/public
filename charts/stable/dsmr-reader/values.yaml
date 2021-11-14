@@ -45,7 +45,10 @@ service:
       main:
         port: 80
         targetPort: 80
-
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
 # -- Enable and configure postgresql database subchart under this key.
 # @default -- See values.yaml
 postgresql:

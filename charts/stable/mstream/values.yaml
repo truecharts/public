@@ -26,11 +26,6 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
-  music:
-    enabled: true
-    mountPath: /music
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/config"
   varrun:
     enabled: true

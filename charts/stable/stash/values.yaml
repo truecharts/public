@@ -44,11 +44,4 @@ service:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /root/.stash
-
-  media:
-    enabled: false
-    mountPath: /media
+    mountPath: "/root/.stash"

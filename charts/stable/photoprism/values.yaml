@@ -62,12 +62,8 @@ service:
 persistence:
   storage:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /assets
-
+    mountPath: "/assets"
   temp:
     enabled: true
-    mountPath: /photoprism/temp
+    mountPath: "/photoprism/temp"
     type: emptyDir

@@ -28,8 +28,6 @@ env:
   USE_CDN: false
   # -- Disable logs from appearing and writing to disk
   DISABLE_LOGS: false
-
-
 envTpl:
   DB_CONN: "postgres"
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -46,8 +44,6 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: plainhost
-
-
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
 service:
@@ -56,14 +52,12 @@ service:
       main:
         port: 8080
         targetPort: 8080
-
-
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
   data:
     enabled: true
-    mountPath: /app
+    mountPath: "/app"
 
 # -- Enable and configure postgresql database subchart under this key.
 # @default -- See values.yaml

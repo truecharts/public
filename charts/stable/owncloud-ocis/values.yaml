@@ -36,10 +36,4 @@ service:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /config
-  ocis:
-    enabled: false
-    mountPath: /var/tmp/ocis
+    mountPath: "/config"

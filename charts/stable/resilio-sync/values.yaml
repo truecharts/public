@@ -27,8 +27,6 @@ env:
   TZ: UTC
   # -- Specify the user ID the application will run as
   PUID: 568
-
-
   # -- Sets default UMASK
   UMASK:  # 022
 
@@ -64,21 +62,6 @@ service:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /config
-
-  media:
-    enabled: false
-    mountPath: /media
+    mountPath: "/config"
   varrun:
     enabled: true
-
-  downloads:
-    enabled: false
-    mountPath: /downloads
-
-  sync:
-    enabled: false
-    mountPath: /sync

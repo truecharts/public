@@ -22,14 +22,9 @@ service:
 env: {}
   # TZ: UTC
   # PUID: 1001
-
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
   varrun:
     enabled: true

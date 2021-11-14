@@ -33,14 +33,8 @@ persistence:
   configs:
     enabled: true
     mountPath: "/app/configs"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
   logs:
     enabled: true
     mountPath: "/app/logs"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
   varrun:
     enabled: true

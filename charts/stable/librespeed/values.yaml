@@ -28,8 +28,6 @@ env:
   TZ: UTC
   # -- Specify the user ID the application will run as
   PUID: 568
-
-
   # PASSWORD:
   # CUSTOM_RESULTS:
   # DB_TYPE:
@@ -53,6 +51,4 @@ service:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+    mountPath: "/config"

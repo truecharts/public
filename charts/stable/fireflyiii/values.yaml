@@ -51,9 +51,7 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/www/html/storage/upload"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+
 
 # Enabled postgres
 postgresql:

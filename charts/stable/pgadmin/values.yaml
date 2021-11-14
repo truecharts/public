@@ -30,6 +30,3 @@ persistence:
   config:
     enabled: true
     mountPath: "/var/lib/pgadmin"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

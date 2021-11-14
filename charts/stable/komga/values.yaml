@@ -31,10 +31,7 @@ service:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /config
+    mountPath: "/config"
   data:
-    enabled: false
-    mountPath: /data
+    enabled: true
+    mountPath: "/data"

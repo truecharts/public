@@ -70,10 +70,7 @@ service:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /root/.local/share/dresden-elektronik/deCONZ
+    mountPath: "/root/.local/share/dresden-elektronik/deCONZ"
 
 # -- Affinity constraint rules to place the Pod on a specific node.
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)

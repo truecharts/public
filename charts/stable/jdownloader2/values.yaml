@@ -39,8 +39,6 @@ service:
 envTpl:
   # Permissions Settings
   USER_ID: "{{ .Values.env.PUID }}"
-
-
 env:
   # Permissions Settings
   PUID: 568
@@ -57,6 +55,3 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

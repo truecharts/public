@@ -41,9 +41,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+
 
 additionalVolumes:
   - name: qbittorrent-scripts
@@ -54,5 +52,5 @@ additionalVolumes:
     #   defaultMode: 511
 
 additionalVolumeMounts:
-  - mountPath: /config/custom-cont-init.d
+  - mountPath: "/config/custom-cont-init.d"
     name: qbittorrent-scripts

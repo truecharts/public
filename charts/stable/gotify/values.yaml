@@ -42,9 +42,7 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: /app/data
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/app/data"
 
 # Enabled postgres
 postgresql:

@@ -42,11 +42,6 @@ service:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-  downloads:
-    enabled: false
-    mountPath: /downloads
+    mountPath: "/config"
   varrun:
     enabled: true

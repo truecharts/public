@@ -24,11 +24,6 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /config
-  download:
-    enabled: true
-    mountPath: /download
-    accessMode: ReadWriteOnce
-    size: 1Gi
+    mountPath: "/config"
   varrun:
     enabled: true

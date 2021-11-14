@@ -57,13 +57,13 @@ additionalContainers:
         name: main
     volumeMounts:
     - name: recipes-config
-      mountPath: /etc/nginx/nginx.conf
+      mountPath: "/etc/nginx/nginx.conf"
       subPath: nginx-config
       readOnly: true
     - name: media
-      mountPath: '/media'
+      mountPath: "/media"
     - name: static
-      mountPath: '/static'
+      mountPath: "/static"
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
@@ -79,11 +79,11 @@ service:
 persistence:
   media:
     enabled: true
-    mountPath: /opt/recipes/mediafiles
+    mountPath: "/opt/recipes/mediafiles"
   static:
     enabled: true
     type: emptyDir
-    mountPath: /opt/recipes/staticfiles
+    mountPath: "/opt/recipes/staticfiles"
 
 # Enabled postgres
 postgresql:

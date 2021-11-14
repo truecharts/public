@@ -42,7 +42,7 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: /opt/traccar/data
+    mountPath: "/opt/traccar/data"
 
 # Enabled postgres
 postgresql:

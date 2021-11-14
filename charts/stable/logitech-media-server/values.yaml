@@ -4,8 +4,6 @@ image:
   repository: lmscommunity/logitechmediaserver
   pullPolicy: IfNotPresent
   tag: 8.3.0@sha256:2b3ff7a240749af53ef266f91c1003d862e7b6d1a1ab810d44d57be0369515aa
-
-
 env:
   # Permissions Settings
   PUID: 568
@@ -53,7 +51,4 @@ service:
 persistence:
   config:
     enabled: true
-    mounthPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+    mountPath: "/config"

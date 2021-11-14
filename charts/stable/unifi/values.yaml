@@ -66,12 +66,7 @@ podSecurityContext:
 env:
   # TZ:
   PUID: 568
-
-
 persistence:
   config:
     enabled: true
     mountPath: "/unifi"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

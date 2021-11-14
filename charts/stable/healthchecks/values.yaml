@@ -47,7 +47,4 @@ persistence:
 # -- Volume used for configuration
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountpath: /config
+    mountPath: "/config"

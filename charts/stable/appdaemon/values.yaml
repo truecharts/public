@@ -37,8 +37,6 @@ persistence:
   conf:
     enabled: true
     mountPath: "/conf"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+
   varrun:
     enabled: true

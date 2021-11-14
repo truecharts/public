@@ -175,25 +175,6 @@ questions:
 
 # Include{serviceList}
 
-  - variable: persistence
-    label: "Integrated Persistent Storage"
-    description: "Integrated Persistent Storage"
-    group: "Storage and Persistence"
-    schema:
-      type: dict
-      attrs:
-        - variable: varrun
-          label: "varrun override for S6 Readonly Root"
-          schema:
-            type: dict
-            hidden: true
-            attrs:
-              - variable: enabled
-                label: ""
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
 # Include{persistenceList}
 
   - variable: ingress

@@ -33,13 +33,13 @@ initContainers:
           name: gitea-env
     volumeMounts:
       - name: init
-        mountPath: /usr/sbin
+        mountPath: "/usr/sbin"
       - name: temp
-        mountPath: /tmp
+        mountPath: "/tmp"
       - name: config
-        mountPath: /etc/gitea/conf
+        mountPath: "/etc/gitea/conf"
       - name: data
-        mountPath: /data
+        mountPath: "/data"
   2-configure-gitea:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     command: ["/usr/sbin/configure_gitea.sh"]
@@ -48,19 +48,16 @@ initContainers:
           name: gitea-env
     volumeMounts:
       - name: init
-        mountPath: /usr/sbin
+        mountPath: "/usr/sbin"
       - name: temp
-        mountPath: /tmp
+        mountPath: "/tmp"
       - name: data
-        mountPath: /data
+        mountPath: "/data"
 
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
   temp:
     enabled: true
     mountPath: "/tmp"
