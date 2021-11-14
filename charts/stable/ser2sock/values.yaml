@@ -42,6 +42,10 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  usb:
+    enabled: false
+    type: hostPath
+    mountPath: /dev/ttyUSB0
 # -- Affinity constraint rules to place the Pod on a specific node.
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
 affinity: {}
