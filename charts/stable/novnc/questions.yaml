@@ -113,6 +113,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 6080
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -147,15 +155,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 6080
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 6080
-                              editable: true
-                              required: true
 
   - variable: serviceexpert
     group: "Networking and Services"

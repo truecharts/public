@@ -103,6 +103,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10011
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -138,15 +146,6 @@ questions:
                                     type: int
                                     default: 10011
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 10011
-                              editable: true
-                              required: true
-
 
         - variable: voice
           label: "Voice Service"
@@ -160,6 +159,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9987
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -195,15 +202,6 @@ questions:
                                     type: int
                                     default: 9987
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 9987
-                              editable: true
-                              required: true
-
 
         - variable: files
           label: "Server File Transport Service"
@@ -217,6 +215,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 30033
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -251,15 +257,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 30033
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 30033
-                              editable: true
-                              required: true
 
   - variable: serviceexpert
     group: "Networking and Services"

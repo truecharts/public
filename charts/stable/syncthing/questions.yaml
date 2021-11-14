@@ -100,6 +100,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8384
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -135,15 +143,6 @@ questions:
                                     type: int
                                     default: 8384
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 8384
-                              editable: true
-                              required: true
-
 
         - variable: listeners
           label: "Syncthing Listening Service"
@@ -163,6 +162,14 @@ questions:
                               type: boolean
                               default: true
                               hidden: true
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 22000
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -197,15 +204,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 22000
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 22000
-                              editable: true
-                              required: true
         - variable: listeners-udp
           label: "Syncthing Listening Service"
           description: "This service is used to process incoming connections directly to this Syncthing instance"
@@ -224,6 +222,14 @@ questions:
                               type: boolean
                               default: true
                               hidden: true
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 22000
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -259,15 +265,6 @@ questions:
                                     type: int
                                     default: 22000
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 22000
-                              editable: true
-                              required: true
-
         - variable: discovery
           label: "Syncthing Listening Service"
           description: "This service is used to process incoming connections directly to this Syncthing instance"
@@ -286,6 +283,14 @@ questions:
                               type: boolean
                               default: true
                               hidden: true
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 21027
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -320,15 +325,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 21027
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 21027
-                              editable: true
-                              required: true
 
 
   - variable: serviceexpert

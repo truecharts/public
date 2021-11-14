@@ -95,6 +95,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 1812
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -130,15 +138,6 @@ questions:
                                     type: int
                                     default: 1812
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 1812
-                              editable: true
-                              required: true
-
         - variable: accounting
           label: "accounting Service"
           description: "The administration service"
@@ -151,6 +150,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 1813
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -185,15 +192,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 1813
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 1813
-                              editable: true
-                              required: true
 
 
   - variable: serviceexpert

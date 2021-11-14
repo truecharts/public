@@ -181,6 +181,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 5800
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -216,15 +224,6 @@ questions:
                                     type: int
                                     default: 5800
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 5800
-                              editable: true
-                              required: true
-
 
         - variable: vnc
           label: "VNC Service"
@@ -238,6 +237,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 5900
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -272,15 +279,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 5900
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 5900
-                              editable: true
-                              required: true
 
   - variable: serviceexpert
     group: "Networking and Services"

@@ -125,6 +125,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9002
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -160,15 +168,6 @@ questions:
                                     type: int
                                     default: 9000
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 9002
-                              editable: true
-                              required: true
-
         - variable: console
           label: "Console Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -181,6 +180,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9001
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -215,15 +222,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 9001
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 9001
-                              editable: true
-                              required: true
 
   - variable: serviceexpert
     group: "Networking and Services"

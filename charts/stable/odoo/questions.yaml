@@ -102,6 +102,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8069
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -137,15 +145,6 @@ questions:
                                     type: int
                                     default: 8069
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 8069
-                              editable: true
-                              required: true
-
 
         - variable: odoo
           label: "Odoo Service"
@@ -159,6 +158,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8071
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -194,21 +201,20 @@ questions:
                                     type: int
                                     default: 8071
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 8071
-                              editable: true
-                              required: true
-
 
                     - variable: odoo-2
                       label: "Odoo-2 Service Port Configuration"
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8072
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -243,15 +249,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 8072
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 8072
-                              editable: true
-                              required: true
 
   - variable: serviceexpert
     group: "Networking and Services"

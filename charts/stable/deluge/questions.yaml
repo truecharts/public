@@ -114,6 +114,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8112
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -149,15 +157,6 @@ questions:
                                     type: int
                                     default: 8112
 
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 8112
-                              editable: true
-                              required: true
-
 
         - variable: torrent
           label: "TCP Torrent Service"
@@ -171,6 +170,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 51413
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -205,15 +212,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 51413
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 51413
-                              editable: true
-                              required: true
         - variable: torrent-udp
           label: "UDP Torrent Service"
           description: "UDP Torrent Service"
@@ -226,6 +224,14 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 51413
+                              editable: true
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -260,15 +266,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 51413
-
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 51413
-                              editable: true
-                              required: true
 
 
   - variable: serviceexpert
