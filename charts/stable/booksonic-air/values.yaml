@@ -45,10 +45,4 @@ service:
 persistence:
   config:
     enabled: true
-
-  audiobooks:
-    enabled: false
-  podcasts:
-    enabled: false
-  othermedia:
-    enabled: false
+    mountPath: "/config"
