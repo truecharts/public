@@ -1,15 +1,4 @@
 
-  # Specify GPU configuration
-  - variable: scaleGPU
-    label: "GPU Configuration"
-    group: "Resources and Devices"
-    schema:
-      type: dict
-      $ref:
-        - "definitions/gpuConfiguration"
-      attrs: []
-
-
   - variable: advancedresources
     label: "Set Custom Resource Limits/Requests (Advanced)"
     group: "Resources and Devices"
@@ -98,3 +87,13 @@
                 schema:
                   type: string
                   default: "/dev/ttyACM0"
+
+  # Specify GPU configuration
+  - variable: scaleGPU
+    label: "GPU Configuration"
+    group: "Resources and Devices"
+    schema:
+      type: dict
+      $ref:
+        - "definitions/gpuConfiguration"
+      attrs: []
