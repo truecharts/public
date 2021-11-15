@@ -67,7 +67,7 @@ podSecurityContext:
 persistence:
   db:
     enabled: true
-    mountPath: "/bitnami/postgresql"
+    mountPath: "/bitnami/postgresql/old"
 
 volumeClaimTemplates:
   data:

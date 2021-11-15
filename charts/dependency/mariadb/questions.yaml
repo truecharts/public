@@ -34,7 +34,7 @@ questions:
                 label: "(Advanced) Controller Type"
                 schema:
                   type: string
-                  default: "deployment"
+                  default: "statefulset"
                   required: true
                   enum:
                     - value: "deployment"
@@ -178,15 +178,15 @@ questions:
 
 # Include{serviceList}
 
-  - variable: persistence
+  - variable: volumeClaimTemplates
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
       type: dict
       attrs:
-        - variable: db
-          label: "Old db Storage"
+        - variable: data
+          label: "DB Storage"
           description: "Stores the old Application Database."
           schema:
             type: dict
