@@ -51,9 +51,9 @@ jobs:
                 train="incubator"
               elif test -f "./charts/library/${chart}/Chart.yaml"; then
                 train="library"
-              elif test -f "./charts/dependency/${{ matrix.app }}/Chart.yaml"; then
+              elif test -f "./charts/dependency/${chart}/Chart.yaml"; then
                 train="dependency"
-              elif test -f "./charts/core/${{ matrix.app }}/Chart.yaml"; then
+              elif test -f "./charts/core/${chart}/Chart.yaml"; then
                 train="core"
               else
                 train="incubator"
