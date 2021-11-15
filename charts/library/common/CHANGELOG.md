@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.6.1"></a>
+### [common-8.6.1](https://github.com/truecharts/apps/compare/common-8.6.0...common-8.6.1) (2021-11-15)
+
+#### Fix
+
+* correctly set defaults for volumeclaimtemplates and pvc's ([#1334](https://github.com/truecharts/apps/issues/1334))
+
+
+
 <a name="common-8.6.0"></a>
 ### [common-8.6.0](https://github.com/truecharts/apps/compare/common-8.5.7...common-8.6.0) (2021-11-15)
 
