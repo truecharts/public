@@ -37,9 +37,9 @@ initContainers:
       - |
         echo 'trying to migrate old db to new location...'
         mkdir -p /bitnami/postgresql/data
-        mv -f /bitnami/postgresql/old/* /bitnami/postgresql/data/ || true
-        chown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/data
-        chmod 775 /bitnami/postgresql/data
+        mv -f /bitnami/postgresql/old/* /bitnami/postgresql/ || true
+        chown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/
+        chmod 775 /bitnami/postgresql/
     imagePullPolicy: IfNotPresent
     volumeMounts:
       - name: db
