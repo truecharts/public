@@ -60,6 +60,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.ldaps.ports.ldaps.targetPort | int | `636` |  |
 | service.main.ports.main.port | int | `389` |  |
 | service.main.ports.main.targetPort | int | `389` |  |
-| volumeClaimTemplates | object | `{"data":{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/var/lib/ldap/","size":"100Gi"},"slapd":{"accessMode":"ReadWriteOnce","enabled":true,"mountPath":"/etc/ldap/slapd.d/","size":"100Gi"}}` | Used in conjunction with `controller.type: statefulset` to create individual disks for each instance. |
+| volumeClaimTemplates | object | `{"data":{"enabled":true,"mountPath":"/var/lib/ldap/"},"slapd":{"enabled":true,"mountPath":"/etc/ldap/slapd.d/"}}` | Used in conjunction with `controller.type: statefulset` to create individual disks for each instance. |
 
 All Rights Reserved - The TrueCharts Project

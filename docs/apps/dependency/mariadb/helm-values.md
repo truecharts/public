@@ -49,8 +49,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `3306` |  |
 | service.main.ports.main.targetPort | int | `3306` |  |
-| volumeClaimTemplates.db.accessMode | string | `"ReadWriteOnce"` |  |
-| volumeClaimTemplates.db.enabled | bool | `true` |  |
-| volumeClaimTemplates.db.mountPath | string | `"/bitnami/mariadb"` |  |
+| volumeClaimTemplates.data.enabled | bool | `true` |  |
+| volumeClaimTemplates.data.mountPath | string | `"/bitnami/mariadb"` |  |
 
 All Rights Reserved - The TrueCharts Project

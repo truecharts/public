@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.3"></a>
+### [redis-1.0.3](https://github.com/truecharts/apps/compare/redis-1.0.2...redis-1.0.3) (2021-11-15)
+
+#### Feat
+
+* move postgresql to use statefullset and cleanup ([#1335](https://github.com/truecharts/apps/issues/1335))
+
+
+
 <a name="redis-1.0.2"></a>
 ### [redis-1.0.2](https://github.com/truecharts/apps/compare/redis-1.0.1...redis-1.0.2) (2021-11-15)
 

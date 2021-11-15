@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.2.0"></a>
+### [postgresql-5.2.0](https://github.com/truecharts/apps/compare/postgresql-5.1.18...postgresql-5.2.0) (2021-11-15)
+
+#### Feat
+
+* move postgresql to use statefullset and cleanup ([#1335](https://github.com/truecharts/apps/issues/1335))
+
+
+
 <a name="postgresql-5.1.18"></a>
 ### [postgresql-5.1.18](https://github.com/truecharts/apps/compare/postgresql-5.1.17...postgresql-5.1.18) (2021-11-15)
 

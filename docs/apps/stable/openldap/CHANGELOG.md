@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-4.0.13"></a>
+### [openldap-4.0.13](https://github.com/truecharts/apps/compare/openldap-4.0.12...openldap-4.0.13) (2021-11-15)
+
+#### Feat
+
+* move postgresql to use statefullset and cleanup ([#1335](https://github.com/truecharts/apps/issues/1335))
+
+
+
 <a name="openldap-4.0.12"></a>
 ### [openldap-4.0.12](https://github.com/truecharts/apps/compare/openldap-4.0.11...openldap-4.0.12) (2021-11-14)
 

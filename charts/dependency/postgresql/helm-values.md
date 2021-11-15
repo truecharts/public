@@ -11,6 +11,13 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| controller.replicas | int | `1` | Number of desired pods |
+| controller.revisionHistoryLimit | int | `3` | ReplicaSet revision history limit |
+| controller.rollingUpdate.partition | string | `nil` | Set statefulset RollingUpdate partition |
+| controller.rollingUpdate.surge | string | `nil` | Set deployment RollingUpdate max surge |
+| controller.rollingUpdate.unavailable | int | `1` | Set deployment RollingUpdate max unavailable |
+| controller.strategy | string | `"RollingUpdate"` | Set the controller upgrade strategy For Deployments, valid values are Recreate (default) and RollingUpdate. For StatefulSets, valid values are OnDelete and RollingUpdate (default). DaemonSets ignore this. |
+| controller.type | string | `"statefulset"` | Set the controller type. Valid options are deployment, daemonset or statefulset |
 | enableUpgradeBackup | bool | `false` |  |
 | envTpl.POSTGRES_DB | string | `"{{ .Values.postgresqlDatabase }}"` |  |
 | envTpl.POSTGRES_USER | string | `"{{ .Values.postgresqlUsername }}"` |  |
@@ -22,8 +29,20 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/postgresql"` |  |
 | image.tag | string | `"14.1.0@sha256:480fa9cd68d9013ea622b8a6dc71505bc8f0eaeac6d062cb5182bff44d0fcdbb"` |  |
+| initContainers.migrate-db.command[0] | string | `"/bin/sh"` |  |
+| initContainers.migrate-db.command[1] | string | `"-cx"` |  |
+| initContainers.migrate-db.command[2] | string | `"echo 'trying to migrate old db to new location...'\nmkdir -p /bitnami/postgresql/data\nmv -f /bitnami/postgresql/old/* /bitnami/postgresql/ || true\nchown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/\nchmod 775 /bitnami/postgresql/\n"` |  |
+| initContainers.migrate-db.image | string | `"{{ .Values.alpineImage.repository}}:{{ .Values.alpineImage.tag }}"` |  |
+| initContainers.migrate-db.imagePullPolicy | string | `"IfNotPresent"` |  |
+| initContainers.migrate-db.securityContext.privileged | bool | `true` |  |
+| initContainers.migrate-db.securityContext.runAsNonRoot | bool | `false` |  |
+| initContainers.migrate-db.securityContext.runAsUser | int | `0` |  |
+| initContainers.migrate-db.volumeMounts[0].mountPath | string | `"/bitnami/postgresql/old"` |  |
+| initContainers.migrate-db.volumeMounts[0].name | string | `"db"` |  |
+| initContainers.migrate-db.volumeMounts[1].mountPath | string | `"/bitnami/postgresql"` |  |
+| initContainers.migrate-db.volumeMounts[1].name | string | `"data"` |  |
 | persistence.db.enabled | bool | `true` |  |
-| persistence.db.mountPath | string | `"/bitnami/postgresql"` |  |
+| persistence.db.mountPath | string | `"/bitnami/postgresql/old"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | postgrespassword | string | `"testroot"` |  |
 | postgresqlDatabase | string | `"test"` |  |
@@ -33,5 +52,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `5432` |  |
 | service.main.ports.main.targetPort | int | `5432` |  |
+| volumeClaimTemplates.data.enabled | bool | `true` |  |
+| volumeClaimTemplates.data.mountPath | string | `"/bitnami/postgresql"` |  |
 
 All Rights Reserved - The TrueCharts Project
