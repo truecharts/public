@@ -14,12 +14,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/readarr"` |  |
-| image.tag | string | `"v0.1.0.1024@sha256:be0cbfcda3cc1f9a5b2b5e2779f811b11975f981b9d5c9b3ad98711718c0ca61"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"v0.1.0.1033@sha256:42a9f18e053b3418c7f15a28c8dcd8f2f76ee8bd3ad08dc7bbf75473287b77e5"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
 | probes.liveness.custom | bool | `true` |  |
 | probes.liveness.enabled | bool | `true` |  |
 | probes.liveness.spec.exec.command[0] | string | `"/usr/bin/env"` |  |

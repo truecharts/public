@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="tt-rss-3.0.13"></a>
+### [tt-rss-3.0.13](https://github.com/truecharts/apps/compare/tt-rss-3.0.12...tt-rss-3.0.13) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major ([#1336](https://github.com/truecharts/apps/issues/1336))
+
+
+
 <a name="tt-rss-3.0.12"></a>
 ### [tt-rss-3.0.12](https://github.com/truecharts/apps/compare/tt-rss-3.0.11...tt-rss-3.0.12) (2021-11-14)
 

@@ -13,6 +13,6 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/jackett"` |  |
-| image.tag | string | `"v0.19.260@sha256:bd9bc50b590bbd2657bf766ae4da1669f9d32daa9296d8e96e3673a2033d8535"` |  |
+| image.tag | string | `"v0.19.266@sha256:61fdb6e5d280c4e4686a6dcf1d8503072fb807c62114873e29502067ad307aeb"` |  |
 
 All Rights Reserved - The TrueCharts Project

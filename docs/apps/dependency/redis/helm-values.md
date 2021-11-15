@@ -28,7 +28,7 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/redis"` |  |
-| image.tag | string | `"6.2.6@sha256:213ea7a04401c66fc44fc94aca2eb52233c556e22ace27571e7194d5e693a4dd"` |  |
+| image.tag | string | `"6.2.6@sha256:8870c2e96e2062977e09809b7327bec52ad9d1c4b1802533ee94289d4d8e8a0b"` |  |
 | persistence.redis-health | object | See below | redis-health configmap mount |
 | persistence.redis-health.mountPath | string | `"/health"` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.redis-health.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |

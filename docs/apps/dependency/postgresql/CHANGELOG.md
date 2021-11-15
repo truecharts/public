@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.2.1"></a>
+### [postgresql-5.2.1](https://github.com/truecharts/apps/compare/postgresql-5.2.0...postgresql-5.2.1) (2021-11-15)
+
+#### Chore
+
+* update non-major ([#1336](https://github.com/truecharts/apps/issues/1336))
+
+
+
 <a name="postgresql-5.2.0"></a>
 ### [postgresql-5.2.0](https://github.com/truecharts/apps/compare/postgresql-5.1.18...postgresql-5.2.0) (2021-11-15)
 

@@ -14,12 +14,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/jackett"` |  |
-| image.tag | string | `"v0.19.260@sha256:bd9bc50b590bbd2657bf766ae4da1669f9d32daa9296d8e96e3673a2033d8535"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"v0.19.266@sha256:61fdb6e5d280c4e4686a6dcf1d8503072fb807c62114873e29502067ad307aeb"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
 | probes.liveness.path | string | `"/UI/Login"` |  |
 | probes.readiness.path | string | `"/UI/Login"` |  |
 | probes.startup.path | string | `"/UI/Login"` |  |
