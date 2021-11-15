@@ -100,6 +100,8 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | ingressList | list | [] | Configure ingressList for the chart here. Additional items can be added by adding a items similar to ingress |
 | initContainers | object | `{}` | Specify any initContainers here as dictionary items. Each initContainer should have its own key. The dictionary item key will determine the order. Helm templates can be used. |
 | lifecycle | object | `{}` | Configure the lifecycle for the main container |
+| mariadb | object | See below | mariadb dependency configuration |
+| mariadb.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
 | netshootImage | object | See below | netshoot specific configuration |
 | netshootImage.pullPolicy | string | `"Always"` | Specify the netshoot image pull policy |
 | netshootImage.repository | string | `"nicolaka/netshoot"` | Specify the netshoot image |

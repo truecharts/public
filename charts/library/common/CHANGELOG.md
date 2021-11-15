@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.6.0"></a>
+### [common-8.6.0](https://github.com/truecharts/apps/compare/common-8.5.7...common-8.6.0) (2021-11-15)
+
+#### Feat
+
+* add mariadb support layer
+
+
+
 <a name="common-8.5.7"></a>
 ### [common-8.5.7](https://github.com/truecharts/apps/compare/common-8.5.6...common-8.5.7) (2021-11-14)
 
