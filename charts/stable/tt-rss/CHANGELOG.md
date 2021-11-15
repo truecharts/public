@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-3.0.15"></a>
+### [tt-rss-3.0.15](https://github.com/truecharts/apps/compare/tt-rss-3.0.14...tt-rss-3.0.15) (2021-11-15)
+
+#### Chore
+
+* update non-major docker tags ([#1339](https://github.com/truecharts/apps/issues/1339))
+
+
+
 <a name="tt-rss-3.0.14"></a>
 ### [tt-rss-3.0.14](https://github.com/truecharts/apps/compare/tt-rss-3.0.13...tt-rss-3.0.14) (2021-11-15)
 
