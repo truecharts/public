@@ -59,13 +59,13 @@ spec:
         name: {{ $vctname }}
       spec:
         accessModes:
-          - {{ required (printf "accessMode is required for vCT %v" $vct.name) $vct.accessMode  | quote }}
+          - {{ ( $vct.accessMode | default "ReadWriteOnce" ) | quote }}
         resources:
           requests:
-            storage: {{ required (printf "size is required for PVC %v" $vct.name) $vct.size | quote }}
+            storage: {{ $vct.size | default "999Gi" | quote }}
         {{- if $vct.storageClass }}
         storageClassName: {{ if (eq "-" $vct.storageClass) }}""{{- else if (eq "SCALE-ZFS" $vct.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" $releaseName ) }}{{- else }}{{ $vct.storageClass | quote }}{{- end }}
-        {{- else if $values.ixChartContext }}
+        {{- else if or ( $values.global.isSCALE ) ( $values.ixChartContext ) ( $values.global.ixChartContext ) }}
         storageClassName: {{ printf "%v-%v"  "ix-storage-class" $releaseName }}
         {{- end }}
     {{- end }}
