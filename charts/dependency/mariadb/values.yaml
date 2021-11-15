@@ -40,10 +40,9 @@ podSecurityContext:
   runAsGroup: 0
 
 volumeClaimTemplates:
-  db:
+  data:
     enabled: true
     mountPath: "/bitnami/mariadb"
-    accessMode: ReadWriteOnce
 
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
