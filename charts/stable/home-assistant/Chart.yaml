@@ -3,11 +3,11 @@ appVersion: "2021.11.3"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.5.7
+  version: 8.6.2
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 5.1.17
+  version: 5.2.2
 deprecated: false
 description: home-assistant App for TrueNAS SCALE
 home: https://github.com/truecharts/apps/tree/master/charts/stable/home-assistant
@@ -26,7 +26,7 @@ sources:
 - https://github.com/home-assistant/home-assistant
 - https://github.com/cdr/code-server
 type: application
-version: 11.0.12
+version: 11.0.13
 annotations:
   truecharts.org/catagories: |
     - home-automation
