@@ -21,7 +21,6 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"tenstartups/ser2sock"` | image repository |
 | image.tag | string | `"latest@sha256:379d9338c720da30b63dc4cf2ecea07eb89dac7d62d5c79047294fffe97ae559"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
-| persistence.usb | object | See values.yaml | Configure a hostPathMount to mount a USB device in the container. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

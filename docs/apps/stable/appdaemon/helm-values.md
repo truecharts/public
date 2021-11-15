@@ -19,11 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"docker.io/acockburn/appdaemon"` |  |
 | image.tag | string | `"v4.1.0@sha256:209ee1c83b4c0794dd6f50333f60a212d0df7c4205e7e374ac78d988ffc3d8fd"` |  |
-| persistence.conf.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.conf.enabled | bool | `true` |  |
 | persistence.conf.mountPath | string | `"/conf"` |  |
-| persistence.conf.size | string | `"100Gi"` |  |
-| persistence.conf.type | string | `"pvc"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

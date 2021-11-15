@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-4.0.14"></a>
+### [openldap-4.0.14](https://github.com/truecharts/apps/compare/openldap-4.0.13...openldap-4.0.14) (2021-11-15)
+
+#### Chore
+
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="openldap-4.0.13"></a>
 ### [openldap-4.0.13](https://github.com/truecharts/apps/compare/openldap-4.0.12...openldap-4.0.13) (2021-11-15)
 

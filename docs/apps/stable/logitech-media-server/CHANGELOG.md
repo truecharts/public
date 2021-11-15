@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.13"></a>
+### [logitech-media-server-2.0.13](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.12...logitech-media-server-2.0.13) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="logitech-media-server-2.0.12"></a>
 ### [logitech-media-server-2.0.12](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.11...logitech-media-server-2.0.12) (2021-11-14)
 

@@ -15,11 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/unpackerr"` |  |
 | image.tag | string | `"v0.9.8@sha256:2bf65067fea86c36438b741bfea1cec69faeea02dd4811c0d58e12243a263b24"` |  |
-| persistence.downloads.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.downloads.enabled | bool | `true` |  |
 | persistence.downloads.mountPath | string | `"/downloads"` |  |
-| persistence.downloads.size | string | `"100Gi"` |  |
-| persistence.downloads.type | string | `"pvc"` |  |
 | portal.enabled | bool | `false` |  |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |

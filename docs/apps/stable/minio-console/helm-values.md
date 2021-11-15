@@ -18,6 +18,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"minio/console"` | image repository |
 | image.tag | string | `"v0.12.3@sha256:e24dfdf61dd144ef8a9d32bc7a7924d5e18d268121424e8a7479504f07f0c97a"` | image tag |
+| persistence.config.enabled | bool | `true` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | secret.CONSOLE_PBKDF_PASSPHRASE | string | `"changeme"` | Required: Passphrase to derive keys (generate own) Example: D6vpras1xpUgrcFpOIGA4crHvzUDQb48 |
 | secret.CONSOLE_PBKDF_SALT | string | `"changeme"` | Required: Salt for derived keys (generate own) Example: ILy2FWzwjjYi1TeTEpBjEsPrwLfKZxgi |

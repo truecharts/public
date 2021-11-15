@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="gitea-4.0.15"></a>
+### [gitea-4.0.15](https://github.com/truecharts/apps/compare/gitea-4.0.14...gitea-4.0.15) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="gitea-4.0.14"></a>
 ### [gitea-4.0.14](https://github.com/truecharts/apps/compare/gitea-4.0.13...gitea-4.0.14) (2021-11-14)
 

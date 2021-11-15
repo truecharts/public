@@ -28,11 +28,8 @@ You will, however, be able to use all values referenced in the common chart here
 | initContainers.init.volumeMounts[0].name | string | `"init"` |  |
 | initContainers.init.volumeMounts[1].mountPath | string | `"/config"` |  |
 | initContainers.init.volumeMounts[1].name | string | `"config"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql | object | See values.yaml | Enable and configure postgresql database subchart under this key.    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql) |

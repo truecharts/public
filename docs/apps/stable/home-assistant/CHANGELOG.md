@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="home-assistant-11.0.13"></a>
+### [home-assistant-11.0.13](https://github.com/truecharts/apps/compare/home-assistant-11.0.12...home-assistant-11.0.13) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="home-assistant-11.0.12"></a>
 ### [home-assistant-11.0.12](https://github.com/truecharts/apps/compare/home-assistant-11.0.11...home-assistant-11.0.12) (2021-11-14)
 

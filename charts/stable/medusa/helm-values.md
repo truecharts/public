@@ -17,14 +17,6 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"0.5.20@sha256:4b8296a04eff2320a466406d37a6115a0a26623d4163b6449c3d47fec6b95309"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.downloads.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.downloads.enabled | bool | `true` |  |
-| persistence.downloads.mountPath | string | `"/downloads"` |  |
-| persistence.downloads.size | string | `"1Gi"` |  |
-| persistence.tv.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.tv.enabled | bool | `true` |  |
-| persistence.tv.mountPath | string | `"/tv"` |  |
-| persistence.tv.size | string | `"1Gi"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

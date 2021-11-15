@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="joplin-server-4.0.10"></a>
+### [joplin-server-4.0.10](https://github.com/truecharts/apps/compare/joplin-server-4.0.9...joplin-server-4.0.10) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="joplin-server-4.0.9"></a>
 ### [joplin-server-4.0.9](https://github.com/truecharts/apps/compare/joplin-server-4.0.8...joplin-server-4.0.9) (2021-11-14)
 

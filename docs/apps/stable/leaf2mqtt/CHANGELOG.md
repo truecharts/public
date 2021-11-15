@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-2.0.9"></a>
+### [leaf2mqtt-2.0.9](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.8...leaf2mqtt-2.0.9) (2021-11-15)
+
+#### Chore
+
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="leaf2mqtt-2.0.8"></a>
 ### [leaf2mqtt-2.0.8](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.7...leaf2mqtt-2.0.8) (2021-11-14)
 

@@ -21,11 +21,8 @@ You will, however, be able to use all values referenced in the common chart here
 | mariadb.auth.username | string | `"ombi"` |  |
 | mariadb.enabled | bool | `false` |  |
 | mariadb.primary.persistence.enabled | bool | `false` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.ports.main.port | int | `3579` |  |
 | service.main.ports.main.targetPort | int | `3579` |  |

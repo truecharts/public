@@ -15,16 +15,10 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/pihole"` |  |
 | image.tag | string | `"v2021.10@sha256:764fce3e7a7925588be2ee976e7eeae3f09e504520fe1ff1579b666c6eb15226"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/pihole"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| persistence.dnsmasq.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.dnsmasq.enabled | bool | `true` |  |
 | persistence.dnsmasq.mountPath | string | `"/etc/dnsmasq.d"` |  |
-| persistence.dnsmasq.size | string | `"100Gi"` |  |
-| persistence.dnsmasq.type | string | `"pvc"` |  |
 | pihole.DNS1 | string | `"9.9.9.9"` |  |
 | pihole.DNS2 | string | `"149.112.112.112"` |  |
 | pihole.WEBPASSWORD | string | `"somepassword"` |  |

@@ -23,14 +23,10 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/nicholaswilde/etherpad"` |  |
 | image.tag | string | `"version-1.8.14@sha256:26bbd45110d5b4d70246fafe40d4c4a7047b7b4fde409763a125324fa93b2d73"` |  |
-| persistence.app.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.app.enabled | bool | `true` |  |
 | persistence.app.mountPath | string | `"/opt/etherpad-lite/app"` |  |
-| persistence.app.size | string | `"1Gi"` |  |
-| persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/opt/etherpad-lite/var"` |  |
-| persistence.data.size | string | `"1Gi"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |

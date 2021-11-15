@@ -20,16 +20,10 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"haveagitgat/tdarr_node"` |  |
 | image.tag | string | `"2.00.10@sha256:1e3f9328327d7d5597c414e6cf2b609e9e4a2854385e03c009814ad03c3c210c"` |  |
-| persistence.configs.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.configs.enabled | bool | `true` |  |
 | persistence.configs.mountPath | string | `"/app/configs"` |  |
-| persistence.configs.size | string | `"100Gi"` |  |
-| persistence.configs.type | string | `"pvc"` |  |
-| persistence.logs.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.logs.enabled | bool | `true` |  |
 | persistence.logs.mountPath | string | `"/app/logs"` |  |
-| persistence.logs.size | string | `"100Gi"` |  |
-| persistence.logs.type | string | `"pvc"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

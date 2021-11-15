@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-12.0.11"></a>
+### [vaultwarden-12.0.11](https://github.com/truecharts/apps/compare/vaultwarden-12.0.10...vaultwarden-12.0.11) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="vaultwarden-12.0.10"></a>
 ### [vaultwarden-12.0.10](https://github.com/truecharts/apps/compare/vaultwarden-12.0.9...vaultwarden-12.0.10) (2021-11-14)
 

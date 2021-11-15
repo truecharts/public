@@ -17,14 +17,6 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"version-48aabb98@sha256:dc926bce9cdfb75462bd1c86c7c27be8287ec125725a6de46502184298668e88"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.pictures.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.pictures.enabled | bool | `true` |  |
-| persistence.pictures.mountPath | string | `"/Pictures"` |  |
-| persistence.pictures.size | string | `"1Gi"` |  |
-| persistence.thumbs.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.thumbs.enabled | bool | `true` |  |
-| persistence.thumbs.mountPath | string | `"/Thumbs"` |  |
-| persistence.thumbs.size | string | `"1Gi"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

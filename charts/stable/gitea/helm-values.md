@@ -48,11 +48,8 @@ You will, however, be able to use all values referenced in the common chart here
 | metrics.enabled | bool | `false` |  |
 | metrics.serviceMonitor.enabled | bool | `false` |  |
 | oauth.enabled | bool | `false` |  |
-| persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
-| persistence.data.size | string | `"100Gi"` |  |
-| persistence.data.type | string | `"pvc"` |  |
 | persistence.temp.enabled | bool | `true` |  |
 | persistence.temp.mountPath | string | `"/tmp"` |  |
 | persistence.temp.type | string | `"emptyDir"` |  |

@@ -20,14 +20,10 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/nicholaswilde/odoo"` |  |
 | image.tag | string | `"version-14.0@sha256:7cff9672ce078f7e2cf132625f0bc0fa68e932955d23e2e8c2ce7c235d5c5f8d"` |  |
-| persistence.addons.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.addons.enabled | bool | `true` |  |
 | persistence.addons.mountPath | string | `"/mnt/extra-addons"` |  |
-| persistence.addons.size | string | `"1Gi"` |  |
-| persistence.odoo.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.odoo.enabled | bool | `true` |  |
 | persistence.odoo.mountPath | string | `"/var/lib/odoo"` |  |
-| persistence.odoo.size | string | `"1Gi"` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"postgres"` |  |

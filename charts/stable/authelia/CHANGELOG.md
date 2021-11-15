@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="authelia-7.0.12"></a>
+### [authelia-7.0.12](https://github.com/truecharts/apps/compare/authelia-7.0.11...authelia-7.0.12) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="authelia-7.0.11"></a>
 ### [authelia-7.0.11](https://github.com/truecharts/apps/compare/authelia-7.0.10...authelia-7.0.11) (2021-11-14)
 

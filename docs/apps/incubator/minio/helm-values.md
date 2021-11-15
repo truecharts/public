@@ -18,10 +18,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"minio/minio"` | image repository |
 | image.tag | string | `"RELEASE.2021-11-05T09-16-26Z@sha256:a11692068c588e7ea895f76d619a5fcb30eefc8a759e2ad7d6ec92331e43386e"` | image tag |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/data"` |  |
-| persistence.config.type | string | `"pvc"` |  |
 | probes.liveness.path | string | `"/minio/health/live"` |  |
 | probes.readiness.path | string | `"/minio/health/ready"` |  |
 | secret.MINIO_ROOT_PASSWORD | string | `"changeme"` | Minio Password |

@@ -87,7 +87,6 @@ You will, however, be able to use all values referenced in the common chart here
 | notifier.smtp.username | string | `"test"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.type | string | `"pvc"` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"authelia"` |  |

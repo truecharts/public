@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="external-service-4.0.9"></a>
+### [external-service-4.0.9](https://github.com/truecharts/apps/compare/external-service-4.0.8...external-service-4.0.9) (2021-11-15)
+
+#### Chore
+
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="external-service-4.0.8"></a>
 ### [external-service-4.0.8](https://github.com/truecharts/apps/compare/external-service-4.0.7...external-service-4.0.8) (2021-11-14)
 

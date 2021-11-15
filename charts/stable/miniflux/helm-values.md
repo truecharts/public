@@ -18,6 +18,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"miniflux/miniflux"` |  |
 | image.tag | string | `"2.0.33@sha256:77726b617e71a046ea4d02890f7f4a5d43a3c774c7de073ad06bec521ae75f12"` |  |
+| persistence.config.enabled | bool | `true` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
 | postgresql | object | Enabled (see values.yaml for more details) | Enable and configure postgresql database subchart under this key. |
 | probes | object | See values.yaml | Configures the probes for the main Pod. |
 | secret | object | See below | environment variables. See [miniflux docs](https://miniflux.app/docs/configuration.html) for more details. |

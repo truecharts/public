@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="kanboard-4.0.10"></a>
+### [kanboard-4.0.10](https://github.com/truecharts/apps/compare/kanboard-4.0.9...kanboard-4.0.10) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="kanboard-4.0.9"></a>
 ### [kanboard-4.0.9](https://github.com/truecharts/apps/compare/kanboard-4.0.8...kanboard-4.0.9) (2021-11-14)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="focalboard-4.0.9"></a>
+### [focalboard-4.0.9](https://github.com/truecharts/apps/compare/focalboard-4.0.8...focalboard-4.0.9) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="focalboard-4.0.8"></a>
 ### [focalboard-4.0.8](https://github.com/truecharts/apps/compare/focalboard-4.0.7...focalboard-4.0.8) (2021-11-14)
 

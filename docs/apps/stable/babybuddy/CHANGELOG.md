@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-4.0.12"></a>
+### [babybuddy-4.0.12](https://github.com/truecharts/apps/compare/babybuddy-4.0.11...babybuddy-4.0.12) (2021-11-15)
+
+#### Chore
+
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="babybuddy-4.0.11"></a>
 ### [babybuddy-4.0.11](https://github.com/truecharts/apps/compare/babybuddy-4.0.10...babybuddy-4.0.11) (2021-11-15)
 

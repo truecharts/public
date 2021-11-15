@@ -17,10 +17,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"version-2.7.3-r5@sha256:bfe802a34094656354637bab04e8de8eb11374357da25ae03f44afaa91f4fa32"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
-| persistence.data.size | string | `"1Gi"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

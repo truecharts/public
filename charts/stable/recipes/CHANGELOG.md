@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="recipes-3.0.14"></a>
+### [recipes-3.0.14](https://github.com/truecharts/apps/compare/recipes-3.0.13...recipes-3.0.14) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="recipes-3.0.13"></a>
 ### [recipes-3.0.13](https://github.com/truecharts/apps/compare/recipes-3.0.12...recipes-3.0.13) (2021-11-14)
 

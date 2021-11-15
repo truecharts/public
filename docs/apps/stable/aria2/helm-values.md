@@ -20,9 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"p3terx/aria2-pro"` | image repository |
 | image.tag | string | `"latest@sha256:2589527dfef6351d459f3a6781e4efef41d694878765b107413a6eb4bb6bbca7"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountpath | string | `"/config"` |  |
-| persistence.data.enabled | bool | `true` |  |
-| persistence.data.mountpath | string | `"/downloads"` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

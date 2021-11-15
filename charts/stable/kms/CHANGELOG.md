@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-9.0.11"></a>
+### [kms-9.0.11](https://github.com/truecharts/apps/compare/kms-9.0.10...kms-9.0.11) (2021-11-15)
+
+#### Chore
+
+* update non-major deps helm releases ([#1338](https://github.com/truecharts/apps/issues/1338))
+
+
+
 <a name="kms-9.0.10"></a>
 ### [kms-9.0.10](https://github.com/truecharts/apps/compare/kms-9.0.9...kms-9.0.10) (2021-11-14)
 

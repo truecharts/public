@@ -26,6 +26,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"joplin/server"` | image repository |
 | image.tag | string | `"2.5.1@sha256:5bd976f19f883352bacad74767237471941cb35b2ded96a1afeeb7168b1e08d8"` | image tag |
+| persistence.config.enabled | bool | `true` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql | object | See values.yaml | Enable and configure postgresql database subchart under this key. |

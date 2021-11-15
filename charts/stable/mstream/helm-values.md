@@ -17,10 +17,6 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"version-v5.2.5@sha256:22c012bcc43cde544532e7797da678ffd0dab76d3afeec0a2906adfae6767256"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.music.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.music.enabled | bool | `true` |  |
-| persistence.music.mountPath | string | `"/music"` |  |
-| persistence.music.size | string | `"1Gi"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

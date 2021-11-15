@@ -15,11 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/sabnzbd"` |  |
 | image.tag | string | `"v3.4.2@sha256:26dc34fc8fbad6a678993ee03742ede43d5b1ec079ac15990063c2861375e597"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
 | service.main.ports.main.port | int | `8080` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
 

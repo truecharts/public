@@ -34,7 +34,6 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"22.2.0@sha256:3a10a9b27c467bd8129de22ce502cb7e8cb1476783740e307766eabdfa6f7c89"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html"` |  |
-| persistence.data.type | string | `"pvc"` |  |
 | podSecurityContext.fsGroup | int | `33` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

@@ -19,11 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/navidrome"` |  |
 | image.tag | string | `"v0.46.0@sha256:2921f9891cc9c1f78f78456814d3c9a5b205f23a34ac7cc9fb1ff496ce90f07b"` |  |
-| persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
-| persistence.data.size | string | `"100Gi"` |  |
-| persistence.data.type | string | `"pvc"` |  |
 | service.main.ports.main.port | int | `4533` |  |
 | service.main.ports.main.targetPort | int | `4533` |  |
 

@@ -15,10 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/cloud9"` |  |
 | image.tag | string | `"version-1.29.2@sha256:f57b67c5ca42ab5d46f216f709a26e529afc80ee327f2204b51da248e525d730"` |  |
-| persistence.code.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.code.enabled | bool | `true` |  |
 | persistence.code.mountPath | string | `"/code"` |  |
-| persistence.code.size | string | `"1Gi"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
