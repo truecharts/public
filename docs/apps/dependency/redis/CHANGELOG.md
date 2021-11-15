@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.2"></a>
+### [redis-1.0.2](https://github.com/truecharts/apps/compare/redis-1.0.1...redis-1.0.2) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* bump common and move mariadb
+
+
+
 <a name="redis-1.0.1"></a>
 ### [redis-1.0.1](https://github.com/truecharts/apps/compare/redis-1.0.0...redis-1.0.1) (2021-11-14)
 

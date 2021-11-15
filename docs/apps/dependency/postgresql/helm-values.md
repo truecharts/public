@@ -22,11 +22,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/postgresql"` |  |
 | image.tag | string | `"14.1.0@sha256:480fa9cd68d9013ea622b8a6dc71505bc8f0eaeac6d062cb5182bff44d0fcdbb"` |  |
-| persistence.db.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.db.enabled | bool | `true` |  |
 | persistence.db.mountPath | string | `"/bitnami/postgresql"` |  |
-| persistence.db.size | string | `"999Gi"` |  |
-| persistence.db.type | string | `"pvc"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | postgrespassword | string | `"testroot"` |  |
 | postgresqlDatabase | string | `"test"` |  |

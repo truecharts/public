@@ -7,4 +7,3 @@
 #### Feat
 
 * Add MariaDB App ([#1333](https://github.com/truecharts/apps/issues/1333))
-

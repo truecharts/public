@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="postgresql-5.1.18"></a>
+### [postgresql-5.1.18](https://github.com/truecharts/apps/compare/postgresql-5.1.17...postgresql-5.1.18) (2021-11-15)
+
+#### Chore
+
+* persistence cleanup and small bugfixes ([#1329](https://github.com/truecharts/apps/issues/1329))
+* bump common and move mariadb
+
+
+
 <a name="postgresql-5.1.17"></a>
 ### [postgresql-5.1.17](https://github.com/truecharts/apps/compare/postgresql-5.1.16...postgresql-5.1.17) (2021-11-14)
 
