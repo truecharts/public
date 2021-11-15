@@ -59,10 +59,10 @@ spec:
         name: {{ $vctname }}
       spec:
         accessModes:
-          - {{ ( $values.accessMode | default "ReadWriteOnce" ) | quote }}
+          - {{ ( $vct.accessMode | default "ReadWriteOnce" ) | quote }}
         resources:
           requests:
-            storage: {{ $values.size | default "999Gi" | quote }}
+            storage: {{ $vct.size | default "999Gi" | quote }}
         {{- if $vct.storageClass }}
         storageClassName: {{ if (eq "-" $vct.storageClass) }}""{{- else if (eq "SCALE-ZFS" $vct.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" $releaseName ) }}{{- else }}{{ $vct.storageClass | quote }}{{- end }}
         {{- else if or ( $values.global.isSCALE ) ( $values.ixChartContext ) ( $values.global.ixChartContext ) }}
