@@ -13,7 +13,7 @@ controller:
   # For Deployments, valid values are Recreate (default) and RollingUpdate.
   # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
   # DaemonSets ignore this.
-  strategy: Recreate
+  strategy: RollingUpdate
   rollingUpdate:
     # -- Set deployment RollingUpdate max unavailable
     unavailable: 1
