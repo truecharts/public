@@ -7,4 +7,7 @@
 
 {{- /* Autogenerate redis passwords if needed */ -}}
 {{- include "common.dependencies.redis.injector" . }}
+
+{{- /* Autogenerate mariadb passwords if needed */ -}}
+{{- include "common.dependencies.mariadb.injector" . }}
 {{- end -}}

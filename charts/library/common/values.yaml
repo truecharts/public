@@ -954,3 +954,11 @@ redis:
   existingSecret: "rediscreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   url: {}
+
+# -- mariadb dependency configuration
+# @default -- See below
+mariadb:
+  enabled: false
+  existingSecret: "mariadbcreds"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  url: {}
