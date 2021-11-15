@@ -207,14 +207,8 @@ questions:
                   enum:
                     - value: "simplePVC"
                       description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
                     - value: "pvc"
                       description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
 # Include{persistenceBasic}
               - variable: hostPath
                 label: "hostPath"
