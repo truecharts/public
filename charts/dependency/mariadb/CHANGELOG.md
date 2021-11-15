@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.2"></a>
+### [mariadb-1.0.2](https://github.com/truecharts/apps/compare/mariadb-1.0.1...mariadb-1.0.2) (2021-11-15)
+
+#### Chore
+
+* bump common on dependency apps
+
+
+
 <a name="mariadb-1.0.1"></a>
 ### [mariadb-1.0.1](https://github.com/truecharts/apps/compare/mariadb-1.0.0...mariadb-1.0.1) (2021-11-15)
 

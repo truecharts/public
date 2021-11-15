@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.4"></a>
+### [memcached-1.0.4](https://github.com/truecharts/apps/compare/memcached-1.0.3...memcached-1.0.4) (2021-11-15)
+
+#### Chore
+
+* bump common on dependency apps
+
+
+
 <a name="memcached-1.0.3"></a>
 ### [memcached-1.0.3](https://github.com/truecharts/apps/compare/memcached-1.0.2...memcached-1.0.3) (2021-11-15)
 
