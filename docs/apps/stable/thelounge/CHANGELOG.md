@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="thelounge-4.0.10"></a>
+### [thelounge-4.0.10](https://github.com/truecharts/apps/compare/thelounge-4.0.9...thelounge-4.0.10) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="thelounge-4.0.9"></a>
 ### [thelounge-4.0.9](https://github.com/truecharts/apps/compare/thelounge-4.0.8...thelounge-4.0.9) (2021-11-15)
 

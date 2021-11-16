@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-4.0.10"></a>
+### [deconz-4.0.10](https://github.com/truecharts/apps/compare/deconz-4.0.9...deconz-4.0.10) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="deconz-4.0.9"></a>
 ### [deconz-4.0.9](https://github.com/truecharts/apps/compare/deconz-4.0.8...deconz-4.0.9) (2021-11-15)
 

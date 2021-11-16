@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-9.0.10"></a>
+### [nzbhydra-9.0.10](https://github.com/truecharts/apps/compare/nzbhydra-9.0.9...nzbhydra-9.0.10) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="nzbhydra-9.0.9"></a>
 ### [nzbhydra-9.0.9](https://github.com/truecharts/apps/compare/nzbhydra-9.0.8...nzbhydra-9.0.9) (2021-11-15)
 

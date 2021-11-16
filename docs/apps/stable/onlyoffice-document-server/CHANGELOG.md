@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-2.0.10"></a>
+### [onlyoffice-document-server-2.0.10](https://github.com/truecharts/apps/compare/onlyoffice-document-server-2.0.9...onlyoffice-document-server-2.0.10) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="onlyoffice-document-server-2.0.9"></a>
 ### [onlyoffice-document-server-2.0.9](https://github.com/truecharts/apps/compare/onlyoffice-document-server-2.0.8...onlyoffice-document-server-2.0.9) (2021-11-15)
 

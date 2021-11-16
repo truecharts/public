@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-2.0.10"></a>
+### [teamspeak3-2.0.10](https://github.com/truecharts/apps/compare/teamspeak3-2.0.9...teamspeak3-2.0.10) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="teamspeak3-2.0.9"></a>
 ### [teamspeak3-2.0.9](https://github.com/truecharts/apps/compare/teamspeak3-2.0.8...teamspeak3-2.0.9) (2021-11-15)
 

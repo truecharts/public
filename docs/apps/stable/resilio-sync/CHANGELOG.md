@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-4.0.10"></a>
+### [resilio-sync-4.0.10](https://github.com/truecharts/apps/compare/resilio-sync-4.0.9...resilio-sync-4.0.10) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="resilio-sync-4.0.9"></a>
 ### [resilio-sync-4.0.9](https://github.com/truecharts/apps/compare/resilio-sync-4.0.8...resilio-sync-4.0.9) (2021-11-15)
 

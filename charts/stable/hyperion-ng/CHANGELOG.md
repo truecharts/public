@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-4.0.10"></a>
+### [hyperion-ng-4.0.10](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.9...hyperion-ng-4.0.10) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="hyperion-ng-4.0.9"></a>
 ### [hyperion-ng-4.0.9](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.8...hyperion-ng-4.0.9) (2021-11-15)
 

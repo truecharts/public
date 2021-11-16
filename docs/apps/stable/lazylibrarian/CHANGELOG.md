@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.12"></a>
+### [lazylibrarian-9.0.12](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.11...lazylibrarian-9.0.12) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="lazylibrarian-9.0.11"></a>
 ### [lazylibrarian-9.0.11](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.10...lazylibrarian-9.0.11) (2021-11-15)
 

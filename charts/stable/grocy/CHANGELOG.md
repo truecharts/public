@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grocy-9.0.10"></a>
+### [grocy-9.0.10](https://github.com/truecharts/apps/compare/grocy-9.0.9...grocy-9.0.10) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="grocy-9.0.9"></a>
 ### [grocy-9.0.9](https://github.com/truecharts/apps/compare/grocy-9.0.8...grocy-9.0.9) (2021-11-15)
 

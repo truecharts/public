@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-4.0.1"></a>
+### [miniflux-4.0.1](https://github.com/truecharts/apps/compare/miniflux-4.0.0...miniflux-4.0.1) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="miniflux-4.0.0"></a>
 ### [miniflux-4.0.0](https://github.com/truecharts/apps/compare/miniflux-3.0.10...miniflux-4.0.0) (2021-11-16)
 

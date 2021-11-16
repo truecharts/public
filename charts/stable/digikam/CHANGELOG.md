@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="digikam-2.0.12"></a>
+### [digikam-2.0.12](https://github.com/truecharts/apps/compare/digikam-2.0.11...digikam-2.0.12) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="digikam-2.0.11"></a>
 ### [digikam-2.0.11](https://github.com/truecharts/apps/compare/digikam-2.0.10...digikam-2.0.11) (2021-11-15)
 

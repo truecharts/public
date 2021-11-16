@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.11"></a>
+### [plex-8.0.11](https://github.com/truecharts/apps/compare/plex-8.0.10...plex-8.0.11) (2021-11-16)
+
+#### Chore
+
+* update non-major deps helm releases ([#1345](https://github.com/truecharts/apps/issues/1345))
+
+
+
 <a name="plex-8.0.10"></a>
 ### [plex-8.0.10](https://github.com/truecharts/apps/compare/plex-8.0.9...plex-8.0.10) (2021-11-15)
 
