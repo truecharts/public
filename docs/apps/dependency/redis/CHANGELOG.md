@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.7"></a>
+### [redis-1.0.7](https://github.com/truecharts/apps/compare/redis-1.0.6...redis-1.0.7) (2021-11-16)
+
+#### Chore
+
+* bump common
+
+
+
 <a name="redis-1.0.6"></a>
 ### [redis-1.0.6](https://github.com/truecharts/apps/compare/redis-1.0.5...redis-1.0.6) (2021-11-16)
 

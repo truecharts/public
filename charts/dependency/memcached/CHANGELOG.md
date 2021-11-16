@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.6"></a>
+### [memcached-1.0.6](https://github.com/truecharts/apps/compare/memcached-1.0.5...memcached-1.0.6) (2021-11-16)
+
+#### Chore
+
+* bump common
+
+
+
 <a name="memcached-1.0.5"></a>
 ### [memcached-1.0.5](https://github.com/truecharts/apps/compare/memcached-1.0.4...memcached-1.0.5) (2021-11-16)
 
