@@ -41,7 +41,7 @@ enableUpgradeBackup: false
 podSecurityContext:
   runAsGroup: 0
 
-persistence:
+volumeClaimTemplates:
   db:
     enabled: true
     mountPath: "/bitnami/postgresql"
