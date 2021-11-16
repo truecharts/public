@@ -29,20 +29,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/postgresql"` |  |
 | image.tag | string | `"14.1.0@sha256:ed5305053c28f397ade50f5fa48e7f73dd1402bc20dcccf1978b3a5ff243f9dd"` |  |
-| initContainers.migrate-db.command[0] | string | `"/bin/sh"` |  |
-| initContainers.migrate-db.command[1] | string | `"-cx"` |  |
-| initContainers.migrate-db.command[2] | string | `"echo 'trying to migrate old db to new location...'\nmkdir -p /bitnami/postgresql/data\nmv -f /bitnami/postgresql/old/* /bitnami/postgresql/ || true\nchown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/\nchmod 775 /bitnami/postgresql/\n"` |  |
-| initContainers.migrate-db.image | string | `"{{ .Values.alpineImage.repository}}:{{ .Values.alpineImage.tag }}"` |  |
-| initContainers.migrate-db.imagePullPolicy | string | `"IfNotPresent"` |  |
-| initContainers.migrate-db.securityContext.privileged | bool | `true` |  |
-| initContainers.migrate-db.securityContext.runAsNonRoot | bool | `false` |  |
-| initContainers.migrate-db.securityContext.runAsUser | int | `0` |  |
-| initContainers.migrate-db.volumeMounts[0].mountPath | string | `"/bitnami/postgresql/old"` |  |
-| initContainers.migrate-db.volumeMounts[0].name | string | `"db"` |  |
-| initContainers.migrate-db.volumeMounts[1].mountPath | string | `"/bitnami/postgresql"` |  |
-| initContainers.migrate-db.volumeMounts[1].name | string | `"data"` |  |
 | persistence.db.enabled | bool | `true` |  |
-| persistence.db.mountPath | string | `"/bitnami/postgresql/old"` |  |
+| persistence.db.mountPath | string | `"/bitnami/postgresql"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | postgrespassword | string | `"testroot"` |  |
 | postgresqlDatabase | string | `"test"` |  |
@@ -52,7 +40,5 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `5432` |  |
 | service.main.ports.main.targetPort | int | `5432` |  |
-| volumeClaimTemplates.data.enabled | bool | `true` |  |
-| volumeClaimTemplates.data.mountPath | string | `"/bitnami/postgresql"` |  |
 
 All Rights Reserved - The TrueCharts Project

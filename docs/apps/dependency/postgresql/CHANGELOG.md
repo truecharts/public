@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.0"></a>
+### [postgresql-6.0.0](https://github.com/truecharts/apps/compare/postgresql-5.2.2...postgresql-6.0.0) (2021-11-16)
+
+#### Fix
+
+* remove migration scripting and assume postgresql is a breaking change
+
+
+
 <a name="postgresql-5.2.2"></a>
 ### [postgresql-5.2.2](https://github.com/truecharts/apps/compare/postgresql-5.2.1...postgresql-5.2.2) (2021-11-15)
 
