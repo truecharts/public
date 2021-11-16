@@ -24,29 +24,6 @@ controller:
   # -- ReplicaSet revision history limit
   revisionHistoryLimit: 3
 
-initContainers:
-  migrate-db:
-    image: "{{ .Values.alpineImage.repository}}:{{ .Values.alpineImage.tag }}"
-    securityContext:
-      runAsUser: 0
-      privileged: true
-      runAsNonRoot: false
-    command:
-      - /bin/sh
-      - -cx
-      - |
-        echo 'trying to migrate old db to new location...'
-        mkdir -p /bitnami/postgresql/data
-        mv -f /bitnami/postgresql/old/* /bitnami/postgresql/ || true
-        chown -R {{ .Values.podSecurityContext.runAsUser }}:{{ .Values.podSecurityContext.fsGroup }} /bitnami/postgresql/
-        chmod 775 /bitnami/postgresql/
-    imagePullPolicy: IfNotPresent
-    volumeMounts:
-      - name: db
-        mountPath: /bitnami/postgresql/old
-      - name: data
-        mountPath: /bitnami/postgresql
-
 securityContext:
   readOnlyRootFilesystem: false
 
@@ -66,11 +43,6 @@ podSecurityContext:
 
 persistence:
   db:
-    enabled: true
-    mountPath: "/bitnami/postgresql/old"
-
-volumeClaimTemplates:
-  data:
     enabled: true
     mountPath: "/bitnami/postgresql"
 
