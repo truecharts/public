@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: "14.0"
-version: 3.0.10
+version: 4.0.0
 kubeVersion: '>=1.16.0-0'
 name: odoo
 description: All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting, PM, HR, Procurement, Point of Sale, MRP, Marketing, etc.
@@ -25,7 +25,7 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 5.2.2
+  version: 6.0.1
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
