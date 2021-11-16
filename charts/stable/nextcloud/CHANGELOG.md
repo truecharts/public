@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-10.0.0"></a>
+### [nextcloud-10.0.0](https://github.com/truecharts/apps/compare/nextcloud-9.0.12...nextcloud-10.0.0) (2021-11-16)
+
+#### Chore
+
+* bump postgresql on some Apps
+
+
+
 <a name="nextcloud-9.0.12"></a>
 ### [nextcloud-9.0.12](https://github.com/truecharts/apps/compare/nextcloud-9.0.11...nextcloud-9.0.12) (2021-11-15)
 

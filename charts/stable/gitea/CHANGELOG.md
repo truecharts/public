@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.0"></a>
+### [gitea-5.0.0](https://github.com/truecharts/apps/compare/gitea-4.0.15...gitea-5.0.0) (2021-11-16)
+
+#### Chore
+
+* bump postgresql on some Apps
+
+
+
 <a name="gitea-4.0.15"></a>
 ### [gitea-4.0.15](https://github.com/truecharts/apps/compare/gitea-4.0.14...gitea-4.0.15) (2021-11-15)
 
