@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="stash-4.0.10"></a>
+### [stash-4.0.10](https://github.com/truecharts/apps/compare/stash-4.0.9...stash-4.0.10) (2021-11-16)
+
+#### Chore
+
+* update container image ghcr.io/truecharts/stash to v0.11.0 ([#1341](https://github.com/truecharts/apps/issues/1341))
+
+
+
 <a name="stash-4.0.9"></a>
 ### [stash-4.0.9](https://github.com/truecharts/apps/compare/stash-4.0.8...stash-4.0.9) (2021-11-15)
 

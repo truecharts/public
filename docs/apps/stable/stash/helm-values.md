@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.STASH_PORT | int | `9999` | Set the container port |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/truecharts/stash"` | image repository |
-| image.tag | string | `"v0.10.0@sha256:9a1504663615267694053493a6a8286fea76409a9622ab4f2ddbb11226b1d834"` | image tag |
+| image.tag | string | `"v0.11.0@sha256:8ce5c582a35c7ad8db0ef9e0bcfeb03bccfa1bc7e8432f36ec572f8e5a2fc97d"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
