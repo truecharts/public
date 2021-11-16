@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.1"></a>
+### [vaultwarden-13.0.1](https://github.com/truecharts/apps/compare/vaultwarden-13.0.0...vaultwarden-13.0.1) (2021-11-16)
+
+#### Chore
+
+* bump postgresql again
+
+
+
 <a name="vaultwarden-13.0.0"></a>
 ### [vaultwarden-13.0.0](https://github.com/truecharts/apps/compare/vaultwarden-12.0.11...vaultwarden-13.0.0) (2021-11-16)
 

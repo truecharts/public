@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.1"></a>
+### [authelia-8.0.1](https://github.com/truecharts/apps/compare/authelia-8.0.0...authelia-8.0.1) (2021-11-16)
+
+#### Chore
+
+* bump postgresql again
+
+
+
 <a name="authelia-8.0.0"></a>
 ### [authelia-8.0.0](https://github.com/truecharts/apps/compare/authelia-7.0.12...authelia-8.0.0) (2021-11-16)
 
