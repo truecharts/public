@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.12"></a>
+### [zwavejs2mqtt-9.0.12](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.11...zwavejs2mqtt-9.0.12) (2021-11-16)
+
+#### Chore
+
+* update non-major ([#1342](https://github.com/truecharts/apps/issues/1342))
+
+
+
 <a name="zwavejs2mqtt-9.0.11"></a>
 ### [zwavejs2mqtt-9.0.11](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.10...zwavejs2mqtt-9.0.11) (2021-11-15)
 

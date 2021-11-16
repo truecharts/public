@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/librespeed"` | image repository |
-| image.tag | string | `"version-5.2.4@sha256:c74665ede73fcad3f6c15de85d105bdf488bb5b9ee55938cae7de099a4b3ac31"` | image tag |
+| image.tag | string | `"version-5.2.4@sha256:ff7f6aa6634daf567eee4c4942d05a51908af42608bb00cc3d4089b4eb3d0ab7"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
