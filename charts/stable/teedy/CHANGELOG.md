@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teedy-4.0.0"></a>
+### [teedy-4.0.0](https://github.com/truecharts/apps/compare/teedy-3.0.10...teedy-4.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="teedy-3.0.10"></a>
 ### [teedy-3.0.10](https://github.com/truecharts/apps/compare/teedy-3.0.9...teedy-3.0.10) (2021-11-15)
 

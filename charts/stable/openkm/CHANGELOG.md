@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-4.0.0"></a>
+### [openkm-4.0.0](https://github.com/truecharts/apps/compare/openkm-3.0.10...openkm-4.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="openkm-3.0.10"></a>
 ### [openkm-3.0.10](https://github.com/truecharts/apps/compare/openkm-3.0.9...openkm-3.0.10) (2021-11-15)
 

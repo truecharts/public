@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="joplin-server-5.0.0"></a>
+### [joplin-server-5.0.0](https://github.com/truecharts/apps/compare/joplin-server-4.0.10...joplin-server-5.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="joplin-server-4.0.10"></a>
 ### [joplin-server-4.0.10](https://github.com/truecharts/apps/compare/joplin-server-4.0.9...joplin-server-4.0.10) (2021-11-15)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-5.0.0"></a>
+### [firefox-syncserver-5.0.0](https://github.com/truecharts/apps/compare/firefox-syncserver-4.0.10...firefox-syncserver-5.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="firefox-syncserver-4.0.10"></a>
 ### [firefox-syncserver-4.0.10](https://github.com/truecharts/apps/compare/firefox-syncserver-4.0.9...firefox-syncserver-4.0.10) (2021-11-15)
 

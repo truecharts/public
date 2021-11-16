@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="etherpad-5.0.0"></a>
+### [etherpad-5.0.0](https://github.com/truecharts/apps/compare/etherpad-4.0.10...etherpad-5.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="etherpad-4.0.10"></a>
 ### [etherpad-4.0.10](https://github.com/truecharts/apps/compare/etherpad-4.0.9...etherpad-4.0.10) (2021-11-15)
 

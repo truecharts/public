@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-4.0.0"></a>
+### [miniflux-4.0.0](https://github.com/truecharts/apps/compare/miniflux-3.0.10...miniflux-4.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="miniflux-3.0.10"></a>
 ### [miniflux-3.0.10](https://github.com/truecharts/apps/compare/miniflux-3.0.9...miniflux-3.0.10) (2021-11-15)
 

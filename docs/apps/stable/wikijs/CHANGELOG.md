@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.0"></a>
+### [wikijs-4.0.0](https://github.com/truecharts/apps/compare/wikijs-3.0.10...wikijs-4.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="wikijs-3.0.10"></a>
 ### [wikijs-3.0.10](https://github.com/truecharts/apps/compare/wikijs-3.0.9...wikijs-3.0.10) (2021-11-15)
 

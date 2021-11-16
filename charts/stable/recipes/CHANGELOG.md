@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-4.0.0"></a>
+### [recipes-4.0.0](https://github.com/truecharts/apps/compare/recipes-3.0.14...recipes-4.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="recipes-3.0.14"></a>
 ### [recipes-3.0.14](https://github.com/truecharts/apps/compare/recipes-3.0.13...recipes-3.0.14) (2021-11-15)
 

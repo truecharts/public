@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-5.0.0"></a>
+### [dsmr-reader-5.0.0](https://github.com/truecharts/apps/compare/dsmr-reader-4.0.10...dsmr-reader-5.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="dsmr-reader-4.0.10"></a>
 ### [dsmr-reader-4.0.10](https://github.com/truecharts/apps/compare/dsmr-reader-4.0.9...dsmr-reader-4.0.10) (2021-11-15)
 

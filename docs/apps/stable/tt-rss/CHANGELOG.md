@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.0"></a>
+### [tt-rss-4.0.0](https://github.com/truecharts/apps/compare/tt-rss-3.0.15...tt-rss-4.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="tt-rss-3.0.15"></a>
 ### [tt-rss-3.0.15](https://github.com/truecharts/apps/compare/tt-rss-3.0.14...tt-rss-3.0.15) (2021-11-15)
 

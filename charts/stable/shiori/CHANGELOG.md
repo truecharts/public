@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shiori-4.0.0"></a>
+### [shiori-4.0.0](https://github.com/truecharts/apps/compare/shiori-3.0.10...shiori-4.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="shiori-3.0.10"></a>
 ### [shiori-3.0.10](https://github.com/truecharts/apps/compare/shiori-3.0.9...shiori-3.0.10) (2021-11-15)
 

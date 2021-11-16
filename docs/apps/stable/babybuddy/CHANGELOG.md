@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.0"></a>
+### [babybuddy-5.0.0](https://github.com/truecharts/apps/compare/babybuddy-4.0.12...babybuddy-5.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="babybuddy-4.0.12"></a>
 ### [babybuddy-4.0.12](https://github.com/truecharts/apps/compare/babybuddy-4.0.11...babybuddy-4.0.12) (2021-11-15)
 

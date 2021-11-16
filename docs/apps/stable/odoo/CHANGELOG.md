@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="odoo-4.0.0"></a>
+### [odoo-4.0.0](https://github.com/truecharts/apps/compare/odoo-3.0.10...odoo-4.0.0) (2021-11-16)
+
+#### Chore
+
+* update helm chart postgresql to v6 ([#1343](https://github.com/truecharts/apps/issues/1343))
+
+
+
 <a name="odoo-3.0.10"></a>
 ### [odoo-3.0.10](https://github.com/truecharts/apps/compare/odoo-3.0.9...odoo-3.0.10) (2021-11-15)
 
