@@ -34,7 +34,7 @@ netshootImage:
   # -- Specify the netshoot image
   repository: nicolaka/netshoot
   # -- Specify the netshoot image tag
-  tag: latest@sha256:ebc03105d7b4341723052b06d18b58698a0b7f88afc7b6fffd8a188fb729b85e
+  tag: latest@sha256:8a8d287f3c31ed0764574d999a68e1514a707c163e725ae2004a33e3f13fef51
   # -- Specify the netshoot image pull policy
   pullPolicy: Always
 
@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: bitnami/postgresql
   # -- Specify the postgresql image tag
-  tag: 14.1.0@sha256:52a1517b6ab0c8bd0a0a5af646749b3e9d0afec822cf3f083641080010aa56a7
+  tag: 14.1.0@sha256:6a8dd778d39011aa8b904d9a8ff15e848cbab8005fc0b1a786faf0fe43e0d5c2
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
