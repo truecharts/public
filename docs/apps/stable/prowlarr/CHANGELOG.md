@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.14"></a>
+### [prowlarr-4.0.14](https://github.com/truecharts/apps/compare/prowlarr-4.0.13...prowlarr-4.0.14) (2021-11-18)
+
+#### Chore
+
+* update non-major ([#1350](https://github.com/truecharts/apps/issues/1350))
+
+
+
 <a name="prowlarr-4.0.13"></a>
 ### [prowlarr-4.0.13](https://github.com/truecharts/apps/compare/prowlarr-4.0.12...prowlarr-4.0.13) (2021-11-16)
 

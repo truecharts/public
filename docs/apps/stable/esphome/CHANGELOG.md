@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.12"></a>
+### [esphome-9.0.12](https://github.com/truecharts/apps/compare/esphome-9.0.11...esphome-9.0.12) (2021-11-18)
+
+#### Chore
+
+* update non-major ([#1350](https://github.com/truecharts/apps/issues/1350))
+
+
+
 <a name="esphome-9.0.11"></a>
 ### [esphome-9.0.11](https://github.com/truecharts/apps/compare/esphome-9.0.10...esphome-9.0.11) (2021-11-16)
 

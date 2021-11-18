@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-4.0.4"></a>
+### [recipes-4.0.4](https://github.com/truecharts/apps/compare/recipes-4.0.3...recipes-4.0.4) (2021-11-18)
+
+#### Chore
+
+* update non-major ([#1350](https://github.com/truecharts/apps/issues/1350))
+
+
+
 <a name="recipes-4.0.3"></a>
 ### [recipes-4.0.3](https://github.com/truecharts/apps/compare/recipes-4.0.2...recipes-4.0.3) (2021-11-17)
 

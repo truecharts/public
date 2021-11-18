@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-4.0.11"></a>
+### [pgadmin-4.0.11](https://github.com/truecharts/apps/compare/pgadmin-4.0.10...pgadmin-4.0.11) (2021-11-18)
+
+#### Chore
+
+* update non-major ([#1350](https://github.com/truecharts/apps/issues/1350))
+
+
+
 <a name="pgadmin-4.0.10"></a>
 ### [pgadmin-4.0.10](https://github.com/truecharts/apps/compare/pgadmin-4.0.9...pgadmin-4.0.10) (2021-11-16)
 

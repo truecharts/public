@@ -27,7 +27,7 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/mariadb"` |  |
-| image.tag | string | `"10.6.5@sha256:5bb100fed8b20dbab8f2e398a28b42021102ac57701ff3ba6e79a5f994f006e2"` |  |
+| image.tag | string | `"10.6.5@sha256:56644d687e906ae8311afb447210cf28335b4f4a394817d45e2de5b14f271381"` |  |
 | mariadbDatabase | string | `"test"` |  |
 | mariadbPassword | string | `"testpass"` |  |
 | mariadbRootPassword | string | `"testroot"` |  |

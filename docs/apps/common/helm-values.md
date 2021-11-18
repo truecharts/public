@@ -105,7 +105,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | netshootImage | object | See below | netshoot specific configuration |
 | netshootImage.pullPolicy | string | `"Always"` | Specify the netshoot image pull policy |
 | netshootImage.repository | string | `"nicolaka/netshoot"` | Specify the netshoot image |
-| netshootImage.tag | string | `"latest@sha256:ebc03105d7b4341723052b06d18b58698a0b7f88afc7b6fffd8a188fb729b85e"` | Specify the netshoot image tag |
+| netshootImage.tag | string | `"latest@sha256:8a8d287f3c31ed0764574d999a68e1514a707c163e725ae2004a33e3f13fef51"` | Specify the netshoot image tag |
 | networkPolicy | object | See below | Configure networkPolicy for the chart here. |
 | networkPolicy.egress | list | `[]` | add or remove egress policies |
 | networkPolicy.enabled | bool | `false` | Enables or disables the networkPolicy |
@@ -167,7 +167,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"bitnami/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"14.1.0@sha256:52a1517b6ab0c8bd0a0a5af646749b3e9d0afec822cf3f083641080010aa56a7"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"14.1.0@sha256:6a8dd778d39011aa8b904d9a8ff15e848cbab8005fc0b1a786faf0fe43e0d5c2"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |

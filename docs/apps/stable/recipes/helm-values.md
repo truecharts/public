@@ -36,7 +36,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"vabene1111/recipes"` | image repository |
 | image.tag | string | `"1.0.1@sha256:0039fb1d3a48eb8d12425d7e60fd86a8cff1e314f82c95c94b1e4982e2fd3791"` | image tag |
 | nginxImage.repository | string | `"nginx"` | nginx sidecar image repository |
-| nginxImage.tag | string | `"1.21.4@sha256:168a6a2be5c65d4aafa7a78ca98ff8b110fe44c6ca41e7ccb4314ed481e32288"` | nginx sidecar image tag |
+| nginxImage.tag | string | `"1.21.4@sha256:097c3a0913d7e3a5b01b6c685a60c03632fc7a2b50bc8e35bcaa3691d788226e"` | nginx sidecar image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

@@ -31,7 +31,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"docker.io/nextcloud"` |  |
-| image.tag | string | `"22.2.2@sha256:2394d656bf45d63e2a009390773220aebd8ef862798c4f6940aec55c5d3f6a6d"` |  |
+| image.tag | string | `"22.2.3@sha256:9152001cabe83b1bd9490ed0459897de9c33f4c5c1fecadea0e8456920bb6731"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html"` |  |
 | podSecurityContext.fsGroup | int | `33` |  |
