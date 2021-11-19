@@ -167,6 +167,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="http://aaronjohnson.io"><img src="https://avatars.githubusercontent.com/u/1386238?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aaron Johnson</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=acjohnson" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ralphte"><img src="https://avatars.githubusercontent.com/u/2996680?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ralph</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=ralphte" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.abc-groep.be"><img src="https://avatars.githubusercontent.com/u/2351765?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Joachim Baten</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=joachimbaten" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/mxyng"><img src="https://avatars.githubusercontent.com/u/2372640?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Yang</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=mxyng" title="Code">💻</a></td>
+    <td align="center"><a href="http://cturtle98.com"><img src="https://avatars.githubusercontent.com/u/24465356?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ciaran Farley</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=cTurtle98" title="Documentation">📖</a></td>
   </tr>
 </table>
 
