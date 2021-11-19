@@ -4,3 +4,4 @@
 {{ $params := . }}
 {{ $_ := set $params "commonService" (dict "ports" $ports "type" "NodePort" ) }}
 {{ include "common.classes.service" $params }}
+{{  }}

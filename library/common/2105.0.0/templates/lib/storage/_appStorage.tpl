@@ -29,23 +29,23 @@ Define hostPath for appVolumes
 {{- $values := . -}}
 {{- if $values.appVolumeMounts -}}
 {{- range $name, $av := $values.appVolumeMounts -}}
-{{ if (default true $av.enabled) }}
+{{ if (default true $av.enabled) -}}
 - name: {{ $name }}
-  {{ if or $av.emptyDir $.emptyDirVolumes }}
+  {{- if or $av.emptyDir $.emptyDirVolumes }}
   emptyDir: {}
   {{- else -}}
   hostPath:
-    {{ if $av.hostPathEnabled }}
+    {{- if $av.hostPathEnabled }}
     path: {{ required "hostPath not set" $av.hostPath }}
     {{ else }}
     {{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "ixVolumes")) -}}
     {{- include "common.schema.validateKeys" (dict "values" $av "checkKeys" (list "datasetName")) -}}
     {{- $volDict := dict "datasetName" $av.datasetName "ixVolumes" $values.ixVolumes -}}
     path: {{ include "common.storage.retrieveHostPathFromiXVolume" $volDict }}
-    {{ end }}
-  {{ end }}
+    {{ end -}}
+  {{- end -}}
 {{ end }}
-{{- end -}}
+{{ end -}}
 {{- end -}}
 {{- end -}}
 
