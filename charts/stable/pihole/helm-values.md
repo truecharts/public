@@ -30,15 +30,15 @@ You will, however, be able to use all values referenced in the common chart here
 | service.dns-tcp.enabled | bool | `true` |  |
 | service.dns-tcp.ports.dns-tcp.enabled | bool | `true` |  |
 | service.dns-tcp.ports.dns-tcp.port | int | `53` |  |
+| service.dns-tcp.ports.dns-tcp.protocol | string | `"TCP"` |  |
 | service.dns-tcp.ports.dns-tcp.targetPort | int | `53` |  |
-| service.dns-tcp.ports.dns-tcp.type | string | `"TCP"` |  |
 | service.dns.enabled | bool | `true` |  |
 | service.dns.ports.dns.enabled | bool | `true` |  |
 | service.dns.ports.dns.port | int | `53` |  |
+| service.dns.ports.dns.protocol | string | `"UDP"` |  |
 | service.dns.ports.dns.targetPort | int | `53` |  |
-| service.dns.ports.dns.type | string | `"UDP"` |  |
 | service.main.enabled | bool | `true` |  |
-| service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.port | int | `9089` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project
