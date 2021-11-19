@@ -9,9 +9,13 @@
 TrueCharts is a catalog of highly optimised TrueNAS SCALE Apps. Made for the community, By the community!
 
 Our primary goals are:
+
 - Micro-Service Centered
+
 - Native Kubernetes
+
 - Stability
+
 - Consistency
 
 All our apps are supposed to work together, be easy to setup using the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
@@ -103,9 +107,13 @@ Those tools do, however, take time to develop and are certainly not bug free. If
 ---
 
 To contact the TrueCharts project:
+
 - Create an issue on [Github issues](https://github.com/truecharts/apps/issues)
+
 - Open a discussion on [GitHub Discussions](https://github.com/truecharts/apps/discussions)
+
 - Send us an [email](mailto://info@truecharts.org)
+
 - Or [join our Discord server](https://truecharts.org/discord)
 
 <br>
@@ -119,9 +127,9 @@ To contact the TrueCharts project:
 
 A lot of our work is based on the great effort of others. We would love to extend special thanks to these projects we owe a lot to:
 
-| <a href="https://www.truenas.com/truenas-scale/"> <img src="https://user-images.githubusercontent.com/7613738/113836934-a1764e00-978d-11eb-8e19-a087c5c1f99b.png" width="150" height="150" /> </a> | <a href="https://k8s-at-home.com/"> <img src="https://user-images.githubusercontent.com/7613738/113837194-e26e6280-978d-11eb-9632-2e1529946302.png" width="150" height="150" /> </a> | <a href="https://traefik.io/traefik/"> <img src="https://user-images.githubusercontent.com/7613738/113837353-0b8ef300-978e-11eb-873e-14769acfe1f1.png" width="150" height="150" /> </a> |
-| :---------------: | :---------------: | :---------------: |
-| <a href="https://www.truenas.com/truenas-scale/">TrueNAS SCALE</a> |  <a href="https://k8s-at-home.com/">K8S-At-Home</a> | <a href="https://traefik.io/traefik/">Traefik</a> |
+| <a href="https://www.truenas.com/truenas-scale/"> <img src="https://user-images.githubusercontent.com/7613738/113836934-a1764e00-978d-11eb-8e19-a087c5c1f99b.png" width="150" height="150" /> </a> | <a href="https://k8s-at-home.com/"> <img src="https://user-images.githubusercontent.com/7613738/113837194-e26e6280-978d-11eb-9632-2e1529946302.png" width="150" height="150" /> </a> | <a href="https://traefik.io/traefik/"> <img src="https://user-images.githubusercontent.com/7613738/113837353-0b8ef300-978e-11eb-873e-14769acfe1f1.png" width="150" height="150" /> </a> | <a href="https://www.authelia.com/"> <img src=" https://avatars.githubusercontent.com/u/59122411?s=200&v=4" width="150" height="150" /> </a> |
+| :---------------: | :---------------: | :---------------: | :---------------: |
+| <a href="https://www.truenas.com/truenas-scale/">TrueNAS SCALE</a> |  <a href="https://k8s-at-home.com/">K8S-At-Home</a> | <a href="https://traefik.io/traefik/">Traefik</a> | <a href="https://www.authelia.com/">Authelia</a> |
 
 <br>
 

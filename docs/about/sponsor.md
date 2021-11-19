@@ -1,4 +1,4 @@
-# Sponsors and Donators
+# Sponsors Us
 
 ### Sponsorship
 
