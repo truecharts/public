@@ -23,13 +23,13 @@ service:
     enabled: true
     ports:
       main:
-        port: 80
+        port: 9089
         targetPort: 80
   dns-tcp:
     enabled: true
     ports:
       dns-tcp:
-        type: TCP
+        protocol: TCP
         enabled: true
         port: 53
         targetPort: 53
@@ -37,7 +37,7 @@ service:
     enabled: true
     ports:
       dns:
-        type: UDP
+        protocol: UDP
         enabled: true
         port: 53
         targetPort: 53
