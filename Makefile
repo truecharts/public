@@ -1,4 +1,4 @@
 
-validate:
-	@helm dependency update ./test/machinaris/1.0.11
-	@helm template --values ./test/machinaris/1.0.11/ix_values.yaml machinaris ./test/machinaris/1.0.11 --debug
+validate-machinaris:
+	@helm dependency update ./charts/machinaris/${v}
+	@helm template --values ./charts/machinaris/${v}/test_values.yaml machinaris ./charts/machinaris/${v} --debug

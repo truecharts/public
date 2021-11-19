@@ -1,0 +1,63 @@
+{{- if hasKey . "common" }}
+{{- $_ := unset .common "nameSuffix" }}
+{{- end }}
+apiVersion: {{ template "common.capabilities.deployment.apiVersion" . }}
+kind: Deployment
+metadata:
+  name: {{ template "common.names.fullname" . }}
+  labels: {{ include "common.labels" . | nindent 4 }}
+spec:
+  strategy:
+    type: {{ .Values.updateStrategy }}
+  selector:
+    matchLabels: {{ include "common.labels.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      name: {{ template "common.names.fullname" . }}
+      labels: {{ include "common.labels.selectorLabels" . | nindent 8 }}
+    spec:
+      # FIXME: Let's please remove hostnetwork when upstream hostport issue is sorted out with kube-router
+      hostNetwork: true
+      containers:
+        - name: {{ .Chart.Name }}
+          {{ if .Values.enableResourceLimits }}
+          resources:
+            limits:
+              cpu: {{ .Values.cpuLimit }}
+              memory: {{ .Values.memLimit }}
+          {{ end }}
+          tty: true
+          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
+          volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
+          {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+            - name: extrappvolume-{{ $index }}
+              mountPath: {{ $hostPathConfiguration.mountPath }}
+          {{ end }}
+          ports:
+            - name: chia-network
+              protocol: TCP
+              containerPort: 8444
+              hostPort: 8444
+            - name: machinaris-ui
+              protocol: TCP
+              containerPort: 8926
+            - name: machinaris-api
+              protocol: TCP
+              containerPort: 8927
+              hostPort: 8927
+            - protocol: TCP
+              containerPort: 8447
+              hostPort: 8447
+          {{ $envList := (default list .Values.environmentVariables) }}
+          {{ $envList = mustAppend $envList (dict "name" "TZ" "value" $.Values.timezone) }}
+          {{ $envList = mustAppend $envList (dict "name" "worker_address" "value" $.Values.nodeIP) }}
+          {{ $envList = mustAppend $envList (dict "name" "mode" "value" "fullnode") }}
+          {{ $envList = mustAppend $envList (dict "name" "plots_dir" "value" $.Values.appVolumeMounts.plots.mountPath) }}
+          {{ $envList = mustAppend $envList (dict "name" "blockchains" "value" "chia") }}
+          {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
+      volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
+      {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
+        - name: extrappvolume-{{ $index }}
+          hostPath:
+            path: {{ $hostPathConfiguration.hostPath }}
+      {{ end }}

@@ -1,0 +1,37 @@
+appVolumeMounts:
+  config:
+    emptyDir: true
+    mountPath: /root/.chia
+  plots:
+    emptyDir: true
+    mountPath: /plots
+  plotting:
+    emptyDir: true
+    mountPath: /plotting
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/guydavis/machinaris
+  tag: v0.6.6
+machinaris_ui_port: 31003
+timezone: America/Edmonton
+updateStrategy: Recreate
+nodeIP: 127.0.0.1
+coins:
+  - cactus
+cactusEnabled: true
+cactus:
+  apiPort: 8935
+  ports:
+    - protocol: TCP
+      containerPort: 8935
+    - protocol: TCP
+      containerPort: 8668
+    - protocol: TCP
+      containerPort: 8337
+  volumeMounts:
+    cactus-config:
+      emptyDir: true
+      mountPath: /root/.chia
+    mnemonic:
+      emptyDir: true
+      mountPath: /root/.chia/mnemonic.txt
