@@ -49,8 +49,7 @@ service:
         port: 8080
         targetPort: 8080
   webserver:
-    enabled: false
-    type: ClusterIP
+    enabled: true
     ports:
       webserver:
         enabled: true
