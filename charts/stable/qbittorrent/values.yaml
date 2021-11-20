@@ -27,7 +27,6 @@ service:
         enabled: true
         port: 6881
         targetPort: 6881
-        protocol: TCP
   torrentudp:
     enabled: true
     ports:

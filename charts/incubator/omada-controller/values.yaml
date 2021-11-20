@@ -40,22 +40,18 @@ service:
     ports:
       omada-tcp1:
         enabled: true
-        protocol: TCP
         port: 29810
         targetPort: 29810
       omada-tcp2:
         enabled: true
-        protocol: TCP
         port: 29811
         targetPort: 29811
       omada-tcp3:
         enabled: true
-        protocol: TCP
         port: 29812
         targetPort: 29812
       omada-tcp4:
         enabled: true
-        protocol: TCP
         port: 29813
         targetPort: 29813
   omada-udp:
@@ -73,7 +69,6 @@ service:
         targetPort: 29811
       omada-udp3:
         enabled: true
-        protocol: TCP
         port: 29812
         targetPort: 29812
       omada-udp4:

@@ -18,7 +18,6 @@ service:
         enabled: true
         port: 22000
         targetPort: 22000
-        protocol: TCP
   listeners-udp:
     enabled: true
     ports:

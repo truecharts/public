@@ -43,7 +43,6 @@ service:
         enabled: true
         port: 19444
         targetPort: 19444
-        protocol: TCP
   protobufservice:
     enabled: true
     ports:
@@ -51,7 +50,6 @@ service:
         enabled: true
         port: 19445
         targetPort: 19445
-        protocol: TCP
   boblightservice:
     enabled: true
     ports:
@@ -59,7 +57,6 @@ service:
         enabled: true
         port: 19333
         targetPort: 19333
-        protocol: TCP
 
 persistence:
   config:

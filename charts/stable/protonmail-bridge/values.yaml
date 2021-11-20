@@ -40,7 +40,6 @@ service:
     ports:
       smtp:
         enabled: true
-        protocol: TCP
         port: 25
         targetPort: 25
 

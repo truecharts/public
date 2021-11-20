@@ -25,7 +25,6 @@ service:
         enabled: true
         port: 51413
         targetPort: 51413
-        protocol: TCP
   torrent-udp:
     enabled: true
     ports:

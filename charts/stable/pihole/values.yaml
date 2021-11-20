@@ -29,7 +29,6 @@ service:
     ports:
       dns-tcp:
         enabled: true
-        protocol: TCP
         port: 53
         targetPort: 53
   dns:

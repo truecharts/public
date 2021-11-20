@@ -24,7 +24,6 @@ service:
         enabled: true
         port: 8080
         targetPort: 8080
-        protocol: TCP
   stun:
     enabled: true
     ports:
@@ -40,7 +39,6 @@ service:
         enabled: true
         port: 6789
         targetPort: 6789
-        protocol: TCP
   guestportal:
     enabled: true
     ports:

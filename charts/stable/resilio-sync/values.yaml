@@ -45,7 +45,6 @@ service:
         enabled: true
         port: 55555
         targetPort: 55555
-        protocol: TCP
   bt-udp:
     enabled: true
     ports:
