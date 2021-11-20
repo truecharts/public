@@ -16,5 +16,5 @@ spec:
   redirectRegex:
     regex: {{ $middlewareData.regex | quote }}
     replacement: {{ $middlewareData.replacement | quote }}
-    permanent: {{ $middlewareData.replacement }}
+    permanent: {{ $middlewareData.permanent }}
 {{ end }}
