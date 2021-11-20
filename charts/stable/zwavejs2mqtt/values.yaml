@@ -67,7 +67,6 @@ service:
         targetPort: 8091
   ws:
     enabled: true
-    type: ClusterIP
     ports:
       ws:
         enabled: true

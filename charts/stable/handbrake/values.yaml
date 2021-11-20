@@ -19,7 +19,6 @@ service:
         targetPort: 5800
   vnc:
     enabled: true
-    type: ClusterIP
     ports:
       vnc:
         enabled: true

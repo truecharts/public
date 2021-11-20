@@ -13,7 +13,6 @@ service:
         targetPort: 8080
   tcp:
     enabled: true
-    type: ClusterIP
     ports:
       tcp:
         enabled: true

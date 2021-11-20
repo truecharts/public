@@ -40,7 +40,6 @@ service:
         targetPort: 8888
   bt-tcp:
     enabled: false
-    type: ClusterIP
     ports:
       bt-tcp:
         enabled: true
@@ -49,7 +48,6 @@ service:
         protocol: TCP
   bt-udp:
     enabled: false
-    type: ClusterIP
     ports:
       bt-udp:
         enabled: true

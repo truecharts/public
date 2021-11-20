@@ -25,7 +25,6 @@ service:
         targetPort: 5050
   tcp:
     enabled: true
-    type: ClusterIP
     ports:
       tcp:
         enabled: true

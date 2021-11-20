@@ -33,7 +33,6 @@ service:
         protocol: "UDP"
   files:
     enabled: true
-    type: ClusterIP
     ports:
       files:
         enabled: true
