@@ -18,11 +18,8 @@ podSecurityContext:
 # 30033 file transport
 service:
   main:
-    enabled: true
-    type: ClusterIP
     ports:
       main:
-        enabled: true
         port: 10011
         targetPort: 10011
         protocol: "TCP"

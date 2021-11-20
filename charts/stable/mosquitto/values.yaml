@@ -15,7 +15,6 @@ service:
     ports:
       main:
         protocol: TCP
-        enabled: true
         port: 1883
         targetPort: 1883
 
