@@ -45,11 +45,14 @@ service:
         port: 9010
         targetPort: 9010
   supervisor:
+    enabled: true
     ports:
       supervisor:
+        enabled: true
         port: 9011
         targetPort: 9011
   valheim:
+    enabled: true
     type: LoadBalancer
     ports:
       valheim-1:
