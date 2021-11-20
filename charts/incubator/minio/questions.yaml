@@ -173,6 +173,7 @@ questions:
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             type: dict
+            enabled: true
             attrs:
 # Include{serviceSelector}
                     - variable: console
@@ -186,6 +187,7 @@ questions:
                             schema:
                               type: int
                               default: 9001
+                              enabled: true
                               editable: true
                               required: true
                           - variable: advanced
