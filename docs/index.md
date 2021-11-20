@@ -142,7 +142,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -171,11 +171,16 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/ksimm1"><img src="https://avatars.githubusercontent.com/u/1334526?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ksimm1</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=ksimm1" title="Documentation">📖</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="http://aaronjohnson.io"><img src="https://avatars.githubusercontent.com/u/1386238?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aaron Johnson</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=acjohnson" title="Code">💻</a></td>
+    <td align="center"><a href="http://aaronjohnson.io"><img src="https://avatars.githubusercontent.com/u/1386238?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aaron Johnson</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=acjohnson" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/ralphte"><img src="https://avatars.githubusercontent.com/u/2996680?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ralph</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=ralphte" title="Code">💻</a></td>
     <td align="center"><a href="http://www.abc-groep.be"><img src="https://avatars.githubusercontent.com/u/2351765?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Joachim Baten</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=joachimbaten" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/mxyng"><img src="https://avatars.githubusercontent.com/u/2372640?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Yang</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=mxyng" title="Code">💻</a></td>
     <td align="center"><a href="http://cturtle98.com"><img src="https://avatars.githubusercontent.com/u/24465356?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ciaran Farley</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=cTurtle98" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Heavybullets8"><img src="https://avatars.githubusercontent.com/u/20793231?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Heavybullets8</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=Heavybullets8" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/662"><img src="https://avatars.githubusercontent.com/u/13599186?v=4?s=100" width="100px;" alt=""/><br /><sub><b>662</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=662" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/alex171"><img src="https://avatars.githubusercontent.com/u/28484494?v=4?s=100" width="100px;" alt=""/><br /><sub><b>alex171</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=alex171" title="Documentation">📖</a></td>
   </tr>
 </table>
 
