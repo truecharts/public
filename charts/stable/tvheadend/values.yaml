@@ -26,13 +26,11 @@ service:
         targetPort: 9981
   htsp:
     enabled: true
-    type: ClusterIP
     ports:
       htsp:
         enabled: true
         port: 9982
         targetPort: 9982
-        protocol: TCP
 
 persistence:
   config:

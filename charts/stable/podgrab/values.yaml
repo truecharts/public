@@ -13,16 +13,14 @@ service:
         targetPort: 8080
   tcp:
     enabled: true
-    type: ClusterIP
     ports:
       tcp:
         enabled: true
         port: 51080
         targetPort: 51080
-        protocol: TCP
 
 env:
-  PASSWORD: secretpasswordgoeshere
+  PASSWORD: "secretpasswordgoeshere"
   CHECK_FREQUENCY: 240
 
 persistence:

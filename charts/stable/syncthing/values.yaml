@@ -12,13 +12,14 @@ service:
         port: 8384
         targetPort: 8384
   listeners:
+    enabled: true
     ports:
       tcp:
         enabled: true
         port: 22000
         targetPort: 22000
-        protocol: TCP
   listeners-udp:
+    enabled: true
     ports:
       udp:
         enabled: true
@@ -26,6 +27,7 @@ service:
         targetPort: 22000
         protocol: UDP
   discovery:
+    enabled: true
     ports:
       discovery:
         enabled: true

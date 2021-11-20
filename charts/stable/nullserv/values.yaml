@@ -34,8 +34,6 @@ env:
 # @default -- See values.yaml
 service:
   main:
-    primary: true
-    type: NodePort
     ports:
       main:
         port: 80

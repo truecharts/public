@@ -136,11 +136,9 @@ tlsOptions:
 # from.
 service:
   main:
-    enabled: true
     type: LoadBalancer
     ports:
       main:
-        enabled: true
         port: 9000
         targetPort: 9000
         protocol: HTTP

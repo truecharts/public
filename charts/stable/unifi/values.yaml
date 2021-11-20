@@ -24,7 +24,6 @@ service:
         enabled: true
         port: 8080
         targetPort: 8080
-        protocol: TCP
   stun:
     enabled: true
     ports:
@@ -34,15 +33,14 @@ service:
         targetPort: 3478
         protocol: UDP
   speedtest:
-    enabled: false
+    enabled: true
     ports:
       speedtest:
         enabled: true
         port: 6789
         targetPort: 6789
-        protocol: TCP
   guestportal:
-    enabled: false
+    enabled: true
     ports:
       web:
         enabled: true

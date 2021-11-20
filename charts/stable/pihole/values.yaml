@@ -20,7 +20,6 @@ envFrom:
 
 service:
   main:
-    enabled: true
     ports:
       main:
         port: 9089
@@ -29,7 +28,6 @@ service:
     enabled: true
     ports:
       dns-tcp:
-        protocol: TCP
         enabled: true
         port: 53
         targetPort: 53
@@ -37,8 +35,8 @@ service:
     enabled: true
     ports:
       dns:
-        protocol: UDP
         enabled: true
+        protocol: UDP
         port: 53
         targetPort: 53
 

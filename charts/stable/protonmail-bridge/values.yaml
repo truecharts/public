@@ -31,12 +31,15 @@ env:
 # @default -- See values.yaml
 service:
   main:
+    enabled: false
     ports:
       main:
         enabled: false
+  smtp:
+    enabled: true
+    ports:
       smtp:
         enabled: true
-        protocol: TCP
         port: 25
         targetPort: 25
 

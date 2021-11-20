@@ -33,18 +33,24 @@ service:
         targetPort: 7000
         port: 7000
   cli:
+    enabled: true
     ports:
       cli:
+        enabled: true
         targetPort: 9090
         port: 9090
   playertcp:
+    enabled: true
     ports:
       slimprototcp:
+        enabled: true
         targetPort: 3483
         port: 3483
   playerudp:
+    enabled: true
     ports:
       slimprotoudp:
+        enabled: true
         targetPort: 3483
         port: 3483
 

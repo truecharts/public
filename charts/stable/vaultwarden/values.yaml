@@ -12,6 +12,7 @@ service:
         port: 8080
         targetPort: 8080
   ws:
+    enabled: true
     ports:
       ws:
         enabled: true

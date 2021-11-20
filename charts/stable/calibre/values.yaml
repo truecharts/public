@@ -49,14 +49,12 @@ service:
         port: 8080
         targetPort: 8080
   webserver:
-    enabled: false
-    type: ClusterIP
+    enabled: true
     ports:
       webserver:
         enabled: true
         port: 8081
         targetPort: 8081
-        protocol: TCP
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml

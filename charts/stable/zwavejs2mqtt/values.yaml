@@ -67,13 +67,11 @@ service:
         targetPort: 8091
   ws:
     enabled: true
-    type: ClusterIP
     ports:
       ws:
         enabled: true
         port: 3000
         targetPort: 3000
-        protocol: TCP
 
 persistence:
   config:
