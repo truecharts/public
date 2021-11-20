@@ -34,6 +34,9 @@ service:
     ports:
       main:
         enabled: false
+  smtp:
+    enabled: true
+    ports:
       smtp:
         enabled: true
         protocol: TCP
