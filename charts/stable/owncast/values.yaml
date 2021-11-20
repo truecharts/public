@@ -31,7 +31,6 @@ service:
         targetPort: 8080
   rtmp:
     enabled: true
-    type: NodePort
     externalTrafficPolicy: Local
     ports:
       rtmp:
