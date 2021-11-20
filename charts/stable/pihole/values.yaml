@@ -28,16 +28,16 @@ service:
     enabled: true
     ports:
       dns-tcp:
-        protocol: TCP
         enabled: true
+        protocol: TCP
         port: 53
         targetPort: 53
   dns:
     enabled: true
     ports:
       dns:
-        protocol: UDP
         enabled: true
+        protocol: UDP
         port: 53
         targetPort: 53
 
