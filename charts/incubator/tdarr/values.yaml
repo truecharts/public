@@ -27,8 +27,10 @@ service:
         targetPort: 8265
         port: 8265
   comm:
+    enabled: true
     ports:
       comm:
+        enabled: true
         port: 8266
         targetPort: 8266
 
