@@ -34,7 +34,7 @@ service:
         targetPort: 3478
         protocol: UDP
   speedtest:
-    enabled: false
+    enabled: true
     ports:
       speedtest:
         enabled: true
@@ -42,7 +42,7 @@ service:
         targetPort: 6789
         protocol: TCP
   guestportal:
-    enabled: false
+    enabled: true
     ports:
       web:
         enabled: true
