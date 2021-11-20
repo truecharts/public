@@ -39,7 +39,7 @@ service:
         port: 8888
         targetPort: 8888
   bt-tcp:
-    enabled: false
+    enabled: true
     ports:
       bt-tcp:
         enabled: true
@@ -47,7 +47,7 @@ service:
         targetPort: 55555
         protocol: TCP
   bt-udp:
-    enabled: false
+    enabled: true
     ports:
       bt-udp:
         enabled: true
