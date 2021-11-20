@@ -31,8 +31,10 @@ env:
 # @default -- See values.yaml
 service:
   main:
+    enabled: false
     ports:
       main:
+        enabled: false
   smtp:
     enabled: true
     ports:
