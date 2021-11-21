@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nextcloud-10.0.4"></a>
+### [nextcloud-10.0.4](https://github.com/truecharts/apps/compare/nextcloud-10.0.3...nextcloud-10.0.4) (2021-11-21)
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+* remove specific times for nextcloud startup probes
+
+
+
 <a name="nextcloud-10.0.3"></a>
 ### [nextcloud-10.0.3](https://github.com/truecharts/apps/compare/nextcloud-10.0.2...nextcloud-10.0.3) (2021-11-18)
 
