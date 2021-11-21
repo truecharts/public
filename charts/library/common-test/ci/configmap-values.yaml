@@ -36,7 +36,7 @@ persistence:
   configmap:
     enabled: true
     type: configMap
-    objectName: configmap-example
+    objectName: '{{ include "common.names.fullname" . -}}-configmap-example'
     mountPath: /configmapmount
 
 
