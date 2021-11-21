@@ -541,6 +541,21 @@ deviceList: []
 # @default -- []
 persistenceList: []
 
+# -- Configure configMaps for the chart here.
+# Additional configMaps can be added by adding a dictionary key similar to the 'config' object.
+# @default -- See below
+configmap:
+  config:
+    # -- Enables or disables the configMap
+    enabled: false
+    # -- Labels to add to the configMap
+    labels: {}
+    # -- Annotations to add to the configMap
+    annotations: {}
+    # -- configMap data content. Helm template enabled.
+    data: {}
+      # foo: bar
+
 # -- Configure persistence for the chart here.
 # Additional items can be added by adding a dictionary key similar to the 'config' key.
 # @default -- See below
@@ -565,7 +580,7 @@ persistence:
     labels: {}
 
     # -- Sets the persistence type
-    # Valid options are: simplePVC, simpleHP, pvc, emptyDir, hostPath or custom
+    # Valid options are: simplePVC, simpleHP, pvc, emptyDir, secret, configMap, hostPath or custom
     type: pvc
 
     # -- force the complete PVC name
@@ -722,6 +737,40 @@ persistence:
       # configMap:
       #   defaultMode: 420
       #   name: my-settings
+
+  # -- Example of a configmap mount
+  # @default -- See below
+  configmap-example:
+    enabled: false
+    type: configmap
+    # -- Specify the name of the configmap object to be mounted
+    objectName: myconfig-map
+    # -- Where to mount the volume in the main container.
+    # Defaults to `/<name_of_the_volume>`,
+    # setting to '-' creates the volume but disables the volumeMount.
+    mountPath: # /custom-mount
+    # -- Specify if the volume should be mounted read-only.
+    readOnly: false
+
+  # -- Example of a secret mount
+  # @default -- See below
+  secret-example:
+    enabled: false
+    type: secret
+    # -- Specify the name of the secret object to be mounted
+    objectName: mysecret
+    # -- Where to mount the volume in the main container.
+    # Defaults to `/<name_of_the_volume>`,
+    # setting to '-' creates the volume but disables the volumeMount.
+    mountPath: # /custom-mount
+    # -- Specify if the volume should be mounted read-only.
+    readOnly: false
+    # -- define the default mount mode for the secret
+    defaultMode: 777
+    # -- Define the secret items to be mounted
+    items:
+      - key: username
+        path: my-group/my-username
 
 # -- Used in conjunction with `controller.type: statefulset` to create individual disks for each instance.
 volumeClaimTemplates: []

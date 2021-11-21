@@ -34,6 +34,23 @@ Volumes included by the controller.
       {{- $_ := set $emptyDir "sizeLimit" . -}}
     {{- end }}
   emptyDir: {{- $emptyDir | toYaml | nindent 4 }}
+  {{- else if or (eq $persistence.type "configMap") (eq $persistence.type "secret") }}
+    {{- $objectName := (required (printf "objectName not set for persistence item %s" $index) $persistence.objectName) }}
+    {{- $objectName = tpl $objectName $ }}
+    {{- if eq $persistence.type "configMap" }}
+  configMap:
+    name: {{ $objectName }}
+    {{- else }}
+  secret:
+    secretName: {{ $objectName }}
+    {{- end }}
+    {{- with $persistence.defaultMode }}
+    defaultMode: {{ . }}
+    {{- end }}
+    {{- with $persistence.items }}
+    items:
+      {{- toYaml . | nindent 6 }}
+    {{- end }}
   {{- else if eq $persistence.type "hostPath" }}
   hostPath:
     path: {{ required "hostPath not set" $persistence.hostPath }}
