@@ -742,7 +742,7 @@ persistence:
   # @default -- See below
   configmap-example:
     enabled: false
-    type: configmap
+    type: configMap
     # -- Specify the name of the configmap object to be mounted
     objectName: myconfig-map
     # -- Where to mount the volume in the main container.

@@ -44,7 +44,7 @@ configmap:
 persistence:
   configmap:
     enabled: true
-    type: configmap
+    type: configMap
     # -- Specify the name of the configmap object to be mounted
     objectName: configmap-example
     # -- Where to mount the volume in the main container.
