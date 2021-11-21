@@ -94,7 +94,11 @@ spec:
   {{- end }}
   {{- if and ( ne $svcType "ExternalName" ) ( ne $svcType "ExternalIP" )}}
   selector:
+  {{- if $values.selector }}
+    {{ toYaml $values.selector | indent 4 }}
+  {{- else }}
     {{- include "common.labels.selectorLabels" . | nindent 4 }}
+  {{- end }}
   {{- end }}
 {{- if eq $svcType "ExternalIP" }}
 ---

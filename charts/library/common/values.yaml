@@ -405,6 +405,9 @@ service:
     # -- Override the name suffix that is used for this service
     nameOverride:
 
+    # -- Override default selector
+    selector: {}
+
     # -- Set the service type
     # Options: Simple(Loadbalancer), LoadBalancer, ClusterIP, NodePort
     type: ClusterIP
