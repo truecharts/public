@@ -46,7 +46,6 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.enabled | bool | `true` | Enable the startup probe |
 | probes.startup.spec | object | See below | The spec field contains the values for the default livenessProbe. If you selected `custom: true`, this field holds the definition of the livenessProbe. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `3306` |  |
 | service.main.ports.main.targetPort | int | `3306` |  |
 | volumeClaimTemplates.data.enabled | bool | `true` |  |

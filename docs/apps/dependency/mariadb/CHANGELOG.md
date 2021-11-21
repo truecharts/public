@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.6"></a>
+### [mariadb-1.0.6](https://github.com/truecharts/apps/compare/mariadb-1.0.5...mariadb-1.0.6) (2021-11-21)
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+* correctly use passwords when running the App directly
+
+
+
 <a name="mariadb-1.0.5"></a>
 ### [mariadb-1.0.5](https://github.com/truecharts/apps/compare/mariadb-1.0.4...mariadb-1.0.5) (2021-11-18)
 
