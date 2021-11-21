@@ -22,6 +22,9 @@ Secondary entrypoint and primary loader for the common chart
     {{- include "common.addon.netshoot" . }}
   {{- end -}}
 
+  {{- /* Build the confimap */ -}}
+  {{ include "common.configmap" . | nindent 0 }}
+
   {{- /* Build the templates */ -}}
   {{- include "common.pvc" . }}
 

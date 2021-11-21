@@ -60,7 +60,7 @@ Volumes included by the controller.
   {{- else if eq $persistence.type "custom" }}
     {{- toYaml $persistence.volumeSpec | nindent 2 }}
   {{- else }}
-    {{- fail (printf "Not a valid persistence.type (%s)" .Values.persistence.type) }}
+    {{- fail (printf "Not a valid persistence.type (%s)" $persistence.type) }}
   {{- end }}
 {{- end }}
 {{- end }}
