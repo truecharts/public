@@ -51,6 +51,7 @@ env: {}
 
 
 config:
+  # existingSecret:
   auth_enabled: false
   ingester:
     chunk_idle_period: 3m
@@ -128,21 +129,11 @@ alerting_groups: []
 #      expr: sum by(container) (rate({job=~"loki-dev/.*"}[1m])) > 1000
 #      for: 2m
 
-
-configmap:
-  config:
-    enabled: true
-    labels: {}
-    annotations: {}
-    data:
-      loki.yaml: |-
-        {{ tpl (toYaml .Values.config) . }}
-
 persistence:
   # @default -- See below
-  configmap:
+  config:
     enabled: true
-    type: configMap
+    type: secret
     # -- Specify the name of the configmap object to be mounted
     objectName: '{{ include "common.names.fullname" . -}}-config'
     # -- Where to mount the volume in the main container.
