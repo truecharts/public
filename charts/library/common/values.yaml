@@ -322,9 +322,9 @@ probes:
     # If you selected `custom: true`, this field holds the definition of the livenessProbe.
     # @default -- See below
     spec:
-      initialDelaySeconds: 2
+      initialDelaySeconds: 10
       periodSeconds: 10
-      timeoutSeconds: 2
+      timeoutSeconds: 5
       failureThreshold: 5
 
   # -- Redainess probe configuration
@@ -344,9 +344,9 @@ probes:
     # If you selected `custom: true`, this field holds the definition of the readinessProbe.
     # @default -- See below
     spec:
-      initialDelaySeconds: 2
+      initialDelaySeconds: 10
       periodSeconds: 10
-      timeoutSeconds: 2
+      timeoutSeconds: 5
       failureThreshold: 5
 
   # -- Startup probe configuration
@@ -366,7 +366,7 @@ probes:
     # If you selected `custom: true`, this field holds the definition of the startupProbe.
     # @default -- See below
     spec:
-      initialDelaySeconds: 3
+      initialDelaySeconds: 10
       timeoutSeconds: 2
       ## This means it has a maximum of 5*30=150 seconds to start up before it fails
       periodSeconds: 5
