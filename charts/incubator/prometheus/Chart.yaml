@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "2.4.1"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.7.1
+- name: "kube-prometheus-stack"
+  condition: prometheus-stack.enabled
+  repository: "https://prometheus-community.github.io/helm-charts"
+  version: "^2.2.0"
+deprecated: false
+description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
+icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+home: https://github.com/truecharts/apps/tree/master/charts/stable/prometheus
+keywords:
+- metrics
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: prometheus
+sources:
+  - https://github.com/prometheus-community/helm-charts
+  - https://github.com/prometheus-operator/kube-prometheus
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - metrics
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
