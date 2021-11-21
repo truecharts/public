@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="common-8.7.0"></a>
+### [common-8.7.0](https://github.com/truecharts/apps/compare/common-8.6.5...common-8.7.0) (2021-11-21)
+
+#### Chore
+
+* bump common
+
+#### Feat
+
+* add configmap and secret persistence objects ([#1368](https://github.com/truecharts/apps/issues/1368))
+
+
+
 <a name="common-8.6.5"></a>
 ### [common-8.6.5](https://github.com/truecharts/apps/compare/common-8.6.4...common-8.6.5) (2021-11-21)
 

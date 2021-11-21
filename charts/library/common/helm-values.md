@@ -53,6 +53,11 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
 | codeserverImage.tag | string | `"v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
+| configmap | object | See below | Configure configMaps for the chart here. Additional configMaps can be added by adding a dictionary key similar to the 'config' object. |
+| configmap.config.annotations | object | `{}` | Annotations to add to the configMap |
+| configmap.config.data | object | `{}` | configMap data content. Helm template enabled. |
+| configmap.config.enabled | bool | `false` | Enables or disables the configMap |
+| configmap.config.labels | object | `{}` | Labels to add to the configMap |
 | controller.annotations | object | `{}` |  |
 | controller.annotationsList | list | `[]` | Set additional annotations on the deployment/statefulset/daemonset |
 | controller.enabled | bool | `true` | enable the controller. |
@@ -126,7 +131,11 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | persistence.config.size | string | `"999Gi"` | The amount of storage that is requested for the persistent volume. |
 | persistence.config.storageClass | string | `nil` | Storage Class for the config volume. If set to `-`, dynamic provisioning is disabled. If set to `SCALE-ZFS`, the default provisioner for TrueNAS SCALE is used. If set to something else, the given storageClass is used. If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner. |
 | persistence.config.subPath | string | `nil` | Used in conjunction with `existingClaim`. Specifies a sub-path inside the referenced volume instead of its root |
-| persistence.config.type | string | `"pvc"` | Sets the persistence type Valid options are: simplePVC, simpleHP, pvc, emptyDir, hostPath or custom |
+| persistence.config.type | string | `"pvc"` | Sets the persistence type Valid options are: simplePVC, simpleHP, pvc, emptyDir, secret, configMap, hostPath or custom |
+| persistence.configmap-example | object | See below | Example of a configmap mount |
+| persistence.configmap-example.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
+| persistence.configmap-example.objectName | string | `"myconfig-map"` | Specify the name of the configmap object to be mounted |
+| persistence.configmap-example.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
 | persistence.custom-mount | object | See below | Example of a custom mount |
 | persistence.custom-mount.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.custom-mount.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
@@ -143,6 +152,12 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | persistence.host-simple-dev.mountPath | string | `""` | Where to mount the path in the main container. Defaults to the value of `hostPath` |
 | persistence.host-simple-dev.readOnly | bool | `true` | Specify if the path should be mounted read-only. |
 | persistence.host-simple-dev.setPermissionsSimple | bool | `false` | Automatic set permissions using chown and chmod |
+| persistence.secret-example | object | See below | Example of a secret mount |
+| persistence.secret-example.defaultMode | int | `777` | define the default mount mode for the secret |
+| persistence.secret-example.items | list | `[{"key":"username","path":"my-group/my-username"}]` | Define the secret items to be mounted |
+| persistence.secret-example.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
+| persistence.secret-example.objectName | string | `"mysecret"` | Specify the name of the secret object to be mounted |
+| persistence.secret-example.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
 | persistence.shared | object | See below | Create an emptyDir volume to share between all containers [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) |
 | persistence.shared.medium | string | `nil` | Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead of the storage medium that backs the node. |
 | persistence.shared.sizeLimit | string | `nil` | If the `SizeMemoryBackedVolumes` feature gate is enabled, you can specify a size for memory backed volumes. |
