@@ -93,7 +93,7 @@ To reach an app named "sabnzbd" (same name as the catalog app name) within Sonar
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/kLzFGCOOGXQ)
+![type:video](https://www.youtube.com/embed/6Kg_aEKp7Yg)
 
 ##### Additional Documentation
 

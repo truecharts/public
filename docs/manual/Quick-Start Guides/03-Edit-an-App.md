@@ -23,7 +23,7 @@ The process popup disapears, it might take a few minutes to actually deploy your
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/PseYHVlGYxE)
+![type:video](https://www.youtube.com/embed/3ki2AlBYwsc)
 
 ##### Notes
 

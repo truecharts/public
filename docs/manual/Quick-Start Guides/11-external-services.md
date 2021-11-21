@@ -3,7 +3,7 @@
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/DO0CjFdBC9Q)
+![type:video](https://www.youtube.com/embed/iEBLwCWZuRg)
 
 
 ##### Additional Documentation

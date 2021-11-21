@@ -17,7 +17,7 @@ We currently require Traefik to be installed before you enable ingress on your A
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/htIhl3KxWMw)
+![type:video](https://www.youtube.com/embed//MlyRvF3rOhE)
 
 
 ### Notes

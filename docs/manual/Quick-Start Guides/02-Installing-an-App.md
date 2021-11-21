@@ -23,4 +23,4 @@ Here we will go over a basic install of Plex, to showcase how you can install a 
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/yJ5fC8UGlz8)
+![type:video](https://www.youtube.com/embed/7d9Vjhxu5Po)
