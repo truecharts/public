@@ -1,5 +1,3 @@
-# Default values for Jackett.
-
 image:
   repository: grafana/loki
   pullPolicy: IfNotPresent
@@ -143,9 +141,9 @@ persistence:
   # @default -- See below
   configmap:
     enabled: true
-    type: configmap
+    type: configMap
     # -- Specify the name of the configmap object to be mounted
-    objectName: config
+    objectName: '{{ include "common.names.fullname" . -}}-config'
     # -- Where to mount the volume in the main container.
     mountPath: /etc/loki
 
