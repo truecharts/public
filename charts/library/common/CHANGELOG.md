@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.7.1"></a>
+### [common-8.7.1](https://github.com/truecharts/apps/compare/common-8.7.0...common-8.7.1) (2021-11-21)
+
+#### Fix
+
+* correct some mistakes in configMap handling in common ([#1369](https://github.com/truecharts/apps/issues/1369))
+
+
+
 <a name="common-8.7.0"></a>
 ### [common-8.7.0](https://github.com/truecharts/apps/compare/common-8.6.5...common-8.7.0) (2021-11-21)
 
