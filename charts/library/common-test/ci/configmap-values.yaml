@@ -26,18 +26,9 @@ probes:
     enabled: true
 
 
-# -- Configure configMaps for the chart here.
-# Additional configMaps can be added by adding a dictionary key similar to the 'config' object.
-# @default -- See below
 configmap:
   configmap-example:
-    # -- Enables or disables the configMap
     enabled: true
-    # -- Labels to add to the configMap
-    labels: {}
-    # -- Annotations to add to the configMap
-    annotations: {}
-    # -- configMap data content. Helm template enabled.
     data:
       test.yaml: "testfile content"
 
@@ -45,12 +36,8 @@ persistence:
   configmap:
     enabled: true
     type: configMap
-    # -- Specify the name of the configmap object to be mounted
     objectName: configmap-example
-    # -- Where to mount the volume in the main container.
-    # Defaults to `/<name_of_the_volume>`,
-    # setting to '-' creates the volume but disables the volumeMount.
-    mountPath: # /custom-mount
+    mountPath: /configmapmount
 
 
 "ixCertificateAuthorities": {}
