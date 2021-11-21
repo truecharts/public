@@ -8,10 +8,14 @@ controller:
 
 service:
   main:
-    enabled: false
+    selector:
+      app.kubernetes.io/name: prometheus
+      prometheus: "{{ template "kube-prometheus-stack.fullname" . }}-prometheus"
     ports:
       main:
-        enabled: false
+        type: HTTP
+        port: 10090
+        targetPort: 9090
 
 probes:
   liveness:
