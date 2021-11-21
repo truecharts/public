@@ -7,4 +7,3 @@
 #### Add
 
 * Add Loki ([#1367](https://github.com/truecharts/apps/issues/1367))
-
