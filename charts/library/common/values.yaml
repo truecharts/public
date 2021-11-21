@@ -541,6 +541,21 @@ deviceList: []
 # @default -- []
 persistenceList: []
 
+# -- Configure configMaps for the chart here.
+# Additional configMaps can be added by adding a dictionary key similar to the 'config' object.
+# @default -- See below
+configmap:
+  config:
+    # -- Enables or disables the configMap
+    enabled: false
+    # -- Labels to add to the configMap
+    labels: {}
+    # -- Annotations to add to the configMap
+    annotations: {}
+    # -- configMap data content. Helm template enabled.
+    data: {}
+      # foo: bar
+
 # -- Configure persistence for the chart here.
 # Additional items can be added by adding a dictionary key similar to the 'config' key.
 # @default -- See below
