@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.8.1"></a>
+### [common-8.8.1](https://github.com/truecharts/apps/compare/common-8.8.0...common-8.8.1) (2021-11-21)
+
+#### Fix
+
+* also allow for templating in service selector
+
+
+
 <a name="common-8.8.0"></a>
 ### [common-8.8.0](https://github.com/truecharts/apps/compare/common-8.7.1...common-8.8.0) (2021-11-21)
 
