@@ -6,7 +6,6 @@ image:
 controller:
   enabled: false
 
-
 service:
   main:
     enabled: false
@@ -63,54 +62,45 @@ prometheus-stack:
     ## Do not deploy alertmanager
     enabled: false
 
-
   ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
   ##
   grafana:
     enabled: false
-
 
   ## Component scraping the kube api server
   ##
   kubeApiServer:
     enabled: true
 
-
   ## Component scraping the kubelet and kubelet-hosted cAdvisor
   ##
   kubelet:
     enabled: true
 
-  ## Component scraping the kube controller manager
+## Component scraping the kube controller manager
   ##
   kubeControllerManager:
     enabled: false
-
 
   ## Component scraping coreDns. Use either this or kubeDns
   ##
   coreDns:
     enabled: true
 
-
   ## Component scraping etcd
   ##
   kubeEtcd:
     enabled: false
-
-
 
   ## Component scraping kube scheduler
   ##
   kubeScheduler:
     enabled: false
 
-
   ## Component scraping kube proxy
   ##
   kubeProxy:
     enabled: false
-
 
   ## Manages Prometheus and Alertmanager components
   ##
@@ -130,7 +120,6 @@ prometheus-stack:
     thanosService:
       enabled: false
 
-
     # ServiceMonitor to scrape Sidecar metrics
     # Needs thanosService to be enabled as well
     thanosServiceMonitor:
@@ -140,7 +129,6 @@ prometheus-stack:
     # Enabling this creates a service to expose thanos-sidecar outside the cluster.
     thanosServiceExternal:
       enabled: false
-
 
     ## Configuration for Prometheus service
     ##
@@ -170,7 +158,6 @@ prometheus-stack:
       ##
       type: ClusterIP
 
-
     ## Configuration for creating a separate Service for each statefulset Prometheus replica
     ##
     servicePerReplica:
@@ -183,7 +170,6 @@ prometheus-stack:
 
     ingress:
       enabled: false
-
 
     ## Settings affecting prometheusSpec
     ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#prometheusspec
@@ -244,7 +230,6 @@ prometheus-stack:
       ## External URL at which Prometheus will be reachable.
       ##
       externalUrl: ""
-
 
       ## How long to retain metrics
       ##
@@ -327,7 +312,6 @@ prometheus-stack:
       ##
       portName: "web"
 
-
       ## QueryLogFile specifies the file to which PromQL queries are logged. Note that this location must be writable,
       ## and can be persisted using an attached volume. Alternatively, the location can be set to a stdout location such
       ## as /dev/stdout to log querie information to the default Prometheus log stream. This is only available in versions
@@ -344,7 +328,6 @@ prometheus-stack:
       ## number of targets under the desired limit. Note that if TargetLimit is lower, that value will be taken instead, except
       ## if either value is zero, in which case the non-zero value will be used. If both values are zero, no limit is enforced.
       enforcedTargetLimit: false
-
 
       ## Per-scrape limit on number of labels that will be accepted for a sample. If more than this number of labels are present
       ## post metric-relabeling, the entire scrape will be treated as failed. 0 means no limit. Only valid in Prometheus versions
