@@ -43,7 +43,7 @@ questions:
                 label: "(Advanced) Controller Type"
                 schema:
                   type: string
-                  default: "deployment"
+                  default: "Statefulset"
                   required: true
                   enum:
                     - value: "deployment"
@@ -64,7 +64,7 @@ questions:
                 label: "(Advanced) Update Strategy"
                 schema:
                   type: string
-                  default: "Recreate"
+                  default: "RollingUpdate"
                   required: true
                   enum:
                     - value: "Recreate"
@@ -115,7 +115,7 @@ questions:
                                   schema:
                                     type: boolean
                                     default: true
-                                - variable: protocol
+                                    - variable: protocol
                                   label: "Port Type"
                                   schema:
                                     type: string
@@ -141,13 +141,13 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9117
+                                    default: 3100
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9117
+                              default: 3100
                               required: true
 
   - variable: serviceexpert
@@ -169,16 +169,16 @@ questions:
 
 # Include{serviceList}
 
-  - variable: persistence
+  - variable: volumeClaimTemplates
     label: "Integrated Persistent Storage"
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "App data Storage"
+          description: "Stores the Application Data."
           schema:
             type: dict
             attrs:
@@ -217,7 +217,7 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/config"
+                  default: "/data"
                   hidden: true
                   valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
