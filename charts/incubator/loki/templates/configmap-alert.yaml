@@ -11,7 +11,7 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 data:
-  {{ template "loki.fullname" . }}-alerting-rules.yaml: |-
+  {{ include "common.names.fullname" . }}-alerting-rules.yaml: |-
     groups:
     {{- toYaml .Values.alerting_groups | nindent 6 }}
 {{- end }}
