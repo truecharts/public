@@ -135,7 +135,8 @@ configmap:
     labels: {}
     annotations: {}
     data:
-      loki.yaml: "{{ tpl (toYaml .Values.config) . }}"
+      loki.yaml: |-
+        {{ tpl (toYaml .Values.config) . }}
 
 persistence:
   # @default -- See below
