@@ -390,6 +390,7 @@ prep_helm() {
     helm repo add truecharts https://truecharts.org
     helm repo add bitnami https://charts.bitnami.com/bitnami
     helm repo add metallb https://metallb.github.io/metallb
+    helm repo add grafana https://grafana.github.io/helm-charts
     helm repo update
     fi
     }
