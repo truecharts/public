@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.6.5"></a>
+### [common-8.6.5](https://github.com/truecharts/apps/compare/common-8.6.4...common-8.6.5) (2021-11-21)
+
+#### Fix
+
+* increate probe delay and timeout for weaker systems
+
+
+
 <a name="common-8.6.4"></a>
 ### [common-8.6.4](https://github.com/truecharts/apps/compare/common-8.6.3...common-8.6.4) (2021-11-18)
 
