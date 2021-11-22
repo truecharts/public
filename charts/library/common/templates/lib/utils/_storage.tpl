@@ -1,16 +1,11 @@
 {{/* vim: set filetype=mustache: */}}
 {{/*
 Return  the proper Storage Class
-{{ include "common.storage.class" ( dict "persistence" .Values.path.to.the.persistence "global" $) }}
+{{ include "common.storage.class" ( dict "persistence" .Values.path.to.the.persistence "global" $ ) }}
 */}}
 {{- define "common.storage.class" -}}
 
 {{- $storageClass := .persistence.storageClass -}}
-{{- if .global -}}
-    {{- if .global.storageClass -}}
-        {{- $storageClass = .global.storageClass -}}
-    {{- end -}}
-{{- end -}}
 
 {{- if $storageClass -}}
   {{- if (eq "-" $storageClass) -}}
@@ -22,8 +17,23 @@ Return  the proper Storage Class
   {{- end -}}
 {{- end -}}
 
-{{- if or ( .Values.global.isSCALE ) ( .Values.ixChartContext ) ( .Values.global.ixChartContext ) }}
-  {{ ( printf "storageClassName: ix-storage-class-%s"  .Release.Name ) }}
+{{- if .global }}
+{{- if .global.Values.global  -}}
+  {{- if .global.Values.global.storageClass -}}
+    {{- $storageClass = .global.Values.global.storageClass -}}
+  {{- end -}}
+  {{- if or ( .global.Values.global.ixChartContext ) ( .global.Values.global.isSCALE ) -}}
+    {{ ( printf "storageClassName: ix-storage-class-%s"  .global.Release.Name ) }}
+  {{- end }}
+{{- end -}}
+
+{{- if .global.Values.storageClass -}}
+  {{- $storageClass = .global.Values.storageClass -}}
+{{- end -}}
+
+{{- if .global.Values.ixChartContext }}
+  {{ ( printf "storageClassName: ix-storage-class-%s"  .global.Release.Name ) }}
+{{- end }}
 {{- end }}
 
 {{- end -}}

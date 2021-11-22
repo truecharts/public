@@ -43,7 +43,7 @@ spec:
   resources:
     requests:
       storage: {{ $values.size | default "999Gi" | quote }}
-  {{ include "common.storage.class" ( dict "persistence" $values "global" $) }}
+  {{ include "common.storage.class" ( dict "persistence" $values "global" $ ) }}
   {{- if $values.volumeName }}
   volumeName: {{ $values.volumeName | quote }}
   {{- end }}
