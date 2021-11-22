@@ -24,20 +24,7 @@ questions:
             type: boolean
             default: true
 
-  - variable: serviceexpert
-    group: "Networking and Services"
-    label: "Show Expert Config"
-    schema:
-      type: boolean
-      default: false
-      show_subquestions_if: true
-      subquestions:
-        - variable: hostNetwork
-          group: "Networking and Services"
-          label: "Host-Networking (Complicated)"
-          schema:
-            type: boolean
-            default: false
+
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -56,6 +43,13 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10086
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -95,16 +89,10 @@ questions:
                                   schema:
                                     type: int
                                     default: 9090
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 10086
-                              required: true
+
         - variable: promop
           label: "Operator Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          description: "The Primary service on which the healthcheck runs"
           schema:
             type: dict
             attrs:
@@ -114,6 +102,13 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10089
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -153,15 +148,9 @@ questions:
                                   schema:
                                     type: int
                                     default: 8080
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 10089
-                              required: true
+
         - variable: alertmanager
-          label: "Main Service"
+          label: "alertmanager Service"
           description: "alertmanager service "
           schema:
             type: dict
@@ -172,6 +161,13 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10087
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -211,13 +207,21 @@ questions:
                                   schema:
                                     type: int
                                     default: 9093
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 10087
-                              required: true
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
 # Include{serviceExpert}
 
 # Include{serviceList}
