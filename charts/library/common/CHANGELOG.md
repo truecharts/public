@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.9.0"></a>
+### [common-8.9.0](https://github.com/truecharts/apps/compare/common-8.8.1...common-8.9.0) (2021-11-22)
+
+#### Feat
+
+* Implement some simplifications from Bitnami ([#1378](https://github.com/truecharts/apps/issues/1378))
+
+
+
 <a name="common-8.8.1"></a>
 ### [common-8.8.1](https://github.com/truecharts/apps/compare/common-8.8.0...common-8.8.1) (2021-11-21)
 
