@@ -239,7 +239,7 @@ spec:
       resources: {{- toYaml .Values.prometheus.thanos.resources | nindent 8 }}
       {{- end }}
       ports:
-        - name: grpc
+        - name: thanos
           containerPort: 10901
           protocol: TCP
         - name: http

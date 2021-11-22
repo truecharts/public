@@ -1164,7 +1164,7 @@ alertmanager:
   routePrefix: /
   ## @param alertmanager.portName Port name used for the pods and governing service. This defaults to web
   ##
-  portName: web
+  portName: alertmanager
   ## @param alertmanager.configNamespaceSelector AlertmanagerConfigs to be selected for to merge and configure Alertmanager with. This defaults to {}
   ##
   configNamespaceSelector: {}
