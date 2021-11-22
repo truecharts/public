@@ -907,53 +907,6 @@ alertmanager:
     enabled: false
     minAvailable: 1
     maxUnavailable: ""
-  ## Alertmanager Service
-  ##
-  service:
-    ## @param alertmanager.service.type Kubernetes service type
-    ##
-    type: ClusterIP
-    ## @param alertmanager.service.port Alertmanager service port
-    ##
-    port: 9093
-    ## @param alertmanager.service.clusterIP Specific cluster IP when service type is cluster IP. Use `None` for headless service
-    ## e.g:
-    ## clusterIP: None
-    ##
-    clusterIP: ""
-    ## @param alertmanager.service.nodePort Specify the nodePort value for the LoadBalancer and NodePort service types.
-    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
-    ## e.g:
-    ## nodePort: 30903
-    ##
-    nodePort: ""
-    ## @param alertmanager.service.loadBalancerIP `loadBalancerIP` if service type is `LoadBalancer`
-    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
-    ##
-    loadBalancerIP: ""
-    ## @param alertmanager.service.loadBalancerSourceRanges Address that are allowed when svc is `LoadBalancer`
-    ## https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
-    ## e.g:
-    ## loadBalancerSourceRanges:
-    ## - 10.10.10.0/24
-    ##
-    loadBalancerSourceRanges: []
-    ## @param alertmanager.service.externalTrafficPolicy Enable client source IP preservation
-    ## Denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints
-    ## There are two available options: Cluster (default) and Local.
-    ## ref: https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
-    ##
-    externalTrafficPolicy: Cluster
-    ## @param alertmanager.service.healthCheckNodePort Specifies the health check node port
-    ## ref: https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
-    ##
-    healthCheckNodePort: ""
-    ## @param alertmanager.service.stickySessions Set stickySessions to `true` to enable Session Affinity
-    ##
-    stickySessions: ""
-    ## @param alertmanager.service.annotations Additional annotations for Alertmanager service (this value is evaluated as a template)
-    ##
-    annotations: {}
   ## If true, create a serviceMonitor for alertmanager
   ##
   serviceMonitor:
