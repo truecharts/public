@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.15"></a>
+### [omada-controller-4.0.15](https://github.com/truecharts/apps/compare/omada-controller-4.0.14...omada-controller-4.0.15) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="omada-controller-4.0.14"></a>
 ### [omada-controller-4.0.14](https://github.com/truecharts/apps/compare/omada-controller-4.0.13...omada-controller-4.0.14) (2021-11-16)
 

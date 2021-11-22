@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envTpl.UNIFI_UID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/unifi"` |  |
-| image.tag | string | `"v6.4.54@sha256:2504771015b659dac1cf690317193f6e7fb94cf24efd89a3599d99b7bab9705e"` |  |
+| image.tag | string | `"v6.5.53@sha256:c6cf26dcd8e73e95503a9a8fb5ab36458c05c724b33add8dc1a6152648f33d3d"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/unifi"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
@@ -26,9 +26,8 @@ You will, however, be able to use all values referenced in the common chart here
 | service.comm.enabled | bool | `true` |  |
 | service.comm.ports.comm.enabled | bool | `true` |  |
 | service.comm.ports.comm.port | int | `8080` |  |
-| service.comm.ports.comm.protocol | string | `"TCP"` |  |
 | service.comm.ports.comm.targetPort | int | `8080` |  |
-| service.guestportal.enabled | bool | `false` |  |
+| service.guestportal.enabled | bool | `true` |  |
 | service.guestportal.ports.web.enabled | bool | `true` |  |
 | service.guestportal.ports.web.port | int | `8880` |  |
 | service.guestportal.ports.web.protocol | string | `"HTTP"` |  |
@@ -40,10 +39,9 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.ports.main.port | int | `8443` |  |
 | service.main.ports.main.protocol | string | `"HTTPS"` |  |
 | service.main.ports.main.targetPort | int | `8443` |  |
-| service.speedtest.enabled | bool | `false` |  |
+| service.speedtest.enabled | bool | `true` |  |
 | service.speedtest.ports.speedtest.enabled | bool | `true` |  |
 | service.speedtest.ports.speedtest.port | int | `6789` |  |
-| service.speedtest.ports.speedtest.protocol | string | `"TCP"` |  |
 | service.speedtest.ports.speedtest.targetPort | int | `6789` |  |
 | service.stun.enabled | bool | `true` |  |
 | service.stun.ports.stun.enabled | bool | `true` |  |

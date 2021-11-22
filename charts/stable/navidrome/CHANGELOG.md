@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="navidrome-9.0.11"></a>
+### [navidrome-9.0.11](https://github.com/truecharts/apps/compare/navidrome-9.0.10...navidrome-9.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+
+
 <a name="navidrome-9.0.10"></a>
 ### [navidrome-9.0.10](https://github.com/truecharts/apps/compare/navidrome-9.0.9...navidrome-9.0.10) (2021-11-16)
 

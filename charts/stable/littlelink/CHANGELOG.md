@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.15"></a>
+### [littlelink-4.0.15](https://github.com/truecharts/apps/compare/littlelink-4.0.14...littlelink-4.0.15) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="littlelink-4.0.14"></a>
 ### [littlelink-4.0.14](https://github.com/truecharts/apps/compare/littlelink-4.0.13...littlelink-4.0.14) (2021-11-18)
 

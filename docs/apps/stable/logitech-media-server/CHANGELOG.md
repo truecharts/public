@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.15"></a>
+### [logitech-media-server-2.0.15](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.14...logitech-media-server-2.0.15) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="logitech-media-server-2.0.14"></a>
 ### [logitech-media-server-2.0.14](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.13...logitech-media-server-2.0.14) (2021-11-16)
 

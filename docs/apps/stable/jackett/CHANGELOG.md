@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.21"></a>
+### [jackett-9.0.21](https://github.com/truecharts/apps/compare/jackett-9.0.20...jackett-9.0.21) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="jackett-9.0.20"></a>
 ### [jackett-9.0.20](https://github.com/truecharts/apps/compare/jackett-9.0.19...jackett-9.0.20) (2021-11-18)
 

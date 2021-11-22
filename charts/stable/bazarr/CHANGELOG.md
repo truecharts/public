@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bazarr-9.0.12"></a>
+### [bazarr-9.0.12](https://github.com/truecharts/apps/compare/bazarr-9.0.11...bazarr-9.0.12) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+
+
 <a name="bazarr-9.0.11"></a>
 ### [bazarr-9.0.11](https://github.com/truecharts/apps/compare/bazarr-9.0.10...bazarr-9.0.11) (2021-11-16)
 

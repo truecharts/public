@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envFrom[0].configMapRef.name | string | `"littlelinkconfig"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/techno-tim/littlelink-server"` |  |
-| image.tag | string | `"latest@sha256:ebb3113a3af12f0c8ca8fbf848727a88f5ea4198f33f52b33aa09368233f6789"` |  |
+| image.tag | string | `"latest@sha256:14572e87fb0b81a98de4ef152e96500c71380811cf76045b951d50c9657c07fd"` |  |
 | littlelink.avatar_2x_url | string | `"https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_400x400.jpg"` |  |
 | littlelink.avatar_alt | string | `"techno tim profile pic"` |  |
 | littlelink.avatar_url | string | `"https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"` |  |
@@ -34,7 +34,6 @@ You will, however, be able to use all values referenced in the common chart here
 | littlelink.twitch | string | `"https://www.twitch.tv/technotim/"` |  |
 | littlelink.twitter | string | `"https://twitter.com/technotimlive"` |  |
 | littlelink.youtube | string | `"https://www.youtube.com/channel/ucok-ghyjcwznj3br4oxwh0a"` |  |
-| service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `3000` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 

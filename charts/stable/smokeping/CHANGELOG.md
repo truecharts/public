@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="smokeping-1.0.12"></a>
+### [smokeping-1.0.12](https://github.com/truecharts/apps/compare/smokeping-1.0.11...smokeping-1.0.12) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+
+
 <a name="smokeping-1.0.11"></a>
 ### [smokeping-1.0.11](https://github.com/truecharts/apps/compare/smokeping-1.0.10...smokeping-1.0.11) (2021-11-16)
 

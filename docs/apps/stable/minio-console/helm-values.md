@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"minio/console"` | image repository |
-| image.tag | string | `"v0.12.3@sha256:e24dfdf61dd144ef8a9d32bc7a7924d5e18d268121424e8a7479504f07f0c97a"` | image tag |
+| image.tag | string | `"v0.12.4@sha256:d14878133c2de31fad0b590eb6f7cb6420abf8f1f4ebb1d4e9b804363ea3e658"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

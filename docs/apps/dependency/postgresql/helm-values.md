@@ -28,14 +28,13 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/postgresql"` |  |
-| image.tag | string | `"14.1.0@sha256:6a8dd778d39011aa8b904d9a8ff15e848cbab8005fc0b1a786faf0fe43e0d5c2"` |  |
+| image.tag | string | `"14.1.0@sha256:27ae2f22d952b9980a908aecf970a4506fc9eea7d8979213ace53ae4722707af"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | postgrespassword | string | `"testroot"` |  |
 | postgresqlDatabase | string | `"test"` |  |
 | postgresqlPassword | string | `"testpass"` |  |
 | postgresqlUsername | string | `"test"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `5432` |  |
 | service.main.ports.main.targetPort | int | `5432` |  |
 | volumeClaimTemplates.db.enabled | bool | `true` |  |

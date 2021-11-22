@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="unifi-9.0.11"></a>
+### [unifi-9.0.11](https://github.com/truecharts/apps/compare/unifi-9.0.10...unifi-9.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="unifi-9.0.10"></a>
 ### [unifi-9.0.10](https://github.com/truecharts/apps/compare/unifi-9.0.9...unifi-9.0.10) (2021-11-16)
 

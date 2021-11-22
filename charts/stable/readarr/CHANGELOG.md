@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.16"></a>
+### [readarr-9.0.16](https://github.com/truecharts/apps/compare/readarr-9.0.15...readarr-9.0.16) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+
+
 <a name="readarr-9.0.15"></a>
 ### [readarr-9.0.15](https://github.com/truecharts/apps/compare/readarr-9.0.14...readarr-9.0.15) (2021-11-18)
 

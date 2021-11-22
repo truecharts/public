@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-12.0.3"></a>
+### [home-assistant-12.0.3](https://github.com/truecharts/apps/compare/home-assistant-12.0.2...home-assistant-12.0.3) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+
+
 <a name="home-assistant-12.0.2"></a>
 ### [home-assistant-12.0.2](https://github.com/truecharts/apps/compare/home-assistant-12.0.1...home-assistant-12.0.2) (2021-11-16)
 

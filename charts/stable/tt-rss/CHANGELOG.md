@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.3"></a>
+### [tt-rss-4.0.3](https://github.com/truecharts/apps/compare/tt-rss-4.0.2...tt-rss-4.0.3) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="tt-rss-4.0.2"></a>
 ### [tt-rss-4.0.2](https://github.com/truecharts/apps/compare/tt-rss-4.0.1...tt-rss-4.0.2) (2021-11-18)
 

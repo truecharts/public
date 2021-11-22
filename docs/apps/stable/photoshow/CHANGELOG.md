@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoshow-1.0.12"></a>
+### [photoshow-1.0.12](https://github.com/truecharts/apps/compare/photoshow-1.0.11...photoshow-1.0.12) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+
+
 <a name="photoshow-1.0.11"></a>
 ### [photoshow-1.0.11](https://github.com/truecharts/apps/compare/photoshow-1.0.10...photoshow-1.0.11) (2021-11-16)
 

@@ -15,19 +15,25 @@ You will, however, be able to use all values referenced in the common chart here
 | envTpl.HTTP_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"lmscommunity/logitechmediaserver"` |  |
-| image.tag | string | `"8.3.0@sha256:2b3ff7a240749af53ef266f91c1003d862e7b6d1a1ab810d44d57be0369515aa"` |  |
+| image.tag | string | `"8.3.0@sha256:02959970afb6a89a8a264d6adcdcca8e7468740776fda7a74d59e61b1f49da2c"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.cli.enabled | bool | `true` |  |
+| service.cli.ports.cli.enabled | bool | `true` |  |
 | service.cli.ports.cli.port | int | `9090` |  |
 | service.cli.ports.cli.targetPort | int | `9090` |  |
 | service.main.ports.main.port | int | `7000` |  |
 | service.main.ports.main.targetPort | int | `7000` |  |
+| service.playertcp.enabled | bool | `true` |  |
+| service.playertcp.ports.slimprototcp.enabled | bool | `true` |  |
 | service.playertcp.ports.slimprototcp.port | int | `3483` |  |
 | service.playertcp.ports.slimprototcp.targetPort | int | `3483` |  |
+| service.playerudp.enabled | bool | `true` |  |
+| service.playerudp.ports.slimprotoudp.enabled | bool | `true` |  |
 | service.playerudp.ports.slimprotoudp.port | int | `3483` |  |
 | service.playerudp.ports.slimprotoudp.targetPort | int | `3483` |  |
 

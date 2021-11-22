@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.6"></a>
+### [postgresql-6.0.6](https://github.com/truecharts/apps/compare/postgresql-6.0.5...postgresql-6.0.6) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+
+
 <a name="postgresql-6.0.4"></a>
 ### [postgresql-6.0.4](https://github.com/truecharts/apps/compare/postgresql-6.0.3...postgresql-6.0.4) (2021-11-18)
 

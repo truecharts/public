@@ -51,7 +51,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"grafana/loki"` |  |
-| image.tag | string | `"2.4.1@sha256:f53b40251a601e491c36a4153aa65630c4ebf59404f36d6a532fb261a576ea9f"` |  |
+| image.tag | string | `"2.4.1@sha256:1d802d29cf041601895ce16439757baf4dac71a21069957616ee7988746bf59c"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/loki"` | Where to mount the volume in the main container. |
 | persistence.config.objectName | string | `"{{ include \"common.names.fullname\" . -}}-config"` | Specify the name of the configmap object to be mounted |

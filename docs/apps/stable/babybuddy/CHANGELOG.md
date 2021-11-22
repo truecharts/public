@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.2"></a>
+### [babybuddy-5.0.2](https://github.com/truecharts/apps/compare/babybuddy-5.0.1...babybuddy-5.0.2) (2021-11-22)
+
+#### Chore
+
+* update non-major ([#1380](https://github.com/truecharts/apps/issues/1380))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="babybuddy-5.0.1"></a>
 ### [babybuddy-5.0.1](https://github.com/truecharts/apps/compare/babybuddy-5.0.0...babybuddy-5.0.1) (2021-11-16)
 

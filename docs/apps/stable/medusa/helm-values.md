@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/medusa"` |  |
-| image.tag | string | `"0.5.20@sha256:4b8296a04eff2320a466406d37a6115a0a26623d4163b6449c3d47fec6b95309"` |  |
+| image.tag | string | `"0.5.20@sha256:24f43e0e6a46872b49f4713f0a8bf98f6b64bfa2a7ced1cb33d54adea26ed4e5"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
