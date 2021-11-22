@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "latest-202"
 description: DSMR-protocol reader, telegram data storage and energy consumption visualizer.
 name: dsmr-reader
-version: 5.0.1
+version: 5.0.2
 kubeVersion: ">=1.16.0-0"
 keywords:
 - dsmr-reader
@@ -15,11 +15,11 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.6.3
+  version: 8.9.1
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 6.0.3
+  version: 6.0.7
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
