@@ -11,7 +11,7 @@ Return  the proper Storage Class
   {{- if (eq "-" $storageClass) -}}
     {{- printf "storageClassName: \"\"" -}}
   {{- else if (eq "SCALE-ZFS" $storageClass ) }}
-    {{ ( printf "storageClassName: ix-storage-class-%s"  .global.Release.Name ) }}
+    {{- ( printf "storageClassName: ix-storage-class-%s"  .global.Release.Name ) -}}
   {{- else }}
     {{- printf "storageClassName: %s" $storageClass -}}
   {{- end -}}
@@ -23,7 +23,7 @@ Return  the proper Storage Class
     {{- $storageClass = .global.Values.global.storageClass -}}
   {{- end -}}
   {{- if or ( .global.Values.global.ixChartContext ) ( .global.Values.global.isSCALE ) -}}
-    {{ ( printf "storageClassName: ix-storage-class-%s"  .global.Release.Name ) }}
+    {{- ( printf "storageClassName: ix-storage-class-%s"  .global.Release.Name ) -}}
   {{- end }}
 {{- end -}}
 
@@ -32,7 +32,7 @@ Return  the proper Storage Class
 {{- end -}}
 
 {{- if .global.Values.ixChartContext }}
-  {{ ( printf "storageClassName: ix-storage-class-%s"  .global.Release.Name ) }}
+  {{- ( printf "storageClassName: ix-storage-class-%s"  .global.Release.Name ) -}}
 {{- end }}
 {{- end }}
 
