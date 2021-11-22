@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.11"></a>
+### [redis-1.0.11](https://github.com/truecharts/apps/compare/redis-1.0.10...redis-1.0.11) (2021-11-22)
+
+#### Fix
+
+* correct prometheus GUI mistakes
+
+
+
 <a name="redis-1.0.10"></a>
 ### [redis-1.0.10](https://github.com/truecharts/apps/compare/redis-1.0.9...redis-1.0.10) (2021-11-22)
 

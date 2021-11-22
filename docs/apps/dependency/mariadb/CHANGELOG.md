@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.9"></a>
+### [mariadb-1.0.9](https://github.com/truecharts/apps/compare/mariadb-1.0.8...mariadb-1.0.9) (2021-11-22)
+
+#### Fix
+
+* correct prometheus GUI mistakes
+
+
+
 <a name="mariadb-1.0.8"></a>
 ### [mariadb-1.0.8](https://github.com/truecharts/apps/compare/mariadb-1.0.7...mariadb-1.0.8) (2021-11-22)
 

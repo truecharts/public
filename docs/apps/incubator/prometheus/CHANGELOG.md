@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-0.0.4"></a>
+### [prometheus-0.0.4](https://github.com/truecharts/apps/compare/prometheus-0.0.3...prometheus-0.0.4) (2021-11-22)
+
+#### Fix
+
+* correct prometheus GUI mistakes
+
+
+
 <a name="prometheus-0.0.3"></a>
 ### [prometheus-0.0.3](https://github.com/truecharts/apps/compare/prometheus-0.0.2...prometheus-0.0.3) (2021-11-22)
 

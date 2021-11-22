@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.10"></a>
+### [memcached-1.0.10](https://github.com/truecharts/apps/compare/memcached-1.0.9...memcached-1.0.10) (2021-11-22)
+
+#### Fix
+
+* correct prometheus GUI mistakes
+
+
+
 <a name="memcached-1.0.9"></a>
 ### [memcached-1.0.9](https://github.com/truecharts/apps/compare/memcached-1.0.8...memcached-1.0.9) (2021-11-22)
 

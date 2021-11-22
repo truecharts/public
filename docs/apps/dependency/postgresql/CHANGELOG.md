@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.7"></a>
+### [postgresql-6.0.7](https://github.com/truecharts/apps/compare/postgresql-6.0.6...postgresql-6.0.7) (2021-11-22)
+
+#### Fix
+
+* correct prometheus GUI mistakes
+
+
+
 <a name="postgresql-6.0.6"></a>
 ### [postgresql-6.0.6](https://github.com/truecharts/apps/compare/postgresql-6.0.5...postgresql-6.0.6) (2021-11-22)
 
