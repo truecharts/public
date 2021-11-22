@@ -5,7 +5,7 @@ dependencies:
   repository: https://truecharts.org
   version: 8.8.1
 - name: "kube-prometheus-stack"
-  condition: prometheus-stack.enabled
+  condition: prometheusStack.enabled
   repository: "https://prometheus-community.github.io/helm-charts"
   version: "20.0.1"
 deprecated: false

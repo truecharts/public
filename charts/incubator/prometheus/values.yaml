@@ -6,6 +6,9 @@ image:
 controller:
   enabled: false
 
+global:
+  isSCALE: true
+
 service:
   main:
     selector:
@@ -27,7 +30,7 @@ probes:
   startup:
     enabled: false
 
-prometheus-stack:
+prometheusStack:
   enabled: true
   ## Create default rules for monitoring the cluster
   ##
@@ -293,17 +296,16 @@ prometheus-stack:
       ## Prometheus StorageSpec for persistent data
       ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/storage.md
       ##
-      storageSpec: {}
+      storageSpec:
       ## Using PersistentVolumeClaim
       ##
-      #  volumeClaimTemplate:
-      #    spec:
-      #      storageClassName: gluster
-      #      accessModes: ["ReadWriteOnce"]
-      #      resources:
-      #        requests:
-      #          storage: 50Gi
-      #    selector: {}
+        volumeClaimTemplate:
+          spec:
+            storageClassName: '{{ ( printf "%v-%v"  "ix-storage-class" .Release.Name ) }}'
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 999Gi
 
       ## Using tmpfs volume
       ##
