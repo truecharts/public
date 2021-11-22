@@ -11,7 +11,6 @@
 {{- include "prometheus.prometheus.additionalscrapejobs" . }}
 {{- include "prometheus.prometheus.thanos.service" . }}
 {{- include "prometheus.prometheus.servicemonitor" . }}
-{{- include "prometheus.prometheus.service" . }}
 
 
 {{/* Render the templates */}}

@@ -298,7 +298,7 @@ spec:
       livenessProbe:
         httpGet:
           path: {{ .Values.prometheus.livenessProbe.path }}
-          port: web
+          port: main
           scheme: HTTP
         initialDelaySeconds: {{ .Values.prometheus.livenessProbe.initialDelaySeconds }}
         periodSeconds: {{ .Values.prometheus.livenessProbe.periodSeconds }}
@@ -310,7 +310,7 @@ spec:
       readinessProbe:
         httpGet:
           path: {{ .Values.prometheus.readinessProbe.path }}
-          port: web
+          port: main
           scheme: HTTP
         initialDelaySeconds: {{ .Values.prometheus.readinessProbe.initialDelaySeconds }}
         periodSeconds: {{ .Values.prometheus.readinessProbe.periodSeconds }}

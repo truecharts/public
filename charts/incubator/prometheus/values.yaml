@@ -334,54 +334,7 @@ prometheus:
     capabilities:
       drop:
         - ALL
-  ## Prometheus Service
-  ##
-  service:
-    ## @param prometheus.service.type Kubernetes service type
-    ##
-    type: ClusterIP
-    ## @param prometheus.service.port Prometheus service port
-    ##
-    port: 9090
-    ## @param prometheus.service.clusterIP Specific cluster IP when service type is cluster IP. Use `None` for headless service
-    ## e.g: clusterIP: None
-    ##
-    clusterIP: ""
-    ## @param prometheus.service.nodePort Specify the nodePort value for the LoadBalancer and NodePort service types.
-    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
-    ## e.g:
-    ## nodePort: 30090
-    ##
-    nodePort: ""
-    ## @param prometheus.service.loadBalancerIP `loadBalancerIP` if service type is `LoadBalancer`
-    ## Set the LoadBalancer service type to internal only
-    ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
-    ##
-    loadBalancerIP: ""
-    ## @param prometheus.service.loadBalancerSourceRanges Address that are allowed when service is `LoadBalancer`
-    ## https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
-    ##
-    ## loadBalancerSourceRanges:
-    ## - 10.10.10.0/24
-    ##
-    loadBalancerSourceRanges: []
-    ## @param prometheus.service.externalTrafficPolicy Enable client source IP preservation
-    ## Denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints
-    ## There are two available options: Cluster (default) and Local
-    ## ref: https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
-    ##
-    externalTrafficPolicy: Cluster
-    ## @param prometheus.service.healthCheckNodePort Specifies the health check node port
-    ## if externalTrafficPolicy is set to Local.
-    ## ref: https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
-    ##
-    healthCheckNodePort: ""
-    ## @param prometheus.service.stickySessions Set stickySessions to `true` to enable Session Affinity
-    ##
-    stickySessions: ""
-    ## @param prometheus.service.annotations Additional annotations for Prometheus service  (this value is evaluated as a template)
-    ##
-    annotations: {}
+
   serviceMonitor:
     ## @param prometheus.serviceMonitor.enabled Creates a ServiceMonitor to monitor Prometheus itself
     ##
@@ -888,7 +841,7 @@ prometheus:
       extraPorts: []
   ## @param prometheus.portName Port name used for the pods and governing service. This defaults to web
   ##
-  portName: web
+  portName: main
 
 ####
 ## Alert Manager Config
