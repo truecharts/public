@@ -62,12 +62,61 @@ class Test < ChartTest
         assert_equal('test', pvc["spec"]["storageClassName"])
       end
 
-      it 'can generate TrueNAS SCALE zfs storageClass' do
+      it 'can generate TrueNAS SCALE zfs storageClass on demand' do
         values = {
           persistence: {
             config: {
               enabled: true,
               storageClass: "SCALE-ZFS"
+            }
+          }
+        }
+        chart.value values
+        pvc = chart.resources(kind: "PersistentVolumeClaim").find{ |s| s["metadata"]["name"] == "common-test-config" }
+        refute_nil(pvc)
+        assert_equal('ix-storage-class-common-test', pvc["spec"]["storageClassName"])
+      end
+
+      it 'generate TrueNAS SCALE zfs storageClass as default when isSCALE' do
+        values = {
+          global: {
+            isSCALE: true
+          },
+          persistence: {
+            config: {
+              enabled: true
+            }
+          }
+        }
+        chart.value values
+        pvc = chart.resources(kind: "PersistentVolumeClaim").find{ |s| s["metadata"]["name"] == "common-test-config" }
+        refute_nil(pvc)
+        assert_equal('ix-storage-class-common-test', pvc["spec"]["storageClassName"])
+      end
+
+      it 'generate TrueNAS SCALE zfs storageClass as default when global ixChartContext' do
+        values = {
+          global: {
+            ixChartContext: "somethingsomething"
+          },
+          persistence: {
+            config: {
+              enabled: true
+            }
+          }
+        }
+        chart.value values
+        pvc = chart.resources(kind: "PersistentVolumeClaim").find{ |s| s["metadata"]["name"] == "common-test-config" }
+        refute_nil(pvc)
+        assert_equal('ix-storage-class-common-test', pvc["spec"]["storageClassName"])
+      end
+
+      it 'generate TrueNAS SCALE zfs storageClass as default when ixChartContext' do
+        values = {
+          ixChartContext: "somethingsomething",
+          persistence: {
+            config: {
+              enabled: true
             }
           }
         }
