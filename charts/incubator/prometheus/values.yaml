@@ -1,18 +1,18 @@
 image:
   repository: bitnami/prometheus-operator
-  tag: 0.52.1-debian-10-r0
+  tag: 0.52.1
 
 prometheusImage:
   repository: bitnami/prometheus
-  tag: 2.31.1-debian-10-r10
+  tag: 2.31.1
 
 thanosImage:
   repository: bitnami/thanos
-  tag: 0.23.1-scratch-r3
+  tag: 0.23.1
 
 alertmanagerImage:
   repository: bitnami/alertmanager
-  tag: 0.23.0-debian-10-r81
+  tag: 0.23.0
 
 global:
   labels: {}
@@ -36,20 +36,24 @@ service:
         targetPort: 8080
         protocol: HTTP
   alertmanager:
+    enabled: true
     selector:
       app.kubernetes.io/name: alertmanager
       alertmanager: '{{ template "kube-prometheus.alertmanager.fullname" . }}'
     ports:
       alertmanager:
+        enabled: true
         port: 10087
         targetPort: 9093
         protocol: HTTP
   thanos:
+    enabled: true
     selector:
       app.kubernetes.io/name: prometheus
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
       thanos:
+        enabled: true
         port: 10901
         targetPort: 10901
         protocol: HTTP
