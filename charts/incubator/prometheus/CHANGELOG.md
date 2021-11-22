@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="prometheus-0.0.8"></a>
+### [prometheus-0.0.8](https://github.com/truecharts/apps/compare/prometheus-0.0.5...prometheus-0.0.8) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+* don't allow config of promop service and remove reminants
+
+#### Fix
+
+* use correct port for alertmanager probe
+
+
+
 <a name="prometheus-0.0.5"></a>
 ### [prometheus-0.0.5](https://github.com/truecharts/apps/compare/prometheus-0.0.4...prometheus-0.0.5) (2021-11-22)
 

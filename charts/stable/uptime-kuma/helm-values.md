@@ -19,7 +19,6 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `3001` |  |
 | service.main.ports.main.targetPort | int | `3001` |  |
 

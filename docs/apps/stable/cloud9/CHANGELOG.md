@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloud9-2.0.14"></a>
+### [cloud9-2.0.14](https://github.com/truecharts/apps/compare/cloud9-2.0.13...cloud9-2.0.14) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+
+
 <a name="cloud9-2.0.13"></a>
 ### [cloud9-2.0.13](https://github.com/truecharts/apps/compare/cloud9-2.0.12...cloud9-2.0.13) (2021-11-18)
 

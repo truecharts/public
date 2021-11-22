@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="mosquitto-4.0.13"></a>
+### [mosquitto-4.0.13](https://github.com/truecharts/apps/compare/mosquitto-4.0.12...mosquitto-4.0.13) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="mosquitto-4.0.12"></a>
 ### [mosquitto-4.0.12](https://github.com/truecharts/apps/compare/mosquitto-4.0.11...mosquitto-4.0.12) (2021-11-18)
 

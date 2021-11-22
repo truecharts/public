@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flood-4.0.11"></a>
+### [flood-4.0.11](https://github.com/truecharts/apps/compare/flood-4.0.10...flood-4.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+
+
 <a name="flood-4.0.10"></a>
 ### [flood-4.0.10](https://github.com/truecharts/apps/compare/flood-4.0.9...flood-4.0.10) (2021-11-16)
 

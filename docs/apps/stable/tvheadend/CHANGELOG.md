@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="tvheadend-10.0.11"></a>
+### [tvheadend-10.0.11](https://github.com/truecharts/apps/compare/tvheadend-10.0.10...tvheadend-10.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="tvheadend-10.0.10"></a>
 ### [tvheadend-10.0.10](https://github.com/truecharts/apps/compare/tvheadend-10.0.9...tvheadend-10.0.10) (2021-11-16)
 

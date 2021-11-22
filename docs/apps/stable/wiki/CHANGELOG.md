@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wiki-1.0.11"></a>
+### [wiki-1.0.11](https://github.com/truecharts/apps/compare/wiki-1.0.10...wiki-1.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+
+
 <a name="wiki-1.0.10"></a>
 ### [wiki-1.0.10](https://github.com/truecharts/apps/compare/wikijs-4.0.0...wiki-1.0.10) (2021-11-16)
 

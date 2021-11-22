@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gaps-9.0.11"></a>
+### [gaps-9.0.11](https://github.com/truecharts/apps/compare/gaps-9.0.10...gaps-9.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+
+
 <a name="gaps-9.0.10"></a>
 ### [gaps-9.0.10](https://github.com/truecharts/apps/compare/gaps-9.0.9...gaps-9.0.10) (2021-11-16)
 

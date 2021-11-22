@@ -27,7 +27,6 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `5000` |  |
 | service.main.ports.main.targetPort | int | `5000` |  |
 

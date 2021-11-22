@@ -77,16 +77,6 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.retention | string | `"120h"` |  |
 | alertmanager.routePrefix | string | `"/"` |  |
 | alertmanager.secrets | list | `[]` |  |
-| alertmanager.service.annotations | object | `{}` |  |
-| alertmanager.service.clusterIP | string | `""` |  |
-| alertmanager.service.externalTrafficPolicy | string | `"Cluster"` |  |
-| alertmanager.service.healthCheckNodePort | string | `""` |  |
-| alertmanager.service.loadBalancerIP | string | `""` |  |
-| alertmanager.service.loadBalancerSourceRanges | list | `[]` |  |
-| alertmanager.service.nodePort | string | `""` |  |
-| alertmanager.service.port | int | `9093` |  |
-| alertmanager.service.stickySessions | string | `""` |  |
-| alertmanager.service.type | string | `"ClusterIP"` |  |
 | alertmanager.serviceAccount.create | bool | `true` |  |
 | alertmanager.serviceAccount.name | string | `""` |  |
 | alertmanager.serviceMonitor.enabled | bool | `true` |  |

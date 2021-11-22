@@ -30,7 +30,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.tcp.enabled | bool | `true` |  |
 | service.torrent.ports.tcp.port | int | `51413` |  |
-| service.torrent.ports.tcp.protocol | string | `"TCP"` |  |
 | service.torrent.ports.tcp.targetPort | int | `51413` |  |
 
 All Rights Reserved - The TrueCharts Project

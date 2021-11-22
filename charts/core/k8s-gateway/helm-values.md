@@ -56,7 +56,6 @@ You will, however, be able to use all values referenced in the common chart here
 | rbac.rules | list | `[{"apiGroups":[""],"resources":["services","namespaces"],"verbs":["list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses"],"verbs":["list","watch"]}]` | Set Rules on the ClusterRole |
 | secondary | string | `""` | Service name of a secondary DNS server (should be `serviceName.namespace`) |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `53` |  |
 | service.main.ports.main.protocol | string | `"UDP"` |  |
 | service.main.ports.main.targetPort | int | `53` |  |

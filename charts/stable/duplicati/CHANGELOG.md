@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-4.0.11"></a>
+### [duplicati-4.0.11](https://github.com/truecharts/apps/compare/duplicati-4.0.10...duplicati-4.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+
+
 <a name="duplicati-4.0.10"></a>
 ### [duplicati-4.0.10](https://github.com/truecharts/apps/compare/duplicati-4.0.9...duplicati-4.0.10) (2021-11-16)
 

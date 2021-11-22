@@ -26,13 +26,9 @@ You will, however, be able to use all values referenced in the common chart here
 | service.files.ports.files.port | int | `30033` |  |
 | service.files.ports.files.protocol | string | `"TCP"` |  |
 | service.files.ports.files.targetPort | int | `30033` |  |
-| service.files.type | string | `"ClusterIP"` |  |
-| service.main.enabled | bool | `true` |  |
-| service.main.ports.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `10011` |  |
 | service.main.ports.main.protocol | string | `"TCP"` |  |
 | service.main.ports.main.targetPort | int | `10011` |  |
-| service.main.type | string | `"ClusterIP"` |  |
 | service.voice.enabled | bool | `true` |  |
 | service.voice.ports.voice.enabled | bool | `true` |  |
 | service.voice.ports.voice.port | int | `9987` |  |

@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.14"></a>
+### [traefik-10.0.14](https://github.com/truecharts/apps/compare/traefik-10.0.13...traefik-10.0.14) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+#### Fix
+
+* [#1359](https://github.com/truecharts/apps/issues/1359) ([#1360](https://github.com/truecharts/apps/issues/1360))
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="traefik-10.0.13"></a>
 ### [traefik-10.0.13](https://github.com/truecharts/apps/compare/traefik-10.0.12...traefik-10.0.13) (2021-11-16)
 

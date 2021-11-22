@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.14"></a>
+### [zwavejs2mqtt-9.0.14](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.13...zwavejs2mqtt-9.0.14) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="zwavejs2mqtt-9.0.13"></a>
 ### [zwavejs2mqtt-9.0.13](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.12...zwavejs2mqtt-9.0.13) (2021-11-16)
 

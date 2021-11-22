@@ -30,7 +30,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.listen.ports.listen.enabled | bool | `true` |  |
 | service.listen.ports.listen.port | int | `6888` |  |
 | service.listen.ports.listen.targetPort | int | `6888` |  |
-| service.main.ports.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `6800` |  |
 | service.main.ports.main.targetPort | int | `6800` |  |
 

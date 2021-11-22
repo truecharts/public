@@ -30,6 +30,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"vaultwarden"` |  |
 | service.main.ports.main.port | int | `8080` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
+| service.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.port | int | `3012` |  |
 | service.ws.ports.ws.targetPort | int | `3012` |  |

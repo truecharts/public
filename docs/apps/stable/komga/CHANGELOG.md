@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.14"></a>
+### [komga-4.0.14](https://github.com/truecharts/apps/compare/komga-4.0.13...komga-4.0.14) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+
+
 <a name="komga-4.0.13"></a>
 ### [komga-4.0.13](https://github.com/truecharts/apps/compare/komga-4.0.12...komga-4.0.13) (2021-11-22)
 

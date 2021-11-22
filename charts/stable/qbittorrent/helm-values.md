@@ -27,7 +27,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.torrent.port | int | `6881` |  |
-| service.torrent.ports.torrent.protocol | string | `"TCP"` |  |
 | service.torrent.ports.torrent.targetPort | int | `6881` |  |
 | service.torrentudp.enabled | bool | `true` |  |
 | service.torrentudp.ports.torrentudp.enabled | bool | `true` |  |

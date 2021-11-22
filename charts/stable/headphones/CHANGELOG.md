@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="headphones-2.0.11"></a>
+### [headphones-2.0.11](https://github.com/truecharts/apps/compare/headphones-2.0.10...headphones-2.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+
+
 <a name="headphones-2.0.10"></a>
 ### [headphones-2.0.10](https://github.com/truecharts/apps/compare/headphones-2.0.9...headphones-2.0.10) (2021-11-16)
 

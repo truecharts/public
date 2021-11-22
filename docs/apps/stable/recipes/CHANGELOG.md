@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="recipes-4.0.5"></a>
+### [recipes-4.0.5](https://github.com/truecharts/apps/compare/recipes-4.0.4...recipes-4.0.5) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="recipes-4.0.4"></a>
 ### [recipes-4.0.4](https://github.com/truecharts/apps/compare/recipes-4.0.3...recipes-4.0.4) (2021-11-18)
 

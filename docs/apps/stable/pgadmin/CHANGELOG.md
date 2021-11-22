@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="pgadmin-4.0.12"></a>
+### [pgadmin-4.0.12](https://github.com/truecharts/apps/compare/pgadmin-4.0.11...pgadmin-4.0.12) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="pgadmin-4.0.11"></a>
 ### [pgadmin-4.0.11](https://github.com/truecharts/apps/compare/pgadmin-4.0.10...pgadmin-4.0.11) (2021-11-18)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-4.0.11"></a>
+### [pretend-youre-xyzzy-4.0.11](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-4.0.10...pretend-youre-xyzzy-4.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+
+
 <a name="pretend-youre-xyzzy-4.0.10"></a>
 ### [pretend-youre-xyzzy-4.0.10](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-4.0.9...pretend-youre-xyzzy-4.0.10) (2021-11-16)
 

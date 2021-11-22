@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-4.0.12"></a>
+### [owncloud-ocis-4.0.12](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.11...owncloud-ocis-4.0.12) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+
+
 <a name="owncloud-ocis-4.0.11"></a>
 ### [owncloud-ocis-4.0.11](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.10...owncloud-ocis-4.0.11) (2021-11-16)
 

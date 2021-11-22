@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-9.0.12"></a>
+### [unifi-9.0.12](https://github.com/truecharts/apps/compare/unifi-9.0.11...unifi-9.0.12) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+
+
 <a name="unifi-9.0.11"></a>
 ### [unifi-9.0.11](https://github.com/truecharts/apps/compare/unifi-9.0.10...unifi-9.0.11) (2021-11-22)
 

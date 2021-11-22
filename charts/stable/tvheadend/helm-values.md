@@ -24,9 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.htsp.enabled | bool | `true` |  |
 | service.htsp.ports.htsp.enabled | bool | `true` |  |
 | service.htsp.ports.htsp.port | int | `9982` |  |
-| service.htsp.ports.htsp.protocol | string | `"TCP"` |  |
 | service.htsp.ports.htsp.targetPort | int | `9982` |  |
-| service.htsp.type | string | `"ClusterIP"` |  |
 | service.main.ports.main.port | int | `9981` |  |
 | service.main.ports.main.targetPort | int | `9981` |  |
 

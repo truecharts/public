@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="gotify-5.0.2"></a>
+### [gotify-5.0.2](https://github.com/truecharts/apps/compare/gotify-5.0.1...gotify-5.0.2) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="gotify-5.0.1"></a>
 ### [gotify-5.0.1](https://github.com/truecharts/apps/compare/gotify-5.0.0...gotify-5.0.1) (2021-11-16)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="emby-9.0.11"></a>
+### [emby-9.0.11](https://github.com/truecharts/apps/compare/emby-9.0.10...emby-9.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+* update container image ghcr.io/k8s-at-home/emby to v4.6.5.0 ([#1344](https://github.com/truecharts/apps/issues/1344))
+
+
+
 <a name="emby-9.0.10"></a>
 ### [emby-9.0.10](https://github.com/truecharts/apps/compare/emby-9.0.9...emby-9.0.10) (2021-11-16)
 

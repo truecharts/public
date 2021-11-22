@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-4.0.11"></a>
+### [phpldapadmin-4.0.11](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.10...phpldapadmin-4.0.11) (2021-11-22)
+
+#### Chore
+
+* update non-major deps helm releases ([#1383](https://github.com/truecharts/apps/issues/1383))
+
+#### Fix
+
+* Default enable all services ([#1361](https://github.com/truecharts/apps/issues/1361))
+
+
+
 <a name="phpldapadmin-4.0.10"></a>
 ### [phpldapadmin-4.0.10](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.9...phpldapadmin-4.0.10) (2021-11-16)
 
