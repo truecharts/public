@@ -63,7 +63,7 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.podSecurityContext.enabled | bool | `true` |  |
 | alertmanager.podSecurityContext.fsGroup | int | `1001` |  |
 | alertmanager.podSecurityContext.runAsUser | int | `1001` |  |
-| alertmanager.portName | string | `"web"` |  |
+| alertmanager.portName | string | `"alertmanager"` |  |
 | alertmanager.priorityClassName | string | `""` |  |
 | alertmanager.readinessProbe.enabled | bool | `true` |  |
 | alertmanager.readinessProbe.failureThreshold | int | `120` |  |
