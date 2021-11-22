@@ -16,14 +16,14 @@ Return  the proper Storage Class
   {{- if (eq "-" $storageClass) -}}
     {{- printf "storageClassName: \"\"" -}}
   {{- else if (eq "SCALE-ZFS" $storageClass ) }}
-    {{ ( printf "storageClassName: ix-storage-class-%s"  $.Release.Name ) }}
+    {{ ( printf "storageClassName: ix-storage-class-%s"  .Release.Name ) }}
   {{- else }}
     {{- printf "storageClassName: %s" $storageClass -}}
   {{- end -}}
 {{- end -}}
 
-{{- if or ( $.Values.global.isSCALE ) ( $.Values.ixChartContext ) ( $.Values.global.ixChartContext ) }}
-  {{ ( printf "storageClassName: ix-storage-class-%s"  $.Release.Name ) }}
+{{- if or ( .Values.global.isSCALE ) ( .Values.ixChartContext ) ( .Values.global.ixChartContext ) }}
+  {{ ( printf "storageClassName: ix-storage-class-%s"  .Release.Name ) }}
 {{- end }}
 
 {{- end -}}
