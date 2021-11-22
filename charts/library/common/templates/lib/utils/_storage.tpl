@@ -11,7 +11,7 @@ Return  the proper Storage Class
   {{- if (eq "-" $storageClass) -}}
     {{- printf "storageClassName: \"\"" -}}
   {{- else if (eq "SCALE-ZFS" $storageClass ) }}
-    {{ ( printf "storageClassName: ix-storage-class-%s"  .Release.Name ) }}
+    {{ ( printf "storageClassName: ix-storage-class-%s"  .global.Release.Name ) }}
   {{- else }}
     {{- printf "storageClassName: %s" $storageClass -}}
   {{- end -}}
