@@ -1,0 +1,69 @@
+# Include{groups}
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+# Include{persistenceList}
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
+# Include{ingressList}
+
+# Include{advanced}
