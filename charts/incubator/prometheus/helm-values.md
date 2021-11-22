@@ -98,7 +98,7 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.volumeMounts | list | `[]` |  |
 | alertmanager.volumes | list | `[]` |  |
 | alertmanagerImage.repository | string | `"bitnami/alertmanager"` |  |
-| alertmanagerImage.tag | string | `"0.23.0-debian-10-r81"` |  |
+| alertmanagerImage.tag | string | `"0.23.0"` |  |
 | coreDns.enabled | bool | `true` |  |
 | coreDns.namespace | string | `"kube-system"` |  |
 | coreDns.service.enabled | bool | `true` |  |
@@ -114,7 +114,7 @@ You will, however, be able to use all values referenced in the common chart here
 | exporters.node-exporter.enabled | bool | `true` |  |
 | global.labels | object | `{}` |  |
 | image.repository | string | `"bitnami/prometheus-operator"` |  |
-| image.tag | string | `"0.52.1-debian-10-r0"` |  |
+| image.tag | string | `"0.52.1"` |  |
 | ingress.alertmanager.enabled | bool | `false` |  |
 | ingress.main.enabled | bool | `false` |  |
 | ingress.thanos.enabled | bool | `false` |  |
@@ -327,9 +327,11 @@ You will, however, be able to use all values referenced in the common chart here
 | prometheus.volumes | list | `[]` |  |
 | prometheus.walCompression | bool | `false` |  |
 | prometheusImage.repository | string | `"bitnami/prometheus"` |  |
-| prometheusImage.tag | string | `"2.31.1-debian-10-r10"` |  |
+| prometheusImage.tag | string | `"2.31.1"` |  |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":["apiextensions.k8s.io"],"resources":["customresourcedefinitions"],"verbs":["create"]},{"apiGroups":["apiextensions.k8s.io"],"resourceNames":["alertmanagers.monitoring.coreos.com","podmonitors.monitoring.coreos.com","prometheuses.monitoring.coreos.com","prometheusrules.monitoring.coreos.com","servicemonitors.monitoring.coreos.com","thanosrulers.monitoring.coreos.com","probes.monitoring.coreos.com"],"resources":["customresourcedefinitions"],"verbs":["get","update"]},{"apiGroups":["monitoring.coreos.com"],"resources":["alertmanagers","alertmanagers/finalizers","alertmanagerconfigs","prometheuses","prometheuses/finalizers","thanosrulers","thanosrulers/finalizers","servicemonitors","podmonitors","probes","prometheusrules"],"verbs":["*"]},{"apiGroups":["apps"],"resources":["statefulsets"],"verbs":["*"]},{"apiGroups":[""],"resources":["configmaps","secrets"],"verbs":["*"]},{"apiGroups":[""],"resources":["pods"],"verbs":["list","delete"]},{"apiGroups":[""],"resources":["services","services/finalizers","endpoints"],"verbs":["get","create","update","delete"]},{"apiGroups":[""],"resources":["nodes"],"verbs":["list","watch"]},{"apiGroups":[""],"resources":["namespaces"],"verbs":["get","list","watch"]},{"apiGroups":["networking.k8s.io"],"resources":["ingresses"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| service.alertmanager.enabled | bool | `true` |  |
+| service.alertmanager.ports.alertmanager.enabled | bool | `true` |  |
 | service.alertmanager.ports.alertmanager.port | int | `10087` |  |
 | service.alertmanager.ports.alertmanager.protocol | string | `"HTTP"` |  |
 | service.alertmanager.ports.alertmanager.targetPort | int | `9093` |  |
@@ -345,6 +347,8 @@ You will, however, be able to use all values referenced in the common chart here
 | service.promop.ports.promop.port | int | `10089` |  |
 | service.promop.ports.promop.protocol | string | `"HTTP"` |  |
 | service.promop.ports.promop.targetPort | int | `8080` |  |
+| service.thanos.enabled | bool | `true` |  |
+| service.thanos.ports.thanos.enabled | bool | `true` |  |
 | service.thanos.ports.thanos.port | int | `10901` |  |
 | service.thanos.ports.thanos.protocol | string | `"HTTP"` |  |
 | service.thanos.ports.thanos.targetPort | int | `10901` |  |
@@ -352,6 +356,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.thanos.selector.prometheus | string | `"{{ template \"kube-prometheus.prometheus.fullname\" . }}"` |  |
 | serviceAccount | object | `{"create":true}` | The service account the pods will use to interact with the Kubernetes API |
 | thanosImage.repository | string | `"bitnami/thanos"` |  |
-| thanosImage.tag | string | `"0.23.1-scratch-r3"` |  |
+| thanosImage.tag | string | `"0.23.1"` |  |
 
 All Rights Reserved - The TrueCharts Project
