@@ -24,7 +24,7 @@ service:
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
       main:
-        port: 9090
+        port: 10086
         targetPort: 9090
         protocol: HTTP
   promop:
@@ -32,7 +32,7 @@ service:
     ports:
       promop:
         enabled: true
-        port: 8080
+        port: 10089
         targetPort: 8080
         protocol: HTTP
   alertmanager:
@@ -41,7 +41,7 @@ service:
       alertmanager: '{{ template "kube-prometheus.alertmanager.fullname" . }}'
     ports:
       alertmanager:
-        port: 9093
+        port: 10087
         targetPort: 9093
         protocol: HTTP
   thanos:
