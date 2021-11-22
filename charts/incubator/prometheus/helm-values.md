@@ -330,19 +330,19 @@ You will, however, be able to use all values referenced in the common chart here
 | prometheusImage.tag | string | `"2.31.1-debian-10-r10"` |  |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":["apiextensions.k8s.io"],"resources":["customresourcedefinitions"],"verbs":["create"]},{"apiGroups":["apiextensions.k8s.io"],"resourceNames":["alertmanagers.monitoring.coreos.com","podmonitors.monitoring.coreos.com","prometheuses.monitoring.coreos.com","prometheusrules.monitoring.coreos.com","servicemonitors.monitoring.coreos.com","thanosrulers.monitoring.coreos.com","probes.monitoring.coreos.com"],"resources":["customresourcedefinitions"],"verbs":["get","update"]},{"apiGroups":["monitoring.coreos.com"],"resources":["alertmanagers","alertmanagers/finalizers","alertmanagerconfigs","prometheuses","prometheuses/finalizers","thanosrulers","thanosrulers/finalizers","servicemonitors","podmonitors","probes","prometheusrules"],"verbs":["*"]},{"apiGroups":["apps"],"resources":["statefulsets"],"verbs":["*"]},{"apiGroups":[""],"resources":["configmaps","secrets"],"verbs":["*"]},{"apiGroups":[""],"resources":["pods"],"verbs":["list","delete"]},{"apiGroups":[""],"resources":["services","services/finalizers","endpoints"],"verbs":["get","create","update","delete"]},{"apiGroups":[""],"resources":["nodes"],"verbs":["list","watch"]},{"apiGroups":[""],"resources":["namespaces"],"verbs":["get","list","watch"]},{"apiGroups":["networking.k8s.io"],"resources":["ingresses"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.alertmanager.ports.alertmanager.port | int | `9093` |  |
+| service.alertmanager.ports.alertmanager.port | int | `10087` |  |
 | service.alertmanager.ports.alertmanager.protocol | string | `"HTTP"` |  |
 | service.alertmanager.ports.alertmanager.targetPort | int | `9093` |  |
 | service.alertmanager.selector."app.kubernetes.io/name" | string | `"alertmanager"` |  |
 | service.alertmanager.selector.alertmanager | string | `"{{ template \"kube-prometheus.alertmanager.fullname\" . }}"` |  |
-| service.main.ports.main.port | int | `9090` |  |
+| service.main.ports.main.port | int | `10086` |  |
 | service.main.ports.main.protocol | string | `"HTTP"` |  |
 | service.main.ports.main.targetPort | int | `9090` |  |
 | service.main.selector."app.kubernetes.io/name" | string | `"prometheus"` |  |
 | service.main.selector.prometheus | string | `"{{ template \"kube-prometheus.prometheus.fullname\" . }}"` |  |
 | service.promop.enabled | bool | `true` |  |
 | service.promop.ports.promop.enabled | bool | `true` |  |
-| service.promop.ports.promop.port | int | `8080` |  |
+| service.promop.ports.promop.port | int | `10089` |  |
 | service.promop.ports.promop.protocol | string | `"HTTP"` |  |
 | service.promop.ports.promop.targetPort | int | `8080` |  |
 | service.thanos.ports.thanos.port | int | `10901` |  |
