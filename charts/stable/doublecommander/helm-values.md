@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/doublecommander"` |  |
-| image.tag | string | `"version-0.8.2-1@sha256:2f166667ef095d2699e4a5dab4db7d23c55ab57eea6ee2084c340842355a73e1"` |  |
+| image.tag | string | `"version-0.8.2-1@sha256:61800aec4066ab01d10bebf8a06de3f6a1b1fe7f9bc0c198d9aaad8770f85ce0"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

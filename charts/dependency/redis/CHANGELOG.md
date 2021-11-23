@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.13"></a>
+### [redis-1.0.13](https://github.com/truecharts/apps/compare/redis-1.0.11...redis-1.0.13) (2021-11-23)
+
+#### Chore
+
+* bump common on deps
+* update non-major ([#1384](https://github.com/truecharts/apps/issues/1384))
+
+
+
 <a name="redis-1.0.11"></a>
 ### [redis-1.0.11](https://github.com/truecharts/apps/compare/redis-1.0.10...redis-1.0.11) (2021-11-22)
 

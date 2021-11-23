@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doublecommander-2.0.14"></a>
+### [doublecommander-2.0.14](https://github.com/truecharts/apps/compare/doublecommander-2.0.13...doublecommander-2.0.14) (2021-11-23)
+
+#### Chore
+
+* update non-major ([#1384](https://github.com/truecharts/apps/issues/1384))
+
+
+
 <a name="doublecommander-2.0.13"></a>
 ### [doublecommander-2.0.13](https://github.com/truecharts/apps/compare/doublecommander-2.0.12...doublecommander-2.0.13) (2021-11-22)
 

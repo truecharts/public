@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="thelounge-4.0.12"></a>
+### [thelounge-4.0.12](https://github.com/truecharts/apps/compare/thelounge-4.0.11...thelounge-4.0.12) (2021-11-23)
+
+#### Chore
+
+* update non-major ([#1384](https://github.com/truecharts/apps/issues/1384))
+
+
+
 <a name="thelounge-4.0.11"></a>
 ### [thelounge-4.0.11](https://github.com/truecharts/apps/compare/thelounge-4.0.10...thelounge-4.0.11) (2021-11-22)
 

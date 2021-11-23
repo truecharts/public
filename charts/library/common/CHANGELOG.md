@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.9.3"></a>
+### [common-8.9.3](https://github.com/truecharts/apps/compare/common-8.9.2...common-8.9.3) (2021-11-23)
+
+#### Chore
+
+* update non-major ([#1384](https://github.com/truecharts/apps/issues/1384))
+
+
+
 <a name="common-8.9.2"></a>
 ### [common-8.9.2](https://github.com/truecharts/apps/compare/common-8.9.1...common-8.9.2) (2021-11-23)
 

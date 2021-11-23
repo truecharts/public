@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-4.0.14"></a>
+### [librespeed-4.0.14](https://github.com/truecharts/apps/compare/librespeed-4.0.13...librespeed-4.0.14) (2021-11-23)
+
+#### Chore
+
+* update non-major ([#1384](https://github.com/truecharts/apps/issues/1384))
+
+
+
 <a name="librespeed-4.0.13"></a>
 ### [librespeed-4.0.13](https://github.com/truecharts/apps/compare/librespeed-4.0.12...librespeed-4.0.13) (2021-11-22)
 

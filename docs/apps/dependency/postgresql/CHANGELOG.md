@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.9"></a>
+### [postgresql-6.0.9](https://github.com/truecharts/apps/compare/postgresql-6.0.7...postgresql-6.0.9) (2021-11-23)
+
+#### Chore
+
+* bump common on deps
+* update non-major ([#1384](https://github.com/truecharts/apps/issues/1384))
+
+
+
 <a name="postgresql-6.0.7"></a>
 ### [postgresql-6.0.7](https://github.com/truecharts/apps/compare/postgresql-6.0.6...postgresql-6.0.7) (2021-11-22)
 
