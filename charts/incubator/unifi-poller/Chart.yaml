@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "0.52.1"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+deprecated: false
+description: Collect ALL UniFi Controller, Site, Device & Client Data - Export to InfluxDB or Prometheus
+icon: https://raw.githubusercontent.com/wiki/unifi-poller/unifi-poller/images/unifi-poller-logo.png
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/unifi-poller
+keywords:
+- unifi
+- unifi-poller
+- metrics
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: unifi-poller
+sources:
+- https://github.com/unifi-poller/unifi-poller
+- https://hub.docker.com/r/golift/unifi-poller
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - metrics
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

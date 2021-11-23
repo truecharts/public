@@ -1,0 +1,50 @@
+image:
+  repository: biospheere/promcord
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        enabled: false
+      metrics:
+        enabled: true
+        protocol: TCP
+        port: 8080
+
+# -- environment variables. See [application docs](https://github.com/nimarion/promcord/blob/master/README.md) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Discord bot token
+  # DISCORD_TOKEN:
+
+metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
+  enabled: false
+  serviceMonitor:
+    interval: 1m
+    scrapeTimeout: 30s
+    labels: {}
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: false
+    labels: {}
+    # -- Configure additionial rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules: []
+      # - alert: PromcordAbsent
+      #   annotations:
+      #     description: Promcord has disappeared from Prometheus service discovery.
+      #     summary: Promcord is disabled.
+      #   expr: |
+      #     absent(up{job=~".promcord.*"} == 1)
+      #   for: 15m
+      #   labels:
+      #     severity: critical

@@ -1,0 +1,14 @@
+image:
+  repository: traefik/whoami
+  pullPolicy: IfNotPresent
+  tag: v1.6.1@sha256:2c52bb2c848038a33e40415c300b655d7976bafaf033ecf4a6679cb9e1715917
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+
+args:
+  - --port
+  - '8080'

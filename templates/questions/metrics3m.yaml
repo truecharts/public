@@ -1,0 +1,33 @@
+  - variable: metrics
+    group: "Metrics"
+    label: "Prometheus Metrics"
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enabled"
+          description: "Enable Prometheus Metrics"
+          schema:
+            type: boolean
+            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: serviceMonitor
+                label: "Service Monitor Settings"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: interval
+                      label: "Scrape Interval"
+                      description: "Scrape interval time"
+                      schema:
+                        type: string
+                        default: "3m"
+                        required: true
+                    - variable: scrapeTimeout
+                      label: "Scrape Timeout"
+                      description: "Scrape timeout Time"
+                      schema:
+                        type: string
+                        default: "1m"
+                        required: true
