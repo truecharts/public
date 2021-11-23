@@ -26,7 +26,6 @@ _This list is to track `App Requests` from one place._
 - [ ] Umbrel #404
 - [ ] Netdata #280
 - [ ] Appwrite/Parse Framework #278
-- [ ] Prometheus #275
 - [ ] Requestarr #237
 - [ ] GitLab #227
 - [ ] Scrutiny #198
@@ -36,7 +35,6 @@ _This list is to track `App Requests` from one place._
 - [ ] ApacheGuacamole #103
 - [ ] n8n #27
 - [ ] InfluxDB #5
-- [ ] Grafana #4
 - [ ] External-Auth-Server #28
 - [ ] Borg Backup #782
 - [ ] Krusader #794
@@ -54,7 +52,6 @@ _This list is to track `App Requests` from one place._
 - [ ] LinkAce #1020
 - [ ] Zoneminder #1021
 - [ ] OpenHAB #1043
-- [ ] Logitech Media Server #1062
 - [ ] Suricata #1063
 - [ ] Jitsi Meet #1064
 - [ ] Mumble Server #1065
@@ -123,11 +120,7 @@ _This list is to track `App Requests` from one place._
 ##### TODO: Requires Prometheus to be added first
 
 - [ ] alertmanager-bot ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] promcord ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] prometheus-nut-exporter ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] speedtest-exporter ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] unifi-poller ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] uptimerobot-prometheus ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] traefik-forward-auth ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] uptimerobot ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] vikunja ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
@@ -148,7 +141,6 @@ _These Apps have specific requirements or need specific customisation and care_
 - [ ] paperless ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] boinc-client ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [ ] hedgedoc ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
-- [ ] mariadb ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [ ] cryptpad ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 
 ### Apps that not have a specific candidate yet.
@@ -338,3 +330,11 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] firefox-syncserver
 - [x] gotify
 - [x] chyrp-lite
+- [x] mariadb ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [x] promcord ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] speedtest-exporter ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] unifi-poller ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] uptimerobot-prometheus ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] Logitech Media Server #1062
+- [x] Grafana #4
+- [x] Prometheus #275
