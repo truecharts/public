@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.9.2"></a>
+### [common-8.9.2](https://github.com/truecharts/apps/compare/common-8.9.1...common-8.9.2) (2021-11-23)
+
+#### Fix
+
+* ensure storageClassName gets rendered correctly ([#1385](https://github.com/truecharts/apps/issues/1385))
+
+
+
 <a name="common-8.9.1"></a>
 ### [common-8.9.1](https://github.com/truecharts/apps/compare/common-8.9.0...common-8.9.1) (2021-11-22)
 
