@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-4.0.14"></a>
+### [owncloud-ocis-4.0.14](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.13...owncloud-ocis-4.0.14) (2021-11-23)
+
+#### Chore
+
+* update non-major docker tags ([#1387](https://github.com/truecharts/apps/issues/1387))
+
+
+
 <a name="owncloud-ocis-4.0.13"></a>
 ### [owncloud-ocis-4.0.13](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.12...owncloud-ocis-4.0.13) (2021-11-23)
 

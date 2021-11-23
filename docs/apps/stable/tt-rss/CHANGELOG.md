@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.6"></a>
+### [tt-rss-4.0.6](https://github.com/truecharts/apps/compare/tt-rss-4.0.5...tt-rss-4.0.6) (2021-11-23)
+
+#### Chore
+
+* update non-major docker tags ([#1387](https://github.com/truecharts/apps/issues/1387))
+
+
+
 <a name="tt-rss-4.0.5"></a>
 ### [tt-rss-4.0.5](https://github.com/truecharts/apps/compare/tt-rss-4.0.4...tt-rss-4.0.5) (2021-11-23)
 

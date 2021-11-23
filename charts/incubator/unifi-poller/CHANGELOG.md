@@ -7,4 +7,3 @@
 #### Feat
 
 * add some prometheus exporter-Apps ([#1388](https://github.com/truecharts/apps/issues/1388))
-
