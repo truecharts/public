@@ -215,6 +215,26 @@ include_questions(){
     /# Include{addons}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/addons.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
+    # Replace # Include{metrics} with the standard metrics codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{metrics}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/metrics.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
+    # Replace # Include{metrics3m} with the standard metrics3m codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{metrics3m}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/metrics3m.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
+    # Replace # Include{metrics60m} with the standard metrics60m codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{metrics60m}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/metrics60m.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
+    # Replace # Include{prometheusRule} with the standard prometheusRule codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{prometheusRule}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/prometheusRule.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+
     # Replace # Include{advanced} with the standard advanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{advanced}/ { for (i=0;i<n;++i) print a[i]; next }

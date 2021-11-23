@@ -118,6 +118,34 @@ questions:
 
 # Include{resources}
 
+# Include{metrics}
+
+# Include{prometheusRule}
+                    - variable: downloadLimit
+                      label: "Download Limit"
+                      description: "Download speed you want alerts to be triggered in Mbps"
+                      schema:
+                        type: int
+                        default: 400
+                    - variable: uploadLimit
+                      label: "Upload Limit"
+                      description: "Upload speed you want alerts to be triggered in Mbps"
+                      schema:
+                        type: int
+                        default: 400
+                    - variable: pingLimit
+                      label: "Ping Limit"
+                      description: "Ping latency you want alerts to be triggered in ms"
+                      schema:
+                        type: int
+                        default: 10
+                    - variable: jitterLimit
+                      label: "Jitter Limit"
+                      description: "Jitter latency you want alerts to be triggered in ms"
+                      schema:
+                        type: int
+                        default: 30
+
 # Include{advanced}
 
 # Include{addons}
