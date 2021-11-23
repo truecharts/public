@@ -11,6 +11,8 @@
 {{- include "prometheus.prometheus.additionalscrapejobs" . }}
 {{- include "prometheus.prometheus.servicemonitor" . }}
 
+{{- include "prometheus.alertmanager.alertmanager" . }}
+
 
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}

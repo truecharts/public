@@ -1,4 +1,6 @@
+{{- define "prometheus.alertmanager.alertmanager" -}}
 {{- if .Values.alertmanager.enabled }}
+---
 apiVersion: monitoring.coreos.com/v1
 kind: Alertmanager
 metadata:
@@ -17,7 +19,7 @@ spec:
   {{- else if and .Values.ingress.alertmanager.enabled .Values.ingress.alertmanager.hosts }}
   externalUrl: {{ if .Values.ingress.alertmanager.tls }}https{{else}}http{{ end }}://{{ (index .Values.ingress.alertmanager.hosts 0).name }}{{ .Values.alertmanager.routePrefix }}
   {{- else }}
-  externalUrl: http://{{ template "kube-prometheus.alertmanager.fullname" . }}.{{ .Release.Namespace }}:{{ .Values.alertmanager.service.port }}{{ .Values.alertmanager.routePrefix }}
+  externalUrl: http://{{ template "kube-prometheus.alertmanager.fullname" . }}.{{ .Release.Namespace }}:{{ .Values.service.alertmanager.ports.alertmanager.port }}{{ .Values.alertmanager.routePrefix }}
   {{- end }}
   portName: "{{ .Values.alertmanager.portName }}"
   paused: {{ .Values.alertmanager.paused }}
@@ -177,4 +179,5 @@ spec:
   {{- if .Values.alertmanager.configSelector }}
   alertmanagerConfigSelector: {{- include "common.tplvalues.render" (dict "value" .Values.alertmanager.configSelector "context" $) | nindent 4 }}
   {{- end }}
+{{- end }}
 {{- end }}
