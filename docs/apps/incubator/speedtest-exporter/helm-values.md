@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/miguelndecarvalho/speedtest-exporter"` | image repository |
-| image.tag | string | `"v3.2.2"` | image tag |
+| image.tag | string | `"v3.3.4"` | image tag |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.downloadLimit | int | `400` | Download speed you want alerts to be triggered in Mbps |
