@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.15"></a>
+### [pihole-4.0.15](https://github.com/truecharts/apps/compare/pihole-4.0.14...pihole-4.0.15) (2021-11-23)
+
+#### Fix
+
+* update heavily outdated container
+
+
+
 <a name="pihole-4.0.14"></a>
 ### [pihole-4.0.14](https://github.com/truecharts/apps/compare/pihole-4.0.13...pihole-4.0.14) (2021-11-23)
 
