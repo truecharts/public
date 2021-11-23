@@ -8,3 +8,7 @@ service:
     ports:
       main:
         port: 8080
+
+args:
+  - --port
+  - '8080'
