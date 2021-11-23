@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="odoo-4.0.3"></a>
+### [odoo-4.0.3](https://github.com/truecharts/apps/compare/odoo-4.0.2...odoo-4.0.3) (2021-11-23)
+
+#### Chore
+
+* update non-major deps helm releases ([#1386](https://github.com/truecharts/apps/issues/1386))
+
+
+
 <a name="odoo-4.0.2"></a>
 ### [odoo-4.0.2](https://github.com/truecharts/apps/compare/odoo-4.0.1...odoo-4.0.2) (2021-11-22)
 

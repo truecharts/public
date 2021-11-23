@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-4.0.13"></a>
+### [flaresolverr-4.0.13](https://github.com/truecharts/apps/compare/flaresolverr-4.0.12...flaresolverr-4.0.13) (2021-11-23)
+
+#### Chore
+
+* update non-major deps helm releases ([#1386](https://github.com/truecharts/apps/issues/1386))
+
+
+
 <a name="flaresolverr-4.0.12"></a>
 ### [flaresolverr-4.0.12](https://github.com/truecharts/apps/compare/flaresolverr-4.0.11...flaresolverr-4.0.12) (2021-11-22)
 

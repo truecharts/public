@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bazarr-9.0.14"></a>
+### [bazarr-9.0.14](https://github.com/truecharts/apps/compare/bazarr-9.0.13...bazarr-9.0.14) (2021-11-23)
+
+#### Chore
+
+* update non-major deps helm releases ([#1386](https://github.com/truecharts/apps/issues/1386))
+
+
+
 <a name="bazarr-9.0.13"></a>
 ### [bazarr-9.0.13](https://github.com/truecharts/apps/compare/bazarr-9.0.12...bazarr-9.0.13) (2021-11-22)
 

@@ -18,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 | Repository | Name | Version |
 |------------|------|---------|
 | https://grafana.github.io/helm-charts | promtail | ^3.0.0 |
-| https://truecharts.org | common | 8.9.1 |
+| https://truecharts.org | common | 8.9.3 |
 
 ## Installing the Chart
 

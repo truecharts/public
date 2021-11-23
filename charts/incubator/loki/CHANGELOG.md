@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-1.0.3"></a>
+### [loki-1.0.3](https://github.com/truecharts/apps/compare/loki-1.0.2...loki-1.0.3) (2021-11-23)
+
+#### Chore
+
+* update non-major deps helm releases ([#1386](https://github.com/truecharts/apps/issues/1386))
+
+
+
 <a name="loki-1.0.2"></a>
 ### [loki-1.0.2](https://github.com/truecharts/apps/compare/loki-1.0.1...loki-1.0.2) (2021-11-22)
 
