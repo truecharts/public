@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.13"></a>
+### [memcached-1.0.13](https://github.com/truecharts/apps/compare/memcached-1.0.12...memcached-1.0.13) (2021-11-23)
+
+#### Chore
+
+* bump deps again to sync with common
+
+
+
 <a name="memcached-1.0.12"></a>
 ### [memcached-1.0.12](https://github.com/truecharts/apps/compare/memcached-1.0.10...memcached-1.0.12) (2021-11-23)
 

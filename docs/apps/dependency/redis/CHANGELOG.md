@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.14"></a>
+### [redis-1.0.14](https://github.com/truecharts/apps/compare/redis-1.0.13...redis-1.0.14) (2021-11-23)
+
+#### Chore
+
+* bump deps again to sync with common
+
+
+
 <a name="redis-1.0.13"></a>
 ### [redis-1.0.13](https://github.com/truecharts/apps/compare/redis-1.0.11...redis-1.0.13) (2021-11-23)
 

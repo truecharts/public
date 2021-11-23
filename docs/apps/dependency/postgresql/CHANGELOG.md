@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.10"></a>
+### [postgresql-6.0.10](https://github.com/truecharts/apps/compare/postgresql-6.0.9...postgresql-6.0.10) (2021-11-23)
+
+#### Chore
+
+* bump deps again to sync with common
+
+
+
 <a name="postgresql-6.0.9"></a>
 ### [postgresql-6.0.9](https://github.com/truecharts/apps/compare/postgresql-6.0.7...postgresql-6.0.9) (2021-11-23)
 

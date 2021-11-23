@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.12"></a>
+### [mariadb-1.0.12](https://github.com/truecharts/apps/compare/mariadb-1.0.11...mariadb-1.0.12) (2021-11-23)
+
+#### Chore
+
+* bump deps again to sync with common
+
+
+
 <a name="mariadb-1.0.11"></a>
 ### [mariadb-1.0.11](https://github.com/truecharts/apps/compare/mariadb-1.0.9...mariadb-1.0.11) (2021-11-23)
 
