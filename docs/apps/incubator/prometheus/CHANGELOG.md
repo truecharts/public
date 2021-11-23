@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-0.0.10"></a>
+### [prometheus-0.0.10](https://github.com/truecharts/apps/compare/prometheus-0.0.9...prometheus-0.0.10) (2021-11-23)
+
+#### Fix
+
+* correct port reference for alertmanager
+
+
+
 <a name="prometheus-0.0.9"></a>
 ### [prometheus-0.0.9](https://github.com/truecharts/apps/compare/prometheus-0.0.8...prometheus-0.0.9) (2021-11-23)
 

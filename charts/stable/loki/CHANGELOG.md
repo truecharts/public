@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-1.0.4"></a>
+### [loki-1.0.4](https://github.com/truecharts/apps/compare/loki-1.0.3...loki-1.0.4) (2021-11-23)
+
+#### Chore
+
+* move loki to stable
+
+
+
 <a name="loki-1.0.3"></a>
 ### [loki-1.0.3](https://github.com/truecharts/apps/compare/loki-1.0.2...loki-1.0.3) (2021-11-23)
 
