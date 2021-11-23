@@ -1,0 +1,72 @@
+image:
+  repository: bitnami/grafana
+  pullPolicy: IfNotPresent
+  tag: 8.2.5@sha256:105ca819eb14dc773a3df6fd56f5e78e68bd2abdb1b5d9007ff803528a84be70
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    protocol: "HTTP"
+    ports:
+      main:
+        targetPort: 3000
+        port: 3000
+
+probes:
+  liveness:
+    path: "/api/health"
+
+  readiness:
+    path: "/api/health"
+
+  startup:
+    path: "/api/health"
+
+secret:
+  GF_SECURITY_ADMIN_PASSWORD: "testpassword"
+
+env:
+  GF_SECURITY_ADMIN_USER: "admin"
+  GF_INSTALL_PLUGINS: ""
+  GF_PATHS_PLUGINS: "/opt/bitnami/grafana/data/plugins"
+  GF_AUTH_LDAP_ENABLED: "false"
+  GF_AUTH_LDAP_CONFIG_FILE: "/opt/bitnami/grafana/conf/ldap.toml"
+  GF_AUTH_LDAP_ALLOW_SIGN_UP: "false"
+  GF_PATHS_PROVISIONING: "/opt/bitnami/grafana/conf/provisioning"
+  GF_PATHS_CONFIG: "/opt/bitnami/grafana/conf/grafana.ini"
+  GF_PATHS_DATA: "/opt/bitnami/grafana/data"
+  GF_PATHS_LOGS: "/opt/bitnami/grafana/logs"
+
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/opt/bitnami/grafana/data"
+
+metrics:
+  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+  # @default -- See values.yaml
+  enabled: false
+  serviceMonitor:
+    interval: 1m
+    scrapeTimeout: 30s
+    labels: {}
+  # -- Enable and configure Prometheus Rules for the chart under this key.
+  # @default -- See values.yaml
+  prometheusRule:
+    enabled: false
+    labels: {}
+    # -- Configure additionial rules for the chart under this key.
+    # @default -- See prometheusrules.yaml
+    rules: []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
