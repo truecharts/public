@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-1.0.5"></a>
+### [loki-1.0.5](https://github.com/truecharts/apps/compare/loki-1.0.4...loki-1.0.5) (2021-11-24)
+
+#### Feat
+
+* expose some more settings
+
+
+
 <a name="loki-1.0.4"></a>
 ### [loki-1.0.4](https://github.com/truecharts/apps/compare/loki-1.0.3...loki-1.0.4) (2021-11-23)
 
