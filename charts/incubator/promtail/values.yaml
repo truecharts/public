@@ -85,7 +85,7 @@ persistence:
   config:
     enabled: true
     type: secret
-    objectName: promtail-config
+    objectName: "promtail-config"
     mountPath: /etc/promtail
 
 
