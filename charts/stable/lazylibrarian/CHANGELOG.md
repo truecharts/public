@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.15"></a>
+### [lazylibrarian-9.0.15](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.14...lazylibrarian-9.0.15) (2021-11-24)
+
+#### Chore
+
+* update ghcr.io/linuxserver/lazylibrarian:latest docker digest to 4dd1959 ([#1392](https://github.com/truecharts/apps/issues/1392))
+
+
+
 <a name="lazylibrarian-9.0.14"></a>
 ### [lazylibrarian-9.0.14](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.13...lazylibrarian-9.0.14) (2021-11-23)
 

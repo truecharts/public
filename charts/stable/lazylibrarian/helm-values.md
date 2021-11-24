@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/lazylibrarian"` |  |
-| image.tag | string | `"latest@sha256:770efb8273746fe474489c5c3edb5aef1a8e504bd97936551623a5cf403a0b0f"` |  |
+| image.tag | string | `"latest@sha256:4dd1959efb36ab1268588a7663c960a69b01f0877cbd6a8c3e9088f705c2f0ec"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
