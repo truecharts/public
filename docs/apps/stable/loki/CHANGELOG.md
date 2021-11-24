@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-1.0.8"></a>
+### [loki-1.0.8](https://github.com/truecharts/apps/compare/loki-1.0.7...loki-1.0.8) (2021-11-24)
+
+#### Chore
+
+* bump promtail
+
+
+
 <a name="loki-1.0.7"></a>
 ### [loki-1.0.7](https://github.com/truecharts/apps/compare/loki-1.0.6...loki-1.0.7) (2021-11-24)
 
