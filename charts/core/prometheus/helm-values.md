@@ -74,7 +74,7 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.readinessProbe.timeoutSeconds | int | `3` |  |
 | alertmanager.replicaCount | int | `1` |  |
 | alertmanager.resources | object | `{}` |  |
-| alertmanager.retention | string | `"120h"` |  |
+| alertmanager.retention | string | `"240h"` |  |
 | alertmanager.routePrefix | string | `"/"` |  |
 | alertmanager.secrets | list | `[]` |  |
 | alertmanager.serviceAccount.create | bool | `true` |  |
@@ -261,7 +261,7 @@ You will, however, be able to use all values referenced in the common chart here
 | prometheus.replicaExternalLabelName | string | `""` |  |
 | prometheus.replicaExternalLabelNameClear | bool | `false` |  |
 | prometheus.resources | object | `{}` |  |
-| prometheus.retention | string | `"10d"` |  |
+| prometheus.retention | string | `"31d"` |  |
 | prometheus.retentionSize | string | `""` |  |
 | prometheus.routePrefix | string | `"/"` |  |
 | prometheus.ruleNamespaceSelector | object | `{}` |  |

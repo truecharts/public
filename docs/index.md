@@ -35,7 +35,7 @@ All our apps are supposed to work together, be easy to setup using the TrueNAS U
 Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
 For more information:
-https://truecharts.org/manual/Quick-Start%20Guides/02-Adding-TrueCharts/
+https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/
 
 ### Support
 
@@ -142,7 +142,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -181,6 +181,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/alex171"><img src="https://avatars.githubusercontent.com/u/28484494?v=4?s=100" width="100px;" alt=""/><br /><sub><b>alex171</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=alex171" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://www.youtube.com/channel/UCOk-gHyjcWZNj3Br4oxwh0A"><img src="https://avatars.githubusercontent.com/u/1322205?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Techno Tim</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=timothystewart6" title="Documentation">📖</a></td>
   </tr>
 </table>
 

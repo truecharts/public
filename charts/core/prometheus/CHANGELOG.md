@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.0.0"></a>
+### [prometheus-1.0.0](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-0.0.1...prometheus-1.0.0) (2021-11-24)
+
+#### Feat
+
+* add more config options to GUI ([#1398](https://github.com/truecharts/apps/issues/1398))
+
+
+
 <a name="prometheus-0.0.10"></a>
 ### [prometheus-0.0.10](https://github.com/truecharts/apps/compare/prometheus-0.0.9...prometheus-0.0.10) (2021-11-23)
 
