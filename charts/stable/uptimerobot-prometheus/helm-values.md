@@ -12,18 +12,17 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [application docs](https://github.com/lekpamartin/uptimerobot_exporter/blob/master/docker-compose.yml) for more details. |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | env.UPTIMEROBOT_API_KEY | string | `""` | Set the uptimerobot API key |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"billimek/prometheus-uptimerobot-exporter"` | image repository |
-| image.tag | string | `"0.0.1"` | image tag |
-| ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
+| image.tag | string | `"0.0.1@sha256:958b40df7c478b32156517e63a1176e517550969265291d7f38bc432dc065d33"` | image tag |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.rules | list | See prometheusrules.yaml | Configure additionial rules for the chart under this key. |
 | metrics.serviceMonitor.interval | string | `"1m"` |  |
 | metrics.serviceMonitor.labels | object | `{}` |  |
 | metrics.serviceMonitor.scrapeTimeout | string | `"30s"` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

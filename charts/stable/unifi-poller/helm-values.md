@@ -11,16 +11,10 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` | Environment variable configuration options for unifi-poller ([docs](https://unifipoller.com/docs/install/configuration)).    Note: a [configuration file](https://github.com/unifi-poller/unifi-poller/blob/master/examples/up.conf.example) is also supported. |
+| env | object | `{"UP_INFLUXDB_DISABLE":true}` | Environment variable configuration options for unifi-poller ([docs](https://unifipoller.com/docs/install/configuration)).    Note: a [configuration file](https://github.com/unifi-poller/unifi-poller/blob/master/examples/up.conf.example) is also supported. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image [k8s pull policy](https://kubernetes.io/docs/concepts/containers/images/#updating-images). |
 | image.repository | string | `"golift/unifi-poller"` | Image to deploy. |
-| image.tag | string | `"2.1.3"` | Image tag to deploy. |
-| influxdb.architecture | string | `"standalone"` | InfluxDB cluster deployment architecture. |
-| influxdb.authEnabled | bool | `false` | Enable InfluxDB authentication, supported by unifi-poller.    Be sure to match in unifi-poller's [influxdb config](https://unifipoller.com/docs/install/configuration#influxdb). |
-| influxdb.database | string | `"unifi"` | Database name to automatically initialize.    Be sure to match in unifi-poller's [influxdb config](https://unifipoller.com/docs/install/configuration#influxdb). |
-| influxdb.enabled | bool | `false` | Create an InfluxDB instance as a [unifi-poller storage backend](https://unifipoller.com/docs/dependencies/influxdb).    See [bitnami/influxdb](https://github.com/bitnami/charts/tree/master/bitnami/influxdb) for more options. |
-| influxdb.persistence.enabled | bool | `false` | Enable persistence to store in a PV so data survives pod restarts. |
-| ingress.main.enabled | bool | `false` | Expose [unifi-poller's web interface](https://unifipoller.com/docs/advanced/webserver)    (if enabled in the configuration) via the k8s ingress by setting this true. |
+| image.tag | string | `"2.1.3@sha256:8cd99d3eaeee316cbd9bb50c29a55b042fe1c7844f8e44ed19b7eaa6071e8df7"` | Image tag to deploy. |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.rules | list | See prometheusrules.yaml | Configure additionial rules for the chart under this key. |

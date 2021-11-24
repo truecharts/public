@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-1.0.0"></a>
+### [speedtest-exporter-1.0.0](https://github.com/truecharts/apps/compare/speedtest-exporter-0.0.2...speedtest-exporter-1.0.0) (2021-11-24)
+
+#### Fix
+
+* allow write to filesystem and move to stable
+
+
+
 <a name="speedtest-exporter-0.0.2"></a>
 ### [speedtest-exporter-0.0.2](https://github.com/truecharts/apps/compare/speedtest-exporter-0.0.1...speedtest-exporter-0.0.2) (2021-11-23)
 

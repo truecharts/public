@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.0.1"></a>
+### [prometheus-1.0.1](https://github.com/truecharts/apps/compare/prometheus-1.0.0...prometheus-1.0.1) (2021-11-24)
+
+#### Chore
+
+* bump version
+
+#### Fix
+
+* correctly digest pin the containers
+
+
+
 <a name="prometheus-1.0.0"></a>
 ### [prometheus-1.0.0](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-0.0.1...prometheus-1.0.0) (2021-11-24)
 

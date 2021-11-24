@@ -26,6 +26,7 @@ You will, however, be able to use all values referenced in the common chart here
 | metrics.serviceMonitor.interval | string | `"60m"` | The interval field must use minutes for the padding to calculate properly. |
 | metrics.serviceMonitor.labels | object | `{}` |  |
 | metrics.serviceMonitor.scrapeTimeout | string | `"1m"` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

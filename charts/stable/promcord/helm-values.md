@@ -12,10 +12,9 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [application docs](https://github.com/nimarion/promcord/blob/master/README.md) for more details. |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"biospheere/promcord"` |  |
-| image.tag | string | `"latest"` |  |
+| image.tag | string | `"latest@sha256:16d4fd269e665890d92e8ab2bf64f6cdd6f8bd45f27e829d414c4bad447c4974"` |  |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.rules | list | See prometheusrules.yaml | Configure additionial rules for the chart under this key. |

@@ -50,15 +50,15 @@ For big changes we do have a roadmap, every spot on the roadmap is synced to a T
 
 <br>
 
-**MariaDB and InfluxDB - TrueNAS SCALE "Angelfish" RC2**
+**MariaDB and External-DNS - TrueNAS SCALE "Angelfish" RC2**
 
-_There are many community requested containers that cannot be run using just a postgresql servers, we'll aim to streamline support for a few more dependencies_
+_There are many community requested containers that cannot be run using just a postgresql servers, we'll aim to streamline support for a few more dependencies and some improved support for External-DNS on-top_
 
 <br>
 
-**Documentation and External-DNS - TrueNAS SCALE "Angelfish" RELEASE**
+**Documentation - TrueNAS SCALE "Angelfish" RELEASE**
 
-_While preparing for the formal release of TrueNAS SCALE, we still have some things to polish and some improved support for External-DNS to be added_
+_While preparing for the formal release of TrueNAS SCALE, we still have some things to polish_
 
 <br>
 
@@ -68,9 +68,9 @@ _Our current common library is not fully supporting with multi-pod containers, w
 
 <br>
 
-**Prometheus Support - TrueNAS SCALE "Bluefin" 22.xx ALPHA 2**
+**Finish Prometheus Support - TrueNAS SCALE "Bluefin" 22.xx ALPHA 2**
 
-_By this date it would be about a year after we first started considering adding Prometheus support, it's time to get it done._
+_By this date it would be about a year after we first started considering adding Prometheus support, it's time to add metrics exporters to as many apps as we can._
 
 <br>
 

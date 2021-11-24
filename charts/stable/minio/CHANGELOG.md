@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minio-1.0.0"></a>
+### [minio-1.0.0](https://github.com/truecharts/apps/compare/minio-0.0.6...minio-1.0.0) (2021-11-24)
+
+#### Chore
+
+* bump minio
+* move minio to stable
+
+
+
 <a name="minio-0.0.6"></a>
 ### [minio-0.0.6](https://github.com/truecharts/apps/compare/minio-console-1.0.13...minio-0.0.6) (2021-11-23)
 
