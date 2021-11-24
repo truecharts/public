@@ -528,7 +528,7 @@ prometheus:
   probeNamespaceSelector: {}
   ## @param prometheus.retention Metrics retention days
   ##
-  retention: 10d
+  retention: 31d
   ## @param prometheus.retentionSize Maximum size of metrics
   ##
   retentionSize: ""
@@ -1062,7 +1062,7 @@ alertmanager:
   configMaps: []
   ## @param alertmanager.retention Metrics retention days
   ##
-  retention: 120h
+  retention: 240h
   ## @param alertmanager.storageSpec Alertmanager StorageSpec for persistent data
   ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/storage.md
   ##
