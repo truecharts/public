@@ -40,10 +40,10 @@ initContainers:
       - mkdir -p /var/lib/docker/link && ln -sf $(cat /etc/docker/daemon.json | jq -r '."data-root"')/containers/ /var/lib/docker/link/
     imagePullPolicy: IfNotPresent
     volumeMounts:
-#      - mountPath: /etc/docker/
-#        name: docker
-#      - mountPath: /var/lib/docker/link/containers
-#        name: containers
+      - mountPath: /etc/docker/
+        name: docker
+      - mountPath: /var/lib/docker/link/containers
+        name: containers
 
 # -- The security context for pods
 podSecurityContext:
@@ -136,6 +136,10 @@ serviceMonitor:
   # -- ServiceMonitor scrape timeout in Go duration format (e.g. 15s)
   scrapeTimeout: null
 
+envValueFrom:
+  HOSTNAME:
+    fieldRef:
+      fieldPath: spec.nodeName
 
 # -- Section for crafting Promtails config file. The only directly relevant value is `config.file`
 # which is a templated string that references the other values and snippets below this key.
