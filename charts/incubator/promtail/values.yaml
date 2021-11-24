@@ -59,26 +59,29 @@ securityContext:
   allowPrivilegeEscalation: false
 
 persistence:
-#  docker:
-#    enabled: true
-#    type: hostPath
-#    mountPath: /etc/docker/
-#    hostPath: /etc/docker/
-#  containers:
-#    enabled: true
-#    type: hostPath
-#    mountPath: /var/lib/docker/link/containers
-#    hostPath: /var/lib/docker/link/containers
-#  pods:
-#    enabled: true
-#    type: hostPath
-#    mountPath: /var/log/pods
-#    hostPath: /var/log/pods
-#  run:
-#    enabled: true
-#    type: hostPath
-#    mountPath: /run/promtail
-#    hostPath: /run/promtail
+  docker:
+    enabled: true
+    type: hostPath
+    mountPath: /etc/docker/
+    hostPath: /etc/docker/
+    readOnly: true
+  containers:
+    enabled: true
+    type: hostPath
+    mountPath: /var/lib/docker/link/containers
+    hostPath: /var/lib/docker/link/containers
+    readOnly: true
+  pods:
+    enabled: true
+    type: hostPath
+    mountPath: /var/log/pods
+    hostPath: /var/log/pods
+    readOnly: true
+  run:
+    enabled: true
+    type: hostPath
+    mountPath: /run/promtail
+    hostPath: /run/promtai
   config:
     enabled: true
     type: secret
@@ -108,13 +111,13 @@ serviceAccount:
   create: true
 
 # -- Tolerations for pods. By default, pods will be scheduled on master/control-plane nodes.
-tolerations:
-  - key: node-role.kubernetes.io/master
-    operator: Exists
-    effect: NoSchedule
-  - key: node-role.kubernetes.io/control-plane
-    operator: Exists
-    effect: NoSchedule
+# tolerations:
+#   - key: node-role.kubernetes.io/master
+#     operator: Exists
+#     effect: NoSchedule
+#   - key: node-role.kubernetes.io/control-plane
+#     operator: Exists
+#     effect: NoSchedule
 
 # ServiceMonitor configuration
 serviceMonitor:
