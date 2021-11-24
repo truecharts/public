@@ -136,11 +136,6 @@ serviceMonitor:
   # -- ServiceMonitor scrape timeout in Go duration format (e.g. 15s)
   scrapeTimeout: null
 
-envValueFrom:
-  HOSTNAME:
-    fieldRef:
-      fieldPath: spec.nodeName
-
 # -- Section for crafting Promtails config file. The only directly relevant value is `config.file`
 # which is a templated string that references the other values and snippets below this key.
 # @default -- See `values.yaml`
