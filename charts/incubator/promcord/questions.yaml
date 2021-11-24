@@ -12,6 +12,14 @@ questions:
       attrs:
 # Include{fixedEnv}
 
+        - variable: DISCORD_TOKEN
+          label: "Discord Token"
+          description: "Token with Access to your Discord"
+          schema:
+            type: string
+            default: ""
+            required: true
+
 # Include{containerConfig}
 
   - variable: serviceexpert

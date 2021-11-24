@@ -1,6 +1,6 @@
 image:
   repository: biospheere/promcord
-  tag: latest
+  tag: latest@sha256:16d4fd269e665890d92e8ab2bf64f6cdd6f8bd45f27e829d414c4bad447c4974
   pullPolicy: IfNotPresent
 
 # -- Configures service settings for the chart.
@@ -17,9 +17,7 @@ service:
 
 # -- environment variables. See [application docs](https://github.com/nimarion/promcord/blob/master/README.md) for more details.
 # @default -- See below
-env:
-  # -- Set the container timezone
-  TZ: UTC
+env: {}
   # -- Discord bot token
   # DISCORD_TOKEN:
 
