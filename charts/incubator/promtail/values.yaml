@@ -31,20 +31,6 @@ probes:
   startup:
     path: "/ready"
 
-initContainers:
-  link-logs:
-    image: "{{ .Values.alpineImage.repository}}:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c"
-    command:
-      - "sh"
-      - "-c"
-      - mkdir -p /var/lib/docker/link && ln -sf $(cat /etc/docker/daemon.json | jq -r '."data-root"')/containers/ /var/lib/docker/link/ || echo "cannot symlink container logs"
-    imagePullPolicy: IfNotPresent
-    volumeMounts:
-      - mountPath: /etc/docker/
-        name: docker
-      - mountPath: /var/lib/docker/link/containers
-        name: containers
-
 # -- The security context for pods
 podSecurityContext:
   runAsUser: 0
@@ -60,17 +46,11 @@ securityContext:
   runAsNonRoot: false
 
 persistence:
-  docker:
-    enabled: true
-    type: hostPath
-    mountPath: /etc/docker/
-    hostPath: /etc/docker/
-    readOnly: true
   containers:
     enabled: true
     type: hostPath
-    mountPath: /var/lib/docker/link/containers
-    hostPath: /var/lib/docker/link/containers
+    mountPath: /mnt
+    hostPath: /mnt
     readOnly: true
   pods:
     enabled: true
