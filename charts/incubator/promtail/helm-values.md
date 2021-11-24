@@ -24,29 +24,15 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.HOSTNAME.fieldRef.fieldPath | string | `"spec.nodeName"` |  |
 | image.repository | string | `"grafana/promtail"` |  |
 | image.tag | string | `"v2.3.0@sha256:1e8554cdac6681f877d10a2a383d8fcc2f475188914282ccf86722c2e23c501c"` |  |
-| initContainers.link-logs.command[0] | string | `"sh"` |  |
-| initContainers.link-logs.command[1] | string | `"-c"` |  |
-| initContainers.link-logs.command[2] | string | `"mkdir -p /var/lib/docker/link && ln -sf $(cat /etc/docker/daemon.json | jq -r '.\"data-root\"')/containers/ /var/lib/docker/link/ || echo \"cannot symlink container logs\""` |  |
-| initContainers.link-logs.image | string | `"{{ .Values.alpineImage.repository}}:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c"` |  |
-| initContainers.link-logs.imagePullPolicy | string | `"IfNotPresent"` |  |
-| initContainers.link-logs.volumeMounts[0].mountPath | string | `"/etc/docker/"` |  |
-| initContainers.link-logs.volumeMounts[0].name | string | `"docker"` |  |
-| initContainers.link-logs.volumeMounts[1].mountPath | string | `"/var/lib/docker/link/containers"` |  |
-| initContainers.link-logs.volumeMounts[1].name | string | `"containers"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/promtail"` |  |
 | persistence.config.objectName | string | `"promtail-config"` |  |
 | persistence.config.type | string | `"secret"` |  |
 | persistence.containers.enabled | bool | `true` |  |
-| persistence.containers.hostPath | string | `"/var/lib/docker/link/containers"` |  |
-| persistence.containers.mountPath | string | `"/var/lib/docker/link/containers"` |  |
+| persistence.containers.hostPath | string | `"/mnt"` |  |
+| persistence.containers.mountPath | string | `"/mnt"` |  |
 | persistence.containers.readOnly | bool | `true` |  |
 | persistence.containers.type | string | `"hostPath"` |  |
-| persistence.docker.enabled | bool | `true` |  |
-| persistence.docker.hostPath | string | `"/etc/docker/"` |  |
-| persistence.docker.mountPath | string | `"/etc/docker/"` |  |
-| persistence.docker.readOnly | bool | `true` |  |
-| persistence.docker.type | string | `"hostPath"` |  |
 | persistence.pods.enabled | bool | `true` |  |
 | persistence.pods.hostPath | string | `"/var/log/pods"` |  |
 | persistence.pods.mountPath | string | `"/var/log/pods"` |  |

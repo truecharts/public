@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-0.0.4"></a>
+### [promtail-0.0.4](https://github.com/truecharts/apps/compare/promtail-0.0.3...promtail-0.0.4) (2021-11-24)
+
+#### Fix
+
+* fix storage issues with promtail
+
+
+
 <a name="promtail-0.0.3"></a>
 ### [promtail-0.0.3](https://github.com/truecharts/apps/compare/promtail-0.0.2...promtail-0.0.3) (2021-11-24)
 
