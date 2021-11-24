@@ -7,4 +7,3 @@
 #### Add
 
 * Add grafana to incubator Apps ([#1391](https://github.com/truecharts/apps/issues/1391))
-
