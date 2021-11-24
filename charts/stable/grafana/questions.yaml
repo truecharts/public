@@ -75,6 +75,19 @@ questions:
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
 
+  - variable: secret
+    group: "Container Configuration"
+    label: "Secret Image Environment"
+    schema:
+      type: dict
+      attrs:
+        - variable: GF_SECURITY_ADMIN_PASSWORD
+          label: "Admin Password"
+          schema:
+            type: string
+            default: ""
+            required: true
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -86,7 +99,7 @@ questions:
           label: "Admin User"
           schema:
             type: string
-            default: ""
+            default: "admin"
             required: true
         - variable: GF_INSTALL_PLUGINS
           label: "Extra Plugins to Install"
@@ -94,7 +107,6 @@ questions:
           schema:
             type: string
             default: ""
-            required: true
         - variable: GF_AUTH_LDAP_ENABLED
           label: "enable LDAP"
           schema:
@@ -112,19 +124,6 @@ questions:
             default: "/opt/bitnami/grafana/conf/ldap.toml"
 
 # Include{containerConfig}
-
-  - variable: secret
-    group: "Container Configuration"
-    label: "Secret Image Environment"
-    schema:
-      type: dict
-      attrs:
-        - variable: GF_SECURITY_ADMIN_PASSWORD
-          label: "Admin Password"
-          schema:
-            type: string
-            default: ""
-            required: true
 
   - variable: service
     group: "Networking and Services"
