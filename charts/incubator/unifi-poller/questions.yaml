@@ -4,6 +4,20 @@ portals: {}
 questions:
 # Include{global}
 
+  - variable: secret
+    group: "Container Configuration"
+    label: "Secret Image Environment"
+    schema:
+      type: dict
+      attrs:
+        - variable: UP_UNIFI_DEFAULT_PASS
+          label: "Unifi Password"
+          description: "Password for the Unifi user specified below"
+          schema:
+            type: string
+            default: ""
+            required: true
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -11,6 +25,27 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
+
+        - variable: UP_UNIFI_DEFAULT_URL
+          label: "Unifi URL"
+          description: "Unifi URL including Port and http(s) prefix"
+          schema:
+            type: string
+            default: "https://127.0.0.1:8443"
+            required: true
+        - variable: UP_UNIFI_DEFAULT_USER
+          label: "Unifi User"
+          description: "User on Unifi with access to the data"
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: UP_PROMETHEUS_DISABLE
+          label: "Disable Prometheus Metrics"
+          schema:
+            type: boolean
+            default: false
+            hidden: true
 
 # Include{containerConfig}
 
