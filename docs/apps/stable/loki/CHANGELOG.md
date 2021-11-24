@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-1.0.7"></a>
+### [loki-1.0.7](https://github.com/truecharts/apps/compare/loki-1.0.6...loki-1.0.7) (2021-11-24)
+
+#### Fix
+
+* use our own promtail dependency ([#1395](https://github.com/truecharts/apps/issues/1395))
+
+
+
 <a name="loki-1.0.6"></a>
 ### [loki-1.0.6](https://github.com/truecharts/apps/compare/loki-1.0.5...loki-1.0.6) (2021-11-24)
 

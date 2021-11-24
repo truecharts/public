@@ -59,7 +59,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.liveness.path | string | `"/ready"` |  |
 | probes.readiness.path | string | `"/ready"` |  |
 | probes.startup.path | string | `"/ready"` |  |
-| promtail.enabled | bool | `false` |  |
+| promtail.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `3100` |  |
 | service.main.ports.main.protocol | string | `"HTTP"` |  |
 | service.main.ports.main.targetPort | int | `3100` |  |
