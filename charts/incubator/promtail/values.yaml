@@ -31,6 +31,20 @@ probes:
   startup:
     path: "/ready"
 
+initContainers:
+  link-logs:
+    image: "{{ .Values.alpineImage.repository}}:{{ .Values.alpineImage.tag }}"
+    command:
+      - "sh"
+      - "-c"
+    args:
+      -  mkdir -p /var/lib/docker/link && ln -sf $(cat /etc/docker/daemon.json | jq -r '."data-root"')/containers/ /var/lib/docker/link/
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - mountPath: /etc/docker/
+        name: docker
+      - mountPath: /var/lib/docker/link/containers
+        name: containers
 
 # -- The security context for pods
 podSecurityContext:
@@ -46,24 +60,34 @@ securityContext:
   allowPrivilegeEscalation: false
 
 persistence:
-  containers:
+  docker:
+    enabled: true
     type: hostPath
-    mountPath: /var/lib/docker/containers
-    hostPath:  /var/lib/docker/containers
+    mountPath: /etc/docker/
+    hostPath: /etc/docker/
+    readOnly: true
+  containers:
+    enabled: true
+    type: hostPath
+    mountPath: /var/lib/docker/link/containers
+    hostPath:  /var/lib/docker/link/containers
     readOnly: true
   pods:
+    enabled: true
     type: hostPath
     mountPath: /var/log/pods
-    hostPath:: /var/log/pods
+    hostPath: /var/log/pods
     readOnly: true
   run:
+    enabled: true
     type: hostPath
     mountPath: /run/promtail
-    hostPath:: /run/promtail
+    hostPath: /run/promtail
   config:
+    enabled: true
     type: secret
     objectName: promtail-config
-    mountPath:: /etc/promtail
+    mountPath: /etc/promtail
 
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
