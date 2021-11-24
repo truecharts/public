@@ -38,7 +38,7 @@ initContainers:
       - "sh"
       - "-c"
     args:
-      -  mkdir -p /var/lib/docker/link && ln -sf $(cat /etc/docker/daemon.json | jq -r '."data-root"')/containers/ /var/lib/docker/link/
+      - mkdir -p /var/lib/docker/link && ln -sf $(cat /etc/docker/daemon.json | jq -r '."data-root"')/containers/ /var/lib/docker/link/
     imagePullPolicy: IfNotPresent
     volumeMounts:
       - mountPath: /etc/docker/
@@ -70,7 +70,7 @@ persistence:
     enabled: true
     type: hostPath
     mountPath: /var/lib/docker/link/containers
-    hostPath:  /var/lib/docker/link/containers
+    hostPath: /var/lib/docker/link/containers
     readOnly: true
   pods:
     enabled: true
