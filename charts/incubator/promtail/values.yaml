@@ -2,14 +2,18 @@ image:
   repository: grafana/promtail
   tag: v2.3.0@sha256:90019c5e4198d3253126fcc0c90db11b961ddf0a3c2906766f4611770beabdf2
 
-controller:
-  # -- Set the controller type.
-  # Valid options are deployment, daemonset or statefulset
-  type: daemonset
+#controller:
+#  # -- Set the controller type.
+#  # Valid options are deployment, daemonset or statefulset
+#  type: daemonset
 
 args:
   - "-config.file=/etc/promtail/promtail.yaml"
 
+envValueFrom:
+  HOSTNAME:
+    fieldRef:
+      fieldPath: spec.nodeName
 
 service:
   main:
