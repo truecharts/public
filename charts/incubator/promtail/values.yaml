@@ -31,19 +31,8 @@ probes:
   startup:
     path: "/ready"
 
-initContainers:
-  link-logs:
-    image: "{{ .Values.alpineImage.repository}}:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c"
-    command:
-      - "sh"
-      - "-c"
-      - mkdir -p /var/lib/docker/link && ln -sf $(cat /etc/docker/daemon.json | jq -r '."data-root"')/containers/ /var/lib/docker/link/
-    imagePullPolicy: IfNotPresent
-    volumeMounts:
-      - mountPath: /etc/docker/
-        name: docker
-      - mountPath: /var/lib/docker/link/containers
-        name: containers
+initContainers: {}
+
 
 # -- The security context for pods
 podSecurityContext:
