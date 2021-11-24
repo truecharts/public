@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-1.0.6"></a>
+### [loki-1.0.6](https://github.com/truecharts/apps/compare/loki-1.0.5...loki-1.0.6) (2021-11-24)
+
+#### Fix
+
+* disable promtail for the time being (needs fix for dataset access)
+
+
+
 <a name="loki-1.0.5"></a>
 ### [loki-1.0.5](https://github.com/truecharts/apps/compare/loki-1.0.4...loki-1.0.5) (2021-11-24)
 
