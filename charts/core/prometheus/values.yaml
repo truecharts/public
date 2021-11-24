@@ -1,18 +1,18 @@
 image:
   repository: bitnami/prometheus-operator
-  tag: 0.52.1
+  tag: 0.52.1@sha256:d817d3d6f60abe81dbbd923ce8212f0d0e6fef2bedecf3a65f31743ef034e539
 
 prometheusImage:
   repository: bitnami/prometheus
-  tag: 2.31.1
+  tag: 2.31.1@sha256:72952cbfe2a9ecfbbf89404705629e9e8ce405ad5ae331c17d3aad6ca2875966
 
 thanosImage:
   repository: bitnami/thanos
-  tag: 0.23.1
+  tag: 0.23.1@sha256:944daebae0849d2c1e163e52227df0579d2c2fe6ba3f726a1c0a929e48797681
 
 alertmanagerImage:
   repository: bitnami/alertmanager
-  tag: 0.23.0
+  tag: 0.23.0@sha256:05eb2af9f119d8a77111e07602c1a14fc22b29d72a01eca4847999266f7b0e44
 
 global:
   labels: {}
