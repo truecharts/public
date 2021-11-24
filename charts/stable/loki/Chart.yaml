@@ -6,8 +6,8 @@ dependencies:
   version: 8.9.3
 - name: "promtail"
   condition: promtail.enabled
-  repository: "https://grafana.github.io/helm-charts"
-  version: "^3.0.0"
+  repository: https://truecharts.org
+  version: "0.0.3"
 deprecated: false
 description: "Loki: like Prometheus, but for logs."
 home: https://github.com/truecharts/apps/tree/master/charts/stable/loki
@@ -23,7 +23,7 @@ name: loki
 sources:
   - https://github.com/grafana/loki
 type: application
-version: 1.0.6
+version: 1.0.7
 annotations:
   truecharts.org/catagories: |
     - logs
