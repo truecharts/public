@@ -12,6 +12,14 @@ questions:
       attrs:
 # Include{fixedEnv}
 
+        - variable: UPTIMEROBOT_API_KEY
+          label: "UptimeRobot API Key"
+          description: "UptimeRobot.com API Key"
+          schema:
+            type: string
+            default: ""
+            required: true
+
 # Include{containerConfig}
 
   - variable: serviceexpert
