@@ -79,11 +79,11 @@ persistence:
 #    type: hostPath
 #    mountPath: /run/promtail
 #    hostPath: /run/promtail
-#  config:
-#    enabled: true
-#    type: secret
-#    objectName: "promtail-config"
-#    mountPath: /etc/promtail
+  config:
+    enabled: true
+    type: secret
+    objectName: "promtail-config"
+    mountPath: /etc/promtail
 
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
