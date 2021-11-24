@@ -57,6 +57,7 @@ securityContext:
     drop:
       - ALL
   allowPrivilegeEscalation: false
+  runAsNonRoot: false
 
 persistence:
   docker:
