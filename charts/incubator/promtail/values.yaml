@@ -262,7 +262,7 @@ config:
       http_listen_port: {{ .Values.config.serverPort }}
 
     client:
-      url: {{ .Values.config.lokiAddress | default ( printf "http://%v.ix-%v.svc.cluster.local:3100/loki/api/v1/push" .Release.Name Release.Namespace ) }}
+      url: {{ .Values.config.lokiAddress | default ( printf "http://%v.%v.svc.cluster.local:3100/loki/api/v1/push" .Release.Name .Release.Namespace ) }}
       {{- tpl .Values.config.snippets.extraClientConfigs . | nindent 2 }}
 
     positions:
