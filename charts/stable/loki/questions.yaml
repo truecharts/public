@@ -85,6 +85,62 @@ questions:
 
 # Include{containerConfig}
 
+  - variable: config
+    group: "App Configuration"
+    label: "Loki Settings"
+    schema:
+      type: dict
+      attrs:
+        - variable: ingester
+          label: "Ingester"
+          schema:
+            type: dict
+            attrs:
+              - variable: chunk_idle_period
+                label: "chunk_idle_period"
+                schema:
+                  type: string
+                  default: "3m"
+                  required: true
+              - variable: chunk_block_size
+                label: "chunk_block_size"
+                schema:
+                  type: int
+                  default: 262144
+                  required: true
+              - variable: chunk_retain_period
+                label: "chunk_retain_period"
+                schema:
+                  type: string
+                  default: "1m"
+              - variable: max_transfer_retries
+                label: "max_transfer_retries"
+                schema:
+                  type: int
+                  default: 0
+        - variable: limits_config
+          label: "Limits Config"
+          schema:
+            type: dict
+            attrs:
+              - variable: enforce_metric_name
+                label: "Enforce Metric Name"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: reject_old_samples
+                label: "Reject Old Samples"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: reject_old_samples_max_age
+                label: "Reject Old Samples - Max Age"
+                schema:
+                  type: string
+                  default: "168h"
+                  required: true
+
+
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
