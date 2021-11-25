@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpoller-1.0.1"></a>
+### unpoller-1.0.1 (2021-11-25)
+
+#### Chore
+
+* rename unifi-poller to unpoller
+
+
+
 <a name="unifi-poller-1.0.0"></a>
 ### [unifi-poller-1.0.0](https://github.com/truecharts/apps/compare/unifi-poller-0.0.1...unifi-poller-1.0.0) (2021-11-24)
 
