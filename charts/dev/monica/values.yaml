@@ -1,0 +1,58 @@
+image:
+  repository: monica
+  tag: 3.5.0@sha256:04ff6eccd653e7fc2c9875130e572662b4a78bbd3f80011aeb79f1f3d55f39eb
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- environment variables. See [monica documentation](https://raw.githubusercontent.com/monicahq/monica/master/.env.example) for more details.
+# @default -- See below
+env:
+  # -- Use `local` if you want to install Monica as a development version. Use `production` otherwise.
+  APP_ENV: production
+  # -- The URL of your application.
+  APP_URL: https://crm.k8s-at-home.com
+  DB_DATABASE: monica
+  DB_USERNAME: monica
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 10119
+        targetPort: 80
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    mountPath: /var/www/html/storage
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  APP_KEY:
+    secretKeyRef:
+      name: appkey
+      key: appkey
+
+mariadb:
+  enabled: true
+  mariadbUsername: monica
+  mariadbDatabase: monica
+  existingSecret: "mariadbcreds"

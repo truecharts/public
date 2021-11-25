@@ -1,0 +1,50 @@
+image:
+  repository: ghcr.io/linuxserver/clarkson
+  pullPolicy: IfNotPresent
+  tag: 1.1.2@sha256:c9c19c229d636d6819711542942d0a9831ba0a851827e6c0188eee5dab58c2b0
+
+strategy:
+  type: Recreate
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10113
+        targetPort: 3000
+
+# See more environment variables in the clarkson documentation
+# https://github.com/linuxserver/docker-clarkson#parameters
+env:
+  PUID: 568
+  MYSQL_USERNAME: clarkson
+
+
+envValueFrom:
+  MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  MYSQL_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+persistence:
+  varrun:
+    enabled: true
+
+mariadb:
+  enabled: true
+  mariadbUsername: clarkson
+  mariadbDatabase: clarkson
+  existingSecret: "mariadbcreds"

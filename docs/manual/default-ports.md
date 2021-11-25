@@ -9,15 +9,15 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 |:------------|:------------:|:------------:|:-----:|:--------:|:----------------------------------------:|
 | k8s-gateway |     main     |     main     |   53  |    UDP   |      Potential conflict with pihole      |
 | traefik     |     main     |     main     |  9000 |   HTTP   | Potential conflict with minio (Official) |
-| traefik     |      tcp     |      web     |  9080 |   HTTP   |                                          |
+| traefik     |      tcp     |      web     |  9080 |   HTTP   | Adviced to be moved to port 80           |
 | traefik     |    metrics   |    metrics   |  9100 |   HTTP   |                                          |
-| traefik     |      tcp     |   websecure  |  9443 |   HTTPS  |                                          |
+| traefik     |      tcp     |   websecure  |  9443 |   HTTPS  |  Adviced to be moved to port 443         |
 | prometheus  |     main     |     main     | 10086 |   HTTP   |                                          |
 | prometheus  | alertmanager | alertmanager | 10087 |   HTTP   |                                          |
 | prometheus  |    promop    |    promop    | 10089 |   HTTP   |                                          |
 | prometheus  |    thanos    |    thanos    | 10901 |   HTTP   |                                          |
 
-## Stable Apps
+## Stable and Incubator Apps
 
 | App                        |     Service     |    Port Name    |  Port | Protocol |                   Note                  |
 |:---------------------------|:---------------:|:---------------:|:-----:|:--------:|:---------------------------------------:|
@@ -29,7 +29,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | unpackerr                  |       main      |       main      |   -   |     -    |             Service disabled            |
 | unpoller                   |       main      |       main      |   -   |     -    |             Service disabled            |
 | uptimerobot-prometheus     |       main      |       main      |   -   |     -    |             Service disabled            |
-| protonmail-bridge          |       smtp      |       smtp      |   25  |    TCP   |                                         |
+| protonmail-bridge          |       smtp      |       smtp      |   25  |    TCP   | Potential conflict with other smtp apps |
+| anonaddy                   |       smtp      |       smtp      |   25  |    TCP   | Potential conflict with other smtp apps |
 | pihole                     |     dns-tcp     |     dns-tcp     |   53  |    TCP   |   Potential conflict with k8s-gateway   |
 | pihole                     |       dns       |       dns       |   53  |    UDP   |   Potential conflict with k8s-gateway   |
 | openldap                   |       main      |       main      |  389  |    TCP   |                                         |
@@ -71,6 +72,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | haste-server               |       main      |       main      |  7777 |    TCP   |                                         |
 | nextcloud                  |       hpb       |       hpb       |  7867 |    TCP   |                                         |
 | radarr                     |       main      |       main      |  7878 |    TCP   |                                         |
+| omada-controller           |    main         |    main         |  8043 |    TCP   |                                         |
 | odoo                       |       main      |       main      |  8069 |    TCP   |                                         |
 | odoo                       |       odoo      |      odoo-1     |  8071 |    TCP   |                                         |
 | odoo                       |       odoo      |      odoo-2     |  8072 |    TCP   |                                         |
@@ -86,6 +88,9 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | tautulli                   |       main      |       main      |  8181 |    TCP   |                                         |
 | flaresolverr               |       main      |       main      |  8191 |    TCP   |                                         |
 | duplicati                  |       main      |       main      |  8200 |    TCP   |                                         |
+| tdarr                      |    main         |    main         |  8265 |    TCP   |                                         |
+| tdarr                      |    comm         |    comm         |  8266 |    TCP   |                                         |
+| tdarr-node                 |    main         |    main         |  8267 |    TCP   |                                         |
 | beets                      |       main      |       main      |  8337 |    TCP   |                                         |
 | syncthing                  |       main      |       main      |  8384 |    TCP   |                                         |
 | unifi                      |       main      |       main      |  8443 |   HTTPS  |                                         |
@@ -138,6 +143,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | pgadmin                    |       main      |       main      | 10024 |    TCP   |                                         |
 | photoshow                  |       main      |       main      | 10025 |    TCP   |                                         |
 | phpldapadmin               |       main      |       main      | 10026 |    TCP   |                                         |
+| piwigo                     |       main      |       main      | 10027 |    TCP   |                                         |
 | pixapop                    |       main      |       main      | 10028 |    TCP   |                                         |
 | recipes                    |       main      |       main      | 10029 |    TCP   |                                         |
 | smokeping                  |       main      |       main      | 10030 |    TCP   |                                         |
@@ -168,6 +174,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | handbrake                  |       vnc       |       vnc       | 10055 |    TCP   |                                         |
 | jdownloader2               |       vnc       |       vnc       | 10056 |    TCP   |                                         |
 | nzbget                     |       main      |       main      | 10057 |    TCP   |                                         |
+| friendica                  |       main      |       main      | 10058 |    TCP   |                                         |
 | logitech-media-server      |       cli       |       cli       | 10059 |    TCP   |                                         |
 | etherpad                   |       main      |       main      | 10060 |    TCP   |                                         |
 | thelounge                  |       main      |       main      | 10061 |    TCP   |                                         |
@@ -215,6 +222,18 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | minio                      |       main      |       main      | 10106 |    TCP   |                                         |
 | minio                      |     console     |     console     | 10107 |    TCP   |                                         |
 | transmission               |       main      |       main      | 10109 |    TCP   |                                         |
+| anonaddy                   |       main      |       main      | 10110 |    TCP   |                                         |
+| blog                       |       main      |       main      | 10111 |    TCP   |                                         |
+| bookstack                  |       main      |       main      | 10112 |    TCP   |                                         |
+| clarkson                   |       main      |       main      | 10113 |    TCP   |                                         |
+| icinga2                    |       main      |       main      | 10114 |    TCP   |                                         |
+| icinga2                    |      https      |       https     | 10115 |    TCP   |                                         |
+| icinga2                    |       api       |       api       | 10116 |    TCP   |                                         |
+| leantime                   |       main      |       main      | 10117 |    TCP   |                                         |
+| leantime                   |       extra     |       extra     | 10118 |    UDP   |                                         |
+| monica                     |       main      |       main      | 10119 |    TCP   |                                         |
+| snipe-it                   |       main      |       main      | 10120 |    TCP   |                                         |
+| xbackbone                  |       main      |       main      | 10121 |    TCP   |                                         |
 | hyperion-ng                | boblightservice | boblightservice | 19333 |    TCP   |                                         |
 | hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |    TCP   |                                         |
 | hyperion-ng                | protobufservice | protobufservice | 19445 |    TCP   |                                         |
@@ -222,6 +241,14 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | syncthing                  |    listeners    |       tcp       | 22000 |    TCP   |                                         |
 | syncthing                  |  listeners-udp  |       udp       | 22000 |    UDP   |                                         |
 | joplin-server              |       main      |       main      | 22300 |    TCP   |                                         |
+| omada-controller           | omada-tcp       | omada-tcp1      | 29810 |    TCP   |                                         |
+| omada-controller           | omada-udp       | omada-udp1      | 29810 |    UDP   |                                         |
+| omada-controller           | omada-tcp       | omada-tcp2      | 29811 |    TCP   |                                         |
+| omada-controller           | omada-udp       | omada-udp2      | 29811 |    UDP   |                                         |
+| omada-controller           | omada-tcp       | omada-tcp3      | 29812 |    TCP   |                                         |
+| omada-controller           | omada-udp       | omada-udp3      | 29812 |    UDP   |                                         |
+| omada-controller           | omada-tcp       | omada-tcp4      | 29813 |    TCP   |                                         |
+| omada-controller           | omada-udp       | omada-udp4      | 29813 |    UDP   |                                         |
 | teamspeak3                 |      files      |      files      | 30033 |    TCP   |                                         |
 | plex                       |       main      |       main      | 32400 |    TCP   | Potential conflict with plex (Official) |
 | xteve                      |       main      |       main      | 34400 |    TCP   |                                         |
@@ -244,23 +271,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | redis      |   main  |    main   |  6379 |    TCP   |      |
 | memcached  |   main  |    main   | 11211 |    TCP   |      |
 
-## Incubator Apps
-
-| App              |  Service  |  Port Name |  Port | Protocol | Note |
-|:-----------------|:---------:|:----------:|:-----:|:--------:|:----:|
-| omada-controller |    main   |    main    |  8043 |    TCP   |      |
-| tdarr            |    main   |    main    |  8265 |    TCP   |      |
-| tdarr            |    comm   |    comm    |  8266 |    TCP   |      |
-| tdarr-node       |    main   |    main    |  8267 |    TCP   |      |
-| piwigo           |    main   |    main    | 10027 |    TCP   |      |
-| omada-controller | omada-tcp | omada-tcp1 | 29810 |    TCP   |      |
-| omada-controller | omada-udp | omada-udp1 | 29810 |    UDP   |      |
-| omada-controller | omada-tcp | omada-tcp2 | 29811 |    TCP   |      |
-| omada-controller | omada-udp | omada-udp2 | 29811 |    UDP   |      |
-| omada-controller | omada-tcp | omada-tcp3 | 29812 |    TCP   |      |
-| omada-controller | omada-udp | omada-udp3 | 29812 |    UDP   |      |
-| omada-controller | omada-tcp | omada-tcp4 | 29813 |    TCP   |      |
-| omada-controller | omada-udp | omada-udp4 | 29813 |    UDP   |      |
 
 ## Official Apps
 

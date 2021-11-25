@@ -1,0 +1,56 @@
+image:
+  repository: m1k1o/blog
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:8a859e44c66159e0ac4b959cd9255012d159328bbdaf977e01f3db739fe0203a
+
+secret:
+  BLOG_NICK: username
+  BLOG_PASS: password
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# See more environment variables in the blog documentation
+# https://github.com/nicholaswilde/docker-blog
+env:
+  BLOG_TITLE: Blog
+  BLOG_NAME: Max Musermann
+  BLOG_LANG: en
+  BLOG_DB_CONNECTION: postgres
+  BLOG_POSTGRES_USER: blog
+  BLOG_POSTGRES_PORT: 5432
+  BLOG_DB_NAME: blog
+
+service:
+  main:
+    ports:
+      main:
+        port: 10111
+        targetPort: 80
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/html/data
+
+envValueFrom:
+  BLOG_POSTGRES_PASS:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  BLOG_POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: blog
+  postgresqlDatabase: blog

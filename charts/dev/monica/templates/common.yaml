@@ -1,0 +1,9 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "common.setup" . }}
+
+{{/* Render appkey for monica */}}
+{{- include "monica.appkey" . }}
+
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}

@@ -90,6 +90,10 @@ _This list is to track `App Requests` from one place._
 - [ ] sharry ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] olivetin ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [ ] writefreely ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] baikal ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [ ] formalms ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] projectsend ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [ ] chyrp-lite
 
 ##### TODO: Requires Postgresql customisation
 - [ ] Keycloack #1106
@@ -102,21 +106,7 @@ _This list is to track `App Requests` from one place._
 
 ##### TODO: Requires MariaDB to be added first
 - [ ] FreePBX #1111
-- [ ] anonaddy ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] baikal ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] bookstack ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] icinga2 ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] monica ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] openemr ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] xbackbone ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] clarkson ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
-- [ ] friendica ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
-- [ ] projectsend ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
-- [ ] snipe-it ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
-- [ ] formalms ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
-- [ ] leantime ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
-- [ ] blog ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
-- [ ] bookstack ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+
 
 ##### TODO: Requires Prometheus to be added first
 
@@ -329,7 +319,6 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] shiori
 - [x] firefox-syncserver
 - [x] gotify
-- [x] chyrp-lite
 - [x] mariadb ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [x] promcord ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [x] speedtest-exporter ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
@@ -338,3 +327,15 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] Logitech Media Server #1062
 - [x] Grafana #4
 - [x] Prometheus #275
+- [x] anonaddy ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] bookstack ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] icinga2 ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] monica ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] openemr ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] xbackbone ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] clarkson ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [x] friendica ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [x] snipe-it ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [x] leantime ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [x] blog ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [x] bookstack ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )

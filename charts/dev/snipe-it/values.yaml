@@ -1,0 +1,53 @@
+image:
+  repository: ghcr.io/linuxserver/snipe-it
+  pullPolicy: IfNotPresent
+  tag: 5.3.3@sha256:24610b729fe6595f1ead1e225f4e030fd3013c738987f2c095a2297746d0effb
+
+secret: {}
+
+# See more environment variables in the snipe documentation
+# https://github.com/linuxserver/docker-snipe-it#parameters
+env:
+  PUID: 568
+  NGINX_APP_URL: '{{ include "common.names.fullname" . }}:8080'
+  MYSQL_USER: snipe-it
+  MYSQL_DATABASE: "snipe-it"
+  MYSQL_PORT_3306_TCP_PORT: "3306"
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10120
+        targetPort: 80
+
+persistence:
+  varrun:
+    enabled: true
+  config:
+    enabled: true
+    mountPath: /config
+
+envValueFrom:
+  MYSQL_PORT_3306_TCP_ADDR:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  MYSQL_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+mariadb:
+  enabled: true
+  mariadbUsername: snipe-it
+  mariadbDatabase: snipe-it
+  existingSecret: "mariadbcreds"
