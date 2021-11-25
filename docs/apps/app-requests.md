@@ -69,6 +69,7 @@ _This list is to track `App Requests` from one place._
 - [ ] AriaNG #1224
 - [ ] FileBrowser #1278
 - [ ] Unmanic #1279
+- [ ] powerdns
 
 ##### TODO: Require custom care to handle their configuration
 
@@ -315,7 +316,6 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] librespeed
 - [x] miniflux
 - [x] openkm
-- [x] powerdns
 - [x] statping
 - [x] teedy
 - [x] teslamate
