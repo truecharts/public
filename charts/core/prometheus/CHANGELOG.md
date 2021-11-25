@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.0"></a>
+### [prometheus-1.1.0](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-1.0.0...prometheus-1.1.0) (2021-11-25)
+
+#### Feat
+
+* add more default exporters to prometheus ([#1406](https://github.com/truecharts/apps/issues/1406))
+
+
+
 <a name="prometheus-1.0.1"></a>
 ### [prometheus-1.0.1](https://github.com/truecharts/apps/compare/prometheus-1.0.0...prometheus-1.0.1) (2021-11-24)
 
