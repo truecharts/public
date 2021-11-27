@@ -5,22 +5,59 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 
 ## Core Apps
 
-| App         | Service | Port Name | Port | Protocol | Note |
-| :---------- | :-----: | :-------: | :--: | :------: | :--: |
-| k8s-gateway |  main   |   main    |  53  |   UDP    |      |
-| traefik     |  main   |   main    | 9000 |   HTTP   |      |
-| traefik     |   tcp   |    web    | 9080 |   HTTP   |      |
-| traefik     |   tcp   | websecure | 9443 |  HTTPS   |      |
-| traefik     | metrics |  metrics  | 9100 |   HTTP   |      |
+| App         |   Service    |  Port Name   | Port  | Protocol | Note |
+| :---------- | :----------: | :----------: | :---: | :------: | :--: |
+| k8s-gateway |     main     |     main     |  53   |   UDP    |      |
+| prometheus  |     main     |     main     | 10086 |   HTTP   |      |
+| prometheus  |    promop    |    promop    | 10089 |   HTTP   |      |
+| prometheus  | alertmanager | alertmanager | 10087 |   HTTP   |      |
+| prometheus  |    thanos    |    thanos    | 10901 |   HTTP   |      |
+| traefik     |     main     |     main     | 9000  |   HTTP   |      |
+| traefik     |     tcp      |     web      | 9080  |   HTTP   |      |
+| traefik     |     tcp      |  websecure   | 9443  |  HTTPS   |      |
+| traefik     |   metrics    |   metrics    | 9100  |   HTTP   |      |
 
 ## Stable Apps
+
+| App               |   Service   | Port Name | Port  | Protocol | Note |
+| :---------------- | :---------: | :-------: | :---: | :------: | :--: |
+| airsonic          |    main     |   main    | 4040  |   TCP    |      |
+| apache-musicindex |    main     |   main    |  80   |   TCP    |      |
+| appdaemon         |    main     |   main    | 5050  |   TCP    |      |
+| appdaemon         |     tcp     |    tcp    | 51050 |   TCP    |      |
+| aria2             |    main     |   main    | 6800  |   TCP    |      |
+| aria2             |   listen    |  listen   | 6888  |   TCP    |      |
+| audacity          |    main     |   main    | 3000  |   TCP    |      |
+| authelia          |    main     |   main    | 9091  |   TCP    |      |
+| babybuddy         |    main     |   main    | 8000  |   TCP    |      |
+| bazarr            |    main     |   main    | 6767  |   TCP    |      |
+| beets             |    main     |   main    | 8337  |   TCP    |      |
+| booksonic-air     |    main     |   main    | 4040  |   TCP    |      |
+| calibre           |    main     |   main    | 8080  |   TCP    |      |
+| calibre           |  webserver  | webserver | 8081  |   TCP    |      |
+| calibre           |    main     |   main    | 8083  |   TCP    |      |
+| cloud9            |    main     |   main    | 8000  |   TCP    |      |
+| code-server       |    main     |   main    | 8443  |   TCP    |      |
+| collabora-online  |    main     |   main    | 9980  |   TCP    |      |
+| cryptofolio       |    main     |   main    |  80   |   TCP    |      |
+| davos             |    main     |   main    | 8080  |   TCP    |      |
+| deconz            |    main     |   main    |  80   |   TCP    |      |
+| deconz            |  websocket  | websocket |  443  |   TCP    |      |
+| deconz            |     vnc     |    vnc    | 5900  |   TCP    |      |
+| deepstack-cpu     |    main     |   main    | 5000  |   TCP    |      |
+| deepstack-gpu     |    main     |   main    | 5000  |   TCP    |      |
+| deluge            |    main     |   main    | 8112  |   TCP    |      |
+| deluge            |   torrent   |    tcp    | 51413 |   TCP    |      |
+| deluge            | torrent-udp |    udp    | 8112  |   UDP    |      |
+| digikam           |    main     |   main    | 3000  |   TCP    |      |
+| dizquetv          |    main     |   main    | 8000  |   TCP    |      |
+| doublecommander   |    main     |   main    | 3000  |   TCP    |      |
+| dsmr-reader       |    main     |   main    |  80   |   TCP    |      |
+| duplicati         |    main     |   main    | 8200  |   TCP    |      |
 
 ## Incubator Apps
 
 ## Dependecy Apps
-
-
-
 
 # To be discarded when done
 
