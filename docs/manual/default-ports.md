@@ -21,7 +21,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 
 | App                        |     Service     |    Port Name    | Port  | Protocol |       Note       |
 | :------------------------- | :-------------: | :-------------: | :---: | :------: | :--------------: |
-| amcrest2mqtt               |      main       |      main       |   -   |   TCP    | Service disabled |
+| amcrest2mqtt               |      main       |      main       |   -   |    -     | Service disabled |
 | airsonic                   |      main       |      main       | 4040  |   TCP    |                  |
 | apache-musicindex          |      main       |      main       |  80   |   TCP    |                  |
 | appdaemon                  |      main       |      main       | 5050  |   TCP    |                  |
@@ -100,7 +100,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | kms                        |      main       |      main       | 1688  |   TCP    |                  |
 | komga                      |      main       |      main       | 8080  |   TCP    |                  |
 | lazylibrarian              |      main       |      main       | 5299  |   TCP    |                  |
-| leaf2mqtt                  |      main       |      main       |   -   |   TCP    | Service disabled |
+| leaf2mqtt                  |      main       |      main       |   -   |    -     | Service disabled |
 | librespeed                 |      main       |      main       |  80   |   TCP    |                  |
 | lidarr                     |      main       |      main       | 8686  |   TCP    |                  |
 | littlelink                 |      main       |      main       | 3000  |   TCP    |                  |
@@ -157,16 +157,110 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | podgrab                    |      main       |      main       | 8080  |   TCP    |                  |
 | podgrab                    |       tcp       |       tcp       | 51080 |   TCP    |                  |
 | pretend-youre-xyzzy        |      main       |      main       | 8080  |   TCP    |                  |
-| promcord                   |      main       |      main       |   -   |   TCP    | Service disabled |
+| promcord                   |      main       |      main       |   -   |    -     | Service disabled |
 | promcord                   |      main       |     metrics     | 8080  |   TCP    |                  |
-| promcord                   |      main       |      main       |   -   |   TCP    | Service disabled |
+| promcord                   |      main       |      main       |   -   |    -     | Service disabled |
 | promcord                   |      smtp       |      smtp       |  25   |   TCP    |                  |
 | prowlarr                   |      main       |      main       | 9696  |   TCP    |                  |
 | pyload                     |      main       |      main       | 8000  |   TCP    |                  |
+| qbittorrent                |      main       |      main       | 8080  |   TCP    |                  |
+| qbittorrent                |     torrent     |     torrent     | 6881  |   TCP    |                  |
+| qbittorrent                |   torrentudp    |   torrentudp    | 6881  |   UDP    |                  |
+| radarr                     |      main       |      main       | 7878  |   TCP    |                  |
+| readarr                    |      main       |      main       | 8787  |   TCP    |                  |
+| recipes                    |      main       |      main       |  80   |   TCP    |                  |
+| reg                        |      main       |      main       | 8080  |   TCP    |                  |
+| remmina                    |      main       |      main       | 3000  |   TCP    |                  |
+| resilio-sync               |      main       |      main       | 8888  |   TCP    |                  |
+| resilio-sync               |     bt-tcp      |     bt-tcp      | 55555 |   TCP    |                  |
+| resilio-sync               |     bt-udp      |     bt-udp      | 55555 |   UDP    |                  |
+| sabnzbd                    |      main       |      main       | 8080  |   TCP    |                  |
+| ser2sock                   |      main       |      main       | 10000 |   TCP    |                  |
+| shiori                     |      main       |      main       | 8080  |   TCP    |                  |
+| shorturl                   |      main       |      main       | 8000  |   TCP    |                  |
+| sickchill                  |      main       |      main       | 8081  |   TCP    |                  |
+| sickgear                   |      main       |      main       | 8081  |   TCP    |                  |
+| smokeping                  |      main       |      main       |  80   |   TCP    |                  |
+| sonarr                     |      main       |      main       | 8989  |   TCP    |                  |
+| speedtest-exporter         |      main       |      main       |   -   |    -     | Service disabled |
+| speedtest-exporter         |      main       |     metrics     | 9798  |   TCP    |                  |
+| sqlitebrowser              |      main       |      main       | 3000  |   TCP    |                  |
+| stash                      |      main       |      main       | 9999  |   TCP    |                  |
+| static                     |      main       |      main       | 8000  |   TCP    |                  |
+| statping                   |      main       |      main       | 8080  |   TCP    |                  |
+| syncthing                  |      main       |      main       | 8384  |   TCP    |                  |
+| syncthing                  |    listeners    |       tcp       | 22000 |   TCP    |                  |
+| syncthing                  |  listeners-udp  |       udp       | 22000 |   UDP    |                  |
+| syncthing                  |    discovery    |    discovery    | 21027 |   UDP    |                  |
+| tautulli                   |      main       |      main       | 8181  |   TCP    |                  |
+| teamspeak3                 |      main       |      main       | 10011 |   TCP    |                  |
+| teamspeak3                 |      voice      |      voice      | 9987  |   UDP    |                  |
+| teamspeak3                 |      files      |      files      | 30033 |   TCP    |                  |
+| teedy                      |      main       |      main       | 8080  |   TCP    |                  |
+| thelounge                  |      main       |      main       | 9000  |   TCP    |                  |
+| traccar                    |      main       |      main       | 8082  |   TCP    |                  |
+| transmission               |      main       |      main       | 9091  |   TCP    |                  |
+| transmission               |     torrent     |     torrent     | 51413 |   TCP    |                  |
+| transmission               |   torrentudp    |   torrentudp    | 51413 |   UDP    |                  |
+| truecommand                |      main       |      main       |  80   |   TCP    |                  |
+| tt-rss                     |      main       |      main       | 8080  |   TCP    |                  |
+| tvheadend                  |      main       |      main       | 9981  |   TCP    |                  |
+| tvheadend                  |      htsp       |      htsp       | 9982  |   TCP    |                  |
+| twtxt                      |      main       |      main       | 8000  |   TCP    |                  |
+| unifi                      |      main       |      main       | 8443  |  HTTPS   |                  |
+| unifi                      |      comm       |      comm       | 8080  |   TCP    |                  |
+| unifi                      |      stun       |    mstunain     | 3478  |   UDP    |                  |
+| unifi                      |    speedtest    |    speedtest    | 6789  |   TCP    |                  |
+| unifi                      |   guestportal   |       web       | 8800  |   HTTP   |                  |
+| unifi                      |   guestportal   |    websecure    | 8843  |  HTTPS   |                  |
+| unpackerr                  |      main       |      main       |   -   |    -     | Service disabled |
+| unpoller                   |      main       |      main       |   -   |    -     | Service disabled |
+| unpoller                   |      main       |     metrics     | 9130  |   TCP    |                  |
+| uptime-kuma                |      main       |      main       | 3001  |   TCP    |                  |
+| uptimerobot-prometheus     |      main       |      main       |   -   |    -     | Service disabled |
+| uptimerobot-prometheus     |      main       |     metrics     | 9705  |   TCP    |                  |
+| valheim                    |      main       |      main       | 9010  |   TCP    |                  |
+| valheim                    |   supervisor    |   supervisor    | 9011  |   TCP    |                  |
+| valheim                    |     valheim     |    valheim-1    | 2456  |   UDP    |                  |
+| valheim                    |     valheim     |    valheim-2    | 2457  |   UDP    |                  |
+| valheim                    |     valheim     |    valheim-3    | 2458  |   UDP    |                  |
+| vaultwarden                |      main       |      main       | 8080  |   TCP    |                  |
+| vaultwarden                |       ws        |       ws        | 3012  |   TCP    |                  |
+| whoogle                    |      main       |      main       | 5000  |   TCP    |                  |
+| wiki                       |      main       |      main       | 8000  |   TCP    |                  |
+| wikijs                     |      main       |      main       | 3000  |   TCP    |                  |
+| xteve                      |      main       |      main       | 34400 |   TCP    |                  |
+| zigbee2mqtt                |      main       |      main       | 8080  |   TCP    |                  |
+| zwavejs2mqtt               |      main       |      main       | 8091  |   TCP    |                  |
+| zwavejs2mqtt               |       ws        |       ws        | 3000  |   TCP    |                  |
+
+## Dependency Apps
+
+| App        | Service | Port Name | Port  | Protocol | Note |
+| :--------- | :-----: | :-------: | :---: | :------: | :--: |
+| mariadb    |  main   |   main    | 3306  |   TCP    |      |
+| memcached  |  main   |   main    | 11211 |   TCP    |      |
+| postgresql |  main   |   main    | 5432  |   TCP    |      |
+| promtail   |  main   |   main    | 3101  |   TCP    |      |
+| redis      |  main   |   main    | 6379  |   TCP    |      |
 
 ## Incubator Apps
 
-## Dependency Apps
+| App              |  Service  | Port Name  | Port  | Protocol | Note |
+| :--------------- | :-------: | :--------: | :---: | :------: | :--: |
+| omada-controller |   main    |    main    | 8043  |   TCP    |      |
+| omada-controller | omada-tcp | omada-tcp1 | 29810 |   TCP    |      |
+| omada-controller | omada-tcp | omada-tcp2 | 29811 |   TCP    |      |
+| omada-controller | omada-tcp | omada-tcp3 | 29812 |   TCP    |      |
+| omada-controller | omada-tcp | omada-tcp4 | 29813 |   TCP    |      |
+| omada-controller | omada-udp | omada-udp1 | 29810 |   UDP    |      |
+| omada-controller | omada-udp | omada-udp2 | 29811 |   UDP    |      |
+| omada-controller | omada-udp | omada-udp3 | 29812 |   UDP    |      |
+| omada-controller | omada-udp | omada-udp4 | 29813 |   UDP    |      |
+| piwigo           |   main    |    main    |  80   |   TCP    |      |
+| tdarr            |   main    |    main    | 8265  |   TCP    |      |
+| tdarr            |   comm    |    comm    | 8266  |   TCP    |      |
+| tdarr-node       |   main    |    main    | 8267  |   TCP    |      |
 
 ##### Note: TCP and UPD ports that are the same in some Apps, are not by mistake.
 
