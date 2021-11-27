@@ -15,14 +15,14 @@ service:
   main:
     ports:
       main:
-        port: 5800
+        port: 10053
         targetPort: 5800
   vnc:
     enabled: true
     ports:
       vnc:
         enabled: true
-        port: 5900
+        port: 10055
         targetPort: 5900
 
 # All values here are set as the docker defaults.
