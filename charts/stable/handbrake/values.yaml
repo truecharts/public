@@ -24,7 +24,6 @@ service:
         enabled: true
         port: 5900
         targetPort: 5900
-        protocol: "TCP"
 
 # All values here are set as the docker defaults.
 envTpl:
