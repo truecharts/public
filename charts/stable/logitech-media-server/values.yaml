@@ -53,6 +53,7 @@ service:
         enabled: true
         targetPort: 3483
         port: 3483
+        protocol: UDP
 
 persistence:
   config:
