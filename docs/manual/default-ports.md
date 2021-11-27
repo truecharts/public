@@ -262,6 +262,22 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | tdarr            |   comm    |    comm    | 8266  |   TCP    |      |
 | tdarr-node       |   main    |    main    | 8267  |   TCP    |      |
 
+## Official Apps
+
+| App        |   Service   | Port  | Note |
+| :--------- | :---------: | :---: | :--: |
+| collabora  |    main     | 9980  |      |
+| ipfs       |  swarmPort  | 9401  |      |
+| ipfs       |   apiPort   | 9501  |      |
+| ipfs       | gatewayPort | 9880  |      |
+| chia       |    main     | 8444  |      |
+| chia       | farmerPort  | 8447  |      |
+| machinaris |    main     | 9003  |      |
+| minio      |    main     | 9000  |      |
+| minio      | consolePort | 9002  |      |
+| nextcloud  |    main     | 9001  |      |
+| plex       |    main     | 32400 |      |
+
 ##### Note: TCP and UPD ports that are the same in some Apps, are not by mistake.
 
 ##### If you notice a port conflict, please notify us so we can resolve it.
