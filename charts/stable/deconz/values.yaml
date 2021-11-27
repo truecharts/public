@@ -48,7 +48,7 @@ service:
   main:
     ports:
       main:
-        port: 80
+        port: 10008
         targetPort: 80
   websocket:
     enabled: true
