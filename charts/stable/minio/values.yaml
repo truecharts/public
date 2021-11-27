@@ -35,7 +35,7 @@ service:
   main:
     ports:
       main:
-        port: 9002
+        port: 10106
         targetPort: 9000
   console:
     enabled: true
@@ -43,7 +43,7 @@ service:
       console:
         enabled: true
         targetPort: 9001
-        port: 9001
+        port: 10107
 
 securityContext:
   readOnlyRootFilesystem: false
