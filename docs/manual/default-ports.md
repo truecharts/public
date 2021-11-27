@@ -12,7 +12,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | prometheus  |    promop    |    promop    | 10089 |   HTTP   |                                |
 | prometheus  | alertmanager | alertmanager | 10087 |   HTTP   |                                |
 | prometheus  |    thanos    |    thanos    | 10901 |   HTTP   |                                |
-| traefik     |     main     |     main     | 9000  |   HTTP   |                                |
+| traefik     |     main     |     main     | 10200  |   HTTP   |                                |
 | traefik     |     tcp      |     web      | 9080  |   HTTP   |                                |
 | traefik     |     tcp      |  websecure   | 9443  |  HTTPS   |                                |
 | traefik     |   metrics    |   metrics    | 9100  |   HTTP   |                                |
@@ -39,7 +39,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | calibre                    |      main       |      main       | 8083  |   TCP    |                                      |
 | cloud9                     |      main       |      main       | 10070 |   TCP    |                                      |
 | code-server                |      main       |      main       | 10063 |   TCP    |                                      |
-| collabora-online           |      main       |      main       | 9980  |   TCP    |                                      |
+| collabora-online           |      main       |      main       | 10105  |   TCP    |                                      |
 | cryptofolio                |      main       |      main       | 10007 |   TCP    |                                      |
 | davos                      |      main       |      main       | 10081 |   TCP    |                                      |
 | deconz                     |      main       |      main       | 10008 |   TCP    |                                      |
@@ -113,8 +113,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | mealie                     |      main       |      main       | 10018 |   TCP    |                                      |
 | medusa                     |      main       |      main       | 10068 |   TCP    |                                      |
 | miniflux                   |      main       |      main       | 10091 |   TCP    |                                      |
-| minio                      |      main       |      main       | 9002  |   TCP    |                                      |
-| minio                      |     console     |     console     | 9001  |   TCP    |                                      |
+| minio                      |      main       |      main       | 10106  |   TCP    |                                      |
+| minio                      |     console     |     console     | 10107  |   TCP    |                                      |
 | minio-console              |      main       |      main       | 9090  |   TCP    |                                      |
 | mosquitto                  |      main       |      main       | 1883  |   TCP    |                                      |
 | mstream                    |      main       |      main       | 10041 |   TCP    |                                      |
@@ -153,7 +153,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | pihole                     |     dns-tcp     |     dns-tcp     |  53   |   TCP    | Potential conflict with k8s-gateway  |
 | pihole                     |       dns       |       dns       |  53   |   UDP    | Potential conflict with k8s-gateway  |
 | pixapop                    |      main       |      main       | 10028 |   TCP    |                                      |
-| plex                       |      main       |      main       | 32400 |   TCP    |                                      |
+| plex                       |      main       |      main       | 10108 |   TCP    |                                      |
 | podgrab                    |      main       |      main       | 10093 |   TCP    |                                      |
 | podgrab                    |       tcp       |       tcp       | 51080 |   TCP    |                                      |
 | pretend-youre-xyzzy        |      main       |      main       | 10094 |   TCP    |                                      |
