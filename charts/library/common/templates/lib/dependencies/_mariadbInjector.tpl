@@ -11,7 +11,7 @@ kind: Secret
 metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
-  name: mariamariadbcreds
+  name: mariadbcreds
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace "mariadbcreds" }}
 {{- $dbPass := "" }}
 {{- $rootPass := "" }}
@@ -29,7 +29,7 @@ data:
 {{- end }}
   url: {{ ( printf "sql://%v:%v@%v-mariadb:3306/%v" .Values.mariadb.mariadbUsername $dbPass .Release.Name .Values.mariadb.mariadbDatabase  ) | b64enc | quote }}
   urlnossl: {{ ( printf "sql://%v:%v@%v-mariadb:3306/%v?sslmode=disable" .Values.mariadb.mariadbUsername $dbPass .Release.Name .Values.mariadb.mariadbDatabase  ) | b64enc | quote }}
-  plainporthost: {{ ( printf "%v-%v" .Release.Name "mariadb" ) | b64enc | quote }}
+  plainporthost: {{ ( printf "%v-%v:3306" .Release.Name "mariadb" ) | b64enc | quote }}
   plainhost: {{ ( printf "%v-%v" .Release.Name "mariadb" ) | b64enc | quote }}
   jdbc: {{ ( printf "jdbc:sqlserver://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) | b64enc | quote }}
 type: Opaque
