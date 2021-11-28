@@ -47,6 +47,19 @@ env:
   GID:  # 1000
   # -- Sets UMASK.
   UMASK:  # 0000
+  PHOTOPRISM_DATABASE_DRIVER: "mysql"            # Use MariaDB 10.5+ or MySQL 8+ instead of SQLite for improved performance
+  PHOTOPRISM_DATABASE_NAME: "photoprism"         # MariaDB or MySQL database schema name
+  PHOTOPRISM_DATABASE_USER: "photoprism"         # MariaDB or MySQL database user name
+
+envValueFrom:
+  PHOTOPRISM_DATABASE_SERVER:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainporthost
+  PHOTOPRISM_DATABASE_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
@@ -67,3 +80,9 @@ persistence:
     enabled: true
     mountPath: "/photoprism/temp"
     type: emptyDir
+
+mariadb:
+  enabled: true
+  mariadbUsername: photoprism
+  mariadbDatabase: photoprism
+  existingSecret: "mariadbcreds"
