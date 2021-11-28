@@ -9,22 +9,22 @@ service:
   main:
     ports:
       main:
-        port: 9091
-        targetPort: 9091
+        port: 10109
+        targetPort: 10109
   torrent:
     enabled: true
     ports:
       torrent:
         enabled: true
-        port: 51413
-        targetPort: 51413
+        port: 51414
+        targetPort: 51414
   torrentudp:
     enabled: true
     ports:
       torrentudp:
         enabled: true
-        port: 51413
-        targetPort: 51413
+        port: 51414
+        targetPort: 51414
         protocol: UDP
 
 env: {}
@@ -58,7 +58,7 @@ env: {}
   # TRANSMISSION_PEER_ID_TTL_HOURS: 6
   # TRANSMISSION_PEER_LIMIT_GLOBAL: 200
   # TRANSMISSION_PEER_LIMIT_PER_TORRENT: 50
-  # TRANSMISSION_PEER_PORT: 51413
+  TRANSMISSION_PEER_PORT: 51414
   # TRANSMISSION_PEER_PORT_RANDOM_HIGH: 65535
   # TRANSMISSION_PEER_PORT_RANDOM_LOW: 49152
   # TRANSMISSION_PEER_PORT_RANDOM_ON_START: false
@@ -78,7 +78,7 @@ env: {}
   # TRANSMISSION_RPC_HOST_WHITELIST: ""
   # TRANSMISSION_RPC_HOST_WHITELIST_ENABLED: false
   # TRANSMISSION_RPC_PASSWORD: ""
-  # TRANSMISSION_RPC_PORT: 9091
+  TRANSMISSION_RPC_PORT: 10109
   # TRANSMISSION_RPC_URL: "/transmission/"
   # TRANSMISSION_RPC_USERNAME: ""
   # TRANSMISSION_RPC_WHITELIST: ""

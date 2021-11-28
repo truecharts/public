@@ -222,7 +222,7 @@ questions:
           label: TRANSMISSION_PEER_PORT
           schema:
             type: int
-            default: 51413
+            default: 51414
         - variable: TRANSMISSION_PEER_PORT_RANDOM_HIGH
           label: TRANSMISSION_PEER_PORT_RANDOM_HIGH
           schema:
@@ -322,7 +322,7 @@ questions:
           label: TRANSMISSION_RPC_PORT
           schema:
             type: int
-            default: 9091
+            default: 10109
         - variable: TRANSMISSION_RPC_URL
           label: TRANSMISSION_RPC_URL
           schema:
@@ -448,7 +448,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9091
+                              default: 10109
                               editable: true
                               required: true
                           - variable: advanced
@@ -484,7 +484,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9091
+                                    default: 10109
 
 
         - variable: torrent
@@ -510,7 +510,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 51413
+                              default: 51414
                               editable: true
                               required: true
                           - variable: advanced
@@ -546,7 +546,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 51413
+                                    default: 51414
 
         - variable: torrentudp
           label: "UDP Torrent Service"
