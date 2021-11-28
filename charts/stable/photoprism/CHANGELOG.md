@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-6.0.0"></a>
+### [photoprism-6.0.0](https://github.com/truecharts/apps/compare/photoprism-5.0.12...photoprism-6.0.0) (2021-11-28)
+
+#### Feat
+
+* use mariadb instead of sqllite ([#1419](https://github.com/truecharts/apps/issues/1419))
+
+
+
 <a name="photoprism-5.0.12"></a>
 ### [photoprism-5.0.12](https://github.com/truecharts/apps/compare/photoprism-5.0.11...photoprism-5.0.12) (2021-11-23)
 

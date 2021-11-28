@@ -26,9 +26,17 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | env.UID | string | `nil` | Sets UID Photoprism runs under. |
 | env.UMASK | string | `nil` | Sets UMASK. |
+| envValueFrom.PHOTOPRISM_DATABASE_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |
+| envValueFrom.PHOTOPRISM_DATABASE_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
+| envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.key | string | `"plainporthost"` |  |
+| envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"docker.io/photoprism/photoprism"` | image repository |
 | image.tag | string | `"20211018@sha256:f61fb623187faa33d1e3f4d86e384cdf401442d4ba6bec96897f42fa4fbb84b4"` | image tag |
+| mariadb.enabled | bool | `true` |  |
+| mariadb.existingSecret | string | `"mariadbcreds"` |  |
+| mariadb.mariadbDatabase | string | `"photoprism"` |  |
+| mariadb.mariadbUsername | string | `"photoprism"` |  |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
