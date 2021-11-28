@@ -139,7 +139,7 @@ service:
     type: LoadBalancer
     ports:
       main:
-        port: 10200
+        port: 9000
         targetPort: 9000
         protocol: HTTP
   tcp:

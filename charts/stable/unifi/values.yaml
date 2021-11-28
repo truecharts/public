@@ -22,7 +22,7 @@ service:
     ports:
       comm:
         enabled: true
-        port: 10101
+        port: 8080
         targetPort: 8080
   stun:
     enabled: true
