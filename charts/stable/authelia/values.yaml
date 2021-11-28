@@ -1,5 +1,3 @@
-# Default values for Bitwarden.
-
 image:
   repository: ghcr.io/authelia/authelia
   pullPolicy: IfNotPresent
@@ -14,7 +12,7 @@ service:
   main:
     ports:
       main:
-        port: 9091
+        port: 10058
         targetPort: 9091
 
 persistence:

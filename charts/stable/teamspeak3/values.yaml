@@ -22,7 +22,6 @@ service:
       main:
         port: 10011
         targetPort: 10011
-        protocol: "TCP"
   voice:
     enabled: true
     ports:
@@ -30,7 +29,7 @@ service:
         enabled: true
         port: 9987
         targetPort: 9987
-        protocol: "UDP"
+        protocol: UDP
   files:
     enabled: true
     ports:
@@ -38,7 +37,6 @@ service:
         enabled: true
         port: 30033
         targetPort: 30033
-        protocol: "TCP"
 
 env:
   TS3SERVER_LICENSE: accept

@@ -48,21 +48,21 @@ service:
   main:
     ports:
       main:
-        port: 80
+        port: 10008
         targetPort: 80
   websocket:
     enabled: true
     ports:
       websocket:
         enabled: true
-        port: 443
+        port: 10001
         targetPort: 443
   vnc:
     enabled: true
     ports:
       vnc:
         enabled: true
-        port: 5900
+        port: 10002
         targetPort: 5900
 
 # -- Configure persistence settings for the chart under this key.

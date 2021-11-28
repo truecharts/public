@@ -38,7 +38,7 @@ service:
       cli:
         enabled: true
         targetPort: 9090
-        port: 9090
+        port: 10059
   playertcp:
     enabled: true
     ports:
@@ -53,6 +53,7 @@ service:
         enabled: true
         targetPort: 3483
         port: 3483
+        protocol: UDP
 
 persistence:
   config:

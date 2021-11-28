@@ -71,7 +71,7 @@ service:
   main:
     ports:
       main:
-        port: 80
+        port: 10029
         targetPort: 80
 
 # -- Configure persistence settings for the chart under this key.

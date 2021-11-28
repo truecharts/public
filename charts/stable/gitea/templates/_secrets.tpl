@@ -81,7 +81,7 @@ stringData:
     APP_DATA_PATH = /data
     DOMAIN = {{ $DOMAIN }}
     ENABLE_PPROF = false
-    HTTP_PORT = {{ .Values.service.main.ports.main.port }}
+    HTTP_PORT = {{ .Values.service.main.ports.main.targetPort }}
     PROTOCOL = http
     {{- if and ( .Values.ingress.main.enabled ) ( gt (len .Values.ingress.main.hosts) 0 ) }}
     ROOT_URL = {{ printf "https://%s" $DOMAIN }}
