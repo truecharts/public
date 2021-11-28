@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.14"></a>
+### [mariadb-1.0.14](https://github.com/truecharts/apps/compare/mariadb-1.0.13...mariadb-1.0.14) (2021-11-28)
+
+#### Chore
+
+* update common on dependencies
+
+
+
 <a name="mariadb-1.0.13"></a>
 ### [mariadb-1.0.13](https://github.com/truecharts/apps/compare/mariadb-1.0.12...mariadb-1.0.13) (2021-11-23)
 

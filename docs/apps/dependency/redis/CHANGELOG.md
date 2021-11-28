@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.15"></a>
+### [redis-1.0.15](https://github.com/truecharts/apps/compare/redis-1.0.14...redis-1.0.15) (2021-11-28)
+
+#### Chore
+
+* update common on dependencies
+
+
+
 <a name="redis-1.0.14"></a>
 ### [redis-1.0.14](https://github.com/truecharts/apps/compare/redis-1.0.13...redis-1.0.14) (2021-11-23)
 
