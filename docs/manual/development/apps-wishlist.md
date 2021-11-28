@@ -4,9 +4,13 @@ The goal is to gather some suggestions and forward them to iX-Systems.
 
 For easy reference the priorities are linked to a future release for reference purposes and should be read as "The following release or earlier".
 When given a priority the following is taken into account:
+
 - The amount of complaints about something
+
 - How invasive the change is, most likely, going to be vs. the time till the aimed release.
+
 - If there are any TrueCharts features that are currently "on-hold" or struggling, due to the lack of a certain feature
+
 - The added value a feature is going to have for TrueNAS SCALE
 
 
