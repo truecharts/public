@@ -10,13 +10,6 @@ When given a priority the following is taken into account:
 - The added value a feature is going to have for TrueNAS SCALE
 
 
-### Priority: High/Release
-
-##### GUI suggestions
-
-- When using rollback display a dropdown of available versions, instead of a textbox. [NAS-112060](https://jira.ixsystems.com/browse/NAS-112060)
-
-
 ### Priority: Medium/U1
 
 ##### GUI suggestions
