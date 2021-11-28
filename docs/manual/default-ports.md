@@ -100,7 +100,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | valheim                    |    supervisor   |    supervisor   |  9011 |    TCP   |                                         |
 | pihole                     |       main      |       main      |  9089 |    TCP   |                                         |
 | minio-console              |       main      |       main      |  9090 |    TCP   |                                         |
-| transmission               |       main      |       main      |  9091 |    TCP   |                                         |
+| transmission               |       main      |       main      |  10109 |    TCP   |                                         |
 | jacket                     |       main      |       main      |  9117 |   HTTP   |                                         |
 | unpoller                   |       main      |     metrics     |  9130 |    TCP   |                                         |
 | owncloud-ocis              |       main      |       main      |  9200 |    TCP   |                                         |
@@ -168,7 +168,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | handbrake                  |       vnc       |       vnc       | 10055 |    TCP   |                                         |
 | jdownloader2               |       vnc       |       vnc       | 10056 |    TCP   |                                         |
 | nzbget                     |       main      |       main      | 10057 |    TCP   |                                         |
-| authelia                   |       main      |       main      | 10058 |    TCP   |                                         |
+| authelia                   |       main      |       main      | 9091 |    TCP   |                                         |
 | logitech-media-server      |       cli       |       cli       | 10059 |    TCP   |                                         |
 | etherpad                   |       main      |       main      | 10060 |    TCP   |                                         |
 | thelounge                  |       main      |       main      | 10061 |    TCP   |                                         |
@@ -215,8 +215,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | collabora-online           |       main      |       main      | 10105 |    TCP   |                                         |
 | minio                      |       main      |       main      | 10106 |    TCP   |                                         |
 | minio                      |     console     |     console     | 10107 |    TCP   |                                         |
-| deluge                     |     torrent     |       tcp       | 10109 |    TCP   |                                         |
-| deluge                     |   torrent-udp   |       udp       | 10109 |    UDP   |                                         |
+| deluge                     |     torrent     |       tcp       | 51413 |    TCP   |                                         |
+| deluge                     |   torrent-udp   |       udp       | 51413 |    UDP   |                                         |
 | hyperion-ng                | boblightservice | boblightservice | 19333 |    TCP   |                                         |
 | hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |    TCP   |                                         |
 | hyperion-ng                | protobufservice | protobufservice | 19445 |    TCP   |                                         |
@@ -229,8 +229,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | xteve                      |       main      |       main      | 34400 |    TCP   |                                         |
 | appdaemon                  |       tcp       |       tcp       | 51050 |    TCP   |                                         |
 | podgrab                    |       tcp       |       tcp       | 51080 |    TCP   |                                         |
-| transmission               |     torrent     |     torrent     | 51413 |    TCP   |                                         |
-| transmission               |    torrentudp   |    torrentudp   | 51413 |    UDP   |                                         |
+| transmission               |     torrent     |     torrent     | 51414 |    TCP   |                                         |
+| transmission               |    torrentudp   |    torrentudp   | 51414 |    UDP   |                                         |
 | resilio-sync               |      bt-tcp     |      bt-tcp     | 55555 |    TCP   |                                         |
 | resilio-sync               |      bt-udp     |      bt-udp     | 55555 |    UDP   |                                         |
 
