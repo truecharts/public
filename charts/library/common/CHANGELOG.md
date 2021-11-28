@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.9.4"></a>
+### [common-8.9.4](https://github.com/truecharts/apps/compare/common-8.9.3...common-8.9.4) (2021-11-28)
+
+#### Fix
+
+* patch common mariadb linker
+
+
+
 <a name="common-8.9.3"></a>
 ### [common-8.9.3](https://github.com/truecharts/apps/compare/common-8.9.2...common-8.9.3) (2021-11-23)
 
