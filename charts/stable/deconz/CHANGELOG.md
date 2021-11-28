@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deconz-5.0.0"></a>
+### [deconz-5.0.0](https://github.com/truecharts/apps/compare/deconz-4.0.12...deconz-5.0.0) (2021-11-28)
+
+#### Fix
+
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+* Move to different container repo ([#1418](https://github.com/truecharts/apps/issues/1418))
+
+
+
 <a name="deconz-4.0.12"></a>
 ### [deconz-4.0.12](https://github.com/truecharts/apps/compare/deconz-4.0.11...deconz-4.0.12) (2021-11-23)
 

@@ -17,12 +17,12 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DECONZ_VNC_MODE | int | `1` | Enable VNC access to the container to view the deCONZ ZigBee mesh |
 | env.DECONZ_VNC_PASSWORD | string | `nil` | If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password "changeme" using a Secret. |
 | env.DECONZ_VNC_PORT | int | `5900` | VNC server listen port |
-| env.DECONZ_WEB_PORT | int | `80` | Web UI listen port |
-| env.DECONZ_WS_PORT | int | `443` | Websocket listen port |
+| env.DECONZ_WEB_PORT | int | `8080` | Web UI listen port |
+| env.DECONZ_WS_PORT | int | `6080` | Websocket listen port |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/truecharts/deconz"` | image repository |
-| image.tag | string | `"v2.13.01@sha256:92a7a439e6010e21265fa5beaa47b0172bc6b6682f4e2d26bcd43c772ff7ddbd"` | image tag |
+| image.repository | string | `"ghcr.io/deconz-community/deconz-docker"` | image repository |
+| image.tag | string | `"v2.13.02@sha256:ed4a88ee75eeaf04155c3e733cf38011247139ed265d178b67ddde46889eca8c"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
