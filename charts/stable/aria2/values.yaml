@@ -1,0 +1,51 @@
+image:
+  # -- image repository
+  repository: p3terx/aria2-pro
+  # -- image tag
+  tag: latest@sha256:2589527dfef6351d459f3a6781e4efef41d694878765b107413a6eb4bb6bbca7
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+  # -- environment variables. See more environment variables in the [Aria2c documentation](https://github.com/P3TERX/Aria2-Pro-Docker).
+  # @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  PUID: 568
+  UMASK_SET: 022
+  RPC_SECRET: ChangemeNow  # Or From a secret
+  RPC_PORT: 6800
+  # LISTEN_PORT: 6888
+
+  # -- Configures service settings for the chart.
+  # @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 6800
+        targetPort: 6800
+  listen:
+    enabled: true
+    ports:
+      listen:
+        enabled: true
+        port: 6888
+        targetPort: 6888
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+  # -- Configure persistence settings for the chart under this key.
+  # @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

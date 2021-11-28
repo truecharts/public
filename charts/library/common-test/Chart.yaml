@@ -1,31 +1,25 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: common-test
-version: 3.1.0
-# upstream_version:
-appVersion: none
-description: Helper chart to test different use cases of the common library
-type: application
+appVersion: "1.6.1"
+dependencies:
+- name: common
+  repository: file://../common
+  version: latest
 deprecated: false
+description: Helper chart to test different use cases of the common library
 home: https://github.com/truecharts/apps/tree/master/charts/library/common-test
 icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
 keywords:
-  - common-test
-  - truecharts
-  - common
-  - test
-sources:
-  - https://github.com/truecharts/apps/tree/master/charts/library/common-test
-dependencies:
-  - name: common
-    repository: file://../common
-    version: latest
-    # condition:
-    # tags:
-    # import-values:
-    # alias:
+- common-test
+- truecharts
+- common
+- test
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: truecharts.org
-# annotations:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: common-test
+sources:
+- https://github.com/truecharts/apps/tree/master/charts/library/common-test
+type: application
+version: 3.3.0

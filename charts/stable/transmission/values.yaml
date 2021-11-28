@@ -5,41 +5,32 @@ image:
   pullPolicy: IfNotPresent
   tag: v3.00@sha256:355f4036c53c782df1957de0e16c63f4298f5b596ae5e621fea8f9ef02dd09e6
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 service:
   main:
     ports:
       main:
-        port: 9091
+        port: 10109
+        targetPort: 10109
   torrent:
     enabled: true
-    type: ClusterIP
     ports:
-      tcp:
+      torrent:
         enabled: true
-        port: 51413
-        protocol: TCP
-      udp:
+        port: 51414
+        targetPort: 51414
+  torrentudp:
+    enabled: true
+    ports:
+      torrentudp:
         enabled: true
-        port: 51413
+        port: 51414
+        targetPort: 51414
         protocol: UDP
 
 env: {}
   # TZ: UTC
   # PUID: 1001
-  # PGID: 1001
+
   # TRANSMISSION_ALT_SPEED_DOWN: 50
   # TRANSMISSION_ALT_SPEED_ENABLED: false
   # TRANSMISSION_ALT_SPEED_TIME_BEGIN: 540
@@ -67,7 +58,7 @@ env: {}
   # TRANSMISSION_PEER_ID_TTL_HOURS: 6
   # TRANSMISSION_PEER_LIMIT_GLOBAL: 200
   # TRANSMISSION_PEER_LIMIT_PER_TORRENT: 50
-  # TRANSMISSION_PEER_PORT: 51413
+  TRANSMISSION_PEER_PORT: 51414
   # TRANSMISSION_PEER_PORT_RANDOM_HIGH: 65535
   # TRANSMISSION_PEER_PORT_RANDOM_LOW: 49152
   # TRANSMISSION_PEER_PORT_RANDOM_ON_START: false
@@ -87,7 +78,7 @@ env: {}
   # TRANSMISSION_RPC_HOST_WHITELIST: ""
   # TRANSMISSION_RPC_HOST_WHITELIST_ENABLED: false
   # TRANSMISSION_RPC_PASSWORD: ""
-  # TRANSMISSION_RPC_PORT: 9091
+  TRANSMISSION_RPC_PORT: 10109
   # TRANSMISSION_RPC_URL: "/transmission/"
   # TRANSMISSION_RPC_USERNAME: ""
   # TRANSMISSION_RPC_WHITELIST: ""
@@ -113,6 +104,3 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

@@ -3,35 +3,20 @@
 image:
   repository: ghcr.io/k8s-at-home/plex
   pullPolicy: IfNotPresent
-  tag: v1.24.2.4973-2b1b51db9@sha256:1f95a305586ca958c5a137f83ebc29cd2e110fcc37f1b6a4ca80f263bc518aaa
-
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-# 44=video 107=render
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: [44, 107]
-  fsGroupChangePolicy: "OnRootMismatch"
+  tag: v1.24.5.5173-8dcc73a59@sha256:b651efe17214c1cc06345466a3db5f62c0b4b8f3e49e0083e19d04f13001abc6
 
 service:
   main:
     ports:
       main:
         port: 32400
+        targetPort: 32400
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+
 
 env:
   ALLOWED_NETWORKS: "172.16.0.0/16"

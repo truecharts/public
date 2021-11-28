@@ -14,31 +14,18 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/zwavejs2mqtt"` |  |
-| image.tag | string | `"v5.5.4@sha256:8b5946e5e3384f8818766e20da7f576e243a364369366d631a80e7794cfdfa3b"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"v5.12.0@sha256:1d1870e8ccbb1cd2f6417e0f4879e8923e7ac56c88a1215bdc14eaeb69751a0c"` |  |
 | persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups[0] | int | `5` |  |
-| podSecurityContext.supplementalGroups[1] | int | `20` |  |
-| podSecurityContext.supplementalGroups[2] | int | `24` |  |
+| persistence.config.mountPath | string | `"/usr/src/app/store"` |  |
 | probes.liveness.enabled | bool | `true` |  |
 | probes.readiness.enabled | bool | `true` |  |
 | probes.startup.enabled | bool | `false` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `8091` |  |
+| service.main.ports.main.targetPort | int | `8091` |  |
 | service.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.port | int | `3000` |  |
-| service.ws.ports.ws.protocol | string | `"TCP"` |  |
-| service.ws.type | string | `"ClusterIP"` |  |
+| service.ws.ports.ws.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project

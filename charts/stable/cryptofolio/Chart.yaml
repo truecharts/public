@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "2.2.0"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+description: Track your cryptocurrency holdings/portfolio
+home: https://github.com/truecharts/apps/tree/master/charts/stable/cryptofolio
+icon: https://raw.githubusercontent.com/Xtrendence/Cryptofolio/main/website/assets/img/Logo.png
+keywords:
+- cryptofolio
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: cryptofolio
+sources:
+- https://github.com/Xtrendence/cryptofolio
+version: 2.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

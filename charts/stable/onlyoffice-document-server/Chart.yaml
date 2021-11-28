@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "6.4.2.6"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+description: 'ONLYOFFICE Document Server is an online office suite comprising viewers
+  and editors for texts, spreadsheets and presentations, fully compatible with Office
+  Open XML formats: .docx, .xlsx, .pptx and enabling collaborative editing in real
+  time.'
+home: https://github.com/truecharts/apps/tree/master/charts/stable/onlyoffice-ds-ce
+icon: https://avatars.githubusercontent.com/u/1426033?s=200&v=4
+keywords:
+- onlyoffice
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: onlyoffice-document-server
+sources:
+- https://github.com/ONLYOFFICE/DocumentServer
+- https://github.com/ONLYOFFICE/Docker-DocumentServer
+- https://hub.docker.com/r/onlyoffice/documentserver/
+version: 2.0.12
+annotations:
+  truecharts.org/catagories: |
+    - office
+    - documents
+    - productivity
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

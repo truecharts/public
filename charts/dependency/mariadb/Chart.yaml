@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "10.6.5"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+deprecated: false
+description: Fast, reliable, scalable, and easy to use open-source relational database system.
+home: https://github.com/truecharts/apps/tree/master/stable/mariadb
+icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+keywords:
+  - mariadb
+  - mysql
+  - database
+  - sql
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: mariadb
+sources:
+  - https://github.com/bitnami/bitnami-docker-mariadb
+  - https://github.com/prometheus/mysqld_exporter
+  - https://mariadb.org
+type: application
+version: 1.0.13
+annotations:
+  truecharts.org/catagories: |
+    - database
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -1,11 +1,11 @@
 apiVersion: v2
-appVersion: "1.4.3"
+appVersion: "1.5.0"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 7.0.12
+  version: 8.9.3
 description: Create live TV channel streams from media on your Plex servers.
-home: https://github.com/truechartsapps/tree/master/charts/incubator/dizquetv
+home: https://github.com/truechartsapps/tree/master/charts/stable/dizquetv
 icon: https://github.com/vexorian/dizquetv/raw/main/resources/dizquetv.png?raw=true
 keywords:
 - dizqueTV
@@ -13,10 +13,15 @@ keywords:
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
-  name: truecharts
+  name: TrueCharts
   url: https://truecharts.org
 name: dizquetv
 sources:
 - https://github.com/vexorian/dizquetv
 - https://hub.docker.com/r/vexorian/dizquetv
-version: 2.0.1
+version: 4.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

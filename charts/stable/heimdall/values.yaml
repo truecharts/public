@@ -2,20 +2,27 @@
 
 image:
   repository: ghcr.io/linuxserver/heimdall
-  tag: version-2.2.2@sha256:f27eb3bb634df8370d5d96496e53c31174252d68e6bb792dddea2e80fb703213
+  tag: version-2.2.2@sha256:e829e0aded2ba5f44b46723d73aa8daf8a23a0235cbbe9971524380f9141f0f8
   pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
     ports:
       main:
-        port: 80
+        port: 10014
+        targetPort: 80
 
 env: {}
   # TZ:
   # PUID:
-  # PGID:
-
 probes:
   startup:
     enabled: true
@@ -24,6 +31,3 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

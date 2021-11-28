@@ -21,20 +21,10 @@ You will, however, be able to use all values referenced in the common chart here
 | mariadb.auth.username | string | `"ombi"` |  |
 | mariadb.enabled | bool | `false` |  |
 | mariadb.primary.persistence.enabled | bool | `false` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `3579` |  |
+| service.main.ports.main.targetPort | int | `3579` |  |
 
 All Rights Reserved - The TrueCharts Project

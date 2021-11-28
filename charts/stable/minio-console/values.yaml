@@ -1,0 +1,45 @@
+image:
+  # -- image repository
+  repository: minio/console
+  # -- image tag
+  tag: v0.12.4@sha256:d14878133c2de31fad0b590eb6f7cb6420abf8f1f4ebb1d4e9b804363ea3e658
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- Override the args for the default container.
+args: ["server"]
+
+secret:
+  # -- Required: Passphrase to derive keys (generate own)
+  # Example: D6vpras1xpUgrcFpOIGA4crHvzUDQb48
+  CONSOLE_PBKDF_PASSPHRASE: "changeme"
+  # -- Required: Salt for derived keys (generate own)
+  # Example: ILy2FWzwjjYi1TeTEpBjEsPrwLfKZxgi
+  CONSOLE_PBKDF_SALT: "changeme"
+
+# -- environment variables. See more environment variables in the [minio-console documentation](https://minio-console.org/docs).
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Required: Minio server URL
+  # Example: https://minio.server:9000
+  CONSOLE_MINIO_SERVER: ""
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 9090
+        targetPort: 9090
+
+securityContext:
+  readOnlyRootFilesystem: false
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

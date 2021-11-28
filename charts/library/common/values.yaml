@@ -8,17 +8,18 @@ openvpnImage:
   # -- Specify the openvpn client image pull policy
   pullPolicy: IfNotPresent
 
-
 # -- WireGuard specific configuration
 # @default -- See below
 wireguardImage:
   # -- Specify the WireGuard image
   repository: ghcr.io/k8s-at-home/wireguard
   # -- Specify the WireGuard image tag
-  tag: v1.0.20210424@sha256:448045c4270b818ded47ec82b934e7227235402fbefa16e29800c2fb51d6de39
+  tag: v1.0.20210914@sha256:3799349a9b09c689ffce45a4cedecc735af4fbc901e31d9cdbce1de1bc76be4c
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
+# -- promtail specific configuration
+# @default -- See below
 promtailImage:
   # -- Specify the promtail image
   repository: ghcr.io/truecharts/promtail
@@ -27,36 +28,53 @@ promtailImage:
   # -- Specify the promtail image pull policy
   pullPolicy: IfNotPresent
 
-
+# -- netshoot specific configuration
+# @default -- See below
 netshootImage:
   # -- Specify the netshoot image
   repository: nicolaka/netshoot
   # -- Specify the netshoot image tag
-  tag: latest@sha256:ebc03105d7b4341723052b06d18b58698a0b7f88afc7b6fffd8a188fb729b85e
+  tag: latest@sha256:d6942ec583d8e2818f5a5d7a71c303e861a70a11396ad9e9d25b355842e97589
   # -- Specify the netshoot image pull policy
   pullPolicy: Always
 
+# -- codeserver specific configuration
+# @default -- See below
 codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: v3.11.1@sha256:b23b9ba33c9c648c27427b4243585c1a3c6cc4d5408ab3b3e18bdc97302c4862
+  tag: v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
+# -- alpine specific configuration
+# @default -- See below
 alpineImage:
-  # -- Specify the code-server image
+  # -- Specify the Alpine image
   repository: ghcr.io/truecharts/alpine
-  # -- Specify the code-server image tag
-  tag: v3.14.2@sha256:cfc1d8be3d2d397ec18af71caab3e96581fc4d43417400ef744d87201642ddad
-  # -- Specify the code-server image pull policy
+  # -- Specify the Alpine image tag
+  tag: v3.14.2@sha256:a537d87e3d22c5b3f695218ca1fb5a031fb0ccafa0e3e256ef45188ab0575be6
+  # -- Specify the Alpine image pull policy
   pullPolicy: IfNotPresent
+
+# -- postgresql specific configuration
+# @default -- See below
+postgresqlImage:
+  # -- Specify the postgresql image
+  repository: bitnami/postgresql
+  # -- Specify the postgresql image tag
+  tag: 14.1.0@sha256:9ba99644cbad69d08a9ad96656add5b498a57e692975878208d6ab32752eaa3c
+  # -- Specify the postgresql image pull policy
+  pullPolicy: IfNotPresent
+
 
 global:
   # -- Set an override for the prefix of the fullname
   nameOverride:
   # -- Set the entire name definition
   fullnameOverride:
+  isSCALE: false
 
 controller:
   # -- enable the controller.
@@ -238,7 +256,9 @@ dnsPolicy:  # ClusterFirst
 
 # -- Optional DNS settings, configuring the ndots option may resolve nslookup issues on some Kubernetes setups.
 dnsConfig:
-  options: []
+  options:
+    - name: ndots
+      value: "1"
   nameservers: []
   searches: []
 
@@ -246,14 +266,28 @@ dnsConfig:
 # [[ref]](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)
 enableServiceLinks: false
 
+# -- Can be used to set securityContext.capabilities outside of the GUI on TrueNAS SCALE
+customCapabilities:
+  drop: []
+  add: []
+
 # -- Configure the Security Context for the Pod
-podSecurityContext: {}
+podSecurityContext:
+  runAsUser: 568
+  runAsGroup: 568
+  fsGroup: 568
+  supplementalGroups: []
+  fsGroupChangePolicy: OnRootMismatch
 
 # -- Configure the Security Context for the main container
 securityContext:
   privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+  capabilities:
+    drop: []
+    add: []
 
 
 # -- Configure the lifecycle for the main container
@@ -288,9 +322,9 @@ probes:
     # If you selected `custom: true`, this field holds the definition of the livenessProbe.
     # @default -- See below
     spec:
-      initialDelaySeconds: 2
+      initialDelaySeconds: 10
       periodSeconds: 10
-      timeoutSeconds: 2
+      timeoutSeconds: 5
       failureThreshold: 5
 
   # -- Redainess probe configuration
@@ -310,9 +344,9 @@ probes:
     # If you selected `custom: true`, this field holds the definition of the readinessProbe.
     # @default -- See below
     spec:
-      initialDelaySeconds: 2
+      initialDelaySeconds: 10
       periodSeconds: 10
-      timeoutSeconds: 2
+      timeoutSeconds: 5
       failureThreshold: 5
 
   # -- Startup probe configuration
@@ -332,7 +366,7 @@ probes:
     # If you selected `custom: true`, this field holds the definition of the startupProbe.
     # @default -- See below
     spec:
-      initialDelaySeconds: 3
+      initialDelaySeconds: 10
       timeoutSeconds: 2
       ## This means it has a maximum of 5*30=150 seconds to start up before it fails
       periodSeconds: 5
@@ -351,7 +385,6 @@ termination:
   # -- Duration in seconds the pod needs to terminate gracefully
   # -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)]
   gracePeriodSeconds: 10
-
 
 # -- Configure additional services for the chart here.
 # @default -- See below
@@ -372,7 +405,11 @@ service:
     # -- Override the name suffix that is used for this service
     nameOverride:
 
+    # -- Override default selector
+    selector: {}
+
     # -- Set the service type
+    # Options: Simple(Loadbalancer), LoadBalancer, ClusterIP, NodePort
     type: ClusterIP
     annotationsList: []
     # - name: somename
@@ -420,7 +457,6 @@ service:
         # [[ref]](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport)
         nodePort:
 
-
 # -- Configure ingressList for the chart here.
 # Additional items can be added by adding a items similar to ingress
 # @default -- []
@@ -440,6 +476,9 @@ ingress:
 
     # -- Override the name suffix that is used for this ingress.
     nameOverride:
+
+    # -- disable to ignore any default middlwares
+    enableFixedMiddlewares: true
 
     # -- List of middlewares in the traefikmiddlewares k8s namespace to add automatically
     # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
@@ -505,6 +544,21 @@ deviceList: []
 # @default -- []
 persistenceList: []
 
+# -- Configure configMaps for the chart here.
+# Additional configMaps can be added by adding a dictionary key similar to the 'config' object.
+# @default -- See below
+configmap:
+  config:
+    # -- Enables or disables the configMap
+    enabled: false
+    # -- Labels to add to the configMap
+    labels: {}
+    # -- Annotations to add to the configMap
+    annotations: {}
+    # -- configMap data content. Helm template enabled.
+    data: {}
+      # foo: bar
+
 # -- Configure persistence for the chart here.
 # Additional items can be added by adding a dictionary key similar to the 'config' key.
 # @default -- See below
@@ -529,7 +583,7 @@ persistence:
     labels: {}
 
     # -- Sets the persistence type
-    # Valid options are pvc, emptyDir, hostPath or custom
+    # Valid options are: simplePVC, simpleHP, pvc, emptyDir, secret, configMap, hostPath or custom
     type: pvc
 
     # -- force the complete PVC name
@@ -566,7 +620,7 @@ persistence:
     accessMode: ReadWriteOnce
 
     # -- The amount of storage that is requested for the persistent volume.
-    size: 1Gi
+    size: 999Gi
 
     # - Set to true to retain the PVC upon `helm uninstall`
     retain: false
@@ -587,6 +641,50 @@ persistence:
     # specify a size for memory backed volumes.
     sizeLimit:  # 1Gi
 
+  # -- Create an emptyDir volume to share between all containers
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  # @default -- See below
+  varlogs:
+    enabled: true
+    type: emptyDir
+    mountPath: /var/logs
+
+    # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
+    # of the storage medium that backs the node.
+    medium:  # Memory
+
+    # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
+    # specify a size for memory backed volumes.
+    sizeLimit:  # 1Gi
+
+  # -- Create an emptyDir volume to share between all containers for temporary storage
+  # @default -- See below
+  temp:
+    enabled: true
+    type: emptyDir
+    mountPath: /tmp
+    # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
+    # of the storage medium that backs the node.
+    medium: Memory
+    # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
+    # specify a size for memory backed volumes.
+    sizeLimit:  # 1Gi
+
+  # -- Create an emptyDir volume to share between all containers
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)
+  # @default -- See below
+  varrun:
+    enabled: false
+    type: emptyDir
+    mountPath: /var/run
+    # -- Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead
+    # of the storage medium that backs the node.
+    medium: Memory
+    # -- If the `SizeMemoryBackedVolumes` feature gate is enabled, you can
+    # specify a size for memory backed volumes.
+    sizeLimit:  # 1Gi
+
+
   # -- Example of a hostPath mount
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
   # @default -- See below
@@ -595,9 +693,30 @@ persistence:
     type: hostPath
     # -- Which path on the host should be mounted.
     hostPath: /dev
+    # -- Automatic set permissions using chown and chmod
+    setPermissions: false
     # -- Where to mount the path in the main container.
     # Defaults to the value of `hostPath`
-    mountPath:  # /myDev
+    mountPath: "" # /myDev
+    # -- Specifying a hostPathType adds a check before trying to mount the path.
+    # See Kubernetes documentation for options.
+    hostPathType: ""
+    # -- Specify if the path should be mounted read-only.
+    readOnly: true
+
+  # -- Example of a Simple hostPath mount
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
+  # @default -- See below
+  host-simple-dev:
+    enabled: false
+    type: simpleHP
+    # -- Which path on the host should be mounted.
+    hostPathSimple: /dev
+    # -- Automatic set permissions using chown and chmod
+    setPermissionsSimple: false
+    # -- Where to mount the path in the main container.
+    # Defaults to the value of `hostPath`
+    mountPath: "" # /myDev
     # -- Specifying a hostPathType adds a check before trying to mount the path.
     # See Kubernetes documentation for options.
     hostPathType: ""
@@ -621,6 +740,40 @@ persistence:
       # configMap:
       #   defaultMode: 420
       #   name: my-settings
+
+  # -- Example of a configmap mount
+  # @default -- See below
+  configmap-example:
+    enabled: false
+    type: configMap
+    # -- Specify the name of the configmap object to be mounted
+    objectName: myconfig-map
+    # -- Where to mount the volume in the main container.
+    # Defaults to `/<name_of_the_volume>`,
+    # setting to '-' creates the volume but disables the volumeMount.
+    mountPath: # /custom-mount
+    # -- Specify if the volume should be mounted read-only.
+    readOnly: false
+
+  # -- Example of a secret mount
+  # @default -- See below
+  secret-example:
+    enabled: false
+    type: secret
+    # -- Specify the name of the secret object to be mounted
+    objectName: mysecret
+    # -- Where to mount the volume in the main container.
+    # Defaults to `/<name_of_the_volume>`,
+    # setting to '-' creates the volume but disables the volumeMount.
+    mountPath: # /custom-mount
+    # -- Specify if the volume should be mounted read-only.
+    readOnly: false
+    # -- define the default mount mode for the secret
+    defaultMode: 777
+    # -- Define the secret items to be mounted
+    items:
+      - key: username
+        path: my-group/my-username
 
 # -- Used in conjunction with `controller.type: statefulset` to create individual disks for each instance.
 volumeClaimTemplates: []
@@ -672,8 +825,8 @@ resources:
  # resources, such as Minikube. If you do want to specify resources, uncomment the following
  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-    cpu: 2000m
-    memory: 2Gi
+    cpu: 4000m
+    memory: 8Gi
   requests:
     cpu: 10m
     memory: 50Mi
@@ -692,15 +845,14 @@ addons:
     # @default -- See below
     openvpn:
       # -- Credentials to connect to the VPN Service (used with -a)
-      auth:  # "user;password"
-      # -- Optionally specify an existing secret that contains the credentials.
-      # Credentials should be stored under the `VPN_AUTH` key
-      authSecret:  # my-vpn-secret
+      # Only using password is enough
+      username: ""
+      password: ""
 
-    wireguard:
-      KILLSWITCH: false
-      KILLSWITCH_EXCLUDEDNETWORKS_IPV4:
-        - 192.168.0.0.1
+    killSwitch: true
+    excludedNetworks_IPv4: []
+    excludedNetworks_IPv6: []
+
     # -- Set the VPN container specific securityContext
     # @default -- See values.yaml
     securityContext: {}
@@ -713,13 +865,12 @@ addons:
     # -- All variables specified here will be added to the vpn sidecar container
     # See the documentation of the VPN image for all config values
     envList: []
-      # name: someenv
-      # value: somevalue
-
+      #- name: someenv
+      #  value: somevalue
 
     # -- Provide a customized vpn configuration file to be used by the VPN.
     configFile:
-      enabled: false
+      enabled: true
       type: hostPath
       # -- Which path on the host should be mounted.
       hostPath: /vpn/vpn.conf
@@ -727,7 +878,6 @@ addons:
       # -- Specifying a hostPathType adds a check before trying to mount the path.
       # See Kubernetes documentation for options.
       hostPathType: "File"
-
 
   # -- The common library supports adding a code-server add-on to access files. It can be configured under this key.
   # For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#code-server)
@@ -739,6 +889,12 @@ addons:
     # -- Set any environment variables for code-server here
     env: {}
       # TZ: UTC
+
+    # -- All variables specified here will be added to the codeserver sidecar container
+    # See the documentation of the codeserver image for all config values
+    envList: []
+      #- name: someenv
+      #  value: somevalue
     # -- Set codeserver command line arguments.
     # Consider setting --user-data-dir to a persistent location to preserve code-server setting changes
     args:
@@ -747,15 +903,9 @@ addons:
       # - --user-data-dir
       # - "/config/.vscode"
 
-    # -- Specify a list of volumes that get mounted in the code-server container.
-    # At least 1 volumeMount is required!
-    volumeMounts: []
-    # - name: config
-    #   mountPath: /data/config
-
     # -- Specify the working dir that will be opened when code-server starts
     # If not given, the app will default to the mountpah of the first specified volumeMount
-    workingDir: ""
+    workingDir: "/"
 
     # -- Optionally allow access a Git repository by passing in a private SSH key
     # @default -- See below
@@ -782,16 +932,13 @@ addons:
           ## Specify the nodePort value for the LoadBalancer and NodePort service types.
           ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
           ##
-          # nodePort:
-      annotations: {}
-      labels: {}
+          # nodePort: 36107
 
     ingress:
       # -- Enable an ingress for the code-server add-on.
       enabled: false
       annotations: {}
         # kubernetes.io/ingress.class: nginx
-        # kubernetes.io/tls-acme: "true"
       labels: {}
       hosts:
         - host: code.chart-example.local
@@ -800,12 +947,7 @@ addons:
               # Ignored if not kubeVersion >= 1.14-0
               pathType: Prefix
       tls: []
-      #  - secretName: chart-example-tls
-      #    hosts:
-      #      - code.chart-example.local
 
-    securityContext:
-      runAsUser: 0
 
   # -- The common library supports adding a promtail add-on to to access logs and ship them to loki. It can be configured under this key.
   # @default -- See values.yaml
@@ -814,6 +956,11 @@ addons:
     enabled: false
     # -- Set any environment variables for promtail here
     env: {}
+    # -- All variables specified here will be added to the promtail sidecar container
+    # See the documentation of the promtail image for all config values
+    envList: []
+      #- name: someenv
+      #  value: somevalue
     # -- Set promtail command line arguments
     args: []
     # -- The URL to Loki
@@ -822,13 +969,6 @@ addons:
     logs: []
     # - name: log
     #   path: /config/logs/*.log
-
-    # -- Specify a list of volumes that get mounted in the promtail container.
-    # At least 1 volumeMount is required!
-    volumeMounts: []
-    # - name: config
-    #   mountPath: /config
-    #   readOnly: true
 
     securityContext:
       runAsUser: 0
@@ -841,8 +981,36 @@ addons:
 
     # -- Set any environment variables for netshoot here
     env: {}
+    # -- All variables specified here will be added to the netshoot sidecar container
+    # See the documentation of the netshoot image for all config values
+    envList: []
+      #- name: someenv
+      #  value: somevalue
 
-    securityContext:
-      capabilities:
-        add:
-          - NET_ADMIN
+##
+# This section contains some-preconfig for frequently used dependencies
+##
+
+# -- Postgresql dependency configuration
+# @default -- See below
+postgresql:
+  enabled: false
+  existingSecret: "dbcreds"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  url: {}
+
+# -- Redis dependency configuration
+# @default -- See below
+redis:
+  enabled: false
+  existingSecret: "rediscreds"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  url: {}
+
+# -- mariadb dependency configuration
+# @default -- See below
+mariadb:
+  enabled: false
+  existingSecret: "mariadbcreds"
+  # -- can be used to make an easy accessable note which URLS to use to access the DB.
+  url: {}

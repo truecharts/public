@@ -3,10 +3,10 @@ appVersion: "2009.1.0"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 7.0.12
+  version: 8.9.3
 description: Booksonic is a platform for accessing the audibooks you own wherever
   you are
-home: https://github.com/truechartsapps/tree/master/charts/incubator/booksonic-air
+home: https://github.com/truechartsapps/tree/master/charts/stable/booksonic-air
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/booksonic-air.png
 keywords:
 - booksonic
@@ -14,10 +14,15 @@ keywords:
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
-  name: truecharts
+  name: TrueCharts
   url: https://truecharts.org
 name: booksonic-air
 sources:
 - https://github.com/popeen/Booksonic-Air
 - https://hub.docker.com/r/linuxserver/booksonic-air
-version: 2.0.1
+version: 4.0.13
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

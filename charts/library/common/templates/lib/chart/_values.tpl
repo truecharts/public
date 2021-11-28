@@ -1,5 +1,5 @@
 {{/* Merge the local chart values and the common chart defaults */}}
-{{- define "common.values.setup" -}}
+{{- define "common.values" -}}
   {{- if .Values.common -}}
     {{- $defaultValues := deepCopy .Values.common -}}
     {{- $userValues := deepCopy (omit .Values "common") -}}
@@ -90,7 +90,6 @@
    {{- end }}
    {{- end }}
 
-
   {{/* merge ingressList with ingress */}}
   {{- $ingDict := dict }}
   {{- range $index, $item := .Values.ingressList -}}
@@ -136,6 +135,7 @@
   {{- else if .Values.deviceList }}
   {{- $_ := set .Values.securityContext "privileged" true -}}
   {{- end }}
+
 
   {{/* save supplementalGroups to placeholder variables */}}
   {{- $fixedGroups := list 568 }}
@@ -195,4 +195,88 @@
   {{- end }}
   {{- end }}
 
+
+  {{/* automatically set CAP_NET_BIND_SERVICE */}}
+  {{- $fixedCapAdd := list }}
+  {{- $customCapAdd := list }}
+  {{- $valueCapAdd := list }}
+  {{- $dynamicCapAdd := list }}
+  {{- $fixedCapDrop := list }}
+  {{- $customCapDrop := list }}
+  {{- $valueCapDrop := list }}
+  {{- $dynamicCapDrop := list }}
+  {{- if .Values.securityContext.capabilities.add }}
+  {{- $valueCapAdd = .Values.securityContext.capabilities.add }}
+  {{- end }}
+  {{- if .Values.securityContext.capabilities.drop }}
+  {{- $valueCapDrop = .Values.securityContext.capabilities.drop }}
+  {{- end }}
+  {{- if .Values.customCapabilities.add }}
+  {{- $customCapAdd = .Values.customCapabilities.add }}
+  {{- end }}
+  {{- if .Values.customCapabilities.drop }}
+  {{- $customCapDrop = .Values.customCapabilities.drop }}
+  {{- end }}
+
+  {{- $privPort := false }}
+  {{- range .Values.service }}
+  {{- range $name, $values := .ports }}
+  {{- if and ( $values.targetPort ) ( kindIs "int" $values.targetPort ) }}
+  {{- if ( semverCompare "<= 1024" ( toString $values.targetPort ) ) }}
+  {{- $privPort = true }}
+  {{- end }}
+  {{- else if and ( $values.port ) ( kindIs "int" $values.port )  }}
+  {{- if ( semverCompare "<= 1024" ( toString $values.port ) ) }}
+  {{- $privPort = true }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+
+  {{- if $privPort }}
+  {{- $dynamicCapAdd = list "NET_BIND_SERVICE" }}
+  {{- end }}
+
+  {{/* combine and write all capabilities to .Values */}}
+  {{- $CapAdd := concat $fixedCapAdd $valueCapAdd $dynamicCapAdd }}
+  {{- $CapDrop := concat $fixedCapDrop $valueCapDrop $dynamicCapDrop }}
+  {{- if $CapDrop }}
+  {{- $_ := set .Values.securityContext.capabilities "drop" $CapDrop -}}
+  {{- end }}
+  {{- if $CapAdd }}
+  {{- $_ := set .Values.securityContext.capabilities "add" $CapAdd -}}
+  {{- end }}
+
+  {{- range .Values.persistence }}
+  {{- if .type }}
+  {{- if eq .type "simplePVC" }}
+  {{- $_ := set . "type" "pvc" }}
+  {{- end }}
+  {{- if eq .type "simpleHP" }}
+  {{- $_ := set . "type" "hostPath" }}
+  {{- if .setPermissionsSimple }}
+  {{- $_ := set . "setPermissions" .setPermissionsSimple }}
+  {{- end }}
+  {{- if .hostPathSimple }}
+  {{- $_ := set . "hostPath" .hostPathSimple }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+
+  {{- range .Values.volumeClaimTemplates }}
+  {{- if .type }}
+  {{- if eq .type "simplePVC" }}
+  {{- $_ := set . "type" "pvc" }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+
+  {{- range .Values.service }}
+  {{- if .type }}
+  {{- if eq .type "Simple" }}
+  {{- $_ := set . "type" "LoadBalancer" }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
 {{- end -}}

@@ -9,22 +9,17 @@ image:
   # -- image repository
   repository: shenxn/protonmail-bridge
   # -- image tag
-  tag: 1.8.7-1@sha256:acf31af7c111e6558f3a93bebada2b0bb8af3dcc72929bd6ae3907e65bee3ca4
+  tag: 1.8.10-1@sha256:c4e426125864f255c70b882b658b4af6830f1caa920da94140166a4a9e40dfc8
   # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables.
 # @default -- See below
@@ -36,21 +31,21 @@ env:
 # @default -- See values.yaml
 service:
   main:
+    enabled: false
     ports:
       main:
         enabled: false
+  smtp:
+    enabled: true
+    ports:
       smtp:
         enabled: true
-        protocol: TCP
         port: 25
-
+        targetPort: 25
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
   config:
     enabled: true
-    mountPath: /root
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+    mountPath: "/root"

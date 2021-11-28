@@ -1,10 +1,8 @@
 # TrueNAS SCALE Chart Structure
 
-A TrueNAS SCALE chart repository differs slightly in directory structure from upstream repos in that it includes an `app version` directory.
+This is a general synopsis about the structure of a SCALE App and/or Helm Chart, it does not directly reflect TrueCharts specific settings.
 
-A TrueNAS SCALE chart also has three additional files an `app-readme.md` file that provides a high level overview display in the TrueNAS SCALE UI and a `questions.yaml` file defining questions to prompt the user with and an `item.yaml` file outlining item specific details.
-
-There are 2 directories `charts` and `test`, each representing a train. Chart releases created from catalog items in a specific train cannot be moved to another train. Currently only the `charts` train can be used inside the UI.
+The following files are generally considered to be a "normal" Helm chart:
 
 ```
 charts/<train>/<chart name>/
@@ -15,11 +13,15 @@ charts/<train>/<chart name>/
   values.yaml              # The default configuration values for this chart
 ```
 
+
+The following files are specific for TrueNAS SCALE:
+
 ```
-charts/<train>/<chart name>/
-  app-readme.md            # TrueNAS SCALE Specific: Readme file for display in TrueNAS SCALE UI
+charts/<train>/<chart name>/SCALE/
+  app-readme.md            # TrueNAS SCALE Specific: Readme file for display in TrueNAS SCALE UI, automatically generated
   questions.yaml           # TrueNAS SCALE Specific: File containing questions for TrueNAS SCALE UI
   ix_values.yaml           # Hidden configuration values when installing using TrueNAS SCALE
+  item.yaml                # Contains generic information about the App for the TrueNAS SCALE UI
 ```
 
 *See the upstream Helm chart [developer reference](https://helm.sh/docs/chart_template_guide/) for a complete walk through of developing charts.*
@@ -34,14 +36,6 @@ categories:
 icon_url: "http://ix_url"
 ```
 
-After that create `app-readme.md` file.
-
-```
-$ cat charts/<train>/<chart name>/SCALE/app-readme.md
-
-iX-chart is a chart designed to let user deploy a docker image in a TrueNAS SCALE kubernetes cluster.
-It provides a mechanism to specify workload type, add external host interfaces in the pods, configure volumes and allocate host resources to the workload.
-```
 
 Then add a `questions.yaml` file to prompt the user for something.
 

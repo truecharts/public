@@ -1,0 +1,54 @@
+image:
+  repository: ghcr.io/nicholaswilde/shiori
+  pullPolicy: IfNotPresent
+  tag: version-v1.5.0@sha256:e0645abe677786f79bde80ac81f8d79c915e05cba2991c4cecd335f54335431c
+
+securityContext:
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# See more environment variables in the shiori documentation
+# https://github.com/go-shiori/shiori/wiki/Configuration#database
+env:
+  # TZ:
+  PUID: 568
+
+envTpl:
+  SHIORI_PG_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  SHIORI_PG_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+
+envValueFrom:
+  SHIORI_PG_PASS:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  SHIORI_PG_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+service:
+  main:
+    ports:
+      main:
+        port: 10098
+        targetPort: 8080
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  varrun:
+    enabled: true
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: shiori
+  postgresqlDatabase: shiori

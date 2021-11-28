@@ -3,26 +3,14 @@
 image:
   repository: ghcr.io/truecharts/navidrome
   pullPolicy: IfNotPresent
-  tag: v0.45.1@sha256:2600dc55b2ac7ae31d5c3a657e731a4fde56d76903a6b6e4fb0cfc7007091a0e
-
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
+  tag: v0.47.0@sha256:0ca8781ecf33f961d9e1157b8f0aa0ad8d69cde3dac99e8084bd34aa73094128
 
 service:
   main:
     ports:
       main:
         port: 4533
+        targetPort: 4533
 
 env:
   ND_SCANINTERVAL: "15m"
@@ -35,6 +23,3 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

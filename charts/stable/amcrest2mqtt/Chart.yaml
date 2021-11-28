@@ -1,0 +1,25 @@
+apiVersion: v2
+appVersion: "1.0.11"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+description: Expose all events from an Amcrest device to an MQTT broker
+home: https://github.com/truecharts/apps/tree/master/charts/stable/amcrest2mqtt
+icon: https://raw.githubusercontent.com/k8s-at-home/organization/main/logo/k8s-at-home-400.png
+keywords:
+- amcrest2mqtt
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: amcrest2mqtt
+sources:
+- https://github.com/dchesterton/amcrest2mqtt
+version: 2.0.14
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

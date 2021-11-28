@@ -15,11 +15,13 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/truecommand"` |  |
 | image.tag | string | `"v2.0.2@sha256:7b9ccdab38c82efd0a04e0bef8b99877c1efd25d88e319d1188fd3686ae29c22"` |  |
-| persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
-| persistence.data.size | string | `"100Gi"` |  |
-| persistence.data.type | string | `"pvc"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

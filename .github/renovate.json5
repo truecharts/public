@@ -97,7 +97,7 @@
     //
     // Versioning for linuxserver two-three digit container versions
     {
-      "packagePatterns": ["^linuxserver\\/"],
+      "packagePatterns": ["^linuxserver\\/","^deepquestai\\/"],
       "versionScheme": "regex:^(?<compatibility>.*?(\\d+\\.)??)(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?(-r?p?\\d)?$"
     },
     // Versioning for slightly problematic container versions
@@ -106,6 +106,7 @@
       "versioning": "loose",
       "matchPackageNames": [
         "ghcr.io/k8s-at-home/plex",
+        "ghcr.io/linuxserver/calibre",
         "ghcr.io/k8s-at-home/qbittorrent",
         "sirfragalot/hyperion.ng",
       ],

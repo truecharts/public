@@ -1,0 +1,35 @@
+apiVersion: v2
+appVersion: "1.8.14"
+version: 5.0.3
+kubeVersion: '>=1.16.0-0'
+name: etherpad
+description: A real-time collaborative editor scalable to thousands of simultaneous real time users.
+type: application
+home: "https://github.com/truecharts/apps/tree/main/charts/etherpad"
+icon: "https://github.com/truecharts/apps/raw/main/images/etherpad.jpg"
+keywords:
+  - etherpad
+  - editor
+  - notepad
+  - pad
+sources:
+  - https://etherpad.org/
+  - https://github.com/ether/etherpad-lite
+  - https://hub.docker.com/r/nicholaswilde/etherpad
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://truecharts.org/
+  version: 6.0.10
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

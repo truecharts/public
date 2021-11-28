@@ -1,6 +1,6 @@
 # Introduction
 
-Mylar is the automated Comic Book downloader (cbr/cbz) for use with various download clients.
+Mylar is a automated Comic Book downloader
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
@@ -19,7 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 7.0.12 |
+| https://truecharts.org | common | 8.9.3 |
 
 ## Installing the Chart
 

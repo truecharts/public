@@ -2,18 +2,22 @@
 The code-server sidecar container to be inserted.
 */}}
 {{- define "common.addon.codeserver.container" -}}
-{{- if lt (len .Values.addons.codeserver.volumeMounts) 1 }}
-{{- fail "At least 1 volumeMount is required for codeserver container" }}
-{{- end -}}
 name: codeserver
 image: "{{ .Values.codeserverImage.repository }}:{{ .Values.codeserverImage.tag }}"
 imagePullPolicy: {{ .Values.codeserverImage.pullPolicy }}
-{{- with .Values.addons.codeserver.securityContext }}
 securityContext:
-  {{- toYaml . | nindent 2 }}
-{{- end }}
-{{- with .Values.addons.codeserver.env }}
+  runAsUser: 0
+  runAsGroup: 0
 env:
+{{- range $envList := .Values.addons.codeserver.envList }}
+  {{- if and $envList.name $envList.value }}
+  - name: {{ $envList.name }}
+    value: {{ $envList.value | quote }}
+  {{- else }}
+  {{- fail "Please specify name/value for codeserver environment variable" }}
+  {{- end }}
+{{- end}}
+{{- with .Values.addons.codeserver.env }}
 {{- range $k, $v := . }}
   - name: {{ $k }}
     value: {{ $v | quote }}
@@ -29,10 +33,10 @@ args:
 {{- end }}
 - "--port"
 - "{{ .Values.addons.codeserver.service.ports.codeserver.port }}"
-- {{ .Values.addons.codeserver.workingDir | default (first .Values.addons.codeserver.volumeMounts).mountPath }}
+- {{ .Values.addons.codeserver.workingDir | default "/" }}
+{{- with (include "common.controller.volumeMounts" . | trim) }}
 volumeMounts:
-{{- with .Values.addons.codeserver.volumeMounts }}
-  {{- toYaml . | nindent 2 }}
+  {{ nindent 2 . }}
 {{- end }}
 {{- if or .Values.addons.codeserver.git.deployKey .Values.addons.codeserver.git.deployKeyBase64 .Values.addons.codeserver.git.deployKeySecret }}
   - name: deploykey

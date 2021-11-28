@@ -1,0 +1,69 @@
+image:
+  repository: bitnami/postgresql
+  pullPolicy: IfNotPresent
+  tag: 14.1.0@sha256:9ba99644cbad69d08a9ad96656add5b498a57e692975878208d6ab32752eaa3c
+
+controller:
+  # -- Set the controller type.
+  # Valid options are deployment, daemonset or statefulset
+  type: statefulset
+  # -- Number of desired pods
+  replicas: 1
+  # -- Set the controller upgrade strategy
+  # For Deployments, valid values are Recreate (default) and RollingUpdate.
+  # For StatefulSets, valid values are OnDelete and RollingUpdate (default).
+  # DaemonSets ignore this.
+  strategy: RollingUpdate
+  rollingUpdate:
+    # -- Set deployment RollingUpdate max unavailable
+    unavailable: 1
+    # -- Set deployment RollingUpdate max surge
+    surge:
+    # -- Set statefulset RollingUpdate partition
+    partition:
+  # -- ReplicaSet revision history limit
+  revisionHistoryLimit: 3
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 5432
+        targetPort: 5432
+
+## TODO: Fix the backup-on-upgrade system
+enableUpgradeBackup: false
+
+podSecurityContext:
+  runAsGroup: 0
+
+volumeClaimTemplates:
+  db:
+    enabled: true
+    mountPath: "/bitnami/postgresql"
+
+
+postgresqlPassword: "testpass"
+postgresqlUsername: "test"
+postgresqlDatabase: "test"
+postgrespassword: "testroot"
+existingSecret: ""
+
+envValueFrom:
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+      key: "postgresql-password"
+  POSTGRESQL_POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: '{{ ( tpl .Values.existingSecret $ ) | default ( include "common.names.fullname" . ) }}'
+      key: "postgresql-postgres-password"
+
+envTpl:
+  POSTGRES_USER: "{{ .Values.postgresqlUsername }}"
+  POSTGRES_DB: "{{ .Values.postgresqlDatabase }}"
+# POSTGRESQL_POSTGRES_PASSWORD: "{{ .Values.postgrespassword }}"
+# POSTGRESQL_PASSWORD: "{{ .Values.password }}"

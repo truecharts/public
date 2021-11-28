@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "3.00"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 deprecated: false
 description: API Support for your favorite torrent trackers.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/transmission
@@ -16,13 +16,15 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
-- email: kjeld@schouten-lebbing.nl
-  name: Ornias1993
-  url: truecharts.org
+  url: https://truecharts.org
 name: transmission
 sources:
 - https://github.com/transmission/transmission
 - https://hub.docker.com/r/linuxserver/transmission
 type: application
-version: 7.0.1
+version: 9.0.13
+annotations:
+  truecharts.org/catagories: |
+    - download-tools
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

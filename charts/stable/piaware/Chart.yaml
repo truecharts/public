@@ -3,9 +3,9 @@ appVersion: "6.1"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 7.0.12
+  version: 8.9.3
 description: Program for forwarding ADS-B data to FlightAware
-home: https://github.com/truechartsapps/tree/master/charts/incubator/piaware
+home: https://github.com/truechartsapps/tree/master/charts/stable/piaware
 icon: https://pbs.twimg.com/profile_images/964269455483088897/mr2UgvfG_400x400.jpg
 keywords:
 - piaware
@@ -14,9 +14,14 @@ keywords:
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
-  name: truecharts
+  name: TrueCharts
   url: https://truecharts.org
 name: piaware
 sources:
 - https://github.com/flightaware/piaware
-version: 2.0.1
+version: 4.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

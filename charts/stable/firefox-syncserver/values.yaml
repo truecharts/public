@@ -1,0 +1,51 @@
+image:
+  repository: ghcr.io/crazy-max/firefox-syncserver
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: 1.8.0@sha256:ab1a959d8105c478f0f1523c8c3bbdc53bb8d44f325501b93297bc80cf627da6
+
+secret:
+  FF_SYNCSERVER_SECRET: "changeme"
+
+securityContext:
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  TZ: "America/Los_Angeles"
+  PUID: 568
+  FF_SYNCSERVER_PUBLIC_URL: "firefox-syncserver.192.168.1.189.nip.io"
+  FF_SYNCSERVER_FORCE_WSGI_ENVIRON: true
+  FF_SYNCSERVER_ACCESSLOG: false
+  FF_SYNCSERVER_LOGLEVEL: "info"
+  FF_SYNCSERVER_ALLOW_NEW_USERS: true
+  FF_SYNCSERVER_FORWARDED_ALLOW_IPS: "*"
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: url
+
+service:
+  main:
+    ports:
+      main:
+        port: 10051
+        targetPort: 5000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: firefox-syncserver
+  postgresqlDatabase: firefox-syncserver

@@ -1,0 +1,67 @@
+# -- Configure the ingresses for the chart here.
+# Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
+# @default -- See below
+ingress:
+  main:
+    # -- Enables or disables the ingress
+    enabled: true
+
+    # -- Make this the primary ingress (used in probes, notes, etc...).
+    # If there is more than 1 ingress, make sure that only 1 ingress is marked as primary.
+    primary: true
+
+    # -- Override the name suffix that is used for this ingress.
+    nameOverride:
+
+    # -- List of middlewares in the traefikmiddlewares k8s namespace to add automatically
+    # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
+    # Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user
+    fixedMiddlewares:
+      - chain-basic
+
+    # -- Additional List of middlewares in the traefikmiddlewares k8s namespace to add automatically
+    # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
+    middlewares: []
+    annotationsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Provide additional annotations which may be required.
+    annotations: {}
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+
+    labelsList: []
+    # - name: somename
+    #   value: somevalue
+    # -- Set labels on the deployment/statefulset/daemonset
+    # -- Provide additional labels which may be required.
+    # -- Provide additional labels which may be required.
+    labels: {}
+
+    # -- Set the ingressClass that is used for this ingress.
+    # Requires Kubernetes >=1.19
+    ingressClassName:  # "nginx"
+
+    ## Configure the hosts for the ingress
+    hosts:
+      -  # -- Host address. Helm template can be passed.
+        host: chart-example.local
+        ## Configure the paths for the host
+        paths:
+          -  # -- Path.  Helm template can be passed.
+            path: /
+            # -- Ignored if not kubeVersion >= 1.14-0
+            pathType: Prefix
+            service:
+              # -- Overrides the service name reference for this path
+              name:
+              # -- Overrides the service port reference for this path
+              targetPort:
+
+    # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
+    tls: []
+    #  - secretName: chart-example-tls
+    # -- Create a secret from a GUI selected TrueNAS SCALE certificate
+    #    scaleCert: true
+    #    hosts:
+    #      - chart-example.local

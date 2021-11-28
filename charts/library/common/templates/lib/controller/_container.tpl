@@ -35,6 +35,16 @@
   {{- end }}
 
   env:
+    - name: PGID
+      value: {{ .Values.podSecurityContext.fsGroup | quote }}
+    - name: GROUP_ID
+      value: {{ .Values.podSecurityContext.fsGroup | quote }}
+    - name: GID
+      value: {{ .Values.podSecurityContext.fsGroup | quote }}
+   {{- if or ( .Values.securityContext.readOnlyRootFilesystem ) ( .Values.securityContext.runAsNonRoot ) }}
+    - name: S6_READ_ONLY_ROOT
+      value: "1"
+   {{- end }}
    {{- range $key, $value := .Values.envTpl }}
     - name: {{ $key }}
       value: {{ tpl $value $ | quote }}

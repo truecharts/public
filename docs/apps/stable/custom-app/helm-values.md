@@ -11,33 +11,8 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/jackett"` |  |
-| image.tag | string | `"v0.18.746@sha256:4caa9f57a10c07cca49935b6e039aa4c15eb20f28add18983bb62b028e245edd"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
-| service.main.enabled | bool | `true` |  |
-| service.main.ports.main.port | int | `9117` |  |
-| service.main.portsList[0].enabled | bool | `true` |  |
-| service.main.portsList[0].name | string | `"extraport"` |  |
-| service.main.portsList[0].port | int | `9118` |  |
-| serviceList[0].enabled | bool | `true` |  |
-| serviceList[0].name | string | `"extraservice"` |  |
-| serviceList[0].portsList[0].enabled | bool | `true` |  |
-| serviceList[0].portsList[0].name | string | `"extrasvcport"` |  |
-| serviceList[0].portsList[0].port | int | `9119` |  |
+| image.tag | string | `"v0.20.53@sha256:6f82922f155dfd72b23e1ce9ec84de8bbc2a12a362bfbd62d81bc3c3f58ac515"` |  |
 
 All Rights Reserved - The TrueCharts Project

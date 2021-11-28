@@ -21,48 +21,26 @@ You will, however, be able to use all values referenced in the common chart here
 | envFrom[0].configMapRef.name | string | `"nextcloudconfig"` |  |
 | envTpl.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
 | envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
-| envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"host"` |  |
+| envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainporthost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
-| envValueFrom.REDIS_HOST.secretKeyRef.key | string | `"masterhost"` |  |
+| envValueFrom.REDIS_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.REDIS_HOST.secretKeyRef.name | string | `"rediscreds"` |  |
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.key | string | `"redis-password"` |  |
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"docker.io/nextcloud"` |  |
-| image.tag | string | `"22.1.1@sha256:99d94124b2024c9f7f38dc12144a92bc0d68d110bcfd374169ebb7e8df0adf8e"` |  |
-| initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
-| initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
-| initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U nextcloud -h ${pghost} ; do sleep 2 ; done"` |  |
-| initContainers.init-postgresdb.env[0].name | string | `"pghost"` |  |
-| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
-| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| initContainers.init-postgresdb.image | string | `"{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"` |  |
-| initContainers.init-postgresdb.imagePullPolicy | string | `"IfNotPresent"` |  |
-| persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"22.2.3@sha256:5512b02fca6533626ed0a1799b2090255357de9b269d0a04d8f7a6d582438ccc"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html"` |  |
-| persistence.data.size | string | `"100Gi"` |  |
-| persistence.data.type | string | `"pvc"` |  |
-| persistence.redismaster.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.redismaster.enabled | bool | `true` |  |
-| persistence.redismaster.forceName | string | `"redismaster"` |  |
-| persistence.redismaster.noMount | bool | `true` |  |
-| persistence.redismaster.size | string | `"100Gi"` |  |
-| persistence.redismaster.type | string | `"pvc"` |  |
 | podSecurityContext.fsGroup | int | `33` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"nextcloud"` |  |
 | postgresql.postgresqlUsername | string | `"nextcloud"` |  |
-| postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
-| postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2"` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
@@ -70,18 +48,15 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.readiness.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.startup | object | See below | Startup probe configuration |
 | probes.startup.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
-| redis.architecture | string | `"standalone"` |  |
-| redis.auth.existingSecret | string | `"rediscreds"` |  |
-| redis.auth.existingSecretPasswordKey | string | `"redis-password"` |  |
 | redis.enabled | bool | `true` |  |
-| redis.master.persistence.enabled | bool | `false` |  |
-| redis.master.persistence.existingClaim | string | `"redismaster"` |  |
-| redis.replica.persistence.enabled | bool | `false` |  |
-| redis.replica.replicaCount | int | `0` |  |
-| redis.volumePermissions.enabled | bool | `true` |  |
+| redis.existingSecret | string | `"rediscreds"` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.hpb.enabled | bool | `true` |  |
 | service.hpb.ports.hpb.enabled | bool | `true` |  |
 | service.hpb.ports.hpb.port | int | `7867` |  |
+| service.hpb.ports.hpb.targetPort | int | `7867` |  |
 | service.main.ports.main.port | int | `80` |  |
+| service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project

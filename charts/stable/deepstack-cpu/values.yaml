@@ -3,23 +3,29 @@
 image:
   repository: deepquestai/deepstack
   pullPolicy: IfNotPresent
-  tag: cpu-2021.02.1@sha256:db1876e7a5c73111e0cd18e26b2401c20997afdea3f8f9f9116ef951b49ba5be
+  tag: cpu-2021.09.1@sha256:359dc8c6c5056891b2a4f419902616b8b8b9bc9068b0c20fd40e13bc7a5583b5
 
 service:
   main:
-    enabled: true
     ports:
       main:
-        port: 5000
+        port: 10049
+        targetPort: 5000
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 envTpl:
   # Permissions Settings
   USER_ID: "{{ .Values.env.PUID }}"
-  GROUP_ID: "{{ .Values.env.PGID }}"
-
 env:
-  PUID: "568"
-  PGID: "568"
+  PUID: 568
+
   # TZ: UTC
   VISION-FACE: "True"
   VISION-DETECTION: "True"
@@ -30,9 +36,6 @@ env:
   MODE: "High"
 
 persistence:
-  config:
+  data:
     enabled: true
     mountPath: "/datastore"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

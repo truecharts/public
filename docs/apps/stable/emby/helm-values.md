@@ -13,22 +13,11 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/emby"` |  |
-| image.tag | string | `"v4.6.4.0@sha256:3921a37cfd43abbc5be6fd6a2141488573c64f70d628b4a4731415713cbb12cd"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"v4.6.5.0@sha256:11b1f306d6309b60f16bf4292f9737c0a4a0020e93cfc1c0b36bc10b2680da40"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups[0] | int | `44` |  |
-| podSecurityContext.supplementalGroups[1] | int | `107` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `8096` |  |
+| service.main.ports.main.targetPort | int | `8096` |  |
 
 All Rights Reserved - The TrueCharts Project

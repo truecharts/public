@@ -16,29 +16,20 @@ You will, however, be able to use all values referenced in the common chart here
 | env.LATITUDE | int | `46` |  |
 | env.LONGITUDE | int | `-94` |  |
 | env.TZ | string | `"America/Chicago"` |  |
-| hostPathMounts[0].accessMode | string | `"ReadWriteOnce"` |  |
-| hostPathMounts[0].enabled | bool | `true` |  |
-| hostPathMounts[0].mountPath | string | `"/conf"` |  |
-| hostPathMounts[0].name | string | `"config"` |  |
-| hostPathMounts[0].size | string | `"100Gi"` |  |
-| hostPathMounts[0].type | string | `"pvc"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"docker.io/acockburn/appdaemon"` |  |
 | image.tag | string | `"v4.1.0@sha256:209ee1c83b4c0794dd6f50333f60a212d0df7c4205e7e374ac78d988ffc3d8fd"` |  |
-| podSecurityContext.fsGroup | int | `0` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
+| persistence.conf.enabled | bool | `true` |  |
+| persistence.conf.mountPath | string | `"/conf"` |  |
+| persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `5050` |  |
+| service.main.ports.main.targetPort | int | `5050` |  |
 | service.tcp.enabled | bool | `true` |  |
 | service.tcp.ports.tcp.enabled | bool | `true` |  |
 | service.tcp.ports.tcp.port | int | `51050` |  |
-| service.tcp.ports.tcp.protocol | string | `"TCP"` |  |
-| service.tcp.type | string | `"ClusterIP"` |  |
+| service.tcp.ports.tcp.targetPort | int | `51050` |  |
 
 All Rights Reserved - The TrueCharts Project

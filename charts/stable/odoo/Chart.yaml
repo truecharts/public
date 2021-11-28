@@ -1,0 +1,37 @@
+apiVersion: v2
+appVersion: "14.0"
+version: 4.0.3
+kubeVersion: '>=1.16.0-0'
+name: odoo
+description: All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting, PM, HR, Procurement, Point of Sale, MRP, Marketing, etc.
+type: application
+home: "https://github.com/truecharts/apps/tree/main/charts/odoo"
+icon: "https://pbs.twimg.com/profile_images/970608340014419969/1bpCWJhS_400x400.jpg"
+keywords:
+  - odoo
+  - crm
+  - pm
+  - hr
+  - accounting
+  - mrp
+  - marketing
+sources:
+  - https://www.odoo.com/
+  - https://hub.docker.com/repository/docker/nicholaswilde/odoo
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://truecharts.org/
+  version: 6.0.10
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

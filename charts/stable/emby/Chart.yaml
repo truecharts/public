@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "4.6.4.0"
+appVersion: "4.6.5.0"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 deprecated: false
 description: Emby Server is a home media server
 home: https://github.com/truecharts/apps/master/stable/emby
@@ -16,13 +16,15 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
-- email: dan.sheridan@postman.org.uk
-  name: djs52
-  url: truecharts.org
+  url: https://truecharts.org
 name: emby
 sources:
 - https://hub.docker.com/r/linuxserver/emby
 - https://github.com/linuxserver/docker-emby.git
 type: application
-version: 7.0.1
+version: 9.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

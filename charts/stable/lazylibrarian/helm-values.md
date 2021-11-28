@@ -14,12 +14,14 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/lazylibrarian"` |  |
-| image.tag | string | `"latest@sha256:15cb4204453e7f6d349575f9a616176eb1478ac91e9218e3bf6a4dd1c60490e1"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"latest@sha256:4dd1959efb36ab1268588a7663c960a69b01f0877cbd6a8c3e9088f705c2f0ec"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
+| persistence.varrun.enabled | bool | `true` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `5299` |  |
+| service.main.ports.main.targetPort | int | `5299` |  |
 
 All Rights Reserved - The TrueCharts Project

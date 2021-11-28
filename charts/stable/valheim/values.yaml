@@ -1,0 +1,82 @@
+image:
+  # -- image repository
+  repository: ghcr.io/lloesche/valheim-server
+  # -- image tag
+  tag: latest@sha256:4965e058399edc70c1ef4c0aafdb102787d283607a82884c8be983aac322b169
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [image docs](https://github.com/lloesche/valheim-server-docker#environment-variables) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  STATUS_HTTP: true
+  STATUS_HTTP_PORT: 9010
+  SUPERVISOR_HTTP_PORT: 9011
+  SUPERVISOR_HTTP: true
+  SUPERVISOR_HTTP_USER: admin
+  SUPERVISOR_HTTP_PASS: secret
+  SERVER_NAME: My Server
+  SERVER_PORT: 2456
+  WORLD_NAME: Dedicated
+  SERVER_PASS: secret
+  SERVER_PUBLIC: true
+  UPDATE_INTERVAL: 10800
+  BACKUPS: true
+  BACKUPS_INTERVAL: 43200
+  BACKUPS_DIRECTORY: /backups
+  BACKUPS_MAX_AGE: 3
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 9010
+        targetPort: 9010
+  supervisor:
+    enabled: true
+    ports:
+      supervisor:
+        enabled: true
+        port: 9011
+        targetPort: 9011
+  valheim:
+    enabled: true
+    type: LoadBalancer
+    ports:
+      valheim-1:
+        enabled: true
+        port: 2456
+        targetPort: 2456
+        protocol: UDP
+      valheim-2:
+        enabled: true
+        port: 2457
+        targetPort: 2457
+        protocol: UDP
+      valheim-3:
+        enabled: true
+        port: 2458
+        protocol: UDP
+        targetPort: 2458
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  backups:
+    enabled: true
+    mountPath: "/backups"

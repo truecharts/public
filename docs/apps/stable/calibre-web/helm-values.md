@@ -14,12 +14,14 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/calibre-web"` |  |
-| image.tag | string | `"version-0.6.12@sha256:d2e3980e7d0257c28d1e06a10d7f9cb0b3de6865a8d987e10af590fa6c4ebb77"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"version-0.6.12@sha256:938810eca3d3137221308afe9095773c8552a457dc0943abd0aec5613242b0b6"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8083` |  |
+| service.main.ports.main.targetPort | int | `8083` |  |
 
 All Rights Reserved - The TrueCharts Project

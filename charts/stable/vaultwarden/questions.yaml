@@ -1,0 +1,731 @@
+# Include{groups}
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+# Include{global}
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+# Include{fixedEnv}
+
+# Include{containerConfig}
+
+  - variable: vaultwarden
+    label: ""
+    group: "App Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: yubico
+          label: "Yubico OTP authentication"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Yubico OTP authentication"
+                description: "Please refer to the manual at: https://github.com/dani-garcia/vaultwarden/wiki/Enabling-Yubikey-OTP-authentication"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: server
+                      label: "Yubico server"
+                      description: "Defaults to YubiCloud"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: clientId
+                      label: "Yubico ID"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: secretKey
+                      label: "Yubico Secret Key"
+                      schema:
+                        type: string
+                        default: ""
+        - variable: admin
+          label: "Admin Portal"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Admin Portal"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: disableAdminToken
+                      label: "Make Accessible Without Password/Token"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: token
+                      label: "Admin Portal Password/Token"
+                      description: "Will be automatically generated if not defined"
+                      schema:
+                        type: string
+                        default: ""
+        - variable: icons
+          label: "Icon Download Settings"
+          schema:
+            type: dict
+            attrs:
+              - variable: disableDownload
+                label: "Disable Icon Download"
+                description: "Disables download of external icons. Setting to true will still serve icons from cache (/data/icon_cache)"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: cache
+                label: "Cache time-to-live"
+                description: "Cache time-to-live for icons fetched. 0 means no purging"
+                schema:
+                  type: int
+                  default: 2592000
+              - variable: token
+                label: "Failed Downloads Cache time-to-live"
+                description: "Cache time-to-live for icons that were not available. 0 means no purging."
+                schema:
+                  type: int
+                  default: 2592000
+        - variable: log
+          label: "Logging"
+          schema:
+            type: dict
+            attrs:
+              - variable: level
+                label: "Log level"
+                schema:
+                  type: string
+                  default: "info"
+                  required: true
+                  enum:
+                    - value: "trace"
+                      description: "trace"
+                    - value: "debug"
+                      description: "debug"
+                    - value: "info"
+                      description: "info"
+                    - value: "warn"
+                      description: "warn"
+                    - value: "error"
+                      description: "error"
+                    - value: "off"
+                      description: "off"
+              - variable: file
+                label: "Log-File Location"
+                schema:
+                  type: string
+                  default: ""
+        - variable: smtp
+          label: "SMTP Settings (Email)"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable SMTP Support"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: host
+                      label: "SMTP hostname"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: from
+                      label: "SMTP sender e-mail address"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: fromName
+                      label: "SMTP sender name"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: user
+                      label: "SMTP username"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: password
+                      label: "SMTP password"
+                      description: "Required is user is specified, ignored if no user provided"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: ssl
+                      label: "Enable SSL connection"
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: port
+                      label: "SMTP port"
+                      description: "Usually: 25 without SSL, 587 with SSL"
+                      schema:
+                        type: int
+                        default: 587
+                    - variable: authMechanism
+                      label: "SMTP Authentication Mechanisms"
+                      description: "Comma-separated options: Plain, Login and Xoauth2"
+                      schema:
+                        type: string
+                        default: "Plain"
+                    - variable: heloName
+                      label: "SMTP HELO - Hostname"
+                      description: "Hostname to be sent for SMTP HELO. Defaults to pod name"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: port
+                      label: "SMTP timeout"
+                      schema:
+                        type: int
+                        default: 15
+                    - variable: invalidHostname
+                      label: "Accept Invalid Hostname"
+                      description: "Accept SSL session if certificate is valid but hostname doesn't match. DANGEROUS, vulnerable to men-in-the-middle attacks!"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: invalidCertificate
+                      label: "Accept Invalid Certificate"
+                      description: "Accept invalid certificates. DANGEROUS, vulnerable to men-in-the-middle attacks!"
+                      schema:
+                        type: boolean
+                        default: false
+        - variable: allowSignups
+          label: "Allow Signup"
+          description: "Allow any user to sign-up: https://github.com/dani-garcia/vaultwarden/wiki/Disable-registration-of-new-users"
+          schema:
+            type: boolean
+            default: true
+        - variable: allowInvitation
+          label: "Always allow Invitation"
+          description: "Allow invited users to sign-up even feature is disabled: https://github.com/dani-garcia/vaultwarden/wiki/Disable-invitations"
+          schema:
+            type: boolean
+            default: true
+        - variable: defaultInviteName
+          label: "Default Invite Organisation Name"
+          description: "Default organization name in invitation e-mails that are not coming from a specific organization."
+          schema:
+            type: string
+            default: ""
+        - variable: showPasswordHint
+          label: "Show password hints"
+          description: "https://github.com/dani-garcia/vaultwarden/wiki/Password-hint-display"
+          schema:
+            type: boolean
+            default: true
+        - variable: signupwhitelistenable
+          label: "Enable Signup Whitelist"
+          description: "allowSignups is ignored if set"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: signupDomains
+                label: "Signup Whitelist Domains"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: domain
+                      label: "Domain"
+                      schema:
+                        type: string
+                        default: ""
+        - variable: verifySignup
+          label: "Verifiy Signup"
+          description: "Verify e-mail before login is enabled. SMTP must be enabled"
+          schema:
+            type: boolean
+            default: false
+        - variable: requireEmail
+          label: "Block Login if email fails"
+          description: "When a user logs in an email is required to be sent. If sending the email fails the login attempt will fail. SMTP must be enabled"
+          schema:
+            type: boolean
+            default: false
+        - variable: emailAttempts
+          label: "Email token reset attempts"
+          description: "Maximum attempts before an email token is reset and a new email will need to be sent"
+          schema:
+            type: int
+            default: 3
+        - variable: emailTokenExpiration
+          label: "Email token validity in seconds"
+          schema:
+            type: int
+            default: 600
+        - variable: enableWebsockets
+          label: "Enable Websocket Connections"
+          description: "Enable Websockets for notification. https://github.com/dani-garcia/vaultwarden/wiki/Enabling-WebSocket-notifications"
+          schema:
+            type: boolean
+            default: true
+            hidden: true
+        - variable: enableWebVault
+          label: "Enable Webvault"
+          description: "Enable Web Vault (static content). https://github.com/dani-garcia/vaultwarden/wiki/Disabling-or-overriding-the-Vault-interface-hosting"
+          schema:
+            type: boolean
+            default: true
+        - variable: orgCreationUsers
+          label: "Limit Organisation Creation to (users)"
+          description: "Restrict creation of orgs. Options are: 'all', 'none' or a comma-separated list of users."
+          schema:
+            type: string
+            default: "all"
+        - variable: attachmentLimitOrg
+          label: "Limit Attachment Disk Usage per Organisation"
+          schema:
+            type: string
+            default: ""
+        - variable: attachmentLimitUser
+          label: "Limit Attachment Disk Usage per User"
+          schema:
+            type: string
+            default: ""
+        - variable: hibpApiKey
+          label: "HaveIBeenPwned API Key"
+          description: "Can be purchased at https://haveibeenpwned.com/API/Key"
+          schema:
+            type: string
+            default: ""
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10102
+                              editable: true
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 8080
+
+
+        - variable: ws
+          label: "WebSocket Service"
+          description: "WebSocket Service"
+          schema:
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: ws
+                      label: "WebSocket Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 3012
+                              editable: true
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 3012
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      type: dict
+      attrs:
+        - variable: data
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: mountPath
+                label: "mountPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  type: string
+                  default: "/data"
+                  hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+
+# Include{persistenceList}
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
+# Include{ingressList}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: true
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+        - variable: supplementalGroups
+          label: "supplemental Groups"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: supplementalGroupsEntry
+                label: "supplemental Group"
+                schema:
+                  type: int
+        - variable: fsGroupChangePolicy
+          label: "When should we take ownership?"
+          schema:
+            type: string
+            default: "OnRootMismatch"
+            enum:
+              - value: "OnRootMismatch"
+                description: "OnRootMismatch"
+              - value: "Always"
+                description: "Always"
+
+# Include{resources}
+
+  - variable: autoscaling
+    group: "Resources and Devices"
+    label: "(Advanced) Horizontal Pod Autoscaler"
+    schema:
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "enabled"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: target
+                label: "Target"
+                description: "deployment name, defaults to main deployment"
+                schema:
+                  type: string
+                  default: ""
+              - variable: minReplicas
+                label: "Minimum Replicas"
+                schema:
+                  type: int
+                  default: 1
+              - variable: maxReplicas
+                label: "Maximum Replicas"
+                schema:
+                  type: int
+                  default: 5
+              - variable: targetCPUUtilizationPercentage
+                label: "Target CPU Utilization Percentage"
+                schema:
+                  type: int
+                  default: 80
+              - variable: targetMemoryUtilizationPercentage
+                label: "Target Memory Utilization Percentage"
+                schema:
+                  type: int
+                  default: 80
+
+# Include{addons}

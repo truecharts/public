@@ -1,0 +1,65 @@
+image:
+  # -- image repository
+  repository: sismics/docs
+  # -- image tag
+  tag: v1.9@sha256:bd52127b6509da4b07d7bbc48c7cc82dcbdc59ceab28d9239c591d0d0732f7af
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [application docs](https://github.com/sismics/docs) for more details.
+# @default -- See below
+secret:
+  # -- Defines the e-mail-address the admin user should have upon initialization
+  DOCS_ADMIN_EMAIL_INIT: ""
+  # -- Defines the password the admin user should have upon initialization. Needs to be a bcrypt hash.
+  DOCS_ADMIN_PASSWORD_INIT: ""
+  # -- The username of the SMTP-Server which should be used
+  DOCS_SMTP_USERNAME: ""
+  # -- The password of the SMTP-Server which should be used
+  DOCS_SMTP_PASSWORD: ""
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- The language which will be used as default
+  DOCS_DEFAULT_LANGUAGE: "eng"
+  # -- The base url used by the application
+  DOCS_BASE_URL: ""
+  # --  Hostname of the SMTP-Server to be used by Teedy
+  DOCS_SMTP_HOSTNAME: ""
+  # -- The port of the SMTP-Server which should be used
+  DOCS_SMTP_PORT: 0
+envTpl:
+  DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+
+envValueFrom:
+  DATABASE_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DATABASE_URL:
+    secretKeyRef:
+      name: dbcreds
+      key: jdbc
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 10100
+        targetPort: 8080
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+# -- Enable and configure postgresql database subchart under this key.
+# @default -- See values.yaml
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: teedyuser
+  postgresqlDatabase: teedydb

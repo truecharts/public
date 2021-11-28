@@ -1,27 +1,7 @@
-# Default values for Bitwarden.
-
 image:
   repository: ghcr.io/authelia/authelia
   pullPolicy: IfNotPresent
-  tag: 4.30.4@sha256:956a7577adeb3d430bb1fc00b08baa8aecddec3949dd767363a43fcc6465d34a
-
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: true
-  allowPrivilegeEscalation: false
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
-postgresqlImage:
-  repository: bitnami/postgresql
-  pullPolicy: IfNotPresent
-  tag: 13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2
+  tag: 4.32.2@sha256:4c46e56d219424542349fee05b643d854ab74df7a10207dc247dd36366ecfc25
 
 command: ["authelia"]
 args: ["--config=/configuration.yaml"]
@@ -33,62 +13,24 @@ service:
     ports:
       main:
         port: 9091
-
-initContainers:
-  init-postgresdb:
-    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
-    command:
-      - "sh"
-      - "-c"
-      - "until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"
-    imagePullPolicy: IfNotPresent
-    env:
-      - name: pghost
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
+        targetPort: 9091
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-  redismaster:
-    noMount: true
-    forceName: "redismaster"
-    enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-
 # Enabled postgres
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: authelia
   postgresqlDatabase: authelia
-  existingSecret: dbcreds
 
 # Enabled redis
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
 redis:
-  volumePermissions:
-    enabled: true
-  architecture: standalone
   enabled: true
-  auth:
-    existingSecret: rediscreds
-    existingSecretPasswordKey: redis-password
-  master:
-    persistence:
-      enabled: false
-      existingClaim: redismaster
-  replica:
-    replicaCount: 0
-    persistence:
-      enabled: false
+  existingSecret: "rediscreds"
 
 resources:
   limits: {}
@@ -533,7 +475,6 @@ regulation:
   ## The length of time before a banned user can login again. Ban Time accepts duration notation.
   ## See: https://www.authelia.com/docs/configuration/index.html#duration-notation-format
   ban_time: 5m
-
 
 ##
 ## Storage Provider Configuration

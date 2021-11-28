@@ -9,9 +9,17 @@ image:
   # -- image repository
   repository: ghcr.io/linuxserver/airsonic
   # -- image tag
-  tag: version-v10.6.2@sha256:531bdcbb5362bbd72d13ea91f11d386542f04a6cced1d8614e2091685c262057
+  tag: version-v10.6.2@sha256:0a0e49be383db9340c0a8258bb31c5916281ec18c8c3fb56006866d18f8e63e0
   # -- image pull policy
   pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 # -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-airsonic#environment-variables-e) for more details.
 # @default -- See below
@@ -19,9 +27,7 @@ env:
   # -- Set the container timezone
   TZ: UTC
   # -- Specify the user ID the application will run as
-  PUID: "1001"
-  # -- Specify the group ID the application will run as
-  PGID: "1001"
+  PUID: 568
   # -- Used to set the base path for reverse proxies eg. /booksonic, /books, etc.
   CONTEXT_PATH:  # "url-base"
   # -- For passing additional java options. For some reverse proxies, you may need to pass `JAVA_OPTS=-Dserver.use-forward-headers=true` for airsonic to generate the proper URL schemes.
@@ -33,7 +39,8 @@ service:
   main:
     ports:
       main:
-        port: 4040
+        port: 10047
+        targetPort: 4040
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
@@ -46,18 +53,4 @@ ingress:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-  music:
-    enabled: false
-    mountPath: /music
-  playlists:
-    enabled: false
-    mountPath: /playlists
-  podcasts:
-    enabled: false
-    mountPath: /podcasts
-  media:
-    enabled: false
-    mountPath: /media
+    mountPath: "/config"

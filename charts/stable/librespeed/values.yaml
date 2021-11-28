@@ -9,9 +9,17 @@ image:
   # -- image repository
   repository: ghcr.io/linuxserver/librespeed
   # -- image tag
-  tag: version-5.2.4@sha256:eb7eb6e42682cc941742bb626c66927fa8b9fb456bc7f7aa6535f24f2df4c2be
+  tag: version-5.2.4@sha256:e93c747b991071f73fa66d95b837b28bc370395b5d229141c8141a970bbfacfb
   # -- image pull policy
   pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 # -- environment variables. See [image docs](https://hub.docker.com/r/linuxserver/librespeed) for more details.
 # @default -- See below
@@ -19,9 +27,7 @@ env:
   # -- Set the container timezone
   TZ: UTC
   # -- Specify the user ID the application will run as
-  PUID: "1001"
-  # -- Specify the group ID the application will run as
-  PGID: "1001"
+  PUID: 568
   # PASSWORD:
   # CUSTOM_RESULTS:
   # DB_TYPE:
@@ -37,13 +43,12 @@ service:
   main:
     ports:
       main:
-        port: 80
+        port: 10016
+        targetPort: 80
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+    mountPath: "/config"

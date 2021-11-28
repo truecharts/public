@@ -3,122 +3,23 @@
 image:
   repository: ghcr.io/truecharts/vaultwarden
   pullPolicy: IfNotPresent
-  tag: v1.22.2@sha256:8693c057298731f507128a395395172d60093be9b299f6bf9e5c35512a74d457
-
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
-postgresqlImage:
-  repository: bitnami/postgresql
-  pullPolicy: IfNotPresent
-  tag: 13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2
-
+  tag: v1.23.0@sha256:1e65dd23569e566576c3c80de76f711e0b9fc5e29a39d45f49f0a44d1282d869
 
 service:
   main:
     ports:
       main:
-        port: 8080
+        port: 10102
+        targetPort: 8080
   ws:
+    enabled: true
     ports:
       ws:
         enabled: true
         port: 3012
+        targetPort: 3012
 
 env: {}
-
-# -- Configure the ingresses for the chart here.
-# Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
-# @default -- See below
-ingress:
-  main:
-    # -- Enables or disables the ingress
-    enabled: true
-
-    # -- Make this the primary ingress (used in probes, notes, etc...).
-    # If there is more than 1 ingress, make sure that only 1 ingress is marked as primary.
-    primary: true
-
-    # -- Override the name suffix that is used for this ingress.
-    nameOverride:
-
-    # -- List of middlewares in the traefikmiddlewares k8s namespace to add automatically
-    # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
-    # Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user
-    fixedMiddlewares:
-      - chain-basic
-
-    # -- Additional List of middlewares in the traefikmiddlewares k8s namespace to add automatically
-    # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
-    middlewares: []
-    annotationsList: []
-    # - name: somename
-    #   value: somevalue
-    # -- Provide additional annotations which may be required.
-    annotations: {}
-      # kubernetes.io/ingress.class: nginx
-      # kubernetes.io/tls-acme: "true"
-
-    labelsList: []
-    # - name: somename
-    #   value: somevalue
-    # -- Set labels on the deployment/statefulset/daemonset
-    # -- Provide additional labels which may be required.
-    # -- Provide additional labels which may be required.
-    labels: {}
-
-    # -- Set the ingressClass that is used for this ingress.
-    # Requires Kubernetes >=1.19
-    ingressClassName:  # "nginx"
-
-    ## Configure the hosts for the ingress
-    hosts:
-      -  # -- Host address. Helm template can be passed.
-        host: chart-example.local
-        ## Configure the paths for the host
-        paths:
-          -  # -- Path.  Helm template can be passed.
-            path: /
-            # -- Ignored if not kubeVersion >= 1.14-0
-            pathType: Prefix
-            service:
-              # -- Overrides the service name reference for this path
-              name:
-              # -- Overrides the service port reference for this path
-              port:
-
-    # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
-    tls: []
-    #  - secretName: chart-example-tls
-    # -- Create a secret from a GUI selected TrueNAS SCALE certificate
-    #    scaleCert: true
-    #    hosts:
-    #      - chart-example.local
-
-initContainers:
-  init-postgresdb:
-    image: "{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"
-    command:
-      - "sh"
-      - "-c"
-      - "until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"
-    imagePullPolicy: IfNotPresent
-    env:
-      - name: pghost
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
 
 envTpl:
   DOMAIN: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
@@ -248,13 +149,11 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+
 
 # Enabled postgres
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: vaultwarden
   postgresqlDatabase: vaultwarden
-  existingSecret: dbcreds

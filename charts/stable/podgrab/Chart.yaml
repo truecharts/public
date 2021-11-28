@@ -2,12 +2,12 @@ apiVersion: v2
 appVersion: "1.0.0"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 deprecated: false
 description: A self-hosted podcast manager to download episodes as soon as they become
   live.
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/podgrab
+home: https://github.com/truecharts/apps/tree/master/charts/stable/podgrab
 icon: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Podcasts_%28iOS%29.svg/1024px-Podcasts_%28iOS%29.svg.png
 keywords:
 - podgrab
@@ -15,13 +15,15 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
-- email: 20650065+warllo54@users.noreply.github.com
-  name: warllo54
-  url: truecharts.org
+  url: https://truecharts.org
 name: podgrab
 sources:
 - https://github.com/akhilrex/podgrab
 - https://hub.docker.com/r/akhilrex/podgrab
 type: application
-version: 5.0.1
+version: 7.0.12
+annotations:
+  truecharts.org/catagories: |
+    - mutlimedia
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

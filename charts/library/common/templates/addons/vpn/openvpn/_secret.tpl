@@ -2,7 +2,6 @@
 The OpenVPN credentials secrets to be included.
 */}}
 {{- define "common.addon.openvpn.secret" -}}
-{{- with .Values.addons.vpn.openvpn.auth }}
 ---
 apiVersion: v1
 kind: Secret
@@ -11,6 +10,5 @@ metadata:
   labels:
   {{- include "common.labels" $ | nindent 4 }}
 data:
-  VPN_AUTH: {{ . | b64enc }}
-{{- end -}}
+  VPN_AUTH: {{ ( printf "%v;%v" .Values.addons.vpn.openvpn.username .Values.addons.vpn.openvpn.password ) | b64enc }}
 {{- end -}}

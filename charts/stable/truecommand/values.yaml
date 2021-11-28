@@ -5,21 +5,25 @@ image:
   pullPolicy: IfNotPresent
   tag: v2.0.2@sha256:7b9ccdab38c82efd0a04e0bef8b99877c1efd25d88e319d1188fd3686ae29c22
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 service:
   main:
     ports:
       main:
-        port: 80
+        port: 10031
+        targetPort: 80
 
 env: {}
   # TZ: UTC
   # PUID: 1001
-  # PGID: 1001
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

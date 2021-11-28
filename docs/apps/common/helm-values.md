@@ -13,45 +13,51 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | addons.codeserver | object | See values.yaml | The common library supports adding a code-server add-on to access files. It can be configured under this key. For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#code-server) |
 | addons.codeserver.enabled | bool | `false` | Enable running a code-server container in the pod |
 | addons.codeserver.env | object | `{}` | Set any environment variables for code-server here |
+| addons.codeserver.envList | list | `[]` | All variables specified here will be added to the codeserver sidecar container See the documentation of the codeserver image for all config values |
 | addons.codeserver.git | object | See below | Optionally allow access a Git repository by passing in a private SSH key |
 | addons.codeserver.git.deployKey | string | `""` | Raw SSH private key |
 | addons.codeserver.git.deployKeyBase64 | string | `""` | Base64-encoded SSH private key. When both variables are set, the raw SSH key takes precedence. |
 | addons.codeserver.git.deployKeySecret | string | `""` | Existing secret containing SSH private key The chart expects it to be present under the `id_rsa` key. |
 | addons.codeserver.ingress.enabled | bool | `false` | Enable an ingress for the code-server add-on. |
 | addons.codeserver.service.enabled | bool | `true` | Enable a service for the code-server add-on. |
-| addons.codeserver.volumeMounts | list | `[]` | Specify a list of volumes that get mounted in the code-server container. At least 1 volumeMount is required! |
-| addons.codeserver.workingDir | string | `""` | Specify the working dir that will be opened when code-server starts If not given, the app will default to the mountpah of the first specified volumeMount |
+| addons.codeserver.workingDir | string | `"/"` | Specify the working dir that will be opened when code-server starts If not given, the app will default to the mountpah of the first specified volumeMount |
 | addons.netshoot | object | See values.yaml | The common library supports adding a netshoot add-on to troubleshoot network issues within a Pod. It can be configured under this key. |
 | addons.netshoot.enabled | bool | `false` | Enable running a netshoot container in the pod |
 | addons.netshoot.env | object | `{}` | Set any environment variables for netshoot here |
+| addons.netshoot.envList | list | `[]` | All variables specified here will be added to the netshoot sidecar container See the documentation of the netshoot image for all config values |
 | addons.promtail | object | See values.yaml | The common library supports adding a promtail add-on to to access logs and ship them to loki. It can be configured under this key. |
-| addons.promtail.args | list | `[]` | Set promtail command line arguments |
 | addons.promtail.enabled | bool | `false` | Enable running a promtail container in the pod |
 | addons.promtail.env | object | `{}` | Set any environment variables for promtail here |
+| addons.promtail.envList | list | `[]` | All variables specified here will be added to the promtail sidecar container See the documentation of the promtail image for all config values |
 | addons.promtail.logs | list | `[]` | The paths to logs on the volume |
 | addons.promtail.loki | string | `""` | The URL to Loki |
-| addons.promtail.volumeMounts | list | `[]` | Specify a list of volumes that get mounted in the promtail container. At least 1 volumeMount is required! |
 | addons.vpn | object | See values.yaml | The common chart supports adding a VPN add-on. It can be configured under this key. For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#wireguard-vpn) |
-| addons.vpn.configFile | object | `{"enabled":false,"hostPath":"/vpn/vpn.conf","hostPathType":"File","noMount":true,"type":"hostPath"}` | Provide a customized vpn configuration file to be used by the VPN. |
+| addons.vpn.configFile | object | `{"enabled":true,"hostPath":"/vpn/vpn.conf","hostPathType":"File","noMount":true,"type":"hostPath"}` | Provide a customized vpn configuration file to be used by the VPN. |
 | addons.vpn.configFile.hostPath | string | `"/vpn/vpn.conf"` | Which path on the host should be mounted. |
 | addons.vpn.configFile.hostPathType | string | `"File"` | Specifying a hostPathType adds a check before trying to mount the path. See Kubernetes documentation for options. |
 | addons.vpn.env | object | `{}` | All variables specified here will be added to the vpn sidecar container See the documentation of the VPN image for all config values |
 | addons.vpn.envList | list | `[]` | All variables specified here will be added to the vpn sidecar container See the documentation of the VPN image for all config values |
 | addons.vpn.openvpn | object | See below | OpenVPN specific configuration |
-| addons.vpn.openvpn.auth | string | `nil` | Credentials to connect to the VPN Service (used with -a) |
-| addons.vpn.openvpn.authSecret | string | `nil` | Optionally specify an existing secret that contains the credentials. Credentials should be stored under the `VPN_AUTH` key |
+| addons.vpn.openvpn.username | string | `""` | Credentials to connect to the VPN Service (used with -a) Only using password is enough |
 | addons.vpn.securityContext | object | See values.yaml | Set the VPN container specific securityContext |
 | addons.vpn.type | string | `"disabled"` | Specify the VPN type. Valid options are disabled, openvpn or wireguard |
 | affinity | object | `{}` | Defines affinity constraint rules. [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) |
-| alpineImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
-| alpineImage.repository | string | `"ghcr.io/truecharts/alpine"` | Specify the code-server image |
-| alpineImage.tag | string | `"v3.14.2@sha256:cfc1d8be3d2d397ec18af71caab3e96581fc4d43417400ef744d87201642ddad"` | Specify the code-server image tag |
+| alpineImage | object | See below | alpine specific configuration |
+| alpineImage.pullPolicy | string | `"IfNotPresent"` | Specify the Alpine image pull policy |
+| alpineImage.repository | string | `"ghcr.io/truecharts/alpine"` | Specify the Alpine image |
+| alpineImage.tag | string | `"v3.14.2@sha256:a537d87e3d22c5b3f695218ca1fb5a031fb0ccafa0e3e256ef45188ab0575be6"` | Specify the Alpine image tag |
 | args | list | `[]` | Override the args for the default container |
 | autoscaling | object | <disabled> | Add a Horizontal Pod Autoscaler |
+| codeserverImage | object | See below | codeserver specific configuration |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
-| codeserverImage.tag | string | `"v3.11.1@sha256:b23b9ba33c9c648c27427b4243585c1a3c6cc4d5408ab3b3e18bdc97302c4862"` | Specify the code-server image tag |
+| codeserverImage.tag | string | `"v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
+| configmap | object | See below | Configure configMaps for the chart here. Additional configMaps can be added by adding a dictionary key similar to the 'config' object. |
+| configmap.config.annotations | object | `{}` | Annotations to add to the configMap |
+| configmap.config.data | object | `{}` | configMap data content. Helm template enabled. |
+| configmap.config.enabled | bool | `false` | Enables or disables the configMap |
+| configmap.config.labels | object | `{}` | Labels to add to the configMap |
 | controller.annotations | object | `{}` |  |
 | controller.annotationsList | list | `[]` | Set additional annotations on the deployment/statefulset/daemonset |
 | controller.enabled | bool | `true` | enable the controller. |
@@ -64,8 +70,9 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | controller.rollingUpdate.unavailable | string | `nil` | Set deployment RollingUpdate max unavailable |
 | controller.strategy | string | `nil` | Set the controller upgrade strategy For Deployments, valid values are Recreate (default) and RollingUpdate. For StatefulSets, valid values are OnDelete and RollingUpdate (default). DaemonSets ignore this. |
 | controller.type | string | `"deployment"` | Set the controller type. Valid options are deployment, daemonset or statefulset |
+| customCapabilities | object | `{"add":[],"drop":[]}` | Can be used to set securityContext.capabilities outside of the GUI on TrueNAS SCALE |
 | deviceList | list | [] | Configure persistenceList for the chart here. Used to create an additional GUI element in SCALE for mounting USB devices Additional items can be added by adding a items similar to persistence |
-| dnsConfig | object | `{"nameservers":[],"options":[],"searches":[]}` | Optional DNS settings, configuring the ndots option may resolve nslookup issues on some Kubernetes setups. |
+| dnsConfig | object | `{"nameservers":[],"options":[{"name":"ndots","value":"1"}],"searches":[]}` | Optional DNS settings, configuring the ndots option may resolve nslookup issues on some Kubernetes setups. |
 | dnsPolicy | string | `nil` | Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true. |
 | enableServiceLinks | bool | `false` | Enable/disable the generation of environment variables for services. [[ref]](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service) |
 | env | object | `{}` | Main environment variables. Template enabled. Syntax options: A) TZ: UTC B) PASSWD: '{{ .Release.Name }}' C) PASSWD:      envFrom:        ... |
@@ -73,6 +80,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | envTpl | object | `{}` |  |
 | envValueFrom | object | `{}` |  |
 | global.fullnameOverride | string | `nil` | Set the entire name definition |
+| global.isSCALE | bool | `false` |  |
 | global.nameOverride | string | `nil` | Set an override for the prefix of the fullname |
 | hostAliases | list | `[]` | Use hostAliases to add custom entries to /etc/hosts - mapping IP addresses to hostnames. [[ref]](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/) |
 | hostNetwork | bool | `false` | When using hostNetwork make sure you set dnsPolicy to `ClusterFirstWithHostNet` |
@@ -81,6 +89,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | image.repository | string | `nil` | image repository |
 | image.tag | string | `nil` | image tag |
 | ingress | object | See below | Configure the ingresses for the chart here. Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress. |
+| ingress.main.enableFixedMiddlewares | bool | `true` | disable to ignore any default middlwares |
 | ingress.main.enabled | bool | `false` | Enables or disables the ingress |
 | ingress.main.fixedMiddlewares | list | `["chain-basic"]` | List of middlewares in the traefikmiddlewares k8s namespace to add automatically Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user |
 | ingress.main.hosts[0].host | string | `"chart-example.local"` | Host address. Helm template can be passed. |
@@ -96,9 +105,12 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | ingressList | list | [] | Configure ingressList for the chart here. Additional items can be added by adding a items similar to ingress |
 | initContainers | object | `{}` | Specify any initContainers here as dictionary items. Each initContainer should have its own key. The dictionary item key will determine the order. Helm templates can be used. |
 | lifecycle | object | `{}` | Configure the lifecycle for the main container |
+| mariadb | object | See below | mariadb dependency configuration |
+| mariadb.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
+| netshootImage | object | See below | netshoot specific configuration |
 | netshootImage.pullPolicy | string | `"Always"` | Specify the netshoot image pull policy |
 | netshootImage.repository | string | `"nicolaka/netshoot"` | Specify the netshoot image |
-| netshootImage.tag | string | `"latest@sha256:ebc03105d7b4341723052b06d18b58698a0b7f88afc7b6fffd8a188fb729b85e"` | Specify the netshoot image tag |
+| netshootImage.tag | string | `"latest@sha256:d6942ec583d8e2818f5a5d7a71c303e861a70a11396ad9e9d25b355842e97589"` | Specify the netshoot image tag |
 | networkPolicy | object | See below | Configure networkPolicy for the chart here. |
 | networkPolicy.egress | list | `[]` | add or remove egress policies |
 | networkPolicy.enabled | bool | `false` | Enables or disables the networkPolicy |
@@ -116,10 +128,14 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | persistence.config.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.config.nameOverride | string | `nil` | Override the name suffix that is used for this volume. |
 | persistence.config.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
-| persistence.config.size | string | `"1Gi"` | The amount of storage that is requested for the persistent volume. |
+| persistence.config.size | string | `"999Gi"` | The amount of storage that is requested for the persistent volume. |
 | persistence.config.storageClass | string | `nil` | Storage Class for the config volume. If set to `-`, dynamic provisioning is disabled. If set to `SCALE-ZFS`, the default provisioner for TrueNAS SCALE is used. If set to something else, the given storageClass is used. If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner. |
 | persistence.config.subPath | string | `nil` | Used in conjunction with `existingClaim`. Specifies a sub-path inside the referenced volume instead of its root |
-| persistence.config.type | string | `"pvc"` | Sets the persistence type Valid options are pvc, emptyDir, hostPath or custom |
+| persistence.config.type | string | `"pvc"` | Sets the persistence type Valid options are: simplePVC, simpleHP, pvc, emptyDir, secret, configMap, hostPath or custom |
+| persistence.configmap-example | object | See below | Example of a configmap mount |
+| persistence.configmap-example.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
+| persistence.configmap-example.objectName | string | `"myconfig-map"` | Specify the name of the configmap object to be mounted |
+| persistence.configmap-example.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
 | persistence.custom-mount | object | See below | Example of a custom mount |
 | persistence.custom-mount.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.custom-mount.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
@@ -127,17 +143,46 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | persistence.host-dev | object | See below | Example of a hostPath mount [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) |
 | persistence.host-dev.hostPath | string | `"/dev"` | Which path on the host should be mounted. |
 | persistence.host-dev.hostPathType | string | `""` | Specifying a hostPathType adds a check before trying to mount the path. See Kubernetes documentation for options. |
-| persistence.host-dev.mountPath | string | `nil` | Where to mount the path in the main container. Defaults to the value of `hostPath` |
+| persistence.host-dev.mountPath | string | `""` | Where to mount the path in the main container. Defaults to the value of `hostPath` |
 | persistence.host-dev.readOnly | bool | `true` | Specify if the path should be mounted read-only. |
+| persistence.host-dev.setPermissions | bool | `false` | Automatic set permissions using chown and chmod |
+| persistence.host-simple-dev | object | See below | Example of a Simple hostPath mount [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) |
+| persistence.host-simple-dev.hostPathSimple | string | `"/dev"` | Which path on the host should be mounted. |
+| persistence.host-simple-dev.hostPathType | string | `""` | Specifying a hostPathType adds a check before trying to mount the path. See Kubernetes documentation for options. |
+| persistence.host-simple-dev.mountPath | string | `""` | Where to mount the path in the main container. Defaults to the value of `hostPath` |
+| persistence.host-simple-dev.readOnly | bool | `true` | Specify if the path should be mounted read-only. |
+| persistence.host-simple-dev.setPermissionsSimple | bool | `false` | Automatic set permissions using chown and chmod |
+| persistence.secret-example | object | See below | Example of a secret mount |
+| persistence.secret-example.defaultMode | int | `777` | define the default mount mode for the secret |
+| persistence.secret-example.items | list | `[{"key":"username","path":"my-group/my-username"}]` | Define the secret items to be mounted |
+| persistence.secret-example.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
+| persistence.secret-example.objectName | string | `"mysecret"` | Specify the name of the secret object to be mounted |
+| persistence.secret-example.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
 | persistence.shared | object | See below | Create an emptyDir volume to share between all containers [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) |
 | persistence.shared.medium | string | `nil` | Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead of the storage medium that backs the node. |
 | persistence.shared.sizeLimit | string | `nil` | If the `SizeMemoryBackedVolumes` feature gate is enabled, you can specify a size for memory backed volumes. |
+| persistence.temp | object | See below | Create an emptyDir volume to share between all containers for temporary storage |
+| persistence.temp.medium | string | `"Memory"` | Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead of the storage medium that backs the node. |
+| persistence.temp.sizeLimit | string | `nil` | If the `SizeMemoryBackedVolumes` feature gate is enabled, you can specify a size for memory backed volumes. |
+| persistence.varlogs | object | See below | Create an emptyDir volume to share between all containers [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) |
+| persistence.varlogs.medium | string | `nil` | Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead of the storage medium that backs the node. |
+| persistence.varlogs.sizeLimit | string | `nil` | If the `SizeMemoryBackedVolumes` feature gate is enabled, you can specify a size for memory backed volumes. |
+| persistence.varrun | object | See below | Create an emptyDir volume to share between all containers [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) |
+| persistence.varrun.medium | string | `"Memory"` | Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead of the storage medium that backs the node. |
+| persistence.varrun.sizeLimit | string | `nil` | If the `SizeMemoryBackedVolumes` feature gate is enabled, you can specify a size for memory backed volumes. |
 | persistenceList | list | [] | Configure persistenceList for the chart here. Additional items can be added by adding a items similar to persistence |
 | podAnnotations | object | `{}` |  |
 | podAnnotationsList | list | `[]` | Set additional annotations on the pod |
 | podLabels | object | `{}` | Set labels on the pod |
 | podLabelsList | list | `[]` | Set additional labels on the pod |
-| podSecurityContext | object | `{}` | Configure the Security Context for the Pod |
+| podSecurityContext | object | `{"fsGroup":568,"fsGroupChangePolicy":"OnRootMismatch","runAsGroup":568,"runAsUser":568,"supplementalGroups":[]}` | Configure the Security Context for the Pod |
+| postgresql.enabled | bool | `false` |  |
+| postgresql.existingSecret | string | `"dbcreds"` |  |
+| postgresql.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
+| postgresqlImage | object | See below | postgresql specific configuration |
+| postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
+| postgresqlImage.repository | string | `"bitnami/postgresql"` | Specify the postgresql image |
+| postgresqlImage.tag | string | `"14.1.0@sha256:9ba99644cbad69d08a9ad96656add5b498a57e692975878208d6ab32752eaa3c"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
@@ -158,6 +203,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | probes.startup.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.startup.spec | object | See below | The spec field contains the values for the default startupProbe. If you selected `custom: true`, this field holds the definition of the startupProbe. |
 | probes.startup.type | string | "TCP" | sets the probe type when not using a custom probe |
+| promtailImage | object | See below | promtail specific configuration |
 | promtailImage.pullPolicy | string | `"IfNotPresent"` | Specify the promtail image pull policy |
 | promtailImage.repository | string | `"ghcr.io/truecharts/promtail"` | Specify the promtail image |
 | promtailImage.tag | string | `"v2.3.0@sha256:90019c5e4198d3253126fcc0c90db11b961ddf0a3c2906766f4611770beabdf2"` | Specify the promtail image tag |
@@ -169,10 +215,12 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | rbac.enabled | bool | `false` | Enables or disables the ClusterRole and ClusterRoleBinding |
 | rbac.rules | object | `{}` | Set Rules on the ClusterRole |
 | rbac.subjects | object | `{}` | Add subjects to the ClusterRoleBinding. includes the above created serviceaccount |
-| resources | object | `{"limits":{"cpu":"2000m","memory":"2Gi"},"requests":{"cpu":"10m","memory":"50Mi"}}` | Set the resource requests / limits for the main container. |
+| redis | object | See below | Redis dependency configuration |
+| redis.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
+| resources | object | `{"limits":{"cpu":"4000m","memory":"8Gi"},"requests":{"cpu":"10m","memory":"50Mi"}}` | Set the resource requests / limits for the main container. |
 | schedulerName | string | `nil` | Allows specifying a custom scheduler name |
 | secret | object | `{}` | Use this to populate a secret with the values you specify. Be aware that these values are not encrypted by default, and could therefore visible to anybody with access to the values.yaml file. |
-| securityContext | object | `{"allowPrivilegeEscalation":true,"privileged":false,"readOnlyRootFilesystem":false}` | Configure the Security Context for the main container |
+| securityContext | object | `{"allowPrivilegeEscalation":false,"capabilities":{"add":[],"drop":[]},"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true}` | Configure the Security Context for the main container |
 | service | object | See below | Configure the services for the chart here. Additional services can be added by adding a dictionary key similar to the 'main' service. |
 | service.main.enabled | bool | `true` | Enables or disables the service |
 | service.main.nameOverride | string | `nil` | Override the name suffix that is used for this service |
@@ -185,7 +233,8 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | service.main.ports.main.targetPort | string | `nil` | Specify a service targetPort if you wish to differ the service port from the application port. If `targetPort` is specified, this port number is used in the container definition instead of the `port` value. Therefore named ports are not supported for this field. |
 | service.main.portsList | list | See below | Configure additional Service port information here. |
 | service.main.primary | bool | `true` | Make this the primary service (used in probes, notes, etc...). If there is more than 1 service, make sure that only 1 service is marked as primary. |
-| service.main.type | string | `"ClusterIP"` | Set the service type |
+| service.main.selector | object | `{}` | Override default selector |
+| service.main.type | string | `"ClusterIP"` | Set the service type Options: Simple(Loadbalancer), LoadBalancer, ClusterIP, NodePort |
 | serviceAccount | object | See below | Create serviceaccount |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `false` | Specifies whether a service account should be created |
@@ -200,6 +249,6 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | wireguardImage | object | See below | WireGuard specific configuration |
 | wireguardImage.pullPolicy | string | `"IfNotPresent"` | Specify the WireGuard image pull policy |
 | wireguardImage.repository | string | `"ghcr.io/k8s-at-home/wireguard"` | Specify the WireGuard image |
-| wireguardImage.tag | string | `"v1.0.20210424@sha256:448045c4270b818ded47ec82b934e7227235402fbefa16e29800c2fb51d6de39"` | Specify the WireGuard image tag |
+| wireguardImage.tag | string | `"v1.0.20210914@sha256:3799349a9b09c689ffce45a4cedecc735af4fbc901e31d9cdbce1de1bc76be4c"` | Specify the WireGuard image tag |
 
 All Rights Reserved - The TrueCharts Project

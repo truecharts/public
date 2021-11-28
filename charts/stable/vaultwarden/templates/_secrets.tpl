@@ -33,28 +33,4 @@ data:
   YUBICO_CLIENT_ID: {{ $yubicoClientId }}
   YUBICO_SECRET_KEY: {{ required "Yubico Secret Key required" .Values.vaultwarden.yubico.secretKey | b64enc | quote }}
   {{- end }}
-
----
-
-apiVersion: v1
-kind: Secret
-metadata:
-  labels:
-    {{- include "common.labels" . | nindent 4 }}
-  name: dbcreds
-{{- $previous := lookup "v1" "Secret" .Release.Namespace "dbcreds" }}
-{{- $dbPass := "" }}
-data:
-{{- if $previous }}
-  {{- $dbPass = ( index $previous.data "postgresql-password" ) | b64dec  }}
-  postgresql-password: {{ ( index $previous.data "postgresql-password" ) }}
-  postgresql-postgres-password: {{ ( index $previous.data "postgresql-postgres-password" ) }}
-{{- else }}
-  {{- $dbPass = randAlphaNum 50 }}
-  postgresql-password: {{ $dbPass | b64enc | quote }}
-  postgresql-postgres-password: {{ randAlphaNum 50 | b64enc | quote }}
-{{- end }}
-  url: {{ ( printf "%v%v:%v@%v-%v:%v/%v" "postgresql://" .Values.postgresql.postgresqlUsername $dbPass .Release.Name "postgresql" "5432" .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}
-  plainhost: {{ ( printf "%v-%v" .Release.Name "postgresql" ) | b64enc | quote }}
-type: Opaque
 {{- end -}}

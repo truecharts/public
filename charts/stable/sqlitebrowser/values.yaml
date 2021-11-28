@@ -1,0 +1,29 @@
+image:
+  repository: ghcr.io/linuxserver/sqlitebrowser
+  pullPolicy: IfNotPresent
+  tag: version-3.12.2-02876202105241947ubuntu18.04.1@sha256:9a0677d5cf9290fbd9405ed41318b5871aeb6036929a6ecf910c22fc87273b36
+
+env:
+  PUID: 568
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        targetPort: 3000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

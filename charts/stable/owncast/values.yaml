@@ -9,10 +9,17 @@ image:
 # -- image repository
   repository: ghcr.io/truecharts/owncast
   # -- image tag
-  tag: v0.0.8@sha256:5a271ca7d7870bfc9ef777190c882f373063624013cf67517e73c9ef4bdd338d
+  tag: v0.0.10@sha256:59e455798cacf118a74184755b060f48bcc05dc56bb9d4f696bcc77f411f1ad0
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml
@@ -20,16 +27,15 @@ service:
   main:
     ports:
       main:
-        port: 8080
+        port: 10088
+        targetPort: 8080
   rtmp:
     enabled: true
-    type: NodePort
     externalTrafficPolicy: Local
     ports:
       rtmp:
         enabled: true
         port: 1935
-        protocol: TCP
         targetPort: 1935
 
 
@@ -38,7 +44,4 @@ service:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /app/data
+    mountPath: "/app/data"

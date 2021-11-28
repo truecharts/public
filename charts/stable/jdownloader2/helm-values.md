@@ -15,25 +15,29 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DISPLAY_HEIGHT | string | `"768"` |  |
 | env.DISPLAY_WIDTH | string | `"1280"` |  |
 | env.KEEP_APP_RUNNING | string | `"0"` |  |
-| env.PGID | string | `"568"` |  |
-| env.PUID | string | `"568"` |  |
+| env.PUID | int | `568` |  |
 | env.SECURE_CONNECTION | string | `"0"` |  |
-| env.VNC_PASSWORD | string | `nil` |  |
-| envTpl.GROUP_ID | string | `"{{ .Values.env.PGID }}"` |  |
+| env.VNC_PASSWORD | string | `""` |  |
 | envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/jdownloader-2"` |  |
 | image.tag | string | `"v1.7.1@sha256:ed3299aa7037a99aed5978c30e504ce3daa470d11b6af9533355592c64c3cced"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `5800` |  |
+| service.main.ports.main.targetPort | int | `5800` |  |
+| service.myjd.enabled | bool | `true` |  |
+| service.myjd.ports.myjd.enabled | bool | `true` |  |
+| service.myjd.ports.myjd.port | int | `3129` |  |
+| service.myjd.ports.myjd.targetPort | int | `3129` |  |
 | service.vnc.enabled | bool | `true` |  |
 | service.vnc.ports.vnc.enabled | bool | `true` |  |
 | service.vnc.ports.vnc.port | int | `5900` |  |
 | service.vnc.ports.vnc.protocol | string | `"TCP"` |  |
-| service.vnc.type | string | `"ClusterIP"` |  |
+| service.vnc.ports.vnc.targetPort | int | `5900` |  |
 
 All Rights Reserved - The TrueCharts Project

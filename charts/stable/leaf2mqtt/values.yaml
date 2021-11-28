@@ -1,0 +1,44 @@
+image:
+  # -- Image repository
+  repository: ghcr.io/k8s-at-home/leaf2mqtt
+  # -- Image tag
+  tag: v0.5@sha256:38af096ee01683a958ff457dea40325bf841d87cb9e95ec2c41ae8fb20ab575a
+  # -- Image pull policy
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    enabled: false
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+secret:
+  LEAF_USERNAME: "leafuser"
+  LEAF_PASSWORD: "changeme"
+  MQTT_USERNAME: "mqttuser"
+  MQTT_PASSWORD: "changeme"
+
+# -- environment variables. See [image docs](https://github.com/mitsumaui/leaf2mqtt) for more details.
+# @default -- See below
+env:
+  LEAF_TYPE: ""
+  MQTT_HOST: ""
+  MQTT_PORT: 1883
+  MQTT_BASE_TOPIC: leaf
+  UPDATE_INTERVAL_MINUTES: 60
+  CHARGING_UPDATE_INTERVAL_MINUTES: 60
+  LOG_LEVEL: "Warning"

@@ -13,30 +13,24 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/syncthing"` |  |
-| image.tag | string | `"v1.18.2@sha256:780c4924c4739d707295bd74fd21a186a640bd71f15efc2fcbc9fb9b05162a0d"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"v1.18.4@sha256:cc2bd691927ec19b9aac2d4a3e2330cb0ce9458dda761ead7dddd5f2d8338221"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/syncthing/"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
+| service.discovery.enabled | bool | `true` |  |
 | service.discovery.ports.discovery.enabled | bool | `true` |  |
 | service.discovery.ports.discovery.port | int | `21027` |  |
 | service.discovery.ports.discovery.protocol | string | `"UDP"` |  |
+| service.discovery.ports.discovery.targetPort | int | `21027` |  |
+| service.listeners-udp.enabled | bool | `true` |  |
+| service.listeners-udp.ports.udp.enabled | bool | `true` |  |
+| service.listeners-udp.ports.udp.port | int | `22000` |  |
+| service.listeners-udp.ports.udp.protocol | string | `"UDP"` |  |
+| service.listeners-udp.ports.udp.targetPort | int | `22000` |  |
+| service.listeners.enabled | bool | `true` |  |
 | service.listeners.ports.tcp.enabled | bool | `true` |  |
 | service.listeners.ports.tcp.port | int | `22000` |  |
-| service.listeners.ports.tcp.protocol | string | `"TCP"` |  |
-| service.listeners.ports.udp.enabled | bool | `true` |  |
-| service.listeners.ports.udp.port | int | `22000` |  |
-| service.listeners.ports.udp.protocol | string | `"UDP"` |  |
+| service.listeners.ports.tcp.targetPort | int | `22000` |  |
 | service.main.ports.main.port | int | `8384` |  |
+| service.main.ports.main.targetPort | int | `8384` |  |
 
 All Rights Reserved - The TrueCharts Project

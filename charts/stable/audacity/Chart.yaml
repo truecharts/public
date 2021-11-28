@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "3.0.2"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+description: An easy-to-use, multi-track audio editor and recorder
+home: https://github.com/truecharts/apps/tree/master/charts/stable/audacity
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/audacity-logo.png
+keywords:
+- audacity
+- music
+- recorder
+- editor
+- audio
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: audacity
+sources:
+- https://github.com/linuxserver/docker-audacity
+- https://www.audacityteam.org/
+type: application
+version: 2.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

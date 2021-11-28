@@ -5,10 +5,16 @@ image:
   pullPolicy: IfNotPresent
   tag: version-63784405@sha256:ae47a3f6a7d2d7efefb68087da7cbed786f801cb87c7c93b1e6b989c0021aefa
 
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 # See https://github.com/linuxserver/docker-tvheadend#parameters
 env: {}
   # PUID: 1000
-  # PGID: 1000
   # TZ: Europe/London
   # RUN_OPTS: <run options here>
 
@@ -17,19 +23,18 @@ service:
     ports:
       main:
         port: 9981
+        targetPort: 9981
   htsp:
     enabled: true
-    type: ClusterIP
     ports:
       htsp:
         enabled: true
         port: 9982
-        protocol: TCP
+        targetPort: 9982
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+  varrun:
+    enabled: true

@@ -4,22 +4,9 @@ image:
   # -- image repository
   repository: eclipse-mosquitto
   # -- image tag
-  tag: 2.0.12@sha256:ce08d3fe69d4170cea2426739af86ac95e683f01dd2c4141da661983a2401364
+  tag: 2.0.14@sha256:64b7c1729f7d1fff46b5e884fc389071686b2f7ed116c3fc7e17cbcb50fa147e
   # -- image pull policy
   pullPolicy: IfNotPresent
-
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- Configures service settings for the chart. Normally this does not need to be modified.
 # @default -- See values.yaml
@@ -27,9 +14,8 @@ service:
   main:
     ports:
       main:
-        protocol: TCP
-        enabled: true
         port: 1883
+        targetPort: 1883
 
 auth:
   # -- By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config.
@@ -41,16 +27,10 @@ persistence:
   # @default -- See values.yaml
   data:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /mosquitto/data
+    mountPath: "/mosquitto/data"
   # -- Configure a persistent volume to place *.conf mosquitto-config-files in.
   # When enabled, this gets set as `include_dir` in the mosquitto config.
   # @default -- See values.yaml
   configinc:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /mosquitto/configinc
+    mountPath: "/mosquitto/configinc"

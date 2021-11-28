@@ -13,19 +13,6 @@ image:
   # -- image pull policy
   pullPolicy: Always
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 # -- environment variables. See [image docs](https://github.com/tenstartups/ser2sock) for more details.
 # @default -- See below
 env:
@@ -44,21 +31,15 @@ service:
   main:
     ports:
       main:
-        enabled: true
-        protocol: TCP
         port: 10000
-
+        targetPort: 10000
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
-  # -- Configure a hostPathMount to mount a USB device in the container.
-  # @default -- See values.yaml
-  usb:
-    enabled: false
-    type: hostPath
-    mountPath: /dev/ttyUSB0
-
+  config:
+    enabled: true
+    mountPath: "/config"
 # -- Affinity constraint rules to place the Pod on a specific node.
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
 affinity: {}

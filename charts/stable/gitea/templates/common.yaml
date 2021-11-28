@@ -1,0 +1,38 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "common.setup" . }}
+
+{{/* Render secrets for gitea */}}
+{{- include "gitea.secrets" . }}
+
+{{/* Render configmap for gitea */}}
+{{- include "gitea.configmap" . }}
+
+{{/* Append the general secret volumes to the volumes */}}
+{{- define "gitea.initvolume" -}}
+enabled: "true"
+mountPath: "/secrets/ini"
+readOnly: true
+type: "custom"
+volumeSpec:
+  secret:
+    secretName: {{ include "common.names.fullname" . }}-init
+    defaultMode: 0777
+{{- end -}}
+
+{{/* Append the general secret volumes to the volumes */}}
+{{- define "gitea.configvolume" -}}
+enabled: "true"
+mountPath: "/secrets/config"
+readOnly: true
+type: "custom"
+volumeSpec:
+  secret:
+    secretName: {{ include "common.names.fullname" . }}
+{{- end -}}
+
+{{- $_ := set .Values.persistence "init" (include "gitea.initvolume" . | fromYaml) -}}
+{{- $_ := set .Values.persistence "config" (include "gitea.configvolume" . | fromYaml) -}}
+
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}

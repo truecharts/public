@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "1.5.0"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 deprecated: false
 description: Community developed LDAP software
 home: https://www.openldap.org
@@ -17,13 +17,15 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
-- email: kjeld@schouten-lebbing.nl
-  name: Ornias1993
-  url: truecharts.org
+  url: https://truecharts.org
 name: openldap
 sources:
 - https://github.com/jp-gouin/helm-openldap
 - https://github.com/osixia/docker-openldap
 type: application
-version: 2.0.1
+version: 4.0.17
+annotations:
+  truecharts.org/catagories: |
+    - cloud
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

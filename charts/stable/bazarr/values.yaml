@@ -3,36 +3,19 @@
 image:
   repository: ghcr.io/k8s-at-home/bazarr
   pullPolicy: IfNotPresent
-  tag: v0.9.9@sha256:889f97670f5af6b39896a89c76652e346693b446bc9097988ff8eb32141fc38f
-
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
+  tag: v1.0.1@sha256:8b785e187aa9e74bb7ef6cecad8dc3fbd5c905a638d496a90aaeb0a1dcd80cc1
 
 service:
   main:
     ports:
       main:
         port: 6767
+        targetPort: 6767
 
 env: {}
   # TZ: UTC
   # PUID: 1001
-  # PGID: 1001
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

@@ -1,8 +1,14 @@
 remote: origin
 target-branch: master
-helm-extra-args: --timeout 600s
-excluded-charts: common
+helm-extra-args: --timeout 240s
 chart-yaml-schema: .github/chart_schema.yaml
+excluded-charts:
+#- alertmanager-bot
+- charts/incubator/amcrest2mqtt
+- charts/library/common
+#- foundryvtt
+- promcord
+- charts/incubator/zigbee2mqtt
 chart-repos:
 - truecharts=https://truecharts.org
 - bitnami=https://charts.bitnami.com/bitnami

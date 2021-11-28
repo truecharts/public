@@ -2,14 +2,14 @@ apiVersion: v2
 appVersion: "4.1.0"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 deprecated: false
 description: AppDaemon is a loosely coupled, multithreaded, sandboxed python execution
   environment for writing automation apps for Home Assistant home automation software.
   It also provides a configurable dashboard (HADashboard) suitable for wall mounted
   tablets.
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/appdaemon
+home: https://github.com/truecharts/apps/tree/master/charts/stable/appdaemon
 icon: https://github.com/hassio-addons/addon-appdaemon/blob/main/appdaemon/icon.png?raw=true
 keywords:
 - appdaemon
@@ -18,7 +18,7 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
+  url: https://truecharts.org
 - email: 20650065+warllo54@users.noreply.github.com
   name: warllo54
   url: truecharts.org
@@ -26,4 +26,9 @@ name: appdaemon
 sources:
 - https://github.com/AppDaemon/appdaemon
 type: application
-version: 4.0.1
+version: 6.0.12
+annotations:
+  truecharts.org/catagories: |
+    - utilities
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

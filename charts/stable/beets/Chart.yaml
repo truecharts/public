@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "1.5.0"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+description: A music library manager and not, for the most part, a music player.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/beets
+icon: https://github.com/truecharts/apps/raw/main/images/beets.png
+keywords:
+- music
+- library
+- manager
+- player
+- beets
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: beets
+sources:
+- https://github.com/linuxserver/docker-beets
+- https://beets.io/
+type: application
+version: 2.0.14
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

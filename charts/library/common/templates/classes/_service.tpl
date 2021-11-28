@@ -27,7 +27,6 @@ metadata:
     {{ toYaml $values.labels | nindent 4 }}
   {{- end }}
   annotations:
-    rollme: {{ randAlphaNum 5 | quote }}
   {{- if eq ( $primaryPort.protocol | default "" ) "HTTPS" }}
     traefik.ingress.kubernetes.io/service.serversscheme: https
   {{- end }}
@@ -95,7 +94,13 @@ spec:
   {{- end }}
   {{- if and ( ne $svcType "ExternalName" ) ( ne $svcType "ExternalIP" )}}
   selector:
+  {{- if $values.selector }}
+  {{- with $values.selector }}
+    {{- tpl (toYaml .) $ | nindent 4 }}
+  {{- end }}
+  {{- else }}
     {{- include "common.labels.selectorLabels" . | nindent 4 }}
+  {{- end }}
   {{- end }}
 {{- if eq $svcType "ExternalIP" }}
 ---

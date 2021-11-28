@@ -28,35 +28,52 @@
                   type: dict
                   show_if: [["type", "=", "openvpn"]]
                   attrs:
-                    - variable: auth
-                      label: "authentication credentials"
-                      description: "authentication credentials, seperated by ;  example: username;password"
+                    - variable: username
+                      label: "authentication username"
+                      description: "authentication username, optional"
                       schema:
                         type: string
                         default: ""
-              - variable: wireguard
-                label: "Wireguard Settings"
+                    - variable: password
+                      label: "authentication password"
+                      description: "authentication credentials"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: killSwitch
+                label: "Enable killswitch"
                 schema:
-                  type: dict
-                  show_if: [["type", "=", "wireguard"]]
-                  attrs:
-                    - variable: KILLSWITCH
-                      label: "Enable killswitch"
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: KILLSWITCH_EXCLUDEDNETWORKS_IPV4
-                      label: "Killswitch Excluded IPv4 networks"
-                      description: "list of killswitch excluded ipv4 addresses seperated by ;"
-                      schema:
-                        type: string
-                        default: "172.16.0.0/12"
-                    - variable: KILLSWITCH_EXCLUDEDNETWORKS_IPV6
-                      label: "Killswitch Excluded IPv6 networks"
-                      description: "list of killswitch excluded ipv4 addresses seperated by ;"
+                  type: boolean
+                  show_if: [["type", "!=", "disabled"]]
+                  default: true
+              - variable: excludedNetworks_IPv4
+                label: "Killswitch Excluded IPv4 networks"
+                description: "list of killswitch excluded ipv4 addresses"
+                schema:
+                  type: list
+                  show_if: [["type", "!=", "disabled"]]
+                  default: []
+                  items:
+                    - variable: networkv4
+                      label: "IPv4 Network"
                       schema:
                         type: string
-                        default: ""
+                        required: true
+              - variable: excludedNetworks_IPv6
+                label: "Killswitch Excluded IPv6 networks"
+                description: "list of killswitch excluded ipv4 addresses"
+                schema:
+                  type: list
+                  show_if: [["type", "!=", "disabled"]]
+                  default: []
+                  items:
+                    - variable: networkv6
+                      label: "IPv6 Network"
+                      schema:
+                        type: string
+                        required: true
+
               - variable: configFile
                 label: "VPN Config File Location"
                 schema:
@@ -89,9 +106,10 @@
                         hidden: true
                     - variable: hostPath
                       label: "Full path to file"
+                      description: "path to your local VPN config file for example: /mnt/tank/vpn.conf or /mnt/tank/vpn.ovpn"
                       schema:
                         type: string
-                        default: "/mnt/tank/config/YourVPN-Config.conf"
+                        default: ""
                         required: true
               - variable: envList
                 label: "VPN environment Variables"
@@ -115,3 +133,212 @@
                             schema:
                               type: string
                               required: true
+
+        - variable: codeserver
+          label: "Codeserver"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: git
+                      label: "Git Settings"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: deployKey
+                            description: "Raw SSH private key"
+                            label: "deployKey"
+                            schema:
+                              type: string
+                          - variable: deployKeyBase64
+                            description: "Base64-encoded SSH private key. When both variables are set, the raw SSH key takes precedence"
+                            label: "deployKeyBase64"
+                            schema:
+                              type: string
+                    - variable: service
+                      label: ""
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: type
+                            label: "Service Type"
+                            description: "ClusterIP's are only internally available, nodePorts expose the container to the host node System, Loadbalancer exposes the service using the system loadbalancer"
+                            schema:
+                              type: string
+                              default: "NodePort"
+                              enum:
+                                - value: "NodePort"
+                                  description: "NodePort"
+                                - value: "ClusterIP"
+                                  description: "ClusterIP"
+                                - value: "LoadBalancer"
+                                  description: "LoadBalancer"
+                          - variable: loadBalancerIP
+                            label: "LoadBalancer IP"
+                            description: "LoadBalancerIP"
+                            schema:
+                              show_if: [["type", "=", "LoadBalancer"]]
+                              type: string
+                              default: ""
+                          - variable: externalIPs
+                            label: "External IP's"
+                            description: "External IP's"
+                            schema:
+                              show_if: [["type", "=", "LoadBalancer"]]
+                              type: list
+                              default: []
+                              items:
+                                - variable: externalIP
+                                  label: "External IP"
+                                  schema:
+                                    type: string
+                          - variable: ports
+                            label: ""
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: codeserver
+                                  label: ""
+                                  schema:
+                                    type: dict
+                                    attrs:
+                                      - variable: nodePort
+                                        description: "leave empty to disable"
+                                        label: "nodePort"
+                                        schema:
+                                          type: int
+                                          default: 36107
+                    - variable: envList
+                      label: "Codeserver environment Variables"
+                      schema:
+                        type: list
+                        show_if: [["type", "!=", "disabled"]]
+                        default: []
+                        items:
+                          - variable: envItem
+                            label: "Environment Variable"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                                    required: true
+
+
+        - variable: promtail
+          label: "Promtail"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: loki
+                      label: "Loki URL"
+                      schema:
+                        type: string
+                        required: true
+                    - variable: logs
+                      label: "Log Paths"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                              required: true
+                          - variable: path
+                            label: "Path"
+                            schema:
+                              type: string
+                              required: true
+                    - variable: args
+                      label: "Promtail ecommand line arguments"
+                      schema:
+                        type: list
+                        show_if: [["type", "!=", "disabled"]]
+                        default: []
+                        items:
+                          - variable: arg
+                            label: "Arg"
+                            schema:
+                              type: string
+                              required: true
+                    - variable: envList
+                      label: "Promtail environment Variables"
+                      schema:
+                        type: list
+                        show_if: [["type", "!=", "disabled"]]
+                        default: []
+                        items:
+                          - variable: envItem
+                            label: "Environment Variable"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                                    required: true
+
+
+
+
+        - variable: netshoot
+          label: "Netshoot"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: envList
+                      label: "Netshoot environment Variables"
+                      schema:
+                        type: list
+                        show_if: [["type", "!=", "disabled"]]
+                        default: []
+                        items:
+                          - variable: envItem
+                            label: "Environment Variable"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                                    required: true

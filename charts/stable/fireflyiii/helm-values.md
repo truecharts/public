@@ -16,45 +16,27 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DB_DATABASE | string | `"firefly"` |  |
 | env.DB_PORT | int | `5432` |  |
 | env.DB_USERNAME | string | `"firefly"` |  |
-| envValueFrom.DB_HOST.secretKeyRef.key | string | `"postgresql_host"` |  |
+| envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"fireflyiii/core"` |  |
 | image.tag | string | `"version-5.5.12@sha256:9a1f87a8ad38694675390756be9686fe9d8ba941fe1f145641626135c7eb5e4b"` |  |
-| initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
-| initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
-| initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
-| initContainers.init-postgresdb.env[0].name | string | `"pghost"` |  |
-| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
-| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| initContainers.init-postgresdb.image | string | `"{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"` |  |
-| initContainers.init-postgresdb.imagePullPolicy | string | `"IfNotPresent"` |  |
-| persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html/storage/upload"` |  |
-| persistence.data.size | string | `"100Gi"` |  |
-| persistence.data.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `0` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"firefly"` |  |
 | postgresql.postgresqlUsername | string | `"firefly"` |  |
-| postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
-| postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2"` |  |
 | probes.liveness.path | string | `"/login"` |  |
 | probes.readiness.path | string | `"/login"` |  |
 | probes.startup.path | string | `"/login"` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8080` |  |
+| service.main.ports.main.targetPort | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project

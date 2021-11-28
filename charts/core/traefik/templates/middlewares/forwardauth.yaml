@@ -1,0 +1,30 @@
+{{- $values := .Values }}
+{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
+{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
+{{- $namespace = "default" }}
+{{- end }}
+{{ range $index, $middlewareData := .Values.middlewares.forwardAuth }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ $middlewareData.name }}
+  namespace: {{ $namespace }}
+spec:
+  forwardAuth:
+    address: {{ $middlewareData.address }}
+    {{- with $middlewareData.authResponseHeaders }}
+    authResponseHeaders:
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- with $middlewareData.authRequestHeaders }}
+    authRequestHeaders:
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- if $middlewareData.authResponseHeadersRegex }}
+    authResponseHeadersRegex: {{ $middlewareData.authResponseHeadersRegex }}
+    {{- end }}
+    {{- if $middlewareData.trustForwardHeader }}
+    trustForwardHeader: true
+    {{- end }}
+{{ end }}

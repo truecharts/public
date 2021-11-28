@@ -13,22 +13,21 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.MODE | string | `"High"` |  |
 | env.MODELSTORE-DETECTION | string | `"/modelstore/detection"` |  |
-| env.PGID | string | `"568"` |  |
-| env.PUID | string | `"568"` |  |
+| env.PUID | int | `568` |  |
 | env.VISION-DETECTION | string | `"True"` |  |
 | env.VISION-FACE | string | `"True"` |  |
 | env.VISION-SCENE | string | `"True"` |  |
-| envTpl.GROUP_ID | string | `"{{ .Values.env.PGID }}"` |  |
 | envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"deepquestai/deepstack"` |  |
-| image.tag | string | `"cpu-2021.02.1@sha256:db1876e7a5c73111e0cd18e26b2401c20997afdea3f8f9f9116ef951b49ba5be"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
-| persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/datastore"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| service.main.enabled | bool | `true` |  |
+| image.tag | string | `"cpu-2021.09.1@sha256:359dc8c6c5056891b2a4f419902616b8b8b9bc9068b0c20fd40e13bc7a5583b5"` |  |
+| persistence.data.enabled | bool | `true` |  |
+| persistence.data.mountPath | string | `"/datastore"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `5000` |  |
+| service.main.ports.main.targetPort | int | `5000` |  |
 
 All Rights Reserved - The TrueCharts Project

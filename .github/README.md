@@ -9,9 +9,13 @@
 TrueCharts is a catalog of highly optimised TrueNAS SCALE Apps. Made for the community, By the community!
 
 Our primary goals are:
+
 - Micro-Service Centered
+
 - Native Kubernetes
+
 - Stability
+
 - Consistency
 
 All our apps are supposed to work together, be easy to setup using the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
@@ -26,7 +30,7 @@ All our apps are supposed to work together, be easy to setup using the TrueNAS U
 Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
 For more information:
-https://truecharts.org/manual/Quick-Start%20Guides/02-Adding-TrueCharts/
+https://truecharts.org/manual/Quick-Start%20Guides/01-Adding-TrueCharts/
 
 ### Support
 
@@ -36,23 +40,40 @@ Still something not working as expected? [Contact us!](https://truecharts.org/ab
 
 ### Roadmap
 
-For big changes we do have a roadmap, every spot on the roadmap is synced to a TrueNAS SCALE Release and should be read as "Should be added before this release"
+For big changes we do have a roadmap, every spot on the roadmap is synced to a TrueNAS SCALE Release and should be read as "Should be added at or before this release"
 
 
 <br>
 
-**Documentation and DNS - TrueNAS SCALE 21.10**
+**MariaDB and External-DNS - TrueNAS SCALE "Angelfish" RC2**
 
-_We aim to improve our quick-start guides the comming few months and at the same time dail with DNS related Apps such as ExternalDNS_
-
-<br>
-
-**Email and VPN - TrueNAS SCALE 21.12**
-
-_Our goal these months will be enabling users to run an Email server on their SCALE machine and allow using our software with VPN sidecards_
+_There are many community requested containers that cannot be run using just a postgresql servers, we'll aim to streamline support for a few more dependencies and some improved support for External-DNS on-top_
 
 <br>
 
+**Documentation - TrueNAS SCALE "Angelfish" RELEASE**
+
+_While preparing for the formal release of TrueNAS SCALE, we still have some things to polish_
+
+<br>
+
+**Multi-Pod support for Common - TrueNAS SCALE "Bluefin" 22.xx ALPHA 1**
+
+_Our current common library is not fully supporting with multi-pod containers, while we cannot add everything we should support some basic multi-pod containers on common._
+
+<br>
+
+**Finish Prometheus Support - TrueNAS SCALE "Bluefin" 22.xx ALPHA 2**
+
+_By this date it would be about a year after we first started considering adding Prometheus support, it's time to add metrics exporters to as many apps as we can._
+
+<br>
+
+**Mail server - TrueNAS SCALE "Bluefin" 22.xx BETA 1**
+
+_Great mail-server deployments require support for multi-pod containers, high availability and a solid backend. By this date, all those boxes should start to become checked and we should check the "mail server" box as well_
+
+<br>
 
 ## Development
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=for-the-badge)](https://github.com/pre-commit/pre-commit)
@@ -86,9 +107,13 @@ Those tools do, however, take time to develop and are certainly not bug free. If
 ---
 
 To contact the TrueCharts project:
+
 - Create an issue on [Github issues](https://github.com/truecharts/apps/issues)
+
 - Open a discussion on [GitHub Discussions](https://github.com/truecharts/apps/discussions)
+
 - Send us an [email](mailto://info@truecharts.org)
+
 - Or [join our Discord server](https://truecharts.org/discord)
 
 <br>
@@ -102,9 +127,9 @@ To contact the TrueCharts project:
 
 A lot of our work is based on the great effort of others. We would love to extend special thanks to these projects we owe a lot to:
 
-| <a href="https://www.truenas.com/truenas-scale/"> <img src="https://user-images.githubusercontent.com/7613738/113836934-a1764e00-978d-11eb-8e19-a087c5c1f99b.png" width="150" height="150" /> </a> | <a href="https://k8s-at-home.com/"> <img src="https://user-images.githubusercontent.com/7613738/113837194-e26e6280-978d-11eb-9632-2e1529946302.png" width="150" height="150" /> </a> | <a href="https://traefik.io/traefik/"> <img src="https://user-images.githubusercontent.com/7613738/113837353-0b8ef300-978e-11eb-873e-14769acfe1f1.png" width="150" height="150" /> </a> |
-| :---------------: | :---------------: | :---------------: |
-| <a href="https://www.truenas.com/truenas-scale/">TrueNAS SCALE</a> |  <a href="https://k8s-at-home.com/">K8S-At-Home</a> | <a href="https://traefik.io/traefik/">Traefik</a> |
+| <a href="https://www.truenas.com/truenas-scale/"> <img src="https://user-images.githubusercontent.com/7613738/113836934-a1764e00-978d-11eb-8e19-a087c5c1f99b.png" width="150" height="150" /> </a> | <a href="https://k8s-at-home.com/"> <img src="https://user-images.githubusercontent.com/7613738/113837194-e26e6280-978d-11eb-9632-2e1529946302.png" width="150" height="150" /> </a> | <a href="https://traefik.io/traefik/"> <img src="https://user-images.githubusercontent.com/7613738/113837353-0b8ef300-978e-11eb-873e-14769acfe1f1.png" width="150" height="150" /> </a> | <a href="https://www.authelia.com/"> <img src="https://avatars.githubusercontent.com/u/59122411?s=200&v=4" width="150" height="150" /> </a> |
+| :---------------: | :---------------: | :---------------: | :---------------: |
+| <a href="https://www.truenas.com/truenas-scale/">TrueNAS SCALE</a> |  <a href="https://k8s-at-home.com/">K8S-At-Home</a> | <a href="https://traefik.io/traefik/">Traefik</a> | <a href="https://www.authelia.com/">Authelia</a> |
 
 <br>
 
@@ -112,7 +137,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -139,6 +164,19 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/warllo54"><img src="https://avatars.githubusercontent.com/u/20650065?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lloyd</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=warllo54" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/dwithnall"><img src="https://avatars.githubusercontent.com/u/5699800?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dave Withnall</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=dwithnall" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/ksimm1"><img src="https://avatars.githubusercontent.com/u/1334526?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ksimm1</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=ksimm1" title="Documentation">📖</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://aaronjohnson.io"><img src="https://avatars.githubusercontent.com/u/1386238?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aaron Johnson</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=acjohnson" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/ralphte"><img src="https://avatars.githubusercontent.com/u/2996680?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ralph</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=ralphte" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.abc-groep.be"><img src="https://avatars.githubusercontent.com/u/2351765?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Joachim Baten</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=joachimbaten" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/mxyng"><img src="https://avatars.githubusercontent.com/u/2372640?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Yang</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=mxyng" title="Code">💻</a></td>
+    <td align="center"><a href="http://cturtle98.com"><img src="https://avatars.githubusercontent.com/u/24465356?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ciaran Farley</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=cTurtle98" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Heavybullets8"><img src="https://avatars.githubusercontent.com/u/20793231?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Heavybullets8</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=Heavybullets8" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/662"><img src="https://avatars.githubusercontent.com/u/13599186?v=4?s=100" width="100px;" alt=""/><br /><sub><b>662</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=662" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/alex171"><img src="https://avatars.githubusercontent.com/u/28484494?v=4?s=100" width="100px;" alt=""/><br /><sub><b>alex171</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=alex171" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://www.youtube.com/channel/UCOk-gHyjcWZNj3Br4oxwh0A"><img src="https://avatars.githubusercontent.com/u/1322205?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Techno Tim</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=timothystewart6" title="Documentation">📖</a></td>
   </tr>
 </table>
 

@@ -9,9 +9,17 @@ image:
   # -- image repository
   repository: ghcr.io/truecharts/deconz
     # -- image tag
-  tag: v2.12.06@sha256:738ebf8eb35c8025c070a4feeb7d7a48b15739dfe71cf338e80a03f932c1cf52
+  tag: v2.13.01@sha256:92a7a439e6010e21265fa5beaa47b0172bc6b6682f4e2d26bcd43c772ff7ddbd
   # -- image pull policy
   pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 # -- environment variables. See [image docs](https://github.com/marthoc/docker-deconz/blob/master/README.md) for more details.
 # @default -- See below
@@ -40,27 +48,29 @@ service:
   main:
     ports:
       main:
-        port: 80
+        port: 10008
+        targetPort: 80
+  websocket:
+    enabled: true
+    ports:
       websocket:
         enabled: true
-        port: 443
+        port: 10001
+        targetPort: 443
+  vnc:
+    enabled: true
+    ports:
       vnc:
         enabled: true
-        port: 5900
-
-securityContext:
-  # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
-  privileged:  # true
+        port: 10002
+        targetPort: 5900
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /root/.local/share/dresden-elektronik/deCONZ
+    mountPath: "/root/.local/share/dresden-elektronik/deCONZ"
 
 # -- Affinity constraint rules to place the Pod on a specific node.
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)

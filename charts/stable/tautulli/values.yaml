@@ -3,36 +3,19 @@
 image:
   repository: ghcr.io/k8s-at-home/tautulli
   pullPolicy: IfNotPresent
-  tag: v2.7.6@sha256:228d77ccde9af6a33f94bd99c5c59aed093f2e35bd90e296dc0a51b62954395d
-
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
+  tag: v2.7.7@sha256:4ea617c30397c4651c3e5ac850d4f4d2d7bfc5d37ac6dec44c5d109258d4f03f
 
 service:
   main:
     ports:
       main:
         port: 8181
+        targetPort: 8181
 
 env: {}
   # TZ: UTC
   # PUID: 1001
-  # PGID: 1001
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

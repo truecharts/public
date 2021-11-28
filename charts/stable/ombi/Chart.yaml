@@ -2,8 +2,8 @@ apiVersion: v2
 appVersion: "4.0.1482"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 deprecated: false
 description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
 home: https://github.com/truecharts/apps/tree/master/charts/stable/ombi
@@ -19,12 +19,14 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
-- email: kjeld@schouten-lebbing.nl
-  name: Ornias1993
-  url: truecharts.org
+  url: https://truecharts.org
 name: ombi
 sources:
 - https://github.com/tidusjar/Ombi
 type: application
-version: 7.0.1
+version: 9.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

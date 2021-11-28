@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "11.5.0"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+description: A is photo gallery software for the web, built by an active community
+  of users and developers.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/piwigo
+icon: https://avatars.githubusercontent.com/u/9326886?s=200&v=4
+keywords:
+- piwigo
+- gallery
+- photo
+- image
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: piwigo
+sources:
+- http://piwigo.org/
+- https://github.com/linuxserver/docker-piwigo
+type: application
+version: 1.0.13
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

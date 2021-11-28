@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "0.1.0.963"
+appVersion: "0.1.0.1053"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 deprecated: false
 description: A fork of Radarr to work with Books & AudioBooks
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/readarr
+home: https://github.com/truecharts/apps/tree/master/charts/stable/readarr
 icon: https://github.com/Readarr/Readarr/blob/develop/Logo/1024.png?raw=true
 keywords:
 - readarr
@@ -18,13 +18,15 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
-- email: kjeld@schouten-lebbing.nl
-  name: Ornias1993
-  url: truecharts.org
+  url: https://truecharts.org
 name: readarr
 sources:
 - https://github.com/Readarr/Readarr
 - https://readarr.com
 type: application
-version: 7.0.1
+version: 9.0.18
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

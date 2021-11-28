@@ -11,13 +11,16 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGID | string | `"568"` | Specify the group ID the application will run as |
-| env.PUID | string | `"568"` | Specify the user ID the application will run as |
+| env.PUID | int | `568` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/linuxserver/booksonic-air"` | image repository |
-| image.tag | string | `"version-v2009.1.0@sha256:0b02c0a3d3c3d24aa7c8da2171406c8c0a59935e314111db0640773722ba6377"` | image tag |
+| image.tag | string | `"version-v2009.1.0@sha256:ca74f3d0f0a4165f9ffaa3733274b5c14817ff977d04426ba71435c51b110d19"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 
 All Rights Reserved - The TrueCharts Project

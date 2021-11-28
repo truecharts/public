@@ -1,0 +1,39 @@
+# Default values for tdarr_node.
+
+image:
+  repository: haveagitgat/tdarr_node
+  pullPolicy: IfNotPresent
+  tag: 2.00.10@sha256:1e3f9328327d7d5597c414e6cf2b609e9e4a2854385e03c009814ad03c3c210c
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+  nodeID: "myFirstTdarrNode"
+  nodeIP: "0.0.0.0"
+  nodePort: 8267
+  serverIP: "0.0.0.0"
+  serverPort: 8266
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8267
+        port: 8267
+
+persistence:
+  configs:
+    enabled: true
+    mountPath: "/app/configs"
+  logs:
+    enabled: true
+    mountPath: "/app/logs"
+  varrun:
+    enabled: true

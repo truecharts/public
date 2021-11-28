@@ -2,10 +2,10 @@ apiVersion: v2
 appVersion: "10.6.2"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 description: Airsonic is a Free and Open Source community driven media server
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/airsonic
+home: https://github.com/truecharts/apps/tree/master/charts/stable/airsonic
 icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-logo.png
 keywords:
 - airsonic
@@ -13,10 +13,15 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
+  url: https://truecharts.org
 name: airsonic
 sources:
 - https://github.com/airsonic/airsonic
 - https://github.com/linuxserver/docker-airsonic
 - https://github.com/k8s-at-home/charts/tree/master/charts/airsonic
-version: 2.0.1
+version: 4.0.14
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -18,17 +18,11 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables. See more environment variables in the [nullserv documentation](https://github.com/bmrzycki/nullserv/blob/master/README.md).
 # @default -- See below
@@ -40,14 +34,22 @@ env:
 # @default -- See values.yaml
 service:
   main:
-    primary: true
-    type: NodePort
     ports:
       main:
-        port: 80
+        port: 10004
+        targetPort: 80
+  https:
+    enabled: true
+    ports:
       https:
         enabled: true
-        port: 443
+        port: 10005
+        targetPort: 443
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
 
 
 # -- Configures the probes for the main Pod.

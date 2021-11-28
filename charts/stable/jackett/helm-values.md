@@ -14,25 +14,15 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/jackett"` |  |
-| image.tag | string | `"v0.18.746@sha256:4caa9f57a10c07cca49935b6e039aa4c15eb20f28add18983bb62b028e245edd"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"v0.20.53@sha256:6f82922f155dfd72b23e1ce9ec84de8bbc2a12a362bfbd62d81bc3c3f58ac515"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | probes.liveness.path | string | `"/UI/Login"` |  |
 | probes.readiness.path | string | `"/UI/Login"` |  |
 | probes.startup.path | string | `"/UI/Login"` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
-| service.main.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `9117` |  |
+| service.main.ports.main.targetPort | int | `9117` |  |
+| service.main.protocol | string | `"HTTP"` |  |
 
 All Rights Reserved - The TrueCharts Project

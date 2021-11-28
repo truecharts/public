@@ -10,7 +10,7 @@ metadata:
     {{- include "common.labels" . | nindent 4 }}
 data:
   {{- $bittorrentPort := "" -}}
-  {{- $bittorrentPort = .Values.service.torrent.ports.tcp.port -}}
+  {{- $bittorrentPort = .Values.service.torrent.ports.torrent.port -}}
   {{- if $bittorrentPort }}
   31-update-port: |-
     #!/bin/bash

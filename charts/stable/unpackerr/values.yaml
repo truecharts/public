@@ -5,19 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.9.8@sha256:2bf65067fea86c36438b741bfea1cec69faeea02dd4811c0d58e12243a263b24
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 service:
   main:
     enabled: false
@@ -31,8 +18,6 @@ portal:
 env: {}
   # TZ: UTC
   # PUID: 1001
-  # PGID: 1001
-
 probes:
   liveness:
     enabled: false
@@ -41,14 +26,10 @@ probes:
   startup:
     enabled: false
 
-
 persistence:
   downloads:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /downloads
+    mountPath: "/downloads"
     ## Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -57,7 +38,7 @@ persistence:
     ##   GKE, AWS & OpenStack)
     # storageClass: "-"
     # accessMode: ReadWriteOnce
-    # size: 1Gi
+    #
     ## Do not delete the pvc upon helm uninstall
     # skipuninstall: false
     # existingClaim: ""

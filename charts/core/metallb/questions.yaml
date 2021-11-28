@@ -1,0 +1,55 @@
+# Include{groups}
+questions:
+# Include{global}
+
+  - variable: metallb
+    group: "App Configuration"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: configInline
+          label: "MetalLB Configuration"
+          schema:
+            type: dict
+            attrs:
+              - variable: address-pools
+                label: "Address Pools"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: address-pools-entry
+                      group: "Address Pool"
+                      label: ""
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: protocol
+                            label: "Protocol"
+                            schema:
+                              type: string
+                              default: "layer2"
+                              enum:
+                                - value: "layer2"
+                                  description: "layer2"
+                                - value: "bgp"
+                                  description: "bgp"
+                          - variable: addresses
+                            label: "Addresses"
+                            schema:
+                              type: list
+                              default: []
+                              items:
+                                - variable: address
+                                  label: "Adress"
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    required: true

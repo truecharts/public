@@ -1,11 +1,8 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "common.values.setup" . }}
+{{- include "common.setup" . }}
 
 {{/* Render configmap for nextcloud */}}
 {{- include "nextcloud.configmap" . }}
-
-{{/* Render secrets for nextcloud */}}
-{{- include "nextcloud.secrets" . }}
 
 {{- $newMiddlewares :=  append .Values.ingress.main.fixedMiddlewares "tc-nextcloud-chain" }}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
@@ -14,4 +11,4 @@
 {{- include "nextcloud.cronjob" . }}
 
 {{/* Render the templates */}}
-{{ include "common.all" . }}
+{{ include "common.postSetup" . }}

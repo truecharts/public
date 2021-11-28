@@ -6,23 +6,14 @@ image:
   tag: v0.8.8@sha256:2e4b3b4e677be68b947517b0077aec719db8c382dad2952421b746060bbd6513
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
     ports:
       main:
         port: 8484
+        targetPort: 8484
 
 env: {}
   # TZ: UTC
@@ -31,6 +22,3 @@ persistence:
   data:
     enabled: true
     mountPath: "/usr/data"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

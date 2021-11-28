@@ -1,11 +1,11 @@
 apiVersion: v2
-appVersion: "1.6.1"
+appVersion: "1.7.2"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 7.0.12
+  version: 8.9.3
 description: OctoPrint is the snappy web interface for your 3D printer
-home: https://github.com/truechartsapps/tree/master/charts/incubator/octoprint
+home: https://github.com/truechartsapps/tree/master/charts/stable/octoprint
 icon: https://avatars3.githubusercontent.com/u/5982294?s=400&v=4
 keywords:
 - octoprint
@@ -14,10 +14,15 @@ keywords:
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
-  name: truecharts
+  name: TrueCharts
   url: https://truecharts.org
 name: octoprint
 sources:
 - https://github.com/OctoPrint/OctoPrint
 - https://hub.docker.com/r/octoprint/octoprint
-version: 2.0.1
+version: 4.0.14
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

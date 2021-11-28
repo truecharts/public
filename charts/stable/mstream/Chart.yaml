@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "5.2.5"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+description: A personal music streaming server
+home: https://github.com/truecharts/apps/tree/master/charts/stable/mstream
+icon: https://raw.githubusercontent.com/nicholaswilde/helm-charts/main/images/mstream.png
+keywords:
+- mstream
+- server
+- music
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: mstream
+sources:
+- https://github.com/linuxserver/docker-mstream
+- https://mstream.io/
+type: application
+version: 1.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

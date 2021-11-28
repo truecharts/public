@@ -3,48 +3,39 @@
 image:
   repository: ghcr.io/truecharts/syncthing
   pullPolicy: IfNotPresent
-  tag: v1.18.2@sha256:780c4924c4739d707295bd74fd21a186a640bd71f15efc2fcbc9fb9b05162a0d
-
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
+  tag: v1.18.4@sha256:cc2bd691927ec19b9aac2d4a3e2330cb0ce9458dda761ead7dddd5f2d8338221
 
 service:
   main:
     ports:
       main:
         port: 8384
+        targetPort: 8384
   listeners:
+    enabled: true
     ports:
       tcp:
         enabled: true
         port: 22000
-        protocol: TCP
+        targetPort: 22000
+  listeners-udp:
+    enabled: true
+    ports:
       udp:
         enabled: true
         port: 22000
+        targetPort: 22000
         protocol: UDP
   discovery:
+    enabled: true
     ports:
       discovery:
         enabled: true
         port: 21027
+        targetPort: 21027
         protocol: UDP
 
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-
     mountPath: "/var/syncthing/"

@@ -19,8 +19,13 @@ You will, however, be able to use all values referenced in the common chart here
 | env.username | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/collabora"` |  |
-| image.tag | string | `"v6.4.10.10@sha256:9b44b62b0d7894b4bdd6db6c4a5be66b4a2b14920f2d6401252e57641975d911"` |  |
+| image.tag | string | `"v6.4.14.3@sha256:d4a55425927736cb167a8df37ba6f2a60c0e3e0bacc0ee2496ecb5e535176f60"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `104` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `9980` |  |
-| service.main.type | string | `"NodePort"` |  |
+| service.main.ports.main.targetPort | int | `9980` |  |
 
 All Rights Reserved - The TrueCharts Project

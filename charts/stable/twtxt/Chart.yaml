@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "0.1.1"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+description: "A Self-Hosted, Twitter\u2122-like Decentralised microBlogging platform.\
+  \ No ads, no tracking, your content, your data!"
+home: https://github.com/truecharts/apps/tree/master/charts/stable/twtxt
+icon: https://twtxt.net/media/XsLsDHuisnXcL6NuUkYguK.png
+keywords:
+- twtxt
+- blogging
+- blog
+- social-network
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: twtxt
+sources:
+- https://github.com/prologic/twtxt
+- https://github.com/nicholaswilde/docker-twtxt
+type: application
+version: 1.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

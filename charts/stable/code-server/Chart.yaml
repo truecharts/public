@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "3.11.1"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+description: Run VS Code on any machine anywhere and access it in the browser.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/code-server
+icon: https://github.com/truecharts/apps/raw/main/images/code-server.jpg
+keywords:
+- code
+- vs
+- visual studio
+- vscode
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: code-server
+sources:
+- https://github.com/cdr/code-server
+- https://hub.docker.com/r/linuxserver/code-server
+type: application
+version: 2.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

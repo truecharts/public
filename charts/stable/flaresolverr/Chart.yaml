@@ -1,11 +1,11 @@
 apiVersion: v2
-appVersion: "1.2.9"
+appVersion: "2.0.2"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 7.0.12
+  version: 8.9.3
 description: FlareSolverr is a proxy server to bypass Cloudflare protection
-home: https://github.com/truechartsapps/tree/master/charts/incubator/flaresolverr
+home: https://github.com/truechartsapps/tree/master/charts/stable/flaresolverr
 icon: https://raw.githubusercontent.com/FlareSolverr/FlareSolverr/master/resources/flaresolverr_logo.svg
 keywords:
 - flaresolverr
@@ -13,10 +13,15 @@ keywords:
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
-  name: truecharts
+  name: TrueCharts
   url: https://truecharts.org
 name: flaresolverr
 sources:
 - https://github.com/FlareSolverr/FlareSolverr
 - https://hub.docker.com/r/flaresolverr/flaresolverr
-version: 2.0.1
+version: 4.0.13
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

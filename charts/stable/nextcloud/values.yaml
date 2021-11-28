@@ -3,30 +3,30 @@
 image:
   repository: docker.io/nextcloud
   pullPolicy: IfNotPresent
-  tag: 22.1.1@sha256:99d94124b2024c9f7f38dc12144a92bc0d68d110bcfd374169ebb7e8df0adf8e
+  tag: 22.2.3@sha256:5512b02fca6533626ed0a1799b2090255357de9b269d0a04d8f7a6d582438ccc
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
   fsGroup: 33
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
-postgresqlImage:
-  repository: bitnami/postgresql
-  pullPolicy: IfNotPresent
-  tag: 13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2
 service:
   main:
     ports:
       main:
-        port: 80
+        port: 10020
+        targetPort: 80
   hpb:
     enabled: true
     ports:
       hpb:
         enabled: true
         port: 7867
+        targetPort: 7867
 
 env:
   NEXTCLOUD_ADMIN_USER: "admin"
@@ -49,11 +49,11 @@ envValueFrom:
   POSTGRES_HOST:
     secretKeyRef:
       name: dbcreds
-      key: host
+      key: plainporthost
   REDIS_HOST:
     secretKeyRef:
       name: rediscreds
-      key: masterhost
+      key: plainhost
   REDIS_HOST_PASSWORD:
     secretKeyRef:
       name: rediscreds
@@ -63,33 +63,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/www/html"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-
-  redismaster:
-    noMount: true
-    forceName: "redismaster"
-    enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-
-initContainers:
-  init-postgresdb:
-    image: "{{ .Values.postgresqlImage.repository}}:{{ .Values.postgresqlImage.tag }}"
-    command:
-      - "sh"
-      - "-c"
-      - "until pg_isready -U nextcloud -h ${pghost} ; do sleep 2 ; done"
-    imagePullPolicy: IfNotPresent
-    env:
-      - name: pghost
-        valueFrom:
-          secretKeyRef:
-            name: dbcreds
-            key: plainhost
-
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
 # @default -- See below
@@ -107,10 +80,6 @@ probes:
         httpHeaders:
         - name: Host
           value: "test.fakedomain.dns"
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 2
-      failureThreshold: 5
 
   # -- Redainess probe configuration
   # @default -- See below
@@ -125,10 +94,6 @@ probes:
         httpHeaders:
         - name: Host
           value: "test.fakedomain.dns"
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 2
-      failureThreshold: 5
 
   # -- Startup probe configuration
   # @default -- See below
@@ -143,11 +108,6 @@ probes:
         httpHeaders:
         - name: Host
           value: "test.fakedomain.dns"
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 2
-      failureThreshold: 5
-
 
 ## Cronjob to execute Nextcloud background tasks
 ## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#webcron
@@ -164,25 +124,12 @@ cronjob:
 # Enabled postgres
 postgresql:
   enabled: true
+  existingSecret: "dbcreds"
   postgresqlUsername: nextcloud
   postgresqlDatabase: nextcloud
-  existingSecret: dbcreds
 
 # Enabled redis
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/redis
 redis:
-  volumePermissions:
-    enabled: true
-  architecture: standalone
   enabled: true
-  auth:
-    existingSecret: rediscreds
-    existingSecretPasswordKey: redis-password
-  master:
-    persistence:
-      enabled: false
-      existingClaim: redismaster
-  replica:
-    replicaCount: 0
-    persistence:
-      enabled: false
+  existingSecret: "rediscreds"

@@ -9,9 +9,17 @@ image:
   # -- image repository
   repository: ghcr.io/truecharts/mealie
   # -- image tag
-  tag: v0.5.2@sha256:e09dcdcdc812e3ef498953ceb268cbaedc031861219e7928e721c0729e97a4ae
+  tag: v0.5.3@sha256:2026a85abda3e3b6bb4bc8ed73ce9d47b6d2957189c4db887d406ed91956a890
   # -- image pull policy
   pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 # -- environment variables. See [image docs](https://hay-kot.github.io/mealie/getting-started/install/#env-variables) for more details.
 # @default -- See below
@@ -27,7 +35,8 @@ service:
   main:
     ports:
       main:
-        port: 80
+        port: 10018
+        targetPort: 80
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
@@ -40,7 +49,4 @@ ingress:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /app/data/
+    mountPath: "/app/data/"

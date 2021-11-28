@@ -3,9 +3,9 @@ appVersion: "4"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 7.0.12
+  version: 8.9.3
 description: pretend-youre-xyzzy, a cards against humanity clone
-home: https://github.com/truechartsapps/tree/master/charts/incubator/pretend-youre-xyzzy
+home: https://github.com/truechartsapps/tree/master/charts/stable/pretend-youre-xyzzy
 icon: https://apk-google.com/wp-content/uploads/2020/12/Client-for-Pretend-Youre-Xyzzy-open-source-5.0.1.png
 keywords:
 - pretend-youre-xyzzy
@@ -15,10 +15,15 @@ keywords:
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
-  name: truecharts
+  name: TrueCharts
   url: https://truecharts.org
 name: pretend-youre-xyzzy
 sources:
 - https://github.com/ajanata/PretendYoureXyzzy
 - https://github.com/emcniece/DockerYourXyzzy
-version: 2.0.1
+version: 4.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

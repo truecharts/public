@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: gitpush
     container:
-      image: ghcr.io/truecharts/truecharts-release:v1.3.0
+      image: ghcr.io/truecharts/devcontainer:v2.0.2
     steps:
 
       - uses: actions/checkout@v2
@@ -27,11 +27,6 @@ jobs:
           repository: truecharts/catalog
           token: ${{ secrets.BOT_TOKEN }}
           path: catalog
-
-      - name: Install Helm
-        uses: azure/setup-helm@v1
-        with:
-          version: v3.5.3
 
       - name: build-and-run
         run: |

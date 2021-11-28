@@ -21,52 +21,19 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DATABASE_URL.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/vaultwarden"` |  |
-| image.tag | string | `"v1.22.2@sha256:8693c057298731f507128a395395172d60093be9b299f6bf9e5c35512a74d457"` |  |
-| ingress | object | See below | Configure the ingresses for the chart here. Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress. |
-| ingress.main.enabled | bool | `true` | Enables or disables the ingress |
-| ingress.main.fixedMiddlewares | list | `["chain-basic"]` | List of middlewares in the traefikmiddlewares k8s namespace to add automatically Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user |
-| ingress.main.hosts[0].host | string | `"chart-example.local"` | Host address. Helm template can be passed. |
-| ingress.main.hosts[0].paths[0].path | string | `"/"` | Path.  Helm template can be passed. |
-| ingress.main.hosts[0].paths[0].pathType | string | `"Prefix"` | Ignored if not kubeVersion >= 1.14-0 |
-| ingress.main.hosts[0].paths[0].service.name | string | `nil` | Overrides the service name reference for this path |
-| ingress.main.hosts[0].paths[0].service.port | string | `nil` | Overrides the service port reference for this path |
-| ingress.main.ingressClassName | string | `nil` | Set the ingressClass that is used for this ingress. Requires Kubernetes >=1.19 |
-| ingress.main.middlewares | list | `[]` | Additional List of middlewares in the traefikmiddlewares k8s namespace to add automatically Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names |
-| ingress.main.nameOverride | string | `nil` | Override the name suffix that is used for this ingress. |
-| ingress.main.primary | bool | `true` | Make this the primary ingress (used in probes, notes, etc...). If there is more than 1 ingress, make sure that only 1 ingress is marked as primary. |
-| ingress.main.tls | list | `[]` | Configure TLS for the ingress. Both secretName and hosts can process a Helm template. |
-| initContainers.init-postgresdb.command[0] | string | `"sh"` |  |
-| initContainers.init-postgresdb.command[1] | string | `"-c"` |  |
-| initContainers.init-postgresdb.command[2] | string | `"until pg_isready -U authelia -h ${pghost} ; do sleep 2 ; done"` |  |
-| initContainers.init-postgresdb.env[0].name | string | `"pghost"` |  |
-| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.key | string | `"plainhost"` |  |
-| initContainers.init-postgresdb.env[0].valueFrom.secretKeyRef.name | string | `"dbcreds"` |  |
-| initContainers.init-postgresdb.image | string | `"{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"` |  |
-| initContainers.init-postgresdb.imagePullPolicy | string | `"IfNotPresent"` |  |
-| persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"v1.23.0@sha256:1e65dd23569e566576c3c80de76f711e0b9fc5e29a39d45f49f0a44d1282d869"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
-| persistence.data.size | string | `"100Gi"` |  |
-| persistence.data.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"vaultwarden"` |  |
 | postgresql.postgresqlUsername | string | `"vaultwarden"` |  |
-| postgresqlImage.pullPolicy | string | `"IfNotPresent"` |  |
-| postgresqlImage.repository | string | `"bitnami/postgresql"` |  |
-| postgresqlImage.tag | string | `"13.4.0@sha256:8dd9c609de6a960d65285f56106e00bd06ee0ce74fad4876ca7f8d847d10b2e2"` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `8080` |  |
+| service.main.ports.main.targetPort | int | `8080` |  |
+| service.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.enabled | bool | `true` |  |
 | service.ws.ports.ws.port | int | `3012` |  |
+| service.ws.ports.ws.targetPort | int | `3012` |  |
 | vaultwarden.admin.disableAdminToken | bool | `false` |  |
 | vaultwarden.admin.enabled | bool | `false` |  |
 | vaultwarden.allowInvitation | bool | `true` |  |

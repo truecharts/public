@@ -1,0 +1,44 @@
+image:
+  # -- image repository
+  repository: benbusby/whoogle-search
+  # -- image tag
+  tag: 0.6.0@sha256:969fa0500d01b3759387fb779b8282c39676841e5e719c5396535f9f5eaf8d80
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See [image docs](https://github.com/benbusby/whoogle-search#environment-variables) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  WHOOGLE_CONFIG_COUNTRY: ""
+  WHOOGLE_CONFIG_THEME: "dark"
+  WHOOGLE_CONFIG_SAFE: true
+  WHOOGLE_CONFIG_ALTS: false
+  WHOOGLE_CONFIG_TOR: false
+  WHOOGLE_CONFIG_NEW_TAB: false
+  WHOOGLE_CONFIG_GET_ONLY: false
+  WHOOGLE_CONFIG_URL: https://<your url>/
+  WHOOGLE_CONFIG_STYLE: ""
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 10052
+        targetPort: 5000
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"

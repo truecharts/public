@@ -1,0 +1,47 @@
+# Default values for tdarr
+
+image:
+  repository: haveagitgat/tdarr
+  pullPolicy: IfNotPresent
+  tag: 2.00.10@sha256:63b95a5897f7be1841f4f4e192ab978ec4afc2d81d6fcc150f4785071560ed86
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+  serverIP: "localhost"
+  serverPort: 8266
+  webUIPort: 8265
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8265
+        port: 8265
+  comm:
+    enabled: true
+    ports:
+      comm:
+        enabled: true
+        port: 8266
+        targetPort: 8266
+
+persistence:
+  configs:
+    enabled: true
+    mountPath: "/app/configs"
+  server:
+    enabled: true
+    mountPath: "/app/server"
+  logs:
+    enabled: true
+    mountPath: "/app/logs"
+  varrun:
+    enabled: true

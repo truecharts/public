@@ -1,0 +1,29 @@
+image:
+  repository: ghcr.io/linuxserver/digikam
+  pullPolicy: IfNotPresent
+  tag: version-7.3.0@sha256:fe94ffafb3fb177e1e3b1169b26a3aa111f8fa678fc3fb236c30cb5208965df7
+
+env:
+  PUID: 568
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10033
+        targetPort: 3000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

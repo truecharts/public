@@ -3,32 +3,19 @@
 image:
   repository: ghcr.io/k8s-at-home/emby
   pullPolicy: IfNotPresent
-  tag: v4.6.4.0@sha256:3921a37cfd43abbc5be6fd6a2141488573c64f70d628b4a4731415713cbb12cd
+  tag: v4.6.5.0@sha256:11b1f306d6309b60f16bf4292f9737c0a4a0020e93cfc1c0b36bc10b2680da40
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-# 44=video 107=render
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: [44, 107]
-  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
     ports:
       main:
-        port: 8096
+        port: 10079
+        targetPort: 8096
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

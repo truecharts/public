@@ -41,18 +41,6 @@ questions:
 
 There are also some additional (advanced) options availale, these can be added below the above required portion as required:
 
-**ingressPort:**
-```
-        - variable: ingressPort
-          label: "Port when ingress is not using 443"
-          description: "Advanced setting, please enter a different port to use if Ingress uses something other than port 443"
-          schema:
-            hidden: true
-            editable: false
-            type: int
-            default: 8443
-```
-
 **host:**
 ```
         - variable: host
@@ -64,8 +52,3 @@ There are also some additional (advanced) options availale, these can be added b
             type: string
             default: "test.com"
 ```
-
-
-##### Known issues
-
-- Portal currently doesn't work (yet) when setting the servicetype to "Loadbalancer"

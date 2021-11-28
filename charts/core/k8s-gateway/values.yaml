@@ -1,0 +1,120 @@
+# Default values for Jackett.
+
+image:
+  repository: quay.io/oriedge/k8s_gateway
+  pullPolicy: IfNotPresent
+  tag: v0.1.8@sha256:4937e28bb5dc4bd9c700a72d28e50d43929b4a9e8f64b4a306346426e6ed01e2
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+args: ["-conf", "/etc/coredns/Corefile"]
+
+# -- TTL for non-apex responses (in seconds)
+ttl: 300
+
+# -- Limit what kind of resources to watch, e.g. watchedResources: ["Ingress"]
+watchedResources: []
+
+# -- Service name of a secondary DNS server (should be `serviceName.namespace`)
+secondary: ""
+
+# -- Override the default `serviceName.namespace` domain apex
+apex: ""
+
+# -- list of processed domains
+domains:
+    # -- Delegated domain
+  - domain: "example.com"
+    # -- Optional configuration option for DNS01 challenge that will redirect all acme
+    # challenge requests to external cloud domain (e.g. managed by cert-manager)
+    # See: https://cert-manager.io/docs/configuration/acme/dns01/
+    dnsChallenge:
+      enabled: false
+      domain: dns01.clouddns.com
+
+forward:
+  enabled: true
+  primary: tls://1.1.1.1
+  secondary: tls://1.0.0.1
+  options:
+    - name: tls_servername
+      value: cloudflare-dns.com
+
+serviceAccount:
+  # -- Specifies whether a service account should be created
+  create: true
+
+# -- Create a ClusterRole and ClusterRoleBinding
+# @default -- See below
+rbac:
+  # -- Enables or disables the ClusterRole and ClusterRoleBinding
+  enabled: true
+
+  # -- Set Rules on the ClusterRole
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - services
+    - namespaces
+    verbs:
+    - list
+    - watch
+  - apiGroups:
+    - extensions
+    - networking.k8s.io
+    resources:
+    - ingresses
+    verbs:
+    - list
+    - watch
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        port: 53
+        targetPort: 53
+
+probes:
+  liveness:
+    custom: true
+    spec:
+      httpGet:
+        path: /health
+        port: 8080
+        scheme: HTTP
+      initialDelaySeconds: 60
+      timeoutSeconds: 5
+      successThreshold: 1
+      failureThreshold: 5
+
+  readiness:
+    custom: true
+    spec:
+      httpGet:
+        path: /ready
+        port: 8181
+        scheme: HTTP
+      initialDelaySeconds: 10
+      timeoutSeconds: 5
+      successThreshold: 1
+      failureThreshold: 5
+
+  startup:
+    custom: true
+    spec:
+      httpGet:
+        path: /ready
+        port: 8181
+        scheme: HTTP
+      initialDelaySeconds: 3
+      timeoutSeconds: 2
+      periodSeconds: 5
+      failureThreshold: 60

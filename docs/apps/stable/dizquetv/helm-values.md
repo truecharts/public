@@ -12,12 +12,11 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See more environment variables in the [dizquetv documentation](https://hub.docker.com/r/vexorian/dizquetv). |
-| env.PGID | int | `1001` | Specify the group ID the application will run as |
-| env.PUID | int | `1001` | Specify the user ID the application will run as |
+| env.PUID | int | `568` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"ghcr.io/truecharts/dizquetv"` | image repository |
-| image.tag | string | `"v1.4.3@sha256:25c9ed2581550fe15fffeae8a791dabf4119969dbb39b62c45bc8e18c31a52e0"` | image tag |
+| image.tag | string | `"v1.5.0@sha256:e7fab135e5048700be9635208c5500b830ceddb7fa0b0f9fffd2fcaa645a8374"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

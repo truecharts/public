@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "0.1.0"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+description: Self hosted web app for shortening urls (URL shortener)
+home: https://github.com/truecharts/apps/tree/master/charts/stable/shorturl
+icon: ''
+keywords:
+- url
+- shortener
+- shorten
+- shorturl
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: shorturl
+sources:
+- https://github.com/prologic/shorturl
+- https://github.com/nicholaswilde/docker-shorturl
+type: application
+version: 1.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

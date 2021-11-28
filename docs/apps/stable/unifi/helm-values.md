@@ -11,24 +11,23 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGID | string | `"568"` |  |
-| env.PUID | string | `"568"` |  |
+| env.PUID | int | `568` |  |
 | envTpl.UNIFI_GID | string | `"{{ .Values.env.PUID }}"` |  |
-| envTpl.UNIFI_UID | string | `"{{ .Values.env.PGID }}"` |  |
+| envTpl.UNIFI_UID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/unifi"` |  |
-| image.tag | string | `"v6.2.26@sha256:cb9fc82546bfd94d5a10da131468695fa56e2f021895f56255464efaf492b6bc"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"v6.5.53@sha256:c6cf26dcd8e73e95503a9a8fb5ab36458c05c724b33add8dc1a6152648f33d3d"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/unifi"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.comm.enabled | bool | `true` |  |
 | service.comm.ports.comm.enabled | bool | `true` |  |
 | service.comm.ports.comm.port | int | `8080` |  |
-| service.comm.ports.comm.protocol | string | `"TCP"` |  |
 | service.comm.ports.comm.targetPort | int | `8080` |  |
-| service.guestportal.enabled | bool | `false` |  |
+| service.guestportal.enabled | bool | `true` |  |
 | service.guestportal.ports.web.enabled | bool | `true` |  |
 | service.guestportal.ports.web.port | int | `8880` |  |
 | service.guestportal.ports.web.protocol | string | `"HTTP"` |  |
@@ -39,10 +38,10 @@ You will, however, be able to use all values referenced in the common chart here
 | service.guestportal.ports.websecure.targetPort | int | `8843` |  |
 | service.main.ports.main.port | int | `8443` |  |
 | service.main.ports.main.protocol | string | `"HTTPS"` |  |
-| service.speedtest.enabled | bool | `false` |  |
+| service.main.ports.main.targetPort | int | `8443` |  |
+| service.speedtest.enabled | bool | `true` |  |
 | service.speedtest.ports.speedtest.enabled | bool | `true` |  |
 | service.speedtest.ports.speedtest.port | int | `6789` |  |
-| service.speedtest.ports.speedtest.protocol | string | `"TCP"` |  |
 | service.speedtest.ports.speedtest.targetPort | int | `6789` |  |
 | service.stun.enabled | bool | `true` |  |
 | service.stun.ports.stun.enabled | bool | `true` |  |

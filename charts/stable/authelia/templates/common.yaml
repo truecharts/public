@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "common.values.setup" . }}
+{{- include "common.setup" . }}
 
 {{/* Render configmap for authelia */}}
 {{- include "authelia.configmap" . }}
@@ -69,4 +69,4 @@ volumeSpec:
 
 
 {{/* Render the templates */}}
-{{ include "common.all" . }}
+{{ include "common.postSetup" . }}

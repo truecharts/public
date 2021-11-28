@@ -5,13 +5,24 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.9.0@sha256:e633aefd9a89e9c1492bef151eb81d718b5b9ecc7bf1bc80e64b36e5ac480158
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
-    enabled: true
     ports:
       main:
-        port: 80
+        port: 10026
+        targetPort: 80
+
+persistence:
+  varrun:
+    enabled: false
 
 env:
   PHPLDAPADMIN_HTTPS: "false"

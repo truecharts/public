@@ -10,10 +10,10 @@ controller:
 
 service:
   main:
-    enabled: true
     type: ExternalIP
     externalIP: "1.1.1.1"
     ports:
       main:
         Type: HTTPS
-        port: 443
+        port: 10003
+        targetPort: 443

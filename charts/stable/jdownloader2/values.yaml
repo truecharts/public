@@ -5,30 +5,42 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.7.1@sha256:ed3299aa7037a99aed5978c30e504ce3daa470d11b6af9533355592c64c3cced
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 service:
   main:
     ports:
       main:
-        port: 5800
+        port: 10054
+        targetPort: 5800
+  myjd:
+    enabled: true
+    ports:
+      myjd:
+        enabled: true
+        port: 3129
+        targetPort: 3129
   vnc:
     enabled: true
-    type: ClusterIP
     ports:
       vnc:
         enabled: true
-        port: 5900
-        protocol: "TCP"
+        port: 10056
+        targetPort: 5900
 
 # All values here are set as the docker defaults.
 envTpl:
   # Permissions Settings
   USER_ID: "{{ .Values.env.PUID }}"
-  GROUP_ID: "{{ .Values.env.PGID }}"
-
 env:
   # Permissions Settings
-  PUID: "568"
-  PGID: "568"
+  PUID: 568
   # General Settings
   KEEP_APP_RUNNING: "0"
   CLEAN_TMP_DIR: "1"
@@ -36,12 +48,9 @@ env:
   DISPLAY_WIDTH: "1280"
   DISPLAY_HEIGHT: "768"
   SECURE_CONNECTION: "0"
-  VNC_PASSWORD:
+  VNC_PASSWORD: ""
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

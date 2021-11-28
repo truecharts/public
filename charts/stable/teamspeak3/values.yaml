@@ -1,0 +1,47 @@
+# Default values for teamspeak3.
+
+image:
+  repository: teamspeak
+  pullPolicy: IfNotPresent
+  tag: 3.13.6@sha256:1fa7d5a2bce954d98724a71faf4af7853e93db5d0a61c447fe03988492a91bed
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+#  9987 default voice
+# 10011 server query
+# 30033 file transport
+service:
+  main:
+    ports:
+      main:
+        port: 10011
+        targetPort: 10011
+  voice:
+    enabled: true
+    ports:
+      voice:
+        enabled: true
+        port: 9987
+        targetPort: 9987
+        protocol: UDP
+  files:
+    enabled: true
+    ports:
+      files:
+        enabled: true
+        port: 30033
+        targetPort: 30033
+
+env:
+  TS3SERVER_LICENSE: accept
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/var/ts3server/"

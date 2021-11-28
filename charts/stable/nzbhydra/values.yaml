@@ -3,32 +3,21 @@
 image:
   repository: ghcr.io/k8s-at-home/nzbhydra2
   pullPolicy: IfNotPresent
-  tag: v3.15.2@sha256:3bad273e062a950fbc1ac8ab40f00c39efcb16f30abf5db7b5d2086777384362
+  tag: v3.17.3@sha256:9c1a08356359e75051b03ec614b4df5f6f24558a183de6feacb3a5c2ff232b77
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
     ports:
       main:
         port: 5076
+        targetPort: 5076
 
 env: {}
   # TZ: UTC
   # PUID: 1001
-  # PGID: 1001
-
 probes:
   liveness:
     custom: true
@@ -64,11 +53,7 @@ probes:
       periodSeconds: 10
       timeoutSeconds: 10
 
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

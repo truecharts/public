@@ -9,9 +9,16 @@ image:
   # -- image repository
   repository: ghcr.io/truecharts/octoprint
   # -- image tag
-  tag: v1.6.1@sha256:3e54ffdf99ab297b2b70289d72f880cd52aad5f6a55ab3005f38a25a7115e692
+  tag: v1.7.2@sha256:80d677488365ad240b0cef90fa381ba849dcd82dfc62b11689d88da9867956c6
   # -- image pull policy
   pullPolicy: IfNotPresent
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 # -- environment variables.
 # @default -- See below
@@ -32,25 +39,16 @@ service:
   main:
     ports:
       main:
-        port: 80
-
-
-securityContext:
-  # -- (bool) Privileged securityContext may be required if USB devics are accessed directly through the host machine
-  privileged: true
+        port: 10021
+        targetPort: 80
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
   data:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /octoprint
+    mountPath: "/octoprint"
   # -- Configure a hostPathMount to mount a USB device in the container.
   # @default -- See values.yaml
-  printer:
-    enabled: false
-    type: hostPath
-    hostPath: /dev/ttyACM0
+  varrun:
+    enabled: true

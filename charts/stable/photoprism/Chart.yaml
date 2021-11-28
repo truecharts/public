@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "20210523"
+appVersion: "20211018"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 7.0.12
+  version: 8.9.3
 description: "PhotoPrism\xC2\xAE is a server-based application for browsing, organizing\
   \ and sharing your personal photo collection"
-home: https://github.com/truechartsapps/tree/master/charts/incubator/photoprism
+home: https://github.com/truechartsapps/tree/master/charts/stable/photoprism
 icon: https://demo.photoprism.org/static/img/logo-avatar.svg
 keywords:
 - photos
@@ -16,10 +16,15 @@ keywords:
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
-  name: truecharts
+  name: TrueCharts
   url: https://truecharts.org
 name: photoprism
 sources:
 - https://github.com/photoprism/photoprism
 - https://hub.docker.com/r/photoprism/photoprism
-version: 2.0.1
+version: 5.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

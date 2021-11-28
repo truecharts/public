@@ -42,7 +42,6 @@ roleRef:
   kind: ClusterRole
   name: {{ include "common.names.fullname" . }}
 subjects:
-  {{- if .Values.serviceAccount }}
   - kind: ServiceAccount
     name: {{ include "common.names.serviceAccountName" . }}
     namespace: {{ .Release.Namespace }}
@@ -50,5 +49,4 @@ subjects:
   {{- with .Values.rbac.subjects }}
   {{- toYaml . | nindent 2 }}
   {{- end }}
-{{- end }}
 {{- end -}}

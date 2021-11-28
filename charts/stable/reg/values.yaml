@@ -13,19 +13,6 @@ image:
   # -- image tag
   tag: v0.16.1@sha256:ae581387764a23c62c1386389e27358bac5088790904938264cb0bcd4e8c946c
 
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
 # -- environment variables. See more environment variables in the [reg documentation](https://github.com/genuinetools/reg).
 env:
   # -- Set the container timezone
@@ -39,7 +26,14 @@ service:
   main:
     ports:
       main:
-        port: 8080
+        port: 10096
+        targetPort: 8080
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.

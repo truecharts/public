@@ -5,21 +5,10 @@
 image:
   repository: ghcr.io/truecharts/zwavejs2mqtt
   pullPolicy: IfNotPresent
-  tag: v5.5.4@sha256:8b5946e5e3384f8818766e20da7f576e243a364369366d631a80e7794cfdfa3b
+  tag: v5.12.0@sha256:1d1870e8ccbb1cd2f6417e0f4879e8923e7ac56c88a1215bdc14eaeb69751a0c
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-# 5=tty 20=dialout 24=cdrom
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: [5, 20, 24]
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # # See more environment variables in the zwavejs2mqtt documentation
 # https://zwave-js.github.io/zwavejs2mqtt/#/guide/env-vars
@@ -75,26 +64,19 @@ service:
     ports:
       main:
         port: 8091
+        targetPort: 8091
   ws:
     enabled: true
-    type: ClusterIP
     ports:
       ws:
         enabled: true
-        port: 3000
-        protocol: TCP
-
-# Privileged may be required if USB controller is accessed directly through the host machine
-# securityContext:
-#   privileged: true
+        port: 10046
+        targetPort: 3000
 
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+    mountPath: "/usr/src/app/store"
 
 
 # affinity:

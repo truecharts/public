@@ -1,0 +1,800 @@
+# Include{groups}
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+    path: "/transmission/web/#files"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+# Include{global}
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+# Include{fixedEnv}
+
+        - variable: TRANSMISSION_ALT_SPEED_DOWN
+          label: TRANSMISSION_ALT_SPEED_DOWN
+          schema:
+            type: int
+            default: 50
+        - variable: TRANSMISSION_ALT_SPEED_ENABLED
+          label: TRANSMISSION_ALT_SPEED_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_ALT_SPEED_TIME_BEGIN
+          label: TRANSMISSION_ALT_SPEED_TIME_BEGIN
+          schema:
+            type: int
+            default: 540
+        - variable: TRANSMISSION_ALT_SPEED_TIME_DAY
+          label: TRANSMISSION_ALT_SPEED_TIME_DAY
+          schema:
+            type: int
+            default: 127
+        - variable: TRANSMISSION_ALT_SPEED_TIME_ENABLED
+          label: TRANSMISSION_ALT_SPEED_TIME_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_ALT_SPEED_TIME_END
+          label: TRANSMISSION_ALT_SPEED_TIME_END
+          schema:
+            type: int
+            default: 1020
+        - variable: TRANSMISSION_ALT_SPEED_UP
+          label: TRANSMISSION_ALT_SPEED_UP
+          schema:
+            type: int
+            default: 50
+        - variable: TRANSMISSION_BIND_ADDRESS_IPV4
+          label: TRANSMISSION_BIND_ADDRESS_IPV4
+          schema:
+            type: string
+            default: "0.0.0.0"
+        - variable: TRANSMISSION_BIND_ADDRESS_IPV6
+          label: TRANSMISSION_BIND_ADDRESS_IPV6
+          schema:
+            type: string
+            default: "::"
+        - variable: TRANSMISSION_BLOCKLIST_ENABLED
+          label: TRANSMISSION_BLOCKLIST_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_BLOCKLIST_URL
+          label: TRANSMISSION_BLOCKLIST_URL
+          schema:
+            type: string
+            default: "http://john.bitsurge.net/public/biglist.p2p.gz"
+        - variable: TRANSMISSION_CACHE_SIZE_MB
+          label: TRANSMISSION_CACHE_SIZE_MB
+          schema:
+            type: int
+            default: 4
+        - variable: TRANSMISSION_DHT_ENABLED
+          label: TRANSMISSION_DHT_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_DOWNLOAD_DIR
+          label: TRANSMISSION_DOWNLOAD_DIR
+          schema:
+            type: string
+            default: "/downloads/complete"
+        - variable: TRANSMISSION_DOWNLOAD_QUEUE_ENABLED
+          label: TRANSMISSION_DOWNLOAD_QUEUE_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_DOWNLOAD_QUEUE_SIZE
+          label: TRANSMISSION_DOWNLOAD_QUEUE_SIZE
+          schema:
+            type: int
+            default: 5
+        - variable: TRANSMISSION_ENCRYPTION
+          label: TRANSMISSION_ENCRYPTION
+          schema:
+            type: int
+            default: 1
+        - variable: TRANSMISSION_IDLE_SEEDING_LIMIT
+          label: TRANSMISSION_IDLE_SEEDING_LIMIT
+          schema:
+            type: int
+            default: 30
+        - variable: TRANSMISSION_IDLE_SEEDING_LIMIT_ENABLED
+          label: TRANSMISSION_IDLE_SEEDING_LIMIT_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_INCOMPLETE_DIR
+          label: TRANSMISSION_INCOMPLETE_DIR
+          schema:
+            type: string
+            default: "/downloads/incomplete"
+        - variable: TRANSMISSION_INCOMPLETE_DIR_ENABLED
+          label: TRANSMISSION_INCOMPLETE_DIR_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_LPD_ENABLED
+          label: TRANSMISSION_LPD_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_MESSAGE_LEVEL
+          label: TRANSMISSION_MESSAGE_LEVEL
+          schema:
+            type: int
+            default: 2
+        - variable: TRANSMISSION_PEER_CONGESTION_ALGORITHM
+          label: TRANSMISSION_PEER_CONGESTION_ALGORITHM
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_PEER_ID_TTL_HOURS
+          label: TRANSMISSION_PEER_ID_TTL_HOURS
+          schema:
+            type: int
+            default: 6
+        - variable: TRANSMISSION_PEER_LIMIT_GLOBAL
+          label: TRANSMISSION_PEER_LIMIT_GLOBAL
+          schema:
+            type: int
+            default: 200
+        - variable: TRANSMISSION_PEER_LIMIT_PER_TORRENT
+          label: TRANSMISSION_PEER_LIMIT_PER_TORRENT
+          schema:
+            type: int
+            default: 50
+        - variable: TRANSMISSION_PEER_PORT
+          label: TRANSMISSION_PEER_PORT
+          schema:
+            type: int
+            default: 51414
+        - variable: TRANSMISSION_PEER_PORT_RANDOM_HIGH
+          label: TRANSMISSION_PEER_PORT_RANDOM_HIGH
+          schema:
+            type: int
+            default: 65535
+        - variable: TRANSMISSION_PEER_PORT_RANDOM_LOW
+          label: TRANSMISSION_PEER_PORT_RANDOM_LOW
+          schema:
+            type: int
+            default: 49152
+        - variable: TRANSMISSION_PEER_PORT_RANDOM_ON_START
+          label: TRANSMISSION_PEER_PORT_RANDOM_ON_START
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_PEER_SOCKET_TOS
+          label: TRANSMISSION_PEER_SOCKET_TOS
+          schema:
+            type: string
+            default: "default"
+        - variable: TRANSMISSION_PEX_ENABLED
+          label: TRANSMISSION_PEX_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_PORT_FORWARDING_ENABLED
+          label: TRANSMISSION_PORT_FORWARDING_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_PREALLOCATION
+          label: TRANSMISSION_PREALLOCATION
+          schema:
+            type: int
+            default: 1
+        - variable: TRANSMISSION_PREFETCH_ENABLED
+          label: TRANSMISSION_PREFETCH_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_QUEUE_STALLED_ENABLED
+          label: TRANSMISSION_QUEUE_STALLED_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_QUEUE_STALLED_MINUTES
+          label: TRANSMISSION_QUEUE_STALLED_MINUTES
+          schema:
+            type: int
+            default: 30
+        - variable: TRANSMISSION_RATIO_LIMIT
+          label: TRANSMISSION_RATIO_LIMIT
+          schema:
+            type: int
+            default: 2
+        - variable: TRANSMISSION_RATIO_LIMIT_ENABLED
+          label: TRANSMISSION_RATIO_LIMIT_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_RENAME_PARTIAL_FILES
+          label: TRANSMISSION_RENAME_PARTIAL_FILES
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_RPC_AUTHENTICATION_REQUIRED
+          label: TRANSMISSION_RPC_AUTHENTICATION_REQUIRED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_RPC_BIND_ADDRESS
+          label: TRANSMISSION_RPC_BIND_ADDRESS
+          schema:
+            type: string
+            default: "0.0.0.0"
+        - variable: TRANSMISSION_RPC_ENABLED
+          label: TRANSMISSION_RPC_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_RPC_HOST_WHITELIST
+          label: TRANSMISSION_RPC_HOST_WHITELIST
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_RPC_HOST_WHITELIST_ENABLED
+          label: TRANSMISSION_RPC_HOST_WHITELIST_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_RPC_PASSWORD
+          label: TRANSMISSION_RPC_PASSWORD
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_RPC_PORT
+          label: TRANSMISSION_RPC_PORT
+          schema:
+            type: int
+            default: 10109
+        - variable: TRANSMISSION_RPC_URL
+          label: TRANSMISSION_RPC_URL
+          schema:
+            type: string
+            default: "/transmission/"
+        - variable: TRANSMISSION_RPC_USERNAME
+          label: TRANSMISSION_RPC_USERNAME
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_RPC_WHITELIST
+          label: TRANSMISSION_RPC_WHITELIST
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_RPC_WHITELIST_ENABLED
+          label: TRANSMISSION_RPC_WHITELIST_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_SCRAPE_PAUSED_TORRENTS_ENABLED
+          label: TRANSMISSION_SCRAPE_PAUSED_TORRENTS_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_SCRIPT_TORRENT_DONE_ENABLED
+          label: TRANSMISSION_SCRIPT_TORRENT_DONE_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_SCRIPT_TORRENT_DONE_FILENAME
+          label: TRANSMISSION_SCRIPT_TORRENT_DONE_FILENAME
+          schema:
+            type: string
+            default: ""
+        - variable: TRANSMISSION_SEED_QUEUE_ENABLED
+          label: TRANSMISSION_SEED_QUEUE_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_SEED_QUEUE_SIZE
+          label: TRANSMISSION_SEED_QUEUE_SIZE
+          schema:
+            type: int
+            default: 10
+        - variable: TRANSMISSION_SPEED_LIMIT_DOWN
+          label: TRANSMISSION_SPEED_LIMIT_DOWN
+          schema:
+            type: int
+            default: 100
+        - variable: TRANSMISSION_SPEED_LIMIT_DOWN_ENABLED
+          label: TRANSMISSION_SPEED_LIMIT_DOWN_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_SPEED_LIMIT_UP
+          label: TRANSMISSION_SPEED_LIMIT_UP
+          schema:
+            type: int
+            default: 100
+        - variable: TRANSMISSION_SPEED_LIMIT_UP_ENABLED
+          label: TRANSMISSION_SPEED_LIMIT_UP_ENABLED
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_START_ADDED_TORRENTS
+          label: TRANSMISSION_START_ADDED_TORRENTS
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_TRASH_ORIGINAL_TORRENT_FILES
+          label: TRANSMISSION_TRASH_ORIGINAL_TORRENT_FILES
+          schema:
+            type: boolean
+            default: false
+        - variable: TRANSMISSION_UMASK
+          label: TRANSMISSION_UMASK
+          schema:
+            type: int
+            default: 2
+        - variable: TRANSMISSION_UPLOAD_SLOTS_PER_TORRENT
+          label: TRANSMISSION_UPLOAD_SLOTS_PER_TORRENT
+          schema:
+            type: int
+            default: 14
+        - variable: TRANSMISSION_UTP_ENABLED
+          label: TRANSMISSION_UTP_ENABLED
+          schema:
+            type: boolean
+            default: true
+        - variable: TRANSMISSION_WATCH_DIR
+          label: TRANSMISSION_WATCH_DIR
+          schema:
+            type: string
+            default: "/watch"
+        - variable: TRANSMISSION_WATCH_DIR_ENABLED
+          label: TRANSMISSION_WATCH_DIR_ENABLED
+          schema:
+            type: boolean
+            default: false
+# Include{containerConfig}
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10109
+                              editable: true
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 10109
+
+
+        - variable: torrent
+          label: "TCP Torrent Service"
+          description: "Torrent service"
+          schema:
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: torrent
+                      label: "TCP Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 51414
+                              editable: true
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "TCP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 51414
+
+        - variable: torrentudp
+          label: "UDP Torrent Service"
+          description: "Torrent service"
+          schema:
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: torrentudp
+                      label: "UDP Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enable the port"
+                            schema:
+                              type: boolean
+                              default: true
+                              hidden: true
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 51413
+                              editable: true
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "UDP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 51413
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      type: dict
+      attrs:
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: mountPath
+                label: "mountPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  type: string
+                  default: "/config"
+                  hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+# Include{persistenceList}
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
+# Include{ingressList}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: true
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+        - variable: supplementalGroups
+          label: "supplemental Groups"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: supplementalGroupsEntry
+                label: "supplemental Group"
+                schema:
+                  type: int
+        - variable: fsGroupChangePolicy
+          label: "When should we take ownership?"
+          schema:
+            type: string
+            default: "OnRootMismatch"
+            enum:
+              - value: "OnRootMismatch"
+                description: "OnRootMismatch"
+              - value: "Always"
+                description: "Always"
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}

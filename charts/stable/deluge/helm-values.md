@@ -13,20 +13,23 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/deluge"` |  |
-| image.tag | string | `"version-2.0.3-2201906121747ubuntu18.04.1@sha256:a32d8680e315932b799c8267e2c0d630185aaf8b542d56a134c74c9a5c957c36"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"version-2.0.3-2201906121747ubuntu18.04.1@sha256:2ce561a95e7be890c1daf718e85e37fd58d792ac86ec031d1dd22f85e5311469"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
+| persistence.varrun.enabled | bool | `true` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8112` |  |
+| service.main.ports.main.targetPort | int | `8112` |  |
+| service.torrent-udp.enabled | bool | `true` |  |
+| service.torrent-udp.ports.udp.enabled | bool | `true` |  |
+| service.torrent-udp.ports.udp.port | int | `51413` |  |
+| service.torrent-udp.ports.udp.protocol | string | `"UDP"` |  |
+| service.torrent-udp.ports.udp.targetPort | int | `51413` |  |
 | service.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.tcp.enabled | bool | `true` |  |
 | service.torrent.ports.tcp.port | int | `51413` |  |
-| service.torrent.ports.tcp.protocol | string | `"TCP"` |  |
-| service.torrent.ports.udp.enabled | bool | `true` |  |
-| service.torrent.ports.udp.port | int | `51413` |  |
-| service.torrent.ports.udp.protocol | string | `"UDP"` |  |
-| service.torrent.type | string | `"ClusterIP"` |  |
+| service.torrent.ports.tcp.targetPort | int | `51413` |  |
 
 All Rights Reserved - The TrueCharts Project

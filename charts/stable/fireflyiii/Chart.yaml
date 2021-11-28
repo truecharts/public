@@ -2,12 +2,12 @@ apiVersion: v2
 appVersion: "5.5.12"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 2.2.0
+  version: 6.0.10
 deprecated: false
 description: A free and open source personal finance manager
 home: https://github.com/firefly-iii/firefly-iii/
@@ -19,12 +19,14 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
-- email: 20650065+warllo54@users.noreply.github.com
-  name: warllo54
-  url: truecharts.org
+  url: https://truecharts.org
 name: fireflyiii
 sources:
 - https://github.com/firefly-iii/firefly-iii/
 type: application
-version: 8.0.1
+version: 13.0.3
+annotations:
+  truecharts.org/catagories: |
+    - finacial
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

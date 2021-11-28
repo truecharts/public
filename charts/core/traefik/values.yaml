@@ -1,0 +1,310 @@
+# Default values for Traefik
+image:
+  repository: traefik
+  # defaults to appVersion
+  tag: v2.5.4@sha256:7d0228d19042f1286765f0ef56ceba8e4e8a08ae9b45b854179cf09a9c3de633
+  pullPolicy: IfNotPresent
+
+# -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
+ingressClass:
+  # true is not unit-testable yet, pending https://github.com/rancher/helm-unittest/pull/12
+  enabled: false
+  isDefaultClass: false
+  # Use to force a networking.k8s.io API Version for certain CI/CD applications. E.g. "v1beta1"
+  fallbackApiVersion: ""
+
+# -- Activate Pilot integration
+pilot:
+  enabled: false
+  token: ""
+  # Toggle Pilot Dashboard
+  # dashboard: false
+
+# -- Create an IngressRoute for the dashboard
+ingressRoute:
+  dashboard:
+    enabled: true
+    # Additional ingressRoute annotations (e.g. for kubernetes.io/ingress.class)
+    annotations: {}
+    # Additional ingressRoute labels (e.g. for filtering IngressRoute by custom labels)
+    labels: {}
+
+#
+# -- Configure providers
+providers:
+  kubernetesCRD:
+    enabled: true
+    namespaces: []
+      # - "default"
+  kubernetesIngress:
+    enabled: true
+    # labelSelector: environment=production,method=traefik
+    namespaces: []
+      # - "default"
+    # IP used for Kubernetes Ingress endpoints
+    publishedService:
+      enabled: true
+      # Published Kubernetes Service to copy status from. Format: namespace/servicename
+      # By default this Traefik service
+      # pathOverride: ""
+
+# -- Logs
+# https://docs.traefik.io/observability/logs/
+logs:
+  # Traefik logs concern everything that happens to Traefik itself (startup, configuration, events, shutdown, and so on).
+  general:
+    # By default, the logs use a text format (common), but you can
+    # also ask for the json format in the format option
+    # format: json
+    # By default, the level is set to ERROR. Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
+    level: ERROR
+  access:
+    # To enable access logs
+    enabled: false
+    # By default, logs are written using the Common Log Format (CLF).
+    # To write logs in JSON, use json in the format option.
+    # If the given format is unsupported, the default (CLF) is used instead.
+    # format: json
+    # To write the logs in an asynchronous fashion, specify a bufferingSize option.
+    # This option represents the number of log lines Traefik will keep in memory before writing
+    # them to the selected output. In some cases, this option can greatly help performances.
+    # bufferingSize: 100
+    # Filtering https://docs.traefik.io/observability/access-logs/#filtering
+    filters: {}
+      # statuscodes: "200,300-302"
+      # retryattempts: true
+      # minduration: 10ms
+    # Fields
+    # https://docs.traefik.io/observability/access-logs/#limiting-the-fieldsincluding-headers
+    fields:
+      general:
+        defaultmode: keep
+        names: {}
+          # Examples:
+          # ClientUsername: drop
+      headers:
+        defaultmode: drop
+        names: {}
+          # Examples:
+          # User-Agent: redact
+          # Authorization: drop
+          # Content-Type: keep
+
+metrics:
+  # datadog:
+  #   address: 127.0.0.1:8125
+  # influxdb:
+  #   address: localhost:8089
+  #   protocol: udp
+  prometheus:
+    entryPoint: metrics
+  # statsd:
+  #   address: localhost:8125
+
+globalArguments:
+  - "--global.checknewversion"
+
+##
+# -- Additional arguments to be passed at Traefik's binary
+# All available options available on https://docs.traefik.io/reference/static-configuration/cli/
+## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
+additionalArguments:
+  - "--metrics.prometheus"
+  - "--ping"
+  - "--serverstransport.insecureskipverify=true"
+  - "--providers.kubernetesingress.allowexternalnameservices=true"
+
+# -- TLS Options to be created as TLSOption CRDs
+# https://doc.traefik.io/traefik/https/tls/#tls-options
+# Example:
+tlsOptions:
+  default:
+    sniStrict: false
+    minVersion: VersionTLS12
+    curvePreferences:
+      - CurveP521
+      - CurveP384
+    cipherSuites:
+      - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+      - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+      - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+      - TLS_AES_128_GCM_SHA256
+      - TLS_AES_256_GCM_SHA384
+      - TLS_CHACHA20_POLY1305_SHA256
+
+# -- Options for the main traefik service, where the entrypoints traffic comes from
+# from.
+service:
+  main:
+    type: LoadBalancer
+    ports:
+      main:
+        port: 9000
+        targetPort: 9000
+        protocol: HTTP
+  tcp:
+    enabled: true
+    type: LoadBalancer
+    ports:
+      web:
+        enabled: true
+        port: 9080
+        protocol: HTTP
+        redirectTo: websecure
+      websecure:
+        enabled: true
+        port: 9443
+        protocol: HTTPS
+#      tcpexample:
+#        enabled: true
+#        targetPort: 9443
+#        protocol: TCP
+#        tls:
+#          enabled: false
+#          # this is the name of a TLSOption definition
+#          options: ""
+#          certResolver: ""
+#          domains: []
+#          # - main: example.com
+#          #   sans:
+#          #     - foo.example.com
+#          #     - bar.example.com
+  metrics:
+    enabled: true
+    type: LoadBalancer
+    ports:
+      metrics:
+        enabled: true
+        port: 9100
+        targetPort: 9100
+        protocol: HTTP
+  udp:
+    enabled: false
+
+probes:
+  # -- Liveness probe configuration
+  # @default -- See below
+  liveness:
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: HTTP
+    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+    # @default -- "/"
+    path: "/ping"
+
+  # -- Redainess probe configuration
+  # @default -- See below
+  readiness:
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: HTTP
+    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+    # @default -- "/"
+    path: "/ping"
+
+  # -- Startup probe configuration
+  # @default -- See below
+  startup:
+    # -- sets the probe type when not using a custom probe
+    # @default -- "TCP"
+    type: HTTP
+    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
+    # @default -- "/"
+    path: "/ping"
+
+# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+rbac:
+  enabled: true
+  rules:
+    - apiGroups:
+        - ""
+      resources:
+        - services
+        - endpoints
+        - secrets
+      verbs:
+        - get
+        - list
+        - watch
+    - apiGroups:
+        - extensions
+        - networking.k8s.io
+      resources:
+        - ingresses
+        - ingressclasses
+      verbs:
+        - get
+        - list
+        - watch
+    - apiGroups:
+        - extensions
+        - networking.k8s.io
+      resources:
+        - ingresses/status
+      verbs:
+        - update
+    - apiGroups:
+        - traefik.containo.us
+      resources:
+        - ingressroutes
+        - ingressroutetcps
+        - ingressrouteudps
+        - middlewares
+        - middlewaretcps
+        - tlsoptions
+        - tlsstores
+        - traefikservices
+        - serverstransports
+      verbs:
+        - get
+        - list
+        - watch
+
+# -- The service account the pods will use to interact with the Kubernetes API
+serviceAccount:
+  create: true
+
+# -- SCALE Middleware Handlers
+middlewares:
+  basicAuth: []
+  # - name: basicauthexample
+  #   users:
+  #     - username: testuser
+  #       password: testpassword
+  forwardAuth: []
+  # - name: forwardAuthexample
+  #   address: https://auth.example.com/
+  #   authResponseHeaders:
+  #     - X-Secret
+  #     - X-Auth-User
+  #   authRequestHeaders:
+  #     - "Accept"
+  #     - "X-CustomHeader"
+  #   authResponseHeadersRegex: "^X-"
+  #   trustForwardHeader: true
+  chain: []
+  # - name: chainname
+  #   middlewares:
+  #    - name: compress
+  redirectScheme: []
+  # - name: redirectSchemeName
+  #   scheme: https
+  #   permanent: true
+  rateLimit: []
+  # - name: rateLimitName
+  #   average: 300
+  #   burst: 200
+  redirectRegex: []
+  # - name: redirectRegexName
+  #   regex: putregexhere
+  #   replacement: replacementurlhere
+  #   permanent: false
+  ipWhiteList: []
+  # - name: ipWhiteListName
+  #   sourceRange: []
+  #   ipStrategy:
+  #     depth: 2
+  #     excludedIPs: []
+
+portalhook:
+  enabled: true

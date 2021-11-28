@@ -13,8 +13,12 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"pykmsorg/py-kms"` |  |
-| image.tag | string | `"minimal@sha256:f60edd7b3e7d59b5a2759584a3bf844cf41a3f1a1346186bb77409e0cb0a143c"` |  |
+| image.tag | string | `"minimal@sha256:769cc69064bf60c67855a25a4c9e2959fd1e5e640396c35c15599d342d61061e"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `1688` |  |
-| service.main.ports.main.protocol | string | `"TCP"` |  |
+| service.main.ports.main.targetPort | int | `1688` |  |
 
 All Rights Reserved - The TrueCharts Project

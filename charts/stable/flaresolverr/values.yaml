@@ -11,21 +11,15 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
   # -- image tag
-  tag: v1.2.9@sha256:6f93f3359a8b2cbd268286ce460ff5ffa79a6f1d8c19097ed49097fbfab6a786
+  tag: v2.0.2@sha256:f08e3442bc6d6f6328d98f2cebafd36c7442339c1f12cb6e531928a60d6dde3f
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
+  runAsNonRoot: false
 
 podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
-
+  runAsUser: 0
+  runAsGroup: 0
 # -- environment variables. See more environment variables in the [flaresolverr documentation](https://github.com/FlareSolverr/FlareSolverr#environment-variables).
 # @default -- See below
 env:
@@ -39,3 +33,9 @@ service:
     ports:
       main:
         port: 8191
+        targetPort: 8191
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"

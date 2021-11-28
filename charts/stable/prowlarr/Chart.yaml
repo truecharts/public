@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "0.1.1.927"
+appVersion: "0.1.4.1133"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 description: Indexer manager/proxy built on the popular arr net base stack to integrate
   with your various PVR apps.
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/prowlarr
+home: https://github.com/truecharts/apps/tree/master/charts/stable/prowlarr
 icon: https://raw.githubusercontent.com/Prowlarr/Prowlarr/develop/Logo/400.png
 keywords:
 - prowlarr
@@ -16,9 +16,14 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
+  url: https://truecharts.org
 name: prowlarr
 sources:
 - https://github.com/Prowlarr/Prowlarr
 - https://github.com/k8s-at-home/container-images
-version: 2.0.1
+version: 4.0.19
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

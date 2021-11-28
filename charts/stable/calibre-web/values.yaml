@@ -3,18 +3,27 @@
 image:
   repository: ghcr.io/linuxserver/calibre-web
   pullPolicy: IfNotPresent
-  tag: version-0.6.12@sha256:d2e3980e7d0257c28d1e06a10d7f9cb0b3de6865a8d987e10af590fa6c4ebb77
+  tag: version-0.6.12@sha256:938810eca3d3137221308afe9095773c8552a457dc0943abd0aec5613242b0b6
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 8083
+        targetPort: 8083
 
 env: {}
   # TZ:
   # PUID:
-  # PGID:
+
   # UMASK:
   # DOCKER_MODS:
 
@@ -22,6 +31,3 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

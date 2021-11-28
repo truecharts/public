@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "latest-202"
+description: DSMR-protocol reader, telegram data storage and energy consumption visualizer.
+name: dsmr-reader
+version: 5.0.3
+kubeVersion: ">=1.16.0-0"
+keywords:
+- dsmr-reader
+- energy
+home: https://github.com/truecharts/apps/tree/master/charts/stable/dsmr-reader
+icon: https://avatars2.githubusercontent.com/u/57727360?s=400&v=4
+sources:
+- https://github.com/dsmrreader/dsmr-reader
+- https://github.com/xirixiz/dsmr-reader-docker
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://truecharts.org/
+  version: 6.0.10
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

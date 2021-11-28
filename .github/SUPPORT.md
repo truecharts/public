@@ -12,6 +12,7 @@ We also document which versions of TrueNAS will recieve TrueCharts updates and f
 | ------- | ------- |------------------ | -------------- | -------------- |
 | 21.02 ALPHA | `legacy_21.02ALPHA`| :x: | :x: | Not adviced to be used
 | 21.04 ALPHA | `legacy_21.04ALPHA`| :x: | :x: | Not adviced to be used
-| 21.06 BETA | `legacy_21.06ABETA` | :white_check_mark: | :x: | Adviced to update to 21.08
-| 21.08 BETA | `master` | :white_check_mark: | :white_check_mark: | Most stable release
-| Nightly | `master` | :x: | :x: | Please only submit bugreports during codefreeze
+| 21.06 BETA | `legacy_21.06ABETA` | :white_check_mark: | :x: | Adviced to update to 22.02 RC1
+| 21.08 BETA | `legacy_21.08BETA` | :white_check_mark: | :x: | Adviced to update to 22.02 RC1
+| 22.02 RC1 | `master` | :white_check_mark: | :white_check_mark: | Most stable release
+| Nightly | `master` | :white_check_mark: | :x: | Please only submit bugreports during codefreeze

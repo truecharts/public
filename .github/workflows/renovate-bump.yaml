@@ -23,13 +23,6 @@ jobs:
           fetch-depth: 0
           ref: master
           path: master
-      - name: Set up Python
-        uses: actions/setup-python@v2
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pybump
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - uses: dorny/paths-filter@v2
         id: filter
         with:
@@ -39,6 +32,8 @@ jobs:
             - 'charts/stable/**'
             - 'charts/incubator/**'
             - 'charts/library/**'
+            - 'charts/dependency/**'
+            - 'charts/core/**'
       - name: Filter filter-output
         run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
       - name: Bump
@@ -56,19 +51,23 @@ jobs:
                 train="incubator"
               elif test -f "./charts/library/${chart}/Chart.yaml"; then
                 train="library"
+              elif test -f "./charts/dependency/${chart}/Chart.yaml"; then
+                train="dependency"
+              elif test -f "./charts/core/${chart}/Chart.yaml"; then
+                train="core"
               else
                 train="incubator"
               fi
               echo "Comparing versions for ${train}/${chart}"
-              master=$(pybump get --file ./master/charts/${train}/${chart}/Chart.yaml)
-              current=$(pybump get --file ./charts/${train}/${chart}/Chart.yaml)
+              master=$(cat ./master/charts/${train}/${chart}/Chart.yaml | grep "^version")
+              current=$(cat ./charts/${train}/${chart}/Chart.yaml | grep "^version")
               echo "master version: ${master}"
               echo "current version: ${current}"
               if [[ "${master}" != "${current}" ]]; then
                 echo "Version does not have to be bumped"
               else
                 echo "Bumping patch version for ${train}/${chart}"
-                pybump bump --file ./charts/${train}/${chart}/Chart.yaml --level patch
+                ./tools/bump.sh patch ./charts/${train}/${chart}
               fi
             done
       - name: Cleanup

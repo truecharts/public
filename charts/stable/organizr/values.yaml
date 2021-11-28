@@ -3,23 +3,27 @@
 image:
   repository: organizr/organizr
   pullPolicy: Always
-  tag: latest@sha256:009e291af3b3fc1e071757e94cdfd66557136945360ac8e041632e5f1e60615c
+  tag: latest@sha256:d8b03b33ea1c65023ef7085bf06d13b0045a099e82fc833c9ac35c071b3e88a8
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
     ports:
       main:
-        port: 80
+        port: 10022
+        targetPort: 80
 
 env: {}
   # TZ: UTC
   # PUID: 1001
-  # PGID: 1001
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

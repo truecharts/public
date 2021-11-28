@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "2021.09"
+appVersion: "2021.10.1"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 deprecated: false
 description: DNS and Ad-filtering for your network
 home: https://github.com/truecharts/apps/tree/master/charts/stable/pihole
@@ -14,11 +14,16 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
+  url: https://truecharts.org
 name: pihole
 sources:
 - https://pi-hole.net/
 - https://github.com/pi-hole
 - https://github.com/pi-hole/docker-pi-hole
 type: application
-version: 2.0.3
+version: 4.0.15
+annotations:
+  truecharts.org/catagories: |
+    - networking
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

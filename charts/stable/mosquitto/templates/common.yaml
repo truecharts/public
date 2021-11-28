@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "common.values.setup" . }}
+{{- include "common.setup" . }}
 
 {{/* Append the configMap volume to the volumes */}}
 {{- define "mosquitto.configVolume" -}}
@@ -14,4 +14,4 @@ volumeSpec:
 {{- $_ := set .Values.persistence "mosquitto-config" (include "mosquitto.configVolume" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "common.all" . }}
+{{ include "common.postSetup" . }}

@@ -3,6 +3,7 @@ This template serves as the blueprint for the StatefulSet objects that are creat
 within the common library.
 */}}
 {{- define "common.statefulset" }}
+{{- $values := .Values }}
 {{- $releaseName := .Release.Name }}
 ---
 apiVersion: apps/v1
@@ -58,12 +59,10 @@ spec:
         name: {{ $vctname }}
       spec:
         accessModes:
-          - {{ required (printf "accessMode is required for vCT %v" $vct.name) $vct.accessMode  | quote }}
+          - {{ ( $vct.accessMode | default "ReadWriteOnce" ) | quote }}
         resources:
           requests:
-            storage: {{ required (printf "size is required for PVC %v" $vct.name) $vct.size | quote }}
-        {{- if $vct.storageClass }}
-        storageClassName: {{ if (eq "-" $vct.storageClass) }}""{{- else if (eq "SCALE-ZFS" $vct.storageClass ) }}{{ ( printf "%v-%v"  "ix-storage-class" $releaseName ) }}{{- else }}{{ $vct.storageClass | quote }}{{- end }}
-        {{- end }}
+            storage: {{ $vct.size | default "999Gi" | quote }}
+        {{ include "common.storage.class" ( dict "persistence" $vct "global" $) }}
     {{- end }}
 {{- end }}

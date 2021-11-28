@@ -1,0 +1,55 @@
+image:
+  repository: ghcr.io/linuxserver/babybuddy
+  pullPolicy: IfNotPresent
+  tag: 1.9.1@sha256:518a00e9752512ddbfae2e5f09f6561bcb3130bf891165960bd2a09a36306b59
+
+# See more environment variables in the babybuddy documentation
+# https://github.com/linuxserver/docker-babybuddy#parameters
+env: {}
+  # TZ:
+
+envTpl:
+  DB_ENGINE: "django.db.backends.postgresql"
+  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PORT: "5432"
+
+envValueFrom:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+securityContext:
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10069
+        targetPort: 8000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: babybuddy
+  postgresqlDatabase: babybuddy

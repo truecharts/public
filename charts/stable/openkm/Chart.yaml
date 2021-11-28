@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "6.3.11"
+description: OpenKM integrates all essential documents management, collaboration and an advanced search functionality into one easy to use solution.
+name: openkm
+version: 4.0.3
+kubeVersion: ">=1.16.0-0"
+keywords:
+- openkm
+- documentation management
+- docs
+home: https://github.com/truecharts/apps/tree/master/charts/stable/openkm
+icon: https://raw.githubusercontent.com/openkm/document-management-system/master/src/main/webapp/img/logo_favicon.ico
+sources:
+- https://www.openkm.com/
+- https://github.com/openkm/document-management-system
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://truecharts.org/
+  version: 6.0.10
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

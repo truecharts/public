@@ -3,18 +3,23 @@ appVersion: "1.3.0"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 7.0.12
+  version: 8.9.3
 description: A simple null file http and https server
-home: https://github.com/truechartsapps/tree/master/charts/incubator/nullserv
+home: https://github.com/truechartsapps/tree/master/charts/stable/nullserv
 icon: https://miro.medium.com/max/800/1*UL9RWkTUtJlyHW7kGm20hQ.png
 keywords:
 - nullserv
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
-  name: truecharts
+  name: TrueCharts
   url: https://truecharts.org
 name: nullserv
 sources:
 - https://github.com/bmrzycki/nullserv
-version: 2.0.1
+version: 4.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

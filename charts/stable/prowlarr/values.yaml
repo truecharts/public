@@ -9,22 +9,12 @@ image:
   # -- image repository
   repository: ghcr.io/k8s-at-home/prowlarr
   # -- image tag
-  tag: v0.1.1.927@sha256:bf6e08cb69458f63b5ea7f94fd5ea13319aa656eee427628f2f31c7e08698299
+  tag: v0.1.4.1133@sha256:8c56a6d63f64509d247ec6140dcd4e4d3fdc5fb4170db76f1094836afa0c0ff0
   # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables.
 # @default -- See below
@@ -39,6 +29,7 @@ service:
     ports:
       main:
         port: 9696
+        targetPort: 9696
 
 ingress:
   # -- Enable and configure ingress settings for the chart under this key.
@@ -51,6 +42,4 @@ ingress:
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
+    mountPath: "/config"

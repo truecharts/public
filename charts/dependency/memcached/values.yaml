@@ -1,0 +1,11 @@
+image:
+  repository: bitnami/memcached
+  pullPolicy: IfNotPresent
+  tag: 1.6.12@sha256:b8dc7ffb2dfaffb03df5b8cf6654f78d3dacdff447583c536e6ccd3a53596437
+
+service:
+  main:
+    ports:
+      main:
+        port: 11211
+        targetPort: 11211

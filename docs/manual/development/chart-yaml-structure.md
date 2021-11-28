@@ -40,6 +40,7 @@ annotations:
   example: A list of annotations keyed by name (optional).
 ```
 
+
 ##### Commenting
 
 In the above description there are a lot of values that are not actually used. Some of those, like `deprecated`, we just set to false. While others, like `annotations` get commented out.
@@ -54,8 +55,5 @@ All other dependencies are expected to be listed in alphabetical order.
 
 ##### Maintainers
 
-The first maintainer should always be TrueCharts, as the TrueCharts core team is expected to step in if the other maintainers fail to maintain their work.
+The only maintainer should always be TrueCharts, as the TrueCharts core team is expected to step in if the other maintainers fail to maintain their work.
 An example of how to list TrueCharts as a maintainer is available in our standard Chart.yaml [template](https://github.com/truecharts/apps/tree/master/tools/templates/chart/Chart.yaml).
-
-While currently we primarily use the CODEOWNERS file to define maintainers. We might in the future either automate keeping track of maintainers, completely rely on the maintainers or do both. For this reason it's important to add yourself as a maintainer if you expect to maintain your work.
-All other maintainers are, ofcoarse, expected to be entered in importance. With the primary maintainer under "truecharts" and secondary maintainers thereunder.

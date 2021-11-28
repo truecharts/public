@@ -14,17 +14,12 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: true
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-  fsGroup: 0
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables. See [application docs](https://flightaware.com/adsb/piaware/advanced_configuration) for more details.
 # @default -- See below
@@ -38,18 +33,15 @@ service:
   main:
     ports:
       main:
-        port: 8080
+        port: 10092
+        targetPort: 8080
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
-  # -- Configure a hostPathMount to mount a USB device in the container.
-  # @default -- See values.yaml
-  usb:
-    enabled: false
-    type: hostPath
-    hostPath: /dev/bus/usb/001/004
-
+  config:
+    enabled: true
+    mountPath: "/config"
 # -- Affinity constraint rules to place the Pod on a specific node.
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
 affinity: {}

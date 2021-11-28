@@ -34,6 +34,23 @@ Volumes included by the controller.
       {{- $_ := set $emptyDir "sizeLimit" . -}}
     {{- end }}
   emptyDir: {{- $emptyDir | toYaml | nindent 4 }}
+  {{- else if or (eq $persistence.type "configMap") (eq $persistence.type "secret") }}
+    {{- $objectName := (required (printf "objectName not set for persistence item %s" $index) $persistence.objectName) }}
+    {{- $objectName = tpl $objectName $ }}
+    {{- if eq $persistence.type "configMap" }}
+  configMap:
+    name: {{ $objectName }}
+    {{- else }}
+  secret:
+    secretName: {{ $objectName }}
+    {{- end }}
+    {{- with $persistence.defaultMode }}
+    defaultMode: {{ . }}
+    {{- end }}
+    {{- with $persistence.items }}
+    items:
+      {{- toYaml . | nindent 6 }}
+    {{- end }}
   {{- else if eq $persistence.type "hostPath" }}
   hostPath:
     path: {{ required "hostPath not set" $persistence.hostPath }}
@@ -43,7 +60,7 @@ Volumes included by the controller.
   {{- else if eq $persistence.type "custom" }}
     {{- toYaml $persistence.volumeSpec | nindent 2 }}
   {{- else }}
-    {{- fail (printf "Not a valid persistence.type (%s)" .Values.persistence.type) }}
+    {{- fail (printf "Not a valid persistence.type (%s)" $persistence.type) }}
   {{- end }}
 {{- end }}
 {{- end }}

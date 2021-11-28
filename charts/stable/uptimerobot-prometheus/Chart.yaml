@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "0.0.1"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+deprecated: false
+description: Prometheus Exporter for the official uptimerobot CLI
+icon: https://cdn.foliovision.com/images/2019/03/icon-uptimerobot-1024.png
+home: https://github.com/k8s-at-home/charts/tree/master/charts/stable/uptimerobot-prometheus
+keywords:
+- uptimerobot
+- prometheus
+- grafana
+- metrics
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: uptimerobot-prometheus
+sources:
+  - https://github.com/lekpamartin/uptimerobot_exporter
+  - https://github.com/k8s-at-home/charts/tree/master/charts/uptimerobot-prometheus
+type: application
+version: 1.0.0
+annotations:
+  truecharts.org/catagories: |
+    - metrics
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

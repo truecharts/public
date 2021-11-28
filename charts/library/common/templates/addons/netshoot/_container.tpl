@@ -5,12 +5,24 @@ The netshoot sidecar container to be inserted.
 name: netshoot
 image: "{{ .Values.netshootImage.repository }}:{{ .Values.netshootImage.tag }}"
 imagePullPolicy: {{ .Values.netshootImage.pullPolicy }}
-{{- with .Values.addons.netshoot.securityContext }}
+
 securityContext:
-  {{- toYaml . | nindent 2 }}
-{{- end }}
-{{- with .Values.addons.netshoot.env }}
+  runAsUser: 0
+  runAsGroup: 0
+  capabilities:
+    add:
+      - NET_ADMIN
+
 env:
+{{- range $envList := .Values.addons.netshoot.envList }}
+  {{- if and $envList.name $envList.value }}
+  - name: {{ $envList.name }}
+    value: {{ $envList.value | quote }}
+  {{- else }}
+  {{- fail "Please specify name/value for netshoot environment variable" }}
+  {{- end }}
+{{- end}}
+{{- with .Values.addons.netshoot.env }}
 {{- range $k, $v := . }}
   - name: {{ $k }}
     value: {{ $v | quote }}

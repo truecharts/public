@@ -3,26 +3,41 @@
 image:
   repository: ghcr.io/truecharts/home-assistant
   pullPolicy: IfNotPresent
-  tag: v2021.9.6@sha256:74644684cd6d96bdeab87586e21235ee48d0dac44285cd0b68b12ce0e11895db
+  tag: v2021.11.5@sha256:f4a4f4c85e51e6c08b36329110c95be441f53ac998bc51bc16f5b26290f7f9ef
 
-env: {}
-    # TZ:
+env:
+  PUID: 568
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 8123
+        targetPort: 8123
+
+initContainers:
+  init:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    command: ["/config/init/init.sh"]
+    volumeMounts:
+      - name: init
+        mountPath: "/config/init"
+      - name: config
+        mountPath: "/config"
 
 # # Enable devices to be discoverable
 # hostNetwork: true
 
 # # When hostNetwork is true set dnsPolicy to ClusterFirstWithHostNet
 # dnsPolicy: ClusterFirstWithHostNet
-
-# # Enable passing thru a USB device to Home Assistant
-# securityContext:
-#   privileged: true
 
 # Allow access a Git repository by passing in a private SSH key
 git:
@@ -42,32 +57,16 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
 
 
-# # Path to your Z-Wave / Zigbee device in the container
-# additionalVolumeMounts:
-#   - name: zwave-usb
-#     mountPath: /dev/serial/by-id/usb-0658_0200-if00
-
-# # Path to your Z-Wave / Zigbee device on the host
-# additionalVolumes:
-#   - name: zwave-usb
-#     hostPath:
-#       path: /dev/serial/by-id/usb-0658_0200-if00
-
-# Enabled postgres
-# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/postgresql
+# -- Enable and configure postgresql database subchart under this key.
+#    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+# @default -- See values.yaml
 postgresql:
-  enabled: false
+  enabled: true
   postgresqlUsername: home-assistant
-  postgresqlPassword: home-assistant-pass
   postgresqlDatabase: home-assistant
-  persistence:
-    enabled: false
-    # storageClass: ""
+  existingSecret: "dbcreds"
 
 # Enable influxdb
 # ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/influxdb
@@ -79,4 +78,4 @@ influxdb:
   persistence:
     enabled: false
     # storageClass: ""
-    # size: 8Gi
+    #

@@ -9,22 +9,9 @@ image:
   # -- image repository
   repository: ghcr.io/truecharts/komga
   # -- image tag
-  tag: v0.125.3@sha256:51e3e48481ac63d0cafebcf76198f61f7475d7b8a28f96d38d5aefcfebd711fd
+  tag: v0.132.3@sha256:9aa69be8e6a77447f1c7b787c7667d9bb51f076942cb1eda1195bcac640b3416
   # -- image pull policy
   pullPolicy: IfNotPresent
-
-securityContext:
-  privileged: false
-  readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables. See more environment variables in the [komga documentation](https://komga.org/installation/configuration.html#optional-configuration).
 # @default -- See below
@@ -36,18 +23,15 @@ service:
   main:
     ports:
       main:
-        port: 8080
-
+        port: 10085
+        targetPort: 8080
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /config
+    mountPath: "/config"
   data:
-    enabled: false
-    mountPath: /data
+    enabled: true
+    mountPath: "/data"

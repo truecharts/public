@@ -9,9 +9,16 @@ image:
   # -- image repository
   repository: ghcr.io/truecharts/stash
   # -- image tag
-  tag: v0.9.0@sha256:2859ab5c5792f6df06fe09497153bcea780f135883b618dcc1d5a78e4212b594
+  tag: v0.11.0@sha256:8ce5c582a35c7ad8db0ef9e0bcfeb03bccfa1bc7e8432f36ec572f8e5a2fc97d
   # -- image pull policy
   pullPolicy: IfNotPresent
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 # -- environment variables. See more environment variables in the [stashapp documentation](https://raw.githubusercontent.com/stashapp/stash/master/docker/production/docker-compose.yml)
 # @default -- See below
@@ -30,18 +37,11 @@ service:
     ports:
       main:
         port: 9999
-
+        targetPort: 9999
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /root/.stash
-
-  media:
-    enabled: false
-    mountPath: /media
+    mountPath: "/root/.stash"

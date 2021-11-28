@@ -1,0 +1,26 @@
+image:
+  repository: ghcr.io/nicholaswilde/novnc
+  pullPolicy: IfNotPresent
+  tag: version-1.2.0@sha256:5d0d02fa11dabb607ddf293b3b3794ef15f2a9b32e41078de5ed24ad3cfad095
+# https://github.com/nicholaswilde/docker-novnc
+env:
+  REMOTE_HOST: "localhost"
+  REMOTE_PORT: "5900"
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 6080
+        targetPort: 6080
+persistence:
+  varrun:
+    enabled: true

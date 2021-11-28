@@ -15,16 +15,17 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/tvheadend"` |  |
 | image.tag | string | `"version-63784405@sha256:ae47a3f6a7d2d7efefb68087da7cbed786f801cb87c7c93b1e6b989c0021aefa"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
+| persistence.varrun.enabled | bool | `true` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.htsp.enabled | bool | `true` |  |
 | service.htsp.ports.htsp.enabled | bool | `true` |  |
 | service.htsp.ports.htsp.port | int | `9982` |  |
-| service.htsp.ports.htsp.protocol | string | `"TCP"` |  |
-| service.htsp.type | string | `"ClusterIP"` |  |
+| service.htsp.ports.htsp.targetPort | int | `9982` |  |
 | service.main.ports.main.port | int | `9981` |  |
+| service.main.ports.main.targetPort | int | `9981` |  |
 
 All Rights Reserved - The TrueCharts Project

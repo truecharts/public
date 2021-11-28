@@ -11,18 +11,18 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGID | string | `"20"` |  |
-| env.PUID | string | `"568"` |  |
+| env.PUID | int | `568` |  |
 | env.TZ | string | `"UTC"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/oscam"` |  |
 | image.tag | string | `"version-11693@sha256:e97f9929c3a6caed6ee24ed9f1efdd4a8c29b4b2ba52205d3f8daebdaf7a9ea2"` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| service.main.enabled | bool | `true` |  |
+| persistence.varrun.enabled | bool | `true` |  |
+| podSecurityContext.runAsGroup | int | `20` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8888` |  |
+| service.main.ports.main.targetPort | int | `8888` |  |
 
 All Rights Reserved - The TrueCharts Project

@@ -3,52 +3,43 @@
 image:
   repository: ghcr.io/k8s-at-home/qbittorrent
   pullPolicy: IfNotPresent
-  tag: v4.3.7@sha256:a51b97508cfd5ec81e6693e7203490d275e76eaa0d7772d40512dea8d8509f45
+  tag: v4.3.9@sha256:eb6df32211ae3c7b7797dd4bc5e66161d9dfcb77e49475058743d502f4ceb0cc
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 env: {}
     # TZ: UTC
   # PUID: 1001
-  # PGID: 1001
+
   # UMASK: 022
 
 service:
   main:
     ports:
       main:
-        port: 8080
+        port: 10095
+        targetPort: 8080
   torrent:
     enabled: true
-    type: ClusterIP
     ports:
-      tcp:
+      torrent:
         enabled: true
         port: 6881
-        protocol: TCP
-      udp:
+        targetPort: 6881
+  torrentudp:
+    enabled: true
+    ports:
+      torrentudp:
         enabled: true
         port: 6881
+        targetPort: 6881
         protocol: UDP
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
 
 
 additionalVolumes:
@@ -60,5 +51,5 @@ additionalVolumes:
     #   defaultMode: 511
 
 additionalVolumeMounts:
-  - mountPath: /config/custom-cont-init.d
+  - mountPath: "/config/custom-cont-init.d"
     name: qbittorrent-scripts

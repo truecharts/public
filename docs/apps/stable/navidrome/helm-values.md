@@ -18,21 +18,10 @@ You will, however, be able to use all values referenced in the common chart here
 | env.ND_SESSIONTIMEOUT | string | `"24h"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/navidrome"` |  |
-| image.tag | string | `"v0.45.1@sha256:2600dc55b2ac7ae31d5c3a657e731a4fde56d76903a6b6e4fb0cfc7007091a0e"` |  |
-| persistence.data.accessMode | string | `"ReadWriteOnce"` |  |
+| image.tag | string | `"v0.47.0@sha256:0ca8781ecf33f961d9e1157b8f0aa0ad8d69cde3dac99e8084bd34aa73094128"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
-| persistence.data.size | string | `"100Gi"` |  |
-| persistence.data.type | string | `"pvc"` |  |
-| podSecurityContext.fsGroup | int | `568` |  |
-| podSecurityContext.fsGroupChangePolicy | string | `"OnRootMismatch"` |  |
-| podSecurityContext.runAsGroup | int | `568` |  |
-| podSecurityContext.runAsUser | int | `568` |  |
-| podSecurityContext.supplementalGroups | list | `[]` |  |
-| securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.privileged | bool | `false` |  |
-| securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `4533` |  |
+| service.main.ports.main.targetPort | int | `4533` |  |
 
 All Rights Reserved - The TrueCharts Project

@@ -3,23 +3,27 @@
 image:
   repository: ghcr.io/linuxserver/freshrss
   pullPolicy: IfNotPresent
-  tag: version-1.18.1@sha256:2f41e81cafbfb1ac99a6cbca1140ced5cb3faf18287a6610623bf28dbad3d74c
+  tag: version-1.18.1@sha256:8840d00e2f8d4d4d894707bc482b78ee4d4530c3967da82ace8a046ec73cd428
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
     ports:
       main:
-        port: 80
+        port: 10010
+        targetPort: 80
 
 env: {}
   # TZ: UTC
   # PUID: 1001
-  # PGID: 1001
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

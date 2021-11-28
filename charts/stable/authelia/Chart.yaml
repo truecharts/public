@@ -1,17 +1,17 @@
 apiVersion: v2
-appVersion: "4.30.4"
+appVersion: "4.32.2"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 2.2.0
+  version: 6.0.10
 - condition: redis.enabled
   name: redis
-  repository: https://charts.bitnami.com/bitnami
-  version: 15.3.2
+  repository: https://truecharts.org/
+  version: 1.0.14
 deprecated: false
 description: Authelia is a Single Sign-On Multi-Factor portal for web apps
 home: https://github.com/truecharts/apps/tree/master/charts/stable/authelia
@@ -32,10 +32,15 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
+  url: https://truecharts.org
 name: authelia
 sources:
 - https://github.com/authelia/chartrepo
 - https://github.com/authelia/authelia
 type: application
-version: 3.0.2
+version: 8.0.4
+annotations:
+  truecharts.org/catagories: |
+    - security
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -1,0 +1,54 @@
+image:
+  # -- image repository
+  repository: minio/minio
+  # -- image tag
+  tag: RELEASE.2021-11-05T09-16-26Z@sha256:a11692068c588e7ea895f76d619a5fcb30eefc8a759e2ad7d6ec92331e43386e
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+# -- Override the args for the default container.
+args: ["server", "/data", "--console-address", ":9001"]
+
+secret:
+    # -- Minio Password
+  MINIO_ROOT_PASSWORD: "changeme"
+
+# -- environment variables. See more environment variables in the [minio documentation](https://docs.min.io).
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Minio Username
+  MINIO_ROOT_USER: "minio"
+  MINIO_BROWSER_REDIRECT_URL: ""
+
+probes:
+  liveness:
+    path: "/minio/health/live"
+
+  readiness:
+    path: "/minio/health/ready"
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 10106
+        targetPort: 9000
+  console:
+    enabled: true
+    ports:
+      console:
+        enabled: true
+        targetPort: 9001
+        port: 10107
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/data"

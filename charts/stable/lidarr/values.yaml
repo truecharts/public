@@ -6,29 +6,18 @@ image:
   tag: v1.0.0.2255@sha256:54ebc1f90963b16889e9e1b915eced4efd45ae489805aa996faf519430a4322f
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 service:
   main:
     ports:
       main:
         port: 8686
+        targetPort: 8686
 
 env: {}
   # TZ: UTC
   # PUID: 1001
-  # PGID: 1001
-
 probes:
   liveness:
     enabled: true
@@ -54,6 +43,3 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

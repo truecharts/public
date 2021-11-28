@@ -1,0 +1,47 @@
+image:
+  # -- image repository
+  repository: dchesterton/amcrest2mqtt
+  # -- image tag
+  tag: 1.0.11@sha256:950a9ad1e91b151e7fbc84daa0b7663239020b596ffa68c009236a686b96ff5e
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+secret:
+  # -- User name used to connect to the Amcrest device
+  AMCREST_USERNAME: "admin"
+  # -- Password used to connect to the Amcrest device
+  AMCREST_PASSWORD: "changeme"
+  # -- User name used to connect to the MQTT broker
+  MQTT_USERNAME: "mqttuser"
+  # -- Password used to connect to the MQTT broker
+  MQTT_PASSWORD: "changeme"
+
+# -- environment variables. See more environment variables in the [amcrest2mqtt repo](https://github.com/dchesterton/amcrest2mqtt).
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Host name used to connect to the Amcrest device
+  AMCREST_HOST: ""
+  # -- Port used to connect to the Amcrest device
+  AMCREST_PORT: 80
+  # -- Host name used to connect to the MQTT broker
+  MQTT_HOST: "localhost"
+  # -- Port used to connect to the MQTT broker
+  MQTT_PORT: 1883
+  # -- Enable Home Assistant autodiscovery
+  HOME_ASSISTANT: "false"
+  # -- Home Assistant autodiscovery prefix
+  HOME_ASSISTANT_PREFIX: "homeassistant"

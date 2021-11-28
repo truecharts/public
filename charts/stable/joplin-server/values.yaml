@@ -1,0 +1,62 @@
+image:
+  # -- image repository
+  repository: joplin/server
+      # -- image tag
+  tag: 2.5.1@sha256:5bd976f19f883352bacad74767237471941cb35b2ded96a1afeeb7168b1e08d8
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- environment variables. See [image docs](https://github.com/laurent22/joplin) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- joplin-server base URL
+  APP_BASE_URL: https://joplin.domain
+  # -- joplin-server listening port (same as Service port)
+  APP_PORT: 22300
+
+envTpl:
+  DB_CLIENT: "pg"
+  POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRES_PORT: "5432"
+
+envValueFrom:
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 22300
+        targetPort: 22300
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+# -- Enable and configure postgresql database subchart under this key.
+# @default -- See values.yaml
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: joplin
+  postgresqlDatabase: joplin

@@ -1,0 +1,59 @@
+image:
+  repository: ghcr.io/nicholaswilde/odoo
+  pullPolicy: IfNotPresent
+  tag: version-14.0@sha256:7cff9672ce078f7e2cf132625f0bc0fa68e932955d23e2e8c2ce7c235d5c5f8d
+
+secret: {}
+  # USER: "odoo"
+  # PASSWORD: "myodoo"
+
+# See more environment variables in the odoo documentation
+# https://github.com/nicholaswilde/docker-odoo
+env: {}
+    # HOST: "odoo-db"
+
+envTpl:
+  USER: "{{ .Values.postgresql.postgresqlUsername }}"
+
+envValueFrom:
+  PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+service:
+  main:
+    ports:
+      main:
+        port: 8069
+        targetPort: 8069
+  odoo:
+    enabled: true
+    ports:
+      odoo-1:
+        enabled: true
+        port: 8071
+        targetPort: 8071
+      odoo-2:
+        enabled: true
+        port: 8072
+        targetPort: 8072
+
+persistence:
+  odoo:
+    enabled: true
+    mountPath: "/var/lib/odoo"
+  addons:
+    enabled: true
+    mountPath: "/mnt/extra-addons"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: odoo
+  postgresqlDatabase: postgres

@@ -32,6 +32,7 @@ within the common library.
   {{- end }}
 
   {{- $fixedMiddlewares := "" }}
+  {{- if $values.enableFixedMiddlewares }}
   {{ range $index, $fixedMiddleware := $values.fixedMiddlewares }}
       {{- if $index }}
       {{ $fixedMiddlewares = ( printf "%v, %v-%v@%v" $fixedMiddlewares $mddwrNamespace $fixedMiddleware "kubernetescrd" ) }}
@@ -39,6 +40,7 @@ within the common library.
       {{ $fixedMiddlewares = ( printf "%v-%v@%v" $mddwrNamespace $fixedMiddleware "kubernetescrd" ) }}
       {{- end }}
   {{ end }}
+  {{- end }}
 
   {{- $middlewares := "" }}
   {{ range $index, $middleware := $values.middlewares }}

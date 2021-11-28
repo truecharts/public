@@ -1,0 +1,40 @@
+image:
+  # -- image repository
+  repository: pmaksymiuk/icantbelieveitsnotvaletudo
+  # -- image tag
+  tag: 2021.2.1@sha256:cfb6ca812b7bec09ef61d60c8ab71945b6594525673f2edd9ddcd88004d8b150
+  # -- image pull policy
+  pullPolicy: IfNotPresent
+
+controller:
+  # -- Set the controller upgrade strategy
+  strategy: RollingUpdate
+
+service:
+  main:
+    ports:
+      main:
+        port: 10039
+        targetPort: 3000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+# -- Configures app settings. See [image docs](https://github.com/Hypfer/ICantBelieveItsNotValetudo) for more information.
+# @default -- See values.yaml
+config:
+  mapsettings:
+    drawPath: true
+    drawCharger: true
+    drawRobot: true
+    scale: 2
+  mqtt:
+    identifier: "rockrobo"
+    topicPrefix: "valetudo"
+    autoconfPrefix: "homeassistant"
+    broker_url: "mqtt://user:pass@example.com:port"
+    mapDataTopic: "valetudo/rockrobo/map_data"
+    minMillisecondsBetweenMapUpdates: 10000
+    publishMapImage: true
+  webserver:
+    enabled: true

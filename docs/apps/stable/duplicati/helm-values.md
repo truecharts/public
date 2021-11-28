@@ -11,12 +11,10 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGID | string | `"1000"` | Specify the group ID the application will run as |
-| env.PUID | string | `"1000"` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/linuxserver/duplicati"` | image repository |
-| image.tag | string | `"latest@sha256:9ab28cc15af085072ed3f0872355c72bf7daa1bd8a8205322571e0e351b2d522"` | image tag |
+| image.repository | string | `"duplicati/duplicati"` | image repository |
+| image.tag | string | `"beta@sha256:22f5231c3a36979750d10bc8df7fbbb7b112c9fca76d85288fa8e90afb6c9635"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

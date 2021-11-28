@@ -2,18 +2,24 @@
 The promtail sidecar container to be inserted.
 */}}
 {{- define "common.addon.promtail.container" -}}
-{{- if lt (len .Values.addons.promtail.volumeMounts) 1 }}
-{{- fail "At least 1 volumeMount is required for the promtail container" }}
-{{- end -}}
 name: promtail
 image: "{{ .Values.promtailImage.repository }}:{{ .Values.promtailImage.tag }}"
 imagePullPolicy: {{ .Values.promtailImage.pullPolicy }}
-{{- with .Values.addons.promtail.securityContext }}
+
 securityContext:
-  {{- toYaml . | nindent 2 }}
-{{- end }}
-{{- with .Values.addons.promtail.env }}
+  runAsUser: 0
+  runAsGroup: 0
+
 env:
+{{- range $envList := .Values.addons.promtail.envList }}
+  {{- if and $envList.name $envList.value }}
+  - name: {{ $envList.name }}
+    value: {{ $envList.value | quote }}
+  {{- else }}
+  {{- fail "Please specify name/value for promtail environment variable" }}
+  {{- end }}
+{{- end}}
+{{- with .Values.addons.promtail.env }}
 {{- range $k, $v := . }}
   - name: {{ $k }}
     value: {{ $v | quote }}
@@ -29,8 +35,8 @@ volumeMounts:
     mountPath: /etc/promtail/promtail.yaml
     subPath: promtail.yaml
     readOnly: true
-{{- with .Values.addons.promtail.volumeMounts }}
-  {{- toYaml . | nindent 2 }}
+{{- with (include "common.controller.volumeMounts" . | trim) }}
+  {{ nindent 2 . }}
 {{- end }}
 {{- with .Values.addons.promtail.resources }}
 resources:

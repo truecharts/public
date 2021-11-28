@@ -1,0 +1,57 @@
+image:
+  repository: ghcr.io/nicholaswilde/etherpad
+  pullPolicy: IfNotPresent
+  tag: version-1.8.14@sha256:26bbd45110d5b4d70246fafe40d4c4a7047b7b4fde409763a125324fa93b2d73
+
+secret: {}
+
+# See more environment variables in the etherpad documentation
+# https://github.com/ether/etherpad-lite/blob/develop/doc/docker.md
+# For Mariadb, use DB_TYPE: mysql https://github.com/ether/etherpad-lite/issues/4214
+env: {}
+
+envTpl:
+  DB_TYPE: "postgres"
+  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PORT: "5432"
+
+envValueFrom:
+  DB_PASS:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10060
+        targetPort: 9001
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/opt/etherpad-lite/var"
+  app:
+    enabled: true
+    mountPath: "/opt/etherpad-lite/app"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: etherpad
+  postgresqlDatabase: etherpad

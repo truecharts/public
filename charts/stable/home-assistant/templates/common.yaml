@@ -1,1 +1,22 @@
-{{ include "common.all" . }}
+{{/* Make sure all variables are set properly */}}
+{{- include "common.setup" . }}
+
+{{/* Render configmap for hass */}}
+{{- include "hass.configmap" . }}
+
+{{/* Append the general secret volumes to the volumes */}}
+{{- define "hass.initvolume" -}}
+enabled: "true"
+mountPath: "/config/init"
+readOnly: true
+type: "custom"
+volumeSpec:
+  configMap:
+    name: {{ include "common.names.fullname" . }}-init
+    defaultMode: 0777
+{{- end -}}
+
+{{- $_ := set .Values.persistence "init" (include "hass.initvolume" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}

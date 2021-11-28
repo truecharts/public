@@ -2,13 +2,13 @@
 
 image:
   repository: ghcr.io/truecharts/unifi
-  tag: v6.2.26@sha256:cb9fc82546bfd94d5a10da131468695fa56e2f021895f56255464efaf492b6bc
+  tag: v6.5.53@sha256:c6cf26dcd8e73e95503a9a8fb5ab36458c05c724b33add8dc1a6152648f33d3d
   pullPolicy: IfNotPresent
 
 envTpl:
   # Permissions Settings
   UNIFI_GID: "{{ .Values.env.PUID }}"
-  UNIFI_UID: "{{ .Values.env.PGID }}"
+  UNIFI_UID: "{{ .Values.podSecurityContext.fsGroup }}"
 
 service:
   main:
@@ -16,6 +16,7 @@ service:
       main:
         protocol: HTTPS
         port: 8443
+        targetPort: 8443
   comm:
     enabled: true
     ports:
@@ -23,7 +24,6 @@ service:
         enabled: true
         port: 8080
         targetPort: 8080
-        protocol: TCP
   stun:
     enabled: true
     ports:
@@ -33,15 +33,14 @@ service:
         targetPort: 3478
         protocol: UDP
   speedtest:
-    enabled: false
+    enabled: true
     ports:
       speedtest:
         enabled: true
         port: 6789
         targetPort: 6789
-        protocol: TCP
   guestportal:
-    enabled: false
+    enabled: true
     ports:
       web:
         enabled: true
@@ -54,15 +53,18 @@ service:
         targetPort: 8843
         protocol: HTTPS
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+
 env:
   # TZ:
-  PUID: "568"
-  PGID: "568"
-
+  PUID: 568
 persistence:
   config:
     enabled: true
     mountPath: "/unifi"
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"

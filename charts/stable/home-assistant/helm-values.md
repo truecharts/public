@@ -11,28 +11,32 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
+| env.PUID | int | `568` |  |
 | git.deployKey | string | `""` |  |
 | git.deployKeyBase64 | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/home-assistant"` |  |
-| image.tag | string | `"v2021.9.6@sha256:74644684cd6d96bdeab87586e21235ee48d0dac44285cd0b68b12ce0e11895db"` |  |
+| image.tag | string | `"v2021.11.5@sha256:f4a4f4c85e51e6c08b36329110c95be441f53ac998bc51bc16f5b26290f7f9ef"` |  |
 | influxdb.architecture | string | `"standalone"` |  |
 | influxdb.authEnabled | bool | `false` |  |
 | influxdb.database | string | `"home_assistant"` |  |
 | influxdb.enabled | bool | `false` |  |
 | influxdb.persistence.enabled | bool | `false` |  |
-| persistence.config.accessMode | string | `"ReadWriteOnce"` |  |
+| initContainers.init.command[0] | string | `"/config/init/init.sh"` |  |
+| initContainers.init.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
+| initContainers.init.volumeMounts[0].mountPath | string | `"/config/init"` |  |
+| initContainers.init.volumeMounts[0].name | string | `"init"` |  |
+| initContainers.init.volumeMounts[1].mountPath | string | `"/config"` |  |
+| initContainers.init.volumeMounts[1].name | string | `"config"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| persistence.config.size | string | `"100Gi"` |  |
-| persistence.config.type | string | `"pvc"` |  |
-| postgresql.enabled | bool | `false` |  |
-| postgresql.persistence.enabled | bool | `false` |  |
-| postgresql.postgresqlDatabase | string | `"home-assistant"` |  |
-| postgresql.postgresqlPassword | string | `"home-assistant-pass"` |  |
-| postgresql.postgresqlUsername | string | `"home-assistant"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| postgresql | object | See values.yaml | Enable and configure postgresql database subchart under this key.    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql) |
 | prometheus.serviceMonitor.enabled | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `8123` |  |
+| service.main.ports.main.targetPort | int | `8123` |  |
 
 All Rights Reserved - The TrueCharts Project

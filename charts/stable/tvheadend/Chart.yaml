@@ -2,11 +2,11 @@ apiVersion: v2
 appVersion: "63784405"
 dependencies:
 - name: common
-  repository: https://truecharts.org/
-  version: 7.0.12
+  repository: https://truecharts.org
+  version: 8.9.3
 deprecated: false
 description: TVheadend - a TV streaming server and digital video recorder
-home: https://github.com/truecharts/apps/tree/master/charts/incubator/tvheadend
+home: https://github.com/truecharts/apps/tree/master/charts/stable/tvheadend
 icon: https://avatars.githubusercontent.com/u/1908588?s=200&v=4
 keywords:
 - tvheadend
@@ -17,9 +17,14 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
+  url: https://truecharts.org
 name: tvheadend
 sources:
 - https://github.com/tvheadend/tvheadend
 type: application
-version: 8.0.1
+version: 10.0.12
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

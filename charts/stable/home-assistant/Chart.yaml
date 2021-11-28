@@ -1,9 +1,13 @@
 apiVersion: v2
-appVersion: "2021.9.6"
+appVersion: "2021.11.5"
 dependencies:
 - name: common
+  repository: https://truecharts.org
+  version: 8.9.3
+- condition: postgresql.enabled
+  name: postgresql
   repository: https://truecharts.org/
-  version: 7.0.12
+  version: 6.0.10
 deprecated: false
 description: home-assistant App for TrueNAS SCALE
 home: https://github.com/truecharts/apps/tree/master/charts/stable/home-assistant
@@ -16,13 +20,15 @@ kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
-  url: truecharts.org
-- email: 35702532+tprelog@users.noreply.github.com
-  name: tprelog
-  url: truecharts.org
+  url: https://truecharts.org
 name: home-assistant
 sources:
 - https://github.com/home-assistant/home-assistant
 - https://github.com/cdr/code-server
 type: application
-version: 7.0.1
+version: 12.0.5
+annotations:
+  truecharts.org/catagories: |
+    - home-automation
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -9,22 +9,12 @@ image:
   # -- image repository
   repository: ghcr.io/truecharts/ocis
   # -- image tag
-  tag: v1.11.0@sha256:57d2a986f62f502767df90c096151ed44ea74d1a6b88a9bac7cdd3b686bed86a
+  tag: v1.15.0@sha256:513bf715f330afcd06918be63f47b8ad7bf80515d3ed2b29afdb7da00ed66eb4
   # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
-  privileged: false
   readOnlyRootFilesystem: false
-  allowPrivilegeEscalation: true
-  runAsNonRoot: true
-
-podSecurityContext:
-  runAsUser: 568
-  runAsGroup: 568
-  fsGroup: 568
-  supplementalGroups: []
-  fsGroupChangePolicy: "OnRootMismatch"
 
 # -- environment variables. See more environment variables in the [owncloud-ocis documentation](https://owncloud.dev/ocis/configuration/#environment-variables).
 # @default -- See below
@@ -39,17 +29,11 @@ service:
     ports:
       main:
         port: 9200
-
+        targetPort: 9200
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
   config:
     enabled: true
-    type: pvc
-    accessMode: ReadWriteOnce
-    size: "100Gi"
-    mountPath: /config
-  ocis:
-    enabled: false
-    mountPath: /var/tmp/ocis
+    mountPath: "/config"
