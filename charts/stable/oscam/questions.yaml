@@ -149,7 +149,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 8888
+                              default: 10062
                               required: true
                           - variable: nodePort
                             label: "Node Port (Optional)"

@@ -9,7 +9,7 @@ service:
   main:
     ports:
       main:
-        port: 8080
+        port: 10093
         targetPort: 8080
   tcp:
     enabled: true

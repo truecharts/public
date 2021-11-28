@@ -17,7 +17,7 @@ service:
   main:
     ports:
       main:
-        port: 5800
+        port: 10054
         targetPort: 5800
   myjd:
     enabled: true
@@ -31,9 +31,8 @@ service:
     ports:
       vnc:
         enabled: true
-        port: 5900
+        port: 10056
         targetPort: 5900
-        protocol: "TCP"
 
 # All values here are set as the docker defaults.
 envTpl:

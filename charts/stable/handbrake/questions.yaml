@@ -186,7 +186,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 5800
+                              default: 10053
                               editable: true
                               required: true
                           - variable: advanced
@@ -242,7 +242,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 5900
+                              default: 10055
                               editable: true
                               required: true
                           - variable: advanced

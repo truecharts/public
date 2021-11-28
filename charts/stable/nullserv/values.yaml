@@ -36,14 +36,14 @@ service:
   main:
     ports:
       main:
-        port: 80
+        port: 10004
         targetPort: 80
   https:
     enabled: true
     ports:
       https:
         enabled: true
-        port: 443
+        port: 10005
         targetPort: 443
 
 persistence:
