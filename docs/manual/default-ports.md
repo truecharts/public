@@ -92,7 +92,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | gaps                       |       main      |       main      |  8484 |    TCP   |                                         |
 | lidarr                     |       main      |       main      |  8686 |    TCP   |                                         |
 | readarr                    |       main      |       main      |  8787 |    TCP   |                                         |
-| unifi                      |   guestportal   |       web       |  8800 |   HTTP   |                                         |
+| unifi                      |   guestportal   |       web       |  8880 |   HTTP   |                                         |
 | unifi                      |   guestportal   |    websecure    |  8843 |   HTTPS  |                                         |
 | resilio-sync               |       main      |       main      |  8888 |    TCP   |                                         |
 | sonarr                     |       main      |       main      |  8989 |    TCP   |                                         |
