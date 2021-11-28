@@ -8,11 +8,7 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
 
 # -- environment variables. See [image docs](https://github.com/marthoc/docker-deconz/blob/master/README.md) for more details.
 # @default -- See below
@@ -24,9 +20,9 @@ env:
   # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
   DECONZ_VNC_MODE: 1
   # -- Web UI listen port
-  DECONZ_WEB_PORT: 80
+  DECONZ_WEB_PORT: 8080
   # -- Websocket listen port
-  DECONZ_WS_PORT: 443
+  DECONZ_WS_PORT: 6080
   # -- VNC server listen port
   DECONZ_VNC_PORT: 5900
   # -- If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password "changeme" using a Secret.
@@ -42,14 +38,14 @@ service:
     ports:
       main:
         port: 10008
-        targetPort: 80
+        targetPort: 8080
   websocket:
     enabled: true
     ports:
       websocket:
         enabled: true
         port: 10001
-        targetPort: 443
+        targetPort: 6080
   vnc:
     enabled: true
     ports:
