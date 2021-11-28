@@ -1,15 +1,8 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/truecharts/deconz
+  repository: ghcr.io/deconz-community/deconz-docker
     # -- image tag
-  tag: v2.13.01@sha256:92a7a439e6010e21265fa5beaa47b0172bc6b6682f4e2d26bcd43c772ff7ddbd
+  tag: v2.13.02@sha256:ed4a88ee75eeaf04155c3e733cf38011247139ed265d178b67ddde46889eca8c
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -70,7 +63,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/root/.local/share/dresden-elektronik/deCONZ"
+    mountPath: "/opt/deCONZ"
 
 # -- Affinity constraint rules to place the Pod on a specific node.
 # [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
