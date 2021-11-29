@@ -20,7 +20,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ $secretName }}
+  name: {{ $secretName }}-{{ .Release.Revision }}
   labels: {{ include "common.labels" . | nindent 4 }}
 type: kubernetes.io/tls
 data:
