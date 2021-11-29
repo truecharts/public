@@ -85,7 +85,7 @@ spec:
         - {{ tpl . $ | quote }}
         {{- end }}
       {{- if $tlsValues.scaleCert }}
-      secretName: {{ ( printf "%v-%v-%v-%v-%v-%v" $ingressName "tls" $index "ixcert" $tlsValues.scaleCert .Release.Revision ) }}
+      secretName: {{ ( printf "%v-%v-%v-%v-%v-%v" $ingressName "tls" $index "ixcert" $tlsValues.scaleCert $.Release.Revision ) }}
       {{- else if .secretName }}
       secretName: {{ tpl .secretName $ | quote}}
       {{- end }}
