@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.9.5"></a>
+### [common-8.9.5](https://github.com/truecharts/apps/compare/common-8.9.4...common-8.9.5) (2021-11-29)
+
+#### Fix
+
+* always force a rename and recreate of cert-secrets on update ([#1422](https://github.com/truecharts/apps/issues/1422))
+
+
+
 <a name="common-8.9.4"></a>
 ### [common-8.9.4](https://github.com/truecharts/apps/compare/common-8.9.3...common-8.9.4) (2021-11-28)
 
