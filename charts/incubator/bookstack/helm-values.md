@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASS.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/bookstack"` |  |
-| image.tag | string | `"21.11.1@sha256:c7a571a05e2940846f112b115f967da931c32de9ca926fc10f07666a80ec30e7"` |  |
+| image.tag | string | `"21.11.20211118@sha256:74eda5ad25f0b1aa428c39fb95fb9388ab08925e8c875a6db791b0c9d5d418d0"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"bookstack"` |  |

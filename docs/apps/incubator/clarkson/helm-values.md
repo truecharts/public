@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MYSQL_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/clarkson"` |  |
-| image.tag | string | `"1.1.2@sha256:c9c19c229d636d6819711542942d0a9831ba0a851827e6c0188eee5dab58c2b0"` |  |
+| image.tag | string | `"1.1.2@sha256:b8a8feb4e8fa2fd6b56ee519d06c1f9877545f9923a6f3963fbd75df27cc60ee"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"clarkson"` |  |
