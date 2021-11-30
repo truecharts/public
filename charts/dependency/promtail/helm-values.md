@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | config.snippets.extraScrapeConfigs | string | empty | You can put here any additional scrape configs you want to add to the config file. |
 | envValueFrom.HOSTNAME.fieldRef.fieldPath | string | `"spec.nodeName"` |  |
 | image.repository | string | `"grafana/promtail"` |  |
-| image.tag | string | `"v2.3.0@sha256:1e8554cdac6681f877d10a2a383d8fcc2f475188914282ccf86722c2e23c501c"` |  |
+| image.tag | string | `"2.4.1@sha256:3b669d95e66f97e1ec3013d248d70a9da9768c1403e36d3bb69f12066cf2821b"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/promtail"` |  |
 | persistence.config.objectName | string | `"promtail-config"` |  |

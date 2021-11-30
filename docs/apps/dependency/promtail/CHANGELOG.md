@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-1.0.4"></a>
+### [promtail-1.0.4](https://github.com/truecharts/apps/compare/promtail-1.0.3...promtail-1.0.4) (2021-11-30)
+
+#### Chore
+
+* update common
+
+
+
 <a name="promtail-1.0.2"></a>
 ### [promtail-1.0.2](https://github.com/truecharts/apps/compare/promtail-1.0.1...promtail-1.0.2) (2021-11-29)
 
