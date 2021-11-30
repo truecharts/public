@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.23"></a>
+### [prowlarr-4.0.23](https://github.com/truecharts/apps/compare/prowlarr-4.0.22...prowlarr-4.0.23) (2021-11-30)
+
+#### Chore
+
+* update non-major docker tags ([#1438](https://github.com/truecharts/apps/issues/1438))
+
+
+
 <a name="prowlarr-4.0.22"></a>
 ### [prowlarr-4.0.22](https://github.com/truecharts/apps/compare/prowlarr-4.0.21...prowlarr-4.0.22) (2021-11-30)
 

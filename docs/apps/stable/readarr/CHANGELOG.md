@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.22"></a>
+### [readarr-9.0.22](https://github.com/truecharts/apps/compare/readarr-9.0.21...readarr-9.0.22) (2021-11-30)
+
+#### Chore
+
+* update non-major docker tags ([#1438](https://github.com/truecharts/apps/issues/1438))
+
+
+
 <a name="readarr-9.0.21"></a>
 ### [readarr-9.0.21](https://github.com/truecharts/apps/compare/readarr-9.0.20...readarr-9.0.21) (2021-11-30)
 
