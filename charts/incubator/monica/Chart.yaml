@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "3.5.0"
+appVersion: "20211018"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.4
+  version: 8.9.7
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
-  version: 1.0.14
+  version: 1.0.17
 description: "Straightforward open source project management system to make your ideas reality."
 home: https://github.com/truechartsapps/tree/master/charts/stable/monica
 icon: https://pbs.twimg.com/profile_images/951820722191720450/mtCNuIXX.jpg
@@ -22,7 +22,7 @@ name: monica
 sources:
 - https://github.com/monicahq/monica
 - https://hub.docker.com/_/monica
-version: 0.0.2
+version: 0.0.3
 annotations:
   truecharts.org/catagories: |
     - crm
