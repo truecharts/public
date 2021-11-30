@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-console-1.0.16"></a>
+### [minio-console-1.0.16](https://github.com/truecharts/apps/compare/minio-console-1.0.15...minio-console-1.0.16) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases
+
+
+
 <a name="minio-console-1.0.14"></a>
 ### [minio-console-1.0.14](https://github.com/truecharts/apps/compare/minio-console-1.0.13...minio-console-1.0.14) (2021-11-23)
 

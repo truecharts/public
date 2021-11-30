@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/sqlitebrowser"` |  |
-| image.tag | string | `"version-3.12.2-02876202105241947ubuntu18.04.1@sha256:9a0677d5cf9290fbd9405ed41318b5871aeb6036929a6ecf910c22fc87273b36"` |  |
+| image.tag | string | `"version-3.12.2-02876202105241947ubuntu18.04.1@sha256:b738bafd296399cd7d6cbace9a53a917f6b28bbaa2ea6cc79a33979d516a4092"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

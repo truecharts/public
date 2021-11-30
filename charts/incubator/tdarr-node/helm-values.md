@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.serverPort | int | `8266` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"haveagitgat/tdarr_node"` |  |
-| image.tag | string | `"2.00.10@sha256:1e3f9328327d7d5597c414e6cf2b609e9e4a2854385e03c009814ad03c3c210c"` |  |
+| image.tag | string | `"2.00.11@sha256:5134a53f3a4030418eb447d9a413a3169ea7900f3a51449fa1db5c687cbd2cbe"` |  |
 | persistence.configs.enabled | bool | `true` |  |
 | persistence.configs.mountPath | string | `"/app/configs"` |  |
 | persistence.logs.enabled | bool | `true` |  |

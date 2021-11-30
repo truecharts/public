@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.22"></a>
+### [custom-app-3.0.22](https://github.com/truecharts/apps/compare/custom-app-3.0.21...custom-app-3.0.22) (2021-11-30)
+
+#### Chore
+
+* update non-major docker tags ([#1429](https://github.com/truecharts/apps/issues/1429))
+* update non-major deps helm releases
+
+
+
 <a name="custom-app-3.0.20"></a>
 ### [custom-app-3.0.20](https://github.com/truecharts/apps/compare/custom-app-3.0.19...custom-app-3.0.20) (2021-11-23)
 

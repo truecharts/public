@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.UPTIMEROBOT_API_KEY | string | `""` | Set the uptimerobot API key |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"billimek/prometheus-uptimerobot-exporter"` | image repository |
-| image.tag | string | `"0.0.1@sha256:958b40df7c478b32156517e63a1176e517550969265291d7f38bc432dc065d33"` | image tag |
+| image.tag | string | `"0.0.1@sha256:f14ccd7aad0e0ef19dc5c5c359b0921030a769e2505acec5b913d749281327be"` | image tag |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.rules | list | See prometheusrules.yaml | Configure additionial rules for the chart under this key. |

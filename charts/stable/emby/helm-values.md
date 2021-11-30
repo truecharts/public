@@ -13,11 +13,11 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/emby"` |  |
-| image.tag | string | `"v4.6.5.0@sha256:11b1f306d6309b60f16bf4292f9737c0a4a0020e93cfc1c0b36bc10b2680da40"` |  |
+| image.tag | string | `"v4.6.7.0@sha256:75b4955b21bfe1ece06d56a984624fb0b36b6649d5ded9349985a4e1211093c7"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.ports.main.port | int | `8096` |  |
+| service.main.ports.main.port | int | `10079` |  |
 | service.main.ports.main.targetPort | int | `8096` |  |
 
 All Rights Reserved - The TrueCharts Project

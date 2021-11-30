@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.2"></a>
+### [prometheus-1.1.2](https://github.com/truecharts/apps/compare/prometheus-1.1.1...prometheus-1.1.2) (2021-11-30)
+
+#### Chore
+
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+* update non-major deps helm releases
+
+
+
 <a name="prometheus-1.1.0"></a>
 ### [prometheus-1.1.0](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-1.0.0...prometheus-1.1.0) (2021-11-25)
 

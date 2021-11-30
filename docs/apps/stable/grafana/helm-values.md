@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.GF_SECURITY_ADMIN_USER | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/grafana"` |  |
-| image.tag | string | `"8.2.5@sha256:105ca819eb14dc773a3df6fd56f5e78e68bd2abdb1b5d9007ff803528a84be70"` |  |
+| image.tag | string | `"8.2.5@sha256:ce9fa0f6f904e05f49fa814008d3d98560b07eaccd902327f7de5e8721c95e32"` |  |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.rules | list | See prometheusrules.yaml | Configure additionial rules for the chart under this key. |
@@ -37,7 +37,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.path | string | `"/api/health"` |  |
 | secret.GF_SECURITY_ADMIN_PASSWORD | string | `"testpassword"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10038` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 | service.main.protocol | string | `"HTTP"` |  |
 

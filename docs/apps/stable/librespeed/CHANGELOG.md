@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="librespeed-4.0.16"></a>
+### [librespeed-4.0.16](https://github.com/truecharts/apps/compare/librespeed-4.0.15...librespeed-4.0.16) (2021-11-30)
+
+#### Chore
+
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+
+#### Fix
+
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+
+
+
 <a name="librespeed-4.0.15"></a>
 ### [librespeed-4.0.15](https://github.com/truecharts/apps/compare/librespeed-4.0.14...librespeed-4.0.15) (2021-11-23)
 

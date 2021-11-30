@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/remmina"` |  |
-| image.tag | string | `"version-1.2.0-rcgit.29dfsg-1ubuntu1@sha256:d45c3ba938709a161dc6d0e9d72db82db71142684dcf6738dcb15d06f130e02b"` |  |
+| image.tag | string | `"version-1.2.0-rcgit.29dfsg-1ubuntu1@sha256:3f81a01736b784ccef22665c2824541c4d4462d0a50e9e1e9bfa4d3ab48f015f"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10042` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project

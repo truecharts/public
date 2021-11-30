@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="loki-2.0.0"></a>
+### [loki-2.0.0](https://github.com/truecharts/apps/compare/loki-1.0.8...loki-2.0.0) (2021-11-30)
+
+#### Chore
+
+* update helm chart promtail to v1 ([#1425](https://github.com/truecharts/apps/issues/1425))
+
+#### Fix
+
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+
+
+
 <a name="loki-1.0.8"></a>
 ### [loki-1.0.8](https://github.com/truecharts/apps/compare/loki-1.0.7...loki-1.0.8) (2021-11-24)
 

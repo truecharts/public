@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.webUIPort | int | `8265` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"haveagitgat/tdarr"` |  |
-| image.tag | string | `"2.00.10@sha256:63b95a5897f7be1841f4f4e192ab978ec4afc2d81d6fcc150f4785071560ed86"` |  |
+| image.tag | string | `"2.00.11@sha256:c7bf83d8f9985932683558fcd2be38ebc6f1d414b44ecdd2d11a5e40384a8e63"` |  |
 | persistence.configs.enabled | bool | `true` |  |
 | persistence.configs.mountPath | string | `"/app/configs"` |  |
 | persistence.logs.enabled | bool | `true` |  |

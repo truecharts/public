@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.21"></a>
+### [prowlarr-4.0.21](https://github.com/truecharts/apps/compare/prowlarr-4.0.20...prowlarr-4.0.21) (2021-11-30)
+
+#### Chore
+
+* update non-major docker tags ([#1429](https://github.com/truecharts/apps/issues/1429))
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+* update non-major deps helm releases
+
+
+
 <a name="prowlarr-4.0.19"></a>
 ### [prowlarr-4.0.19](https://github.com/truecharts/apps/compare/prowlarr-4.0.18...prowlarr-4.0.19) (2021-11-23)
 

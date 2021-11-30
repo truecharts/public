@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-6.0.1"></a>
+### [photoprism-6.0.1](https://github.com/truecharts/apps/compare/photoprism-6.0.0...photoprism-6.0.1) (2021-11-30)
+
+#### Chore
+
+* update major docker tags (major) ([#1426](https://github.com/truecharts/apps/issues/1426))
+
+
+
 <a name="photoprism-6.0.0"></a>
 ### [photoprism-6.0.0](https://github.com/truecharts/apps/compare/photoprism-5.0.12...photoprism-6.0.0) (2021-11-28)
 

@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envFrom[0].configMapRef.name | string | `"littlelinkconfig"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/techno-tim/littlelink-server"` |  |
-| image.tag | string | `"latest@sha256:6d6bcbdd5e5a17b85f98a6ab42c95ba8f083dc8a2d7d2a3f4fcb28e446a57c4d"` |  |
+| image.tag | string | `"latest@sha256:0175e541c76255b264b2c68af997b6e2a2b910c420861e4f92e4e4bf5d0ed776"` |  |
 | littlelink.avatar_2x_url | string | `"https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_400x400.jpg"` |  |
 | littlelink.avatar_alt | string | `"techno tim profile pic"` |  |
 | littlelink.avatar_url | string | `"https://pbs.twimg.com/profile_images/1286144221217316864/qiaskopb_200x200.jpg"` |  |
@@ -34,7 +34,7 @@ You will, however, be able to use all values referenced in the common chart here
 | littlelink.twitch | string | `"https://www.twitch.tv/technotim/"` |  |
 | littlelink.twitter | string | `"https://twitter.com/technotimlive"` |  |
 | littlelink.youtube | string | `"https://www.youtube.com/channel/ucok-ghyjcwznj3br4oxwh0a"` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10040` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project
