@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-10.0.9"></a>
+### [nextcloud-10.0.9](https://github.com/truecharts/apps/compare/nextcloud-10.0.8...nextcloud-10.0.9) (2021-11-30)
+
+#### Chore
+
+* update non-major ([#1431](https://github.com/truecharts/apps/issues/1431))
+
+
+
 <a name="nextcloud-10.0.8"></a>
 ### [nextcloud-10.0.8](https://github.com/truecharts/apps/compare/nextcloud-10.0.7...nextcloud-10.0.8) (2021-11-30)
 

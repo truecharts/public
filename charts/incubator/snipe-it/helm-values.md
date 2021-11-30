@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MYSQL_PORT_3306_TCP_ADDR.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/snipe-it"` |  |
-| image.tag | string | `"5.3.3@sha256:24610b729fe6595f1ead1e225f4e030fd3013c738987f2c095a2297746d0effb"` |  |
+| image.tag | string | `"5.3.3@sha256:625358097d1ac71ed6bacc15d2af48576e1aa86a42b8c8558f45d1a887878072"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"snipe-it"` |  |

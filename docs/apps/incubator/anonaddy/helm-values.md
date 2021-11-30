@@ -27,7 +27,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"anonaddy/anonaddy"` |  |
-| image.tag | string | `"0.8.7@sha256:739e9d5953abd6736918559220badb76fcc03d94ff87308a3ca461479a6191fc"` |  |
+| image.tag | string | `"0.8.7@sha256:ad6ae308b7fa35a3d88b9ae53b1a4152637bb5e724c6e3e8a7a5d9063572fdfc"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"anonaddy"` |  |
