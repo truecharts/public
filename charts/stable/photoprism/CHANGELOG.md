@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-6.0.3"></a>
+### [photoprism-6.0.3](https://github.com/truecharts/apps/compare/photoprism-6.0.2...photoprism-6.0.3) (2021-11-30)
+
+#### Chore
+
+* update container image docker.io/photoprism/photoprism to v20211130 ([#1439](https://github.com/truecharts/apps/issues/1439))
+
+
+
 <a name="photoprism-6.0.2"></a>
 ### [photoprism-6.0.2](https://github.com/truecharts/apps/compare/photoprism-6.0.1...photoprism-6.0.2) (2021-11-30)
 

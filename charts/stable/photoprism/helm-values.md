@@ -32,7 +32,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"docker.io/photoprism/photoprism"` | image repository |
-| image.tag | string | `"20211128@sha256:6f1fff0abad93f7d9a8a0c8a6b65af9ad5c3c12d1a22e4867fb93c331336f156"` | image tag |
+| image.tag | string | `"20211130@sha256:cd3e38e0710279372c17d19fbe6e05010689f7b385a13c9fca325196dff2afb1"` | image tag |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"photoprism"` |  |
