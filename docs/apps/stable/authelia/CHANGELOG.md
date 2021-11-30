@@ -1,6 +1,22 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.5"></a>
+### [authelia-8.0.5](https://github.com/truecharts/apps/compare/authelia-8.0.4...authelia-8.0.5) (2021-11-30)
+
+#### Chore
+
+* revert authelia default ports change
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* correct some ports mistakes ([#1416](https://github.com/truecharts/apps/issues/1416))
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
 <a name="authelia-8.0.4"></a>
 ### [authelia-8.0.4](https://github.com/truecharts/apps/compare/authelia-8.0.3...authelia-8.0.4) (2021-11-23)
 

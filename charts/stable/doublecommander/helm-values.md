@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/linuxserver/doublecommander"` |  |
-| image.tag | string | `"version-0.8.2-1@sha256:61800aec4066ab01d10bebf8a06de3f6a1b1fe7f9bc0c198d9aaad8770f85ce0"` |  |
+| image.tag | string | `"version-0.8.2-1@sha256:a64547270ae8644ed31e76e87c831e2bc92cb82bb825af5edc009fdf69a7ddde"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10034` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project

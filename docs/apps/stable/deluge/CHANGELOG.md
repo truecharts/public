@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deluge-9.0.14"></a>
+### [deluge-9.0.14](https://github.com/truecharts/apps/compare/deluge-9.0.13...deluge-9.0.14) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update default ports docs ([#1412](https://github.com/truecharts/apps/issues/1412))
+
+
+
 <a name="deluge-9.0.13"></a>
 ### [deluge-9.0.13](https://github.com/truecharts/apps/compare/deluge-9.0.12...deluge-9.0.13) (2021-11-23)
 

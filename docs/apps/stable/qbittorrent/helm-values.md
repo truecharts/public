@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.ports.main.port | int | `8080` |  |
+| service.main.ports.main.port | int | `10095` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
 | service.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.torrent.enabled | bool | `true` |  |

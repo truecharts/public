@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v3.4.2@sha256:26dc34fc8fbad6a678993ee03742ede43d5b1ec079ac15990063c2861375e597"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| service.main.ports.main.port | int | `8080` |  |
+| service.main.ports.main.port | int | `10097` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project

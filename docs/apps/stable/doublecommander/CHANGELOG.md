@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="doublecommander-2.0.16"></a>
+### [doublecommander-2.0.16](https://github.com/truecharts/apps/compare/doublecommander-2.0.15...doublecommander-2.0.16) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update non-major docker tags ([#1429](https://github.com/truecharts/apps/issues/1429))
+
+#### Fix
+
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+
+
+
 <a name="doublecommander-2.0.15"></a>
 ### [doublecommander-2.0.15](https://github.com/truecharts/apps/compare/doublecommander-2.0.14...doublecommander-2.0.15) (2021-11-23)
 

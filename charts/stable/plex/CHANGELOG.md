@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.14"></a>
+### [plex-8.0.14](https://github.com/truecharts/apps/compare/plex-8.0.13...plex-8.0.14) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* correct some ports mistakes ([#1416](https://github.com/truecharts/apps/issues/1416))
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+
+
+
 <a name="plex-8.0.13"></a>
 ### [plex-8.0.13](https://github.com/truecharts/apps/compare/plex-8.0.12...plex-8.0.13) (2021-11-23)
 

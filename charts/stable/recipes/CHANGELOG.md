@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="recipes-4.0.8"></a>
+### [recipes-4.0.8](https://github.com/truecharts/apps/compare/recipes-4.0.7...recipes-4.0.8) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+
+
+
 <a name="recipes-4.0.7"></a>
 ### [recipes-4.0.7](https://github.com/truecharts/apps/compare/recipes-4.0.6...recipes-4.0.7) (2021-11-23)
 

@@ -21,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |
-| service.main.ports.main.port | int | `8080` |  |
+| service.main.ports.main.port | int | `10093` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
 | service.tcp.enabled | bool | `true` |  |
 | service.tcp.ports.tcp.enabled | bool | `true` |  |

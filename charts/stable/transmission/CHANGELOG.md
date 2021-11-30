@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="transmission-9.0.14"></a>
+### [transmission-9.0.14](https://github.com/truecharts/apps/compare/transmission-9.0.13...transmission-9.0.14) (2021-11-30)
+
+#### Change
+
+* use different default ports
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* correct typo in env's
+
+
+
 <a name="transmission-9.0.13"></a>
 ### [transmission-9.0.13](https://github.com/truecharts/apps/compare/transmission-9.0.12...transmission-9.0.13) (2021-11-23)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.16"></a>
+### [pihole-4.0.16](https://github.com/truecharts/apps/compare/pihole-4.0.15...pihole-4.0.16) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+
+
 <a name="pihole-4.0.15"></a>
 ### [pihole-4.0.15](https://github.com/truecharts/apps/compare/pihole-4.0.14...pihole-4.0.15) (2021-11-23)
 

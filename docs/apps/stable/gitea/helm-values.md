@@ -60,7 +60,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"gitea"` |  |
 | postgresql.postgresqlUsername | string | `"gitea"` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10037` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 | service.ssh.enabled | bool | `true` |  |
 | service.ssh.ports.ssh.enabled | bool | `true` |  |

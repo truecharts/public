@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-1.0.3"></a>
+### [grafana-1.0.3](https://github.com/truecharts/apps/compare/grafana-1.0.2...grafana-1.0.3) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+
+
 <a name="grafana-1.0.2"></a>
 ### [grafana-1.0.2](https://github.com/truecharts/apps/compare/grafana-1.0.1...grafana-1.0.2) (2021-11-30)
 

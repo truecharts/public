@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `3000` |  |
+| service.main.ports.main.port | int | `10033` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |
 
 All Rights Reserved - The TrueCharts Project

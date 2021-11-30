@@ -11,22 +11,23 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
+| env.TRANSMISSION_PEER_PORT | int | `51414` |  |
+| env.TRANSMISSION_RPC_PORT | int | `10109` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/transmission"` |  |
 | image.tag | string | `"v3.00@sha256:355f4036c53c782df1957de0e16c63f4298f5b596ae5e621fea8f9ef02dd09e6"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
-| service.main.ports.main.port | int | `9091` |  |
-| service.main.ports.main.targetPort | int | `9091` |  |
+| service.main.ports.main.port | int | `10109` |  |
+| service.main.ports.main.targetPort | int | `10109` |  |
 | service.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.torrent.enabled | bool | `true` |  |
-| service.torrent.ports.torrent.port | int | `51413` |  |
-| service.torrent.ports.torrent.targetPort | int | `51413` |  |
+| service.torrent.ports.torrent.port | int | `51414` |  |
+| service.torrent.ports.torrent.targetPort | int | `51414` |  |
 | service.torrentudp.enabled | bool | `true` |  |
 | service.torrentudp.ports.torrentudp.enabled | bool | `true` |  |
-| service.torrentudp.ports.torrentudp.port | int | `51413` |  |
+| service.torrentudp.ports.torrentudp.port | int | `51414` |  |
 | service.torrentudp.ports.torrentudp.protocol | string | `"UDP"` |  |
-| service.torrentudp.ports.torrentudp.targetPort | int | `51413` |  |
+| service.torrentudp.ports.torrentudp.targetPort | int | `51414` |  |
 
 All Rights Reserved - The TrueCharts Project

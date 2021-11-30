@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-2.0.13"></a>
+### [onlyoffice-document-server-2.0.13](https://github.com/truecharts/apps/compare/onlyoffice-document-server-2.0.12...onlyoffice-document-server-2.0.13) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* move conflicting ports to 10xxx range ([#1415](https://github.com/truecharts/apps/issues/1415))
+
+
+
 <a name="onlyoffice-document-server-2.0.12"></a>
 ### [onlyoffice-document-server-2.0.12](https://github.com/truecharts/apps/compare/onlyoffice-document-server-2.0.11...onlyoffice-document-server-2.0.12) (2021-11-23)
 

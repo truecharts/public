@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-1.0.1"></a>
+### [minio-1.0.1](https://github.com/truecharts/apps/compare/minio-console-1.0.16...minio-1.0.1) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+
+
 <a name="minio-1.0.0"></a>
 ### [minio-1.0.0](https://github.com/truecharts/apps/compare/minio-0.0.6...minio-1.0.0) (2021-11-24)
 

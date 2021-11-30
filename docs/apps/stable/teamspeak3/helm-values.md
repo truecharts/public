@@ -24,10 +24,8 @@ You will, however, be able to use all values referenced in the common chart here
 | service.files.enabled | bool | `true` |  |
 | service.files.ports.files.enabled | bool | `true` |  |
 | service.files.ports.files.port | int | `30033` |  |
-| service.files.ports.files.protocol | string | `"TCP"` |  |
 | service.files.ports.files.targetPort | int | `30033` |  |
 | service.main.ports.main.port | int | `10011` |  |
-| service.main.ports.main.protocol | string | `"TCP"` |  |
 | service.main.ports.main.targetPort | int | `10011` |  |
 | service.voice.enabled | bool | `true` |  |
 | service.voice.ports.voice.enabled | bool | `true` |  |

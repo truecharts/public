@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="haste-server-4.0.13"></a>
+### [haste-server-4.0.13](https://github.com/truecharts/apps/compare/haste-server-4.0.12...haste-server-4.0.13) (2021-11-30)
+
+#### Chore
+
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+
+
 <a name="haste-server-4.0.12"></a>
 ### [haste-server-4.0.12](https://github.com/truecharts/apps/compare/haste-server-4.0.11...haste-server-4.0.12) (2021-11-23)
 

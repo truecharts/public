@@ -19,9 +19,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | memcached | 1.0.13 |
-| https://truecharts.org/ | postgresql | 6.0.10 |
-| https://truecharts.org | common | 8.9.3 |
+| https://truecharts.org/ | memcached | 1.0.18 |
+| https://truecharts.org/ | postgresql | 6.0.15 |
+| https://truecharts.org | common | 8.9.7 |
 
 ## Installing the Chart
 
