@@ -3,15 +3,15 @@ appVersion: "0.52.1"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.3
+  version: 8.9.5
 - condition: exporters.enabled,exporters.node-exporter.enabled
   name: node-exporter
   repository: https://charts.bitnami.com/bitnami
-  version: 2.3.15
+  version: 2.3.16
 - condition: exporters.enabled,exporters.kube-state-metrics.enabled
   name: kube-state-metrics
   repository: https://charts.bitnami.com/bitnami
-  version: 2.1.17
+  version: 2.1.18
 deprecated: false
 description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
 icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
@@ -28,7 +28,7 @@ sources:
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
 type: application
-version: 1.1.1
+version: 1.1.2
 annotations:
   truecharts.org/catagories: |
     - metrics
