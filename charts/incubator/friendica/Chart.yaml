@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "20211018"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.4
+- condition: mariadb.enabled
+  name: mariadb
+  repository: https://truecharts.org/
+  version: 1.0.14
+description: "Welcome to the free social web"
+home: https://github.com/truechartsapps/tree/master/charts/stable/friendica
+icon: "https://d1q6f0aelx0por.cloudfront.net/product-logos/library-friendica-logo.png"
+keywords:
+  - friend
+  - social
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: friendica
+sources:
+  - https://friendi.ca/
+  - https://hub.docker.com/_/friendica
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - social
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

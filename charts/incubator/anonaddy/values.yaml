@@ -1,0 +1,86 @@
+image:
+  repository: anonaddy/anonaddy
+  tag: 0.8.7@sha256:739e9d5953abd6736918559220badb76fcc03d94ff87308a3ca461479a6191fc
+  pullPolicy: IfNotPresent
+
+strategy:
+  type: Recreate
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- environment variables. See more environment variables in the [anonaddy documentation](https://github.com/anonaddy/docker#environment-variables).
+# @default -- See below
+env:
+  PUID: 568
+  # -- Root domain to receive email from
+  ANONADDY_DOMAIN: chart-example.local
+  DB_DATABASE: anonaddy
+  DB_USERNAME: anonaddy
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 10110
+        targetPort: 8000
+  smtp:
+    enabled: true
+    ports:
+      smtp:
+        enabled: true
+        port: 25
+        targetPort: 25
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  varrun:
+    enabled: true
+  config:
+    enabled: true
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+  APP_KEY:
+    secretKeyRef:
+      name: appkey
+      key: appkey
+  ANONADDY_SECRET:
+    secretKeyRef:
+      name: appkey
+      key: secret
+
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+mariadb:
+  enabled: true
+  mariadbUsername: anonaddy
+  mariadbDatabase: anonaddy
+  existingSecret: "mariadbcreds"

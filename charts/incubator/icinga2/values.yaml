@@ -1,0 +1,84 @@
+image:
+  repository: jordan/icinga2
+  tag: 2.13.1@sha256:00a826bee739d06be6999b493254d9e474875de8c842219a18cee99c01e84760
+  pullPolicy: IfNotPresent
+
+# -- environment variables. See more environment variables in the [icinga2 documentation](https://github.com/jjethwa/icinga2#environment-variables-reference).
+# @default -- See below
+env:
+  DEFAULT_MYSQL_USER: icinga2
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 10114
+        targetPort: 80
+  https:
+    enabled: true
+    ports:
+      https:
+        enabled: true
+        port: 10115
+        targetPort: 443
+  api:
+    enabled: true
+    ports:
+      api:
+        enabled: true
+        port: 10116
+        targetPort: 5665
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  # -- Icinga2 configuration folder
+  # @default -- Disabled
+  config:
+    enabled: true
+    mountPath: /etc/icinga2
+  # -- Icinga2 Data
+  # @default -- Disabled
+  data:
+    enabled: true
+    mountPath: /var/lib/icinga2
+  # -- Icingaweb2 configuration folder
+  # @default -- Disabled
+  web:
+    enabled: true
+    mountPath: /etc/icingaweb2
+  # -- ssmtp folder
+  # @default -- Disabled
+  ssmtp:
+    enabled: true
+    mountPath: /etc/ssmtp
+
+envValueFrom:
+  DEFAULT_MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DEFAULT_MYSQL_PASS:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  MYSQL_ROOT_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-root-password
+
+mariadb:
+  enabled: true
+  mariadbUsername: icinga2
+  mariadbDatabase: icinga2
+  existingSecret: "mariadbcreds"

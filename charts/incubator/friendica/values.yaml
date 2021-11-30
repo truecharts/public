@@ -1,0 +1,59 @@
+image:
+  repository: friendica
+  pullPolicy: IfNotPresent
+  tag: 2021.09@sha256:e4f70bcc0d11715de7708cb5f798451c2149705ce79162428479422d6111efca
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# See more environment variables in the friendica documentation
+# https://hub.docker.com/_/friendica
+env:
+  MYSQL_USER: friendica
+  MYSQL_DATABASE: friendica
+
+service:
+  main:
+    ports:
+      main:
+        port: 10058
+        targetPort: 80
+
+persistence:
+  varrun:
+    enabled: true
+  config:
+    enabled: true
+    mountPath: /var/www/html
+
+envValueFrom:
+  MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  MYSQL_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PW:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+mariadb:
+  enabled: true
+  mariadbUsername: friendica
+  mariadbDatabase: friendica
+  existingSecret: "mariadbcreds"

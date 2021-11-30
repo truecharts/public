@@ -1,0 +1,52 @@
+image:
+  repository: pe46dro/xbackbone-docker
+  tag: 3.3.3@sha256:09dfe3aa10f61ce1da5e60a282be62f139f267f44a073862feda67cd960fa71e
+  pullPolicy: IfNotPresent
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+# -- environment variables. See [image repo](https://github.com/Pe46dro/XBackBone-docker#environment-variables) for more details.
+# @default -- See below
+env:
+  DB_TYPE: mysql
+  MYSQL_DATABASE: xbackbone
+  MYSQL_USER: xbackbone
+
+
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      main:
+        port: 10121
+        targetPort: 80
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+
+envValueFrom:
+  MYSQL_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  MYSQL_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+mariadb:
+  enabled: true
+  mariadbUsername: xbackbone
+  mariadbDatabase: xbackbone
+  existingSecret: "mariadbcreds"
