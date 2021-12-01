@@ -28,7 +28,7 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"bitnami/postgresql"` |  |
-| image.tag | string | `"14.1.0@sha256:bdfeb12b5f8ae8dedfc2f7cb18a0ba48959c4dacc19176292a2fffd0abacdebe"` |  |
+| image.tag | string | `"14.1.0@sha256:a8d81b4ce9ba6377b7250847e3b02cf84ae409785cf7df797a160b0f31b4246e"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | postgrespassword | string | `"testroot"` |  |
 | postgresqlDatabase | string | `"test"` |  |
