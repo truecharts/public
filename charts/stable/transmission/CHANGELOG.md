@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-9.0.15"></a>
+### [transmission-9.0.15](https://github.com/truecharts/apps/compare/transmission-9.0.14...transmission-9.0.15) (2021-12-02)
+
+#### Fix
+
+* ensure port settings are correct inside transmission ([#1445](https://github.com/truecharts/apps/issues/1445))
+
+
+
 <a name="transmission-9.0.14"></a>
 ### [transmission-9.0.14](https://github.com/truecharts/apps/compare/transmission-9.0.13...transmission-9.0.14) (2021-11-30)
 

@@ -11,15 +11,15 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.TRANSMISSION_PEER_PORT | int | `51414` |  |
-| env.TRANSMISSION_RPC_PORT | int | `10109` |  |
+| env.TRANSMISSION_PEER_PORT | string | `"{{ .Values.service.torrent.ports.torrent.targetPort }}"` |  |
+| env.TRANSMISSION_RPC_PORT | string | `"{{ .Values.service.main.ports.main.targetPort }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/k8s-at-home/transmission"` |  |
 | image.tag | string | `"v3.00@sha256:355f4036c53c782df1957de0e16c63f4298f5b596ae5e621fea8f9ef02dd09e6"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | service.main.ports.main.port | int | `10109` |  |
-| service.main.ports.main.targetPort | int | `10109` |  |
+| service.main.ports.main.targetPort | int | `9091` |  |
 | service.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.torrent.enabled | bool | `true` |  |
 | service.torrent.ports.torrent.port | int | `51414` |  |
