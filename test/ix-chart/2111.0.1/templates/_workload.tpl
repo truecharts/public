@@ -102,6 +102,8 @@ Deployment Spec
 strategy:
   {{- if and (eq .Values.updateStrategy "RollingUpdate") .Values.hostPortsList }}
   {{- fail "RollingUpdate is not allowed when host ports are specified" }}
+  {{- else if and (eq .Values.updateStrategy "RollingUpdate") .Values.hostNetwork }}
+  {{- fail "RollingUpdate is not allowed when host network is enabled" }}
   {{- end }}
   type: {{ .Values.updateStrategy }}
 selector:
