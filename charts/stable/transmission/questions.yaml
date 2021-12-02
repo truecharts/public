@@ -218,26 +218,6 @@ questions:
           schema:
             type: int
             default: 50
-        - variable: TRANSMISSION_PEER_PORT
-          label: TRANSMISSION_PEER_PORT
-          schema:
-            type: int
-            default: 51414
-        - variable: TRANSMISSION_PEER_PORT_RANDOM_HIGH
-          label: TRANSMISSION_PEER_PORT_RANDOM_HIGH
-          schema:
-            type: int
-            default: 65535
-        - variable: TRANSMISSION_PEER_PORT_RANDOM_LOW
-          label: TRANSMISSION_PEER_PORT_RANDOM_LOW
-          schema:
-            type: int
-            default: 49152
-        - variable: TRANSMISSION_PEER_PORT_RANDOM_ON_START
-          label: TRANSMISSION_PEER_PORT_RANDOM_ON_START
-          schema:
-            type: boolean
-            default: false
         - variable: TRANSMISSION_PEER_SOCKET_TOS
           label: TRANSMISSION_PEER_SOCKET_TOS
           schema:
@@ -318,16 +298,6 @@ questions:
           schema:
             type: string
             default: ""
-        - variable: TRANSMISSION_RPC_PORT
-          label: TRANSMISSION_RPC_PORT
-          schema:
-            type: int
-            default: 10109
-        - variable: TRANSMISSION_RPC_URL
-          label: TRANSMISSION_RPC_URL
-          schema:
-            type: string
-            default: "/transmission/"
         - variable: TRANSMISSION_RPC_USERNAME
           label: TRANSMISSION_RPC_USERNAME
           schema:
