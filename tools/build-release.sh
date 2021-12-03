@@ -1,19 +1,4 @@
 #!/usr/bin/env bash
-
-# Copyright The Helm Authors
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -81,6 +66,10 @@ main() {
                 train=$(basename $(dirname "$chart"))
                 SCALESUPPORT=$(cat ${chart}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
                 sync_tag "$chart" "$chartname" "$train" "$chartversion" || echo "Tag sync failed..."
+                helm dependency update "${chart}" --skip-refresh || sleep 10 && helm dependency update "${chart}" --skip-refresh || sleep 10 &&  helm dependency update "${chart}" --skip-refresh
+                helm_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "helm-chart security-scan failed..."
+                container_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "container security-scan failed..."
+                sec_scan_cleanup "$chart" "$chartname" "$train" "$chartversion" || echo "security-scan cleanup failed..."
                 create_changelog "$chart" "$chartname" "$train" "$chartversion" || echo "changelog generation failed..."
                 generate_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs generation failed..."
                 copy_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs Copy failed..."
@@ -286,6 +275,32 @@ sync_tag() {
     tag="${tag%_}"
     tag="${tag%.}"
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
+    }
+
+helm_sec_scan() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    mkdir -p ${chart}/render
+    cd ${chart}
+    helm template . --output-dir out
+    trivy config ${chart}/render
+    }
+
+container_sec_scan() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    }
+
+sec_scan_cleanup() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    rm -rf ${chart}/render
     }
 
 pre_commit() {
