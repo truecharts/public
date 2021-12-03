@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.20"></a>
+### [memcached-1.0.20](https://github.com/truecharts/apps/compare/memcached-1.0.19...memcached-1.0.20) (2021-12-03)
+
+#### Chore
+
+* bump common on dependency train ([#1452](https://github.com/truecharts/apps/issues/1452))
+
+
+
 <a name="memcached-1.0.19"></a>
 ### [memcached-1.0.19](https://github.com/truecharts/apps/compare/memcached-1.0.18...memcached-1.0.19) (2021-12-03)
 

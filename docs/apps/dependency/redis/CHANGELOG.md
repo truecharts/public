@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.22"></a>
+### [redis-1.0.22](https://github.com/truecharts/apps/compare/redis-1.0.21...redis-1.0.22) (2021-12-03)
+
+#### Chore
+
+* bump common on dependency train ([#1452](https://github.com/truecharts/apps/issues/1452))
+
+
+
 <a name="redis-1.0.21"></a>
 ### [redis-1.0.21](https://github.com/truecharts/apps/compare/redis-1.0.20...redis-1.0.21) (2021-12-03)
 

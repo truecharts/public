@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-1.0.6"></a>
+### [promtail-1.0.6](https://github.com/truecharts/apps/compare/promtail-1.0.5...promtail-1.0.6) (2021-12-03)
+
+#### Chore
+
+* bump common on dependency train ([#1452](https://github.com/truecharts/apps/issues/1452))
+
+
+
 <a name="promtail-1.0.5"></a>
 ### [promtail-1.0.5](https://github.com/truecharts/apps/compare/promtail-1.0.4...promtail-1.0.5) (2021-12-03)
 
