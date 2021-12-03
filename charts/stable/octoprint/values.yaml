@@ -1,13 +1,6 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/truecharts/octoprint
+  repository: tccr.io/truecharts/octoprint
   # -- image tag
   tag: v1.7.2@sha256:80d677488365ad240b0cef90fa381ba849dcd82dfc62b11689d88da9867956c6
   # -- image pull policy

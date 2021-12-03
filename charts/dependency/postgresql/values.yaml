@@ -1,5 +1,5 @@
 image:
-  repository: bitnami/postgresql
+  repository: tccr.io/truecharts/postgresql
   pullPolicy: IfNotPresent
   tag: 14.1.0@sha256:a8d81b4ce9ba6377b7250847e3b02cf84ae409785cf7df797a160b0f31b4246e
 
@@ -43,7 +43,7 @@ podSecurityContext:
 volumeClaimTemplates:
   db:
     enabled: true
-    mountPath: "/bitnami/postgresql"
+    mountPath: "/tccr.io/truecharts/postgresql"
 
 
 postgresqlPassword: "testpass"

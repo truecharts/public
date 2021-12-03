@@ -1,6 +1,5 @@
-# Default values for Traefik
 image:
-  repository: traefik
+  repository: tccr.io/truecharts/traefik
   # defaults to appVersion
   tag: v2.5.4@sha256:7d0228d19042f1286765f0ef56ceba8e4e8a08ae9b45b854179cf09a9c3de633
   pullPolicy: IfNotPresent
@@ -115,7 +114,7 @@ additionalArguments:
   - "--providers.kubernetesingress.allowexternalnameservices=true"
 
 # -- TLS Options to be created as TLSOption CRDs
-# https://doc.traefik.io/traefik/https/tls/#tls-options
+# https://doc.traefik.io/tccr.io/truecharts/https/tls/#tls-options
 # Example:
 tlsOptions:
   default:

@@ -1,13 +1,6 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: docker.io/emcniece/dockeryourxyzzy
+  repository: tccr.io/emcniece/dockeryourxyzzy
   # -- image tag
   tag: 4@sha256:04eccbccc15cb755bbdcdd277d7ceaefb776d22b1ca8de6a97cc97eccfc7cd17
   # -- image pull policy

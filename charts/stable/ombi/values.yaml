@@ -1,7 +1,5 @@
-# Default values for Ombi.
-
 image:
-  repository: ghcr.io/truecharts/ombi
+  repository: tccr.io/truecharts/ombi
   pullPolicy: IfNotPresent
   tag: v4.0.1482@sha256:0fa4e81029d9adef9d773ce99db13ff3039fd087d58d7266cbcfd7462e7afc56
 
@@ -25,7 +23,7 @@ persistence:
 
 
 # Enabled mariadb
-# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/mariadb
+# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/mariadb
 mariadb:
   enabled: false
   architecture: standalone

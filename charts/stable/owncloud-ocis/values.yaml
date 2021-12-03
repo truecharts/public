@@ -1,13 +1,6 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/truecharts/ocis
+  repository: tccr.io/truecharts/ocis
   # -- image tag
   tag: v1.15.0@sha256:513bf715f330afcd06918be63f47b8ad7bf80515d3ed2b29afdb7da00ed66eb4
   # -- image pull policy

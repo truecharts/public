@@ -1,13 +1,6 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/linuxserver/airsonic
+  repository: tccr.io/truecharts/airsonic
   # -- image tag
   tag: version-v10.6.2@sha256:0a0e49be383db9340c0a8258bb31c5916281ec18c8c3fb56006866d18f8e63e0
   # -- image pull policy

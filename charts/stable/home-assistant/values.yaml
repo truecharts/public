@@ -1,7 +1,5 @@
-# Default values for Home Assistant
-
 image:
-  repository: ghcr.io/truecharts/home-assistant
+  repository: tccr.io/truecharts/home-assistant
   pullPolicy: IfNotPresent
   tag: v2021.11.5@sha256:f4a4f4c85e51e6c08b36329110c95be441f53ac998bc51bc16f5b26290f7f9ef
 
@@ -60,7 +58,7 @@ persistence:
 
 
 # -- Enable and configure postgresql database subchart under this key.
-#    For more options see [postgresql chart documentation](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+#    For more options see [postgresql chart documentation](https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/postgresql)
 # @default -- See values.yaml
 postgresql:
   enabled: true
@@ -69,7 +67,7 @@ postgresql:
   existingSecret: "dbcreds"
 
 # Enable influxdb
-# ... for more options see https://github.com/bitnami/charts/tree/master/bitnami/influxdb
+# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/influxdb
 influxdb:
   enabled: false
   architecture: standalone

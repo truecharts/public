@@ -1,17 +1,10 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 controller:
   # -- Number of pods to load balance between
   replicas: 2
 
 image:
   # -- image repository
-  repository: ghcr.io/k8s-at-home/nullserv
+  repository: tccr.io/truecharts/nullserv
   # -- image tag
   tag: v1.3.0@sha256:0792c7e6d814bf292455da3f40aa5d56c465f2b5024e786ac3bf3dc3b16cc757
   # -- image pull policy

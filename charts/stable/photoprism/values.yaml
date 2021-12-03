@@ -1,13 +1,6 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: docker.io/photoprism/photoprism
+  repository: tccr.io/truecharts/photoprism
   # -- image tag
   tag: 20211130@sha256:cd3e38e0710279372c17d19fbe6e05010689f7b385a13c9fca325196dff2afb1
   # -- image pull policy
