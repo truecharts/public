@@ -313,8 +313,9 @@ container_sec_scan() {
     for container in ${chart}/render/containers.tmp; do
       echo "**Container: ${container}**" >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
-      trivy image ${container} #>> ${chart}/sec-scan.md
+      trivy image ${container} # >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
+      done
     }
 
 sec_scan_cleanup() {
