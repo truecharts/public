@@ -283,8 +283,17 @@ helm_sec_scan() {
     local train="$3"
     local chartversion="$4"
     mkdir -p ${chart}/render
+    rm -rf ${chart}/sec-scan.md | echo "removing old sec-scan.md file failed..."
+    echo "# Security Scan" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    echo "## Helm-Chart" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    echo "##### Scan Results" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
     helm template ${chart} --output-dir ${chart}/render
-    trivy config ${chart}/render
+    ## TODO: Cleanup security scan layout
+    trivy config ${chart}/render >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
     }
 
 container_sec_scan() {
@@ -292,6 +301,16 @@ container_sec_scan() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
+    echo "## Containers" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    echo "##### Detected Containers" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    find render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
+    echo ${chart}/render/containers.tmp >> ${chart}/sec-scan.md
+    cat "" >> ${chart}/sec-scan.md
+    echo "##### Scan Results" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    ## TODO: Execute container scans
     }
 
 sec_scan_cleanup() {
@@ -411,6 +430,7 @@ copy_docs() {
         mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
         yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md 2>/dev/null || :
         yes | cp -rf ${chart}/CHANGELOG.md docs/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
+        yes | cp -rf ${chart}/sec-scan.md docs/apps/${train}/${chartname}/sec-scan.md 2>/dev/null || :
         yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
         yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
         rm docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
