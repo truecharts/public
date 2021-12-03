@@ -5,9 +5,9 @@
 ##### Scan Results
 
 ```
-2021-12-03T20:42:27.633Z	[34mINFO[0m	Need to update the built-in policies
-2021-12-03T20:42:27.633Z	[34mINFO[0m	Downloading the built-in policies...
-2021-12-03T20:42:28.661Z	[34mINFO[0m	Detected config files: 3
+2021-12-03T20:42:27.633Z    [34mINFO[0m    Need to update the built-in policies
+2021-12-03T20:42:27.633Z    [34mINFO[0m    Downloading the built-in policies...
+2021-12-03T20:42:28.661Z    [34mINFO[0m    Detected config files: 3
 
 nextcloud/charts/postgresql/templates/common.yaml (kubernetes)
 ==============================================================
@@ -373,11 +373,11 @@ Failures: 29 (UNKNOWN: 0, LOW: 11, MEDIUM: 18, HIGH: 0, CRITICAL: 0)
 **Container: ghcr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
 ```
-2021-12-03T20:42:28.758Z	[34mINFO[0m	Need to update DB
-2021-12-03T20:42:28.758Z	[34mINFO[0m	Downloading DB...
-2021-12-03T20:42:31.243Z	[34mINFO[0m	Detected OS: alpine
-2021-12-03T20:42:31.243Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-03T20:42:31.244Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-03T20:42:28.758Z    [34mINFO[0m    Need to update DB
+2021-12-03T20:42:28.758Z    [34mINFO[0m    Downloading DB...
+2021-12-03T20:42:31.243Z    [34mINFO[0m    Detected OS: alpine
+2021-12-03T20:42:31.243Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-03T20:42:31.244Z    [34mINFO[0m    Number of language-specific files: 0
 
 ghcr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
 =========================================================================================================================
@@ -501,11 +501,11 @@ Total: 22 (UNKNOWN: 0, LOW: 0, MEDIUM: 4, HIGH: 18, CRITICAL: 0)
 **Container: bitnami/postgresql:14.1.0@sha256:bdfeb12b5f8ae8dedfc2f7cb18a0ba48959c4dacc19176292a2fffd0abacdebe**
 
 ```
-2021-12-03T20:42:34.038Z	[34mINFO[0m	Detected OS: debian
-2021-12-03T20:42:34.038Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-03T20:42:34.056Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-03T20:42:34.056Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
-2021-12-03T20:42:34.056Z	[34mINFO[0m	Detecting jar vulnerabilities...
+2021-12-03T20:42:34.038Z    [34mINFO[0m    Detected OS: debian
+2021-12-03T20:42:34.038Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-03T20:42:34.056Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-03T20:42:34.056Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
+2021-12-03T20:42:34.056Z    [34mINFO[0m    Detecting jar vulnerabilities...
 
 bitnami/postgresql:14.1.0@sha256:bdfeb12b5f8ae8dedfc2f7cb18a0ba48959c4dacc19176292a2fffd0abacdebe (debian 10.11)
 ================================================================================================================
@@ -1382,10 +1382,10 @@ Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 **Container: tccr.io/truecharts/nextcloud:v23.0.0@sha256:14b9b85250c984c6c4083f4509b84c98587d0913ec997c57a300c503f5c0344e**
 
 ```
-2021-12-03T20:42:43.765Z	[34mINFO[0m	Detected OS: debian
-2021-12-03T20:42:43.765Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-03T20:42:43.822Z	[34mINFO[0m	Number of language-specific files: 5
-2021-12-03T20:42:43.823Z	[34mINFO[0m	Detecting composer vulnerabilities...
+2021-12-03T20:42:43.765Z    [34mINFO[0m    Detected OS: debian
+2021-12-03T20:42:43.765Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-03T20:42:43.822Z    [34mINFO[0m    Number of language-specific files: 5
+2021-12-03T20:42:43.823Z    [34mINFO[0m    Detecting composer vulnerabilities...
 
 tccr.io/truecharts/nextcloud:v23.0.0@sha256:14b9b85250c984c6c4083f4509b84c98587d0913ec997c57a300c503f5c0344e (debian 11.1)
 ==========================================================================================================================
@@ -3495,10 +3495,10 @@ Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 **Container: tccr.io/truecharts/nextcloud:v23.0.0@sha256:14b9b85250c984c6c4083f4509b84c98587d0913ec997c57a300c503f5c0344e**
 
 ```
-2021-12-03T20:42:44.996Z	[34mINFO[0m	Detected OS: debian
-2021-12-03T20:42:44.996Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-03T20:42:45.059Z	[34mINFO[0m	Number of language-specific files: 5
-2021-12-03T20:42:45.059Z	[34mINFO[0m	Detecting composer vulnerabilities...
+2021-12-03T20:42:44.996Z    [34mINFO[0m    Detected OS: debian
+2021-12-03T20:42:44.996Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-03T20:42:45.059Z    [34mINFO[0m    Number of language-specific files: 5
+2021-12-03T20:42:45.059Z    [34mINFO[0m    Detecting composer vulnerabilities...
 
 tccr.io/truecharts/nextcloud:v23.0.0@sha256:14b9b85250c984c6c4083f4509b84c98587d0913ec997c57a300c503f5c0344e (debian 11.1)
 ==========================================================================================================================
@@ -5608,9 +5608,9 @@ Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 **Container: ghcr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
 ```
-2021-12-03T20:42:45.792Z	[34mINFO[0m	Detected OS: alpine
-2021-12-03T20:42:45.792Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-03T20:42:45.794Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-03T20:42:45.792Z    [34mINFO[0m    Detected OS: alpine
+2021-12-03T20:42:45.792Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-03T20:42:45.794Z    [34mINFO[0m    Number of language-specific files: 0
 
 ghcr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
 =========================================================================================================================
@@ -5734,10 +5734,10 @@ Total: 22 (UNKNOWN: 0, LOW: 0, MEDIUM: 4, HIGH: 18, CRITICAL: 0)
 **Container: bitnami/redis:6.2.6@sha256:61237e1fb2fbc54ad58141057591538d9563d992ba09cf789766a314e9433c07**
 
 ```
-2021-12-03T20:42:47.092Z	[34mINFO[0m	Detected OS: debian
-2021-12-03T20:42:47.092Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-03T20:42:47.108Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-03T20:42:47.108Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
+2021-12-03T20:42:47.092Z    [34mINFO[0m    Detected OS: debian
+2021-12-03T20:42:47.092Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-03T20:42:47.108Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-03T20:42:47.108Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
 
 bitnami/redis:6.2.6@sha256:61237e1fb2fbc54ad58141057591538d9563d992ba09cf789766a314e9433c07 (debian 10.11)
 ==========================================================================================================
@@ -6400,9 +6400,9 @@ Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 **Container: ghcr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
 ```
-2021-12-03T20:42:47.700Z	[34mINFO[0m	Detected OS: alpine
-2021-12-03T20:42:47.700Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-03T20:42:47.707Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-03T20:42:47.700Z    [34mINFO[0m    Detected OS: alpine
+2021-12-03T20:42:47.700Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-03T20:42:47.707Z    [34mINFO[0m    Number of language-specific files: 0
 
 ghcr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
 =========================================================================================================================
@@ -6526,11 +6526,11 @@ Total: 22 (UNKNOWN: 0, LOW: 0, MEDIUM: 4, HIGH: 18, CRITICAL: 0)
 **Container: bitnami/postgresql:14.1.0@sha256:bdfeb12b5f8ae8dedfc2f7cb18a0ba48959c4dacc19176292a2fffd0abacdebe**
 
 ```
-2021-12-03T20:42:48.382Z	[34mINFO[0m	Detected OS: debian
-2021-12-03T20:42:48.382Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-03T20:42:48.405Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-03T20:42:48.405Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
-2021-12-03T20:42:48.405Z	[34mINFO[0m	Detecting jar vulnerabilities...
+2021-12-03T20:42:48.382Z    [34mINFO[0m    Detected OS: debian
+2021-12-03T20:42:48.382Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-03T20:42:48.405Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-03T20:42:48.405Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
+2021-12-03T20:42:48.405Z    [34mINFO[0m    Detecting jar vulnerabilities...
 
 bitnami/postgresql:14.1.0@sha256:bdfeb12b5f8ae8dedfc2f7cb18a0ba48959c4dacc19176292a2fffd0abacdebe (debian 10.11)
 ================================================================================================================
@@ -7403,4 +7403,3 @@ opt/bitnami/common/bin/gosu (gobinary)
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 
 ```
-
