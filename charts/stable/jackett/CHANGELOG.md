@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.28"></a>
+### [jackett-9.0.28](https://github.com/truecharts/apps/compare/jackett-9.0.27...jackett-9.0.28) (2021-12-03)
+
+#### Feat
+
+* Render security scan results during build ([#1451](https://github.com/truecharts/apps/issues/1451))
+
+
+
 <a name="jackett-9.0.27"></a>
 ### [jackett-9.0.27](https://github.com/truecharts/apps/compare/jackett-9.0.26...jackett-9.0.27) (2021-12-03)
 
