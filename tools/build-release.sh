@@ -283,8 +283,7 @@ helm_sec_scan() {
     local train="$3"
     local chartversion="$4"
     mkdir -p ${chart}/render
-    cd ${chart}
-    helm template . --output-dir out
+    helm template ${chart} --output-dir ${chart}/render
     trivy config ${chart}/render
     }
 
