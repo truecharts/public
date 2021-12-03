@@ -1,13 +1,6 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: sirfragalot/hyperion.ng
+  repository: tccr.io/truecharts/hyperion.ng
   # -- image tag
   tag: 2.0.12@sha256:7a3610716c6881d4a2cd028de7c553cdc7f28e0b18c1b455f35ef5b3e947ed2a
   # -- image pull policy

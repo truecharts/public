@@ -1,5 +1,5 @@
 image:
-  repository: bitnami/redis
+  repository: tccr.io/truecharts/redis
   pullPolicy: IfNotPresent
   tag: 6.2.6@sha256:5c14298baea515f4317aa2ab85eaadf119cc49c17e0ad2e1e87aeab87a4431d2
 
@@ -58,7 +58,7 @@ service:
 volumeClaimTemplates:
   data:
     enabled: true
-    mountPath: "/bitnami/redis"
+    mountPath: "/tccr.io/truecharts/redis"
 
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)

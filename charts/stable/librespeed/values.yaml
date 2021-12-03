@@ -1,13 +1,6 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/linuxserver/librespeed
+  repository: tccr.io/truecharts/librespeed
   # -- image tag
   tag: version-5.2.4@sha256:dabcdd5e950d61646456425dbf09caaf8589f15a2f0b0332677d27500f9d1d0b
   # -- image pull policy

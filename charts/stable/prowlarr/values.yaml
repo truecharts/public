@@ -1,13 +1,6 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: ghcr.io/k8s-at-home/prowlarr
+  repository: tccr.io/truecharts/prowlarr
   # -- image tag
   tag: v0.1.6.1176@sha256:79507d7af6113fef81cd36887b060c5607ee91ae84c47812acc08ec97c351f0f
   # -- image pull policy

@@ -1,13 +1,6 @@
-#
-# IMPORTANT NOTE
-#
-# This chart inherits from our common library chart. You can check the default values/options here:
-# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
-#
-
 image:
   # -- image repository
-  repository: onlyoffice/documentserver
+  repository: tccr.io/truecharts/documentserver
   # -- image tag
   tag: 6.4.2.6@sha256:7e4a36f99966640fa7d0298ec3334309331229f61bdce7280667575ba9c8f7f6
   # -- image pull policy
