@@ -305,7 +305,7 @@ container_sec_scan() {
     echo "" >> ${chart}/sec-scan.md
     echo "##### Detected Containers" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
-    find render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
+    find ${chart}/render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
     echo ${chart}/render/containers.tmp >> ${chart}/sec-scan.md
     cat "" >> ${chart}/sec-scan.md
     echo "##### Scan Results" >> ${chart}/sec-scan.md
