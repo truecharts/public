@@ -1,19 +1,4 @@
 #!/usr/bin/env bash
-
-# Copyright The Helm Authors
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -81,6 +66,10 @@ main() {
                 train=$(basename $(dirname "$chart"))
                 SCALESUPPORT=$(cat ${chart}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
                 sync_tag "$chart" "$chartname" "$train" "$chartversion" || echo "Tag sync failed..."
+                helm dependency update "${chart}" --skip-refresh || sleep 10 && helm dependency update "${chart}" --skip-refresh || sleep 10 &&  helm dependency update "${chart}" --skip-refresh
+                helm_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "helm-chart security-scan failed..."
+                container_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "container security-scan failed..."
+                sec_scan_cleanup "$chart" "$chartname" "$train" "$chartversion" || echo "security-scan cleanup failed..."
                 create_changelog "$chart" "$chartname" "$train" "$chartversion" || echo "changelog generation failed..."
                 generate_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs generation failed..."
                 copy_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs Copy failed..."
@@ -288,6 +277,63 @@ sync_tag() {
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
     }
 
+helm_sec_scan() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    echo "Scanning helm security for ${chartname}"
+    mkdir -p ${chart}/render
+    rm -rf ${chart}/sec-scan.md | echo "removing old sec-scan.md file failed..."
+    echo "# Security Scan" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    echo "## Helm-Chart" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    echo "##### Scan Results" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    helm template ${chart} --output-dir ${chart}/render
+    ## TODO: Cleanup security scan layout
+    echo '```' >> ${chart}/sec-scan.md
+    trivy config ${chart}/render >> ${chart}/sec-scan.md
+    echo '```' >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    }
+
+container_sec_scan() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    echo "Scanning container security for ${chartname}"
+    echo "## Containers" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    echo "##### Detected Containers" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    find ${chart}/render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
+    cat ${chart}/render/containers.tmp >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    echo "##### Scan Results" >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
+    ## TODO: Cleanup security scan layout
+    for container in $(cat ${chart}/render/containers.tmp); do
+      echo "**Container: ${container}**" >> ${chart}/sec-scan.md
+      echo "" >> ${chart}/sec-scan.md
+      echo '```' >> ${chart}/sec-scan.md
+      trivy image ${container} >> ${chart}/sec-scan.md
+      echo '```' >> ${chart}/sec-scan.md
+      echo "" >> ${chart}/sec-scan.md
+      done
+
+    }
+
+sec_scan_cleanup() {
+    local chart="$1"
+    local chartname="$2"
+    local train="$3"
+    local chartversion="$4"
+    rm -rf ${chart}/render
+    }
+
 pre_commit() {
     if [[ -z "$standalone" ]]; then
       echo "Running pre-commit test-and-cleanup..."
@@ -397,6 +443,7 @@ copy_docs() {
         mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
         yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md 2>/dev/null || :
         yes | cp -rf ${chart}/CHANGELOG.md docs/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
+        yes | cp -rf ${chart}/sec-scan.md docs/apps/${train}/${chartname}/sec-scan.md 2>/dev/null || :
         yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
         yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
         rm docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
