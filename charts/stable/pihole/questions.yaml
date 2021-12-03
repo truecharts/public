@@ -8,7 +8,7 @@ portals:
     ports:
       - "$kubernetes-resource_configmap_portal_port"
     path: "/"
-  admin_portal:
+  admin:
     protocols:
       - "$kubernetes-resource_configmap_portal_protocol"
     host:
