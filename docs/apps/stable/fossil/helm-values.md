@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nicholaswilde/fossil"` |  |
-| image.tag | string | `"2.15.1-ls4@sha256:a0a819ed2707e8e829dec371de0e166fbcf0499d3d12005880f603b2b95bf64d"` |  |
+| image.repository | string | `"tccr.io/truecharts/fossil"` |  |
+| image.tag | string | `"v2.15.1-ls4@sha256:5894297e0c90a431a7e93382054ac120e10860c132fce1ac35467c74c900e330"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

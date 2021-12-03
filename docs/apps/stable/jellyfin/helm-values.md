@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/jellyfin"` |  |
-| image.tag | string | `"v10.7.7@sha256:2fa78e734903d95f8b530d2f3203f5ce5d9ff891cc8a70c0e80e828e336b4abb"` |  |
+| image.repository | string | `"tccr.io/truecharts/jellyfin"` |  |
+| image.tag | string | `"v10.7.7@sha256:20febcab671b5281c5ecf8b792860119c9bda4806815bc2764660173b1866924"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minio-1.0.2"></a>
+### [minio-1.0.2](https://github.com/truecharts/apps/compare/minio-console-1.0.17...minio-1.0.2) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="minio-1.0.1"></a>
 ### [minio-1.0.1](https://github.com/truecharts/apps/compare/minio-console-1.0.16...minio-1.0.1) (2021-11-30)
 

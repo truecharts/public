@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/filezilla"` |  |
-| image.tag | string | `"version-3.51.0-r1@sha256:5103cdd266ceb61cebabae6629e418570a5094e3f61ef2f405f6e24d4fc7f6a4"` |  |
+| image.repository | string | `"tccr.io/truecharts/filezilla"` |  |
+| image.tag | string | `"version-3.51.0-r1@sha256:92421eae5b47e6e98d5157db3f6a453ab0d7733a693b5e8724edeef4090593eb"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

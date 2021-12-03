@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.ALLOWED_NETWORKS | string | `"172.16.0.0/16"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/plex"` |  |
-| image.tag | string | `"v1.24.5.5173-8dcc73a59@sha256:b651efe17214c1cc06345466a3db5f62c0b4b8f3e49e0083e19d04f13001abc6"` |  |
+| image.repository | string | `"tccr.io/truecharts/plex"` |  |
+| image.tag | string | `"v1.24.5.5173-8dcc73a59@sha256:48eeac73915041bd70aba28814e8b8f453dbf9948410c578e25d234089286437"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | service.main.ports.main.port | int | `32400` |  |

@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/readarr"` |  |
-| image.tag | string | `"v0.1.0.1072@sha256:536b5586da8ff23375bc01ea0f78946b3f01166fc53e778f480e4222de102dc7"` |  |
+| image.repository | string | `"tccr.io/truecharts/readarr"` |  |
+| image.tag | string | `"v0.1.0.1081@sha256:0750f1d772a4e9915f0241bff4e7aee030d53186ec83a0bad4630b3bf6926880"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.custom | bool | `true` |  |

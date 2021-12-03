@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.6"></a>
+### [gitea-5.0.6](https://github.com/truecharts/apps/compare/gitea-5.0.5...gitea-5.0.6) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="gitea-5.0.5"></a>
 ### [gitea-5.0.5](https://github.com/truecharts/apps/compare/gitea-5.0.4...gitea-5.0.5) (2021-11-30)
 

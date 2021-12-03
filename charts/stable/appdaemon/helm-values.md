@@ -17,8 +17,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.LONGITUDE | int | `-94` |  |
 | env.TZ | string | `"America/Chicago"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"docker.io/acockburn/appdaemon"` |  |
-| image.tag | string | `"v4.1.0@sha256:209ee1c83b4c0794dd6f50333f60a212d0df7c4205e7e374ac78d988ffc3d8fd"` |  |
+| image.repository | string | `"tccr.io/truecharts/appdaemon"` |  |
+| image.tag | string | `"v4.1.0@sha256:f490c318750595459824cb9355b95c8cdab768271288477454b212a8a93499a6"` |  |
 | persistence.conf.enabled | bool | `true` |  |
 | persistence.conf.mountPath | string | `"/conf"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

@@ -15,8 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DB_TYPE | string | `"sqlite"` | Set the application database type |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/truecharts/mealie"` | image repository |
-| image.tag | string | `"v0.5.3@sha256:2026a85abda3e3b6bb4bc8ed73ce9d47b6d2957189c4db887d406ed91956a890"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/mealie"` | image repository |
+| image.tag | string | `"v0.5.4@sha256:52a05feaf3cac813c0540e8c59b0f99900662558254c657e9d0335f0d9c8b4a9"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |

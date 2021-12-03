@@ -22,8 +22,8 @@ You will, however, be able to use all values referenced in the common chart here
 | config.snippets.extraRelabelConfigs | list | `[]` | You can put here any additional relabel_configs to "kubernetes-pods" job |
 | config.snippets.extraScrapeConfigs | string | empty | You can put here any additional scrape configs you want to add to the config file. |
 | envValueFrom.HOSTNAME.fieldRef.fieldPath | string | `"spec.nodeName"` |  |
-| image.repository | string | `"grafana/promtail"` |  |
-| image.tag | string | `"2.4.1@sha256:3b669d95e66f97e1ec3013d248d70a9da9768c1403e36d3bb69f12066cf2821b"` |  |
+| image.repository | string | `"tccr.io/truecharts/promtail"` |  |
+| image.tag | string | `"v2.4.1@sha256:83bceed26a638b211d65b6e80d4a33d01dc82b81e630d57e883b490ac0c57ef4"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/promtail"` |  |
 | persistence.config.objectName | string | `"promtail-config"` |  |

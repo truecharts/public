@@ -62,8 +62,8 @@ You will, however, be able to use all values referenced in the common chart here
 | identity_providers.oidc.minimum_parameter_entropy | int | `8` |  |
 | identity_providers.oidc.refresh_token_lifespan | string | `"90m"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/authelia/authelia"` |  |
-| image.tag | string | `"4.32.2@sha256:4c46e56d219424542349fee05b643d854ab74df7a10207dc247dd36366ecfc25"` |  |
+| image.repository | string | `"tccr.io/truecharts/authelia"` |  |
+| image.tag | string | `"v4.33.0@sha256:8e5d19769c2c01fa8f3b5e96ccee2262b7a8aab1560ce3c40f80ee207be18f9d"` |  |
 | log.format | string | `"text"` |  |
 | log.level | string | `"trace"` |  |
 | notifier.disable_startup_check | bool | `false` |  |

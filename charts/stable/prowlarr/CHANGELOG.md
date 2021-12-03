@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.24"></a>
+### [prowlarr-4.0.24](https://github.com/truecharts/apps/compare/prowlarr-4.0.23...prowlarr-4.0.24) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="prowlarr-4.0.23"></a>
 ### [prowlarr-4.0.23](https://github.com/truecharts/apps/compare/prowlarr-4.0.22...prowlarr-4.0.23) (2021-11-30)
 

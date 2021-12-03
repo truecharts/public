@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.3"></a>
+### [blog-0.0.3](https://github.com/truecharts/apps/compare/blog-0.0.2...blog-0.0.3) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="blog-0.0.2"></a>
 ### [blog-0.0.2](https://github.com/truecharts/apps/compare/blog-0.0.1...blog-0.0.2) (2021-11-30)
 

@@ -26,8 +26,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MARIADB_ROOT_PASSWORD.secretKeyRef.name | string | `"{{ ( tpl .Values.existingSecret $ ) | default ( include \"common.names.fullname\" . ) }}"` |  |
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"bitnami/mariadb"` |  |
-| image.tag | string | `"10.6.5@sha256:eaf86b454e10783feaffe7743f7564bf570d2da3652a8627e3220cfe38fdddb2"` |  |
+| image.repository | string | `"tccr.io/truecharts/mariadb"` |  |
+| image.tag | string | `"v10.6.5@sha256:ca5dcc0667f4ee5accc91f159f13a2bf764678d4dfeab3d1421fce1d2095f2a0"` |  |
 | mariadbDatabase | string | `"test"` |  |
 | mariadbPassword | string | `"testpass"` |  |
 | mariadbRootPassword | string | `"testroot"` |  |
@@ -49,6 +49,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.ports.main.port | int | `3306` |  |
 | service.main.ports.main.targetPort | int | `3306` |  |
 | volumeClaimTemplates.data.enabled | bool | `true` |  |
-| volumeClaimTemplates.data.mountPath | string | `"/bitnami/mariadb"` |  |
+| volumeClaimTemplates.data.mountPath | string | `"/tccr.io/truecharts/mariadb"` |  |
 
 All Rights Reserved - The TrueCharts Project

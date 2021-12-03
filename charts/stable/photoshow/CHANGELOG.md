@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="photoshow-1.0.18"></a>
+### [photoshow-1.0.18](https://github.com/truecharts/apps/compare/photoshow-1.0.17...photoshow-1.0.18) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="photoshow-1.0.17"></a>
 ### [photoshow-1.0.17](https://github.com/truecharts/apps/compare/photoshow-1.0.16...photoshow-1.0.17) (2021-11-30)
 

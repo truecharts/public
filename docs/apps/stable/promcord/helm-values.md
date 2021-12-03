@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [application docs](https://github.com/nimarion/promcord/blob/master/README.md) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"biospheere/promcord"` |  |
-| image.tag | string | `"latest@sha256:16d4fd269e665890d92e8ab2bf64f6cdd6f8bd45f27e829d414c4bad447c4974"` |  |
+| image.repository | string | `"tccr.io/truecharts/promcord"` |  |
+| image.tag | string | `"latest@sha256:ba9bee8d89b3ce86ca55d1bd29e13deb31f73a004991b17d8d80c73f2cc1c03c"` |  |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.rules | list | See prometheusrules.yaml | Configure additionial rules for the chart under this key. |

@@ -22,8 +22,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"url"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/crazy-max/firefox-syncserver"` |  |
-| image.tag | string | `"1.8.0@sha256:ab1a959d8105c478f0f1523c8c3bbdc53bb8d44f325501b93297bc80cf627da6"` |  |
+| image.repository | string | `"tccr.io/truecharts/firefox-syncserver"` |  |
+| image.tag | string | `"v1.8.0@sha256:d0fbf65c8c7a99ad4ba7ffcfdad2e7b2555e0d829867c21cefc9314ace94f747"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

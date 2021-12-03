@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/unpackerr"` |  |
-| image.tag | string | `"v0.9.8@sha256:2bf65067fea86c36438b741bfea1cec69faeea02dd4811c0d58e12243a263b24"` |  |
+| image.repository | string | `"tccr.io/truecharts/unpackerr"` |  |
+| image.tag | string | `"v0.9.8@sha256:a76546d014ad85dac797bbb3d7753d1c0b5778ea907a7f2b21dad908a1c7712c"` |  |
 | persistence.downloads.enabled | bool | `true` |  |
 | persistence.downloads.mountPath | string | `"/downloads"` |  |
 | portal.enabled | bool | `false` |  |

@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/heimdall"` |  |
-| image.tag | string | `"version-2.2.2@sha256:fd47acb8da04b42918a0a966508040b150a89fe0876c610b85b44115302717c4"` |  |
+| image.repository | string | `"tccr.io/truecharts/heimdall"` |  |
+| image.tag | string | `"version-2.2.2@sha256:eedb3180caf7388b206238120405d53baf9783692b14766ffed7bb388fadd6ce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

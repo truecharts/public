@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/freshrss"` |  |
-| image.tag | string | `"version-1.18.1@sha256:12d5889d3a92cd6e493c44b9b5aa4f05aafbf7236ad5cd0a8b8e357fe6836f88"` |  |
+| image.repository | string | `"tccr.io/truecharts/freshrss"` |  |
+| image.tag | string | `"version-1.18.1@sha256:3fc8ef788681ba2c5026453131603fa4dda3b23f855ce2a6c467004eb38a09ec"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

@@ -21,8 +21,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nicholaswilde/etherpad"` |  |
-| image.tag | string | `"version-1.8.14@sha256:26bbd45110d5b4d70246fafe40d4c4a7047b7b4fde409763a125324fa93b2d73"` |  |
+| image.repository | string | `"tccr.io/truecharts/etherpad"` |  |
+| image.tag | string | `"version-1.8.14@sha256:4900f0e787ca22cf93090ae44ecceb5689d4427c739e1eb637a6e3a913161bf8"` |  |
 | persistence.app.enabled | bool | `true` |  |
 | persistence.app.mountPath | string | `"/opt/etherpad-lite/app"` |  |
 | persistence.data.enabled | bool | `true` |  |

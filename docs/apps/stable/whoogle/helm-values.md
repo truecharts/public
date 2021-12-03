@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See [image docs](https://github.com/benbusby/whoogle-search#environment-variables) for more details. |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"benbusby/whoogle-search"` | image repository |
-| image.tag | string | `"0.6.0@sha256:969fa0500d01b3759387fb779b8282c39676841e5e719c5396535f9f5eaf8d80"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/whoogle-search"` | image repository |
+| image.tag | string | `"v0.6.0@sha256:3eeb08a974169f6f1abd884d0923a86d594f9d41c881c7558cb1cbe8dfeb454f"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

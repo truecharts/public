@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See more environment variables in the [openkm documentation](https://openkm.org/docs). |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"openkm/openkm-ce"` | image repository |
-| image.tag | string | `"6.3.11@sha256:15bf6110539b02795a52f4472d95511736cfbdedef8396baf24c65a3aae28814"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/openkm-ce"` | image repository |
+| image.tag | string | `"v6.3.11@sha256:941156f70c16350fb92d66f60007ac68abaee11265448eaacc40e821a46afc4d"` | image tag |
 | initContainers.init.command[0] | string | `"/config/init/init.sh"` |  |
 | initContainers.init.image | string | `"{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"` |  |
 | initContainers.init.volumeMounts[0].mountPath | string | `"/config/init"` |  |

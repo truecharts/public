@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://github.com/mitsumaui/leaf2mqtt) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
-| image.repository | string | `"ghcr.io/k8s-at-home/leaf2mqtt"` | Image repository |
-| image.tag | string | `"v0.5@sha256:38af096ee01683a958ff457dea40325bf841d87cb9e95ec2c41ae8fb20ab575a"` | Image tag |
+| image.repository | string | `"tccr.io/truecharts/leaf2mqtt"` | Image repository |
+| image.tag | string | `"v0.5@sha256:0073361400f5f077d4eece95d6e13a86b7744fc564bd1bed151e8afcc6bdf143"` | Image tag |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | probes.liveness.enabled | bool | `false` |  |

@@ -23,8 +23,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"America/Los_Angeles"` |  |
 | envFrom[0].configMapRef.name | string | `"gotifyenv"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"gotify/server"` |  |
-| image.tag | string | `"2.1.0@sha256:57aa2aabac035c16118f625dd6d3d2c3ca421b43b28cb27512f3212193d65771"` |  |
+| image.repository | string | `"tccr.io/truecharts/gotify-server"` |  |
+| image.tag | string | `"v2.1.0@sha256:a2edccce285e1303ce7d3be3f2cb001d40aaa24182581f772ce23c1e8d1b7d20"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/app/data"` |  |
 | postgresql.enabled | bool | `true` |  |

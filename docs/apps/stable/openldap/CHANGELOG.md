@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="openldap-4.0.19"></a>
+### [openldap-4.0.19](https://github.com/truecharts/apps/compare/openldap-4.0.18...openldap-4.0.19) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="openldap-4.0.18"></a>
 ### [openldap-4.0.18](https://github.com/truecharts/apps/compare/openldap-4.0.17...openldap-4.0.18) (2021-11-30)
 

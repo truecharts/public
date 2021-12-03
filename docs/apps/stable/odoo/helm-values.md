@@ -18,8 +18,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nicholaswilde/odoo"` |  |
-| image.tag | string | `"version-14.0@sha256:7cff9672ce078f7e2cf132625f0bc0fa68e932955d23e2e8c2ce7c235d5c5f8d"` |  |
+| image.repository | string | `"tccr.io/truecharts/odoo"` |  |
+| image.tag | string | `"version-14.0@sha256:dec23986ced979e029a78512272e2be18bab60d811bccb3d7ddc4b3241b210e2"` |  |
 | persistence.addons.enabled | bool | `true` |  |
 | persistence.addons.mountPath | string | `"/mnt/extra-addons"` |  |
 | persistence.odoo.enabled | bool | `true` |  |

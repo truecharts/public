@@ -21,8 +21,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"fireflyiii/core"` |  |
-| image.tag | string | `"version-5.5.12@sha256:9a1f87a8ad38694675390756be9686fe9d8ba941fe1f145641626135c7eb5e4b"` |  |
+| image.repository | string | `"tccr.io/truecharts/fireflyiii-core"` |  |
+| image.tag | string | `"version-5.5.12@sha256:f6dddfae65571d7995d5b24bf28fdf453775b825c35cac0c48b8ce52449090cf"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html/storage/upload"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

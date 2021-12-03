@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/remmina"` |  |
-| image.tag | string | `"version-1.2.0-rcgit.29dfsg-1ubuntu1@sha256:3f81a01736b784ccef22665c2824541c4d4462d0a50e9e1e9bfa4d3ab48f015f"` |  |
+| image.repository | string | `"tccr.io/truecharts/remmina"` |  |
+| image.tag | string | `"version-1.2.0-rcgit.29dfsg-1ubuntu1@sha256:c7795b9222063e436c77a94436da5e1bcdc1b13891f936673369588830a5ae8d"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

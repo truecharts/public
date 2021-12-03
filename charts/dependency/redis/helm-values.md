@@ -27,8 +27,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env[1].value | string | `"yes"` |  |
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"bitnami/redis"` |  |
-| image.tag | string | `"6.2.6@sha256:5c14298baea515f4317aa2ab85eaadf119cc49c17e0ad2e1e87aeab87a4431d2"` |  |
+| image.repository | string | `"tccr.io/truecharts/redis"` |  |
+| image.tag | string | `"v6.2.6@sha256:741dc63de7fed6f7f4fff41ac4b23a40f6850e9fb361e35e2959c71d8f10aeae"` |  |
 | persistence.redis-health | object | See below | redis-health configmap mount |
 | persistence.redis-health.mountPath | string | `"/health"` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.redis-health.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
@@ -51,6 +51,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.ports.main.port | int | `6379` |  |
 | service.main.ports.main.targetPort | int | `6379` |  |
 | volumeClaimTemplates.data.enabled | bool | `true` |  |
-| volumeClaimTemplates.data.mountPath | string | `"/bitnami/redis"` |  |
+| volumeClaimTemplates.data.mountPath | string | `"/tccr.io/truecharts/redis"` |  |
 
 All Rights Reserved - The TrueCharts Project

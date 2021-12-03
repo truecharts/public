@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/davos"` |  |
-| image.tag | string | `"2.2.1-ls76@sha256:24ba55aeaa4f86a76dc2664e1bb090f315279ec84e1e603e24713cfe0538d890"` |  |
+| image.repository | string | `"tccr.io/truecharts/davos"` |  |
+| image.tag | string | `"v2.2.1-ls76@sha256:f9359583fb20278b436e7b018ee244f2cce1480d6834775f19e9da3503dd0e9b"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

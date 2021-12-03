@@ -17,8 +17,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MYSQL_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |
 | envValueFrom.MYSQL_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"pe46dro/xbackbone-docker"` |  |
-| image.tag | string | `"3.3.3@sha256:09dfe3aa10f61ce1da5e60a282be62f139f267f44a073862feda67cd960fa71e"` |  |
+| image.repository | string | `"tccr.io/truecharts/xbackbone"` |  |
+| image.tag | string | `"v3.3.3@sha256:c22e8806732b5a63a9761d413f4dd3a39af9427a12818e8ff769094ebc141c99"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"xbackbone"` |  |

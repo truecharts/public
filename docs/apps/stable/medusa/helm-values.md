@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/medusa"` |  |
-| image.tag | string | `"0.5.20@sha256:24f43e0e6a46872b49f4713f0a8bf98f6b64bfa2a7ced1cb33d54adea26ed4e5"` |  |
+| image.repository | string | `"tccr.io/truecharts/medusa"` |  |
+| image.tag | string | `"v0.5.20@sha256:5de16df497fc0800e47cbd5761c04966403d38445ba54f076f336e70437d3cd9"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

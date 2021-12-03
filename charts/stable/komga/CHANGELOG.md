@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.19"></a>
+### [komga-4.0.19](https://github.com/truecharts/apps/compare/komga-4.0.18...komga-4.0.19) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="komga-4.0.18"></a>
 ### [komga-4.0.18](https://github.com/truecharts/apps/compare/komga-4.0.17...komga-4.0.18) (2021-11-30)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.27"></a>
+### [jackett-9.0.27](https://github.com/truecharts/apps/compare/jackett-9.0.26...jackett-9.0.27) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="jackett-9.0.26"></a>
 ### [jackett-9.0.26](https://github.com/truecharts/apps/compare/jackett-9.0.25...jackett-9.0.26) (2021-11-30)
 

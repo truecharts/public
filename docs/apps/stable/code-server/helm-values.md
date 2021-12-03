@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/code-server"` |  |
-| image.tag | string | `"version-v3.11.1@sha256:a385ba5cb16136b14ae4cd99ca95c20ac77f9831ac3fb63937a1998e1d31be2a"` |  |
+| image.repository | string | `"tccr.io/truecharts/code-server"` |  |
+| image.tag | string | `"v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

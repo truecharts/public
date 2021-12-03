@@ -18,8 +18,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.SERIAL_DEVICE | string | `"{{ .Values.persistence.usb.mountPath }}"` | Path to the serial device |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"Always"` | image pull policy |
-| image.repository | string | `"tenstartups/ser2sock"` | image repository |
-| image.tag | string | `"latest@sha256:379d9338c720da30b63dc4cf2ecea07eb89dac7d62d5c79047294fffe97ae559"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/ser2sock"` | image repository |
+| image.tag | string | `"latest@sha256:04d80516d8e352b1c8f82c28e130f1bc9af2862925c910fb9014a9b46c3473ae"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

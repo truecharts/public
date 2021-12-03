@@ -16,8 +16,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone. |
 | envValueFrom.DATABASE_URL | object | `{"secretKeyRef":{"key":"urlnossl","name":"dbcreds"}}` | Postgresql connection parameters. See [lib/pq](https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"miniflux/miniflux"` |  |
-| image.tag | string | `"2.0.33@sha256:77726b617e71a046ea4d02890f7f4a5d43a3c774c7de073ad06bec521ae75f12"` |  |
+| image.repository | string | `"tccr.io/truecharts/miniflux"` |  |
+| image.tag | string | `"v2.0.33@sha256:1fcc67ba8a5e9f06c6b67bc654b3276d51c304cb3a2ac4985114b6785c149cb2"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | postgresql | object | Enabled (see values.yaml for more details) | Enable and configure postgresql database subchart under this key. |

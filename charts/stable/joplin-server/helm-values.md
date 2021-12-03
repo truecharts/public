@@ -24,8 +24,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"joplin/server"` | image repository |
-| image.tag | string | `"2.5.1@sha256:5bd976f19f883352bacad74767237471941cb35b2ded96a1afeeb7168b1e08d8"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/joplin-server"` | image repository |
+| image.tag | string | `"v2.5.1@sha256:a285ff0cf05f534efd28c6652925b57a9774ba41923d15536b873fbbdbabcd2b"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

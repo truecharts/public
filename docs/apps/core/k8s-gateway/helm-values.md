@@ -23,8 +23,8 @@ You will, however, be able to use all values referenced in the common chart here
 | forward.primary | string | `"tls://1.1.1.1"` |  |
 | forward.secondary | string | `"tls://1.0.0.1"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"quay.io/oriedge/k8s_gateway"` |  |
-| image.tag | string | `"v0.1.8@sha256:4937e28bb5dc4bd9c700a72d28e50d43929b4a9e8f64b4a306346426e6ed01e2"` |  |
+| image.repository | string | `"tccr.io/truecharts/k8s_gateway"` |  |
+| image.tag | string | `"v0.1.8@sha256:c71ea11938d6c93b0af6f25230810ec13c7d28b29dfb8512adc6d1def7f200b6"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | probes.liveness.custom | bool | `true` |  |

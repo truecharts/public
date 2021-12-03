@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.6"></a>
+### [authelia-8.0.6](https://github.com/truecharts/apps/compare/authelia-8.0.5...authelia-8.0.6) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="authelia-8.0.5"></a>
 ### [authelia-8.0.5](https://github.com/truecharts/apps/compare/authelia-8.0.4...authelia-8.0.5) (2021-11-30)
 

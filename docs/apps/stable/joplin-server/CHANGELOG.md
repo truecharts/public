@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="joplin-server-5.0.5"></a>
+### [joplin-server-5.0.5](https://github.com/truecharts/apps/compare/joplin-server-5.0.4...joplin-server-5.0.5) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="joplin-server-5.0.4"></a>
 ### [joplin-server-5.0.4](https://github.com/truecharts/apps/compare/joplin-server-5.0.3...joplin-server-5.0.4) (2021-11-30)
 

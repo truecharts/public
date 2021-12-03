@@ -87,8 +87,8 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.tolerations | list | `[]` |  |
 | alertmanager.volumeMounts | list | `[]` |  |
 | alertmanager.volumes | list | `[]` |  |
-| alertmanagerImage.repository | string | `"bitnami/alertmanager"` |  |
-| alertmanagerImage.tag | string | `"0.23.0@sha256:c8c788e308f96e5bea23d94572d965bb48a629bebde760771f7faa2ad0b2e892"` |  |
+| alertmanagerImage.repository | string | `"tccr.io/truecharts/alertmanager"` |  |
+| alertmanagerImage.tag | string | `"v0.23.0@sha256:620ef6b41973008d4eeff7045611c2df263250db39d97117ffe384a59f08e830"` |  |
 | coreDns.enabled | bool | `true` |  |
 | coreDns.namespace | string | `"kube-system"` |  |
 | coreDns.service.enabled | bool | `true` |  |
@@ -103,8 +103,8 @@ You will, however, be able to use all values referenced in the common chart here
 | exporters.kube-state-metrics.enabled | bool | `true` |  |
 | exporters.node-exporter.enabled | bool | `true` |  |
 | global.labels | object | `{}` |  |
-| image.repository | string | `"bitnami/prometheus-operator"` |  |
-| image.tag | string | `"0.52.1@sha256:5fd9616ef9dabfe1c85dce3d1818bd3daeac7c32980d7786b8cb78b98f00f43b"` |  |
+| image.repository | string | `"tccr.io/truecharts/prometheus-operator"` |  |
+| image.tag | string | `"v0.52.1@sha256:4b88f439ad22896e917ab39fb1ea7f0ec115e902e026c0ac27a8bc5a507e0493"` |  |
 | ingress.alertmanager.enabled | bool | `false` |  |
 | ingress.main.enabled | bool | `false` |  |
 | ingress.thanos.enabled | bool | `false` |  |
@@ -316,8 +316,8 @@ You will, however, be able to use all values referenced in the common chart here
 | prometheus.volumeMounts | list | `[]` |  |
 | prometheus.volumes | list | `[]` |  |
 | prometheus.walCompression | bool | `false` |  |
-| prometheusImage.repository | string | `"bitnami/prometheus"` |  |
-| prometheusImage.tag | string | `"2.31.1@sha256:908df0c6426cd6e171d1b3b35feaf84c86879787085057f837496fc12b31d292"` |  |
+| prometheusImage.repository | string | `"tccr.io/truecharts/prometheus"` |  |
+| prometheusImage.tag | string | `"v2.31.1@sha256:1504f2668111fb1c598d243cda073220f6c3f894102b1656d74fa7b2d7abe58d"` |  |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":["apiextensions.k8s.io"],"resources":["customresourcedefinitions"],"verbs":["create"]},{"apiGroups":["apiextensions.k8s.io"],"resourceNames":["alertmanagers.monitoring.coreos.com","podmonitors.monitoring.coreos.com","prometheuses.monitoring.coreos.com","prometheusrules.monitoring.coreos.com","servicemonitors.monitoring.coreos.com","thanosrulers.monitoring.coreos.com","probes.monitoring.coreos.com"],"resources":["customresourcedefinitions"],"verbs":["get","update"]},{"apiGroups":["monitoring.coreos.com"],"resources":["alertmanagers","alertmanagers/finalizers","alertmanagerconfigs","prometheuses","prometheuses/finalizers","thanosrulers","thanosrulers/finalizers","servicemonitors","podmonitors","probes","prometheusrules"],"verbs":["*"]},{"apiGroups":["apps"],"resources":["statefulsets"],"verbs":["*"]},{"apiGroups":[""],"resources":["configmaps","secrets"],"verbs":["*"]},{"apiGroups":[""],"resources":["pods"],"verbs":["list","delete"]},{"apiGroups":[""],"resources":["services","services/finalizers","endpoints"],"verbs":["get","create","update","delete"]},{"apiGroups":[""],"resources":["nodes"],"verbs":["list","watch"]},{"apiGroups":[""],"resources":["namespaces"],"verbs":["get","list","watch"]},{"apiGroups":["networking.k8s.io"],"resources":["ingresses"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.alertmanager.enabled | bool | `true` |  |
@@ -345,7 +345,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.thanos.selector."app.kubernetes.io/name" | string | `"prometheus"` |  |
 | service.thanos.selector.prometheus | string | `"{{ template \"kube-prometheus.prometheus.fullname\" . }}"` |  |
 | serviceAccount | object | `{"create":true}` | The service account the pods will use to interact with the Kubernetes API |
-| thanosImage.repository | string | `"bitnami/thanos"` |  |
-| thanosImage.tag | string | `"0.23.1@sha256:944daebae0849d2c1e163e52227df0579d2c2fe6ba3f726a1c0a929e48797681"` |  |
+| thanosImage.repository | string | `"tccr.io/truecharts/thanos"` |  |
+| thanosImage.tag | string | `"v0.23.1@sha256:331ca31e6fdff7597b0b3dd00d885261d7aa98381a22ecd07970ceecec0cb1aa"` |  |
 
 All Rights Reserved - The TrueCharts Project

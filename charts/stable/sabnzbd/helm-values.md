@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/sabnzbd"` |  |
-| image.tag | string | `"v3.4.2@sha256:26dc34fc8fbad6a678993ee03742ede43d5b1ec079ac15990063c2861375e597"` |  |
+| image.repository | string | `"tccr.io/truecharts/sabnzbd"` |  |
+| image.tag | string | `"v3.4.2@sha256:23f1fd8ff6709a1f11b08134f5463887efcfaa5aa1beadf32984d56b9b93c35d"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | service.main.ports.main.port | int | `10097` |  |

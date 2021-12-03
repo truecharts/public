@@ -16,8 +16,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | env.UMASK | string | `nil` | Sets default UMASK |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/linuxserver/resilio-sync"` | image repository |
-| image.tag | string | `"version-2.7.2.1375@sha256:605b6d54402830fddfbadcdc8e12ab57015743a889e2f0a02641c8601afa42ba"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/resilio-sync"` | image repository |
+| image.tag | string | `"version-2.7.2.1375@sha256:54f42485d39a7773ff2e13c27ebfc32fc448eaf13f8972f38e14eedadb0b3a2e"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

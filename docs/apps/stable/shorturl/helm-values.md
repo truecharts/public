@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nicholaswilde/shorturl"` |  |
-| image.tag | string | `"version-v0.1.0@sha256:75fc450af5d2d07e5caebc6a01863a0aacdc15c1fbe57b3db46e3bd548226420"` |  |
+| image.repository | string | `"tccr.io/truecharts/shorturl"` |  |
+| image.tag | string | `"version-v0.1.0@sha256:3893eab50b4d790958b31cbb7fd5d545369e7f91ee2d77551352a6510c86ba03"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

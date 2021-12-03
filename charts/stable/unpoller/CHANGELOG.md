@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="unpoller-1.0.5"></a>
+### [unpoller-1.0.5](https://github.com/truecharts/apps/compare/unpoller-1.0.4...unpoller-1.0.5) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="unpoller-1.0.4"></a>
 ### [unpoller-1.0.4](https://github.com/truecharts/apps/compare/unpoller-1.0.3...unpoller-1.0.4) (2021-11-30)
 

@@ -17,8 +17,8 @@ You will, however, be able to use all values referenced in the common chart here
 | additionalVolumes[0].name | string | `"qbittorrent-scripts"` |  |
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/qbittorrent"` |  |
-| image.tag | string | `"v4.3.9@sha256:eb6df32211ae3c7b7797dd4bc5e66161d9dfcb77e49475058743d502f4ceb0cc"` |  |
+| image.repository | string | `"tccr.io/truecharts/qbittorrent"` |  |
+| image.tag | string | `"v4.3.9@sha256:6508ca6bd05d003d92852d5bd8deaae3176d776a5789ad68199ba1807d43cf8c"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

@@ -22,8 +22,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DATABASE_URL.secretKeyRef.key | string | `"jdbc"` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"sismics/docs"` | image repository |
-| image.tag | string | `"v1.9@sha256:bd52127b6509da4b07d7bbc48c7cc82dcbdc59ceab28d9239c591d0d0732f7af"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/docs"` | image repository |
+| image.tag | string | `"v1.9@sha256:23e9053e5eb837b31ae08bc770865827c7a2dc49dfc46fa2eba55f18fe8b21da"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | postgresql | object | See values.yaml | Enable and configure postgresql database subchart under this key. |
 | secret | object | See below | environment variables. See [application docs](https://github.com/sismics/docs) for more details. |

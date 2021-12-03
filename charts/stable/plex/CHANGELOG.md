@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.15"></a>
+### [plex-8.0.15](https://github.com/truecharts/apps/compare/plex-8.0.14...plex-8.0.15) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="plex-8.0.14"></a>
 ### [plex-8.0.14](https://github.com/truecharts/apps/compare/plex-8.0.13...plex-8.0.14) (2021-11-30)
 

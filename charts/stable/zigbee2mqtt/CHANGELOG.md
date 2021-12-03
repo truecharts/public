@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-1.0.15"></a>
+### [zigbee2mqtt-1.0.15](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.14...zigbee2mqtt-1.0.15) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="zigbee2mqtt-1.0.14"></a>
 ### [zigbee2mqtt-1.0.14](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.13...zigbee2mqtt-1.0.14) (2021-11-30)
 

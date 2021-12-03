@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.17"></a>
+### [qbittorrent-9.0.17](https://github.com/truecharts/apps/compare/qbittorrent-9.0.16...qbittorrent-9.0.17) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="qbittorrent-9.0.16"></a>
 ### [qbittorrent-9.0.16](https://github.com/truecharts/apps/compare/qbittorrent-9.0.15...qbittorrent-9.0.16) (2021-11-30)
 

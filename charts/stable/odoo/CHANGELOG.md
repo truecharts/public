@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="odoo-4.0.5"></a>
+### [odoo-4.0.5](https://github.com/truecharts/apps/compare/odoo-4.0.4...odoo-4.0.5) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="odoo-4.0.4"></a>
 ### [odoo-4.0.4](https://github.com/truecharts/apps/compare/odoo-4.0.3...odoo-4.0.4) (2021-11-30)
 

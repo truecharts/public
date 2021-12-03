@@ -15,8 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See more environment variables in the [nullserv documentation](https://github.com/bmrzycki/nullserv/blob/master/README.md). |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/k8s-at-home/nullserv"` | image repository |
-| image.tag | string | `"v1.3.0@sha256:0792c7e6d814bf292455da3f40aa5d56c465f2b5024e786ac3bf3dc3b16cc757"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/nullserv"` | image repository |
+| image.tag | string | `"v1.3.0@sha256:67aa9d50ba0c9547b4b0f7fc68c023a34b5e2b027f7bc9233120d5fbd6bcf3cd"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

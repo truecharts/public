@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See [image docs](https://github.com/mbentley/docker-omada-controller) for more details. |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"docker.io/mbentley/omada-controller"` | image repository |
-| image.tag | string | `"4.4@sha256:acaf5721f902b62722f35b78d165331acc099f307180f51241ce1a850b140eca"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/omada-controller"` | image repository |
+| image.tag | string | `"v4.4@sha256:7c06f9deb40f1fea1968eedf6da8b49192b89d0c4bcaa11f040d95c127141fb3"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

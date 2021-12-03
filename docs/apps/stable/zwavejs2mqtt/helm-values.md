@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/zwavejs2mqtt"` |  |
-| image.tag | string | `"v6.0.2@sha256:d180409c3c07602017766184ae9f3dfa1339c82baaa1442bc3bb179d966f8bf5"` |  |
+| image.repository | string | `"tccr.io/truecharts/zwavejs2mqtt"` |  |
+| image.tag | string | `"v6.0.3@sha256:8fdac2ebee3443d0c1e62a3d52e14959e4717b1c33e4a7ed76f0c45b74d09fcd"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/usr/src/app/store"` |  |
 | probes.liveness.enabled | bool | `true` |  |

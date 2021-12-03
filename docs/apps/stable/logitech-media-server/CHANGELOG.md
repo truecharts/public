@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.22"></a>
+### [logitech-media-server-2.0.22](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.21...logitech-media-server-2.0.22) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="logitech-media-server-2.0.21"></a>
 ### [logitech-media-server-2.0.21](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.20...logitech-media-server-2.0.21) (2021-11-30)
 

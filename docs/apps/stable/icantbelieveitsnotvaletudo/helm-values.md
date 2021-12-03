@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | config | object | See values.yaml | Configures app settings. See [image docs](https://github.com/Hypfer/ICantBelieveItsNotValetudo) for more information. |
 | controller.strategy | string | `"RollingUpdate"` | Set the controller upgrade strategy |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"pmaksymiuk/icantbelieveitsnotvaletudo"` | image repository |
-| image.tag | string | `"2021.2.1@sha256:cfb6ca812b7bec09ef61d60c8ab71945b6594525673f2edd9ddcd88004d8b150"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/icantbelieveitsnotvaletudo"` | image repository |
+| image.tag | string | `"v2021.2.1@sha256:12546c37abe795970d27fda99f78fd45cd25522b11b4c6db6ce98d7484c68883"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | service.main.ports.main.port | int | `10039` |  |

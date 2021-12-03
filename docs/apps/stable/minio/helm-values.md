@@ -16,8 +16,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MINIO_ROOT_USER | string | `"minio"` | Minio Username |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"minio/minio"` | image repository |
-| image.tag | string | `"RELEASE.2021-11-05T09-16-26Z@sha256:a11692068c588e7ea895f76d619a5fcb30eefc8a759e2ad7d6ec92331e43386e"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/minio"` | image repository |
+| image.tag | string | `"latest@sha256:8129f69c85b84e13f085a1ce127f108cee0ea84a1f496e8065796c7a15a08442"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/data"` |  |
 | probes.liveness.path | string | `"/minio/health/live"` |  |

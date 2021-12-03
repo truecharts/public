@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="teedy-4.0.5"></a>
+### [teedy-4.0.5](https://github.com/truecharts/apps/compare/teedy-4.0.4...teedy-4.0.5) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="teedy-4.0.4"></a>
 ### [teedy-4.0.4](https://github.com/truecharts/apps/compare/teedy-4.0.3...teedy-4.0.4) (2021-11-30)
 

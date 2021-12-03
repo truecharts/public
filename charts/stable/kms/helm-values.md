@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"pykmsorg/py-kms"` |  |
-| image.tag | string | `"minimal@sha256:769cc69064bf60c67855a25a4c9e2959fd1e5e640396c35c15599d342d61061e"` |  |
+| image.repository | string | `"tccr.io/truecharts/kms"` |  |
+| image.tag | string | `"vminimal@sha256:808c060d4ad8cc05bf3bee5d959683f884845d3d625829bcb9e79d18a2c701fd"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

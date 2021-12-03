@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TRANSMISSION_PEER_PORT | string | `"{{ .Values.service.torrent.ports.torrent.targetPort }}"` |  |
 | env.TRANSMISSION_RPC_PORT | string | `"{{ .Values.service.main.ports.main.targetPort }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/transmission"` |  |
-| image.tag | string | `"v3.00@sha256:355f4036c53c782df1957de0e16c63f4298f5b596ae5e621fea8f9ef02dd09e6"` |  |
+| image.repository | string | `"tccr.io/truecharts/transmission"` |  |
+| image.tag | string | `"v3.00@sha256:9a4f48483b93f74394b69555c9324c746414836de247fbeafec5f53c0b077b9f"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | service.main.ports.main.port | int | `10109` |  |

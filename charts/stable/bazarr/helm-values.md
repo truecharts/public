@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/bazarr"` |  |
-| image.tag | string | `"v1.0.1@sha256:8b785e187aa9e74bb7ef6cecad8dc3fbd5c905a638d496a90aaeb0a1dcd80cc1"` |  |
+| image.repository | string | `"tccr.io/truecharts/bazarr"` |  |
+| image.tag | string | `"v1.0.1@sha256:b6d3d33d3f964e4de7563096f07476f9f2c990f2268e1f9814d3281c3181111e"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | service.main.ports.main.port | int | `6767` |  |

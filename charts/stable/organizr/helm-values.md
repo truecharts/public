@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"organizr/organizr"` |  |
-| image.tag | string | `"latest@sha256:d8b03b33ea1c65023ef7085bf06d13b0045a099e82fc833c9ac35c071b3e88a8"` |  |
+| image.repository | string | `"tccr.io/truecharts/organizr"` |  |
+| image.tag | string | `"latest@sha256:ca1794e822f705b63c5753d56c7eecfd23e1ae77ddffb5a66b13c2ec7f587ad3"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

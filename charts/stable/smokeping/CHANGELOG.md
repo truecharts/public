@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="smokeping-1.0.16"></a>
+### [smokeping-1.0.16](https://github.com/truecharts/apps/compare/smokeping-1.0.15...smokeping-1.0.16) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="smokeping-1.0.15"></a>
 ### [smokeping-1.0.15](https://github.com/truecharts/apps/compare/smokeping-1.0.14...smokeping-1.0.15) (2021-11-30)
 

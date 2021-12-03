@@ -19,8 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MYSQL_ROOT_PASSWORD.secretKeyRef.key | string | `"mariadb-root-password"` |  |
 | envValueFrom.MYSQL_ROOT_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"jordan/icinga2"` |  |
-| image.tag | string | `"2.13.1@sha256:00a826bee739d06be6999b493254d9e474875de8c842219a18cee99c01e84760"` |  |
+| image.repository | string | `"tccr.io/truecharts/icinga2"` |  |
+| image.tag | string | `"v2.13.1@sha256:64116a1e267397888bcd6dd62b428322c81bf925f955867ada5207657a9d79db"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"icinga2"` |  |

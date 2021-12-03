@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/k8s-at-home/emby"` |  |
-| image.tag | string | `"v4.6.7.0@sha256:75b4955b21bfe1ece06d56a984624fb0b36b6649d5ded9349985a4e1211093c7"` |  |
+| image.repository | string | `"tccr.io/truecharts/emby"` |  |
+| image.tag | string | `"v4.6.7.0@sha256:f2c60cee28b40d6eeeff72cda847eced2d069b410e63a5b0bdbab7783f34ec1b"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

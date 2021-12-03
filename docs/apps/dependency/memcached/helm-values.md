@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"bitnami/memcached"` |  |
-| image.tag | string | `"1.6.12@sha256:f51ee966f6589fa947a47c2d811f7691c7d944a4a83dcc41beca84f806981667"` |  |
+| image.repository | string | `"tccr.io/truecharts/memcached"` |  |
+| image.tag | string | `"v1.6.12@sha256:90da9d23e5c448d44ee3c1aa2af4c868ab5a3f8042a4000851fe55355db7c569"` |  |
 | service.main.ports.main.port | int | `11211` |  |
 | service.main.ports.main.targetPort | int | `11211` |  |
 

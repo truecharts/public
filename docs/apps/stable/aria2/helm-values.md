@@ -17,8 +17,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | env.UMASK_SET | int | `18` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"p3terx/aria2-pro"` | image repository |
-| image.tag | string | `"latest@sha256:2589527dfef6351d459f3a6781e4efef41d694878765b107413a6eb4bb6bbca7"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/aria2-pro"` | image repository |
+| image.tag | string | `"latest@sha256:6c0ddcc7be4da69ac146ff3153df727a5818f733636a1c4d9b78ccffd6106a23"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

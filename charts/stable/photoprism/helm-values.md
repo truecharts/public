@@ -31,8 +31,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.key | string | `"plainporthost"` |  |
 | envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"docker.io/photoprism/photoprism"` | image repository |
-| image.tag | string | `"20211130@sha256:cd3e38e0710279372c17d19fbe6e05010689f7b385a13c9fca325196dff2afb1"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/photoprism"` | image repository |
+| image.tag | string | `"v20211130@sha256:97fa3752e28cd26282f06b87f299c63f5b8413b84de09acd8b71375a2b77540f"` | image tag |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"photoprism"` |  |

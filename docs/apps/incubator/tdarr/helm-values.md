@@ -16,8 +16,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.serverPort | int | `8266` |  |
 | env.webUIPort | int | `8265` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"haveagitgat/tdarr"` |  |
-| image.tag | string | `"2.00.11@sha256:c7bf83d8f9985932683558fcd2be38ebc6f1d414b44ecdd2d11a5e40384a8e63"` |  |
+| image.repository | string | `"tccr.io/truecharts/tdarr"` |  |
+| image.tag | string | `"v2.00.11@sha256:6fdd803b7a48519691ae1b18bf0700cf287fd8773557a0d6d0d16c782528ae18"` |  |
 | persistence.configs.enabled | bool | `true` |  |
 | persistence.configs.mountPath | string | `"/app/configs"` |  |
 | persistence.logs.enabled | bool | `true` |  |

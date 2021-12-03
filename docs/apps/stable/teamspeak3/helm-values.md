@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.TS3SERVER_LICENSE | string | `"accept"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"teamspeak"` |  |
-| image.tag | string | `"3.13.6@sha256:1fa7d5a2bce954d98724a71faf4af7853e93db5d0a61c447fe03988492a91bed"` |  |
+| image.repository | string | `"tccr.io/truecharts/teamspeak"` |  |
+| image.tag | string | `"v3.13.6@sha256:24acbeffda16a22105e06d60286e1c93d148c8467177feaf760bbe1ef3b9654c"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/ts3server/"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

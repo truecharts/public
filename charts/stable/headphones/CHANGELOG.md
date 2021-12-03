@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="headphones-2.0.14"></a>
+### [headphones-2.0.14](https://github.com/truecharts/apps/compare/headphones-2.0.13...headphones-2.0.14) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="headphones-2.0.13"></a>
 ### [headphones-2.0.13](https://github.com/truecharts/apps/compare/headphones-2.0.12...headphones-2.0.13) (2021-11-30)
 

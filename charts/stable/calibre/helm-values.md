@@ -19,8 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | env.UMASK_SET | string | `"022"` | for umask setting of Calibre, default if left unset is 022. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/linuxserver/calibre"` | image repository |
-| image.tag | string | `"v5.32.0-ls138@sha256:8441c4295684074782e7ab3db869a096669652970d2960ad82680f582a8daeab"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/calibre"` | image repository |
+| image.tag | string | `"v5.32.0-ls138@sha256:a7c6272300628eb747dc129001aef8bc53d9b462ebe6b4953de904a2a5e15c8e"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

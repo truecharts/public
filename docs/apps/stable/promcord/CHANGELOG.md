@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="promcord-1.0.2"></a>
+### [promcord-1.0.2](https://github.com/truecharts/apps/compare/promcord-1.0.1...promcord-1.0.2) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="promcord-1.0.1"></a>
 ### [promcord-1.0.1](https://github.com/truecharts/apps/compare/promcord-1.0.0...promcord-1.0.1) (2021-11-30)
 

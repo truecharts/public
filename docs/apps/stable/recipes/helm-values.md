@@ -33,10 +33,10 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"vabene1111/recipes"` | image repository |
-| image.tag | string | `"1.0.2@sha256:e57ab6fd7bc93291ae79e8274f401b765183206aabd6033d18c6742066a9dead"` | image tag |
-| nginxImage.repository | string | `"nginx"` | nginx sidecar image repository |
-| nginxImage.tag | string | `"1.21.4@sha256:097c3a0913d7e3a5b01b6c685a60c03632fc7a2b50bc8e35bcaa3691d788226e"` | nginx sidecar image tag |
+| image.repository | string | `"tccr.io/truecharts/recipes"` | image repository |
+| image.tag | string | `"v1.0.2@sha256:d61f230769c64948f1b2c56ec189666bb08821b02f383f4e0c299c35d2542cbc"` | image tag |
+| nginxImage.repository | string | `"tccr.io/truecharts/nginx"` | nginx sidecar image repository |
+| nginxImage.tag | string | `"v1.21.4@sha256:81b9486bd8b0f8c9d933013a4b4a6267463625e0dcc756c01ec766ba386f6c93"` | nginx sidecar image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

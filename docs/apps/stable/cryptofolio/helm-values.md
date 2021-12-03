@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See more environment variables in the [cryptofolio documentation](https://cryptofolio.org/docs). |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"xtrendence/cryptofolio"` | image repository |
-| image.tag | string | `"V.2.2.0@sha256:e6e6612bb94c877b5e31853c639761d09076180fe0a6c4fdb0fb91f73d9f480e"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/cryptofolio"` | image repository |
+| image.tag | string | `"v2.2.0@sha256:e77706dd4748dbdf2665cb53434802a3c2ef85f3d9b1ca809f2615b15758f3d0"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

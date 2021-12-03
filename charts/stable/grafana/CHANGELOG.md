@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="grafana-1.0.4"></a>
+### [grafana-1.0.4](https://github.com/truecharts/apps/compare/grafana-1.0.3...grafana-1.0.4) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="grafana-1.0.3"></a>
 ### [grafana-1.0.3](https://github.com/truecharts/apps/compare/grafana-1.0.2...grafana-1.0.3) (2021-11-30)
 

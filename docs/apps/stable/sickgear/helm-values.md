@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/sickgear"` |  |
-| image.tag | string | `"version-release_0.25.4@sha256:ad0e59d0590906f7c303926a316a357c8541986205c40cae5848a1ea5e552399"` |  |
+| image.repository | string | `"tccr.io/truecharts/sickgear"` |  |
+| image.tag | string | `"version-release_0.25.4@sha256:6a78e9f784cf298552402143bee239858956f4783c7619e9a2b960c0d0d15d73"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

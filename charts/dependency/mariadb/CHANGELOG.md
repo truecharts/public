@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.19"></a>
+### [mariadb-1.0.19](https://github.com/truecharts/apps/compare/mariadb-1.0.18...mariadb-1.0.19) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="mariadb-1.0.18"></a>
 ### [mariadb-1.0.18](https://github.com/truecharts/apps/compare/mariadb-1.0.17...mariadb-1.0.18) (2021-12-01)
 

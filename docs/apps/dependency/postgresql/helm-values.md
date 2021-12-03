@@ -27,8 +27,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"{{ ( tpl .Values.existingSecret $ ) | default ( include \"common.names.fullname\" . ) }}"` |  |
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"bitnami/postgresql"` |  |
-| image.tag | string | `"14.1.0@sha256:a8d81b4ce9ba6377b7250847e3b02cf84ae409785cf7df797a160b0f31b4246e"` |  |
+| image.repository | string | `"tccr.io/truecharts/postgresql"` |  |
+| image.tag | string | `"v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | postgrespassword | string | `"testroot"` |  |
 | postgresqlDatabase | string | `"test"` |  |
@@ -38,6 +38,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.ports.main.port | int | `5432` |  |
 | service.main.ports.main.targetPort | int | `5432` |  |
 | volumeClaimTemplates.db.enabled | bool | `true` |  |
-| volumeClaimTemplates.db.mountPath | string | `"/bitnami/postgresql"` |  |
+| volumeClaimTemplates.db.mountPath | string | `"/tccr.io/truecharts/postgresql"` |  |
 
 All Rights Reserved - The TrueCharts Project

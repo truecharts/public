@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.21"></a>
+### [omada-controller-4.0.21](https://github.com/truecharts/apps/compare/omada-controller-4.0.20...omada-controller-4.0.21) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="omada-controller-4.0.20"></a>
 ### [omada-controller-4.0.20](https://github.com/truecharts/apps/compare/omada-controller-4.0.19...omada-controller-4.0.20) (2021-11-30)
 

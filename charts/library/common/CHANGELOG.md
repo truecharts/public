@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="common-8.9.9"></a>
+### [common-8.9.9](https://github.com/truecharts/apps/compare/common-8.9.8...common-8.9.9) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="common-8.9.8"></a>
 ### [common-8.9.8](https://github.com/truecharts/apps/compare/common-8.9.7...common-8.9.8) (2021-12-01)
 

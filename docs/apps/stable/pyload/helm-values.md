@@ -15,8 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/linuxserver/pyload"` | image repository |
-| image.tag | string | `"version-5de90278@sha256:d3c87933a5fd8c67a7add40706e0042ad229c9a47cd1bc7ba3953b8ad049a6ce"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/pyload"` | image repository |
+| image.tag | string | `"version-5de90278@sha256:c33489498cb4541bbf936b1ebd1eaebfb0cae279f738aa0e6184969089e94081"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

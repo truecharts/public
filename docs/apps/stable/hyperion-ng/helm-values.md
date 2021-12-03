@@ -15,8 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"sirfragalot/hyperion.ng"` | image repository |
-| image.tag | string | `"2.0.12@sha256:7a3610716c6881d4a2cd028de7c553cdc7f28e0b18c1b455f35ef5b3e947ed2a"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/hyperion.ng"` | image repository |
+| image.tag | string | `"v2.0.12@sha256:630cc8613290119f0d452b600418f2a3f4e78b73923ca47502989c4fc9bb394a"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/root/.hyperion"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

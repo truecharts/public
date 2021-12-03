@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="bookstack-0.0.4"></a>
+### [bookstack-0.0.4](https://github.com/truecharts/apps/compare/bookstack-0.0.3...bookstack-0.0.4) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="bookstack-0.0.3"></a>
 ### [bookstack-0.0.3](https://github.com/truecharts/apps/compare/bookstack-0.0.2...bookstack-0.0.3) (2021-11-30)
 

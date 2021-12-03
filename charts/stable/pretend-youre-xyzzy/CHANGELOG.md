@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-4.0.14"></a>
+### [pretend-youre-xyzzy-4.0.14](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-4.0.13...pretend-youre-xyzzy-4.0.14) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="pretend-youre-xyzzy-4.0.13"></a>
 ### [pretend-youre-xyzzy-4.0.13](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-4.0.12...pretend-youre-xyzzy-4.0.13) (2021-11-30)
 

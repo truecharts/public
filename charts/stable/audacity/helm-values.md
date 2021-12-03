@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/audacity"` |  |
-| image.tag | string | `"version-3.0.2@sha256:cdf203db1e50e18349f16c5958f7061b18625501f5e2f7a15cd69262185e3e84"` |  |
+| image.repository | string | `"tccr.io/truecharts/audacity"` |  |
+| image.tag | string | `"version-3.0.2@sha256:a0a829c08c74236b405888f26c4a52251b403db6ca8946895d00505ba1a1ffc7"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.4"></a>
+### [prometheus-1.1.4](https://github.com/truecharts/apps/compare/prometheus-1.1.3...prometheus-1.1.4) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="prometheus-1.1.3"></a>
 ### [prometheus-1.1.3](https://github.com/truecharts/apps/compare/prometheus-1.1.2...prometheus-1.1.3) (2021-11-30)
 

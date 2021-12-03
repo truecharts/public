@@ -18,8 +18,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.serverIP | string | `"0.0.0.0"` |  |
 | env.serverPort | int | `8266` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"haveagitgat/tdarr_node"` |  |
-| image.tag | string | `"2.00.11@sha256:5134a53f3a4030418eb447d9a413a3169ea7900f3a51449fa1db5c687cbd2cbe"` |  |
+| image.repository | string | `"tccr.io/truecharts/tdarr_node"` |  |
+| image.tag | string | `"v2.00.11@sha256:f4ff41e5a09ea97bb468bb584e44c0f7d869a989404aa6a7618db1e040ccb31e"` |  |
 | persistence.configs.enabled | bool | `true` |  |
 | persistence.configs.mountPath | string | `"/app/configs"` |  |
 | persistence.logs.enabled | bool | `true` |  |

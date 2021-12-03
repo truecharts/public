@@ -19,8 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.SHIORI_PG_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.SHIORI_PG_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nicholaswilde/shiori"` |  |
-| image.tag | string | `"version-v1.5.0@sha256:e0645abe677786f79bde80ac81f8d79c915e05cba2991c4cecd335f54335431c"` |  |
+| image.repository | string | `"tccr.io/truecharts/shiori"` |  |
+| image.tag | string | `"version-v1.5.0@sha256:6c6331888c9a5162def49b6212327242f7f5c96e2d5a1bb031f79321cc1c0549"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

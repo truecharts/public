@@ -21,8 +21,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.TTRSS_DB_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.TTRSS_DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/k8s-at-home/tt-rss"` | image repository |
-| image.tag | string | `"v1.9068.0@sha256:0f7d10019ddc6ae4fd0ceab804bff546fdcbd21f1ed207f71703ea33fd2e2c8f"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/tt-rss"` | image repository |
+| image.tag | string | `"v1.9075.0@sha256:9779b47027627c16b3f6c0e69b9a5c7964a7b701ff8ccc6b1f0a7d5d371c7c6b"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

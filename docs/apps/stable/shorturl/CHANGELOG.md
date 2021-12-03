@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="shorturl-1.0.14"></a>
+### [shorturl-1.0.14](https://github.com/truecharts/apps/compare/shorturl-1.0.13...shorturl-1.0.14) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="shorturl-1.0.13"></a>
 ### [shorturl-1.0.13](https://github.com/truecharts/apps/compare/shorturl-1.0.12...shorturl-1.0.13) (2021-11-30)
 

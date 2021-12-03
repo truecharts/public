@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.23"></a>
+### [readarr-9.0.23](https://github.com/truecharts/apps/compare/readarr-9.0.22...readarr-9.0.23) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="readarr-9.0.22"></a>
 ### [readarr-9.0.22](https://github.com/truecharts/apps/compare/readarr-9.0.21...readarr-9.0.22) (2021-11-30)
 

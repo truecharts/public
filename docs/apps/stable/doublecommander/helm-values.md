@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/doublecommander"` |  |
-| image.tag | string | `"version-0.8.2-1@sha256:a64547270ae8644ed31e76e87c831e2bc92cb82bb825af5edc009fdf69a7ddde"` |  |
+| image.repository | string | `"tccr.io/truecharts/doublecommander"` |  |
+| image.tag | string | `"version-0.8.2-1@sha256:9c71e7178c24bdd646fa65e49fd9cef59ad9584eac2d60d59ea3e62ea53d47f9"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

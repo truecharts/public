@@ -40,8 +40,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.LDAP_TLS_VERIFY_CLIENT | string | `"never"` |  |
 | envFrom[0].configMapRef.name | string | `"openldapconfig"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/openldap"` |  |
-| image.tag | string | `"v1.5.0@sha256:fd870eecad0a5a5097ec7377a4441aa77171b4e10d8336f63698144dc3a51a4b"` |  |
+| image.repository | string | `"tccr.io/truecharts/openldap"` |  |
+| image.tag | string | `"v1.5.0@sha256:d7e4f9279595ea1772efac4063876b29a96ff54c214f2c3ba52d2c3bfca8928c"` |  |
 | persistence.varrun.enabled | bool | `false` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

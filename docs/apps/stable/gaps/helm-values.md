@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/gaps"` |  |
-| image.tag | string | `"v0.8.8@sha256:2e4b3b4e677be68b947517b0077aec719db8c382dad2952421b746060bbd6513"` |  |
+| image.repository | string | `"tccr.io/truecharts/gaps"` |  |
+| image.tag | string | `"v0.8.8@sha256:7f7d33e4279f55bfaf5ea1a7e071b4266794052eddaba2294ab29be45a2133bf"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/usr/data"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

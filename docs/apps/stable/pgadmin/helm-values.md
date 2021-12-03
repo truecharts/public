@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PGADMIN_DEFAULT_EMAIL | string | `"replace@this.now"` |  |
 | env.PGADMIN_DEFAULT_PASSWORD | string | `"changeme"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"docker.io/dpage/pgadmin4"` |  |
-| image.tag | string | `"6.2@sha256:13e2208c50cb8666967e0396fa4898b555b41b507149dd468966d64caab7da76"` |  |
+| image.repository | string | `"tccr.io/truecharts/pgadmin4"` |  |
+| image.tag | string | `"v6.2@sha256:56a1cc09742301c5cca10f75f9766a85f7b8c9a256ee88cdf04ad1038db2f2cd"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/lib/pgadmin"` |  |
 | podSecurityContext.fsGroup | int | `5050` |  |

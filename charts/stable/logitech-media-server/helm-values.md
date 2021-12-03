@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | envTpl.HTTP_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"lmscommunity/logitechmediaserver"` |  |
-| image.tag | string | `"8.3.0@sha256:7954bda8b5a42eee0c42483c3dd59ed9127f71983b555c167ce7c2e65a066e64"` |  |
+| image.repository | string | `"tccr.io/truecharts/logitechmediaserver"` |  |
+| image.tag | string | `"v8.3.0@sha256:9a3d016f99856b8a1ce846a70b1c17dbf8c730030850e48a1b2c632952510dc4"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

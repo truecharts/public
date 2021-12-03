@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/k8s-at-home/xteve"` | image repository |
-| image.tag | string | `"v2.2.0.200@sha256:e1afd6ea29e9b680191d8024f41eb495bc8fc7c2870fa36fbfa4f684c9a708dc"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/xteve"` | image repository |
+| image.tag | string | `"v2.2.0.200@sha256:77a1e4d934da1361c349fc3b9548e4e01b421df078759e5d11b4cc552c50bd7e"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.ports.main.port | int | `34400` |  |

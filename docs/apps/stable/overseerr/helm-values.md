@@ -15,8 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.LOG_LEVEL | string | `"info"` | Set the application log level |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/sct/overseerr"` | image repository |
-| image.tag | string | `"1.27.0@sha256:061f876e32bd85050c767dee57e09593c293e8676e06a7dc40536f28bf55fc68"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/overseerr"` | image repository |
+| image.tag | string | `"v1.27.0@sha256:cf3d0ae6c0df50e397a567e49d2ba891c2dc46cb1145f11acf0a12b82a3bfcd9"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |

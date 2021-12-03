@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="kms-9.0.16"></a>
+### [kms-9.0.16](https://github.com/truecharts/apps/compare/kms-9.0.15...kms-9.0.16) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="kms-9.0.15"></a>
 ### [kms-9.0.15](https://github.com/truecharts/apps/compare/kms-9.0.14...kms-9.0.15) (2021-11-30)
 

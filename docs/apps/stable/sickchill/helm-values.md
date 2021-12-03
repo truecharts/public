@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/linuxserver/sickchill"` |  |
-| image.tag | string | `"2021.5.10-1-ls63@sha256:a607452a692a008eb397051c90603eb618c616855553dbde9a98675ca5043bd7"` |  |
+| image.repository | string | `"tccr.io/truecharts/sickchill"` |  |
+| image.tag | string | `"v2021.5.10-1-ls63@sha256:f9fd82d8c6d12bc85dcc7813b7216087efb006dc05104ce67386ec989be25dc4"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

@@ -23,8 +23,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.BLOG_POSTGRES_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.BLOG_POSTGRES_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"m1k1o/blog"` |  |
-| image.tag | string | `"latest@sha256:8a859e44c66159e0ac4b959cd9255012d159328bbdaf977e01f3db739fe0203a"` |  |
+| image.repository | string | `"tccr.io/truecharts/blog"` |  |
+| image.tag | string | `"latest@sha256:22871bf5fcf28e31ca4389e7fff6c44978f4eed9c106fba6e862fe165e649cb0"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

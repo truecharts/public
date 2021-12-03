@@ -13,8 +13,8 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nicholaswilde/golinks"` |  |
-| image.tag | string | `"version-154c581@sha256:8e67b26324c5dc433210df8f2fb64317db3cbbe7db0b9e10c6e5bc3f3f7860e4"` |  |
+| image.repository | string | `"tccr.io/truecharts/golinks"` |  |
+| image.tag | string | `"version-154c581@sha256:144d59d23c3b6580403e1a06b3567ac97c638205bc139ba54e058450d6564c73"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

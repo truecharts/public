@@ -18,8 +18,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.LEAN_DB_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |
 | envValueFrom.LEAN_DB_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nicholaswilde/leantime"` |  |
-| image.tag | string | `"2.1.7-ls6@sha256:60e3485f98d71f814f593c1c4d39cac78fc2748f7a1a4baacbbfa439ae031237"` |  |
+| image.repository | string | `"tccr.io/truecharts/leantime"` |  |
+| image.tag | string | `"v2.1.7-ls6@sha256:09f51955b47e8bf7cf8c95b7fa4e023ce2fae4aa15ef42db1568b4c23830b5a6"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"leantime"` |  |

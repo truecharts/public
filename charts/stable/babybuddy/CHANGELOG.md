@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.8"></a>
+### [babybuddy-5.0.8](https://github.com/truecharts/apps/compare/babybuddy-5.0.7...babybuddy-5.0.8) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="babybuddy-5.0.7"></a>
 ### [babybuddy-5.0.7](https://github.com/truecharts/apps/compare/babybuddy-5.0.6...babybuddy-5.0.7) (2021-11-30)
 

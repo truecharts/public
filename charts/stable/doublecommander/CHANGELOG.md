@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="doublecommander-2.0.17"></a>
+### [doublecommander-2.0.17](https://github.com/truecharts/apps/compare/doublecommander-2.0.16...doublecommander-2.0.17) (2021-12-03)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="doublecommander-2.0.16"></a>
 ### [doublecommander-2.0.16](https://github.com/truecharts/apps/compare/doublecommander-2.0.15...doublecommander-2.0.16) (2021-11-30)
 

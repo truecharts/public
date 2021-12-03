@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.OPEN_PROFILES | string | `"true"` |  |
 | env.OPEN_REGISTRATIONS | string | `"true"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/nicholaswilde/twtxt"` |  |
-| image.tag | string | `"version-0.1.1@sha256:58736a73ca1000cc93258efe0cd91270c6b8480a84b98b05a056234d271f92e3"` |  |
+| image.repository | string | `"tccr.io/truecharts/twtxt"` |  |
+| image.tag | string | `"version-0.1.1@sha256:9f34f0557d2a46aa7952c55f5a368c130659fafa0780785a647721edd001cdaa"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.data.enabled | bool | `true` |  |

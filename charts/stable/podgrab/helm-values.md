@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.CHECK_FREQUENCY | int | `240` |  |
 | env.PASSWORD | string | `"secretpasswordgoeshere"` |  |
 | image.pullPolicy | string | `"Always"` |  |
-| image.repository | string | `"ghcr.io/truecharts/podgrab"` |  |
-| image.tag | string | `"v1.0.0@sha256:17a92f111c5840f1fb78f216e4191ec1f5eeeb04ad5a1a5bdde0df35fdbe8910"` |  |
+| image.repository | string | `"tccr.io/truecharts/podgrab"` |  |
+| image.tag | string | `"v1.0.0@sha256:069fb1ef81d47a37137da2cfd249423c8dc330086c2a2e1271c5895f9f8cae9f"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.enabled | bool | `false` |  |

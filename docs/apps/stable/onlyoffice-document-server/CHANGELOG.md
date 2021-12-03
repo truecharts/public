@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-2.0.14"></a>
+### [onlyoffice-document-server-2.0.14](https://github.com/truecharts/apps/compare/onlyoffice-document-server-2.0.13...onlyoffice-document-server-2.0.14) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="onlyoffice-document-server-2.0.13"></a>
 ### [onlyoffice-document-server-2.0.13](https://github.com/truecharts/apps/compare/onlyoffice-document-server-2.0.12...onlyoffice-document-server-2.0.13) (2021-11-30)
 

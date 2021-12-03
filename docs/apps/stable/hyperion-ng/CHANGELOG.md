@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-4.0.16"></a>
+### [hyperion-ng-4.0.16](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.15...hyperion-ng-4.0.16) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+
+
+
 <a name="hyperion-ng-4.0.15"></a>
 ### [hyperion-ng-4.0.15](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.14...hyperion-ng-4.0.15) (2021-11-30)
 
