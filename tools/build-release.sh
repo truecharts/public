@@ -310,10 +310,11 @@ container_sec_scan() {
     echo "" >> ${chart}/sec-scan.md
     echo "##### Scan Results" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
+    ## TODO: Cleanup security scan layout
     for container in $(cat ${chart}/render/containers.tmp); do
       echo "**Container: ${container}**" >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
-      trivy image ${container} # >> ${chart}/sec-scan.md
+      trivy image ${container} >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
       done
     }
