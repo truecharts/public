@@ -5,9 +5,9 @@
 ##### Scan Results
 
 ```
-2021-12-03T19:47:19.916Z	[34mINFO[0m	Need to update the built-in policies
-2021-12-03T19:47:19.916Z	[34mINFO[0m	Downloading the built-in policies...
-2021-12-03T19:47:20.611Z	[34mINFO[0m	Detected config files: 1
+2021-12-03T19:47:19.916Z    [34mINFO[0m    Need to update the built-in policies
+2021-12-03T19:47:19.916Z    [34mINFO[0m    Downloading the built-in policies...
+2021-12-03T19:47:20.611Z    [34mINFO[0m    Detected config files: 1
 
 mariadb/templates/common.yaml (kubernetes)
 ==========================================
@@ -108,11 +108,11 @@ Failures: 13 (UNKNOWN: 0, LOW: 6, MEDIUM: 7, HIGH: 0, CRITICAL: 0)
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
 ```
-2021-12-03T19:47:20.698Z	[34mINFO[0m	Need to update DB
-2021-12-03T19:47:20.698Z	[34mINFO[0m	Downloading DB...
-2021-12-03T19:47:24.464Z	[34mINFO[0m	Detected OS: alpine
-2021-12-03T19:47:24.464Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-03T19:47:24.466Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-03T19:47:20.698Z    [34mINFO[0m    Need to update DB
+2021-12-03T19:47:20.698Z    [34mINFO[0m    Downloading DB...
+2021-12-03T19:47:24.464Z    [34mINFO[0m    Detected OS: alpine
+2021-12-03T19:47:24.464Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-03T19:47:24.466Z    [34mINFO[0m    Number of language-specific files: 0
 
 tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
 =========================================================================================================================
@@ -236,10 +236,10 @@ Total: 22 (UNKNOWN: 0, LOW: 0, MEDIUM: 4, HIGH: 18, CRITICAL: 0)
 **Container: tccr.io/truecharts/mariadb:v10.6.5@sha256:ca5dcc0667f4ee5accc91f159f13a2bf764678d4dfeab3d1421fce1d2095f2a0**
 
 ```
-2021-12-03T19:47:29.346Z	[34mINFO[0m	Detected OS: debian
-2021-12-03T19:47:29.346Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-03T19:47:29.362Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-03T19:47:29.362Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
+2021-12-03T19:47:29.346Z    [34mINFO[0m    Detected OS: debian
+2021-12-03T19:47:29.346Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-03T19:47:29.362Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-03T19:47:29.362Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
 
 tccr.io/truecharts/mariadb:v10.6.5@sha256:ca5dcc0667f4ee5accc91f159f13a2bf764678d4dfeab3d1421fce1d2095f2a0 (debian 10.11)
 =========================================================================================================================
@@ -906,4 +906,3 @@ opt/bitnami/common/bin/ini-file (gobinary)
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 
 ```
-

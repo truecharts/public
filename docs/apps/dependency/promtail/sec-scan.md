@@ -5,7 +5,7 @@
 ##### Scan Results
 
 ```
-2021-12-03T19:50:27.019Z	[34mINFO[0m	Detected config files: 1
+2021-12-03T19:50:27.019Z    [34mINFO[0m    Detected config files: 1
 
 promtail/templates/common.yaml (kubernetes)
 ===========================================
@@ -104,9 +104,9 @@ Failures: 13 (UNKNOWN: 0, LOW: 4, MEDIUM: 9, HIGH: 0, CRITICAL: 0)
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
 ```
-2021-12-03T19:50:28.083Z	[34mINFO[0m	Detected OS: alpine
-2021-12-03T19:50:28.083Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-03T19:50:28.087Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-03T19:50:28.083Z    [34mINFO[0m    Detected OS: alpine
+2021-12-03T19:50:28.083Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-03T19:50:28.087Z    [34mINFO[0m    Number of language-specific files: 0
 
 tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
 =========================================================================================================================
@@ -230,10 +230,10 @@ Total: 22 (UNKNOWN: 0, LOW: 0, MEDIUM: 4, HIGH: 18, CRITICAL: 0)
 **Container: tccr.io/truecharts/promtail:v2.4.1@sha256:83bceed26a638b211d65b6e80d4a33d01dc82b81e630d57e883b490ac0c57ef4**
 
 ```
-2021-12-03T19:50:31.667Z	[34mINFO[0m	Detected OS: debian
-2021-12-03T19:50:31.667Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-03T19:50:31.681Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-03T19:50:31.681Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
+2021-12-03T19:50:31.667Z    [34mINFO[0m    Detected OS: debian
+2021-12-03T19:50:31.667Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-03T19:50:31.681Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-03T19:50:31.681Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
 
 tccr.io/truecharts/promtail:v2.4.1@sha256:83bceed26a638b211d65b6e80d4a33d01dc82b81e630d57e883b490ac0c57ef4 (debian 11.1)
 ========================================================================================================================
@@ -542,4 +542,3 @@ Total: 2 (UNKNOWN: 0, LOW: 0, MEDIUM: 1, HIGH: 1, CRITICAL: 0)
 |                                  |                  |          |                                      |                 | -->avd.aquasec.com/nvd/cve-2019-3826  |
 +----------------------------------+------------------+----------+--------------------------------------+-----------------+---------------------------------------+
 ```
-

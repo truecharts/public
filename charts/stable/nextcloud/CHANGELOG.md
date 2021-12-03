@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="nextcloud-10.0.10"></a>
+### [nextcloud-10.0.10](https://github.com/truecharts/apps/compare/nextcloud-10.0.9...nextcloud-10.0.10) (2021-12-03)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update container image tccr.io/truecharts/nextcloud to v23.0.0 ([#1447](https://github.com/truecharts/apps/issues/1447))
+
+
+
 <a name="nextcloud-10.0.9"></a>
 ### [nextcloud-10.0.9](https://github.com/truecharts/apps/compare/nextcloud-10.0.8...nextcloud-10.0.9) (2021-11-30)
 

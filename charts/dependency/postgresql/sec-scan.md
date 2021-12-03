@@ -5,7 +5,7 @@
 ##### Scan Results
 
 ```
-2021-12-03T19:49:25.561Z	[34mINFO[0m	Detected config files: 1
+2021-12-03T19:49:25.561Z    [34mINFO[0m    Detected config files: 1
 
 postgresql/templates/common.yaml (kubernetes)
 =============================================
@@ -106,9 +106,9 @@ Failures: 13 (UNKNOWN: 0, LOW: 6, MEDIUM: 7, HIGH: 0, CRITICAL: 0)
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
 ```
-2021-12-03T19:49:26.640Z	[34mINFO[0m	Detected OS: alpine
-2021-12-03T19:49:26.640Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-03T19:49:26.643Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-03T19:49:26.640Z    [34mINFO[0m    Detected OS: alpine
+2021-12-03T19:49:26.640Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-03T19:49:26.643Z    [34mINFO[0m    Number of language-specific files: 0
 
 tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
 =========================================================================================================================
@@ -232,11 +232,11 @@ Total: 22 (UNKNOWN: 0, LOW: 0, MEDIUM: 4, HIGH: 18, CRITICAL: 0)
 **Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4**
 
 ```
-2021-12-03T19:49:29.973Z	[34mINFO[0m	Detected OS: debian
-2021-12-03T19:49:29.974Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-03T19:49:29.991Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-03T19:49:29.991Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
-2021-12-03T19:49:29.991Z	[34mINFO[0m	Detecting jar vulnerabilities...
+2021-12-03T19:49:29.973Z    [34mINFO[0m    Detected OS: debian
+2021-12-03T19:49:29.974Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-03T19:49:29.991Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-03T19:49:29.991Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
+2021-12-03T19:49:29.991Z    [34mINFO[0m    Detecting jar vulnerabilities...
 
 tccr.io/truecharts/postgresql:v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4 (debian 10.11)
 ============================================================================================================================
@@ -1109,4 +1109,3 @@ opt/bitnami/common/bin/gosu (gobinary)
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 
 ```
-

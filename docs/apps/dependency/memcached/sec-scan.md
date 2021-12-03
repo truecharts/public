@@ -5,7 +5,7 @@
 ##### Scan Results
 
 ```
-2021-12-03T19:48:25.464Z	[34mINFO[0m	Detected config files: 1
+2021-12-03T19:48:25.464Z    [34mINFO[0m    Detected config files: 1
 
 memcached/templates/common.yaml (kubernetes)
 ============================================
@@ -92,9 +92,9 @@ Failures: 11 (UNKNOWN: 0, LOW: 4, MEDIUM: 7, HIGH: 0, CRITICAL: 0)
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
 ```
-2021-12-03T19:48:26.594Z	[34mINFO[0m	Detected OS: alpine
-2021-12-03T19:48:26.594Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-03T19:48:26.602Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-03T19:48:26.594Z    [34mINFO[0m    Detected OS: alpine
+2021-12-03T19:48:26.594Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-03T19:48:26.602Z    [34mINFO[0m    Number of language-specific files: 0
 
 tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
 =========================================================================================================================
@@ -218,10 +218,10 @@ Total: 22 (UNKNOWN: 0, LOW: 0, MEDIUM: 4, HIGH: 18, CRITICAL: 0)
 **Container: tccr.io/truecharts/memcached:v1.6.12@sha256:90da9d23e5c448d44ee3c1aa2af4c868ab5a3f8042a4000851fe55355db7c569**
 
 ```
-2021-12-03T19:48:28.787Z	[34mINFO[0m	Detected OS: debian
-2021-12-03T19:48:28.787Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-03T19:48:28.804Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-03T19:48:28.804Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
+2021-12-03T19:48:28.787Z    [34mINFO[0m    Detected OS: debian
+2021-12-03T19:48:28.787Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-03T19:48:28.804Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-03T19:48:28.804Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
 
 tccr.io/truecharts/memcached:v1.6.12@sha256:90da9d23e5c448d44ee3c1aa2af4c868ab5a3f8042a4000851fe55355db7c569 (debian 10.11)
 ===========================================================================================================================
@@ -875,4 +875,3 @@ opt/bitnami/common/bin/gosu (gobinary)
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 
 ```
-

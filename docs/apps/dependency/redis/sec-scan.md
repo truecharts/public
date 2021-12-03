@@ -5,7 +5,7 @@
 ##### Scan Results
 
 ```
-2021-12-03T19:51:28.440Z	[34mINFO[0m	Detected config files: 1
+2021-12-03T19:51:28.440Z    [34mINFO[0m    Detected config files: 1
 
 redis/templates/common.yaml (kubernetes)
 ========================================
@@ -101,9 +101,9 @@ Failures: 13 (UNKNOWN: 0, LOW: 6, MEDIUM: 7, HIGH: 0, CRITICAL: 0)
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
 ```
-2021-12-03T19:51:29.491Z	[34mINFO[0m	Detected OS: alpine
-2021-12-03T19:51:29.491Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-03T19:51:29.495Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-03T19:51:29.491Z    [34mINFO[0m    Detected OS: alpine
+2021-12-03T19:51:29.491Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-03T19:51:29.495Z    [34mINFO[0m    Number of language-specific files: 0
 
 tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
 =========================================================================================================================
@@ -227,10 +227,10 @@ Total: 22 (UNKNOWN: 0, LOW: 0, MEDIUM: 4, HIGH: 18, CRITICAL: 0)
 **Container: tccr.io/truecharts/redis:v6.2.6@sha256:741dc63de7fed6f7f4fff41ac4b23a40f6850e9fb361e35e2959c71d8f10aeae**
 
 ```
-2021-12-03T19:51:31.914Z	[34mINFO[0m	Detected OS: debian
-2021-12-03T19:51:31.914Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-03T19:51:31.930Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-03T19:51:31.930Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
+2021-12-03T19:51:31.914Z    [34mINFO[0m    Detected OS: debian
+2021-12-03T19:51:31.914Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-03T19:51:31.930Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-03T19:51:31.930Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
 
 tccr.io/truecharts/redis:v6.2.6@sha256:741dc63de7fed6f7f4fff41ac4b23a40f6850e9fb361e35e2959c71d8f10aeae (debian 10.11)
 ======================================================================================================================
@@ -889,4 +889,3 @@ opt/bitnami/common/bin/wait-for-port (gobinary)
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 
 ```
-
