@@ -306,11 +306,11 @@ container_sec_scan() {
     echo "##### Detected Containers" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
     find ${chart}/render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
-    echo ${chart}/render/containers.tmp >> ${chart}/sec-scan.md
-    cat "" >> ${chart}/sec-scan.md
+    cat ${chart}/render/containers.tmp >> ${chart}/sec-scan.md
+    echo "" >> ${chart}/sec-scan.md
     echo "##### Scan Results" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
-    for container in ${chart}/render/containers.tmp; do
+    for container in $(cat ${chart}/render/containers.tmp); do
       echo "**Container: ${container}**" >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
       trivy image ${container} # >> ${chart}/sec-scan.md
