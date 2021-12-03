@@ -282,6 +282,7 @@ helm_sec_scan() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
+    echo "Scanning helm security for ${chartname}"
     mkdir -p ${chart}/render
     rm -rf ${chart}/sec-scan.md | echo "removing old sec-scan.md file failed..."
     echo "# Security Scan" >> ${chart}/sec-scan.md
@@ -303,6 +304,7 @@ container_sec_scan() {
     local chartname="$2"
     local train="$3"
     local chartversion="$4"
+    echo "Scanning container security for ${chartname}"
     echo "## Containers" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
     echo "##### Detected Containers" >> ${chart}/sec-scan.md
