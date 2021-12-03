@@ -4,7 +4,7 @@ openvpnImage:
   # -- Specify the openvpn client image
   repository: tccr.io/truecharts/openvpn-client
   # -- Specify the openvpn client image tag
-  tag: latest@sha256:d174047b57d51734143325ad7395210643025e6516ba60a937e9319dbb462293
+  tag: latest@sha256:bc3a56b2c195a4b4ce5c67fb0c209f38036521ebd316df2a7d68b425b9c48b30
   # -- Specify the openvpn client image pull policy
   pullPolicy: IfNotPresent
 
@@ -14,7 +14,7 @@ wireguardImage:
   # -- Specify the WireGuard image
   repository: tccr.io/truecharts/wireguard
   # -- Specify the WireGuard image tag
-  tag: v1.0.20210914@sha256:3799349a9b09c689ffce45a4cedecc735af4fbc901e31d9cdbce1de1bc76be4c
+  tag: v1.0.20210914@sha256:fc278ed7ae45452f28384c5ed81f5963d0d2dabb296389c69b5cdb13e31260ac
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
@@ -24,7 +24,7 @@ promtailImage:
   # -- Specify the promtail image
   repository: tccr.io/truecharts/promtail
   # -- Specify the promtail image tag
-  tag: v2.3.0@sha256:90019c5e4198d3253126fcc0c90db11b961ddf0a3c2906766f4611770beabdf2
+  tag: v2.4.1@sha256:83bceed26a638b211d65b6e80d4a33d01dc82b81e630d57e883b490ac0c57ef4
   # -- Specify the promtail image pull policy
   pullPolicy: IfNotPresent
 
@@ -34,7 +34,7 @@ netshootImage:
   # -- Specify the netshoot image
   repository: tccr.io/truecharts/netshoot
   # -- Specify the netshoot image tag
-  tag: latest@sha256:d6942ec583d8e2818f5a5d7a71c303e861a70a11396ad9e9d25b355842e97589
+  tag: latest@sha256:505d3430ed7c1d43fed18dbd1177b76ecb6fc376113bc41d34da230c402a4855
   # -- Specify the netshoot image pull policy
   pullPolicy: Always
 
@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: tccr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.1.0@sha256:a8d81b4ce9ba6377b7250847e3b02cf84ae409785cf7df797a160b0f31b4246e
+  tag: v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
