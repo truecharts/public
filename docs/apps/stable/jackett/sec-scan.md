@@ -5,9 +5,9 @@
 ##### Scan Results
 
 ```
-2021-12-03T18:33:16.449Z	[34mINFO[0m	Need to update the built-in policies
-2021-12-03T18:33:16.449Z	[34mINFO[0m	Downloading the built-in policies...
-2021-12-03T18:33:17.259Z	[34mINFO[0m	Detected config files: 1
+2021-12-03T18:33:16.449Z    [34mINFO[0m    Need to update the built-in policies
+2021-12-03T18:33:16.449Z    [34mINFO[0m    Downloading the built-in policies...
+2021-12-03T18:33:17.259Z    [34mINFO[0m    Detected config files: 1
 
 jackett/templates/common.yaml (kubernetes)
 ==========================================
@@ -96,11 +96,11 @@ Failures: 12 (UNKNOWN: 0, LOW: 5, MEDIUM: 7, HIGH: 0, CRITICAL: 0)
 **Container: ghcr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
 ```
-2021-12-03T18:33:17.339Z	[34mINFO[0m	Need to update DB
-2021-12-03T18:33:17.340Z	[34mINFO[0m	Downloading DB...
-2021-12-03T18:33:19.939Z	[34mINFO[0m	Detected OS: alpine
-2021-12-03T18:33:19.939Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-03T18:33:19.941Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-03T18:33:17.339Z    [34mINFO[0m    Need to update DB
+2021-12-03T18:33:17.340Z    [34mINFO[0m    Downloading DB...
+2021-12-03T18:33:19.939Z    [34mINFO[0m    Detected OS: alpine
+2021-12-03T18:33:19.939Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-03T18:33:19.941Z    [34mINFO[0m    Number of language-specific files: 0
 
 ghcr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
 =========================================================================================================================
@@ -224,10 +224,10 @@ Total: 22 (UNKNOWN: 0, LOW: 0, MEDIUM: 4, HIGH: 18, CRITICAL: 0)
 **Container: tccr.io/truecharts/jackett:v0.20.83@sha256:b24ade69bfc1b9725c42043c0b4aab341aed7c2cb462fdc21bb5287aaa574d79**
 
 ```
-2021-12-03T18:33:24.300Z	[34mINFO[0m	Detected OS: ubuntu
-2021-12-03T18:33:24.300Z	[34mINFO[0m	Detecting Ubuntu vulnerabilities...
-2021-12-03T18:33:24.303Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-03T18:33:24.303Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
+2021-12-03T18:33:24.300Z    [34mINFO[0m    Detected OS: ubuntu
+2021-12-03T18:33:24.300Z    [34mINFO[0m    Detecting Ubuntu vulnerabilities...
+2021-12-03T18:33:24.303Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-03T18:33:24.303Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
 
 tccr.io/truecharts/jackett:v0.20.83@sha256:b24ade69bfc1b9725c42043c0b4aab341aed7c2cb462fdc21bb5287aaa574d79 (ubuntu 20.04)
 ==========================================================================================================================
@@ -598,4 +598,3 @@ Total: 1 (UNKNOWN: 0, LOW: 0, MEDIUM: 1, HIGH: 0, CRITICAL: 0)
 |                  |                  |          |                   |               | -->avd.aquasec.com/nvd/cve-2019-11254 |
 +------------------+------------------+----------+-------------------+---------------+---------------------------------------+
 ```
-
