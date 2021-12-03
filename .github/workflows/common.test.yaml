@@ -18,7 +18,7 @@ jobs:
     name: Unit and Lint tests
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/truecharts/devcontainer:v2.1.0
+      image: tccr.io/truecharts/devcontainer:v2.1.0
     steps:
       - name: Cache helm repo cache
         id: cache
