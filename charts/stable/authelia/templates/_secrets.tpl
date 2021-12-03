@@ -12,15 +12,19 @@ metadata:
 {{- $oidcsecret := "" }}
 {{- $jwtsecret := "" }}
 {{- $sessionsecret := "" }}
+{{- $encryptionkey := "" }}
 data:
   {{- if $autheliaprevious }}
+  ENCRYPTION_KEY: {{ index $autheliaprevious.data "ENCRYPTION_KEY"  }}
   SESSION_ENCRYPTION_KEY: {{ index $autheliaprevious.data "SESSION_ENCRYPTION_KEY"  }}
   JWT_TOKEN: {{ index $autheliaprevious.data "JWT_TOKEN"  }}
   {{- else }}
   {{- $jwtsecret := randAlphaNum 50 }}
   {{- $sessionsecret := randAlphaNum 50 }}
-  SESSION_ENCRYPTION_KEY: {{ $jwtsecret | b64enc | quote }}
+  {{- $encryptionkey := randAlphaNum 100 }}
+  SESSION_ENCRYPTION_KEY: {{ $sessionsecret | b64enc | quote }}
   JWT_TOKEN: {{ $jwtsecret | b64enc | quote }}
+  ENCRYPTION_KEY: {{ $encryptionkey | b64enc | quote }}
   {{- end }}
 
   {{- if .Values.authentication_backend.ldap.enabled }}
