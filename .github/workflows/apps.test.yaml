@@ -183,4 +183,4 @@ jobs:
 
       - name: build-and-run
         run: |
-          find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && tools/build-release.sh --config .github/cr.yaml
+          tools/build-release.sh --config .github/cr.yaml
