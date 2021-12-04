@@ -327,6 +327,7 @@ sec_scan_cleanup() {
     local train="$3"
     local chartversion="$4"
     rm -rf ${chart}/render
+    sed -i 's/ghcr.io/tccr.io/g' ${chart}/sec-scan.md
     }
 
 pre_commit() {
