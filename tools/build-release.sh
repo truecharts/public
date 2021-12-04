@@ -291,7 +291,7 @@ helm_sec_scan() {
     local chartversion="$4"
     echo "Scanning helm security for ${chartname}"
     mkdir -p ${chart}/render
-    rm -rf ${chart}/security.md | echo "removing old security.md file failed..."
+    rm -rf ${chart}/security.md || echo "removing old security.md file failed..."
     echo "# Security Scan" >> ${chart}/security.md
     echo "" >> ${chart}/security.md
     echo "## Helm-Chart" >> ${chart}/security.md
