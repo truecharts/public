@@ -324,7 +324,7 @@ container_sec_scan() {
       echo "processing container: ${container} using ${ghcrcont}"
       echo "**Container: ${container}**" >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
-      trivy image -f template --template "@./templates/trivy.tpl" "" >> ${chart}/sec-scan.md
+      trivy image -f template --template "@./templates/trivy.tpl" "${ghcrcont}" >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
       done
 
