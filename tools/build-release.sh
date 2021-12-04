@@ -319,7 +319,8 @@ container_sec_scan() {
       echo "**Container: ${container}**" >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
       echo '```' >> ${chart}/sec-scan.md
-      trivy image ${container} >> ${chart}/sec-scan.md
+      ghcrcont=$(echo ${container} | sed "s/tccr.io/ghcr.io/g")
+      trivy image ${ghcrcont} >> ${chart}/sec-scan.md
       echo '```' >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
       done

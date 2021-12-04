@@ -159,7 +159,7 @@ jobs:
   release-test:
     runs-on: ubuntu-latest
     container:
-      image: tccr.io/truecharts/devcontainer:v2.1.0
+      image: ghcr.io/truecharts/devcontainer:v2.1.0
     steps:
       - name: Cache helm repo cache
         id: cache
@@ -183,4 +183,4 @@ jobs:
 
       - name: build-and-run
         run: |
-          tools/build-release.sh --config .github/cr.yaml
+          find ./ -type f -name values.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && tools/build-release.sh --config .github/cr.yaml
