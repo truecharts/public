@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.34"></a>
+### [jackett-9.0.34](https://github.com/truecharts/apps/compare/jackett-9.0.33...jackett-9.0.34) (2021-12-04)
+
+#### Chore
+
+* cleanup helm security scan output a bit more
+
+
+
 <a name="jackett-9.0.33"></a>
 ### [jackett-9.0.33](https://github.com/truecharts/apps/compare/jackett-9.0.32...jackett-9.0.33) (2021-12-04)
 
