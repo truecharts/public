@@ -7,10 +7,10 @@
 |:---------------------------------|
 
       {{ else }}
-| Type         |    Misconfiguration ID   |   Check  |  Severity | Explaination |                   Solution                   | Links  |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|-----------------------------------------|
+| Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
+|:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
         {{- range .Misconfigurations }}
-| {{ escapeXML .Type }}         |    {{ escapeXML .ID }}   |   {{ escapeXML .Title }}  |  {{ escapeXML .Severity }} | {{ escapeXML .Description }} | {{ escapeXML .Message }} | <details><summary>Click to expand!</summary>{{ range .References }}<a href={{ escapeXML . | printf "%q" }}>{{ escapeXML . }}</a><br>{{ end }}</details>  |
+| {{ escapeXML .Type }}         |    {{ escapeXML .ID }}   |   {{ escapeXML .Title }}  |  {{ escapeXML .Severity }} | <details><summary>Expand...</summary> {{ escapeXML .Description }} <br> <hr> <br> {{ escapeXML .Message }} </details>| <details><summary>Expand...</summary>{{ range .References }}<a href={{ escapeXML . | printf "%q" }}>{{ escapeXML . }}</a><br>{{ end }}</details>  |
         {{- end }}
       {{- end }}
     {{- end }}
