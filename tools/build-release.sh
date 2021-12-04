@@ -60,7 +60,7 @@ main() {
 
         prep_helm
 
-        parallel -j ${parthreads} chart_runner ::: ${changed_charts[@]}
+        parallel -j ${parthreads} chart_runner '2>&1' ::: ${changed_charts[@]}
         echo "Starting post-processing"
         pre_commit
         validate_catalog
@@ -326,7 +326,7 @@ container_sec_scan() {
       echo "" >> ${chart}/security.md
       trivy image -f template --template "@./templates/trivy.tpl" "${ghcrcont}" >> ${chart}/security.md
       echo "" >> ${chart}/security.md
-      done
+    done
 
     }
     export -f container_sec_scan
