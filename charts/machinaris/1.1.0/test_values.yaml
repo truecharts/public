@@ -4,7 +4,7 @@ image:
   tag: v0.6.7
 
 machinaris_ui_port: 31003
-machinarisApiPort: 8926
+machinarisApiPort: 8927
 
 ports:
   - name: chia-network
@@ -46,20 +46,20 @@ coins:
 
 cactusEnabled: true
 cactus:
-  apiPort: 8935
+  apiPort: 8936
   ports:
     - name: api
       protocol: TCP
-      containerPort: 8935
-      hostPort: 8935
+      containerPort: 8936
+      hostPort: 8936
     - name: blockchain
       protocol: TCP
-      containerPort: 8668
-      hostPort: 8668
+      containerPort: 11444
+      hostPort: 11444
     - name: farming
       protocol: TCP
-      containerPort: 8337
-      hostPort: 8337
+      containerPort: 11447
+      hostPort: 11447
   volumeMounts:
     cactus-config:
       emptyDir: true
