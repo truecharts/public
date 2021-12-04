@@ -106,4 +106,4 @@ jobs:
           version: v1.19
 
       - name: Run chart-testing (install)
-        run: ct install --config .github/ct-install.yaml --charts 'charts/library/common-test'
+        run: find ./charts/library/common-test -type f -name *.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && ct install --config .github/ct-install.yaml --charts 'charts/library/common-test'
