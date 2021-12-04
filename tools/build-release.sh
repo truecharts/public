@@ -59,35 +59,7 @@ main() {
 
         prep_helm
         for chart in "${changed_charts[@]}"; do
-            if [[ -d "$chart" ]]; then
-                echo "Start processing $chart ..."
-                chartversion=$(cat ${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
-                chartname=$(basename ${chart})
-                train=$(basename $(dirname "$chart"))
-                SCALESUPPORT=$(cat ${chart}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
-                sync_tag "$chart" "$chartname" "$train" "$chartversion" || echo "Tag sync failed..."
-                helm dependency update "${chart}" --skip-refresh || sleep 10 && helm dependency update "${chart}" --skip-refresh || sleep 10 &&  helm dependency update "${chart}" --skip-refresh
-                helm_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "helm-chart security-scan failed..."
-                container_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "container security-scan failed..."
-                sec_scan_cleanup "$chart" "$chartname" "$train" "$chartversion" || echo "security-scan cleanup failed..."
-                create_changelog "$chart" "$chartname" "$train" "$chartversion" || echo "changelog generation failed..."
-                generate_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs generation failed..."
-                copy_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs Copy failed..."
-                helm dependency update "${chart}" --skip-refresh || sleep 10 && helm dependency update "${chart}" --skip-refresh || sleep 10 &&  helm dependency update "${chart}" --skip-refresh
-                package_chart "$chart"
-                if [[ "${SCALESUPPORT}" == "true" ]]; then
-                  clean_apps "$chart" "$chartname" "$train" "$chartversion"
-                  copy_apps "$chart" "$chartname" "$train" "$chartversion"
-                  patch_apps "$chart" "$chartname" "$train" "$chartversion"
-                  include_questions "$chart" "$chartname" "$train" "$chartversion"
-                  clean_catalog "$chart" "$chartname" "$train" "$chartversion"
-                else
-                  echo "Skipping chart ${chart}, no correct SCALE compatibility layer detected"
-                fi
-            else
-                echo "Chart '$chart' no longer exists in repo. Skipping it..."
-            fi
-            echo "Done processing $chart ..."
+          chart_runner ${chart}
         done
         echo "Starting post-processing"
         pre_commit
@@ -109,6 +81,38 @@ main() {
     fi
 
     popd > /dev/null
+}
+
+chart_runner(){
+  if [[ -d "${1}" ]]; then
+      echo "Start processing $chart ..."
+      chartversion=$(cat ${1}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
+      chartname=$(basename ${1})
+      train=$(basename $(dirname "$chart"))
+      SCALESUPPORT=$(cat ${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
+      helm dependency update "${1}" --skip-refresh || sleep 10 && helm dependency update "${1}" --skip-refresh || sleep 10 &&  helm dependency update "${1}" --skip-refresh
+      sync_tag "$chart" "$chartname" "$train" "$chartversion" || echo "Tag sync failed..."
+      helm_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "helm-chart security-scan failed..."
+      container_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "container security-scan failed..."
+      sec_scan_cleanup "$chart" "$chartname" "$train" "$chartversion" || echo "security-scan cleanup failed..."
+      create_changelog "$chart" "$chartname" "$train" "$chartversion" || echo "changelog generation failed..."
+      generate_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs generation failed..."
+      copy_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs Copy failed..."
+      helm dependency update "${1}" --skip-refresh || sleep 10 && helm dependency update "${1}" --skip-refresh || sleep 10 &&  helm dependency update "${1}" --skip-refresh
+      package_chart "$chart"
+      if [[ "${SCALESUPPORT}" == "true" ]]; then
+        clean_apps "$chart" "$chartname" "$train" "$chartversion"
+        copy_apps "$chart" "$chartname" "$train" "$chartversion"
+        patch_apps "$chart" "$chartname" "$train" "$chartversion"
+        include_questions "$chart" "$chartname" "$train" "$chartversion"
+        clean_catalog "$chart" "$chartname" "$train" "$chartversion"
+      else
+        echo "Skipping chart ${1}, no correct SCALE compatibility layer detected"
+      fi
+  else
+      echo "Chart '$chart' no longer exists in repo. Skipping it..."
+  fi
+  echo "Done processing $chart ..."
 }
 
 include_questions(){
