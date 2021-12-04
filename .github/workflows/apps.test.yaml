@@ -146,7 +146,7 @@ jobs:
       ## TODO: Fix common-test
       - name: Run chart-testing (install)
         if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' && steps.prep-lint.outputs.install != 'false' }}
-        run: find ./charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }} -type f -name values.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && ct install --config .github/ct-install.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
+        run: find ./charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }} -type f -name *.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && ct install --config .github/ct-install.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
 
   app-tests-complete:
     needs: [app-tests]
@@ -183,4 +183,4 @@ jobs:
 
       - name: build-and-run
         run: |
-          find ./ -type f -name values.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && tools/build-release.sh --config .github/cr.yaml
+          find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && tools/build-release.sh --config .github/cr.yaml
