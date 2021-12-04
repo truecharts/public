@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Security Scan
 
 ## Helm-Chart

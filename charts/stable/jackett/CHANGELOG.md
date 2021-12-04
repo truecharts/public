@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.33"></a>
+### [jackett-9.0.33](https://github.com/truecharts/apps/compare/jackett-9.0.32...jackett-9.0.33) (2021-12-04)
+
+#### Chore
+
+* cleanup the ci for the security page a bit
+
+
+
 <a name="jackett-9.0.32"></a>
 ### [jackett-9.0.32](https://github.com/truecharts/apps/compare/jackett-9.0.31...jackett-9.0.32) (2021-12-04)
 
