@@ -59,7 +59,7 @@ main() {
 
         prep_helm
         for chart in "${changed_charts[@]}"; do
-          parallel chart_runner ::: ${chart}
+          parallel -j 2 chart_runner ::: ${chart}
         done
         echo "Starting post-processing"
         pre_commit
