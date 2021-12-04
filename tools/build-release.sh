@@ -300,7 +300,7 @@ helm_sec_scan() {
     echo "" >> ${chart}/sec-scan.md
     echo "##### Scan Results" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
-    helm template ${chart} --output-dir ${chart}/render
+    helm template ${chart} --output-dir ${chart}/render 2>/dev/null
     ## TODO: Cleanup security scan layout
     echo '```' >> ${chart}/sec-scan.md
     trivy config ${chart}/render >> ${chart}/sec-scan.md
