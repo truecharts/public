@@ -93,20 +93,20 @@ chart_runner(){
       train=$(basename $(dirname "${1}"))
       SCALESUPPORT=$(cat ${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
       helm dependency update "${1}" --skip-refresh || (sleep 10 && helm dependency update "${1}" --skip-refresh) || (sleep 10 && helm dependency update "${1}" --skip-refresh)
-      helm_sec_scan "${1}" "${1}name" "$train" "${1}version" || echo "helm-chart security-scan failed..."
-      container_sec_scan "${1}" "${1}name" "$train" "${1}version" || echo "container security-scan failed..."
-      sec_scan_cleanup "${1}" "${1}name" "$train" "${1}version" || echo "security-scan cleanup failed..."
-      sync_tag "${1}" "${1}name" "$train" "${1}version" || echo "Tag sync failed..."
-      create_changelog "${1}" "${1}name" "$train" "${1}version" || echo "changelog generation failed..."
-      generate_docs "${1}" "${1}name" "$train" "${1}version" || echo "Docs generation failed..."
-      copy_docs "${1}" "${1}name" "$train" "${1}version" || echo "Docs Copy failed..."
+      helm_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "helm-chart security-scan failed..."
+      container_sec_scan "${1}" "${chartname}" "$train" "${chartversion}" || echo "container security-scan failed..."
+      sec_scan_cleanup "${1}" "${chartname}" "$train" "${chartversion}" || echo "security-scan cleanup failed..."
+      sync_tag "${1}" "${chartname}" "$train" "${chartversion}" || echo "Tag sync failed..."
+      create_changelog "${1}" "${chartname}" "$train" "${chartversion}" || echo "changelog generation failed..."
+      generate_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs generation failed..."
+      copy_docs "${1}" "${chartname}" "$train" "${chartversion}" || echo "Docs Copy failed..."
       package_chart "${1}"
       if [[ "${SCALESUPPORT}" == "true" ]]; then
-        clean_apps "${1}" "${1}name" "$train" "${1}version"
-        copy_apps "${1}" "${1}name" "$train" "${1}version"
-        patch_apps "${1}" "${1}name" "$train" "${1}version"
-        include_questions "${1}" "${1}name" "$train" "${1}version"
-        clean_catalog "${1}" "${1}name" "$train" "${1}version"
+        clean_apps "${1}" "${chartname}" "$train" "${chartversion}"
+        copy_apps "${1}" "${chartname}" "$train" "${chartversion}"
+        patch_apps "${1}" "${chartname}" "$train" "${chartversion}"
+        include_questions "${1}" "${chartname}" "$train" "${chartversion}"
+        clean_catalog "${1}" "${chartname}" "$train" "${chartversion}"
       else
         echo "Skipping chart ${1}, no correct SCALE compatibility layer detected"
       fi
