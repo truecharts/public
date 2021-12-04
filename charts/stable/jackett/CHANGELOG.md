@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.32"></a>
+### [jackett-9.0.32](https://github.com/truecharts/apps/compare/jackett-9.0.31...jackett-9.0.32) (2021-12-04)
+
+#### Feat
+
+* Craft a trivy config to md parser
+
+
+
 <a name="jackett-9.0.31"></a>
 ### [jackett-9.0.31](https://github.com/truecharts/apps/compare/jackett-9.0.30...jackett-9.0.31) (2021-12-04)
 
