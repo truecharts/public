@@ -91,10 +91,10 @@ chart_runner(){
       train=$(basename $(dirname "$chart"))
       SCALESUPPORT=$(cat ${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
       helm dependency update "${1}" --skip-refresh || (sleep 10 && helm dependency update "${1}" --skip-refresh) || (sleep 10 && helm dependency update "${1}" --skip-refresh)
-      sync_tag "$chart" "$chartname" "$train" "$chartversion" || echo "Tag sync failed..."
       helm_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "helm-chart security-scan failed..."
       container_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "container security-scan failed..."
       sec_scan_cleanup "$chart" "$chartname" "$train" "$chartversion" || echo "security-scan cleanup failed..."
+      sync_tag "$chart" "$chartname" "$train" "$chartversion" || echo "Tag sync failed..."
       create_changelog "$chart" "$chartname" "$train" "$chartversion" || echo "changelog generation failed..."
       generate_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs generation failed..."
       copy_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs Copy failed..."
@@ -239,6 +239,7 @@ include_questions(){
     1' templates/questions/resources.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
     }
+export -f
 
 clean_catalog() {
     local chart="$1"
@@ -255,6 +256,7 @@ clean_catalog() {
     done
     cd -
     }
+export -f
 
 # Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
 sync_tag() {
@@ -280,6 +282,7 @@ sync_tag() {
     tag="${tag%.}"
     sed -i -e "s|appVersion: .*|appVersion: \"${tag}\"|" "${chart}/Chart.yaml"
     }
+export -f sync_tag
 
 helm_sec_scan() {
     local chart="$1"
@@ -302,6 +305,7 @@ helm_sec_scan() {
     echo '```' >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
     }
+    export -f helm_sec_scan
 
 container_sec_scan() {
     local chart="$1"
@@ -330,6 +334,7 @@ container_sec_scan() {
       done
 
     }
+    export -f container_sec_scan
 
 sec_scan_cleanup() {
     local chart="$1"
@@ -338,6 +343,7 @@ sec_scan_cleanup() {
     local chartversion="$4"
     rm -rf ${chart}/render
     }
+    export -f sec_scan_cleanup
 
 pre_commit() {
     if [[ -z "$standalone" ]]; then
@@ -347,6 +353,7 @@ pre_commit() {
       find . -name '*.sh' | xargs chmod +x
     fi
     }
+    export -f pre_commit
 
 edit_release() {
     local chart="$1"
@@ -356,6 +363,7 @@ edit_release() {
     # In here we can in the future add code to edit the release notes of the github releases
     # For example: using the github API: https://docs.github.com/en/rest/reference/repos#update-a-release
     }
+    export -f edit_release
 
 create_changelog() {
     local chart="$1"
@@ -380,6 +388,7 @@ create_changelog() {
         rm ${chart}/app-changelog.md || echo "changelog not found..."
     fi
     }
+    export -f create_changelog
 
 copy_general_docs() {
     yes | cp -rf index.yaml docs/index.yaml 2>/dev/null || :
@@ -394,6 +403,7 @@ copy_general_docs() {
     yes | cp -rf NOTICE docs/about/legal/NOTICE.md 2>/dev/null || :
     sed -i '1s/^/# NOTICE<br>\n\n/' docs/about/legal/NOTICE.md
     }
+    export -f copy_general_docs
 
 generate_docs() {
     local chart="$1"
@@ -432,6 +442,7 @@ generate_docs() {
          fi
     fi
     }
+    export -f generate_docs
 
 
 copy_docs() {
@@ -456,6 +467,7 @@ copy_docs() {
         sed -i '1s/^/# License<br>\n\n/' docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
     fi
     }
+    export -f copy_docs
 
 prep_helm() {
     if [[ -z "$standalone" ]]; then
@@ -467,6 +479,7 @@ prep_helm() {
     helm repo update
     fi
     }
+    export -f prep_helm
 
 clean_apps() {
     local chart="$1"
@@ -477,6 +490,7 @@ clean_apps() {
     rm -Rf catalog/${train}/${chartname}/${chartversion} 2>/dev/null || :
     rm -Rf catalog/${train}/${chartname}/item.yaml 2>/dev/null || :
 }
+export -f clean_apps
 
 patch_apps() {
     local chart="$1"
@@ -504,6 +518,7 @@ patch_apps() {
     echo "" >> ${target}/app-readme.md
     echo "This App is supplied by TrueCharts, for more information please visit https://truecharts.org" >> ${target}/app-readme.md
 }
+export -f patch_apps
 
 copy_apps() {
     local chart="$1"
@@ -515,6 +530,7 @@ copy_apps() {
     cp -Rf ${chart}/* catalog/${train}/${chartname}/${chartversion}/
 
 }
+export -f copy_apps
 
 validate_catalog() {
     if [[ -z "$standalone" ]]; then
@@ -522,6 +538,7 @@ validate_catalog() {
     /usr/local/bin/catalog_validate validate --path "${PWD}/catalog"
     fi
 }
+export -f validate_catalog
 
 
 parse_command_line() {
@@ -618,6 +635,7 @@ parse_command_line() {
         charts_repo_url="https://$owner.github.io/$repo"
     fi
 }
+export -f parse_command_line
 
 lookup_latest_tag() {
     git fetch --tags > /dev/null 2>&1
@@ -626,6 +644,7 @@ lookup_latest_tag() {
         git rev-list --max-parents=0 --first-parent HEAD
     fi
 }
+export -f lookup_latest_tag
 
 filter_charts() {
     while read -r chart; do
@@ -637,6 +656,7 @@ filter_charts() {
         fi
     done
 }
+export -f filter_charts
 
 lookup_changed_charts() {
     local commit="$1"
@@ -649,6 +669,7 @@ lookup_changed_charts() {
 
     cut -d '/' -f "$fields" <<< "$changed_files" | uniq | filter_charts
 }
+export -f lookup_changed_charts
 
 package_chart() {
     local chart="$1"
@@ -662,6 +683,7 @@ package_chart() {
     cr package "${args[@]}"
     fi
 }
+export -f package_chart
 
 release_charts() {
     local args=(-o "$owner" -r "$repo" -c "$(git rev-parse HEAD)")
@@ -674,6 +696,7 @@ release_charts() {
     cr upload "${args[@]}"
     fi
 }
+export -f release_charts
 
 update_index() {
     local args=(-o "$owner" -r "$repo" -c "$charts_repo_url")
@@ -686,5 +709,6 @@ update_index() {
     cr index "${args[@]}"
     fi
 }
+export -f update_index
 
 main "$@"
