@@ -22,31 +22,19 @@ spec:
       labels: {{ include "common.labels.selectorLabels" $ref | nindent 8 }}
     spec:
       hostNetwork: true
+      {{- include "initContainers" (dict "nodeIP" $ref.Values.nodeIP "apiPort" $ref.Values.machinarisApiPort "coinName" $coinName ) | nindent 6 }}
       containers:
         - name: {{ $ref.Chart.Name }}
-          {{ if $ref.Values.enableResourceLimits }}
-          resources:
-            limits:
-              cpu: {{ $ref.Values.cpuLimit }}
-              memory: {{ $ref.Values.memLimit }}
-          {{ end }}
+          {{- include "resourceLimits" $ref | nindent 10 }}
           tty: true
           {{ include "common.containers.imageConfig" (dict "repository" $ref.Values.image.repository "tag" $ref.Values.image.tag "pullPolicy" $ref.Values.image.pullPolicy "postfix" $ref.common.nameSuffix) | nindent 10 }}
           {{ include "common.containers.configurePorts" $coin | nindent 10 }}
-          volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" (dict "appVolumeMounts" $coin.appVolumeMounts "ixVolumes" $ref.Values.ixVolumes) | nindent 12 }}
+          volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" (dict "appVolumeMounts" $coin.volumeMounts "ixVolumes" $ref.Values.ixVolumes) | nindent 12 }}
           {{ range $index, $hostPathConfiguration := $ref.Values.extraAppVolumeMounts }}
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}
-          {{ $envList := (default list $ref.Values.environmentVariables) }}
-          {{ $envList = mustAppend $envList (dict "name" "TZ" "value" $ref.Values.timezone) }}
-          {{ $envList = mustAppend $envList (dict "name" "worker_address" "value" $ref.Values.nodeIP) }}
-          {{ $envList = mustAppend $envList (dict "name" "controller_host" "value" $ref.Values.nodeIP) }}
-          {{ $envList = mustAppend $envList (dict "name" "worker_api_port" "value" $coin.apiPort) }}
-          {{ $envList = mustAppend $envList (dict "name" "blockchains" "value" $coinName) }}
-          {{ $envList = mustAppend $envList (dict "name" "plots_dir" "value" $ref.Values.appVolumeMounts.plots.mountPath) }}
-          {{ $envList = mustAppend $envList (dict "name" "mode" "value" "fullnode") }}
-          {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
+          {{ include "allEnvironmentVariables" (dict "defaultEnv" (dict "TZ" $ref.Values.timezone "worker_address" $ref.Values.nodeIP "controller_host" $ref.Values.nodeIP "worker_api_port" $coin.apiPort "blockchains" $coinName "plots_dir" $ref.Values.appVolumeMounts.plots.mountPath "mode" "fullnode") "environmentVariables" $coin.environmentVariables) | nindent 10 }}
       volumes: {{ include "common.storage.configureAppVolumes" (dict "appVolumeMounts" $coin.volumeMounts "ixVolumes" $ref.Values.ixVolumes) | nindent 8 }}
       {{ range $index, $hostPathConfiguration := $ref.Values.extraAppVolumeMounts }}
         - name: extrappvolume-{{ $coinName }}-{{ $index }}

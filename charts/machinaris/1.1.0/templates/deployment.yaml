@@ -20,12 +20,7 @@ spec:
       hostNetwork: true
       containers:
         - name: {{ .Chart.Name }}
-          {{ if .Values.enableResourceLimits }}
-          resources:
-            limits:
-              cpu: {{ .Values.cpuLimit }}
-              memory: {{ .Values.memLimit }}
-          {{ end }}
+          {{- include "resourceLimits" . | nindent 10 }}
           tty: true
           {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
@@ -33,28 +28,8 @@ spec:
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}
-          ports:
-            - name: chia-network
-              protocol: TCP
-              containerPort: 8444
-              hostPort: 8444
-            - name: machinaris-ui
-              protocol: TCP
-              containerPort: 8926
-            - name: machinaris-api
-              protocol: TCP
-              containerPort: 8927
-              hostPort: 8927
-            - protocol: TCP
-              containerPort: 8447
-              hostPort: 8447
-          {{ $envList := (default list .Values.environmentVariables) }}
-          {{ $envList = mustAppend $envList (dict "name" "TZ" "value" $.Values.timezone) }}
-          {{ $envList = mustAppend $envList (dict "name" "worker_address" "value" $.Values.nodeIP) }}
-          {{ $envList = mustAppend $envList (dict "name" "mode" "value" "fullnode") }}
-          {{ $envList = mustAppend $envList (dict "name" "plots_dir" "value" $.Values.appVolumeMounts.plots.mountPath) }}
-          {{ $envList = mustAppend $envList (dict "name" "blockchains" "value" "chia") }}
-          {{ include "common.containers.allEnvironmentVariables" (dict "environmentVariables" $envList) | nindent 10 }}
+          {{ include "common.containers.configurePorts" .Values | nindent 10 }}
+          {{ include "allEnvironmentVariables" (dict "defaultEnv" (dict "TZ" .Values.timezone "worker_address" .Values.nodeIP "blockchains" "chia" "plots_dir" .Values.appVolumeMounts.plots.mountPath "mode" "fullnode") "environmentVariables" .Values.environmentVariables) | nindent 10 }}
       volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
       {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
         - name: extrappvolume-{{ $index }}

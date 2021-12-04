@@ -41,7 +41,7 @@ Define hostPath for appVolumes
     {{- include "common.schema.validateKeys" (dict "values" $values "checkKeys" (list "ixVolumes")) -}}
     {{- include "common.schema.validateKeys" (dict "values" $av "checkKeys" (list "datasetName")) -}}
     {{- $volDict := dict "datasetName" $av.datasetName "ixVolumes" $values.ixVolumes -}}
-    path: {{ include "common.storage.retrieveHostPathFromiXVolume" $volDict }}{{- if $av.datasetSubPath -}}{{- printf "/%s" $av.datasetSubPath -}}{{- end -}}
+    path: {{ include "common.storage.retrieveHostPathFromiXVolume" $volDict }}
     {{ end }}
   {{ end }}
 {{ end }}

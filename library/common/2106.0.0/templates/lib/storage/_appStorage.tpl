@@ -15,6 +15,9 @@ Define appVolumeMounts for container
   {{ if $avm.subPath }}
   subPath: {{ $avm.subPath }}
   {{ end }}
+  {{ if $avm.readOnly }}
+  readOnly: {{ $avm.readOnly }}
+  {{ end }}
 {{- end -}}
 {{ end }}
 {{- end -}}

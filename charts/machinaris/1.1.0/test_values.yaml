@@ -1,3 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/guydavis/machinaris
+  tag: v0.6.7
+
+machinaris_ui_port: 31003
+machinarisApiPort: 8926
+
+ports:
+  - name: chia-network
+    protocol: TCP
+    containerPort: 8444
+    hostPort: 8444
+  - name: machinaris-ui
+    protocol: TCP
+    containerPort: 8926
+  - name: machinaris-api
+    protocol: TCP
+    containerPort: 8927
+    hostPort: 8927
+  - protocol: TCP
+    containerPort: 8447
+    hostPort: 8447
+
+timezone: America/Edmonton
+updateStrategy: Recreate
+nodeIP: 127.0.0.1
+
 appVolumeMounts:
   config:
     emptyDir: true
@@ -8,26 +36,30 @@ appVolumeMounts:
   plotting:
     emptyDir: true
     mountPath: /plotting
-image:
-  pullPolicy: IfNotPresent
-  repository: ghcr.io/guydavis/machinaris
-  tag: v0.6.6
-machinaris_ui_port: 31003
-timezone: America/Edmonton
-updateStrategy: Recreate
-nodeIP: 127.0.0.1
+
+environmentVariables:
+  - name: mode
+    value: farming
+
 coins:
   - cactus
+
 cactusEnabled: true
 cactus:
   apiPort: 8935
   ports:
-    - protocol: TCP
+    - name: api
+      protocol: TCP
       containerPort: 8935
-    - protocol: TCP
+      hostPort: 8935
+    - name: blockchain
+      protocol: TCP
       containerPort: 8668
-    - protocol: TCP
+      hostPort: 8668
+    - name: farming
+      protocol: TCP
       containerPort: 8337
+      hostPort: 8337
   volumeMounts:
     cactus-config:
       emptyDir: true
@@ -35,3 +67,12 @@ cactus:
     mnemonic:
       emptyDir: true
       mountPath: /root/.chia/mnemonic.txt
+      readOnly: true
+      subPath: mnemonic.txt
+  environmentVariables:
+    - name: mode
+      value: farming
+
+enableResourceLimits: true
+cpuLimit: 0.5
+memLimit: 1G
