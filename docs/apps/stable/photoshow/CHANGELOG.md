@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoshow-1.0.19"></a>
+### [photoshow-1.0.19](https://github.com/truecharts/apps/compare/photoshow-1.0.18...photoshow-1.0.19) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="photoshow-1.0.18"></a>
 ### [photoshow-1.0.18](https://github.com/truecharts/apps/compare/photoshow-1.0.17...photoshow-1.0.18) (2021-12-03)
 

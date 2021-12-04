@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-10.0.11"></a>
+### [nextcloud-10.0.11](https://github.com/truecharts/apps/compare/nextcloud-10.0.10...nextcloud-10.0.11) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="nextcloud-10.0.10"></a>
 ### [nextcloud-10.0.10](https://github.com/truecharts/apps/compare/nextcloud-10.0.9...nextcloud-10.0.10) (2021-12-03)
 

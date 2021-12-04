@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="beets-2.0.17"></a>
+### [beets-2.0.17](https://github.com/truecharts/apps/compare/beets-2.0.16...beets-2.0.17) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+#### Fix
+
+* misc fixes
+
+
+
 <a name="beets-2.0.16"></a>
 ### [beets-2.0.16](https://github.com/truecharts/apps/compare/beets-2.0.15...beets-2.0.16) (2021-12-03)
 

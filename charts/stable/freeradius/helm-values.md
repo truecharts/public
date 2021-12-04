@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/freeradius"` |  |
+| image.repository | string | `"tccr.io/truecharts/freeradius"` |  |
 | image.tag | string | `"v3.0.23@sha256:21454da0a4f4950dd9b97e82de5b56556fdf2bf38f60ae427852b74a2622c972"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/raddb"` |  |

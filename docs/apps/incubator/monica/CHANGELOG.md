@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="monica-0.0.5"></a>
+### [monica-0.0.5](https://github.com/truecharts/apps/compare/monica-0.0.4...monica-0.0.5) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="monica-0.0.4"></a>
 ### [monica-0.0.4](https://github.com/truecharts/apps/compare/monica-0.0.3...monica-0.0.4) (2021-12-03)
 

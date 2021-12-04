@@ -21,8 +21,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DECONZ_WS_PORT | int | `6080` | Websocket listen port |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/deconz-community/deconz-docker"` | image repository |
-| image.tag | string | `"v2.13.02@sha256:ed4a88ee75eeaf04155c3e733cf38011247139ed265d178b67ddde46889eca8c"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/deconz"` | image repository |
+| image.tag | string | `"v2.13.01@sha256:92a7a439e6010e21265fa5beaa47b0172bc6b6682f4e2d26bcd43c772ff7ddbd"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

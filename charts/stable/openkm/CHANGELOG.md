@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-4.0.6"></a>
+### [openkm-4.0.6](https://github.com/truecharts/apps/compare/openkm-4.0.5...openkm-4.0.6) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="openkm-4.0.5"></a>
 ### [openkm-4.0.5](https://github.com/truecharts/apps/compare/openkm-4.0.4...openkm-4.0.5) (2021-12-03)
 

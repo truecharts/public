@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.18"></a>
+### [esphome-9.0.18](https://github.com/truecharts/apps/compare/esphome-9.0.17...esphome-9.0.18) (2021-12-04)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="esphome-9.0.17"></a>
 ### [esphome-9.0.17](https://github.com/truecharts/apps/compare/esphome-9.0.16...esphome-9.0.17) (2021-11-30)
 

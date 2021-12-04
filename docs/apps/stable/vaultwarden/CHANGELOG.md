@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.6"></a>
+### [vaultwarden-13.0.6](https://github.com/truecharts/apps/compare/vaultwarden-13.0.5...vaultwarden-13.0.6) (2021-12-04)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="vaultwarden-13.0.5"></a>
 ### [vaultwarden-13.0.5](https://github.com/truecharts/apps/compare/vaultwarden-13.0.4...vaultwarden-13.0.5) (2021-11-30)
 

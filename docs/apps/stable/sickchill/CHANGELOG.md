@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickchill-1.0.15"></a>
+### [sickchill-1.0.15](https://github.com/truecharts/apps/compare/sickchill-1.0.14...sickchill-1.0.15) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="sickchill-1.0.14"></a>
 ### [sickchill-1.0.14](https://github.com/truecharts/apps/compare/sickchill-1.0.13...sickchill-1.0.14) (2021-12-03)
 

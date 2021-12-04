@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="audacity-2.0.15"></a>
+### [audacity-2.0.15](https://github.com/truecharts/apps/compare/audacity-2.0.14...audacity-2.0.15) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+#### Fix
+
+* misc fixes
+
+
+
 <a name="audacity-2.0.14"></a>
 ### [audacity-2.0.14](https://github.com/truecharts/apps/compare/audacity-2.0.13...audacity-2.0.14) (2021-12-03)
 

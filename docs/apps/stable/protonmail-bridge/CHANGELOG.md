@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-4.0.15"></a>
+### [protonmail-bridge-4.0.15](https://github.com/truecharts/apps/compare/protonmail-bridge-4.0.14...protonmail-bridge-4.0.15) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="protonmail-bridge-4.0.14"></a>
 ### [protonmail-bridge-4.0.14](https://github.com/truecharts/apps/compare/protonmail-bridge-4.0.13...protonmail-bridge-4.0.14) (2021-12-03)
 

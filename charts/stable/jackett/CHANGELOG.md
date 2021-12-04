@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.30"></a>
+### [jackett-9.0.30](https://github.com/truecharts/apps/compare/jackett-9.0.28...jackett-9.0.30) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+#### Fix
+
+* use GHCR for install tests ([#1461](https://github.com/truecharts/apps/issues/1461))
+
+
+
 <a name="jackett-9.0.28"></a>
 ### [jackett-9.0.28](https://github.com/truecharts/apps/compare/jackett-9.0.27...jackett-9.0.28) (2021-12-03)
 

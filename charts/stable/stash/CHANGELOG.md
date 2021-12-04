@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="stash-4.0.15"></a>
+### [stash-4.0.15](https://github.com/truecharts/apps/compare/stash-4.0.14...stash-4.0.15) (2021-12-04)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="stash-4.0.14"></a>
 ### [stash-4.0.14](https://github.com/truecharts/apps/compare/stash-4.0.13...stash-4.0.14) (2021-11-30)
 

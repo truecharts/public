@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="freeradius-4.0.16"></a>
+### [freeradius-4.0.16](https://github.com/truecharts/apps/compare/freeradius-4.0.15...freeradius-4.0.16) (2021-12-04)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="freeradius-4.0.15"></a>
 ### [freeradius-4.0.15](https://github.com/truecharts/apps/compare/freeradius-4.0.14...freeradius-4.0.15) (2021-11-30)
 

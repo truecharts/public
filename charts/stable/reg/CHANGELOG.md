@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="reg-4.0.14"></a>
+### [reg-4.0.14](https://github.com/truecharts/apps/compare/reg-4.0.13...reg-4.0.14) (2021-12-04)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="reg-4.0.13"></a>
 ### [reg-4.0.13](https://github.com/truecharts/apps/compare/reg-4.0.12...reg-4.0.13) (2021-11-30)
 

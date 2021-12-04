@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-5.0.5"></a>
+### [dsmr-reader-5.0.5](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.4...dsmr-reader-5.0.5) (2021-12-04)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="dsmr-reader-5.0.4"></a>
 ### [dsmr-reader-5.0.4](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.3...dsmr-reader-5.0.4) (2021-11-30)
 

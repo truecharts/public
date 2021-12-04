@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.18"></a>
+### [qbittorrent-9.0.18](https://github.com/truecharts/apps/compare/qbittorrent-9.0.17...qbittorrent-9.0.18) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="qbittorrent-9.0.17"></a>
 ### [qbittorrent-9.0.17](https://github.com/truecharts/apps/compare/qbittorrent-9.0.16...qbittorrent-9.0.17) (2021-12-03)
 

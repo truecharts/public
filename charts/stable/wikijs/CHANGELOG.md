@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.5"></a>
+### [wikijs-4.0.5](https://github.com/truecharts/apps/compare/wikijs-4.0.4...wikijs-4.0.5) (2021-12-04)
+
+#### Chore
+
+* ensure container references are prefixed with v
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="wikijs-4.0.4"></a>
 ### [wikijs-4.0.4](https://github.com/truecharts/apps/compare/wikijs-4.0.3...wikijs-4.0.4) (2021-11-30)
 

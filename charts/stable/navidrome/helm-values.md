@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.ND_SCANINTERVAL | string | `"15m"` |  |
 | env.ND_SESSIONTIMEOUT | string | `"24h"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/navidrome"` |  |
+| image.repository | string | `"tccr.io/truecharts/navidrome"` |  |
 | image.tag | string | `"v0.47.0@sha256:0ca8781ecf33f961d9e1157b8f0aa0ad8d69cde3dac99e8084bd34aa73094128"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.8"></a>
+### [authelia-8.0.8](https://github.com/truecharts/apps/compare/authelia-8.0.7...authelia-8.0.8) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="authelia-8.0.7"></a>
 ### [authelia-8.0.7](https://github.com/truecharts/apps/compare/authelia-8.0.6...authelia-8.0.7) (2021-12-03)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gotify-5.0.6"></a>
+### [gotify-5.0.6](https://github.com/truecharts/apps/compare/gotify-5.0.5...gotify-5.0.6) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="gotify-5.0.5"></a>
 ### [gotify-5.0.5](https://github.com/truecharts/apps/compare/gotify-5.0.4...gotify-5.0.5) (2021-12-03)
 

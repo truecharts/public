@@ -24,7 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.VNC_PASSWORD | string | `""` |  |
 | envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"ghcr.io/truecharts/handbrake"` |  |
+| image.repository | string | `"tccr.io/truecharts/handbrake"` |  |
 | image.tag | string | `"v1.24.2@sha256:312ddf5ec046fd0ca3f84015b55c8b4cbe1d6e8340ffcaf244489592a3fc92da"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |

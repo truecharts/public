@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doublecommander-2.0.18"></a>
+### [doublecommander-2.0.18](https://github.com/truecharts/apps/compare/doublecommander-2.0.17...doublecommander-2.0.18) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="doublecommander-2.0.17"></a>
 ### [doublecommander-2.0.17](https://github.com/truecharts/apps/compare/doublecommander-2.0.16...doublecommander-2.0.17) (2021-12-03)
 

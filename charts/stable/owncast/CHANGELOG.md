@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="owncast-4.0.14"></a>
+### [owncast-4.0.14](https://github.com/truecharts/apps/compare/owncast-4.0.13...owncast-4.0.14) (2021-12-04)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+#### Feat
+
+* Add admin portal button ([#1450](https://github.com/truecharts/apps/issues/1450))
+
+
+
 <a name="owncast-4.0.13"></a>
 ### [owncast-4.0.13](https://github.com/truecharts/apps/compare/owncast-4.0.12...owncast-4.0.13) (2021-11-30)
 

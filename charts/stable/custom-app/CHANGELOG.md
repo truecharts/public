@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.25"></a>
+### [custom-app-3.0.25](https://github.com/truecharts/apps/compare/custom-app-3.0.24...custom-app-3.0.25) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="custom-app-3.0.24"></a>
 ### [custom-app-3.0.24](https://github.com/truecharts/apps/compare/custom-app-3.0.23...custom-app-3.0.24) (2021-12-03)
 

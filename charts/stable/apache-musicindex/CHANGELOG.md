@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="apache-musicindex-2.0.15"></a>
+### [apache-musicindex-2.0.15](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.14...apache-musicindex-2.0.15) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="apache-musicindex-2.0.14"></a>
 ### [apache-musicindex-2.0.14](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.13...apache-musicindex-2.0.14) (2021-12-03)
 

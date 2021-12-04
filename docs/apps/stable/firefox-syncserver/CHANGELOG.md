@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-5.0.6"></a>
+### [firefox-syncserver-5.0.6](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.5...firefox-syncserver-5.0.6) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="firefox-syncserver-5.0.5"></a>
 ### [firefox-syncserver-5.0.5](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.4...firefox-syncserver-5.0.5) (2021-12-03)
 

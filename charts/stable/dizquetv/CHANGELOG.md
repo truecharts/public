@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="dizquetv-4.0.14"></a>
+### [dizquetv-4.0.14](https://github.com/truecharts/apps/compare/dizquetv-4.0.13...dizquetv-4.0.14) (2021-12-04)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="dizquetv-4.0.13"></a>
 ### [dizquetv-4.0.13](https://github.com/truecharts/apps/compare/dizquetv-4.0.12...dizquetv-4.0.13) (2021-11-30)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grav-2.0.15"></a>
+### [grav-2.0.15](https://github.com/truecharts/apps/compare/grav-2.0.14...grav-2.0.15) (2021-12-04)
+
+#### Chore
+
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+
+
+
 <a name="grav-2.0.14"></a>
 ### [grav-2.0.14](https://github.com/truecharts/apps/compare/grav-2.0.13...grav-2.0.14) (2021-12-03)
 

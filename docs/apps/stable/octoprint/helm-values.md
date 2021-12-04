@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MJPG_STREAMER_INPUT | string | `nil` | MJPG Streamer input parameters |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"ghcr.io/truecharts/octoprint"` | image repository |
+| image.repository | string | `"tccr.io/truecharts/octoprint"` | image repository |
 | image.tag | string | `"v1.7.2@sha256:80d677488365ad240b0cef90fa381ba849dcd82dfc62b11689d88da9867956c6"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | persistence.varrun | object | See values.yaml | Configure a hostPathMount to mount a USB device in the container. |
