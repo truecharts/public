@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:24:11.523Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:24:11.523Z    [34mINFO[0m    Detected config files: 1
 #### calibre-web/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:24:12.326Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:24:12.326Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:24:12.333Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:24:12.326Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:24:12.326Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:24:12.333Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,15 +61,15 @@
 
 **Container: tccr.io/truecharts/calibre-web:version-0.6.12@sha256:3f54c0f7bec8c635f019d88039b986c5fa8951445daf5016b4cdb1118694c612**
 
-2021-12-04T19:24:32.635Z	[34mINFO[0m	Detected OS: ubuntu
-2021-12-04T19:24:32.635Z	[34mINFO[0m	Detecting Ubuntu vulnerabilities...
-2021-12-04T19:24:32.641Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:24:32.641Z	[34mINFO[0m	Detecting python-pkg vulnerabilities...
+2021-12-04T19:24:32.635Z    [34mINFO[0m    Detected OS: ubuntu
+2021-12-04T19:24:32.635Z    [34mINFO[0m    Detecting Ubuntu vulnerabilities...
+2021-12-04T19:24:32.641Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:24:32.641Z    [34mINFO[0m    Detecting python-pkg vulnerabilities...
 #### tccr.io/truecharts/calibre-web:version-0.6.12@sha256:3f54c0f7bec8c635f019d88039b986c5fa8951445daf5016b4cdb1118694c612 (ubuntu 20.04)
-    
+
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  5.0-6ubuntu1.1 |  | <details><summary>Click to expand!</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -245,11 +245,10 @@
 | xdg-user-dirs         |    CVE-2017-15131   |   LOW  |  0.17-2ubuntu1 |  | <details><summary>Click to expand!</summary><a href="http://bugs.freedesktop.org/show_bug.cgi?id=102303">http://bugs.freedesktop.org/show_bug.cgi?id=102303</a><br><a href="https://access.redhat.com/errata/RHSA-2018:0842">https://access.redhat.com/errata/RHSA-2018:0842</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1412762">https://bugzilla.redhat.com/show_bug.cgi?id=1412762</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15131">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15131</a><br><a href="https://linux.oracle.com/cve/CVE-2017-15131.html">https://linux.oracle.com/cve/CVE-2017-15131.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2018-0842.html">https://linux.oracle.com/errata/ELSA-2018-0842.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br></details>  |
 **python-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | SQLAlchemy-Utils         |    pyup.io-42194   |   UNKNOWN  |  0.37.8 |  | <details><summary>Click to expand!</summary></details>  |
 | Werkzeug         |    pyup.io-42050   |   UNKNOWN  |  1.0.1 | 2.0.2 | <details><summary>Click to expand!</summary></details>  |
 | python-ldap         |    GHSA-r8wq-qrxc-hmcm   |   MEDIUM  |  3.3.1 | 3.4.0 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-r8wq-qrxc-hmcm">https://github.com/advisories/GHSA-r8wq-qrxc-hmcm</a><br><a href="https://github.com/python-ldap/python-ldap/issues/424">https://github.com/python-ldap/python-ldap/issues/424</a><br><a href="https://github.com/python-ldap/python-ldap/security/advisories/GHSA-r8wq-qrxc-hmcm">https://github.com/python-ldap/python-ldap/security/advisories/GHSA-r8wq-qrxc-hmcm</a><br></details>  |
 | urllib3         |    CVE-2021-33503   |   HIGH  |  1.25.11 | 1.26.5 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33503">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33503</a><br><a href="https://github.com/advisories/GHSA-q2q7-5pp4-w6pg">https://github.com/advisories/GHSA-q2q7-5pp4-w6pg</a><br><a href="https://github.com/urllib3/urllib3/commit/2d4a3fee6de2fa45eb82169361918f759269b4ec">https://github.com/urllib3/urllib3/commit/2d4a3fee6de2fa45eb82169361918f759269b4ec</a><br><a href="https://github.com/urllib3/urllib3/security/advisories/GHSA-q2q7-5pp4-w6pg">https://github.com/urllib3/urllib3/security/advisories/GHSA-q2q7-5pp4-w6pg</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6SCV7ZNAHS3E6PBFLJGENCDRDRWRZZ6W/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6SCV7ZNAHS3E6PBFLJGENCDRDRWRZZ6W/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/FMUGWEAUYGGHTPPXT6YBD53WYXQGVV73/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/FMUGWEAUYGGHTPPXT6YBD53WYXQGVV73/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-33503">https://nvd.nist.gov/vuln/detail/CVE-2021-33503</a><br><a href="https://security.gentoo.org/glsa/202107-36">https://security.gentoo.org/glsa/202107-36</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br></details>  |
-

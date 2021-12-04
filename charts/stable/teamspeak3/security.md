@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:58:38.915Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:58:38.915Z    [34mINFO[0m    Detected config files: 1
 #### teamspeak3/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:58:43.063Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:58:43.063Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:58:43.071Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:58:43.063Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:58:43.063Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:58:43.071Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,16 +61,15 @@
 
 **Container: tccr.io/truecharts/teamspeak:v3.13.6@sha256:24acbeffda16a22105e06d60286e1c93d148c8467177feaf760bbe1ef3b9654c**
 
-2021-12-04T19:58:47.002Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:58:47.002Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:58:47.004Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:58:47.002Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:58:47.002Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:58:47.004Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/teamspeak:v3.13.6@sha256:24acbeffda16a22105e06d60286e1c93d148c8467177feaf760bbe1ef3b9654c (alpine 3.13.7)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | libpq         |    CVE-2021-23214   |   HIGH  |  13.4-r0 | 13.5-r0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23214">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23214</a><br><a href="https://ubuntu.com/security/notices/USN-5145-1">https://ubuntu.com/security/notices/USN-5145-1</a><br><a href="https://www.postgresql.org/about/news/postgresql-141-135-129-1114-1019-and-9624-released-2349/">https://www.postgresql.org/about/news/postgresql-141-135-129-1114-1019-and-9624-released-2349/</a><br></details>  |
 | libpq         |    CVE-2021-23222   |   LOW  |  13.4-r0 | 13.5-r0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23222">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-23222</a><br><a href="https://ubuntu.com/security/notices/USN-5145-1">https://ubuntu.com/security/notices/USN-5145-1</a><br><a href="https://www.postgresql.org/about/news/postgresql-141-135-129-1114-1019-and-9624-released-2349/">https://www.postgresql.org/about/news/postgresql-141-135-129-1114-1019-and-9624-released-2349/</a><br></details>  |
-

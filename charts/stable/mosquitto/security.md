@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:42:58.623Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:42:58.623Z    [34mINFO[0m    Detected config files: 1
 #### mosquitto/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:42:59.848Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:42:59.848Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:42:59.852Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:42:59.848Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:42:59.848Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:42:59.852Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,16 +61,13 @@
 
 **Container: tccr.io/truecharts/eclipse-mosquitto:v2.0.14@sha256:047eb800158878c1bea9e6281e2dc3081b53b61ca10fdca5a17816c6fbe15216**
 
-2021-12-04T19:43:01.308Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:43:01.308Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:43:01.309Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:43:01.308Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:43:01.308Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:43:01.309Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/eclipse-mosquitto:v2.0.14@sha256:047eb800158878c1bea9e6281e2dc3081b53b61ca10fdca5a17816c6fbe15216 (alpine 3.14.3)
-    
+
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:39:10.687Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:39:10.687Z    [34mINFO[0m    Detected config files: 1
 #### komga/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:39:12.816Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:39:12.816Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:39:12.821Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:39:12.816Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:39:12.816Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:39:12.821Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,15 +61,15 @@
 
 **Container: tccr.io/truecharts/komga:v0.134.0@sha256:b38ff9fd6502fe1272adef4d8b0780e3164ed32a4ccac21ada0912a1cc4a16e1**
 
-2021-12-04T19:39:26.642Z	[34mINFO[0m	Detected OS: ubuntu
-2021-12-04T19:39:26.642Z	[34mINFO[0m	Detecting Ubuntu vulnerabilities...
-2021-12-04T19:39:26.646Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:39:26.646Z	[34mINFO[0m	Detecting jar vulnerabilities...
+2021-12-04T19:39:26.642Z    [34mINFO[0m    Detected OS: ubuntu
+2021-12-04T19:39:26.642Z    [34mINFO[0m    Detecting Ubuntu vulnerabilities...
+2021-12-04T19:39:26.646Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:39:26.646Z    [34mINFO[0m    Detecting jar vulnerabilities...
 #### tccr.io/truecharts/komga:v0.134.0@sha256:b38ff9fd6502fe1272adef4d8b0780e3164ed32a4ccac21ada0912a1cc4a16e1 (ubuntu 18.04)
-    
+
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2020-27350   |   MEDIUM  |  1.6.12ubuntu0.1 | 1.6.12ubuntu0.2 | <details><summary>Click to expand!</summary><a href="https://bugs.launchpad.net/bugs/1899193">https://bugs.launchpad.net/bugs/1899193</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350</a><br><a href="https://security.netapp.com/advisory/ntap-20210108-0005/">https://security.netapp.com/advisory/ntap-20210108-0005/</a><br><a href="https://ubuntu.com/security/notices/USN-4667-1">https://ubuntu.com/security/notices/USN-4667-1</a><br><a href="https://ubuntu.com/security/notices/USN-4667-2">https://ubuntu.com/security/notices/USN-4667-2</a><br><a href="https://usn.ubuntu.com/usn/usn-4667-1">https://usn.ubuntu.com/usn/usn-4667-1</a><br><a href="https://www.debian.org/security/2020/dsa-4808">https://www.debian.org/security/2020/dsa-4808</a><br></details>  |
@@ -261,7 +261,7 @@
 | tar         |    CVE-2019-9923   |   LOW  |  1.29b-2ubuntu0.1 | 1.29b-2ubuntu0.2 | <details><summary>Click to expand!</summary><a href="http://git.savannah.gnu.org/cgit/tar.git/commit/?id=cb07844454d8cc9fb21f53ace75975f91185a120">http://git.savannah.gnu.org/cgit/tar.git/commit/?id=cb07844454d8cc9fb21f53ace75975f91185a120</a><br><a href="http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00077.html">http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00077.html</a><br><a href="http://savannah.gnu.org/bugs/?55369">http://savannah.gnu.org/bugs/?55369</a><br><a href="https://bugs.launchpad.net/ubuntu/+source/tar/+bug/1810241">https://bugs.launchpad.net/ubuntu/+source/tar/+bug/1810241</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9923">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9923</a><br><a href="https://lists.apache.org/thread.html/r58af02e294bd07f487e2c64ffc0a29b837db5600e33b6e698b9d696b@%3Cissues.bookkeeper.apache.org%3E">https://lists.apache.org/thread.html/r58af02e294bd07f487e2c64ffc0a29b837db5600e33b6e698b9d696b@%3Cissues.bookkeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rf4c02775860db415b4955778a131c2795223f61cb8c6a450893651e4@%3Cissues.bookkeeper.apache.org%3E">https://lists.apache.org/thread.html/rf4c02775860db415b4955778a131c2795223f61cb8c6a450893651e4@%3Cissues.bookkeeper.apache.org%3E</a><br><a href="https://ubuntu.com/security/notices/USN-4692-1">https://ubuntu.com/security/notices/USN-4692-1</a><br></details>  |
 **jar**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | org.apache.activemq:artemis-server         |    CVE-2020-13947   |   MEDIUM  |  2.17.0 |  | <details><summary>Click to expand!</summary><a href="http://activemq.apache.org/security-advisories.data/CVE-2020-13947-announcement.txt">http://activemq.apache.org/security-advisories.data/CVE-2020-13947-announcement.txt</a><br><a href="https://lists.apache.org/thread.html/r021c490028f61c8b6f7e38efb98e61693b0cbb6b99b02238c6fc7d66@%3Ccommits.activemq.apache.org%3E">https://lists.apache.org/thread.html/r021c490028f61c8b6f7e38efb98e61693b0cbb6b99b02238c6fc7d66@%3Ccommits.activemq.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/ra66791f1f2b59fa651a81cec5202acdfbf34c2154fc0ff200301cc1c@%3Cdev.activemq.apache.org%3E">https://lists.apache.org/thread.html/ra66791f1f2b59fa651a81cec5202acdfbf34c2154fc0ff200301cc1c@%3Cdev.activemq.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/ra66791f1f2b59fa651a81cec5202acdfbf34c2154fc0ff200301cc1c@%3Cusers.activemq.apache.org%3E">https://lists.apache.org/thread.html/ra66791f1f2b59fa651a81cec5202acdfbf34c2154fc0ff200301cc1c@%3Cusers.activemq.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-13947">https://nvd.nist.gov/vuln/detail/CVE-2020-13947</a><br><a href="https://www.oracle.com/security-alerts/cpuApr2021.html">https://www.oracle.com/security-alerts/cpuApr2021.html</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br></details>  |
@@ -275,4 +275,3 @@
 | org.jsoup:jsoup         |    CVE-2021-37714   |   HIGH  |  1.13.1 | 1.14.2 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-m72m-mhq2-9p6c">https://github.com/advisories/GHSA-m72m-mhq2-9p6c</a><br><a href="https://github.com/jhy/jsoup/security/advisories/GHSA-m72m-mhq2-9p6c">https://github.com/jhy/jsoup/security/advisories/GHSA-m72m-mhq2-9p6c</a><br><a href="https://jsoup.org/news/release-1.14.1">https://jsoup.org/news/release-1.14.1</a><br><a href="https://jsoup.org/news/release-1.14.2">https://jsoup.org/news/release-1.14.2</a><br><a href="https://lists.apache.org/thread.html/r215009dbf7467a9f6506d0c0024cb36cad30071010e62c9352cfaaf0@%3Cissues.maven.apache.org%3E">https://lists.apache.org/thread.html/r215009dbf7467a9f6506d0c0024cb36cad30071010e62c9352cfaaf0@%3Cissues.maven.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r377b93d79817ce649e9e68b3456e6f499747ef1643fa987b342e082e@%3Cissues.maven.apache.org%3E">https://lists.apache.org/thread.html/r377b93d79817ce649e9e68b3456e6f499747ef1643fa987b342e082e@%3Cissues.maven.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r3d71f18adb78e50f626dde689161ca63d3b7491bd9718fcddfaecba7@%3Cissues.maven.apache.org%3E">https://lists.apache.org/thread.html/r3d71f18adb78e50f626dde689161ca63d3b7491bd9718fcddfaecba7@%3Cissues.maven.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r50e9c9466c592ca9d707a5dea549524d19e3287da08d8392f643960e@%3Cissues.maven.apache.org%3E">https://lists.apache.org/thread.html/r50e9c9466c592ca9d707a5dea549524d19e3287da08d8392f643960e@%3Cissues.maven.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r685c5235235ad0c26e86d0ee987fb802c9675de6081dbf0516464e0b@%3Cnotifications.james.apache.org%3E">https://lists.apache.org/thread.html/r685c5235235ad0c26e86d0ee987fb802c9675de6081dbf0516464e0b@%3Cnotifications.james.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r97404676a5cf591988faedb887d64e278f522adcaa823d89ca69defe@%3Cnotifications.james.apache.org%3E">https://lists.apache.org/thread.html/r97404676a5cf591988faedb887d64e278f522adcaa823d89ca69defe@%3Cnotifications.james.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rc3354080fc67fb50b45b3c2d12dc4ca2a3c1c78dad3d3ba012c038aa@%3Cnotifications.james.apache.org%3E">https://lists.apache.org/thread.html/rc3354080fc67fb50b45b3c2d12dc4ca2a3c1c78dad3d3ba012c038aa@%3Cnotifications.james.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-37714">https://nvd.nist.gov/vuln/detail/CVE-2021-37714</a><br></details>  |
 | org.springframework.data:spring-data-rest-core         |    CVE-2021-22047   |   MEDIUM  |  3.5.5 | 3.4.14, 3.5.6 | <details><summary>Click to expand!</summary><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-22047">https://nvd.nist.gov/vuln/detail/CVE-2021-22047</a><br><a href="https://tanzu.vmware.com/security/cve-2021-22047">https://tanzu.vmware.com/security/cve-2021-22047</a><br></details>  |
 | org.thymeleaf:thymeleaf-spring5         |    CVE-2021-43466   |   CRITICAL  |  3.0.12.RELEASE |  | <details><summary>Click to expand!</summary><a href="https://gitee.com/wayne_wwang/wayne_wwang/blob/master/2021/10/31/ruoyi+thymeleaf-rce/index.html">https://gitee.com/wayne_wwang/wayne_wwang/blob/master/2021/10/31/ruoyi+thymeleaf-rce/index.html</a><br><a href="https://github.com/advisories/GHSA-qcj6-jqrg-4wp2">https://github.com/advisories/GHSA-qcj6-jqrg-4wp2</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-43466">https://nvd.nist.gov/vuln/detail/CVE-2021-43466</a><br></details>  |
-

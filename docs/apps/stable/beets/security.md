@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:23:37.846Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:23:37.846Z    [34mINFO[0m    Detected config files: 1
 #### beets/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:23:39.006Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:23:39.006Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:23:39.013Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:23:39.006Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:23:39.006Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:23:39.013Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,14 +61,13 @@
 
 **Container: tccr.io/truecharts/beets:v1.5.0@sha256:031e2eec738848149e808eb102279817aa3fea8e57d012191daf1c471de07703**
 
-2021-12-04T19:23:47.194Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:23:47.194Z	[34mINFO[0m	Detecting python-pkg vulnerabilities...
+2021-12-04T19:23:47.194Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:23:47.194Z    [34mINFO[0m    Detecting python-pkg vulnerabilities...
 #### Python
-    
+
 **python-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | beets         |    pyup.io-42892   |   UNKNOWN  |  1.5.0 | 1.6.0 | <details><summary>Click to expand!</summary></details>  |
-

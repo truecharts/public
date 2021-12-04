@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:57:23.328Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:57:23.328Z    [34mINFO[0m    Detected config files: 1
 #### stash/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:57:24.345Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:57:24.345Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:57:24.360Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:57:24.345Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:57:24.345Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:57:24.360Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,32 +61,29 @@
 
 **Container: tccr.io/truecharts/stash:v0.11.0@sha256:8ce5c582a35c7ad8db0ef9e0bcfeb03bccfa1bc7e8432f36ec572f8e5a2fc97d**
 
-2021-12-04T19:57:32.061Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:57:32.061Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:57:32.084Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-04T19:57:32.084Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
-2021-12-04T19:57:32.085Z	[34mINFO[0m	Detecting python-pkg vulnerabilities...
+2021-12-04T19:57:32.061Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:57:32.061Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:57:32.084Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-04T19:57:32.084Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
+2021-12-04T19:57:32.085Z    [34mINFO[0m    Detecting python-pkg vulnerabilities...
 #### tccr.io/truecharts/stash:v0.11.0@sha256:8ce5c582a35c7ad8db0ef9e0bcfeb03bccfa1bc7e8432f36ec572f8e5a2fc97d (alpine 3.14.3)
-    
+
 **alpine**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **python-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

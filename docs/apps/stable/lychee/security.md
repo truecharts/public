@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:41:25.342Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:41:25.342Z    [34mINFO[0m    Detected config files: 1
 #### lychee/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:41:26.619Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:41:26.619Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:41:26.626Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:41:26.619Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:41:26.619Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:41:26.626Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,15 +61,15 @@
 
 **Container: tccr.io/truecharts/lychee-laravel:v4.3.6@sha256:4bed7b11de627f40477b8865869cd757610969dcecbafaa1a1aac4ea1e8ae1bf**
 
-2021-12-04T19:41:39.790Z	[34mINFO[0m	Detected OS: debian
-2021-12-04T19:41:39.790Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-04T19:41:39.889Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:41:39.889Z	[34mINFO[0m	Detecting composer vulnerabilities...
+2021-12-04T19:41:39.790Z    [34mINFO[0m    Detected OS: debian
+2021-12-04T19:41:39.790Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-04T19:41:39.889Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:41:39.889Z    [34mINFO[0m    Detecting composer vulnerabilities...
 #### tccr.io/truecharts/lychee-laravel:v4.3.6@sha256:4bed7b11de627f40477b8865869cd757610969dcecbafaa1a1aac4ea1e8ae1bf (debian 11.1)
-    
+
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  2.2.4 |  | <details><summary>Click to expand!</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -342,8 +342,7 @@
 | xdg-user-dirs         |    CVE-2017-15131   |   LOW  |  0.17-2 |  | <details><summary>Click to expand!</summary><a href="http://bugs.freedesktop.org/show_bug.cgi?id=102303">http://bugs.freedesktop.org/show_bug.cgi?id=102303</a><br><a href="https://access.redhat.com/errata/RHSA-2018:0842">https://access.redhat.com/errata/RHSA-2018:0842</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1412762">https://bugzilla.redhat.com/show_bug.cgi?id=1412762</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15131">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-15131</a><br><a href="https://linux.oracle.com/cve/CVE-2017-15131.html">https://linux.oracle.com/cve/CVE-2017-15131.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2018-0842.html">https://linux.oracle.com/errata/ELSA-2018-0842.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br></details>  |
 **composer**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | symfony/http-kernel         |    CVE-2021-41267   |   MEDIUM  |  v5.2.9 | 5.3.0, 5.3.12 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-q3j3-w37x-hq2q">https://github.com/advisories/GHSA-q3j3-w37x-hq2q</a><br><a href="https://github.com/symfony/symfony/commit/95dcf51682029e89450aee86267e3d553aa7c487">https://github.com/symfony/symfony/commit/95dcf51682029e89450aee86267e3d553aa7c487</a><br><a href="https://github.com/symfony/symfony/pull/44243">https://github.com/symfony/symfony/pull/44243</a><br><a href="https://github.com/symfony/symfony/releases/tag/v5.3.12">https://github.com/symfony/symfony/releases/tag/v5.3.12</a><br><a href="https://github.com/symfony/symfony/security/advisories/GHSA-q3j3-w37x-hq2q">https://github.com/symfony/symfony/security/advisories/GHSA-q3j3-w37x-hq2q</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41267">https://nvd.nist.gov/vuln/detail/CVE-2021-41267</a><br><a href="https://symfony.com/cve-2021-41267">https://symfony.com/cve-2021-41267</a><br></details>  |
-

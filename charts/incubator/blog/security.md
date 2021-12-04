@@ -4,23 +4,23 @@
 
 ##### Scan Results
 
-2021-12-04T19:16:28.296Z	[34mINFO[0m	Detected config files: 2
+2021-12-04T19:16:28.296Z    [34mINFO[0m    Detected config files: 2
 #### blog/charts/postgresql/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -36,14 +36,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:16:29.195Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:16:29.195Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:16:29.203Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:16:29.195Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:16:29.195Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:16:29.203Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -71,16 +71,16 @@
 
 **Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4**
 
-2021-12-04T19:16:36.250Z	[34mINFO[0m	Detected OS: debian
-2021-12-04T19:16:36.253Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-04T19:16:36.324Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-04T19:16:36.324Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
-2021-12-04T19:16:36.324Z	[34mINFO[0m	Detecting jar vulnerabilities...
+2021-12-04T19:16:36.250Z    [34mINFO[0m    Detected OS: debian
+2021-12-04T19:16:36.253Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-04T19:16:36.324Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-04T19:16:36.324Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
+2021-12-04T19:16:36.324Z    [34mINFO[0m    Detecting jar vulnerabilities...
 #### tccr.io/truecharts/postgresql:v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4 (debian 10.11)
-    
+
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Click to expand!</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -275,29 +275,29 @@
 | util-linux         |    CVE-2021-37600   |   LOW  |  2.33.1-0.1 |  | <details><summary>Click to expand!</summary><a href="https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c">https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c</a><br><a href="https://github.com/karelzak/util-linux/issues/1395">https://github.com/karelzak/util-linux/issues/1395</a><br><a href="https://security.netapp.com/advisory/ntap-20210902-0002/">https://security.netapp.com/advisory/ntap-20210902-0002/</a><br></details>  |
 **jar**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **Container: tccr.io/truecharts/blog:latest@sha256:22871bf5fcf28e31ca4389e7fff6c44978f4eed9c106fba6e862fe165e649cb0**
 
-2021-12-04T19:16:49.078Z	[34mINFO[0m	Detected OS: debian
-2021-12-04T19:16:49.078Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-04T19:16:49.239Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:16:49.078Z    [34mINFO[0m    Detected OS: debian
+2021-12-04T19:16:49.078Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-04T19:16:49.239Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/blog:latest@sha256:22871bf5fcf28e31ca4389e7fff6c44978f4eed9c106fba6e862fe165e649cb0 (debian 11.1)
-    
+
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apache2         |    CVE-2001-1534   |   LOW  |  2.4.51-1~deb11u1 |  | <details><summary>Click to expand!</summary><a href="http://cert.uni-stuttgart.de/archive/bugtraq/2001/11/msg00084.html">http://cert.uni-stuttgart.de/archive/bugtraq/2001/11/msg00084.html</a><br><a href="http://www.iss.net/security_center/static/7494.php">http://www.iss.net/security_center/static/7494.php</a><br><a href="http://www.securityfocus.com/bid/3521">http://www.securityfocus.com/bid/3521</a><br></details>  |
@@ -647,14 +647,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:16:50.219Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:16:50.219Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:16:50.228Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:16:50.219Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:16:50.219Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:16:50.228Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -682,16 +682,16 @@
 
 **Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4**
 
-2021-12-04T19:16:51.035Z	[34mINFO[0m	Detected OS: debian
-2021-12-04T19:16:51.035Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-04T19:16:51.096Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-04T19:16:51.098Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
-2021-12-04T19:16:51.098Z	[34mINFO[0m	Detecting jar vulnerabilities...
+2021-12-04T19:16:51.035Z    [34mINFO[0m    Detected OS: debian
+2021-12-04T19:16:51.035Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-04T19:16:51.096Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-04T19:16:51.098Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
+2021-12-04T19:16:51.098Z    [34mINFO[0m    Detecting jar vulnerabilities...
 #### tccr.io/truecharts/postgresql:v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4 (debian 10.11)
-    
+
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Click to expand!</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -886,16 +886,13 @@
 | util-linux         |    CVE-2021-37600   |   LOW  |  2.33.1-0.1 |  | <details><summary>Click to expand!</summary><a href="https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c">https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c</a><br><a href="https://github.com/karelzak/util-linux/issues/1395">https://github.com/karelzak/util-linux/issues/1395</a><br><a href="https://security.netapp.com/advisory/ntap-20210902-0002/">https://security.netapp.com/advisory/ntap-20210902-0002/</a><br></details>  |
 **jar**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

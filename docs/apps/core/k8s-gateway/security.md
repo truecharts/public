@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:15:36.224Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:15:36.224Z    [34mINFO[0m    Detected config files: 1
 #### k8s-gateway/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:15:41.635Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:15:41.635Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:15:41.643Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:15:41.635Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:15:41.635Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:15:41.643Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,14 +61,13 @@
 
 **Container: tccr.io/truecharts/k8s_gateway:v0.1.8@sha256:c71ea11938d6c93b0af6f25230810ec13c7d28b29dfb8512adc6d1def7f200b6**
 
-2021-12-04T19:15:44.065Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:15:44.065Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
+2021-12-04T19:15:44.065Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:15:44.065Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
 #### coredns
-    
+
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | go.etcd.io/etcd         |    CVE-2020-15106   |   MEDIUM  |  v0.5.0-alpha.5.0.20200306183522-221f0cc107cb | v0.5.0-alpha.5.0.20200423152442-f4b650b51dc4 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15106">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15106</a><br><a href="https://github.com/etcd-io/etcd/security/advisories/GHSA-p4g4-wgrh-qrg2">https://github.com/etcd-io/etcd/security/advisories/GHSA-p4g4-wgrh-qrg2</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/L6B6R43Y7M3DCHWK3L3UVGE2K6WWECMP/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/L6B6R43Y7M3DCHWK3L3UVGE2K6WWECMP/</a><br></details>  |
-

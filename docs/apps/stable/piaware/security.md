@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:50:32.785Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:50:32.785Z    [34mINFO[0m    Detected config files: 1
 #### piaware/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:50:35.144Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:50:35.144Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:50:35.149Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:50:35.144Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:50:35.144Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:50:35.149Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,15 +61,15 @@
 
 **Container: tccr.io/truecharts/piaware:v6.1@sha256:89938418a62cd3b4bed5e556fb64443f9e0cb9f14bbf41777c09b04f2f1e4f8a**
 
-2021-12-04T19:50:42.077Z	[34mINFO[0m	Detected OS: debian
-2021-12-04T19:50:42.077Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-04T19:50:42.098Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:50:42.098Z	[34mINFO[0m	Detecting python-pkg vulnerabilities...
+2021-12-04T19:50:42.077Z    [34mINFO[0m    Detected OS: debian
+2021-12-04T19:50:42.077Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-04T19:50:42.098Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:50:42.098Z    [34mINFO[0m    Detecting python-pkg vulnerabilities...
 #### tccr.io/truecharts/piaware:v6.1@sha256:89938418a62cd3b4bed5e556fb64443f9e0cb9f14bbf41777c09b04f2f1e4f8a (debian 10.11)
-    
+
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Click to expand!</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -240,9 +240,6 @@
 | util-linux         |    CVE-2021-37600   |   LOW  |  2.33.1-0.1 |  | <details><summary>Click to expand!</summary><a href="https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c">https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c</a><br><a href="https://github.com/karelzak/util-linux/issues/1395">https://github.com/karelzak/util-linux/issues/1395</a><br><a href="https://security.netapp.com/advisory/ntap-20210902-0002/">https://security.netapp.com/advisory/ntap-20210902-0002/</a><br></details>  |
 **python-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

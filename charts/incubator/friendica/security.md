@@ -4,23 +4,23 @@
 
 ##### Scan Results
 
-2021-12-04T19:17:38.802Z	[34mINFO[0m	Detected config files: 2
+2021-12-04T19:17:38.802Z    [34mINFO[0m    Detected config files: 2
 #### friendica/charts/mariadb/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -35,14 +35,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:17:39.584Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:17:39.584Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:17:39.591Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:17:39.584Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:17:39.584Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:17:39.591Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -70,17 +70,17 @@
 
 **Container: tccr.io/truecharts/friendica:v2021.09@sha256:593f97fbe798f2b73e5129717dd178318b2448942de540e49ba9649bac1ef4c3**
 
-2021-12-04T19:17:55.180Z	[34mINFO[0m	Detected OS: debian
-2021-12-04T19:17:55.180Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-04T19:17:55.302Z	[34mINFO[0m	Number of language-specific files: 8
-2021-12-04T19:17:55.302Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
-2021-12-04T19:17:55.302Z	[34mINFO[0m	Detecting composer vulnerabilities...
-2021-12-04T19:17:55.303Z	[34mINFO[0m	Detecting node-pkg vulnerabilities...
+2021-12-04T19:17:55.180Z    [34mINFO[0m    Detected OS: debian
+2021-12-04T19:17:55.180Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-04T19:17:55.302Z    [34mINFO[0m    Number of language-specific files: 8
+2021-12-04T19:17:55.302Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
+2021-12-04T19:17:55.302Z    [34mINFO[0m    Detecting composer vulnerabilities...
+2021-12-04T19:17:55.303Z    [34mINFO[0m    Detecting node-pkg vulnerabilities...
 #### tccr.io/truecharts/friendica:v2021.09@sha256:593f97fbe798f2b73e5129717dd178318b2448942de540e49ba9649bac1ef4c3 (debian 10.11)
-    
+
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apache2         |    CVE-2021-33193   |   HIGH  |  2.4.38-3+deb10u6 |  | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33193">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33193</a><br><a href="https://github.com/apache/httpd/commit/ecebcc035ccd8d0e2984fe41420d9e944f456b3c.patch">https://github.com/apache/httpd/commit/ecebcc035ccd8d0e2984fe41420d9e944f456b3c.patch</a><br><a href="https://lists.apache.org/thread.html/re4162adc051c1a0a79e7a24093f3776373e8733abaff57253fef341d@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/re4162adc051c1a0a79e7a24093f3776373e8733abaff57253fef341d@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/ree7519d71415ecdd170ff1889cab552d71758d2ba2904a17ded21a70@%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/ree7519d71415ecdd170ff1889cab552d71758d2ba2904a17ded21a70@%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DSM6UWQICBJ2TU727RENU3HBKEAFLT6T/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DSM6UWQICBJ2TU727RENU3HBKEAFLT6T/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/EUVJVRJRBW5QVX4OY3NOHZDQ3B3YOTSG/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/EUVJVRJRBW5QVX4OY3NOHZDQ3B3YOTSG/</a><br><a href="https://portswigger.net/research/http2">https://portswigger.net/research/http2</a><br><a href="https://security.netapp.com/advisory/ntap-20210917-0004/">https://security.netapp.com/advisory/ntap-20210917-0004/</a><br><a href="https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-httpd-2.4.49-VWL69sWQ">https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-apache-httpd-2.4.49-VWL69sWQ</a><br><a href="https://ubuntu.com/security/notices/USN-5090-1">https://ubuntu.com/security/notices/USN-5090-1</a><br><a href="https://www.tenable.com/security/tns-2021-17">https://www.tenable.com/security/tns-2021-17</a><br></details>  |
@@ -933,7 +933,7 @@
 | util-linux         |    CVE-2021-37600   |   LOW  |  2.33.1-0.1 |  | <details><summary>Click to expand!</summary><a href="https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c">https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c</a><br><a href="https://github.com/karelzak/util-linux/issues/1395">https://github.com/karelzak/util-linux/issues/1395</a><br><a href="https://security.netapp.com/advisory/ntap-20210902-0002/">https://security.netapp.com/advisory/ntap-20210902-0002/</a><br></details>  |
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | dompurify         |    GHSA-mjjq-c88q-qhr6   |   CRITICAL  |  1.0.11 | 2.0.7 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-mjjq-c88q-qhr6">https://github.com/advisories/GHSA-mjjq-c88q-qhr6</a><br><a href="https://github.com/cure53/DOMPurify/releases/tag/2.0.7">https://github.com/cure53/DOMPurify/releases/tag/2.0.7</a><br><a href="https://www.npmjs.com/advisories/1223">https://www.npmjs.com/advisories/1223</a><br></details>  |
@@ -947,63 +947,63 @@
 | jquery         |    CVE-2020-11023   |   MEDIUM  |  2.2.4 | 3.5.0 | <details><summary>Click to expand!</summary><a href="http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00067.html">http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00067.html</a><br><a href="http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00085.html">http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00085.html</a><br><a href="http://lists.opensuse.org/opensuse-security-announce/2020-11/msg00039.html">http://lists.opensuse.org/opensuse-security-announce/2020-11/msg00039.html</a><br><a href="http://packetstormsecurity.com/files/162160/jQuery-1.0.3-Cross-Site-Scripting.html">http://packetstormsecurity.com/files/162160/jQuery-1.0.3-Cross-Site-Scripting.html</a><br><a href="https://blog.jquery.com/2020/04/10/jquery-3-5-0-released">https://blog.jquery.com/2020/04/10/jquery-3-5-0-released</a><br><a href="https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/">https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11023">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11023</a><br><a href="https://github.com/advisories/GHSA-jpcq-cgw6-v4j6">https://github.com/advisories/GHSA-jpcq-cgw6-v4j6</a><br><a href="https://github.com/jquery/jquery/releases/tag/3.5.0">https://github.com/jquery/jquery/releases/tag/3.5.0</a><br><a href="https://github.com/jquery/jquery/security/advisories/GHSA-jpcq-cgw6-v4j6">https://github.com/jquery/jquery/security/advisories/GHSA-jpcq-cgw6-v4j6</a><br><a href="https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#440">https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#440</a><br><a href="https://jquery.com/upgrade-guide/3.5/">https://jquery.com/upgrade-guide/3.5/</a><br><a href="https://linux.oracle.com/cve/CVE-2020-11023.html">https://linux.oracle.com/cve/CVE-2020-11023.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-9552.html">https://linux.oracle.com/errata/ELSA-2021-9552.html</a><br><a href="https://lists.apache.org/thread.html/r0483ba0072783c2e1bfea613984bfb3c86e73ba8879d780dc1cc7d36@%3Cissues.flink.apache.org%3E">https://lists.apache.org/thread.html/r0483ba0072783c2e1bfea613984bfb3c86e73ba8879d780dc1cc7d36@%3Cissues.flink.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r0593393ca1e97b1e7e098fe69d414d6bd0a467148e9138d07e86ebbb@%3Cissues.hive.apache.org%3E">https://lists.apache.org/thread.html/r0593393ca1e97b1e7e098fe69d414d6bd0a467148e9138d07e86ebbb@%3Cissues.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r07ab379471fb15644bf7a92e4a98cbc7df3cf4e736abae0cc7625fe6@%3Cdev.felix.apache.org%3E">https://lists.apache.org/thread.html/r07ab379471fb15644bf7a92e4a98cbc7df3cf4e736abae0cc7625fe6@%3Cdev.felix.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r094f435595582f6b5b24b66fedf80543aa8b1d57a3688fbcc21f06ec@%3Cissues.hive.apache.org%3E">https://lists.apache.org/thread.html/r094f435595582f6b5b24b66fedf80543aa8b1d57a3688fbcc21f06ec@%3Cissues.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r1fed19c860a0d470f2a3eded12795772c8651ff583ef951ddac4918c@%3Cgitbox.hive.apache.org%3E">https://lists.apache.org/thread.html/r1fed19c860a0d470f2a3eded12795772c8651ff583ef951ddac4918c@%3Cgitbox.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r2c85121a47442036c7f8353a3724aa04f8ecdfda1819d311ba4f5330@%3Cdev.felix.apache.org%3E">https://lists.apache.org/thread.html/r2c85121a47442036c7f8353a3724aa04f8ecdfda1819d311ba4f5330@%3Cdev.felix.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r3702ede0ff83a29ba3eb418f6f11c473d6e3736baba981a8dbd9c9ef@%3Cdev.felix.apache.org%3E">https://lists.apache.org/thread.html/r3702ede0ff83a29ba3eb418f6f11c473d6e3736baba981a8dbd9c9ef@%3Cdev.felix.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r49ce4243b4738dd763caeb27fa8ad6afb426ae3e8c011ff00b8b1f48@%3Cissues.flink.apache.org%3E">https://lists.apache.org/thread.html/r49ce4243b4738dd763caeb27fa8ad6afb426ae3e8c011ff00b8b1f48@%3Cissues.flink.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r4aadb98086ca72ed75391f54167522d91489a0d0ae25b12baa8fc7c5@%3Cissues.hive.apache.org%3E">https://lists.apache.org/thread.html/r4aadb98086ca72ed75391f54167522d91489a0d0ae25b12baa8fc7c5@%3Cissues.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r4dba67be3239b34861f1b9cfdf9dfb3a90272585dcce374112ed6e16@%3Cdev.felix.apache.org%3E">https://lists.apache.org/thread.html/r4dba67be3239b34861f1b9cfdf9dfb3a90272585dcce374112ed6e16@%3Cdev.felix.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r54565a8f025c7c4f305355fdfd75b68eca442eebdb5f31c2e7d977ae@%3Cissues.flink.apache.org%3E">https://lists.apache.org/thread.html/r54565a8f025c7c4f305355fdfd75b68eca442eebdb5f31c2e7d977ae@%3Cissues.flink.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r55f5e066cc7301e3630ce90bbbf8d28c82212ae1f2d4871012141494@%3Cdev.felix.apache.org%3E">https://lists.apache.org/thread.html/r55f5e066cc7301e3630ce90bbbf8d28c82212ae1f2d4871012141494@%3Cdev.felix.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r564585d97bc069137e64f521e68ba490c7c9c5b342df5d73c49a0760@%3Cissues.flink.apache.org%3E">https://lists.apache.org/thread.html/r564585d97bc069137e64f521e68ba490c7c9c5b342df5d73c49a0760@%3Cissues.flink.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r6c4df3b33e625a44471009a172dabe6865faec8d8f21cac2303463b1@%3Cissues.hive.apache.org%3E">https://lists.apache.org/thread.html/r6c4df3b33e625a44471009a172dabe6865faec8d8f21cac2303463b1@%3Cissues.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r6e97b37963926f6059ecc1e417721608723a807a76af41d4e9dbed49@%3Cissues.hive.apache.org%3E">https://lists.apache.org/thread.html/r6e97b37963926f6059ecc1e417721608723a807a76af41d4e9dbed49@%3Cissues.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r706cfbc098420f7113968cc377247ec3d1439bce42e679c11c609e2d@%3Cissues.flink.apache.org%3E">https://lists.apache.org/thread.html/r706cfbc098420f7113968cc377247ec3d1439bce42e679c11c609e2d@%3Cissues.flink.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r8f70b0f65d6bedf316ecd899371fd89e65333bc988f6326d2956735c@%3Cissues.flink.apache.org%3E">https://lists.apache.org/thread.html/r8f70b0f65d6bedf316ecd899371fd89e65333bc988f6326d2956735c@%3Cissues.flink.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r9006ad2abf81d02a0ef2126bab5177987e59095b7194a487c4ea247c@%3Ccommits.felix.apache.org%3E">https://lists.apache.org/thread.html/r9006ad2abf81d02a0ef2126bab5177987e59095b7194a487c4ea247c@%3Ccommits.felix.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r9c5fda81e4bca8daee305b4c03283dddb383ab8428a151d4cb0b3b15@%3Cissues.hive.apache.org%3E">https://lists.apache.org/thread.html/r9c5fda81e4bca8daee305b4c03283dddb383ab8428a151d4cb0b3b15@%3Cissues.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r9e0bd31b7da9e7403478d22652b8760c946861f8ebd7bd750844898e@%3Cdev.felix.apache.org%3E">https://lists.apache.org/thread.html/r9e0bd31b7da9e7403478d22652b8760c946861f8ebd7bd750844898e@%3Cdev.felix.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/ra32c7103ded9041c7c1cb8c12c8d125a6b2f3f3270e2937ef8417fac@%3Cgitbox.hive.apache.org%3E">https://lists.apache.org/thread.html/ra32c7103ded9041c7c1cb8c12c8d125a6b2f3f3270e2937ef8417fac@%3Cgitbox.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/ra374bb0299b4aa3e04edde01ebc03ed6f90cf614dad40dd428ce8f72@%3Cgitbox.hive.apache.org%3E">https://lists.apache.org/thread.html/ra374bb0299b4aa3e04edde01ebc03ed6f90cf614dad40dd428ce8f72@%3Cgitbox.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/ra3c9219fcb0b289e18e9ec5a5ebeaa5c17d6b79a201667675af6721c@%3Cgitbox.hive.apache.org%3E">https://lists.apache.org/thread.html/ra3c9219fcb0b289e18e9ec5a5ebeaa5c17d6b79a201667675af6721c@%3Cgitbox.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/ra406b3adfcffcb5ce8707013bdb7c35e3ffc2776a8a99022f15274c6@%3Cissues.hive.apache.org%3E">https://lists.apache.org/thread.html/ra406b3adfcffcb5ce8707013bdb7c35e3ffc2776a8a99022f15274c6@%3Cissues.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rab82dd040f302018c85bd07d33f5604113573514895ada523c3401d9@%3Ccommits.hive.apache.org%3E">https://lists.apache.org/thread.html/rab82dd040f302018c85bd07d33f5604113573514895ada523c3401d9@%3Ccommits.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/radcb2aa874a79647789f3563fcbbceaf1045a029ee8806b59812a8ea@%3Cissues.hive.apache.org%3E">https://lists.apache.org/thread.html/radcb2aa874a79647789f3563fcbbceaf1045a029ee8806b59812a8ea@%3Cissues.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rb25c3bc7418ae75cba07988dafe1b6912f76a9dd7d94757878320d61@%3Cgitbox.hive.apache.org%3E">https://lists.apache.org/thread.html/rb25c3bc7418ae75cba07988dafe1b6912f76a9dd7d94757878320d61@%3Cgitbox.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rb69b7d8217c1a6a2100247a5d06ce610836b31e3f5d73fc113ded8e7@%3Cissues.hive.apache.org%3E">https://lists.apache.org/thread.html/rb69b7d8217c1a6a2100247a5d06ce610836b31e3f5d73fc113ded8e7@%3Cissues.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rbb448222ba62c430e21e13f940be4cb5cfc373cd3bce56b48c0ffa67@%3Cdev.flink.apache.org%3E">https://lists.apache.org/thread.html/rbb448222ba62c430e21e13f940be4cb5cfc373cd3bce56b48c0ffa67@%3Cdev.flink.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rd38b4185a797b324c8dd940d9213cf99fcdc2dbf1fc5a63ba7dee8c9@%3Cissues.hive.apache.org%3E">https://lists.apache.org/thread.html/rd38b4185a797b324c8dd940d9213cf99fcdc2dbf1fc5a63ba7dee8c9@%3Cissues.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rda99599896c3667f2cc9e9d34c7b6ef5d2bbed1f4801e1d75a2b0679@%3Ccommits.nifi.apache.org%3E">https://lists.apache.org/thread.html/rda99599896c3667f2cc9e9d34c7b6ef5d2bbed1f4801e1d75a2b0679@%3Ccommits.nifi.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/re4ae96fa5c1a2fe71ccbb7b7ac1538bd0cb677be270a2bf6e2f8d108@%3Cissues.flink.apache.org%3E">https://lists.apache.org/thread.html/re4ae96fa5c1a2fe71ccbb7b7ac1538bd0cb677be270a2bf6e2f8d108@%3Cissues.flink.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rede9cfaa756e050a3d83045008f84a62802fc68c17f2b4eabeaae5e4@%3Cissues.flink.apache.org%3E">https://lists.apache.org/thread.html/rede9cfaa756e050a3d83045008f84a62802fc68c17f2b4eabeaae5e4@%3Cissues.flink.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/ree3bd8ddb23df5fa4e372d11c226830ea3650056b1059f3965b3fce2@%3Cissues.flink.apache.org%3E">https://lists.apache.org/thread.html/ree3bd8ddb23df5fa4e372d11c226830ea3650056b1059f3965b3fce2@%3Cissues.flink.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rf0f8939596081d84be1ae6a91d6248b96a02d8388898c372ac807817@%3Cdev.felix.apache.org%3E">https://lists.apache.org/thread.html/rf0f8939596081d84be1ae6a91d6248b96a02d8388898c372ac807817@%3Cdev.felix.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rf1ba79e564fe7efc56aef7c986106f1cf67a3427d08e997e088e7a93@%3Cgitbox.hive.apache.org%3E">https://lists.apache.org/thread.html/rf1ba79e564fe7efc56aef7c986106f1cf67a3427d08e997e088e7a93@%3Cgitbox.hive.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rf661a90a15da8da5922ba6127b3f5f8194d4ebec8855d60a0dd13248@%3Cdev.hive.apache.org%3E">https://lists.apache.org/thread.html/rf661a90a15da8da5922ba6127b3f5f8194d4ebec8855d60a0dd13248@%3Cdev.hive.apache.org%3E</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/03/msg00033.html">https://lists.debian.org/debian-lts-announce/2021/03/msg00033.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AVKYXLWCLZBV2N7M46KYK4LVA5OXWPBY/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AVKYXLWCLZBV2N7M46KYK4LVA5OXWPBY/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QPN2L2XVQGUA2V5HNQJWHK3APSK3VN7K/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QPN2L2XVQGUA2V5HNQJWHK3APSK3VN7K/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SAPQVX3XDNPGFT26QAQ6AJIXZZBZ4CD4/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SAPQVX3XDNPGFT26QAQ6AJIXZZBZ4CD4/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SFP4UK4EGP4AFH2MWYJ5A5Z4I7XVFQ6B/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SFP4UK4EGP4AFH2MWYJ5A5Z4I7XVFQ6B/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-11023">https://nvd.nist.gov/vuln/detail/CVE-2020-11023</a><br><a href="https://security.gentoo.org/glsa/202007-03">https://security.gentoo.org/glsa/202007-03</a><br><a href="https://security.netapp.com/advisory/ntap-20200511-0006/">https://security.netapp.com/advisory/ntap-20200511-0006/</a><br><a href="https://www.debian.org/security/2020/dsa-4693">https://www.debian.org/security/2020/dsa-4693</a><br><a href="https://www.drupal.org/sa-core-2020-002">https://www.drupal.org/sa-core-2020-002</a><br><a href="https://www.oracle.com//security-alerts/cpujul2021.html">https://www.oracle.com//security-alerts/cpujul2021.html</a><br><a href="https://www.oracle.com/security-alerts/cpuApr2021.html">https://www.oracle.com/security-alerts/cpuApr2021.html</a><br><a href="https://www.oracle.com/security-alerts/cpujan2021.html">https://www.oracle.com/security-alerts/cpujan2021.html</a><br><a href="https://www.oracle.com/security-alerts/cpujul2020.html">https://www.oracle.com/security-alerts/cpujul2020.html</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2020.html">https://www.oracle.com/security-alerts/cpuoct2020.html</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br><a href="https://www.tenable.com/security/tns-2021-02">https://www.tenable.com/security/tns-2021-02</a><br><a href="https://www.tenable.com/security/tns-2021-10">https://www.tenable.com/security/tns-2021-10</a><br></details>  |
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **composer**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **composer**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **composer**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **composer**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **composer**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | phpseclib/phpseclib         |    CVE-2021-30130   |   HIGH  |  2.0.4 | 2.0.31, 3.0.7 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-vf4w-fg7r-5v94">https://github.com/advisories/GHSA-vf4w-fg7r-5v94</a><br><a href="https://github.com/phpseclib/phpseclib/pull/1635">https://github.com/phpseclib/phpseclib/pull/1635</a><br><a href="https://github.com/phpseclib/phpseclib/releases/tag/2.0.31">https://github.com/phpseclib/phpseclib/releases/tag/2.0.31</a><br><a href="https://github.com/phpseclib/phpseclib/releases/tag/3.0.7">https://github.com/phpseclib/phpseclib/releases/tag/3.0.7</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-30130">https://nvd.nist.gov/vuln/detail/CVE-2021-30130</a><br></details>  |
 **composer**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:17:57.345Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:17:57.345Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:17:57.364Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:17:57.345Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:17:57.345Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:17:57.364Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -1031,15 +1031,15 @@
 
 **Container: tccr.io/truecharts/mariadb:v10.6.5@sha256:ca5dcc0667f4ee5accc91f159f13a2bf764678d4dfeab3d1421fce1d2095f2a0**
 
-2021-12-04T19:17:58.841Z	[34mINFO[0m	Detected OS: debian
-2021-12-04T19:17:58.841Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-04T19:17:58.872Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-04T19:17:58.872Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
+2021-12-04T19:17:58.841Z    [34mINFO[0m    Detected OS: debian
+2021-12-04T19:17:58.841Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-04T19:17:58.872Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-04T19:17:58.872Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
 #### tccr.io/truecharts/mariadb:v10.6.5@sha256:ca5dcc0667f4ee5accc91f159f13a2bf764678d4dfeab3d1421fce1d2095f2a0 (debian 10.11)
-    
+
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Click to expand!</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -1188,16 +1188,13 @@
 | util-linux         |    CVE-2021-37600   |   LOW  |  2.33.1-0.1 |  | <details><summary>Click to expand!</summary><a href="https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c">https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c</a><br><a href="https://github.com/karelzak/util-linux/issues/1395">https://github.com/karelzak/util-linux/issues/1395</a><br><a href="https://security.netapp.com/advisory/ntap-20210902-0002/">https://security.netapp.com/advisory/ntap-20210902-0002/</a><br></details>  |
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

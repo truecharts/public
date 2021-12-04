@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:21:03.543Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:21:03.543Z    [34mINFO[0m    Detected config files: 1
 #### apache-musicindex/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:21:04.419Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:21:04.419Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:21:04.423Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:21:04.419Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:21:04.419Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:21:04.423Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,15 +61,15 @@
 
 **Container: tccr.io/truecharts/apache-musicindex:v1.4.1-2@sha256:442d1edfbf89b8a2a42c0d649f53f091c39256c65f922078ad38ff60bdbdadf9**
 
-2021-12-04T19:21:13.410Z	[34mINFO[0m	Detected OS: ubuntu
-2021-12-04T19:21:13.410Z	[34mINFO[0m	Detecting Ubuntu vulnerabilities...
-2021-12-04T19:21:13.420Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:21:13.421Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
+2021-12-04T19:21:13.410Z    [34mINFO[0m    Detected OS: ubuntu
+2021-12-04T19:21:13.410Z    [34mINFO[0m    Detecting Ubuntu vulnerabilities...
+2021-12-04T19:21:13.420Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:21:13.421Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
 #### tccr.io/truecharts/apache-musicindex:v1.4.1-2@sha256:442d1edfbf89b8a2a42c0d649f53f091c39256c65f922078ad38ff60bdbdadf9 (ubuntu 20.04)
-    
+
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apache2         |    CVE-2019-17567   |   MEDIUM  |  2.4.41-4ubuntu3.3 |  | <details><summary>Click to expand!</summary><a href="http://httpd.apache.org/security/vulnerabilities_24.html">http://httpd.apache.org/security/vulnerabilities_24.html</a><br><a href="http://www.openwall.com/lists/oss-security/2021/06/10/2">http://www.openwall.com/lists/oss-security/2021/06/10/2</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17567">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17567</a><br><a href="https://httpd.apache.org/security/vulnerabilities_24.html">https://httpd.apache.org/security/vulnerabilities_24.html</a><br><a href="https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2019-17567">https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2019-17567</a><br><a href="https://lists.apache.org/thread.html/r7f2b70b621651548f4b6f027552f1dd91705d7111bb5d15cda0a68dd@%3Cdev.httpd.apache.org%3E">https://lists.apache.org/thread.html/r7f2b70b621651548f4b6f027552f1dd91705d7111bb5d15cda0a68dd@%3Cdev.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r90f693a5c9fb75550ef1412436d5e682a5f845beb427fa6f23419a3c@%3Cannounce.httpd.apache.org%3E">https://lists.apache.org/thread.html/r90f693a5c9fb75550ef1412436d5e682a5f845beb427fa6f23419a3c@%3Cannounce.httpd.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/re026d3da9d7824bd93b9f871c0fdda978d960c7e62d8c43cba8d0bf3%40%3Ccvs.httpd.apache.org%3E">https://lists.apache.org/thread.html/re026d3da9d7824bd93b9f871c0fdda978d960c7e62d8c43cba8d0bf3%40%3Ccvs.httpd.apache.org%3E</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SPBR6WUYBJNACHKE65SPL7TJOHX7RHWD/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SPBR6WUYBJNACHKE65SPL7TJOHX7RHWD/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZNCYSR3BXT36FFF4XTCPL3HDQK4VP45R/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZNCYSR3BXT36FFF4XTCPL3HDQK4VP45R/</a><br><a href="https://security.gentoo.org/glsa/202107-38">https://security.gentoo.org/glsa/202107-38</a><br><a href="https://security.netapp.com/advisory/ntap-20210702-0001/">https://security.netapp.com/advisory/ntap-20210702-0001/</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br></details>  |
@@ -267,8 +267,7 @@
 | perl-modules-5.30         |    CVE-2020-16156   |   MEDIUM  |  5.30.0-9ubuntu0.2 |  | <details><summary>Click to expand!</summary><a href="http://blogs.perl.org/users/neilb/2021/11/addressing-cpan-vulnerabilities-related-to-checksums.html">http://blogs.perl.org/users/neilb/2021/11/addressing-cpan-vulnerabilities-related-to-checksums.html</a><br><a href="https://blog.hackeriet.no/cpan-signature-verification-vulnerabilities/">https://blog.hackeriet.no/cpan-signature-verification-vulnerabilities/</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16156">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16156</a><br><a href="https://github.com/andk/cpanpm/commit/b27c51adf0fda25dee84cb72cb2b1bf7d832148c">https://github.com/andk/cpanpm/commit/b27c51adf0fda25dee84cb72cb2b1bf7d832148c</a><br></details>  |
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | gopkg.in/yaml.v2         |    CVE-2019-11254   |   MEDIUM  |  v2.2.7 | v2.2.8 | <details><summary>Click to expand!</summary><a href="https://github.com/kubernetes/kubernetes/issues/89535">https://github.com/kubernetes/kubernetes/issues/89535</a><br><a href="https://groups.google.com/d/msg/kubernetes-announce/ALL9s73E5ck/4yHe8J-PBAAJ">https://groups.google.com/d/msg/kubernetes-announce/ALL9s73E5ck/4yHe8J-PBAAJ</a><br><a href="https://groups.google.com/forum/#!topic/kubernetes-security-announce/wuwEwZigXBc">https://groups.google.com/forum/#!topic/kubernetes-security-announce/wuwEwZigXBc</a><br><a href="https://linux.oracle.com/cve/CVE-2019-11254.html">https://linux.oracle.com/cve/CVE-2019-11254.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2020-5653.html">https://linux.oracle.com/errata/ELSA-2020-5653.html</a><br><a href="https://security.netapp.com/advisory/ntap-20200413-0003/">https://security.netapp.com/advisory/ntap-20200413-0003/</a><br></details>  |
-

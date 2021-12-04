@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T20:04:14.153Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T20:04:14.153Z    [34mINFO[0m    Detected config files: 1
 #### zwavejs2mqtt/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T20:04:15.268Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T20:04:15.268Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T20:04:15.275Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T20:04:15.268Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T20:04:15.268Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T20:04:15.275Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,15 +61,15 @@
 
 **Container: tccr.io/truecharts/zwavejs2mqtt:v6.0.3@sha256:8fdac2ebee3443d0c1e62a3d52e14959e4717b1c33e4a7ed76f0c45b74d09fcd**
 
-2021-12-04T20:04:26.031Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T20:04:26.031Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T20:04:26.033Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T20:04:26.033Z	[34mINFO[0m	Detecting node-pkg vulnerabilities...
+2021-12-04T20:04:26.031Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T20:04:26.031Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T20:04:26.033Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T20:04:26.033Z    [34mINFO[0m    Detecting node-pkg vulnerabilities...
 #### tccr.io/truecharts/zwavejs2mqtt:v6.0.3@sha256:8fdac2ebee3443d0c1e62a3d52e14959e4717b1c33e4a7ed76f0c45b74d09fcd (alpine 3.12.7)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apk-tools         |    CVE-2021-36159   |   CRITICAL  |  2.10.6-r0 | 2.10.7-r0 | <details><summary>Click to expand!</summary><a href="https://github.com/freebsd/freebsd-src/commits/main/lib/libfetch">https://github.com/freebsd/freebsd-src/commits/main/lib/libfetch</a><br><a href="https://gitlab.alpinelinux.org/alpine/apk-tools/-/issues/10749">https://gitlab.alpinelinux.org/alpine/apk-tools/-/issues/10749</a><br><a href="https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc@%3Cdev.kafka.apache.org%3E">https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc@%3Cdev.kafka.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc@%3Cusers.kafka.apache.org%3E">https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc@%3Cusers.kafka.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7@%3Cdev.kafka.apache.org%3E">https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7@%3Cdev.kafka.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7@%3Cusers.kafka.apache.org%3E">https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7@%3Cusers.kafka.apache.org%3E</a><br></details>  |
@@ -101,7 +101,7 @@
 | ssl_client         |    CVE-2021-42374   |   MEDIUM  |  1.31.1-r20 | 1.31.1-r21 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42374">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42374</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | @npmcli/arborist         |    CVE-2021-39134   |   HIGH  |  2.6.1 | 2.8.2 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-2h3h-q99f-3fhc">https://github.com/advisories/GHSA-2h3h-q99f-3fhc</a><br><a href="https://github.com/npm/arborist/security/advisories/GHSA-2h3h-q99f-3fhc">https://github.com/npm/arborist/security/advisories/GHSA-2h3h-q99f-3fhc</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-39134">https://nvd.nist.gov/vuln/detail/CVE-2021-39134</a><br><a href="https://www.npmjs.com/package/@npmcli/arborist">https://www.npmjs.com/package/@npmcli/arborist</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br></details>  |
@@ -125,4 +125,3 @@
 | tar         |    CVE-2021-37713   |   HIGH  |  6.1.0 | 6.1.9, 5.0.10, 4.4.18 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-5955-9wpr-37jh">https://github.com/advisories/GHSA-5955-9wpr-37jh</a><br><a href="https://github.com/npm/node-tar/security/advisories/GHSA-5955-9wpr-37jh">https://github.com/npm/node-tar/security/advisories/GHSA-5955-9wpr-37jh</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-37713">https://nvd.nist.gov/vuln/detail/CVE-2021-37713</a><br><a href="https://www.npmjs.com/package/tar">https://www.npmjs.com/package/tar</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br></details>  |
 | trim-newlines         |    CVE-2021-33623   |   HIGH  |  1.0.0 | 4.0.1, 3.0.1 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-7p7h-4mm5-852v">https://github.com/advisories/GHSA-7p7h-4mm5-852v</a><br><a href="https://github.com/sindresorhus/trim-newlines/commit/25246c6ce5eea1c82d448998733a6302a4350d91">https://github.com/sindresorhus/trim-newlines/commit/25246c6ce5eea1c82d448998733a6302a4350d91</a><br><a href="https://github.com/sindresorhus/trim-newlines/releases/tag/v4.0.1">https://github.com/sindresorhus/trim-newlines/releases/tag/v4.0.1</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-33623">https://nvd.nist.gov/vuln/detail/CVE-2021-33623</a><br><a href="https://security.netapp.com/advisory/ntap-20210702-0007/">https://security.netapp.com/advisory/ntap-20210702-0007/</a><br><a href="https://www.npmjs.com/package/trim-newlines">https://www.npmjs.com/package/trim-newlines</a><br></details>  |
 | trim-off-newlines         |    CVE-2021-23425   |   MEDIUM  |  1.0.1 |  | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-38fc-wpqx-33j7">https://github.com/advisories/GHSA-38fc-wpqx-33j7</a><br><a href="https://github.com/stevemao/trim-off-newlines/blob/master/index.js%23L6">https://github.com/stevemao/trim-off-newlines/blob/master/index.js%23L6</a><br><a href="https://github.com/stevemao/trim-off-newlines/pull/3">https://github.com/stevemao/trim-off-newlines/pull/3</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-23425">https://nvd.nist.gov/vuln/detail/CVE-2021-23425</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1567197">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1567197</a><br><a href="https://snyk.io/vuln/SNYK-JS-TRIMOFFNEWLINES-1296850">https://snyk.io/vuln/SNYK-JS-TRIMOFFNEWLINES-1296850</a><br></details>  |
-

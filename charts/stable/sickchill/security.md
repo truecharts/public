@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:55:52.602Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:55:52.602Z    [34mINFO[0m    Detected config files: 1
 #### sickchill/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:55:54.295Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:55:54.295Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:55:54.301Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:55:54.295Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:55:54.295Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:55:54.301Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,15 +61,12 @@
 
 **Container: tccr.io/truecharts/sickchill:v2021.5.10-1-ls63@sha256:f9fd82d8c6d12bc85dcc7813b7216087efb006dc05104ce67386ec989be25dc4**
 
-2021-12-04T19:56:01.534Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:56:01.534Z	[34mINFO[0m	Detecting python-pkg vulnerabilities...
+2021-12-04T19:56:01.534Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:56:01.534Z    [34mINFO[0m    Detecting python-pkg vulnerabilities...
 #### Python
-    
+
 **python-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

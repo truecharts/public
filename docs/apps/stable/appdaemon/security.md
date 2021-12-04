@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:21:44.334Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:21:44.334Z    [34mINFO[0m    Detected config files: 1
 #### appdaemon/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:21:45.369Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:21:45.369Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:21:45.378Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:21:45.369Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:21:45.369Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:21:45.378Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,17 +61,17 @@
 
 **Container: tccr.io/truecharts/appdaemon:v4.1.0@sha256:f490c318750595459824cb9355b95c8cdab768271288477454b212a8a93499a6**
 
-2021-12-04T19:22:07.262Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:22:07.262Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:22:07.266Z	[34mINFO[0m	Number of language-specific files: 4
-2021-12-04T19:22:07.266Z	[34mINFO[0m	Detecting cargo vulnerabilities...
-2021-12-04T19:22:07.266Z	[34mINFO[0m	Detecting python-pkg vulnerabilities...
-2021-12-04T19:22:07.269Z	[33mWARN[0m	version error (3.7.4.post0): malformed version: 3.7.4.post0
+2021-12-04T19:22:07.262Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:22:07.262Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:22:07.266Z    [34mINFO[0m    Number of language-specific files: 4
+2021-12-04T19:22:07.266Z    [34mINFO[0m    Detecting cargo vulnerabilities...
+2021-12-04T19:22:07.266Z    [34mINFO[0m    Detecting python-pkg vulnerabilities...
+2021-12-04T19:22:07.269Z    [33mWARN[0m    version error (3.7.4.post0): malformed version: 3.7.4.post0
 #### tccr.io/truecharts/appdaemon:v4.1.0@sha256:f490c318750595459824cb9355b95c8cdab768271288477454b212a8a93499a6 (alpine 3.14.1)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -111,29 +111,26 @@
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Click to expand!</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 **python-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | aiohttp         |    pyup.io-42692   |   UNKNOWN  |  3.7.4.post0 | 3.8.0 | <details><summary>Click to expand!</summary></details>  |
 **cargo**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **cargo**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **cargo**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

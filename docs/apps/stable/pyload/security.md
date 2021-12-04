@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:53:01.277Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:53:01.277Z    [34mINFO[0m    Detected config files: 1
 #### pyload/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:53:02.112Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:53:02.112Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:53:02.117Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:53:02.112Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:53:02.112Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:53:02.117Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,13 +61,13 @@
 
 **Container: tccr.io/truecharts/pyload:version-5de90278@sha256:c33489498cb4541bbf936b1ebd1eaebfb0cae279f738aa0e6184969089e94081**
 
-2021-12-04T19:53:13.623Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:53:13.623Z	[34mINFO[0m	Detecting python-pkg vulnerabilities...
+2021-12-04T19:53:13.623Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:53:13.623Z    [34mINFO[0m    Detecting python-pkg vulnerabilities...
 #### Python
-    
+
 **python-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | Pillow         |    CVE-2021-25287   |   CRITICAL  |  6.2.2 | 8.2.0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25287">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25287</a><br><a href="https://github.com/advisories/GHSA-77gc-v2xv-rvvh">https://github.com/advisories/GHSA-77gc-v2xv-rvvh</a><br><a href="https://github.com/python-pillow/Pillow/pull/5377#issuecomment-833821470">https://github.com/python-pillow/Pillow/pull/5377#issuecomment-833821470</a><br><a href="https://github.com/python-pillow/Pillow/pull/5377/commits/3bf5eddb89afdf690eceaa52bc4d3546ba9a5f87">https://github.com/python-pillow/Pillow/pull/5377/commits/3bf5eddb89afdf690eceaa52bc4d3546ba9a5f87</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQHA5HAIBOYI3R6HDWCLAGFTIQP767FL/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQHA5HAIBOYI3R6HDWCLAGFTIQP767FL/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-25287">https://nvd.nist.gov/vuln/detail/CVE-2021-25287</a><br><a href="https://pillow.readthedocs.io/en/stable/releasenotes/8.2.0.html#cve-2021-25287-cve-2021-25288-fix-oob-read-in-jpeg2kdecode">https://pillow.readthedocs.io/en/stable/releasenotes/8.2.0.html#cve-2021-25287-cve-2021-25288-fix-oob-read-in-jpeg2kdecode</a><br><a href="https://security.gentoo.org/glsa/202107-33">https://security.gentoo.org/glsa/202107-33</a><br><a href="https://ubuntu.com/security/notices/USN-4963-1">https://ubuntu.com/security/notices/USN-4963-1</a><br></details>  |
@@ -98,4 +98,3 @@
 | Pillow         |    GHSA-jgpv-4h4c-xhw3   |   MEDIUM  |  6.2.2 | 8.1.2 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-jgpv-4h4c-xhw3">https://github.com/advisories/GHSA-jgpv-4h4c-xhw3</a><br><a href="https://github.com/calix2/pyVulApp/security/advisories/GHSA-jgpv-4h4c-xhw3">https://github.com/calix2/pyVulApp/security/advisories/GHSA-jgpv-4h4c-xhw3</a><br></details>  |
 | pycrypto         |    CVE-2013-7459   |   CRITICAL  |  2.6.1 |  | <details><summary>Click to expand!</summary><a href="http://www.openwall.com/lists/oss-security/2016/12/27/8">http://www.openwall.com/lists/oss-security/2016/12/27/8</a><br><a href="http://www.securityfocus.com/bid/95122">http://www.securityfocus.com/bid/95122</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1409754">https://bugzilla.redhat.com/show_bug.cgi?id=1409754</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7459">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-7459</a><br><a href="https://github.com/advisories/GHSA-cq27-v7xp-c356">https://github.com/advisories/GHSA-cq27-v7xp-c356</a><br><a href="https://github.com/dlitz/pycrypto/commit/8dbe0dc3eea5c689d4f76b37b93fe216cf1f00d4">https://github.com/dlitz/pycrypto/commit/8dbe0dc3eea5c689d4f76b37b93fe216cf1f00d4</a><br><a href="https://github.com/dlitz/pycrypto/issues/176">https://github.com/dlitz/pycrypto/issues/176</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/C6BWNADPLKDBBQBUT3P75W7HAJCE7M3B/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/C6BWNADPLKDBBQBUT3P75W7HAJCE7M3B/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RJ37R2YLX56YZABFNAOWV4VTHTGYREAE/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RJ37R2YLX56YZABFNAOWV4VTHTGYREAE/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2013-7459">https://nvd.nist.gov/vuln/detail/CVE-2013-7459</a><br><a href="https://pony7.fr/ctf:public:32c3:cryptmsg">https://pony7.fr/ctf:public:32c3:cryptmsg</a><br><a href="https://security.gentoo.org/glsa/201702-14">https://security.gentoo.org/glsa/201702-14</a><br><a href="https://ubuntu.com/security/notices/USN-3199-1">https://ubuntu.com/security/notices/USN-3199-1</a><br><a href="https://ubuntu.com/security/notices/USN-3199-2">https://ubuntu.com/security/notices/USN-3199-2</a><br><a href="https://ubuntu.com/security/notices/USN-3199-3">https://ubuntu.com/security/notices/USN-3199-3</a><br></details>  |
 | pycrypto         |    CVE-2018-6594   |   HIGH  |  2.6.1 |  | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6594">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6594</a><br><a href="https://github.com/Legrandin/pycryptodome/issues/90">https://github.com/Legrandin/pycryptodome/issues/90</a><br><a href="https://github.com/TElgamal/attack-on-pycrypto-elgamal">https://github.com/TElgamal/attack-on-pycrypto-elgamal</a><br><a href="https://github.com/advisories/GHSA-6528-wvf6-f6qg">https://github.com/advisories/GHSA-6528-wvf6-f6qg</a><br><a href="https://github.com/dlitz/pycrypto/issues/253">https://github.com/dlitz/pycrypto/issues/253</a><br><a href="https://lists.debian.org/debian-lts-announce/2018/02/msg00018.html">https://lists.debian.org/debian-lts-announce/2018/02/msg00018.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-6594">https://nvd.nist.gov/vuln/detail/CVE-2018-6594</a><br><a href="https://security.gentoo.org/glsa/202007-62">https://security.gentoo.org/glsa/202007-62</a><br><a href="https://ubuntu.com/security/notices/USN-3616-1">https://ubuntu.com/security/notices/USN-3616-1</a><br><a href="https://ubuntu.com/security/notices/USN-3616-2">https://ubuntu.com/security/notices/USN-3616-2</a><br><a href="https://usn.ubuntu.com/3616-1/">https://usn.ubuntu.com/3616-1/</a><br><a href="https://usn.ubuntu.com/3616-2/">https://usn.ubuntu.com/3616-2/</a><br></details>  |
-

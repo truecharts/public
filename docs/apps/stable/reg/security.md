@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:54:04.941Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:54:04.941Z    [34mINFO[0m    Detected config files: 1
 #### reg/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:54:05.759Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:54:05.759Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:54:05.767Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:54:05.759Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:54:05.759Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:54:05.767Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,15 +61,15 @@
 
 **Container: tccr.io/truecharts/reg:v0.16.1@sha256:ae581387764a23c62c1386389e27358bac5088790904938264cb0bcd4e8c946c**
 
-2021-12-04T19:54:10.068Z	[34mINFO[0m	Detected OS: ubuntu
-2021-12-04T19:54:10.068Z	[34mINFO[0m	Detecting Ubuntu vulnerabilities...
-2021-12-04T19:54:10.072Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-04T19:54:10.072Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
+2021-12-04T19:54:10.068Z    [34mINFO[0m    Detected OS: ubuntu
+2021-12-04T19:54:10.068Z    [34mINFO[0m    Detecting Ubuntu vulnerabilities...
+2021-12-04T19:54:10.072Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-04T19:54:10.072Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
 #### tccr.io/truecharts/reg:v0.16.1@sha256:ae581387764a23c62c1386389e27358bac5088790904938264cb0bcd4e8c946c (ubuntu 20.04)
-    
+
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  5.0-6ubuntu1.1 |  | <details><summary>Click to expand!</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -171,7 +171,7 @@
 | perl-modules-5.30         |    CVE-2020-16156   |   MEDIUM  |  5.30.0-9ubuntu0.2 |  | <details><summary>Click to expand!</summary><a href="http://blogs.perl.org/users/neilb/2021/11/addressing-cpan-vulnerabilities-related-to-checksums.html">http://blogs.perl.org/users/neilb/2021/11/addressing-cpan-vulnerabilities-related-to-checksums.html</a><br><a href="https://blog.hackeriet.no/cpan-signature-verification-vulnerabilities/">https://blog.hackeriet.no/cpan-signature-verification-vulnerabilities/</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16156">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16156</a><br><a href="https://github.com/andk/cpanpm/commit/b27c51adf0fda25dee84cb72cb2b1bf7d832148c">https://github.com/andk/cpanpm/commit/b27c51adf0fda25dee84cb72cb2b1bf7d832148c</a><br></details>  |
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/containerd/containerd         |    CVE-2021-41103   |   HIGH  |  v1.2.9 | v1.4.11, v1.5.7 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41103">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41103</a><br><a href="https://github.com/containerd/containerd/commit/5b46e404f6b9f661a205e28d59c982d3634148f8">https://github.com/containerd/containerd/commit/5b46e404f6b9f661a205e28d59c982d3634148f8</a><br><a href="https://github.com/containerd/containerd/security/advisories/GHSA-c2h3-6mxw-7mvq">https://github.com/containerd/containerd/security/advisories/GHSA-c2h3-6mxw-7mvq</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/B5Q6G6I4W5COQE25QMC7FJY3I3PAYFBB/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/B5Q6G6I4W5COQE25QMC7FJY3I3PAYFBB/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZNFADTCHHYWVM6W4NJ6CB4FNFM2VMBIB/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZNFADTCHHYWVM6W4NJ6CB4FNFM2VMBIB/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41103">https://nvd.nist.gov/vuln/detail/CVE-2021-41103</a><br><a href="https://ubuntu.com/security/notices/USN-5100-1">https://ubuntu.com/security/notices/USN-5100-1</a><br><a href="https://www.debian.org/security/2021/dsa-5002">https://www.debian.org/security/2021/dsa-5002</a><br></details>  |
@@ -185,8 +185,7 @@
 | github.com/opencontainers/runc         |    CVE-2019-19921   |   HIGH  |  v0.1.1 | v1.0.0-rc9.0.20200122160610-2fc03cc11c77 | <details><summary>Click to expand!</summary><a href="http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00018.html">http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00018.html</a><br><a href="https://access.redhat.com/errata/RHSA-2020:0688">https://access.redhat.com/errata/RHSA-2020:0688</a><br><a href="https://access.redhat.com/errata/RHSA-2020:0695">https://access.redhat.com/errata/RHSA-2020:0695</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19921">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19921</a><br><a href="https://gist.github.com/LiveOverflow/c937820b688922eb127fb760ce06dab9">https://gist.github.com/LiveOverflow/c937820b688922eb127fb760ce06dab9</a><br><a href="https://github.com/opencontainers/runc/issues/2197">https://github.com/opencontainers/runc/issues/2197</a><br><a href="https://github.com/opencontainers/runc/pull/2190">https://github.com/opencontainers/runc/pull/2190</a><br><a href="https://github.com/opencontainers/runc/pull/2207">https://github.com/opencontainers/runc/pull/2207</a><br><a href="https://github.com/opencontainers/runc/releases">https://github.com/opencontainers/runc/releases</a><br><a href="https://linux.oracle.com/cve/CVE-2019-19921.html">https://linux.oracle.com/cve/CVE-2019-19921.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2020-1650.html">https://linux.oracle.com/errata/ELSA-2020-1650.html</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2019-19921">https://security-tracker.debian.org/tracker/CVE-2019-19921</a><br><a href="https://security.gentoo.org/glsa/202003-21">https://security.gentoo.org/glsa/202003-21</a><br><a href="https://ubuntu.com/security/notices/USN-4297-1">https://ubuntu.com/security/notices/USN-4297-1</a><br><a href="https://usn.ubuntu.com/4297-1/">https://usn.ubuntu.com/4297-1/</a><br></details>  |
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | gopkg.in/yaml.v2         |    CVE-2019-11254   |   MEDIUM  |  v2.2.7 | v2.2.8 | <details><summary>Click to expand!</summary><a href="https://github.com/kubernetes/kubernetes/issues/89535">https://github.com/kubernetes/kubernetes/issues/89535</a><br><a href="https://groups.google.com/d/msg/kubernetes-announce/ALL9s73E5ck/4yHe8J-PBAAJ">https://groups.google.com/d/msg/kubernetes-announce/ALL9s73E5ck/4yHe8J-PBAAJ</a><br><a href="https://groups.google.com/forum/#!topic/kubernetes-security-announce/wuwEwZigXBc">https://groups.google.com/forum/#!topic/kubernetes-security-announce/wuwEwZigXBc</a><br><a href="https://linux.oracle.com/cve/CVE-2019-11254.html">https://linux.oracle.com/cve/CVE-2019-11254.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2020-5653.html">https://linux.oracle.com/errata/ELSA-2020-5653.html</a><br><a href="https://security.netapp.com/advisory/ntap-20200413-0003/">https://security.netapp.com/advisory/ntap-20200413-0003/</a><br></details>  |
-

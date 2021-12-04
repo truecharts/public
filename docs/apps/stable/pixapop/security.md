@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:51:16.882Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:51:16.882Z    [34mINFO[0m    Detected config files: 1
 #### pixapop/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:51:18.169Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:51:18.169Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:51:18.172Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:51:18.169Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:51:18.169Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:51:18.172Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,14 +61,14 @@
 
 **Container: tccr.io/truecharts/pixapop:v1.2-ls15@sha256:6a05383524fcd51b0b692d508dd16ed6948337aa272677e01baa6d8ba119c070**
 
-2021-12-04T19:51:32.200Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-04T19:51:32.200Z	[34mINFO[0m	Detecting composer vulnerabilities...
-2021-12-04T19:51:32.211Z	[34mINFO[0m	Detecting node-pkg vulnerabilities...
+2021-12-04T19:51:32.200Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-04T19:51:32.200Z    [34mINFO[0m    Detecting composer vulnerabilities...
+2021-12-04T19:51:32.211Z    [34mINFO[0m    Detecting node-pkg vulnerabilities...
 #### Node.js
-    
+
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | acorn         |    GHSA-6chw-6frg-f759   |   HIGH  |  6.1.1 | 5.7.4, 7.1.1, 6.4.1 | <details><summary>Click to expand!</summary><a href="https://github.com/acornjs/acorn/commit/793c0e569ed1158672e3a40aeed1d8518832b802">https://github.com/acornjs/acorn/commit/793c0e569ed1158672e3a40aeed1d8518832b802</a><br><a href="https://github.com/acornjs/acorn/issues/929">https://github.com/acornjs/acorn/issues/929</a><br><a href="https://github.com/advisories/GHSA-6chw-6frg-f759">https://github.com/advisories/GHSA-6chw-6frg-f759</a><br><a href="https://snyk.io/vuln/SNYK-JS-ACORN-559469">https://snyk.io/vuln/SNYK-JS-ACORN-559469</a><br><a href="https://www.npmjs.com/advisories/1488">https://www.npmjs.com/advisories/1488</a><br></details>  |
@@ -126,7 +126,7 @@
 | yargs-parser         |    CVE-2020-7608   |   MEDIUM  |  7.0.0 | 5.0.1, 13.1.2, 18.1.2, 15.0.1 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-p9pc-299p-vxgp">https://github.com/advisories/GHSA-p9pc-299p-vxgp</a><br><a href="https://github.com/yargs/yargs-parser/commit/63810ca1ae1a24b08293a4d971e70e058c7a41e2">https://github.com/yargs/yargs-parser/commit/63810ca1ae1a24b08293a4d971e70e058c7a41e2</a><br><a href="https://linux.oracle.com/cve/CVE-2020-7608.html">https://linux.oracle.com/cve/CVE-2020-7608.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-0548.html">https://linux.oracle.com/errata/ELSA-2021-0548.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-7608">https://nvd.nist.gov/vuln/detail/CVE-2020-7608</a><br><a href="https://snyk.io/vuln/SNYK-JS-YARGSPARSER-560381">https://snyk.io/vuln/SNYK-JS-YARGSPARSER-560381</a><br><a href="https://www.npmjs.com/advisories/1500">https://www.npmjs.com/advisories/1500</a><br></details>  |
 **composer**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | symfony/cache         |    CVE-2019-18889   |   CRITICAL  |  v4.2.3 | 3.4.35, 4.1.0, 4.2.0, 4.2.12, 4.3.8, 3.2.0, 3.3.0, 3.4.0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18889">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18889</a><br><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/cache/CVE-2019-18889.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/cache/CVE-2019-18889.yaml</a><br><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/symfony/CVE-2019-18889.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/symfony/CVE-2019-18889.yaml</a><br><a href="https://github.com/advisories/GHSA-79gr-58r3-pwm3">https://github.com/advisories/GHSA-79gr-58r3-pwm3</a><br><a href="https://github.com/symfony/symfony/commit/8817d28fcaacb31fe01d267f6e19b44d8179395a">https://github.com/symfony/symfony/commit/8817d28fcaacb31fe01d267f6e19b44d8179395a</a><br><a href="https://github.com/symfony/symfony/releases/tag/v4.3.8">https://github.com/symfony/symfony/releases/tag/v4.3.8</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UED22BOXTL2SSFMGYKA64ZFHGLLJG3EA/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UED22BOXTL2SSFMGYKA64ZFHGLLJG3EA/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-18889">https://nvd.nist.gov/vuln/detail/CVE-2019-18889</a><br><a href="https://symfony.com/blog/cve-2019-18889-forbid-serializing-abstractadapter-and-tagawareadapter-instances">https://symfony.com/blog/cve-2019-18889-forbid-serializing-abstractadapter-and-tagawareadapter-instances</a><br><a href="https://symfony.com/blog/symfony-4-3-8-released">https://symfony.com/blog/symfony-4-3-8-released</a><br><a href="https://symfony.com/cve-2019-18889">https://symfony.com/cve-2019-18889</a><br></details>  |
@@ -138,4 +138,3 @@
 | symfony/http-kernel         |    CVE-2019-18887   |   HIGH  |  v4.2.4 | 2.8.0, 3.4.35, 4.3.8, 2.7.0, 2.6.0, 3.1.0, 4.1.0, 4.2.0, 4.2.12, 2.5.0, 3.2.0, 3.3.0, 3.4.0, 2.4.0, 2.8.52, 2.3.0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18887">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18887</a><br><a href="https://github.com/symfony/symfony/commit/cccefe6a7f12e776df0665aeb77fe9294c285fbb">https://github.com/symfony/symfony/commit/cccefe6a7f12e776df0665aeb77fe9294c285fbb</a><br><a href="https://github.com/symfony/symfony/releases/tag/v4.3.8">https://github.com/symfony/symfony/releases/tag/v4.3.8</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DZNXRVHDQBNZQUCNRVZICPPBFRAUWUJX/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DZNXRVHDQBNZQUCNRVZICPPBFRAUWUJX/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UED22BOXTL2SSFMGYKA64ZFHGLLJG3EA/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UED22BOXTL2SSFMGYKA64ZFHGLLJG3EA/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VXEAOEANNIVYANTMOJ42NKSU6BGNBULZ/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VXEAOEANNIVYANTMOJ42NKSU6BGNBULZ/</a><br><a href="https://symfony.com/blog/cve-2019-18887-use-constant-time-comparison-in-urisigner">https://symfony.com/blog/cve-2019-18887-use-constant-time-comparison-in-urisigner</a><br><a href="https://symfony.com/blog/symfony-4-3-8-released">https://symfony.com/blog/symfony-4-3-8-released</a><br><a href="https://symfony.com/cve-2019-18887">https://symfony.com/cve-2019-18887</a><br></details>  |
 | symfony/var-exporter         |    CVE-2019-11325   |   CRITICAL  |  v4.2.3 | 4.2.12, 4.3.8 | <details><summary>Click to expand!</summary><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/symfony/CVE-2019-11325.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/symfony/CVE-2019-11325.yaml</a><br><a href="https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/var-exporter/CVE-2019-11325.yaml">https://github.com/FriendsOfPHP/security-advisories/blob/master/symfony/var-exporter/CVE-2019-11325.yaml</a><br><a href="https://github.com/advisories/GHSA-w4rc-rx25-8m86">https://github.com/advisories/GHSA-w4rc-rx25-8m86</a><br><a href="https://github.com/symfony/symfony/releases/tag/v4.3.8">https://github.com/symfony/symfony/releases/tag/v4.3.8</a><br><a href="https://github.com/symfony/var-exporter/compare/d8bf442...57e00f3">https://github.com/symfony/var-exporter/compare/d8bf442...57e00f3</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11325">https://nvd.nist.gov/vuln/detail/CVE-2019-11325</a><br><a href="https://symfony.com/blog/cve-2019-11325-fix-escaping-of-strings-in-varexporter">https://symfony.com/blog/cve-2019-11325-fix-escaping-of-strings-in-varexporter</a><br><a href="https://symfony.com/blog/symfony-4-3-8-released">https://symfony.com/blog/symfony-4-3-8-released</a><br><a href="https://symfony.com/cve-2019-11325">https://symfony.com/cve-2019-11325</a><br></details>  |
 | twig/twig         |    CVE-2019-9942   |   LOW  |  v2.6.2 | 1.38.0, 2.7.0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9942">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9942</a><br><a href="https://github.com/twigphp/Twig/commit/eac5422956e1dcca89a3669a03a3ff32f0502077">https://github.com/twigphp/Twig/commit/eac5422956e1dcca89a3669a03a3ff32f0502077</a><br><a href="https://seclists.org/bugtraq/2019/Mar/60">https://seclists.org/bugtraq/2019/Mar/60</a><br><a href="https://symfony.com/blog/twig-sandbox-information-disclosure">https://symfony.com/blog/twig-sandbox-information-disclosure</a><br><a href="https://www.debian.org/security/2019/dsa-4419">https://www.debian.org/security/2019/dsa-4419</a><br></details>  |
-

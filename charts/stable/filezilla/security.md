@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:30:40.280Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:30:40.280Z    [34mINFO[0m    Detected config files: 1
 #### filezilla/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:30:41.150Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:30:41.150Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:30:41.158Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:30:41.150Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:30:41.150Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:30:41.158Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,16 +61,15 @@
 
 **Container: tccr.io/truecharts/filezilla:version-3.51.0-r1@sha256:92421eae5b47e6e98d5157db3f6a453ab0d7733a693b5e8724edeef4090593eb**
 
-2021-12-04T19:30:59.589Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:30:59.589Z	[34mINFO[0m	Detecting node-pkg vulnerabilities...
+2021-12-04T19:30:59.589Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:30:59.589Z    [34mINFO[0m    Detecting node-pkg vulnerabilities...
 #### Node.js
-    
+
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | ansi-regex         |    CVE-2021-3807   |   HIGH  |  3.0.0 | 5.0.1, 6.0.1 | <details><summary>Click to expand!</summary><a href="https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908">https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908</a><br><a href="https://github.com/advisories/GHSA-93q8-gq69-wqmw">https://github.com/advisories/GHSA-93q8-gq69-wqmw</a><br><a href="https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9">https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311">https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774">https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774</a><br><a href="https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994">https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3807">https://nvd.nist.gov/vuln/detail/CVE-2021-3807</a><br></details>  |
 | deep-extend         |    CVE-2018-3750   |   CRITICAL  |  0.4.2 | 0.5.1 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-hr2v-3952-633q">https://github.com/advisories/GHSA-hr2v-3952-633q</a><br><a href="https://hackerone.com/reports/311333">https://hackerone.com/reports/311333</a><br><a href="https://nodesecurity.io/advisories/612">https://nodesecurity.io/advisories/612</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-3750">https://nvd.nist.gov/vuln/detail/CVE-2018-3750</a><br><a href="https://www.npmjs.com/advisories/612">https://www.npmjs.com/advisories/612</a><br></details>  |
 | deep-extend         |    NSWG-ECO-408   |   LOW  |  0.4.2 | &gt;=0.5.1 | <details><summary>Click to expand!</summary><a href="https://hackerone.com/reports/311333">https://hackerone.com/reports/311333</a><br></details>  |
-

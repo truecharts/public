@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:55:45.195Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:55:45.195Z    [34mINFO[0m    Detected config files: 1
 #### shorturl/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:55:49.512Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:55:49.512Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:55:49.521Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:55:49.512Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:55:49.512Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:55:49.521Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,8 +61,7 @@
 
 **Container: tccr.io/truecharts/shorturl:version-v0.1.0@sha256:3893eab50b4d790958b31cbb7fd5d545369e7f91ee2d77551352a6510c86ba03**
 
-2021-12-04T19:55:52.102Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:55:52.102Z    [34mINFO[0m    Number of language-specific files: 0
 
 | No Vulnerabilities found         |
 |:---------------------------------|
-

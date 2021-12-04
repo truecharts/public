@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T20:03:10.131Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T20:03:10.131Z    [34mINFO[0m    Detected config files: 1
 #### wiki/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T20:03:10.955Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T20:03:10.955Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T20:03:10.960Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T20:03:10.955Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T20:03:10.955Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T20:03:10.960Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,17 +61,17 @@
 
 **Container: tccr.io/truecharts/wiki:version-900b76a@sha256:26548fe894831ba1fbd7b68da370583363be3f992bd99e71c8b678c2583df951**
 
-2021-12-04T20:03:28.136Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T20:03:28.136Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T20:03:28.141Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T20:03:28.141Z	[34mINFO[0m	Detecting node-pkg vulnerabilities...
-2021-12-04T20:03:28.180Z	[33mWARN[0m	This OS version is no longer supported by the distribution: alpine 3.11.12
-2021-12-04T20:03:28.180Z	[33mWARN[0m	The vulnerability detection may be insufficient because security updates are not provided
+2021-12-04T20:03:28.136Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T20:03:28.136Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T20:03:28.141Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T20:03:28.141Z    [34mINFO[0m    Detecting node-pkg vulnerabilities...
+2021-12-04T20:03:28.180Z    [33mWARN[0m    This OS version is no longer supported by the distribution: alpine 3.11.12
+2021-12-04T20:03:28.180Z    [33mWARN[0m    The vulnerability detection may be insufficient because security updates are not provided
 #### tccr.io/truecharts/wiki:version-900b76a@sha256:26548fe894831ba1fbd7b68da370583363be3f992bd99e71c8b678c2583df951 (alpine 3.11.12)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.31.1-r10 | 1.31.1-r11 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -102,7 +102,7 @@
 | ssl_client         |    CVE-2021-42374   |   MEDIUM  |  1.31.1-r10 | 1.31.1-r11 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42374">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42374</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | ansi-regex         |    CVE-2021-3807   |   HIGH  |  3.0.0 | 5.0.1, 6.0.1 | <details><summary>Click to expand!</summary><a href="https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908">https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908</a><br><a href="https://github.com/advisories/GHSA-93q8-gq69-wqmw">https://github.com/advisories/GHSA-93q8-gq69-wqmw</a><br><a href="https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9">https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311">https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774">https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774</a><br><a href="https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994">https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3807">https://nvd.nist.gov/vuln/detail/CVE-2021-3807</a><br></details>  |
@@ -133,4 +133,3 @@
 | ws         |    CVE-2021-32640   |   MEDIUM  |  7.4.5 | 5.2.3, 6.2.2, 7.4.6 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-6fc8-4gx4-v693">https://github.com/advisories/GHSA-6fc8-4gx4-v693</a><br><a href="https://github.com/websockets/ws/commit/00c425ec77993773d823f018f64a5c44e17023ff">https://github.com/websockets/ws/commit/00c425ec77993773d823f018f64a5c44e17023ff</a><br><a href="https://github.com/websockets/ws/issues/1895">https://github.com/websockets/ws/issues/1895</a><br><a href="https://github.com/websockets/ws/security/advisories/GHSA-6fc8-4gx4-v693">https://github.com/websockets/ws/security/advisories/GHSA-6fc8-4gx4-v693</a><br><a href="https://lists.apache.org/thread.html/rdfa7b6253c4d6271e31566ecd5f30b7ce1b8fb2c89d52b8c4e0f4e30@%3Ccommits.tinkerpop.apache.org%3E">https://lists.apache.org/thread.html/rdfa7b6253c4d6271e31566ecd5f30b7ce1b8fb2c89d52b8c4e0f4e30@%3Ccommits.tinkerpop.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-32640">https://nvd.nist.gov/vuln/detail/CVE-2021-32640</a><br></details>  |
 | xmldom         |    CVE-2021-21366   |   MEDIUM  |  0.1.31 | 0.5.0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21366">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-21366</a><br><a href="https://github.com/advisories/GHSA-h6q6-9hqw-rwfv">https://github.com/advisories/GHSA-h6q6-9hqw-rwfv</a><br><a href="https://github.com/xmldom/xmldom/commit/d4201b9dfbf760049f457f9f08a3888d48835135">https://github.com/xmldom/xmldom/commit/d4201b9dfbf760049f457f9f08a3888d48835135</a><br><a href="https://github.com/xmldom/xmldom/releases/tag/0.5.0">https://github.com/xmldom/xmldom/releases/tag/0.5.0</a><br><a href="https://github.com/xmldom/xmldom/security/advisories/GHSA-h6q6-9hqw-rwfv">https://github.com/xmldom/xmldom/security/advisories/GHSA-h6q6-9hqw-rwfv</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-21366">https://nvd.nist.gov/vuln/detail/CVE-2021-21366</a><br><a href="https://www.npmjs.com/package/xmldom">https://www.npmjs.com/package/xmldom</a><br></details>  |
 | xmldom         |    CVE-2021-32796   |   MEDIUM  |  0.1.31 |  | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-5fg8-2547-mr8q">https://github.com/advisories/GHSA-5fg8-2547-mr8q</a><br><a href="https://github.com/xmldom/xmldom/commit/7b4b743917a892d407356e055b296dcd6d107e8b">https://github.com/xmldom/xmldom/commit/7b4b743917a892d407356e055b296dcd6d107e8b</a><br><a href="https://github.com/xmldom/xmldom/security/advisories/GHSA-5fg8-2547-mr8q">https://github.com/xmldom/xmldom/security/advisories/GHSA-5fg8-2547-mr8q</a><br><a href="https://mattermost.com/blog/coordinated-disclosure-go-xml-vulnerabilities/">https://mattermost.com/blog/coordinated-disclosure-go-xml-vulnerabilities/</a><br><a href="https://mattermost.com/blog/securing-xml-implementations-across-the-web/">https://mattermost.com/blog/securing-xml-implementations-across-the-web/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-32796">https://nvd.nist.gov/vuln/detail/CVE-2021-32796</a><br><a href="https://www.npmjs.com/package/@xmldom/xmldom">https://www.npmjs.com/package/@xmldom/xmldom</a><br></details>  |
-

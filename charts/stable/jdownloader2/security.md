@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:37:30.386Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:37:30.386Z    [34mINFO[0m    Detected config files: 1
 #### jdownloader2/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:37:32.014Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:37:32.014Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:37:32.018Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:37:32.014Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:37:32.014Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:37:32.018Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,14 +61,14 @@
 
 **Container: tccr.io/truecharts/jdownloader-2:v1.7.1@sha256:f5c7103d8870367cae893099a9a26929860ca5a13ebc7a1e4e335f1f296c40dd**
 
-2021-12-04T19:37:37.973Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:37:37.973Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:37:37.980Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:37:37.973Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:37:37.973Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:37:37.980Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/jdownloader-2:v1.7.1@sha256:f5c7103d8870367cae893099a9a26929860ca5a13ebc7a1e4e335f1f296c40dd (alpine 3.12.6)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apk-tools         |    CVE-2021-36159   |   CRITICAL  |  2.10.5-r1 | 2.10.7-r0 | <details><summary>Click to expand!</summary><a href="https://github.com/freebsd/freebsd-src/commits/main/lib/libfetch">https://github.com/freebsd/freebsd-src/commits/main/lib/libfetch</a><br><a href="https://gitlab.alpinelinux.org/alpine/apk-tools/-/issues/10749">https://gitlab.alpinelinux.org/alpine/apk-tools/-/issues/10749</a><br><a href="https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc@%3Cdev.kafka.apache.org%3E">https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc@%3Cdev.kafka.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc@%3Cusers.kafka.apache.org%3E">https://lists.apache.org/thread.html/r61db8e7dcb56dc000a5387a88f7a473bacec5ee01b9ff3f55308aacc@%3Cusers.kafka.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7@%3Cdev.kafka.apache.org%3E">https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7@%3Cdev.kafka.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7@%3Cusers.kafka.apache.org%3E">https://lists.apache.org/thread.html/rbf4ce74b0d1fa9810dec50ba3ace0caeea677af7c27a97111c06ccb7@%3Cusers.kafka.apache.org%3E</a><br></details>  |
@@ -115,4 +115,3 @@
 | ssl_client         |    CVE-2021-42386   |   HIGH  |  1.31.1-r20 | 1.31.1-r21 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42386">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42386</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 | ssl_client         |    CVE-2021-42374   |   MEDIUM  |  1.31.1-r20 | 1.31.1-r21 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42374">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42374</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 | xvfb         |    CVE-2021-3472   |   HIGH  |  1.20.10-r0 | 1.20.10-r1 | <details><summary>Click to expand!</summary><a href="http://www.openwall.com/lists/oss-security/2021/04/13/1">http://www.openwall.com/lists/oss-security/2021/04/13/1</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1944167">https://bugzilla.redhat.com/show_bug.cgi?id=1944167</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3472">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3472</a><br><a href="https://gitlab.freedesktop.org/xorg/xserver/-/commit/7aaf54a1884f71dc363f0b884e57bcb67407a6cd">https://gitlab.freedesktop.org/xorg/xserver/-/commit/7aaf54a1884f71dc363f0b884e57bcb67407a6cd</a><br><a href="https://linux.oracle.com/cve/CVE-2021-3472.html">https://linux.oracle.com/cve/CVE-2021-3472.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-2033.html">https://linux.oracle.com/errata/ELSA-2021-2033.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/04/msg00013.html">https://lists.debian.org/debian-lts-announce/2021/04/msg00013.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MDF7TAJE7NPZPNVOXSD5HBIFLNPUOD2V/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MDF7TAJE7NPZPNVOXSD5HBIFLNPUOD2V/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MO6S5OPXUDYBSRSVWVLFLJ6AFERG4HNY/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MO6S5OPXUDYBSRSVWVLFLJ6AFERG4HNY/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/N63KL3T22HNFT4FJ7VMVF6U5Q4RFJIQF/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/N63KL3T22HNFT4FJ7VMVF6U5Q4RFJIQF/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PEXPCLMVU25AUZTUXC4MYBGPKOAIM5TW/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PEXPCLMVU25AUZTUXC4MYBGPKOAIM5TW/</a><br><a href="https://lists.x.org/archives/xorg-announce/2021-April/003080.html">https://lists.x.org/archives/xorg-announce/2021-April/003080.html</a><br><a href="https://seclists.org/oss-sec/2021/q2/20">https://seclists.org/oss-sec/2021/q2/20</a><br><a href="https://security.gentoo.org/glsa/202104-02">https://security.gentoo.org/glsa/202104-02</a><br><a href="https://ubuntu.com/security/notices/USN-4905-1">https://ubuntu.com/security/notices/USN-4905-1</a><br><a href="https://ubuntu.com/security/notices/USN-4905-2">https://ubuntu.com/security/notices/USN-4905-2</a><br><a href="https://www.debian.org/security/2021/dsa-4893">https://www.debian.org/security/2021/dsa-4893</a><br><a href="https://www.tenable.com/plugins/nessus/148701">https://www.tenable.com/plugins/nessus/148701</a><br><a href="https://www.zerodayinitiative.com/advisories/ZDI-21-463/">https://www.zerodayinitiative.com/advisories/ZDI-21-463/</a><br></details>  |
-

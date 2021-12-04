@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:43:39.197Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:43:39.197Z    [34mINFO[0m    Detected config files: 1
 #### mylar/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:43:40.381Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:43:40.381Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:43:40.388Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:43:40.381Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:43:40.381Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:43:40.388Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,13 +61,13 @@
 
 **Container: tccr.io/truecharts/mylar3:version-v0.5.3@sha256:97892fdbd4aaa622ea5b77d1c9c467985545094a13f4acd1ab3f5d4b0bb094ea**
 
-2021-12-04T19:43:46.626Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:43:46.626Z	[34mINFO[0m	Detecting python-pkg vulnerabilities...
+2021-12-04T19:43:46.626Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:43:46.626Z    [34mINFO[0m    Detecting python-pkg vulnerabilities...
 #### Python
-    
+
 **python-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | Pillow         |    CVE-2021-25287   |   CRITICAL  |  6.2.2 | 8.2.0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25287">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25287</a><br><a href="https://github.com/advisories/GHSA-77gc-v2xv-rvvh">https://github.com/advisories/GHSA-77gc-v2xv-rvvh</a><br><a href="https://github.com/python-pillow/Pillow/pull/5377#issuecomment-833821470">https://github.com/python-pillow/Pillow/pull/5377#issuecomment-833821470</a><br><a href="https://github.com/python-pillow/Pillow/pull/5377/commits/3bf5eddb89afdf690eceaa52bc4d3546ba9a5f87">https://github.com/python-pillow/Pillow/pull/5377/commits/3bf5eddb89afdf690eceaa52bc4d3546ba9a5f87</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQHA5HAIBOYI3R6HDWCLAGFTIQP767FL/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQHA5HAIBOYI3R6HDWCLAGFTIQP767FL/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-25287">https://nvd.nist.gov/vuln/detail/CVE-2021-25287</a><br><a href="https://pillow.readthedocs.io/en/stable/releasenotes/8.2.0.html#cve-2021-25287-cve-2021-25288-fix-oob-read-in-jpeg2kdecode">https://pillow.readthedocs.io/en/stable/releasenotes/8.2.0.html#cve-2021-25287-cve-2021-25288-fix-oob-read-in-jpeg2kdecode</a><br><a href="https://security.gentoo.org/glsa/202107-33">https://security.gentoo.org/glsa/202107-33</a><br><a href="https://ubuntu.com/security/notices/USN-4963-1">https://ubuntu.com/security/notices/USN-4963-1</a><br></details>  |
@@ -96,4 +96,3 @@
 | Pillow         |    CVE-2021-28675   |   MEDIUM  |  6.2.2 | 8.2.0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28675">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28675</a><br><a href="https://github.com/advisories/GHSA-g6rj-rv7j-xwp4">https://github.com/advisories/GHSA-g6rj-rv7j-xwp4</a><br><a href="https://github.com/python-pillow/Pillow/pull/5377/commits/22e9bee4ef225c0edbb9323f94c26cee0c623497">https://github.com/python-pillow/Pillow/pull/5377/commits/22e9bee4ef225c0edbb9323f94c26cee0c623497</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQHA5HAIBOYI3R6HDWCLAGFTIQP767FL/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQHA5HAIBOYI3R6HDWCLAGFTIQP767FL/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28675">https://nvd.nist.gov/vuln/detail/CVE-2021-28675</a><br><a href="https://pillow.readthedocs.io/en/stable/releasenotes/8.2.0.html#cve-2021-28675-fix-dos-in-psdimageplugin">https://pillow.readthedocs.io/en/stable/releasenotes/8.2.0.html#cve-2021-28675-fix-dos-in-psdimageplugin</a><br><a href="https://security.gentoo.org/glsa/202107-33">https://security.gentoo.org/glsa/202107-33</a><br><a href="https://ubuntu.com/security/notices/USN-4963-1">https://ubuntu.com/security/notices/USN-4963-1</a><br></details>  |
 | Pillow         |    CVE-2021-28678   |   MEDIUM  |  6.2.2 | 8.2.0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28678">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-28678</a><br><a href="https://github.com/advisories/GHSA-hjfx-8p6c-g7gx">https://github.com/advisories/GHSA-hjfx-8p6c-g7gx</a><br><a href="https://github.com/python-pillow/Pillow/pull/5377">https://github.com/python-pillow/Pillow/pull/5377</a><br><a href="https://github.com/python-pillow/Pillow/pull/5377/commits/496245aa4365d0827390bd0b6fbd11287453b3a1">https://github.com/python-pillow/Pillow/pull/5377/commits/496245aa4365d0827390bd0b6fbd11287453b3a1</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQHA5HAIBOYI3R6HDWCLAGFTIQP767FL/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQHA5HAIBOYI3R6HDWCLAGFTIQP767FL/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28678">https://nvd.nist.gov/vuln/detail/CVE-2021-28678</a><br><a href="https://pillow.readthedocs.io/en/stable/releasenotes/8.2.0.html#cve-2021-28678-fix-blp-dos">https://pillow.readthedocs.io/en/stable/releasenotes/8.2.0.html#cve-2021-28678-fix-blp-dos</a><br><a href="https://security.gentoo.org/glsa/202107-33">https://security.gentoo.org/glsa/202107-33</a><br><a href="https://ubuntu.com/security/notices/USN-4963-1">https://ubuntu.com/security/notices/USN-4963-1</a><br></details>  |
 | Pillow         |    GHSA-jgpv-4h4c-xhw3   |   MEDIUM  |  6.2.2 | 8.1.2 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-jgpv-4h4c-xhw3">https://github.com/advisories/GHSA-jgpv-4h4c-xhw3</a><br><a href="https://github.com/calix2/pyVulApp/security/advisories/GHSA-jgpv-4h4c-xhw3">https://github.com/calix2/pyVulApp/security/advisories/GHSA-jgpv-4h4c-xhw3</a><br></details>  |
-

@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:27:04.022Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:27:04.022Z    [34mINFO[0m    Detected config files: 1
 #### deepstack-cpu/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:27:04.878Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:27:04.878Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:27:04.884Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:27:04.878Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:27:04.878Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:27:04.884Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,16 +61,16 @@
 
 **Container: tccr.io/truecharts/deepstack-cpu:v2021.09.1@sha256:f924cebf518a54bca2ca2ac33911cf3af4dd7403cad371781422436ce4254a28**
 
-2021-12-04T19:27:50.566Z	[34mINFO[0m	Detected OS: debian
-2021-12-04T19:27:50.566Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-04T19:27:50.723Z	[34mINFO[0m	Number of language-specific files: 2
-2021-12-04T19:27:50.723Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
-2021-12-04T19:27:50.724Z	[34mINFO[0m	Detecting python-pkg vulnerabilities...
+2021-12-04T19:27:50.566Z    [34mINFO[0m    Detected OS: debian
+2021-12-04T19:27:50.566Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-04T19:27:50.723Z    [34mINFO[0m    Number of language-specific files: 2
+2021-12-04T19:27:50.723Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
+2021-12-04T19:27:50.724Z    [34mINFO[0m    Detecting python-pkg vulnerabilities...
 #### tccr.io/truecharts/deepstack-cpu:v2021.09.1@sha256:f924cebf518a54bca2ca2ac33911cf3af4dd7403cad371781422436ce4254a28 (debian 10.6)
-    
+
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2020-27350   |   MEDIUM  |  1.8.2.1 | 1.8.2.2 | <details><summary>Click to expand!</summary><a href="https://bugs.launchpad.net/bugs/1899193">https://bugs.launchpad.net/bugs/1899193</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350</a><br><a href="https://security.netapp.com/advisory/ntap-20210108-0005/">https://security.netapp.com/advisory/ntap-20210108-0005/</a><br><a href="https://ubuntu.com/security/notices/USN-4667-1">https://ubuntu.com/security/notices/USN-4667-1</a><br><a href="https://ubuntu.com/security/notices/USN-4667-2">https://ubuntu.com/security/notices/USN-4667-2</a><br><a href="https://usn.ubuntu.com/usn/usn-4667-1">https://usn.ubuntu.com/usn/usn-4667-1</a><br><a href="https://www.debian.org/security/2020/dsa-4808">https://www.debian.org/security/2020/dsa-4808</a><br></details>  |
@@ -3000,7 +3000,7 @@
 | wget         |    CVE-2021-31879   |   MEDIUM  |  1.20.1-1.1 |  | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31879">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31879</a><br><a href="https://mail.gnu.org/archive/html/bug-wget/2021-02/msg00002.html">https://mail.gnu.org/archive/html/bug-wget/2021-02/msg00002.html</a><br><a href="https://savannah.gnu.org/bugs/?56909">https://savannah.gnu.org/bugs/?56909</a><br><a href="https://security.netapp.com/advisory/ntap-20210618-0002/">https://security.netapp.com/advisory/ntap-20210618-0002/</a><br></details>  |
 **python-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | Pillow         |    CVE-2021-25287   |   CRITICAL  |  8.0.1 | 8.2.0 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25287">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25287</a><br><a href="https://github.com/advisories/GHSA-77gc-v2xv-rvvh">https://github.com/advisories/GHSA-77gc-v2xv-rvvh</a><br><a href="https://github.com/python-pillow/Pillow/pull/5377#issuecomment-833821470">https://github.com/python-pillow/Pillow/pull/5377#issuecomment-833821470</a><br><a href="https://github.com/python-pillow/Pillow/pull/5377/commits/3bf5eddb89afdf690eceaa52bc4d3546ba9a5f87">https://github.com/python-pillow/Pillow/pull/5377/commits/3bf5eddb89afdf690eceaa52bc4d3546ba9a5f87</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQHA5HAIBOYI3R6HDWCLAGFTIQP767FL/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQHA5HAIBOYI3R6HDWCLAGFTIQP767FL/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-25287">https://nvd.nist.gov/vuln/detail/CVE-2021-25287</a><br><a href="https://pillow.readthedocs.io/en/stable/releasenotes/8.2.0.html#cve-2021-25287-cve-2021-25288-fix-oob-read-in-jpeg2kdecode">https://pillow.readthedocs.io/en/stable/releasenotes/8.2.0.html#cve-2021-25287-cve-2021-25288-fix-oob-read-in-jpeg2kdecode</a><br><a href="https://security.gentoo.org/glsa/202107-33">https://security.gentoo.org/glsa/202107-33</a><br><a href="https://ubuntu.com/security/notices/USN-4963-1">https://ubuntu.com/security/notices/USN-4963-1</a><br></details>  |
@@ -3034,9 +3034,8 @@
 | urllib3         |    CVE-2021-28363   |   MEDIUM  |  1.26.2 | 1.26.4 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-5phf-pp7p-vc2r">https://github.com/advisories/GHSA-5phf-pp7p-vc2r</a><br><a href="https://github.com/urllib3/urllib3/blob/main/CHANGES.rst#1264-2021-03-15">https://github.com/urllib3/urllib3/blob/main/CHANGES.rst#1264-2021-03-15</a><br><a href="https://github.com/urllib3/urllib3/commit/8d65ea1ecf6e2cdc27d42124e587c1b83a3118b0">https://github.com/urllib3/urllib3/commit/8d65ea1ecf6e2cdc27d42124e587c1b83a3118b0</a><br><a href="https://github.com/urllib3/urllib3/commits/main">https://github.com/urllib3/urllib3/commits/main</a><br><a href="https://github.com/urllib3/urllib3/releases/tag/1.26.4">https://github.com/urllib3/urllib3/releases/tag/1.26.4</a><br><a href="https://github.com/urllib3/urllib3/security/advisories/GHSA-5phf-pp7p-vc2r">https://github.com/urllib3/urllib3/security/advisories/GHSA-5phf-pp7p-vc2r</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4S65ZQVZ2ODGB52IC7VJDBUK4M5INCXL/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4S65ZQVZ2ODGB52IC7VJDBUK4M5INCXL/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28363">https://nvd.nist.gov/vuln/detail/CVE-2021-28363</a><br><a href="https://pypi.org/project/urllib3/1.26.4/">https://pypi.org/project/urllib3/1.26.4/</a><br><a href="https://security.gentoo.org/glsa/202107-36">https://security.gentoo.org/glsa/202107-36</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br></details>  |
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/satori/go.uuid         |    GO-2020-0018   |   UNKNOWN  |  v1.2.0 | v1.2.1-0.20181016170032-d91630c85102 | <details><summary>Click to expand!</summary></details>  |
 | golang.org/x/crypto         |    CVE-2020-29652   |   HIGH  |  v0.0.0-20200622213623-75b288015ac9 | v0.0.0-20201216223049-8b5274cf687f | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652</a><br><a href="https://go-review.googlesource.com/c/crypto/+/278852">https://go-review.googlesource.com/c/crypto/+/278852</a><br><a href="https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1">https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1</a><br><a href="https://linux.oracle.com/cve/CVE-2020-29652.html">https://linux.oracle.com/cve/CVE-2020-29652.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1796.html">https://linux.oracle.com/errata/ELSA-2021-1796.html</a><br><a href="https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E">https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-29652">https://nvd.nist.gov/vuln/detail/CVE-2020-29652</a><br></details>  |
-

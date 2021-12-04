@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:27:53.536Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:27:53.536Z    [34mINFO[0m    Detected config files: 1
 #### digikam/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:27:57.778Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:27:57.778Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:27:57.786Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:27:57.778Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:27:57.778Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:27:57.786Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,15 +61,15 @@
 
 **Container: tccr.io/truecharts/digikam:version-7.3.0@sha256:97cc7525c0e77c75933eea57f2aa52b76077837971a7866338d79ea93adb069c**
 
-2021-12-04T19:28:20.999Z	[34mINFO[0m	Detected OS: ubuntu
-2021-12-04T19:28:20.999Z	[34mINFO[0m	Detecting Ubuntu vulnerabilities...
-2021-12-04T19:28:21.008Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:28:21.008Z	[34mINFO[0m	Detecting node-pkg vulnerabilities...
+2021-12-04T19:28:20.999Z    [34mINFO[0m    Detected OS: ubuntu
+2021-12-04T19:28:20.999Z    [34mINFO[0m    Detecting Ubuntu vulnerabilities...
+2021-12-04T19:28:21.008Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:28:21.008Z    [34mINFO[0m    Detecting node-pkg vulnerabilities...
 #### tccr.io/truecharts/digikam:version-7.3.0@sha256:97cc7525c0e77c75933eea57f2aa52b76077837971a7866338d79ea93adb069c (ubuntu 18.04)
-    
+
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  4.4.18-2ubuntu1.2 |  | <details><summary>Click to expand!</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -279,9 +279,8 @@
 | xutils         |    CVE-2012-1093   |   LOW  |  1:7.7+19ubuntu7.1 |  | <details><summary>Click to expand!</summary><a href="http://vladz.devzero.fr/012_x11-common-vuln.html">http://vladz.devzero.fr/012_x11-common-vuln.html</a><br><a href="http://www.openwall.com/lists/oss-security/2012/02/29/1">http://www.openwall.com/lists/oss-security/2012/02/29/1</a><br><a href="http://www.openwall.com/lists/oss-security/2012/03/01/1">http://www.openwall.com/lists/oss-security/2012/03/01/1</a><br><a href="https://access.redhat.com/security/cve/cve-2012-1093">https://access.redhat.com/security/cve/cve-2012-1093</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1093">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1093</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2012-1093">https://security-tracker.debian.org/tracker/CVE-2012-1093</a><br></details>  |
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | deep-extend         |    CVE-2018-3750   |   CRITICAL  |  0.4.2 | 0.5.1 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-hr2v-3952-633q">https://github.com/advisories/GHSA-hr2v-3952-633q</a><br><a href="https://hackerone.com/reports/311333">https://hackerone.com/reports/311333</a><br><a href="https://nodesecurity.io/advisories/612">https://nodesecurity.io/advisories/612</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-3750">https://nvd.nist.gov/vuln/detail/CVE-2018-3750</a><br><a href="https://www.npmjs.com/advisories/612">https://www.npmjs.com/advisories/612</a><br></details>  |
 | deep-extend         |    NSWG-ECO-408   |   LOW  |  0.4.2 | &gt;=0.5.1 | <details><summary>Click to expand!</summary><a href="https://hackerone.com/reports/311333">https://hackerone.com/reports/311333</a><br></details>  |
-

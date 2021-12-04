@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:24:35.015Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:24:35.015Z    [34mINFO[0m    Detected config files: 1
 #### cloud9/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T19:25:01.448Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T19:25:01.448Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T19:25:01.454Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T19:25:01.448Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T19:25:01.448Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T19:25:01.454Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,15 +61,15 @@
 
 **Container: tccr.io/truecharts/cloud9:version-1.29.2@sha256:4891fa151fe52c43719f0346124f29c81ed47be16cdc34554b8896b0cb80cb73**
 
-2021-12-04T19:25:16.818Z	[34mINFO[0m	Detected OS: ubuntu
-2021-12-04T19:25:16.818Z	[34mINFO[0m	Detecting Ubuntu vulnerabilities...
-2021-12-04T19:25:16.823Z	[34mINFO[0m	Number of language-specific files: 1
-2021-12-04T19:25:16.823Z	[34mINFO[0m	Detecting node-pkg vulnerabilities...
+2021-12-04T19:25:16.818Z    [34mINFO[0m    Detected OS: ubuntu
+2021-12-04T19:25:16.818Z    [34mINFO[0m    Detecting Ubuntu vulnerabilities...
+2021-12-04T19:25:16.823Z    [34mINFO[0m    Number of language-specific files: 1
+2021-12-04T19:25:16.823Z    [34mINFO[0m    Detecting node-pkg vulnerabilities...
 #### tccr.io/truecharts/cloud9:version-1.29.2@sha256:4891fa151fe52c43719f0346124f29c81ed47be16cdc34554b8896b0cb80cb73 (ubuntu 18.04)
-    
+
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  4.4.18-2ubuntu1.2 |  | <details><summary>Click to expand!</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -202,7 +202,7 @@
 | perl-modules-5.26         |    CVE-2020-16156   |   MEDIUM  |  5.26.1-6ubuntu0.5 |  | <details><summary>Click to expand!</summary><a href="http://blogs.perl.org/users/neilb/2021/11/addressing-cpan-vulnerabilities-related-to-checksums.html">http://blogs.perl.org/users/neilb/2021/11/addressing-cpan-vulnerabilities-related-to-checksums.html</a><br><a href="https://blog.hackeriet.no/cpan-signature-verification-vulnerabilities/">https://blog.hackeriet.no/cpan-signature-verification-vulnerabilities/</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16156">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-16156</a><br><a href="https://github.com/andk/cpanpm/commit/b27c51adf0fda25dee84cb72cb2b1bf7d832148c">https://github.com/andk/cpanpm/commit/b27c51adf0fda25dee84cb72cb2b1bf7d832148c</a><br></details>  |
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bl         |    CVE-2020-8244   |   MEDIUM  |  1.1.2 | 2.2.1, 1.2.3, 4.0.3, 3.0.1 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8244">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-8244</a><br><a href="https://github.com/advisories/GHSA-pp7h-53gx-mx7r">https://github.com/advisories/GHSA-pp7h-53gx-mx7r</a><br><a href="https://github.com/rvagg/bl/commit/8a8c13c880e2bef519133ea43e0e9b78b5d0c91e">https://github.com/rvagg/bl/commit/8a8c13c880e2bef519133ea43e0e9b78b5d0c91e</a><br><a href="https://github.com/rvagg/bl/commit/d3e240e3b8ba4048d3c76ef5fb9dd1f8872d3190">https://github.com/rvagg/bl/commit/d3e240e3b8ba4048d3c76ef5fb9dd1f8872d3190</a><br><a href="https://github.com/rvagg/bl/commit/dacc4ac7d5fcd6201bcf26fbd886951be9537466">https://github.com/rvagg/bl/commit/dacc4ac7d5fcd6201bcf26fbd886951be9537466</a><br><a href="https://hackerone.com/reports/966347">https://hackerone.com/reports/966347</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-8244">https://nvd.nist.gov/vuln/detail/CVE-2020-8244</a><br><a href="https://ubuntu.com/security/notices/USN-5098-1">https://ubuntu.com/security/notices/USN-5098-1</a><br></details>  |
@@ -313,4 +313,3 @@
 | ws         |    NSWG-ECO-120   |   HIGH  |  1.0.1 | &gt;=1.1.1 | <details><summary>Click to expand!</summary><a href="https://github.com/nodejs/node/issues/7388">https://github.com/nodejs/node/issues/7388</a><br></details>  |
 | xmlhttprequest-ssl         |    CVE-2021-31597   |   CRITICAL  |  1.5.1 | 1.6.1 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-72mh-269x-7mh5">https://github.com/advisories/GHSA-72mh-269x-7mh5</a><br><a href="https://github.com/mjwwit/node-XMLHttpRequest/commit/bf53329b61ca6afc5d28f6b8d2dc2e3ca740a9b2">https://github.com/mjwwit/node-XMLHttpRequest/commit/bf53329b61ca6afc5d28f6b8d2dc2e3ca740a9b2</a><br><a href="https://github.com/mjwwit/node-XMLHttpRequest/compare/v1.6.0...1.6.1">https://github.com/mjwwit/node-XMLHttpRequest/compare/v1.6.0...1.6.1</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31597">https://nvd.nist.gov/vuln/detail/CVE-2021-31597</a><br><a href="https://people.kingsds.network/wesgarland/xmlhttprequest-ssl-vuln.txt">https://people.kingsds.network/wesgarland/xmlhttprequest-ssl-vuln.txt</a><br><a href="https://security.netapp.com/advisory/ntap-20210618-0004/">https://security.netapp.com/advisory/ntap-20210618-0004/</a><br></details>  |
 | xmlhttprequest-ssl         |    CVE-2020-28502   |   HIGH  |  1.5.1 | 1.6.2 | <details><summary>Click to expand!</summary><a href="https://github.com/advisories/GHSA-h4j5-c7cj-74xg">https://github.com/advisories/GHSA-h4j5-c7cj-74xg</a><br><a href="https://github.com/driverdan/node-XMLHttpRequest/blob/1.6.0/lib/XMLHttpRequest.js#L480">https://github.com/driverdan/node-XMLHttpRequest/blob/1.6.0/lib/XMLHttpRequest.js#L480</a><br><a href="https://github.com/driverdan/node-XMLHttpRequest/blob/1.6.0/lib/XMLHttpRequest.js%23L480">https://github.com/driverdan/node-XMLHttpRequest/blob/1.6.0/lib/XMLHttpRequest.js%23L480</a><br><a href="https://github.com/driverdan/node-XMLHttpRequest/commit/983cfc244c7567ad6a59e366e55a8037e0497fe6">https://github.com/driverdan/node-XMLHttpRequest/commit/983cfc244c7567ad6a59e366e55a8037e0497fe6</a><br><a href="https://github.com/mjwwit/node-XMLHttpRequest/blob/ae38832a0f1347c5e96dda665402509a3458e302/lib/XMLHttpRequest.js#L531">https://github.com/mjwwit/node-XMLHttpRequest/blob/ae38832a0f1347c5e96dda665402509a3458e302/lib/XMLHttpRequest.js#L531</a><br><a href="https://github.com/mjwwit/node-XMLHttpRequest/commit/ee1e81fc67729c7c0eba5537ed7fe1e30a6b3291">https://github.com/mjwwit/node-XMLHttpRequest/commit/ee1e81fc67729c7c0eba5537ed7fe1e30a6b3291</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28502">https://nvd.nist.gov/vuln/detail/CVE-2020-28502</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1082937">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1082937</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1082938">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1082938</a><br><a href="https://snyk.io/vuln/SNYK-JS-XMLHTTPREQUEST-1082935">https://snyk.io/vuln/SNYK-JS-XMLHTTPREQUEST-1082935</a><br><a href="https://snyk.io/vuln/SNYK-JS-XMLHTTPREQUESTSSL-1082936">https://snyk.io/vuln/SNYK-JS-XMLHTTPREQUESTSSL-1082936</a><br></details>  |
-

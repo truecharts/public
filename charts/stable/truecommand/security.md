@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T20:00:11.664Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T20:00:11.664Z    [34mINFO[0m    Detected config files: 1
 #### truecommand/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,14 +26,14 @@
 
 **Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c**
 
-2021-12-04T20:00:13.087Z	[34mINFO[0m	Detected OS: alpine
-2021-12-04T20:00:13.087Z	[34mINFO[0m	Detecting Alpine vulnerabilities...
-2021-12-04T20:00:13.106Z	[34mINFO[0m	Number of language-specific files: 0
+2021-12-04T20:00:13.087Z    [34mINFO[0m    Detected OS: alpine
+2021-12-04T20:00:13.087Z    [34mINFO[0m    Detecting Alpine vulnerabilities...
+2021-12-04T20:00:13.106Z    [34mINFO[0m    Number of language-specific files: 0
 #### tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -61,16 +61,16 @@
 
 **Container: tccr.io/truecharts/truecommand:v2.0.2@sha256:adee76b6a9149ea15dc56e8e6692f6cc60355cfb83c55a7a94a117923dc67ad0**
 
-2021-12-04T20:00:33.910Z	[34mINFO[0m	Detected OS: debian
-2021-12-04T20:00:33.910Z	[34mINFO[0m	Detecting Debian vulnerabilities...
-2021-12-04T20:00:33.962Z	[34mINFO[0m	Number of language-specific files: 5
-2021-12-04T20:00:33.962Z	[34mINFO[0m	Detecting gobinary vulnerabilities...
-2021-12-04T20:00:33.964Z	[34mINFO[0m	Detecting node-pkg vulnerabilities...
+2021-12-04T20:00:33.910Z    [34mINFO[0m    Detected OS: debian
+2021-12-04T20:00:33.910Z    [34mINFO[0m    Detecting Debian vulnerabilities...
+2021-12-04T20:00:33.962Z    [34mINFO[0m    Number of language-specific files: 5
+2021-12-04T20:00:33.962Z    [34mINFO[0m    Detecting gobinary vulnerabilities...
+2021-12-04T20:00:33.964Z    [34mINFO[0m    Detecting node-pkg vulnerabilities...
 #### tccr.io/truecharts/truecommand:v2.0.2@sha256:adee76b6a9149ea15dc56e8e6692f6cc60355cfb83c55a7a94a117923dc67ad0 (debian 10.4)
-    
+
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2020-27350   |   MEDIUM  |  1.8.2.1 | 1.8.2.2 | <details><summary>Click to expand!</summary><a href="https://bugs.launchpad.net/bugs/1899193">https://bugs.launchpad.net/bugs/1899193</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350</a><br><a href="https://security.netapp.com/advisory/ntap-20210108-0005/">https://security.netapp.com/advisory/ntap-20210108-0005/</a><br><a href="https://ubuntu.com/security/notices/USN-4667-1">https://ubuntu.com/security/notices/USN-4667-1</a><br><a href="https://ubuntu.com/security/notices/USN-4667-2">https://ubuntu.com/security/notices/USN-4667-2</a><br><a href="https://usn.ubuntu.com/usn/usn-4667-1">https://usn.ubuntu.com/usn/usn-4667-1</a><br><a href="https://www.debian.org/security/2020/dsa-4808">https://www.debian.org/security/2020/dsa-4808</a><br></details>  |
@@ -379,14 +379,14 @@
 | util-linux         |    CVE-2021-37600   |   LOW  |  2.33.1-0.1 |  | <details><summary>Click to expand!</summary><a href="https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c">https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c</a><br><a href="https://github.com/karelzak/util-linux/issues/1395">https://github.com/karelzak/util-linux/issues/1395</a><br><a href="https://security.netapp.com/advisory/ntap-20210902-0002/">https://security.netapp.com/advisory/ntap-20210902-0002/</a><br></details>  |
 **node-pkg**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/buger/jsonparser         |    CVE-2020-10675   |   HIGH  |  v0.0.0-20191004114745-ee4c978eae7e | v0.0.0-20200321185410-91ac96899e49 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10675">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10675</a><br><a href="https://github.com/buger/jsonparser/issues/188">https://github.com/buger/jsonparser/issues/188</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4C7PV6KEUUM76V4B2J5IFN2U6LEOWB67/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4C7PV6KEUUM76V4B2J5IFN2U6LEOWB67/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6KUHKDQSEYJNROA66OMN6AAQMGAAN6WI/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6KUHKDQSEYJNROA66OMN6AAQMGAAN6WI/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-10675">https://nvd.nist.gov/vuln/detail/CVE-2020-10675</a><br></details>  |
@@ -396,7 +396,7 @@
 | golang.org/x/crypto         |    CVE-2020-29652   |   HIGH  |  v0.0.0-20200622213623-75b288015ac9 | v0.0.0-20201216223049-8b5274cf687f | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652</a><br><a href="https://go-review.googlesource.com/c/crypto/+/278852">https://go-review.googlesource.com/c/crypto/+/278852</a><br><a href="https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1">https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1</a><br><a href="https://linux.oracle.com/cve/CVE-2020-29652.html">https://linux.oracle.com/cve/CVE-2020-29652.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1796.html">https://linux.oracle.com/errata/ELSA-2021-1796.html</a><br><a href="https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E">https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-29652">https://nvd.nist.gov/vuln/detail/CVE-2020-29652</a><br></details>  |
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/buger/jsonparser         |    CVE-2020-10675   |   HIGH  |  v0.0.0-20191004114745-ee4c978eae7e | v0.0.0-20200321185410-91ac96899e49 | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10675">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-10675</a><br><a href="https://github.com/buger/jsonparser/issues/188">https://github.com/buger/jsonparser/issues/188</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4C7PV6KEUUM76V4B2J5IFN2U6LEOWB67/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4C7PV6KEUUM76V4B2J5IFN2U6LEOWB67/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6KUHKDQSEYJNROA66OMN6AAQMGAAN6WI/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6KUHKDQSEYJNROA66OMN6AAQMGAAN6WI/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-10675">https://nvd.nist.gov/vuln/detail/CVE-2020-10675</a><br></details>  |
@@ -406,15 +406,12 @@
 | golang.org/x/crypto         |    CVE-2020-29652   |   HIGH  |  v0.0.0-20200622213623-75b288015ac9 | v0.0.0-20201216223049-8b5274cf687f | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652</a><br><a href="https://go-review.googlesource.com/c/crypto/+/278852">https://go-review.googlesource.com/c/crypto/+/278852</a><br><a href="https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1">https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1</a><br><a href="https://linux.oracle.com/cve/CVE-2020-29652.html">https://linux.oracle.com/cve/CVE-2020-29652.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1796.html">https://linux.oracle.com/errata/ELSA-2021-1796.html</a><br><a href="https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E">https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-29652">https://nvd.nist.gov/vuln/detail/CVE-2020-29652</a><br></details>  |
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/crypto         |    CVE-2020-29652   |   HIGH  |  v0.0.0-20200622213623-75b288015ac9 | v0.0.0-20201216223049-8b5274cf687f | <details><summary>Click to expand!</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652</a><br><a href="https://go-review.googlesource.com/c/crypto/+/278852">https://go-review.googlesource.com/c/crypto/+/278852</a><br><a href="https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1">https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1</a><br><a href="https://linux.oracle.com/cve/CVE-2020-29652.html">https://linux.oracle.com/cve/CVE-2020-29652.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1796.html">https://linux.oracle.com/errata/ELSA-2021-1796.html</a><br><a href="https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E">https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-29652">https://nvd.nist.gov/vuln/detail/CVE-2020-29652</a><br></details>  |
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

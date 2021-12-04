@@ -4,16 +4,16 @@
 
 ##### Scan Results
 
-2021-12-04T19:30:32.117Z	[34mINFO[0m	Detected config files: 1
+2021-12-04T19:30:32.117Z    [34mINFO[0m    Detected config files: 1
 #### external-service/templates/common.yaml
-    
+
 **kubernetes**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -21,4 +21,3 @@
 
 
 ##### Scan Results
-
