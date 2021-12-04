@@ -60,6 +60,7 @@ main() {
         prep_helm
         for chart in "${changed_charts[@]}"; do
           chart_runner ${chart}
+          # parallel chart_runner ::: ${chart}
         done
         echo "Starting post-processing"
         pre_commit
@@ -114,6 +115,7 @@ chart_runner(){
   fi
   echo "Done processing $chart ..."
 }
+export -f chart_runner
 
 include_questions(){
     local chart="$1"
