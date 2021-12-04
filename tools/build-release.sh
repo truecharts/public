@@ -126,117 +126,117 @@ include_questions(){
     # Replace # Include{global} with the standard global codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{global}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/global.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/global.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{groups} with the standard groups codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{groups}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/groups.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/groups.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{fixedEnv} with the standard fixedEnv codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{fixedEnv}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/fixedEnv.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/fixedEnv.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
      # Replace # Include{controllerExpert} with the standard controllerExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{controllerExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/controllerExpert.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/controllerExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{containerConfig} with the standard containerConfig codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{containerConfig}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/containerConfig.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/containerConfig.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceSelector} with the standard serviceSelector codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceSelector}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceSelector.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/serviceSelector.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceExpert} with the standard serviceExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceExpert.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/serviceExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{serviceList} with the standard serviceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{serviceList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/serviceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/serviceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceBasic} with the standard persistenceBasic codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceBasic}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceBasic.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/persistenceBasic.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceAdvanced} with the standard persistenceAdvanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceAdvanced.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/persistenceAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{persistenceList} with the standard persistenceList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{persistenceList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/persistenceList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/persistenceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressDefault} with the standard ingressDefault codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressDefault}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressDefault.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/ingressDefault.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressTLS} with the standard ingressTLS codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressTLS}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressTLS.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/ingressTLS.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressTraefik} with the standard ingressTraefik codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressTraefik}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressTraefik.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/ingressTraefik.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressExpert} with the standard ingressExpert codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressExpert}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressExpert.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/ingressExpert.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{ingressList} with the standard ingressList codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressList}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/ingressList.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/ingressList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{addons} with the standard addons codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{addons}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/addons.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/addons.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{metrics} with the standard metrics codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/metrics.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{metrics3m} with the standard metrics3m codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics3m}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics3m.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/metrics3m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{metrics60m} with the standard metrics60m codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{metrics60m}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/metrics60m.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/metrics60m.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{prometheusRule} with the standard prometheusRule codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{prometheusRule}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/prometheusRule.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/prometheusRule.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{advanced} with the standard advanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{advanced}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/advanced.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/advanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     # Replace # Include{resources} with the standard resources codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{resources}/ { for (i=0;i<n;++i) print a[i]; next }
-    1' templates/questions/resources.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
+    1' templates/questions/resources.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
     }
 export -f include_questions
@@ -291,16 +291,16 @@ helm_sec_scan() {
     local chartversion="$4"
     echo "Scanning helm security for ${chartname}"
     mkdir -p ${chart}/render
-    rm -rf ${chart}/sec-scan.md | echo "removing old sec-scan.md file failed..."
-    echo "# Security Scan" >> ${chart}/sec-scan.md
-    echo "" >> ${chart}/sec-scan.md
-    echo "## Helm-Chart" >> ${chart}/sec-scan.md
-    echo "" >> ${chart}/sec-scan.md
-    echo "##### Scan Results" >> ${chart}/sec-scan.md
-    echo "" >> ${chart}/sec-scan.md
+    rm -rf ${chart}/security.md | echo "removing old security.md file failed..."
+    echo "# Security Scan" >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
+    echo "## Helm-Chart" >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
+    echo "##### Scan Results" >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
     helm template ${chart} --output-dir ${chart}/render > /dev/null
-    trivy config -f template --template "@./templates/trivy.tpl" ${chart}/render >> ${chart}/sec-scan.md
-    echo "" >> ${chart}/sec-scan.md
+    trivy config -f template --template "@./templates/trivy.tpl" ${chart}/render >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
     }
     export -f helm_sec_scan
 
@@ -310,22 +310,22 @@ container_sec_scan() {
     local train="$3"
     local chartversion="$4"
     echo "Scanning container security for ${chartname}"
-    echo "## Containers" >> ${chart}/sec-scan.md
-    echo "" >> ${chart}/sec-scan.md
-    echo "##### Detected Containers" >> ${chart}/sec-scan.md
-    echo "" >> ${chart}/sec-scan.md
+    echo "## Containers" >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
+    echo "##### Detected Containers" >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
     find ./${chart}/render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
-    cat ${chart}/render/containers.tmp >> ${chart}/sec-scan.md
-    echo "" >> ${chart}/sec-scan.md
-    echo "##### Scan Results" >> ${chart}/sec-scan.md
-    echo "" >> ${chart}/sec-scan.md
+    cat ${chart}/render/containers.tmp >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
+    echo "##### Scan Results" >> ${chart}/security.md
+    echo "" >> ${chart}/security.md
     for container in $(cat ${chart}/render/containers.tmp); do
       ghcrcont="$(echo ${container} | sed 's/tccr.io/ghcr.io/g')"
       echo "processing container: ${container} using ${ghcrcont}"
-      echo "**Container: ${container}**" >> ${chart}/sec-scan.md
-      echo "" >> ${chart}/sec-scan.md
-      trivy image -f template --template "@./templates/trivy.tpl" "${ghcrcont}" >> ${chart}/sec-scan.md
-      echo "" >> ${chart}/sec-scan.md
+      echo "**Container: ${container}**" >> ${chart}/security.md
+      echo "" >> ${chart}/security.md
+      trivy image -f template --template "@./templates/trivy.tpl" "${ghcrcont}" >> ${chart}/security.md
+      echo "" >> ${chart}/security.md
       done
 
     }
@@ -337,7 +337,7 @@ sec_scan_cleanup() {
     local train="$3"
     local chartversion="$4"
     rm -rf ${chart}/render
-    sed -i 's/ghcr.io/tccr.io/g' ${chart}/sec-scan.md
+    sed -i 's/ghcr.io/tccr.io/g' ${chart}/security.md
     }
     export -f sec_scan_cleanup
 
@@ -455,7 +455,7 @@ copy_docs() {
         mkdir -p docs/apps/${train}/${chartname} || echo "app path already exists, continuing..."
         yes | cp -rf ${chart}/README.md docs/apps/${train}/${chartname}/index.md 2>/dev/null || :
         yes | cp -rf ${chart}/CHANGELOG.md docs/apps/${train}/${chartname}/CHANGELOG.md 2>/dev/null || :
-        yes | cp -rf ${chart}/sec-scan.md docs/apps/${train}/${chartname}/sec-scan.md 2>/dev/null || :
+        yes | cp -rf ${chart}/security.md docs/apps/${train}/${chartname}/security.md 2>/dev/null || :
         yes | cp -rf ${chart}/CONFIG.md docs/apps/${train}/${chartname}/CONFIG.md 2>/dev/null || :
         yes | cp -rf ${chart}/helm-values.md docs/apps/${train}/${chartname}/helm-values.md 2>/dev/null || :
         rm docs/apps/${train}/${chartname}/LICENSE.md 2>/dev/null || :
