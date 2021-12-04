@@ -314,16 +314,17 @@ container_sec_scan() {
     echo "" >> ${chart}/sec-scan.md
     echo "##### Detected Containers" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
-    find ${chart}/render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
+    find ./${chart}/render/ -name '*.yaml' -type f -exec cat {} \; | grep image: | sed "s/image: //g" | sed "s/\"//g" >> ${chart}/render/containers.tmp
     cat ${chart}/render/containers.tmp >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
     echo "##### Scan Results" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
     for container in $(cat ${chart}/render/containers.tmp); do
+      ghcrcont="$(echo ${container} | sed 's/tccr.io/ghcr.io/g')"
+      echo "processing container: ${container} using ${ghcrcont}"
       echo "**Container: ${container}**" >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
-      ghcrcont=$(echo ${container} | sed "s/tccr.io/ghcr.io/g")
-      trivy image -f template --template "@./templates/trivy.tpl" ${ghcrcont} >> ${chart}/sec-scan.md
+      trivy image -f template --template "@./templates/trivy.tpl" "" >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
       done
 
