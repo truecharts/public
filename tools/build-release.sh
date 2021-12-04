@@ -292,11 +292,7 @@ helm_sec_scan() {
     echo "Scanning helm security for ${chartname}"
     mkdir -p ${chart}/render
     rm -rf ${chart}/security.md || echo "removing old security.md file failed..."
-    echo "# Security Scan" >> ${chart}/security.md
-    echo "" >> ${chart}/security.md
-    echo "## Helm-Chart" >> ${chart}/security.md
-    echo "" >> ${chart}/security.md
-    echo "##### Scan Results" >> ${chart}/security.md
+    cat templates/security.tpl >> ${chart}/security.md
     echo "" >> ${chart}/security.md
     helm template ${chart} --output-dir ${chart}/render > /dev/null
     trivy config -f template --template "@./templates/trivy-config.tpl" -o ${chart}/render/tmpsec${chartname}.md ${chart}/render
