@@ -241,7 +241,7 @@ include_questions(){
     1' templates/questions/resources.yaml ${target}/questions.yaml > tmp && mv tmp ${target}/questions.yaml
 
     }
-export -f
+export -f include_questions
 
 clean_catalog() {
     local chart="$1"
@@ -258,7 +258,7 @@ clean_catalog() {
     done
     cd -
     }
-export -f
+export -f clean_catalog
 
 # Designed to ensure the appversion in Chart.yaml is in sync with the primary App tag if found
 sync_tag() {
