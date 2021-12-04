@@ -30,6 +30,7 @@ main() {
     local production=
     local charts_repo_url=
     local token=${CR_TOKEN:-false}
+    local parthreads=$(($(nproc) * 2))
 
     parse_command_line "$@"
     if [ "${token}" == "false" ]; then
@@ -59,10 +60,7 @@ main() {
 
         prep_helm
 
-        parallel -j 2 chart_runner ::: ${changed_charts[@]}
-        #for chart in "${changed_charts[@]}"; do
-        #  chart_runner ${chart}
-        #done
+        parallel -j ${parthreads} chart_runner ::: ${changed_charts[@]}
         echo "Starting post-processing"
         pre_commit
         validate_catalog
