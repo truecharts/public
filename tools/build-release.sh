@@ -90,7 +90,7 @@ chart_runner(){
       chartname=$(basename ${1})
       train=$(basename $(dirname "$chart"))
       SCALESUPPORT=$(cat ${1}/Chart.yaml | yq '.annotations."truecharts.org/SCALE-support"' -r)
-      helm dependency update "${1}" --skip-refresh || sleep 10 && helm dependency update "${1}" --skip-refresh || sleep 10 &&  helm dependency update "${1}" --skip-refresh
+      helm dependency update "${1}" --skip-refresh || (sleep 10 && helm dependency update "${1}" --skip-refresh) || (sleep 10 && helm dependency update "${1}" --skip-refresh)
       sync_tag "$chart" "$chartname" "$train" "$chartversion" || echo "Tag sync failed..."
       helm_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "helm-chart security-scan failed..."
       container_sec_scan "$chart" "$chartname" "$train" "$chartversion" || echo "container security-scan failed..."
@@ -98,7 +98,6 @@ chart_runner(){
       create_changelog "$chart" "$chartname" "$train" "$chartversion" || echo "changelog generation failed..."
       generate_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs generation failed..."
       copy_docs "$chart" "$chartname" "$train" "$chartversion" || echo "Docs Copy failed..."
-      helm dependency update "${1}" --skip-refresh || sleep 10 && helm dependency update "${1}" --skip-refresh || sleep 10 &&  helm dependency update "${1}" --skip-refresh
       package_chart "$chart"
       if [[ "${SCALESUPPORT}" == "true" ]]; then
         clean_apps "$chart" "$chartname" "$train" "$chartversion"
