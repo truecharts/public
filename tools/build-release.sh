@@ -292,10 +292,7 @@ helm_sec_scan() {
     echo "##### Scan Results" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
     helm template ${chart} --output-dir ${chart}/render
-    ## TODO: Cleanup security scan layout
-    echo '```' >> ${chart}/sec-scan.md
     trivy config -f template --template "@./templates/trivy.tpl" ${chart}/render >> ${chart}/sec-scan.md
-    echo '```' >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
     }
 
@@ -314,14 +311,11 @@ container_sec_scan() {
     echo "" >> ${chart}/sec-scan.md
     echo "##### Scan Results" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
-    ## TODO: Cleanup security scan layout
     for container in $(cat ${chart}/render/containers.tmp); do
       echo "**Container: ${container}**" >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
-      echo '```' >> ${chart}/sec-scan.md
       ghcrcont=$(echo ${container} | sed "s/tccr.io/ghcr.io/g")
       trivy image -f template --template "@./templates/trivy.tpl" ${ghcrcont} >> ${chart}/sec-scan.md
-      echo '```' >> ${chart}/sec-scan.md
       echo "" >> ${chart}/sec-scan.md
       done
 
