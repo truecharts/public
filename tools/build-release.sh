@@ -298,7 +298,7 @@ helm_sec_scan() {
     echo "" >> ${chart}/sec-scan.md
     echo "##### Scan Results" >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
-    helm template ${chart} --output-dir ${chart}/render 2>/dev/null
+    helm template ${chart} --output-dir ${chart}/render > /dev/null
     trivy config -f template --template "@./templates/trivy.tpl" ${chart}/render >> ${chart}/sec-scan.md
     echo "" >> ${chart}/sec-scan.md
     }
