@@ -1,6 +1,7 @@
 {{- if . -}}
-#### {{ escapeXML ( index . 0 ).Target }}
+#### Container: {{ escapeXML ( index . 0 ).Target }}
     {{ range . }}
+
 **{{ escapeXML .Type }}**
 
       {{ if (eq (len .Vulnerabilities) 0) }}
@@ -16,6 +17,7 @@
       {{- end }}
     {{- end }}
 {{- else }}
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 {{- end }}

@@ -299,7 +299,9 @@ helm_sec_scan() {
     echo "##### Scan Results" >> ${chart}/security.md
     echo "" >> ${chart}/security.md
     helm template ${chart} --output-dir ${chart}/render > /dev/null
-    trivy config -f template --template "@./templates/trivy.tpl" ${chart}/render >> ${chart}/security.md
+    trivy config -f template --template "@./templates/trivy.tpl" -o ${chart}/render/tmpsec${chartname}.md ${chart}/render
+    cat ${chart}/render/tmpsec${chartname}.md >> ${chart}/security.md
+    rm -rf ${chart}/render/tmpsec${chartname}.md || true
     echo "" >> ${chart}/security.md
     }
     export -f helm_sec_scan
@@ -320,11 +322,12 @@ container_sec_scan() {
     echo "##### Scan Results" >> ${chart}/security.md
     echo "" >> ${chart}/security.md
     for container in $(cat ${chart}/render/containers.tmp); do
-      ghcrcont="$(echo ${container} | sed 's/tccr.io/ghcr.io/g')"
-      echo "processing container: ${container} using ${ghcrcont}"
+      echo "processing container: ${container}"
       echo "**Container: ${container}**" >> ${chart}/security.md
       echo "" >> ${chart}/security.md
-      trivy image -f template --template "@./templates/trivy.tpl" "${ghcrcont}" >> ${chart}/security.md
+      trivy image -f template --template "@./templates/trivy-container.tpl" -o ${chart}/render/tmpsec${chartname}.md "${container}"
+      cat ${chart}/render/tmpsec${chartname}.md >> ${chart}/security.md
+      rm -rf ${chart}/render/tmpsec${chartname}.md || true
       echo "" >> ${chart}/security.md
     done
 
