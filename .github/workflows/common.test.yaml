@@ -103,7 +103,7 @@ jobs:
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.19
+          version: v1.22.4+k3s1
 
       - name: Run chart-testing (install)
-        run: ct install --config .github/ct-install.yaml --charts 'charts/library/common-test'
+        run: find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && ct install --config .github/ct-install.yaml --charts 'charts/library/common-test'

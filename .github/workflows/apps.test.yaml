@@ -6,7 +6,7 @@ on:
       - '**'
     tags-ignore:
       - '**'
-    paths:
+      paths:
       - 'charts/**'
       - '.github/workflows/apps.test.yaml'
       - '.github/ct-install.yaml'
@@ -141,12 +141,12 @@ jobs:
         if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' && steps.prep-lint.outputs.install != 'false' }}
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.22.2+k3s1
+          version: v1.22.4+k3s1
 
       ## TODO: Fix common-test
       - name: Run chart-testing (install)
         if: ${{ matrix.app != 'common' &&  matrix.app != '.gitkee' && steps.prep-lint.outputs.install != 'false' }}
-        run: find ./charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }} -type f -name *.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && ct install --config .github/ct-install.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
+        run: find ./ -type f -name *.yaml -exec sed -i 's/tccr.io/ghcr.io/gI' {} \; && ct install --config .github/ct-install.yaml --charts 'charts/${{ steps.prep-lint.outputs.train }}/${{ matrix.app }}'
 
   app-tests-complete:
     needs: [app-tests]
