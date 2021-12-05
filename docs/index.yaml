@@ -51,4 +51,181 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/common-test-3.3.6/common-test-3.3.6.tgz
     version: 3.3.6
-generated: "2021-12-05T21:38:14.926810222Z"
+  mariadb:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 10.6.5
+    created: "2021-12-05T21:56:55.337636115Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    description: Fast, reliable, scalable, and easy to use open-source relational
+      database system.
+    digest: cd1851074da799c97c533e096883b323816c67b0d727bd8e649b011194dd4c99
+    home: https://github.com/truecharts/apps/tree/master/stable/mariadb
+    icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+    keywords:
+    - mariadb
+    - mysql
+    - database
+    - sql
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: mariadb
+    sources:
+    - https://github.com/bitnami/bitnami-docker-mariadb
+    - https://github.com/prometheus/mysqld_exporter
+    - https://mariadb.org
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mariadb-1.0.25/mariadb-1.0.25.tgz
+    version: 1.0.25
+  memcached:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+        - cache
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.12
+    created: "2021-12-05T21:56:55.538325801Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    description: Memcached is a memory-backed database caching solution
+    digest: 3d0326126638debe3319d5a2169151bf803aa94de1511448b52736377c7f28c1
+    home: https://github.com/truecharts/apps/tree/master/stable/memcached
+    icon: https://bitnami.com/assets/stacks/memcached/img/memcached-stack-220x234.png
+    keywords:
+    - memcached
+    - database
+    - cache
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: memcached
+    sources:
+    - https://github.com/bitnami/bitnami-docker-memcached
+    - http://memcached.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/memcached-1.0.25/memcached-1.0.25.tgz
+    version: 1.0.25
+  postgresql:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 14.1.0
+    created: "2021-12-05T21:56:55.711572445Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    description: PostgresSQL
+    digest: 187265db707cb175eb65163a47ee49c4fb0319fcf3b22027c2b3c0d4aedeeb4b
+    home: https://github.com/truecharts/apps/tree/master/stable/postgres
+    icon: https://d1q6f0aelx0por.cloudfront.net/product-logos/library-postgres-logo.png
+    keywords:
+    - postgres
+    - postgressql
+    - dtabase
+    - sql
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: postgresql
+    sources:
+    - https://www.postgresql.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/postgresql-6.0.22/postgresql-6.0.22.tgz
+    version: 6.0.22
+  promtail:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - metrics
+        - logs
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.4.1
+    created: "2021-12-05T21:56:55.887424278Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    description: Promtail is an agent which ships the contents of local logs to a
+      Loki instance
+    digest: 291f3a3d0b91b42a716aec770d185feffccb8b007b2b1376e00be7dc16c3016e
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/prometheus
+    icon: https://raw.githubusercontent.com/grafana/loki/master/docs/sources/logo.png
+    keywords:
+    - metrics
+    - logs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: promtail
+    sources:
+    - https://github.com/grafana/loki
+    - https://grafana.com/oss/loki/
+    - https://grafana.com/docs/loki/latest/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/promtail-1.0.10/promtail-1.0.10.tgz
+    version: 1.0.10
+  redis:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+        - cache
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 6.2.6
+    created: "2021-12-05T21:56:56.064233945Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    description: Open source, advanced key-value store.
+    digest: bcbb35dbc932c492aff706e3966155a3fb6c8a5bdd5f24d1be3de070c9e8f715
+    home: https://github.com/truecharts/apps/tree/master/stable/redis
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: redis
+    sources:
+    - https://github.com/bitnami/bitnami-docker-redis
+    - http://redis.io/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/redis-1.0.27/redis-1.0.27.tgz
+    version: 1.0.27
+generated: "2021-12-05T21:56:56.064250545Z"

@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.27"></a>
+### redis-1.0.27 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* ensure container references are prefixed with v
+* cleanup the ci for the security page a bit
+* update dependencies
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+* bump common on dependency train ([#1452](https://github.com/truecharts/apps/issues/1452))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update common on deps ([#1467](https://github.com/truecharts/apps/issues/1467))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major ([#1443](https://github.com/truecharts/apps/issues/1443))
+* update common
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+* update non-major ([#1423](https://github.com/truecharts/apps/issues/1423))
+
+#### Fix
+
+* move deps back to ghcr for now.
+* correct mountpath mistakes
+
+
+
 <a name="redis-1.0.26"></a>
 ### [redis-1.0.26](https://github.com/truecharts/apps/compare/redis-1.0.25...redis-1.0.26) (2021-12-05)
 

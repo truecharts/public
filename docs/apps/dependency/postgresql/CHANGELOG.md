@@ -1,6 +1,32 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.22"></a>
+### postgresql-6.0.22 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* ensure container references are prefixed with v
+* cleanup the ci for the security page a bit
+* update dependencies
+* bump common on dependency train ([#1452](https://github.com/truecharts/apps/issues/1452))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+* update common on deps ([#1467](https://github.com/truecharts/apps/issues/1467))
+* update non-major ([#1443](https://github.com/truecharts/apps/issues/1443))
+* update common
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+* update non-major ([#1423](https://github.com/truecharts/apps/issues/1423))
+
+#### Fix
+
+* move deps back to ghcr for now.
+* correct mountpath mistakes
+
+
+
 <a name="postgresql-6.0.21"></a>
 ### [postgresql-6.0.21](https://github.com/truecharts/apps/compare/postgresql-6.0.20...postgresql-6.0.21) (2021-12-05)
 
