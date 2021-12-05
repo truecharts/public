@@ -31,7 +31,7 @@ spec:
               imagePullPolicy: {{ default .Values.image.pullPolicy }}
               args:
               - curl
-              - "http://{{ printf "%s" $jobName }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/{{ .Values.env.STATIC_CRON_TOKEN }}"
+              - "http://{{ $jobName }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/{{ .Values.env.STATIC_CRON_TOKEN }}"
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 
