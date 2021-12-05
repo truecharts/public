@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.9"></a>
+### vaultwarden-13.0.9 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
 <a name="vaultwarden-13.0.8"></a>
 ### [vaultwarden-13.0.8](https://github.com/truecharts/apps/compare/vaultwarden-13.0.7...vaultwarden-13.0.8) (2021-12-05)
 

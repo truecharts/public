@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="minio-console-1.0.22"></a>
+### minio-console-1.0.22 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* correct some wrong container references again
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
 <a name="minio-console-1.0.21"></a>
 ### [minio-console-1.0.21](https://github.com/truecharts/apps/compare/minio-console-1.0.20...minio-console-1.0.21) (2021-12-05)
 

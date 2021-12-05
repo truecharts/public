@@ -1,6 +1,29 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.29"></a>
+### prowlarr-4.0.29 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major docker tags ([#1438](https://github.com/truecharts/apps/issues/1438))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update non-major docker tags ([#1429](https://github.com/truecharts/apps/issues/1429))
+* update non-major ([#1427](https://github.com/truecharts/apps/issues/1427))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
 <a name="prowlarr-4.0.28"></a>
 ### [prowlarr-4.0.28](https://github.com/truecharts/apps/compare/prowlarr-4.0.27...prowlarr-4.0.28) (2021-12-05)
 

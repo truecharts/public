@@ -1,6 +1,26 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.22"></a>
+### zwavejs2mqtt-9.0.22 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update major docker tags (major) ([#1426](https://github.com/truecharts/apps/issues/1426))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
 <a name="zwavejs2mqtt-9.0.21"></a>
 ### [zwavejs2mqtt-9.0.21](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.20...zwavejs2mqtt-9.0.21) (2021-12-05)
 

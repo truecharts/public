@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.21"></a>
+### esphome-9.0.21 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
 <a name="esphome-9.0.20"></a>
 ### [esphome-9.0.20](https://github.com/truecharts/apps/compare/esphome-9.0.19...esphome-9.0.20) (2021-12-05)
 

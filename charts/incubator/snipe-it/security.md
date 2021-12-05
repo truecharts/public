@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-# Security Scan
+# Security Overview
 
 <link href="https://truecharts.org/_static/trivy.css" type="text/css" rel="stylesheet" />
 

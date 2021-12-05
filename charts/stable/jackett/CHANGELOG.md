@@ -1,6 +1,36 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.38"></a>
+### jackett-9.0.38 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* improve a bit on security docs generation
+* cleanup the ci for the security page a bit
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major docker tags ([#1429](https://github.com/truecharts/apps/issues/1429))
+* cleanup helm security scan output a bit more
+
+#### Feat
+
+* Craft a trivy config to md parser
+* Render security scan results during build ([#1451](https://github.com/truecharts/apps/issues/1451))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+* use GHCR for install tests ([#1461](https://github.com/truecharts/apps/issues/1461))
+
+
+
 <a name="jackett-9.0.37"></a>
 ### [jackett-9.0.37](https://github.com/truecharts/apps/compare/jackett-9.0.36...jackett-9.0.37) (2021-12-05)
 

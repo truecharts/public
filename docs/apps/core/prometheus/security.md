@@ -3,7 +3,7 @@ hide:
   - toc
 ---
 
-# Security Scan
+# Security Overview
 
 <link href="https://truecharts.org/_static/trivy.css" type="text/css" rel="stylesheet" />
 
@@ -178,7 +178,7 @@ hide:
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/prometheus-operator:v0.52.1@sha256:b267d77c77f2fffb62214643d7ee166f39723221a24f737c50d0e24302b939ed
           bitnami/kube-state-metrics:2.2.4-debian-10-r0
-          bitnami/node-exporter:1.3.0-debian-10-r0
+          bitnami/node-exporter:1.3.1-debian-10-r0
 
 ##### Scan Results
 
@@ -546,7 +546,7 @@ hide:
 
 
 
-#### Container: bitnami/node-exporter:1.3.0-debian-10-r0 (debian 10.11)
+#### Container: bitnami/node-exporter:1.3.1-debian-10-r0 (debian 10.11)
 
 
 **debian**

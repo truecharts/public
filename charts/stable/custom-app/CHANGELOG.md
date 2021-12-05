@@ -1,6 +1,27 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.29"></a>
+### custom-app-3.0.29 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+* update non-major docker tags ([#1429](https://github.com/truecharts/apps/issues/1429))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
 <a name="custom-app-3.0.28"></a>
 ### [custom-app-3.0.28](https://github.com/truecharts/apps/compare/custom-app-3.0.27...custom-app-3.0.28) (2021-12-05)
 

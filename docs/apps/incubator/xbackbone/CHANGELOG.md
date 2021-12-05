@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="xbackbone-0.0.7"></a>
+### xbackbone-0.0.7 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* ensure container references are prefixed with v
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1434](https://github.com/truecharts/apps/issues/1434))
+
+#### Feat
+
+* add  a bunch of mariaDB backed Apps ([#1407](https://github.com/truecharts/apps/issues/1407))
+
+
+
 <a name="xbackbone-0.0.6"></a>
 ### [xbackbone-0.0.6](https://github.com/truecharts/apps/compare/xbackbone-0.0.5...xbackbone-0.0.6) (2021-12-05)
 

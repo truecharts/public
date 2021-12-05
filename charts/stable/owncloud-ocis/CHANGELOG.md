@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-4.0.19"></a>
+### owncloud-ocis-4.0.19 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
 <a name="owncloud-ocis-4.0.18"></a>
 ### [owncloud-ocis-4.0.18](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.17...owncloud-ocis-4.0.18) (2021-12-05)
 

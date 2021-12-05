@@ -1,6 +1,27 @@
 # Changelog<br>
 
 
+<a name="clarkson-0.0.8"></a>
+### clarkson-0.0.8 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* ensure container references are prefixed with v
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1433](https://github.com/truecharts/apps/issues/1433))
+* update non-major ([#1431](https://github.com/truecharts/apps/issues/1431))
+
+#### Feat
+
+* add  a bunch of mariaDB backed Apps ([#1407](https://github.com/truecharts/apps/issues/1407))
+
+
+
 <a name="clarkson-0.0.7"></a>
 ### [clarkson-0.0.7](https://github.com/truecharts/apps/compare/clarkson-0.0.6...clarkson-0.0.7) (2021-12-05)
 

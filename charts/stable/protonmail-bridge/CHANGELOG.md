@@ -1,6 +1,26 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-4.0.18"></a>
+### protonmail-bridge-4.0.18 (2021-12-05)
+
+#### Chore
+
+* bump apps to generate security page
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* ensure container references are prefixed with v
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+* update non-major deps helm releases ([#1453](https://github.com/truecharts/apps/issues/1453))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update non-major deps helm releases ([#1471](https://github.com/truecharts/apps/issues/1471))
+* update non-major deps helm releases ([#1432](https://github.com/truecharts/apps/issues/1432))
+
+#### Fix
+
+* fix typo in theme selection ([#1428](https://github.com/truecharts/apps/issues/1428))
+
+
+
 <a name="protonmail-bridge-4.0.17"></a>
 ### [protonmail-bridge-4.0.17](https://github.com/truecharts/apps/compare/protonmail-bridge-4.0.16...protonmail-bridge-4.0.17) (2021-12-05)
 
