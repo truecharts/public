@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     name: "prune old releases"
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: prune
       uses: dev-drprasad/delete-older-releases@v0.2.0
       with:
