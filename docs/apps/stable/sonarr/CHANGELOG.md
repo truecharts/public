@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sonarr-9.0.17"></a>
+### [sonarr-9.0.17](https://github.com/truecharts/apps/compare/sonarr-9.0.16...sonarr-9.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="sonarr-9.0.16"></a>
 ### [sonarr-9.0.16](https://github.com/truecharts/apps/compare/sonarr-9.0.15...sonarr-9.0.16) (2021-12-04)
 

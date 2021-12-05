@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.21"></a>
+### [komga-4.0.21](https://github.com/truecharts/apps/compare/komga-4.0.20...komga-4.0.21) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="komga-4.0.20"></a>
 ### [komga-4.0.20](https://github.com/truecharts/apps/compare/komga-4.0.19...komga-4.0.20) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="anonaddy-6.0.5"></a>
+### [anonaddy-6.0.5](https://github.com/truecharts/apps/compare/anonaddy-6.0.4...anonaddy-6.0.5) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="anonaddy-6.0.4"></a>
 ### [anonaddy-6.0.4](https://github.com/truecharts/apps/compare/anonaddy-6.0.3...anonaddy-6.0.4) (2021-12-04)
 

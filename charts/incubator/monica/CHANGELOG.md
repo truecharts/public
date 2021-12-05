@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="monica-0.0.6"></a>
+### [monica-0.0.6](https://github.com/truecharts/apps/compare/monica-0.0.5...monica-0.0.6) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="monica-0.0.5"></a>
 ### [monica-0.0.5](https://github.com/truecharts/apps/compare/monica-0.0.4...monica-0.0.5) (2021-12-04)
 

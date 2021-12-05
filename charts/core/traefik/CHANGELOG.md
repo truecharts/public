@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.19"></a>
+### [traefik-10.0.19](https://github.com/truecharts/apps/compare/traefik-10.0.18...traefik-10.0.19) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="traefik-10.0.18"></a>
 ### [traefik-10.0.18](https://github.com/truecharts/apps/compare/traefik-10.0.17...traefik-10.0.18) (2021-12-04)
 

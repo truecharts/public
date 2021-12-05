@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.19"></a>
+### [qbittorrent-9.0.19](https://github.com/truecharts/apps/compare/qbittorrent-9.0.18...qbittorrent-9.0.19) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="qbittorrent-9.0.18"></a>
 ### [qbittorrent-9.0.18](https://github.com/truecharts/apps/compare/qbittorrent-9.0.17...qbittorrent-9.0.18) (2021-12-04)
 

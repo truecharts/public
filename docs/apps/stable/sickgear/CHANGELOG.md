@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickgear-1.0.16"></a>
+### [sickgear-1.0.16](https://github.com/truecharts/apps/compare/sickgear-1.0.15...sickgear-1.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="sickgear-1.0.15"></a>
 ### [sickgear-1.0.15](https://github.com/truecharts/apps/compare/sickgear-1.0.14...sickgear-1.0.15) (2021-12-04)
 

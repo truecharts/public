@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-2.0.16"></a>
+### [teamspeak3-2.0.16](https://github.com/truecharts/apps/compare/teamspeak3-2.0.15...teamspeak3-2.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="teamspeak3-2.0.15"></a>
 ### [teamspeak3-2.0.15](https://github.com/truecharts/apps/compare/teamspeak3-2.0.14...teamspeak3-2.0.15) (2021-12-04)
 

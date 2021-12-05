@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promcord-1.0.4"></a>
+### [promcord-1.0.4](https://github.com/truecharts/apps/compare/promcord-1.0.3...promcord-1.0.4) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="promcord-1.0.3"></a>
 ### [promcord-1.0.3](https://github.com/truecharts/apps/compare/promcord-1.0.2...promcord-1.0.3) (2021-12-04)
 

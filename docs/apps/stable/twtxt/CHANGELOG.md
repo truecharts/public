@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="twtxt-1.0.16"></a>
+### [twtxt-1.0.16](https://github.com/truecharts/apps/compare/twtxt-1.0.15...twtxt-1.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="twtxt-1.0.15"></a>
 ### [twtxt-1.0.15](https://github.com/truecharts/apps/compare/twtxt-1.0.14...twtxt-1.0.15) (2021-12-04)
 

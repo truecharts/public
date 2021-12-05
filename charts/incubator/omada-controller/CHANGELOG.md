@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.23"></a>
+### [omada-controller-4.0.23](https://github.com/truecharts/apps/compare/omada-controller-4.0.22...omada-controller-4.0.23) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="omada-controller-4.0.22"></a>
 ### [omada-controller-4.0.22](https://github.com/truecharts/apps/compare/omada-controller-4.0.21...omada-controller-4.0.22) (2021-12-04)
 

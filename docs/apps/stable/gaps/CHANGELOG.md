@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gaps-9.0.16"></a>
+### [gaps-9.0.16](https://github.com/truecharts/apps/compare/gaps-9.0.15...gaps-9.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="gaps-9.0.15"></a>
 ### [gaps-9.0.15](https://github.com/truecharts/apps/compare/gaps-9.0.14...gaps-9.0.15) (2021-12-04)
 

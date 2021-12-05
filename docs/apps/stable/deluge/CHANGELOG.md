@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deluge-9.0.17"></a>
+### [deluge-9.0.17](https://github.com/truecharts/apps/compare/deluge-9.0.16...deluge-9.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="deluge-9.0.16"></a>
 ### [deluge-9.0.16](https://github.com/truecharts/apps/compare/deluge-9.0.15...deluge-9.0.16) (2021-12-04)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.19"></a>
+### [postgresql-6.0.19](https://github.com/truecharts/apps/compare/postgresql-6.0.18...postgresql-6.0.19) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+* cleanup the ci for the security page a bit
+
+
+
 <a name="postgresql-6.0.18"></a>
 ### [postgresql-6.0.18](https://github.com/truecharts/apps/compare/postgresql-6.0.17...postgresql-6.0.18) (2021-12-03)
 

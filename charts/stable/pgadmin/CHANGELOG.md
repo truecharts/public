@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-4.0.17"></a>
+### [pgadmin-4.0.17](https://github.com/truecharts/apps/compare/pgadmin-4.0.16...pgadmin-4.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="pgadmin-4.0.16"></a>
 ### [pgadmin-4.0.16](https://github.com/truecharts/apps/compare/pgadmin-4.0.15...pgadmin-4.0.16) (2021-12-04)
 

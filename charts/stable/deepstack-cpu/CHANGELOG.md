@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-cpu-7.0.16"></a>
+### [deepstack-cpu-7.0.16](https://github.com/truecharts/apps/compare/deepstack-cpu-7.0.15...deepstack-cpu-7.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="deepstack-cpu-7.0.15"></a>
 ### [deepstack-cpu-7.0.15](https://github.com/truecharts/apps/compare/deepstack-cpu-7.0.14...deepstack-cpu-7.0.15) (2021-12-04)
 

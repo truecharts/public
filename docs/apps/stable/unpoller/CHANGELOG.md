@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpoller-1.0.7"></a>
+### [unpoller-1.0.7](https://github.com/truecharts/apps/compare/unpoller-1.0.6...unpoller-1.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="unpoller-1.0.6"></a>
 ### [unpoller-1.0.6](https://github.com/truecharts/apps/compare/unpoller-1.0.5...unpoller-1.0.6) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.19"></a>
+### [esphome-9.0.19](https://github.com/truecharts/apps/compare/esphome-9.0.18...esphome-9.0.19) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="esphome-9.0.18"></a>
 ### [esphome-9.0.18](https://github.com/truecharts/apps/compare/esphome-9.0.17...esphome-9.0.18) (2021-12-04)
 

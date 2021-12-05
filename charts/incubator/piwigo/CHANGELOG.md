@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piwigo-1.0.17"></a>
+### [piwigo-1.0.17](https://github.com/truecharts/apps/compare/piwigo-1.0.16...piwigo-1.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="piwigo-1.0.16"></a>
 ### [piwigo-1.0.16](https://github.com/truecharts/apps/compare/piwigo-1.0.15...piwigo-1.0.16) (2021-12-04)
 

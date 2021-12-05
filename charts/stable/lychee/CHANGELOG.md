@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lychee-9.0.16"></a>
+### [lychee-9.0.16](https://github.com/truecharts/apps/compare/lychee-9.0.15...lychee-9.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="lychee-9.0.15"></a>
 ### [lychee-9.0.15](https://github.com/truecharts/apps/compare/lychee-9.0.14...lychee-9.0.15) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-1.0.16"></a>
+### [valheim-1.0.16](https://github.com/truecharts/apps/compare/valheim-1.0.15...valheim-1.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="valheim-1.0.15"></a>
 ### [valheim-1.0.15](https://github.com/truecharts/apps/compare/valheim-1.0.14...valheim-1.0.15) (2021-12-04)
 

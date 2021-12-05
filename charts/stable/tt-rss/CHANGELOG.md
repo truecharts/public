@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.12"></a>
+### [tt-rss-4.0.12](https://github.com/truecharts/apps/compare/tt-rss-4.0.11...tt-rss-4.0.12) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="tt-rss-4.0.11"></a>
 ### [tt-rss-4.0.11](https://github.com/truecharts/apps/compare/tt-rss-4.0.10...tt-rss-4.0.11) (2021-12-04)
 

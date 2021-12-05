@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-4.0.21"></a>
+### [openldap-4.0.21](https://github.com/truecharts/apps/compare/openldap-4.0.20...openldap-4.0.21) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="openldap-4.0.20"></a>
 ### [openldap-4.0.20](https://github.com/truecharts/apps/compare/openldap-4.0.19...openldap-4.0.20) (2021-12-04)
 

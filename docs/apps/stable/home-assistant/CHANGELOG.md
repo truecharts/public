@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-12.0.8"></a>
+### [home-assistant-12.0.8](https://github.com/truecharts/apps/compare/home-assistant-12.0.7...home-assistant-12.0.8) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="home-assistant-12.0.7"></a>
 ### [home-assistant-12.0.7](https://github.com/truecharts/apps/compare/home-assistant-12.0.6...home-assistant-12.0.7) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloud9-2.0.19"></a>
+### [cloud9-2.0.19](https://github.com/truecharts/apps/compare/cloud9-2.0.18...cloud9-2.0.19) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="cloud9-2.0.18"></a>
 ### [cloud9-2.0.18](https://github.com/truecharts/apps/compare/cloud9-2.0.17...cloud9-2.0.18) (2021-12-04)
 

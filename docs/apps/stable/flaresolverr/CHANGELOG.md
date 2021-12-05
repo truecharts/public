@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-4.0.17"></a>
+### [flaresolverr-4.0.17](https://github.com/truecharts/apps/compare/flaresolverr-4.0.16...flaresolverr-4.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="flaresolverr-4.0.16"></a>
 ### [flaresolverr-4.0.16](https://github.com/truecharts/apps/compare/flaresolverr-4.0.15...flaresolverr-4.0.16) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-9.0.16"></a>
+### [unifi-9.0.16](https://github.com/truecharts/apps/compare/unifi-9.0.15...unifi-9.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="unifi-9.0.15"></a>
 ### [unifi-9.0.15](https://github.com/truecharts/apps/compare/unifi-9.0.14...unifi-9.0.15) (2021-12-04)
 

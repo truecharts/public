@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-5.0.6"></a>
+### [dsmr-reader-5.0.6](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.5...dsmr-reader-5.0.6) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="dsmr-reader-5.0.5"></a>
 ### [dsmr-reader-5.0.5](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.4...dsmr-reader-5.0.5) (2021-12-04)
 

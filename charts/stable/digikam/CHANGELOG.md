@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="digikam-2.0.18"></a>
+### [digikam-2.0.18](https://github.com/truecharts/apps/compare/digikam-2.0.17...digikam-2.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="digikam-2.0.17"></a>
 ### [digikam-2.0.17](https://github.com/truecharts/apps/compare/digikam-2.0.16...digikam-2.0.17) (2021-12-04)
 

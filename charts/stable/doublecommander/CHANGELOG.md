@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doublecommander-2.0.19"></a>
+### [doublecommander-2.0.19](https://github.com/truecharts/apps/compare/doublecommander-2.0.18...doublecommander-2.0.19) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="doublecommander-2.0.18"></a>
 ### [doublecommander-2.0.18](https://github.com/truecharts/apps/compare/doublecommander-2.0.17...doublecommander-2.0.18) (2021-12-04)
 

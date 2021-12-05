@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="reg-4.0.15"></a>
+### [reg-4.0.15](https://github.com/truecharts/apps/compare/reg-4.0.14...reg-4.0.15) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="reg-4.0.14"></a>
 ### [reg-4.0.14](https://github.com/truecharts/apps/compare/reg-4.0.13...reg-4.0.14) (2021-12-04)
 

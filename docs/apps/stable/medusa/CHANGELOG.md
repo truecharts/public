@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-1.0.18"></a>
+### [medusa-1.0.18](https://github.com/truecharts/apps/compare/medusa-1.0.17...medusa-1.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="medusa-1.0.17"></a>
 ### [medusa-1.0.17](https://github.com/truecharts/apps/compare/medusa-1.0.16...medusa-1.0.17) (2021-12-04)
 

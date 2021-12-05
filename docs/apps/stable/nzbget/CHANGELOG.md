@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbget-9.0.17"></a>
+### [nzbget-9.0.17](https://github.com/truecharts/apps/compare/nzbget-9.0.16...nzbget-9.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="nzbget-9.0.16"></a>
 ### [nzbget-9.0.16](https://github.com/truecharts/apps/compare/nzbget-9.0.15...nzbget-9.0.16) (2021-12-04)
 

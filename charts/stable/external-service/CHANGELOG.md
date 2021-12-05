@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="external-service-4.0.15"></a>
+### [external-service-4.0.15](https://github.com/truecharts/apps/compare/external-service-4.0.14...external-service-4.0.15) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="external-service-4.0.14"></a>
 ### [external-service-4.0.14](https://github.com/truecharts/apps/compare/external-service-4.0.13...external-service-4.0.14) (2021-12-04)
 

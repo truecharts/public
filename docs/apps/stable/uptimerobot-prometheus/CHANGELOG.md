@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptimerobot-prometheus-1.0.6"></a>
+### [uptimerobot-prometheus-1.0.6](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-1.0.5...uptimerobot-prometheus-1.0.6) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="uptimerobot-prometheus-1.0.5"></a>
 ### [uptimerobot-prometheus-1.0.5](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-1.0.4...uptimerobot-prometheus-1.0.5) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-4.0.19"></a>
+### [calibre-4.0.19](https://github.com/truecharts/apps/compare/calibre-web-9.0.15...calibre-4.0.19) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="calibre-4.0.18"></a>
 ### [calibre-4.0.18](https://github.com/truecharts/apps/compare/calibre-web-9.0.14...calibre-4.0.18) (2021-12-04)
 

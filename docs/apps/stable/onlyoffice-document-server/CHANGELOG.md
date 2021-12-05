@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-2.0.16"></a>
+### [onlyoffice-document-server-2.0.16](https://github.com/truecharts/apps/compare/onlyoffice-document-server-2.0.15...onlyoffice-document-server-2.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="onlyoffice-document-server-2.0.15"></a>
 ### [onlyoffice-document-server-2.0.15](https://github.com/truecharts/apps/compare/onlyoffice-document-server-2.0.14...onlyoffice-document-server-2.0.15) (2021-12-04)
 

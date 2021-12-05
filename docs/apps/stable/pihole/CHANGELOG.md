@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.18"></a>
+### [pihole-4.0.18](https://github.com/truecharts/apps/compare/pihole-4.0.17...pihole-4.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="pihole-4.0.17"></a>
 ### [pihole-4.0.17](https://github.com/truecharts/apps/compare/pihole-4.0.16...pihole-4.0.17) (2021-12-04)
 

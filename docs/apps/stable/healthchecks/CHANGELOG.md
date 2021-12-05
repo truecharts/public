@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-4.0.16"></a>
+### [healthchecks-4.0.16](https://github.com/truecharts/apps/compare/healthchecks-4.0.15...healthchecks-4.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="healthchecks-4.0.15"></a>
 ### [healthchecks-4.0.15](https://github.com/truecharts/apps/compare/healthchecks-4.0.14...healthchecks-4.0.15) (2021-12-04)
 

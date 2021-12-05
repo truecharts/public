@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-9.0.16"></a>
+### [collabora-online-9.0.16](https://github.com/truecharts/apps/compare/collabora-online-9.0.15...collabora-online-9.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="collabora-online-9.0.15"></a>
 ### [collabora-online-9.0.15](https://github.com/truecharts/apps/compare/collabora-online-9.0.14...collabora-online-9.0.15) (2021-12-04)
 

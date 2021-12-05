@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.5"></a>
+### [blog-0.0.5](https://github.com/truecharts/apps/compare/blog-0.0.4...blog-0.0.5) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="blog-0.0.4"></a>
 ### [blog-0.0.4](https://github.com/truecharts/apps/compare/blog-0.0.3...blog-0.0.4) (2021-12-04)
 

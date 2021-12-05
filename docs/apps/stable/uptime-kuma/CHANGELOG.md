@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-1.0.17"></a>
+### [uptime-kuma-1.0.17](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.16...uptime-kuma-1.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="uptime-kuma-1.0.16"></a>
 ### [uptime-kuma-1.0.16](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.15...uptime-kuma-1.0.16) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freeradius-4.0.17"></a>
+### [freeradius-4.0.17](https://github.com/truecharts/apps/compare/freeradius-4.0.16...freeradius-4.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="freeradius-4.0.16"></a>
 ### [freeradius-4.0.16](https://github.com/truecharts/apps/compare/freeradius-4.0.15...freeradius-4.0.16) (2021-12-04)
 

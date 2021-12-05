@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-console-1.0.19"></a>
+### [minio-console-1.0.19](https://github.com/truecharts/apps/compare/minio-console-1.0.18...minio-console-1.0.19) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="minio-console-1.0.18"></a>
 ### [minio-console-1.0.18](https://github.com/truecharts/apps/compare/minio-console-1.0.17...minio-console-1.0.18) (2021-12-04)
 

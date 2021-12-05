@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="golinks-2.0.16"></a>
+### [golinks-2.0.16](https://github.com/truecharts/apps/compare/golinks-2.0.15...golinks-2.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="golinks-2.0.15"></a>
 ### [golinks-2.0.15](https://github.com/truecharts/apps/compare/golinks-2.0.14...golinks-2.0.15) (2021-12-04)
 

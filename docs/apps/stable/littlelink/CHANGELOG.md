@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.24"></a>
+### [littlelink-4.0.24](https://github.com/truecharts/apps/compare/littlelink-4.0.23...littlelink-4.0.24) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="littlelink-4.0.23"></a>
 ### [littlelink-4.0.23](https://github.com/truecharts/apps/compare/littlelink-4.0.22...littlelink-4.0.23) (2021-12-04)
 

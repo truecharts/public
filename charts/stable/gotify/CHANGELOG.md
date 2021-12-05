@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gotify-5.0.7"></a>
+### [gotify-5.0.7](https://github.com/truecharts/apps/compare/gotify-5.0.6...gotify-5.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="gotify-5.0.6"></a>
 ### [gotify-5.0.6](https://github.com/truecharts/apps/compare/gotify-5.0.5...gotify-5.0.6) (2021-12-04)
 

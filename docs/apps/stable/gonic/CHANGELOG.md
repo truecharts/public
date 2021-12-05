@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gonic-4.0.15"></a>
+### [gonic-4.0.15](https://github.com/truecharts/apps/compare/gonic-4.0.14...gonic-4.0.15) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="gonic-4.0.14"></a>
 ### [gonic-4.0.14](https://github.com/truecharts/apps/compare/gonic-4.0.13...gonic-4.0.14) (2021-12-04)
 

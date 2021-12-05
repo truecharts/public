@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-1.0.17"></a>
+### [zigbee2mqtt-1.0.17](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.16...zigbee2mqtt-1.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="zigbee2mqtt-1.0.16"></a>
 ### [zigbee2mqtt-1.0.16](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.15...zigbee2mqtt-1.0.16) (2021-12-04)
 

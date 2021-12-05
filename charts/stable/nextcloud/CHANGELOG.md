@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nextcloud-10.0.12"></a>
+### [nextcloud-10.0.12](https://github.com/truecharts/apps/compare/nextcloud-10.0.11...nextcloud-10.0.12) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+* cleanup the ci for the security page a bit
+
+
+
 <a name="nextcloud-10.0.11"></a>
 ### [nextcloud-10.0.11](https://github.com/truecharts/apps/compare/nextcloud-10.0.10...nextcloud-10.0.11) (2021-12-04)
 

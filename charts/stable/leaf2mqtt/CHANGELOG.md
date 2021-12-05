@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-2.0.16"></a>
+### [leaf2mqtt-2.0.16](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.15...leaf2mqtt-2.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="leaf2mqtt-2.0.15"></a>
 ### [leaf2mqtt-2.0.15](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.14...leaf2mqtt-2.0.15) (2021-12-04)
 

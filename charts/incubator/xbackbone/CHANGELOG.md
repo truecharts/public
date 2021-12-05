@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xbackbone-0.0.5"></a>
+### [xbackbone-0.0.5](https://github.com/truecharts/apps/compare/xbackbone-0.0.4...xbackbone-0.0.5) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="xbackbone-0.0.4"></a>
 ### [xbackbone-0.0.4](https://github.com/truecharts/apps/compare/xbackbone-0.0.3...xbackbone-0.0.4) (2021-12-04)
 

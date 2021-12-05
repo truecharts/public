@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-4.0.16"></a>
+### [resilio-sync-4.0.16](https://github.com/truecharts/apps/compare/resilio-sync-4.0.15...resilio-sync-4.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="resilio-sync-4.0.15"></a>
 ### [resilio-sync-4.0.15](https://github.com/truecharts/apps/compare/resilio-sync-4.0.14...resilio-sync-4.0.15) (2021-12-04)
 

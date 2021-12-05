@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.0.7"></a>
+### [fireflyiii-13.0.7](https://github.com/truecharts/apps/compare/fireflyiii-13.0.6...fireflyiii-13.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="fireflyiii-13.0.6"></a>
 ### [fireflyiii-13.0.6](https://github.com/truecharts/apps/compare/fireflyiii-13.0.5...fireflyiii-13.0.6) (2021-12-04)
 

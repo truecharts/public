@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-node-1.0.18"></a>
+### [tdarr-node-1.0.18](https://github.com/truecharts/apps/compare/tdarr-node-1.0.17...tdarr-node-1.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="tdarr-node-1.0.17"></a>
 ### [tdarr-node-1.0.17](https://github.com/truecharts/apps/compare/tdarr-node-1.0.16...tdarr-node-1.0.17) (2021-12-04)
 

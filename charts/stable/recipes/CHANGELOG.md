@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-4.0.11"></a>
+### [recipes-4.0.11](https://github.com/truecharts/apps/compare/recipes-4.0.10...recipes-4.0.11) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="recipes-4.0.10"></a>
 ### [recipes-4.0.10](https://github.com/truecharts/apps/compare/recipes-4.0.9...recipes-4.0.10) (2021-12-04)
 

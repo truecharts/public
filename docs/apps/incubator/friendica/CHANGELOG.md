@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.6"></a>
+### [friendica-0.0.6](https://github.com/truecharts/apps/compare/friendica-0.0.5...friendica-0.0.6) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="friendica-0.0.5"></a>
 ### [friendica-0.0.5](https://github.com/truecharts/apps/compare/friendica-0.0.4...friendica-0.0.5) (2021-12-04)
 

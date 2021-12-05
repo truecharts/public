@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="apache-musicindex-2.0.16"></a>
+### [apache-musicindex-2.0.16](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.15...apache-musicindex-2.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="apache-musicindex-2.0.15"></a>
 ### [apache-musicindex-2.0.15](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.14...apache-musicindex-2.0.15) (2021-12-04)
 

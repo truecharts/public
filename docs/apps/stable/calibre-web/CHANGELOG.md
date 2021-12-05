@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-web-9.0.16"></a>
+### [calibre-web-9.0.16](https://github.com/truecharts/apps/compare/calibre-web-9.0.15...calibre-web-9.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="calibre-web-9.0.15"></a>
 ### [calibre-web-9.0.15](https://github.com/truecharts/apps/compare/calibre-web-9.0.14...calibre-web-9.0.15) (2021-12-04)
 

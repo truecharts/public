@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.10"></a>
+### [babybuddy-5.0.10](https://github.com/truecharts/apps/compare/babybuddy-5.0.9...babybuddy-5.0.10) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="babybuddy-5.0.9"></a>
 ### [babybuddy-5.0.9](https://github.com/truecharts/apps/compare/babybuddy-5.0.8...babybuddy-5.0.9) (2021-12-04)
 

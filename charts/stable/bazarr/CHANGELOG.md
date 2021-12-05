@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bazarr-9.0.18"></a>
+### [bazarr-9.0.18](https://github.com/truecharts/apps/compare/bazarr-9.0.17...bazarr-9.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="bazarr-9.0.17"></a>
 ### [bazarr-9.0.17](https://github.com/truecharts/apps/compare/bazarr-9.0.16...bazarr-9.0.17) (2021-12-04)
 

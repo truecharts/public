@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-9.0.21"></a>
+### [heimdall-9.0.21](https://github.com/truecharts/apps/compare/heimdall-9.0.20...heimdall-9.0.21) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="heimdall-9.0.20"></a>
 ### [heimdall-9.0.20](https://github.com/truecharts/apps/compare/heimdall-9.0.19...heimdall-9.0.20) (2021-12-04)
 

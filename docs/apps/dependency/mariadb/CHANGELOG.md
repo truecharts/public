@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.21"></a>
+### [mariadb-1.0.21](https://github.com/truecharts/apps/compare/mariadb-1.0.20...mariadb-1.0.21) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+* cleanup the ci for the security page a bit
+
+
+
 <a name="mariadb-1.0.20"></a>
 ### [mariadb-1.0.20](https://github.com/truecharts/apps/compare/mariadb-1.0.19...mariadb-1.0.20) (2021-12-03)
 

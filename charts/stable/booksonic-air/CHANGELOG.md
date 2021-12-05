@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.17"></a>
+### [booksonic-air-4.0.17](https://github.com/truecharts/apps/compare/booksonic-air-4.0.16...booksonic-air-4.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="booksonic-air-4.0.16"></a>
 ### [booksonic-air-4.0.16](https://github.com/truecharts/apps/compare/booksonic-air-4.0.15...booksonic-air-4.0.16) (2021-12-04)
 

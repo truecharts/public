@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-4.0.18"></a>
+### [hyperion-ng-4.0.18](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.17...hyperion-ng-4.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="hyperion-ng-4.0.17"></a>
 ### [hyperion-ng-4.0.17](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.16...hyperion-ng-4.0.17) (2021-12-04)
 

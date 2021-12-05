@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoshow-1.0.20"></a>
+### [photoshow-1.0.20](https://github.com/truecharts/apps/compare/photoshow-1.0.19...photoshow-1.0.20) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="photoshow-1.0.19"></a>
 ### [photoshow-1.0.19](https://github.com/truecharts/apps/compare/photoshow-1.0.18...photoshow-1.0.19) (2021-12-04)
 

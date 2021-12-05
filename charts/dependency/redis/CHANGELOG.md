@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.23"></a>
+### [redis-1.0.23](https://github.com/truecharts/apps/compare/redis-1.0.22...redis-1.0.23) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+* cleanup the ci for the security page a bit
+
+
+
 <a name="redis-1.0.22"></a>
 ### [redis-1.0.22](https://github.com/truecharts/apps/compare/redis-1.0.21...redis-1.0.22) (2021-12-03)
 

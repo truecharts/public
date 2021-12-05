@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="navidrome-9.0.16"></a>
+### [navidrome-9.0.16](https://github.com/truecharts/apps/compare/navidrome-9.0.15...navidrome-9.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="navidrome-9.0.15"></a>
 ### [navidrome-9.0.15](https://github.com/truecharts/apps/compare/navidrome-9.0.14...navidrome-9.0.15) (2021-12-04)
 

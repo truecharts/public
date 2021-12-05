@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cryptofolio-2.0.16"></a>
+### [cryptofolio-2.0.16](https://github.com/truecharts/apps/compare/cryptofolio-2.0.15...cryptofolio-2.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="cryptofolio-2.0.15"></a>
 ### [cryptofolio-2.0.15](https://github.com/truecharts/apps/compare/cryptofolio-2.0.14...cryptofolio-2.0.15) (2021-12-04)
 

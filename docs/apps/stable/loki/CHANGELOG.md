@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-2.0.4"></a>
+### [loki-2.0.4](https://github.com/truecharts/apps/compare/loki-2.0.3...loki-2.0.4) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="loki-2.0.3"></a>
 ### [loki-2.0.3](https://github.com/truecharts/apps/compare/loki-2.0.2...loki-2.0.3) (2021-12-04)
 

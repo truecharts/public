@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icantbelieveitsnotvaletudo-2.0.16"></a>
+### [icantbelieveitsnotvaletudo-2.0.16](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-2.0.15...icantbelieveitsnotvaletudo-2.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="icantbelieveitsnotvaletudo-2.0.15"></a>
 ### [icantbelieveitsnotvaletudo-2.0.15](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-2.0.14...icantbelieveitsnotvaletudo-2.0.15) (2021-12-04)
 

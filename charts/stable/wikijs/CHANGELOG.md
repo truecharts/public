@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.6"></a>
+### [wikijs-4.0.6](https://github.com/truecharts/apps/compare/wikijs-4.0.5...wikijs-4.0.6) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="wikijs-4.0.5"></a>
 ### [wikijs-4.0.5](https://github.com/truecharts/apps/compare/wikijs-4.0.4...wikijs-4.0.5) (2021-12-04)
 

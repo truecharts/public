@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-9.0.18"></a>
+### [transmission-9.0.18](https://github.com/truecharts/apps/compare/transmission-9.0.17...transmission-9.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="transmission-9.0.17"></a>
 ### [transmission-9.0.17](https://github.com/truecharts/apps/compare/transmission-9.0.16...transmission-9.0.17) (2021-12-04)
 

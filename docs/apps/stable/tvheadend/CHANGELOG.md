@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tvheadend-10.0.16"></a>
+### [tvheadend-10.0.16](https://github.com/truecharts/apps/compare/tvheadend-10.0.15...tvheadend-10.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="tvheadend-10.0.15"></a>
 ### [tvheadend-10.0.15](https://github.com/truecharts/apps/compare/tvheadend-10.0.14...tvheadend-10.0.15) (2021-12-04)
 

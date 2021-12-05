@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="muximux-1.0.20"></a>
+### [muximux-1.0.20](https://github.com/truecharts/apps/compare/muximux-1.0.19...muximux-1.0.20) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="muximux-1.0.19"></a>
 ### [muximux-1.0.19](https://github.com/truecharts/apps/compare/muximux-1.0.18...muximux-1.0.19) (2021-12-04)
 

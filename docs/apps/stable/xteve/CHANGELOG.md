@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xteve-4.0.16"></a>
+### [xteve-4.0.16](https://github.com/truecharts/apps/compare/xteve-4.0.15...xteve-4.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="xteve-4.0.15"></a>
 ### [xteve-4.0.15](https://github.com/truecharts/apps/compare/xteve-4.0.14...xteve-4.0.15) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="beets-2.0.18"></a>
+### [beets-2.0.18](https://github.com/truecharts/apps/compare/beets-2.0.17...beets-2.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="beets-2.0.17"></a>
 ### [beets-2.0.17](https://github.com/truecharts/apps/compare/beets-2.0.16...beets-2.0.17) (2021-12-04)
 

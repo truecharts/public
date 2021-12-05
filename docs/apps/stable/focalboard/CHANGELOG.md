@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-4.0.16"></a>
+### [focalboard-4.0.16](https://github.com/truecharts/apps/compare/focalboard-4.0.15...focalboard-4.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="focalboard-4.0.15"></a>
 ### [focalboard-4.0.15](https://github.com/truecharts/apps/compare/focalboard-4.0.14...focalboard-4.0.15) (2021-12-04)
 

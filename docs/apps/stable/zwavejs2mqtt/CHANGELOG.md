@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.20"></a>
+### [zwavejs2mqtt-9.0.20](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.19...zwavejs2mqtt-9.0.20) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="zwavejs2mqtt-9.0.19"></a>
 ### [zwavejs2mqtt-9.0.19](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.18...zwavejs2mqtt-9.0.19) (2021-12-04)
 

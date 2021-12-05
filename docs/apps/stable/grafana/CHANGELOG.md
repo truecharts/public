@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-1.0.6"></a>
+### [grafana-1.0.6](https://github.com/truecharts/apps/compare/grafana-1.0.5...grafana-1.0.6) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="grafana-1.0.5"></a>
 ### [grafana-1.0.5](https://github.com/truecharts/apps/compare/grafana-1.0.4...grafana-1.0.5) (2021-12-04)
 

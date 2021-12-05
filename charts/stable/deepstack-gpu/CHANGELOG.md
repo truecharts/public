@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-gpu-2.0.16"></a>
+### [deepstack-gpu-2.0.16](https://github.com/truecharts/apps/compare/deepstack-gpu-2.0.15...deepstack-gpu-2.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="deepstack-gpu-2.0.15"></a>
 ### [deepstack-gpu-2.0.15](https://github.com/truecharts/apps/compare/deepstack-gpu-2.0.14...deepstack-gpu-2.0.15) (2021-12-04)
 

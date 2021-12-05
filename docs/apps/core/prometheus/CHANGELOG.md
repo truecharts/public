@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.6"></a>
+### [prometheus-1.1.6](https://github.com/truecharts/apps/compare/prometheus-1.1.5...prometheus-1.1.6) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="prometheus-1.1.5"></a>
 ### [prometheus-1.1.5](https://github.com/truecharts/apps/compare/prometheus-1.1.4...prometheus-1.1.5) (2021-12-04)
 

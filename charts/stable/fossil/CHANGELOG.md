@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fossil-2.0.16"></a>
+### [fossil-2.0.16](https://github.com/truecharts/apps/compare/fossil-2.0.15...fossil-2.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="fossil-2.0.15"></a>
 ### [fossil-2.0.15](https://github.com/truecharts/apps/compare/fossil-2.0.14...fossil-2.0.15) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.8"></a>
+### [gitea-5.0.8](https://github.com/truecharts/apps/compare/gitea-5.0.7...gitea-5.0.8) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="gitea-5.0.7"></a>
 ### [gitea-5.0.7](https://github.com/truecharts/apps/compare/gitea-5.0.6...gitea-5.0.7) (2021-12-04)
 

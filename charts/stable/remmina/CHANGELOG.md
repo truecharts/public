@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="remmina-1.0.20"></a>
+### [remmina-1.0.20](https://github.com/truecharts/apps/compare/remmina-1.0.19...remmina-1.0.20) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="remmina-1.0.19"></a>
 ### [remmina-1.0.19](https://github.com/truecharts/apps/compare/remmina-1.0.18...remmina-1.0.19) (2021-12-04)
 

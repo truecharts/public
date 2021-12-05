@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.9"></a>
+### [authelia-8.0.9](https://github.com/truecharts/apps/compare/authelia-8.0.8...authelia-8.0.9) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+* cleanup the ci for the security page a bit
+
+
+
 <a name="authelia-8.0.8"></a>
 ### [authelia-8.0.8](https://github.com/truecharts/apps/compare/authelia-8.0.7...authelia-8.0.8) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="thelounge-4.0.17"></a>
+### [thelounge-4.0.17](https://github.com/truecharts/apps/compare/thelounge-4.0.16...thelounge-4.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="thelounge-4.0.16"></a>
 ### [thelounge-4.0.16](https://github.com/truecharts/apps/compare/thelounge-4.0.15...thelounge-4.0.16) (2021-12-04)
 

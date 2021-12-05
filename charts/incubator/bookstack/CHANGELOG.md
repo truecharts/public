@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bookstack-0.0.6"></a>
+### [bookstack-0.0.6](https://github.com/truecharts/apps/compare/bookstack-0.0.5...bookstack-0.0.6) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="bookstack-0.0.5"></a>
 ### [bookstack-0.0.5](https://github.com/truecharts/apps/compare/bookstack-0.0.4...bookstack-0.0.5) (2021-12-04)
 

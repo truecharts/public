@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.7"></a>
+### [vaultwarden-13.0.7](https://github.com/truecharts/apps/compare/vaultwarden-13.0.6...vaultwarden-13.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="vaultwarden-13.0.6"></a>
 ### [vaultwarden-13.0.6](https://github.com/truecharts/apps/compare/vaultwarden-13.0.5...vaultwarden-13.0.6) (2021-12-04)
 

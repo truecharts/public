@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.35"></a>
+### [jackett-9.0.35](https://github.com/truecharts/apps/compare/jackett-9.0.34...jackett-9.0.35) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="jackett-9.0.34"></a>
 ### [jackett-9.0.34](https://github.com/truecharts/apps/compare/jackett-9.0.33...jackett-9.0.34) (2021-12-04)
 

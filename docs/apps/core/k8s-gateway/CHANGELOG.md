@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-4.0.17"></a>
+### [k8s-gateway-4.0.17](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.16...k8s-gateway-4.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="k8s-gateway-4.0.16"></a>
 ### [k8s-gateway-4.0.16](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.15...k8s-gateway-4.0.16) (2021-12-04)
 

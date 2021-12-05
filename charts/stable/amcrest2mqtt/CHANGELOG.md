@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-2.0.18"></a>
+### [amcrest2mqtt-2.0.18](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.17...amcrest2mqtt-2.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="amcrest2mqtt-2.0.17"></a>
 ### [amcrest2mqtt-2.0.17](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.16...amcrest2mqtt-2.0.17) (2021-12-04)
 

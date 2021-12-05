@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leantime-0.0.5"></a>
+### [leantime-0.0.5](https://github.com/truecharts/apps/compare/leantime-0.0.4...leantime-0.0.5) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="leantime-0.0.4"></a>
 ### [leantime-0.0.4](https://github.com/truecharts/apps/compare/leantime-0.0.3...leantime-0.0.4) (2021-12-04)
 

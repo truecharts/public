@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-4.0.7"></a>
+### [openkm-4.0.7](https://github.com/truecharts/apps/compare/openkm-4.0.6...openkm-4.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="openkm-4.0.6"></a>
 ### [openkm-4.0.6](https://github.com/truecharts/apps/compare/openkm-4.0.5...openkm-4.0.6) (2021-12-04)
 

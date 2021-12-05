@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="overseerr-4.0.16"></a>
+### [overseerr-4.0.16](https://github.com/truecharts/apps/compare/overseerr-4.0.15...overseerr-4.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="overseerr-4.0.15"></a>
 ### [overseerr-4.0.15](https://github.com/truecharts/apps/compare/overseerr-4.0.14...overseerr-4.0.15) (2021-12-04)
 

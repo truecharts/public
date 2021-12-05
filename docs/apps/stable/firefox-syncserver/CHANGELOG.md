@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-5.0.7"></a>
+### [firefox-syncserver-5.0.7](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.6...firefox-syncserver-5.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="firefox-syncserver-5.0.6"></a>
 ### [firefox-syncserver-5.0.6](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.5...firefox-syncserver-5.0.6) (2021-12-04)
 

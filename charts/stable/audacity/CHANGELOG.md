@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audacity-2.0.16"></a>
+### [audacity-2.0.16](https://github.com/truecharts/apps/compare/audacity-2.0.15...audacity-2.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="audacity-2.0.15"></a>
 ### [audacity-2.0.15](https://github.com/truecharts/apps/compare/audacity-2.0.14...audacity-2.0.15) (2021-12-04)
 

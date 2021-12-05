@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-9.0.15"></a>
+### [handbrake-9.0.15](https://github.com/truecharts/apps/compare/handbrake-9.0.14...handbrake-9.0.15) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="handbrake-9.0.14"></a>
 ### [handbrake-9.0.14](https://github.com/truecharts/apps/compare/handbrake-9.0.13...handbrake-9.0.14) (2021-12-04)
 

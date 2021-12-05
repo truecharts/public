@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.21"></a>
+### [memcached-1.0.21](https://github.com/truecharts/apps/compare/memcached-1.0.20...memcached-1.0.21) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+* cleanup the ci for the security page a bit
+
+
+
 <a name="memcached-1.0.20"></a>
 ### [memcached-1.0.20](https://github.com/truecharts/apps/compare/memcached-1.0.19...memcached-1.0.20) (2021-12-03)
 

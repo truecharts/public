@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-4.0.16"></a>
+### [duplicati-4.0.16](https://github.com/truecharts/apps/compare/duplicati-4.0.15...duplicati-4.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="duplicati-4.0.15"></a>
 ### [duplicati-4.0.15](https://github.com/truecharts/apps/compare/duplicati-4.0.14...duplicati-4.0.15) (2021-12-04)
 

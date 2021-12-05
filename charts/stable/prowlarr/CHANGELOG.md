@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.26"></a>
+### [prowlarr-4.0.26](https://github.com/truecharts/apps/compare/prowlarr-4.0.25...prowlarr-4.0.26) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="prowlarr-4.0.25"></a>
 ### [prowlarr-4.0.25](https://github.com/truecharts/apps/compare/prowlarr-4.0.24...prowlarr-4.0.25) (2021-12-04)
 

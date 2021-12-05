@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-1.0.4"></a>
+### [minio-1.0.4](https://github.com/truecharts/apps/compare/minio-1.0.3...minio-1.0.4) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="minio-1.0.3"></a>
 ### [minio-1.0.3](https://github.com/truecharts/apps/compare/minio-1.0.2...minio-1.0.3) (2021-12-04)
 

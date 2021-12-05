@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="static-1.0.16"></a>
+### [static-1.0.16](https://github.com/truecharts/apps/compare/static-1.0.15...static-1.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="static-1.0.15"></a>
 ### [static-1.0.15](https://github.com/truecharts/apps/compare/static-1.0.14...static-1.0.15) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.6"></a>
+### [snipe-it-0.0.6](https://github.com/truecharts/apps/compare/snipe-it-0.0.5...snipe-it-0.0.6) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="snipe-it-0.0.5"></a>
 ### [snipe-it-0.0.5](https://github.com/truecharts/apps/compare/snipe-it-0.0.4...snipe-it-0.0.5) (2021-12-04)
 

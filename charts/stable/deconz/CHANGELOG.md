@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-5.0.3"></a>
+### [deconz-5.0.3](https://github.com/truecharts/apps/compare/deconz-5.0.2...deconz-5.0.3) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="deconz-5.0.2"></a>
 ### [deconz-5.0.2](https://github.com/truecharts/apps/compare/deconz-5.0.1...deconz-5.0.2) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-4.0.18"></a>
+### [airsonic-4.0.18](https://github.com/truecharts/apps/compare/airsonic-4.0.17...airsonic-4.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="airsonic-4.0.17"></a>
 ### [airsonic-4.0.17](https://github.com/truecharts/apps/compare/airsonic-4.0.16...airsonic-4.0.17) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dizquetv-4.0.15"></a>
+### [dizquetv-4.0.15](https://github.com/truecharts/apps/compare/dizquetv-4.0.14...dizquetv-4.0.15) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="dizquetv-4.0.14"></a>
 ### [dizquetv-4.0.14](https://github.com/truecharts/apps/compare/dizquetv-4.0.13...dizquetv-4.0.14) (2021-12-04)
 

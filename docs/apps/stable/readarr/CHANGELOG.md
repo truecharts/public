@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.25"></a>
+### [readarr-9.0.25](https://github.com/truecharts/apps/compare/readarr-9.0.24...readarr-9.0.25) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="readarr-9.0.24"></a>
 ### [readarr-9.0.24](https://github.com/truecharts/apps/compare/readarr-9.0.23...readarr-9.0.24) (2021-12-04)
 

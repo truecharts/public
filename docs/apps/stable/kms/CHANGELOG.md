@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-9.0.18"></a>
+### [kms-9.0.18](https://github.com/truecharts/apps/compare/kms-9.0.17...kms-9.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="kms-9.0.17"></a>
 ### [kms-9.0.17](https://github.com/truecharts/apps/compare/kms-9.0.16...kms-9.0.17) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-0.0.6"></a>
+### [clarkson-0.0.6](https://github.com/truecharts/apps/compare/clarkson-0.0.5...clarkson-0.0.6) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="clarkson-0.0.5"></a>
 ### [clarkson-0.0.5](https://github.com/truecharts/apps/compare/clarkson-0.0.4...clarkson-0.0.5) (2021-12-04)
 

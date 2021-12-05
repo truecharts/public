@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="joplin-server-5.0.7"></a>
+### [joplin-server-5.0.7](https://github.com/truecharts/apps/compare/joplin-server-5.0.6...joplin-server-5.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="joplin-server-5.0.6"></a>
 ### [joplin-server-5.0.6](https://github.com/truecharts/apps/compare/joplin-server-5.0.5...joplin-server-5.0.6) (2021-12-04)
 

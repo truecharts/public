@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.24"></a>
+### [logitech-media-server-2.0.24](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.23...logitech-media-server-2.0.24) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="logitech-media-server-2.0.23"></a>
 ### [logitech-media-server-2.0.23](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.22...logitech-media-server-2.0.23) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-9.0.18"></a>
+### [nzbhydra-9.0.18](https://github.com/truecharts/apps/compare/nzbhydra-9.0.17...nzbhydra-9.0.18) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="nzbhydra-9.0.17"></a>
 ### [nzbhydra-9.0.17](https://github.com/truecharts/apps/compare/nzbhydra-9.0.16...nzbhydra-9.0.17) (2021-12-04)
 

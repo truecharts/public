@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="etherpad-5.0.7"></a>
+### [etherpad-5.0.7](https://github.com/truecharts/apps/compare/etherpad-5.0.6...etherpad-5.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="etherpad-5.0.6"></a>
 ### [etherpad-5.0.6](https://github.com/truecharts/apps/compare/etherpad-5.0.5...etherpad-5.0.6) (2021-12-04)
 

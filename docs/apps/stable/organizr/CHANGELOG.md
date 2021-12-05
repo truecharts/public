@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="organizr-9.0.17"></a>
+### [organizr-9.0.17](https://github.com/truecharts/apps/compare/organizr-9.0.16...organizr-9.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="organizr-9.0.16"></a>
 ### [organizr-9.0.16](https://github.com/truecharts/apps/compare/organizr-9.0.15...organizr-9.0.16) (2021-12-04)
 

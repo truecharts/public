@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traccar-4.0.7"></a>
+### [traccar-4.0.7](https://github.com/truecharts/apps/compare/traccar-4.0.6...traccar-4.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="traccar-4.0.6"></a>
 ### [traccar-4.0.6](https://github.com/truecharts/apps/compare/traccar-4.0.5...traccar-4.0.6) (2021-12-04)
 

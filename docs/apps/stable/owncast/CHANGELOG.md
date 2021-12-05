@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncast-4.0.15"></a>
+### [owncast-4.0.15](https://github.com/truecharts/apps/compare/owncast-4.0.14...owncast-4.0.15) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="owncast-4.0.14"></a>
 ### [owncast-4.0.14](https://github.com/truecharts/apps/compare/owncast-4.0.13...owncast-4.0.14) (2021-12-04)
 

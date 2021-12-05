@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="promtail-1.0.7"></a>
+### [promtail-1.0.7](https://github.com/truecharts/apps/compare/promtail-1.0.6...promtail-1.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+* cleanup the ci for the security page a bit
+
+
+
 <a name="promtail-1.0.6"></a>
 ### [promtail-1.0.6](https://github.com/truecharts/apps/compare/promtail-1.0.5...promtail-1.0.6) (2021-12-03)
 

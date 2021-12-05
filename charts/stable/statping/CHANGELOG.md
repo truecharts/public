@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statping-4.0.7"></a>
+### [statping-4.0.7](https://github.com/truecharts/apps/compare/statping-4.0.6...statping-4.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="statping-4.0.6"></a>
 ### [statping-4.0.6](https://github.com/truecharts/apps/compare/statping-4.0.5...statping-4.0.6) (2021-12-04)
 

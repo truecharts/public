@@ -1,16 +1,21 @@
+---
+hide:
+  - toc
+---
+
 # Security Scan
+
+<link href="https://truecharts.org/_static/trivy.css" type="text/css" rel="stylesheet" />
 
 ## Helm-Chart
 
 ##### Scan Results
 
-2021-12-04T19:30:32.117Z    [34mINFO[0m    Detected config files: 1
-#### external-service/templates/common.yaml
-
-**kubernetes**
+#### Chart Object: external-service/templates/common.yaml
 
 
-| No Vulnerabilities found         |
+
+| No Misconfigurations found         |
 |:---------------------------------|
 
 

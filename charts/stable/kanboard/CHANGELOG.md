@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kanboard-5.0.7"></a>
+### [kanboard-5.0.7](https://github.com/truecharts/apps/compare/kanboard-5.0.6...kanboard-5.0.7) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="kanboard-5.0.6"></a>
 ### [kanboard-5.0.6](https://github.com/truecharts/apps/compare/kanboard-5.0.5...kanboard-5.0.6) (2021-12-04)
 

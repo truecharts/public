@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-1.0.3"></a>
+### [speedtest-exporter-1.0.3](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.2...speedtest-exporter-1.0.3) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="speedtest-exporter-1.0.2"></a>
 ### [speedtest-exporter-1.0.2](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.1...speedtest-exporter-1.0.2) (2021-12-04)
 

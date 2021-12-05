@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-4.0.16"></a>
+### [phpldapadmin-4.0.16](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.15...phpldapadmin-4.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="phpldapadmin-4.0.15"></a>
 ### [phpldapadmin-4.0.15](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.14...phpldapadmin-4.0.15) (2021-12-04)
 

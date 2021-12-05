@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-4.0.16"></a>
+### [protonmail-bridge-4.0.16](https://github.com/truecharts/apps/compare/protonmail-bridge-4.0.15...protonmail-bridge-4.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="protonmail-bridge-4.0.15"></a>
 ### [protonmail-bridge-4.0.15](https://github.com/truecharts/apps/compare/protonmail-bridge-4.0.14...protonmail-bridge-4.0.15) (2021-12-04)
 

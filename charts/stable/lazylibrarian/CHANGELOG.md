@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.21"></a>
+### [lazylibrarian-9.0.21](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.20...lazylibrarian-9.0.21) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="lazylibrarian-9.0.20"></a>
 ### [lazylibrarian-9.0.20](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.19...lazylibrarian-9.0.20) (2021-12-04)
 

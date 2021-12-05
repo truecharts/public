@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-9.0.16"></a>
+### [syncthing-9.0.16](https://github.com/truecharts/apps/compare/syncthing-9.0.15...syncthing-9.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="syncthing-9.0.15"></a>
 ### [syncthing-9.0.15](https://github.com/truecharts/apps/compare/syncthing-9.0.14...syncthing-9.0.15) (2021-12-04)
 

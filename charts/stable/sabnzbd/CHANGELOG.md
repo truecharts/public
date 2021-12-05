@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-9.0.16"></a>
+### [sabnzbd-9.0.16](https://github.com/truecharts/apps/compare/sabnzbd-9.0.15...sabnzbd-9.0.16) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="sabnzbd-9.0.15"></a>
 ### [sabnzbd-9.0.15](https://github.com/truecharts/apps/compare/sabnzbd-9.0.14...sabnzbd-9.0.15) (2021-12-04)
 

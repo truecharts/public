@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.17"></a>
+### [plex-8.0.17](https://github.com/truecharts/apps/compare/plex-8.0.16...plex-8.0.17) (2021-12-04)
+
+#### Chore
+
+* bump apps to generate security page
+
+
+
 <a name="plex-8.0.16"></a>
 ### [plex-8.0.16](https://github.com/truecharts/apps/compare/plex-8.0.15...plex-8.0.16) (2021-12-04)
 
