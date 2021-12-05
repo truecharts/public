@@ -2,7 +2,7 @@
 # @default -- See below
 openvpnImage:
   # -- Specify the openvpn client image
-  repository: tccr.io/truecharts/openvpn-client
+  repository: ghcr.io/truecharts/openvpn-client
   # -- Specify the openvpn client image tag
   tag: latest@sha256:bc3a56b2c195a4b4ce5c67fb0c209f38036521ebd316df2a7d68b425b9c48b30
   # -- Specify the openvpn client image pull policy
@@ -12,7 +12,7 @@ openvpnImage:
 # @default -- See below
 wireguardImage:
   # -- Specify the WireGuard image
-  repository: tccr.io/truecharts/wireguard
+  repository: ghcr.io/truecharts/wireguard
   # -- Specify the WireGuard image tag
   tag: v1.0.20210914@sha256:fc278ed7ae45452f28384c5ed81f5963d0d2dabb296389c69b5cdb13e31260ac
   # -- Specify the WireGuard image pull policy
@@ -22,7 +22,7 @@ wireguardImage:
 # @default -- See below
 promtailImage:
   # -- Specify the promtail image
-  repository: tccr.io/truecharts/promtail
+  repository: ghcr.io/truecharts/promtail
   # -- Specify the promtail image tag
   tag: v2.4.1@sha256:83bceed26a638b211d65b6e80d4a33d01dc82b81e630d57e883b490ac0c57ef4
   # -- Specify the promtail image pull policy
@@ -32,7 +32,7 @@ promtailImage:
 # @default -- See below
 netshootImage:
   # -- Specify the netshoot image
-  repository: tccr.io/truecharts/netshoot
+  repository: ghcr.io/truecharts/netshoot
   # -- Specify the netshoot image tag
   tag: latest@sha256:505d3430ed7c1d43fed18dbd1177b76ecb6fc376113bc41d34da230c402a4855
   # -- Specify the netshoot image pull policy
@@ -42,7 +42,7 @@ netshootImage:
 # @default -- See below
 codeserverImage:
   # -- Specify the code-server image
-  repository: tccr.io/truecharts/code-server
+  repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
   tag: v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce
   # -- Specify the code-server image pull policy
@@ -52,7 +52,7 @@ codeserverImage:
 # @default -- See below
 alpineImage:
   # -- Specify the Alpine image
-  repository: tccr.io/truecharts/alpine
+  repository: ghcr.io/truecharts/alpine
   # -- Specify the Alpine image tag
   tag: v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
   # -- Specify the Alpine image pull policy
@@ -62,7 +62,7 @@ alpineImage:
 # @default -- See below
 postgresqlImage:
   # -- Specify the postgresql image
-  repository: tccr.io/truecharts/postgresql
+  repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
   tag: v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4
   # -- Specify the postgresql image pull policy
