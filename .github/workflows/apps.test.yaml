@@ -108,7 +108,7 @@ jobs:
         if: ${{ matrix.app != '.gitkee' }}
         uses: azure/setup-helm@v1
         with:
-          version: v3.5.3
+          version: v3.7.1
 
       - name: update helm repo cache
         run: |
