@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.0.10"></a>
+### [fireflyiii-13.0.10](https://github.com/truecharts/apps/compare/fireflyiii-13.0.9...fireflyiii-13.0.10) (2021-12-05)
+
+#### Chore
+
+* fix some remaining issues after refactor work
+
+
+
 <a name="fireflyiii-13.0.9"></a>
 ### fireflyiii-13.0.9 (2021-12-05)
 

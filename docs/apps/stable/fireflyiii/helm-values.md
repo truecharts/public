@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/fireflyiii-core"` |  |
-| image.tag | string | `"version-5.5.12@sha256:f6dddfae65571d7995d5b24bf28fdf453775b825c35cac0c48b8ce52449090cf"` |  |
+| image.tag | string | `"v5.6.5@sha256:fe75d9df1daf62871eccb976643ff393ed1bd402b61baa0f17f7ad5289697264"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html/storage/upload"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grocy-9.0.19"></a>
+### [grocy-9.0.19](https://github.com/truecharts/apps/compare/grocy-9.0.18...grocy-9.0.19) (2021-12-05)
+
+#### Chore
+
+* fix some remaining issues after refactor work
+
+
+
 <a name="grocy-9.0.18"></a>
 ### grocy-9.0.18 (2021-12-05)
 

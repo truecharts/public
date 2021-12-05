@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.11"></a>
+### [gitea-5.0.11](https://github.com/truecharts/apps/compare/gitea-5.0.10...gitea-5.0.11) (2021-12-05)
+
+#### Chore
+
+* fix some remaining issues after refactor work
+
+
+
 <a name="gitea-5.0.10"></a>
 ### gitea-5.0.10 (2021-12-05)
 
