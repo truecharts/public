@@ -12,10 +12,6 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - name: prune
-      uses: dev-drprasad/delete-older-releases@v0.2.0
+    - uses: actions/delete-package-versions@v2
       with:
-        keep_latest: 200
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        min-versions-to-keep: 200
