@@ -58,7 +58,7 @@ service:
 volumeClaimTemplates:
   data:
     enabled: true
-    mountPath: "/tccr.io/truecharts/redis"
+    mountPath: "/bitnami/redis"
 
 # -- Probe configuration
 # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)

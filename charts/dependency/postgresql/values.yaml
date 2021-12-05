@@ -43,7 +43,7 @@ podSecurityContext:
 volumeClaimTemplates:
   db:
     enabled: true
-    mountPath: "/tccr.io/truecharts/postgresql"
+    mountPath: "/bitnami/postgresql"
 
 
 postgresqlPassword: "testpass"
