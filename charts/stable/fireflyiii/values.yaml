@@ -50,6 +50,12 @@ persistence:
     enabled: true
     mountPath: "/var/www/html/storage/upload"
 
+cronjob:
+  schedule: "*/5 * * * *"
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
+
 
 # Enabled postgres
 postgresql:
