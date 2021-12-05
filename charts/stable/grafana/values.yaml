@@ -30,20 +30,20 @@ secret:
 env:
   GF_SECURITY_ADMIN_USER: "admin"
   GF_INSTALL_PLUGINS: ""
-  GF_PATHS_PLUGINS: "/opt/tccr.io/truecharts/grafana/data/plugins"
+  GF_PATHS_PLUGINS: "/opt/bitnami/grafana/data/plugins"
   GF_AUTH_LDAP_ENABLED: "false"
-  GF_AUTH_LDAP_CONFIG_FILE: "/opt/tccr.io/truecharts/grafana/conf/ldap.toml"
+  GF_AUTH_LDAP_CONFIG_FILE: "/opt/bitnami/grafana/conf/ldap.toml"
   GF_AUTH_LDAP_ALLOW_SIGN_UP: "false"
-  GF_PATHS_PROVISIONING: "/opt/tccr.io/truecharts/grafana/conf/provisioning"
-  GF_PATHS_CONFIG: "/opt/tccr.io/truecharts/grafana/conf/grafana.ini"
-  GF_PATHS_DATA: "/opt/tccr.io/truecharts/grafana/data"
-  GF_PATHS_LOGS: "/opt/tccr.io/truecharts/grafana/logs"
+  GF_PATHS_PROVISIONING: "/opt/bitnami/grafana/conf/provisioning"
+  GF_PATHS_CONFIG: "/opt/bitnami/grafana/conf/grafana.ini"
+  GF_PATHS_DATA: "/opt/bitnami/grafana/data"
+  GF_PATHS_LOGS: "/opt/bitnami/grafana/logs"
 
 
 persistence:
   config:
     enabled: true
-    mountPath: "/opt/tccr.io/truecharts/grafana/data"
+    mountPath: "/opt/bitnami/grafana/data"
 
 metrics:
   # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
