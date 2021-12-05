@@ -3,11 +3,11 @@ appVersion: "0.52.1"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.11
+  version: 8.9.13
 - condition: exporters.enabled,exporters.node-exporter.enabled
   name: node-exporter
   repository: https://charts.bitnami.com/bitnami
-  version: 2.3.16
+  version: 2.3.17
 - condition: exporters.enabled,exporters.kube-state-metrics.enabled
   name: kube-state-metrics
   repository: https://charts.bitnami.com/bitnami
@@ -28,7 +28,7 @@ sources:
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
 type: application
-version: 1.1.8
+version: 1.1.9
 annotations:
   truecharts.org/catagories: |
     - metrics

@@ -3,11 +3,11 @@ appVersion: "5.3.3"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.11
+  version: 8.9.13
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
-  version: 1.0.23
+  version: 1.0.25
 description: "Open source asset management"
 home: https://github.com/truechartsapps/tree/master/charts/stable/snipe-it
 icon: "https://github.com/nicholaswilde/helm-charts/raw/main/images/snipe-it.jpg"
@@ -25,7 +25,7 @@ name: snipe-it
 sources:
   - https://snipeitapp.com/
   - https://hub.docker.com/r/linuxserver/
-version: 0.0.7
+version: 0.0.8
 annotations:
   truecharts.org/catagories: |
     - management
