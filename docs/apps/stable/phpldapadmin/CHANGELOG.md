@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-4.0.17"></a>
+### [phpldapadmin-4.0.17](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.16...phpldapadmin-4.0.17) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="phpldapadmin-4.0.16"></a>
 ### [phpldapadmin-4.0.16](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.15...phpldapadmin-4.0.16) (2021-12-04)
 

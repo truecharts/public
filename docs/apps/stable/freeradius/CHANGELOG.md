@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freeradius-4.0.19"></a>
+### [freeradius-4.0.19](https://github.com/truecharts/apps/compare/freeradius-4.0.18...freeradius-4.0.19) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="freeradius-4.0.18"></a>
 ### [freeradius-4.0.18](https://github.com/truecharts/apps/compare/freeradius-4.0.17...freeradius-4.0.18) (2021-12-05)
 

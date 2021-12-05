@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.7"></a>
+### [wikijs-4.0.7](https://github.com/truecharts/apps/compare/wikijs-4.0.6...wikijs-4.0.7) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="wikijs-4.0.6"></a>
 ### [wikijs-4.0.6](https://github.com/truecharts/apps/compare/wikijs-4.0.5...wikijs-4.0.6) (2021-12-04)
 

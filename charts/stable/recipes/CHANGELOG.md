@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-4.0.12"></a>
+### [recipes-4.0.12](https://github.com/truecharts/apps/compare/recipes-4.0.11...recipes-4.0.12) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="recipes-4.0.11"></a>
 ### [recipes-4.0.11](https://github.com/truecharts/apps/compare/recipes-4.0.10...recipes-4.0.11) (2021-12-04)
 

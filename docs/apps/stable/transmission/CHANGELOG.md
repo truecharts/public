@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-9.0.19"></a>
+### [transmission-9.0.19](https://github.com/truecharts/apps/compare/transmission-9.0.18...transmission-9.0.19) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="transmission-9.0.18"></a>
 ### [transmission-9.0.18](https://github.com/truecharts/apps/compare/transmission-9.0.17...transmission-9.0.18) (2021-12-04)
 

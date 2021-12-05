@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.13"></a>
+### [tt-rss-4.0.13](https://github.com/truecharts/apps/compare/tt-rss-4.0.12...tt-rss-4.0.13) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="tt-rss-4.0.12"></a>
 ### [tt-rss-4.0.12](https://github.com/truecharts/apps/compare/tt-rss-4.0.11...tt-rss-4.0.12) (2021-12-04)
 

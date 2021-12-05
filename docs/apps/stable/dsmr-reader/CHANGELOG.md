@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-5.0.7"></a>
+### [dsmr-reader-5.0.7](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.6...dsmr-reader-5.0.7) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+#### Fix
+
+* try to patch the CI again...
+
+
+
 <a name="dsmr-reader-5.0.6"></a>
 ### [dsmr-reader-5.0.6](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.5...dsmr-reader-5.0.6) (2021-12-04)
 

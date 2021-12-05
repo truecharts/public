@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="digikam-2.0.19"></a>
+### [digikam-2.0.19](https://github.com/truecharts/apps/compare/digikam-2.0.18...digikam-2.0.19) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="digikam-2.0.18"></a>
 ### [digikam-2.0.18](https://github.com/truecharts/apps/compare/digikam-2.0.17...digikam-2.0.18) (2021-12-04)
 

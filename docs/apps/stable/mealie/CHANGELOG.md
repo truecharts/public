@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mealie-4.0.18"></a>
+### [mealie-4.0.18](https://github.com/truecharts/apps/compare/mealie-4.0.17...mealie-4.0.18) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="mealie-4.0.17"></a>
 ### [mealie-4.0.17](https://github.com/truecharts/apps/compare/mealie-4.0.16...mealie-4.0.17) (2021-12-04)
 

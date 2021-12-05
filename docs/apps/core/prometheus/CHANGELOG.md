@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.8"></a>
+### [prometheus-1.1.8](https://github.com/truecharts/apps/compare/prometheus-1.1.7...prometheus-1.1.8) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="prometheus-1.1.7"></a>
 ### [prometheus-1.1.7](https://github.com/truecharts/apps/compare/prometheus-1.1.6...prometheus-1.1.7) (2021-12-05)
 

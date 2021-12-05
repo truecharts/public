@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="novnc-1.0.17"></a>
+### [novnc-1.0.17](https://github.com/truecharts/apps/compare/novnc-1.0.16...novnc-1.0.17) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="novnc-1.0.16"></a>
 ### [novnc-1.0.16](https://github.com/truecharts/apps/compare/novnc-1.0.15...novnc-1.0.16) (2021-12-04)
 

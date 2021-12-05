@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="aria2-2.0.17"></a>
+### [aria2-2.0.17](https://github.com/truecharts/apps/compare/aria2-2.0.16...aria2-2.0.17) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="aria2-2.0.16"></a>
 ### [aria2-2.0.16](https://github.com/truecharts/apps/compare/aria2-2.0.15...aria2-2.0.16) (2021-12-04)
 

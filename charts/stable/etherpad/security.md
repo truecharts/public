@@ -61,10 +61,10 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4
+          tccr.io/truecharts/postgresql:v14.1.0@sha256:4816fcc7f4f3a5a6db13aa70aa3d374fec33e096051be22db6a72d96cf2d8da1
           tccr.io/truecharts/etherpad:version-1.8.14@sha256:4900f0e787ca22cf93090ae44ecceb5689d4427c739e1eb637a6e3a913161bf8
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4
+          tccr.io/truecharts/postgresql:v14.1.0@sha256:4816fcc7f4f3a5a6db13aa70aa3d374fec33e096051be22db6a72d96cf2d8da1
 
 ##### Scan Results
 
@@ -101,7 +101,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4 (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:4816fcc7f4f3a5a6db13aa70aa3d374fec33e096051be22db6a72d96cf2d8da1 (debian 10.11)
 
 
 **debian**
@@ -417,7 +417,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4 (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:4816fcc7f4f3a5a6db13aa70aa3d374fec33e096051be22db6a72d96cf2d8da1 (debian 10.11)
 
 
 **debian**

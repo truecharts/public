@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.26"></a>
+### [redis-1.0.26](https://github.com/truecharts/apps/compare/redis-1.0.25...redis-1.0.26) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="redis-1.0.25"></a>
 ### [redis-1.0.25](https://github.com/truecharts/apps/compare/redis-1.0.24...redis-1.0.25) (2021-12-05)
 

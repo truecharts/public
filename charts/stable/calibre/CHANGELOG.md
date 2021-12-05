@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-4.0.20"></a>
+### [calibre-4.0.20](https://github.com/truecharts/apps/compare/calibre-web-9.0.16...calibre-4.0.20) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="calibre-4.0.19"></a>
 ### [calibre-4.0.19](https://github.com/truecharts/apps/compare/calibre-web-9.0.15...calibre-4.0.19) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosquitto-4.0.19"></a>
+### [mosquitto-4.0.19](https://github.com/truecharts/apps/compare/mosquitto-4.0.18...mosquitto-4.0.19) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="mosquitto-4.0.18"></a>
 ### [mosquitto-4.0.18](https://github.com/truecharts/apps/compare/mosquitto-4.0.17...mosquitto-4.0.18) (2021-12-04)
 

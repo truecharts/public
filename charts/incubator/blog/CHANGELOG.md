@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.6"></a>
+### [blog-0.0.6](https://github.com/truecharts/apps/compare/blog-0.0.5...blog-0.0.6) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="blog-0.0.5"></a>
 ### [blog-0.0.5](https://github.com/truecharts/apps/compare/blog-0.0.4...blog-0.0.5) (2021-12-04)
 

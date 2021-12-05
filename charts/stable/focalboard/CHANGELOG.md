@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-4.0.17"></a>
+### [focalboard-4.0.17](https://github.com/truecharts/apps/compare/focalboard-4.0.16...focalboard-4.0.17) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="focalboard-4.0.16"></a>
 ### [focalboard-4.0.16](https://github.com/truecharts/apps/compare/focalboard-4.0.15...focalboard-4.0.16) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-1.0.20"></a>
+### [medusa-1.0.20](https://github.com/truecharts/apps/compare/medusa-1.0.19...medusa-1.0.20) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="medusa-1.0.19"></a>
 ### [medusa-1.0.19](https://github.com/truecharts/apps/compare/medusa-1.0.18...medusa-1.0.19) (2021-12-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="remmina-1.0.21"></a>
+### [remmina-1.0.21](https://github.com/truecharts/apps/compare/remmina-1.0.20...remmina-1.0.21) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="remmina-1.0.20"></a>
 ### [remmina-1.0.20](https://github.com/truecharts/apps/compare/remmina-1.0.19...remmina-1.0.20) (2021-12-04)
 

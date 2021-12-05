@@ -24,7 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DJANGO_DATABASE_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/dsmr-reader"` | image repository |
-| image.tag | string | `"v2021.09.02@sha256:4858edb1ae63a20639a0ef9c51c7b2cf599686db5c582ead7b37b2a288122935"` | image tag |
+| image.tag | string | `"v2021.09.02@sha256:bf3454b0b379d325d95ec0693e2634bcfd4bfd917ec59d0918ca60d32a6073c5"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promcord-1.0.6"></a>
+### [promcord-1.0.6](https://github.com/truecharts/apps/compare/promcord-1.0.5...promcord-1.0.6) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="promcord-1.0.5"></a>
 ### [promcord-1.0.5](https://github.com/truecharts/apps/compare/promcord-1.0.4...promcord-1.0.5) (2021-12-05)
 

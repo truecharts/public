@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teedy-4.0.8"></a>
+### [teedy-4.0.8](https://github.com/truecharts/apps/compare/teedy-4.0.7...teedy-4.0.8) (2021-12-05)
+
+#### Chore
+
+* update non-major deps helm releases ([#1468](https://github.com/truecharts/apps/issues/1468))
+
+
+
 <a name="teedy-4.0.7"></a>
 ### [teedy-4.0.7](https://github.com/truecharts/apps/compare/teedy-4.0.6...teedy-4.0.7) (2021-12-04)
 
