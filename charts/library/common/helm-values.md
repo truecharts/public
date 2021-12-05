@@ -44,13 +44,13 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | affinity | object | `{}` | Defines affinity constraint rules. [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity) |
 | alpineImage | object | See below | alpine specific configuration |
 | alpineImage.pullPolicy | string | `"IfNotPresent"` | Specify the Alpine image pull policy |
-| alpineImage.repository | string | `"tccr.io/truecharts/alpine"` | Specify the Alpine image |
+| alpineImage.repository | string | `"ghcr.io/truecharts/alpine"` | Specify the Alpine image |
 | alpineImage.tag | string | `"v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c"` | Specify the Alpine image tag |
 | args | list | `[]` | Override the args for the default container |
 | autoscaling | object | <disabled> | Add a Horizontal Pod Autoscaler |
 | codeserverImage | object | See below | codeserver specific configuration |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
-| codeserverImage.repository | string | `"tccr.io/truecharts/code-server"` | Specify the code-server image |
+| codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
 | codeserverImage.tag | string | `"v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | configmap | object | See below | Configure configMaps for the chart here. Additional configMaps can be added by adding a dictionary key similar to the 'config' object. |
@@ -109,7 +109,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | mariadb.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
 | netshootImage | object | See below | netshoot specific configuration |
 | netshootImage.pullPolicy | string | `"Always"` | Specify the netshoot image pull policy |
-| netshootImage.repository | string | `"tccr.io/truecharts/netshoot"` | Specify the netshoot image |
+| netshootImage.repository | string | `"ghcr.io/truecharts/netshoot"` | Specify the netshoot image |
 | netshootImage.tag | string | `"latest@sha256:505d3430ed7c1d43fed18dbd1177b76ecb6fc376113bc41d34da230c402a4855"` | Specify the netshoot image tag |
 | networkPolicy | object | See below | Configure networkPolicy for the chart here. |
 | networkPolicy.egress | list | `[]` | add or remove egress policies |
@@ -118,7 +118,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | nodeSelector | object | `{}` |  |
 | openvpnImage | object | See below | OpenVPN specific configuration |
 | openvpnImage.pullPolicy | string | `"IfNotPresent"` | Specify the openvpn client image pull policy |
-| openvpnImage.repository | string | `"tccr.io/truecharts/openvpn-client"` | Specify the openvpn client image |
+| openvpnImage.repository | string | `"ghcr.io/truecharts/openvpn-client"` | Specify the openvpn client image |
 | openvpnImage.tag | string | `"latest@sha256:bc3a56b2c195a4b4ce5c67fb0c209f38036521ebd316df2a7d68b425b9c48b30"` | Specify the openvpn client image tag |
 | persistence | object | See below | Configure persistence for the chart here. Additional items can be added by adding a dictionary key similar to the 'config' key. |
 | persistence.config | object | See below | Default persistence for configuration files. |
@@ -181,8 +181,8 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresql.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
-| postgresqlImage.repository | string | `"tccr.io/truecharts/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"v14.1.0@sha256:3b1df1487f9bd1bb3ee6a2b5e90e655b2ea5d9cdc3148826dc813bbcea3969c4"` | Specify the postgresql image tag |
+| postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
+| postgresqlImage.tag | string | `"v14.1.0@sha256:4816fcc7f4f3a5a6db13aa70aa3d374fec33e096051be22db6a72d96cf2d8da1"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
@@ -205,7 +205,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | probes.startup.type | string | "TCP" | sets the probe type when not using a custom probe |
 | promtailImage | object | See below | promtail specific configuration |
 | promtailImage.pullPolicy | string | `"IfNotPresent"` | Specify the promtail image pull policy |
-| promtailImage.repository | string | `"tccr.io/truecharts/promtail"` | Specify the promtail image |
+| promtailImage.repository | string | `"ghcr.io/truecharts/promtail"` | Specify the promtail image |
 | promtailImage.tag | string | `"v2.4.1@sha256:83bceed26a638b211d65b6e80d4a33d01dc82b81e630d57e883b490ac0c57ef4"` | Specify the promtail image tag |
 | rbac | object | See below | Create a ClusterRole and ClusterRoleBinding |
 | rbac.clusterRoleAnnotations | object | `{}` | Set labels on the ClusterRole |
@@ -248,7 +248,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | volumeClaimTemplates | list | `[]` | Used in conjunction with `controller.type: statefulset` to create individual disks for each instance. |
 | wireguardImage | object | See below | WireGuard specific configuration |
 | wireguardImage.pullPolicy | string | `"IfNotPresent"` | Specify the WireGuard image pull policy |
-| wireguardImage.repository | string | `"tccr.io/truecharts/wireguard"` | Specify the WireGuard image |
+| wireguardImage.repository | string | `"ghcr.io/truecharts/wireguard"` | Specify the WireGuard image |
 | wireguardImage.tag | string | `"v1.0.20210914@sha256:fc278ed7ae45452f28384c5ed81f5963d0d2dabb296389c69b5cdb13e31260ac"` | Specify the WireGuard image tag |
 
 All Rights Reserved - The TrueCharts Project

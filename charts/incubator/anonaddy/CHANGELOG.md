@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="anonaddy-6.0.6"></a>
+### [anonaddy-6.0.6](https://github.com/truecharts/apps/compare/anonaddy-6.0.5...anonaddy-6.0.6) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
 <a name="anonaddy-6.0.5"></a>
 ### [anonaddy-6.0.5](https://github.com/truecharts/apps/compare/anonaddy-6.0.4...anonaddy-6.0.5) (2021-12-04)
 

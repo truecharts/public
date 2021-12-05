@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-1.0.19"></a>
+### [medusa-1.0.19](https://github.com/truecharts/apps/compare/medusa-1.0.18...medusa-1.0.19) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
 <a name="medusa-1.0.18"></a>
 ### [medusa-1.0.18](https://github.com/truecharts/apps/compare/medusa-1.0.17...medusa-1.0.18) (2021-12-04)
 

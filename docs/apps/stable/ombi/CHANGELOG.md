@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ombi-9.0.16"></a>
+### [ombi-9.0.16](https://github.com/truecharts/apps/compare/ombi-9.0.15...ombi-9.0.16) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
 <a name="ombi-9.0.15"></a>
 ### [ombi-9.0.15](https://github.com/truecharts/apps/compare/ombi-9.0.14...ombi-9.0.15) (2021-12-04)
 

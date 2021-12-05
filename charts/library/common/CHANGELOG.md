@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="common-8.9.11"></a>
+### [common-8.9.11](https://github.com/truecharts/apps/compare/common-test-3.3.2...common-8.9.11) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+#### Fix
+
+* move deps back to ghcr for now.
+
+
+
 <a name="common-8.9.10"></a>
 ### [common-8.9.10](https://github.com/truecharts/apps/compare/common-test-3.3.1...common-8.9.10) (2021-12-03)
 

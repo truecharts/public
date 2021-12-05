@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.10"></a>
+### [authelia-8.0.10](https://github.com/truecharts/apps/compare/authelia-8.0.9...authelia-8.0.10) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
 <a name="authelia-8.0.9"></a>
 ### [authelia-8.0.9](https://github.com/truecharts/apps/compare/authelia-8.0.8...authelia-8.0.9) (2021-12-04)
 

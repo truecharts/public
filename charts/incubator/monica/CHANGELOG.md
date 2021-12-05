@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="monica-0.0.7"></a>
+### [monica-0.0.7](https://github.com/truecharts/apps/compare/monica-0.0.6...monica-0.0.7) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
 <a name="monica-0.0.6"></a>
 ### [monica-0.0.6](https://github.com/truecharts/apps/compare/monica-0.0.5...monica-0.0.6) (2021-12-04)
 

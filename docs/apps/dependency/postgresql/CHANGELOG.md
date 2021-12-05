@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.20"></a>
+### [postgresql-6.0.20](https://github.com/truecharts/apps/compare/postgresql-6.0.19...postgresql-6.0.20) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+#### Fix
+
+* move deps back to ghcr for now.
+* correct mountpath mistakes
+
+
+
 <a name="postgresql-6.0.19"></a>
 ### [postgresql-6.0.19](https://github.com/truecharts/apps/compare/postgresql-6.0.18...postgresql-6.0.19) (2021-12-04)
 

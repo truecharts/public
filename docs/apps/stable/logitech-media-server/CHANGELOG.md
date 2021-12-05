@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.25"></a>
+### [logitech-media-server-2.0.25](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.24...logitech-media-server-2.0.25) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
 <a name="logitech-media-server-2.0.24"></a>
 ### [logitech-media-server-2.0.24](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.23...logitech-media-server-2.0.24) (2021-12-04)
 

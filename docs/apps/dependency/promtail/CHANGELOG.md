@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-1.0.8"></a>
+### [promtail-1.0.8](https://github.com/truecharts/apps/compare/promtail-1.0.7...promtail-1.0.8) (2021-12-05)
+
+#### Fix
+
+* move deps back to ghcr for now.
+
+
+
 <a name="promtail-1.0.7"></a>
 ### [promtail-1.0.7](https://github.com/truecharts/apps/compare/promtail-1.0.6...promtail-1.0.7) (2021-12-04)
 

@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"tccr.io/truecharts/whoami"` |  |
-| image.tag | string | `"v1.6.1@sha256:8237a50770d438e4daecbc5fca4ea981fc19daa0a6efa9b4a8a3a6e5a7a40666"` |  |
+| image.repository | string | `"ghcr.io/truecharts/whoami"` |  |
+| image.tag | string | `"v1.7.1@sha256:9140a27e94fdfa538f4c7f95e4c2c6910341e21aa0e2f2703718fcfdf0cc825a"` |  |
 | service.main.ports.main.port | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project

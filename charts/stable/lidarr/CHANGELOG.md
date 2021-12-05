@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lidarr-9.0.17"></a>
+### [lidarr-9.0.17](https://github.com/truecharts/apps/compare/lidarr-9.0.16...lidarr-9.0.17) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
 <a name="lidarr-9.0.16"></a>
 ### [lidarr-9.0.16](https://github.com/truecharts/apps/compare/lidarr-9.0.15...lidarr-9.0.16) (2021-12-04)
 

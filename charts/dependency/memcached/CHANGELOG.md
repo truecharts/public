@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.22"></a>
+### [memcached-1.0.22](https://github.com/truecharts/apps/compare/memcached-1.0.21...memcached-1.0.22) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+#### Fix
+
+* move deps back to ghcr for now.
+
+
+
 <a name="memcached-1.0.21"></a>
 ### [memcached-1.0.21](https://github.com/truecharts/apps/compare/memcached-1.0.20...memcached-1.0.21) (2021-12-04)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.11"></a>
+### [babybuddy-5.0.11](https://github.com/truecharts/apps/compare/babybuddy-5.0.10...babybuddy-5.0.11) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
 <a name="babybuddy-5.0.10"></a>
 ### [babybuddy-5.0.10](https://github.com/truecharts/apps/compare/babybuddy-5.0.9...babybuddy-5.0.10) (2021-12-04)
 

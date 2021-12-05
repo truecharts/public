@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radarr-9.0.17"></a>
+### [radarr-9.0.17](https://github.com/truecharts/apps/compare/radarr-9.0.16...radarr-9.0.17) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
 <a name="radarr-9.0.16"></a>
 ### [radarr-9.0.16](https://github.com/truecharts/apps/compare/radarr-9.0.15...radarr-9.0.16) (2021-12-04)
 

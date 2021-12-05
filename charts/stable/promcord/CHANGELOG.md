@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promcord-1.0.5"></a>
+### [promcord-1.0.5](https://github.com/truecharts/apps/compare/promcord-1.0.4...promcord-1.0.5) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+
+
 <a name="promcord-1.0.4"></a>
 ### [promcord-1.0.4](https://github.com/truecharts/apps/compare/promcord-1.0.3...promcord-1.0.4) (2021-12-04)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="common-test-3.3.4"></a>
+### [common-test-3.3.4](https://github.com/truecharts/apps/compare/common-test-3.3.2...common-test-3.3.4) (2021-12-05)
+
+#### Chore
+
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+
+#### Fix
+
+* move deps back to ghcr for now.
+
+
+
 <a name="common-test-3.3.2"></a>
 ### [common-test-3.3.2](https://github.com/truecharts/apps/compare/common-test-3.3.1...common-test-3.3.2) (2021-12-05)
 
