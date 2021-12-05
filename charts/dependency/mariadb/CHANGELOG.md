@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.23"></a>
+### [mariadb-1.0.23](https://github.com/truecharts/apps/compare/mariadb-1.0.22...mariadb-1.0.23) (2021-12-05)
+
+#### Chore
+
+* update common on deps ([#1467](https://github.com/truecharts/apps/issues/1467))
+
+
+
 <a name="mariadb-1.0.22"></a>
 ### [mariadb-1.0.22](https://github.com/truecharts/apps/compare/mariadb-1.0.21...mariadb-1.0.22) (2021-12-05)
 
