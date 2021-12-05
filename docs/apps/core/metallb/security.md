@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: metallb/charts/metallb/templates/controller.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV011   |   CPU not limited  |  LOW | <details><summary>Expand...</summary> Enforcing CPU limits prevents DoS via resource exhaustion. <br> <hr> <br> Container &#39;controller&#39; of Deployment &#39;RELEASE-NAME-metallb-controller&#39; should set &#39;resources.limits.cpu&#39; </details>| <details><summary>Expand...</summary><a href="https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-resource-requests-and-limits">https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-resource-requests-and-limits</a><br><a href="https://avd.aquasec.com/appshield/ksv011">https://avd.aquasec.com/appshield/ksv011</a><br></details>  |
@@ -26,13 +26,13 @@ hide:
 | Kubernetes Security Check         |    KSV020   |   Runs with low user ID  |  MEDIUM | <details><summary>Expand...</summary> Force the container to run with user ID &gt; 10000 to avoid conflicts with the host’s user table. <br> <hr> <br> Container &#39;controller&#39; of Deployment &#39;RELEASE-NAME-metallb-controller&#39; should set &#39;securityContext.runAsUser&#39; &gt; 10000 </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-runasuser/">https://kubesec.io/basics/containers-securitycontext-runasuser/</a><br><a href="https://avd.aquasec.com/appshield/ksv020">https://avd.aquasec.com/appshield/ksv020</a><br></details>  |
 | Kubernetes Security Check         |    KSV021   |   Runs with low group ID  |  MEDIUM | <details><summary>Expand...</summary> Force the container to run with group ID &gt; 10000 to avoid conflicts with the host’s user table. <br> <hr> <br> Container &#39;controller&#39; of Deployment &#39;RELEASE-NAME-metallb-controller&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000 </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-runasuser/">https://kubesec.io/basics/containers-securitycontext-runasuser/</a><br><a href="https://avd.aquasec.com/appshield/ksv021">https://avd.aquasec.com/appshield/ksv021</a><br></details>  |
 
-      
+
 | No Misconfigurations found         |
 |:---------------------------------|
 
-      
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV009   |   Access to host network  |  HIGH | <details><summary>Expand...</summary> Sharing the host’s network namespace permits processes in the pod to communicate with processes bound to the host’s loopback adapter. <br> <hr> <br> DaemonSet &#39;RELEASE-NAME-metallb-speaker&#39; should not set &#39;spec.template.spec.hostNetwork&#39; to true </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline">https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline</a><br><a href="https://avd.aquasec.com/appshield/ksv009">https://avd.aquasec.com/appshield/ksv009</a><br></details>  |
@@ -57,11 +57,11 @@ hide:
 
 
 #### Container: quay.io/metallb/controller:v0.11.0 (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -89,18 +89,18 @@ hide:
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/crypto         |    CVE-2020-29652   |   HIGH  |  v0.0.0-20201002170205-7f63de1d35b0 | v0.0.0-20201216223049-8b5274cf687f | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652</a><br><a href="https://go-review.googlesource.com/c/crypto/+/278852">https://go-review.googlesource.com/c/crypto/+/278852</a><br><a href="https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1">https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1</a><br><a href="https://linux.oracle.com/cve/CVE-2020-29652.html">https://linux.oracle.com/cve/CVE-2020-29652.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1796.html">https://linux.oracle.com/errata/ELSA-2021-1796.html</a><br><a href="https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E">https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-29652">https://nvd.nist.gov/vuln/detail/CVE-2020-29652</a><br></details>  |
 
 
 #### Container: quay.io/metallb/speaker:v0.11.0 (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -128,8 +128,7 @@ hide:
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | golang.org/x/crypto         |    CVE-2020-29652   |   HIGH  |  v0.0.0-20201002170205-7f63de1d35b0 | v0.0.0-20201216223049-8b5274cf687f | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652</a><br><a href="https://go-review.googlesource.com/c/crypto/+/278852">https://go-review.googlesource.com/c/crypto/+/278852</a><br><a href="https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1">https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1</a><br><a href="https://linux.oracle.com/cve/CVE-2020-29652.html">https://linux.oracle.com/cve/CVE-2020-29652.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1796.html">https://linux.oracle.com/errata/ELSA-2021-1796.html</a><br><a href="https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E">https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-29652">https://nvd.nist.gov/vuln/detail/CVE-2020-29652</a><br></details>  |
-

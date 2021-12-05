@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-1.0.7"></a>
+### [grafana-1.0.7](https://github.com/truecharts/apps/compare/grafana-1.0.6...grafana-1.0.7) (2021-12-05)
+
+#### Fix
+
+* correct storage path
+
+
+
 <a name="grafana-1.0.6"></a>
 ### [grafana-1.0.6](https://github.com/truecharts/apps/compare/grafana-1.0.5...grafana-1.0.6) (2021-12-04)
 

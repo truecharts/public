@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: promtail/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV012   |   Runs as root user  |  MEDIUM | <details><summary>Expand...</summary> &#39;runAsNonRoot&#39; forces the running image to run as a non-root user to ensure least privileges. <br> <hr> <br> Container &#39;RELEASE-NAME-promtail&#39; of Deployment &#39;RELEASE-NAME-promtail&#39; should set &#39;securityContext.runAsNonRoot&#39; to true </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv012">https://avd.aquasec.com/appshield/ksv012</a><br></details>  |
@@ -42,11 +42,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
@@ -74,11 +74,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/promtail:v2.4.1@sha256:83bceed26a638b211d65b6e80d4a33d01dc82b81e630d57e883b490ac0c57ef4 (debian 11.1)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  2.2.4 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -149,9 +149,8 @@ hide:
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/containerd/containerd         |    CVE-2021-41103   |   HIGH  |  v1.5.4 | v1.4.11, v1.5.7 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41103">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-41103</a><br><a href="https://github.com/containerd/containerd/commit/5b46e404f6b9f661a205e28d59c982d3634148f8">https://github.com/containerd/containerd/commit/5b46e404f6b9f661a205e28d59c982d3634148f8</a><br><a href="https://github.com/containerd/containerd/security/advisories/GHSA-c2h3-6mxw-7mvq">https://github.com/containerd/containerd/security/advisories/GHSA-c2h3-6mxw-7mvq</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/B5Q6G6I4W5COQE25QMC7FJY3I3PAYFBB/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/B5Q6G6I4W5COQE25QMC7FJY3I3PAYFBB/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZNFADTCHHYWVM6W4NJ6CB4FNFM2VMBIB/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZNFADTCHHYWVM6W4NJ6CB4FNFM2VMBIB/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41103">https://nvd.nist.gov/vuln/detail/CVE-2021-41103</a><br><a href="https://ubuntu.com/security/notices/USN-5100-1">https://ubuntu.com/security/notices/USN-5100-1</a><br><a href="https://www.debian.org/security/2021/dsa-5002">https://www.debian.org/security/2021/dsa-5002</a><br></details>  |
 | github.com/prometheus/prometheus         |    CVE-2019-3826   |   MEDIUM  |  v1.8.2-0.20211011171444-354d8d2ecfac | v2.7.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/errata/RHBA-2019:0327">https://access.redhat.com/errata/RHBA-2019:0327</a><br><a href="https://advisory.checkmarx.net/advisory/CX-2019-4297">https://advisory.checkmarx.net/advisory/CX-2019-4297</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2019-3826">https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2019-3826</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3826">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-3826</a><br><a href="https://github.com/prometheus/prometheus/commit/62e591f9">https://github.com/prometheus/prometheus/commit/62e591f9</a><br><a href="https://github.com/prometheus/prometheus/pull/5163">https://github.com/prometheus/prometheus/pull/5163</a><br><a href="https://lists.apache.org/thread.html/r48d5019bd42e0770f7e5351e420a63a41ff1f16924942442c6aff6a8@%3Ccommits.zookeeper.apache.org%3E">https://lists.apache.org/thread.html/r48d5019bd42e0770f7e5351e420a63a41ff1f16924942442c6aff6a8@%3Ccommits.zookeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/r8e3f7da12bf5750b0a02e69a78a61073a2ac950eed7451ce70a65177@%3Ccommits.zookeeper.apache.org%3E">https://lists.apache.org/thread.html/r8e3f7da12bf5750b0a02e69a78a61073a2ac950eed7451ce70a65177@%3Ccommits.zookeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rdf2a0d94c3b5b523aeff7741ae71347415276062811b687f30ea6573@%3Ccommits.zookeeper.apache.org%3E">https://lists.apache.org/thread.html/rdf2a0d94c3b5b523aeff7741ae71347415276062811b687f30ea6573@%3Ccommits.zookeeper.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-3826">https://nvd.nist.gov/vuln/detail/CVE-2019-3826</a><br></details>  |
-

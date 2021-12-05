@@ -12,14 +12,14 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.GF_AUTH_LDAP_ALLOW_SIGN_UP | string | `"false"` |  |
-| env.GF_AUTH_LDAP_CONFIG_FILE | string | `"/opt/tccr.io/truecharts/grafana/conf/ldap.toml"` |  |
+| env.GF_AUTH_LDAP_CONFIG_FILE | string | `"/opt/bitnami/grafana/conf/ldap.toml"` |  |
 | env.GF_AUTH_LDAP_ENABLED | string | `"false"` |  |
 | env.GF_INSTALL_PLUGINS | string | `""` |  |
-| env.GF_PATHS_CONFIG | string | `"/opt/tccr.io/truecharts/grafana/conf/grafana.ini"` |  |
-| env.GF_PATHS_DATA | string | `"/opt/tccr.io/truecharts/grafana/data"` |  |
-| env.GF_PATHS_LOGS | string | `"/opt/tccr.io/truecharts/grafana/logs"` |  |
-| env.GF_PATHS_PLUGINS | string | `"/opt/tccr.io/truecharts/grafana/data/plugins"` |  |
-| env.GF_PATHS_PROVISIONING | string | `"/opt/tccr.io/truecharts/grafana/conf/provisioning"` |  |
+| env.GF_PATHS_CONFIG | string | `"/opt/bitnami/grafana/conf/grafana.ini"` |  |
+| env.GF_PATHS_DATA | string | `"/opt/bitnami/grafana/data"` |  |
+| env.GF_PATHS_LOGS | string | `"/opt/bitnami/grafana/logs"` |  |
+| env.GF_PATHS_PLUGINS | string | `"/opt/bitnami/grafana/data/plugins"` |  |
+| env.GF_PATHS_PROVISIONING | string | `"/opt/bitnami/grafana/conf/provisioning"` |  |
 | env.GF_SECURITY_ADMIN_USER | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/grafana"` |  |
@@ -31,7 +31,7 @@ You will, however, be able to use all values referenced in the common chart here
 | metrics.serviceMonitor.labels | object | `{}` |  |
 | metrics.serviceMonitor.scrapeTimeout | string | `"30s"` |  |
 | persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/opt/tccr.io/truecharts/grafana/data"` |  |
+| persistence.config.mountPath | string | `"/opt/bitnami/grafana/data"` |  |
 | probes.liveness.path | string | `"/api/health"` |  |
 | probes.readiness.path | string | `"/api/health"` |  |
 | probes.startup.path | string | `"/api/health"` |  |
