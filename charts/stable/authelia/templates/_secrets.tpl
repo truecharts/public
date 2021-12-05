@@ -15,9 +15,14 @@ metadata:
 {{- $encryptionkey := "" }}
 data:
   {{- if $autheliaprevious }}
-  ENCRYPTION_KEY: {{ index $autheliaprevious.data "ENCRYPTION_KEY"  }}
   SESSION_ENCRYPTION_KEY: {{ index $autheliaprevious.data "SESSION_ENCRYPTION_KEY"  }}
   JWT_TOKEN: {{ index $autheliaprevious.data "JWT_TOKEN"  }}
+  {{- if ( hasKey $autheliaprevious.data "ENCRYPTION_KEY" ) }}
+  ENCRYPTION_KEY: {{ index $autheliaprevious.data "ENCRYPTION_KEY"  }}
+  {{- else }}
+  {{- $encryptionkey := randAlphaNum 100 }}
+  ENCRYPTION_KEY: {{ $encryptionkey | b64enc | quote }}
+  {{- end }}
   {{- else }}
   {{- $jwtsecret := randAlphaNum 50 }}
   {{- $sessionsecret := randAlphaNum 50 }}
