@@ -52,7 +52,7 @@ persistence:
     mountPath: "/var/www/html/storage/upload"
 
 cronjob:
-  schedule: "*/5 * * * *"
+  schedule: "0 3 * * *"
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
