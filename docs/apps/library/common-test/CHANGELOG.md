@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="common-test-3.3.6"></a>
+### common-test-3.3.6 (2021-12-05)
+
+#### Chore
+
+* move all container references to TCCR ([#1448](https://github.com/truecharts/apps/issues/1448))
+* retrigger common release
+* bump common
+* update non-major ([#1466](https://github.com/truecharts/apps/issues/1466))
+* update non-major ([#1449](https://github.com/truecharts/apps/issues/1449))
+* update common
+
+#### Fix
+
+* use version-range
+* move deps back to ghcr for now.
+
+
+
 <a name="common-test-3.3.4"></a>
 ### [common-test-3.3.4](https://github.com/truecharts/apps/compare/common-test-3.3.2...common-test-3.3.4) (2021-12-05)
 
