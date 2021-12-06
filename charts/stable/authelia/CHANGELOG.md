@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.13"></a>
+### [authelia-8.0.13](https://github.com/truecharts/apps/compare/authelia-8.0.12...authelia-8.0.13) (2021-12-05)
+
+#### Fix
+
+* correct upgrade handling without encryption key
+
+
+
 <a name="authelia-8.0.12"></a>
 ### authelia-8.0.12 (2021-12-05)
 
