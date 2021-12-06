@@ -73,21 +73,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: secret
-    group: "Container Configuration"
-    label: "Image Secrets"
-    schema:
-      type: dict
-      attrs:
-        - variable: STATIC_CRON_TOKEN
-          label: "Static CRON token"
-          description: ""
-          schema:
-            type: string
-            default: ""
-            min_length: 32
-            max_length: 32
-            valid_chars: '[a-zA-Z0-9!@#$%^&*?]{32}'
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
