@@ -27,8 +27,8 @@ service:
         targetPort: 8080
 
 persistence:
-  config:
+  data:
     enabled: true
-    mountPath: "/config"
+    mountPath: "/home/coder"
   varrun:
     enabled: true
