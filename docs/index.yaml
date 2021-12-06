@@ -58,6 +58,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 3.12.0
+    created: "2021-12-06T21:12:40.030737318Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    description: Run VS Code on any machine anywhere and access it in the browser.
+    digest: 1dd31b1e93f8d37feafd7c1b3c784d3ba09cb3b495e5055ebb5a8794fd828533
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/code-server
+    icon: https://github.com/truecharts/apps/raw/main/images/code-server.jpg
+    keywords:
+    - code
+    - vs
+    - visual studio
+    - vscode
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: code-server
+    sources:
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/code-server-2.0.20/code-server-2.0.20.tgz
+    version: 2.0.20
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.12.0
     created: "2021-12-06T20:02:25.652107539Z"
     dependencies:
     - name: common
@@ -426,4 +459,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/redis-1.0.27/redis-1.0.27.tgz
     version: 1.0.27
-generated: "2021-12-06T20:02:25.65212464Z"
+generated: "2021-12-06T21:12:40.030755418Z"

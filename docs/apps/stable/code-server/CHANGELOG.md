@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-2.0.20"></a>
+### [code-server-2.0.20](https://github.com/truecharts/apps/compare/code-server-2.0.19...code-server-2.0.20) (2021-12-06)
+
+#### Fix
+
+* make sure the set user is actually used correctly
+
+
+
 <a name="code-server-2.0.19"></a>
 ### [code-server-2.0.19](https://github.com/truecharts/apps/compare/code-server-2.0.18...code-server-2.0.19) (2021-12-06)
 

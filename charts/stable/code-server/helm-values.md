@@ -11,6 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env.DOCKER_USER | string | `"$USER"` |  |
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/code-server"` |  |
