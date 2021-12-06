@@ -35,7 +35,6 @@ env:
   DB_PORT: 5432
   APP_KEY: AGcfkCUS233ZWmBXztYbdyCs2u7kkz55
 
-
 envValueFrom:
   DB_HOST:
     secretKeyRef:
@@ -60,7 +59,6 @@ cronjob:
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
-
 
 # Enabled postgres
 postgresql:
