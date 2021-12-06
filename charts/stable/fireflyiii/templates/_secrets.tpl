@@ -14,7 +14,7 @@ data:
   STATIC_CRON_TOKEN: {{ index $fireflyiiiprevious.data "STATIC_CRON_TOKEN" }}
   {{- else }}
   {{- $static_cron_token := randAlphaNum 32 }}
-  STATIC_CRON_TOKEN: {{ $encryptionkey | b64enc | quote }}
+  STATIC_CRON_TOKEN: {{ $static_cron_token | b64enc | quote }}
   {{- end }}
 
 {{- end -}}
