@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-1.0.11"></a>
+### [grafana-1.0.11](https://github.com/truecharts/apps/compare/grafana-1.0.10...grafana-1.0.11) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1475](https://github.com/truecharts/apps/issues/1475))
+
+
+
 <a name="grafana-1.0.10"></a>
 ### grafana-1.0.10 (2021-12-05)
 

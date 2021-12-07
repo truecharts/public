@@ -11,15 +11,22 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.APP_KEY | string | `"AGcfkCUS233ZWmBXztYbdyCs2u7kkz55"` |  |
+| cronjob.annotations | object | `{}` |  |
+| cronjob.failedJobsHistoryLimit | int | `5` |  |
+| cronjob.schedule | string | `"0 3 * * *"` |  |
+| cronjob.successfulJobsHistoryLimit | int | `2` |  |
 | env.DB_CONNECTION | string | `"pgsql"` |  |
 | env.DB_DATABASE | string | `"firefly"` |  |
 | env.DB_PORT | int | `5432` |  |
 | env.DB_USERNAME | string | `"firefly"` |  |
+| envValueFrom.APP_KEY.secretKeyRef.key | string | `"APP_KEY"` |  |
+| envValueFrom.APP_KEY.secretKeyRef.name | string | `"fireflyiii-secrets"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
+| envValueFrom.STATIC_CRON_TOKEN.secretKeyRef.key | string | `"STATIC_CRON_TOKEN"` |  |
+| envValueFrom.STATIC_CRON_TOKEN.secretKeyRef.name | string | `"fireflyiii-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/fireflyiii-core"` |  |
 | image.tag | string | `"v5.6.5@sha256:fe75d9df1daf62871eccb976643ff393ed1bd402b61baa0f17f7ad5289697264"` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.24"></a>
+### [komga-4.0.24](https://github.com/truecharts/apps/compare/komga-4.0.23...komga-4.0.24) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1475](https://github.com/truecharts/apps/issues/1475))
+
+
+
 <a name="komga-4.0.23"></a>
 ### komga-4.0.23 (2021-12-05)
 
