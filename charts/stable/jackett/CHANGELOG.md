@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.39"></a>
+### [jackett-9.0.39](https://github.com/truecharts/apps/compare/jackett-9.0.38...jackett-9.0.39) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1475](https://github.com/truecharts/apps/issues/1475))
+
+
+
 <a name="jackett-9.0.38"></a>
 ### jackett-9.0.38 (2021-12-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.28"></a>
+### [redis-1.0.28](https://github.com/truecharts/apps/compare/redis-1.0.27...redis-1.0.28) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1475](https://github.com/truecharts/apps/issues/1475))
+
+
+
 <a name="redis-1.0.27"></a>
 ### redis-1.0.27 (2021-12-05)
 
