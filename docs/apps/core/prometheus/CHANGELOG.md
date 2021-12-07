@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.12"></a>
+### [prometheus-1.1.12](https://github.com/truecharts/apps/compare/prometheus-1.1.11...prometheus-1.1.12) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="prometheus-1.1.11"></a>
 ### [prometheus-1.1.11](https://github.com/truecharts/apps/compare/prometheus-1.1.10...prometheus-1.1.11) (2021-12-07)
 

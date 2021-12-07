@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shiori-4.0.10"></a>
+### [shiori-4.0.10](https://github.com/truecharts/apps/compare/shiori-4.0.9...shiori-4.0.10) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="shiori-4.0.9"></a>
 ### shiori-4.0.9 (2021-12-05)
 

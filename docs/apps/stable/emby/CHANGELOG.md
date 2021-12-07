@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emby-9.0.21"></a>
+### [emby-9.0.21](https://github.com/truecharts/apps/compare/emby-9.0.20...emby-9.0.21) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="emby-9.0.20"></a>
 ### emby-9.0.20 (2021-12-05)
 

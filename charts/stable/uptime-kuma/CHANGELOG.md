@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-1.0.20"></a>
+### [uptime-kuma-1.0.20](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.19...uptime-kuma-1.0.20) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="uptime-kuma-1.0.19"></a>
 ### uptime-kuma-1.0.19 (2021-12-05)
 

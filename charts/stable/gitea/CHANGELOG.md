@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.12"></a>
+### [gitea-5.0.12](https://github.com/truecharts/apps/compare/gitea-5.0.11...gitea-5.0.12) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="gitea-5.0.11"></a>
 ### [gitea-5.0.11](https://github.com/truecharts/apps/compare/gitea-5.0.10...gitea-5.0.11) (2021-12-05)
 

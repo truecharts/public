@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-7.0.19"></a>
+### [podgrab-7.0.19](https://github.com/truecharts/apps/compare/podgrab-7.0.18...podgrab-7.0.19) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="podgrab-7.0.18"></a>
 ### podgrab-7.0.18 (2021-12-05)
 

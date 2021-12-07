@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-12.0.11"></a>
+### [home-assistant-12.0.11](https://github.com/truecharts/apps/compare/home-assistant-12.0.10...home-assistant-12.0.11) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="home-assistant-12.0.10"></a>
 ### home-assistant-12.0.10 (2021-12-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-node-1.0.21"></a>
+### [tdarr-node-1.0.21](https://github.com/truecharts/apps/compare/tdarr-node-1.0.20...tdarr-node-1.0.21) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="tdarr-node-1.0.20"></a>
 ### tdarr-node-1.0.20 (2021-12-05)
 

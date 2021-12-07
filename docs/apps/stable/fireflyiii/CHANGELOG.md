@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.1"></a>
+### [fireflyiii-13.1.1](https://github.com/truecharts/apps/compare/fireflyiii-13.1.0...fireflyiii-13.1.1) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+#### Feat
+
+* enable redis ([#1478](https://github.com/truecharts/apps/issues/1478))
+
+
+
 <a name="fireflyiii-13.1.0"></a>
 ### [fireflyiii-13.1.0](https://github.com/truecharts/apps/compare/fireflyiii-13.0.10...fireflyiii-13.1.0) (2021-12-07)
 

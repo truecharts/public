@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-4.0.21"></a>
+### [airsonic-4.0.21](https://github.com/truecharts/apps/compare/airsonic-4.0.20...airsonic-4.0.21) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="airsonic-4.0.20"></a>
 ### airsonic-4.0.20 (2021-12-05)
 

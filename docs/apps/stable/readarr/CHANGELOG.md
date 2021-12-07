@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.29"></a>
+### [readarr-9.0.29](https://github.com/truecharts/apps/compare/readarr-9.0.28...readarr-9.0.29) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="readarr-9.0.28"></a>
 ### readarr-9.0.28 (2021-12-05)
 

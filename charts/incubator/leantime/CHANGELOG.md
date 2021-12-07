@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leantime-0.0.8"></a>
+### [leantime-0.0.8](https://github.com/truecharts/apps/compare/leantime-0.0.7...leantime-0.0.8) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="leantime-0.0.7"></a>
 ### leantime-0.0.7 (2021-12-05)
 

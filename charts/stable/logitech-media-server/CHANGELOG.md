@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.28"></a>
+### [logitech-media-server-2.0.28](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.27...logitech-media-server-2.0.28) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="logitech-media-server-2.0.27"></a>
 ### logitech-media-server-2.0.27 (2021-12-05)
 

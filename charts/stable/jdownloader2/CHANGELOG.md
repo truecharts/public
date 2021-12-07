@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-4.0.20"></a>
+### [jdownloader2-4.0.20](https://github.com/truecharts/apps/compare/jdownloader2-4.0.19...jdownloader2-4.0.20) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="jdownloader2-4.0.19"></a>
 ### jdownloader2-4.0.19 (2021-12-05)
 

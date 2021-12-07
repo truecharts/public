@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.41"></a>
+### [jackett-9.0.41](https://github.com/truecharts/apps/compare/jackett-9.0.40...jackett-9.0.41) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="jackett-9.0.40"></a>
 ### [jackett-9.0.40](https://github.com/truecharts/apps/compare/jackett-9.0.39...jackett-9.0.40) (2021-12-07)
 

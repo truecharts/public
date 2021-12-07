@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="twtxt-1.0.19"></a>
+### [twtxt-1.0.19](https://github.com/truecharts/apps/compare/twtxt-1.0.18...twtxt-1.0.19) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="twtxt-1.0.18"></a>
 ### twtxt-1.0.18 (2021-12-05)
 

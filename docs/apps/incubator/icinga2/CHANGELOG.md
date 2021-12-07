@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icinga2-0.0.8"></a>
+### [icinga2-0.0.8](https://github.com/truecharts/apps/compare/icinga2-0.0.7...icinga2-0.0.8) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="icinga2-0.0.7"></a>
 ### icinga2-0.0.7 (2021-12-05)
 

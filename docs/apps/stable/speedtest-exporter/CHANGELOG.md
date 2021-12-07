@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-1.0.6"></a>
+### [speedtest-exporter-1.0.6](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.5...speedtest-exporter-1.0.6) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="speedtest-exporter-1.0.5"></a>
 ### speedtest-exporter-1.0.5 (2021-12-05)
 

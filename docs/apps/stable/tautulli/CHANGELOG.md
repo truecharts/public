@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tautulli-9.0.19"></a>
+### [tautulli-9.0.19](https://github.com/truecharts/apps/compare/tautulli-9.0.18...tautulli-9.0.19) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="tautulli-9.0.18"></a>
 ### tautulli-9.0.18 (2021-12-05)
 

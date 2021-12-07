@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="truecommand-9.0.19"></a>
+### [truecommand-9.0.19](https://github.com/truecharts/apps/compare/truecommand-9.0.18...truecommand-9.0.19) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="truecommand-9.0.18"></a>
 ### truecommand-9.0.18 (2021-12-05)
 

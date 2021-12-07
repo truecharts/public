@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="stash-4.0.19"></a>
+### [stash-4.0.19](https://github.com/truecharts/apps/compare/stash-4.0.18...stash-4.0.19) (2021-12-07)
+
+#### Chore
+
+* update non-major deps helm releases ([#1481](https://github.com/truecharts/apps/issues/1481))
+
+
+
 <a name="stash-4.0.18"></a>
 ### stash-4.0.18 (2021-12-05)
 
