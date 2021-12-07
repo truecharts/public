@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce
 
-args:  
+args:
   - --user-data-dir
   - "/config/.vscode"
   - --auth
