@@ -34,6 +34,12 @@ env:
   DB_CONNECTION: pgsql
   DB_PORT: 5432
   APP_KEY: AGcfkCUS233ZWmBXztYbdyCs2u7kkz55
+  REDIS_DB: "0"
+  REDIS_CACHE_DB: "1"
+  CACHE_DRIVER: redis
+  SESSION_DRIVER: redis
+  REDIS_SCHEME: tcp
+  REDIS_PORT: 6379
 
 envValueFrom:
   DB_HOST:
@@ -44,12 +50,24 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
+  REDIS_HOST:
+    secretRefKey:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
 
 persistence:
   data:
     enabled: true
     mountPath: "/var/www/html/storage/upload"
 
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
 
 # Enabled postgres
 postgresql:
