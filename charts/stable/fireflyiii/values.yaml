@@ -51,7 +51,7 @@ envValueFrom:
       name: dbcreds
       key: postgresql-password
   REDIS_HOST:
-    secretRefKey:
+    secretKeyRef:
       name: rediscreds
       key: plainhost
   REDIS_PASSWORD:
