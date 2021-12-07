@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-0.0.9"></a>
+### [clarkson-0.0.9](https://github.com/truecharts/apps/compare/clarkson-0.0.8...clarkson-0.0.9) (2021-12-07)
+
+#### Chore
+
+* update tccr.io/truecharts/clarkson:v1.1.2 docker digest to 27051a8 ([#1484](https://github.com/truecharts/apps/issues/1484))
+
+
+
 <a name="clarkson-0.0.8"></a>
 ### clarkson-0.0.8 (2021-12-05)
 
