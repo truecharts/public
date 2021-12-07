@@ -705,6 +705,45 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/nzbhydra-9.0.21/nzbhydra-9.0.21.tgz
     version: 9.0.21
+  photoprism:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "20211203"
+    created: "2021-12-07T10:20:53.936530312Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.25
+    description: PhotoPrismÂ® is a server-based application for browsing, organizing
+      and sharing your personal photo collection
+    digest: 1b615d11950163f5c86be1bea54677d937319b68776c88b13d05ff2a05622dff
+    home: https://github.com/truechartsapps/tree/master/charts/stable/photoprism
+    icon: https://demo.photoprism.org/static/img/logo-avatar.svg
+    keywords:
+    - photos
+    - photoprism
+    - pictures
+    - sharing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: photoprism
+    sources:
+    - https://github.com/photoprism/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
+    urls:
+    - https://github.com/truecharts/apps/releases/download/photoprism-6.0.9/photoprism-6.0.9.tgz
+    version: 6.0.9
   postgresql:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -989,4 +1028,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/tt-rss-4.0.15/tt-rss-4.0.15.tgz
     version: 4.0.15
-generated: "2021-12-07T09:25:16.933041978Z"
+generated: "2021-12-07T10:20:53.936564312Z"

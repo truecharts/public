@@ -32,7 +32,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/photoprism"` | image repository |
-| image.tag | string | `"v20211130@sha256:97fa3752e28cd26282f06b87f299c63f5b8413b84de09acd8b71375a2b77540f"` | image tag |
+| image.tag | string | `"v20211203@sha256:a1455179da40abe39c1a8750e9f9b8134d3bfb506a0e642dcd5fc3b69579b571"` | image tag |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"photoprism"` |  |
