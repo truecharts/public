@@ -24,9 +24,20 @@ spec:
       template:
         metadata:
         spec:
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
           restartPolicy: Never
           containers:
             - name: {{ .Chart.Name }}
+              securityContext:
+                privileged: false
+                readOnlyRootFilesystem: true
+                allowPrivilegeEscalation: false
+                runAsNonRoot: true
+                capabilities:
+                  drop:
+                    - ALL
               env:
                 - name: STATIC_CRON_TOKEN
                   valueFrom:
