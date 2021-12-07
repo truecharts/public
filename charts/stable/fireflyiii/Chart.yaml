@@ -8,6 +8,10 @@ dependencies:
   name: postgresql
   repository: https://truecharts.org/
   version: 6.0.22
+- condition: redis.enabled
+  name: redis
+  repository: https://truecharts.org
+  version: 1.0.27
 deprecated: false
 description: A free and open source personal finance manager
 home: https://github.com/firefly-iii/firefly-iii/

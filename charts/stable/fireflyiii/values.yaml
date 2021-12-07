@@ -33,6 +33,12 @@ env:
   DB_DATABASE: firefly
   DB_CONNECTION: pgsql
   DB_PORT: 5432
+  REDIS_DB: "0"
+  REDIS_CACHE_DB: "1"
+  CACHE_DRIVER: redis
+  SESSION_DRIVER: redis
+  REDIS_SCHEME: tcp
+  REDIS_PORT: 6379
 
 envValueFrom:
   DB_HOST:
@@ -43,6 +49,14 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
   STATIC_CRON_TOKEN:
     secretKeyRef:
       name: fireflyiii-secrets
@@ -62,6 +76,11 @@ cronjob:
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
+
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
 
 # Enabled postgres
 postgresql:
