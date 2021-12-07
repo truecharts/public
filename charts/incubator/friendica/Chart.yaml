@@ -8,6 +8,10 @@ dependencies:
   name: mariadb
   repository: https://truecharts.org/
   version: 1.0.25
+- condition: redis.enabled
+  name: redis
+  repository: https://truecharts.org
+  version: 1.0.27
 description: "Welcome to the free social web"
 home: https://github.com/truechartsapps/tree/master/charts/stable/friendica
 icon: "https://d1q6f0aelx0por.cloudfront.net/product-logos/library-friendica-logo.png"
