@@ -261,6 +261,41 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 5.6.5
+    created: "2021-12-07T10:48:51.726332869Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.22
+    description: A free and open source personal finance manager
+    digest: bdabeed1b99bc89486575d9db3285fee7c7c67a42de69bd12a6a09cc9552de65
+    home: https://github.com/firefly-iii/firefly-iii/
+    icon: https://www.firefly-iii.org/assets/logo/color.png
+    keywords:
+    - fireflyiii
+    - finacial
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: fireflyiii
+    sources:
+    - https://github.com/firefly-iii/firefly-iii/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/fireflyiii-13.1.0/fireflyiii-13.1.0.tgz
+    version: 13.1.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - finacial
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 5.6.5
     created: "2021-12-05T23:30:27.46432528Z"
     dependencies:
     - name: common
@@ -1028,4 +1063,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/tt-rss-4.0.15/tt-rss-4.0.15.tgz
     version: 4.0.15
-generated: "2021-12-07T10:20:53.936564312Z"
+generated: "2021-12-07T10:48:51.726366669Z"

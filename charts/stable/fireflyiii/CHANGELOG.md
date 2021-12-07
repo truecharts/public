@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.0"></a>
+### [fireflyiii-13.1.0](https://github.com/truecharts/apps/compare/fireflyiii-13.0.10...fireflyiii-13.1.0) (2021-12-07)
+
+#### Feat
+
+* add cron support ([#1470](https://github.com/truecharts/apps/issues/1470))
+
+
+
 <a name="fireflyiii-13.0.10"></a>
 ### [fireflyiii-13.0.10](https://github.com/truecharts/apps/compare/fireflyiii-13.0.9...fireflyiii-13.0.10) (2021-12-05)
 
