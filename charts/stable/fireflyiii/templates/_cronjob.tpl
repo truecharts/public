@@ -27,7 +27,7 @@ spec:
           restartPolicy: Never
           containers:
             - name: {{ .Chart.Name }}
-              image: radial/busyboxplus:curl
+              image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
               imagePullPolicy: {{ default .Values.image.pullPolicy }}
               args:
               - curl
