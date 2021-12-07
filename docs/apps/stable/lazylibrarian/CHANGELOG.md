@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.25"></a>
+### [lazylibrarian-9.0.25](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.24...lazylibrarian-9.0.25) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1485](https://github.com/truecharts/apps/issues/1485))
+
+
+
 <a name="lazylibrarian-9.0.24"></a>
 ### [lazylibrarian-9.0.24](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.23...lazylibrarian-9.0.24) (2021-12-07)
 

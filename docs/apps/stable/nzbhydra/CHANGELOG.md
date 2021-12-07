@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-9.0.22"></a>
+### [nzbhydra-9.0.22](https://github.com/truecharts/apps/compare/nzbhydra-9.0.21...nzbhydra-9.0.22) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1485](https://github.com/truecharts/apps/issues/1485))
+
+
+
 <a name="nzbhydra-9.0.21"></a>
 ### [nzbhydra-9.0.21](https://github.com/truecharts/apps/compare/nzbhydra-9.0.20...nzbhydra-9.0.21) (2021-12-07)
 
