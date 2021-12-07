@@ -10,6 +10,9 @@ image:
 env:
   # PROXY_DOMAIN: code-server.my.domain
 
+securityContext:
+  AllowPrivilegeEscalation: true
+
 service:
   main:
     ports:
