@@ -1,5 +1,43 @@
 apiVersion: v1
 entries:
+  anonaddy:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - email
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.8.8
+    created: "2021-12-07T11:34:23.801090581Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.25
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.27
+    description: Protect your email from spam using disposable addresses.
+    digest: 9e03d9a3d33ac4dd4a00964746c82cc71c5e0f4cae1a82b4b5321b6819a30ec2
+    home: https://github.com/truechartsapps/tree/master/charts/stable/anonaddy
+    icon: https://avatars.githubusercontent.com/u/51450862?s=200&v=4?sanitize=true
+    keywords:
+    - anonaddy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: anonaddy
+    sources:
+    - https://github.com/anonaddy/docker
+    urls:
+    - https://github.com/truecharts/apps/releases/download/anonaddy-6.0.9/anonaddy-6.0.9.tgz
+    version: 6.0.9
   authelia:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -324,6 +362,46 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/fireflyiii-13.0.10/fireflyiii-13.0.10.tgz
     version: 13.0.10
+  friendica:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - social
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "2021.09"
+    created: "2021-12-07T11:34:24.126749576Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.25
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.27
+    description: Welcome to the free social web
+    digest: d79bb2f5c54eca1031e2d3bfb229197667715f87223e0f8f32741fe93d602e81
+    home: https://github.com/truechartsapps/tree/master/charts/stable/friendica
+    icon: https://d1q6f0aelx0por.cloudfront.net/product-logos/library-friendica-logo.png
+    keywords:
+    - friend
+    - social
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: friendica
+    sources:
+    - https://friendi.ca/
+    - https://hub.docker.com/_/friendica
+    urls:
+    - https://github.com/truecharts/apps/releases/download/friendica-0.0.10/friendica-0.0.10.tgz
+    version: 0.0.10
   gitea:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -1063,4 +1141,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/tt-rss-4.0.15/tt-rss-4.0.15.tgz
     version: 4.0.15
-generated: "2021-12-07T10:48:51.726366669Z"
+generated: "2021-12-07T11:34:24.126784176Z"

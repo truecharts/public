@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.10"></a>
+### [friendica-0.0.10](https://github.com/truecharts/apps/compare/friendica-0.0.9...friendica-0.0.10) (2021-12-07)
+
+#### Fix
+
+* enable redis on 2 apps ([#1480](https://github.com/truecharts/apps/issues/1480))
+
+
+
 <a name="friendica-0.0.9"></a>
 ### friendica-0.0.9 (2021-12-05)
 

@@ -20,6 +20,7 @@ Kubernetes: `>=1.16.0-0`
 |------------|------|---------|
 | https://truecharts.org/ | mariadb | 1.0.25 |
 | https://truecharts.org | common | 8.9.13 |
+| https://truecharts.org | redis | 1.0.27 |
 
 ## Installing the Chart
 
