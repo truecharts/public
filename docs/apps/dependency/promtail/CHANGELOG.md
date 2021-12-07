@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-1.0.11"></a>
+### [promtail-1.0.11](https://github.com/truecharts/apps/compare/promtail-1.0.10...promtail-1.0.11) (2021-12-07)
+
+#### Chore
+
+* bump common on deps ([#1486](https://github.com/truecharts/apps/issues/1486))
+
+
+
 <a name="promtail-1.0.10"></a>
 ### promtail-1.0.10 (2021-12-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.27"></a>
+### [memcached-1.0.27](https://github.com/truecharts/apps/compare/memcached-1.0.26...memcached-1.0.27) (2021-12-07)
+
+#### Chore
+
+* bump common on deps ([#1486](https://github.com/truecharts/apps/issues/1486))
+
+
+
 <a name="memcached-1.0.26"></a>
 ### [memcached-1.0.26](https://github.com/truecharts/apps/compare/memcached-1.0.25...memcached-1.0.26) (2021-12-07)
 

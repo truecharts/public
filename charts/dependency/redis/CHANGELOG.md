@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.29"></a>
+### [redis-1.0.29](https://github.com/truecharts/apps/compare/redis-1.0.28...redis-1.0.29) (2021-12-07)
+
+#### Chore
+
+* bump common on deps ([#1486](https://github.com/truecharts/apps/issues/1486))
+
+
+
 <a name="redis-1.0.28"></a>
 ### [redis-1.0.28](https://github.com/truecharts/apps/compare/redis-1.0.27...redis-1.0.28) (2021-12-07)
 
