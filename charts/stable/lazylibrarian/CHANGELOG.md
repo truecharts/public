@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.24"></a>
+### [lazylibrarian-9.0.24](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.23...lazylibrarian-9.0.24) (2021-12-07)
+
+#### Chore
+
+* update non-major ([#1479](https://github.com/truecharts/apps/issues/1479))
+
+
+
 <a name="lazylibrarian-9.0.23"></a>
 ### lazylibrarian-9.0.23 (2021-12-05)
 

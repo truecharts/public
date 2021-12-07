@@ -249,6 +249,6 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | wireguardImage | object | See below | WireGuard specific configuration |
 | wireguardImage.pullPolicy | string | `"IfNotPresent"` | Specify the WireGuard image pull policy |
 | wireguardImage.repository | string | `"ghcr.io/truecharts/wireguard"` | Specify the WireGuard image |
-| wireguardImage.tag | string | `"v1.0.20210914@sha256:fc278ed7ae45452f28384c5ed81f5963d0d2dabb296389c69b5cdb13e31260ac"` | Specify the WireGuard image tag |
+| wireguardImage.tag | string | `"v1.0.20210914@sha256:bd73721b87689a1b48c648f3bfc9dbd8b8916199610f0d6c1f58cc6956eedb7e"` | Specify the WireGuard image tag |
 
 All Rights Reserved - The TrueCharts Project

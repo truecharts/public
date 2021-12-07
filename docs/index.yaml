@@ -191,6 +191,27 @@ entries:
   common:
   - apiVersion: v2
     appVersion: latest
+    created: "2021-12-07T12:27:50.777134954Z"
+    description: Function library for TrueCharts
+    digest: 9e2b770cb0c6abbf729679e9f0ccc71a21d24e09636fe715e5317bff4298c5db
+    home: https://github.com/truecharts/apps/tree/master/charts/common
+    icon: https://avatars.githubusercontent.com/u/76400755
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-8.9.15/common-8.9.15.tgz
+    version: 8.9.15
+  - apiVersion: v2
+    appVersion: latest
     created: "2021-12-07T09:25:13.546676802Z"
     description: Function library for TrueCharts
     digest: 6d0b1d7dba7f4205ef0aea2d35a7f4b7d726bdba78ef9d7488c844b2eccd271d
@@ -615,6 +636,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/komga-4.0.24/komga-4.0.24.tgz
     version: 4.0.24
+  lazylibrarian:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2021-12-07T12:27:50.993332748Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.13
+    description: Get all your books, like series with Sonarr...
+    digest: 00334066038743ca71f92d8b5b133fb0a14eaec2b42df890e5921ba705c8b488
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/lazylibrarian
+    icon: https://lazylibrarian.gitlab.io/logo.svg
+    keywords:
+    - lazylibrarian
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: lazylibrarian
+    sources:
+    - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
+    - https://lazylibrarian.gitlab.io
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lazylibrarian-9.0.24/lazylibrarian-9.0.24.tgz
+    version: 9.0.24
   littlelink:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -1141,4 +1195,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/tt-rss-4.0.15/tt-rss-4.0.15.tgz
     version: 4.0.15
-generated: "2021-12-07T11:34:24.126784176Z"
+generated: "2021-12-07T12:27:50.993375451Z"
