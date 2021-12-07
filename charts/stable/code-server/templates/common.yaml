@@ -1,10 +1,2 @@
-{{/* Make sure all variables are set properly */}}
-{{- include "common.setup" . }}
 
-{{- $newArgs :=  (include "code-server.args" . | fromYaml) }}
-{{- $_ := set .Values "newArgs" $newArgs -}}
-{{- $mergedargs := concat .Values.args .Values.newArgs.args }}
-{{- $_ := set .Values "args" $mergedargs -}}
-
-{{/* Render the templates */}}
-{{ include "common.postSetup" . }}
+{{ include "common.all" . }}
