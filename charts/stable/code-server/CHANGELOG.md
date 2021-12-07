@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.0"></a>
+### [code-server-2.1.0](https://github.com/truecharts/apps/compare/code-server-2.0.20...code-server-2.1.0) (2021-12-07)
+
+#### Feat
+
+* enable persistence and disable password ([#1483](https://github.com/truecharts/apps/issues/1483))
+
+
+
 <a name="code-server-2.0.20"></a>
 ### [code-server-2.0.20](https://github.com/truecharts/apps/compare/code-server-2.0.19...code-server-2.0.20) (2021-12-06)
 
