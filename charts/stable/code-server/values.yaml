@@ -3,22 +3,18 @@ image:
   pullPolicy: IfNotPresent
   tag: v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce
 
-# PASSWORD: password
-# SUDO_PASSWORD: password
-# HASHED_PASSWORD
+args:
+  - --user-data-dir
+  - "/config/.vscode"
+  - --auth
+  - none
 
-env:
-  PUID: 568
-  DOCKER_USER: "$USER"
+env: {}
   # PROXY_DOMAIN: code-server.my.domain
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  allowPrivilegeEscalation: true
 
 service:
   main:
@@ -28,8 +24,6 @@ service:
         targetPort: 8080
 
 persistence:
-  data:
+  config:
     enabled: true
-    mountPath: "/home/coder"
-  varrun:
-    enabled: true
+    mountPath: "/config"
