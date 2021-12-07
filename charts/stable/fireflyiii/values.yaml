@@ -33,7 +33,6 @@ env:
   DB_DATABASE: firefly
   DB_CONNECTION: pgsql
   DB_PORT: 5432
-  APP_KEY: AGcfkCUS233ZWmBXztYbdyCs2u7kkz55
 
 envValueFrom:
   DB_HOST:
@@ -44,12 +43,25 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
+  STATIC_CRON_TOKEN:
+    secretKeyRef:
+      name: fireflyiii-secrets
+      key: STATIC_CRON_TOKEN
+  APP_KEY:
+    secretKeyRef:
+      name: fireflyiii-secrets
+      key: APP_KEY
 
 persistence:
   data:
     enabled: true
     mountPath: "/var/www/html/storage/upload"
 
+cronjob:
+  schedule: "0 3 * * *"
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
 
 # Enabled postgres
 postgresql:

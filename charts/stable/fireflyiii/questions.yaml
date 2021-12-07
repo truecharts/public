@@ -73,7 +73,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -81,16 +80,7 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: APP_KEY
-          label: "App Key"
-          description: "Your unique 32 application character key"
-          schema:
-            type: string
-            default: ""
-            min_length: 32
-            max_length: 32
-            valid_chars: '[a-zA-Z0-9!@#$%^&*?]{32}'
-            required: true
+
 
 # Include{containerConfig}
 
