@@ -3,7 +3,7 @@
 {{- $jobName := include "common.names.fullname" . }}
 
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: {{ printf "%s-cronjob" $jobName }}
