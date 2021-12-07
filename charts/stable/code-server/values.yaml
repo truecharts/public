@@ -8,17 +8,8 @@ image:
 # HASHED_PASSWORD
 
 env:
-  PUID: 568
   DOCKER_USER: "$USER"
   # PROXY_DOMAIN: code-server.my.domain
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
 
 service:
   main:
@@ -28,8 +19,6 @@ service:
         targetPort: 8080
 
 persistence:
-  data:
+  config:
     enabled: true
-    mountPath: "/home/coder"
-  varrun:
-    enabled: true
+    mountPath: "/config"
