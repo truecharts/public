@@ -13,6 +13,7 @@ env: {}
   # PROXY_DOMAIN: code-server.my.domain
 
 securityContext:
+  readOnlyRootFilesystem: false
   allowPrivilegeEscalation: true
 
 service:
