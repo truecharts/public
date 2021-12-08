@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-test-3.3.7"></a>
+### [common-test-3.3.7](https://github.com/truecharts/apps/compare/common-test-3.3.6...common-test-3.3.7) (2021-12-08)
+
+#### Fix
+
+* correct common version reference
+
+
+
 <a name="common-test-3.3.6"></a>
 ### common-test-3.3.6 (2021-12-05)
 

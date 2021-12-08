@@ -370,6 +370,34 @@ entries:
   common-test:
   - apiVersion: v2
     appVersion: 1.7.1
+    created: "2021-12-08T15:36:21.593308273Z"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: '>=0.0.1'
+    description: Helper chart to test different use cases of the common library
+    digest: 576b743efb62551ebc58b24f0812ed30d2b73782a51ab97c9f0ec4a139ca8ca2
+    home: https://github.com/truecharts/apps/tree/master/charts/library/common-test
+    icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+    keywords:
+    - common-test
+    - truecharts
+    - common
+    - test
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: common-test
+    sources:
+    - https://github.com/truecharts/apps/tree/master/charts/library/common-test
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-test-3.3.7/common-test-3.3.7.tgz
+    version: 3.3.7
+  - apiVersion: v2
+    appVersion: 1.7.1
     created: "2021-12-05T21:38:14.926796622Z"
     dependencies:
     - name: common
@@ -2160,4 +2188,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-08T14:54:32.6836231Z"
+generated: "2021-12-08T15:36:21.593411173Z"
