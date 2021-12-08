@@ -3,7 +3,7 @@
 {{- $jobName := include "common.names.fullname" . }}
 
 ---
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: {{ printf "%s-cronjob" $jobName }}
@@ -24,14 +24,30 @@ spec:
       template:
         metadata:
         spec:
+          securityContext:
+            runAsUser: 568
+            runAsGroup: 568
           restartPolicy: Never
           containers:
             - name: {{ .Chart.Name }}
+              securityContext:
+                privileged: false
+                readOnlyRootFilesystem: true
+                allowPrivilegeEscalation: false
+                runAsNonRoot: true
+                capabilities:
+                  drop:
+                    - ALL
+              env:
+                - name: STATIC_CRON_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: fireflyiii-secrets
+                      key: STATIC_CRON_TOKEN
               image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
-              imagePullPolicy: {{ default .Values.image.pullPolicy }}
               args:
               - curl
-              - "http://{{ $jobName }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/{{ .Values.env.STATIC_CRON_TOKEN }}"
+              - "http://{{ $jobName }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/$STATIC_CRON_TOKEN"
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 
