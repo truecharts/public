@@ -3,7 +3,7 @@ appVersion: "1.7.1"
 dependencies:
 - name: common
   repository: file://../common
-  version: 0.0.1-99.99.99
+  version: '>=0.0.1'
 deprecated: false
 description: Helper chart to test different use cases of the common library
 home: https://github.com/truecharts/apps/tree/master/charts/library/common-test
@@ -22,4 +22,4 @@ name: common-test
 sources:
 - https://github.com/truecharts/apps/tree/master/charts/library/common-test
 type: application
-version: 3.3.6
+version: 3.3.7
