@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.9.17"></a>
+### [common-8.9.17](https://github.com/truecharts/apps/compare/common-8.9.16...common-8.9.17) (2021-12-08)
+
+#### Fix
+
+* try using a seperate renovate group for dependency train
+
+
+
 <a name="common-8.9.16"></a>
 ### [common-8.9.16](https://github.com/truecharts/apps/compare/common-8.9.15...common-8.9.16) (2021-12-08)
 
