@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.17"></a>
+### [tt-rss-4.0.17](https://github.com/truecharts/apps/compare/tt-rss-4.0.16...tt-rss-4.0.17) (2021-12-08)
+
+#### Chore
+
+* update non-major ([#1488](https://github.com/truecharts/apps/issues/1488))
+
+
+
 <a name="tt-rss-4.0.16"></a>
 ### [tt-rss-4.0.16](https://github.com/truecharts/apps/compare/tt-rss-4.0.15...tt-rss-4.0.16) (2021-12-07)
 

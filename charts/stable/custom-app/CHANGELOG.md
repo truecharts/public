@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.33"></a>
+### [custom-app-3.0.33](https://github.com/truecharts/apps/compare/custom-app-3.0.32...custom-app-3.0.33) (2021-12-08)
+
+#### Chore
+
+* update non-major ([#1488](https://github.com/truecharts/apps/issues/1488))
+
+
+
 <a name="custom-app-3.0.32"></a>
 ### [custom-app-3.0.32](https://github.com/truecharts/apps/compare/custom-app-3.0.31...custom-app-3.0.32) (2021-12-07)
 

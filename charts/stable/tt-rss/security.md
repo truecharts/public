@@ -62,7 +62,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:ff29616351d850a11f2dbd271420f89d6756d9ca78049f51a2a0a850b8c1f406
-          tccr.io/truecharts/tt-rss:v1.9076.0@sha256:8f19d68e1da0e4686872eba18a0fd35e22f7206f0f6f5d12ddd31e537d813b9d
+          tccr.io/truecharts/tt-rss:v1.9078.0@sha256:2f2fe216d50c2b95be6463991ea51c657a826eaed30267764147a00e6d2ce4f8
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:ff29616351d850a11f2dbd271420f89d6756d9ca78049f51a2a0a850b8c1f406
 
@@ -317,7 +317,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/tt-rss:v1.9076.0@sha256:8f19d68e1da0e4686872eba18a0fd35e22f7206f0f6f5d12ddd31e537d813b9d (ubuntu 20.04)
+#### Container: tccr.io/truecharts/tt-rss:v1.9078.0@sha256:2f2fe216d50c2b95be6463991ea51c657a826eaed30267764147a00e6d2ce4f8 (ubuntu 20.04)
 
 
 **ubuntu**

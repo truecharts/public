@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-9.0.20"></a>
+### [syncthing-9.0.20](https://github.com/truecharts/apps/compare/syncthing-9.0.19...syncthing-9.0.20) (2021-12-08)
+
+#### Chore
+
+* update non-major ([#1488](https://github.com/truecharts/apps/issues/1488))
+
+
+
 <a name="syncthing-9.0.19"></a>
 ### [syncthing-9.0.19](https://github.com/truecharts/apps/compare/syncthing-9.0.18...syncthing-9.0.19) (2021-12-07)
 

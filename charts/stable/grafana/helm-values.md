@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.GF_SECURITY_ADMIN_USER | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/grafana"` |  |
-| image.tag | string | `"v8.3.0@sha256:3c08270b1b96d17576f17a3c36c415fd3f2b686b9e679a98532497ad4ae3be69"` |  |
+| image.tag | string | `"v8.3.1@sha256:0e8f2d6af33992dec02dbe2ff4773e14e51da9aae110d1cdb0145d4d7046725a"` |  |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.rules | list | See prometheusrules.yaml | Configure additionial rules for the chart under this key. |

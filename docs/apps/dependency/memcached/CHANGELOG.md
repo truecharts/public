@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.28"></a>
+### [memcached-1.0.28](https://github.com/truecharts/apps/compare/memcached-1.0.27...memcached-1.0.28) (2021-12-08)
+
+#### Chore
+
+* update non-major ([#1488](https://github.com/truecharts/apps/issues/1488))
+
+
+
 <a name="memcached-1.0.27"></a>
 ### [memcached-1.0.27](https://github.com/truecharts/apps/compare/memcached-1.0.26...memcached-1.0.27) (2021-12-07)
 

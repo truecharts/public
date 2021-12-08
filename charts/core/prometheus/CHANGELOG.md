@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.13"></a>
+### [prometheus-1.1.13](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-1.0.9...prometheus-1.1.13) (2021-12-08)
+
+#### Chore
+
+* update non-major ([#1488](https://github.com/truecharts/apps/issues/1488))
+
+
+
 <a name="prometheus-1.1.12"></a>
 ### [prometheus-1.1.12](https://github.com/truecharts/apps/compare/prometheus-1.1.11...prometheus-1.1.12) (2021-12-07)
 
