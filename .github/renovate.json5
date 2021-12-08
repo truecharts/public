@@ -45,9 +45,9 @@
       "updateTypes": ["major"],
       "automerge": false,
       "bumpVersion": "major",
-      "labels": ["dependency/major"],
-      "groupName": ["major deps"],
-      "paths": ["charts/dependency"],
+      "labels": ["dependency/helm/major"],
+      "groupName": ["dependency helm major"],
+      "paths": ["charts/dependency/"],
     },
     {
       "matchDatasources": ["helm"],
@@ -57,9 +57,9 @@
         "patch"
       ],
       "bumpVersion": "patch",
-      "labels": ["dependency/non-major"],
-      "paths": ["charts/dependency"],
-      "groupName": "non-major deps"
+      "labels": ["dependency/helm/non-major"],
+      "paths": ["charts/dependency/"],
+      "groupName": "dependency helm non-major"
     },
     //
     // helm charts
@@ -68,9 +68,9 @@
       "matchDatasources": ["helm"],
       "updateTypes": ["major"],
       "bumpVersion": "major",
-      "labels": ["dependency/major"],
-      "groupName": ["major deps"],
-      "paths": ["charts/incubator", "charts/dev", "charts/stable", "charts/core"],
+      "labels": ["general/helm/major"],
+      "groupName": ["general helm major"],
+      "paths": ["charts/incubator/", "charts/dev/", "charts/stable/", "charts/core/"],
       "schedule": [
         "on tuesday"
       ]
@@ -83,9 +83,9 @@
         "patch"
       ],
       "bumpVersion": "patch",
-      "labels": ["dependency/non-major"],
-      "groupName": "non-major deps",
-      "paths": ["charts/incubator", "charts/dev", "charts/stable", "charts/core"],
+      "labels": ["general/helm/non-major"],
+      "groupName": "general helm non-major",
+      "paths": ["charts/incubator/", "charts/dev/", "charts/stable/", "charts/core/"],
       "schedule": [
         "on tuesday"
       ]
@@ -98,7 +98,7 @@
       "updateTypes": ["major"],
       "bumpVersion": "patch",
       "labels": ["tag/major"],
-      "groupName": ["major"],
+      "groupName": ["major docker"],
       "schedule": [
         "on tuesday"
       ]
@@ -113,7 +113,7 @@
       ],
       "bumpVersion": "patch",
       "labels": ["tag/non-major"],
-      "groupName": ["non-major"],
+      "groupName": ["non-major docker"],
       "schedule": [
         "on tuesday"
       ]
