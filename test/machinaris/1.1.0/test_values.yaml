@@ -39,7 +39,7 @@ appVolumeMounts:
 
 environmentVariables:
   - name: mode
-    value: farming
+    value: fullnode
 
 coins:
   - cactus
@@ -71,7 +71,7 @@ cactus:
       subPath: mnemonic.txt
   environmentVariables:
     - name: mode
-      value: farming
+      value: plotter
 
 enableResourceLimits: true
 cpuLimit: 0.5
