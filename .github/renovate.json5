@@ -43,11 +43,11 @@
     {
       "matchDatasources": ["helm"],
       "updateTypes": ["major"],
-	  "automerge": false,
+      "automerge": false,
       "bumpVersion": "major",
       "labels": ["dependency/major"],
       "groupName": ["major deps"],
-	  "paths": ["charts/dependency"]
+      "paths": ["charts/dependency"]
     },
     {
       "matchDatasources": ["helm"],
@@ -58,7 +58,7 @@
       ],
       "bumpVersion": "patch",
       "labels": ["dependency/non-major"],
-	  "paths": ["charts/dependency"],
+      "paths": ["charts/dependency"],
       "groupName": "non-major deps"
     },
     //
@@ -70,7 +70,7 @@
       "bumpVersion": "major",
       "labels": ["dependency/major"],
       "groupName": ["major deps"],
-	  "paths": ["charts/incubator", "charts/dev", "charts/stable", "charts/core"]
+      "paths": ["charts/incubator", "charts/dev", "charts/stable", "charts/core"]
       "schedule": [
         "on tuesday"
       ]
@@ -85,7 +85,7 @@
       "bumpVersion": "patch",
       "labels": ["dependency/non-major"],
       "groupName": "non-major deps",
-	  "paths": ["charts/incubator", "charts/dev", "charts/stable", "charts/core"]
+      "paths": ["charts/incubator", "charts/dev", "charts/stable", "charts/core"]
       "schedule": [
         "on tuesday"
       ]
