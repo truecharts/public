@@ -74,6 +74,19 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+              - variable: VNC_PASSWORD
+                label: "VNC_PASSWORD"
+                description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
+                schema:
+                  private: true
+                  type: string
+                  default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -87,8 +100,6 @@ questions:
           schema:
             type: int
             default: 568
-
-
         - variable: KEEP_APP_RUNNING
           label: "KEEP_APP_RUNNING"
           description: "When set to 1, the application will be automatically restarted if it crashes or if a user quits it."
@@ -107,30 +118,23 @@ questions:
                 label: "DISPLAY_WIDTH"
                 description: "Width (in pixels) of the application's window."
                 schema:
-                  type: string
-                  default: "1280"
+                  type: int
+                  default: 1280
                   required: true
               - variable: DISPLAY_HEIGHT
                 label: "DISPLAY_HEIGHT"
                 description: "Height (in pixels) of the application's window."
                 schema:
-                  type: string
-                  default: "768"
+                  type: int
+                  default: 768
                   required: true
               - variable: SECURE_CONNECTION
                 label: "SECURE_CONNECTION"
                 description: "When set to 1, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section for more details."
                 schema:
-                  type: string
-                  default: "0"
+                  type: int
+                  default: 0
                   required: true
-              - variable: VNC_PASSWORD
-                label: "VNC_PASSWORD"
-                description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
-                schema:
-                  private: true
-                  type: string
-                  default: ""
 # Include{containerConfig}
 
   - variable: service

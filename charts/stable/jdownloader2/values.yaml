@@ -36,17 +36,18 @@ service:
 envTpl:
   # Permissions Settings
   USER_ID: "{{ .Values.env.PUID }}"
+secret:
+  VNC_PASSWORD: ""
 env:
   # Permissions Settings
   PUID: 568
   # General Settings
-  KEEP_APP_RUNNING: "0"
-  CLEAN_TMP_DIR: "1"
+  KEEP_APP_RUNNING: 0
+  CLEAN_TMP_DIR: 1
   # GUI Settings
-  DISPLAY_WIDTH: "1280"
-  DISPLAY_HEIGHT: "768"
-  SECURE_CONNECTION: "0"
-  VNC_PASSWORD: ""
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: 0
 
 persistence:
   config:
