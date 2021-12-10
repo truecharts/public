@@ -17,7 +17,7 @@ jobs:
     outputs:
       dir: ${{ steps.set-dirs.outputs.dir }} # generate output name dir by using inner step output
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
         with:
           token: ${{ secrets.BOT_TOKEN }}
       - id: set-dirs # Give it an id to handle to get step outputs in the outputs key above
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
 
     - name: Run Trivy vulnerability scanner in repo mode
       uses: aquasecurity/trivy-action@master
@@ -58,7 +58,7 @@ jobs:
       fail-fast: false
     steps:
     - name: Container Security scan
-      uses: Azure/container-scan@v0
+      uses: Azure/container-scan@595707a78db6069af4db7d81902d7a886ec73973 # renovate: tag=v0
       with:
         image-name: ghcr.io/${{ github.repository_owner }}/${{matrix.dir}}:latest
         severity-threshold: HIGH

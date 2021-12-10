@@ -22,14 +22,14 @@ jobs:
     steps:
       - name: Cache helm repo cache
         id: cache
-        uses: actions/cache@v2
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # renovate: tag=v2
         with:
           key: helmrepocache-${{ github.sha }}
           path: |
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
         name: Checkout
         with:
           fetch-depth: 100
@@ -57,21 +57,21 @@ jobs:
     steps:
       - name: Cache helm repo cache
         id: cache
-        uses: actions/cache@v2
+        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed # renovate: tag=v2
         with:
           key: helmrepocache-${{ github.sha }}
           path: |
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
         name: Checkout
         with:
           fetch-depth: 100
 
       - name: Install Helm
         if: ${{ matrix.app != '.gitkee' }}
-        uses: azure/setup-helm@v1
+        uses: azure/setup-helm@18bc76811624f360dbd7f18c2d4ecb32c7b87bab # renovate: tag=v1
         with:
           version: v3.7.1
 
@@ -83,19 +83,19 @@ jobs:
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
           helm repo update
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@f38219332975fe8f9c04cca981d674bf22aea1d3 # renovate: tag=v2
         if: ${{ matrix.app != '.gitkee' }}
         with:
           python-version: 3.7
 
       - name: Set up chart-testing
         if: ${{ matrix.app != '.gitkee' }}
-        uses: helm/chart-testing-action@v2.1.0
+        uses: helm/chart-testing-action@5f16c27cf7a4fa9c776ff73734df3909b2b65127 # renovate: tag=v2.1.0
     ##
     # Chart-Testing Section
     ##
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@f38219332975fe8f9c04cca981d674bf22aea1d3 # renovate: tag=v2
         if: ${{ matrix.app != '.gitkee' }}
         with:
           python-version: 3.7
