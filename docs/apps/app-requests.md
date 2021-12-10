@@ -70,6 +70,90 @@ _This list is to track `App Requests` from one place._
 - [ ] FileBrowser #1278
 - [ ] Unmanic #1279
 - [ ] powerdns
+- [ ] Self Service Password  #1482
+- [ ] MakeMKV #1469
+- [ ] rTorrent #1485
+- [ ] MediaElch #1456
+- [ ] Tiny Media Manager #1455
+- [ ] Mysterium #1436
+- [ ] urBackup #1408
+- [ ] HyperHDR #1389
+- [ ] Channels DVR #1377
+- [ ] Gerbera UPnP #1357
+- [ ] LibrePhotos #1349
+- [ ] Geth #1348
+- [ ] Spotify Connect #1319
+- [ ] Machinaris #1304
+- [ ] Ghost #1282
+
+##### TODO: LSIO containers validated to be  plausible SCALE Apps
+
+- [ ] boinc
+- [ ] chevereto
+- [ ] couchpotato
+- [ ] darktable
+- [ ] ddclient
+- [ ] dillinger
+- [ ] dokuwiki
+- [ ] domoticz
+- [ ] duckdns
+- [ ] embystat
+- [ ] emulatorjs
+- [ ] endlessh
+- [ ] firefox
+- [ ] fleet
+- [ ] foldingathome
+- [ ] grav
+- [ ] guacd
+- [ ] habridge
+- [ ] hedgedoc
+- [ ] htpcmanager
+- [ ] ipfs
+- [ ] kodi-headless
+- [ ] libreoffice
+- [ ] limnoria
+- [ ] minetest
+- [ ] minisatip
+- [ ] mysql-workbench
+- [ ] nano-wallet
+- [ ] netbootxyz
+- [ ] ngircd
+- [ ] nntp2nntp
+- [ ] openvscode-server
+- [ ] paperless-ng
+- [ ] papermerge
+- [ ] pidgin
+- [ ] pixapop
+- [ ] projectsend
+- [ ] pwndrop
+- [ ] pydio-cells
+- [ ] pylon
+- [ ] quassel-core
+- [ ] quassel-web
+- [ ] requestrr
+- [ ] rsnapshot
+- [ ] synclounge
+- [ ] syslog-ng
+- [ ] ubooquity
+- [ ] webgrabplus
+- [ ] wireshark
+- [ ] znc #1343
+
+##### TODO: LSIO containers with known complications
+
+- [ ] codimd ( Viable, but not via LSIO)
+- [ ] diskover ( Requires: elasticsearch )
+- [ ] jenkins-builder ( Internal LSIO only, we should learn from this )
+- [ ] musicbrainz ( Use metabrainz/musicbrainz-docker instead )
+- [ ] nano ( Setup rather complex )
+- [ ] netbox ( Needs some more viability verification )
+- [ ] nginx ( Should be called "nginx-webserver" to prevent ingress-provider confusion )
+- [ ] openssh-server ( Maybe call this "openssh-sandbox?" )
+- [ ] rutorrent ( needs another container source and has config complications )
+- [ ] scrutiny ( Needs customised solution for direct disk access )
+- [ ] snapdrop ( Not sure about networking requirements/design )
+- [ ] serviio ( very niche, no good containers )
+
 
 ##### TODO: Require custom care to handle their configuration
 
@@ -145,6 +229,7 @@ _These Apps have specific requirements or need specific customisation and care_
 - [ ] Printer/Scanner server (CUPS for example) #1024
 - [ ] Private torrent tracker (OpenTracker for example) #1025
 
+
 ### Not Likely to be added
 
 :x: pod-gateway (while a one-vpn-app app sounds nice, it would be extremely complicated to give it an acceptable user experience)
@@ -174,6 +259,94 @@ _These Apps have specific requirements or need specific customisation and care_
 :x: static (Upstream project disapeared)
 
 :x: todo (Upstream project disapeared)
+
+:x: wg-easy #1414 ( VPN servers inside the k8s subnet is not great)
+
+
+### LSIO containers not viable for Apps
+
+:x: adguardhome-sync ( Addon to Adguard-home )
+
+:x: apprise-api ( Addon to Apprise  )
+
+:x: booksonic ( Replaced by Booksonic-Air )
+
+:x: cardigann ( Deprecated ages ago )
+
+:x: codiad ( Deprecated ages ago )
+
+:x: cops ( Companion to calibre )
+
+:x: daapd ( Might require mdns )
+
+:x: docker-compose ( Not a fit for SCALE )
+
+:x: ffmpeg ( CLI Only )
+
+:x: gazee ( Depricated: use codex instead )
+
+:x: hydra ( Use Hydra2 instead )
+
+:x: hydra2 ( Replaced by NZB-Hydra2 )
+
+:x: kanzi ( Requires complicated post-install setup )
+
+:x: ldap-auth ( Deprecated years ago )
+
+:x: letsencrypt ( We integrate certs with SCALE )
+
+:x: libresonic ( Project is gone, use airsonic instead )
+
+:x: mods ( Not something we currently support )
+
+:x: openvpn-as ( Should be integrated in either SCALE or a router )
+
+:x: pydio ( use pydio/cells instead )
+
+:x: raneto ( Convoluted setup )
+
+:x: rdesktop ( Not suited for SCALE )
+
+:x: swag ( Reverse proxying should be done using ingress and certs using SCALE )
+
+:x: taisun ( Most likely does not work with kubernetes )
+
+:x: webtop ( Going to cause issues when running in k8s )
+
+:x: wireguard ( A VPN server inside the k8s subnet is not the best idea, leave this to SCALE host or a router )
+
+:x: yq ( yq is nice and all, but not interesting for a SCALE App )
+
+:x: arch ( basecontainers are not applications )
+
+:x: fedora ( basecontainers are not applications )
+
+:x: ffmpeg ( basecontainers are not applications )
+
+:x: guacgui ( basecontainers are not applications )
+
+:x: gui ( basecontainers are not applications )
+
+:x: java ( basecontainers are not applications )
+
+:x: mono ( basecontainers are not applications )
+
+:x: nginx ( basecontainers are not applications )
+
+:x: python ( basecontainers are not applications )
+
+:x: rdesktop ( basecontainers are not applications )
+
+:x: rdesktop-web ( basecontainers are not applications )
+
+:x: pixapop ( moved to lsio )
+
+:x: polipo ( upstream depricated )
+
+:x: shout-irc ( succeeded by THELOUNGE  )
+
+:x: sickbeard ( upstream depricated )
+
 
 ### Completed App Requests
 
