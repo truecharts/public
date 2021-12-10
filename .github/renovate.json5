@@ -7,6 +7,7 @@
   "suppressNotifications": ["prIgnoreNotification"],
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 7,
+  "pinDigests": true,
   "helm-values": {
     "fileMatch": ["charts/.+/.*values\\.yaml$", "charts/.+/SCALE/.*_values\\.yaml$"]
   },

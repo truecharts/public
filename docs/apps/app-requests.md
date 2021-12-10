@@ -103,7 +103,6 @@ _This list is to track `App Requests` from one place._
 - [ ] firefox
 - [ ] fleet
 - [ ] foldingathome
-- [ ] grav
 - [ ] guacd
 - [ ] habridge
 - [ ] hedgedoc
@@ -123,7 +122,6 @@ _This list is to track `App Requests` from one place._
 - [ ] paperless-ng
 - [ ] papermerge
 - [ ] pidgin
-- [ ] pixapop
 - [ ] projectsend
 - [ ] pwndrop
 - [ ] pydio-cells
@@ -512,3 +510,5 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] leantime ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [x] blog ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [x] bookstack ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [x] pixapop
+- [x] grav
