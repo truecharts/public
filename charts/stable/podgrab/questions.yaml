@@ -73,13 +73,12 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: env
+  - variable: secret
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: PASSWORD
           label: "Password"
           description: "Desired Password"
@@ -87,6 +86,13 @@ questions:
             type: string
             default: ""
             required: false
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+# Include{fixedEnv}
         - variable: CHECK_FREQUENCY
           label: "Update Frequency"
           description: "Interval to check for new podcasts"
