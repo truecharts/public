@@ -23,6 +23,11 @@ service:
         port: 10074
         targetPort: 8000
 
+secret:
+  # -- Superuser email
+  SUPERUSER_EMAIL: "email@healthchecks.io"
+  # -- Superuser password
+  SUPERUSER_PASSWORD: "myVeryStrongPassword"
 # -- environment variables. See [image docs](https://github.com/linuxserver/docker-healthchecks#parameters) for more details.
 # @default -- See below
 env:
@@ -31,13 +36,9 @@ env:
   # -- Set to true to always override the local_settings.py file with values from environment variables. Do not set to True if you have made manual modifications to this file.
   REGENERATE_SETTINGS: "True"
   # -- The site's top-level URL and the port it listens to
-  SITE_ROOT: https://healthchecks.domain
+  SITE_ROOT: "https://healthchecks.domain"
   # -- The site's name (e.g., "Example Corp HealthChecks")
   SITE_NAME: 8265
-  # -- Superuser email
-  SUPERUSER_EMAIL: email@healthchecks.io
-  # -- Superuser password
-  SUPERUSER_PASSWORD: myVeryStrongPassword
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
