@@ -15,7 +15,7 @@ podSecurityContext:
   runAsGroup: 0
 
 secret:
-  DECONZ_VNC_PASSWORD:
+  DECONZ_VNC_PASSWORD: ""
 
 # -- environment variables. See [image docs](https://github.com/marthoc/docker-deconz/blob/master/README.md) for more details.
 # @default -- See below
