@@ -3,7 +3,19 @@ portals: {}
 
 questions:
 # Include{global}
-
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: UPTIMEROBOT_API_KEY
+          label: "UptimeRobot API Key"
+          description: "UptimeRobot.com API Key"
+          schema:
+            type: string
+            default: ""
+            required: true
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -12,13 +24,6 @@ questions:
       attrs:
 # Include{fixedEnv}
 
-        - variable: UPTIMEROBOT_API_KEY
-          label: "UptimeRobot API Key"
-          description: "UptimeRobot.com API Key"
-          schema:
-            type: string
-            default: ""
-            required: true
 
 # Include{containerConfig}
 
