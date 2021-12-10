@@ -4,6 +4,10 @@ dependencies:
 - name: common
   repository: https://truecharts.org
   version: 8.9.15
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://truecharts.org/
+  version: 6.0.24
 description: Mealie is a self hosted recipe manager and meal planner with a RestAPI backend
 home: https://github.com/truecharts/apps/tree/master/charts/stable/mealie
 icon: https://raw.githubusercontent.com/hay-kot/mealie/gh-pages/assets/img/favicon.png

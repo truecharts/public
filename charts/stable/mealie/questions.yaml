@@ -81,11 +81,6 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: DB_TYPE
-          label: "DB_TYPE"
-          schema:
-            type: string
-            default: "sqlite"
 
 # Include{containerConfig}
 
