@@ -6,13 +6,14 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+secret:
+  RPC_SECRET: "ChangemeNow"
   # -- environment variables. See more environment variables in the [Aria2c documentation](https://github.com/P3TERX/Aria2-Pro-Docker).
   # @default -- See below
 env:
   # -- Set the container timezone
   TZ: UTC
   PUID: 568
-  RPC_SECRET: ChangemeNow  # Or From a secret
   RPC_PORT: 6800
   # LISTEN_PORT: 6888
 

@@ -14,6 +14,11 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secret:
+  # -- Username for the calibre gui
+  GUAC_USER: ""
+  # -- Password's md5 hash for the calibre gui
+  GUAC_PASS: ""
 # -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-calibre#environment-variables-e) for more details.
 # @default -- See below
 env:
@@ -21,10 +26,6 @@ env:
   TZ: UTC
   # -- Specify the user ID the application will run as
   PUID: 568
-  # -- Username for the calibre gui
-  GUAC_USER:
-  # -- Password's md5 hash for the calibre gui
-  GUAC_PASS:
   # -- Optionally pass cli start arguments to calibre.
   CLI_ARGS:
 

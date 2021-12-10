@@ -18,11 +18,11 @@ service:
       main:
         port: 10105
         targetPort: 9980
-
+secret:
+  username: admin
+  password: changeme
 env:
   domain: nextcloud\.domain\.tld
   dictionaries: de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru
-  username: admin
-  password: changeme
   extra_params: "-o:welcome.enable=false -o:user_interface.mode=notebookbar -o:ssl.termination=true -o:ssl.enable=false"
   server_name: collabora\.domain\.tld

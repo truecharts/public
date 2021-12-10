@@ -73,6 +73,24 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: GUAC_USER
+          label: "GUAC_USER"
+          description: "Username for the calibre gui"
+          schema:
+            type: string
+            default: ""
+        - variable: GUAC_PASS
+          label: "GUAC_PASS"
+          description: "Password's md5 hash for the calibre gui"
+          schema:
+            type: string
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -86,18 +104,6 @@ questions:
           schema:
             type: string
             default: "568"
-        - variable: GUAC_USER
-          label: "GUAC_USER"
-          description: "Username for the calibre gui"
-          schema:
-            type: string
-            default: ""
-        - variable: GUAC_PASS
-          label: "GUAC_PASS"
-          description: "Password's md5 hash for the calibre gui"
-          schema:
-            type: string
-            default: ""
         - variable: CLI_ARGS
           label: "CLI_ARGS"
           description: "Optionally pass cli start arguments to calibre"
