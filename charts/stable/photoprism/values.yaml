@@ -38,8 +38,6 @@ env:
   UID:  # 1000
   # -- Sets GID Photoprism runs under.
   GID:  # 1000
-  # -- Sets UMASK.
-  UMASK:  # 0000
   PHOTOPRISM_DATABASE_DRIVER: "mysql"            # Use MariaDB 10.5+ or MySQL 8+ instead of SQLite for improved performance
   PHOTOPRISM_DATABASE_NAME: "photoprism"         # MariaDB or MySQL database schema name
   PHOTOPRISM_DATABASE_USER: "photoprism"         # MariaDB or MySQL database user name

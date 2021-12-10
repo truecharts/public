@@ -87,12 +87,6 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: UMASK_SET
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "022"
         - variable: RPC_SECRET
           label: "RPC_SECRET"
           description: "Sets the RPC_SECRET env var"

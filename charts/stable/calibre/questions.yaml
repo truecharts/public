@@ -86,13 +86,6 @@ questions:
           schema:
             type: string
             default: "568"
-
-        - variable: UMASK_SET
-          label: "UMASK"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: string
-            default: "002"
         - variable: GUAC_USER
           label: "GUAC_USER"
           description: "Username for the calibre gui"
@@ -110,7 +103,7 @@ questions:
           description: "Optionally pass cli start arguments to calibre"
           schema:
             type: string
-            default: "002"
+            default: ""
 # Include{containerConfig}
 
   - variable: service
