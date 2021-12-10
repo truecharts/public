@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/darktable
+  pullPolicy: IfNotPresent
+  tag: v3.4.1
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 3000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

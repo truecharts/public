@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/endlessh
+  pullPolicy: IfNotPresent
+  tag: v2021.11.21
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 2222
+        port: 22
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

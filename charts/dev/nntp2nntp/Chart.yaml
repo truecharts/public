@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: nntp2nntp
+version: 0.0.1
+appVersion: 1.0.0
+description: nntp2nntp App for TrueNAS SCALE
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/nntp2nntp
+icon: https://raw.githubusercontent.com/truecharts/apps/master/stable/nntp2nntp/icon.png?raw=true
+keywords:
+  - nntp2nntp
+sources:
+  - https://hub.docker.com/r/linuxserver/nntp2nntp
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.16
+  # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

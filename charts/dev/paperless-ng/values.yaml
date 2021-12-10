@@ -1,0 +1,30 @@
+image:
+  repository: tccr.io/truecharts/paperless-ng
+  pullPolicy: IfNotPresent
+  tag: v1.5.0
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+# Supports redis only if we can provide every info with a single line url (pass, user, db, host), otherwise it will use internal redis
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8000
+        port: 8000
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

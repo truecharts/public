@@ -1,0 +1,51 @@
+image:
+  repository: tccr.io/truecharts/fleet
+  pullPolicy: IfNotPresent
+  tag: v2.3.1
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  # fleet_admin_secret: ""  (Optional)
+
+env:
+  PUID: 568
+  fleet_admin_authentication_type: DATABASE
+  fleet_database_username: fleet
+
+envValueFrom:
+  fleet_database_url:
+    secretKeyRef:
+      name: mariadbcreds
+      key: jdbc-mariadb
+  fleet_database_password:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        port: 8080
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
+
+mariadb:
+  enabled: true
+  mariadbUsername: fleet
+  mariadbDatabase: fleet
+  existingSecret: "mariadbcreds"

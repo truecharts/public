@@ -1,0 +1,31 @@
+image:
+  repository: tccr.io/truecharts/htpcmanager
+  pullPolicy: IfNotPresent
+  tag: v2021.11.17
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  TZ: UTC
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8085
+        port: 8085
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

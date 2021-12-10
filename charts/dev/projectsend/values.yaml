@@ -1,0 +1,30 @@
+image:
+  repository: tccr.io/truecharts/projectsend
+  pullPolicy: IfNotPresent
+  tag: v2021.12.10
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+  MAX_UPLOAD: 5000
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 80
+        port: 80
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

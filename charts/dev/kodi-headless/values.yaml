@@ -1,0 +1,39 @@
+image:
+  repository: tccr.io/truecharts/kodi-headless
+  pullPolicy: IfNotPresent
+  tag: v190
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        port: 8080
+  websocket:
+    ports:
+      websocket:
+        targetPort: 9090
+        port: 9090
+  esall:
+    ports:
+      esall:
+        protocol: UDP
+        targetPort: 9777
+        port: 9777
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config/.kodi"
+  varrun:
+    enabled: true

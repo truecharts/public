@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/dillinger
+  pullPolicy: IfNotPresent
+  tag: v3.39.1
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        port: 8080
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
