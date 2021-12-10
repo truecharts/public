@@ -15,13 +15,11 @@ podSecurityContext:
   runAsGroup: 0
 
 secret:
-  JWT_ENABLED: true
   JWT_SECRET: "randomgeneratedstring"
 # -- environment variables. See [image docs](https://github.com/ONLYOFFICE/Docker-DocumentServer#available-configuration-parameters) for more details.
 env:
   WOPI_ENABLED: true
-
-
+  JWT_ENABLED: true
 service:
   main:
     ports:
