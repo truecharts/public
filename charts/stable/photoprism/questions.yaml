@@ -97,8 +97,8 @@ questions:
           label: "PUID"
           description: "Sets the userID inside the container"
           schema:
-            type: string
-            default: "568"
+            type: int
+            default: 568
         - variable: PHOTOPRISM_ORIGINALS_PATH
           label: "PHOTOPRISM_ORIGINALS_PATH"
           description: "Photoprism originals path"
