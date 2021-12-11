@@ -73,6 +73,20 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: PHOTOPRISM_ADMIN_PASSWORD
+          label: "PHOTOPRISM_ADMIN_PASSWORD (First Install Only)"
+          description: "Initial admin password. **BE SURE TO CHANGE THIS!**"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -84,8 +98,8 @@ questions:
           label: "PUID"
           description: "Sets the userID inside the container"
           schema:
-            type: string
-            default: "568"
+            type: int
+            default: 568
         - variable: PHOTOPRISM_ORIGINALS_PATH
           label: "PHOTOPRISM_ORIGINALS_PATH"
           description: "Photoprism originals path"
@@ -146,13 +160,6 @@ questions:
             editable: false
             type: string
             default: "/assets/backup"
-        - variable: PHOTOPRISM_ADMIN_PASSWORD
-          label: "PHOTOPRISM_ADMIN_PASSWORD"
-          description: "Initial admin password. **BE SURE TO CHANGE THIS!**"
-          schema:
-            type: string
-            required: true
-            default: ""
         - variable: PHOTOPRISM_PUBLIC
           label: "PHOTOPRISM_PUBLIC"
           description: "Disable authentication / password protection"

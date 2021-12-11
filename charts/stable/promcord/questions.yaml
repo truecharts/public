@@ -3,7 +3,20 @@ portals: {}
 
 questions:
 # Include{global}
-
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: DISCORD_TOKEN
+          label: "Discord Token"
+          description: "Token with Access to your Discord"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -11,14 +24,6 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
-        - variable: DISCORD_TOKEN
-          label: "Discord Token"
-          description: "Token with Access to your Discord"
-          schema:
-            type: string
-            default: ""
-            required: true
 
 # Include{containerConfig}
 

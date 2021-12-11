@@ -6,6 +6,10 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
 
+secret:
+  SUPERVISOR_HTTP_USER: admin
+  SUPERVISOR_HTTP_PASS: secret
+  SERVER_PASS: secret
 # -- environment variables. See [image docs](https://github.com/lloesche/valheim-server-docker#environment-variables) for more details.
 # @default -- See below
 env:
@@ -15,12 +19,9 @@ env:
   STATUS_HTTP_PORT: 9010
   SUPERVISOR_HTTP_PORT: 9011
   SUPERVISOR_HTTP: true
-  SUPERVISOR_HTTP_USER: admin
-  SUPERVISOR_HTTP_PASS: secret
   SERVER_NAME: My Server
   SERVER_PORT: 2456
   WORLD_NAME: Dedicated
-  SERVER_PASS: secret
   SERVER_PUBLIC: true
   UPDATE_INTERVAL: 10800
   BACKUPS: true

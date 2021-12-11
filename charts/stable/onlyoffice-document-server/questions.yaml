@@ -76,7 +76,19 @@ questions:
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 
 # Include{controllerExpert}
-
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: JWT_SECRET
+          label: "JWT_SECRET"
+          description: "Defines the secret key to validate the JSON Web Token in the request to the ONLYOFFICE Document Server."
+          schema:
+            type: string
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -84,26 +96,18 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: WOPI_ENABLED
-          label: "WOPI_ENABLED"
-          description: "Specifies the enabling the wopi handlers."
-          schema:
-            type: boolean
-            default: false
         - variable: JWT_ENABLED
           label: "JWT_ENABLED"
           description: "Specifies the enabling the JSON Web Token validation by the ONLYOFFICE Document Server."
           schema:
             type: boolean
             default: false
-        - variable: JWT_SECRET
-          label: "JWT_SECRET"
-          description: "Defines the secret key to validate the JSON Web Token in the request to the ONLYOFFICE Document Server."
+        - variable: WOPI_ENABLED
+          label: "WOPI_ENABLED"
+          description: "Specifies the enabling the wopi handlers."
           schema:
-            show_if: [["JWT_ENABLED", "=", true]]
-            type: string
-            required: true
-            default: ""
+            type: boolean
+            default: false
 
 # Include{containerConfig}
 

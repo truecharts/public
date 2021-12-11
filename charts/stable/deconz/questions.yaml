@@ -73,6 +73,20 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: DECONZ_VNC_PASSWORD
+          label: "DECONZ_VNC_PASSWORD"
+          description: "If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -80,7 +94,6 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
         - variable: DECONZ_DEVICE
           label: "DECONZ_DEVICE"
           description: "Override the location where deCONZ looks for the RaspBee/Conbee device"
@@ -91,33 +104,27 @@ questions:
           label: "DECONZ_VNC_MODE"
           description: "Enable VNC access to the container to view the deCONZ ZigBee mesh"
           schema:
-            type: string
-            default: "1"
+            type: int
+            default: 1
         - variable: DECONZ_WEB_PORT
           label: "DECONZ_WEB_PORT"
           description: "Web UI listen port"
           schema:
-            type: string
-            default: "80"
+            type: int
+            default: 80
         - variable: DECONZ_WS_PORT
           label: "DECONZ_WS_PORT"
           description: "Websocket listen port"
           schema:
-            type: string
-            default: "443"
+            type: int
+            default: 443
         - variable: DECONZ_VNC_PORT
           label: "DECONZ_VNC_PORT"
           description: " VNC server listen port"
           schema:
-            type: string
-            default: "5900"
-        - variable: DECONZ_VNC_PASSWORD
-          label: "DECONZ_VNC_PASSWORD"
-          description: "If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password"
-          schema:
-            type: string
-            required: true
-            default: ""
+            type: int
+            default: 5900
+
 # Include{containerConfig}
 
   - variable: service

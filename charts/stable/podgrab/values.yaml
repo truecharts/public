@@ -17,8 +17,10 @@ service:
         port: 51080
         targetPort: 51080
 
-env:
+secret:
   PASSWORD: "secretpasswordgoeshere"
+
+env:
   CHECK_FREQUENCY: 240
 
 persistence:

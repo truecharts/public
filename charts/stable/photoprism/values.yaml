@@ -9,6 +9,9 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
 
+secret:
+  # -- Initial admin password. **BE SURE TO CHANGE THIS!**
+  PHOTOPRISM_ADMIN_PASSWORD: "please-change"
 # -- environment variables. See [image docs](https://docs.photoprism.org/getting-started/config-options/) for more details.
 # @default -- See below
 env:
@@ -30,8 +33,6 @@ env:
   PHOTOPRISM_CONFIG_PATH: /assets/config
   # -- Photoprism backup path
   PROTOPRISM_BACKUP_PATH: /assets/backup
-  # -- Initial admin password. **BE SURE TO CHANGE THIS!**
-  PHOTOPRISM_ADMIN_PASSWORD: "please-change"
   # -- Disable authentication / password protection
   PHOTOPRISM_PUBLIC: "false"
   # -- Sets UID Photoprism runs under.

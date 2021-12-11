@@ -74,6 +74,26 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: username
+          label: "Username for WebUI"
+          schema:
+            type: string
+            default: "admin"
+            required: true
+        - variable: password
+          label: "Password for WebUI"
+          schema:
+            type: string
+            valid_chars: "[a-zA-Z0-9!@#$%^&*?]{8,}"
+            private: true
+            required: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -89,20 +109,7 @@ questions:
             default: 'nextcloud.domain.tld|othernextcloud.domain.tld'
             valid_chars: '^((([a-z\d](-?[a-z\d]){0,62})\.)*(([a-z\d](-?[a-z\d]){0,62})\.)([a-z](-?[a-z\d]){1,62})|((\d{1,3}\.){3}\d{1,3}))((\|((([a-z\d](-?[a-z\d]){0,62})\.)*(([a-z\d](-?[a-z\d]){0,62})\.)([a-z](-?[a-z\d]){1,62})|((\d{1,3}\.){3}\d{1,3})))*)$'
             required: true
-        - variable: username
-          label: "Username for WebUI"
-          schema:
-            type: string
-            default: "admin"
-            required: true
-        - variable: password
-          label: "Password for WebUI"
-          schema:
-            type: string
-            private: true
-            default: ""
-            valid_chars: "[a-zA-Z0-9!@#$%^&*?]{8,}"
-            required: true
+
         - variable: dictionaries
           label: "Dictionaries to use, leave empty to use all"
           schema:

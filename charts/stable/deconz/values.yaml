@@ -14,6 +14,9 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secret:
+  DECONZ_VNC_PASSWORD: ""
+
 # -- environment variables. See [image docs](https://github.com/marthoc/docker-deconz/blob/master/README.md) for more details.
 # @default -- See below
 env:
@@ -31,11 +34,6 @@ env:
   DECONZ_VNC_PORT: 5900
   DECONZ_UID: 568
   DECONZ_GID: 568
-  # -- If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password "changeme" using a Secret.
-  DECONZ_VNC_PASSWORD:
-    # secretKeyRef:
-    #   name: deconz-vnc-password
-    #   key: password
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml

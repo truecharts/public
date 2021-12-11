@@ -25,10 +25,10 @@ probes:
     path: "/api/health"
 
 secret:
+  GF_SECURITY_ADMIN_USER: "admin"
   GF_SECURITY_ADMIN_PASSWORD: "testpassword"
 
 env:
-  GF_SECURITY_ADMIN_USER: "admin"
   GF_INSTALL_PLUGINS: ""
   GF_PATHS_PLUGINS: "/opt/bitnami/grafana/data/plugins"
   GF_AUTH_LDAP_ENABLED: "false"

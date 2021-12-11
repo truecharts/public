@@ -19,9 +19,11 @@ service:
         port: 10024
         targetPort: 80
 
-env:
+secret:
   PGADMIN_DEFAULT_EMAIL: "replace@this.now"
   PGADMIN_DEFAULT_PASSWORD: "changeme"
+
+env: {}
 
 persistence:
   config:

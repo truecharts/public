@@ -73,6 +73,25 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: PGADMIN_DEFAULT_EMAIL
+          label: "PGADMIN_DEFAULT_EMAIL"
+          schema:
+            type: string
+            required: true
+            default: "REPLACETHIS"
+        - variable: PGADMIN_DEFAULT_PASSWORD
+          label: "PGADMIN_DEFAULT_PASSWORD"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -80,7 +99,6 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
         - variable: PUID
           label: "PUID"
           description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
@@ -88,18 +106,6 @@ questions:
             type: int
             default: 5050
 
-        - variable: PGADMIN_DEFAULT_EMAIL
-          label: "PGADMIN_DEFAULT_EMAIL"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: PGADMIN_DEFAULT_PASSWORD
-          label: "PGADMIN_DEFAULT_PASSWORD"
-          schema:
-            type: string
-            required: true
-            default: ""
 # Include{containerConfig}
 
   - variable: service

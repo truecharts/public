@@ -81,13 +81,19 @@ questions:
     schema:
       type: dict
       attrs:
+        - variable: GF_SECURITY_ADMIN_USER
+          label: "Admin User"
+          schema:
+            type: string
+            required: true
+            default: "admin"
         - variable: GF_SECURITY_ADMIN_PASSWORD
           label: "Admin Password"
           schema:
             type: string
-            default: ""
             required: true
-
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -95,12 +101,6 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: GF_SECURITY_ADMIN_USER
-          label: "Admin User"
-          schema:
-            type: string
-            default: "admin"
-            required: true
         - variable: GF_INSTALL_PLUGINS
           label: "Extra Plugins to Install"
           description: "comma seperated"

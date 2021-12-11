@@ -84,8 +84,8 @@ questions:
         - variable: STASH_PORT
           label: "STASH_PORT"
           schema:
-            type: string
-            default: "9999"
+            type: int
+            default: 9999
 # Include{containerConfig}
 
   - variable: service

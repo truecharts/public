@@ -73,6 +73,27 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: SUPERUSER_EMAIL
+          label: "SUPERUSER_EMAIL"
+          description: "Superuser email"
+          schema:
+            type: string
+            required: true
+            default: "REPLACETHIS"
+        - variable: SUPERUSER_PASSWORD
+          label: "SUPERUSER_PASSWORD"
+          description: "Superuser password"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -80,13 +101,12 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
         - variable: REGENERATE_SETTINGS
           label: "REGENERATE_SETTINGS"
-          description: "Sets the UMASK env var for LinuxServer.io (compatible) containers"
+          description: "Set to true to always override the local_settings.py file with values from environment variables"
           schema:
             type: string
-            default: "002"
+            default: "True"
         - variable: SITE_ROOT
           label: "SITE_ROOT"
           description: "The site's top-level URL and the port it listens to"
@@ -101,21 +121,7 @@ questions:
             type: string
             required: true
             default: ""
-        - variable: SUPERUSER_EMAIL
-          label: "SUPERUSER_EMAIL"
-          description: "Superuser email"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: SUPERUSER_PASSWORD
-          label: "SUPERUSER_PASSWORD"
-          description: "Superuser password"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
+
 # Include{containerConfig}
 
   - variable: service

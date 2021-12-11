@@ -65,7 +65,39 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: LDAP_READONLY_USER_USERNAME
+          label: "LDAP_READONLY_USER_USERNAME"
+          schema:
+            type: string
+            required: true
+            default: "readonly"
+        - variable: LDAP_READONLY_USER_PASSWORD
+          label: "LDAP_READONLY_USER_PASSWORD"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
+        - variable: LDAP_ADMIN_PASSWORD
+          label: "LDAP_ADMIN_PASSWORD"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
+        - variable: LDAP_CONFIG_PASSWORD
+          label: "LDAP_CONFIG_PASSWORD"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "App Configuration"
     label: "Image Environment"
@@ -73,13 +105,12 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
         - variable: LDAP_LOG_LEVEL
           label: "LDAP_LOG_LEVEL"
           schema:
-            type: string
+            type: int
             required: true
-            default: "256"
+            default: 256
         - variable: LDAP_ORGANISATION
           label: "LDAP_ORGANISATION"
           schema:
@@ -95,27 +126,15 @@ questions:
         - variable: LDAP_READONLY_USER
           label: "LDAP_READONLY_USER"
           schema:
-            type: string
+            type: boolean
             required: true
-            default: "false"
-        - variable: LDAP_READONLY_USER_USERNAME
-          label: "LDAP_READONLY_USER_USERNAME"
-          schema:
-            type: string
-            required: true
-            default: "readonly"
-        - variable: LDAP_READONLY_USER_PASSWORD
-          label: "LDAP_READONLY_USER_PASSWORD"
-          schema:
-            type: string
-            required: true
-            default: "readonly"
+            default: false
         - variable: LDAP_RFC2307BIS_SCHEMA
           label: "LDAP_RFC2307BIS_SCHEMA"
           schema:
-            type: string
+            type: boolean
             required: true
-            default: "false"
+            default: false
         - variable: LDAP_BACKEND
           label: "LDAP_BACKEND"
           schema:
@@ -125,15 +144,15 @@ questions:
         - variable: LDAP_TLS
           label: "LDAP_TLS"
           schema:
-            type: string
+            type: boolean
             required: true
-            default: "true"
+            default: true
         - variable: LDAP_TLS_ENFORCE
           label: "LDAP_TLS_ENFORCE"
           schema:
-            type: string
+            type: boolean
             required: true
-            default: "false"
+            default: false
         - variable: LDAP_TLS_VERIFY_CLIENT
           label: "LDAP_TLS_VERIFY_CLIENT"
           schema:
@@ -161,39 +180,27 @@ questions:
         - variable: CONTAINER_LOG_LEVEL
           label: "CONTAINER_LOG_LEVEL"
           schema:
-            type: string
+            type: int
             required: true
-            default: "4"
+            default: 4
         - variable: KEEP_EXISTING_CONFIG
           label: "KEEP_EXISTING_CONFIG"
           schema:
-            type: string
+            type: boolean
             required: true
-            default: "false"
+            default: false
         - variable: LDAP_REMOVE_CONFIG_AFTER_SETUP
           label: "LDAP_REMOVE_CONFIG_AFTER_SETUP"
           schema:
-            type: string
+            type: boolean
             required: true
-            default: "true"
+            default: true
         - variable: LDAP_SSL_HELPER_PREFIX
           label: "LDAP_SSL_HELPER_PREFIX"
           schema:
             type: string
             required: true
             default: "ldap"
-        - variable: LDAP_ADMIN_PASSWORD
-          label: "LDAP_ADMIN_PASSWORD"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: LDAP_CONFIG_PASSWORD
-          label: "LDAP_CONFIG_PASSWORD"
-          schema:
-            type: string
-            required: true
-            default: ""
         - variable: LDAP_BASE_DN
           label: "LDAP_BASE_DN"
           schema:

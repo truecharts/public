@@ -73,7 +73,32 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: SUPERVISOR_HTTP_USER
+          label: "SUPERVISOR_HTTP_USER"
+          schema:
+            type: string
+            default: "admin"
+            required: true
+        - variable: SUPERVISOR_HTTP_PASS
+          label: "SUPERVISOR_HTTP_PASS"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
+        - variable: SERVER_PASS
+          label: "SERVER_PASS"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -105,18 +130,6 @@ questions:
           schema:
             type: boolean
             default: true
-        - variable: SUPERVISOR_HTTP_USER
-          label: "SUPERVISOR_HTTP_USER"
-          schema:
-            type: string
-            default: "admin"
-            required: true
-        - variable: SUPERVISOR_HTTP_PASS
-          label: "SUPERVISOR_HTTP_PASS"
-          schema:
-            type: string
-            default: ""
-            required: true
         - variable: SERVER_NAME
           label: "SERVER_NAME"
           schema:
@@ -135,12 +148,6 @@ questions:
           schema:
             type: string
             default: "Dedicated"
-            required: true
-        - variable: SERVER_PASS
-          label: "SERVER_PASS"
-          schema:
-            type: string
-            default: ""
             required: true
         - variable: SERVER_PUBLIC
           label: "SERVER_PUBLIC"
