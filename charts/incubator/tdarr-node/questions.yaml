@@ -95,7 +95,8 @@ questions:
           schema:
             type: string
             required: true
-            default: "tdarr-node.ix-tdarr-node.svc.cluster.local"
+            $ref:
+              - "definitions/nodeIP"
         - variable: nodePort
           label: "nodePort"
           description: "Sets the port of this node."
@@ -110,7 +111,8 @@ questions:
           schema:
             type: string
             required: true
-            default: "tdarr-comm.ix-tdarr.svc.cluster.local"
+            $ref:
+              - "definitions/nodeIP"
         - variable: serverPort
           label: "serverPort"
           description: "Sets the server port, to which this node will connect. Leave default if you used service name."
