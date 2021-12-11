@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="stash-5.0.0"></a>
+### [stash-5.0.0](https://github.com/truecharts/apps/compare/stash-4.0.20...stash-5.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="stash-4.0.20"></a>
 ### [stash-4.0.20](https://github.com/truecharts/apps/compare/stash-4.0.19...stash-4.0.20) (2021-12-11)
 

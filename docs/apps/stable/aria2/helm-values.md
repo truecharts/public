@@ -13,9 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | env.RPC_PORT | int | `6800` |  |
-| env.RPC_SECRET | string | `"ChangemeNow"` |  |
 | env.TZ | string | `"UTC"` | Set the container timezone |
-| env.UMASK_SET | int | `18` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/aria2-pro"` | image repository |
 | image.tag | string | `"latest@sha256:6c0ddcc7be4da69ac146ff3153df727a5818f733636a1c4d9b78ccffd6106a23"` | image tag |
@@ -24,6 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| secret.RPC_SECRET | string | `"ChangemeNow"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.listen.enabled | bool | `true` |  |

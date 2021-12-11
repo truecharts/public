@@ -15,8 +15,6 @@ You will, however, be able to use all values referenced in the common chart here
 | cronjob.failedJobsHistoryLimit | int | `5` |  |
 | cronjob.schedule | string | `"*/5 * * * *"` |  |
 | cronjob.successfulJobsHistoryLimit | int | `2` |  |
-| env.NEXTCLOUD_ADMIN_PASSWORD | string | `"adminpass"` |  |
-| env.NEXTCLOUD_ADMIN_USER | string | `"admin"` |  |
 | env.TRUSTED_PROXIES | string | `"172.16.0.0/16"` |  |
 | envFrom[0].configMapRef.name | string | `"nextcloudconfig"` |  |
 | envTpl.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
@@ -50,6 +48,8 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
+| secret.NEXTCLOUD_ADMIN_PASSWORD | string | `"adminpass"` |  |
+| secret.NEXTCLOUD_ADMIN_USER | string | `"admin"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.hpb.enabled | bool | `true` |  |

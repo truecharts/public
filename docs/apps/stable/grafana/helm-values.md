@@ -20,7 +20,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.GF_PATHS_LOGS | string | `"/opt/bitnami/grafana/logs"` |  |
 | env.GF_PATHS_PLUGINS | string | `"/opt/bitnami/grafana/data/plugins"` |  |
 | env.GF_PATHS_PROVISIONING | string | `"/opt/bitnami/grafana/conf/provisioning"` |  |
-| env.GF_SECURITY_ADMIN_USER | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/grafana"` |  |
 | image.tag | string | `"v8.3.2@sha256:5b321a612dd2a2b019898bdfa459e79a88a8b3ac985a723e5e144922f2aead48"` |  |
@@ -36,6 +35,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.readiness.path | string | `"/api/health"` |  |
 | probes.startup.path | string | `"/api/health"` |  |
 | secret.GF_SECURITY_ADMIN_PASSWORD | string | `"testpassword"` |  |
+| secret.GF_SECURITY_ADMIN_USER | string | `"admin"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.ports.main.port | int | `10038` |  |
 | service.main.ports.main.targetPort | int | `3000` |  |

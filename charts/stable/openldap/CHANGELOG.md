@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-5.0.0"></a>
+### [openldap-5.0.0](https://github.com/truecharts/apps/compare/openldap-4.0.25...openldap-5.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="openldap-4.0.25"></a>
 ### [openldap-4.0.25](https://github.com/truecharts/apps/compare/openldap-4.0.24...openldap-4.0.25) (2021-12-11)
 

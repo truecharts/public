@@ -18,6 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v3.00@sha256:9a4f48483b93f74394b69555c9324c746414836de247fbeafec5f53c0b077b9f"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
+| secret | object | `{}` |  |
 | service.main.ports.main.port | int | `10109` |  |
 | service.main.ports.main.targetPort | int | `9091` |  |
 | service.torrent.enabled | bool | `true` |  |

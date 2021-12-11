@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptimerobot-prometheus-2.0.0"></a>
+### [uptimerobot-prometheus-2.0.0](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-1.0.9...uptimerobot-prometheus-2.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="uptimerobot-prometheus-1.0.9"></a>
 ### [uptimerobot-prometheus-1.0.9](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-1.0.8...uptimerobot-prometheus-1.0.9) (2021-12-07)
 

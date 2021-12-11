@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-10.0.0"></a>
+### [collabora-online-10.0.0](https://github.com/truecharts/apps/compare/collabora-online-9.0.20...collabora-online-10.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="collabora-online-9.0.20"></a>
 ### [collabora-online-9.0.20](https://github.com/truecharts/apps/compare/collabora-online-9.0.19...collabora-online-9.0.20) (2021-12-11)
 

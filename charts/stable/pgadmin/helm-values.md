@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PGADMIN_DEFAULT_EMAIL | string | `"replace@this.now"` |  |
-| env.PGADMIN_DEFAULT_PASSWORD | string | `"changeme"` |  |
+| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/pgadmin4"` |  |
 | image.tag | string | `"v6.2@sha256:56a1cc09742301c5cca10f75f9766a85f7b8c9a256ee88cdf04ad1038db2f2cd"` |  |
@@ -21,6 +20,8 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.fsGroup | int | `5050` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| secret.PGADMIN_DEFAULT_EMAIL | string | `"replace@this.now"` |  |
+| secret.PGADMIN_DEFAULT_PASSWORD | string | `"changeme"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10024` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-6.0.0"></a>
+### [deconz-6.0.0](https://github.com/truecharts/apps/compare/deconz-5.0.7...deconz-6.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="deconz-5.0.7"></a>
 ### [deconz-5.0.7](https://github.com/truecharts/apps/compare/deconz-5.0.6...deconz-5.0.7) (2021-12-11)
 

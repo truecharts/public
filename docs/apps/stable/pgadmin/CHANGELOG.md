@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-5.0.0"></a>
+### [pgadmin-5.0.0](https://github.com/truecharts/apps/compare/pgadmin-4.0.20...pgadmin-5.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="pgadmin-4.0.20"></a>
 ### [pgadmin-4.0.20](https://github.com/truecharts/apps/compare/pgadmin-4.0.19...pgadmin-4.0.20) (2021-12-07)
 

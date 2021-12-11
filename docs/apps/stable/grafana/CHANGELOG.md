@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.0"></a>
+### [grafana-2.0.0](https://github.com/truecharts/apps/compare/grafana-1.0.14...grafana-2.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="grafana-1.0.14"></a>
 ### [grafana-1.0.14](https://github.com/truecharts/apps/compare/grafana-1.0.13...grafana-1.0.14) (2021-12-11)
 

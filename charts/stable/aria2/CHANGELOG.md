@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="aria2-3.0.0"></a>
+### [aria2-3.0.0](https://github.com/truecharts/apps/compare/aria2-2.0.19...aria2-3.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+#### Fix
+
+* remove `UMASK` as this is taken care from common ([#1503](https://github.com/truecharts/apps/issues/1503))
+
+
+
 <a name="aria2-2.0.19"></a>
 ### [aria2-2.0.19](https://github.com/truecharts/apps/compare/aria2-2.0.18...aria2-2.0.19) (2021-12-07)
 

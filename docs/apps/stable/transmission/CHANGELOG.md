@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-10.0.0"></a>
+### [transmission-10.0.0](https://github.com/truecharts/apps/compare/transmission-9.0.21...transmission-10.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="transmission-9.0.21"></a>
 ### [transmission-9.0.21](https://github.com/truecharts/apps/compare/transmission-9.0.20...transmission-9.0.21) (2021-12-07)
 

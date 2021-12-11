@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-gpu-3.0.0"></a>
+### [deepstack-gpu-3.0.0](https://github.com/truecharts/apps/compare/deepstack-gpu-2.0.19...deepstack-gpu-3.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="deepstack-gpu-2.0.19"></a>
 ### [deepstack-gpu-2.0.19](https://github.com/truecharts/apps/compare/deepstack-gpu-2.0.18...deepstack-gpu-2.0.19) (2021-12-07)
 

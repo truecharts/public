@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-5.0.0"></a>
+### [jdownloader2-5.0.0](https://github.com/truecharts/apps/compare/jdownloader2-4.0.21...jdownloader2-5.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="jdownloader2-4.0.21"></a>
 ### [jdownloader2-4.0.21](https://github.com/truecharts/apps/compare/jdownloader2-4.0.20...jdownloader2-4.0.21) (2021-12-11)
 

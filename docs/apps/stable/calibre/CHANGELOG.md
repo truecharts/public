@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="calibre-5.0.0"></a>
+### [calibre-5.0.0](https://github.com/truecharts/apps/compare/calibre-web-9.0.19...calibre-5.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+#### Fix
+
+* remove `UMASK` as this is taken care from common ([#1503](https://github.com/truecharts/apps/issues/1503))
+
+
+
 <a name="calibre-4.0.22"></a>
 ### [calibre-4.0.22](https://github.com/truecharts/apps/compare/calibre-web-9.0.18...calibre-4.0.22) (2021-12-07)
 

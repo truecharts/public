@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-11.0.0"></a>
+### [nextcloud-11.0.0](https://github.com/truecharts/apps/compare/nextcloud-10.0.16...nextcloud-11.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="nextcloud-10.0.16"></a>
 ### [nextcloud-10.0.16](https://github.com/truecharts/apps/compare/nextcloud-10.0.15...nextcloud-10.0.16) (2021-12-07)
 

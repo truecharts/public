@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dizquetv-5.0.0"></a>
+### [dizquetv-5.0.0](https://github.com/truecharts/apps/compare/dizquetv-4.0.19...dizquetv-5.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="dizquetv-4.0.19"></a>
 ### [dizquetv-4.0.19](https://github.com/truecharts/apps/compare/dizquetv-4.0.18...dizquetv-4.0.19) (2021-12-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-10.0.0"></a>
+### [handbrake-10.0.0](https://github.com/truecharts/apps/compare/handbrake-9.0.19...handbrake-10.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="handbrake-9.0.19"></a>
 ### [handbrake-9.0.19](https://github.com/truecharts/apps/compare/handbrake-9.0.18...handbrake-9.0.19) (2021-12-11)
 

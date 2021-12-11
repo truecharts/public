@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-8.0.0"></a>
+### [podgrab-8.0.0](https://github.com/truecharts/apps/compare/podgrab-7.0.20...podgrab-8.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="podgrab-7.0.20"></a>
 ### [podgrab-7.0.20](https://github.com/truecharts/apps/compare/podgrab-7.0.19...podgrab-7.0.20) (2021-12-11)
 

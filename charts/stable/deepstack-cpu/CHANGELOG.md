@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-cpu-8.0.0"></a>
+### [deepstack-cpu-8.0.0](https://github.com/truecharts/apps/compare/deepstack-cpu-7.0.19...deepstack-cpu-8.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="deepstack-cpu-7.0.19"></a>
 ### [deepstack-cpu-7.0.19](https://github.com/truecharts/apps/compare/deepstack-cpu-7.0.18...deepstack-cpu-7.0.19) (2021-12-07)
 

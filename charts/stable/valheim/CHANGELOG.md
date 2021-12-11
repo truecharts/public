@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.0"></a>
+### [valheim-2.0.0](https://github.com/truecharts/apps/compare/valheim-1.0.19...valheim-2.0.0) (2021-12-11)
+
+#### Feat
+
+* move user/pass/secrets/keys from `env` to `secret` ([#1501](https://github.com/truecharts/apps/issues/1501))
+
+
+
 <a name="valheim-1.0.19"></a>
 ### [valheim-1.0.19](https://github.com/truecharts/apps/compare/valheim-1.0.18...valheim-1.0.19) (2021-12-07)
 

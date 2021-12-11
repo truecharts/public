@@ -12,16 +12,15 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.AUTOMATED_CONVERSION_FORMAT | string | `"mp4"` |  |
-| env.AUTOMATED_CONVERSION_KEEP_SOURCE | string | `"1"` |  |
+| env.AUTOMATED_CONVERSION_KEEP_SOURCE | int | `1` |  |
 | env.AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION | string | `"ignore"` |  |
 | env.AUTOMATED_CONVERSION_PRESET | string | `"General/Very Fast 1080p30"` |  |
-| env.CLEAN_TMP_DIR | string | `"1"` |  |
-| env.DISPLAY_HEIGHT | string | `"768"` |  |
-| env.DISPLAY_WIDTH | string | `"1280"` |  |
-| env.KEEP_APP_RUNNING | string | `"0"` |  |
+| env.CLEAN_TMP_DIR | int | `1` |  |
+| env.DISPLAY_HEIGHT | int | `768` |  |
+| env.DISPLAY_WIDTH | int | `1280` |  |
+| env.KEEP_APP_RUNNING | int | `0` |  |
 | env.PUID | int | `568` |  |
-| env.SECURE_CONNECTION | string | `"0"` |  |
-| env.VNC_PASSWORD | string | `""` |  |
+| env.SECURE_CONNECTION | int | `0` |  |
 | envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/handbrake"` |  |
@@ -30,6 +29,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| secret.VNC_PASSWORD | string | `""` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10053` |  |

@@ -14,14 +14,14 @@ You will, however, be able to use all values referenced in the common chart here
 | env.dictionaries | string | `"de_DE en_GB en_US es_ES fr_FR it nl pt_BR pt_PT ru"` |  |
 | env.domain | string | `"nextcloud\\.domain\\.tld"` |  |
 | env.extra_params | string | `"-o:welcome.enable=false -o:user_interface.mode=notebookbar -o:ssl.termination=true -o:ssl.enable=false"` |  |
-| env.password | string | `"changeme"` |  |
 | env.server_name | string | `"collabora\\.domain\\.tld"` |  |
-| env.username | string | `"admin"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/collabora"` |  |
 | image.tag | string | `"v6.4.14.3@sha256:95b1bba1e26633586c9f49cc94602237d21a09a4a7e7059ac807927d3b15a293"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `104` |  |
+| secret.password | string | `"changeme"` |  |
+| secret.username | string | `"admin"` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |

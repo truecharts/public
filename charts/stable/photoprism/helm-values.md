@@ -13,7 +13,6 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://docs.photoprism.org/getting-started/config-options/) for more details. |
 | env.GID | string | `nil` | Sets GID Photoprism runs under. |
-| env.PHOTOPRISM_ADMIN_PASSWORD | string | `"please-change"` | Initial admin password. **BE SURE TO CHANGE THIS!** |
 | env.PHOTOPRISM_CACHE_PATH | string | `"/assets/cache"` | Photoprism cache path |
 | env.PHOTOPRISM_CONFIG_PATH | string | `"/assets/config"` | Photoprism config path |
 | env.PHOTOPRISM_IMPORT_PATH | string | `"/photoprism/import"` | Photoprism import path |
@@ -25,7 +24,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PROTOPRISM_BACKUP_PATH | string | `"/assets/backup"` | Photoprism backup path |
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | env.UID | string | `nil` | Sets UID Photoprism runs under. |
-| env.UMASK | string | `nil` | Sets UMASK. |
 | envValueFrom.PHOTOPRISM_DATABASE_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |
 | envValueFrom.PHOTOPRISM_DATABASE_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.key | string | `"plainporthost"` |  |
@@ -38,6 +36,7 @@ You will, however, be able to use all values referenced in the common chart here
 | mariadb.mariadbDatabase | string | `"photoprism"` |  |
 | mariadb.mariadbUsername | string | `"photoprism"` |  |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| secret.PHOTOPRISM_ADMIN_PASSWORD | string | `"please-change"` | Initial admin password. **BE SURE TO CHANGE THIS!** |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

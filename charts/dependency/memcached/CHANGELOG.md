@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.30"></a>
+### [memcached-1.0.30](https://github.com/truecharts/apps/compare/memcached-1.0.29...memcached-1.0.30) (2021-12-11)
+
+#### Chore
+
+* update helm chart common to v8.9.17 ([#1492](https://github.com/truecharts/apps/issues/1492))
+
+
+
 <a name="memcached-1.0.29"></a>
 ### [memcached-1.0.29](https://github.com/truecharts/apps/compare/memcached-1.0.28...memcached-1.0.29) (2021-12-11)
 
