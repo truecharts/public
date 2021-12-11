@@ -52,8 +52,7 @@
       "paths": ["charts/dependency/"],
       "schedule": [
         "after 3am and before 4am  on tuesday"
-      ]
-
+      ],
     },
     {
       "matchDatasources": ["helm"],
@@ -67,8 +66,8 @@
       "paths": ["charts/dependency/"],
       "schedule": [
         "after 3am and before 4am  on tuesday"
-      ]
-      "groupName": "dependency helm non-major"
+      ],
+      "groupName": "dependency helm non-major",
     },
     //
     // helm charts
@@ -82,7 +81,7 @@
       "paths": ["charts/incubator/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 6am and before 7am  on tuesday"
-      ]
+      ],
     },
     {
       "matchDatasources": ["helm"],
@@ -97,7 +96,7 @@
       "paths": ["charts/incubator/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 6am and before 7am  on tuesday"
-      ]
+      ],
     },
     //
     // Tag updates for semantic tags on enterprise Apps
@@ -111,7 +110,7 @@
       "paths": ["charts/enterprise/"],
       "schedule": [
         "after 1am and before 2am  on monday"
-      ]
+      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -125,7 +124,7 @@
       "paths": ["charts/enterprise/"],
       "schedule": [
         "after 1am and before 2am  on monday"
-      ]
+      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -141,7 +140,7 @@
       "paths": ["charts/enterprise/"],
       "schedule": [
         "after 1am and before 2am  on monday"
-      ]
+      ],
     },
     //
     // Tag updates for semantic tags on all but enterprise Apps
@@ -155,7 +154,7 @@
       "paths": ["charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 1am and before 2am  on monday"
-      ]
+      ],
     }
     {
       "matchDatasources": ["docker"],
@@ -172,7 +171,7 @@
       "paths": ["charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 1am and before 2am  on monday"
-      ]
+      ],
     },
     //
     // Version strategies
