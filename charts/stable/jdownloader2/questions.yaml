@@ -84,9 +84,9 @@ questions:
                 label: "VNC_PASSWORD"
                 description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
                 schema:
-                  private: true
                   type: string
-                  default: ""
+                  private: true
+                  default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

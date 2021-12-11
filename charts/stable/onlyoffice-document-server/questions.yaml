@@ -87,7 +87,8 @@ questions:
           description: "Defines the secret key to validate the JSON Web Token in the request to the ONLYOFFICE Document Server."
           schema:
             type: string
-            default: ""
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

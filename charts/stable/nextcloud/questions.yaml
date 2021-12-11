@@ -85,7 +85,7 @@ questions:
           schema:
             type: string
             required: true
-            default: ""
+            default: "REPLACETHIS"
         - variable: NEXTCLOUD_ADMIN_PASSWORD
           label: "NEXTCLOUD_ADMIN_PASSWORD (First Install Only)"
           description: "Sets the initial nextcloud's admin password, changing this variable after first launch will NOT change admin's password"
@@ -93,7 +93,7 @@ questions:
             type: string
             private: true
             required: true
-            default: ""
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

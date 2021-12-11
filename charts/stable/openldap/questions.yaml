@@ -82,19 +82,22 @@ questions:
           schema:
             type: string
             required: true
-            default: "readonly"
+            private: true
+            default: "REPLACETHIS"
         - variable: LDAP_ADMIN_PASSWORD
           label: "LDAP_ADMIN_PASSWORD"
           schema:
             type: string
             required: true
-            default: ""
+            private: true
+            default: "REPLACETHIS"
         - variable: LDAP_CONFIG_PASSWORD
           label: "LDAP_CONFIG_PASSWORD"
           schema:
             type: string
             required: true
-            default: ""
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "App Configuration"
     label: "Image Environment"

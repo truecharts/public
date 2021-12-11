@@ -14,8 +14,9 @@ questions:
           description: "Token with Access to your Discord"
           schema:
             type: string
-            default: ""
             required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

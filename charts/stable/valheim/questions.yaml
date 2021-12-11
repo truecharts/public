@@ -89,14 +89,16 @@ questions:
           label: "SUPERVISOR_HTTP_PASS"
           schema:
             type: string
-            default: ""
             required: true
+            private: true
+            default: "REPLACETHIS"
         - variable: SERVER_PASS
           label: "SERVER_PASS"
           schema:
             type: string
-            default: ""
             required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

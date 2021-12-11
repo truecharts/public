@@ -90,10 +90,10 @@ questions:
           label: "Password for WebUI"
           schema:
             type: string
-            private: true
-            default: ""
             valid_chars: "[a-zA-Z0-9!@#$%^&*?]{8,}"
+            private: true
             required: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

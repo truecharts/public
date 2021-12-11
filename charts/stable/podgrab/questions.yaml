@@ -84,8 +84,9 @@ questions:
           description: "Desired Password"
           schema:
             type: string
-            default: ""
             required: false
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

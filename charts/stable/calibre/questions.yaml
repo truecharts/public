@@ -84,13 +84,14 @@ questions:
           description: "Username for the calibre gui"
           schema:
             type: string
-            default: ""
+            default: "REPLACETHIS"
         - variable: GUAC_PASS
           label: "GUAC_PASS"
           description: "Password's md5 hash for the calibre gui"
           schema:
             type: string
-            default: ""
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

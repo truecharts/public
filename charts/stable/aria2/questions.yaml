@@ -84,7 +84,8 @@ questions:
           description: "Sets the RPC_SECRET env var"
           schema:
             type: string
-            default: "ChangemeNow"
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

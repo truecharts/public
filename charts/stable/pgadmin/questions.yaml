@@ -84,13 +84,14 @@ questions:
           schema:
             type: string
             required: true
-            default: ""
+            default: "REPLACETHIS"
         - variable: PGADMIN_DEFAULT_PASSWORD
           label: "PGADMIN_DEFAULT_PASSWORD"
           schema:
             type: string
             required: true
-            default: ""
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

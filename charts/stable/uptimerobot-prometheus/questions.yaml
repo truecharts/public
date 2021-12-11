@@ -14,8 +14,9 @@ questions:
           description: "UptimeRobot.com API Key"
           schema:
             type: string
-            default: ""
             required: true
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

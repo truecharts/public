@@ -84,12 +84,13 @@ questions:
           label: TRANSMISSION_RPC_USERNAME
           schema:
             type: string
-            default: ""
+            default: "REPLACETHIS"
         - variable: TRANSMISSION_RPC_PASSWORD
           label: TRANSMISSION_RPC_PASSWORD
           schema:
             type: string
-            default: ""
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

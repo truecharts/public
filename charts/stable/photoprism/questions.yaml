@@ -85,7 +85,8 @@ questions:
           schema:
             type: string
             required: true
-            default: ""
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

@@ -85,15 +85,15 @@ questions:
           label: "Admin User"
           schema:
             type: string
-            default: "admin"
             required: true
+            default: "admin"
         - variable: GF_SECURITY_ADMIN_PASSWORD
           label: "Admin Password"
           schema:
             type: string
-            default: ""
             required: true
-
+            private: true
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

@@ -84,8 +84,9 @@ questions:
           description: "Your HomeAssistant Token"
           schema:
             type: string
-            default: ""
+            private: true
             required: true
+            default: "REPLACETHIS"
   # Docker specific env
   - variable: env
     group: "Container Configuration"

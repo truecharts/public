@@ -85,7 +85,7 @@ questions:
           schema:
             type: string
             required: true
-            default: ""
+            default: "REPLACETHIS"
         - variable: SUPERUSER_PASSWORD
           label: "SUPERUSER_PASSWORD"
           description: "Superuser password"
@@ -93,7 +93,7 @@ questions:
             type: string
             required: true
             private: true
-            default: ""
+            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
