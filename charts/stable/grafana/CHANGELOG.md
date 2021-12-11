@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-1.0.14"></a>
+### [grafana-1.0.14](https://github.com/truecharts/apps/compare/grafana-1.0.13...grafana-1.0.14) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="grafana-1.0.13"></a>
 ### [grafana-1.0.13](https://github.com/truecharts/apps/compare/grafana-1.0.12...grafana-1.0.13) (2021-12-08)
 

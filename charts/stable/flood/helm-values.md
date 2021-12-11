@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.FLOOD_OPTION_RUNDIR | string | `"/data"` | Where to store Flood's runtime files (eg. database) |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/flood"` | image repository |
-| image.tag | string | `"v4.7.0@sha256:6ad4f3eb39e6b04d1632dd0436031377eb35759e0edcd56a95e5dd8c58c09ed8"` | image tag |
+| image.tag | string | `"v4.7.0@sha256:758b454843dcade464111920afce72994ecdbcfac1f4cf167a55936cec2ad616"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

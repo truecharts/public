@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-5.0.7"></a>
+### [deconz-5.0.7](https://github.com/truecharts/apps/compare/deconz-5.0.6...deconz-5.0.7) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="deconz-5.0.6"></a>
 ### [deconz-5.0.6](https://github.com/truecharts/apps/compare/deconz-5.0.5...deconz-5.0.6) (2021-12-07)
 

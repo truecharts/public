@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.ND_SESSIONTIMEOUT | string | `"24h"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/navidrome"` |  |
-| image.tag | string | `"v0.47.0@sha256:0ca8781ecf33f961d9e1157b8f0aa0ad8d69cde3dac99e8084bd34aa73094128"` |  |
+| image.tag | string | `"v0.47.0@sha256:18e691ba523ac0100e28e8d76ef34c2b15e78bb951c0aaf5d846366f756e0ab6"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | service.main.ports.main.port | int | `4533` |  |

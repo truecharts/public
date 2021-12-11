@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-9.0.19"></a>
+### [handbrake-9.0.19](https://github.com/truecharts/apps/compare/handbrake-9.0.18...handbrake-9.0.19) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="handbrake-9.0.18"></a>
 ### [handbrake-9.0.18](https://github.com/truecharts/apps/compare/handbrake-9.0.17...handbrake-9.0.18) (2021-12-07)
 

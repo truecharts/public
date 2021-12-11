@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-9.0.24"></a>
+### [kms-9.0.24](https://github.com/truecharts/apps/compare/kms-9.0.23...kms-9.0.24) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="kms-9.0.23"></a>
 ### [kms-9.0.23](https://github.com/truecharts/apps/compare/kms-9.0.22...kms-9.0.23) (2021-12-07)
 

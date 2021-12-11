@@ -35,7 +35,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/ocis:v1.15.0@sha256:513bf715f330afcd06918be63f47b8ad7bf80515d3ed2b29afdb7da00ed66eb4
+          tccr.io/truecharts/ocis:v1.15.0@sha256:2619ab5c44a83de923b18b09abcda4bc552e543e35107c6f2d00b0a2d7e25397
 
 ##### Scan Results
 
@@ -72,7 +72,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/ocis:v1.15.0@sha256:513bf715f330afcd06918be63f47b8ad7bf80515d3ed2b29afdb7da00ed66eb4 (alpine 3.14.3)
+#### Container: tccr.io/truecharts/ocis:v1.15.0@sha256:2619ab5c44a83de923b18b09abcda4bc552e543e35107c6f2d00b0a2d7e25397 (alpine 3.14.3)
 
 
 **alpine**

@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envTpl.HTTP_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/logitechmediaserver"` |  |
-| image.tag | string | `"v8.3.0@sha256:e3bd50326e60ced7ec6e1f840c01996a1359d7a0ece6053730730d0be84daa82"` |  |
+| image.tag | string | `"v8.3.0@sha256:4d476680186be5a5440f2d129c0af31439566f88e63405723e9bf58537d037bd"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

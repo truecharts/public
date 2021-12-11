@@ -71,7 +71,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/anonaddy:v0.8.8@sha256:1cb035f0acb8c702c5c906452494c34836d2bb8c85fa31dadb12f96b26ab6c43
+          tccr.io/truecharts/anonaddy:v0.8.9@sha256:7e6295239394c21d94fa370d6a1fbab5b35fd06026f47ba8a35a9d367d763254
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/redis:v6.2.6@sha256:c20e11a71954610a6e27e4a4dbf37bd95f4c15aaeec798245b3a2e3c767fe2f6
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
@@ -112,7 +112,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/anonaddy:v0.8.8@sha256:1cb035f0acb8c702c5c906452494c34836d2bb8c85fa31dadb12f96b26ab6c43 (alpine 3.14.3)
+#### Container: tccr.io/truecharts/anonaddy:v0.8.9@sha256:7e6295239394c21d94fa370d6a1fbab5b35fd06026f47ba8a35a9d367d763254 (alpine 3.14.3)
 
 
 **alpine**

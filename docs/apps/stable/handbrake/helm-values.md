@@ -25,7 +25,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/handbrake"` |  |
-| image.tag | string | `"v1.24.2@sha256:312ddf5ec046fd0ca3f84015b55c8b4cbe1d6e8340ffcaf244489592a3fc92da"` |  |
+| image.tag | string | `"v1.24.2@sha256:7b5fa65f152910287ac3346b8e71b67d9d85987ae28aec0730542506b9b5780a"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

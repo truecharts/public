@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.2"></a>
+### [code-server-2.1.2](https://github.com/truecharts/apps/compare/code-server-2.1.1...code-server-2.1.2) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="code-server-2.1.1"></a>
 ### [code-server-2.1.1](https://github.com/truecharts/apps/compare/code-server-2.1.0...code-server-2.1.1) (2021-12-07)
 

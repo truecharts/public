@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mealie-5.0.1"></a>
+### [mealie-5.0.1](https://github.com/truecharts/apps/compare/mealie-5.0.0...mealie-5.0.1) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="mealie-5.0.0"></a>
 ### [mealie-5.0.0](https://github.com/truecharts/apps/compare/mealie-4.0.20...mealie-5.0.0) (2021-12-11)
 

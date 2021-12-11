@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PHPLDAPADMIN_TRUST_PROXY_SSL | string | `"true"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/phpldapadmin"` |  |
-| image.tag | string | `"v0.9.0@sha256:5e68d251665b187cc920985f74f57f8ba2ce44cb8d7efaaa100cc19493974807"` |  |
+| image.tag | string | `"v0.9.0@sha256:aef331f060a7fff72d5f698c1fb164bfeba64ec9295bb82d5fa982a40f756d4e"` |  |
 | persistence.varrun.enabled | bool | `false` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

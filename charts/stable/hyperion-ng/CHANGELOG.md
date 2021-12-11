@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-4.0.22"></a>
+### [hyperion-ng-4.0.22](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.21...hyperion-ng-4.0.22) (2021-12-11)
+
+#### Chore
+
+* set PUID to `int` instead of `string` ([#1506](https://github.com/truecharts/apps/issues/1506))
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="hyperion-ng-4.0.21"></a>
 ### [hyperion-ng-4.0.21](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.20...hyperion-ng-4.0.21) (2021-12-07)
 

@@ -21,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envTpl.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/jdownloader-2"` |  |
-| image.tag | string | `"v1.7.1@sha256:f5c7103d8870367cae893099a9a26929860ca5a13ebc7a1e4e335f1f296c40dd"` |  |
+| image.tag | string | `"v1.7.1@sha256:ba37e3a795f6e64466de3e81152af78c5fe8f6c3beeeee5a2bc948c41a631b16"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

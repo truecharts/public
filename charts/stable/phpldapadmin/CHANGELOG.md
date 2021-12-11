@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-4.0.20"></a>
+### [phpldapadmin-4.0.20](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.19...phpldapadmin-4.0.20) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="phpldapadmin-4.0.19"></a>
 ### [phpldapadmin-4.0.19](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.18...phpldapadmin-4.0.19) (2021-12-07)
 

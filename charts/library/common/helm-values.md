@@ -51,7 +51,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | codeserverImage | object | See below | codeserver specific configuration |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
-| codeserverImage.tag | string | `"v3.12.0@sha256:2853a8bdd8eed9c09bcd4b100b9d4be20c42a307b9d1cbae1a204276e948f9ce"` | Specify the code-server image tag |
+| codeserverImage.tag | string | `"v3.12.0@sha256:b2132ab84a76b799dca995c90d4eb5765f13267408f795541bec670ff22cce38"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | configmap | object | See below | Configure configMaps for the chart here. Additional configMaps can be added by adding a dictionary key similar to the 'config' object. |
 | configmap.config.annotations | object | `{}` | Annotations to add to the configMap |
@@ -182,7 +182,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"v14.1.0@sha256:d9211c69833834cafa437223af3c311066337be26e663cc2ab138ce8226b3a05"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"v14.1.0@sha256:2aa01c5c4525cfbcf1259f6bb34c5699b6744f9d3280f77e05912cc80e24184c"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |

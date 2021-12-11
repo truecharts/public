@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PASSWORD | string | `"secretpasswordgoeshere"` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.repository | string | `"tccr.io/truecharts/podgrab"` |  |
-| image.tag | string | `"v1.0.0@sha256:069fb1ef81d47a37137da2cfd249423c8dc330086c2a2e1271c5895f9f8cae9f"` |  |
+| image.tag | string | `"v1.0.0@sha256:e627ad27a64c5c328fc68f302002a9c3134a4c6b328e14ac9c4b946ff0ad8acf"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.enabled | bool | `false` |  |

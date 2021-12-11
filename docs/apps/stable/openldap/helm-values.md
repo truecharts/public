@@ -41,7 +41,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envFrom[0].configMapRef.name | string | `"openldapconfig"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/openldap"` |  |
-| image.tag | string | `"v1.5.0@sha256:d7e4f9279595ea1772efac4063876b29a96ff54c214f2c3ba52d2c3bfca8928c"` |  |
+| image.tag | string | `"v1.5.0@sha256:0260d37c41f0c1207aaa642d7c786851385471a5ddf02bc6efc178241ddd8706"` |  |
 | persistence.varrun.enabled | bool | `false` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

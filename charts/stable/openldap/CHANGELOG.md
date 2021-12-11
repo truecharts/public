@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-4.0.25"></a>
+### [openldap-4.0.25](https://github.com/truecharts/apps/compare/openldap-4.0.24...openldap-4.0.25) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="openldap-4.0.24"></a>
 ### [openldap-4.0.24](https://github.com/truecharts/apps/compare/openldap-4.0.23...openldap-4.0.24) (2021-12-07)
 

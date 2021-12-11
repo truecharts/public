@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.22"></a>
+### [pihole-4.0.22](https://github.com/truecharts/apps/compare/pihole-4.0.21...pihole-4.0.22) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="pihole-4.0.21"></a>
 ### [pihole-4.0.21](https://github.com/truecharts/apps/compare/pihole-4.0.20...pihole-4.0.21) (2021-12-07)
 

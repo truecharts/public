@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/dizquetv"` | image repository |
-| image.tag | string | `"v1.5.0@sha256:e7fab135e5048700be9635208c5500b830ceddb7fa0b0f9fffd2fcaa645a8374"` | image tag |
+| image.tag | string | `"v1.5.0@sha256:00edf305cfe85a8df0053ef924fe23cc26fdf4e063c70b94c1062040d9f21778"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. |
 

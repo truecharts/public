@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jellyfin-9.0.20"></a>
+### [jellyfin-9.0.20](https://github.com/truecharts/apps/compare/jellyfin-9.0.19...jellyfin-9.0.20) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="jellyfin-9.0.19"></a>
 ### [jellyfin-9.0.19](https://github.com/truecharts/apps/compare/jellyfin-9.0.18...jellyfin-9.0.19) (2021-12-07)
 

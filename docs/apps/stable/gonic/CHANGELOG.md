@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gonic-4.0.19"></a>
+### [gonic-4.0.19](https://github.com/truecharts/apps/compare/gonic-4.0.18...gonic-4.0.19) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="gonic-4.0.18"></a>
 ### [gonic-4.0.18](https://github.com/truecharts/apps/compare/gonic-4.0.17...gonic-4.0.18) (2021-12-07)
 

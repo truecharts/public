@@ -62,7 +62,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:ff29616351d850a11f2dbd271420f89d6756d9ca78049f51a2a0a850b8c1f406
-          tccr.io/truecharts/mealie:v0.5.4@sha256:52a05feaf3cac813c0540e8c59b0f99900662558254c657e9d0335f0d9c8b4a9
+          tccr.io/truecharts/mealie:v0.5.4@sha256:fcbbd8328e0eae400813319852e899c4270cc0fde1092d1f4adb6c0d23f02f03
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:ff29616351d850a11f2dbd271420f89d6756d9ca78049f51a2a0a850b8c1f406
 
@@ -317,7 +317,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/mealie:v0.5.4@sha256:52a05feaf3cac813c0540e8c59b0f99900662558254c657e9d0335f0d9c8b4a9 (debian 11.1)
+#### Container: tccr.io/truecharts/mealie:v0.5.4@sha256:fcbbd8328e0eae400813319852e899c4270cc0fde1092d1f4adb6c0d23f02f03 (debian 11.1)
 
 
 **debian**

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="truecommand-9.0.20"></a>
+### [truecommand-9.0.20](https://github.com/truecharts/apps/compare/truecommand-9.0.19...truecommand-9.0.20) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="truecommand-9.0.19"></a>
 ### [truecommand-9.0.19](https://github.com/truecharts/apps/compare/truecommand-9.0.18...truecommand-9.0.19) (2021-12-07)
 

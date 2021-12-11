@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/unpackerr"` |  |
-| image.tag | string | `"v0.9.8@sha256:a76546d014ad85dac797bbb3d7753d1c0b5778ea907a7f2b21dad908a1c7712c"` |  |
+| image.tag | string | `"v0.9.8@sha256:9b8c5938e6ec19d3b2b2f1cf0cd4478fa7b6ac9a6e3efa54b77c9e6c9b9bc761"` |  |
 | persistence.downloads.enabled | bool | `true` |  |
 | persistence.downloads.mountPath | string | `"/downloads"` |  |
 | portal.enabled | bool | `false` |  |

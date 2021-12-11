@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-9.0.20"></a>
+### [collabora-online-9.0.20](https://github.com/truecharts/apps/compare/collabora-online-9.0.19...collabora-online-9.0.20) (2021-12-11)
+
+#### Chore
+
+* update non-major docker ([#1507](https://github.com/truecharts/apps/issues/1507))
+
+
+
 <a name="collabora-online-9.0.19"></a>
 ### [collabora-online-9.0.19](https://github.com/truecharts/apps/compare/collabora-online-9.0.18...collabora-online-9.0.19) (2021-12-07)
 
