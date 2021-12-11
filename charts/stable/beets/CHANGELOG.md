@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="beets-2.0.22"></a>
+### [beets-2.0.22](https://github.com/truecharts/apps/compare/beets-2.0.21...beets-2.0.22) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="beets-2.0.21"></a>
 ### [beets-2.0.21](https://github.com/truecharts/apps/compare/beets-2.0.20...beets-2.0.21) (2021-12-07)
 

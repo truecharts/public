@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="remmina-1.0.24"></a>
+### [remmina-1.0.24](https://github.com/truecharts/apps/compare/remmina-1.0.23...remmina-1.0.24) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="remmina-1.0.23"></a>
 ### [remmina-1.0.23](https://github.com/truecharts/apps/compare/remmina-1.0.22...remmina-1.0.23) (2021-12-07)
 

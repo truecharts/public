@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="calibre-web-9.0.20"></a>
+### [calibre-web-9.0.20](https://github.com/truecharts/apps/compare/calibre-web-9.0.19...calibre-web-9.0.20) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+#### Fix
+
+* remove `UMASK` as this is taken care from common ([#1503](https://github.com/truecharts/apps/issues/1503))
+
+
+
 <a name="calibre-web-9.0.19"></a>
 ### [calibre-web-9.0.19](https://github.com/truecharts/apps/compare/calibre-web-9.0.18...calibre-web-9.0.19) (2021-12-07)
 

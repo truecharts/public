@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="smokeping-1.0.22"></a>
+### [smokeping-1.0.22](https://github.com/truecharts/apps/compare/smokeping-1.0.21...smokeping-1.0.22) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="smokeping-1.0.21"></a>
 ### [smokeping-1.0.21](https://github.com/truecharts/apps/compare/smokeping-1.0.20...smokeping-1.0.21) (2021-12-07)
 

@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-4.0.20"></a>
+### [resilio-sync-4.0.20](https://github.com/truecharts/apps/compare/resilio-sync-4.0.19...resilio-sync-4.0.20) (2021-12-11)
+
+#### Chore
+
+* set PUID to `int` instead of `string` ([#1506](https://github.com/truecharts/apps/issues/1506))
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+#### Fix
+
+* remove `UMASK` as this is taken care from common ([#1503](https://github.com/truecharts/apps/issues/1503))
+
+
+
 <a name="resilio-sync-4.0.19"></a>
 ### [resilio-sync-4.0.19](https://github.com/truecharts/apps/compare/resilio-sync-4.0.18...resilio-sync-4.0.19) (2021-12-07)
 

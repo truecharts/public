@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="whoogle-1.0.20"></a>
+### [whoogle-1.0.20](https://github.com/truecharts/apps/compare/whoogle-1.0.19...whoogle-1.0.20) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="whoogle-1.0.19"></a>
 ### [whoogle-1.0.19](https://github.com/truecharts/apps/compare/whoogle-1.0.18...whoogle-1.0.19) (2021-12-07)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="librespeed-4.0.24"></a>
+### [librespeed-4.0.24](https://github.com/truecharts/apps/compare/librespeed-4.0.23...librespeed-4.0.24) (2021-12-11)
+
+#### Chore
+
+* set PUID to `int` instead of `string` ([#1506](https://github.com/truecharts/apps/issues/1506))
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="librespeed-4.0.23"></a>
 ### [librespeed-4.0.23](https://github.com/truecharts/apps/compare/librespeed-4.0.22...librespeed-4.0.23) (2021-12-07)
 

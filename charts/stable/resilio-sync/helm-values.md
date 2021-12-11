@@ -14,7 +14,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See [image docs](https://docs.linuxserver.io/images/docker-resilio-sync#environment-variables-e) for more details. |
 | env.PUID | int | `568` | Specify the user ID the application will run as |
 | env.TZ | string | `"UTC"` | Set the container timezone |
-| env.UMASK | string | `nil` | Sets default UMASK |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/resilio-sync"` | image repository |
 | image.tag | string | `"version-2.7.2.1375@sha256:54f42485d39a7773ff2e13c27ebfc32fc448eaf13f8972f38e14eedadb0b3a2e"` | image tag |

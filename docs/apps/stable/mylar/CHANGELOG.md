@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mylar-4.0.20"></a>
+### [mylar-4.0.20](https://github.com/truecharts/apps/compare/mylar-4.0.19...mylar-4.0.20) (2021-12-11)
+
+#### Chore
+
+* set PUID to `int` instead of `string` ([#1506](https://github.com/truecharts/apps/issues/1506))
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="mylar-4.0.19"></a>
 ### [mylar-4.0.19](https://github.com/truecharts/apps/compare/mylar-4.0.18...mylar-4.0.19) (2021-12-07)
 

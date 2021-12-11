@@ -22,8 +22,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASS.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"tccr.io/truecharts/wiki"` | image repository |
-| image.tag | string | `"v2.5@sha256:4241796c343106f89fdc585229993df05c0ae81bdbbfc13a6f6a5be9b23d662e"` | image tag |
+| image.repository | string | `"tccr.io/truecharts/wikijs"` | image repository |
+| image.tag | string | `"v2.5.255@sha256:0eba2ff85e7cc877e9036d0b47e98e2a83c65998575908f7e9cddc626f2b8902"` | image tag |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audacity-2.0.20"></a>
+### [audacity-2.0.20](https://github.com/truecharts/apps/compare/audacity-2.0.19...audacity-2.0.20) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="audacity-2.0.19"></a>
 ### [audacity-2.0.19](https://github.com/truecharts/apps/compare/audacity-2.0.18...audacity-2.0.19) (2021-12-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.21"></a>
+### [piaware-4.0.21](https://github.com/truecharts/apps/compare/piaware-4.0.20...piaware-4.0.21) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="piaware-4.0.20"></a>
 ### [piaware-4.0.20](https://github.com/truecharts/apps/compare/piaware-4.0.19...piaware-4.0.20) (2021-12-11)
 

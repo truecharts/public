@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.23"></a>
+### [qbittorrent-9.0.23](https://github.com/truecharts/apps/compare/qbittorrent-9.0.22...qbittorrent-9.0.23) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+#### Fix
+
+* remove `UMASK` as this is taken care from common ([#1503](https://github.com/truecharts/apps/issues/1503))
+
+
+
 <a name="qbittorrent-9.0.22"></a>
 ### [qbittorrent-9.0.22](https://github.com/truecharts/apps/compare/qbittorrent-9.0.21...qbittorrent-9.0.22) (2021-12-07)
 

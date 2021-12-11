@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-1.0.24"></a>
+### [sqlitebrowser-1.0.24](https://github.com/truecharts/apps/compare/sqlitebrowser-1.0.23...sqlitebrowser-1.0.24) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="sqlitebrowser-1.0.23"></a>
 ### [sqlitebrowser-1.0.23](https://github.com/truecharts/apps/compare/sqlitebrowser-1.0.22...sqlitebrowser-1.0.23) (2021-12-07)
 

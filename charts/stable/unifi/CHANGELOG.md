@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="unifi-9.0.21"></a>
+### [unifi-9.0.21](https://github.com/truecharts/apps/compare/unifi-9.0.20...unifi-9.0.21) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+* update non-major docker docker tags ([#1508](https://github.com/truecharts/apps/issues/1508))
+
+
+
 <a name="unifi-9.0.20"></a>
 ### [unifi-9.0.20](https://github.com/truecharts/apps/compare/unifi-9.0.19...unifi-9.0.20) (2021-12-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ser2sock-4.0.20"></a>
+### [ser2sock-4.0.20](https://github.com/truecharts/apps/compare/ser2sock-4.0.19...ser2sock-4.0.20) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="ser2sock-4.0.19"></a>
 ### [ser2sock-4.0.19](https://github.com/truecharts/apps/compare/ser2sock-4.0.18...ser2sock-4.0.19) (2021-12-07)
 

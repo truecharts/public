@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.3"></a>
+### [code-server-2.1.3](https://github.com/truecharts/apps/compare/code-server-2.1.2...code-server-2.1.3) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="code-server-2.1.2"></a>
 ### [code-server-2.1.2](https://github.com/truecharts/apps/compare/code-server-2.1.1...code-server-2.1.2) (2021-12-11)
 

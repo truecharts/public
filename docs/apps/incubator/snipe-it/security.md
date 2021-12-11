@@ -56,7 +56,7 @@ hide:
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/snipe-it:v5.3.3@sha256:e4e26d777996c34fba581dcb26f05843ece36797f032a01df7fed1f1e32898cb
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/mariadb:v10.6.5@sha256:4cf8cd4011193e7e022adfaf2914ec9ab9009af00be0d9d5a6d7ca0fd07c5f15
+          tccr.io/truecharts/mariadb:v10.6.5@sha256:393628e4fc0eb3f334c762c395477d85844294aedcdf5b0c88638a33a7ccb3f3
 
 ##### Scan Results
 
@@ -101,6 +101,7 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| laravel/framework         |    CVE-2021-43808   |   MEDIUM  |  v6.20.29 | 8.75.0, 7.30.6, 6.20.42 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43808">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43808</a><br><a href="https://github.com/advisories/GHSA-66hf-2p6w-jqfw">https://github.com/advisories/GHSA-66hf-2p6w-jqfw</a><br><a href="https://github.com/laravel/framework/commit/b8174169b1807f36de1837751599e2828ceddb9b">https://github.com/laravel/framework/commit/b8174169b1807f36de1837751599e2828ceddb9b</a><br><a href="https://github.com/laravel/framework/pull/39906">https://github.com/laravel/framework/pull/39906</a><br><a href="https://github.com/laravel/framework/pull/39908">https://github.com/laravel/framework/pull/39908</a><br><a href="https://github.com/laravel/framework/pull/39909">https://github.com/laravel/framework/pull/39909</a><br><a href="https://github.com/laravel/framework/releases/tag/v6.20.42">https://github.com/laravel/framework/releases/tag/v6.20.42</a><br><a href="https://github.com/laravel/framework/releases/tag/v7.30.6">https://github.com/laravel/framework/releases/tag/v7.30.6</a><br><a href="https://github.com/laravel/framework/releases/tag/v8.75.0">https://github.com/laravel/framework/releases/tag/v8.75.0</a><br><a href="https://github.com/laravel/framework/security/advisories/GHSA-66hf-2p6w-jqfw">https://github.com/laravel/framework/security/advisories/GHSA-66hf-2p6w-jqfw</a><br></details>  |
 | lcobucci/jwt         |    CVE-2021-41106   |   LOW  |  3.4.5 | 3.4.6, 4.0.4, 4.1.5 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-7322-jrq4-x5hf">https://github.com/advisories/GHSA-7322-jrq4-x5hf</a><br><a href="https://github.com/lcobucci/jwt/commit/8175de5b841fbe3fd97d2d49b3fc15c4ecb39a73">https://github.com/lcobucci/jwt/commit/8175de5b841fbe3fd97d2d49b3fc15c4ecb39a73</a><br><a href="https://github.com/lcobucci/jwt/commit/c45bb8b961a8e742d8f6b88ef5ff1bd5cca5d01c">https://github.com/lcobucci/jwt/commit/c45bb8b961a8e742d8f6b88ef5ff1bd5cca5d01c</a><br><a href="https://github.com/lcobucci/jwt/security/advisories/GHSA-7322-jrq4-x5hf">https://github.com/lcobucci/jwt/security/advisories/GHSA-7322-jrq4-x5hf</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41106">https://nvd.nist.gov/vuln/detail/CVE-2021-41106</a><br></details>  |
 
 
@@ -136,7 +137,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.6.5@sha256:4cf8cd4011193e7e022adfaf2914ec9ab9009af00be0d9d5a6d7ca0fd07c5f15 (debian 10.11)
+#### Container: tccr.io/truecharts/mariadb:v10.6.5@sha256:393628e4fc0eb3f334c762c395477d85844294aedcdf5b0c88638a33a7ccb3f3 (debian 10.11)
 
 
 **debian**

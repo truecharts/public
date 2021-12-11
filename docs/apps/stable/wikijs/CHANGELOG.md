@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.10"></a>
+### [wikijs-4.0.10](https://github.com/truecharts/apps/compare/wikijs-4.0.9...wikijs-4.0.10) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+#### Fix
+
+* use correct container ([#1489](https://github.com/truecharts/apps/issues/1489))
+
+
+
 <a name="wikijs-4.0.9"></a>
 ### [wikijs-4.0.9](https://github.com/truecharts/apps/compare/wikijs-4.0.8...wikijs-4.0.9) (2021-12-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.27"></a>
+### [komga-4.0.27](https://github.com/truecharts/apps/compare/komga-4.0.26...komga-4.0.27) (2021-12-11)
+
+#### Chore
+
+* update general helm non-major helm releases ([#1509](https://github.com/truecharts/apps/issues/1509))
+
+
+
 <a name="komga-4.0.26"></a>
 ### [komga-4.0.26](https://github.com/truecharts/apps/compare/komga-4.0.25...komga-4.0.26) (2021-12-11)
 

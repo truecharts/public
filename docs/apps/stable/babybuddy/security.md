@@ -61,10 +61,10 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.1.0@sha256:ff29616351d850a11f2dbd271420f89d6756d9ca78049f51a2a0a850b8c1f406
+          tccr.io/truecharts/postgresql:v14.1.0@sha256:2aa01c5c4525cfbcf1259f6bb34c5699b6744f9d3280f77e05912cc80e24184c
           tccr.io/truecharts/babybuddy:v1.9.2@sha256:6feddf02be1a213a2f0add253b888a716bb80526e680d1a80c6e7ad89f86e3ae
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.1.0@sha256:ff29616351d850a11f2dbd271420f89d6756d9ca78049f51a2a0a850b8c1f406
+          tccr.io/truecharts/postgresql:v14.1.0@sha256:2aa01c5c4525cfbcf1259f6bb34c5699b6744f9d3280f77e05912cc80e24184c
 
 ##### Scan Results
 
@@ -101,7 +101,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:ff29616351d850a11f2dbd271420f89d6756d9ca78049f51a2a0a850b8c1f406 (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:2aa01c5c4525cfbcf1259f6bb34c5699b6744f9d3280f77e05912cc80e24184c (debian 10.11)
 
 
 **debian**
@@ -333,6 +333,7 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| Django         |    CVE-2021-44420   |   MEDIUM  |  3.2.9 | 3.2.10, 3.1.14, 2.2.25 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44420">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44420</a><br><a href="https://docs.djangoproject.com/en/3.2/releases/security/">https://docs.djangoproject.com/en/3.2/releases/security/</a><br><a href="https://github.com/advisories/GHSA-v6rh-hp5x-86rv">https://github.com/advisories/GHSA-v6rh-hp5x-86rv</a><br><a href="https://github.com/django/django/commit/d4dcd5b9dd9e462fec8220e33e3e6c822b7e88a6">https://github.com/django/django/commit/d4dcd5b9dd9e462fec8220e33e3e6c822b7e88a6</a><br><a href="https://groups.google.com/forum/#!forum/django-announce">https://groups.google.com/forum/#!forum/django-announce</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-44420">https://nvd.nist.gov/vuln/detail/CVE-2021-44420</a><br><a href="https://ubuntu.com/security/notices/USN-5178-1">https://ubuntu.com/security/notices/USN-5178-1</a><br><a href="https://www.djangoproject.com/weblog/2021/dec/07/security-releases/">https://www.djangoproject.com/weblog/2021/dec/07/security-releases/</a><br><a href="https://www.openwall.com/lists/oss-security/2021/12/07/1">https://www.openwall.com/lists/oss-security/2021/12/07/1</a><br></details>  |
 | reportlab         |    CVE-2020-28463   |   MEDIUM  |  3.6.2 |  | <details><summary>Expand...</summary><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1930417">https://bugzilla.redhat.com/show_bug.cgi?id=1930417</a><br><a href="https://github.com/advisories/GHSA-mpvw-25mg-59vx">https://github.com/advisories/GHSA-mpvw-25mg-59vx</a><br><a href="https://hg.reportlab.com/hg-public/reportlab/file/f094d273903a/CHANGES.md#l71">https://hg.reportlab.com/hg-public/reportlab/file/f094d273903a/CHANGES.md#l71</a><br><a href="https://hg.reportlab.com/hg-public/reportlab/rev/7f2231703dc7">https://hg.reportlab.com/hg-public/reportlab/rev/7f2231703dc7</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HMUJA5GZTPQ5WRYUCCK2GEZM4W43N7HH/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/HMUJA5GZTPQ5WRYUCCK2GEZM4W43N7HH/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/YZQSFCID67K6BTC655EQY6MNOF35QI44/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/YZQSFCID67K6BTC655EQY6MNOF35QI44/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28463">https://nvd.nist.gov/vuln/detail/CVE-2020-28463</a><br><a href="https://snyk.io/vuln/SNYK-PYTHON-REPORTLAB-1022145">https://snyk.io/vuln/SNYK-PYTHON-REPORTLAB-1022145</a><br><a href="https://www.reportlab.com/docs/reportlab-userguide.pdf">https://www.reportlab.com/docs/reportlab-userguide.pdf</a><br></details>  |
 
 
@@ -368,7 +369,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:ff29616351d850a11f2dbd271420f89d6756d9ca78049f51a2a0a850b8c1f406 (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:2aa01c5c4525cfbcf1259f6bb34c5699b6744f9d3280f77e05912cc80e24184c (debian 10.11)
 
 
 **debian**
