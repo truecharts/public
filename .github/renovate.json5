@@ -47,8 +47,8 @@
       "updateTypes": ["major"],
       "automerge": false,
       "bumpVersion": "major",
-      "labels": ["dependency/helm/major"],
-      "groupName": ["dependency helm major"],
+      "labels": ["update/helm/dependency/major"],
+      "groupName": ["helm dependency major"],
       "paths": ["charts/dependency/"],
       "schedule": [
         "after 3am and before 4am  on tuesday"
@@ -62,12 +62,12 @@
         "patch"
       ],
       "bumpVersion": "patch",
-      "labels": ["dependency/helm/non-major"],
+      "labels": ["update/helm/dependency/non-major"],
       "paths": ["charts/dependency/"],
       "schedule": [
         "after 3am and before 4am  on tuesday"
       ],
-      "groupName": "dependency helm non-major",
+      "groupName": "helm dependency non-major",
     },
     //
     // helm charts
@@ -76,8 +76,8 @@
       "matchDatasources": ["helm"],
       "updateTypes": ["major"],
       "bumpVersion": "major",
-      "labels": ["general/helm/major"],
-      "groupName": ["general helm major"],
+      "labels": ["update/helm/general/major"],
+      "groupName": ["helm general major"],
       "paths": ["charts/incubator/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 6am and before 7am  on tuesday"
@@ -91,8 +91,8 @@
         "patch"
       ],
       "bumpVersion": "patch",
-      "labels": ["general/helm/non-major"],
-      "groupName": "general helm non-major",
+      "labels": ["update/helm/general/non-major"],
+      "groupName": "helm general non-major",
       "paths": ["charts/incubator/", "charts/dev/", "charts/enterprise/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 6am and before 7am  on tuesday"
@@ -105,8 +105,8 @@
       "matchDatasources": ["docker"],
       "updateTypes": ["major"],
       "bumpVersion": "patch",
-      "labels": ["tag/enterprise/major"],
-      "groupName": ["enterprise major docker"],
+      "labels": ["update/docker/enterprise/major"],
+      "groupName": ["docker enterprise  major"],
       "paths": ["charts/enterprise/"],
       "schedule": [
         "after 1am and before 2am  on monday"
@@ -119,8 +119,8 @@
         "minor",
       ],
       "bumpVersion": "patch",
-      "labels": ["tag/enterprise/minor"],
-      "groupName": ["enterprise minor docker"],
+      "labels": ["update/docker/enterprise/minor"],
+      "groupName": ["docker enterprise  minor"],
       "paths": ["charts/enterprise/"],
       "schedule": [
         "after 1am and before 2am  on monday"
@@ -135,8 +135,8 @@
         "pin",
       ],
       "bumpVersion": "patch",
-      "labels": ["tag/enterprise/non-minor"],
-      "groupName": ["enterprise patch docker"],
+      "labels": ["update/docker/enterprise/patch"],
+      "groupName": ["docker enterprise patch"],
       "paths": ["charts/enterprise/"],
       "schedule": [
         "after 1am and before 2am  on monday"
@@ -149,8 +149,8 @@
       "matchDatasources": ["docker"],
       "updateTypes": ["major"],
       "bumpVersion": "patch",
-      "labels": ["tag/major"],
-      "groupName": ["major docker"],
+      "labels": ["update/docker/general/major"],
+      "groupName": ["docker general major"],
       "paths": ["charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 1am and before 2am  on monday"
@@ -166,8 +166,8 @@
         "pin",
       ],
       "bumpVersion": "patch",
-      "labels": ["tag/non-minor"],
-      "groupName": ["non-major docker"],
+      "labels": ["update/docker/general/non-major"],
+      "groupName": ["docker general non-major"],
       "paths": ["charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 1am and before 2am  on monday"
