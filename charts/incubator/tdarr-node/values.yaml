@@ -23,8 +23,8 @@ service:
   main:
     ports:
       main:
-        targetPort: 8267
         port: 8267
+        targetPort: 8267
 
 persistence:
   configs:
