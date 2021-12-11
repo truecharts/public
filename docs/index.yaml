@@ -1213,6 +1213,41 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/mariadb-1.0.25/mariadb-1.0.25.tgz
     version: 1.0.25
+  mealie:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - utilities
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.5.4
+    created: "2021-12-11T10:00:25.58357039Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.15
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.24
+    description: Mealie is a self hosted recipe manager and meal planner with a RestAPI
+      backend
+    digest: 1f4896d2344d28add8cf0f1d925089dd7da4b364a0848459905479c0dbc1320a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/mealie
+    icon: https://raw.githubusercontent.com/hay-kot/mealie/gh-pages/assets/img/favicon.png
+    keywords:
+    - grocy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: mealie
+    sources:
+    - https://github.com/hay-kot/mealie
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mealie-5.0.0/mealie-5.0.0.tgz
+    version: 5.0.0
   memcached:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -2188,4 +2223,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-08T15:36:21.593411173Z"
+generated: "2021-12-11T10:00:25.583727889Z"

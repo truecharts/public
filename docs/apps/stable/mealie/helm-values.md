@@ -12,8 +12,14 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://hay-kot.github.io/mealie/getting-started/install/#env-variables) for more details. |
-| env.DB_TYPE | string | `"sqlite"` | Set the application database type |
 | env.TZ | string | `"UTC"` | Set the container timezone |
+| envTpl.DB_TYPE | string | `"postgres"` |  |
+| envTpl.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
+| envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
+| envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
+| envValueFrom.POSTGRES_SERVER.secretKeyRef.key | string | `"plainporthost"` |  |
+| envValueFrom.POSTGRES_SERVER.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/mealie"` | image repository |
 | image.tag | string | `"v0.5.4@sha256:52a05feaf3cac813c0540e8c59b0f99900662558254c657e9d0335f0d9c8b4a9"` | image tag |
@@ -21,6 +27,10 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| postgresql.enabled | bool | `true` |  |
+| postgresql.existingSecret | string | `"dbcreds"` |  |
+| postgresql.postgresqlDatabase | string | `"mealie"` |  |
+| postgresql.postgresqlUsername | string | `"mealie"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |

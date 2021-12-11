@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mealie-5.0.0"></a>
+### [mealie-5.0.0](https://github.com/truecharts/apps/compare/mealie-4.0.20...mealie-5.0.0) (2021-12-11)
+
+#### Feat
+
+* add pgsql support ([#1504](https://github.com/truecharts/apps/issues/1504))
+
+
+
 <a name="mealie-4.0.20"></a>
 ### [mealie-4.0.20](https://github.com/truecharts/apps/compare/mealie-4.0.19...mealie-4.0.20) (2021-12-07)
 
