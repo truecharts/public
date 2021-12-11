@@ -102,8 +102,8 @@ questions:
           label: "PUID"
           description: "Sets the userID inside the container"
           schema:
-            type: string
-            default: "568"
+            type: int
+            default: 568
         - variable: CLI_ARGS
           label: "CLI_ARGS"
           description: "Optionally pass cli start arguments to calibre"
