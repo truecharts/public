@@ -272,7 +272,7 @@ questions:
                 label: "Privileged mode"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: readOnlyRootFilesystem
                 label: "ReadOnly Root Filesystem"
                 schema:
@@ -282,7 +282,7 @@ questions:
                 label: "Allow Privilege Escalation"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: runAsNonRoot
                 label: "runAsNonRoot"
                 schema:
