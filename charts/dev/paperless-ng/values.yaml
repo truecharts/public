@@ -13,8 +13,6 @@ podSecurityContext:
 env:
   PUID: 568
 
-# Supports redis only if we can provide every info with a single line url (pass, user, db, host), otherwise it will use internal redis
-
 service:
   main:
     ports:
