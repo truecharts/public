@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-5.0.2"></a>
+### [openldap-5.0.2](https://github.com/truecharts/apps/compare/openldap-5.0.1...openldap-5.0.2) (2021-12-12)
+
+#### Fix
+
+* remove required setting on booleans in questions
+
+
+
 <a name="openldap-5.0.1"></a>
 ### [openldap-5.0.1](https://github.com/truecharts/apps/compare/openldap-5.0.0...openldap-5.0.1) (2021-12-11)
 
