@@ -109,7 +109,7 @@
       "groupName": ["docker enterprise  major"],
       "paths": ["charts/enterprise/"],
       "schedule": [
-        "after 1am and before 2am  on monday"
+        "after 1am and before 2am on monday"
       ],
     },
     {
@@ -123,7 +123,7 @@
       "groupName": ["docker enterprise  minor"],
       "paths": ["charts/enterprise/"],
       "schedule": [
-        "after 1am and before 2am  on monday"
+        "after 1am and before 2am on monday"
       ],
     },
     {
@@ -139,7 +139,7 @@
       "groupName": ["docker enterprise patch"],
       "paths": ["charts/enterprise/"],
       "schedule": [
-        "after 1am and before 2am  on monday"
+        "after 1am and before 2am on monday"
       ],
     },
     //
@@ -151,7 +151,7 @@
       "bumpVersion": "patch",
       "labels": ["update/docker/general/major"],
       "groupName": ["docker general major"],
-      "paths": ["charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
+      "paths": ["charts/dependency/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 1am and before 2am  on monday"
       ],
@@ -168,7 +168,7 @@
       "bumpVersion": "patch",
       "labels": ["update/docker/general/non-major"],
       "groupName": ["docker general non-major"],
-      "paths": ["charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
+      "paths": ["charts/dependency/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 1am and before 2am  on monday"
       ],
