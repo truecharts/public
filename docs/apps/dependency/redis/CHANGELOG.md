@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.33"></a>
+### [redis-1.0.33](https://github.com/truecharts/apps/compare/redis-1.0.32...redis-1.0.33) (2021-12-12)
+
+#### Chore
+
+* update container image ghcr.io/truecharts/redis to v6.2.6 ([#1517](https://github.com/truecharts/apps/issues/1517))
+
+
+
 <a name="redis-1.0.32"></a>
 ### [redis-1.0.32](https://github.com/truecharts/apps/compare/redis-1.0.31...redis-1.0.32) (2021-12-11)
 

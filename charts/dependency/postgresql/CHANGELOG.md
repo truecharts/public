@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.28"></a>
+### [postgresql-6.0.28](https://github.com/truecharts/apps/compare/postgresql-6.0.27...postgresql-6.0.28) (2021-12-12)
+
+#### Chore
+
+* update container image ghcr.io/truecharts/postgresql to v14.1.0 ([#1515](https://github.com/truecharts/apps/issues/1515))
+
+
+
 <a name="postgresql-6.0.27"></a>
 ### [postgresql-6.0.27](https://github.com/truecharts/apps/compare/postgresql-6.0.26...postgresql-6.0.27) (2021-12-11)
 

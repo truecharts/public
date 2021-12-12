@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/freeradius"` |  |
-| image.tag | string | `"v3.0.23@sha256:fea3fcb694619b5bc8899adcd6f2f3384a59399867bb096f2bb9205e428fc90b"` |  |
+| image.tag | string | `"v3.0.25@sha256:071d2533ecfe74993de840359c939cf6fd25d4ea34322bf6211055e0e5e9d96f"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/raddb"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.31"></a>
+### [memcached-1.0.31](https://github.com/truecharts/apps/compare/memcached-1.0.30...memcached-1.0.31) (2021-12-12)
+
+#### Chore
+
+* update container image ghcr.io/truecharts/memcached to v1.6.12 ([#1516](https://github.com/truecharts/apps/issues/1516))
+
+
+
 <a name="memcached-1.0.30"></a>
 ### [memcached-1.0.30](https://github.com/truecharts/apps/compare/memcached-1.0.29...memcached-1.0.30) (2021-12-11)
 

@@ -62,7 +62,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:2aa01c5c4525cfbcf1259f6bb34c5699b6744f9d3280f77e05912cc80e24184c
-          tccr.io/truecharts/babybuddy:v1.9.2@sha256:6feddf02be1a213a2f0add253b888a716bb80526e680d1a80c6e7ad89f86e3ae
+          tccr.io/truecharts/babybuddy:v1.9.2@sha256:776a2f9571321b752dcd0d7dd107c5563806f0dde8689674303f7b190dc96b8c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:2aa01c5c4525cfbcf1259f6bb34c5699b6744f9d3280f77e05912cc80e24184c
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freeradius-4.0.23"></a>
+### [freeradius-4.0.23](https://github.com/truecharts/apps/compare/freeradius-4.0.22...freeradius-4.0.23) (2021-12-12)
+
+#### Chore
+
+* update docker general non-major ([#1518](https://github.com/truecharts/apps/issues/1518))
+
+
+
 <a name="freeradius-4.0.22"></a>
 ### [freeradius-4.0.22](https://github.com/truecharts/apps/compare/freeradius-4.0.21...freeradius-4.0.22) (2021-12-11)
 

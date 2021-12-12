@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.31"></a>
+### [mariadb-1.0.31](https://github.com/truecharts/apps/compare/mariadb-1.0.30...mariadb-1.0.31) (2021-12-12)
+
+#### Chore
+
+* update container image ghcr.io/truecharts/mariadb to v10.6.5 ([#1514](https://github.com/truecharts/apps/issues/1514))
+
+
+
 <a name="mariadb-1.0.30"></a>
 ### [mariadb-1.0.30](https://github.com/truecharts/apps/compare/mariadb-1.0.29...mariadb-1.0.30) (2021-12-11)
 

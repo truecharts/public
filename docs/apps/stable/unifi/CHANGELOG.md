@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-9.0.22"></a>
+### [unifi-9.0.22](https://github.com/truecharts/apps/compare/unifi-9.0.21...unifi-9.0.22) (2021-12-12)
+
+#### Chore
+
+* update docker general non-major ([#1518](https://github.com/truecharts/apps/issues/1518))
+
+
+
 <a name="unifi-9.0.21"></a>
 ### [unifi-9.0.21](https://github.com/truecharts/apps/compare/unifi-9.0.20...unifi-9.0.21) (2021-12-11)
 
