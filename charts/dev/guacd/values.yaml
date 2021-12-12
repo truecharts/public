@@ -1,0 +1,25 @@
+image:
+  repository: tccr.io/truecharts/guacd
+  pullPolicy: IfNotPresent
+  tag: v1.3.0
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 4822
+        port: 4822
+
+persistence:
+  varrun:
+    enabled: true

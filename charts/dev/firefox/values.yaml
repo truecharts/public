@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/firefox
+  pullPolicy: IfNotPresent
+  tag: v78.15.0
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10131
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

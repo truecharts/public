@@ -1,0 +1,39 @@
+image:
+  repository: tccr.io/truecharts/minisatip
+  pullPolicy: IfNotPresent
+  tag: v2021.12.01
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8875
+        port: 8875
+  rtsp:
+    ports:
+      rtsp:
+        targetPort: 554
+        port: 554
+  discovery:
+    ports:
+      discovery:
+        protocol: UDP
+        targetPort: 1900
+        port: 1900
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

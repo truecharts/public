@@ -1,0 +1,34 @@
+image:
+  repository: tccr.io/truecharts/pylon
+  pullPolicy: IfNotPresent
+  tag: v2.7.0
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  PYUSER: ""
+  PYPASS: ""
+
+env:
+  PUID: 568
+  GITURL: ""
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3131
+        port: 3131
+
+persistence:
+  code:
+    enabled: true
+    mountPath: "/code"
+  varrun:
+    enabled: true

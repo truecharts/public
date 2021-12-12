@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/ddclient
+  pullPolicy: IfNotPresent
+  tag: v3.9.1
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

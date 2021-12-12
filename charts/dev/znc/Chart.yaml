@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: znc
+version: 0.0.1
+appVersion: 1.0.0
+description: Znc is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/znc
+icon: https://wiki.znc.in/resources/assets/wiki.png
+keywords:
+  - znc
+sources:
+  - https://hub.docker.com/r/linuxserver/znc
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.16
+  # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

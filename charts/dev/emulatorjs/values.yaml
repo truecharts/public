@@ -1,0 +1,38 @@
+image:
+  repository: tccr.io/truecharts/emulatorjs
+  pullPolicy: IfNotPresent
+  tag: v1.4.2
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 3000
+        port: 10130
+  front:
+    ports:
+      front:
+        targetPort: 80
+        port: 10124
+  ipfs:
+    ports:
+      ipfs:
+        targetPort: 4001
+        port: 10138
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  varrun:
+    enabled: true

@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/paperless-ng
+  pullPolicy: IfNotPresent
+  tag: v1.5.0
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8000
+        port: 10140
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

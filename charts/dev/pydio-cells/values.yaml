@@ -1,0 +1,34 @@
+image:
+  repository: tccr.io/truecharts/pydio-cells
+  pullPolicy: IfNotPresent
+  tag: v3.0.3
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+  EXTERNALURL: ""
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        port: 10150
+  gprc:
+    ports:
+      gprc:
+        targetPort: 33060
+        port: 33060
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true

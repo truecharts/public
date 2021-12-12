@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: foldingathome
+version: 0.0.1
+appVersion: 1.0.0
+description: Folding@home is a distributed computing project for simulating protein dynamics, including the process of protein folding and the movements of proteins implicated in a variety of diseases.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/foldingathome
+icon: https://foldingathome.org/wp-content/uploads/2016/09/folding-at-home-logo.png
+keywords:
+  - foldingathome
+sources:
+  - https://hub.docker.com/r/linuxserver/foldingathome
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.16
+  # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

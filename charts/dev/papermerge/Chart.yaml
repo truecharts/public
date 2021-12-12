@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: papermerge
+version: 0.0.1
+appVersion: 1.0.0
+description: Papermerge is an open source document management system (DMS) primarily designed for archiving and retrieving your digital documents.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/papermerge
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/papermerge-icon.png
+keywords:
+  - papermerge
+sources:
+  - https://hub.docker.com/r/linuxserver/papermerge
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.16
+  # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

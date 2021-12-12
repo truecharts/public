@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/nntp2nntp
+  pullPolicy: IfNotPresent
+  tag: v0.3.20211116
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 1563
+        port: 1563
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  varrun:
+    enabled: true
