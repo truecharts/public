@@ -5,13 +5,13 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 
 ## Core Apps
 
-| App         |    Service   |   Port Name  |  Port | Protocol |                   Note                   |
-|:------------|:------------:|:------------:|:-----:|:--------:|:----------------------------------------:|
-| k8s-gateway |     main     |     main     |   53  |    UDP   |      Potential conflict with pihole      |
-| traefik     |     main     |     main     |  9000 |   HTTP   | Potential conflict with minio (Official) |
-| traefik     |      tcp     |      web     |  9080 |   HTTP   | Adviced to be moved to port 80           |
-| traefik     |    metrics   |    metrics   |  9100 |   HTTP   |                                          |
-| traefik     |      tcp     |   websecure  |  9443 |   HTTPS  |  Adviced to be moved to port 443         |
+| App         |   Service    |  Port Name   | Port  | Protocol |                   Note                   |
+| :---------- | :----------: | :----------: | :---: | :------: | :--------------------------------------: |
+| k8s-gateway |     main     |     main     |  53   |   UDP    |      Potential conflict with pihole      |
+| traefik     |     main     |     main     | 9000  |   HTTP   | Potential conflict with minio (Official) |
+| traefik     |     tcp      |     web      | 9080  |   HTTP   |      Adviced to be moved to port 80      |
+| traefik     |   metrics    |   metrics    | 9100  |   HTTP   |                                          |
+| traefik     |     tcp      |  websecure   | 9443  |  HTTPS   |     Adviced to be moved to port 443      |
 | prometheus  |     main     |     main     | 10086 |   HTTP   |                                          |
 | prometheus  | alertmanager | alertmanager | 10087 |   HTTP   |                                          |
 | prometheus  |    promop    |    promop    | 10089 |   HTTP   |                                          |
@@ -29,39 +29,79 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | unpackerr                  |       main      |       main      |   -   |     -    |             Service disabled            |
 | unpoller                   |       main      |       main      |   -   |     -    |             Service disabled            |
 | uptimerobot-prometheus     |       main      |       main      |   -   |     -    |             Service disabled            |
+| ddclient                   |       main      |       main      |   -   |     -    |             Service disabled            |
+| duckdns                    |       main      |       main      |   -   |     -    |             Service disabled            |
+| webgrabplus                |       main      |       main      |   -   |     -    |             Service disabled            |
+| rsnapshot                  |       main      |       main      |   -   |     -    |             Service disabled            |
 | protonmail-bridge          |       smtp      |       smtp      |   25  |    TCP   | Potential conflict with other smtp apps |
 | anonaddy                   |       smtp      |       smtp      |   25  |    TCP   | Potential conflict with other smtp apps |
 | pihole                     |     dns-tcp     |     dns-tcp     |   53  |    TCP   |   Potential conflict with k8s-gateway   |
 | pihole                     |       dns       |       dns       |   53  |    UDP   |   Potential conflict with k8s-gateway   |
+| chevereto                  |       main      |       main      |   80  |    TCP   |                                         |
+| dokuwiki                   |       main      |       main      |   80  |    TCP   |                                         |
+| emulatorjs                 |      front      |      front      |   80  |    TCP   |                                         |
+| ipfs                       |       main      |       main      |   80  |    TCP   |                                         |
+| nano-wallet                |       main      |       main      |   80  |    TCP   |                                         |
+| projectsend                |       main      |       main      |   80  |    TCP   |                                         |
 | openldap                   |       main      |       main      |  389  |    TCP   |                                         |
+| minisatip                  |       rtsp      |       rtsp      |  554  |    TCP   |                                         |
 | openldap                   |      ldaps      |      ldaps      |  636  |    TCP   |                                         |
+| domoticz                   |      comm2      |      comm2      |  1443 |    TCP   |                                         |
+| nntp2nntp                  |       main      |       main      |  1563 |    TCP   |                                         |
 | kms                        |       main      |       main      |  1688 |    TCP   |                                         |
 | freeradius                 |       main      |       main      |  1812 |    UDP   |                                         |
 | freeradius                 |    accounting   |    accounting   |  1813 |    UDP   |                                         |
 | node-red                   |       main      |       main      |  1880 |    TCP   |                                         |
 | mosquitto                  |       main      |       main      |  1883 |    TCP   |                                         |
+| minisatip                  |    discovery    |    discovery    |  1900 |    UDP   |                                         |
 | owncast                    |       rtmp      |       rtmp      |  1935 |    TCP   |                                         |
+| ubooquity                  |       main      |       main      |  2202 |    TCP   |                                         |
 | gitea                      |       ssh       |       ssh       |  2222 |    TCP   |                                         |
+| endlessh                   |       main      |       main      |  2222 |    TCP   |                                         |
 | photoprism                 |       main      |       main      |  2342 |    TCP   |                                         |
 | valheim                    |     valheim     |    valheim-1    |  2456 |    UDP   |                                         |
 | valheim                    |     valheim     |    valheim-2    |  2457 |    UDP   |                                         |
 | valheim                    |     valheim     |    valheim-3    |  2458 |    UDP   |                                         |
 | sqlitebrowser              |       main      |       main      |  3000 |    TCP   |                                         |
+| darktable                  |       main      |       main      |  3000 |    TCP   |                                         |
+| emulatorjs                 |       main      |       main      |  3000 |    TCP   |                                         |
+| firefox                    |       main      |       main      |  3000 |    TCP   |                                         |
+| hedgedoc                   |       main      |       main      |  3000 |    TCP   |                                         |
+| libreoffice                |       main      |       main      |  3000 |    TCP   |                                         |
+| mysql-workbench            |       main      |       main      |  3000 |    TCP   |                                         |
+| openvscode-server          |       main      |       main      |  3000 |    TCP   |                                         |
+| pidgin                     |       main      |       main      |  3000 |    TCP   |                                         |
+| wireshark                  |       main      |       main      |  3000 |    TCP   |                                         |
 | uptime-kuma                |       main      |       main      |  3001 |    TCP   |                                         |
 | vaultwarden                |        ws       |        ws       |  3012 |    TCP   |                                         |
 | loki                       |       main      |       main      |  3100 |   HTTP   |                                         |
 | jdownloader2               |       myjd      |       myjd      |  3129 |    TCP   |                                         |
+| pylon                      |       main      |       main      |  3131 |    TCP   |                                         |
 | unifi                      |       stun      |     mstunain    |  3478 |    UDP   |                                         |
 | logitech-media-server      |    playertcp    |   slimprototcp  |  3483 |    TCP   |                                         |
 | logitech-media-server      |    playerudp    |   slimprotoudp  |  3483 |    UDP   |                                         |
 | ombi                       |       main      |       main      |  3579 |    TCP   |                                         |
+| emulatorjs                 |       ipfs      |       ipfs      |  4001 |    TCP   |                                         |
+| ipfs                       |       peer      |       peer      |  4001 |    TCP   |                                         |
+| quassel-core               |       main      |       main      |  4242 |    TCP   |                                         |
 | navidrome                  |       main      |       main      |  4533 |    TCP   |                                         |
+| requestrr                  |       main      |       main      |  4545 |    TCP   |                                         |
+| guacd                      |       main      |       main      |  4822 |    TCP   |                                         |
+| ipfs                       |       api       |       api       |  5001 |    TCP   |                                         |
 | appdaemon                  |       main      |       main      |  5050 |    TCP   |                                         |
+| couchpotato                |       main      |       main      |  5050 |    TCP   |                                         |
 | overseer                   |       main      |       main      |  5055 |    TCP   |                                         |
 | nzbhydra                   |       main      |       main      |  5076 |    TCP   |                                         |
 | lazylibrarian              |       main      |       main      |  5299 |    TCP   |                                         |
+| syslog-ng                  |    syslog-udp   |    syslog-udp   |  5514 |    UDP   |                                         |
 | esphome                    |       main      |       main      |  6052 |    TCP   |                                         |
 | novnc                      |       main      |       main      |  6080 |    TCP   |                                         |
+| domoticz                   |      comm1      |      comm1      |  6144 |    TCP   |                                         |
+| znc                        |       main      |       main      |  6501 |    TCP   |                                         |
+| syslog-ng                  |    syslog-tls   |    syslog-tls   |  6514 |    TCP   |                                         |
+| embystat                   |       main      |       main      |  6555 |    TCP   |                                         |
+| syslog-ng                  |       main      |       main      |  6601 |    TCP   |                                         |
+| ngircd                     |       main      |       main      |  6667 |    TCP   |                                         |
 | bazarr                     |       main      |       main      |  6767 |    TCP   |                                         |
 | unifi                      |    speedtest    |    speedtest    |  6789 |    TCP   |                                         |
 | aria2                      |       main      |       main      |  6800 |    TCP   |                                         |
@@ -69,17 +109,32 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | qbittorrent                |    torrentudp   |    torrentudp   |  6881 |    UDP   |                                         |
 | aria2                      |      listen     |      listen     |  6888 |    TCP   |                                         |
 | logitech-media-server      |       main      |       main      |  7000 |    TCP   |                                         |
+| foldingathome              |       main      |       main      |  7396 |    TCP   |                                         |
 | haste-server               |       main      |       main      |  7777 |    TCP   |                                         |
 | nextcloud                  |       hpb       |       hpb       |  7867 |    TCP   |                                         |
 | radarr                     |       main      |       main      |  7878 |    TCP   |                                         |
-| omada-controller           |    main         |    main         |  8043 |    TCP   |                                         |
+| paperless-ng               |       main      |       main      |  8000 |    TCP   |                                         |
+| papermerge                 |       main      |       main      |  8000 |    TCP   |                                         |
+| omada-controller           |       main      |       main      |  8043 |    TCP   |                                         |
 | odoo                       |       main      |       main      |  8069 |    TCP   |                                         |
 | odoo                       |       odoo      |      odoo-1     |  8071 |    TCP   |                                         |
 | odoo                       |       odoo      |      odoo-2     |  8072 |    TCP   |                                         |
 | unifi                      |       comm      |       comm      |  8080 |    TCP   |                                         |
+| boinc                      |       main      |       main      |  8080 |    TCP   |                                         |
+| dillinger                  |       main      |       main      |  8080 |    TCP   |                                         |
+| domoticz                   |       main      |       main      |  8080 |    TCP   |                                         |
+| fleet                      |       main      |       main      |  8080 |    TCP   |                                         |
+| habridge                   |       main      |       main      |  8080 |    TCP   |                                         |
+| ipfs                       |     gateway     |     gateway     |  8080 |    TCP   |                                         |
+| kodi-headless              |       main      |       main      |  8080 |    TCP   |                                         |
+| pwndrop                    |       main      |       main      |  8080 |    TCP   |                                         |
+| pydio-cells                |       main      |       main      |  8080 |    TCP   |                                         |
+| scrutiny                   |       main      |       main      |  8080 |    TCP   |                                         |
 | calibre                    |    webserver    |    webserver    |  8081 |    TCP   |                                         |
 | traccar                    |       main      |       main      |  8082 |    TCP   |                                         |
 | calibre                    |       main      |       main      |  8083 |    TCP   |                                         |
+| htpcmanager                |       main      |       main      |  8085 |    TCP   |                                         |
+| synclounge                 |       main      |       main      |  8088 |    TCP   |                                         |
 | mylar                      |       main      |       main      |  8090 |    TCP   |                                         |
 | zwavejs2mqtt               |       main      |       main      |  8091 |    TCP   |                                         |
 | jellyfin                   |       main      |       main      |  8096 |    TCP   |                                         |
@@ -88,29 +143,32 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | tautulli                   |       main      |       main      |  8181 |    TCP   |                                         |
 | flaresolverr               |       main      |       main      |  8191 |    TCP   |                                         |
 | duplicati                  |       main      |       main      |  8200 |    TCP   |                                         |
-| tdarr                      |    main         |    main         |  8265 |    TCP   |                                         |
-| tdarr                      |    comm         |    comm         |  8266 |    TCP   |                                         |
-| tdarr-node                 |    main         |    main         |  8267 |    TCP   |                                         |
+| tdarr                      |       main      |       main      |  8265 |    TCP   |                                         |
+| tdarr                      |       comm      |       comm      |  8266 |    TCP   |                                         |
+| tdarr-node                 |       main      |       main      |  8267 |    TCP   |                                         |
 | beets                      |       main      |       main      |  8337 |    TCP   |                                         |
 | syncthing                  |       main      |       main      |  8384 |    TCP   |                                         |
 | unifi                      |       main      |       main      |  8443 |   HTTPS  |                                         |
 | gaps                       |       main      |       main      |  8484 |    TCP   |                                         |
 | lidarr                     |       main      |       main      |  8686 |    TCP   |                                         |
 | readarr                    |       main      |       main      |  8787 |    TCP   |                                         |
-| unifi                      |   guestportal   |       web       |  8880 |   HTTP   |                                         |
 | unifi                      |   guestportal   |    websecure    |  8843 |   HTTPS  |                                         |
+| minisatip                  |       main      |       main      |  8875 |    TCP   |                                         |
+| unifi                      |   guestportal   |       web       |  8880 |   HTTP   |                                         |
 | resilio-sync               |       main      |       main      |  8888 |    TCP   |                                         |
 | sonarr                     |       main      |       main      |  8989 |    TCP   |                                         |
 | valheim                    |       main      |       main      |  9010 |    TCP   |                                         |
 | valheim                    |    supervisor   |    supervisor   |  9011 |    TCP   |                                         |
 | pihole                     |       main      |       main      |  9089 |    TCP   |                                         |
 | minio-console              |       main      |       main      |  9090 |    TCP   |                                         |
+| kodi-headless              |    websocket    |    websocket    |  9090 |    TCP   |                                         |
 | authelia                   |       main      |       main      |  9091 |    TCP   |                                         |
 | jacket                     |       main      |       main      |  9117 |   HTTP   |                                         |
 | unpoller                   |       main      |     metrics     |  9130 |    TCP   |                                         |
 | owncloud-ocis              |       main      |       main      |  9200 |    TCP   |                                         |
 | prowlarr                   |       main      |       main      |  9696 |    TCP   |                                         |
 | uptimerobot-prometheus     |       main      |     metrics     |  9705 |    TCP   |                                         |
+| kodi-headless              |      esall      |      esall      |  9777 |    UDP   |                                         |
 | speedtest-exporter         |       main      |     metrics     |  9798 |    TCP   |                                         |
 | tvheadend                  |       main      |       main      |  9981 |    TCP   |                                         |
 | tvheadend                  |       htsp      |       htsp      |  9982 |    TCP   |                                         |
@@ -226,11 +284,12 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | blog                       |       main      |       main      | 10111 |    TCP   |                                         |
 | bookstack                  |       main      |       main      | 10112 |    TCP   |                                         |
 | clarkson                   |       main      |       main      | 10113 |    TCP   |                                         |
+| quassel-core               |      ident      |      ident      | 10113 |    TCP   |                                         |
 | icinga2                    |       main      |       main      | 10114 |    TCP   |                                         |
-| icinga2                    |      https      |       https     | 10115 |    TCP   |                                         |
+| icinga2                    |      https      |      https      | 10115 |    TCP   |                                         |
 | icinga2                    |       api       |       api       | 10116 |    TCP   |                                         |
 | leantime                   |       main      |       main      | 10117 |    TCP   |                                         |
-| leantime                   |       extra     |       extra     | 10118 |    UDP   |                                         |
+| leantime                   |      extra      |      extra      | 10118 |    UDP   |                                         |
 | monica                     |       main      |       main      | 10119 |    TCP   |                                         |
 | snipe-it                   |       main      |       main      | 10120 |    TCP   |                                         |
 | xbackbone                  |       main      |       main      | 10121 |    TCP   |                                         |
@@ -241,17 +300,21 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | syncthing                  |    listeners    |       tcp       | 22000 |    TCP   |                                         |
 | syncthing                  |  listeners-udp  |       udp       | 22000 |    UDP   |                                         |
 | joplin-server              |       main      |       main      | 22300 |    TCP   |                                         |
-| omada-controller           | omada-tcp       | omada-tcp1      | 29810 |    TCP   |                                         |
-| omada-controller           | omada-udp       | omada-udp1      | 29810 |    UDP   |                                         |
-| omada-controller           | omada-tcp       | omada-tcp2      | 29811 |    TCP   |                                         |
-| omada-controller           | omada-udp       | omada-udp2      | 29811 |    UDP   |                                         |
-| omada-controller           | omada-tcp       | omada-tcp3      | 29812 |    TCP   |                                         |
-| omada-controller           | omada-udp       | omada-udp3      | 29812 |    UDP   |                                         |
-| omada-controller           | omada-tcp       | omada-tcp4      | 29813 |    TCP   |                                         |
-| omada-controller           | omada-udp       | omada-udp4      | 29813 |    UDP   |                                         |
+| omada-controller           |    omada-tcp    |    omada-tcp1   | 29810 |    TCP   |                                         |
+| omada-controller           |    omada-udp    |    omada-udp1   | 29810 |    UDP   |                                         |
+| omada-controller           |    omada-tcp    |    omada-tcp2   | 29811 |    TCP   |                                         |
+| omada-controller           |    omada-udp    |    omada-udp2   | 29811 |    UDP   |                                         |
+| omada-controller           |    omada-tcp    |    omada-tcp3   | 29812 |    TCP   |                                         |
+| omada-controller           |    omada-udp    |    omada-udp3   | 29812 |    UDP   |                                         |
+| omada-controller           |    omada-tcp    |    omada-tcp4   | 29813 |    TCP   |                                         |
+| omada-controller           |    omada-udp    |    omada-udp4   | 29813 |    UDP   |                                         |
+| minetest                   |       main      |       main      | 30000 |    UDP   |                                         |
 | teamspeak3                 |      files      |      files      | 30033 |    TCP   |                                         |
 | plex                       |       main      |       main      | 32400 |    TCP   | Potential conflict with plex (Official) |
+| pydio-cells                |       gprc      |       gprc      | 33060 |    TCP   |                                         |
 | xteve                      |       main      |       main      | 34400 |    TCP   |                                         |
+| foldingathome              |     control     |     control     | 36330 |    TCP   |                                         |
+| habridge                   |       comm      |       comm      | 50000 |    TCP   |                                         |
 | appdaemon                  |       tcp       |       tcp       | 51050 |    TCP   |                                         |
 | podgrab                    |       tcp       |       tcp       | 51080 |    TCP   |                                         |
 | deluge                     |     torrent     |       tcp       | 51413 |    TCP   |                                         |
@@ -260,41 +323,41 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | transmission               |    torrentudp   |    torrentudp   | 51414 |    UDP   |                                         |
 | resilio-sync               |      bt-tcp     |      bt-tcp     | 55555 |    TCP   |                                         |
 | resilio-sync               |      bt-udp     |      bt-udp     | 55555 |    UDP   |                                         |
+| quassel-web                |       main      |       main      | 64080 |    TCP   |                                         |
 
 ## Dependency Apps
 
-| App        | Service | Port Name |  Port | Protocol | Note |
-|:-----------|:-------:|:---------:|:-----:|:--------:|:----:|
-| promtail   |   main  |    main   |  3101 |    TCP   |      |
-| mariadb    |   main  |    main   |  3306 |    TCP   |      |
-| postgresql |   main  |    main   |  5432 |    TCP   |      |
-| redis      |   main  |    main   |  6379 |    TCP   |      |
-| memcached  |   main  |    main   | 11211 |    TCP   |      |
-
+| App        | Service | Port Name | Port  | Protocol | Note |
+| :--------- | :-----: | :-------: | :---: | :------: | :--: |
+| promtail   |  main   |   main    | 3101  |   TCP    |      |
+| mariadb    |  main   |   main    | 3306  |   TCP    |      |
+| postgresql |  main   |   main    | 5432  |   TCP    |      |
+| redis      |  main   |   main    | 6379  |   TCP    |      |
+| memcached  |  main   |   main    | 11211 |   TCP    |      |
 
 ## Official Apps
 
-| App        |   Service   |  Port |                    Note                   |
-|:-----------|:-----------:|:-----:|:-----------------------------------------:|
-| chia       |     main    |  8444 |                                           |
-| chia       |  farmerPort |  8447 |                                           |
-| minio      |     main    |  9000 |      Potential conflict with traefik      |
-| nextcloud  |     main    |  9001 |                                           |
-| minio      | consolePort |  9002 |                                           |
-| machinaris |     main    |  9003 |                                           |
-| ipfs       |  swarmPort  |  9401 |                                           |
-| ipfs       |   apiPort   |  9501 |                                           |
-| ipfs       | gatewayPort |  9880 |                                           |
-| collabora  |     main    |  9980 |                                           |
-| plex       |     main    | 32400 | Potential conflict with plex (Truecharts) |
+| App        |   Service   | Port  |                   Note                    |
+| :--------- | :---------: | :---: | :---------------------------------------: |
+| chia       |    main     | 8444  |                                           |
+| chia       | farmerPort  | 8447  |                                           |
+| minio      |    main     | 9000  |      Potential conflict with traefik      |
+| nextcloud  |    main     | 9001  |                                           |
+| minio      | consolePort | 9002  |                                           |
+| machinaris |    main     | 9003  |                                           |
+| ipfs       |  swarmPort  | 9401  |                                           |
+| ipfs       |   apiPort   | 9501  |                                           |
+| ipfs       | gatewayPort | 9880  |                                           |
+| collabora  |    main     | 9980  |                                           |
+| plex       |    main     | 32400 | Potential conflict with plex (Truecharts) |
 
 ## TrueNAS Scale Services
 
 | Service | Port | Protocol | Note |
-|:--------|:----:|:--------:|:----:|
-| ssh     |  22  |    TCP   |      |
+| :------ | :--: | :------: | :--: |
+| ssh     |  22  |   TCP    |      |
 | webui   |  80  |   HTTP   |      |
-| webui   |  443 |   HTTPS  |      |
+| webui   | 443  |  HTTPS   |      |
 
 ##### Note: TCP and UPD ports that are the same in some Apps, are not by mistake.
 
