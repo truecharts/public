@@ -108,7 +108,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 80
+                              default: 10125
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -282,7 +282,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 8080
+                              default: 10147
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"

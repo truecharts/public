@@ -19,7 +19,7 @@ service:
     ports:
       main:
         targetPort: 80
-        port: 80
+        port: 10125
   peer:
     ports:
       peer:
@@ -34,7 +34,7 @@ service:
     ports:
       gateway:
         targetPort: 8080
-        port: 8080
+        port: 10147
 
 persistence:
   config:
