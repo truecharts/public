@@ -127,13 +127,11 @@ questions:
           label: "LDAP_READONLY_USER"
           schema:
             type: boolean
-            required: true
             default: false
         - variable: LDAP_RFC2307BIS_SCHEMA
           label: "LDAP_RFC2307BIS_SCHEMA"
           schema:
             type: boolean
-            required: true
             default: false
         - variable: LDAP_BACKEND
           label: "LDAP_BACKEND"
@@ -145,13 +143,11 @@ questions:
           label: "LDAP_TLS"
           schema:
             type: boolean
-            required: true
             default: true
         - variable: LDAP_TLS_ENFORCE
           label: "LDAP_TLS_ENFORCE"
           schema:
             type: boolean
-            required: true
             default: false
         - variable: LDAP_TLS_VERIFY_CLIENT
           label: "LDAP_TLS_VERIFY_CLIENT"
@@ -187,13 +183,11 @@ questions:
           label: "KEEP_EXISTING_CONFIG"
           schema:
             type: boolean
-            required: true
             default: false
         - variable: LDAP_REMOVE_CONFIG_AFTER_SETUP
           label: "LDAP_REMOVE_CONFIG_AFTER_SETUP"
           schema:
             type: boolean
-            required: true
             default: true
         - variable: LDAP_SSL_HELPER_PREFIX
           label: "LDAP_SSL_HELPER_PREFIX"
