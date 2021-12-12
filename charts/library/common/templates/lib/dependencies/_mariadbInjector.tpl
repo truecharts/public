@@ -32,6 +32,8 @@ data:
   plainporthost: {{ ( printf "%v-%v:3306" .Release.Name "mariadb" ) | b64enc | quote }}
   plainhost: {{ ( printf "%v-%v" .Release.Name "mariadb" ) | b64enc | quote }}
   jdbc: {{ ( printf "jdbc:sqlserver://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) | b64enc | quote }}
+  jdbc-mysql: {{ ( printf "jdbc:mysql://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) | b64enc | quote }}
+  jdbc-mariadb: {{ ( printf "jdbc:mariadb://%v-mariadb:3306/%v" .Release.Name .Values.mariadb.mariadbDatabase  ) | b64enc | quote }}
 type: Opaque
 {{- $_ := set .Values.mariadb "mariadbPassword" ( $dbPass | quote ) }}
 {{- $_ := set .Values.mariadb "mariadbRootPassword" ( $rootPass | quote ) }}
