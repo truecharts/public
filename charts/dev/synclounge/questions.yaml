@@ -82,7 +82,12 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: AUTH_LIST
+          label: "AUTH_LIST"
+          description: "AUTH_LIST"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 
   - variable: service

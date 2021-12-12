@@ -82,7 +82,12 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: SUBDOMAINS
+          label: "SUBDOMAINS"
+          description: "SUBDOMAINS"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 
   - variable: serviceexpert

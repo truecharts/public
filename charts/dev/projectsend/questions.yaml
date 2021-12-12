@@ -82,7 +82,13 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: MAX_UPLOAD
+          label: "MAX_UPLOAD"
+          description: "MAX_UPLOAD"
+          schema:
+            type: int
+            required: true
+            default: 5000
 # Include{containerConfig}
 
   - variable: service

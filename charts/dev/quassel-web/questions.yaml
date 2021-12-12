@@ -82,7 +82,24 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: URL_BASE
+          label: "URL_BASE"
+          description: "URL_BASE"
+          schema:
+            type: string
+            default: ""
+        - variable: QUASSEL_CORE
+          label: "QUASSEL_CORE"
+          description: "QUASSEL_CORE"
+          schema:
+            type: string
+            default: "0.0.0.0"
+        - variable: QUASSEL_PORT
+          label: "QUASSEL_PORT"
+          description: "QUASSEL_PORT"
+          schema:
+            type: int
+            default: 4242
 # Include{containerConfig}
 
   - variable: service

@@ -82,7 +82,12 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: WEBROOT
+          label: "WEBROOT"
+          description: "WEBROOT"
+          schema:
+            type: string
+            default: "domoticz"
 # Include{containerConfig}
 
   - variable: service

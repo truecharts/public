@@ -82,7 +82,12 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: EXTERNALURL
+          label: "EXTERNALURL"
+          description: "EXTERNALURL"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 
   - variable: service

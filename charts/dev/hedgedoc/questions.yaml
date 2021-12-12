@@ -82,7 +82,24 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: CMD_DOMAIN
+          label: "CMD_DOMAIN"
+          description: "CMD_DOMAIN"
+          schema:
+            type: string
+            default: ""
+        - variable: CMD_PROTOCOL_USESSL
+          label: "CMD_PROTOCOL_USESSL"
+          description: "CMD_PROTOCOL_USESSL"
+          schema:
+            type: boolean
+            default: false
+        - variable: CMD_URL_ADDPORT
+          label: "CMD_URL_ADDPORT"
+          description: "CMD_URL_ADDPORT"
+          schema:
+            type: boolean
+            default: true
 # Include{containerConfig}
 
   - variable: service
