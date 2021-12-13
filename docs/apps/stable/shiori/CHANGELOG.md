@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shiori-4.0.12"></a>
+### [shiori-4.0.12](https://github.com/truecharts/apps/compare/shiori-4.0.11...shiori-4.0.12) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="shiori-4.0.11"></a>
 ### [shiori-4.0.11](https://github.com/truecharts/apps/compare/shiori-4.0.10...shiori-4.0.11) (2021-12-11)
 

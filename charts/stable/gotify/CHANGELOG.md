@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gotify-5.0.13"></a>
+### [gotify-5.0.13](https://github.com/truecharts/apps/compare/gotify-5.0.12...gotify-5.0.13) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="gotify-5.0.12"></a>
 ### [gotify-5.0.12](https://github.com/truecharts/apps/compare/gotify-5.0.11...gotify-5.0.12) (2021-12-11)
 

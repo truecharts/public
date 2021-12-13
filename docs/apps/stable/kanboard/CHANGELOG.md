@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kanboard-5.0.12"></a>
+### [kanboard-5.0.12](https://github.com/truecharts/apps/compare/kanboard-5.0.11...kanboard-5.0.12) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="kanboard-5.0.11"></a>
 ### [kanboard-5.0.11](https://github.com/truecharts/apps/compare/kanboard-5.0.10...kanboard-5.0.11) (2021-12-11)
 

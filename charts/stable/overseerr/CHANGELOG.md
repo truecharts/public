@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="overseerr-4.0.21"></a>
+### [overseerr-4.0.21](https://github.com/truecharts/apps/compare/overseerr-4.0.20...overseerr-4.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="overseerr-4.0.20"></a>
 ### [overseerr-4.0.20](https://github.com/truecharts/apps/compare/overseerr-4.0.19...overseerr-4.0.20) (2021-12-11)
 

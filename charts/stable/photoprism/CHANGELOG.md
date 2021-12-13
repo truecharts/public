@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-7.0.3"></a>
+### [photoprism-7.0.3](https://github.com/truecharts/apps/compare/photoprism-7.0.2...photoprism-7.0.3) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="photoprism-7.0.2"></a>
 ### [photoprism-7.0.2](https://github.com/truecharts/apps/compare/photoprism-7.0.1...photoprism-7.0.2) (2021-12-13)
 

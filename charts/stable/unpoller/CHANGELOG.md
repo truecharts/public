@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpoller-1.0.12"></a>
+### [unpoller-1.0.12](https://github.com/truecharts/apps/compare/unpoller-1.0.11...unpoller-1.0.12) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="unpoller-1.0.11"></a>
 ### [unpoller-1.0.11](https://github.com/truecharts/apps/compare/unpoller-1.0.10...unpoller-1.0.11) (2021-12-11)
 

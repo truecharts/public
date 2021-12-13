@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.26"></a>
+### [esphome-9.0.26](https://github.com/truecharts/apps/compare/esphome-9.0.25...esphome-9.0.26) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="esphome-9.0.25"></a>
 ### [esphome-9.0.25](https://github.com/truecharts/apps/compare/esphome-9.0.24...esphome-9.0.25) (2021-12-12)
 

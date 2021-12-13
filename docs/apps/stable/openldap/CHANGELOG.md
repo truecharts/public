@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-5.0.3"></a>
+### [openldap-5.0.3](https://github.com/truecharts/apps/compare/openldap-5.0.2...openldap-5.0.3) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="openldap-5.0.2"></a>
 ### [openldap-5.0.2](https://github.com/truecharts/apps/compare/openldap-5.0.1...openldap-5.0.2) (2021-12-12)
 

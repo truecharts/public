@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="novnc-1.0.21"></a>
+### [novnc-1.0.21](https://github.com/truecharts/apps/compare/novnc-1.0.20...novnc-1.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+* fix some icons ([#1525](https://github.com/truecharts/apps/issues/1525))
+
+
+
 <a name="novnc-1.0.20"></a>
 ### [novnc-1.0.20](https://github.com/truecharts/apps/compare/novnc-1.0.19...novnc-1.0.20) (2021-12-11)
 

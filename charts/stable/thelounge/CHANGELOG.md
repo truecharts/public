@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="thelounge-4.0.23"></a>
+### [thelounge-4.0.23](https://github.com/truecharts/apps/compare/thelounge-4.0.22...thelounge-4.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="thelounge-4.0.22"></a>
 ### [thelounge-4.0.22](https://github.com/truecharts/apps/compare/thelounge-4.0.21...thelounge-4.0.22) (2021-12-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.32"></a>
+### [mariadb-1.0.32](https://github.com/truecharts/apps/compare/mariadb-1.0.31...mariadb-1.0.32) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="mariadb-1.0.31"></a>
 ### [mariadb-1.0.31](https://github.com/truecharts/apps/compare/mariadb-1.0.30...mariadb-1.0.31) (2021-12-12)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-8.0.2"></a>
+### [podgrab-8.0.2](https://github.com/truecharts/apps/compare/podgrab-8.0.1...podgrab-8.0.2) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="podgrab-8.0.1"></a>
 ### [podgrab-8.0.1](https://github.com/truecharts/apps/compare/podgrab-8.0.0...podgrab-8.0.1) (2021-12-11)
 

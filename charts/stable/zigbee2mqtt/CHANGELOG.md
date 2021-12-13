@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-1.0.22"></a>
+### [zigbee2mqtt-1.0.22](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.21...zigbee2mqtt-1.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+#### Fix
+
+* Icon update for some apps ([#1520](https://github.com/truecharts/apps/issues/1520))
+
+
+
 <a name="zigbee2mqtt-1.0.21"></a>
 ### [zigbee2mqtt-1.0.21](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.20...zigbee2mqtt-1.0.21) (2021-12-11)
 

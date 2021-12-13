@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-5.0.12"></a>
+### [firefox-syncserver-5.0.12](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.11...firefox-syncserver-5.0.12) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="firefox-syncserver-5.0.11"></a>
 ### [firefox-syncserver-5.0.11](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.10...firefox-syncserver-5.0.11) (2021-12-11)
 

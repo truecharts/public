@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-4.0.21"></a>
+### [pretend-youre-xyzzy-4.0.21](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-4.0.20...pretend-youre-xyzzy-4.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+* fix some icons ([#1525](https://github.com/truecharts/apps/issues/1525))
+
+#### Fix
+
+* Icon update for some apps ([#1520](https://github.com/truecharts/apps/issues/1520))
+
+
+
 <a name="pretend-youre-xyzzy-4.0.20"></a>
 ### [pretend-youre-xyzzy-4.0.20](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-4.0.19...pretend-youre-xyzzy-4.0.20) (2021-12-11)
 

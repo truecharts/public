@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-4.0.22"></a>
+### [focalboard-4.0.22](https://github.com/truecharts/apps/compare/focalboard-4.0.21...focalboard-4.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="focalboard-4.0.21"></a>
 ### [focalboard-4.0.21](https://github.com/truecharts/apps/compare/focalboard-4.0.20...focalboard-4.0.21) (2021-12-11)
 

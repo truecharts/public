@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoshow-1.0.25"></a>
+### [photoshow-1.0.25](https://github.com/truecharts/apps/compare/photoshow-1.0.24...photoshow-1.0.25) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="photoshow-1.0.24"></a>
 ### [photoshow-1.0.24](https://github.com/truecharts/apps/compare/photoshow-1.0.23...photoshow-1.0.24) (2021-12-11)
 

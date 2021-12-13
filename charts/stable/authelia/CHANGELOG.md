@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.16"></a>
+### [authelia-8.0.16](https://github.com/truecharts/apps/compare/authelia-8.0.15...authelia-8.0.16) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="authelia-8.0.15"></a>
 ### [authelia-8.0.15](https://github.com/truecharts/apps/compare/authelia-8.0.14...authelia-8.0.15) (2021-12-11)
 

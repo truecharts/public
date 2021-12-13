@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audacity-2.0.21"></a>
+### [audacity-2.0.21](https://github.com/truecharts/apps/compare/audacity-2.0.20...audacity-2.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="audacity-2.0.20"></a>
 ### [audacity-2.0.20](https://github.com/truecharts/apps/compare/audacity-2.0.19...audacity-2.0.20) (2021-12-11)
 

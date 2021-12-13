@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="etherpad-5.0.12"></a>
+### [etherpad-5.0.12](https://github.com/truecharts/apps/compare/etherpad-5.0.11...etherpad-5.0.12) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+* fix some icons ([#1525](https://github.com/truecharts/apps/issues/1525))
+
+
+
 <a name="etherpad-5.0.11"></a>
 ### [etherpad-5.0.11](https://github.com/truecharts/apps/compare/etherpad-5.0.10...etherpad-5.0.11) (2021-12-11)
 

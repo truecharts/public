@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickchill-1.0.21"></a>
+### [sickchill-1.0.21](https://github.com/truecharts/apps/compare/sickchill-1.0.20...sickchill-1.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="sickchill-1.0.20"></a>
 ### [sickchill-1.0.20](https://github.com/truecharts/apps/compare/sickchill-1.0.19...sickchill-1.0.20) (2021-12-11)
 

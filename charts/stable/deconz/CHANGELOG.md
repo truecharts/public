@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deconz-6.0.2"></a>
+### [deconz-6.0.2](https://github.com/truecharts/apps/compare/deconz-6.0.1...deconz-6.0.2) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="deconz-6.0.1"></a>
 ### [deconz-6.0.1](https://github.com/truecharts/apps/compare/deconz-6.0.0...deconz-6.0.1) (2021-12-11)
 

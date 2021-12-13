@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="digikam-2.0.23"></a>
+### [digikam-2.0.23](https://github.com/truecharts/apps/compare/digikam-2.0.22...digikam-2.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="digikam-2.0.22"></a>
 ### [digikam-2.0.22](https://github.com/truecharts/apps/compare/digikam-2.0.21...digikam-2.0.22) (2021-12-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lychee-9.0.22"></a>
+### [lychee-9.0.22](https://github.com/truecharts/apps/compare/lychee-9.0.21...lychee-9.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="lychee-9.0.21"></a>
 ### [lychee-9.0.21](https://github.com/truecharts/apps/compare/lychee-9.0.20...lychee-9.0.21) (2021-12-11)
 

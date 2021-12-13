@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="octoprint-4.0.23"></a>
+### [octoprint-4.0.23](https://github.com/truecharts/apps/compare/octoprint-4.0.22...octoprint-4.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="octoprint-4.0.22"></a>
 ### [octoprint-4.0.22](https://github.com/truecharts/apps/compare/octoprint-4.0.21...octoprint-4.0.22) (2021-12-11)
 

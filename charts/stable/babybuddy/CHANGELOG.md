@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.17"></a>
+### [babybuddy-5.0.17](https://github.com/truecharts/apps/compare/babybuddy-5.0.16...babybuddy-5.0.17) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="babybuddy-5.0.16"></a>
 ### [babybuddy-5.0.16](https://github.com/truecharts/apps/compare/babybuddy-5.0.15...babybuddy-5.0.16) (2021-12-12)
 

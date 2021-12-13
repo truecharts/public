@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mealie-5.0.3"></a>
+### [mealie-5.0.3](https://github.com/truecharts/apps/compare/mealie-5.0.2...mealie-5.0.3) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="mealie-5.0.2"></a>
 ### [mealie-5.0.2](https://github.com/truecharts/apps/compare/mealie-5.0.1...mealie-5.0.2) (2021-12-11)
 

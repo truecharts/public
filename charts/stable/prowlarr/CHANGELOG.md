@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.38"></a>
+### [prowlarr-4.0.38](https://github.com/truecharts/apps/compare/prowlarr-4.0.37...prowlarr-4.0.38) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="prowlarr-4.0.37"></a>
 ### [prowlarr-4.0.37](https://github.com/truecharts/apps/compare/prowlarr-4.0.36...prowlarr-4.0.37) (2021-12-13)
 

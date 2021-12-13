@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-1.0.13"></a>
+### [promtail-1.0.13](https://github.com/truecharts/apps/compare/promtail-1.0.12...promtail-1.0.13) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="promtail-1.0.12"></a>
 ### [promtail-1.0.12](https://github.com/truecharts/apps/compare/promtail-1.0.11...promtail-1.0.12) (2021-12-11)
 

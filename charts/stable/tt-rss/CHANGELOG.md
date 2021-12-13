@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.19"></a>
+### [tt-rss-4.0.19](https://github.com/truecharts/apps/compare/tt-rss-4.0.18...tt-rss-4.0.19) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="tt-rss-4.0.18"></a>
 ### [tt-rss-4.0.18](https://github.com/truecharts/apps/compare/tt-rss-4.0.17...tt-rss-4.0.18) (2021-12-11)
 

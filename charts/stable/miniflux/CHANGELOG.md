@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-4.0.12"></a>
+### [miniflux-4.0.12](https://github.com/truecharts/apps/compare/miniflux-4.0.11...miniflux-4.0.12) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="miniflux-4.0.11"></a>
 ### [miniflux-4.0.11](https://github.com/truecharts/apps/compare/miniflux-4.0.10...miniflux-4.0.11) (2021-12-11)
 

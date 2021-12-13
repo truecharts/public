@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="shorturl-1.0.21"></a>
+### [shorturl-1.0.21](https://github.com/truecharts/apps/compare/shorturl-1.0.20...shorturl-1.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+* fix some icons ([#1525](https://github.com/truecharts/apps/issues/1525))
+
+
+
 <a name="shorturl-1.0.20"></a>
 ### [shorturl-1.0.20](https://github.com/truecharts/apps/compare/shorturl-1.0.19...shorturl-1.0.20) (2021-12-11)
 

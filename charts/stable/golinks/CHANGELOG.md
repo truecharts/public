@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="golinks-2.0.21"></a>
+### [golinks-2.0.21](https://github.com/truecharts/apps/compare/golinks-2.0.20...golinks-2.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+* fix some icons ([#1525](https://github.com/truecharts/apps/issues/1525))
+
+
+
 <a name="golinks-2.0.20"></a>
 ### [golinks-2.0.20](https://github.com/truecharts/apps/compare/golinks-2.0.19...golinks-2.0.20) (2021-12-11)
 

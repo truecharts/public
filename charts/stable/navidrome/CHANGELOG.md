@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="navidrome-9.0.22"></a>
+### [navidrome-9.0.22](https://github.com/truecharts/apps/compare/navidrome-9.0.21...navidrome-9.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="navidrome-9.0.21"></a>
 ### [navidrome-9.0.21](https://github.com/truecharts/apps/compare/navidrome-9.0.20...navidrome-9.0.21) (2021-12-11)
 

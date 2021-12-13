@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="reg-4.0.20"></a>
+### [reg-4.0.20](https://github.com/truecharts/apps/compare/reg-4.0.19...reg-4.0.20) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="reg-4.0.19"></a>
 ### [reg-4.0.19](https://github.com/truecharts/apps/compare/reg-4.0.18...reg-4.0.19) (2021-12-11)
 

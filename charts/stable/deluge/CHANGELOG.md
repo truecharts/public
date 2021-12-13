@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deluge-9.0.22"></a>
+### [deluge-9.0.22](https://github.com/truecharts/apps/compare/deluge-9.0.21...deluge-9.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="deluge-9.0.21"></a>
 ### [deluge-9.0.21](https://github.com/truecharts/apps/compare/deluge-9.0.20...deluge-9.0.21) (2021-12-11)
 

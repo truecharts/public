@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="twtxt-1.0.21"></a>
+### [twtxt-1.0.21](https://github.com/truecharts/apps/compare/twtxt-1.0.20...twtxt-1.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="twtxt-1.0.20"></a>
 ### [twtxt-1.0.20](https://github.com/truecharts/apps/compare/twtxt-1.0.19...twtxt-1.0.20) (2021-12-11)
 

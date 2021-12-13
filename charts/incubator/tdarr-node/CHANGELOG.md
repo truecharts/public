@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="tdarr-node-1.0.23"></a>
+### [tdarr-node-1.0.23](https://github.com/truecharts/apps/compare/tdarr-node-1.0.22...tdarr-node-1.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+#### Fix
+
+* provide better defaults to work with `simple` network ([#1512](https://github.com/truecharts/apps/issues/1512))
+
+
+
 <a name="tdarr-node-1.0.22"></a>
 ### [tdarr-node-1.0.22](https://github.com/truecharts/apps/compare/tdarr-node-1.0.21...tdarr-node-1.0.22) (2021-12-11)
 

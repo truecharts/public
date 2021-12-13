@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mylar-4.0.21"></a>
+### [mylar-4.0.21](https://github.com/truecharts/apps/compare/mylar-4.0.20...mylar-4.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="mylar-4.0.20"></a>
 ### [mylar-4.0.20](https://github.com/truecharts/apps/compare/mylar-4.0.19...mylar-4.0.20) (2021-12-11)
 

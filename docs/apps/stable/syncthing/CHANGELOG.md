@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-9.0.23"></a>
+### [syncthing-9.0.23](https://github.com/truecharts/apps/compare/syncthing-9.0.22...syncthing-9.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="syncthing-9.0.22"></a>
 ### [syncthing-9.0.22](https://github.com/truecharts/apps/compare/syncthing-9.0.21...syncthing-9.0.22) (2021-12-11)
 

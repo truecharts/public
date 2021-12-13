@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.27"></a>
+### [zwavejs2mqtt-9.0.27](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.26...zwavejs2mqtt-9.0.27) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+* fix some icons ([#1525](https://github.com/truecharts/apps/issues/1525))
+
+
+
 <a name="zwavejs2mqtt-9.0.26"></a>
 ### [zwavejs2mqtt-9.0.26](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.25...zwavejs2mqtt-9.0.26) (2021-12-11)
 

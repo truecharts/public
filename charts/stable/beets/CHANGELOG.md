@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="beets-2.0.23"></a>
+### [beets-2.0.23](https://github.com/truecharts/apps/compare/beets-2.0.22...beets-2.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+* fix some icons ([#1525](https://github.com/truecharts/apps/issues/1525))
+
+#### Fix
+
+* Icon update for some apps ([#1520](https://github.com/truecharts/apps/issues/1520))
+
+
+
 <a name="beets-2.0.22"></a>
 ### [beets-2.0.22](https://github.com/truecharts/apps/compare/beets-2.0.21...beets-2.0.22) (2021-12-11)
 

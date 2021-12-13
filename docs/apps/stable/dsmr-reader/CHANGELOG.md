@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-5.0.11"></a>
+### [dsmr-reader-5.0.11](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.10...dsmr-reader-5.0.11) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="dsmr-reader-5.0.10"></a>
 ### [dsmr-reader-5.0.10](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.9...dsmr-reader-5.0.10) (2021-12-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.4"></a>
+### [grafana-2.0.4](https://github.com/truecharts/apps/compare/grafana-2.0.3...grafana-2.0.4) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="grafana-2.0.3"></a>
 ### [grafana-2.0.3](https://github.com/truecharts/apps/compare/grafana-2.0.2...grafana-2.0.3) (2021-12-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.37"></a>
+### [custom-app-3.0.37](https://github.com/truecharts/apps/compare/custom-app-3.0.36...custom-app-3.0.37) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="custom-app-3.0.36"></a>
 ### [custom-app-3.0.36](https://github.com/truecharts/apps/compare/custom-app-3.0.35...custom-app-3.0.36) (2021-12-13)
 

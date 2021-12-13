@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-4.0.22"></a>
+### [k8s-gateway-4.0.22](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.21...k8s-gateway-4.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="k8s-gateway-4.0.21"></a>
 ### [k8s-gateway-4.0.21](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.20...k8s-gateway-4.0.21) (2021-12-11)
 

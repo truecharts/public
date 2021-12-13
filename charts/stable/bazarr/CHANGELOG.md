@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bazarr-9.0.23"></a>
+### [bazarr-9.0.23](https://github.com/truecharts/apps/compare/bazarr-9.0.22...bazarr-9.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="bazarr-9.0.22"></a>
 ### [bazarr-9.0.22](https://github.com/truecharts/apps/compare/bazarr-9.0.21...bazarr-9.0.22) (2021-12-11)
 

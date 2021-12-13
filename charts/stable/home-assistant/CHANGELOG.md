@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="home-assistant-12.0.15"></a>
+### [home-assistant-12.0.15](https://github.com/truecharts/apps/compare/home-assistant-12.0.14...home-assistant-12.0.15) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="home-assistant-12.0.14"></a>
 ### [home-assistant-12.0.14](https://github.com/truecharts/apps/compare/home-assistant-12.0.13...home-assistant-12.0.14) (2021-12-12)
 

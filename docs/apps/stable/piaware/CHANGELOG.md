@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.23"></a>
+### [piaware-4.0.23](https://github.com/truecharts/apps/compare/piaware-4.0.22...piaware-4.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="piaware-4.0.22"></a>
 ### [piaware-4.0.22](https://github.com/truecharts/apps/compare/piaware-4.0.21...piaware-4.0.22) (2021-12-12)
 

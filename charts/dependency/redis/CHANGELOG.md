@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.34"></a>
+### [redis-1.0.34](https://github.com/truecharts/apps/compare/redis-1.0.33...redis-1.0.34) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="redis-1.0.33"></a>
 ### [redis-1.0.33](https://github.com/truecharts/apps/compare/redis-1.0.32...redis-1.0.33) (2021-12-12)
 

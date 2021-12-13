@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-4.0.23"></a>
+### [airsonic-4.0.23](https://github.com/truecharts/apps/compare/airsonic-4.0.22...airsonic-4.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="airsonic-4.0.22"></a>
 ### [airsonic-4.0.22](https://github.com/truecharts/apps/compare/airsonic-4.0.21...airsonic-4.0.22) (2021-12-11)
 

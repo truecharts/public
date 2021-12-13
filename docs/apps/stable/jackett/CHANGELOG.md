@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.46"></a>
+### [jackett-9.0.46](https://github.com/truecharts/apps/compare/jackett-9.0.45...jackett-9.0.46) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="jackett-9.0.45"></a>
 ### [jackett-9.0.45](https://github.com/truecharts/apps/compare/jackett-9.0.44...jackett-9.0.45) (2021-12-13)
 

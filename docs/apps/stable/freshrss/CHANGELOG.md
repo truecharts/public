@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freshrss-9.0.25"></a>
+### [freshrss-9.0.25](https://github.com/truecharts/apps/compare/freshrss-9.0.24...freshrss-9.0.25) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="freshrss-9.0.24"></a>
 ### [freshrss-9.0.24](https://github.com/truecharts/apps/compare/freshrss-9.0.23...freshrss-9.0.24) (2021-12-11)
 

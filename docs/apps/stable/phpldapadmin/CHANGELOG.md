@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-4.0.22"></a>
+### [phpldapadmin-4.0.22](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.21...phpldapadmin-4.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="phpldapadmin-4.0.21"></a>
 ### [phpldapadmin-4.0.21](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.20...phpldapadmin-4.0.21) (2021-12-11)
 

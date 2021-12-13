@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.11"></a>
+### [wikijs-4.0.11](https://github.com/truecharts/apps/compare/wikijs-4.0.10...wikijs-4.0.11) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="wikijs-4.0.10"></a>
 ### [wikijs-4.0.10](https://github.com/truecharts/apps/compare/wikijs-4.0.9...wikijs-4.0.10) (2021-12-11)
 

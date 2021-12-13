@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.3"></a>
+### [fireflyiii-13.1.3](https://github.com/truecharts/apps/compare/fireflyiii-13.1.2...fireflyiii-13.1.3) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="fireflyiii-13.1.2"></a>
 ### [fireflyiii-13.1.2](https://github.com/truecharts/apps/compare/fireflyiii-13.1.1...fireflyiii-13.1.2) (2021-12-11)
 

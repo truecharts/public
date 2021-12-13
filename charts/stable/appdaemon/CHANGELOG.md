@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appdaemon-7.0.2"></a>
+### [appdaemon-7.0.2](https://github.com/truecharts/apps/compare/appdaemon-7.0.1...appdaemon-7.0.2) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="appdaemon-7.0.1"></a>
 ### [appdaemon-7.0.1](https://github.com/truecharts/apps/compare/appdaemon-7.0.0...appdaemon-7.0.1) (2021-12-11)
 

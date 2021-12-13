@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-cpu-8.0.2"></a>
+### [deepstack-cpu-8.0.2](https://github.com/truecharts/apps/compare/deepstack-cpu-8.0.1...deepstack-cpu-8.0.2) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="deepstack-cpu-8.0.1"></a>
 ### [deepstack-cpu-8.0.1](https://github.com/truecharts/apps/compare/deepstack-cpu-8.0.0...deepstack-cpu-8.0.1) (2021-12-11)
 

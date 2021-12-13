@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gaps-9.0.22"></a>
+### [gaps-9.0.22](https://github.com/truecharts/apps/compare/gaps-9.0.21...gaps-9.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="gaps-9.0.21"></a>
 ### [gaps-9.0.21](https://github.com/truecharts/apps/compare/gaps-9.0.20...gaps-9.0.21) (2021-12-11)
 

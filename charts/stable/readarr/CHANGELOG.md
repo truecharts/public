@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.34"></a>
+### [readarr-9.0.34](https://github.com/truecharts/apps/compare/readarr-9.0.33...readarr-9.0.34) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="readarr-9.0.33"></a>
 ### [readarr-9.0.33](https://github.com/truecharts/apps/compare/readarr-9.0.32...readarr-9.0.33) (2021-12-13)
 

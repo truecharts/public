@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-4.0.25"></a>
+### [librespeed-4.0.25](https://github.com/truecharts/apps/compare/librespeed-4.0.24...librespeed-4.0.25) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="librespeed-4.0.24"></a>
 ### [librespeed-4.0.24](https://github.com/truecharts/apps/compare/librespeed-4.0.23...librespeed-4.0.24) (2021-12-11)
 

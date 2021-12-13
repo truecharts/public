@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tautulli-9.0.21"></a>
+### [tautulli-9.0.21](https://github.com/truecharts/apps/compare/tautulli-9.0.20...tautulli-9.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="tautulli-9.0.20"></a>
 ### [tautulli-9.0.20](https://github.com/truecharts/apps/compare/tautulli-9.0.19...tautulli-9.0.20) (2021-12-11)
 

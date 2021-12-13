@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="joplin-server-5.0.12"></a>
+### [joplin-server-5.0.12](https://github.com/truecharts/apps/compare/joplin-server-5.0.11...joplin-server-5.0.12) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="joplin-server-5.0.11"></a>
 ### [joplin-server-5.0.11](https://github.com/truecharts/apps/compare/joplin-server-5.0.10...joplin-server-5.0.11) (2021-12-11)
 

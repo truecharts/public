@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.23"></a>
+### [booksonic-air-4.0.23](https://github.com/truecharts/apps/compare/booksonic-air-4.0.22...booksonic-air-4.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="booksonic-air-4.0.22"></a>
 ### [booksonic-air-4.0.22](https://github.com/truecharts/apps/compare/booksonic-air-4.0.21...booksonic-air-4.0.22) (2021-12-11)
 

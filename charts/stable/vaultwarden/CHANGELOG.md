@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.13"></a>
+### [vaultwarden-13.0.13](https://github.com/truecharts/apps/compare/vaultwarden-13.0.12...vaultwarden-13.0.13) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="vaultwarden-13.0.12"></a>
 ### [vaultwarden-13.0.12](https://github.com/truecharts/apps/compare/vaultwarden-13.0.11...vaultwarden-13.0.12) (2021-12-11)
 

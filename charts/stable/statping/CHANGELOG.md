@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statping-4.0.12"></a>
+### [statping-4.0.12](https://github.com/truecharts/apps/compare/statping-4.0.11...statping-4.0.12) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="statping-4.0.11"></a>
 ### [statping-4.0.11](https://github.com/truecharts/apps/compare/statping-4.0.10...statping-4.0.11) (2021-12-11)
 

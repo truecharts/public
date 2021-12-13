@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-4.0.23"></a>
+### [flaresolverr-4.0.23](https://github.com/truecharts/apps/compare/flaresolverr-4.0.22...flaresolverr-4.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="flaresolverr-4.0.22"></a>
 ### [flaresolverr-4.0.22](https://github.com/truecharts/apps/compare/flaresolverr-4.0.21...flaresolverr-4.0.22) (2021-12-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-1.0.24"></a>
+### [medusa-1.0.24](https://github.com/truecharts/apps/compare/medusa-1.0.23...medusa-1.0.24) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="medusa-1.0.23"></a>
 ### [medusa-1.0.23](https://github.com/truecharts/apps/compare/medusa-1.0.22...medusa-1.0.23) (2021-12-11)
 

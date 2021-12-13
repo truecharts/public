@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-4.0.16"></a>
+### [recipes-4.0.16](https://github.com/truecharts/apps/compare/recipes-4.0.15...recipes-4.0.16) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="recipes-4.0.15"></a>
 ### [recipes-4.0.15](https://github.com/truecharts/apps/compare/recipes-4.0.14...recipes-4.0.15) (2021-12-11)
 

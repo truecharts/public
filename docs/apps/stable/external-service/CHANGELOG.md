@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="external-service-4.0.20"></a>
+### [external-service-4.0.20](https://github.com/truecharts/apps/compare/external-service-4.0.19...external-service-4.0.20) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="external-service-4.0.19"></a>
 ### [external-service-4.0.19](https://github.com/truecharts/apps/compare/external-service-4.0.18...external-service-4.0.19) (2021-12-11)
 

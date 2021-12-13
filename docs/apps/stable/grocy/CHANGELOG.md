@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grocy-9.0.22"></a>
+### [grocy-9.0.22](https://github.com/truecharts/apps/compare/grocy-9.0.21...grocy-9.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="grocy-9.0.21"></a>
 ### [grocy-9.0.21](https://github.com/truecharts/apps/compare/grocy-9.0.20...grocy-9.0.21) (2021-12-11)
 

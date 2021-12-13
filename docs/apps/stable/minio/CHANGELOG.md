@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-1.0.9"></a>
+### [minio-1.0.9](https://github.com/truecharts/apps/compare/minio-1.0.8...minio-1.0.9) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="minio-1.0.8"></a>
 ### [minio-1.0.8](https://github.com/truecharts/apps/compare/minio-console-1.0.24...minio-1.0.8) (2021-12-11)
 

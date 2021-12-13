@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pixapop-1.0.21"></a>
+### [pixapop-1.0.21](https://github.com/truecharts/apps/compare/pixapop-1.0.20...pixapop-1.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="pixapop-1.0.20"></a>
 ### [pixapop-1.0.20](https://github.com/truecharts/apps/compare/pixapop-1.0.19...pixapop-1.0.20) (2021-12-11)
 

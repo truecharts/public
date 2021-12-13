@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-4.0.24"></a>
+### [hyperion-ng-4.0.24](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.23...hyperion-ng-4.0.24) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="hyperion-ng-4.0.23"></a>
 ### [hyperion-ng-4.0.23](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.22...hyperion-ng-4.0.23) (2021-12-11)
 

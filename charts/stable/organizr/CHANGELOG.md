@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="organizr-9.0.22"></a>
+### [organizr-9.0.22](https://github.com/truecharts/apps/compare/organizr-9.0.21...organizr-9.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="organizr-9.0.21"></a>
 ### [organizr-9.0.21](https://github.com/truecharts/apps/compare/organizr-9.0.20...organizr-9.0.21) (2021-12-11)
 

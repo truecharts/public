@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.18"></a>
+### [prometheus-1.1.18](https://github.com/truecharts/apps/compare/prometheus-1.1.17...prometheus-1.1.18) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="prometheus-1.1.17"></a>
 ### [prometheus-1.1.17](https://github.com/truecharts/apps/compare/prometheus-1.1.16...prometheus-1.1.17) (2021-12-13)
 

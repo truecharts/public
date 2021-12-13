@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="odoo-4.0.12"></a>
+### [odoo-4.0.12](https://github.com/truecharts/apps/compare/odoo-4.0.11...odoo-4.0.12) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="odoo-4.0.11"></a>
 ### [odoo-4.0.11](https://github.com/truecharts/apps/compare/odoo-4.0.10...odoo-4.0.11) (2021-12-11)
 

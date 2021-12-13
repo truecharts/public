@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-1.0.23"></a>
+### [tdarr-1.0.23](https://github.com/truecharts/apps/compare/tdarr-node-1.0.22...tdarr-1.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="tdarr-1.0.22"></a>
 ### [tdarr-1.0.22](https://github.com/truecharts/apps/compare/tdarr-node-1.0.21...tdarr-1.0.22) (2021-12-11)
 

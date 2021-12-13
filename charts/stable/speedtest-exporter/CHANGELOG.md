@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-1.0.8"></a>
+### [speedtest-exporter-1.0.8](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.7...speedtest-exporter-1.0.8) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="speedtest-exporter-1.0.7"></a>
 ### [speedtest-exporter-1.0.7](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.6...speedtest-exporter-1.0.7) (2021-12-11)
 

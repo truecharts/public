@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.29"></a>
+### [postgresql-6.0.29](https://github.com/truecharts/apps/compare/postgresql-6.0.28...postgresql-6.0.29) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="postgresql-6.0.28"></a>
 ### [postgresql-6.0.28](https://github.com/truecharts/apps/compare/postgresql-6.0.27...postgresql-6.0.28) (2021-12-12)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="static-1.0.21"></a>
+### [static-1.0.21](https://github.com/truecharts/apps/compare/static-1.0.20...static-1.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="static-1.0.20"></a>
 ### [static-1.0.20](https://github.com/truecharts/apps/compare/static-1.0.19...static-1.0.20) (2021-12-11)
 

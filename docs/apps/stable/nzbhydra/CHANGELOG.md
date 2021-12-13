@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-9.0.25"></a>
+### [nzbhydra-9.0.25](https://github.com/truecharts/apps/compare/nzbhydra-9.0.24...nzbhydra-9.0.25) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="nzbhydra-9.0.24"></a>
 ### [nzbhydra-9.0.24](https://github.com/truecharts/apps/compare/nzbhydra-9.0.23...nzbhydra-9.0.24) (2021-12-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-2.0.21"></a>
+### [leaf2mqtt-2.0.21](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.20...leaf2mqtt-2.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="leaf2mqtt-2.0.20"></a>
 ### [leaf2mqtt-2.0.20](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.19...leaf2mqtt-2.0.20) (2021-12-11)
 

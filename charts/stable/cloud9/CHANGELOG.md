@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloud9-2.0.24"></a>
+### [cloud9-2.0.24](https://github.com/truecharts/apps/compare/cloud9-2.0.23...cloud9-2.0.24) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="cloud9-2.0.23"></a>
 ### [cloud9-2.0.23](https://github.com/truecharts/apps/compare/cloud9-2.0.22...cloud9-2.0.23) (2021-12-11)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-2.0.9"></a>
+### [loki-2.0.9](https://github.com/truecharts/apps/compare/loki-2.0.8...loki-2.0.9) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="loki-2.0.8"></a>
 ### [loki-2.0.8](https://github.com/truecharts/apps/compare/loki-2.0.7...loki-2.0.8) (2021-12-11)
 

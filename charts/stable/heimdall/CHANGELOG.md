@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-9.0.26"></a>
+### [heimdall-9.0.26](https://github.com/truecharts/apps/compare/heimdall-9.0.25...heimdall-9.0.26) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="heimdall-9.0.25"></a>
 ### [heimdall-9.0.25](https://github.com/truecharts/apps/compare/heimdall-9.0.24...heimdall-9.0.25) (2021-12-11)
 

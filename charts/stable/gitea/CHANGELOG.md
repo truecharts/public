@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.15"></a>
+### [gitea-5.0.15](https://github.com/truecharts/apps/compare/gitea-5.0.14...gitea-5.0.15) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="gitea-5.0.14"></a>
 ### [gitea-5.0.14](https://github.com/truecharts/apps/compare/gitea-5.0.13...gitea-5.0.14) (2021-12-11)
 

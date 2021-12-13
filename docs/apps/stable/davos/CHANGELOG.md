@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="davos-2.0.21"></a>
+### [davos-2.0.21](https://github.com/truecharts/apps/compare/davos-2.0.20...davos-2.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="davos-2.0.20"></a>
 ### [davos-2.0.20](https://github.com/truecharts/apps/compare/davos-2.0.19...davos-2.0.20) (2021-12-11)
 

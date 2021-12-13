@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.32"></a>
+### [memcached-1.0.32](https://github.com/truecharts/apps/compare/memcached-1.0.31...memcached-1.0.32) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="memcached-1.0.31"></a>
 ### [memcached-1.0.31](https://github.com/truecharts/apps/compare/memcached-1.0.30...memcached-1.0.31) (2021-12-12)
 

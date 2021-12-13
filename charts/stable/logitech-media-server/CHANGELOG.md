@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.31"></a>
+### [logitech-media-server-2.0.31](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.30...logitech-media-server-2.0.31) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="logitech-media-server-2.0.30"></a>
 ### [logitech-media-server-2.0.30](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.29...logitech-media-server-2.0.30) (2021-12-11)
 

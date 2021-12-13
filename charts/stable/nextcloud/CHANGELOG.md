@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-11.0.2"></a>
+### [nextcloud-11.0.2](https://github.com/truecharts/apps/compare/nextcloud-11.0.1...nextcloud-11.0.2) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="nextcloud-11.0.1"></a>
 ### [nextcloud-11.0.1](https://github.com/truecharts/apps/compare/nextcloud-11.0.0...nextcloud-11.0.1) (2021-12-11)
 

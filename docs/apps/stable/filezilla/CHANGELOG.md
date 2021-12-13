@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filezilla-2.0.21"></a>
+### [filezilla-2.0.21](https://github.com/truecharts/apps/compare/filezilla-2.0.20...filezilla-2.0.21) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="filezilla-2.0.20"></a>
 ### [filezilla-2.0.20](https://github.com/truecharts/apps/compare/filezilla-2.0.19...filezilla-2.0.20) (2021-12-11)
 

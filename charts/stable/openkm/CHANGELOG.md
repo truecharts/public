@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-4.0.12"></a>
+### [openkm-4.0.12](https://github.com/truecharts/apps/compare/openkm-4.0.11...openkm-4.0.12) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="openkm-4.0.11"></a>
 ### [openkm-4.0.11](https://github.com/truecharts/apps/compare/openkm-4.0.10...openkm-4.0.11) (2021-12-11)
 

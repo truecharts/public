@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-1.0.25"></a>
+### [sqlitebrowser-1.0.25](https://github.com/truecharts/apps/compare/sqlitebrowser-1.0.24...sqlitebrowser-1.0.25) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="sqlitebrowser-1.0.24"></a>
 ### [sqlitebrowser-1.0.24](https://github.com/truecharts/apps/compare/sqlitebrowser-1.0.23...sqlitebrowser-1.0.24) (2021-12-11)
 

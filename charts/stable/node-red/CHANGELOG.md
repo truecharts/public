@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="node-red-9.0.22"></a>
+### [node-red-9.0.22](https://github.com/truecharts/apps/compare/node-red-9.0.21...node-red-9.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="node-red-9.0.21"></a>
 ### [node-red-9.0.21](https://github.com/truecharts/apps/compare/node-red-9.0.20...node-red-9.0.21) (2021-12-11)
 

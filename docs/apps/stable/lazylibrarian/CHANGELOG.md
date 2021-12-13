@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.28"></a>
+### [lazylibrarian-9.0.28](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.27...lazylibrarian-9.0.28) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="lazylibrarian-9.0.27"></a>
 ### [lazylibrarian-9.0.27](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.26...lazylibrarian-9.0.27) (2021-12-11)
 

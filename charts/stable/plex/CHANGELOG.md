@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.22"></a>
+### [plex-8.0.22](https://github.com/truecharts/apps/compare/plex-8.0.21...plex-8.0.22) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="plex-8.0.21"></a>
 ### [plex-8.0.21](https://github.com/truecharts/apps/compare/plex-8.0.20...plex-8.0.21) (2021-12-11)
 

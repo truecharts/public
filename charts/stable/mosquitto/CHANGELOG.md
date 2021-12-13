@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosquitto-4.0.23"></a>
+### [mosquitto-4.0.23](https://github.com/truecharts/apps/compare/mosquitto-4.0.22...mosquitto-4.0.23) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="mosquitto-4.0.22"></a>
 ### [mosquitto-4.0.22](https://github.com/truecharts/apps/compare/mosquitto-4.0.21...mosquitto-4.0.22) (2021-12-11)
 

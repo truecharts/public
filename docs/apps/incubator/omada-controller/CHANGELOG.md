@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.29"></a>
+### [omada-controller-4.0.29](https://github.com/truecharts/apps/compare/omada-controller-4.0.28...omada-controller-4.0.29) (2021-12-13)
+
+#### Chore
+
+* move incubator apps to stable and bump everything
+
+
+
 <a name="omada-controller-4.0.28"></a>
 ### [omada-controller-4.0.28](https://github.com/truecharts/apps/compare/omada-controller-4.0.27...omada-controller-4.0.28) (2021-12-12)
 
