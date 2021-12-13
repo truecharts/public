@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "2.13.1"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.18
+- condition: mariadb.enabled
+  name: mariadb
+  repository: https://truecharts.org/
+  version: 1.0.30
+description: "A monitoring system which checks the availability of your network resources, notifies users of outages, and generates performance data for reporting."
+home: https://github.com/truechartsapps/tree/master/charts/stable/icinga2
+icon: https://avatars.githubusercontent.com/u/835441?s=200&v=4
+keywords:
+- icinga2
+- monitoring
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: icinga2
+sources:
+- https://github.com/jjethwa/icinga2
+- https://icinga.com/
+version: 0.0.10
+annotations:
+  truecharts.org/catagories: |
+    - monitoring
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

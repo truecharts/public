@@ -1,0 +1,28 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: dillinger
+version: 0.0.2
+appVersion: "3.39.1"
+description: Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/dillinger
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dillinger.png
+keywords:
+  - dillinger
+sources:
+  - https://hub.docker.com/r/linuxserver/dillinger
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.16
+  # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - incubator
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
