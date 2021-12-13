@@ -57,6 +57,7 @@ groups:
     description: "Image to be used for container"
 questions:
   - variable: image
+    label: "Docker Image"
     description: "Docker Image Details"
     group: "Container Images"
     schema:
