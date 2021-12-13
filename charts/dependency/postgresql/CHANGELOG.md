@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.30"></a>
+### [postgresql-6.0.30](https://github.com/truecharts/apps/compare/postgresql-6.0.29...postgresql-6.0.30) (2021-12-13)
+
+#### Chore
+
+* update docker general non-major ([#1531](https://github.com/truecharts/apps/issues/1531))
+
+
+
 <a name="postgresql-6.0.29"></a>
 ### [postgresql-6.0.29](https://github.com/truecharts/apps/compare/postgresql-6.0.28...postgresql-6.0.29) (2021-12-13)
 

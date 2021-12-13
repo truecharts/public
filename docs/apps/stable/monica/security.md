@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: monica/charts/mariadb/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV003   |   Default capabilities not dropped  |  LOW | <details><summary>Expand...</summary> The container should drop all default capabilities and add only those that are needed for its execution. <br> <hr> <br> Container &#39;RELEASE-NAME-mariadb&#39; of StatefulSet &#39;RELEASE-NAME-mariadb&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39; </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/">https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/</a><br><a href="https://avd.aquasec.com/appshield/ksv003">https://avd.aquasec.com/appshield/ksv003</a><br></details>  |
@@ -31,7 +31,7 @@ hide:
 | Kubernetes Security Check         |    KSV021   |   Runs with low group ID  |  MEDIUM | <details><summary>Expand...</summary> Force the container to run with group ID &gt; 10000 to avoid conflicts with the host’s user table. <br> <hr> <br> Container &#39;autopermissions&#39; of StatefulSet &#39;RELEASE-NAME-mariadb&#39; should set &#39;securityContext.runAsGroup&#39; &gt; 10000 </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-runasuser/">https://kubesec.io/basics/containers-securitycontext-runasuser/</a><br><a href="https://avd.aquasec.com/appshield/ksv021">https://avd.aquasec.com/appshield/ksv021</a><br></details>  |
 | Kubernetes Security Check         |    KSV029   |   A root primary or supplementary GID set  |  LOW | <details><summary>Expand...</summary> Containers should be forbidden from running with a root primary or supplementary GID. <br> <hr> <br> StatefulSet &#39;RELEASE-NAME-mariadb&#39; should set &#39;spec.securityContext.runAsGroup&#39;, &#39;spec.securityContext.supplementalGroups[*]&#39; and &#39;spec.securityContext.fsGroup&#39; to integer greater than 0 </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv029">https://avd.aquasec.com/appshield/ksv029</a><br></details>  |
 
-      
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV003   |   Default capabilities not dropped  |  LOW | <details><summary>Expand...</summary> The container should drop all default capabilities and add only those that are needed for its execution. <br> <hr> <br> Container &#39;RELEASE-NAME-monica&#39; of Deployment &#39;RELEASE-NAME-monica&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39; </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/">https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/</a><br><a href="https://avd.aquasec.com/appshield/ksv003">https://avd.aquasec.com/appshield/ksv003</a><br></details>  |
@@ -62,11 +62,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -94,11 +94,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/monica:v3.5.0@sha256:3a9b81c294adf1cd7710b5b061972f28d0103bd47ded6d1bc49cfb8501873efe (debian 11.1)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apache2         |    CVE-2001-1534   |   LOW  |  2.4.51-1~deb11u1 |  | <details><summary>Expand...</summary><a href="http://cert.uni-stuttgart.de/archive/bugtraq/2001/11/msg00084.html">http://cert.uni-stuttgart.de/archive/bugtraq/2001/11/msg00084.html</a><br><a href="http://www.iss.net/security_center/static/7494.php">http://www.iss.net/security_center/static/7494.php</a><br><a href="http://www.securityfocus.com/bid/3521">http://www.securityfocus.com/bid/3521</a><br></details>  |
@@ -453,7 +453,7 @@ hide:
 
 **composer**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | doctrine/dbal         |    CVE-2021-43608   |   CRITICAL  |  3.1.3 | 3.0.99, 3.1.4 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-r7cj-8hjg-x622">https://github.com/advisories/GHSA-r7cj-8hjg-x622</a><br><a href="https://github.com/doctrine/dbal/commit/9dcfa4cb6c03250b78a84737ba7ceb82f4b7ba4d">https://github.com/doctrine/dbal/commit/9dcfa4cb6c03250b78a84737ba7ceb82f4b7ba4d</a><br><a href="https://github.com/doctrine/dbal/releases">https://github.com/doctrine/dbal/releases</a><br><a href="https://github.com/doctrine/dbal/security/advisories/GHSA-r7cj-8hjg-x622">https://github.com/doctrine/dbal/security/advisories/GHSA-r7cj-8hjg-x622</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-43608">https://nvd.nist.gov/vuln/detail/CVE-2021-43608</a><br><a href="https://www.doctrine-project.org/2021/11/11/dbal3-vulnerability-fixed.html">https://www.doctrine-project.org/2021/11/11/dbal3-vulnerability-fixed.html</a><br></details>  |
@@ -462,11 +462,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -494,11 +494,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/mariadb:v10.6.5@sha256:393628e4fc0eb3f334c762c395477d85844294aedcdf5b0c88638a33a7ccb3f3 (debian 10.11)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -648,17 +648,14 @@ hide:
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-      
+
 
 **gobinary**
 
-      
+
 | No Vulnerabilities found         |
 |:---------------------------------|
-
-      
-

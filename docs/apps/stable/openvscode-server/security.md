@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: openvscode-server/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV003   |   Default capabilities not dropped  |  LOW | <details><summary>Expand...</summary> The container should drop all default capabilities and add only those that are needed for its execution. <br> <hr> <br> Container &#39;RELEASE-NAME-openvscode-server&#39; of Deployment &#39;RELEASE-NAME-openvscode-server&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39; </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/">https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/</a><br><a href="https://avd.aquasec.com/appshield/ksv003">https://avd.aquasec.com/appshield/ksv003</a><br></details>  |
@@ -41,11 +41,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -73,11 +73,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/openvscode-server:v1.63.0 (ubuntu 20.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  5.0-6ubuntu1.1 |  | <details><summary>Expand...</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -153,7 +153,7 @@ hide:
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | diff         |    GHSA-h6ch-v84p-w6p9   |   HIGH  |  1.0.0 | 3.5.0 | <details><summary>Expand...</summary><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1552148">https://bugzilla.redhat.com/show_bug.cgi?id=1552148</a><br><a href="https://github.com/advisories/GHSA-h6ch-v84p-w6p9">https://github.com/advisories/GHSA-h6ch-v84p-w6p9</a><br><a href="https://github.com/kpdecker/jsdiff/commit/2aec4298639bf30fb88a00b356bf404d3551b8c0">https://github.com/kpdecker/jsdiff/commit/2aec4298639bf30fb88a00b356bf404d3551b8c0</a><br><a href="https://snyk.io/vuln/npm:diff:20180305">https://snyk.io/vuln/npm:diff:20180305</a><br><a href="https://www.npmjs.com/advisories/1631">https://www.npmjs.com/advisories/1631</a><br><a href="https://www.whitesourcesoftware.com/vulnerability-database/WS-2018-0590">https://www.whitesourcesoftware.com/vulnerability-database/WS-2018-0590</a><br></details>  |
@@ -176,4 +176,3 @@ hide:
 | npm         |    CVE-2020-15095   |   MEDIUM  |  1.0.1 | 6.14.6 | <details><summary>Expand...</summary><a href="http://lists.opensuse.org/opensuse-security-announce/2020-10/msg00011.html">http://lists.opensuse.org/opensuse-security-announce/2020-10/msg00011.html</a><br><a href="http://lists.opensuse.org/opensuse-security-announce/2020-10/msg00015.html">http://lists.opensuse.org/opensuse-security-announce/2020-10/msg00015.html</a><br><a href="http://lists.opensuse.org/opensuse-security-announce/2020-10/msg00023.html">http://lists.opensuse.org/opensuse-security-announce/2020-10/msg00023.html</a><br><a href="https://github.com/advisories/GHSA-93f3-23rq-pjfp">https://github.com/advisories/GHSA-93f3-23rq-pjfp</a><br><a href="https://github.com/npm/cli/blob/66aab417f836a901f8afb265251f761bb0422463/CHANGELOG.md#6146-2020-07-07">https://github.com/npm/cli/blob/66aab417f836a901f8afb265251f761bb0422463/CHANGELOG.md#6146-2020-07-07</a><br><a href="https://github.com/npm/cli/commit/a9857b8f6869451ff058789c4631fadfde5bbcbc">https://github.com/npm/cli/commit/a9857b8f6869451ff058789c4631fadfde5bbcbc</a><br><a href="https://github.com/npm/cli/security/advisories/GHSA-93f3-23rq-pjfp">https://github.com/npm/cli/security/advisories/GHSA-93f3-23rq-pjfp</a><br><a href="https://linux.oracle.com/cve/CVE-2020-15095.html">https://linux.oracle.com/cve/CVE-2020-15095.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-0548.html">https://linux.oracle.com/errata/ELSA-2021-0548.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4OOYAMJVLLCLXDTHW3V5UXNULZBBK4O6/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4OOYAMJVLLCLXDTHW3V5UXNULZBBK4O6/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-15095">https://nvd.nist.gov/vuln/detail/CVE-2020-15095</a><br><a href="https://security.gentoo.org/glsa/202101-07">https://security.gentoo.org/glsa/202101-07</a><br></details>  |
 | npm         |    CVE-2013-4116   |   LOW  |  1.0.1 | &gt;=1.3.3 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2013/07/10/17">http://www.openwall.com/lists/oss-security/2013/07/10/17</a><br><a href="http://www.openwall.com/lists/oss-security/2013/07/11/9">http://www.openwall.com/lists/oss-security/2013/07/11/9</a><br><a href="http://www.securityfocus.com/bid/61083">http://www.securityfocus.com/bid/61083</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=715325">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=715325</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=983917">https://bugzilla.redhat.com/show_bug.cgi?id=983917</a><br><a href="https://exchange.xforce.ibmcloud.com/vulnerabilities/87141">https://exchange.xforce.ibmcloud.com/vulnerabilities/87141</a><br><a href="https://github.com/advisories/GHSA-v3jv-wrf4-5845">https://github.com/advisories/GHSA-v3jv-wrf4-5845</a><br><a href="https://github.com/npm/npm/commit/f4d31693">https://github.com/npm/npm/commit/f4d31693</a><br><a href="https://github.com/npm/npm/issues/3635">https://github.com/npm/npm/issues/3635</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2013-4116">https://nvd.nist.gov/vuln/detail/CVE-2013-4116</a><br><a href="https://www.npmjs.com/advisories/152">https://www.npmjs.com/advisories/152</a><br></details>  |
 | pug         |    CVE-2021-21353   |   CRITICAL  |  1.0.0 | 3.0.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-p493-635q-r6gr">https://github.com/advisories/GHSA-p493-635q-r6gr</a><br><a href="https://github.com/pugjs/pug/commit/991e78f7c4220b2f8da042877c6f0ef5a4683be0">https://github.com/pugjs/pug/commit/991e78f7c4220b2f8da042877c6f0ef5a4683be0</a><br><a href="https://github.com/pugjs/pug/issues/3312">https://github.com/pugjs/pug/issues/3312</a><br><a href="https://github.com/pugjs/pug/pull/3314">https://github.com/pugjs/pug/pull/3314</a><br><a href="https://github.com/pugjs/pug/releases/tag/pug%403.0.1">https://github.com/pugjs/pug/releases/tag/pug%403.0.1</a><br><a href="https://github.com/pugjs/pug/security/advisories/GHSA-p493-635q-r6gr">https://github.com/pugjs/pug/security/advisories/GHSA-p493-635q-r6gr</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-21353">https://nvd.nist.gov/vuln/detail/CVE-2021-21353</a><br><a href="https://www.npmjs.com/package/pug">https://www.npmjs.com/package/pug</a><br><a href="https://www.npmjs.com/package/pug-code-gen">https://www.npmjs.com/package/pug-code-gen</a><br></details>  |
-

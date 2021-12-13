@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-node-1.0.24"></a>
+### [tdarr-node-1.0.24](https://github.com/truecharts/apps/compare/tdarr-node-1.0.23...tdarr-node-1.0.24) (2021-12-13)
+
+#### Chore
+
+* update docker general non-major ([#1531](https://github.com/truecharts/apps/issues/1531))
+
+
+
 <a name="tdarr-node-1.0.23"></a>
 ### [tdarr-node-1.0.23](https://github.com/truecharts/apps/compare/tdarr-node-1.0.22...tdarr-node-1.0.23) (2021-12-13)
 

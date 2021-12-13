@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: dillinger/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV003   |   Default capabilities not dropped  |  LOW | <details><summary>Expand...</summary> The container should drop all default capabilities and add only those that are needed for its execution. <br> <hr> <br> Container &#39;RELEASE-NAME-dillinger&#39; of Deployment &#39;RELEASE-NAME-dillinger&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39; </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/">https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/</a><br><a href="https://avd.aquasec.com/appshield/ksv003">https://avd.aquasec.com/appshield/ksv003</a><br></details>  |
@@ -41,11 +41,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -73,11 +73,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/dillinger:v3.39.1 (ubuntu 18.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  4.4.18-2ubuntu1.2 |  | <details><summary>Expand...</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -261,7 +261,7 @@ hide:
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | acorn         |    GHSA-6chw-6frg-f759   |   HIGH  |  5.7.3 | 5.7.4, 7.1.1, 6.4.1 | <details><summary>Expand...</summary><a href="https://github.com/acornjs/acorn/commit/793c0e569ed1158672e3a40aeed1d8518832b802">https://github.com/acornjs/acorn/commit/793c0e569ed1158672e3a40aeed1d8518832b802</a><br><a href="https://github.com/acornjs/acorn/issues/929">https://github.com/acornjs/acorn/issues/929</a><br><a href="https://github.com/advisories/GHSA-6chw-6frg-f759">https://github.com/advisories/GHSA-6chw-6frg-f759</a><br><a href="https://snyk.io/vuln/SNYK-JS-ACORN-559469">https://snyk.io/vuln/SNYK-JS-ACORN-559469</a><br><a href="https://www.npmjs.com/advisories/1488">https://www.npmjs.com/advisories/1488</a><br></details>  |
@@ -325,4 +325,3 @@ hide:
 | ws         |    CVE-2021-32640   |   MEDIUM  |  6.1.4 | 5.2.3, 6.2.2, 7.4.6 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-6fc8-4gx4-v693">https://github.com/advisories/GHSA-6fc8-4gx4-v693</a><br><a href="https://github.com/websockets/ws/commit/00c425ec77993773d823f018f64a5c44e17023ff">https://github.com/websockets/ws/commit/00c425ec77993773d823f018f64a5c44e17023ff</a><br><a href="https://github.com/websockets/ws/issues/1895">https://github.com/websockets/ws/issues/1895</a><br><a href="https://github.com/websockets/ws/security/advisories/GHSA-6fc8-4gx4-v693">https://github.com/websockets/ws/security/advisories/GHSA-6fc8-4gx4-v693</a><br><a href="https://lists.apache.org/thread.html/rdfa7b6253c4d6271e31566ecd5f30b7ce1b8fb2c89d52b8c4e0f4e30@%3Ccommits.tinkerpop.apache.org%3E">https://lists.apache.org/thread.html/rdfa7b6253c4d6271e31566ecd5f30b7ce1b8fb2c89d52b8c4e0f4e30@%3Ccommits.tinkerpop.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-32640">https://nvd.nist.gov/vuln/detail/CVE-2021-32640</a><br></details>  |
 | y18n         |    CVE-2020-7774   |   HIGH  |  3.2.1 | 5.0.5, 4.0.1, 3.2.2 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-c4w7-xm78-47vh">https://github.com/advisories/GHSA-c4w7-xm78-47vh</a><br><a href="https://github.com/yargs/y18n/commit/a9ac604abf756dec9687be3843e2c93bfe581f25">https://github.com/yargs/y18n/commit/a9ac604abf756dec9687be3843e2c93bfe581f25</a><br><a href="https://github.com/yargs/y18n/issues/96">https://github.com/yargs/y18n/issues/96</a><br><a href="https://github.com/yargs/y18n/pull/108">https://github.com/yargs/y18n/pull/108</a><br><a href="https://linux.oracle.com/cve/CVE-2020-7774.html">https://linux.oracle.com/cve/CVE-2020-7774.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-0551.html">https://linux.oracle.com/errata/ELSA-2021-0551.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-7774">https://nvd.nist.gov/vuln/detail/CVE-2020-7774</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1038306">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1038306</a><br><a href="https://snyk.io/vuln/SNYK-JS-Y18N-1021887">https://snyk.io/vuln/SNYK-JS-Y18N-1021887</a><br><a href="https://www.oracle.com/security-alerts/cpuApr2021.html">https://www.oracle.com/security-alerts/cpuApr2021.html</a><br></details>  |
 | yargs-parser         |    CVE-2020-7608   |   MEDIUM  |  4.2.1 | 5.0.1, 13.1.2, 18.1.2, 15.0.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-p9pc-299p-vxgp">https://github.com/advisories/GHSA-p9pc-299p-vxgp</a><br><a href="https://github.com/yargs/yargs-parser/commit/63810ca1ae1a24b08293a4d971e70e058c7a41e2">https://github.com/yargs/yargs-parser/commit/63810ca1ae1a24b08293a4d971e70e058c7a41e2</a><br><a href="https://linux.oracle.com/cve/CVE-2020-7608.html">https://linux.oracle.com/cve/CVE-2020-7608.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-0548.html">https://linux.oracle.com/errata/ELSA-2021-0548.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-7608">https://nvd.nist.gov/vuln/detail/CVE-2020-7608</a><br><a href="https://snyk.io/vuln/SNYK-JS-YARGSPARSER-560381">https://snyk.io/vuln/SNYK-JS-YARGSPARSER-560381</a><br><a href="https://www.npmjs.com/advisories/1500">https://www.npmjs.com/advisories/1500</a><br></details>  |
-

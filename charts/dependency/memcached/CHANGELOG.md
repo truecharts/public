@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.33"></a>
+### [memcached-1.0.33](https://github.com/truecharts/apps/compare/memcached-1.0.32...memcached-1.0.33) (2021-12-13)
+
+#### Chore
+
+* update docker general non-major ([#1531](https://github.com/truecharts/apps/issues/1531))
+
+
+
 <a name="memcached-1.0.32"></a>
 ### [memcached-1.0.32](https://github.com/truecharts/apps/compare/memcached-1.0.31...memcached-1.0.32) (2021-12-13)
 

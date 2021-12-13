@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.29"></a>
+### [komga-4.0.29](https://github.com/truecharts/apps/compare/komga-4.0.28...komga-4.0.29) (2021-12-13)
+
+#### Chore
+
+* update docker general non-major ([#1531](https://github.com/truecharts/apps/issues/1531))
+
+
+
 <a name="komga-4.0.28"></a>
 ### [komga-4.0.28](https://github.com/truecharts/apps/compare/komga-4.0.27...komga-4.0.28) (2021-12-13)
 

@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.webUIPort | int | `8265` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/tdarr"` |  |
-| image.tag | string | `"v2.00.11@sha256:6fdd803b7a48519691ae1b18bf0700cf287fd8773557a0d6d0d16c782528ae18"` |  |
+| image.tag | string | `"v2.00.12@sha256:5c3f4b038b5a59614ab1dca605894e85fe809f9fc08ffb478ab8bcc1a8cdf057"` |  |
 | persistence.configs.enabled | bool | `true` |  |
 | persistence.configs.mountPath | string | `"/app/configs"` |  |
 | persistence.logs.enabled | bool | `true` |  |
