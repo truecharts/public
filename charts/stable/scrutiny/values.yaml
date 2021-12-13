@@ -7,6 +7,7 @@ securityContext:
   runAsNonRoot: false
   privileged: true
   allowPrivilegeEscalation: true
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
@@ -14,6 +15,9 @@ podSecurityContext:
 
 env:
   PUID: 568
+  SCRUTINY_WEB: true
+  SCRUTINY_COLLECTOR: true
+  SCRUTINY_API_ENDPOINT: "http://localhost:8080"
 
 service:
   main:
@@ -28,6 +32,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/scrutiny/config"
+  data:
+    enabled: true
+    mountPath: "/config"
   udev:
     type: hostPath
     hostPath: /run/udev
