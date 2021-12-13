@@ -13089,6 +13089,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2021.11.18
+    created: "2021-12-13T22:20:08.11944367Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.16
+    description: Scrutiny WebUI for smartd S.M.A.R.T monitoring. Scrutiny is a Hard
+      Drive Health Dashboard & Monitoring solution.
+    digest: 6257e0f259c5c49ac31df87602aa936469d732fec5960bbfced6c32b497c0107
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/scrutiny
+    icon: https://raw.githubusercontent.com/AnalogJ/scrutiny/master/webapp/frontend/src/assets/images/logo/scrutiny-logo-dark.png
+    keywords:
+    - scrutiny
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: scrutiny
+    sources:
+    - https://hub.docker.com/r/linuxserver/scrutiny
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/scrutiny-0.0.3/scrutiny-0.0.3.tgz
+    version: 0.0.3
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2021.11.18
     created: "2021-12-13T12:44:31.038590034Z"
     dependencies:
     - name: common
@@ -15605,4 +15636,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-13T21:49:57.30434995Z"
+generated: "2021-12-13T22:20:08.12501233Z"
