@@ -1,5 +1,5 @@
 # Include{groups}
-
+portals: {}
 questions:
 # Include{global}
   - variable: controller
@@ -144,25 +144,6 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
 # Include{persistenceList}
-
-  - variable: ingress
-    label: ""
-    group: "Ingress"
-    schema:
-      type: dict
-      attrs:
-        - variable: main
-          label: "Main Ingress"
-          schema:
-            type: dict
-            attrs:
-# Include{ingressDefault}
-
-# Include{ingressTLS}
-
-# Include{ingressTraefik}
-
-# Include{ingressExpert}
 
 # Include{ingressList}
 

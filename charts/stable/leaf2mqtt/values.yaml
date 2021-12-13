@@ -9,6 +9,9 @@ image:
 service:
   main:
     enabled: false
+    ports:
+      main:
+        enabled: false
 
 securityContext:
   readOnlyRootFilesystem: false
