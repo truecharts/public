@@ -29,7 +29,7 @@ spec:
               mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}
           {{ include "common.containers.configurePorts" .Values | nindent 10 }}
-          {{ include "allEnvironmentVariables" (dict "defaultEnv" (dict "TZ" .Values.timezone "worker_address" .Values.nodeIP "blockchains" "chia" "plots_dir" .Values.appVolumeMounts.plots.mountPath "mode" "fullnode") "environmentVariables" .Values.environmentVariables) | nindent 10 }}
+          {{ include "allEnvironmentVariables" (dict "defaultEnv" (dict "TZ" .Values.timezone "worker_address" .Values.nodeIP "worker_api_port" .Values.apiPort "controller_host" .Values.nodeIP "controller_api_port" .Values.apiPort "farmer_address" .Values.nodeIP "farmer_port" .Values.farmerPort "blockchains" "chia" "plots_dir" .Values.appVolumeMounts.plots.mountPath "mode" "fullnode") "environmentVariables" .Values.environmentVariables) | nindent 10 }}
       volumes: {{ include "common.storage.configureAppVolumes" .Values | nindent 8 }}
       {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
         - name: extrappvolume-{{ $index }}

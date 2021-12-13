@@ -249,6 +249,7 @@ questions:
           label: "Configure Cactus"
           schema:
             type: dict
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"
@@ -374,6 +375,7 @@ questions:
           label: "Configure Chives"
           schema:
             type: dict
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"
@@ -499,6 +501,7 @@ questions:
           label: "Configure Cryptodoge"
           schema:
             type: dict
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"
@@ -624,6 +627,7 @@ questions:
           label: "Configure Flax"
           schema:
             type: dict
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"
@@ -749,6 +753,7 @@ questions:
           label: "Configure Flora"
           schema:
             type: dict
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"
@@ -874,6 +879,7 @@ questions:
           label: "Configure HDDCoin"
           schema:
             type: dict
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"
@@ -999,6 +1005,7 @@ questions:
           label: "Configure Maize"
           schema:
             type: dict
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"
@@ -1124,6 +1131,7 @@ questions:
           label: "Configure N-Chain"
           schema:
             type: dict
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"
@@ -1249,6 +1257,7 @@ questions:
           label: "Configure Staicoin"
           schema:
             type: dict
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"
@@ -1374,7 +1383,7 @@ questions:
           label: "Configure Stor"
           schema:
             type: dict
-            show_if: [["storEnabled", "=", true]]
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"
@@ -1500,7 +1509,7 @@ questions:
           label: "Configure BTCGreen"
           schema:
             type: dict
-            show_if: [["btcgreenEnabled", "=", true]]
+            additional_attrs: true
             attrs:
               - variable: volumeMounts
                 label: "Storage Configurations"

@@ -34,7 +34,7 @@ spec:
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
           {{ end }}
-          {{ include "allEnvironmentVariables" (dict "defaultEnv" (dict "TZ" $ref.Values.timezone "worker_address" $ref.Values.nodeIP "controller_host" $ref.Values.nodeIP "worker_api_port" $coin.apiPort "blockchains" $coinName "plots_dir" $ref.Values.appVolumeMounts.plots.mountPath "mode" "fullnode") "environmentVariables" $coin.environmentVariables) | nindent 10 }}
+          {{ include "allEnvironmentVariables" (dict "defaultEnv" (dict "TZ" $ref.Values.timezone "worker_address" $ref.Values.nodeIP "worker_api_port" $coin.apiPort "controller_host" $ref.Values.nodeIP "controller_api_port" $coin.apiPort "farmer_address" $ref.Values.nodeIP "farmer_port" $coin.farmerPort "blockchains" $coinName "plots_dir" $ref.Values.appVolumeMounts.plots.mountPath "mode" "fullnode") "environmentVariables" $coin.environmentVariables) | nindent 10 }}
       volumes: {{ include "common.storage.configureAppVolumes" (dict "appVolumeMounts" $coin.volumeMounts "ixVolumes" $ref.Values.ixVolumes) | nindent 8 }}
       {{ range $index, $hostPathConfiguration := $ref.Values.extraAppVolumeMounts }}
         - name: extrappvolume-{{ $coinName }}-{{ $index }}
