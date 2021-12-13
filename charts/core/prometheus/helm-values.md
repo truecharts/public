@@ -88,7 +88,7 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.volumeMounts | list | `[]` |  |
 | alertmanager.volumes | list | `[]` |  |
 | alertmanagerImage.repository | string | `"tccr.io/truecharts/alertmanager"` |  |
-| alertmanagerImage.tag | string | `"v0.23.0@sha256:9108e55d3b7e9f4d1a5688d08c99b3fb27fcaaeb301c09b5990f50ec7b57e6ce"` |  |
+| alertmanagerImage.tag | string | `"v0.23.0@sha256:4018c88a4130dd6ae5cf9c9491235e543fc1d9db7c94ad8645a0da9fcf521ddc"` |  |
 | coreDns.enabled | bool | `true` |  |
 | coreDns.namespace | string | `"kube-system"` |  |
 | coreDns.service.enabled | bool | `true` |  |
@@ -104,7 +104,7 @@ You will, however, be able to use all values referenced in the common chart here
 | exporters.node-exporter.enabled | bool | `true` |  |
 | global.labels | object | `{}` |  |
 | image.repository | string | `"tccr.io/truecharts/prometheus-operator"` |  |
-| image.tag | string | `"v0.52.1@sha256:488e425c9e6601339a2630ea48846df1fbdfac5c483b93da1b9f4fbf2a2b9261"` |  |
+| image.tag | string | `"v0.52.1@sha256:29f264a4beaee7efe4ca18718802b8bf4ae3acb6beb10cd69ce6b1fcc508987b"` |  |
 | ingress.alertmanager.enabled | bool | `false` |  |
 | ingress.main.enabled | bool | `false` |  |
 | ingress.thanos.enabled | bool | `false` |  |

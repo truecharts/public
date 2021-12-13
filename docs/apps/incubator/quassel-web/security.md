@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: quassel-web/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV003   |   Default capabilities not dropped  |  LOW | <details><summary>Expand...</summary> The container should drop all default capabilities and add only those that are needed for its execution. <br> <hr> <br> Container &#39;RELEASE-NAME-quassel-web&#39; of Deployment &#39;RELEASE-NAME-quassel-web&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39; </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/">https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/</a><br><a href="https://avd.aquasec.com/appshield/ksv003">https://avd.aquasec.com/appshield/ksv003</a><br></details>  |
@@ -42,11 +42,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -74,11 +74,11 @@ hide:
 
 
 #### Container: Node.js
-    
+
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | ansi-regex         |    CVE-2021-3807   |   HIGH  |  3.0.0 | 5.0.1, 6.0.1 | <details><summary>Expand...</summary><a href="https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908">https://app.snyk.io/vuln/SNYK-JS-ANSIREGEX-1583908</a><br><a href="https://github.com/advisories/GHSA-93q8-gq69-wqmw">https://github.com/advisories/GHSA-93q8-gq69-wqmw</a><br><a href="https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9">https://github.com/chalk/ansi-regex/commit/8d1d7cdb586269882c4bdc1b7325d0c58c8f76f9</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311">https://github.com/chalk/ansi-regex/issues/38#issuecomment-924086311</a><br><a href="https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774">https://github.com/chalk/ansi-regex/issues/38#issuecomment-925924774</a><br><a href="https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994">https://huntr.dev/bounties/5b3cf33b-ede0-4398-9974-800876dfd994</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3807">https://nvd.nist.gov/vuln/detail/CVE-2021-3807</a><br></details>  |
@@ -94,4 +94,3 @@ hide:
 | set-value         |    CVE-2019-10747   |   CRITICAL  |  2.0.0 | 3.0.1, 2.0.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-4g88-fppr-53pp">https://github.com/advisories/GHSA-4g88-fppr-53pp</a><br><a href="https://linux.oracle.com/cve/CVE-2019-10747.html">https://linux.oracle.com/cve/CVE-2019-10747.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-0549.html">https://linux.oracle.com/errata/ELSA-2021-0549.html</a><br><a href="https://lists.apache.org/thread.html/b46f35559c4a97cf74d2dd7fe5a48f8abf2ff37f879083920af9b292@%3Cdev.drat.apache.org%3E">https://lists.apache.org/thread.html/b46f35559c4a97cf74d2dd7fe5a48f8abf2ff37f879083920af9b292@%3Cdev.drat.apache.org%3E</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3EJ36KV6MXQPUYTFCCTDY54E5Y7QP3AV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/3EJ36KV6MXQPUYTFCCTDY54E5Y7QP3AV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/E3HNLQZQINMZK6GYB2UTKK4VU7WBV2OT/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/E3HNLQZQINMZK6GYB2UTKK4VU7WBV2OT/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-10747">https://nvd.nist.gov/vuln/detail/CVE-2019-10747</a><br><a href="https://snyk.io/vuln/SNYK-JS-SETVALUE-450213">https://snyk.io/vuln/SNYK-JS-SETVALUE-450213</a><br><a href="https://www.npmjs.com/advisories/1012">https://www.npmjs.com/advisories/1012</a><br></details>  |
 | set-value         |    CVE-2021-23440   |   CRITICAL  |  2.0.0 | 2.0.1, 4.0.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-4jqc-8m5r-9rpr">https://github.com/advisories/GHSA-4jqc-8m5r-9rpr</a><br><a href="https://github.com/jonschlinkert/set-value/commit/7cf8073bb06bf0c15e08475f9f952823b4576452">https://github.com/jonschlinkert/set-value/commit/7cf8073bb06bf0c15e08475f9f952823b4576452</a><br><a href="https://github.com/jonschlinkert/set-value/pull/33">https://github.com/jonschlinkert/set-value/pull/33</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-23440">https://nvd.nist.gov/vuln/detail/CVE-2021-23440</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1584212">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-1584212</a><br><a href="https://snyk.io/vuln/SNYK-JS-SETVALUE-1540541">https://snyk.io/vuln/SNYK-JS-SETVALUE-1540541</a><br><a href="https://www.huntr.dev/bounties/2eae1159-01de-4f82-a177-7478a408c4a2/">https://www.huntr.dev/bounties/2eae1159-01de-4f82-a177-7478a408c4a2/</a><br></details>  |
 | ws         |    CVE-2021-32640   |   MEDIUM  |  6.1.2 | 5.2.3, 6.2.2, 7.4.6 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-6fc8-4gx4-v693">https://github.com/advisories/GHSA-6fc8-4gx4-v693</a><br><a href="https://github.com/websockets/ws/commit/00c425ec77993773d823f018f64a5c44e17023ff">https://github.com/websockets/ws/commit/00c425ec77993773d823f018f64a5c44e17023ff</a><br><a href="https://github.com/websockets/ws/issues/1895">https://github.com/websockets/ws/issues/1895</a><br><a href="https://github.com/websockets/ws/security/advisories/GHSA-6fc8-4gx4-v693">https://github.com/websockets/ws/security/advisories/GHSA-6fc8-4gx4-v693</a><br><a href="https://lists.apache.org/thread.html/rdfa7b6253c4d6271e31566ecd5f30b7ce1b8fb2c89d52b8c4e0f4e30@%3Ccommits.tinkerpop.apache.org%3E">https://lists.apache.org/thread.html/rdfa7b6253c4d6271e31566ecd5f30b7ce1b8fb2c89d52b8c4e0f4e30@%3Ccommits.tinkerpop.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-32640">https://nvd.nist.gov/vuln/detail/CVE-2021-32640</a><br></details>  |
-

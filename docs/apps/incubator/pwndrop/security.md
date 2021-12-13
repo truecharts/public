@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: pwndrop/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV003   |   Default capabilities not dropped  |  LOW | <details><summary>Expand...</summary> The container should drop all default capabilities and add only those that are needed for its execution. <br> <hr> <br> Container &#39;RELEASE-NAME-pwndrop&#39; of Deployment &#39;RELEASE-NAME-pwndrop&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39; </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/">https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/</a><br><a href="https://avd.aquasec.com/appshield/ksv003">https://avd.aquasec.com/appshield/ksv003</a><br></details>  |
@@ -42,11 +42,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -74,14 +74,13 @@ hide:
 
 
 #### Container: app/pwndrop/pwndrop
-    
+
 
 **gobinary**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | github.com/miekg/dns         |    CVE-2019-19794   |   MEDIUM  |  v1.1.12 | v1.1.25-0.20191211073109-8ebf2e419df7 | <details><summary>Expand...</summary><a href="https://github.com/coredns/coredns/issues/3519">https://github.com/coredns/coredns/issues/3519</a><br><a href="https://github.com/coredns/coredns/issues/3547">https://github.com/coredns/coredns/issues/3547</a><br><a href="https://github.com/miekg/dns/compare/v1.1.24...v1.1.25">https://github.com/miekg/dns/compare/v1.1.24...v1.1.25</a><br><a href="https://github.com/miekg/dns/issues/1043">https://github.com/miekg/dns/issues/1043</a><br><a href="https://github.com/miekg/dns/pull/1044">https://github.com/miekg/dns/pull/1044</a><br></details>  |
 | golang.org/x/crypto         |    CVE-2020-29652   |   HIGH  |  v0.0.0-20200117160349-530e935923ad | v0.0.0-20201216223049-8b5274cf687f | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652</a><br><a href="https://go-review.googlesource.com/c/crypto/+/278852">https://go-review.googlesource.com/c/crypto/+/278852</a><br><a href="https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1">https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1</a><br><a href="https://linux.oracle.com/cve/CVE-2020-29652.html">https://linux.oracle.com/cve/CVE-2020-29652.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1796.html">https://linux.oracle.com/errata/ELSA-2021-1796.html</a><br><a href="https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E">https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-29652">https://nvd.nist.gov/vuln/detail/CVE-2020-29652</a><br></details>  |
 | golang.org/x/crypto         |    CVE-2020-9283   |   HIGH  |  v0.0.0-20200117160349-530e935923ad | v0.0.0-20200220183623-bac4c82f6975 | <details><summary>Expand...</summary><a href="http://packetstormsecurity.com/files/156480/Go-SSH-0.0.2-Denial-Of-Service.html">http://packetstormsecurity.com/files/156480/Go-SSH-0.0.2-Denial-Of-Service.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9283">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-9283</a><br><a href="https://groups.google.com/forum/#!topic/golang-announce/3L45YRc91SY">https://groups.google.com/forum/#!topic/golang-announce/3L45YRc91SY</a><br><a href="https://lists.debian.org/debian-lts-announce/2020/10/msg00014.html">https://lists.debian.org/debian-lts-announce/2020/10/msg00014.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2020/11/msg00027.html">https://lists.debian.org/debian-lts-announce/2020/11/msg00027.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2020/11/msg00031.html">https://lists.debian.org/debian-lts-announce/2020/11/msg00031.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-9283">https://nvd.nist.gov/vuln/detail/CVE-2020-9283</a><br></details>  |
-

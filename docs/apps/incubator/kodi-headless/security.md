@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: kodi-headless/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV003   |   Default capabilities not dropped  |  LOW | <details><summary>Expand...</summary> The container should drop all default capabilities and add only those that are needed for its execution. <br> <hr> <br> Container &#39;RELEASE-NAME-kodi-headless&#39; of Deployment &#39;RELEASE-NAME-kodi-headless&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39; </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/">https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/</a><br><a href="https://avd.aquasec.com/appshield/ksv003">https://avd.aquasec.com/appshield/ksv003</a><br></details>  |
@@ -41,11 +41,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -73,11 +73,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/kodi-headless:v190 (ubuntu 18.04)
-    
+
 
 **ubuntu**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2020-27350   |   MEDIUM  |  1.6.12 | 1.6.12ubuntu0.2 | <details><summary>Expand...</summary><a href="https://bugs.launchpad.net/bugs/1899193">https://bugs.launchpad.net/bugs/1899193</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27350</a><br><a href="https://security.netapp.com/advisory/ntap-20210108-0005/">https://security.netapp.com/advisory/ntap-20210108-0005/</a><br><a href="https://ubuntu.com/security/notices/USN-4667-1">https://ubuntu.com/security/notices/USN-4667-1</a><br><a href="https://ubuntu.com/security/notices/USN-4667-2">https://ubuntu.com/security/notices/USN-4667-2</a><br><a href="https://usn.ubuntu.com/usn/usn-4667-1">https://usn.ubuntu.com/usn/usn-4667-1</a><br><a href="https://www.debian.org/security/2020/dsa-4808">https://www.debian.org/security/2020/dsa-4808</a><br></details>  |
@@ -570,4 +570,3 @@ hide:
 | tar         |    CVE-2018-20482   |   LOW  |  1.29b-2ubuntu0.1 | 1.29b-2ubuntu0.2 | <details><summary>Expand...</summary><a href="http://git.savannah.gnu.org/cgit/tar.git/commit/?id=c15c42ccd1e2377945fd0414eca1a49294bff454">http://git.savannah.gnu.org/cgit/tar.git/commit/?id=c15c42ccd1e2377945fd0414eca1a49294bff454</a><br><a href="http://lists.gnu.org/archive/html/bug-tar/2018-12/msg00023.html">http://lists.gnu.org/archive/html/bug-tar/2018-12/msg00023.html</a><br><a href="http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00077.html">http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00077.html</a><br><a href="http://www.securityfocus.com/bid/106354">http://www.securityfocus.com/bid/106354</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20482">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20482</a><br><a href="https://lists.debian.org/debian-lts-announce/2018/12/msg00023.html">https://lists.debian.org/debian-lts-announce/2018/12/msg00023.html</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/11/msg00025.html">https://lists.debian.org/debian-lts-announce/2021/11/msg00025.html</a><br><a href="https://news.ycombinator.com/item?id=18745431">https://news.ycombinator.com/item?id=18745431</a><br><a href="https://security.gentoo.org/glsa/201903-05">https://security.gentoo.org/glsa/201903-05</a><br><a href="https://twitter.com/thatcks/status/1076166645708668928">https://twitter.com/thatcks/status/1076166645708668928</a><br><a href="https://ubuntu.com/security/notices/USN-4692-1">https://ubuntu.com/security/notices/USN-4692-1</a><br><a href="https://utcc.utoronto.ca/~cks/space/blog/sysadmin/TarFindingTruncateBug">https://utcc.utoronto.ca/~cks/space/blog/sysadmin/TarFindingTruncateBug</a><br></details>  |
 | tar         |    CVE-2019-9923   |   LOW  |  1.29b-2ubuntu0.1 | 1.29b-2ubuntu0.2 | <details><summary>Expand...</summary><a href="http://git.savannah.gnu.org/cgit/tar.git/commit/?id=cb07844454d8cc9fb21f53ace75975f91185a120">http://git.savannah.gnu.org/cgit/tar.git/commit/?id=cb07844454d8cc9fb21f53ace75975f91185a120</a><br><a href="http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00077.html">http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00077.html</a><br><a href="http://savannah.gnu.org/bugs/?55369">http://savannah.gnu.org/bugs/?55369</a><br><a href="https://bugs.launchpad.net/ubuntu/+source/tar/+bug/1810241">https://bugs.launchpad.net/ubuntu/+source/tar/+bug/1810241</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9923">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9923</a><br><a href="https://lists.apache.org/thread.html/r58af02e294bd07f487e2c64ffc0a29b837db5600e33b6e698b9d696b@%3Cissues.bookkeeper.apache.org%3E">https://lists.apache.org/thread.html/r58af02e294bd07f487e2c64ffc0a29b837db5600e33b6e698b9d696b@%3Cissues.bookkeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rf4c02775860db415b4955778a131c2795223f61cb8c6a450893651e4@%3Cissues.bookkeeper.apache.org%3E">https://lists.apache.org/thread.html/rf4c02775860db415b4955778a131c2795223f61cb8c6a450893651e4@%3Cissues.bookkeeper.apache.org%3E</a><br><a href="https://ubuntu.com/security/notices/USN-4692-1">https://ubuntu.com/security/notices/USN-4692-1</a><br></details>  |
 | util-linux         |    CVE-2018-7738   |   LOW  |  2.31.1-0.4ubuntu3.4 | 2.31.1-0.4ubuntu3.7 | <details><summary>Expand...</summary><a href="http://www.securityfocus.com/bid/103367">http://www.securityfocus.com/bid/103367</a><br><a href="https://bugs.debian.org/892179">https://bugs.debian.org/892179</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7738">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7738</a><br><a href="https://github.com/karelzak/util-linux/commit/75f03badd7ed9f1dd951863d75e756883d3acc55">https://github.com/karelzak/util-linux/commit/75f03badd7ed9f1dd951863d75e756883d3acc55</a><br><a href="https://github.com/karelzak/util-linux/issues/539">https://github.com/karelzak/util-linux/issues/539</a><br><a href="https://ubuntu.com/security/notices/USN-4512-1">https://ubuntu.com/security/notices/USN-4512-1</a><br><a href="https://usn.ubuntu.com/4512-1/">https://usn.ubuntu.com/4512-1/</a><br><a href="https://www.debian.org/security/2018/dsa-4134">https://www.debian.org/security/2018/dsa-4134</a><br></details>  |
-
