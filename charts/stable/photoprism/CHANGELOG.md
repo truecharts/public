@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-7.0.4"></a>
+### [photoprism-7.0.4](https://github.com/truecharts/apps/compare/photoprism-7.0.3...photoprism-7.0.4) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="photoprism-7.0.3"></a>
 ### [photoprism-7.0.3](https://github.com/truecharts/apps/compare/photoprism-7.0.2...photoprism-7.0.3) (2021-12-13)
 

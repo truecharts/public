@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="thelounge-4.0.24"></a>
+### [thelounge-4.0.24](https://github.com/truecharts/apps/compare/thelounge-4.0.23...thelounge-4.0.24) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="thelounge-4.0.23"></a>
 ### [thelounge-4.0.23](https://github.com/truecharts/apps/compare/thelounge-4.0.22...thelounge-4.0.23) (2021-12-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-5.0.13"></a>
+### [firefox-syncserver-5.0.13](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.12...firefox-syncserver-5.0.13) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="firefox-syncserver-5.0.12"></a>
 ### [firefox-syncserver-5.0.12](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.11...firefox-syncserver-5.0.12) (2021-12-13)
 

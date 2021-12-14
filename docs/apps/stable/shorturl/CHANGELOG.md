@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shorturl-1.0.22"></a>
+### [shorturl-1.0.22](https://github.com/truecharts/apps/compare/shorturl-1.0.21...shorturl-1.0.22) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="shorturl-1.0.21"></a>
 ### [shorturl-1.0.21](https://github.com/truecharts/apps/compare/shorturl-1.0.20...shorturl-1.0.21) (2021-12-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mstream-1.0.22"></a>
+### [mstream-1.0.22](https://github.com/truecharts/apps/compare/mstream-1.0.21...mstream-1.0.22) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="mstream-1.0.21"></a>
 ### [mstream-1.0.21](https://github.com/truecharts/apps/compare/mstream-1.0.20...mstream-1.0.21) (2021-12-13)
 

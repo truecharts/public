@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-5.0.3"></a>
+### [calibre-5.0.3](https://github.com/truecharts/apps/compare/calibre-5.0.2...calibre-5.0.3) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="calibre-5.0.2"></a>
 ### [calibre-5.0.2](https://github.com/truecharts/apps/compare/calibre-5.0.1...calibre-5.0.2) (2021-12-13)
 

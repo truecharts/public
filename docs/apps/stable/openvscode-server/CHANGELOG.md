@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openvscode-server-0.0.4"></a>
+### [openvscode-server-0.0.4](https://github.com/truecharts/apps/compare/openvscode-server-0.0.3...openvscode-server-0.0.4) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="openvscode-server-0.0.3"></a>
 ### [openvscode-server-0.0.3](https://github.com/truecharts/apps/compare/openvscode-server-0.0.2...openvscode-server-0.0.3) (2021-12-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="static-1.0.22"></a>
+### [static-1.0.22](https://github.com/truecharts/apps/compare/static-1.0.21...static-1.0.22) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="static-1.0.21"></a>
 ### [static-1.0.21](https://github.com/truecharts/apps/compare/static-1.0.20...static-1.0.21) (2021-12-13)
 

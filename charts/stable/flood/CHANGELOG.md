@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flood-4.0.22"></a>
+### [flood-4.0.22](https://github.com/truecharts/apps/compare/flood-4.0.21...flood-4.0.22) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="flood-4.0.21"></a>
 ### [flood-4.0.21](https://github.com/truecharts/apps/compare/flood-4.0.20...flood-4.0.21) (2021-12-13)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="unpackerr-4.0.23"></a>
+### [unpackerr-4.0.23](https://github.com/truecharts/apps/compare/unpackerr-4.0.22...unpackerr-4.0.23) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+#### Fix
+
+* remove `portals` and `ingress` when `main` service is disabled ([#1529](https://github.com/truecharts/apps/issues/1529))
+
+
+
 <a name="unpackerr-4.0.22"></a>
 ### [unpackerr-4.0.22](https://github.com/truecharts/apps/compare/unpackerr-4.0.21...unpackerr-4.0.22) (2021-12-13)
 

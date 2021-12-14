@@ -30,5 +30,6 @@ You will, however, be able to use all values referenced in the common chart here
 | secret.MQTT_PASSWORD | string | `"changeme"` | Password used to connect to the MQTT broker |
 | secret.MQTT_USERNAME | string | `"mqttuser"` | User name used to connect to the MQTT broker |
 | service.main.enabled | bool | `false` |  |
+| service.main.ports.main.enabled | bool | `false` |  |
 
 All Rights Reserved - The TrueCharts Project

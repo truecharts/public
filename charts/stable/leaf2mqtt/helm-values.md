@@ -27,5 +27,6 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.enabled | bool | `false` |  |
+| service.main.ports.main.enabled | bool | `false` |  |
 
 All Rights Reserved - The TrueCharts Project

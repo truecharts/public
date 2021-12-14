@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sonarr-9.0.23"></a>
+### [sonarr-9.0.23](https://github.com/truecharts/apps/compare/sonarr-9.0.22...sonarr-9.0.23) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="sonarr-9.0.22"></a>
 ### [sonarr-9.0.22](https://github.com/truecharts/apps/compare/sonarr-9.0.21...sonarr-9.0.22) (2021-12-13)
 

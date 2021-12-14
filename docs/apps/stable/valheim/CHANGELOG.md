@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.3"></a>
+### [valheim-2.0.3](https://github.com/truecharts/apps/compare/valheim-2.0.2...valheim-2.0.3) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="valheim-2.0.2"></a>
 ### [valheim-2.0.2](https://github.com/truecharts/apps/compare/valheim-2.0.1...valheim-2.0.2) (2021-12-13)
 

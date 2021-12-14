@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-8.0.3"></a>
+### [podgrab-8.0.3](https://github.com/truecharts/apps/compare/podgrab-8.0.2...podgrab-8.0.3) (2021-12-14)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1535](https://github.com/truecharts/apps/issues/1535))
+
+
+
 <a name="podgrab-8.0.2"></a>
 ### [podgrab-8.0.2](https://github.com/truecharts/apps/compare/podgrab-8.0.1...podgrab-8.0.2) (2021-12-13)
 
