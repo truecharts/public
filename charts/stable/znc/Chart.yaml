@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: znc
-version: 0.0.2
+version: 0.0.3
 appVersion: "1.8.2"
 description: Znc is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.16
+  version: 8.9.21
   # condition:
 maintainers:
 - email: info@truecharts.org

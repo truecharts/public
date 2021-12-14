@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: webgrabplus
-version: 0.0.2
+version: 0.0.3
 appVersion: "3.2.1"
 description: Webgrabplus is a multi-site incremental xmltv epg grabber.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.16
+  version: 8.9.21
   # condition:
 maintainers:
 - email: info@truecharts.org
