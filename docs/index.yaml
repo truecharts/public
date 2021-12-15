@@ -7800,6 +7800,43 @@ entries:
         - home-automation
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 2021.12.2
+    created: "2021-12-15T19:32:58.635646198Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.31
+    description: home-assistant App for TrueNAS SCALE
+    digest: d81813ece87b430de2845d95ae3e99e69c7fa68fa011286327059770e6ef7ccc
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/home-assistant
+    icon: https://truecharts.org/_static/img/appicons/home-assistant-icon.png
+    keywords:
+    - home-assistant
+    - hass
+    - homeassistant
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: home-assistant
+    sources:
+    - https://github.com/home-assistant/home-assistant
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/home-assistant-12.0.17/home-assistant-12.0.17.tgz
+    version: 12.0.17
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - home-automation
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 2021.12.0
     created: "2021-12-14T20:47:29.91969256Z"
     dependencies:
@@ -21681,6 +21718,38 @@ entries:
         - Networking
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 6.5.55
+    created: "2021-12-15T19:32:58.808848527Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    description: Ubiquiti Network's Unifi Controller
+    digest: d68e02d22cc872ce8de0842b53836e7ac1f423a810986e983435543e458a4b73
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/unifi
+    icon: https://truecharts.org/_static/img/appicons/unifi-icon.png
+    keywords:
+    - ubiquiti
+    - unifi
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: unifi
+    sources:
+    - https://github.com/jacobalberty/unifi-docker
+    - https://unifi-network.ui.com
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/unifi-9.0.25/unifi-9.0.25.tgz
+    version: 9.0.25
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - Networking
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 6.5.54
     created: "2021-12-14T20:47:46.302468662Z"
     dependencies:
@@ -23123,4 +23192,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-14T20:47:48.21997888Z"
+generated: "2021-12-15T19:32:58.809869635Z"
