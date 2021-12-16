@@ -1,4 +1,4 @@
-# 14 - Linking Apps Internally
+# 06 - Linking Apps Internally
 
 We often need to connect individual apps together, for example: Sonarr and SABnzbd. This means we first need to know how to reach those Apps.
 

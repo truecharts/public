@@ -1,4 +1,4 @@
-# 13 - Add Traefik Middleware to Apps
+# 10 - Add Traefik Middleware to Apps
 
 #### Video Guide
 
