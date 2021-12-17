@@ -14775,6 +14775,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.5.0
+    created: "2021-12-17T14:00:54.726564776Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    description: Paperless-ng is an application by Daniel Quinn and contributors that
+      indexes your scanned documents.
+    digest: f2a548b5865ecbacb09135ee490d37f3bc8fc6b12306887757ef2ffde113a411
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/paperless-ng
+    icon: https://truecharts.org/_static/img/appicons/paperless-ng-icon.png
+    keywords:
+    - paperless-ng
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: paperless-ng
+    sources:
+    - https://hub.docker.com/r/linuxserver/paperless-ng
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/paperless-ng-0.0.4/paperless-ng-0.0.4.tgz
+    version: 0.0.4
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.5.0
     created: "2021-12-14T20:47:37.938982005Z"
     dependencies:
     - name: common
@@ -20856,6 +20887,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.00.12
+    created: "2021-12-17T14:00:54.923864255Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    description: Audio/Video library transcoding automation
+    digest: 03c061fc553f39f46bf3325ce1f56167b239b93afb1857aede5830ef384c7981
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/tdarr
+    icon: https://truecharts.org/_static/img/appicons/tdarr-icon.png
+    keywords:
+    - encode
+    - media
+    - tdarr
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: tdarr
+    sources:
+    - https://github.com/HaveAGitGat/Tdarr
+    - https://hub.docker.com/r/haveagitgat/tdarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/tdarr-1.0.26/tdarr-1.0.26.tgz
+    version: 1.0.26
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.00.12
     created: "2021-12-14T20:47:44.579417307Z"
     dependencies:
     - name: common
@@ -20949,6 +21013,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/tdarr-1.0.23/tdarr-1.0.23.tgz
     version: 1.0.23
   tdarr-node:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.00.12
+    created: "2021-12-17T14:00:55.145122266Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    description: Audio/Video library transcoding automation
+    digest: 47f87f8beaf4342b689ab47cfe818c21476e217eb2a962970264042c7e1daf42
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/tdarr-node
+    icon: https://truecharts.org/_static/img/appicons/tdarr-node-icon.png
+    keywords:
+    - encode
+    - media
+    - tdarr
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: tdarr-node
+    sources:
+    - https://github.com/HaveAGitGat/Tdarr
+    - https://hub.docker.com/r/haveagitgat/tdarr_node
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/tdarr-node-1.0.26/tdarr-node-1.0.26.tgz
+    version: 1.0.26
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -23504,4 +23601,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-17T11:25:46.376310911Z"
+generated: "2021-12-17T14:00:55.146772875Z"

@@ -17,9 +17,12 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v1.5.0"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
+| persistence.data.enabled | bool | `true` |  |
+| persistence.data.mountPath | string | `"/data"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10140` |  |
 | service.main.ports.main.targetPort | int | `8000` |  |

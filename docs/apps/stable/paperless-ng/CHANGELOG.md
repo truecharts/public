@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-0.0.4"></a>
+### [paperless-ng-0.0.4](https://github.com/truecharts/apps/compare/paperless-ng-0.0.3...paperless-ng-0.0.4) (2021-12-17)
+
+#### Chore
+
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+#### Fix
+
+* app needs r/w access to rootfs ([#1549](https://github.com/truecharts/apps/issues/1549))
+
+
+
 <a name="paperless-ng-0.0.3"></a>
 ### [paperless-ng-0.0.3](https://github.com/truecharts/apps/compare/paperless-ng-0.0.2...paperless-ng-0.0.3) (2021-12-14)
 
