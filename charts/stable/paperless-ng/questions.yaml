@@ -74,7 +74,30 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: PAPERLESS_ADMIN_USER
+          label: "PAPERLESS_ADMIN_USER (First Install Only)"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: PAPERLESS_ADMIN_PASSWORD
+          label: "PAPERLESS_ADMIN_PASSWORD (First Install Only)"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: ""
+        - variable: PAPERLESS_ADMIN_MAIL
+          label: "PAPERLESS_ADMIN_MAIL (First Install Only)"
+          schema:
+            type: string
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -82,7 +105,13 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the PUID env var"
+          schema:
+            type: int
+            required: true
+            default: 568
 # Include{containerConfig}
 
   - variable: service
@@ -178,7 +207,7 @@ questions:
       attrs:
         - variable: config
           label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          description: "This is where paperless stores all its data (search index, classification model, etc)"
           schema:
             type: dict
             attrs:
@@ -232,9 +261,65 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-        - variable: data
+        - variable: static
+          label: "App Static Storage"
+          description: "This is where all static files created using “collectstatic” manager command are stored."
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: mountPath
+                label: "mountPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  type: string
+                  default: "/static"
+                  hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: consume
           label: "App Data Storage"
-          description: "Stores the Data."
+          description: "This where your documents should go to be consumed."
           schema:
             type: dict
             attrs:
@@ -273,7 +358,63 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/data"
+                  default: "/consume"
+                  hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: media
+          label: "App Media Storage"
+          description: "This is where your documents and thumbnails are stored."
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simpleHP"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: mountPath
+                label: "mountPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  type: string
+                  default: "/media"
                   hidden: true
                   valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
