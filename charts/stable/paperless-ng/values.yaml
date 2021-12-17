@@ -3,13 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.5.0@sha256:aef66d1bd436e237d0f6eb87dc5c0efe437b9ebcb4f20383dc36c165308df755
 
-# securityContext:
-#   runAsNonRoot: false
+securityContext:
+  runAsNonRoot: false
 #   readOnlyRootFilesystem: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 secret:
   PAPERLESS_ADMIN_USER: "admin"
