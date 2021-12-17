@@ -17,10 +17,6 @@ secret:
   PAPERLESS_ADMIN_MAIL: "admin@admin.com"
 
 env:
-  USERMAP_UID: 568
-  USERMAP_GID: 568
-  PAPERLESS_TIME_ZONE: "{{ .Values.env.TZ }}"
-  # PAPERLESS_REDIS:
   PAPERLESS_DATA_DIR: "/config/"
   PAPERLESS_STATICDIR: "/static/"
 
@@ -29,6 +25,9 @@ env:
   PAPERLESS_MEDIA_ROOT: "/media/"
 
 envTpl:
+  USERMAP_UID: "{{ .Values.env.PUID }}"
+  USERMAP_GID: "{{ .Values.env.PGID }}"
+  PAPERLESS_TIME_ZONE: "{{ .Values.env.TZ }}"
   PAPERLESS_DBNAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   PAPERLESS_DBUSER: "{{ .Values.postgresql.postgresqlUsername }}"
   PAPERLESS_DBPORT: "5432"
@@ -46,6 +45,10 @@ envValueFrom:
     secretKeyRef:
       name: paperlessng-secrets
       key: PAPERLESS_SECRET_KEY
+  # PAPERLESS_REDIS:
+  #   secretKeyRef:
+  #     name: rediscreds
+  #     key: thekeyineedtocreate
 
 service:
   main:
