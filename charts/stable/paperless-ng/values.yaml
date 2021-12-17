@@ -4,8 +4,10 @@ image:
   tag: v1.5.0@sha256:aef66d1bd436e237d0f6eb87dc5c0efe437b9ebcb4f20383dc36c165308df755
 
 securityContext:
+  privileged: true
   runAsNonRoot: false
   readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: true
 
 podSecurityContext:
   runAsUser: 0
