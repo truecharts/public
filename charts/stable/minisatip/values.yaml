@@ -20,13 +20,17 @@ service:
         targetPort: 8875
         port: 8875
   rtsp:
+    enabled: true
     ports:
       rtsp:
+        enabled: true
         targetPort: 554
         port: 554
   discovery:
+    enabled: true
     ports:
       discovery:
+        enabled: true
         protocol: UDP
         targetPort: 1900
         port: 1900

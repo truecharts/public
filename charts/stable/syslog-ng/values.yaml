@@ -21,14 +21,18 @@ service:
         targetPort: 6601
         port: 6601
   syslog-udp:
+    enabled: true
     ports:
       syslog-udp:
+        enabled: true
         protocol: UDP
         targetPort: 5514
         port: 5514
   syslog-tls:
+    enabled: true
     ports:
       syslog-tls:
+        enabled: true
         targetPort: 6514
         port: 6514
 

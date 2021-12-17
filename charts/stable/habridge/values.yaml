@@ -23,8 +23,10 @@ service:
         targetPort: 8080
         port: 10146
   comm:
+    enabled: true
     ports:
       comm:
+        enabled: true
         targetPort: 50000
         port: 50000
 

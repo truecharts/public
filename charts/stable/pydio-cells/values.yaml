@@ -21,8 +21,10 @@ service:
         targetPort: 8080
         port: 10150
   gprc:
+    enabled: true
     ports:
       gprc:
+        enabled: true
         targetPort: 33060
         port: 33060
 
