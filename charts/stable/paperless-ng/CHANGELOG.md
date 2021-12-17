@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-1.0.0"></a>
+### [paperless-ng-1.0.0](https://github.com/truecharts/apps/compare/paperless-ng-0.0.4...paperless-ng-1.0.0) (2021-12-17)
+
+#### Feat
+
+* move to official image ([#1552](https://github.com/truecharts/apps/issues/1552))
+
+
+
 <a name="paperless-ng-0.0.4"></a>
 ### [paperless-ng-0.0.4](https://github.com/truecharts/apps/compare/paperless-ng-0.0.3...paperless-ng-0.0.4) (2021-12-17)
 
