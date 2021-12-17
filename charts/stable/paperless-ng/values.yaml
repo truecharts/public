@@ -12,9 +12,9 @@ image:
 #   runAsGroup: 0
 
 secret:
-  PAPERLESS_ADMIN_USER: ""
-  PAPERLESS_ADMIN_PASSWORD: ""
-  PAPERLESS_ADMIN_MAIL: ""
+  PAPERLESS_ADMIN_USER: "admin"
+  PAPERLESS_ADMIN_PASSWORD: "admin"
+  PAPERLESS_ADMIN_MAIL: "admin@admin.com"
 
 env:
   USERMAP_UID: 568
@@ -23,13 +23,15 @@ env:
   # PAPERLESS_REDIS:
   PAPERLESS_DATA_DIR: "/config/"
   PAPERLESS_STATICDIR: "/static/"
-  PAPERLESS_CONSUMPTION_DIR: "/data/"   # Hostpath
-  PAPERLESS_MEDIA_ROOT: "/media/"   #  Hostpath
+
+  # Hostpaths
+  PAPERLESS_CONSUMPTION_DIR: "/data/"
+  PAPERLESS_MEDIA_ROOT: "/media/"
 
 envTpl:
   PAPERLESS_DBNAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   PAPERLESS_DBUSER: "{{ .Values.postgresql.postgresqlUsername }}"
-  PAPERLESS_DBPORT: 5432
+  PAPERLESS_DBPORT: "5432"
 
 envValueFrom:
   PAPERLESS_DBPASS:
@@ -68,7 +70,10 @@ persistence:
   # varrun:
   #   enabled: true
 
-# Enabled postgres
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
 postgresql:
   enabled: true
   existingSecret: "dbcreds"

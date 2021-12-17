@@ -20,6 +20,10 @@ dependencies:
   name: postgresql
   repository: https://truecharts.org/
   version: 6.0.31
+- condition: redis.enabled
+  name: redis
+  repository: https://truecharts.org
+  version: 1.0.36
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
