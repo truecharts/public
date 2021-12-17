@@ -10,7 +10,7 @@ metadata:
 {{- $paperlessprevious := lookup "v1" "Secret" .Release.Namespace "paperlessng-secrets" }}
 {{- $secret_key := "" }}
 data:
-{{- if $paperlessprevious}}
+  {{- if $paperlessprevious}}
   PAPERLESS_SECRET_KEY: {{ index $paperlessprevious.data "PAPERLESS_SECRET_KEY" }}
   {{- else }}
   {{- $secret_key := randAlphaNum 32 }}
