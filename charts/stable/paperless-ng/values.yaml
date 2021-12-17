@@ -17,9 +17,9 @@ secret:
   PAPERLESS_ADMIN_MAIL: ""
 
 env:
-  USERMAP_UID: 568 # Get this from runAsUser
-  USERMAP_GID: 568 # Get this from runAsGroup
-  PAPERLESS_TIME_ZONE: {{ .Values.env.TZ }}
+  USERMAP_UID: 568
+  USERMAP_GID: 568
+  PAPERLESS_TIME_ZONE: "{{ .Values.env.TZ }}"
   # PAPERLESS_REDIS:
   PAPERLESS_DATA_DIR: "/config/"
   PAPERLESS_STATICDIR: "/static/"
