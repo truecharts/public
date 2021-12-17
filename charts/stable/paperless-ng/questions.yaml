@@ -74,7 +74,30 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      type: dict
+      attrs:
+        - variable: PAPERLESS_ADMIN_USER
+          label: "PAPERLESS_ADMIN_USER (First Install Only)"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: PAPERLESS_ADMIN_PASSWORD
+          label: "PAPERLESS_ADMIN_PASSWORD (First Install Only)"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: ""
+        - variable: PAPERLESS_ADMIN_MAIL
+          label: "PAPERLESS_ADMIN_MAIL (First Install Only)"
+          schema:
+            type: string
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"

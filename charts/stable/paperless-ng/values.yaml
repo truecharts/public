@@ -3,13 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.5.0@sha256:e4102d1b850c9a54f7ac1f3a0be197f451ad36ae165b43aa9829714e1d582ca8
 
-# securityContext:
-#   runAsNonRoot: false
+securityContext:
+  runAsNonRoot: false
 #   readOnlyRootFilesystem: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 secret:
   PAPERLESS_ADMIN_USER: "admin"
@@ -17,9 +17,9 @@ secret:
   PAPERLESS_ADMIN_MAIL: "admin@admin.com"
 
 env:
+  # TODO: add them to GUI
   PAPERLESS_DATA_DIR: "/config/"
   PAPERLESS_STATICDIR: "/static/"
-
   # Hostpaths
   PAPERLESS_CONSUMPTION_DIR: "/data/"
   PAPERLESS_MEDIA_ROOT: "/media/"
@@ -70,8 +70,8 @@ persistence:
   media:
     enabled: true
     mountPath: "/media"
-  varrun:
-    enabled: true
+  # varrun:
+  #   enabled: true
 
 redis:
   enabled: true
