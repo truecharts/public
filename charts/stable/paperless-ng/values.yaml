@@ -1,15 +1,15 @@
 image:
   repository: tccr.io/truecharts/paperless-ng
   pullPolicy: IfNotPresent
-  tag: v1.5.0@sha256:7ba38a746c03317967ba18fd28cf7751022b2f6f7668c6cf3f701d70cf6d80f8
+  tag: v1.5.0sha256@aef66d1bd436e237d0f6eb87dc5c0efe437b9ebcb4f20383dc36c165308df755
 
-securityContext:
-  runAsNonRoot: false
+# securityContext:
+#   runAsNonRoot: false
 #   readOnlyRootFilesystem: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 secret:
   PAPERLESS_ADMIN_USER: "admin"
@@ -17,11 +17,9 @@ secret:
   PAPERLESS_ADMIN_MAIL: "admin@admin.com"
 
 env:
-  # TODO: add them to GUI
   PAPERLESS_DATA_DIR: "/config/"
   PAPERLESS_STATICDIR: "/static/"
-  # Hostpaths
-  PAPERLESS_CONSUMPTION_DIR: "/data/"
+  PAPERLESS_CONSUMPTION_DIR: "/consume/"
   PAPERLESS_MEDIA_ROOT: "/media/"
 
 envTpl:
@@ -45,10 +43,10 @@ envValueFrom:
     secretKeyRef:
       name: paperlessng-secrets
       key: PAPERLESS_SECRET_KEY
-  # PAPERLESS_REDIS:
-  #   secretKeyRef:
-  #     name: rediscreds
-  #     key: thekeyineedtocreate
+  PAPERLESS_REDIS:
+    secretKeyRef:
+      name: rediscreds
+      key: url
 
 service:
   main:
@@ -61,21 +59,23 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-  data:
+  consume:
     enabled: true
-    mountPath: "/data"
+    mountPath: "/consume"
   static:
     enabled: true
     mountPath: "/static"
   media:
     enabled: true
     mountPath: "/media"
-  varrun:
-    enabled: true
+  # varrun:
+  #   enabled: true
 
 redis:
   enabled: true
   existingSecret: "rediscreds"
+  redisUsername: paperless-ng
+  redisDatabase: "0"
 
 postgresql:
   enabled: true
