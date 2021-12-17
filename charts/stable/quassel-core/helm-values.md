@@ -33,6 +33,8 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"quassel-core"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.ident.enabled | bool | `true` |  |
+| service.ident.ports.ident.enabled | bool | `true` |  |
 | service.ident.ports.ident.port | int | `10113` |  |
 | service.ident.ports.ident.targetPort | int | `10113` |  |
 | service.main.ports.main.port | int | `4242` |  |

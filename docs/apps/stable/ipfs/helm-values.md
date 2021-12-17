@@ -22,12 +22,18 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.api.enabled | bool | `true` |  |
+| service.api.ports.api.enabled | bool | `true` |  |
 | service.api.ports.api.port | int | `5001` |  |
 | service.api.ports.api.targetPort | int | `5001` |  |
+| service.gateway.enabled | bool | `true` |  |
+| service.gateway.ports.gateway.enabled | bool | `true` |  |
 | service.gateway.ports.gateway.port | int | `10147` |  |
 | service.gateway.ports.gateway.targetPort | int | `8080` |  |
 | service.main.ports.main.port | int | `10125` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
+| service.peer.enabled | bool | `true` |  |
+| service.peer.ports.peer.enabled | bool | `true` |  |
 | service.peer.ports.peer.port | int | `4001` |  |
 | service.peer.ports.peer.targetPort | int | `4001` |  |
 

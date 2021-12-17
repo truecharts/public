@@ -22,6 +22,8 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.gprc.enabled | bool | `true` |  |
+| service.gprc.ports.gprc.enabled | bool | `true` |  |
 | service.gprc.ports.gprc.port | int | `33060` |  |
 | service.gprc.ports.gprc.targetPort | int | `33060` |  |
 | service.main.ports.main.port | int | `10150` |  |
