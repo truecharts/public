@@ -11,7 +11,7 @@ metadata:
 {{- $static_cron_token := "" }}
 {{- $app_key := "" }}
 data:
-{{- if $fireflyiiiprevious}}
+  {{- if $fireflyiiiprevious}}
   STATIC_CRON_TOKEN: {{ index $fireflyiiiprevious.data "STATIC_CRON_TOKEN" }}
   APP_KEY: {{ index $fireflyiiiprevious.data "APP_KEY" }}
   {{- else }}
