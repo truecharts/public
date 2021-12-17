@@ -16,7 +16,10 @@ dependencies:
 - name: common
   repository: https://truecharts.org
   version: 8.9.21
-  # condition:
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://truecharts.org/
+  version: 6.0.31
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
