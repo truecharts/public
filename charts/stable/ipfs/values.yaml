@@ -21,18 +21,24 @@ service:
         targetPort: 80
         port: 10125
   peer:
+    enabled: true
     ports:
       peer:
+        enabled: true
         targetPort: 4001
         port: 4001
   api:
+    enabled: true
     ports:
       api:
+        enabled: true
         targetPort: 5001
         port: 5001
   gateway:
+    enabled: true
     ports:
       gateway:
+        enabled: true
         targetPort: 8080
         port: 10147
 

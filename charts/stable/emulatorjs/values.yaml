@@ -20,13 +20,17 @@ service:
         targetPort: 3000
         port: 10130
   front:
+    enabled: true
     ports:
       front:
+        enabled: true
         targetPort: 80
         port: 10124
   ipfs:
+    enabled: true
     ports:
       ipfs:
+        enabled: true
         targetPort: 4001
         port: 10138
 
