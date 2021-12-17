@@ -1,7 +1,7 @@
 image:
-  repository: jonaswinkler/paperless-ng
+  repository: tccr.io/truecharts/paperless-ng
   pullPolicy: IfNotPresent
-  tag: v1.5.0@sha256:e4102d1b850c9a54f7ac1f3a0be197f451ad36ae165b43aa9829714e1d582ca8
+  tag: v1.5.0@sha256:7ba38a746c03317967ba18fd28cf7751022b2f6f7668c6cf3f701d70cf6d80f8
 
 securityContext:
   runAsNonRoot: false
@@ -70,8 +70,8 @@ persistence:
   media:
     enabled: true
     mountPath: "/media"
-  # varrun:
-  #   enabled: true
+  varrun:
+    enabled: true
 
 redis:
   enabled: true
