@@ -23,8 +23,8 @@ env:
   # PAPERLESS_REDIS:
   PAPERLESS_DATA_DIR: "/config/"
   PAPERLESS_STATICDIR: "/static/"
-  PAPERLESS_CONSUMPTION_DIR: "/data/" # Hostpath
-  PAPERLESS_MEDIA_ROOT: "/media/" #  Hostpath
+  PAPERLESS_CONSUMPTION_DIR: "/data/"   # Hostpath
+  PAPERLESS_MEDIA_ROOT: "/media/"   #  Hostpath
 
 envTpl:
   PAPERLESS_DBNAME: "{{ .Values.postgresql.postgresqlDatabase }}"
