@@ -105,7 +105,13 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the PUID env var"
+          schema:
+            type: int
+            required: true
+            default: 568
 # Include{containerConfig}
 
   - variable: service
