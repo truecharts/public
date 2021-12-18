@@ -36,7 +36,7 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: /var/www/html/data
+    mountPath: "/var/www/html/data"
 
 envValueFrom:
   BLOG_POSTGRES_PASS:

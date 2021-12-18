@@ -224,12 +224,6 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -254,13 +248,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/opt/recipes/mediafiles"
-                  hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -273,61 +260,15 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-        - variable: static
-          label: "App Staticfiles Storage"
-          description: "Stores the Application staticfiles."
-          schema:
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
-# Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/opt/recipes/staticfiles"
-                  hidden: true
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
-# Include{persistenceAdvanced}
+                    - variable: mountPath
+                      label: "mountPath (Non-editable"
+                      description: "Path inside the container the storage is mounted"
+                      schema:
+                        type: string
+                        default: "/opt/recipes/mediafiles"
+                        editable: false
+                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
+
 # Include{persistenceList}
 
   - variable: ingress

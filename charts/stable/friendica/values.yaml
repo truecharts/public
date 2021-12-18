@@ -28,7 +28,7 @@ persistence:
     enabled: true
   config:
     enabled: true
-    mountPath: /var/www/html
+    mountPath: "/var/www/html"
 
 envValueFrom:
   MYSQL_HOST:

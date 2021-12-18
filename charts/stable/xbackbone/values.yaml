@@ -33,7 +33,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: /app/config
+    mountPath: "/app/config"
 
 envValueFrom:
   MYSQL_HOST:

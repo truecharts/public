@@ -46,22 +46,22 @@ persistence:
   # @default -- Disabled
   config:
     enabled: true
-    mountPath: /etc/icinga2
+    mountPath: "/etc/icinga2"
   # -- Icinga2 Data
   # @default -- Disabled
   data:
     enabled: true
-    mountPath: /var/lib/icinga2
+    mountPath: "/var/lib/icinga2"
   # -- Icingaweb2 configuration folder
   # @default -- Disabled
   web:
     enabled: true
-    mountPath: /etc/icingaweb2
+    mountPath: "/etc/icingaweb2"
   # -- ssmtp folder
   # @default -- Disabled
   ssmtp:
     enabled: true
-    mountPath: /etc/ssmtp
+    mountPath: "/etc/ssmtp"
 
 envValueFrom:
   DEFAULT_MYSQL_HOST:

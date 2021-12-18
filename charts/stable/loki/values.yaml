@@ -137,7 +137,7 @@ persistence:
     # -- Specify the name of the configmap object to be mounted
     objectName: '{{ include "common.names.fullname" . -}}-config'
     # -- Where to mount the volume in the main container.
-    mountPath: /etc/loki
+    mountPath: "/etc/loki"
 
 volumeClaimTemplates:
   data:
