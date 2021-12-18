@@ -22,15 +22,15 @@ data:
   {{- $dbPass = randAlphaNum 50 }}
   redis-password: {{ $dbPass | b64enc | quote }}
 {{- end }}
-  url: {{ ( printf "redis://%v:%v@%v-redis:5432/%v" .Values.redis.redisUsername $dbPass .Release.Name .Values.redis.redisDatabase  ) | b64enc | quote }}
+  url: {{ ( printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername $dbPass .Release.Name .Values.redis.redisDatabase  ) | b64enc | quote }}
   plainporthost: {{ ( printf "%v-%v" .Release.Name "redis" ) | b64enc | quote }}
   plainhost: {{ ( printf "%v-%v" .Release.Name "redis" ) | b64enc | quote }}
 type: Opaque
 {{- $_ := set .Values.redis "redisPassword" ( $dbPass | quote ) }}
 {{- $_ := set .Values.redis.url "plain" ( ( printf "%v-%v" .Release.Name "redis" ) | quote ) }}
 {{- $_ := set .Values.redis.url "plainhost" ( ( printf "%v-%v" .Release.Name "redis" ) | quote ) }}
-{{- $_ := set .Values.redis.url "plainport" ( ( printf "%v-%v:5432" .Release.Name "redis" ) | quote ) }}
-{{- $_ := set .Values.redis.url "plainporthost" ( ( printf "%v-%v:5432" .Release.Name "redis" ) | quote ) }}
+{{- $_ := set .Values.redis.url "plainport" ( ( printf "%v-%v:6379" .Release.Name "redis" ) | quote ) }}
+{{- $_ := set .Values.redis.url "plainporthost" ( ( printf "%v-%v:6379" .Release.Name "redis" ) | quote ) }}
 
 {{- end }}
 {{- end -}}
