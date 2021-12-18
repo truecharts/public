@@ -235,14 +235,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/config"
-                  editable: false
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -255,6 +247,14 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+                    - variable: mountPath
+                      label: "mountPath"
+                      description: "Path inside the container the storage is mounted"
+                      schema:
+                        type: string
+                        default: "/config"
+                        editable: false
+                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: static
           label: "App Static Storage"
           description: "This is where all static files created using “collectstatic” manager command are stored."
@@ -285,14 +285,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/static"
-                  editable: false
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -305,6 +297,14 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+                    - variable: mountPath
+                      label: "mountPath"
+                      description: "Path inside the container the storage is mounted"
+                      schema:
+                        type: string
+                        default: "/static"
+                        editable: false
+                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: consume
           label: "App Data Storage"
           description: "This where your documents should go to be consumed."
@@ -335,14 +335,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/consume"
-                  editable: false
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -355,6 +347,14 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+                    - variable: mountPath
+                      label: "mountPath"
+                      description: "Path inside the container the storage is mounted"
+                      schema:
+                        type: string
+                        default: "/consume"
+                        editable: false
+                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: media
           label: "App Media Storage"
           description: "This is where your documents and thumbnails are stored."
@@ -385,14 +385,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/media"
-                  editable: false
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -405,6 +397,14 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+                    - variable: mountPath
+                      label: "mountPath"
+                      description: "Path inside the container the storage is mounted"
+                      schema:
+                        type: string
+                        default: "/media"
+                        editable: false
+                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 # Include{persistenceList}
 
   - variable: ingress

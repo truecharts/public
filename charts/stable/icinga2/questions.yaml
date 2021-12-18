@@ -322,14 +322,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/etc/icinga2"
-                  editable: false
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -342,6 +334,14 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+                    - variable: mountPath
+                      label: "mountPath"
+                      description: "Path inside the container the storage is mounted"
+                      schema:
+                        type: string
+                        default: "/etc/icinga2"
+                        editable: false
+                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: data
           label: "App data Storage"
           description: "Stores the Application data."
@@ -372,14 +372,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/var/lib/icinga2"
-                  editable: false
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -392,6 +384,14 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+                    - variable: mountPath
+                      label: "mountPath"
+                      description: "Path inside the container the storage is mounted"
+                      schema:
+                        type: string
+                        default: "/var/lib/icinga2"
+                        editable: false
+                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: web
           label: "App web Storage"
           description: "Stores the Application web data."
@@ -422,14 +422,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/etc/icingaweb2"
-                  editable: false
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -442,6 +434,14 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+                    - variable: mountPath
+                      label: "mountPath"
+                      description: "Path inside the container the storage is mounted"
+                      schema:
+                        type: string
+                        default: "/etc/icingaweb2"
+                        editable: false
+                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: ssmtp
           label: "App ssmtp Storage"
           description: "Stores the Application ssmtp Configuration."
@@ -472,14 +472,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/etc/ssmtp"
-                  editable: false
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -492,6 +484,14 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+                    - variable: mountPath
+                      label: "mountPath"
+                      description: "Path inside the container the storage is mounted"
+                      schema:
+                        type: string
+                        default: "/etc/ssmtp"
+                        editable: false
+                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 # Include{persistenceList}
 
   - variable: ingress
