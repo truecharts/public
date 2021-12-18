@@ -359,12 +359,6 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -388,8 +382,8 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/var/lib/ldap/"
-                  hidden: true
+                  default: "/var/lib/ldap"
+                  editable: false
                   valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
@@ -409,12 +403,6 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -438,8 +426,8 @@ questions:
                 description: "Path inside the container the storage is mounted"
                 schema:
                   type: string
-                  default: "/etc/ldap/slapd.d/"
-                  hidden: true
+                  default: "/etc/ldap/slapd.d"
+                  editable: false
                   valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
