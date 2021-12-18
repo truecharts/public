@@ -188,12 +188,6 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -218,13 +212,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/var/www/app/data"
-                  hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -243,12 +230,6 @@ questions:
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
@@ -273,13 +254,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/etc/nginx/ssl"
-                  hidden: true
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
