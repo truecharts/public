@@ -14,6 +14,7 @@ metadata:
   name: rediscreds
 {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace "rediscreds" }}
 {{- $dbPass := "" }}
+{{- $dbIndex := default "0" .Values.redis.redisDatabase }}
 data:
 {{- if $dbprevious }}
   {{- $dbPass = ( index $dbprevious.data "redis-password" ) | b64dec  }}
@@ -22,7 +23,7 @@ data:
   {{- $dbPass = randAlphaNum 50 }}
   redis-password: {{ $dbPass | b64enc | quote }}
 {{- end }}
-  url: {{ ( printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername $dbPass .Release.Name .Values.redis.redisDatabase  ) | b64enc | quote }}
+  url: {{ ( printf "redis://%v:%v@%v-redis:6379/%v" .Values.redis.redisUsername $dbPass .Release.Name $dbIndex ) | b64enc | quote }}
   plainporthost: {{ ( printf "%v-%v" .Release.Name "redis" ) | b64enc | quote }}
   plainhost: {{ ( printf "%v-%v" .Release.Name "redis" ) | b64enc | quote }}
 type: Opaque
