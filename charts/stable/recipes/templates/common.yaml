@@ -14,5 +14,8 @@ persistence:
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "recipes.harcodedValues" . | fromYaml) -}}
 
+{{/* Render secrets for recipes */}}
+{{- include "recipes.secrets" . }}
+
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}
