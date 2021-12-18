@@ -36,7 +36,8 @@ persistence:
     enabled: true
     mountPath: "/config"
   udev:
+    enabled: true
     type: hostPath
-    hostPath: /run/udev
+    hostPath: "/run/udev"
     mountPath: "/run/udev"
     readOnly: true
