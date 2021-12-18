@@ -329,7 +329,7 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
                     - variable: mountPath
-                      label: "mountPath"
+                      label: "mountPath (Non-editable"
                       description: "Path inside the container the storage is mounted"
                       schema:
                         type: string
@@ -379,7 +379,7 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
                     - variable: mountPath
-                      label: "mountPath"
+                      label: "mountPath (Non-editable"
                       description: "Path inside the container the storage is mounted"
                       schema:
                         type: string
