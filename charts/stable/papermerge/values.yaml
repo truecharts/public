@@ -14,6 +14,12 @@ podSecurityContext:
 env:
   PUID: 568
 
+envValueFrom:
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
 service:
   main:
     ports:
@@ -27,3 +33,8 @@ persistence:
     mountPath: "/config"
   varrun:
     enabled: true
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+  redisUsername: papermerge
