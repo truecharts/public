@@ -1,16 +1,15 @@
 image:
-  repository: tccr.io/truecharts/leantime
+  repository: leantime/leantime
   pullPolicy: IfNotPresent
-  tag: v2.1.7-ls6@sha256:09f51955b47e8bf7cf8c95b7fa4e023ce2fae4aa15ef42db1568b4c23830b5a6
+  tag: v2.1.86@sha256:65f2463be0aea186f760a74c51f890a41218ce0331a89f326cc21a8a9b23b960
 
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
+# securityContext:
+#   runAsNonRoot: false
+#   readOnlyRootFilesystem: false
 
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 env:
   LEAN_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
