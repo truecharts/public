@@ -206,7 +206,7 @@ questions:
       type: dict
       attrs:
         - variable: config
-          label: "App Config Storage"
+          label: "App Data Storage"
           description: "This is where paperless stores all its data (search index, classification model, etc)"
           schema:
             type: dict
@@ -247,9 +247,9 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-        - variable: static
-          label: "App Static Storage"
-          description: "This is where all static files created using “collectstatic” manager command are stored."
+        - variable: export
+          label: "App Exports files Storage"
+          description: "This is where exports are going."
           schema:
             type: dict
             attrs:
@@ -258,7 +258,7 @@ questions:
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
                 schema:
                   type: string
-                  default: "simplePVC"
+                  default: "simpleHP"
                   enum:
                     - value: "simplePVC"
                       description: "PVC (simple)"
@@ -290,7 +290,7 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
         - variable: consume
-          label: "App Data Storage"
+          label: "To-be consumed Document Storage"
           description: "This where your documents should go to be consumed."
           schema:
             type: dict
@@ -332,7 +332,7 @@ questions:
                       description: "Memory"
 # Include{persistenceAdvanced}
         - variable: media
-          label: "App Media Storage"
+          label: "App Document Storage"
           description: "This is where your documents and thumbnails are stored."
           schema:
             type: dict

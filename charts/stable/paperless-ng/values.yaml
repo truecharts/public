@@ -18,10 +18,6 @@ secret:
 
 env:
   PUID: 568
-  PAPERLESS_DATA_DIR: "/config/"
-  PAPERLESS_STATICDIR: "/static/"
-  PAPERLESS_CONSUMPTION_DIR: "/consume/"
-  PAPERLESS_MEDIA_ROOT: "/media/"
   USERMAP_UID: "{{ .Values.env.PUID }}"
   USERMAP_GID: "{{ .Values.env.PGID }}"
   PAPERLESS_TIME_ZONE: "{{ .Values.env.TZ }}"
@@ -57,21 +53,22 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: "/usr/src/paperless/config"
   consume:
     enabled: true
-    mountPath: "/consume"
-  static:
+    mountPath: "/usr/src/paperless/consume"
+  export:
     enabled: true
-    mountPath: "/static"
+    mountPath: "/usr/src/paperless/export"
   media:
     enabled: true
-    mountPath: "/media"
+    mountPath: "/usr/src/paperless/media"
 
 redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: paperless-ng
+  redisDatabase: "0"
 
 postgresql:
   enabled: true
