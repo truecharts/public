@@ -9896,6 +9896,43 @@ entries:
         - management
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 2.1.8
+    created: "2021-12-18T22:59:44.33006472Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.34
+    description: Straightforward open source project management system to make your
+      ideas reality.
+    digest: 994d99260f89b5a4b6ee6d3cb34157570b1edca63fe3b7210a0642b77ee52ce8
+    home: https://github.com/truechartsapps/tree/master/charts/stable/leantime
+    icon: https://truecharts.org/_static/img/appicons/leantime-icon.png
+    keywords:
+    - leantime
+    - project
+    - management
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: leantime
+    sources:
+    - https://leantime.io/
+    - https://hub.docker.com/r/nicholaswilde/leantime
+    urls:
+    - https://github.com/truecharts/apps/releases/download/leantime-1.0.0/leantime-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - management
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 2.1.7
     created: "2021-12-14T20:47:32.054148489Z"
     dependencies:
@@ -18595,43 +18632,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.0.2
-    created: "2021-12-18T22:50:21.020911012Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.9.21
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: https://truecharts.org/
-      version: 6.0.31
-    description: Recipes is a Django application to manage, tag and search recipes
-      using either built in models or external storage providers hosting PDF's, Images
-      or other files.
-    digest: ba6e7ae5535c8f437b8bdd4006a98dbc9465a634bf8bd5251b027a45c77d461b
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/recipes
-    icon: https://truecharts.org/_static/img/appicons/recipes-icon.png
-    keywords:
-    - recipes
-    - cooking
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: recipes
-    sources:
-    - https://github.com/vabene1111/recipes
-    - https://hub.docker.com/r/vabene1111/recipes
-    urls:
-    - https://github.com/truecharts/apps/releases/download/recipes-5.0.0/recipes-5.0.0.tgz
-    version: 5.0.0
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 1.0.2
     created: "2021-12-14T20:47:41.493987347Z"
     dependencies:
     - name: common
@@ -23733,4 +23733,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-18T22:50:21.022127225Z"
+generated: "2021-12-18T22:59:44.331336026Z"

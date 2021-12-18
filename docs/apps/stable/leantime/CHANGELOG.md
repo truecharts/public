@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leantime-1.0.0"></a>
+### [leantime-1.0.0](https://github.com/truecharts/apps/compare/leantime-0.0.12...leantime-1.0.0) (2021-12-18)
+
+#### Feat
+
+* use official image ([#1562](https://github.com/truecharts/apps/issues/1562))
+
+
+
 <a name="leantime-0.0.12"></a>
 ### [leantime-0.0.12](https://github.com/truecharts/apps/compare/leantime-0.0.11...leantime-0.0.12) (2021-12-18)
 
