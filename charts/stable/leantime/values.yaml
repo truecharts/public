@@ -13,8 +13,8 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  LEAN_DB_DATABASE: "leantime"
-  LEAN_DB_USER: leantime
+  LEAN_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+  LEAN_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
 
 service:
   main:
@@ -22,19 +22,6 @@ service:
       main:
         port: 10117
         targetPort: 80
-  extra:
-    enabled: true
-    ports:
-      extra:
-        enabled: true
-        port: 10118
-        targetPort: 9000
-        protocol: UDP
-
-persistence:
-  sessions:
-    enabled: true
-    mountPath: "/sessions"
 
 envValueFrom:
   LEAN_DB_HOST:
@@ -45,6 +32,10 @@ envValueFrom:
     secretKeyRef:
       name: mariadbcreds
       key: mariadb-password
+  LEAN_SESSION_PASSWORD:
+    secretKeyRef:
+      name: leantime-secrets
+      key: LEAN_SESSION_PASSWORD
 
 mariadb:
   enabled: true
