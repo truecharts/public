@@ -3,13 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: v2.1.86@sha256:65f2463be0aea186f760a74c51f890a41218ce0331a89f326cc21a8a9b23b960
 
-# securityContext:
-#   runAsNonRoot: false
-#   readOnlyRootFilesystem: false
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   LEAN_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
