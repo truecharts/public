@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-1.0.27"></a>
+### [tdarr-1.0.27](https://github.com/truecharts/apps/compare/tdarr-node-1.0.26...tdarr-1.0.27) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+
+
+
 <a name="tdarr-1.0.26"></a>
 ### [tdarr-1.0.26](https://github.com/truecharts/apps/compare/tdarr-1.0.25...tdarr-1.0.26) (2021-12-17)
 

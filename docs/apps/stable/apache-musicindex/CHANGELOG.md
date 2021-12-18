@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="apache-musicindex-2.0.23"></a>
+### [apache-musicindex-2.0.23](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.22...apache-musicindex-2.0.23) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="apache-musicindex-2.0.22"></a>
 ### [apache-musicindex-2.0.22](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.21...apache-musicindex-2.0.22) (2021-12-14)
 

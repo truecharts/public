@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="unpoller-1.0.14"></a>
+### [unpoller-1.0.14](https://github.com/truecharts/apps/compare/unpoller-1.0.13...unpoller-1.0.14) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="unpoller-1.0.13"></a>
 ### [unpoller-1.0.13](https://github.com/truecharts/apps/compare/unpoller-1.0.12...unpoller-1.0.13) (2021-12-14)
 

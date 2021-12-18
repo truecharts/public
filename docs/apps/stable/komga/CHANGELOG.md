@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.31"></a>
+### [komga-4.0.31](https://github.com/truecharts/apps/compare/komga-4.0.30...komga-4.0.31) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="komga-4.0.30"></a>
 ### [komga-4.0.30](https://github.com/truecharts/apps/compare/komga-4.0.29...komga-4.0.30) (2021-12-14)
 

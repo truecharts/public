@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.32"></a>
+### [omada-controller-4.0.32](https://github.com/truecharts/apps/compare/omada-controller-4.0.31...omada-controller-4.0.32) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
 <a name="omada-controller-4.0.31"></a>
 ### [omada-controller-4.0.31](https://github.com/truecharts/apps/compare/omada-controller-4.0.30...omada-controller-4.0.31) (2021-12-14)
 

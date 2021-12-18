@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.6"></a>
+### [code-server-2.1.6](https://github.com/truecharts/apps/compare/code-server-2.1.5...code-server-2.1.6) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="code-server-2.1.5"></a>
 ### [code-server-2.1.5](https://github.com/truecharts/apps/compare/openvscode-server-0.0.3...code-server-2.1.5) (2021-12-14)
 

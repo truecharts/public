@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.5"></a>
+### [fireflyiii-13.1.5](https://github.com/truecharts/apps/compare/fireflyiii-13.1.4...fireflyiii-13.1.5) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+#### Fix
+
+* fix identation on secrets ([#1553](https://github.com/truecharts/apps/issues/1553))
+
+
+
 <a name="fireflyiii-13.1.4"></a>
 ### [fireflyiii-13.1.4](https://github.com/truecharts/apps/compare/fireflyiii-13.1.3...fireflyiii-13.1.4) (2021-12-14)
 

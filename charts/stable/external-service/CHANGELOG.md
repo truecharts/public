@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="external-service-4.0.22"></a>
+### [external-service-4.0.22](https://github.com/truecharts/apps/compare/external-service-4.0.21...external-service-4.0.22) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="external-service-4.0.21"></a>
 ### [external-service-4.0.21](https://github.com/truecharts/apps/compare/external-service-4.0.20...external-service-4.0.21) (2021-12-14)
 

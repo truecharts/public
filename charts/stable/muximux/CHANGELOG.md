@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="muximux-1.0.27"></a>
+### [muximux-1.0.27](https://github.com/truecharts/apps/compare/muximux-1.0.26...muximux-1.0.27) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="muximux-1.0.26"></a>
 ### [muximux-1.0.26](https://github.com/truecharts/apps/compare/muximux-1.0.25...muximux-1.0.26) (2021-12-14)
 

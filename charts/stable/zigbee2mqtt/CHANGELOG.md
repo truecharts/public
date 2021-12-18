@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-1.0.24"></a>
+### [zigbee2mqtt-1.0.24](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.23...zigbee2mqtt-1.0.24) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="zigbee2mqtt-1.0.23"></a>
 ### [zigbee2mqtt-1.0.23](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.22...zigbee2mqtt-1.0.23) (2021-12-14)
 

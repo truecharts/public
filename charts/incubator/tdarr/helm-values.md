@@ -24,6 +24,8 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.logs.mountPath | string | `"/app/logs"` |  |
 | persistence.server.enabled | bool | `true` |  |
 | persistence.server.mountPath | string | `"/app/server"` |  |
+| persistence.transcode-cache.enabled | bool | `true` |  |
+| persistence.transcode-cache.mountPath | string | `"/temp"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minio-1.0.11"></a>
+### [minio-1.0.11](https://github.com/truecharts/apps/compare/minio-console-1.0.27...minio-1.0.11) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="minio-1.0.10"></a>
 ### [minio-1.0.10](https://github.com/truecharts/apps/compare/minio-1.0.9...minio-1.0.10) (2021-12-14)
 

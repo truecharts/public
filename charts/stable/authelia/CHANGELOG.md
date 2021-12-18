@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.18"></a>
+### [authelia-8.0.18](https://github.com/truecharts/apps/compare/authelia-8.0.17...authelia-8.0.18) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="authelia-8.0.17"></a>
 ### [authelia-8.0.17](https://github.com/truecharts/apps/compare/authelia-8.0.16...authelia-8.0.17) (2021-12-14)
 

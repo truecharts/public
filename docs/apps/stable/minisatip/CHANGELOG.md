@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minisatip-0.0.5"></a>
+### [minisatip-0.0.5](https://github.com/truecharts/apps/compare/minisatip-0.0.4...minisatip-0.0.5) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+
+
+
 <a name="minisatip-0.0.4"></a>
 ### [minisatip-0.0.4](https://github.com/truecharts/apps/compare/minisatip-0.0.3...minisatip-0.0.4) (2021-12-17)
 

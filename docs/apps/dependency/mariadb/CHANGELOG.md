@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.35"></a>
+### [mariadb-1.0.35](https://github.com/truecharts/apps/compare/mariadb-1.0.34...mariadb-1.0.35) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* update docker general non-major
+
+
+
 <a name="mariadb-1.0.34"></a>
 ### [mariadb-1.0.34](https://github.com/truecharts/apps/compare/mariadb-1.0.33...mariadb-1.0.34) (2021-12-14)
 

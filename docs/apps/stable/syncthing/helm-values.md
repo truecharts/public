@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"tccr.io/truecharts/syncthing"` |  |
 | image.tag | string | `"v1.18.5@sha256:3b5379e40f68bc3054ffe7e28b9b19c418140cf6357b6a58d49b87f73699e6b5"` |  |
 | persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/var/syncthing/"` |  |
+| persistence.config.mountPath | string | `"/var/syncthing"` |  |
 | service.discovery.enabled | bool | `true` |  |
 | service.discovery.ports.discovery.enabled | bool | `true` |  |
 | service.discovery.ports.discovery.port | int | `21027` |  |

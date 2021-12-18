@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nano-wallet-0.0.6"></a>
+### [nano-wallet-0.0.6](https://github.com/truecharts/apps/compare/nano-wallet-0.0.5...nano-wallet-0.0.6) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="nano-wallet-0.0.5"></a>
 ### [nano-wallet-0.0.5](https://github.com/truecharts/apps/compare/nano-wallet-0.0.4...nano-wallet-0.0.5) (2021-12-14)
 

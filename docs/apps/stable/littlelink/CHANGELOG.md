@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.36"></a>
+### [littlelink-4.0.36](https://github.com/truecharts/apps/compare/littlelink-4.0.35...littlelink-4.0.36) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
 <a name="littlelink-4.0.35"></a>
 ### [littlelink-4.0.35](https://github.com/truecharts/apps/compare/littlelink-4.0.34...littlelink-4.0.35) (2021-12-14)
 

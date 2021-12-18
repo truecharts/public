@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.49"></a>
+### [jackett-9.0.49](https://github.com/truecharts/apps/compare/jackett-9.0.48...jackett-9.0.49) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
 <a name="jackett-9.0.48"></a>
 ### [jackett-9.0.48](https://github.com/truecharts/apps/compare/jackett-9.0.47...jackett-9.0.48) (2021-12-14)
 

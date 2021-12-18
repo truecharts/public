@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.12"></a>
+### [blog-0.0.12](https://github.com/truecharts/apps/compare/blog-0.0.11...blog-0.0.12) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="blog-0.0.11"></a>
 ### [blog-0.0.11](https://github.com/truecharts/apps/compare/blog-0.0.10...blog-0.0.11) (2021-12-14)
 

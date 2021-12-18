@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="recipes-4.0.18"></a>
+### [recipes-4.0.18](https://github.com/truecharts/apps/compare/recipes-4.0.17...recipes-4.0.18) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="recipes-4.0.17"></a>
 ### [recipes-4.0.17](https://github.com/truecharts/apps/compare/recipes-4.0.16...recipes-4.0.17) (2021-12-14)
 

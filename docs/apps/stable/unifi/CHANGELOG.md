@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-9.0.26"></a>
+### [unifi-9.0.26](https://github.com/truecharts/apps/compare/unifi-9.0.25...unifi-9.0.26) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+
+
+
 <a name="unifi-9.0.25"></a>
 ### [unifi-9.0.25](https://github.com/truecharts/apps/compare/unifi-9.0.24...unifi-9.0.25) (2021-12-15)
 

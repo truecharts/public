@@ -22,6 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/scrutiny/config"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/config"` |  |
+| persistence.udev.enabled | bool | `true` |  |
 | persistence.udev.hostPath | string | `"/run/udev"` |  |
 | persistence.udev.mountPath | string | `"/run/udev"` |  |
 | persistence.udev.readOnly | bool | `true` |  |

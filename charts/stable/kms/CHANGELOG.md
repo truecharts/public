@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="kms-9.0.28"></a>
+### [kms-9.0.28](https://github.com/truecharts/apps/compare/kms-9.0.27...kms-9.0.28) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
 <a name="kms-9.0.27"></a>
 ### [kms-9.0.27](https://github.com/truecharts/apps/compare/kms-9.0.26...kms-9.0.27) (2021-12-14)
 
