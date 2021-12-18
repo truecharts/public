@@ -2169,27 +2169,6 @@ entries:
   common:
   - apiVersion: v2
     appVersion: latest
-    created: "2021-12-18T22:41:32.739898448Z"
-    description: Function library for TrueCharts
-    digest: 0b55a1aa7b338a7814e2f0c3e785ddda12842f85a56c14d3459e6d4aa1e16c4e
-    home: https://github.com/truecharts/apps/tree/master/charts/common
-    icon: https://avatars.githubusercontent.com/u/76400755
-    keywords:
-    - truecharts
-    - library-chart
-    - common
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: common
-    type: library
-    urls:
-    - https://github.com/truecharts/apps/releases/download/common-8.9.23/common-8.9.23.tgz
-    version: 8.9.23
-  - apiVersion: v2
-    appVersion: latest
     created: "2021-12-18T21:41:05.689533681Z"
     description: Function library for TrueCharts
     digest: afb53c4cbb16dea31d9d88082f4cdc90d6984d7f1d3558b541ba93c19a8db5ed
@@ -18616,6 +18595,43 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.0.2
+    created: "2021-12-18T22:50:21.020911012Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.31
+    description: Recipes is a Django application to manage, tag and search recipes
+      using either built in models or external storage providers hosting PDF's, Images
+      or other files.
+    digest: ba6e7ae5535c8f437b8bdd4006a98dbc9465a634bf8bd5251b027a45c77d461b
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/recipes
+    icon: https://truecharts.org/_static/img/appicons/recipes-icon.png
+    keywords:
+    - recipes
+    - cooking
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: recipes
+    sources:
+    - https://github.com/vabene1111/recipes
+    - https://hub.docker.com/r/vabene1111/recipes
+    urls:
+    - https://github.com/truecharts/apps/releases/download/recipes-5.0.0/recipes-5.0.0.tgz
+    version: 5.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.0.2
     created: "2021-12-14T20:47:41.493987347Z"
     dependencies:
     - name: common
@@ -23717,4 +23733,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-18T22:41:32.740987354Z"
+generated: "2021-12-18T22:50:21.022127225Z"
