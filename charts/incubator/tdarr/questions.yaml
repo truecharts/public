@@ -296,14 +296,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/app/configs"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -346,14 +338,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/app/server"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -396,14 +380,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/app/logs"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -447,14 +423,6 @@ questions:
                   show_if: [["type", "=", "hostPath"]]
                   required: true
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/temp"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
