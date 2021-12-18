@@ -34,7 +34,7 @@ service:
 persistence:
   sessions:
     enabled: true
-    mountPath: /sessions
+    mountPath: "/sessions"
 
 envValueFrom:
   LEAN_DB_HOST:

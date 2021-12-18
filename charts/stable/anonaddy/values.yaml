@@ -47,6 +47,7 @@ persistence:
     enabled: true
   config:
     enabled: true
+    mountPath: "/config"
 
 envValueFrom:
   DB_HOST:

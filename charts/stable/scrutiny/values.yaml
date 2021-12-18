@@ -38,5 +38,5 @@ persistence:
   udev:
     type: hostPath
     hostPath: /run/udev
-    mountPath: /run/udev
+    mountPath: "/run/udev"
     readOnly: true
