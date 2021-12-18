@@ -14939,6 +14939,41 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.0.1
+    created: "2021-12-18T01:08:39.398465221Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.36
+    description: Papermerge is an open source document management system (DMS) primarily
+      designed for archiving and retrieving your digital documents.
+    digest: 6a7d1ccf5125b3082e48292aac9c79792d12e2e75e0ac1c1a9c351484cf87220
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/papermerge
+    icon: https://truecharts.org/_static/img/appicons/papermerge-icon.png
+    keywords:
+    - papermerge
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: papermerge
+    sources:
+    - https://hub.docker.com/r/linuxserver/papermerge
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/papermerge-0.0.4/papermerge-0.0.4.tgz
+    version: 0.0.4
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.0.1
     created: "2021-12-14T20:47:38.067452027Z"
     dependencies:
     - name: common
@@ -23640,4 +23675,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-17T22:09:52.820150174Z"
+generated: "2021-12-18T01:08:39.400217122Z"
