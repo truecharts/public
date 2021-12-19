@@ -179,15 +179,15 @@ questions:
                                     default: 5000
 
 
-        - variable: comm
-          label: "Comm Service"
+        - variable: rtmp
+          label: "RTMP Service"
           description: "The service on which nodes connect to."
           schema:
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: comm
-                      label: "Comm Service Port Configuration"
+                    - variable: rtmp
+                      label: "RTMP Service Port Configuration"
                       schema:
                         type: dict
                         attrs:
@@ -202,7 +202,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 8266
+                              default: 1935
                               editable: true
                               required: true
                           - variable: advanced
@@ -238,7 +238,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8266
+                                    default: 1935
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -552,6 +552,11 @@ questions:
       attrs:
         - variable: main
           label: "Main Ingress"
+          schema:
+            type: dict
+            attrs:
+        - variable: rtmp
+          label: "RTMP Ingress"
           schema:
             type: dict
             attrs:
