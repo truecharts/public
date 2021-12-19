@@ -13,8 +13,6 @@ env:
   CONFIG_USE_ENVIRONMENT_VARIABLES: true
   # -- Set application to log to stdout
   LOGGER_CONSOLE: true
-
-envTpl:
   DATABASE_DRIVER: "org.postgresql.Driver"
   DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
 

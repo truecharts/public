@@ -25,8 +25,6 @@ persistence:
 env:
   # -- External URL you use to connect to the RSS (the one you enter in your browser)
   TTRSS_SELF_URL_PATH: ""
-
-envTpl:
   TTRSS_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   TTRSS_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   TTRSS_DB_PORT: "5432"

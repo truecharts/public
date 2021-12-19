@@ -24,8 +24,6 @@ env:
   MAIL_CONFIGURATION: false
   # -- log driver: syslog, stderr, stdout or file
   LOG_DRIVER: stdout
-
-envTpl:
   DB_DRIVER: "postgres"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
