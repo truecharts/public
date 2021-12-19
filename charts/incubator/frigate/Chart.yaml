@@ -5,26 +5,27 @@ dependencies:
   repository: https://truecharts.org
   version: 8.9.21
 deprecated: false
-description: Audio/Video library transcoding automation
-home: https://github.com/truecharts/apps/tree/master/charts/stable/tdarr
-icon: https://truecharts.org/_static/img/appicons/tdarr-icon.png
+description: NVR With Realtime Object Detection for IP Cameras
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/frigate
+icon: https://truecharts.org/_static/img/appicons/frigate-icon.png
 keywords:
 - encode
+- nvr
 - media
-- tdarr
+- frigate
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: https://truecharts.org
-name: tdarr
+name: frigate
 sources:
-- https://github.com/HaveAGitGat/Tdarr
-- https://hub.docker.com/r/haveagitgat/tdarr
+- https://github.com/blakeblackshear/frigate
+- https://hub.docker.com/r/blakeblackshear/frigate
 type: application
-version: 1.0.25
+version: 0.0.2
 annotations:
   truecharts.org/catagories: |
-    - media
+    - nvr
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U
