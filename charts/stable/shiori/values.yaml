@@ -17,8 +17,6 @@ podSecurityContext:
 env:
   # TZ:
   PUID: 568
-
-envTpl:
   SHIORI_PG_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   SHIORI_PG_USER: "{{ .Values.postgresql.postgresqlUsername }}"
 

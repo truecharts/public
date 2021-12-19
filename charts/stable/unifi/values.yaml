@@ -3,11 +3,6 @@ image:
   tag: v6.5.55@sha256:c74556ef862dab1534ed848d6efa57f40a11399172230aec57e5e850ce542921
   pullPolicy: IfNotPresent
 
-envTpl:
-  # Permissions Settings
-  UNIFI_GID: "{{ .Values.env.PUID }}"
-  UNIFI_UID: "{{ .Values.podSecurityContext.fsGroup }}"
-
 service:
   main:
     ports:
@@ -62,6 +57,10 @@ podSecurityContext:
 env:
   # TZ:
   PUID: 568
+  # Permissions Settings
+  UNIFI_GID: "{{ .Values.env.PUID }}"
+  UNIFI_UID: "{{ .Values.podSecurityContext.fsGroup }}"
+
 persistence:
   config:
     enabled: true

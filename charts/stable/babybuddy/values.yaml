@@ -5,10 +5,7 @@ image:
 
 # See more environment variables in the babybuddy documentation
 # https://github.com/linuxserver/docker-babybuddy#parameters
-env: {}
-  # TZ:
-
-envTpl:
+env:
   DB_ENGINE: "django.db.backends.postgresql"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"

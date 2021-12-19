@@ -11,6 +11,11 @@ image:
 env:
   # -- Set the container timezone
   TZ: UTC
+  DJANGO_TIME_ZONE: "{{ .Values.env.TZ }}"
+  DJANGO_DATABASE_ENGINE: "django.db.backends.postgresql"
+  DJANGO_DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DJANGO_DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DJANGO_DATABASE_PORT: "5432"
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -19,13 +24,6 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
-envTpl:
-  DJANGO_TIME_ZONE: "{{ .Values.env.TZ }}"
-  DJANGO_DATABASE_ENGINE: "django.db.backends.postgresql"
-  DJANGO_DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DJANGO_DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  DJANGO_DATABASE_PORT: "5432"
 
 envValueFrom:
   DJANGO_DATABASE_PASSWORD:

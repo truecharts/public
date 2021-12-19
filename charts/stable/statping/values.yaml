@@ -28,7 +28,6 @@ env:
   USE_CDN: false
   # -- Disable logs from appearing and writing to disk
   DISABLE_LOGS: false
-envTpl:
   DB_CONN: "postgres"
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"

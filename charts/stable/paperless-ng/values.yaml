@@ -22,8 +22,6 @@ env:
   PAPERLESS_STATICDIR: "/static/"
   PAPERLESS_CONSUMPTION_DIR: "/consume/"
   PAPERLESS_MEDIA_ROOT: "/media/"
-
-envTpl:
   USERMAP_UID: "{{ .Values.env.PUID }}"
   USERMAP_GID: "{{ .Values.env.PGID }}"
   PAPERLESS_TIME_ZONE: "{{ .Values.env.TZ }}"
