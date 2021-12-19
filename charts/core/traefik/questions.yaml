@@ -571,7 +571,6 @@ questions:
                             schema:
                               type: int
                               default: 9000
-                              editable: true
                               required: true
         - variable: tcp
           label: "TCP Service"
@@ -624,7 +623,6 @@ questions:
                             schema:
                               type: int
                               default: 9080
-                              editable: true
                               required: true
                           - variable: redirectTo
                             label: "Redirect to"
@@ -675,7 +673,6 @@ questions:
                             schema:
                               type: int
                               default: 9443
-                              editable: true
                               required: true
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
@@ -757,7 +754,6 @@ questions:
                             schema:
                               type: int
                               default: 9100
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
