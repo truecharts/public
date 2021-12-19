@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "0.0.1"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.21
+deprecated: false
+description: Audio/Video library transcoding automation
+home: https://github.com/truecharts/apps/tree/master/charts/stable/tdarr
+icon: https://truecharts.org/_static/img/appicons/tdarr-icon.png
+keywords:
+- encode
+- media
+- tdarr
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: tdarr
+sources:
+- https://github.com/HaveAGitGat/Tdarr
+- https://hub.docker.com/r/haveagitgat/tdarr
+type: application
+version: 1.0.25
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
