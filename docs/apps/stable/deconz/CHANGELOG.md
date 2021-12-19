@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deconz-6.0.4"></a>
+### [deconz-6.0.4](https://github.com/truecharts/apps/compare/deconz-6.0.3...deconz-6.0.4) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="deconz-6.0.3"></a>
 ### [deconz-6.0.3](https://github.com/truecharts/apps/compare/deconz-6.0.2...deconz-6.0.3) (2021-12-14)
 

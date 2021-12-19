@@ -12,6 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
+| envValueFrom.REDIS_URL.secretKeyRef.key | string | `"url"` |  |
+| envValueFrom.REDIS_URL.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/papermerge"` |  |
 | image.tag | string | `"v2.0.1"` |  |
@@ -20,6 +22,9 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| redis.enabled | bool | `true` |  |
+| redis.existingSecret | string | `"rediscreds"` |  |
+| redis.redisUsername | string | `"papermerge"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10141` |  |

@@ -21,11 +21,15 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.discovery.enabled | bool | `true` |  |
+| service.discovery.ports.discovery.enabled | bool | `true` |  |
 | service.discovery.ports.discovery.port | int | `1900` |  |
 | service.discovery.ports.discovery.protocol | string | `"UDP"` |  |
 | service.discovery.ports.discovery.targetPort | int | `1900` |  |
 | service.main.ports.main.port | int | `8875` |  |
 | service.main.ports.main.targetPort | int | `8875` |  |
+| service.rtsp.enabled | bool | `true` |  |
+| service.rtsp.ports.rtsp.enabled | bool | `true` |  |
 | service.rtsp.ports.rtsp.port | int | `554` |  |
 | service.rtsp.ports.rtsp.targetPort | int | `554` |  |
 

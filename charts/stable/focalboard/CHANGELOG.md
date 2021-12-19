@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="focalboard-4.0.24"></a>
+### [focalboard-4.0.24](https://github.com/truecharts/apps/compare/focalboard-4.0.23...focalboard-4.0.24) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="focalboard-4.0.23"></a>
 ### [focalboard-4.0.23](https://github.com/truecharts/apps/compare/focalboard-4.0.22...focalboard-4.0.23) (2021-12-14)
 

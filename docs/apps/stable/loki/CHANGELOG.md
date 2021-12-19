@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="loki-2.0.11"></a>
+### [loki-2.0.11](https://github.com/truecharts/apps/compare/loki-2.0.10...loki-2.0.11) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="loki-2.0.10"></a>
 ### [loki-2.0.10](https://github.com/truecharts/apps/compare/loki-2.0.9...loki-2.0.10) (2021-12-14)
 

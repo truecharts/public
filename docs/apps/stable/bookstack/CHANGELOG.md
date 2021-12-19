@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="bookstack-0.0.13"></a>
+### [bookstack-0.0.13](https://github.com/truecharts/apps/compare/bookstack-0.0.12...bookstack-0.0.13) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="bookstack-0.0.12"></a>
 ### [bookstack-0.0.12](https://github.com/truecharts/apps/compare/bookstack-0.0.11...bookstack-0.0.12) (2021-12-14)
 

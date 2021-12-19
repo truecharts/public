@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="truecommand-9.0.24"></a>
+### [truecommand-9.0.24](https://github.com/truecharts/apps/compare/truecommand-9.0.23...truecommand-9.0.24) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="truecommand-9.0.23"></a>
 ### [truecommand-9.0.23](https://github.com/truecharts/apps/compare/truecommand-9.0.22...truecommand-9.0.23) (2021-12-14)
 

@@ -22,6 +22,8 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | secret.SEC_KEY | string | `""` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.comm.enabled | bool | `true` |  |
+| service.comm.ports.comm.enabled | bool | `true` |  |
 | service.comm.ports.comm.port | int | `50000` |  |
 | service.comm.ports.comm.targetPort | int | `50000` |  |
 | service.main.ports.main.port | int | `10146` |  |

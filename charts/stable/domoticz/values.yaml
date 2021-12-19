@@ -21,13 +21,17 @@ service:
         targetPort: 8080
         port: 10144
   comm1:
+    enabled: true
     ports:
       comm1:
+        enabled: true
         targetPort: 6144
         port: 6144
   comm2:
+    enabled: true
     ports:
       comm2:
+        enabled: true
         targetPort: 1443
         port: 1443
 

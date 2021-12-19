@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="common-8.9.23"></a>
+### [common-8.9.23](https://github.com/truecharts/apps/compare/common-8.9.22...common-8.9.23) (2021-12-18)
+
+#### Fix
+
+* add default dbindex for redis ([#1563](https://github.com/truecharts/apps/issues/1563))
+
+
+
+<a name="common-8.9.22"></a>
+### [common-8.9.22](https://github.com/truecharts/apps/compare/common-8.9.21...common-8.9.22) (2021-12-18)
+
+#### Chore
+
+* update docker general non-major
+
+#### Fix
+
+* fix redis port ([#1561](https://github.com/truecharts/apps/issues/1561))
+
+
+
 <a name="common-8.9.21"></a>
 ### [common-8.9.21](https://github.com/truecharts/apps/compare/common-8.9.20...common-8.9.21) (2021-12-13)
 

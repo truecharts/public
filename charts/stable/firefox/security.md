@@ -82,3 +82,49 @@ hide:
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | deep-extend         |    CVE-2018-3750   |   CRITICAL  |  0.4.2 | 0.5.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-hr2v-3952-633q">https://github.com/advisories/GHSA-hr2v-3952-633q</a><br><a href="https://hackerone.com/reports/311333">https://hackerone.com/reports/311333</a><br><a href="https://nodesecurity.io/advisories/612">https://nodesecurity.io/advisories/612</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-3750">https://nvd.nist.gov/vuln/detail/CVE-2018-3750</a><br><a href="https://www.npmjs.com/advisories/612">https://www.npmjs.com/advisories/612</a><br></details>  |
 | deep-extend         |    NSWG-ECO-408   |   LOW  |  0.4.2 | &gt;=0.5.1 | <details><summary>Expand...</summary><a href="https://hackerone.com/reports/311333">https://hackerone.com/reports/311333</a><br></details>  |
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|

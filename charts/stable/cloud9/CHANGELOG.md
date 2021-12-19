@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="cloud9-2.0.26"></a>
+### [cloud9-2.0.26](https://github.com/truecharts/apps/compare/cloud9-2.0.25...cloud9-2.0.26) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="cloud9-2.0.25"></a>
 ### [cloud9-2.0.25](https://github.com/truecharts/apps/compare/cloud9-2.0.24...cloud9-2.0.25) (2021-12-14)
 

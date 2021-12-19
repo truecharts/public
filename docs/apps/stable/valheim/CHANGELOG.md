@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.4"></a>
+### [valheim-2.0.4](https://github.com/truecharts/apps/compare/valheim-2.0.3...valheim-2.0.4) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="valheim-2.0.3"></a>
 ### [valheim-2.0.3](https://github.com/truecharts/apps/compare/valheim-2.0.2...valheim-2.0.3) (2021-12-14)
 

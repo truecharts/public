@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.17"></a>
+### [gitea-5.0.17](https://github.com/truecharts/apps/compare/gitea-5.0.16...gitea-5.0.17) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="gitea-5.0.16"></a>
 ### [gitea-5.0.16](https://github.com/truecharts/apps/compare/gitea-5.0.15...gitea-5.0.16) (2021-12-14)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-2.0.23"></a>
+### [teamspeak3-2.0.23](https://github.com/truecharts/apps/compare/teamspeak3-2.0.22...teamspeak3-2.0.23) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="teamspeak3-2.0.22"></a>
 ### [teamspeak3-2.0.22](https://github.com/truecharts/apps/compare/teamspeak3-2.0.21...teamspeak3-2.0.22) (2021-12-14)
 

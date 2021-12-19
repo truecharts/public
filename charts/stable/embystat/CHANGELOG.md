@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="embystat-0.0.4"></a>
+### [embystat-0.0.4](https://github.com/truecharts/apps/compare/embystat-0.0.3...embystat-0.0.4) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="embystat-0.0.3"></a>
 ### [embystat-0.0.3](https://github.com/truecharts/apps/compare/embystat-0.0.2...embystat-0.0.3) (2021-12-14)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="kanboard-5.0.14"></a>
+### [kanboard-5.0.14](https://github.com/truecharts/apps/compare/kanboard-5.0.13...kanboard-5.0.14) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="kanboard-5.0.13"></a>
 ### [kanboard-5.0.13](https://github.com/truecharts/apps/compare/kanboard-5.0.12...kanboard-5.0.13) (2021-12-14)
 

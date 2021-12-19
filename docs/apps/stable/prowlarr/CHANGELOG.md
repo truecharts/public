@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.41"></a>
+### [prowlarr-4.0.41](https://github.com/truecharts/apps/compare/prowlarr-4.0.40...prowlarr-4.0.41) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="prowlarr-4.0.40"></a>
 ### [prowlarr-4.0.40](https://github.com/truecharts/apps/compare/prowlarr-4.0.39...prowlarr-4.0.40) (2021-12-14)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="davos-2.0.23"></a>
+### [davos-2.0.23](https://github.com/truecharts/apps/compare/davos-2.0.22...davos-2.0.23) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="davos-2.0.22"></a>
 ### [davos-2.0.22](https://github.com/truecharts/apps/compare/davos-2.0.21...davos-2.0.22) (2021-12-14)
 

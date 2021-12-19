@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.26"></a>
+### [piaware-4.0.26](https://github.com/truecharts/apps/compare/piaware-4.0.25...piaware-4.0.26) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
 <a name="piaware-4.0.25"></a>
 ### [piaware-4.0.25](https://github.com/truecharts/apps/compare/piaware-4.0.24...piaware-4.0.25) (2021-12-14)
 

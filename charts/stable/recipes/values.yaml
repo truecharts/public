@@ -23,16 +23,15 @@ podSecurityContext:
 # -- environment variables. See [project docs](https://raw.githubusercontent.com/vabene1111/recipes/master/.env.template) for more details.
 # @default -- See below
 env:
-  TIMEZONE: UTC
   DEBUG: 0
   ALLOWED_HOSTS: "*"
-  SECRET_KEY: "changeme"
   GUNICORN_MEDIA: 0
   FRACTION_PREF_DEFAULT: 0
   COMMENT_PREF_DEFAULT: 1
   SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
 
 envTpl:
+  TIMEZONE: "{{ .Values.env.TZ }}"
   DB_ENGINE: "django.db.backends.postgresql"
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
@@ -47,6 +46,10 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: plainhost
+  SECRET_KEY:
+    secretKeyRef:
+      name: recipes-secrets
+      key: SECRET_KEY
 
 additionalContainers:
   nginx:

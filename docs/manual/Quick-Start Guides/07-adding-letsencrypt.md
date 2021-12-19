@@ -1,4 +1,4 @@
-# 09 - Adding Lets-Encrypt Certificates
+# 07 - Adding Lets-Encrypt Certificates
 
 With TrueNAS SCALE, it's possible to automatically generate certificates for your domain(s) using letsencrypt. However, this process is not very self-explainatory.
 After you managed to complete this how-to, you should be able to select "iX Certificate" as certificate option and your personal certificate in the other drop-down box!

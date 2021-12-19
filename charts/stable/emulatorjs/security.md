@@ -80,3 +80,11 @@ hide:
 
 | No Vulnerabilities found         |
 |:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|

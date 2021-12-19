@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envTpl.UNIFI_UID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/unifi"` |  |
-| image.tag | string | `"v6.5.54@sha256:b001bbeb9daf75840bf7068748c75279e043e841d2547cd0137e5f9b8bc714d3"` |  |
+| image.tag | string | `"v6.5.55@sha256:9297be1525e4e84a98a30f26249f3a7cb67cc9d384e748c8c50f8f902a81dfa5"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/unifi"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

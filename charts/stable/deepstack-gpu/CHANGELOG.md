@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="deepstack-gpu-3.0.5"></a>
+### [deepstack-gpu-3.0.5](https://github.com/truecharts/apps/compare/deepstack-gpu-3.0.4...deepstack-gpu-3.0.5) (2021-12-19)
+
+#### Fix
+
+* default to pvc for modelstore ([#1565](https://github.com/truecharts/apps/issues/1565))
+
+
+
+<a name="deepstack-gpu-3.0.4"></a>
+### [deepstack-gpu-3.0.4](https://github.com/truecharts/apps/compare/deepstack-gpu-3.0.3...deepstack-gpu-3.0.4) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="deepstack-gpu-3.0.3"></a>
 ### [deepstack-gpu-3.0.3](https://github.com/truecharts/apps/compare/deepstack-gpu-3.0.2...deepstack-gpu-3.0.3) (2021-12-14)
 

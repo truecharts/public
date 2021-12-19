@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.40"></a>
+### [custom-app-3.0.40](https://github.com/truecharts/apps/compare/custom-app-3.0.39...custom-app-3.0.40) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
 <a name="custom-app-3.0.39"></a>
 ### [custom-app-3.0.39](https://github.com/truecharts/apps/compare/custom-app-3.0.38...custom-app-3.0.39) (2021-12-14)
 

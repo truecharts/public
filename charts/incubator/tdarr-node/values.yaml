@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/tdarr_node
   pullPolicy: IfNotPresent
-  tag: v2.00.12@sha256:79b1211a1eefc564724935d532b6b90904d67efc9d8a238873e7156aa70f2f4a
+  tag: v2.00.12@sha256:aaacfe9159377a03013ef112e175586a5c2b64eadd2d51412bd73ac6469a1a81
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -33,5 +33,8 @@ persistence:
   logs:
     enabled: true
     mountPath: "/app/logs"
+  transcode-cache:
+    enabled: true
+    mountPath: "/temp"
   varrun:
     enabled: true

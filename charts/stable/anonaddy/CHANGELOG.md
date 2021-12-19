@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="anonaddy-6.0.15"></a>
+### [anonaddy-6.0.15](https://github.com/truecharts/apps/compare/anonaddy-6.0.14...anonaddy-6.0.15) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="anonaddy-6.0.14"></a>
 ### [anonaddy-6.0.14](https://github.com/truecharts/apps/compare/anonaddy-6.0.13...anonaddy-6.0.14) (2021-12-14)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.26"></a>
+### [qbittorrent-9.0.26](https://github.com/truecharts/apps/compare/qbittorrent-9.0.25...qbittorrent-9.0.26) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="qbittorrent-9.0.25"></a>
 ### [qbittorrent-9.0.25](https://github.com/truecharts/apps/compare/qbittorrent-9.0.24...qbittorrent-9.0.25) (2021-12-14)
 

@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.14"></a>
+### [snipe-it-0.0.14](https://github.com/truecharts/apps/compare/snipe-it-0.0.13...snipe-it-0.0.14) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
 <a name="snipe-it-0.0.13"></a>
 ### [snipe-it-0.0.13](https://github.com/truecharts/apps/compare/snipe-it-0.0.12...snipe-it-0.0.13) (2021-12-14)
 

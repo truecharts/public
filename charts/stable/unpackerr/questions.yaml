@@ -89,22 +89,16 @@ questions:
       attrs:
         - variable: downloads
           label: "App downloads Storage"
-          description: "Stores the Application Configuration."
+          description: "Path to (/downloads)."
           schema:
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable the storage"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
               - variable: type
                 label: "Type of Storage"
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
                 schema:
                   type: string
-                  default: "simplePVC"
+                  default: "simpleHP"
                   enum:
                     - value: "simplePVC"
                       description: "PVC (simple)"
@@ -123,14 +117,6 @@ questions:
                 schema:
                   show_if: [["type", "=", "hostPath"]]
                   type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  type: string
-                  default: "/downloads"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
               - variable: medium
                 label: "EmptyDir Medium"
                 schema:
@@ -143,6 +129,14 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
+                    - variable: mountPath
+                      label: "mountPath (Non-editable"
+                      description: "Path inside the container the storage is mounted"
+                      schema:
+                        type: string
+                        default: "/downloads"
+                        editable: false
+                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 # Include{persistenceList}
 
 # Include{ingressList}

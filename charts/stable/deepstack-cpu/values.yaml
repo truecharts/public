@@ -21,6 +21,7 @@ podSecurityContext:
 envTpl:
   # Permissions Settings
   USER_ID: "{{ .Values.env.PUID }}"
+
 env:
   PUID: 568
 
@@ -29,7 +30,7 @@ env:
   VISION-DETECTION: "True"
   VISION-SCENE: "True"
   # Path to custom models (needs to be on documentation)
-  MODELSTORE-DETECTION: "/modelstore/detection"
+  MODELSTORE-DETECTION: "{{ .Values.persistence.modelstore.mountPath }}"
   # High|Medium|Low
   MODE: "High"
 
@@ -37,3 +38,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/datastore"
+  modelstore:
+    enabled: true
+    mountPath: "/modelstore/detection"

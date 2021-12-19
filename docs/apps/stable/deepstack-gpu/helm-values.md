@@ -12,7 +12,7 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.MODE | string | `"High"` |  |
-| env.MODELSTORE-DETECTION | string | `"/modelstore/detection"` |  |
+| env.MODELSTORE-DETECTION | string | `"{{ .Values.persistence.modelstore.mountPath }}"` |  |
 | env.PUID | int | `568` |  |
 | env.VISION-DETECTION | string | `"True"` |  |
 | env.VISION-FACE | string | `"True"` |  |
@@ -23,6 +23,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v2021.09.1@sha256:f924cebf518a54bca2ca2ac33911cf3af4dd7403cad371781422436ce4254a28"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/datastore"` |  |
+| persistence.modelstore.enabled | bool | `true` |  |
+| persistence.modelstore.mountPath | string | `"/modelstore/detection"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.36"></a>
+### [readarr-9.0.36](https://github.com/truecharts/apps/compare/readarr-9.0.35...readarr-9.0.36) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
 <a name="readarr-9.0.35"></a>
 ### [readarr-9.0.35](https://github.com/truecharts/apps/compare/readarr-9.0.34...readarr-9.0.35) (2021-12-14)
 

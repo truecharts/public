@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-1.0.10"></a>
+### [speedtest-exporter-1.0.10](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.9...speedtest-exporter-1.0.10) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="speedtest-exporter-1.0.9"></a>
 ### [speedtest-exporter-1.0.9](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.8...speedtest-exporter-1.0.9) (2021-12-14)
 
