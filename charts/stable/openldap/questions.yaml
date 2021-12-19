@@ -394,7 +394,7 @@ questions:
                       description: "Path inside the container the storage is mounted"
                       schema:
                         type: string
-                        default: "/var/lib/ldap"
+                        default: "/var/lib/ldap/"
                         editable: false
                         valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: slapd
@@ -438,7 +438,7 @@ questions:
                       description: "Path inside the container the storage is mounted"
                       schema:
                         type: string
-                        default: "/etc/ldap/slapd.d"
+                        default: "/etc/ldap/slapd.d/"
                         editable: false
                         valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 
