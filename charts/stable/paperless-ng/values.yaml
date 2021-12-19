@@ -67,7 +67,7 @@ persistence:
 redis:
   enabled: true
   existingSecret: "rediscreds"
-  redisUsername: paperless-ng
+  redisUsername: default
 
 postgresql:
   enabled: true
