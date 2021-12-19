@@ -18,14 +18,9 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-envTpl:
-  # Permissions Settings
-  USER_ID: "{{ .Values.env.PUID }}"
-
 env:
   PUID: 568
-
-  # TZ: UTC
+  USER_ID: "{{ .Values.env.PUID }}"
   VISION-FACE: "True"
   VISION-DETECTION: "True"
   VISION-SCENE: "True"

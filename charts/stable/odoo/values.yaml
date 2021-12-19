@@ -9,11 +9,9 @@ secret: {}
 
 # See more environment variables in the odoo documentation
 # https://github.com/nicholaswilde/docker-odoo
-env: {}
-    # HOST: "odoo-db"
-
-envTpl:
+env:
   USER: "{{ .Values.postgresql.postgresqlUsername }}"
+    # HOST: "odoo-db"
 
 envValueFrom:
   PASSWORD:

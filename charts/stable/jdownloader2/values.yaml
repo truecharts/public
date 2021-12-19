@@ -32,15 +32,12 @@ service:
         port: 10056
         targetPort: 5900
 
-# All values here are set as the docker defaults.
-envTpl:
-  # Permissions Settings
-  USER_ID: "{{ .Values.env.PUID }}"
 secret:
   VNC_PASSWORD: ""
 env:
   # Permissions Settings
   PUID: 568
+  USER_ID: "{{ .Values.env.PUID }}"
   # General Settings
   KEEP_APP_RUNNING: 0
   CLEAN_TMP_DIR: 1
