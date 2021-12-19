@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-5.0.6"></a>
+### [openldap-5.0.6](https://github.com/truecharts/apps/compare/openldap-5.0.5...openldap-5.0.6) (2021-12-19)
+
+#### Fix
+
+* revert removing of trailing slash ([#1566](https://github.com/truecharts/apps/issues/1566))
+
+
+
 <a name="openldap-5.0.5"></a>
 ### [openldap-5.0.5](https://github.com/truecharts/apps/compare/openldap-5.0.4...openldap-5.0.5) (2021-12-18)
 

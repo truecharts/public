@@ -3227,6 +3227,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2021.09.1
+    created: "2021-12-19T12:50:37.991496617Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    description: DeepStack AI provides AI features including Face Recognition, Object
+      Detection, Scene Recognition and custom AI Models
+    digest: aa98ae99f43ab60dd0c0742fe335cbabba9bb1bf79a745f193a98f42b423f467
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/deepstack-cpu
+    icon: https://truecharts.org/_static/img/appicons/deepstack-cpu-icon.png
+    keywords:
+    - AI
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: deepstack-cpu
+    sources:
+    - https://github.com/johnolafenwa/DeepStack
+    - https://hub.docker.com/r/deepquestai/deepstack
+    - https://www.deepstack.cc/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deepstack-cpu-8.0.5/deepstack-cpu-8.0.5.tgz
+    version: 8.0.5
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - AI
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2021.09.1
     created: "2021-12-14T20:47:23.703393577Z"
     dependencies:
     - name: common
@@ -3320,6 +3353,39 @@ entries:
     - https://github.com/truecharts/apps/releases/download/deepstack-cpu-8.0.0/deepstack-cpu-8.0.0.tgz
     version: 8.0.0
   deepstack-gpu:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - AI
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2021.09.1
+    created: "2021-12-19T12:50:38.158871455Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    description: DeepStack AI provides AI features including Face Recognition, Object
+      Detection, Scene Recognition and custom AI Models
+    digest: cdd88ad0d1ed680b1b157eeecf6ab4f8d928edf56cf2e5fc336f74194e7ca1d9
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/deepstack-gpu
+    icon: https://truecharts.org/_static/img/appicons/deepstack-gpu-icon.png
+    keywords:
+    - AI
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: deepstack-gpu
+    sources:
+    - https://github.com/johnolafenwa/DeepStack
+    - https://hub.docker.com/r/deepquestai/deepstack
+    - https://www.deepstack.cc/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deepstack-gpu-3.0.5/deepstack-gpu-3.0.5.tgz
+    version: 3.0.5
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -14127,6 +14193,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.5.0
+    created: "2021-12-19T12:50:38.330176238Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.21
+    description: Community developed LDAP software
+    digest: 7fa48208ba368d1dac547626459079d8bdf75428ea6a87404fc61c3b6c2b5aa5
+    home: https://www.openldap.org
+    icon: https://truecharts.org/_static/img/appicons/openldap-icon.png
+    keywords:
+    - ldap
+    - openldap
+    - iam-stack
+    - high availability
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: openldap
+    sources:
+    - https://github.com/jp-gouin/helm-openldap
+    - https://github.com/osixia/docker-openldap
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/openldap-5.0.6/openldap-5.0.6.tgz
+    version: 5.0.6
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - cloud
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.5.0
     created: "2021-12-14T20:47:37.111220119Z"
     dependencies:
     - name: common
@@ -23733,4 +23833,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-18T22:59:44.331336026Z"
+generated: "2021-12-19T12:50:38.33120415Z"
