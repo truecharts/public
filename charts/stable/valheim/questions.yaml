@@ -260,12 +260,6 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
@@ -322,12 +316,6 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
@@ -376,12 +364,6 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
@@ -430,12 +412,6 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
