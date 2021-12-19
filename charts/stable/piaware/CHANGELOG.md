@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.27"></a>
+### [piaware-4.0.27](https://github.com/truecharts/apps/compare/piaware-4.0.26...piaware-4.0.27) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="piaware-4.0.26"></a>
 ### [piaware-4.0.26](https://github.com/truecharts/apps/compare/piaware-4.0.25...piaware-4.0.26) (2021-12-18)
 

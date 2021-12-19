@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-1.0.2"></a>
+### [paperless-ng-1.0.2](https://github.com/truecharts/apps/compare/paperless-ng-1.0.1...paperless-ng-1.0.2) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="paperless-ng-1.0.1"></a>
 ### [paperless-ng-1.0.1](https://github.com/truecharts/apps/compare/paperless-ng-1.0.0...paperless-ng-1.0.1) (2021-12-18)
 

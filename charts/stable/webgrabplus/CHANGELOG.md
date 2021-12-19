@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="webgrabplus-0.0.5"></a>
+### [webgrabplus-0.0.5](https://github.com/truecharts/apps/compare/webgrabplus-0.0.4...webgrabplus-0.0.5) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="webgrabplus-0.0.4"></a>
 ### [webgrabplus-0.0.4](https://github.com/truecharts/apps/compare/webgrabplus-0.0.3...webgrabplus-0.0.4) (2021-12-18)
 

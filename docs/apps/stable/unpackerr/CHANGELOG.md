@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="unpackerr-4.0.25"></a>
+### [unpackerr-4.0.25](https://github.com/truecharts/apps/compare/unpackerr-4.0.24...unpackerr-4.0.25) (2021-12-19)
+
+#### Chore
+
+* Restructure Icons a bit ([#1569](https://github.com/truecharts/apps/issues/1569))
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="unpackerr-4.0.24"></a>
 ### [unpackerr-4.0.24](https://github.com/truecharts/apps/compare/unpackerr-4.0.23...unpackerr-4.0.24) (2021-12-18)
 

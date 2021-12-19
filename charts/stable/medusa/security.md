@@ -37,7 +37,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/medusa:v0.5.20@sha256:266ca837cc4c7e834af793dfa8996d0209352a430c4344647ea945ecdd581431
+          tccr.io/truecharts/medusa:v0.5.20@sha256:ab6d867b5a7328a6fd36e01d2c036865b31c86c855e0de58820cfb09e7996eed
 
 ##### Scan Results
 

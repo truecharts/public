@@ -53,7 +53,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/chevereto:v1.5.1
+          tccr.io/truecharts/chevereto:v1.6.0
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/mariadb:v10.6.5@sha256:6ff872ad4fe34b8d322daec2cfa66ed18b8561b8ccb134ebf225e001032ae2f3
 

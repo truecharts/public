@@ -182,7 +182,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"v14.1.0@sha256:9d1b935c4090cb425edf1935eafb4169064e59bf25ed286509bc9c6077609d62"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"v14.1.0@sha256:7ad9b2cbcb614f0c2409c401804da15ccf82e7072acffa0b6aca1dcbf72a6018"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
@@ -249,6 +249,6 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | wireguardImage | object | See below | WireGuard specific configuration |
 | wireguardImage.pullPolicy | string | `"IfNotPresent"` | Specify the WireGuard image pull policy |
 | wireguardImage.repository | string | `"ghcr.io/truecharts/wireguard"` | Specify the WireGuard image |
-| wireguardImage.tag | string | `"v1.0.20210914@sha256:bd73721b87689a1b48c648f3bfc9dbd8b8916199610f0d6c1f58cc6956eedb7e"` | Specify the WireGuard image tag |
+| wireguardImage.tag | string | `"v1.0.20210914@sha256:31da911257a76ac8278b0e462fd2da02e8aeac349af3cf2a5279c4bc99f51f8d"` | Specify the WireGuard image tag |
 
 All Rights Reserved - The TrueCharts Project

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-1.0.27"></a>
+### [medusa-1.0.27](https://github.com/truecharts/apps/compare/medusa-1.0.26...medusa-1.0.27) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="medusa-1.0.26"></a>
 ### [medusa-1.0.26](https://github.com/truecharts/apps/compare/medusa-1.0.25...medusa-1.0.26) (2021-12-18)
 

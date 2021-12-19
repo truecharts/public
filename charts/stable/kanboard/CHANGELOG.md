@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="kanboard-5.0.15"></a>
+### [kanboard-5.0.15](https://github.com/truecharts/apps/compare/kanboard-5.0.14...kanboard-5.0.15) (2021-12-19)
+
+#### Chore
+
+* Restructure Icons a bit ([#1569](https://github.com/truecharts/apps/issues/1569))
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="kanboard-5.0.14"></a>
 ### [kanboard-5.0.14](https://github.com/truecharts/apps/compare/kanboard-5.0.13...kanboard-5.0.14) (2021-12-18)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="chevereto-0.0.5"></a>
+### [chevereto-0.0.5](https://github.com/truecharts/apps/compare/chevereto-0.0.4...chevereto-0.0.5) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="chevereto-0.0.4"></a>
 ### [chevereto-0.0.4](https://github.com/truecharts/apps/compare/chevereto-0.0.3...chevereto-0.0.4) (2021-12-18)
 

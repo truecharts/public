@@ -21,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.CHEVERETO_DB_PASS.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/chevereto"` |  |
-| image.tag | string | `"v1.5.1"` |  |
+| image.tag | string | `"v1.6.0"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"chevereto"` |  |
