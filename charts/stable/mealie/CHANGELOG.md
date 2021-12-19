@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mealie-5.0.6"></a>
+### [mealie-5.0.6](https://github.com/truecharts/apps/compare/mealie-5.0.5...mealie-5.0.6) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="mealie-5.0.5"></a>
 ### [mealie-5.0.5](https://github.com/truecharts/apps/compare/mealie-5.0.4...mealie-5.0.5) (2021-12-18)
 

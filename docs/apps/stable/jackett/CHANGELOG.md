@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.51"></a>
+### [jackett-9.0.51](https://github.com/truecharts/apps/compare/jackett-9.0.50...jackett-9.0.51) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="jackett-9.0.50"></a>
 ### [jackett-9.0.50](https://github.com/truecharts/apps/compare/jackett-9.0.49...jackett-9.0.50) (2021-12-19)
 

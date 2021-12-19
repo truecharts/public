@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-1.0.3"></a>
+### [paperless-ng-1.0.3](https://github.com/truecharts/apps/compare/paperless-ng-1.0.2...paperless-ng-1.0.3) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="paperless-ng-1.0.2"></a>
 ### [paperless-ng-1.0.2](https://github.com/truecharts/apps/compare/paperless-ng-1.0.1...paperless-ng-1.0.2) (2021-12-19)
 

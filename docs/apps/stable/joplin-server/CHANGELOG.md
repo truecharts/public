@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="joplin-server-5.0.15"></a>
+### [joplin-server-5.0.15](https://github.com/truecharts/apps/compare/joplin-server-5.0.14...joplin-server-5.0.15) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* Restructure Icons a bit ([#1569](https://github.com/truecharts/apps/issues/1569))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="joplin-server-5.0.14"></a>
 ### [joplin-server-5.0.14](https://github.com/truecharts/apps/compare/joplin-server-5.0.13...joplin-server-5.0.14) (2021-12-18)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.43"></a>
+### [prowlarr-4.0.43](https://github.com/truecharts/apps/compare/prowlarr-4.0.42...prowlarr-4.0.43) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="prowlarr-4.0.42"></a>
 ### [prowlarr-4.0.42](https://github.com/truecharts/apps/compare/prowlarr-4.0.41...prowlarr-4.0.42) (2021-12-19)
 

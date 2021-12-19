@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minio-console-1.0.29"></a>
+### [minio-console-1.0.29](https://github.com/truecharts/apps/compare/minio-console-1.0.28...minio-console-1.0.29) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="minio-console-1.0.28"></a>
 ### [minio-console-1.0.28](https://github.com/truecharts/apps/compare/minio-console-1.0.27...minio-console-1.0.28) (2021-12-18)
 

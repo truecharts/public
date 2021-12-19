@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.35"></a>
+### [logitech-media-server-2.0.35](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.34...logitech-media-server-2.0.35) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="logitech-media-server-2.0.34"></a>
 ### [logitech-media-server-2.0.34](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.33...logitech-media-server-2.0.34) (2021-12-19)
 

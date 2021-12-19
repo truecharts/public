@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-4.0.24"></a>
+### [resilio-sync-4.0.24](https://github.com/truecharts/apps/compare/resilio-sync-4.0.23...resilio-sync-4.0.24) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* Restructure Icons a bit ([#1569](https://github.com/truecharts/apps/issues/1569))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="resilio-sync-4.0.23"></a>
 ### [resilio-sync-4.0.23](https://github.com/truecharts/apps/compare/resilio-sync-4.0.22...resilio-sync-4.0.23) (2021-12-18)
 

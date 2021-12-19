@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pgadmin-5.0.5"></a>
+### [pgadmin-5.0.5](https://github.com/truecharts/apps/compare/pgadmin-5.0.4...pgadmin-5.0.5) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="pgadmin-5.0.4"></a>
 ### [pgadmin-5.0.4](https://github.com/truecharts/apps/compare/pgadmin-5.0.3...pgadmin-5.0.4) (2021-12-18)
 

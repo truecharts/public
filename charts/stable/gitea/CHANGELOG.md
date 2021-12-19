@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.18"></a>
+### [gitea-5.0.18](https://github.com/truecharts/apps/compare/gitea-5.0.17...gitea-5.0.18) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="gitea-5.0.17"></a>
 ### [gitea-5.0.17](https://github.com/truecharts/apps/compare/gitea-5.0.16...gitea-5.0.17) (2021-12-18)
 

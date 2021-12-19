@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-4.0.24"></a>
+### [k8s-gateway-4.0.24](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.23...k8s-gateway-4.0.24) (2021-12-19)
+
+#### Chore
+
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="k8s-gateway-4.0.23"></a>
 ### [k8s-gateway-4.0.23](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.22...k8s-gateway-4.0.23) (2021-12-14)
 

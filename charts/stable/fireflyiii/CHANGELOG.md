@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.6"></a>
+### [fireflyiii-13.1.6](https://github.com/truecharts/apps/compare/fireflyiii-13.1.5...fireflyiii-13.1.6) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="fireflyiii-13.1.5"></a>
 ### [fireflyiii-13.1.5](https://github.com/truecharts/apps/compare/fireflyiii-13.1.4...fireflyiii-13.1.5) (2021-12-18)
 

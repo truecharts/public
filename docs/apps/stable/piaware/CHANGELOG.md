@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.28"></a>
+### [piaware-4.0.28](https://github.com/truecharts/apps/compare/piaware-4.0.27...piaware-4.0.28) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="piaware-4.0.27"></a>
 ### [piaware-4.0.27](https://github.com/truecharts/apps/compare/piaware-4.0.26...piaware-4.0.27) (2021-12-19)
 

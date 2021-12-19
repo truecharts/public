@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="reg-4.0.23"></a>
+### [reg-4.0.23](https://github.com/truecharts/apps/compare/reg-4.0.22...reg-4.0.23) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="reg-4.0.22"></a>
 ### [reg-4.0.22](https://github.com/truecharts/apps/compare/reg-4.0.21...reg-4.0.22) (2021-12-18)
 

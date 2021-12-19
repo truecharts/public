@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.32"></a>
+### [lazylibrarian-9.0.32](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.31...lazylibrarian-9.0.32) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="lazylibrarian-9.0.31"></a>
 ### [lazylibrarian-9.0.31](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.30...lazylibrarian-9.0.31) (2021-12-19)
 

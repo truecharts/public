@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.14"></a>
+### [blog-0.0.14](https://github.com/truecharts/apps/compare/blog-0.0.13...blog-0.0.14) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="blog-0.0.13"></a>
 ### [blog-0.0.13](https://github.com/truecharts/apps/compare/blog-0.0.12...blog-0.0.13) (2021-12-19)
 

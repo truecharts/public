@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.16"></a>
+### [friendica-0.0.16](https://github.com/truecharts/apps/compare/friendica-0.0.15...friendica-0.0.16) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="friendica-0.0.15"></a>
 ### [friendica-0.0.15](https://github.com/truecharts/apps/compare/friendica-0.0.14...friendica-0.0.15) (2021-12-18)
 

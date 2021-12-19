@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="handbrake-10.0.5"></a>
+### [handbrake-10.0.5](https://github.com/truecharts/apps/compare/handbrake-10.0.4...handbrake-10.0.5) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="handbrake-10.0.4"></a>
 ### [handbrake-10.0.4](https://github.com/truecharts/apps/compare/handbrake-10.0.3...handbrake-10.0.4) (2021-12-18)
 

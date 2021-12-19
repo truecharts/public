@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pydio-cells-0.0.6"></a>
+### [pydio-cells-0.0.6](https://github.com/truecharts/apps/compare/pydio-cells-0.0.5...pydio-cells-0.0.6) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="pydio-cells-0.0.5"></a>
 ### [pydio-cells-0.0.5](https://github.com/truecharts/apps/compare/pydio-cells-0.0.4...pydio-cells-0.0.5) (2021-12-18)
 

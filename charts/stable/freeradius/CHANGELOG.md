@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="freeradius-4.0.27"></a>
+### [freeradius-4.0.27](https://github.com/truecharts/apps/compare/freeradius-4.0.26...freeradius-4.0.27) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="freeradius-4.0.26"></a>
 ### [freeradius-4.0.26](https://github.com/truecharts/apps/compare/freeradius-4.0.25...freeradius-4.0.26) (2021-12-18)
 

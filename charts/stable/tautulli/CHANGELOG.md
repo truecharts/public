@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="tautulli-9.0.24"></a>
+### [tautulli-9.0.24](https://github.com/truecharts/apps/compare/tautulli-9.0.23...tautulli-9.0.24) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="tautulli-9.0.23"></a>
 ### [tautulli-9.0.23](https://github.com/truecharts/apps/compare/tautulli-9.0.22...tautulli-9.0.23) (2021-12-18)
 

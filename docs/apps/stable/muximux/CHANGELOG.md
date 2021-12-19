@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="muximux-1.0.28"></a>
+### [muximux-1.0.28](https://github.com/truecharts/apps/compare/muximux-1.0.27...muximux-1.0.28) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="muximux-1.0.27"></a>
 ### [muximux-1.0.27](https://github.com/truecharts/apps/compare/muximux-1.0.26...muximux-1.0.27) (2021-12-18)
 

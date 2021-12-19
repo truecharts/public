@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="icinga2-0.0.13"></a>
+### [icinga2-0.0.13](https://github.com/truecharts/apps/compare/icinga2-0.0.12...icinga2-0.0.13) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="icinga2-0.0.12"></a>
 ### [icinga2-0.0.12](https://github.com/truecharts/apps/compare/icinga2-0.0.11...icinga2-0.0.12) (2021-12-18)
 

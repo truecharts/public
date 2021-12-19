@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.38"></a>
+### [readarr-9.0.38](https://github.com/truecharts/apps/compare/readarr-9.0.37...readarr-9.0.38) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="readarr-9.0.37"></a>
 ### [readarr-9.0.37](https://github.com/truecharts/apps/compare/readarr-9.0.36...readarr-9.0.37) (2021-12-19)
 

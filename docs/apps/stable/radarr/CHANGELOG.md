@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="radarr-9.0.25"></a>
+### [radarr-9.0.25](https://github.com/truecharts/apps/compare/radarr-9.0.24...radarr-9.0.25) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="radarr-9.0.24"></a>
 ### [radarr-9.0.24](https://github.com/truecharts/apps/compare/radarr-9.0.23...radarr-9.0.24) (2021-12-18)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="overseerr-4.0.24"></a>
+### [overseerr-4.0.24](https://github.com/truecharts/apps/compare/overseerr-4.0.23...overseerr-4.0.24) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="overseerr-4.0.23"></a>
 ### [overseerr-4.0.23](https://github.com/truecharts/apps/compare/overseerr-4.0.22...overseerr-4.0.23) (2021-12-18)
 

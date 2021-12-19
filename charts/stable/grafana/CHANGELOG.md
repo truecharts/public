@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.8"></a>
+### [grafana-2.0.8](https://github.com/truecharts/apps/compare/grafana-2.0.7...grafana-2.0.8) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="grafana-2.0.7"></a>
 ### [grafana-2.0.7](https://github.com/truecharts/apps/compare/grafana-2.0.6...grafana-2.0.7) (2021-12-19)
 

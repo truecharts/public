@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.26"></a>
+### [booksonic-air-4.0.26](https://github.com/truecharts/apps/compare/booksonic-air-4.0.25...booksonic-air-4.0.26) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="booksonic-air-4.0.25"></a>
 ### [booksonic-air-4.0.25](https://github.com/truecharts/apps/compare/booksonic-air-4.0.24...booksonic-air-4.0.25) (2021-12-18)
 

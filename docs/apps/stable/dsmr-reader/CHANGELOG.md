@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-5.0.14"></a>
+### [dsmr-reader-5.0.14](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.13...dsmr-reader-5.0.14) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="dsmr-reader-5.0.13"></a>
 ### [dsmr-reader-5.0.13](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.12...dsmr-reader-5.0.13) (2021-12-18)
 

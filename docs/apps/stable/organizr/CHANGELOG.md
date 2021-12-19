@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="organizr-9.0.25"></a>
+### [organizr-9.0.25](https://github.com/truecharts/apps/compare/organizr-9.0.24...organizr-9.0.25) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="organizr-9.0.24"></a>
 ### [organizr-9.0.24](https://github.com/truecharts/apps/compare/organizr-9.0.23...organizr-9.0.24) (2021-12-18)
 

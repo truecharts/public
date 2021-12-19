@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="loki-2.0.12"></a>
+### [loki-2.0.12](https://github.com/truecharts/apps/compare/loki-2.0.11...loki-2.0.12) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="loki-2.0.11"></a>
 ### [loki-2.0.11](https://github.com/truecharts/apps/compare/loki-2.0.10...loki-2.0.11) (2021-12-18)
 

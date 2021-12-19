@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-2.0.24"></a>
+### [teamspeak3-2.0.24](https://github.com/truecharts/apps/compare/teamspeak3-2.0.23...teamspeak3-2.0.24) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="teamspeak3-2.0.23"></a>
 ### [teamspeak3-2.0.23](https://github.com/truecharts/apps/compare/teamspeak3-2.0.22...teamspeak3-2.0.23) (2021-12-18)
 

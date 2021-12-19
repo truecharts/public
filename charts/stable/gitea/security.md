@@ -97,14 +97,14 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.1.0@sha256:017e4d5af2d17c98b8c779a943d8152f75a824535aca43381663c365895add33
+          tccr.io/truecharts/postgresql:v14.1.0@sha256:7ad9b2cbcb614f0c2409c401804da15ccf82e7072acffa0b6aca1dcbf72a6018
           'tccr.io/truecharts/gitea:v1.15.7@sha256:392dd2d31d497e8578f2f915a257789ef2a4193b7a63e336165962415dc1b9d7'
           'tccr.io/truecharts/gitea:v1.15.7@sha256:392dd2d31d497e8578f2f915a257789ef2a4193b7a63e336165962415dc1b9d7'
           tccr.io/truecharts/gitea:v1.15.7@sha256:392dd2d31d497e8578f2f915a257789ef2a4193b7a63e336165962415dc1b9d7
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.1.0@sha256:017e4d5af2d17c98b8c779a943d8152f75a824535aca43381663c365895add33
+          tccr.io/truecharts/postgresql:v14.1.0@sha256:7ad9b2cbcb614f0c2409c401804da15ccf82e7072acffa0b6aca1dcbf72a6018
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/memcached:v1.6.12@sha256:935bda79a5a0c850c008d523dfc0a1750ca905d88522824feb867e0817bfb5aa
+          tccr.io/truecharts/memcached:v1.6.12@sha256:4bb7e6c427149148fbcd496366700aa348e6a1078f83534de2f897b8790a357a
 
 ##### Scan Results
 
@@ -141,7 +141,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:017e4d5af2d17c98b8c779a943d8152f75a824535aca43381663c365895add33 (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:7ad9b2cbcb614f0c2409c401804da15ccf82e7072acffa0b6aca1dcbf72a6018 (debian 10.11)
 
 
 **debian**
@@ -421,7 +421,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:017e4d5af2d17c98b8c779a943d8152f75a824535aca43381663c365895add33 (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:7ad9b2cbcb614f0c2409c401804da15ccf82e7072acffa0b6aca1dcbf72a6018 (debian 10.11)
 
 
 **debian**
@@ -669,7 +669,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/memcached:v1.6.12@sha256:935bda79a5a0c850c008d523dfc0a1750ca905d88522824feb867e0817bfb5aa (debian 10.11)
+#### Container: tccr.io/truecharts/memcached:v1.6.12@sha256:4bb7e6c427149148fbcd496366700aa348e6a1078f83534de2f897b8790a357a (debian 10.11)
 
 
 **debian**

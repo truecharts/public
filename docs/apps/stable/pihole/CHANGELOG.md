@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.27"></a>
+### [pihole-4.0.27](https://github.com/truecharts/apps/compare/pihole-4.0.26...pihole-4.0.27) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="pihole-4.0.26"></a>
 ### [pihole-4.0.26](https://github.com/truecharts/apps/compare/pihole-4.0.25...pihole-4.0.26) (2021-12-18)
 

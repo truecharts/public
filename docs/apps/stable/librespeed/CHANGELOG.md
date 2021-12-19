@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="librespeed-4.0.28"></a>
+### [librespeed-4.0.28](https://github.com/truecharts/apps/compare/librespeed-4.0.27...librespeed-4.0.28) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="librespeed-4.0.27"></a>
 ### [librespeed-4.0.27](https://github.com/truecharts/apps/compare/librespeed-4.0.26...librespeed-4.0.27) (2021-12-18)
 
