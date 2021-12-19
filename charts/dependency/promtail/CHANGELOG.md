@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="promtail-1.0.16"></a>
+### [promtail-1.0.16](https://github.com/truecharts/apps/compare/promtail-1.0.15...promtail-1.0.16) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="promtail-1.0.15"></a>
 ### [promtail-1.0.15](https://github.com/truecharts/apps/compare/promtail-1.0.14...promtail-1.0.15) (2021-12-19)
 

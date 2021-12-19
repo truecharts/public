@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-2.0.13"></a>
+### [loki-2.0.13](https://github.com/truecharts/apps/compare/loki-2.0.12...loki-2.0.13) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="loki-2.0.12"></a>
 ### [loki-2.0.12](https://github.com/truecharts/apps/compare/loki-2.0.11...loki-2.0.12) (2021-12-19)
 

@@ -14,8 +14,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | See below | environment variables. See more environment variables in the [traccar documentation](https://www.traccar.org/configuration-file/) |
 | env.CONFIG_USE_ENVIRONMENT_VARIABLES | bool | `true` | Set application to read environment variables |
 | env.LOGGER_CONSOLE | bool | `true` | Set application to log to stdout |
-| envTpl.DATABASE_DRIVER | string | `"org.postgresql.Driver"` |  |
-| envTpl.DATABASE_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.DATABASE_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DATABASE_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.key | string | `"jdbc"` |  |

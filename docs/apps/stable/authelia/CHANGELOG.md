@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.20"></a>
+### [authelia-8.0.20](https://github.com/truecharts/apps/compare/authelia-8.0.19...authelia-8.0.20) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove hidden vars/configs from `questions.yaml` after making sure they are defined in `values.yaml` ([#1577](https://github.com/truecharts/apps/issues/1577))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="authelia-8.0.19"></a>
 ### [authelia-8.0.19](https://github.com/truecharts/apps/compare/authelia-8.0.18...authelia-8.0.19) (2021-12-19)
 

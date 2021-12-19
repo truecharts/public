@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="miniflux-4.0.17"></a>
+### [miniflux-4.0.17](https://github.com/truecharts/apps/compare/miniflux-4.0.16...miniflux-4.0.17) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="miniflux-4.0.16"></a>
 ### [miniflux-4.0.16](https://github.com/truecharts/apps/compare/miniflux-4.0.15...miniflux-4.0.16) (2021-12-19)
 

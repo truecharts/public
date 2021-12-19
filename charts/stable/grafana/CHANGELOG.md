@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.9"></a>
+### [grafana-2.0.9](https://github.com/truecharts/apps/compare/grafana-2.0.8...grafana-2.0.9) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="grafana-2.0.8"></a>
 ### [grafana-2.0.8](https://github.com/truecharts/apps/compare/grafana-2.0.7...grafana-2.0.8) (2021-12-19)
 

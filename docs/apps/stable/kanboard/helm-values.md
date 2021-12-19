@@ -15,10 +15,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.LOG_DRIVER | string | `"stdout"` | log driver: syslog, stderr, stdout or file |
 | env.MAIL_CONFIGURATION | bool | `false` | Enable/disable email configuration from the user interface |
 | env.TZ | string | `"UTC"` | Set the container timezone |
-| envTpl.DB_DRIVER | string | `"postgres"` |  |
-| envTpl.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.DB_PORT | string | `"5432"` |  |
-| envTpl.DB_USERNAME | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.DB_HOSTNAME.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOSTNAME.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

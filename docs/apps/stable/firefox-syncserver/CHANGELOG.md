@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-5.0.16"></a>
+### [firefox-syncserver-5.0.16](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.15...firefox-syncserver-5.0.16) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="firefox-syncserver-5.0.15"></a>
 ### [firefox-syncserver-5.0.15](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.14...firefox-syncserver-5.0.15) (2021-12-19)
 

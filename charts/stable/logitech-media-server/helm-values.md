@@ -11,8 +11,8 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env.HTTP_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | env.PUID | int | `568` |  |
-| envTpl.HTTP_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/logitechmediaserver"` |  |
 | image.tag | string | `"v8.3.0@sha256:85e5f84e99eb4db408361425c76e36f9d9b5f07b91d3c451be43cc3e0cb6d783"` |  |

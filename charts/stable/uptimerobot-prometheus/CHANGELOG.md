@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptimerobot-prometheus-2.0.6"></a>
+### [uptimerobot-prometheus-2.0.6](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.5...uptimerobot-prometheus-2.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="uptimerobot-prometheus-2.0.5"></a>
 ### [uptimerobot-prometheus-2.0.5](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.4...uptimerobot-prometheus-2.0.5) (2021-12-19)
 

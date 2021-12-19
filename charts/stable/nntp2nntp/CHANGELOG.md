@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nntp2nntp-0.0.6"></a>
+### [nntp2nntp-0.0.6](https://github.com/truecharts/apps/compare/nntp2nntp-0.0.5...nntp2nntp-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="nntp2nntp-0.0.5"></a>
 ### [nntp2nntp-0.0.5](https://github.com/truecharts/apps/compare/nntp2nntp-0.0.4...nntp2nntp-0.0.5) (2021-12-19)
 

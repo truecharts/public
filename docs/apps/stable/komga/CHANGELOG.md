@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.33"></a>
+### [komga-4.0.33](https://github.com/truecharts/apps/compare/komga-4.0.32...komga-4.0.33) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="komga-4.0.32"></a>
 ### [komga-4.0.32](https://github.com/truecharts/apps/compare/komga-4.0.31...komga-4.0.32) (2021-12-19)
 

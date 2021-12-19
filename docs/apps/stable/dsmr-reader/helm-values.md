@@ -13,11 +13,6 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://github.com/xirixiz/dsmr-reader-docker#dsmr-reader---environment-variables) for more details. |
 | env.TZ | string | `"UTC"` | Set the container timezone |
-| envTpl.DJANGO_DATABASE_ENGINE | string | `"django.db.backends.postgresql"` |  |
-| envTpl.DJANGO_DATABASE_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.DJANGO_DATABASE_PORT | string | `"5432"` |  |
-| envTpl.DJANGO_DATABASE_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
-| envTpl.DJANGO_TIME_ZONE | string | `"{{ .Values.env.TZ }}"` |  |
 | envValueFrom.DJANGO_DATABASE_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DJANGO_DATABASE_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DJANGO_DATABASE_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

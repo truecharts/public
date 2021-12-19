@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="couchpotato-0.0.6"></a>
+### [couchpotato-0.0.6](https://github.com/truecharts/apps/compare/couchpotato-0.0.5...couchpotato-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="couchpotato-0.0.5"></a>
 ### [couchpotato-0.0.5](https://github.com/truecharts/apps/compare/couchpotato-0.0.4...couchpotato-0.0.5) (2021-12-19)
 

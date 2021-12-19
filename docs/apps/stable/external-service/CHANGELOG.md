@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="external-service-4.0.24"></a>
+### [external-service-4.0.24](https://github.com/truecharts/apps/compare/external-service-4.0.23...external-service-4.0.24) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="external-service-4.0.23"></a>
 ### [external-service-4.0.23](https://github.com/truecharts/apps/compare/external-service-4.0.22...external-service-4.0.23) (2021-12-19)
 

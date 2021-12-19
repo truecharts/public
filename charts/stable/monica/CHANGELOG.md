@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="monica-0.0.17"></a>
+### [monica-0.0.17](https://github.com/truecharts/apps/compare/monica-0.0.16...monica-0.0.17) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="monica-0.0.16"></a>
 ### [monica-0.0.16](https://github.com/truecharts/apps/compare/monica-0.0.15...monica-0.0.16) (2021-12-19)
 

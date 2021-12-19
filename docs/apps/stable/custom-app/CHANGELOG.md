@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.43"></a>
+### [custom-app-3.0.43](https://github.com/truecharts/apps/compare/custom-app-3.0.42...custom-app-3.0.43) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="custom-app-3.0.42"></a>
 ### [custom-app-3.0.42](https://github.com/truecharts/apps/compare/custom-app-3.0.41...custom-app-3.0.42) (2021-12-19)
 

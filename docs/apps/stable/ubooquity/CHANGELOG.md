@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ubooquity-0.0.6"></a>
+### [ubooquity-0.0.6](https://github.com/truecharts/apps/compare/ubooquity-0.0.5...ubooquity-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="ubooquity-0.0.5"></a>
 ### [ubooquity-0.0.5](https://github.com/truecharts/apps/compare/ubooquity-0.0.4...ubooquity-0.0.5) (2021-12-19)
 

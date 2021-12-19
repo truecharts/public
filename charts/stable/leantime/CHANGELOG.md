@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leantime-1.0.2"></a>
+### [leantime-1.0.2](https://github.com/truecharts/apps/compare/leantime-1.0.1...leantime-1.0.2) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="leantime-1.0.1"></a>
 ### [leantime-1.0.1](https://github.com/truecharts/apps/compare/leantime-1.0.0...leantime-1.0.1) (2021-12-19)
 

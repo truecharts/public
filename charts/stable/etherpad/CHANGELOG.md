@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="etherpad-5.0.16"></a>
+### [etherpad-5.0.16](https://github.com/truecharts/apps/compare/etherpad-5.0.15...etherpad-5.0.16) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="etherpad-5.0.15"></a>
 ### [etherpad-5.0.15](https://github.com/truecharts/apps/compare/etherpad-5.0.14...etherpad-5.0.15) (2021-12-19)
 

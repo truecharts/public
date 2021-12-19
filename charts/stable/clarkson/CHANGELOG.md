@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-0.0.16"></a>
+### [clarkson-0.0.16](https://github.com/truecharts/apps/compare/clarkson-0.0.15...clarkson-0.0.16) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="clarkson-0.0.15"></a>
 ### [clarkson-0.0.15](https://github.com/truecharts/apps/compare/clarkson-0.0.14...clarkson-0.0.15) (2021-12-19)
 

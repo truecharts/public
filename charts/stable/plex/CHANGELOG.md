@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.26"></a>
+### [plex-8.0.26](https://github.com/truecharts/apps/compare/plex-8.0.25...plex-8.0.26) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="plex-8.0.25"></a>
 ### [plex-8.0.25](https://github.com/truecharts/apps/compare/plex-8.0.24...plex-8.0.25) (2021-12-19)
 

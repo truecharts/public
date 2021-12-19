@@ -13,9 +13,6 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://hay-kot.github.io/mealie/getting-started/install/#env-variables) for more details. |
 | env.TZ | string | `"UTC"` | Set the container timezone |
-| envTpl.DB_TYPE | string | `"postgres"` |  |
-| envTpl.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_SERVER.secretKeyRef.key | string | `"plainporthost"` |  |

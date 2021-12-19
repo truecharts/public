@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="muximux-1.0.29"></a>
+### [muximux-1.0.29](https://github.com/truecharts/apps/compare/muximux-1.0.28...muximux-1.0.29) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="muximux-1.0.28"></a>
 ### [muximux-1.0.28](https://github.com/truecharts/apps/compare/muximux-1.0.27...muximux-1.0.28) (2021-12-19)
 

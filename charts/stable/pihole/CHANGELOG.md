@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.28"></a>
+### [pihole-4.0.28](https://github.com/truecharts/apps/compare/pihole-4.0.27...pihole-4.0.28) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
 <a name="pihole-4.0.27"></a>
 ### [pihole-4.0.27](https://github.com/truecharts/apps/compare/pihole-4.0.26...pihole-4.0.27) (2021-12-19)
 

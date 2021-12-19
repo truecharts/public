@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.17"></a>
+### [friendica-0.0.17](https://github.com/truecharts/apps/compare/friendica-0.0.16...friendica-0.0.17) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="friendica-0.0.16"></a>
 ### [friendica-0.0.16](https://github.com/truecharts/apps/compare/friendica-0.0.15...friendica-0.0.16) (2021-12-19)
 

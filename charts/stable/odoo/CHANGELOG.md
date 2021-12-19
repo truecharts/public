@@ -1,6 +1,18 @@
 # Changelog<br>
 
 
+<a name="odoo-4.0.16"></a>
+### [odoo-4.0.16](https://github.com/truecharts/apps/compare/odoo-4.0.15...odoo-4.0.16) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
 <a name="odoo-4.0.15"></a>
 ### [odoo-4.0.15](https://github.com/truecharts/apps/compare/odoo-4.0.14...odoo-4.0.15) (2021-12-19)
 

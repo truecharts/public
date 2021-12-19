@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="twtxt-1.0.25"></a>
+### [twtxt-1.0.25](https://github.com/truecharts/apps/compare/twtxt-1.0.24...twtxt-1.0.25) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="twtxt-1.0.24"></a>
 ### [twtxt-1.0.24](https://github.com/truecharts/apps/compare/twtxt-1.0.23...twtxt-1.0.24) (2021-12-19)
 

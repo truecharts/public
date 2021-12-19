@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dokuwiki-0.0.6"></a>
+### [dokuwiki-0.0.6](https://github.com/truecharts/apps/compare/dokuwiki-0.0.5...dokuwiki-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="dokuwiki-0.0.5"></a>
 ### [dokuwiki-0.0.5](https://github.com/truecharts/apps/compare/dokuwiki-0.0.4...dokuwiki-0.0.5) (2021-12-19)
 

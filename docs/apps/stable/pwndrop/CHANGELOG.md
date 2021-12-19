@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pwndrop-0.0.6"></a>
+### [pwndrop-0.0.6](https://github.com/truecharts/apps/compare/pwndrop-0.0.5...pwndrop-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="pwndrop-0.0.5"></a>
 ### [pwndrop-0.0.5](https://github.com/truecharts/apps/compare/pwndrop-0.0.4...pwndrop-0.0.5) (2021-12-19)
 

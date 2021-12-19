@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pylon-0.0.6"></a>
+### [pylon-0.0.6](https://github.com/truecharts/apps/compare/pylon-0.0.5...pylon-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="pylon-0.0.5"></a>
 ### [pylon-0.0.5](https://github.com/truecharts/apps/compare/pylon-0.0.4...pylon-0.0.5) (2021-12-19)
 

@@ -13,15 +13,15 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PAPERLESS_CONSUMPTION_DIR | string | `"/consume/"` |  |
 | env.PAPERLESS_DATA_DIR | string | `"/config/"` |  |
+| env.PAPERLESS_DBNAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| env.PAPERLESS_DBPORT | string | `"5432"` |  |
+| env.PAPERLESS_DBUSER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.PAPERLESS_MEDIA_ROOT | string | `"/media/"` |  |
 | env.PAPERLESS_STATICDIR | string | `"/static/"` |  |
+| env.PAPERLESS_TIME_ZONE | string | `"{{ .Values.env.TZ }}"` |  |
 | env.PUID | int | `568` |  |
-| envTpl.PAPERLESS_DBNAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.PAPERLESS_DBPORT | string | `"5432"` |  |
-| envTpl.PAPERLESS_DBUSER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
-| envTpl.PAPERLESS_TIME_ZONE | string | `"{{ .Values.env.TZ }}"` |  |
-| envTpl.USERMAP_GID | string | `"{{ .Values.env.PGID }}"` |  |
-| envTpl.USERMAP_UID | string | `"{{ .Values.env.PUID }}"` |  |
+| env.USERMAP_GID | string | `"{{ .Values.env.PGID }}"` |  |
+| env.USERMAP_UID | string | `"{{ .Values.env.PUID }}"` |  |
 | envValueFrom.PAPERLESS_DBHOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.PAPERLESS_DBHOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.PAPERLESS_DBPASS.secretKeyRef.key | string | `"postgresql-password"` |  |

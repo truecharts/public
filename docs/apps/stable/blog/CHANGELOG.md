@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.15"></a>
+### [blog-0.0.15](https://github.com/truecharts/apps/compare/blog-0.0.14...blog-0.0.15) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="blog-0.0.14"></a>
 ### [blog-0.0.14](https://github.com/truecharts/apps/compare/blog-0.0.13...blog-0.0.14) (2021-12-19)
 

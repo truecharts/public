@@ -1,6 +1,18 @@
 # Changelog<br>
 
 
+<a name="joplin-server-5.0.16"></a>
+### [joplin-server-5.0.16](https://github.com/truecharts/apps/compare/joplin-server-5.0.15...joplin-server-5.0.16) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove hidden vars/configs from `questions.yaml` after making sure they are defined in `values.yaml` ([#1577](https://github.com/truecharts/apps/issues/1577))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="joplin-server-5.0.15"></a>
 ### [joplin-server-5.0.15](https://github.com/truecharts/apps/compare/joplin-server-5.0.14...joplin-server-5.0.15) (2021-12-19)
 

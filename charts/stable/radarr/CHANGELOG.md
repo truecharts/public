@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="radarr-9.0.26"></a>
+### [radarr-9.0.26](https://github.com/truecharts/apps/compare/radarr-9.0.25...radarr-9.0.26) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="radarr-9.0.25"></a>
 ### [radarr-9.0.25](https://github.com/truecharts/apps/compare/radarr-9.0.24...radarr-9.0.25) (2021-12-19)
 

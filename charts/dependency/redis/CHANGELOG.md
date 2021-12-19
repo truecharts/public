@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.40"></a>
+### [redis-1.0.40](https://github.com/truecharts/apps/compare/redis-1.0.39...redis-1.0.40) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="redis-1.0.39"></a>
 ### [redis-1.0.39](https://github.com/truecharts/apps/compare/redis-1.0.38...redis-1.0.39) (2021-12-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emulatorjs-0.0.7"></a>
+### [emulatorjs-0.0.7](https://github.com/truecharts/apps/compare/emulatorjs-0.0.6...emulatorjs-0.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="emulatorjs-0.0.6"></a>
 ### [emulatorjs-0.0.6](https://github.com/truecharts/apps/compare/emulatorjs-0.0.5...emulatorjs-0.0.6) (2021-12-19)
 

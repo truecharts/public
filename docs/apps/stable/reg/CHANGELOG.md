@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="reg-4.0.24"></a>
+### [reg-4.0.24](https://github.com/truecharts/apps/compare/reg-4.0.23...reg-4.0.24) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="reg-4.0.23"></a>
 ### [reg-4.0.23](https://github.com/truecharts/apps/compare/reg-4.0.22...reg-4.0.23) (2021-12-19)
 

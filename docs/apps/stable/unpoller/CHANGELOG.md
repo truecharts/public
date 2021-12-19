@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="unpoller-1.0.16"></a>
+### [unpoller-1.0.16](https://github.com/truecharts/apps/compare/unpoller-1.0.15...unpoller-1.0.16) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove hidden vars/configs from `questions.yaml` after making sure they are defined in `values.yaml` ([#1577](https://github.com/truecharts/apps/issues/1577))
+
+
+
 <a name="unpoller-1.0.15"></a>
 ### [unpoller-1.0.15](https://github.com/truecharts/apps/compare/unpoller-1.0.14...unpoller-1.0.15) (2021-12-19)
 

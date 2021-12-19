@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="webgrabplus-0.0.7"></a>
+### [webgrabplus-0.0.7](https://github.com/truecharts/apps/compare/webgrabplus-0.0.6...webgrabplus-0.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="webgrabplus-0.0.6"></a>
 ### [webgrabplus-0.0.6](https://github.com/truecharts/apps/compare/webgrabplus-0.0.5...webgrabplus-0.0.6) (2021-12-19)
 

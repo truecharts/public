@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.17"></a>
+### [snipe-it-0.0.17](https://github.com/truecharts/apps/compare/snipe-it-0.0.16...snipe-it-0.0.17) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="snipe-it-0.0.16"></a>
 ### [snipe-it-0.0.16](https://github.com/truecharts/apps/compare/snipe-it-0.0.15...snipe-it-0.0.16) (2021-12-19)
 

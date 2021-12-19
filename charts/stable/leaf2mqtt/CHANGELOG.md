@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-2.0.25"></a>
+### [leaf2mqtt-2.0.25](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.24...leaf2mqtt-2.0.25) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="leaf2mqtt-2.0.24"></a>
 ### [leaf2mqtt-2.0.24](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.23...leaf2mqtt-2.0.24) (2021-12-19)
 

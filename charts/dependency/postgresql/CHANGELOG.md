@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.35"></a>
+### [postgresql-6.0.35](https://github.com/truecharts/apps/compare/postgresql-6.0.34...postgresql-6.0.35) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="postgresql-6.0.34"></a>
 ### [postgresql-6.0.34](https://github.com/truecharts/apps/compare/postgresql-6.0.33...postgresql-6.0.34) (2021-12-19)
 

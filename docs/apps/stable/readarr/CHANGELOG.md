@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.39"></a>
+### [readarr-9.0.39](https://github.com/truecharts/apps/compare/readarr-9.0.38...readarr-9.0.39) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="readarr-9.0.38"></a>
 ### [readarr-9.0.38](https://github.com/truecharts/apps/compare/readarr-9.0.37...readarr-9.0.38) (2021-12-19)
 

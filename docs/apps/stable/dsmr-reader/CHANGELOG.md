@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-5.0.15"></a>
+### [dsmr-reader-5.0.15](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.14...dsmr-reader-5.0.15) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="dsmr-reader-5.0.14"></a>
 ### [dsmr-reader-5.0.14](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.13...dsmr-reader-5.0.14) (2021-12-19)
 

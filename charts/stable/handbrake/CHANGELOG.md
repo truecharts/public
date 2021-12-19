@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="handbrake-10.0.6"></a>
+### [handbrake-10.0.6](https://github.com/truecharts/apps/compare/handbrake-10.0.5...handbrake-10.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="handbrake-10.0.5"></a>
 ### [handbrake-10.0.5](https://github.com/truecharts/apps/compare/handbrake-10.0.4...handbrake-10.0.5) (2021-12-19)
 

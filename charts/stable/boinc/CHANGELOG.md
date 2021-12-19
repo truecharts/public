@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="boinc-0.0.6"></a>
+### [boinc-0.0.6](https://github.com/truecharts/apps/compare/boinc-0.0.5...boinc-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="boinc-0.0.5"></a>
 ### [boinc-0.0.5](https://github.com/truecharts/apps/compare/boinc-0.0.4...boinc-0.0.5) (2021-12-19)
 

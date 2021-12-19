@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.37"></a>
+### [memcached-1.0.37](https://github.com/truecharts/apps/compare/memcached-1.0.36...memcached-1.0.37) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="memcached-1.0.36"></a>
 ### [memcached-1.0.36](https://github.com/truecharts/apps/compare/memcached-1.0.35...memcached-1.0.36) (2021-12-19)
 

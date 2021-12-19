@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minio-console-1.0.30"></a>
+### [minio-console-1.0.30](https://github.com/truecharts/apps/compare/minio-console-1.0.29...minio-console-1.0.30) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="minio-console-1.0.29"></a>
 ### [minio-console-1.0.29](https://github.com/truecharts/apps/compare/minio-console-1.0.28...minio-console-1.0.29) (2021-12-19)
 

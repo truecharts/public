@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="embystat-0.0.6"></a>
+### [embystat-0.0.6](https://github.com/truecharts/apps/compare/embystat-0.0.5...embystat-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="embystat-0.0.5"></a>
 ### [embystat-0.0.5](https://github.com/truecharts/apps/compare/embystat-0.0.4...embystat-0.0.5) (2021-12-19)
 

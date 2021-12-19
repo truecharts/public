@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="domoticz-0.0.8"></a>
+### [domoticz-0.0.8](https://github.com/truecharts/apps/compare/domoticz-0.0.7...domoticz-0.0.8) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="domoticz-0.0.7"></a>
 ### [domoticz-0.0.7](https://github.com/truecharts/apps/compare/domoticz-0.0.6...domoticz-0.0.7) (2021-12-19)
 

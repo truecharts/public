@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="appdaemon-7.0.6"></a>
+### [appdaemon-7.0.6](https://github.com/truecharts/apps/compare/appdaemon-7.0.5...appdaemon-7.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="appdaemon-7.0.5"></a>
 ### [appdaemon-7.0.5](https://github.com/truecharts/apps/compare/appdaemon-7.0.4...appdaemon-7.0.5) (2021-12-19)
 

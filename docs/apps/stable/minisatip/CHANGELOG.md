@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minisatip-0.0.7"></a>
+### [minisatip-0.0.7](https://github.com/truecharts/apps/compare/minisatip-0.0.6...minisatip-0.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="minisatip-0.0.6"></a>
 ### [minisatip-0.0.6](https://github.com/truecharts/apps/compare/minisatip-0.0.5...minisatip-0.0.6) (2021-12-19)
 

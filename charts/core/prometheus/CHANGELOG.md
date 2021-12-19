@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.23"></a>
+### [prometheus-1.1.23](https://github.com/truecharts/apps/compare/prometheus-1.1.22...prometheus-1.1.23) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="prometheus-1.1.22"></a>
 ### [prometheus-1.1.22](https://github.com/truecharts/apps/compare/prometheus-1.1.21...prometheus-1.1.22) (2021-12-19)
 

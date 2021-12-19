@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bookstack-0.0.15"></a>
+### [bookstack-0.0.15](https://github.com/truecharts/apps/compare/bookstack-0.0.14...bookstack-0.0.15) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="bookstack-0.0.14"></a>
 ### [bookstack-0.0.14](https://github.com/truecharts/apps/compare/bookstack-0.0.13...bookstack-0.0.14) (2021-12-19)
 

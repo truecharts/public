@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.52"></a>
+### [jackett-9.0.52](https://github.com/truecharts/apps/compare/jackett-9.0.51...jackett-9.0.52) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="jackett-9.0.51"></a>
 ### [jackett-9.0.51](https://github.com/truecharts/apps/compare/jackett-9.0.50...jackett-9.0.51) (2021-12-19)
 

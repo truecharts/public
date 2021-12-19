@@ -15,10 +15,10 @@ You will, however, be able to use all values referenced in the common chart here
 | cronjob.failedJobsHistoryLimit | int | `5` |  |
 | cronjob.schedule | string | `"*/5 * * * *"` |  |
 | cronjob.successfulJobsHistoryLimit | int | `2` |  |
+| env.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| env.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.TRUSTED_PROXIES | string | `"172.16.0.0/16"` |  |
 | envFrom[0].configMapRef.name | string | `"nextcloudconfig"` |  |
-| envTpl.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainporthost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

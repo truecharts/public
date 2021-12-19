@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="deepstack-gpu-3.0.7"></a>
+### [deepstack-gpu-3.0.7](https://github.com/truecharts/apps/compare/deepstack-gpu-3.0.6...deepstack-gpu-3.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="deepstack-gpu-3.0.6"></a>
 ### [deepstack-gpu-3.0.6](https://github.com/truecharts/apps/compare/deepstack-gpu-3.0.5...deepstack-gpu-3.0.6) (2021-12-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="scrutiny-0.0.7"></a>
+### [scrutiny-0.0.7](https://github.com/truecharts/apps/compare/scrutiny-0.0.6...scrutiny-0.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="scrutiny-0.0.6"></a>
 ### [scrutiny-0.0.6](https://github.com/truecharts/apps/compare/scrutiny-0.0.5...scrutiny-0.0.6) (2021-12-19)
 

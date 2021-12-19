@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="kanboard-5.0.17"></a>
+### [kanboard-5.0.17](https://github.com/truecharts/apps/compare/kanboard-5.0.16...kanboard-5.0.17) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="kanboard-5.0.16"></a>
 ### [kanboard-5.0.16](https://github.com/truecharts/apps/compare/kanboard-5.0.15...kanboard-5.0.16) (2021-12-19)
 

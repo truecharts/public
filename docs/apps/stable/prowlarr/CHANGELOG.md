@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.44"></a>
+### [prowlarr-4.0.44](https://github.com/truecharts/apps/compare/prowlarr-4.0.43...prowlarr-4.0.44) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="prowlarr-4.0.43"></a>
 ### [prowlarr-4.0.43](https://github.com/truecharts/apps/compare/prowlarr-4.0.42...prowlarr-4.0.43) (2021-12-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wireshark-0.0.6"></a>
+### [wireshark-0.0.6](https://github.com/truecharts/apps/compare/wireshark-0.0.5...wireshark-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="wireshark-0.0.5"></a>
 ### [wireshark-0.0.5](https://github.com/truecharts/apps/compare/wireshark-0.0.4...wireshark-0.0.5) (2021-12-19)
 

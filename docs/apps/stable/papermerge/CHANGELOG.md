@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="papermerge-0.0.7"></a>
+### [papermerge-0.0.7](https://github.com/truecharts/apps/compare/papermerge-0.0.6...papermerge-0.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="papermerge-0.0.6"></a>
 ### [papermerge-0.0.6](https://github.com/truecharts/apps/compare/papermerge-0.0.5...papermerge-0.0.6) (2021-12-19)
 

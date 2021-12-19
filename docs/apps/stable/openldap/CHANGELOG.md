@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="openldap-5.0.8"></a>
+### [openldap-5.0.8](https://github.com/truecharts/apps/compare/openldap-5.0.7...openldap-5.0.8) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
 <a name="openldap-5.0.7"></a>
 ### [openldap-5.0.7](https://github.com/truecharts/apps/compare/openldap-5.0.6...openldap-5.0.7) (2021-12-19)
 

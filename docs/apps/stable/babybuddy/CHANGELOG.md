@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.21"></a>
+### [babybuddy-5.0.21](https://github.com/truecharts/apps/compare/babybuddy-5.0.20...babybuddy-5.0.21) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="babybuddy-5.0.20"></a>
 ### [babybuddy-5.0.20](https://github.com/truecharts/apps/compare/babybuddy-5.0.19...babybuddy-5.0.20) (2021-12-19)
 

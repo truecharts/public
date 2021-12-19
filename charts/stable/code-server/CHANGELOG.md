@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.8"></a>
+### [code-server-2.1.8](https://github.com/truecharts/apps/compare/code-server-2.1.7...code-server-2.1.8) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="code-server-2.1.7"></a>
 ### [code-server-2.1.7](https://github.com/truecharts/apps/compare/code-server-2.1.6...code-server-2.1.7) (2021-12-19)
 

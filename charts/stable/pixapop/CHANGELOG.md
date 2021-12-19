@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pixapop-1.0.25"></a>
+### [pixapop-1.0.25](https://github.com/truecharts/apps/compare/pixapop-1.0.24...pixapop-1.0.25) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="pixapop-1.0.24"></a>
 ### [pixapop-1.0.24](https://github.com/truecharts/apps/compare/pixapop-1.0.23...pixapop-1.0.24) (2021-12-19)
 

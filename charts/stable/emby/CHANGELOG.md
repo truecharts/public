@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="emby-9.0.27"></a>
+### [emby-9.0.27](https://github.com/truecharts/apps/compare/embystat-0.0.5...emby-9.0.27) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="emby-9.0.26"></a>
 ### [emby-9.0.26](https://github.com/truecharts/apps/compare/emby-9.0.25...emby-9.0.26) (2021-12-19)
 

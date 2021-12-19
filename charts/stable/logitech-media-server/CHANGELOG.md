@@ -1,6 +1,18 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.36"></a>
+### [logitech-media-server-2.0.36](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.35...logitech-media-server-2.0.36) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
 <a name="logitech-media-server-2.0.35"></a>
 ### [logitech-media-server-2.0.35](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.34...logitech-media-server-2.0.35) (2021-12-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minetest-0.0.6"></a>
+### [minetest-0.0.6](https://github.com/truecharts/apps/compare/minetest-0.0.5...minetest-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="minetest-0.0.5"></a>
 ### [minetest-0.0.5](https://github.com/truecharts/apps/compare/minetest-0.0.4...minetest-0.0.5) (2021-12-19)
 

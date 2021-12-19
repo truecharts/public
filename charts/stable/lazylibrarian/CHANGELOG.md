@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.33"></a>
+### [lazylibrarian-9.0.33](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.32...lazylibrarian-9.0.33) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="lazylibrarian-9.0.32"></a>
 ### [lazylibrarian-9.0.32](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.31...lazylibrarian-9.0.32) (2021-12-19)
 

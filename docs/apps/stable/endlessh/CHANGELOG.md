@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="endlessh-0.0.6"></a>
+### [endlessh-0.0.6](https://github.com/truecharts/apps/compare/endlessh-0.0.5...endlessh-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="endlessh-0.0.5"></a>
 ### [endlessh-0.0.5](https://github.com/truecharts/apps/compare/endlessh-0.0.4...endlessh-0.0.5) (2021-12-19)
 

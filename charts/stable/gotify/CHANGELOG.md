@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="gotify-5.0.17"></a>
+### [gotify-5.0.17](https://github.com/truecharts/apps/compare/gotify-5.0.16...gotify-5.0.17) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove hidden vars/configs from `questions.yaml` after making sure they are defined in `values.yaml` ([#1577](https://github.com/truecharts/apps/issues/1577))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="gotify-5.0.16"></a>
 ### [gotify-5.0.16](https://github.com/truecharts/apps/compare/gotify-5.0.15...gotify-5.0.16) (2021-12-19)
 

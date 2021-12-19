@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-1.0.12"></a>
+### [speedtest-exporter-1.0.12](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.11...speedtest-exporter-1.0.12) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="speedtest-exporter-1.0.11"></a>
 ### [speedtest-exporter-1.0.11](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.10...speedtest-exporter-1.0.11) (2021-12-19)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="metallb-1.0.3"></a>
+### [metallb-1.0.3](https://github.com/truecharts/apps/compare/metallb-1.0.2...metallb-1.0.3) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="metallb-1.0.2"></a>
 ### metallb-1.0.2 (2021-12-13)
 

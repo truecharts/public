@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpackerr-4.0.27"></a>
+### [unpackerr-4.0.27](https://github.com/truecharts/apps/compare/unpackerr-4.0.26...unpackerr-4.0.27) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="unpackerr-4.0.26"></a>
 ### [unpackerr-4.0.26](https://github.com/truecharts/apps/compare/unpackerr-4.0.25...unpackerr-4.0.26) (2021-12-19)
 

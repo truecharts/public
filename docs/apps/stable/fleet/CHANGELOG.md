@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fleet-0.0.6"></a>
+### [fleet-0.0.6](https://github.com/truecharts/apps/compare/fleet-0.0.5...fleet-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="fleet-0.0.5"></a>
 ### [fleet-0.0.5](https://github.com/truecharts/apps/compare/fleet-0.0.4...fleet-0.0.5) (2021-12-19)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-4.0.25"></a>
+### [k8s-gateway-4.0.25](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.24...k8s-gateway-4.0.25) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="k8s-gateway-4.0.24"></a>
 ### [k8s-gateway-4.0.24](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.23...k8s-gateway-4.0.24) (2021-12-19)
 

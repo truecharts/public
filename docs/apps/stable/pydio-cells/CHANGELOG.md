@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pydio-cells-0.0.7"></a>
+### [pydio-cells-0.0.7](https://github.com/truecharts/apps/compare/pydio-cells-0.0.6...pydio-cells-0.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="pydio-cells-0.0.6"></a>
 ### [pydio-cells-0.0.6](https://github.com/truecharts/apps/compare/pydio-cells-0.0.5...pydio-cells-0.0.6) (2021-12-19)
 

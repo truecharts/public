@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syslog-ng-0.0.7"></a>
+### [syslog-ng-0.0.7](https://github.com/truecharts/apps/compare/syslog-ng-0.0.6...syslog-ng-0.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="syslog-ng-0.0.6"></a>
 ### [syslog-ng-0.0.6](https://github.com/truecharts/apps/compare/syslog-ng-0.0.5...syslog-ng-0.0.6) (2021-12-19)
 

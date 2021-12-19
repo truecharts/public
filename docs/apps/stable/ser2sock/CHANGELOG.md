@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="ser2sock-4.0.25"></a>
+### [ser2sock-4.0.25](https://github.com/truecharts/apps/compare/ser2sock-4.0.24...ser2sock-4.0.25) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove hidden vars/configs from `questions.yaml` after making sure they are defined in `values.yaml` ([#1577](https://github.com/truecharts/apps/issues/1577))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="ser2sock-4.0.24"></a>
 ### [ser2sock-4.0.24](https://github.com/truecharts/apps/compare/ser2sock-4.0.23...ser2sock-4.0.24) (2021-12-19)
 

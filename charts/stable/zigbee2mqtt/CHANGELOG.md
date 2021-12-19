@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-1.0.26"></a>
+### [zigbee2mqtt-1.0.26](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.25...zigbee2mqtt-1.0.26) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="zigbee2mqtt-1.0.25"></a>
 ### [zigbee2mqtt-1.0.25](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.24...zigbee2mqtt-1.0.25) (2021-12-19)
 

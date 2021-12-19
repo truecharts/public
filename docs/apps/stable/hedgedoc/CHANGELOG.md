@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hedgedoc-0.0.6"></a>
+### [hedgedoc-0.0.6](https://github.com/truecharts/apps/compare/hedgedoc-0.0.5...hedgedoc-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="hedgedoc-0.0.5"></a>
 ### [hedgedoc-0.0.5](https://github.com/truecharts/apps/compare/hedgedoc-0.0.4...hedgedoc-0.0.5) (2021-12-19)
 

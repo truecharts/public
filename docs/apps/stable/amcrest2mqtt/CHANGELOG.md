@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-2.0.27"></a>
+### [amcrest2mqtt-2.0.27](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.26...amcrest2mqtt-2.0.27) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="amcrest2mqtt-2.0.26"></a>
 ### [amcrest2mqtt-2.0.26](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.25...amcrest2mqtt-2.0.26) (2021-12-19)
 

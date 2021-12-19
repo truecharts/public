@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dillinger-0.0.6"></a>
+### [dillinger-0.0.6](https://github.com/truecharts/apps/compare/dillinger-0.0.5...dillinger-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="dillinger-0.0.5"></a>
 ### [dillinger-0.0.5](https://github.com/truecharts/apps/compare/dillinger-0.0.4...dillinger-0.0.5) (2021-12-19)
 

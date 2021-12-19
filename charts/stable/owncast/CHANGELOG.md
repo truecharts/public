@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="owncast-4.0.25"></a>
+### [owncast-4.0.25](https://github.com/truecharts/apps/compare/owncast-4.0.24...owncast-4.0.25) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
 <a name="owncast-4.0.24"></a>
 ### [owncast-4.0.24](https://github.com/truecharts/apps/compare/owncast-4.0.23...owncast-4.0.24) (2021-12-19)
 

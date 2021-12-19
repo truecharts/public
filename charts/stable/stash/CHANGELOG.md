@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="stash-5.0.6"></a>
+### [stash-5.0.6](https://github.com/truecharts/apps/compare/stash-5.0.5...stash-5.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="stash-5.0.5"></a>
 ### [stash-5.0.5](https://github.com/truecharts/apps/compare/stash-5.0.4...stash-5.0.5) (2021-12-19)
 

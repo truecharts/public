@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.24"></a>
+### [tt-rss-4.0.24](https://github.com/truecharts/apps/compare/tt-rss-4.0.23...tt-rss-4.0.24) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="tt-rss-4.0.23"></a>
 ### [tt-rss-4.0.23](https://github.com/truecharts/apps/compare/tt-rss-4.0.22...tt-rss-4.0.23) (2021-12-19)
 

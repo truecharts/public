@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.28"></a>
+### [traefik-10.0.28](https://github.com/truecharts/apps/compare/traefik-10.0.27...traefik-10.0.28) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="traefik-10.0.27"></a>
 ### [traefik-10.0.27](https://github.com/truecharts/apps/compare/traefik-10.0.26...traefik-10.0.27) (2021-12-19)
 

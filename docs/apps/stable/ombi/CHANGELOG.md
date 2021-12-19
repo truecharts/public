@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="ombi-9.0.28"></a>
+### [ombi-9.0.28](https://github.com/truecharts/apps/compare/ombi-9.0.27...ombi-9.0.28) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="ombi-9.0.27"></a>
 ### [ombi-9.0.27](https://github.com/truecharts/apps/compare/ombi-9.0.26...ombi-9.0.27) (2021-12-19)
 

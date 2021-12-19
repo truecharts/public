@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kodi-headless-0.0.7"></a>
+### [kodi-headless-0.0.7](https://github.com/truecharts/apps/compare/kodi-headless-0.0.6...kodi-headless-0.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="kodi-headless-0.0.6"></a>
 ### [kodi-headless-0.0.6](https://github.com/truecharts/apps/compare/kodi-headless-0.0.5...kodi-headless-0.0.6) (2021-12-19)
 

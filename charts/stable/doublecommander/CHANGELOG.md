@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="doublecommander-2.0.28"></a>
+### [doublecommander-2.0.28](https://github.com/truecharts/apps/compare/doublecommander-2.0.27...doublecommander-2.0.28) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="doublecommander-2.0.27"></a>
 ### [doublecommander-2.0.27](https://github.com/truecharts/apps/compare/doublecommander-2.0.26...doublecommander-2.0.27) (2021-12-19)
 

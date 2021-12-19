@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.30"></a>
+### [esphome-9.0.30](https://github.com/truecharts/apps/compare/esphome-9.0.29...esphome-9.0.30) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="esphome-9.0.29"></a>
 ### [esphome-9.0.29](https://github.com/truecharts/apps/compare/esphome-9.0.28...esphome-9.0.29) (2021-12-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="libreoffice-0.0.6"></a>
+### [libreoffice-0.0.6](https://github.com/truecharts/apps/compare/libreoffice-0.0.5...libreoffice-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="libreoffice-0.0.5"></a>
 ### [libreoffice-0.0.5](https://github.com/truecharts/apps/compare/libreoffice-0.0.4...libreoffice-0.0.5) (2021-12-19)
 

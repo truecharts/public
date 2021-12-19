@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="anonaddy-6.0.17"></a>
+### [anonaddy-6.0.17](https://github.com/truecharts/apps/compare/anonaddy-6.0.16...anonaddy-6.0.17) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="anonaddy-6.0.16"></a>
 ### [anonaddy-6.0.16](https://github.com/truecharts/apps/compare/anonaddy-6.0.15...anonaddy-6.0.16) (2021-12-19)
 

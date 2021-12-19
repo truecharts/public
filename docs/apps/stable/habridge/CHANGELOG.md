@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="habridge-0.0.7"></a>
+### [habridge-0.0.7](https://github.com/truecharts/apps/compare/habridge-0.0.6...habridge-0.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="habridge-0.0.6"></a>
 ### [habridge-0.0.6](https://github.com/truecharts/apps/compare/habridge-0.0.5...habridge-0.0.6) (2021-12-19)
 

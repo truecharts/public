@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="deconz-6.0.6"></a>
+### [deconz-6.0.6](https://github.com/truecharts/apps/compare/deconz-6.0.5...deconz-6.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
 <a name="deconz-6.0.5"></a>
 ### [deconz-6.0.5](https://github.com/truecharts/apps/compare/deconz-6.0.4...deconz-6.0.5) (2021-12-19)
 

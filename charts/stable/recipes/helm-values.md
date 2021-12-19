@@ -24,11 +24,6 @@ You will, however, be able to use all values referenced in the common chart here
 | additionalContainers.nginx.volumeMounts[2].mountPath | string | `"/static"` |  |
 | additionalContainers.nginx.volumeMounts[2].name | string | `"static"` |  |
 | env | object | See below | environment variables. See [project docs](https://raw.githubusercontent.com/vabene1111/recipes/master/.env.template) for more details. |
-| envTpl.DB_ENGINE | string | `"django.db.backends.postgresql"` |  |
-| envTpl.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.POSTGRES_PORT | string | `"5432"` |  |
-| envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
-| envTpl.TIMEZONE | string | `"{{ .Values.env.TZ }}"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

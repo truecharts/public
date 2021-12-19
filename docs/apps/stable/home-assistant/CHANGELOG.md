@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="home-assistant-12.0.21"></a>
+### [home-assistant-12.0.21](https://github.com/truecharts/apps/compare/home-assistant-12.0.20...home-assistant-12.0.21) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="home-assistant-12.0.20"></a>
 ### [home-assistant-12.0.20](https://github.com/truecharts/apps/compare/home-assistant-12.0.19...home-assistant-12.0.20) (2021-12-19)
 

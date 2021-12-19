@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="calibre-5.0.6"></a>
+### [calibre-5.0.6](https://github.com/truecharts/apps/compare/calibre-5.0.5...calibre-5.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
 <a name="calibre-5.0.5"></a>
 ### [calibre-5.0.5](https://github.com/truecharts/apps/compare/calibre-5.0.4...calibre-5.0.5) (2021-12-19)
 

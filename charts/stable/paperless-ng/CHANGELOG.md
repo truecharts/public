@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-1.0.4"></a>
+### [paperless-ng-1.0.4](https://github.com/truecharts/apps/compare/paperless-ng-1.0.3...paperless-ng-1.0.4) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+
+
+
 <a name="paperless-ng-1.0.3"></a>
 ### [paperless-ng-1.0.3](https://github.com/truecharts/apps/compare/paperless-ng-1.0.2...paperless-ng-1.0.3) (2021-12-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icinga2-0.0.14"></a>
+### [icinga2-0.0.14](https://github.com/truecharts/apps/compare/icinga2-0.0.13...icinga2-0.0.14) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="icinga2-0.0.13"></a>
 ### [icinga2-0.0.13](https://github.com/truecharts/apps/compare/icinga2-0.0.12...icinga2-0.0.13) (2021-12-19)
 

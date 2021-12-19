@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="projectsend-0.0.6"></a>
+### [projectsend-0.0.6](https://github.com/truecharts/apps/compare/projectsend-0.0.5...projectsend-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="projectsend-0.0.5"></a>
 ### [projectsend-0.0.5](https://github.com/truecharts/apps/compare/projectsend-0.0.4...projectsend-0.0.5) (2021-12-19)
 

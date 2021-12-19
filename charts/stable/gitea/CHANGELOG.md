@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.19"></a>
+### [gitea-5.0.19](https://github.com/truecharts/apps/compare/gitea-5.0.18...gitea-5.0.19) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="gitea-5.0.18"></a>
 ### [gitea-5.0.18](https://github.com/truecharts/apps/compare/gitea-5.0.17...gitea-5.0.18) (2021-12-19)
 

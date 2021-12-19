@@ -11,11 +11,10 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
-| envTpl.DB_ENGINE | string | `"django.db.backends.postgresql"` |  |
-| envTpl.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.DB_PORT | string | `"5432"` |  |
-| envTpl.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
+| env.DB_ENGINE | string | `"django.db.backends.postgresql"` |  |
+| env.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| env.DB_PORT | string | `"5432"` |  |
+| env.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

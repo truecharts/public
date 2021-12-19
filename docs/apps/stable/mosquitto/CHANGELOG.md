@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mosquitto-4.0.27"></a>
+### [mosquitto-4.0.27](https://github.com/truecharts/apps/compare/mosquitto-4.0.26...mosquitto-4.0.27) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
 <a name="mosquitto-4.0.26"></a>
 ### [mosquitto-4.0.26](https://github.com/truecharts/apps/compare/mosquitto-4.0.25...mosquitto-4.0.26) (2021-12-19)
 

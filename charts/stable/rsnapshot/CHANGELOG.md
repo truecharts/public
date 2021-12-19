@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rsnapshot-0.0.6"></a>
+### [rsnapshot-0.0.6](https://github.com/truecharts/apps/compare/rsnapshot-0.0.5...rsnapshot-0.0.6) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
 <a name="rsnapshot-0.0.5"></a>
 ### [rsnapshot-0.0.5](https://github.com/truecharts/apps/compare/rsnapshot-0.0.4...rsnapshot-0.0.5) (2021-12-19)
 
