@@ -99,14 +99,6 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: GOTIFY_SERVER_PORT
-          label: "GOTIFY_SERVER_PORT"
-          description: "Sets the GOTIFY_SERVER_PORT env var"
-          schema:
-            type: int
-            required: true
-            hidden: true
-            default: 8080
         - variable: GOTIFY_SERVER_KEEPALIVEPERIODSECONDS
           label: "GOTIFY_SERVER_KEEPALIVEPERIODSECONDS"
           description: "Sets the GOTIFY_SERVER_KEEPALIVEPERIODSECONDS env var"

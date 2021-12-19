@@ -342,13 +342,6 @@ questions:
           schema:
             type: int
             default: 600
-        - variable: enableWebsockets
-          label: "Enable Websocket Connections"
-          description: "Enable Websockets for notification. https://github.com/dani-garcia/vaultwarden/wiki/Enabling-WebSocket-notifications"
-          schema:
-            type: boolean
-            default: true
-            hidden: true
         - variable: enableWebVault
           label: "Enable Webvault"
           description: "Enable Web Vault (static content). https://github.com/dani-garcia/vaultwarden/wiki/Disabling-or-overriding-the-Vault-interface-hosting"

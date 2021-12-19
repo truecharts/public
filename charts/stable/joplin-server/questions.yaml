@@ -87,14 +87,6 @@ questions:
           schema:
             type: string
             default: ""
-        - variable: APP_PORT
-          label: "APP_PORT"
-          description: "Sets the APP_BASE_URL env var"
-          schema:
-            type: int
-            required: true
-            hidden: true
-            default: 22300
 
 # Include{containerConfig}
 

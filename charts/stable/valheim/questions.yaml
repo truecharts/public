@@ -111,20 +111,6 @@ questions:
           schema:
             type: boolean
             default: true
-        - variable: STATUS_HTTP_PORT
-          label: "STATUS_HTTP_PORT"
-          schema:
-            type: int
-            default: 9010
-            hidden: true
-            required: true
-        - variable: SUPERVISOR_HTTP_PORT
-          label: "SUPERVISOR_HTTP_PORT"
-          schema:
-            type: int
-            default: 9011
-            hidden: true
-            required: true
         - variable: SUPERVISOR_HTTP
           label: "SUPERVISOR_HTTP"
           schema:
@@ -135,13 +121,6 @@ questions:
           schema:
             type: string
             default: "My Server"
-            required: true
-        - variable: SERVER_PORT
-          label: "SERVER_PORT"
-          schema:
-            type: int
-            default: 2456
-            hidden: true
             required: true
         - variable: WORLD_NAME
           label: "WORLD_NAME"
