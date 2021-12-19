@@ -94,13 +94,6 @@ questions:
             type: string
             required: true
             default: ""
-        - variable: LISTENER_PORT
-          label: "LISTENER_PORT"
-          description: "Port where ser2sock listens"
-          schema:
-            type: string
-            hidden: true
-            default: "{{ .Values.service.main.ports.main.port }}"
 # Include{containerConfig}
 
   - variable: service

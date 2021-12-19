@@ -99,13 +99,6 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: RPC_PORT
-          label: "RPC_PORT"
-          description: "Sets the RPC_PORT env var"
-          schema:
-            type: int
-            hidden: true
-            default: 6800
 # Include{containerConfig}
 
   - variable: service

@@ -112,54 +112,6 @@ questions:
           schema:
             type: string
             default: "/photoprism/import"
-        - variable: PHOTOPRISM_TEMP_PATH
-          label: "PHOTOPRISM_TEMP_PATH"
-          description: "Photoprism temp path"
-          schema:
-            hidden: true
-            editable: false
-            type: string
-            default: "/photoprism/temp"
-        - variable: PHOTOPRISM_STORAGE_PATH
-          label: "PHOTOPRISM_STORAGE_PATH"
-          description: "Photoprism storage path"
-          schema:
-            hidden: true
-            editable: false
-            type: string
-            default: "/assets/storage"
-        - variable: PHOTOPRISM_SIDECAR_PATH
-          label: "PHOTOPRISM_SIDECAR_PATH"
-          description: "Photoprism sidecar path"
-          schema:
-            hidden: true
-            editable: false
-            type: string
-            default: "/assets/sidecar"
-        - variable: PHOTOPRISM_CACHE_PATH
-          label: "PHOTOPRISM_CACHE_PATH"
-          description: "Photoprism cache path"
-          schema:
-            hidden: true
-            editable: false
-            type: string
-            default: "/assets/cache"
-        - variable: PHOTOPRISM_CONFIG_PATH
-          label: "PHOTOPRISM_CONFIG_PATH"
-          description: "Photoprism config path"
-          schema:
-            hidden: true
-            editable: false
-            type: string
-            default: "/assets/config"
-        - variable: PROTOPRISM_BACKUP_PATH
-          label: "PROTOPRISM_BACKUP_PATH"
-          description: "Photoprism backup path"
-          schema:
-            hidden: true
-            editable: false
-            type: string
-            default: "/assets/backup"
         - variable: PHOTOPRISM_PUBLIC
           label: "PHOTOPRISM_PUBLIC"
           description: "Disable authentication / password protection"
