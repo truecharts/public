@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="icinga2-0.0.12"></a>
+### [icinga2-0.0.12](https://github.com/truecharts/apps/compare/icinga2-0.0.11...icinga2-0.0.12) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="icinga2-0.0.11"></a>
 ### [icinga2-0.0.11](https://github.com/truecharts/apps/compare/icinga2-0.0.10...icinga2-0.0.11) (2021-12-14)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="photoshow-1.0.27"></a>
+### [photoshow-1.0.27](https://github.com/truecharts/apps/compare/photoshow-1.0.26...photoshow-1.0.27) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="photoshow-1.0.26"></a>
 ### [photoshow-1.0.26](https://github.com/truecharts/apps/compare/photoshow-1.0.25...photoshow-1.0.26) (2021-12-14)
 

@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.33"></a>
+### [logitech-media-server-2.0.33](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.32...logitech-media-server-2.0.33) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+
+
 <a name="logitech-media-server-2.0.32"></a>
 ### [logitech-media-server-2.0.32](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.31...logitech-media-server-2.0.32) (2021-12-14)
 

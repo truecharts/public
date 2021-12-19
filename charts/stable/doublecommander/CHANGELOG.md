@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="doublecommander-2.0.26"></a>
+### [doublecommander-2.0.26](https://github.com/truecharts/apps/compare/doublecommander-2.0.25...doublecommander-2.0.26) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="doublecommander-2.0.25"></a>
 ### [doublecommander-2.0.25](https://github.com/truecharts/apps/compare/doublecommander-2.0.24...doublecommander-2.0.25) (2021-12-14)
 

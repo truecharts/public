@@ -72,7 +72,15 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: Node.js
+#### Container: Java
+
+
+**jar**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
 
 
 **node-pkg**
@@ -82,3 +90,49 @@ hide:
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | deep-extend         |    CVE-2018-3750   |   CRITICAL  |  0.4.2 | 0.5.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-hr2v-3952-633q">https://github.com/advisories/GHSA-hr2v-3952-633q</a><br><a href="https://hackerone.com/reports/311333">https://hackerone.com/reports/311333</a><br><a href="https://nodesecurity.io/advisories/612">https://nodesecurity.io/advisories/612</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-3750">https://nvd.nist.gov/vuln/detail/CVE-2018-3750</a><br><a href="https://www.npmjs.com/advisories/612">https://www.npmjs.com/advisories/612</a><br></details>  |
 | deep-extend         |    NSWG-ECO-408   |   LOW  |  0.4.2 | &gt;=0.5.1 | <details><summary>Expand...</summary><a href="https://hackerone.com/reports/311333">https://hackerone.com/reports/311333</a><br></details>  |
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|

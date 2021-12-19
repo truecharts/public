@@ -145,3 +145,46 @@ hide:
 
 | No Vulnerabilities found         |
 |:---------------------------------|
+
+
+
+**cargo**
+
+
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| chrono         |    RUSTSEC-2020-0159   |   UNKNOWN  |  0.4.19 |  | <details><summary>Expand...</summary><a href="https://github.com/chronotope/chrono/issues/499">https://github.com/chronotope/chrono/issues/499</a><br></details>  |
+| cpuid-bool         |    RUSTSEC-2021-0064   |   UNKNOWN  |  0.1.2 |  | <details><summary>Expand...</summary><a href="https://github.com/RustCrypto/utils/pull/381">https://github.com/RustCrypto/utils/pull/381</a><br></details>  |
+| crossbeam-deque         |    RUSTSEC-2021-0093   |   UNKNOWN  |  0.7.3 | &gt;= 0.7.4, &lt; 0.8.0, &gt;= 0.8.1 | <details><summary>Expand...</summary><a href="https://github.com/crossbeam-rs/crossbeam/security/advisories/GHSA-pqqp-xmhj-wgcw">https://github.com/crossbeam-rs/crossbeam/security/advisories/GHSA-pqqp-xmhj-wgcw</a><br></details>  |
+| difference         |    RUSTSEC-2020-0095   |   UNKNOWN  |  2.0.0 |  | <details><summary>Expand...</summary><a href="https://github.com/johannhof/difference.rs/issues/45">https://github.com/johannhof/difference.rs/issues/45</a><br></details>  |
+| directories         |    RUSTSEC-2020-0054   |   UNKNOWN  |  3.0.1 |  | <details><summary>Expand...</summary><a href="https://github.com/dirs-dev/directories-rs">https://github.com/dirs-dev/directories-rs</a><br></details>  |
+| dirs         |    RUSTSEC-2020-0053   |   UNKNOWN  |  2.0.2 |  | <details><summary>Expand...</summary><a href="https://github.com/dirs-dev/dirs-rs">https://github.com/dirs-dev/dirs-rs</a><br></details>  |
+| lock_api         |    RUSTSEC-2020-0070   |   UNKNOWN  |  0.4.1 | &gt;= 0.4.2 | <details><summary>Expand...</summary><a href="https://github.com/Amanieu/parking_lot/pull/262">https://github.com/Amanieu/parking_lot/pull/262</a><br></details>  |
+| memmap         |    RUSTSEC-2020-0077   |   UNKNOWN  |  0.7.0 |  | <details><summary>Expand...</summary><a href="https://github.com/danburkert/memmap-rs/issues/90">https://github.com/danburkert/memmap-rs/issues/90</a><br></details>  |
+| net2         |    RUSTSEC-2020-0016   |   UNKNOWN  |  0.2.36 |  | <details><summary>Expand...</summary><a href="https://github.com/deprecrated/net2-rs/commit/3350e3819adf151709047e93f25583a5df681091">https://github.com/deprecrated/net2-rs/commit/3350e3819adf151709047e93f25583a5df681091</a><br></details>  |
+| openssl-src         |    RUSTSEC-2021-0055   |   UNKNOWN  |  111.12.0+1.1.1h | &gt;= 111.15 | <details><summary>Expand...</summary><a href="https://www.openssl.org/news/secadv/20210325.txt">https://www.openssl.org/news/secadv/20210325.txt</a><br></details>  |
+| openssl-src         |    RUSTSEC-2021-0056   |   UNKNOWN  |  111.12.0+1.1.1h | &gt;= 111.15 | <details><summary>Expand...</summary><a href="https://www.openssl.org/news/secadv/20210325.txt">https://www.openssl.org/news/secadv/20210325.txt</a><br></details>  |
+| openssl-src         |    RUSTSEC-2021-0057   |   UNKNOWN  |  111.12.0+1.1.1h | &gt;= 111.14 | <details><summary>Expand...</summary><a href="https://www.openssl.org/news/secadv/20210216.txt">https://www.openssl.org/news/secadv/20210216.txt</a><br></details>  |
+| openssl-src         |    RUSTSEC-2021-0058   |   UNKNOWN  |  111.12.0+1.1.1h | &gt;= 111.14 | <details><summary>Expand...</summary><a href="https://www.openssl.org/news/secadv/20210216.txt">https://www.openssl.org/news/secadv/20210216.txt</a><br></details>  |
+| openssl-src         |    RUSTSEC-2021-0097   |   UNKNOWN  |  111.12.0+1.1.1h | &gt;= 111.16 | <details><summary>Expand...</summary><a href="https://www.openssl.org/news/secadv/20210824.txt">https://www.openssl.org/news/secadv/20210824.txt</a><br></details>  |
+| openssl-src         |    RUSTSEC-2021-0098   |   UNKNOWN  |  111.12.0+1.1.1h | &gt;= 111.16 | <details><summary>Expand...</summary><a href="https://www.openssl.org/news/secadv/20210824.txt">https://www.openssl.org/news/secadv/20210824.txt</a><br></details>  |
+| tar         |    RUSTSEC-2021-0080   |   UNKNOWN  |  0.4.29 | &gt;= 0.4.36 | <details><summary>Expand...</summary><a href="https://github.com/alexcrichton/tar-rs/issues/238">https://github.com/alexcrichton/tar-rs/issues/238</a><br></details>  |
+| term         |    RUSTSEC-2018-0015   |   UNKNOWN  |  0.0.0 |  | <details><summary>Expand...</summary><a href="https://github.com/Stebalien/term/issues/93">https://github.com/Stebalien/term/issues/93</a><br></details>  |
+| term         |    RUSTSEC-2018-0015   |   UNKNOWN  |  0.6.1 |  | <details><summary>Expand...</summary><a href="https://github.com/Stebalien/term/issues/93">https://github.com/Stebalien/term/issues/93</a><br></details>  |
+| time         |    RUSTSEC-2020-0071   |   UNKNOWN  |  0.1.43 | &gt;= 0.2.23 | <details><summary>Expand...</summary><a href="https://github.com/time-rs/time/issues/293">https://github.com/time-rs/time/issues/293</a><br></details>  |
+| tokio         |    RUSTSEC-2021-0124   |   UNKNOWN  |  0.2.24 | &gt;= 1.8.4, &lt; 1.9.0, &gt;= 1.13.1 | <details><summary>Expand...</summary><a href="https://github.com/tokio-rs/tokio/issues/4225">https://github.com/tokio-rs/tokio/issues/4225</a><br></details>  |
+| yaml-rust         |    RUSTSEC-2018-0006   |   UNKNOWN  |  0.3.5 | &gt;= 0.4.1 | <details><summary>Expand...</summary><a href="https://github.com/chyh1990/yaml-rust/pull/109">https://github.com/chyh1990/yaml-rust/pull/109</a><br></details>  |
+
+**cargo**
+
+
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| cranelift-codegen         |    RUSTSEC-2021-0067   |   UNKNOWN  |  0.70.0 | &gt;= 0.73.1 | <details><summary>Expand...</summary><a href="https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-hpqh-2wqx-7qp5">https://github.com/bytecodealliance/wasmtime/security/advisories/GHSA-hpqh-2wqx-7qp5</a><br></details>  |
+
+**cargo**
+
+
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| term         |    RUSTSEC-2018-0015   |   UNKNOWN  |  0.0.0 |  | <details><summary>Expand...</summary><a href="https://github.com/Stebalien/term/issues/93">https://github.com/Stebalien/term/issues/93</a><br></details>  |

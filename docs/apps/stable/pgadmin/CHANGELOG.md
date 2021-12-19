@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pgadmin-5.0.4"></a>
+### [pgadmin-5.0.4](https://github.com/truecharts/apps/compare/pgadmin-5.0.3...pgadmin-5.0.4) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="pgadmin-5.0.3"></a>
 ### [pgadmin-5.0.3](https://github.com/truecharts/apps/compare/pgadmin-5.0.2...pgadmin-5.0.3) (2021-12-14)
 

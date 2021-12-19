@@ -93,7 +93,7 @@ envFrom:
 volumeClaimTemplates:
   data:
     enabled: true
-    mountPath: "/var/lib/ldap/"
+    mountPath: "/var/lib/ldap"
   slapd:
     enabled: true
-    mountPath: "/etc/ldap/slapd.d/"
+    mountPath: "/etc/ldap/slapd.d"

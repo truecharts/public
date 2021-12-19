@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="heimdall-9.0.28"></a>
+### [heimdall-9.0.28](https://github.com/truecharts/apps/compare/heimdall-9.0.27...heimdall-9.0.28) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="heimdall-9.0.27"></a>
 ### [heimdall-9.0.27](https://github.com/truecharts/apps/compare/heimdall-9.0.26...heimdall-9.0.27) (2021-12-14)
 

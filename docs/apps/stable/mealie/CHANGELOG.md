@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mealie-5.0.5"></a>
+### [mealie-5.0.5](https://github.com/truecharts/apps/compare/mealie-5.0.4...mealie-5.0.5) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="mealie-5.0.4"></a>
 ### [mealie-5.0.4](https://github.com/truecharts/apps/compare/mealie-5.0.3...mealie-5.0.4) (2021-12-14)
 

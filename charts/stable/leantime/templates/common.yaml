@@ -1,2 +1,7 @@
+{{- include "common.setup" . }}
 
-{{ include "common.all" . }}
+{{/* Render secrets for leantime */}}
+{{- include "leantime.secrets" . }}
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}

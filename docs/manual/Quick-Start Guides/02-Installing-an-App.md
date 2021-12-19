@@ -1,4 +1,4 @@
-# 03 - Installing Apps
+# 02 - Installing Apps
 
 Here we will go over a basic install of Plex, to showcase how you can install a TrueNAS SCALE App from the TrueCharts Catalog with mostly default settings
 

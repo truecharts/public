@@ -24,8 +24,12 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `6601` |  |
 | service.main.ports.main.targetPort | int | `6601` |  |
+| service.syslog-tls.enabled | bool | `true` |  |
+| service.syslog-tls.ports.syslog-tls.enabled | bool | `true` |  |
 | service.syslog-tls.ports.syslog-tls.port | int | `6514` |  |
 | service.syslog-tls.ports.syslog-tls.targetPort | int | `6514` |  |
+| service.syslog-udp.enabled | bool | `true` |  |
+| service.syslog-udp.ports.syslog-udp.enabled | bool | `true` |  |
 | service.syslog-udp.ports.syslog-udp.port | int | `5514` |  |
 | service.syslog-udp.ports.syslog-udp.protocol | string | `"UDP"` |  |
 | service.syslog-udp.ports.syslog-udp.targetPort | int | `5514` |  |

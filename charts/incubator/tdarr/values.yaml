@@ -41,5 +41,8 @@ persistence:
   logs:
     enabled: true
     mountPath: "/app/logs"
+  transcode-cache:
+    enabled: true
+    mountPath: "/temp"
   varrun:
     enabled: true

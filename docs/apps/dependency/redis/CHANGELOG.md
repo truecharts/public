@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.37"></a>
+### [redis-1.0.37](https://github.com/truecharts/apps/compare/redis-1.0.36...redis-1.0.37) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* update docker general non-major
+
+
+
 <a name="redis-1.0.36"></a>
 ### [redis-1.0.36](https://github.com/truecharts/apps/compare/redis-1.0.35...redis-1.0.36) (2021-12-14)
 

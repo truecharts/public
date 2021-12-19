@@ -1,4 +1,4 @@
-# 12 - Exposing Apps using Ingress and Traefik
+# 09 - Exposing Apps using Ingress and Traefik
 
 To use Traefik as ingress, all you have to do is enable "ingress" in the App of your choice and fill out a little form.
 We currently require Traefik to be installed before you enable ingress on your App.

@@ -1,6 +1,29 @@
 # Changelog<br>
 
 
+<a name="tdarr-node-1.0.27"></a>
+### [tdarr-node-1.0.27](https://github.com/truecharts/apps/compare/tdarr-node-1.0.26...tdarr-node-1.0.27) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+
+
+
+<a name="tdarr-node-1.0.26"></a>
+### [tdarr-node-1.0.26](https://github.com/truecharts/apps/compare/tdarr-node-1.0.25...tdarr-node-1.0.26) (2021-12-17)
+
+#### Chore
+
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major
+
+#### Fix
+
+* app needs r/w access to rootfs ([#1549](https://github.com/truecharts/apps/issues/1549))
+
+
+
 <a name="tdarr-node-1.0.25"></a>
 ### [tdarr-node-1.0.25](https://github.com/truecharts/apps/compare/tdarr-node-1.0.24...tdarr-node-1.0.25) (2021-12-14)
 

@@ -20,8 +20,10 @@ service:
         targetPort: 7396
         port: 7396
   control:
+    enabled: true
     ports:
       control:
+        enabled: true
         targetPort: 36330
         port: 36330
 

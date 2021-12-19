@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"tccr.io/truecharts/teamspeak"` |  |
 | image.tag | string | `"v3.13.6@sha256:24acbeffda16a22105e06d60286e1c93d148c8467177feaf760bbe1ef3b9654c"` |  |
 | persistence.data.enabled | bool | `true` |  |
-| persistence.data.mountPath | string | `"/var/ts3server/"` |  |
+| persistence.data.mountPath | string | `"/var/ts3server"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

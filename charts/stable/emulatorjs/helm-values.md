@@ -21,8 +21,12 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.front.enabled | bool | `true` |  |
+| service.front.ports.front.enabled | bool | `true` |  |
 | service.front.ports.front.port | int | `10124` |  |
 | service.front.ports.front.targetPort | int | `80` |  |
+| service.ipfs.enabled | bool | `true` |  |
+| service.ipfs.ports.ipfs.enabled | bool | `true` |  |
 | service.ipfs.ports.ipfs.port | int | `10138` |  |
 | service.ipfs.ports.ipfs.targetPort | int | `4001` |  |
 | service.main.ports.main.port | int | `10130` |  |

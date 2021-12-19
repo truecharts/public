@@ -36,8 +36,10 @@ service:
         targetPort: 4242
         port: 4242
   ident:
+    enabled: true
     ports:
       ident:
+        enabled: true
         targetPort: 10113
         port: 10113
 

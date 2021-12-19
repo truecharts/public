@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="dillinger-0.0.4"></a>
+### [dillinger-0.0.4](https://github.com/truecharts/apps/compare/dillinger-0.0.3...dillinger-0.0.4) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+
+
+
 <a name="dillinger-0.0.3"></a>
 ### [dillinger-0.0.3](https://github.com/truecharts/apps/compare/dillinger-0.0.2...dillinger-0.0.3) (2021-12-14)
 

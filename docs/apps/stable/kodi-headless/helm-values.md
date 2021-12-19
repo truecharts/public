@@ -21,11 +21,15 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.esall.enabled | bool | `true` |  |
+| service.esall.ports.esall.enabled | bool | `true` |  |
 | service.esall.ports.esall.port | int | `9777` |  |
 | service.esall.ports.esall.protocol | string | `"UDP"` |  |
 | service.esall.ports.esall.targetPort | int | `9777` |  |
 | service.main.ports.main.port | int | `10148` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
+| service.websocket.enabled | bool | `true` |  |
+| service.websocket.ports.websocket.enabled | bool | `true` |  |
 | service.websocket.ports.websocket.port | int | `10152` |  |
 | service.websocket.ports.websocket.targetPort | int | `9090` |  |
 

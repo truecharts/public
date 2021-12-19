@@ -1,6 +1,26 @@
 # Changelog<br>
 
 
+<a name="home-assistant-12.0.18"></a>
+### [home-assistant-12.0.18](https://github.com/truecharts/apps/compare/home-assistant-12.0.17...home-assistant-12.0.18) (2021-12-18)
+
+#### Chore
+
+* cleanup questions by removing hidden dicts ([#1558](https://github.com/truecharts/apps/issues/1558))
+
+
+
+<a name="home-assistant-12.0.17"></a>
+### [home-assistant-12.0.17](https://github.com/truecharts/apps/compare/home-assistant-12.0.16...home-assistant-12.0.17) (2021-12-15)
+
+#### Chore
+
+* App-Icon Organization ([#1539](https://github.com/truecharts/apps/issues/1539))
+* update docker general non-major docker tags ([#1542](https://github.com/truecharts/apps/issues/1542))
+* update docker general non-major
+
+
+
 <a name="home-assistant-12.0.16"></a>
 ### [home-assistant-12.0.16](https://github.com/truecharts/apps/compare/home-assistant-12.0.15...home-assistant-12.0.16) (2021-12-14)
 
