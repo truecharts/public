@@ -1,0 +1,21 @@
+apiVersion: v2
+appVersion: "21.26.0"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.9.21
+description: Minecraft Java Dedicated Server
+home: https://github.com/Dyllan20000alfa/apps/tree/master/charts/incubator/minecraft-java
+icon: https://raw.githubusercontent.com/Dyllan2000alfa/apps/minecraft/charts/incubator/minecraft-java/icon.png
+keywords:
+  - minecraft
+kubeVersion: ">=1.16.0-0"
+maintainers:
+- email: dyllan@tinoco.casa
+  name: Dyllan Tinoco
+name: minecraft-java
+sources:
+  - https://github.com/itzg/docker-minecraft-server
+  - https://hub.docker.com/r/itzg/minecraft-server
+  - https://www.minecraft.net/en-us/eula
+version: 1.0.0

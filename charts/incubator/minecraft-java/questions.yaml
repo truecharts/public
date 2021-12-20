@@ -1,0 +1,758 @@
+# Include{groups}
+questions:
+  - variable: image
+    group: "Container Image"
+    label: "Java Version"
+    schema:
+      type: dict
+      required: true
+      attrs:
+        - variable: tag
+          label: "Java version"
+          schema:
+            type: string
+            default: "21.26.0@sha256:75c9c1555461a9e3df22c99e50ed8c6767adaa3364c8a481dac7bf0d5a296d4c"
+            enum:
+              - value: "21.26.0-java8-multiarch@sha256:9c1bf8f374cb97d5faa237f5d8329f90da11f1968a6b0f2f9c8b3afc2033ded2"
+                description: "Java 8"
+              - value: "21.26.0-java11@sha256:d98ef51b1da69a64af754ff4d3e7942ea24bf78dda86bf5d8f7274699e0691cb"
+                description: "Java 11"
+              - value: "21.26.0@sha256:75c9c1555461a9e3df22c99e50ed8c6767adaa3364c8a481dac7bf0d5a296d4c"
+                description: "Java 17"
+# Include{global}
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      type: dict
+      attrs:
+# Include{fixedEnv}
+
+        - variable: EULA
+          label: "Minecraft Eula - Link in readme sources"
+          schema:
+            type: boolean
+            required: true
+            default: false
+        - variable: VERSION
+          label: "Minecraft Version - LATEST, SNAPSHOT, or verison"
+          schema:
+            type: string
+            required: true
+            default: "LATEST"
+        - variable: TYPE
+          label: "Server Type"
+          schema:
+            type: string
+            required: true
+            default: "VANILLA"
+            enum:
+              - value: "VANILLA"
+                description: "Vanilla"
+              - value: "FORGE"
+                description: "Forge"
+              - value: "FABRIC"
+                description: "Fabric"
+              - value: "SPIGOT"
+                description: "Spigot"
+              - value: "BUKKIT"
+                description: "Bukkit"
+              - value: "PAPER"
+                description: "Paper"
+              - value: "AIRPLANE"
+                description: "Airplane"
+              - value: "PURPUR"
+                description: "Purpur"
+              - value: "MAGMA"
+                description: "Magma"
+              - value: "MOHIST"
+                description: "Mohist"
+              - value: "CATSERVER"
+                description: "Catserver"
+              - value: "CANYON"
+                description: "Canyon"
+              - value: "SPONGEVANILLA"
+                description: "Sponge Vanilla"
+              - value: "LIMBO"
+                description: "Limbo"
+              - value: "CRUCIBLE"
+                description: "Crucible"
+              - value: "FTBA"
+                description: "FTBA"
+              - value: "CURSEFORGE"
+                description: "Curseforge"
+        - variable: FORGEVERSION
+          label: "Forge Version"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "FORGE"]]
+        - variable: FORGE_INSTALLER
+          label: "Forge Installer"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "FORGE"]]
+        - variable: FORGE_INSTALLER_URL
+          label: "Forge Installer URL"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "FORGE"]]
+        - variable: FABRIC_LOADER_VERSION
+          label: "Fabric Loader Version"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "FABRIC"]]
+        - variable: FABRIC_INSTALLER
+          label: "Fabric Installer"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "FABRIC"]]
+        - variable: FABRIC_INSTALLER_URL
+          label: "Fabric Installer URL"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "FABRIC"]]
+        - variable: SPIGOT_DOWNLOAD_URL
+          label: "Spigot Download URL"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "SPIGOT"]]
+        - variable: BUILD_FROM_SOURCE
+          label: "Build Spigot from Source?"
+          schema:
+            type: boolean
+            required: false
+            default: false
+            show_if: [[TYPE, "=", "SPIGOT"]]
+        - variable: BUKKIT_DOWNLOAD_URL
+          label: "Bukkit Download URL"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "BUKKIT"]]
+        - variable: PAPERBUILD
+          label: "Paper Build Number"
+          schema:
+            type: int
+            required: false
+            default: 0
+            show_if: [[TYPE, "=", "PAPER"]]
+        - variable: PAPER_DOWNLOAD_URL
+          label: "Paper Download URL"
+          schema:
+            type: int
+            required: false
+            default: 0
+            show_if: [[TYPE, "=", "PAPER"]]
+        - variable: PACKWIZ_URL
+          label: "Packwiz URL"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "PAPER"]]
+        - variable: AIRPLANE_BUILD
+          label: "Airplane Build"
+          schema:
+            type: string
+            required: false
+            default: "lastSuccessfulBuild"
+            show_if: [[TYPE, "=", "AIRPLANE"]]
+        - variable: USE_FLARE_FLAGS
+          label: "Enable to add appropriate flags for the Flare profiler"
+          schema:
+            type: boolean
+            required: false
+            default: false
+            show_if: [[TYPE, "=", "AIRPLANE"]]
+        - variable: MAGMA_CHANNEL
+          label: "Magma Channel"
+          schema:
+            type: string
+            required: false
+            default: "stable"
+            show_if: [[TYPE, "=", "MAGMA"]]
+        - variable: MOHIST_BUILD
+          label: "Mohist Build"
+          schema:
+            type: int
+            required: false
+            default: 0
+            show_if: [[TYPE, "=", "MOHIST"]]
+        - variable: CANYON_BUILD
+          label: "Canyon Build"
+          schema:
+            type: int
+            required: false
+            default: 0
+            show_if: [[TYPE, "=", "CANYON"]]
+        - variable: SPONGEBRANCH
+          label: "Sponge Branch"
+          schema:
+            type: string
+            required: false
+            default: "STABLE"
+            show_if: [[TYPE, "=", "SPONGEVANILLA"]]
+        - variable: SPONGEVERSION
+          label: "Sponge Version"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "SPONGEVANILLA"]]
+        - variable: LIMBO_BUILD
+          label: "Limbo Build"
+          schema:
+            type: string
+            required: false
+            default: "LATEST"
+            show_if: [[TYPE, "=", "LIMBO"]]
+        - variable: LIMBO_SCHEMA_FILENAME
+          label: "Limbo Schema Filename"
+          schema:
+            type: string
+            required: false
+            default: "default.schem"
+            show_if: [[TYPE, "=", "LIMBO"]]
+        - variable: CRUCIBLE_RELEASE
+          label: "Crucible Release"
+          schema:
+            type: string
+            required: false
+            default: "latest"
+            show_if: [[TYPE, "=", "CRUCIBLE"]]
+        - variable: FTB_MODPACK_ID
+          label: "FTB Modpack ID"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "FTBA"]]
+        - variable: FTB_MODPACK_VERSION_ID
+          label: "FTB Modpack Version ID"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "FTBA"]]
+        - variable: CF_SERVER_MOD
+          label: "CF Server Mod"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "CURSEFORGE"]]
+        - variable: CF_BASE_DIR
+          label: "CF Base Dir"
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[TYPE, "=", "CURSEFORGE"]]
+        - variable: USE_MODPACK_START_SCRIPT
+          label: "Use Modpack Start Script"
+          schema:
+            type: boolean
+            required: false
+            default: true
+            show_if: [[TYPE, "=", "CURSEFORGE"]]
+        - variable: FTB_LEGACYJAVAFIXER
+          label: "Fix for \"unable to launch forgemodloader\""
+          schema:
+            type: boolean
+            required: false
+            default: false
+            show_if: [[TYPE, "=", "CURSEFORGE"]]
+        - variable: DIFFICULTY
+          label: "Difficulty"
+          schema:
+            type: string
+            required: true
+            default: "easy"
+            enum:
+              - value: peaceful
+                description: Peaceful
+              - value: easy
+                description: Easy
+              - value: normal
+                description: Normal
+              - value: hard
+                description: Hard
+        - variable: WHITELIST
+          label: "Whitelist"
+          schema:
+            type: string
+            required: false
+            default: ""
+        - variable: OPS
+          label: "OPs"
+          schema:
+            type: string
+            required: false
+            default: ""
+        - variable: ICON
+          label: "URL to Server Icon"
+          schema:
+            type: string
+            required: false
+            default: ""
+        - variable: MAX_PLAYERS
+          label: "Max Connected Players"
+          schema:
+            type: int
+            required: true
+            default: 20
+        - variable: MAX_WORLD_SIZE
+          label: "World Border Radius in blocks"
+          schema:
+            type: int
+            required: true
+            default: 10000
+        - variable: ALLOW_NETHER
+          label: "Enable/Disable Nether"
+          schema:
+            type: boolean
+            required: false
+            default: true
+        - variable: ANNOUNCE_PLAYER_ACHIEVEMENTS
+          label: "Enable/Disable Announceing Player Achievements"
+          schema:
+            type: boolean
+            required: false
+            default: true
+        - variable: ENABLE_COMMAND_BLOCK
+          label: "Enable/Disable Command Blocks"
+          schema:
+            type: boolean
+            required: false
+            default: false
+        - variable: FORCE_GAMEMODE
+          label: "Enable/Disable Force Gamemode"
+          schema:
+            type: boolean
+            required: false
+            default: false
+        - variable: GENERATE_STRUCTURES
+          label: "Enable/Disable Generate Structures"
+          schema:
+            type: boolean
+            required: false
+            default: true
+        - variable: HARDCORE
+          label: "Enable/Disable Hardcore Mode"
+          schema:
+            type: boolean
+            required: false
+            default: false
+        - variable: MAX_BUILD_HEIGHT
+          label: "Max World Build Height"
+          schema:
+            type: int
+            required: true
+            default: 256
+        - variable: MAX_TICK_TIME
+          label: "Max Tick Time"
+          schema:
+            type: int
+            required: true
+            default: 60000
+        - variable: SPAWN_ANIMALS
+          label: "Enable/Disable Spawning Animals"
+          schema:
+            type: boolean
+            required: false
+            default: true
+        - variable: SPAWN_MONSTERS
+          label: "Enable/Disable Spawning Monsters"
+          schema:
+            type: boolean
+            required: false
+            default: true
+        - variable: SPAWN_NPCS
+          label: "Enable/Disable Spawning NPCs"
+          schema:
+            type: boolean
+            required: false
+            default: true
+        - variable: VIEW_DISTANCE
+          label: "Server View Distance"
+          schema:
+            type: int
+            required: true
+            default: 10
+        - variable: SEED
+          label: "Level Seed"
+          schema:
+            type: string
+            required: false
+            default: ""
+        - variable: MODE
+          label: "Default Gamemode"
+          schema:
+            type: string
+            required: true
+            default: "survival"
+            enum:
+              - value: "survival"
+                description: "Survival"
+              - value: "creative"
+                description: "Creative"
+              - value: "adventure"
+                description: "Adventure"
+              - value: "spectator"
+                description: "Spectator"
+        - variable: MOTD
+          label: "Server Message of the Day"
+          schema:
+            type: string
+            required: false
+            default: "Welcome to Minecraft on TrueNAS Scale!"
+        - variable: PVP
+          label: "Enable/Disable PVP"
+          schema:
+            type: boolean
+            required: false
+            default: false
+        - variable: LEVEL_TYPE
+          label: "Level Type"
+          schema:
+            type: string
+            required: true
+            default: "DEFAULT"
+        - variable: GENERATOR_SETTINGS
+          label: "Generator Settings"
+          schema:
+            type: string
+            required: false
+            default: ""
+        - variable: LEVEL
+          label: "World Save Name"
+          schema:
+            type: string
+            required: true
+            default: "world"
+        - variable: WORLD
+          label: "URL of world download"
+          schema:
+            type: string
+            required: false
+            default: ""
+        - variable: FORCE_REDOWNLOAD
+          label: "Force redownload server files"
+          schema:
+            type: string
+            required: false
+            default: ""
+        - variable: ONLINE_MODE
+          label: "Enable/Disable Online Mode"
+          schema:
+            type: boolean
+            required: false
+            default: true
+        - variable: advanced
+          label: "Show Advanced Server Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: MEMORY
+                label: "Server Memory"
+                schema:
+                  type: string
+                  required: true
+                  default: "2048M"
+              - variable: JVM_OPTS
+                label: "JVM Options"
+                schema:
+                  type: string
+                  required: false
+                  default: ""
+              - variable: JVM_XX_OPTS
+                label: "JVM -X Options"
+                schema:
+                  type: string
+                  required: false
+                  default: ""
+
+# Include{containerConfig}
+
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 25565
+                              editable: true
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "TCP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 25565
+
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+  - variable: volumeClaimTemplates
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      type: dict
+      attrs:
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable the storage"
+                schema:
+                  type: boolean
+                  default: true
+                  hidden: true
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "pvc"
+                      description: "pvc"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: mountPath
+                label: "mountPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  type: string
+                  default: "/data"
+                  hidden: true
+                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceList}
+  - variable: securityContext
+    group: "Security and Permissions"
+    label: "Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: privileged
+          label: "Privileged mode"
+          schema:
+            type: boolean
+            default: false
+        - variable: readOnlyRootFilesystem
+          label: "ReadOnly Root Filesystem"
+          schema:
+            type: boolean
+            default: false
+        - variable: allowPrivilegeEscalation
+          label: "Allow Privilege Escalation"
+          schema:
+            type: boolean
+            default: false
+        - variable: runAsNonRoot
+          label: "runAsNonRoot"
+          schema:
+            type: boolean
+            default: true
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 568
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+        - variable: supplementalGroups
+          label: "supplemental Groups"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: supplementalGroupsEntry
+                label: "supplemental Group"
+                schema:
+                  type: int
+        - variable: fsGroupChangePolicy
+          label: "When should we take ownership?"
+          schema:
+            type: string
+            default: "OnRootMismatch"
+            enum:
+              - value: "OnRootMismatch"
+                description: "OnRootMismatch"
+              - value: "Always"
+                description: "Always"
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}
