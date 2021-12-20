@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-5.0.7"></a>
+### [pgadmin-5.0.7](https://github.com/truecharts/apps/compare/pgadmin-5.0.6...pgadmin-5.0.7) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1585](https://github.com/truecharts/apps/issues/1585))
+
+
+
 <a name="pgadmin-5.0.6"></a>
 ### [pgadmin-5.0.6](https://github.com/truecharts/apps/compare/pgadmin-5.0.5...pgadmin-5.0.6) (2021-12-19)
 

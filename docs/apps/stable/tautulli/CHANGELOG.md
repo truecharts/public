@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tautulli-9.0.26"></a>
+### [tautulli-9.0.26](https://github.com/truecharts/apps/compare/tautulli-9.0.25...tautulli-9.0.26) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1585](https://github.com/truecharts/apps/issues/1585))
+
+
+
 <a name="tautulli-9.0.25"></a>
 ### [tautulli-9.0.25](https://github.com/truecharts/apps/compare/tautulli-9.0.24...tautulli-9.0.25) (2021-12-19)
 
