@@ -247,9 +247,9 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-        - variable: export
-          label: "App Export files Storage"
-          description: "This is where exports are going."
+        - variable: static
+          label: "App Static Storage"
+          description: ""This is where all static files created using “collectstatic” manager command are stored."
           schema:
             type: dict
             attrs:
