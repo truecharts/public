@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpoller-1.0.17"></a>
+### [unpoller-1.0.17](https://github.com/truecharts/apps/compare/unpoller-1.0.16...unpoller-1.0.17) (2021-12-20)
+
+#### Fix
+
+* InfluxDB is always disabled with current value. ([#1579](https://github.com/truecharts/apps/issues/1579))
+
+
+
 <a name="unpoller-1.0.16"></a>
 ### [unpoller-1.0.16](https://github.com/truecharts/apps/compare/unpoller-1.0.15...unpoller-1.0.16) (2021-12-19)
 
