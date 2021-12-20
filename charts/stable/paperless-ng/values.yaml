@@ -59,7 +59,7 @@ persistence:
     mountPath: "/usr/src/paperless/consume"
   export:
     enabled: true
-    mountPath: "/usr/src/paperless/export"
+    mountPath: "/export"
   media:
     enabled: true
     mountPath: "/usr/src/paperless/media"
