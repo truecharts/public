@@ -18,8 +18,6 @@ secret:
 
 env:
   PUID: 568
-  USERMAP_UID: "{{ .Values.env.PUID }}"
-  USERMAP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
   PAPERLESS_DATA_DIR: "/config/"
   PAPERLESS_STATICDIR: "/static/"
   PAPERLESS_CONSUMPTION_DIR: "/consume/"
