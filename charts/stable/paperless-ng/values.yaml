@@ -53,7 +53,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/usr/src/paperless/config"
+    mountPath: "/config"
   consume:
     enabled: true
     mountPath: "/usr/src/paperless/consume"
