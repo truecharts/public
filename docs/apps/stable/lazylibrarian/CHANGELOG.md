@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.34"></a>
+### [lazylibrarian-9.0.34](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.33...lazylibrarian-9.0.34) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1589](https://github.com/truecharts/apps/issues/1589))
+
+
+
 <a name="lazylibrarian-9.0.33"></a>
 ### [lazylibrarian-9.0.33](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.32...lazylibrarian-9.0.33) (2021-12-19)
 

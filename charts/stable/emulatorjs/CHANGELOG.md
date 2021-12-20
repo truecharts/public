@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="emulatorjs-0.0.8"></a>
+### [emulatorjs-0.0.8](https://github.com/truecharts/apps/compare/emulatorjs-0.0.7...emulatorjs-0.0.8) (2021-12-20)
+
+
+
 <a name="emulatorjs-0.0.7"></a>
 ### [emulatorjs-0.0.7](https://github.com/truecharts/apps/compare/emulatorjs-0.0.6...emulatorjs-0.0.7) (2021-12-19)
 

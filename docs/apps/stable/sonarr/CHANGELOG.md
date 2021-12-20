@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sonarr-9.0.27"></a>
+### [sonarr-9.0.27](https://github.com/truecharts/apps/compare/sonarr-9.0.26...sonarr-9.0.27) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1589](https://github.com/truecharts/apps/issues/1589))
+
+
+
 <a name="sonarr-9.0.26"></a>
 ### [sonarr-9.0.26](https://github.com/truecharts/apps/compare/sonarr-9.0.25...sonarr-9.0.26) (2021-12-19)
 

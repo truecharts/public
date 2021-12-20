@@ -1203,6 +1203,43 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.0.1
+    created: "2021-12-20T17:59:28.62539634Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.24
+    description: Bazarr is a companion application to Sonarr and Radarr. It manages
+      and downloads subtitles based on your requirements
+    digest: de53cf7a8d95f693c9b90568b5df63c26ea7864456fcb3f761763ae608019f77
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/bazarr
+    icon: https://truecharts.org/_static/img/appicons/bazarr-icon.png
+    keywords:
+    - bazarr
+    - radarr
+    - sonarr
+    - subtitles
+    - usenet
+    - torrent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: bazarr
+    sources:
+    - https://github.com/morpheus65535/bazarr
+    - https://hub.docker.com/r/linuxserver/bazarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/bazarr-9.0.28/bazarr-9.0.28.tgz
+    version: 9.0.28
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.0.1
     created: "2021-12-19T23:48:05.790315518Z"
     dependencies:
     - name: common
@@ -6173,6 +6210,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/embystat-0.0.1/embystat-0.0.1.tgz
     version: 0.0.1
   emulatorjs:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.4.2
+    created: "2021-12-20T17:59:28.835310542Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.24
+    description: Emulatorjs - In browser web based emulation portable to nearly any
+      device for many retro consoles.
+    digest: 5feafef5bbc8b4bd3d78f3a8bc3ceee694612e6b09e49cbd47d7acb61803e32c
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/emulatorjs
+    icon: https://truecharts.org/_static/img/appicons/emulatorjs-icon.png
+    keywords:
+    - emulatorjs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: emulatorjs
+    sources:
+    - https://hub.docker.com/r/linuxserver/emulatorjs
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/emulatorjs-0.0.8/emulatorjs-0.0.8.tgz
+    version: 0.0.8
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -13203,6 +13271,38 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: latest
+    created: "2021-12-20T17:59:29.038072203Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.24
+    description: Get all your books, like series with Sonarr...
+    digest: f30af3ac6dbebf6128f799fea7ca6a87548d039dae1b1b1d35df4677a7a7c9d2
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/lazylibrarian
+    icon: https://truecharts.org/_static/img/appicons/lazylibrarian-icon.png
+    keywords:
+    - lazylibrarian
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: lazylibrarian
+    sources:
+    - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
+    - https://lazylibrarian.gitlab.io
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lazylibrarian-9.0.34/lazylibrarian-9.0.34.tgz
+    version: 9.0.34
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
     created: "2021-12-19T23:48:21.664551098Z"
     dependencies:
     - name: common
@@ -18901,6 +19001,36 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: "4.4"
+    created: "2021-12-20T17:59:29.24188867Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.24
+    description: Omada is a SDN tool for TP-Link Omada hardware
+    digest: 1d9f240a38440326cf72807be11975b1b5cf9d86d38bf53c368967173c023de3
+    home: https://github.com/truechartsapps/tree/master/charts/stable/omada-controller
+    icon: https://truecharts.org/_static/img/appicons/omada-controller-icon.png
+    keywords:
+    - omada-controller
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: omada-controller
+    sources:
+    - https://github.com/mbentley/docker-omada-controller
+    - https://github.com/truechartsapps/tree/master/charts/omada-controller
+    urls:
+    - https://github.com/truecharts/apps/releases/download/omada-controller-4.0.36/omada-controller-4.0.36.tgz
+    version: 4.0.36
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "4.4"
     created: "2021-12-19T23:48:29.107697041Z"
     dependencies:
     - name: common
@@ -23297,6 +23427,48 @@ entries:
     - https://github.com/truecharts/apps/releases/download/promcord-2.0.0/promcord-2.0.0.tgz
     version: 2.0.0
   prometheus:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - metrics
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.53.0
+    created: "2021-12-20T17:59:29.475112205Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.24
+    - condition: exporters.enabled,exporters.node-exporter.enabled
+      name: node-exporter
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.3.17
+    - condition: exporters.enabled,exporters.kube-state-metrics.enabled
+      name: kube-state-metrics
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.1.19
+    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+      and Prometheus rules combined with documentation and scripts to provide easy
+      to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
+      Prometheus Operator.
+    digest: 0d067238dd1d20441a5209abf3c5c7769ae0d3abeff79c1d0045f2a0aeb20e85
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/prometheus
+    icon: https://truecharts.org/_static/img/appicons/prometheus-icon.png
+    keywords:
+    - metrics
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: prometheus
+    sources:
+    - https://github.com/prometheus-community/helm-charts
+    - https://github.com/prometheus-operator/kube-prometheus
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prometheus-1.1.26/prometheus-1.1.26.tgz
+    version: 1.1.26
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -27918,6 +28090,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/snipe-it-0.0.11/snipe-it-0.0.11.tgz
     version: 0.0.11
   sonarr:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.0.6.1342
+    created: "2021-12-20T17:59:29.680116279Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.24
+    description: Smart PVR for newsgroup and bittorrent users
+    digest: a7f9a5818f7ebc5a188888b1b288eb29eac8a4d2af15f2eed9da04f27eaadf9c
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/sonarr
+    icon: https://truecharts.org/_static/img/appicons/sonarr-icon.png
+    keywords:
+    - sonarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/sonarr-9.0.27/sonarr-9.0.27.tgz
+    version: 9.0.27
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -33035,4 +33239,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-20T13:22:23.642396399Z"
+generated: "2021-12-20T17:59:29.682387392Z"
