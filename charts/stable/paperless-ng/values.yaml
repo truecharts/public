@@ -18,7 +18,7 @@ secret:
 
 env:
   PUID: 568
-  PAPERLESS_DATA_DIR: "/config/"
+  PAPERLESS_DATA_DIR: "/data/"
   PAPERLESS_STATICDIR: "/static/"
   PAPERLESS_CONSUMPTION_DIR: "/consume/"
   PAPERLESS_MEDIA_ROOT: "/media/"
@@ -55,9 +55,9 @@ service:
         port: 10140
 
 persistence:
-  config:
+  data:
     enabled: true
-    mountPath: "/config"
+    mountPath: "/data"
   consume:
     enabled: true
     mountPath: "/consume"
