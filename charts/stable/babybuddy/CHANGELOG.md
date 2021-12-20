@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.22"></a>
+### [babybuddy-5.0.22](https://github.com/truecharts/apps/compare/babybuddy-5.0.21...babybuddy-5.0.22) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1581](https://github.com/truecharts/apps/issues/1581))
+
+
+
 <a name="babybuddy-5.0.21"></a>
 ### [babybuddy-5.0.21](https://github.com/truecharts/apps/compare/babybuddy-5.0.20...babybuddy-5.0.21) (2021-12-19)
 

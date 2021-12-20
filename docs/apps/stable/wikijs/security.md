@@ -62,7 +62,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:7ad9b2cbcb614f0c2409c401804da15ccf82e7072acffa0b6aca1dcbf72a6018
-          tccr.io/truecharts/wikijs:v2.5.255@sha256:0eba2ff85e7cc877e9036d0b47e98e2a83c65998575908f7e9cddc626f2b8902
+          tccr.io/truecharts/wikijs:v2.5.260@sha256:49e014e4774c5cbbbcc9327f437224b748547859ca540211e63051ed60461c5b
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:7ad9b2cbcb614f0c2409c401804da15ccf82e7072acffa0b6aca1dcbf72a6018
 
@@ -317,7 +317,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/wikijs:v2.5.255@sha256:0eba2ff85e7cc877e9036d0b47e98e2a83c65998575908f7e9cddc626f2b8902 (alpine 3.14.3)
+#### Container: tccr.io/truecharts/wikijs:v2.5.260@sha256:49e014e4774c5cbbbcc9327f437224b748547859ca540211e63051ed60461c5b (alpine 3.14.3)
 
 
 **alpine**

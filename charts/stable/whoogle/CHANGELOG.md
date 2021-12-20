@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="whoogle-1.0.26"></a>
+### [whoogle-1.0.26](https://github.com/truecharts/apps/compare/whoogle-1.0.25...whoogle-1.0.26) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1581](https://github.com/truecharts/apps/issues/1581))
+
+
+
 <a name="whoogle-1.0.25"></a>
 ### [whoogle-1.0.25](https://github.com/truecharts/apps/compare/whoogle-1.0.24...whoogle-1.0.25) (2021-12-19)
 

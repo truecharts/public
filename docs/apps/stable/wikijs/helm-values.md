@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/wikijs"` | image repository |
-| image.tag | string | `"v2.5.255@sha256:0eba2ff85e7cc877e9036d0b47e98e2a83c65998575908f7e9cddc626f2b8902"` | image tag |
+| image.tag | string | `"v2.5.260@sha256:49e014e4774c5cbbbcc9327f437224b748547859ca540211e63051ed60461c5b"` | image tag |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |
