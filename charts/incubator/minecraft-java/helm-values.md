@@ -1,6 +1,6 @@
 # minecraft-java
 
-![Version: 0.1.12](https://img.shields.io/badge/Version-0.1.12-informational?style=flat-square) ![AppVersion: 21.26.0](https://img.shields.io/badge/AppVersion-21.26.0-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![AppVersion: 21.26.0](https://img.shields.io/badge/AppVersion-21.26.0-informational?style=flat-square)
 
 Minecraft Java Dedicated Server
 
@@ -16,6 +16,7 @@ Minecraft Java Dedicated Server
 
 * <https://github.com/itzg/docker-minecraft-server>
 * <https://hub.docker.com/r/itzg/minecraft-server>
+* <https://www.minecraft.net/en-us/eula>
 
 ## Requirements
 
@@ -53,8 +54,8 @@ Kubernetes: `>=1.16.0-0`
 | env.SPAWN_NPCS | bool | `true` |  |
 | env.TYPE | string | `"VANILLA"` |  |
 | env.VERSION | string | `"LATEST"` |  |
-| env.VIEW_DISTANCE | int | `16` |  |
-| image.pullPolicy | string | `"Always"` |  |
+| env.VIEW_DISTANCE | int | `10` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"itzg/minecraft-server"` |  |
 | image.tag | string | `"21.26.0@sha256:75c9c1555461a9e3df22c99e50ed8c6767adaa3364c8a481dac7bf0d5a296d4c"` |  |
 | persistence.data.enabled | bool | `true` |  |

@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: minecraft-java/templates/common.yaml
+    
 
-
-
+      
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV003   |   Default capabilities not dropped  |  LOW | <details><summary>Expand...</summary> The container should drop all default capabilities and add only those that are needed for its execution. <br> <hr> <br> Container &#39;RELEASE-NAME-minecraft-java&#39; of Deployment &#39;RELEASE-NAME-minecraft-java&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39; </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/">https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/</a><br><a href="https://avd.aquasec.com/appshield/ksv003">https://avd.aquasec.com/appshield/ksv003</a><br></details>  |
@@ -40,11 +40,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-
+    
 
 **alpine**
 
-
+      
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -72,11 +72,11 @@ hide:
 
 
 #### Container: itzg/minecraft-server:21.26.0@sha256:75c9c1555461a9e3df22c99e50ed8c6767adaa3364c8a481dac7bf0d5a296d4c (ubuntu 20.04)
-
+    
 
 **ubuntu**
 
-
+      
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | bash         |    CVE-2019-18276   |   LOW  |  5.0-6ubuntu1.1 |  | <details><summary>Expand...</summary><a href="http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html">http://packetstormsecurity.com/files/155498/Bash-5.0-Patch-11-Privilege-Escalation.html</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-18276</a><br><a href="https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff">https://github.com/bminor/bash/commit/951bdaad7a18cc0dc1036bba86b18b90874d39ff</a><br><a href="https://linux.oracle.com/cve/CVE-2019-18276.html">https://linux.oracle.com/cve/CVE-2019-18276.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1679.html">https://linux.oracle.com/errata/ELSA-2021-1679.html</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://security.gentoo.org/glsa/202105-34">https://security.gentoo.org/glsa/202105-34</a><br><a href="https://security.netapp.com/advisory/ntap-20200430-0003/">https://security.netapp.com/advisory/ntap-20200430-0003/</a><br><a href="https://www.youtube.com/watch?v=-wGtxJ8opa8">https://www.youtube.com/watch?v=-wGtxJ8opa8</a><br></details>  |
@@ -268,40 +268,41 @@ hide:
 
 **jar**
 
-
+      
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | ch.qos.logback:logback-core         |    CVE-2021-42550   |   MEDIUM  |  1.2.6 |  | <details><summary>Expand...</summary><a href="http://logback.qos.ch/news.html">http://logback.qos.ch/news.html</a><br><a href="https://github.com/advisories/GHSA-668q-qrv7-99fm">https://github.com/advisories/GHSA-668q-qrv7-99fm</a><br><a href="https://github.com/cn-panda/logbackRceDemo">https://github.com/cn-panda/logbackRceDemo</a><br><a href="https://github.com/qos-ch/logback/blob/1502cba4c1dfd135b2e715bc0cf80c0045d4d128/logback-site/src/site/pages/news.html">https://github.com/qos-ch/logback/blob/1502cba4c1dfd135b2e715bc0cf80c0045d4d128/logback-site/src/site/pages/news.html</a><br><a href="https://github.com/qos-ch/logback/commit/87291079a1de9369ac67e20dc70a8fdc7cc4359c">https://github.com/qos-ch/logback/commit/87291079a1de9369ac67e20dc70a8fdc7cc4359c</a><br><a href="https://github.com/qos-ch/logback/commit/ef4fc4186b74b45ce80d86833820106ff27edd42">https://github.com/qos-ch/logback/commit/ef4fc4186b74b45ce80d86833820106ff27edd42</a><br><a href="https://jira.qos.ch/browse/LOGBACK-1591">https://jira.qos.ch/browse/LOGBACK-1591</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-42550">https://nvd.nist.gov/vuln/detail/CVE-2021-42550</a><br></details>  |
 
 **gobinary**
 
-
+      
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-
+      
 
 **gobinary**
 
-
+      
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-
+      
 
 **gobinary**
 
-
+      
 | No Vulnerabilities found         |
 |:---------------------------------|
 
-
+      
 
 **gobinary**
 
-
+      
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | gopkg.in/yaml.v2         |    CVE-2019-11254   |   MEDIUM  |  v2.2.2 | v2.2.8 | <details><summary>Expand...</summary><a href="https://github.com/kubernetes/kubernetes/issues/89535">https://github.com/kubernetes/kubernetes/issues/89535</a><br><a href="https://groups.google.com/d/msg/kubernetes-announce/ALL9s73E5ck/4yHe8J-PBAAJ">https://groups.google.com/d/msg/kubernetes-announce/ALL9s73E5ck/4yHe8J-PBAAJ</a><br><a href="https://groups.google.com/forum/#!topic/kubernetes-security-announce/wuwEwZigXBc">https://groups.google.com/forum/#!topic/kubernetes-security-announce/wuwEwZigXBc</a><br><a href="https://linux.oracle.com/cve/CVE-2019-11254.html">https://linux.oracle.com/cve/CVE-2019-11254.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2020-5653.html">https://linux.oracle.com/errata/ELSA-2020-5653.html</a><br><a href="https://security.netapp.com/advisory/ntap-20200413-0003/">https://security.netapp.com/advisory/ntap-20200413-0003/</a><br></details>  |
 | gopkg.in/yaml.v2         |    GMS-2019-2   |   UNKNOWN  |  v2.2.2 | v2.2.3 | <details><summary>Expand...</summary><a href="https://github.com/docker/cli/pull/2117">https://github.com/docker/cli/pull/2117</a><br></details>  |
 | gopkg.in/yaml.v2         |    GO-2021-0061   |   UNKNOWN  |  v2.2.2 | v2.2.3 | <details><summary>Expand...</summary></details>  |
+
