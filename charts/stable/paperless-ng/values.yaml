@@ -19,7 +19,7 @@ secret:
 env:
   PUID: 568
   USERMAP_UID: "{{ .Values.env.PUID }}"
-  USERMAP_GID: "{{ .Values.env.PGID }}"
+  USERMAP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
   PAPERLESS_TIME_ZONE: "{{ .Values.env.TZ }}"
   PAPERLESS_DBNAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   PAPERLESS_DBUSER: "{{ .Values.postgresql.postgresqlUsername }}"
