@@ -18,12 +18,12 @@ secret:
 
 env:
   PUID: 568
-  PAPERLESS_DATA_DIR: "/config/"
+  PAPERLESS_DATA_DIR: "/data/"
   PAPERLESS_STATICDIR: "/static/"
   PAPERLESS_CONSUMPTION_DIR: "/consume/"
   PAPERLESS_MEDIA_ROOT: "/media/"
   USERMAP_UID: "{{ .Values.env.PUID }}"
-  USERMAP_GID: "{{ .Values.env.PGID }}"
+  USERMAP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
   PAPERLESS_TIME_ZONE: "{{ .Values.env.TZ }}"
   PAPERLESS_DBNAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   PAPERLESS_DBUSER: "{{ .Values.postgresql.postgresqlUsername }}"
@@ -55,9 +55,9 @@ service:
         port: 10140
 
 persistence:
-  config:
+  data:
     enabled: true
-    mountPath: "/config"
+    mountPath: "/data"
   consume:
     enabled: true
     mountPath: "/consume"
@@ -71,7 +71,7 @@ persistence:
 redis:
   enabled: true
   existingSecret: "rediscreds"
-  redisUsername: paperless-ng
+  redisUsername: default
 
 postgresql:
   enabled: true
