@@ -37,7 +37,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/pgadmin4:v6.2@sha256:56a1cc09742301c5cca10f75f9766a85f7b8c9a256ee88cdf04ad1038db2f2cd
+          tccr.io/truecharts/pgadmin4:v6.3@sha256:13498140469d4efc97e0d746baaca4322344e6f295c584de072b7b22cd94d7c7
 
 ##### Scan Results
 
@@ -74,7 +74,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/pgadmin4:v6.2@sha256:56a1cc09742301c5cca10f75f9766a85f7b8c9a256ee88cdf04ad1038db2f2cd (alpine 3.14.3)
+#### Container: tccr.io/truecharts/pgadmin4:v6.3@sha256:13498140469d4efc97e0d746baaca4322344e6f295c584de072b7b22cd94d7c7 (alpine 3.15.0)
 
 
 **alpine**
@@ -91,5 +91,3 @@ hide:
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | Flask-Security-Too         |    CVE-2021-32618   |   MEDIUM  |  4.1.2 |  | <details><summary>Expand...</summary><a href="https://github.com/Flask-Middleware/flask-security/issues/486">https://github.com/Flask-Middleware/flask-security/issues/486</a><br><a href="https://github.com/Flask-Middleware/flask-security/security/advisories/GHSA-6qmf-fj6m-686c">https://github.com/Flask-Middleware/flask-security/security/advisories/GHSA-6qmf-fj6m-686c</a><br><a href="https://github.com/advisories/GHSA-6qmf-fj6m-686c">https://github.com/advisories/GHSA-6qmf-fj6m-686c</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-32618">https://nvd.nist.gov/vuln/detail/CVE-2021-32618</a><br></details>  |
-| WTForms         |    pyup.io-42852   |   UNKNOWN  |  2.3.3 | 3.0.0a1 | <details><summary>Expand...</summary></details>  |
-| Werkzeug         |    pyup.io-42050   |   UNKNOWN  |  1.0.1 | 2.0.2 | <details><summary>Expand...</summary></details>  |
