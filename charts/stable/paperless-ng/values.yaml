@@ -57,7 +57,7 @@ persistence:
   consume:
     enabled: true
     mountPath: "/consume"
-  export:
+  static:
     enabled: true
     mountPath: "/export"
   media:
