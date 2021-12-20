@@ -4,6 +4,8 @@ image:
   tag: v0.6.7
 updateStrategy: Recreate
 
+apiPort: 8927
+farmerPort: 8447
 ports:
   - name: chia-network
     protocol: TCP
@@ -16,7 +18,8 @@ ports:
     protocol: TCP
     containerPort: 8927
     hostPort: 8927
-  - protocol: TCP
+  - name: farming
+    protocol: TCP
     containerPort: 8447
     hostPort: 8447
 
@@ -35,6 +38,7 @@ coins:
 
 cactus:
   apiPort: 8936
+  farmerPort: 11447
   ports:
     - name: api
       protocol: TCP
@@ -51,6 +55,7 @@ cactus:
 
 chives:
   apiPort: 8931
+  farmerPort: 9647
   ports:
     - name: api
       protocol: TCP
@@ -64,6 +69,7 @@ chives:
 
 cryptodoge:
   apiPort: 8937
+  farmerPort: 16895
   ports:
     - name: api
       protocol: TCP
@@ -77,6 +83,7 @@ cryptodoge:
 
 flax:
   apiPort: 8928
+  farmerPort: 6885
   ports:
     - name: api
       protocol: TCP
@@ -90,6 +97,7 @@ flax:
 
 flora:
   apiPort: 8932
+  farmerPort: 18647
   ports:
     - name: api
       protocol: TCP
@@ -103,6 +111,7 @@ flora:
 
 hddcoin:
   apiPort: 8930
+  farmerPort: 28447
   ports:
     - name: api
       protocol: TCP
@@ -116,6 +125,7 @@ hddcoin:
 
 maize:
   apiPort: 8933
+  farmerPort: 8647
   ports:
     - name: api
       protocol: TCP
@@ -129,6 +139,7 @@ maize:
 
 nchain:
   apiPort: 8929
+  farmerPort: 38447
   ports:
     - name: api
       protocol: TCP
@@ -142,6 +153,7 @@ nchain:
 
 staicoin:
   apiPort: 8934
+  farmerPort: 1692
   ports:
     - name: api
       protocol: TCP
@@ -155,6 +167,7 @@ staicoin:
 
 stor:
   apiPort: 8935
+  farmerPort: 8337
   ports:
     - name: api
       protocol: TCP
@@ -168,6 +181,7 @@ stor:
 
 btcgreen:
   apiPort: 8938
+  farmerPort: 18655
   ports:
     - name: api
       protocol: TCP

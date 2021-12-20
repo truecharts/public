@@ -6,6 +6,8 @@ image:
 machinaris_ui_port: 31003
 machinarisApiPort: 8927
 
+apiPort: 8927
+farmerPort: 8447
 ports:
   - name: chia-network
     protocol: TCP
@@ -47,6 +49,7 @@ coins:
 cactusEnabled: true
 cactus:
   apiPort: 8936
+  farmerPort: 11447
   ports:
     - name: api
       protocol: TCP
