@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leantime-1.0.3"></a>
+### [leantime-1.0.3](https://github.com/truecharts/apps/compare/leantime-1.0.2...leantime-1.0.3) (2021-12-21)
+
+#### Feat
+
+* set LEAN_APP_URL if ingress is enabled ([#1594](https://github.com/truecharts/apps/issues/1594))
+
+
+
 <a name="leantime-1.0.2"></a>
 ### [leantime-1.0.2](https://github.com/truecharts/apps/compare/leantime-1.0.1...leantime-1.0.2) (2021-12-19)
 

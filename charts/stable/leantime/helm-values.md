@@ -11,6 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env.LEAN_APP_URL | string | `"{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}https://{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ end }}{{ end }}"` |  |
 | env.LEAN_DB_DATABASE | string | `"{{ .Values.mariadb.mariadbDatabase }}"` |  |
 | env.LEAN_DB_USER | string | `"{{ .Values.mariadb.mariadbUsername }}"` |  |
 | envValueFrom.LEAN_DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |

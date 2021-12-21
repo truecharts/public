@@ -13599,6 +13599,43 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.1.8
+    created: "2021-12-21T10:42:18.336099043Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.24
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.37
+    description: Straightforward open source project management system to make your
+      ideas reality.
+    digest: 6dffab6aa3e7a44d7b68c2745f4e5e1aa52a11bf4846e74e004ebafbe8934df2
+    home: https://github.com/truechartsapps/tree/master/charts/stable/leantime
+    icon: https://truecharts.org/_static/img/appicons/leantime-icon.png
+    keywords:
+    - leantime
+    - project
+    - management
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: leantime
+    sources:
+    - https://leantime.io/
+    - https://hub.docker.com/r/nicholaswilde/leantime
+    urls:
+    - https://github.com/truecharts/apps/releases/download/leantime-1.0.3/leantime-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - management
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.1.8
     created: "2021-12-19T23:48:22.048054978Z"
     dependencies:
     - name: common
@@ -33411,4 +33448,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-21T10:06:43.31920922Z"
+generated: "2021-12-21T10:42:18.337610952Z"
