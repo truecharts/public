@@ -19,7 +19,6 @@ secret:
 env:
   PUID: 568
   PAPERLESS_DATA_DIR: "/data/"
-  PAPERLESS_STATICDIR: "/static/"
   PAPERLESS_CONSUMPTION_DIR: "/consume/"
   PAPERLESS_MEDIA_ROOT: "/media/"
   USERMAP_UID: "{{ .Values.env.PUID }}"
@@ -61,9 +60,6 @@ persistence:
   consume:
     enabled: true
     mountPath: "/consume"
-  static:
-    enabled: true
-    mountPath: "/static"
   media:
     enabled: true
     mountPath: "/media"
