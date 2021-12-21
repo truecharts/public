@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nzbget-9.0.27"></a>
+### [nzbget-9.0.27](https://github.com/truecharts/apps/compare/nzbget-9.0.26...nzbget-9.0.27) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
 <a name="nzbget-9.0.26"></a>
 ### [nzbget-9.0.26](https://github.com/truecharts/apps/compare/nzbget-9.0.25...nzbget-9.0.26) (2021-12-19)
 

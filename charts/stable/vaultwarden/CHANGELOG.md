@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.18"></a>
+### [vaultwarden-13.0.18](https://github.com/truecharts/apps/compare/vaultwarden-13.0.17...vaultwarden-13.0.18) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="vaultwarden-13.0.17"></a>
 ### [vaultwarden-13.0.17](https://github.com/truecharts/apps/compare/vaultwarden-13.0.16...vaultwarden-13.0.17) (2021-12-19)
 

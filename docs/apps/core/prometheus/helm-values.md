@@ -88,7 +88,7 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.volumeMounts | list | `[]` |  |
 | alertmanager.volumes | list | `[]` |  |
 | alertmanagerImage.repository | string | `"tccr.io/truecharts/alertmanager"` |  |
-| alertmanagerImage.tag | string | `"v0.23.0@sha256:a60e78b7c55a3a4f541e93471b521ee183bd299bd6a1631e300dc1ddda02f8f1"` |  |
+| alertmanagerImage.tag | string | `"v0.23.0@sha256:a367a332ed5ca80f49219f3b53680cac1b866b80cad39c2d1b003f8068536cf8"` |  |
 | coreDns.enabled | bool | `true` |  |
 | coreDns.namespace | string | `"kube-system"` |  |
 | coreDns.service.enabled | bool | `true` |  |
@@ -317,7 +317,7 @@ You will, however, be able to use all values referenced in the common chart here
 | prometheus.volumes | list | `[]` |  |
 | prometheus.walCompression | bool | `false` |  |
 | prometheusImage.repository | string | `"tccr.io/truecharts/prometheus"` |  |
-| prometheusImage.tag | string | `"v2.32.1@sha256:98e8a2e885ae6b8b9625fc0c987d30b5040ce921f46af2f7ba70c2edb42b4eee"` |  |
+| prometheusImage.tag | string | `"v2.32.1@sha256:71ad47195bb1d4334a7b77d358f67037639c34cf887c7fa95abc2a9c567bee43"` |  |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":["apiextensions.k8s.io"],"resources":["customresourcedefinitions"],"verbs":["create"]},{"apiGroups":["apiextensions.k8s.io"],"resourceNames":["alertmanagers.monitoring.coreos.com","podmonitors.monitoring.coreos.com","prometheuses.monitoring.coreos.com","prometheusrules.monitoring.coreos.com","servicemonitors.monitoring.coreos.com","thanosrulers.monitoring.coreos.com","probes.monitoring.coreos.com"],"resources":["customresourcedefinitions"],"verbs":["get","update"]},{"apiGroups":["monitoring.coreos.com"],"resources":["alertmanagers","alertmanagers/finalizers","alertmanagerconfigs","prometheuses","prometheuses/finalizers","thanosrulers","thanosrulers/finalizers","servicemonitors","podmonitors","probes","prometheusrules"],"verbs":["*"]},{"apiGroups":["apps"],"resources":["statefulsets"],"verbs":["*"]},{"apiGroups":[""],"resources":["configmaps","secrets"],"verbs":["*"]},{"apiGroups":[""],"resources":["pods"],"verbs":["list","delete"]},{"apiGroups":[""],"resources":["services","services/finalizers","endpoints"],"verbs":["get","create","update","delete"]},{"apiGroups":[""],"resources":["nodes"],"verbs":["list","watch"]},{"apiGroups":[""],"resources":["namespaces"],"verbs":["get","list","watch"]},{"apiGroups":["networking.k8s.io"],"resources":["ingresses"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.alertmanager.enabled | bool | `true` |  |

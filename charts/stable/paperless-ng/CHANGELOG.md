@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-1.0.5"></a>
+### [paperless-ng-1.0.5](https://github.com/truecharts/apps/compare/paperless-ng-1.0.4...paperless-ng-1.0.5) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+#### Fix
+
+* fix redis URL and use default paths ([#1560](https://github.com/truecharts/apps/issues/1560))
+
+
+
 <a name="paperless-ng-1.0.4"></a>
 ### [paperless-ng-1.0.4](https://github.com/truecharts/apps/compare/paperless-ng-1.0.3...paperless-ng-1.0.4) (2021-12-19)
 

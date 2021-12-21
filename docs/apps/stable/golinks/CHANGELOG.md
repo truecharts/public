@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="golinks-2.0.26"></a>
+### [golinks-2.0.26](https://github.com/truecharts/apps/compare/golinks-2.0.25...golinks-2.0.26) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="golinks-2.0.25"></a>
 ### [golinks-2.0.25](https://github.com/truecharts/apps/compare/golinks-2.0.24...golinks-2.0.25) (2021-12-19)
 

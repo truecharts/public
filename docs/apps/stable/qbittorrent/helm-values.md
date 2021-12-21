@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/qbittorrent"` |  |
-| image.tag | string | `"v4.3.9@sha256:6508ca6bd05d003d92852d5bd8deaae3176d776a5789ad68199ba1807d43cf8c"` |  |
+| image.tag | string | `"v4.3.9@sha256:b4f43746875fe33ac9614e4eadd4f4becd6b5591c68b731205c937bbd9047fcf"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

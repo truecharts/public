@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/nzbget"` |  |
-| image.tag | string | `"v21.1@sha256:381d4e760ee2de5b2f3a83d1f2885b3bffe891f6b961db0df94986b03868333a"` |  |
+| image.tag | string | `"v21.1@sha256:6c33417ef2e13312379b5c8cecfc327092e95b472d85e955156bc402af80a338"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.enabled | bool | `false` |  |

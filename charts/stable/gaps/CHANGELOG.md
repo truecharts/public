@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gaps-9.0.27"></a>
+### [gaps-9.0.27](https://github.com/truecharts/apps/compare/gaps-9.0.26...gaps-9.0.27) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="gaps-9.0.26"></a>
 ### [gaps-9.0.26](https://github.com/truecharts/apps/compare/gaps-9.0.25...gaps-9.0.26) (2021-12-19)
 

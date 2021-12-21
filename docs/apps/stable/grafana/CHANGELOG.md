@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.11"></a>
+### [grafana-2.0.11](https://github.com/truecharts/apps/compare/grafana-2.0.10...grafana-2.0.11) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
 <a name="grafana-2.0.10"></a>
 ### [grafana-2.0.10](https://github.com/truecharts/apps/compare/grafana-2.0.9...grafana-2.0.10) (2021-12-20)
 

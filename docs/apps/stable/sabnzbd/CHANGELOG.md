@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-9.0.26"></a>
+### [sabnzbd-9.0.26](https://github.com/truecharts/apps/compare/sabnzbd-9.0.25...sabnzbd-9.0.26) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
 <a name="sabnzbd-9.0.25"></a>
 ### [sabnzbd-9.0.25](https://github.com/truecharts/apps/compare/sabnzbd-9.0.24...sabnzbd-9.0.25) (2021-12-19)
 

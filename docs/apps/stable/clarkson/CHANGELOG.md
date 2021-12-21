@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-0.0.17"></a>
+### [clarkson-0.0.17](https://github.com/truecharts/apps/compare/clarkson-0.0.16...clarkson-0.0.17) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="clarkson-0.0.16"></a>
 ### [clarkson-0.0.16](https://github.com/truecharts/apps/compare/clarkson-0.0.15...clarkson-0.0.16) (2021-12-19)
 

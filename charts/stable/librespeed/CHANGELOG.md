@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-4.0.30"></a>
+### [librespeed-4.0.30](https://github.com/truecharts/apps/compare/librespeed-4.0.29...librespeed-4.0.30) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="librespeed-4.0.29"></a>
 ### [librespeed-4.0.29](https://github.com/truecharts/apps/compare/librespeed-4.0.28...librespeed-4.0.29) (2021-12-19)
 

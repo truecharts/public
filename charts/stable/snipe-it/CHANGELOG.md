@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.18"></a>
+### [snipe-it-0.0.18](https://github.com/truecharts/apps/compare/snipe-it-0.0.17...snipe-it-0.0.18) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="snipe-it-0.0.17"></a>
 ### [snipe-it-0.0.17](https://github.com/truecharts/apps/compare/snipe-it-0.0.16...snipe-it-0.0.17) (2021-12-19)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="healthchecks-5.0.7"></a>
+### [healthchecks-5.0.7](https://github.com/truecharts/apps/compare/healthchecks-5.0.6...healthchecks-5.0.7) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="healthchecks-5.0.6"></a>
 ### [healthchecks-5.0.6](https://github.com/truecharts/apps/compare/healthchecks-5.0.5...healthchecks-5.0.6) (2021-12-19)
 

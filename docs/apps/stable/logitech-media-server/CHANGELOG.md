@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.37"></a>
+### [logitech-media-server-2.0.37](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.36...logitech-media-server-2.0.37) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="logitech-media-server-2.0.36"></a>
 ### [logitech-media-server-2.0.36](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.35...logitech-media-server-2.0.36) (2021-12-19)
 

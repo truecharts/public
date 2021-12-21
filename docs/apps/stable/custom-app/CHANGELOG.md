@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.45"></a>
+### [custom-app-3.0.45](https://github.com/truecharts/apps/compare/custom-app-3.0.44...custom-app-3.0.45) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
 <a name="custom-app-3.0.44"></a>
 ### [custom-app-3.0.44](https://github.com/truecharts/apps/compare/custom-app-3.0.43...custom-app-3.0.44) (2021-12-20)
 

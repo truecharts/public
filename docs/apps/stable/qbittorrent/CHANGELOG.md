@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.29"></a>
+### [qbittorrent-9.0.29](https://github.com/truecharts/apps/compare/qbittorrent-9.0.28...qbittorrent-9.0.29) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
 <a name="qbittorrent-9.0.28"></a>
 ### [qbittorrent-9.0.28](https://github.com/truecharts/apps/compare/qbittorrent-9.0.27...qbittorrent-9.0.28) (2021-12-19)
 

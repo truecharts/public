@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-cpu-8.0.8"></a>
+### [deepstack-cpu-8.0.8](https://github.com/truecharts/apps/compare/deepstack-cpu-8.0.7...deepstack-cpu-8.0.8) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="deepstack-cpu-8.0.7"></a>
 ### [deepstack-cpu-8.0.7](https://github.com/truecharts/apps/compare/deepstack-cpu-8.0.6...deepstack-cpu-8.0.7) (2021-12-19)
 

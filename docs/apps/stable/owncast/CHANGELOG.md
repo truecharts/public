@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncast-4.0.26"></a>
+### [owncast-4.0.26](https://github.com/truecharts/apps/compare/owncast-4.0.25...owncast-4.0.26) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="owncast-4.0.25"></a>
 ### [owncast-4.0.25](https://github.com/truecharts/apps/compare/owncast-4.0.24...owncast-4.0.25) (2021-12-19)
 

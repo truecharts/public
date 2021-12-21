@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.29"></a>
+### [pihole-4.0.29](https://github.com/truecharts/apps/compare/pihole-4.0.28...pihole-4.0.29) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
 <a name="pihole-4.0.28"></a>
 ### [pihole-4.0.28](https://github.com/truecharts/apps/compare/pihole-4.0.27...pihole-4.0.28) (2021-12-19)
 
