@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: domoticz
-version: 0.0.8
+version: 0.0.9
 appVersion: "2021.1.202"
 description: "Domoticz is a Home Automation System that lets you monitor and configure various devices like Lights, Switches and much more."
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.24
+  version: 8.9.25
   # condition:
 maintainers:
 - email: info@truecharts.org
