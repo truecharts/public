@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="transmission-10.0.8"></a>
+### [transmission-10.0.8](https://github.com/truecharts/apps/compare/transmission-10.0.7...transmission-10.0.8) (2021-12-21)
+
+#### Chore
+
+* update docker general non-major ([#1597](https://github.com/truecharts/apps/issues/1597))
+
+
+
 <a name="transmission-10.0.7"></a>
 ### [transmission-10.0.7](https://github.com/truecharts/apps/compare/transmission-10.0.6...transmission-10.0.7) (2021-12-21)
 

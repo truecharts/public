@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TRANSMISSION_RPC_PORT | string | `"{{ .Values.service.main.ports.main.targetPort }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/transmission"` |  |
-| image.tag | string | `"v3.00@sha256:9a4f48483b93f74394b69555c9324c746414836de247fbeafec5f53c0b077b9f"` |  |
+| image.tag | string | `"v3.00@sha256:06b6839f7401357797e8aca435e58c87407c6006d74e92b88b10c51855ff0c94"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | secret | object | `{}` |  |

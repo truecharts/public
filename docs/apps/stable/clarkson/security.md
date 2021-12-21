@@ -46,7 +46,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/clarkson:v1.1.2@sha256:a562de3138ee6e85f078f711b52ff8b376aefb7a35ab020bc4ed8f393cf7838a
+          tccr.io/truecharts/clarkson:v1.1.2@sha256:402cbf0c50fc118788e5751acca57732cdc424ee99dd5ce4d6f36b3c793aa38e
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/mariadb:v10.6.5@sha256:405f349cb6348b221f2253ee856f8643a757d7fc2d26508289b86030d7c67fa5
 
