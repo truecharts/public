@@ -14,6 +14,7 @@ podSecurityContext:
 env:
   LEAN_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
   LEAN_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+  LEAN_APP_URL: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}https://{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ end }}{{ end }}"
 
 service:
   main:
