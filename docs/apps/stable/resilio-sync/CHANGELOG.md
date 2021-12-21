@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-4.0.26"></a>
+### [resilio-sync-4.0.26](https://github.com/truecharts/apps/compare/resilio-sync-4.0.25...resilio-sync-4.0.26) (2021-12-21)
+
+#### Fix
+
+* allow access to rootfs ([#1593](https://github.com/truecharts/apps/issues/1593))
+
+
+
 <a name="resilio-sync-4.0.25"></a>
 ### [resilio-sync-4.0.25](https://github.com/truecharts/apps/compare/resilio-sync-4.0.24...resilio-sync-4.0.25) (2021-12-19)
 

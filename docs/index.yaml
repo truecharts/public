@@ -27031,6 +27031,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.7.2.1375
+    created: "2021-12-21T14:35:46.987395432Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.24
+    description: Resilio Sync is a fast, reliable, and simple file sync and share
+      solution, powered by P2P technology
+    digest: 00ac17724f1bc7b8b6ed88ea76714558f5648e07b4254c6d8d72c158ab2beb1f
+    home: https://github.com/truechartsapps/tree/master/charts/stable/resio-sync
+    icon: https://truecharts.org/_static/img/appicons/resilio-sync-icon.png
+    keywords:
+    - resilio
+    - sync
+    - btsync
+    - bittorrent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: resilio-sync
+    sources:
+    - https://github.com/orgs/linuxserver/packages/container/package/resilio-sync
+    urls:
+    - https://github.com/truecharts/apps/releases/download/resilio-sync-4.0.26/resilio-sync-4.0.26.tgz
+    version: 4.0.26
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.7.2.1375
     created: "2021-12-19T23:48:37.81022882Z"
     dependencies:
     - name: common
@@ -33448,4 +33481,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-21T10:42:18.337610952Z"
+generated: "2021-12-21T14:35:46.989485361Z"
