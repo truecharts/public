@@ -150,6 +150,8 @@ service:
         port: 9080
         protocol: HTTP
         redirectTo: websecure
+        # Options: Empty, 0 (ingore), or positive int
+        # redirectPort:
       websecure:
         enabled: true
         port: 9443
