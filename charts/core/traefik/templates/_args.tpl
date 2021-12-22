@@ -68,6 +68,11 @@ args:
   {{- $toPort := index $ports $config.redirectTo }}
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.to=:{{ $toPort.port }}"
   - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
+  {{- else if $config.redirectPort }}
+  {{ if gt $config.redirectPort 0.0 }}
+  - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.to=:{{ $config.redirectPort }}"
+  - "--entrypoints.{{ $entrypoint }}.http.redirections.entryPoint.scheme=https"
+  {{- end }}
   {{- end }}
   {{- if or ( $config.tls ) ( eq $config.protocol "HTTPS" ) }}
   {{- if or ( $config.tls.enabled ) ( eq $config.protocol "HTTPS" ) }}
