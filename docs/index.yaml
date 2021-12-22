@@ -30463,6 +30463,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.5.5
+    created: "2021-12-22T14:36:43.169891807Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.25
+    description: Test App for Traefik
+    digest: f527ccf5f190b18713248e2e1628b7ad954c3143451eb147aac4e36d38810138
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/traefik
+    icon: https://truecharts.org/_static/img/appicons/traefik-icon.png
+    keywords:
+    - traefik
+    - ingress
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    - https://traefik.io/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/traefik-10.0.30/traefik-10.0.30.tgz
+    version: 10.0.30
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - network
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.5.5
     created: "2021-12-19T23:48:42.978330765Z"
     dependencies:
     - name: common
@@ -33592,4 +33625,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-21T19:47:29.772757949Z"
+generated: "2021-12-22T14:36:43.172985831Z"

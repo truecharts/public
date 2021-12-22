@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.30"></a>
+### [traefik-10.0.30](https://github.com/truecharts/apps/compare/traefik-10.0.29...traefik-10.0.30) (2021-12-22)
+
+#### Feat
+
+* allow port-based redirect and move redirect to advanced settings. ([#1601](https://github.com/truecharts/apps/issues/1601))
+
+
+
 <a name="traefik-10.0.29"></a>
 ### [traefik-10.0.29](https://github.com/truecharts/apps/compare/traefik-10.0.28...traefik-10.0.29) (2021-12-21)
 
