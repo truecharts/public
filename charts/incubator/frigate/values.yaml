@@ -36,7 +36,11 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-    size: 500Gi
+    size: 5Gi
+  media:
+    enabled: true
+    mountPath: "/media"
+    size: 1000Gi
   shm:
     enabled: true
     mountPath: "/dev/shm"
