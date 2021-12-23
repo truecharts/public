@@ -1,6 +1,38 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.18"></a>
+### [vaultwarden-13.0.18](https://github.com/truecharts/apps/compare/vaultwarden-13.0.17...vaultwarden-13.0.18) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="vaultwarden-13.0.17"></a>
+### [vaultwarden-13.0.17](https://github.com/truecharts/apps/compare/vaultwarden-13.0.16...vaultwarden-13.0.17) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove hidden vars/configs from `questions.yaml` after making sure they are defined in `values.yaml` ([#1577](https://github.com/truecharts/apps/issues/1577))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
+<a name="vaultwarden-13.0.16"></a>
+### [vaultwarden-13.0.16](https://github.com/truecharts/apps/compare/vaultwarden-13.0.15...vaultwarden-13.0.16) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="vaultwarden-13.0.15"></a>
 ### [vaultwarden-13.0.15](https://github.com/truecharts/apps/compare/vaultwarden-13.0.14...vaultwarden-13.0.15) (2021-12-18)
 

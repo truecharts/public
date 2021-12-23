@@ -13,10 +13,9 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | database.type | string | `"postgresql"` |  |
 | database.wal | bool | `true` |  |
-| env | object | `{}` |  |
+| env.DOMAIN | string | `"https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"` |  |
 | envFrom[0].configMapRef.name | string | `"vaultwardenconfig"` |  |
 | envFrom[1].secretRef.name | string | `"vaultwardensecret"` |  |
-| envTpl.DOMAIN | string | `"https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.key | string | `"url"` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |

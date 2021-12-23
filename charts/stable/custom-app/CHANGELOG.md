@@ -1,6 +1,52 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.45"></a>
+### [custom-app-3.0.45](https://github.com/truecharts/apps/compare/custom-app-3.0.44...custom-app-3.0.45) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
+<a name="custom-app-3.0.44"></a>
+### [custom-app-3.0.44](https://github.com/truecharts/apps/compare/custom-app-3.0.43...custom-app-3.0.44) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1581](https://github.com/truecharts/apps/issues/1581))
+
+
+
+<a name="custom-app-3.0.43"></a>
+### [custom-app-3.0.43](https://github.com/truecharts/apps/compare/custom-app-3.0.42...custom-app-3.0.43) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
+<a name="custom-app-3.0.42"></a>
+### [custom-app-3.0.42](https://github.com/truecharts/apps/compare/custom-app-3.0.41...custom-app-3.0.42) (2021-12-19)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="custom-app-3.0.41"></a>
+### [custom-app-3.0.41](https://github.com/truecharts/apps/compare/custom-app-3.0.40...custom-app-3.0.41) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="custom-app-3.0.40"></a>
 ### [custom-app-3.0.40](https://github.com/truecharts/apps/compare/custom-app-3.0.39...custom-app-3.0.40) (2021-12-18)
 

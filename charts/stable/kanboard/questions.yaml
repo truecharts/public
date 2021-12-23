@@ -119,7 +119,6 @@ questions:
                             schema:
                               type: int
                               default: 10015
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -224,14 +223,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/var/www/app/data"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: ssl
           label: "App SSL Storage"
           description: "Stores the Application SSL."
@@ -274,14 +265,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/etc/nginx/ssl"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 # Include{persistenceList}
 
   - variable: ingress

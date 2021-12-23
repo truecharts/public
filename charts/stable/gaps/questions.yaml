@@ -107,7 +107,6 @@ questions:
                             schema:
                               type: int
                               default: 8484
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -212,14 +211,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/usr/data"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 # Include{persistenceList}
 
   - variable: ingress

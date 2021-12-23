@@ -15,10 +15,10 @@ You will, however, be able to use all values referenced in the common chart here
 | cronjob.failedJobsHistoryLimit | int | `5` |  |
 | cronjob.schedule | string | `"*/5 * * * *"` |  |
 | cronjob.successfulJobsHistoryLimit | int | `2` |  |
+| env.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| env.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.TRUSTED_PROXIES | string | `"172.16.0.0/16"` |  |
 | envFrom[0].configMapRef.name | string | `"nextcloudconfig"` |  |
-| envTpl.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainporthost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
@@ -29,7 +29,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/nextcloud"` |  |
-| image.tag | string | `"v23.0.0@sha256:49412dab7bae97f6b4ce8dedd0e7cd4a39b67fe49a2f1249a95196ccb58c7258"` |  |
+| image.tag | string | `"v23.0.0@sha256:08937edce142d8bf675d5b2f8960fe91433fb59b209248f02742c784446d8b59"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html"` |  |
 | podSecurityContext.fsGroup | int | `33` |  |

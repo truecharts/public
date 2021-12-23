@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.16"></a>
+### [blog-0.0.16](https://github.com/truecharts/apps/compare/blog-0.0.15...blog-0.0.16) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="blog-0.0.15"></a>
+### [blog-0.0.15](https://github.com/truecharts/apps/compare/blog-0.0.14...blog-0.0.15) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
+<a name="blog-0.0.14"></a>
+### [blog-0.0.14](https://github.com/truecharts/apps/compare/blog-0.0.13...blog-0.0.14) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="blog-0.0.13"></a>
+### [blog-0.0.13](https://github.com/truecharts/apps/compare/blog-0.0.12...blog-0.0.13) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="blog-0.0.12"></a>
 ### [blog-0.0.12](https://github.com/truecharts/apps/compare/blog-0.0.11...blog-0.0.12) (2021-12-18)
 

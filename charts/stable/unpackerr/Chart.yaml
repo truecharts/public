@@ -1,15 +1,15 @@
 apiVersion: v2
-appVersion: "0.9.8"
+appVersion: "0.9.9"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.21
+  version: 8.9.25
 deprecated: false
 description: This application runs as a daemon on your download host. It checks for
   completed downloads and extracts them so Radarr, Lidarr, Sonarr, and Readarr may
   import them
 home: https://github.com/truecharts/apps/tree/master/charts/stable/unpackrr
-icon: https://truecharts.org/_static/img/appicons/unpackrr-icon.png
+icon: https://truecharts.org/_static/img/appicons/unpackerr-icon.png
 keywords:
 - unpackerr
 - sonarr
@@ -26,7 +26,7 @@ sources:
 - https://github.com/davidnewhall/unpackerr
 - https://hub.docker.com/r/golift/unpackerr
 type: application
-version: 4.0.24
+version: 4.0.28
 annotations:
   truecharts.org/catagories: |
     - media

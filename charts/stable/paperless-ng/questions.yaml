@@ -205,8 +205,8 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
+        - variable: data
+          label: "App Data Storage"
           description: "This is where paperless stores all its data (search index, classification model, etc)"
           schema:
             type: dict
@@ -247,17 +247,9 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/config"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
-        - variable: static
-          label: "App Static Storage"
-          description: "This is where all static files created using “collectstatic” manager command are stored."
+        - variable: consume
+          label: "To-be consumed Document Storage"
+          description: "This where your documents should go to be consumed."
           schema:
             type: dict
             attrs:
@@ -297,66 +289,8 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/static"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
-        - variable: consume
-          label: "App Data Storage"
-          description: "This where your documents should go to be consumed."
-          schema:
-            type: dict
-            attrs:
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simpleHP"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
-# Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
-# Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/consume"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: media
-          label: "App Media Storage"
+          label: "App Document Storage"
           description: "This is where your documents and thumbnails are stored."
           schema:
             type: dict
@@ -366,7 +300,7 @@ questions:
                 description: "Sets the persistence type, Anything other than PVC could break rollback!"
                 schema:
                   type: string
-                  default: "simpleHP"
+                  default: "simplePVC"
                   enum:
                     - value: "simplePVC"
                       description: "PVC (simple)"
@@ -397,14 +331,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/media"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 # Include{persistenceList}
 
   - variable: ingress

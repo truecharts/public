@@ -1,6 +1,52 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.37"></a>
+### [omada-controller-4.0.37](https://github.com/truecharts/apps/compare/omada-controller-4.0.36...omada-controller-4.0.37) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="omada-controller-4.0.36"></a>
+### [omada-controller-4.0.36](https://github.com/truecharts/apps/compare/omada-controller-4.0.35...omada-controller-4.0.36) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1589](https://github.com/truecharts/apps/issues/1589))
+
+
+
+<a name="omada-controller-4.0.35"></a>
+### [omada-controller-4.0.35](https://github.com/truecharts/apps/compare/omada-controller-4.0.34...omada-controller-4.0.35) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="omada-controller-4.0.34"></a>
+### [omada-controller-4.0.34](https://github.com/truecharts/apps/compare/omada-controller-4.0.33...omada-controller-4.0.34) (2021-12-19)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="omada-controller-4.0.33"></a>
+### [omada-controller-4.0.33](https://github.com/truecharts/apps/compare/omada-controller-4.0.32...omada-controller-4.0.33) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="omada-controller-4.0.32"></a>
 ### [omada-controller-4.0.32](https://github.com/truecharts/apps/compare/omada-controller-4.0.31...omada-controller-4.0.32) (2021-12-18)
 

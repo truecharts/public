@@ -15,17 +15,13 @@ You will, however, be able to use all values referenced in the common chart here
 | env.LOG_DRIVER | string | `"stdout"` | log driver: syslog, stderr, stdout or file |
 | env.MAIL_CONFIGURATION | bool | `false` | Enable/disable email configuration from the user interface |
 | env.TZ | string | `"UTC"` | Set the container timezone |
-| envTpl.DB_DRIVER | string | `"postgres"` |  |
-| envTpl.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.DB_PORT | string | `"5432"` |  |
-| envTpl.DB_USERNAME | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.DB_HOSTNAME.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOSTNAME.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/kanboard"` | image repository |
-| image.tag | string | `"v1.2.20@sha256:1f953b23bf30dbea50a0db78a838c811859d83ab79fe259a93e8fdfe113392f6"` | image tag |
+| image.tag | string | `"v1.2.21@sha256:49f497110c498e0911413082fec4103de068970769874804d6229bd1b0bfec51"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

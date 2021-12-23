@@ -19,8 +19,6 @@ podSecurityContext:
 env:
   # -- Set the container timezone
   TZ: UTC
-
-envTpl:
   DB_TYPE: postgres
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"

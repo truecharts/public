@@ -1,6 +1,45 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.23"></a>
+### [babybuddy-5.0.23](https://github.com/truecharts/apps/compare/babybuddy-5.0.22...babybuddy-5.0.23) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="babybuddy-5.0.22"></a>
+### [babybuddy-5.0.22](https://github.com/truecharts/apps/compare/babybuddy-5.0.21...babybuddy-5.0.22) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1581](https://github.com/truecharts/apps/issues/1581))
+
+
+
+<a name="babybuddy-5.0.21"></a>
+### [babybuddy-5.0.21](https://github.com/truecharts/apps/compare/babybuddy-5.0.20...babybuddy-5.0.21) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="babybuddy-5.0.20"></a>
+### [babybuddy-5.0.20](https://github.com/truecharts/apps/compare/babybuddy-5.0.19...babybuddy-5.0.20) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="babybuddy-5.0.19"></a>
 ### [babybuddy-5.0.19](https://github.com/truecharts/apps/compare/babybuddy-5.0.18...babybuddy-5.0.19) (2021-12-18)
 

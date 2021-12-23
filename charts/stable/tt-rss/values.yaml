@@ -4,7 +4,7 @@ image:
   # -- image pull policy
   pullPolicy: IfNotPresent
   # -- image tag
-  tag: v1.9078.0@sha256:2f2fe216d50c2b95be6463991ea51c657a826eaed30267764147a00e6d2ce4f8
+  tag: v1.9082.0@sha256:20322392e459f2e35f67a855449416dabe335bbe4d9d4b657dcf2f998fa38558
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -25,8 +25,6 @@ persistence:
 env:
   # -- External URL you use to connect to the RSS (the one you enter in your browser)
   TTRSS_SELF_URL_PATH: ""
-
-envTpl:
   TTRSS_DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   TTRSS_DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   TTRSS_DB_PORT: "5432"

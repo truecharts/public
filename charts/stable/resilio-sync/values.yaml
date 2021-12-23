@@ -1,28 +1,20 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/resilio-sync
-  # -- image tag
   tag: version-2.7.2.1375@sha256:54f42485d39a7773ff2e13c27ebfc32fc448eaf13f8972f38e14eedadb0b3a2e
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
   runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-resilio-sync#environment-variables-e) for more details.
-# @default -- See below
 env:
-  # -- Set the container timezone
   TZ: UTC
-  # -- Specify the user ID the application will run as
   PUID: 568
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -45,8 +37,6 @@ service:
         targetPort: 55555
         protocol: UDP
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true

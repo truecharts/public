@@ -1,6 +1,53 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.54"></a>
+### [jackett-9.0.54](https://github.com/truecharts/apps/compare/jackett-9.0.53...jackett-9.0.54) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
+<a name="jackett-9.0.53"></a>
+### [jackett-9.0.53](https://github.com/truecharts/apps/compare/jackett-9.0.52...jackett-9.0.53) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1581](https://github.com/truecharts/apps/issues/1581))
+
+
+
+<a name="jackett-9.0.52"></a>
+### [jackett-9.0.52](https://github.com/truecharts/apps/compare/jackett-9.0.51...jackett-9.0.52) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
+<a name="jackett-9.0.51"></a>
+### [jackett-9.0.51](https://github.com/truecharts/apps/compare/jackett-9.0.50...jackett-9.0.51) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="jackett-9.0.50"></a>
+### [jackett-9.0.50](https://github.com/truecharts/apps/compare/jackett-9.0.49...jackett-9.0.50) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="jackett-9.0.49"></a>
 ### [jackett-9.0.49](https://github.com/truecharts/apps/compare/jackett-9.0.48...jackett-9.0.49) (2021-12-18)
 

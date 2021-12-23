@@ -40,12 +40,6 @@ questions:
             type: string
             default: ""
             required: true
-        - variable: UP_PROMETHEUS_DISABLE
-          label: "Disable Prometheus Metrics"
-          schema:
-            type: boolean
-            default: false
-            hidden: true
 
 # Include{containerConfig}
 

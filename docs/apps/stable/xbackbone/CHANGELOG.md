@@ -1,6 +1,34 @@
 # Changelog<br>
 
 
+<a name="xbackbone-0.0.15"></a>
+### [xbackbone-0.0.15](https://github.com/truecharts/apps/compare/xbackbone-0.0.14...xbackbone-0.0.15) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="xbackbone-0.0.14"></a>
+### [xbackbone-0.0.14](https://github.com/truecharts/apps/compare/xbackbone-0.0.13...xbackbone-0.0.14) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
+<a name="xbackbone-0.0.13"></a>
+### [xbackbone-0.0.13](https://github.com/truecharts/apps/compare/xbackbone-0.0.12...xbackbone-0.0.13) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="xbackbone-0.0.12"></a>
 ### [xbackbone-0.0.12](https://github.com/truecharts/apps/compare/xbackbone-0.0.11...xbackbone-0.0.12) (2021-12-18)
 

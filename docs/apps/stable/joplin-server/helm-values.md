@@ -15,10 +15,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.APP_BASE_URL | string | `"https://joplin.domain"` | joplin-server base URL |
 | env.APP_PORT | int | `22300` | joplin-server listening port (same as Service port) |
 | env.TZ | string | `"UTC"` | Set the container timezone |
-| envTpl.DB_CLIENT | string | `"pg"` |  |
-| envTpl.POSTGRES_DATABASE | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.POSTGRES_PORT | string | `"5432"` |  |
-| envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

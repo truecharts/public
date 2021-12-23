@@ -144,7 +144,6 @@ questions:
                             schema:
                               type: int
                               default: 9089
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -194,19 +193,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 53
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -255,19 +247,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 53
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -372,14 +357,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/etc/pihole"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: dnsmasq
           label: "App dnsmasq.d Storage"
           description: "Stores the Application dnsmasq.d."
@@ -422,14 +399,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/etc/dnsmasq.d"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 # Include{persistenceList}
 
   - variable: ingress

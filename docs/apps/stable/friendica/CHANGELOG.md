@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.19"></a>
+### [friendica-0.0.19](https://github.com/truecharts/apps/compare/friendica-0.0.18...friendica-0.0.19) (2021-12-21)
+
+#### Chore
+
+* update docker general non-major ([#1597](https://github.com/truecharts/apps/issues/1597))
+
+
+
+<a name="friendica-0.0.18"></a>
+### [friendica-0.0.18](https://github.com/truecharts/apps/compare/friendica-0.0.17...friendica-0.0.18) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="friendica-0.0.17"></a>
+### [friendica-0.0.17](https://github.com/truecharts/apps/compare/friendica-0.0.16...friendica-0.0.17) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
+<a name="friendica-0.0.16"></a>
+### [friendica-0.0.16](https://github.com/truecharts/apps/compare/friendica-0.0.15...friendica-0.0.16) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="friendica-0.0.15"></a>
 ### [friendica-0.0.15](https://github.com/truecharts/apps/compare/friendica-0.0.14...friendica-0.0.15) (2021-12-18)
 

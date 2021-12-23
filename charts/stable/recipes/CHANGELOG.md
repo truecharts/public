@@ -1,6 +1,45 @@
 # Changelog<br>
 
 
+<a name="recipes-5.0.4"></a>
+### [recipes-5.0.4](https://github.com/truecharts/apps/compare/recipes-5.0.3...recipes-5.0.4) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="recipes-5.0.3"></a>
+### [recipes-5.0.3](https://github.com/truecharts/apps/compare/recipes-5.0.2...recipes-5.0.3) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1581](https://github.com/truecharts/apps/issues/1581))
+
+
+
+<a name="recipes-5.0.2"></a>
+### [recipes-5.0.2](https://github.com/truecharts/apps/compare/recipes-5.0.1...recipes-5.0.2) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="recipes-5.0.1"></a>
+### [recipes-5.0.1](https://github.com/truecharts/apps/compare/recipes-5.0.0...recipes-5.0.1) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="recipes-5.0.0"></a>
 ### [recipes-5.0.0](https://github.com/truecharts/apps/compare/recipes-4.0.18...recipes-5.0.0) (2021-12-18)
 

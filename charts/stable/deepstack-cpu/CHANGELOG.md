@@ -1,6 +1,45 @@
 # Changelog<br>
 
 
+<a name="deepstack-cpu-8.0.8"></a>
+### [deepstack-cpu-8.0.8](https://github.com/truecharts/apps/compare/deepstack-cpu-8.0.7...deepstack-cpu-8.0.8) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="deepstack-cpu-8.0.7"></a>
+### [deepstack-cpu-8.0.7](https://github.com/truecharts/apps/compare/deepstack-cpu-8.0.6...deepstack-cpu-8.0.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* move `envTpl` to `env` ([#1578](https://github.com/truecharts/apps/issues/1578))
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="deepstack-cpu-8.0.6"></a>
+### [deepstack-cpu-8.0.6](https://github.com/truecharts/apps/compare/deepstack-cpu-8.0.5...deepstack-cpu-8.0.6) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="deepstack-cpu-8.0.5"></a>
+### [deepstack-cpu-8.0.5](https://github.com/truecharts/apps/compare/deepstack-cpu-8.0.4...deepstack-cpu-8.0.5) (2021-12-19)
+
+#### Fix
+
+* default to pvc for modelstore ([#1565](https://github.com/truecharts/apps/issues/1565))
+
+
+
 <a name="deepstack-cpu-8.0.4"></a>
 ### [deepstack-cpu-8.0.4](https://github.com/truecharts/apps/compare/deepstack-cpu-8.0.3...deepstack-cpu-8.0.4) (2021-12-18)
 

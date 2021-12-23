@@ -1,12 +1,7 @@
 image:
   repository: tccr.io/truecharts/unifi
-  tag: v6.5.55@sha256:9297be1525e4e84a98a30f26249f3a7cb67cc9d384e748c8c50f8f902a81dfa5
+  tag: v6.5.55@sha256:c74556ef862dab1534ed848d6efa57f40a11399172230aec57e5e850ce542921
   pullPolicy: IfNotPresent
-
-envTpl:
-  # Permissions Settings
-  UNIFI_GID: "{{ .Values.env.PUID }}"
-  UNIFI_UID: "{{ .Values.podSecurityContext.fsGroup }}"
 
 service:
   main:
@@ -62,6 +57,10 @@ podSecurityContext:
 env:
   # TZ:
   PUID: 568
+  # Permissions Settings
+  UNIFI_GID: "{{ .Values.env.PUID }}"
+  UNIFI_UID: "{{ .Values.podSecurityContext.fsGroup }}"
+
 persistence:
   config:
     enabled: true

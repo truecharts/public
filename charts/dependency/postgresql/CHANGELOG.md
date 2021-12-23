@@ -1,6 +1,52 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.37"></a>
+### [postgresql-6.0.37](https://github.com/truecharts/apps/compare/postgresql-6.0.36...postgresql-6.0.37) (2021-12-21)
+
+#### Chore
+
+* update helm chart common to v8.9.25 ([#1592](https://github.com/truecharts/apps/issues/1592))
+
+
+
+<a name="postgresql-6.0.36"></a>
+### [postgresql-6.0.36](https://github.com/truecharts/apps/compare/postgresql-6.0.35...postgresql-6.0.36) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1585](https://github.com/truecharts/apps/issues/1585))
+
+
+
+<a name="postgresql-6.0.35"></a>
+### [postgresql-6.0.35](https://github.com/truecharts/apps/compare/postgresql-6.0.34...postgresql-6.0.35) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="postgresql-6.0.34"></a>
+### [postgresql-6.0.34](https://github.com/truecharts/apps/compare/postgresql-6.0.33...postgresql-6.0.34) (2021-12-19)
+
+#### Chore
+
+* update helm chart common to v8.9.24 ([#1570](https://github.com/truecharts/apps/issues/1570))
+
+
+
+<a name="postgresql-6.0.33"></a>
+### [postgresql-6.0.33](https://github.com/truecharts/apps/compare/postgresql-6.0.32...postgresql-6.0.33) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="postgresql-6.0.32"></a>
 ### [postgresql-6.0.32](https://github.com/truecharts/apps/compare/postgresql-6.0.31...postgresql-6.0.32) (2021-12-18)
 

@@ -1,6 +1,35 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.8"></a>
+### [fireflyiii-13.1.8](https://github.com/truecharts/apps/compare/fireflyiii-13.1.7...fireflyiii-13.1.8) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="fireflyiii-13.1.7"></a>
+### [fireflyiii-13.1.7](https://github.com/truecharts/apps/compare/fireflyiii-13.1.6...fireflyiii-13.1.7) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="fireflyiii-13.1.6"></a>
+### [fireflyiii-13.1.6](https://github.com/truecharts/apps/compare/fireflyiii-13.1.5...fireflyiii-13.1.6) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="fireflyiii-13.1.5"></a>
 ### [fireflyiii-13.1.5](https://github.com/truecharts/apps/compare/fireflyiii-13.1.4...fireflyiii-13.1.5) (2021-12-18)
 

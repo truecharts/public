@@ -111,20 +111,6 @@ questions:
           schema:
             type: boolean
             default: true
-        - variable: STATUS_HTTP_PORT
-          label: "STATUS_HTTP_PORT"
-          schema:
-            type: int
-            default: 9010
-            hidden: true
-            required: true
-        - variable: SUPERVISOR_HTTP_PORT
-          label: "SUPERVISOR_HTTP_PORT"
-          schema:
-            type: int
-            default: 9011
-            hidden: true
-            required: true
         - variable: SUPERVISOR_HTTP
           label: "SUPERVISOR_HTTP"
           schema:
@@ -135,13 +121,6 @@ questions:
           schema:
             type: string
             default: "My Server"
-            required: true
-        - variable: SERVER_PORT
-          label: "SERVER_PORT"
-          schema:
-            type: int
-            default: 2456
-            hidden: true
             required: true
         - variable: WORLD_NAME
           label: "WORLD_NAME"
@@ -210,7 +189,6 @@ questions:
                             schema:
                               type: int
                               default: 9010
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -260,19 +238,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 9011
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -322,19 +293,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 2456
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -376,19 +340,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 2457
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -430,19 +387,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 2458
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -547,14 +497,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/config"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
         - variable: backups
           label: "App backups Storage"
           description: "Stores the Application backups."
@@ -597,14 +539,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/backups"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 # Include{persistenceList}
 
   - variable: ingress

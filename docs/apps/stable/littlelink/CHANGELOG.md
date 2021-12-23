@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.40"></a>
+### [littlelink-4.0.40](https://github.com/truecharts/apps/compare/littlelink-4.0.39...littlelink-4.0.40) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="littlelink-4.0.39"></a>
+### [littlelink-4.0.39](https://github.com/truecharts/apps/compare/littlelink-4.0.38...littlelink-4.0.39) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="littlelink-4.0.38"></a>
+### [littlelink-4.0.38](https://github.com/truecharts/apps/compare/littlelink-4.0.37...littlelink-4.0.38) (2021-12-19)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="littlelink-4.0.37"></a>
+### [littlelink-4.0.37](https://github.com/truecharts/apps/compare/littlelink-4.0.36...littlelink-4.0.37) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="littlelink-4.0.36"></a>
 ### [littlelink-4.0.36](https://github.com/truecharts/apps/compare/littlelink-4.0.35...littlelink-4.0.36) (2021-12-18)
 

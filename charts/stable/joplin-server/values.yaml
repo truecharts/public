@@ -23,8 +23,6 @@ env:
   APP_BASE_URL: https://joplin.domain
   # -- joplin-server listening port (same as Service port)
   APP_PORT: 22300
-
-envTpl:
   DB_CLIENT: "pg"
   POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"

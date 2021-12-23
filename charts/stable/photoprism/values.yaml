@@ -2,7 +2,7 @@ image:
   # -- image repository
   repository: tccr.io/truecharts/photoprism
   # -- image tag
-  tag: v20211210@sha256:46569b145fbc56de72a9e1c9564627b757eada841179c516287e253ea4c776a6
+  tag: v20211215@sha256:2f98a254657a06f0648f66d3bf14a9d190c5e7fa8b6d25e5970aa854a1d891f0
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -18,23 +18,23 @@ env:
   # -- Set the container timezone
   TZ: UTC
   # -- Photoprism originals path
-  PHOTOPRISM_ORIGINALS_PATH: /photoprism/originals
+  PHOTOPRISM_ORIGINALS_PATH: "/photoprism/originals"
   # -- Photoprism import path
-  PHOTOPRISM_IMPORT_PATH: /photoprism/import
+  PHOTOPRISM_IMPORT_PATH: "/photoprism/import"
   # -- Photoprism temp path
-  PHOTOPRISM_TEMP_PATH: /photoprism/temp
+  PHOTOPRISM_TEMP_PATH: "/photoprism/temp"
   # -- Photoprism storage path
-  PHOTOPRISM_STORAGE_PATH: /assets/storage
+  PHOTOPRISM_STORAGE_PATH: "/assets/storage"
   # -- Photoprism sidecar path
-  PHOTOPRISM_SIDECAR_PATH: /assets/sidecar
+  PHOTOPRISM_SIDECAR_PATH: "/assets/sidecar"
   # -- Photoprism cache path
-  PHOTOPRISM_CACHE_PATH: /assets/cache
+  PHOTOPRISM_CACHE_PATH: "/assets/cache"
   # -- Photoprism config path
-  PHOTOPRISM_CONFIG_PATH: /assets/config
+  PHOTOPRISM_CONFIG_PATH: "/assets/config"
   # -- Photoprism backup path
-  PROTOPRISM_BACKUP_PATH: /assets/backup
+  PROTOPRISM_BACKUP_PATH: "/assets/backup"
   # -- Disable authentication / password protection
-  PHOTOPRISM_PUBLIC: "false"
+  PHOTOPRISM_PUBLIC: false
   # -- Sets UID Photoprism runs under.
   UID:  # 1000
   # -- Sets GID Photoprism runs under.

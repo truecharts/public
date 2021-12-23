@@ -1,6 +1,36 @@
 # Changelog<br>
 
 
+<a name="tvheadend-10.0.26"></a>
+### [tvheadend-10.0.26](https://github.com/truecharts/apps/compare/tvheadend-10.0.25...tvheadend-10.0.26) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="tvheadend-10.0.25"></a>
+### [tvheadend-10.0.25](https://github.com/truecharts/apps/compare/tvheadend-10.0.24...tvheadend-10.0.25) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+* remove `Enable the port` button from `questions.yaml` as it was already hidden and defined in `values.yaml` ([#1575](https://github.com/truecharts/apps/issues/1575))
+
+
+
+<a name="tvheadend-10.0.24"></a>
+### [tvheadend-10.0.24](https://github.com/truecharts/apps/compare/tvheadend-10.0.23...tvheadend-10.0.24) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="tvheadend-10.0.23"></a>
 ### [tvheadend-10.0.23](https://github.com/truecharts/apps/compare/tvheadend-10.0.22...tvheadend-10.0.23) (2021-12-18)
 

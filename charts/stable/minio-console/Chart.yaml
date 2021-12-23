@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.12.8"
+appVersion: "0.12.9"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.21
+  version: 8.9.25
 description: A management console for minio server and operator
 home: https://github.com/truecharts/apps/tree/master/charts/stable/minio-console
 icon: https://truecharts.org/_static/img/appicons/minio-console-icon.png
@@ -19,7 +19,7 @@ maintainers:
 name: minio-console
 sources:
 - https://github.com/minio/console
-version: 1.0.28
+version: 1.0.32
 annotations:
   truecharts.org/catagories: |
     - media

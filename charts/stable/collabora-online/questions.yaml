@@ -7,7 +7,15 @@ portals:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
-    path: "/loleaflet/dist/admin/admin.html"
+    path: "/"
+  admin:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+    path: "/browser/dist/admin/admin.html"
 questions:
   - variable: portal
     group: "Container Image"
@@ -161,7 +169,6 @@ questions:
                             schema:
                               type: int
                               default: 10105
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"

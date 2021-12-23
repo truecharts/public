@@ -1,6 +1,45 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.45"></a>
+### [prowlarr-4.0.45](https://github.com/truecharts/apps/compare/prowlarr-4.0.44...prowlarr-4.0.45) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
+<a name="prowlarr-4.0.44"></a>
+### [prowlarr-4.0.44](https://github.com/truecharts/apps/compare/prowlarr-4.0.43...prowlarr-4.0.44) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="prowlarr-4.0.43"></a>
+### [prowlarr-4.0.43](https://github.com/truecharts/apps/compare/prowlarr-4.0.42...prowlarr-4.0.43) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="prowlarr-4.0.42"></a>
+### [prowlarr-4.0.42](https://github.com/truecharts/apps/compare/prowlarr-4.0.41...prowlarr-4.0.42) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="prowlarr-4.0.41"></a>
 ### [prowlarr-4.0.41](https://github.com/truecharts/apps/compare/prowlarr-4.0.40...prowlarr-4.0.41) (2021-12-18)
 

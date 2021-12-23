@@ -1,6 +1,35 @@
 # Changelog<br>
 
 
+<a name="smokeping-1.0.28"></a>
+### [smokeping-1.0.28](https://github.com/truecharts/apps/compare/smokeping-1.0.27...smokeping-1.0.28) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="smokeping-1.0.27"></a>
+### [smokeping-1.0.27](https://github.com/truecharts/apps/compare/smokeping-1.0.26...smokeping-1.0.27) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="smokeping-1.0.26"></a>
+### [smokeping-1.0.26](https://github.com/truecharts/apps/compare/smokeping-1.0.25...smokeping-1.0.26) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="smokeping-1.0.25"></a>
 ### [smokeping-1.0.25](https://github.com/truecharts/apps/compare/smokeping-1.0.24...smokeping-1.0.25) (2021-12-18)
 

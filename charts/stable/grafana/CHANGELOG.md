@@ -1,6 +1,53 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.11"></a>
+### [grafana-2.0.11](https://github.com/truecharts/apps/compare/grafana-2.0.10...grafana-2.0.11) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
+<a name="grafana-2.0.10"></a>
+### [grafana-2.0.10](https://github.com/truecharts/apps/compare/grafana-2.0.9...grafana-2.0.10) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1581](https://github.com/truecharts/apps/issues/1581))
+
+
+
+<a name="grafana-2.0.9"></a>
+### [grafana-2.0.9](https://github.com/truecharts/apps/compare/grafana-2.0.8...grafana-2.0.9) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+
+
+
+<a name="grafana-2.0.8"></a>
+### [grafana-2.0.8](https://github.com/truecharts/apps/compare/grafana-2.0.7...grafana-2.0.8) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="grafana-2.0.7"></a>
+### [grafana-2.0.7](https://github.com/truecharts/apps/compare/grafana-2.0.6...grafana-2.0.7) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="grafana-2.0.6"></a>
 ### [grafana-2.0.6](https://github.com/truecharts/apps/compare/grafana-2.0.5...grafana-2.0.6) (2021-12-18)
 

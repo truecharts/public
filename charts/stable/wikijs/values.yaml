@@ -2,7 +2,7 @@ image:
   # -- image repository
   repository: tccr.io/truecharts/wikijs
   # -- image tag
-  tag: v2.5.255@sha256:0eba2ff85e7cc877e9036d0b47e98e2a83c65998575908f7e9cddc626f2b8902
+  tag: v2.5.260@sha256:49e014e4774c5cbbbcc9327f437224b748547859ca540211e63051ed60461c5b
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -20,8 +20,6 @@ env:
   # -- Set the container timezone
   PUID: 568
   TZ: UTC
-
-envTpl:
   DB_TYPE: "postgres"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"

@@ -24,11 +24,6 @@ You will, however, be able to use all values referenced in the common chart here
 | additionalContainers.nginx.volumeMounts[2].mountPath | string | `"/static"` |  |
 | additionalContainers.nginx.volumeMounts[2].name | string | `"static"` |  |
 | env | object | See below | environment variables. See [project docs](https://raw.githubusercontent.com/vabene1111/recipes/master/.env.template) for more details. |
-| envTpl.DB_ENGINE | string | `"django.db.backends.postgresql"` |  |
-| envTpl.POSTGRES_DB | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.POSTGRES_PORT | string | `"5432"` |  |
-| envTpl.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
-| envTpl.TIMEZONE | string | `"{{ .Values.env.TZ }}"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
@@ -37,7 +32,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.SECRET_KEY.secretKeyRef.name | string | `"recipes-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/recipes"` | image repository |
-| image.tag | string | `"v1.0.2@sha256:d61f230769c64948f1b2c56ec189666bb08821b02f383f4e0c299c35d2542cbc"` | image tag |
+| image.tag | string | `"v1.0.3@sha256:293f8d08b8326899e9ce0f4c4c8ffac521c22f168290ddfa0db1da0b81bda296"` | image tag |
 | nginxImage.repository | string | `"tccr.io/truecharts/nginx"` | nginx sidecar image repository |
 | nginxImage.tag | string | `"v1.21.4@sha256:81b9486bd8b0f8c9d933013a4b4a6267463625e0dcc756c01ec766ba386f6c93"` | nginx sidecar image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |

@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
-| envTpl.USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
+| env.USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

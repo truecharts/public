@@ -571,7 +571,6 @@ questions:
                             schema:
                               type: int
                               default: 9000
-                              editable: true
                               required: true
         - variable: tcp
           label: "TCP Service"
@@ -585,6 +584,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Entrypoints Port"
+                            schema:
+                              type: int
+                              default: 9080
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -618,24 +623,26 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9080
-                          - variable: port
-                            label: "Entrypoints Port"
-                            schema:
-                              type: int
-                              default: 9080
-                              editable: true
-                              required: true
-                          - variable: redirectTo
-                            label: "Redirect to"
-                            schema:
-                              type: string
-                              default: "websecure"
+                                - variable: redirectPort
+                                  label: "Redirect to Port"
+                                  schema:
+                                    type: int
+                                - variable: redirectTo
+                                  label: "Redirect to Entrypoint"
+                                  schema:
+                                    type: string
+                                    default: "websecure"
                     - variable: websecure
                       label: "websecure Entrypoints Configuration"
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Entrypoints Port"
+                            schema:
+                              type: int
+                              default: 9443
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -669,14 +676,14 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9443
-                          - variable: port
-                            label: "Entrypoints Port"
-                            schema:
-                              type: int
-                              default: 9443
-                              editable: true
-                              required: true
+                                - variable: redirectPort
+                                  label: "Redirect to Port"
+                                  schema:
+                                    type: int
+                                - variable: redirectTo
+                                  label: "Redirect to Entrypoint"
+                                  schema:
+                                    type: string
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
                             schema:
@@ -739,6 +746,14 @@ questions:
                                   schema:
                                     type: boolean
                                     default: true
+                                - variable: redirectPort
+                                  label: "Redirect to Port"
+                                  schema:
+                                    type: int
+                                - variable: redirectTo
+                                  label: "Redirect to Entrypoint"
+                                  schema:
+                                    type: string
         - variable: metrics
           label: "metrics Service"
           description: "The metrics Entrypoint service"
@@ -757,7 +772,6 @@ questions:
                             schema:
                               type: int
                               default: 9100
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"

@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_PW.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/friendica"` |  |
-| image.tag | string | `"v2021.09@sha256:5af8766837016690d589a928e800ebd67718a348822e3ecb31e24b45bb6cf8a0"` |  |
+| image.tag | string | `"v2021.09@sha256:8baa6a742817d4e7763eea78eb6a9839a401b265ba40756576a71a6fdc7291bb"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"friendica"` |  |

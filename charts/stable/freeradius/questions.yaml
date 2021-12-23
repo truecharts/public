@@ -101,7 +101,6 @@ questions:
                             schema:
                               type: int
                               default: 1812
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -156,7 +155,6 @@ questions:
                             schema:
                               type: int
                               default: 1813
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -262,14 +260,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/etc/raddb"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 
 # Include{persistenceList}
 

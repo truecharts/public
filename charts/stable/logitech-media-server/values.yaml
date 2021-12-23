@@ -1,17 +1,15 @@
 image:
   repository: tccr.io/truecharts/logitechmediaserver
   pullPolicy: IfNotPresent
-  tag: v8.3.0@sha256:7878bc7b14c5d72491081c7319293efdba77e49d33fc9bbdcbd1637a539a3606
+  tag: v8.3.0@sha256:85e5f84e99eb4db408361425c76e36f9d9b5f07b91d3c451be43cc3e0cb6d783
 env:
   # Permissions Settings
   PUID: 568
-
-envTpl:
+  HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
   # Port to host the web service on. This will be the internal container port exposed and needs to be the same as the public service port.
   # The main http port always has to be a 1:1 mapping between external and internal port.
   # You can't just map it like -p 9002:9000, as Logitech Media Server is telling players on which port to connect.
   # Therefore if you have to use a different http port for LMS (other than 9000) you'll have to set the HTTP_PORT environment variable
-  HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
 
 securityContext:
   readOnlyRootFilesystem: false

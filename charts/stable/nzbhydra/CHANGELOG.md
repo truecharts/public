@@ -1,6 +1,36 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-9.0.30"></a>
+### [nzbhydra-9.0.30](https://github.com/truecharts/apps/compare/nzbhydra-9.0.29...nzbhydra-9.0.30) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
+<a name="nzbhydra-9.0.29"></a>
+### [nzbhydra-9.0.29](https://github.com/truecharts/apps/compare/nzbhydra-9.0.28...nzbhydra-9.0.29) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="nzbhydra-9.0.28"></a>
+### [nzbhydra-9.0.28](https://github.com/truecharts/apps/compare/nzbhydra-9.0.27...nzbhydra-9.0.28) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
 <a name="nzbhydra-9.0.27"></a>
 ### [nzbhydra-9.0.27](https://github.com/truecharts/apps/compare/nzbhydra-9.0.26...nzbhydra-9.0.27) (2021-12-18)
 

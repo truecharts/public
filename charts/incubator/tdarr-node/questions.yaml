@@ -97,14 +97,6 @@ questions:
             required: true
             $ref:
               - "definitions/nodeIP"
-        - variable: nodePort
-          label: "nodePort"
-          description: "Sets the port of this node."
-          schema:
-            type: int
-            required: true
-            hidden: true
-            default: 8267
         - variable: serverIP
           label: "serverIP"
           description: "Sets the serverIP, to which this node will connect. Use the service name if the node is in the same cluster"
@@ -147,7 +139,6 @@ questions:
                             schema:
                               type: int
                               default: 8267
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"

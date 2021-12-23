@@ -1,6 +1,53 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.35"></a>
+### [lazylibrarian-9.0.35](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.34...lazylibrarian-9.0.35) (2021-12-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1596](https://github.com/truecharts/apps/issues/1596))
+
+
+
+<a name="lazylibrarian-9.0.34"></a>
+### [lazylibrarian-9.0.34](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.33...lazylibrarian-9.0.34) (2021-12-20)
+
+#### Chore
+
+* update docker general non-major ([#1589](https://github.com/truecharts/apps/issues/1589))
+
+
+
+<a name="lazylibrarian-9.0.33"></a>
+### [lazylibrarian-9.0.33](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.32...lazylibrarian-9.0.33) (2021-12-19)
+
+#### Chore
+
+* Last patch bump before RC2 branch-off
+* remove `editable: true` as this is the default ([#1576](https://github.com/truecharts/apps/issues/1576))
+
+
+
+<a name="lazylibrarian-9.0.32"></a>
+### [lazylibrarian-9.0.32](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.31...lazylibrarian-9.0.32) (2021-12-19)
+
+#### Chore
+
+* completely remove mountPath reference from GUI ([#1572](https://github.com/truecharts/apps/issues/1572))
+* update helm general non-major helm releases ([#1571](https://github.com/truecharts/apps/issues/1571))
+
+
+
+<a name="lazylibrarian-9.0.31"></a>
+### [lazylibrarian-9.0.31](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.30...lazylibrarian-9.0.31) (2021-12-19)
+
+#### Chore
+
+* update docker general non-major ([#1567](https://github.com/truecharts/apps/issues/1567))
+
+
+
 <a name="lazylibrarian-9.0.30"></a>
 ### [lazylibrarian-9.0.30](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.29...lazylibrarian-9.0.30) (2021-12-18)
 

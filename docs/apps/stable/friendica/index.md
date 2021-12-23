@@ -18,9 +18,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | mariadb | 1.0.34 |
-| https://truecharts.org | common | 8.9.21 |
-| https://truecharts.org | redis | 1.0.36 |
+| https://truecharts.org/ | mariadb | 1.0.40 |
+| https://truecharts.org | common | 8.9.25 |
+| https://truecharts.org | redis | 1.0.42 |
 
 ## Installing the Chart
 

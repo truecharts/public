@@ -90,30 +90,6 @@ questions:
             type: int
             required: true
             default: 568
-        - variable: serverIP
-          label: "serverIP"
-          description: "Sets the serverIP."
-          schema:
-            type: string
-            required: true
-            hidden: true
-            default: "localhost"
-        - variable: serverPort
-          label: "serverPort"
-          description: "Sets the server's comm port."
-          schema:
-            type: int
-            required: true
-            hidden: true
-            default: 8266
-        - variable: webUIPort
-          label: "webUIPort"
-          description: "Sets the webUIPort."
-          schema:
-            type: int
-            required: true
-            hidden: true
-            default: 8265
 
 # Include{containerConfig}
 
@@ -141,7 +117,6 @@ questions:
                             schema:
                               type: int
                               default: 8265
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -191,19 +166,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8266
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"

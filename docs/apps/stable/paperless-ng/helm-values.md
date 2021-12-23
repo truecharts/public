@@ -12,16 +12,16 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.PAPERLESS_CONSUMPTION_DIR | string | `"/consume/"` |  |
-| env.PAPERLESS_DATA_DIR | string | `"/config/"` |  |
+| env.PAPERLESS_DATA_DIR | string | `"/data/"` |  |
+| env.PAPERLESS_DBNAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
+| env.PAPERLESS_DBPORT | string | `"5432"` |  |
+| env.PAPERLESS_DBUSER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.PAPERLESS_MEDIA_ROOT | string | `"/media/"` |  |
 | env.PAPERLESS_STATICDIR | string | `"/static/"` |  |
+| env.PAPERLESS_TIME_ZONE | string | `"{{ .Values.env.TZ }}"` |  |
 | env.PUID | int | `568` |  |
-| envTpl.PAPERLESS_DBNAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
-| envTpl.PAPERLESS_DBPORT | string | `"5432"` |  |
-| envTpl.PAPERLESS_DBUSER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
-| envTpl.PAPERLESS_TIME_ZONE | string | `"{{ .Values.env.TZ }}"` |  |
-| envTpl.USERMAP_GID | string | `"{{ .Values.env.PGID }}"` |  |
-| envTpl.USERMAP_UID | string | `"{{ .Values.env.PUID }}"` |  |
+| env.USERMAP_GID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
+| env.USERMAP_UID | string | `"{{ .Values.env.PUID }}"` |  |
 | envValueFrom.PAPERLESS_DBHOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.PAPERLESS_DBHOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.PAPERLESS_DBPASS.secretKeyRef.key | string | `"postgresql-password"` |  |
@@ -32,11 +32,11 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.PAPERLESS_SECRET_KEY.secretKeyRef.name | string | `"paperlessng-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/paperless-ng"` |  |
-| image.tag | string | `"v1.5.0@sha256:aef66d1bd436e237d0f6eb87dc5c0efe437b9ebcb4f20383dc36c165308df755"` |  |
-| persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/config"` |  |
+| image.tag | string | `"v1.5.0@sha256:94b00a3fb7e829a6a86d8bfd01abd558d20286976501716b6148a504e6544e3a"` |  |
 | persistence.consume.enabled | bool | `true` |  |
 | persistence.consume.mountPath | string | `"/consume"` |  |
+| persistence.data.enabled | bool | `true` |  |
+| persistence.data.mountPath | string | `"/data"` |  |
 | persistence.media.enabled | bool | `true` |  |
 | persistence.media.mountPath | string | `"/media"` |  |
 | persistence.static.enabled | bool | `true` |  |
@@ -49,7 +49,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlUsername | string | `"paperless-ng"` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
-| redis.redisUsername | string | `"paperless-ng"` |  |
+| redis.redisUsername | string | `"default"` |  |
 | secret.PAPERLESS_ADMIN_MAIL | string | `"admin@admin.com"` |  |
 | secret.PAPERLESS_ADMIN_PASSWORD | string | `"admin"` |  |
 | secret.PAPERLESS_ADMIN_USER | string | `"admin"` |  |

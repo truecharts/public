@@ -11,16 +11,28 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See [image docs](https://docs.linuxserver.io/images/docker-resilio-sync#environment-variables-e) for more details. |
-| env.PUID | int | `568` | Specify the user ID the application will run as |
-| env.TZ | string | `"UTC"` | Set the container timezone |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"tccr.io/truecharts/resilio-sync"` | image repository |
-| image.tag | string | `"version-2.7.2.1375@sha256:54f42485d39a7773ff2e13c27ebfc32fc448eaf13f8972f38e14eedadb0b3a2e"` | image tag |
-| persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| env.PUID | int | `568` |  |
+| env.TZ | string | `"UTC"` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"tccr.io/truecharts/resilio-sync"` |  |
+| image.tag | string | `"version-2.7.2.1375@sha256:54f42485d39a7773ff2e13c27ebfc32fc448eaf13f8972f38e14eedadb0b3a2e"` |  |
+| persistence.config.enabled | bool | `true` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
+| persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service.bt-tcp.enabled | bool | `true` |  |
+| service.bt-tcp.ports.bt-tcp.enabled | bool | `true` |  |
+| service.bt-tcp.ports.bt-tcp.port | int | `55555` |  |
+| service.bt-tcp.ports.bt-tcp.targetPort | int | `55555` |  |
+| service.bt-udp.enabled | bool | `true` |  |
+| service.bt-udp.ports.bt-udp.enabled | bool | `true` |  |
+| service.bt-udp.ports.bt-udp.port | int | `55555` |  |
+| service.bt-udp.ports.bt-udp.protocol | string | `"UDP"` |  |
+| service.bt-udp.ports.bt-udp.targetPort | int | `55555` |  |
+| service.main.ports.main.port | int | `8888` |  |
+| service.main.ports.main.targetPort | int | `8888` |  |
 
 All Rights Reserved - The TrueCharts Project

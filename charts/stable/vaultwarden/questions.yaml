@@ -342,13 +342,6 @@ questions:
           schema:
             type: int
             default: 600
-        - variable: enableWebsockets
-          label: "Enable Websocket Connections"
-          description: "Enable Websockets for notification. https://github.com/dani-garcia/vaultwarden/wiki/Enabling-WebSocket-notifications"
-          schema:
-            type: boolean
-            default: true
-            hidden: true
         - variable: enableWebVault
           label: "Enable Webvault"
           description: "Enable Web Vault (static content). https://github.com/dani-garcia/vaultwarden/wiki/Disabling-or-overriding-the-Vault-interface-hosting"
@@ -402,7 +395,6 @@ questions:
                             schema:
                               type: int
                               default: 10102
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -452,19 +444,12 @@ questions:
                       schema:
                         type: dict
                         attrs:
-                          - variable: enabled
-                            label: "Enable the port"
-                            schema:
-                              type: boolean
-                              default: true
-                              hidden: true
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 3012
-                              editable: true
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -569,14 +554,6 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-                    - variable: mountPath
-                      label: "mountPath (Non-editable"
-                      description: "Path inside the container the storage is mounted"
-                      schema:
-                        type: string
-                        default: "/data"
-                        editable: false
-                        valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
 
 # Include{persistenceList}
 

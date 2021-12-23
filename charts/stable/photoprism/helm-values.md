@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PHOTOPRISM_CONFIG_PATH | string | `"/assets/config"` | Photoprism config path |
 | env.PHOTOPRISM_IMPORT_PATH | string | `"/photoprism/import"` | Photoprism import path |
 | env.PHOTOPRISM_ORIGINALS_PATH | string | `"/photoprism/originals"` | Photoprism originals path |
-| env.PHOTOPRISM_PUBLIC | string | `"false"` | Disable authentication / password protection |
+| env.PHOTOPRISM_PUBLIC | bool | `false` | Disable authentication / password protection |
 | env.PHOTOPRISM_SIDECAR_PATH | string | `"/assets/sidecar"` | Photoprism sidecar path |
 | env.PHOTOPRISM_STORAGE_PATH | string | `"/assets/storage"` | Photoprism storage path |
 | env.PHOTOPRISM_TEMP_PATH | string | `"/photoprism/temp"` | Photoprism temp path |
@@ -30,7 +30,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/photoprism"` | image repository |
-| image.tag | string | `"v20211210@sha256:46569b145fbc56de72a9e1c9564627b757eada841179c516287e253ea4c776a6"` | image tag |
+| image.tag | string | `"v20211215@sha256:2f98a254657a06f0648f66d3bf14a9d190c5e7fa8b6d25e5970aa854a1d891f0"` | image tag |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"photoprism"` |  |

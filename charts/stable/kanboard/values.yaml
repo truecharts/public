@@ -2,7 +2,7 @@ image:
   # -- image repository
   repository: tccr.io/truecharts/kanboard
   # -- image tag
-  tag: v1.2.20@sha256:1f953b23bf30dbea50a0db78a838c811859d83ab79fe259a93e8fdfe113392f6
+  tag: v1.2.21@sha256:49f497110c498e0911413082fec4103de068970769874804d6229bd1b0bfec51
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -24,8 +24,6 @@ env:
   MAIL_CONFIGURATION: false
   # -- log driver: syslog, stderr, stdout or file
   LOG_DRIVER: stdout
-
-envTpl:
   DB_DRIVER: "postgres"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"

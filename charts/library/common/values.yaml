@@ -14,7 +14,7 @@ wireguardImage:
   # -- Specify the WireGuard image
   repository: ghcr.io/truecharts/wireguard
   # -- Specify the WireGuard image tag
-  tag: v1.0.20210914@sha256:bd73721b87689a1b48c648f3bfc9dbd8b8916199610f0d6c1f58cc6956eedb7e
+  tag: v1.0.20210914@sha256:31da911257a76ac8278b0e462fd2da02e8aeac349af3cf2a5279c4bc99f51f8d
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.1.0@sha256:9d1b935c4090cb425edf1935eafb4169064e59bf25ed286509bc9c6077609d62
+  tag: v14.1.0@sha256:8eea4042533c968e93d292df002c2e2893609e593366d59c15160be37778a0d8
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 

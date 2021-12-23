@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/paperless-ng
   pullPolicy: IfNotPresent
-  tag: v1.5.0@sha256:aef66d1bd436e237d0f6eb87dc5c0efe437b9ebcb4f20383dc36c165308df755
+  tag: v1.5.0@sha256:94b00a3fb7e829a6a86d8bfd01abd558d20286976501716b6148a504e6544e3a
 
 securityContext:
   runAsNonRoot: false
@@ -18,14 +18,11 @@ secret:
 
 env:
   PUID: 568
-  PAPERLESS_DATA_DIR: "/config/"
-  PAPERLESS_STATICDIR: "/static/"
+  PAPERLESS_DATA_DIR: "/data/"
   PAPERLESS_CONSUMPTION_DIR: "/consume/"
   PAPERLESS_MEDIA_ROOT: "/media/"
-
-envTpl:
   USERMAP_UID: "{{ .Values.env.PUID }}"
-  USERMAP_GID: "{{ .Values.env.PGID }}"
+  USERMAP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
   PAPERLESS_TIME_ZONE: "{{ .Values.env.TZ }}"
   PAPERLESS_DBNAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   PAPERLESS_DBUSER: "{{ .Values.postgresql.postgresqlUsername }}"
@@ -57,15 +54,12 @@ service:
         port: 10140
 
 persistence:
-  config:
+  data:
     enabled: true
-    mountPath: "/config"
+    mountPath: "/data"
   consume:
     enabled: true
     mountPath: "/consume"
-  static:
-    enabled: true
-    mountPath: "/static"
   media:
     enabled: true
     mountPath: "/media"
@@ -73,7 +67,7 @@ persistence:
 redis:
   enabled: true
   existingSecret: "rediscreds"
-  redisUsername: paperless-ng
+  redisUsername: default
 
 postgresql:
   enabled: true
