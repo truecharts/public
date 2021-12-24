@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nntp2nntp-0.0.8"></a>
+### [nntp2nntp-0.0.8](https://github.com/truecharts/apps/compare/nntp2nntp-0.0.7...nntp2nntp-0.0.8) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1609](https://github.com/truecharts/apps/issues/1609))
+
+
+
 <a name="nntp2nntp-0.0.7"></a>
 ### [nntp2nntp-0.0.7](https://github.com/truecharts/apps/compare/nntp2nntp-0.0.6...nntp2nntp-0.0.7) (2021-12-21)
 

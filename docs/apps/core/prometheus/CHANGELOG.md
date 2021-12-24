@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.29"></a>
+### [prometheus-1.1.29](https://github.com/truecharts/apps/compare/prometheus-1.1.28...prometheus-1.1.29) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1609](https://github.com/truecharts/apps/issues/1609))
+
+
+
 <a name="prometheus-1.1.28"></a>
 ### [prometheus-1.1.28](https://github.com/truecharts/apps/compare/prometheus-1.1.27...prometheus-1.1.28) (2021-12-24)
 
