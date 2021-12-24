@@ -6,10 +6,8 @@ image:
 # See more environment variables in the babybuddy documentation
 # https://hub.docker.com/r/jgeusebroek/spotweb
 env:
-  # TZ:
+  TZ: UTC
   SPOTWEB_SYSTEMTYPE: single
-  SPOTWEB_USERNAME: myawesomeuser
-  SPOTWEB_PASSWORD: \changeme\
   SPOTWEB_FIRSTNAME: demo
   SPOTWEB_LASTNAME: spotweb
   SPOTWEB_MAIL: demo@spotweb.com
@@ -25,10 +23,14 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: postgresql-password
-  DB_PORT:
+  DB_HOST:
     secretKeyRef:
       name: dbcreds
       key: plainhost
+
+secret:
+  SPOTWEB_USERNAME: myawesomeuser
+  SPOTWEB_PASSWORD: changeme
 
 securityContext:
   readOnlyRootFilesystem: false
