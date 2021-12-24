@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="libreoffice-0.0.8"></a>
+### [libreoffice-0.0.8](https://github.com/truecharts/apps/compare/libreoffice-0.0.7...libreoffice-0.0.8) (2021-12-24)
+
+#### Chore
+
+* update container image tccr.io/truecharts/libreoffice to v7.2.2 ([#1608](https://github.com/truecharts/apps/issues/1608))
+
+
+
 <a name="libreoffice-0.0.7"></a>
 ### [libreoffice-0.0.7](https://github.com/truecharts/apps/compare/libreoffice-0.0.6...libreoffice-0.0.7) (2021-12-21)
 

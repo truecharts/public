@@ -34,7 +34,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"tccr.io/truecharts/recipes"` | image repository |
 | image.tag | string | `"v1.0.3@sha256:293f8d08b8326899e9ce0f4c4c8ffac521c22f168290ddfa0db1da0b81bda296"` | image tag |
 | nginxImage.repository | string | `"tccr.io/truecharts/nginx"` | nginx sidecar image repository |
-| nginxImage.tag | string | `"v1.21.4@sha256:81b9486bd8b0f8c9d933013a4b4a6267463625e0dcc756c01ec766ba386f6c93"` | nginx sidecar image tag |
+| nginxImage.tag | string | `"v1.21.4@sha256:361630c9cc477122ee5af45acab2c6acd192b0fef6ecbd7203c8d78aa2d16996"` | nginx sidecar image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

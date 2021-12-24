@@ -27,7 +27,7 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/mariadb"` |  |
-| image.tag | string | `"v10.6.5@sha256:405f349cb6348b221f2253ee856f8643a757d7fc2d26508289b86030d7c67fa5"` |  |
+| image.tag | string | `"v10.6.5@sha256:aeeb9567ad86aff7cc541d869be2f1954df1d3e1acee9a4b1f2fc9c733530197"` |  |
 | mariadbDatabase | string | `"test"` |  |
 | mariadbPassword | string | `"testpass"` |  |
 | mariadbRootPassword | string | `"testroot"` |  |

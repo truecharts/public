@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.20"></a>
+### [friendica-0.0.20](https://github.com/truecharts/apps/compare/friendica-0.0.19...friendica-0.0.20) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
 <a name="friendica-0.0.19"></a>
 ### [friendica-0.0.19](https://github.com/truecharts/apps/compare/friendica-0.0.18...friendica-0.0.19) (2021-12-21)
 

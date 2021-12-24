@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="common-8.9.26"></a>
+### [common-8.9.26](https://github.com/truecharts/apps/compare/common-8.9.25...common-8.9.26) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
 <a name="common-8.9.25"></a>
 ### [common-8.9.25](https://github.com/truecharts/apps/compare/common-8.9.24...common-8.9.25) (2021-12-20)
 

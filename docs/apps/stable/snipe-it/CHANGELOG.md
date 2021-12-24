@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.19"></a>
+### [snipe-it-0.0.19](https://github.com/truecharts/apps/compare/snipe-it-0.0.18...snipe-it-0.0.19) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
 <a name="snipe-it-0.0.18"></a>
 ### [snipe-it-0.0.18](https://github.com/truecharts/apps/compare/snipe-it-0.0.17...snipe-it-0.0.18) (2021-12-21)
 

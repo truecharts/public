@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.32"></a>
+### [esphome-9.0.32](https://github.com/truecharts/apps/compare/esphome-9.0.31...esphome-9.0.32) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
 <a name="esphome-9.0.31"></a>
 ### [esphome-9.0.31](https://github.com/truecharts/apps/compare/esphome-9.0.30...esphome-9.0.31) (2021-12-21)
 

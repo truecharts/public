@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-5.0.5"></a>
+### [recipes-5.0.5](https://github.com/truecharts/apps/compare/recipes-5.0.4...recipes-5.0.5) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
 <a name="recipes-5.0.4"></a>
 ### [recipes-5.0.4](https://github.com/truecharts/apps/compare/recipes-5.0.3...recipes-5.0.4) (2021-12-21)
 
