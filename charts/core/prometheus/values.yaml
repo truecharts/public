@@ -1,18 +1,18 @@
 image:
   repository: tccr.io/truecharts/prometheus-operator
-  tag: v0.53.0@sha256:9ac05caa5eb93938f51c58fe126454559157efd2be632e0350519079ae59e362
+  tag: v0.53.1@sha256:6a6c1d3609ffbd72ed2f80fe6c484a2c198bf1f49493bb2b28085c8fe273dbbc
 
 prometheusImage:
   repository: tccr.io/truecharts/prometheus
-  tag: v2.32.1@sha256:71ad47195bb1d4334a7b77d358f67037639c34cf887c7fa95abc2a9c567bee43
+  tag: v2.32.1@sha256:f6da65ff6d5f8585a2a51da47a629710ef28bb3e0465392244dd2bd1f49654aa
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
-  tag: v0.23.1@sha256:2659f897b8277b69d15c7263fc09266a65bd8ba9852bd72436784ad3c9222a53
+  tag: v0.23.2@sha256:cbc199c88bd5c052cae751df3e6f1ed9df7950ac199045fd1820364774edb6ce
 
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
-  tag: v0.23.0@sha256:a367a332ed5ca80f49219f3b53680cac1b866b80cad39c2d1b003f8068536cf8
+  tag: v0.23.0@sha256:74531b9f6570135316cf7ecf6ac344bf227cc91da7067ffee0ef9eb09a347b16
 
 global:
   labels: {}
