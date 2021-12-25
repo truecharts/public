@@ -124,6 +124,16 @@ command: []
 # -- Override the args for the default container
 args: []
 
+# -- Set the primary portal for TrueNAS SCALE
+portal:
+  enabled: true
+  # -- Override Path using helm variables
+  # path: '/'
+  # -- Override the host, for example: by using a custom IP
+  # host: 192.168.66.6
+  # -- Override the auotmatically gathered ingress port
+  # ingressPort: 666
+
 # -- Set additional annotations on the pod
 podAnnotationsList: []
 # - name: somename
