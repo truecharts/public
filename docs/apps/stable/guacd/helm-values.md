@@ -18,6 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `4822` |  |
 | service.main.ports.main.targetPort | int | `4822` |  |

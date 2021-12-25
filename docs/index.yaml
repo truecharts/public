@@ -10213,6 +10213,36 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.3.0
+    created: "2021-12-25T10:30:35.401715137Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.25
+    description: Guacd - Apache Guacamole is a clientless remote desktop gateway.
+    digest: 526b39f39e6e4bf3ca036e28823a3ead2cc1d018714ae73f8fc3123886cd17e8
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/guacd
+    icon: https://truecharts.org/_static/img/appicons/guacd-icon.png
+    keywords:
+    - guacd
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: guacd
+    sources:
+    - https://hub.docker.com/r/linuxserver/guacd
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/guacd-0.0.8/guacd-0.0.8.tgz
+    version: 0.0.8
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.3.0
     created: "2021-12-19T23:48:17.319751946Z"
     dependencies:
     - name: common
@@ -34716,4 +34746,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-24T21:08:59.078506213Z"
+generated: "2021-12-25T10:30:35.403730047Z"
