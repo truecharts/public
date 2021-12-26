@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.30"></a>
+### [prometheus-1.1.30](https://github.com/truecharts/apps/compare/prometheus-1.1.29...prometheus-1.1.30) (2021-12-26)
+
+#### Fix
+
+* fix default ingress on traefik ([#1614](https://github.com/truecharts/apps/issues/1614))
+
+
+
 <a name="prometheus-1.1.29"></a>
 ### [prometheus-1.1.29](https://github.com/truecharts/apps/compare/prometheus-1.1.28...prometheus-1.1.29) (2021-12-24)
 
