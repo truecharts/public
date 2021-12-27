@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bookstack-0.0.17"></a>
+### [bookstack-0.0.17](https://github.com/truecharts/apps/compare/bookstack-0.0.16...bookstack-0.0.17) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
 <a name="bookstack-0.0.16"></a>
 ### [bookstack-0.0.16](https://github.com/truecharts/apps/compare/bookstack-0.0.15...bookstack-0.0.16) (2021-12-21)
 

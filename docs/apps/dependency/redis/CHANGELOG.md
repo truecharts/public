@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.44"></a>
+### [redis-1.0.44](https://github.com/truecharts/apps/compare/redis-1.0.43...redis-1.0.44) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
 <a name="redis-1.0.43"></a>
 ### [redis-1.0.43](https://github.com/truecharts/apps/compare/redis-1.0.42...redis-1.0.43) (2021-12-24)
 

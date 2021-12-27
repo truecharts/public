@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="quassel-web-0.0.8"></a>
+### [quassel-web-0.0.8](https://github.com/truecharts/apps/compare/quassel-web-0.0.7...quassel-web-0.0.8) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
 <a name="quassel-web-0.0.7"></a>
 ### [quassel-web-0.0.7](https://github.com/truecharts/apps/compare/quassel-web-0.0.6...quassel-web-0.0.7) (2021-12-21)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-4.0.29"></a>
+### [owncloud-ocis-4.0.29](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.28...owncloud-ocis-4.0.29) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
 <a name="owncloud-ocis-4.0.28"></a>
 ### [owncloud-ocis-4.0.28](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.27...owncloud-ocis-4.0.28) (2021-12-21)
 
