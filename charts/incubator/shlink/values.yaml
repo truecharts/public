@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v2.10.1@sha256:2abccbd1a150da840849f01789e4f824e35ee1136da7f5e56abaa86a290794ae
 
+securityContext:
+  readOnlyRootFilesystem: false
+
 service:
   main:
     protocol: HTTPS
@@ -43,4 +46,4 @@ postgresql:
 redis:
   enabled: true
   existingSecret: "rediscreds"
-  redisUsername: default
+  redisUsername: "shlink"
