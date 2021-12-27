@@ -294,6 +294,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | scrutiny                   |      main       |      main       | 10151 |   TCP    |                                         |
 | kodi-headless              |    websocket    |    websocket    | 10152 |   TCP    |                                         |
 | shlink                     |      main       |      main       | 10153 |   TCP    |                                         |
+| shlink-web-client          |      main       |      main       | 10154 |   HTTP   |                                         |
 | hyperion-ng                | boblightservice | boblightservice | 19333 |   TCP    |                                         |
 | hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |   TCP    |                                         |
 | hyperion-ng                | protobufservice | protobufservice | 19445 |   TCP    |                                         |
