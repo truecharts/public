@@ -109,6 +109,13 @@ questions:
                       schema:
                         type: dict
                         attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10062
+                              required: true
                           - variable: advanced
                             label: "Show Advanced settings"
                             schema:
@@ -144,20 +151,6 @@ questions:
                                     type: int
                                     default: 8888
                               required: true
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 10062
-                              required: true
-                          - variable: nodePort
-                            label: "Node Port (Optional)"
-                            description: "This port gets exposed to the node. Only considered when service type is NodePort"
-                            schema:
-                              type: int
-                              min: 9000
-                              max: 65535
 
   - variable: serviceexpert
     group: "Networking and Services"
