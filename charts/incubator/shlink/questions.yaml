@@ -82,9 +82,19 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: DEFAULT_DOMAIN
+          label: "Default Domain"
+          description: "The default short domain used for this shlink instance. For example doma.in."
+          schema:
+            type: string
+            default: ""
+        - variable: GEOLITE_LICENSE_KEY
+          label: "GeoLite2 License Key"
+          description: "The license key used to download new GeoLite2 database files."
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -224,7 +234,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
 
   - variable: podSecurityContext
     group: "Security and Permissions"
@@ -237,13 +247,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 568
+            default: 0
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
