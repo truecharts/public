@@ -7,4 +7,3 @@
 #### Feat
 
 * Add shlink ([#1616](https://github.com/truecharts/apps/issues/1616))
-

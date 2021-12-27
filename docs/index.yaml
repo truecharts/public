@@ -2956,6 +2956,41 @@ entries:
         - productivity
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 21.11.0.6
+    created: "2021-12-27T23:02:18.483409419Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.25
+    description: Collabora Online Development Edition – an awesome, Online Office
+      suite image suitable for home use.
+    digest: fdc49447ae7d7aad4859312629071a5a9fe635755cc7227a170d7692653d9c63
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/collabora-online
+    icon: https://truecharts.org/_static/img/appicons/collabora-online-icon.png
+    keywords:
+    - collabora-online
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: collabora-online
+    sources:
+    - https://hub.docker.com/r/collabora/code
+    - https://sdk.collaboraonline.com/contents.html
+    - https://github.com/CollaboraOnline/online/tree/master/kubernetes/helm
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/collabora-online-10.0.8/collabora-online-10.0.8.tgz
+    version: 10.0.8
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - office
+        - documents
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 6.4.14.3
     created: "2021-12-19T23:48:08.231432808Z"
     dependencies:
@@ -21089,6 +21124,36 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: "11693"
+    created: "2021-12-27T23:02:18.768990738Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.25
+    description: Open Source Conditional Access Module software
+    digest: f762c3de17f6523832735dd4892213d3b35bdb86dd1850d66508acfbab92cb42
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/oscam
+    icon: https://truecharts.org/_static/img/appicons/oscam-icon.png
+    keywords:
+    - oscam
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: oscam
+    sources:
+    - https://trac.streamboard.tv/oscam/browser/trunk
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/oscam-4.0.27/oscam-4.0.27.tgz
+    version: 4.0.27
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - DIY
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "11693"
     created: "2021-12-19T23:48:30.417316793Z"
     dependencies:
     - name: common
@@ -34829,4 +34894,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-27T12:44:48.658814862Z"
+generated: "2021-12-27T23:02:18.770941863Z"

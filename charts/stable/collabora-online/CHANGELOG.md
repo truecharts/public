@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="collabora-online-10.0.8"></a>
+### [collabora-online-10.0.8](https://github.com/truecharts/apps/compare/collabora-online-10.0.7...collabora-online-10.0.8) (2021-12-27)
+
+#### Chore
+
+* move `port` up in gui ([#1620](https://github.com/truecharts/apps/issues/1620))
+
+#### Fix
+
+* fix new admin path ([#1598](https://github.com/truecharts/apps/issues/1598))
+
+
+
 <a name="collabora-online-10.0.7"></a>
 ### [collabora-online-10.0.7](https://github.com/truecharts/apps/compare/collabora-online-10.0.6...collabora-online-10.0.7) (2021-12-21)
 
