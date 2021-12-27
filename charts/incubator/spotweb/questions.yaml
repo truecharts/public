@@ -85,6 +85,7 @@ questions:
           schema:
             type: string
             default: "admin"
+            required: true
         - variable: SPOTWEB_PASSWORD
           label: "Admin password"
           description: "Password to configure for the admin of this installation."
