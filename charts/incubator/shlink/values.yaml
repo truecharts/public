@@ -1,0 +1,45 @@
+image:
+  repository: shlinkio/shlink
+  pullPolicy: IfNotPresent
+  tag: "2.10.1"
+
+service:
+  main:
+    protocol: HTTPS
+    ports:
+      main:
+        targetPort: 10153
+        port: 10153
+
+env:
+  PORT: 10153
+  DEFAULT_DOMAIN: ""
+  IS_HTTPS_ENABLED: true
+  GEOLITE_LICENSE_KEY: ""
+  DB_DRIVER: "postgres"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+
+envValueFrom:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  REDIS_SERVERS:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: shlink
+  postgresqlDatabase: shlink
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
