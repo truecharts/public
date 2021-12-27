@@ -1,4 +1,3 @@
-# TODO: update questions
 # Include{groups}
 portals:
   web_portal:
@@ -136,7 +135,7 @@ questions:
                                   label: "Port Type"
                                   schema:
                                     type: string
-                                    default: "HTTPS"
+                                    default: "HTTP"
                                     enum:
                                       - value: HTTP
                                         description: "HTTP"
@@ -158,13 +157,13 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 10153
+                                    default: 80
                           - variable: port
                             label: "Port"
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10153
+                              default: 10154
                               required: true
 
   - variable: serviceexpert

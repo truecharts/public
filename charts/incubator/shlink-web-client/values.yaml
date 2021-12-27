@@ -7,8 +7,7 @@ service:
   main:
     ports:
       main:
-        targetPort: 10154
+        targetPort: 80
         port: 10154
 
-env:
-  PORT: 10154
+env: {}
