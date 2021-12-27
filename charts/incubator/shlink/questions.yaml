@@ -94,6 +94,12 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: IS_HTTPS_ENABLED
+          label: "Served over HTTPS"
+          description: "Tells if Shlink is served with https or not"
+          schema:
+            type: boolean
+            default: true
 # Include{containerConfig}
   - variable: service
     group: "Networking and Services"
@@ -129,7 +135,7 @@ questions:
                                   label: "Port Type"
                                   schema:
                                     type: string
-                                    default: "HTTPS"
+                                    default: "HTTP"
                                     enum:
                                       - value: HTTP
                                         description: "HTTP"
