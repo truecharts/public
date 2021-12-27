@@ -29,10 +29,10 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: plainhost
-  # REDIS_SERVERS:
-  #   secretKeyRef:
-  #     name: rediscreds
-  #     key: url
+  REDIS_SERVERS:
+    secretKeyRef:
+      name: rediscreds
+      key: url
 
 postgresql:
   enabled: true
@@ -40,6 +40,7 @@ postgresql:
   postgresqlUsername: shlink
   postgresqlDatabase: shlink
 
-# redis:
-#   enabled: true
-#   existingSecret: "rediscreds"
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+  redisUsername: default
