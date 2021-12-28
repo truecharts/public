@@ -13,7 +13,6 @@ podSecurityContext:
 
 service:
   main:
-    protocol: HTTPS
     ports:
       main:
         targetPort: 10153

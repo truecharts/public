@@ -293,7 +293,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | pydio-cells                |      main       |      main       | 10150 |   TCP    |                                         |
 | scrutiny                   |      main       |      main       | 10151 |   TCP    |                                         |
 | kodi-headless              |    websocket    |    websocket    | 10152 |   TCP    |                                         |
-| shlink                     |      main       |      main       | 10153 |  HTTPS   |                                         |
+| shlink                     |      main       |      main       | 10153 |   TCP    |                                         |
 | hyperion-ng                | boblightservice | boblightservice | 19333 |   TCP    |                                         |
 | hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |   TCP    |                                         |
 | hyperion-ng                | protobufservice | protobufservice | 19445 |   TCP    |                                         |
