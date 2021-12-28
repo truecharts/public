@@ -1,16 +1,10 @@
 groups:
-  - name: "Container Images"
-    description: "Image to be used for container"
-  - name: "Container Entrypoint"
-    description: "Configuration of the executable that will be run when the container is started"
-  - name: "Container Environment Variables"
-    description: "Set the environment that will be visible to the container"
+  - name: "Plex Configuration"
+    description: "Configure plex deployment"
   - name: "Networking"
     description: "Configure networking for container"
   - name: "Storage"
     description: "Persist and share data that is separate from the lifecycle of the container"
-  - name: "Plex Configuration"
-    description: "Configure plex deployment"
   - name: "Workload Details"
     description: "Configure how workload should be deployed"
   - name: "Scaling/Upgrade Policy"
@@ -33,7 +27,12 @@ portals:
     path: "/web"
 
 questions:
-
+  - variable: enablePlexPass
+    label: "Use PlexPass"
+    group: "Plex Configuration"
+    schema:
+      type: boolean
+      default: false
   - variable: dnsConfig
     label: "DNS Configuration"
     group: "Advanced DNS Settings"
