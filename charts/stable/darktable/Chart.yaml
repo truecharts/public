@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: darktable
-version: 0.0.7
+version: 0.0.8
 appVersion: "3.4.1"
 description: Darktable is an open source photography workflow application and raw developer.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.25
+  version: 8.9.26
   # condition:
 maintainers:
 - email: info@truecharts.org
