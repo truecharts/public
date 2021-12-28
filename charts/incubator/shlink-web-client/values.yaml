@@ -5,6 +5,11 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
+  runAsNonRoot: true
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
