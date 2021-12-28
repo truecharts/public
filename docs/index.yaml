@@ -29182,46 +29182,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.10.1
-    created: "2021-12-28T11:54:48.932564464Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.9.25
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: https://truecharts.org/
-      version: 6.0.37
-    - condition: redis.enabled
-      name: redis
-      repository: https://truecharts.org/
-      version: 1.0.42
-    description: A PHP-based self-hosted URL shortener that can be used to serve shortened
-      URLs under your own custom domain.
-    digest: 3c0ef23143885c264f06eda1c02dbe6fa1b3b9627de2ca60273fb75d7a47e949
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/shlink
-    icon: https://truecharts.org/_static/img/appicons/shlink-icon.png
-    keywords:
-    - url
-    - shortener
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: shlink
-    sources:
-    - https://github.com/shlinkio/shlink
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/shlink-0.0.2/shlink-0.0.2.tgz
-    version: 0.0.2
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - utilities
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 2.10.1
     created: "2021-12-27T12:44:48.656683152Z"
     dependencies:
     - name: common
@@ -30116,6 +30076,46 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/speedtest-exporter-1.0.8/speedtest-exporter-1.0.8.tgz
     version: 1.0.8
+  spotweb:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.5.1
+    created: "2021-12-28T12:07:03.085152623Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.25
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.37
+    description: Spotweb is a decentralized usenet community based on the Spotnet
+      protocol.
+    digest: 61b1761ce332ae81bb5b7984272848fcb9d1a7ce7d31f527a18217f17051f7e3
+    home: https://github.com/truecharts/apps/master/charts/incubator/spotweb
+    icon: https://raw.githubusercontent.com/spotweb/spotweb/9af0ade0f618675206dcf1f744dbb3c1eae70e5a/images/spotnet.gif
+    keywords:
+    - usenet
+    - spotweb
+    - spotnet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: spotweb
+    sources:
+    - https://github.com/spotweb/spotweb
+    - https://hub.docker.com/r/jbaten/spotweb
+    - https://github.com/joachimbaten/spotweb-docker
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/spotweb-0.0.1/spotweb-0.0.1.tgz
+    version: 0.0.1
   sqlitebrowser:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -35106,4 +35106,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-28T11:54:48.934738674Z"
+generated: "2021-12-28T12:07:03.08757363Z"
