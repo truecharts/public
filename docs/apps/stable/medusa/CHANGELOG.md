@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="medusa-1.0.32"></a>
+### [medusa-1.0.32](https://github.com/truecharts/apps/compare/medusa-1.0.31...medusa-1.0.32) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="medusa-1.0.31"></a>
+### [medusa-1.0.31](https://github.com/truecharts/apps/compare/medusa-1.0.30...medusa-1.0.31) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
 <a name="medusa-1.0.30"></a>
 ### [medusa-1.0.30](https://github.com/truecharts/apps/compare/medusa-1.0.29...medusa-1.0.30) (2021-12-21)
 

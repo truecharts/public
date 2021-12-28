@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="oscam-4.0.28"></a>
+### [oscam-4.0.28](https://github.com/truecharts/apps/compare/oscam-4.0.27...oscam-4.0.28) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="oscam-4.0.27"></a>
+### [oscam-4.0.27](https://github.com/truecharts/apps/compare/oscam-4.0.26...oscam-4.0.27) (2021-12-27)
+
+#### Chore
+
+* move `port` up in gui ([#1620](https://github.com/truecharts/apps/issues/1620))
+
+
+
 <a name="oscam-4.0.26"></a>
 ### [oscam-4.0.26](https://github.com/truecharts/apps/compare/oscam-4.0.25...oscam-4.0.26) (2021-12-21)
 

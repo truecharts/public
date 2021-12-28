@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="nextcloud-11.0.10"></a>
+### [nextcloud-11.0.10](https://github.com/truecharts/apps/compare/nextcloud-11.0.9...nextcloud-11.0.10) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="nextcloud-11.0.9"></a>
+### [nextcloud-11.0.9](https://github.com/truecharts/apps/compare/nextcloud-11.0.8...nextcloud-11.0.9) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
 <a name="nextcloud-11.0.8"></a>
 ### [nextcloud-11.0.8](https://github.com/truecharts/apps/compare/nextcloud-11.0.7...nextcloud-11.0.8) (2021-12-21)
 

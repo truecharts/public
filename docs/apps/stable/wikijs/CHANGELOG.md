@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.19"></a>
+### [wikijs-4.0.19](https://github.com/truecharts/apps/compare/wikijs-4.0.18...wikijs-4.0.19) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="wikijs-4.0.18"></a>
+### [wikijs-4.0.18](https://github.com/truecharts/apps/compare/wikijs-4.0.17...wikijs-4.0.18) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
 <a name="wikijs-4.0.17"></a>
 ### [wikijs-4.0.17](https://github.com/truecharts/apps/compare/wikijs-4.0.16...wikijs-4.0.17) (2021-12-21)
 

@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.36"></a>
+### [komga-4.0.36](https://github.com/truecharts/apps/compare/komga-4.0.35...komga-4.0.36) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="komga-4.0.35"></a>
+### [komga-4.0.35](https://github.com/truecharts/apps/compare/komga-4.0.34...komga-4.0.35) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
 <a name="komga-4.0.34"></a>
 ### [komga-4.0.34](https://github.com/truecharts/apps/compare/komga-4.0.33...komga-4.0.34) (2021-12-21)
 

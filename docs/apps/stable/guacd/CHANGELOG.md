@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="guacd-0.0.9"></a>
+### [guacd-0.0.9](https://github.com/truecharts/apps/compare/guacd-0.0.8...guacd-0.0.9) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="guacd-0.0.8"></a>
+### [guacd-0.0.8](https://github.com/truecharts/apps/compare/guacd-0.0.7...guacd-0.0.8) (2021-12-25)
+
+#### Fix
+
+* allow rootfs access and remove portal ([#1610](https://github.com/truecharts/apps/issues/1610))
+
+
+
 <a name="guacd-0.0.7"></a>
 ### [guacd-0.0.7](https://github.com/truecharts/apps/compare/guacd-0.0.6...guacd-0.0.7) (2021-12-21)
 

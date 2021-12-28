@@ -3,11 +3,11 @@ appVersion: "3.3.3"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.25
+  version: 8.9.26
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
-  version: 1.0.40
+  version: 1.0.43
 description: "XBackBone is a simple, self-hosted, lightweight PHP file manager"
 home: https://github.com/truechartsapps/tree/master/charts/stable/xbackbone
 icon: https://truecharts.org/_static/img/appicons/xbackbone-icon.png
@@ -23,7 +23,7 @@ name: xbackbone
 sources:
 - https://github.com/SergiX44/XBackBone
 - https://hub.docker.com/r/pe46dro/xbackbone-docker
-version: 0.0.15
+version: 0.0.16
 annotations:
   truecharts.org/catagories: |
     - files

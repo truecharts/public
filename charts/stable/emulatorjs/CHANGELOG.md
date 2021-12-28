@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emulatorjs-0.0.10"></a>
+### [emulatorjs-0.0.10](https://github.com/truecharts/apps/compare/emulatorjs-0.0.9...emulatorjs-0.0.10) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="emulatorjs-0.0.9"></a>
 ### [emulatorjs-0.0.9](https://github.com/truecharts/apps/compare/emulatorjs-0.0.8...emulatorjs-0.0.9) (2021-12-21)
 

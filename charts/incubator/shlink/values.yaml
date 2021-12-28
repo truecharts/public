@@ -1,0 +1,53 @@
+image:
+  repository: tccr.io/truecharts/shlink
+  pullPolicy: IfNotPresent
+  tag: v2.10.1@sha256:2abccbd1a150da840849f01789e4f824e35ee1136da7f5e56abaa86a290794ae
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 10153
+        port: 10153
+
+env:
+  DEFAULT_DOMAIN: ""
+  GEOLITE_LICENSE_KEY: ""
+  PORT: 10153
+  IS_HTTPS_ENABLED: true
+  DB_DRIVER: "postgres"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+
+envValueFrom:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  REDIS_SERVERS:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: shlink
+  postgresqlDatabase: shlink
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+  redisUsername: "default"

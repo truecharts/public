@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="kms-9.0.33"></a>
+### [kms-9.0.33](https://github.com/truecharts/apps/compare/kms-9.0.32...kms-9.0.33) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="kms-9.0.32"></a>
+### [kms-9.0.32](https://github.com/truecharts/apps/compare/kms-9.0.31...kms-9.0.32) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
 <a name="kms-9.0.31"></a>
 ### [kms-9.0.31](https://github.com/truecharts/apps/compare/kms-9.0.30...kms-9.0.31) (2021-12-21)
 

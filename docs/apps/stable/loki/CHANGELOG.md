@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="loki-2.0.15"></a>
+### [loki-2.0.15](https://github.com/truecharts/apps/compare/loki-2.0.14...loki-2.0.15) (2021-12-28)
+
+#### Chore
+
+* move `port` up in gui ([#1620](https://github.com/truecharts/apps/issues/1620))
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="loki-2.0.14"></a>
 ### [loki-2.0.14](https://github.com/truecharts/apps/compare/loki-2.0.13...loki-2.0.14) (2021-12-21)
 

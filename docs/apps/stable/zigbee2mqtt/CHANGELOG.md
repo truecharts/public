@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-1.0.28"></a>
+### [zigbee2mqtt-1.0.28](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.27...zigbee2mqtt-1.0.28) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="zigbee2mqtt-1.0.27"></a>
 ### [zigbee2mqtt-1.0.27](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.26...zigbee2mqtt-1.0.27) (2021-12-21)
 

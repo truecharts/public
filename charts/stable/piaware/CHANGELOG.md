@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.34"></a>
+### [piaware-4.0.34](https://github.com/truecharts/apps/compare/piaware-4.0.33...piaware-4.0.34) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="piaware-4.0.33"></a>
+### [piaware-4.0.33](https://github.com/truecharts/apps/compare/piaware-4.0.32...piaware-4.0.33) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
+<a name="piaware-4.0.32"></a>
+### [piaware-4.0.32](https://github.com/truecharts/apps/compare/piaware-4.0.31...piaware-4.0.32) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
 <a name="piaware-4.0.31"></a>
 ### [piaware-4.0.31](https://github.com/truecharts/apps/compare/piaware-4.0.30...piaware-4.0.31) (2021-12-21)
 

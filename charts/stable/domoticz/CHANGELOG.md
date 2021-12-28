@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="domoticz-0.0.11"></a>
+### [domoticz-0.0.11](https://github.com/truecharts/apps/compare/domoticz-0.0.10...domoticz-0.0.11) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="domoticz-0.0.10"></a>
+### [domoticz-0.0.10](https://github.com/truecharts/apps/compare/domoticz-0.0.9...domoticz-0.0.10) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
 <a name="domoticz-0.0.9"></a>
 ### [domoticz-0.0.9](https://github.com/truecharts/apps/compare/domoticz-0.0.8...domoticz-0.0.9) (2021-12-21)
 

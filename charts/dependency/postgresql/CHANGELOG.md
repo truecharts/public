@@ -1,6 +1,34 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.40"></a>
+### [postgresql-6.0.40](https://github.com/truecharts/apps/compare/postgresql-6.0.39...postgresql-6.0.40) (2021-12-28)
+
+#### Chore
+
+* update helm chart common to v8.9.26 ([#1622](https://github.com/truecharts/apps/issues/1622))
+
+
+
+<a name="postgresql-6.0.39"></a>
+### [postgresql-6.0.39](https://github.com/truecharts/apps/compare/postgresql-6.0.38...postgresql-6.0.39) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
+<a name="postgresql-6.0.38"></a>
+### [postgresql-6.0.38](https://github.com/truecharts/apps/compare/postgresql-6.0.37...postgresql-6.0.38) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
 <a name="postgresql-6.0.37"></a>
 ### [postgresql-6.0.37](https://github.com/truecharts/apps/compare/postgresql-6.0.36...postgresql-6.0.37) (2021-12-21)
 
