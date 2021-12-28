@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="muximux-1.0.31"></a>
+### [muximux-1.0.31](https://github.com/truecharts/apps/compare/muximux-1.0.30...muximux-1.0.31) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="muximux-1.0.30"></a>
 ### [muximux-1.0.30](https://github.com/truecharts/apps/compare/muximux-1.0.29...muximux-1.0.30) (2021-12-21)
 

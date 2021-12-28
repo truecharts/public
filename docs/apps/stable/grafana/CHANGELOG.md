@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.14"></a>
+### [grafana-2.0.14](https://github.com/truecharts/apps/compare/grafana-2.0.13...grafana-2.0.14) (2021-12-28)
+
+#### Chore
+
+* move `port` up in gui ([#1620](https://github.com/truecharts/apps/issues/1620))
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="grafana-2.0.13"></a>
 ### [grafana-2.0.13](https://github.com/truecharts/apps/compare/grafana-2.0.12...grafana-2.0.13) (2021-12-27)
 

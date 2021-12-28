@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="novnc-1.0.27"></a>
+### [novnc-1.0.27](https://github.com/truecharts/apps/compare/novnc-1.0.26...novnc-1.0.27) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="novnc-1.0.26"></a>
 ### [novnc-1.0.26](https://github.com/truecharts/apps/compare/novnc-1.0.25...novnc-1.0.26) (2021-12-21)
 

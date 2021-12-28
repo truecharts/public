@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.57"></a>
+### [jackett-9.0.57](https://github.com/truecharts/apps/compare/jackett-9.0.56...jackett-9.0.57) (2021-12-28)
+
+#### Chore
+
+* move `port` up in gui ([#1620](https://github.com/truecharts/apps/issues/1620))
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="jackett-9.0.56"></a>
 ### [jackett-9.0.56](https://github.com/truecharts/apps/compare/jackett-9.0.55...jackett-9.0.56) (2021-12-27)
 

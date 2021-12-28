@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ipfs-0.0.9"></a>
+### [ipfs-0.0.9](https://github.com/truecharts/apps/compare/ipfs-0.0.8...ipfs-0.0.9) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="ipfs-0.0.8"></a>
 ### [ipfs-0.0.8](https://github.com/truecharts/apps/compare/ipfs-0.0.7...ipfs-0.0.8) (2021-12-21)
 

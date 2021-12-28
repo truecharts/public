@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dizquetv-5.0.8"></a>
+### [dizquetv-5.0.8](https://github.com/truecharts/apps/compare/dizquetv-5.0.7...dizquetv-5.0.8) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="dizquetv-5.0.7"></a>
 ### [dizquetv-5.0.7](https://github.com/truecharts/apps/compare/dizquetv-5.0.6...dizquetv-5.0.7) (2021-12-21)
 

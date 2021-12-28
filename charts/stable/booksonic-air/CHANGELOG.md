@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.29"></a>
+### [booksonic-air-4.0.29](https://github.com/truecharts/apps/compare/booksonic-air-4.0.28...booksonic-air-4.0.29) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="booksonic-air-4.0.28"></a>
 ### [booksonic-air-4.0.28](https://github.com/truecharts/apps/compare/booksonic-air-4.0.27...booksonic-air-4.0.28) (2021-12-21)
 

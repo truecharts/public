@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.28"></a>
+### [tt-rss-4.0.28](https://github.com/truecharts/apps/compare/tt-rss-4.0.27...tt-rss-4.0.28) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="tt-rss-4.0.27"></a>
 ### [tt-rss-4.0.27](https://github.com/truecharts/apps/compare/tt-rss-4.0.26...tt-rss-4.0.27) (2021-12-27)
 

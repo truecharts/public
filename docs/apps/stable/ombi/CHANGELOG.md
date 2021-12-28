@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ombi-9.0.31"></a>
+### [ombi-9.0.31](https://github.com/truecharts/apps/compare/ombi-9.0.30...ombi-9.0.31) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="ombi-9.0.30"></a>
 ### [ombi-9.0.30](https://github.com/truecharts/apps/compare/ombi-9.0.29...ombi-9.0.30) (2021-12-24)
 

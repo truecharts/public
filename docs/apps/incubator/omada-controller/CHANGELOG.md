@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.40"></a>
+### [omada-controller-4.0.40](https://github.com/truecharts/apps/compare/omada-controller-4.0.39...omada-controller-4.0.40) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="omada-controller-4.0.39"></a>
 ### [omada-controller-4.0.39](https://github.com/truecharts/apps/compare/omada-controller-4.0.38...omada-controller-4.0.39) (2021-12-27)
 

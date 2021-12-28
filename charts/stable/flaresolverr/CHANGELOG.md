@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-4.0.29"></a>
+### [flaresolverr-4.0.29](https://github.com/truecharts/apps/compare/flaresolverr-4.0.28...flaresolverr-4.0.29) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="flaresolverr-4.0.28"></a>
 ### [flaresolverr-4.0.28](https://github.com/truecharts/apps/compare/flaresolverr-4.0.27...flaresolverr-4.0.28) (2021-12-21)
 

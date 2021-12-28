@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radarr-9.0.28"></a>
+### [radarr-9.0.28](https://github.com/truecharts/apps/compare/radarr-9.0.27...radarr-9.0.28) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="radarr-9.0.27"></a>
 ### [radarr-9.0.27](https://github.com/truecharts/apps/compare/radarr-9.0.26...radarr-9.0.27) (2021-12-21)
 

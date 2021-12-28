@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.48"></a>
+### [prowlarr-4.0.48](https://github.com/truecharts/apps/compare/prowlarr-4.0.47...prowlarr-4.0.48) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="prowlarr-4.0.47"></a>
 ### [prowlarr-4.0.47](https://github.com/truecharts/apps/compare/prowlarr-4.0.46...prowlarr-4.0.47) (2021-12-27)
 
