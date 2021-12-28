@@ -9,7 +9,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
       containers:
         - name: {{ .Chart.Name }}
           {{ if .Values.enablePlexPass }}
-            {{ include "common.containers.imageConfig" .Values.plexpass_image | nindent 10 }}
+            {{ include "common.containers.imageConfig" .Values.plexpassImage | nindent 10 }}
           {{ else }}
             {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
           {{ end }}

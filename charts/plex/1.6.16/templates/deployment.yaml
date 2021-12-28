@@ -8,7 +8,11 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
     {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
+          {{ if .Values.enablePlexPass }}
+            {{ include "common.containers.imageConfig" .Values.plexpassImage | nindent 10 }}
+          {{ else }}
+            {{ include "common.containers.imageConfig" .Values.image | nindent 10 }}
+          {{ end }}
           {{ include "common.containers.gpuConfiguration" .Values | nindent 10 }}
           volumeMounts: {{ include "common.storage.configureAppVolumeMountsInContainer" .Values | nindent 12 }}
             - name: plex-probe-check
