@@ -194,6 +194,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | booksonic-air              |      main       |      main       | 10048 |   TCP    |                                         |
 | deepstack-cpu              |      main       |      main       | 10049 |   TCP    |                                         |
 | deepstack-gpu              |      main       |      main       | 10050 |   TCP    |                                         |
+| spotweb                    |      main       |      main       | 10050 |   TCP    |                                         |
 | firefox-syncserver         |      main       |      main       | 10051 |   TCP    |                                         |
 | whoogle                    |      main       |      main       | 10052 |   TCP    |                                         |
 | handbrake                  |      main       |      main       | 10053 |   TCP    |                                         |
