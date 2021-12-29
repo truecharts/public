@@ -88,6 +88,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | image.pullPolicy | string | `nil` | image pull policy |
 | image.repository | string | `nil` | image repository |
 | image.tag | string | `nil` | image tag |
+| imageSelector | string | `"image"` | Image Selector allows for easy picking a different image dict, important for the SCALE GUI |
 | ingress | object | See below | Configure the ingresses for the chart here. Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress. |
 | ingress.main.enableFixedMiddlewares | bool | `true` | disable to ignore any default middlwares |
 | ingress.main.enabled | bool | `false` | Enables or disables the ingress |

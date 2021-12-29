@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.10.0"></a>
+### [common-8.10.0](https://github.com/truecharts/apps/compare/common-8.9.27...common-8.10.0) (2021-12-29)
+
+#### Feat
+
+* add support for a, renovate compatible, image selector ([#1627](https://github.com/truecharts/apps/issues/1627))
+
+
+
 <a name="common-8.9.27"></a>
 ### [common-8.9.27](https://github.com/truecharts/apps/compare/common-8.9.26...common-8.9.27) (2021-12-27)
 
