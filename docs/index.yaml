@@ -4582,6 +4582,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2021.09.1
+    created: "2021-12-29T19:57:19.646428052Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.0
+    description: DeepStack AI provides AI features including Face Recognition, Object
+      Detection, Scene Recognition and custom AI Models
+    digest: 786ed4bfe17ab8711d9142720f823e9d43e8ad3a80b219012fd9fcc88d1a52d0
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/deepstack
+    icon: https://truecharts.org/_static/img/appicons/deepstack-icon.png
+    keywords:
+    - AI
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: deepstack
+    sources:
+    - https://github.com/johnolafenwa/DeepStack
+    - https://hub.docker.com/r/deepquestai/deepstack
+    - https://www.deepstack.cc/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deepstack-1.0.0/deepstack-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - AI
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2021.09.1
     created: "2021-12-29T15:26:17.965870786Z"
     dependencies:
     - name: common
@@ -35161,4 +35194,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-29T15:26:17.968702103Z"
+generated: "2021-12-29T19:57:19.648578951Z"
