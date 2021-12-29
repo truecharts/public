@@ -261,7 +261,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | monica                     |      main       |      main       | 10119 |   TCP    |                                         |
 | snipe-it                   |      main       |      main       | 10120 |   TCP    |                                         |
 | xbackbone                  |      main       |      main       | 10121 |   TCP    |                                         |
-| chevereto                  |      main       |      main       | 10122 |   TCP    |                                         |
 | dokuwiki                   |      main       |      main       | 10123 |   TCP    |                                         |
 | emulatorjs                 |      front      |      front      | 10124 |   TCP    |                                         |
 | ipfs                       |      main       |      main       | 10125 |   TCP    |                                         |
