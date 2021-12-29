@@ -25,6 +25,18 @@ questions:
             type: boolean
             default: true
 # Include{global}
+  - variable: imageSelector
+    group: "Container Image"
+    label: "Select Image"
+    schema:
+      type: string
+      default: "image"
+      enum:
+        - value: "image"
+          description: "CPU"
+        - value: "imageGPU"
+          description: "GPU"
+
   - variable: controller
     group: "Controller"
     label: ""
