@@ -10,6 +10,21 @@ Return the proper image name
 {{- end -}}
 
 {{/*
+Return the image name using the selector
+{{ include "common.images.selector" . }}
+*/}}
+{{- define "common.images.selector" -}}
+{{- $imageDict := get .Values "image" }}
+{{- $selected := .Values.imageSelector }}
+{{- if hasKey .Values $selected }}
+{{- $imageDict = get .Values $selected }}
+{{- end }}
+{{- $repositoryName := $imageDict.repository -}}
+{{- $tag :=$imageDict.tag | toString -}}
+{{- printf "%s:%s" $repositoryName $tag -}}
+{{- end -}}
+
+{{/*
 Return the proper Docker Image Registry Secret Names (deprecated: use common.images.renderPullSecrets instead)
 {{ include "common.images.pullSecrets" ( dict "images" (list .Values.path.to.the.image1, .Values.path.to.the.image2) "global" .Values.global) }}
 */}}

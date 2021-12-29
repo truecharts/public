@@ -119,6 +119,10 @@ image:
   # -- image pull policy
   pullPolicy:
 
+# -- Image Selector allows for easy picking a different image dict, important for the SCALE GUI
+imageSelector: "image"
+
+
 # -- Override the command(s) for the default container
 command: []
 # -- Override the args for the default container
