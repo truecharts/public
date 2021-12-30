@@ -82,39 +82,6 @@ questions:
       attrs:
 
 # Include{fixedEnv}
-
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var"
-          schema:
-            type: int
-            required: true
-            default: 568
-        - variable: serverIP
-          label: "serverIP"
-          description: "Sets the serverIP."
-          schema:
-            type: string
-            required: true
-            hidden: true
-            default: "localhost"
-        - variable: serverPort
-          label: "serverPort"
-          description: "Sets the server's comm port."
-          schema:
-            type: int
-            required: true
-            hidden: true
-            default: 8266
-        - variable: webUIPort
-          label: "webUIPort"
-          description: "Sets the webUIPort."
-          schema:
-            type: int
-            required: true
-            hidden: true
-            default: 8265
-
 # Include{containerConfig}
 
   - variable: service
@@ -322,9 +289,9 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-        - variable: server
-          label: "App Server Data Storage"
-          description: "Stores the Application's Server Data."
+        - variable: cache
+          label: "Video Cache in Memory"
+          description: "Stores the cached video data."
           schema:
             type: dict
             attrs:
@@ -334,53 +301,16 @@ questions:
                   type: boolean
                   default: true
                   hidden: true
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
 # Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
+              - variable: sizeLimit
+                label: "Size Limit"
                 schema:
                   type: string
-                  default: "/app/server"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
+                  default: "2Gi"
 # Include{persistenceAdvanced}
-        - variable: logs
-          label: "App Logs Storage"
-          description: "Stores the Application Logs."
+        - variable: shm
+          label: "SHM Memory"
+          description: "Shared memory between cameras."
           schema:
             type: dict
             attrs:
@@ -390,50 +320,16 @@ questions:
                   type: boolean
                   default: true
                   hidden: true
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
 # Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: mountPath
-                label: "mountPath"
-                description: "Path inside the container the storage is mounted"
+              - variable: sizeLimit
+                label: "Size Limit"
                 schema:
                   type: string
-                  default: "/app/logs"
-                  hidden: true
-                  valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
+                  default: "1Gi"
 # Include{persistenceAdvanced}
+
+
+
         - variable: transcode-cache
           label: "App Transcode cache"
           description: "Stores the Application Transcode cache."

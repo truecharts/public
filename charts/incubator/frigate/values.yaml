@@ -32,21 +32,59 @@ probes:
   startup:
     enabled: false
 
+frigate:
+  mqtt:
+    host: mosquitto.ix-mosquitto.svc.cluster.local
+    port: 1883
+    authentitcated: false
+    username: mqtt_user
+    password: password
+  birdseye:
+    enabled: true
+    mode: motion
+  cameras:
+    - name: camera1
+      objects:
+        # Optional: list of objects to track from labelmap.txt (default: shown below)
+        track:
+          - person
+          - car
+          - motorcyle
+          - cat
+          - dog
+      detect:
+        height: 720
+        width: 1280
+      inputs:
+        # Required: the path to the stream
+        # NOTE: path may include environment variables, which must begin with 'FRIGATE_' and be referenced in {}
+        - path: rtsp://demo:demo@ipvmdemo.dyndns.org:5541/onvif-media/media.amp?profile=profile_1_h264&sessiontimeout=60&streamtype=unicast
+          # Required: list of roles for this stream. valid values are: detect,record,rtmp
+          # NOTICE: In addition to assigning the record, and rtmp roles,
+          # they must also be enabled in the camera config.
+          roles:
+            - record
+        - path: rtsp://demo:demo@ipvmdemo.dyndns.org:5541/onvif-media/media.amp?profile=profile_1_h264&sessiontimeout=60&streamtype=unicast
+          roles:
+            - detect
+            - rtmp
 persistence:
-  data:
+  cache:
     enabled: true
-    mountPath: "/data"
-    size: 5Gi
-  media:
-    enabled: true
-    mountPath: "/media"
-    size: 1000Gi
+    mountPath: "/tmp/cache"
+    type: "emptyDir"
+    medium: "Memory"
+    sizeLimit: 2Gi
   shm:
     enabled: true
     mountPath: "/dev/shm"
     type: "emptyDir"
     medium: "Memory"
     sizeLimit: 1Gi
-  coral:
+  media:
     enabled: true
+    mountPath: "/media"
+    size: 1000Gi
+  coral:
+    enabled: false
     hostPath: "/dev/bus/usb"
