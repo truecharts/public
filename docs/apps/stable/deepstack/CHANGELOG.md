@@ -12,4 +12,3 @@
 #### Feat
 
 * create deepstack cpu+gpu app as multi-container PoC ([#1628](https://github.com/truecharts/apps/issues/1628))
-

@@ -29303,6 +29303,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/shlink-0.0.1/shlink-0.0.1.tgz
     version: 0.0.1
+  shlink-web-client:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - utilities
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.4.2
+    created: "2021-12-30T10:56:37.022113152Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.25
+    description: A ReactJS-based progressive web application for Shlink.
+    digest: ae598d9435d4b52cdc8ba1d64dddf68fe1ff5eb9f246ceb4434c00293332fb59
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/shlink-web-client
+    icon: https://truecharts.org/_static/img/appicons/shlink-web-client-icon.png
+    keywords:
+    - url
+    - shortener
+    - frontend
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: shlink-web-client
+    sources:
+    - https://github.com/shlinkio/shlink-web-client
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/shlink-web-client-0.0.1/shlink-web-client-0.0.1.tgz
+    version: 0.0.1
   shorturl:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -30165,6 +30198,45 @@ entries:
     - https://github.com/truecharts/apps/releases/download/speedtest-exporter-1.0.8/speedtest-exporter-1.0.8.tgz
     version: 1.0.8
   spotweb:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.5.1
+    created: "2021-12-30T10:56:37.171292512Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.9.26
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.40
+    description: Spotweb is a decentralized usenet community based on the Spotnet
+      protocol.
+    digest: 23bd083ce3085126f50bfcad327cca4ef4adea97ec2d26d7922bfd718daedabf
+    home: https://github.com/truecharts/apps/master/charts/incubator/spotweb
+    icon: https://raw.githubusercontent.com/spotweb/spotweb/9af0ade0f618675206dcf1f744dbb3c1eae70e5a/images/spotnet.gif
+    keywords:
+    - usenet
+    - spotweb
+    - spotnet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: spotweb
+    sources:
+    - https://github.com/spotweb/spotweb
+    - https://hub.docker.com/r/jbaten/spotweb
+    - https://github.com/joachimbaten/spotweb-docker
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/spotweb-0.0.3/spotweb-0.0.3.tgz
+    version: 0.0.3
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -35194,4 +35266,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2021-12-29T19:57:19.648578951Z"
+generated: "2021-12-30T10:56:37.173388325Z"

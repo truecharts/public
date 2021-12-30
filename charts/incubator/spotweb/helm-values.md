@@ -39,7 +39,7 @@ You will, however, be able to use all values referenced in the common chart here
 | secret.SPOTWEB_USERNAME | string | `"myawesomeuser"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
-| service.main.ports.main.port | int | `11000` |  |
+| service.main.ports.main.port | int | `10050` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
 
 All Rights Reserved - The TrueCharts Project
