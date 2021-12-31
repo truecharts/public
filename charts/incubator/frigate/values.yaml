@@ -58,16 +58,23 @@ frigate:
       inputs:
         # Required: the path to the stream
         # NOTE: path may include environment variables, which must begin with 'FRIGATE_' and be referenced in {}
-        - path: rtsp://demo:demo@ipvmdemo.dyndns.org:5541/onvif-media/media.amp?profile=profile_1_h264&sessiontimeout=60&streamtype=unicast
+        - path: rtsp://username:password@highres.url
           # Required: list of roles for this stream. valid values are: detect,record,rtmp
           # NOTICE: In addition to assigning the record, and rtmp roles,
           # they must also be enabled in the camera config.
           roles:
             - record
-        - path: rtsp://demo:demo@ipvmdemo.dyndns.org:5541/onvif-media/media.amp?profile=profile_1_h264&sessiontimeout=60&streamtype=unicast
+        - path: rtsp://username:password@lowres.url
           roles:
             - detect
             - rtmp
+      record:
+        enabled: True
+      # Optional: timeout for highest scoring image before allowing it
+      # to be replaced by a newer image. (default: shown below)
+      best_image_timeout: 60
+      snapshots:
+        enabled: True
 persistence:
   cache:
     enabled: true

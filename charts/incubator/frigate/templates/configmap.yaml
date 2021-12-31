@@ -347,12 +347,12 @@ data:
                 {{- end }}
             {{- end }}
         record:
-          enabled: True
+          enabled: {{ .record.enabled }}
         # Optional: timeout for highest scoring image before allowing it
         # to be replaced by a newer image. (default: shown below)
         best_image_timeout: 60
         snapshots:
-          enabled: True
+          enabled: {{ .snapshots.enabled }}
 
         # Optional: zones for this camera
         # zones:
