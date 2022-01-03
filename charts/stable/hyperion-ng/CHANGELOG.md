@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-4.0.31"></a>
+### [hyperion-ng-4.0.31](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.30...hyperion-ng-4.0.31) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
 <a name="hyperion-ng-4.0.30"></a>
 ### [hyperion-ng-4.0.30](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.29...hyperion-ng-4.0.30) (2021-12-28)
 

@@ -31,7 +31,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/bazarr:v1.0.1@sha256:7688d7ee3c2bf867cbfc9994a43e64ba65692ea6e93c23a11877bc686fd2e608
+          tccr.io/truecharts/bazarr:v1.0.2@sha256:11023cb6bf5c496c362b6a6aa97f49c3afa291b7dbaf17eaee80fd973cd836d8
 
 ##### Scan Results
 
@@ -68,7 +68,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/bazarr:v1.0.1@sha256:7688d7ee3c2bf867cbfc9994a43e64ba65692ea6e93c23a11877bc686fd2e608 (ubuntu 20.04)
+#### Container: tccr.io/truecharts/bazarr:v1.0.2@sha256:11023cb6bf5c496c362b6a6aa97f49c3afa291b7dbaf17eaee80fd973cd836d8 (ubuntu 20.04)
 
 
 **ubuntu**

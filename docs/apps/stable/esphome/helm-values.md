@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/esphome"` |  |
-| image.tag | string | `"v2021.12.2@sha256:e5cdb3717a997ecff980e78a25bebb613e91d75614e7a33c4b81d4bbd2f8be29"` |  |
+| image.tag | string | `"v2021.12.3@sha256:5627e9a2b7134603a2dbc950ce9ab501ed026b106b1eee95a00f5c531e26d1ad"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.platformio.enabled | bool | `true` |  |

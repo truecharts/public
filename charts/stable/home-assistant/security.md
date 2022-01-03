@@ -62,8 +62,8 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:d1849137d3b53f5b5155d2a8d47fe0129b215d0c5b53a87096423f5c4feaf0e1
-          'tccr.io/truecharts/home-assistant:v2021.12.5@sha256:b271b312f0bcb564cb5dda74e531cf461f21ed3e9643522105f90c7a223fd881'
-          tccr.io/truecharts/home-assistant:v2021.12.5@sha256:b271b312f0bcb564cb5dda74e531cf461f21ed3e9643522105f90c7a223fd881
+          'tccr.io/truecharts/home-assistant:v2021.12.7@sha256:0e1cb472f9d9fbf1cd3f364bd37df406e6fab8d80115e4ccbc137c9b1b5626ca'
+          tccr.io/truecharts/home-assistant:v2021.12.7@sha256:0e1cb472f9d9fbf1cd3f364bd37df406e6fab8d80115e4ccbc137c9b1b5626ca
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:f734751e367098b427baba1abec9728700f92e89d5dd370ae43910d7f2814b97
 
@@ -320,7 +320,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/home-assistant:v2021.12.5@sha256:b271b312f0bcb564cb5dda74e531cf461f21ed3e9643522105f90c7a223fd881 (alpine 3.14.2)
+#### Container: tccr.io/truecharts/home-assistant:v2021.12.7@sha256:0e1cb472f9d9fbf1cd3f364bd37df406e6fab8d80115e4ccbc137c9b1b5626ca (alpine 3.14.2)
 
 
 **alpine**
@@ -399,6 +399,7 @@ hide:
 | pip         |    CVE-2021-28363   |   MEDIUM  |  20.2.4 | 21.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-5phf-pp7p-vc2r">https://github.com/advisories/GHSA-5phf-pp7p-vc2r</a><br><a href="https://github.com/pypa/advisory-db/tree/main/vulns/urllib3/PYSEC-2021-59.yaml">https://github.com/pypa/advisory-db/tree/main/vulns/urllib3/PYSEC-2021-59.yaml</a><br><a href="https://github.com/urllib3/urllib3/blob/main/CHANGES.rst#1264-2021-03-15">https://github.com/urllib3/urllib3/blob/main/CHANGES.rst#1264-2021-03-15</a><br><a href="https://github.com/urllib3/urllib3/commit/8d65ea1ecf6e2cdc27d42124e587c1b83a3118b0">https://github.com/urllib3/urllib3/commit/8d65ea1ecf6e2cdc27d42124e587c1b83a3118b0</a><br><a href="https://github.com/urllib3/urllib3/commits/main">https://github.com/urllib3/urllib3/commits/main</a><br><a href="https://github.com/urllib3/urllib3/releases/tag/1.26.4">https://github.com/urllib3/urllib3/releases/tag/1.26.4</a><br><a href="https://github.com/urllib3/urllib3/security/advisories/GHSA-5phf-pp7p-vc2r">https://github.com/urllib3/urllib3/security/advisories/GHSA-5phf-pp7p-vc2r</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4S65ZQVZ2ODGB52IC7VJDBUK4M5INCXL/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4S65ZQVZ2ODGB52IC7VJDBUK4M5INCXL/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28363">https://nvd.nist.gov/vuln/detail/CVE-2021-28363</a><br><a href="https://pypi.org/project/urllib3/1.26.4/">https://pypi.org/project/urllib3/1.26.4/</a><br><a href="https://security.gentoo.org/glsa/202107-36">https://security.gentoo.org/glsa/202107-36</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br></details>  |
 | pip         |    CVE-2021-3572   |   MEDIUM  |  20.2.4 | 21.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/errata/RHSA-2021:3254">https://access.redhat.com/errata/RHSA-2021:3254</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1962856">https://bugzilla.redhat.com/show_bug.cgi?id=1962856</a><br><a href="https://github.com/advisories/GHSA-5xp3-jfq3-5q8x">https://github.com/advisories/GHSA-5xp3-jfq3-5q8x</a><br><a href="https://github.com/pypa/pip/commit/e46bdda9711392fec0c45c1175bae6db847cb30b">https://github.com/pypa/pip/commit/e46bdda9711392fec0c45c1175bae6db847cb30b</a><br><a href="https://github.com/pypa/pip/pull/9827">https://github.com/pypa/pip/pull/9827</a><br><a href="https://linux.oracle.com/cve/CVE-2021-3572.html">https://linux.oracle.com/cve/CVE-2021-3572.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-4455.html">https://linux.oracle.com/errata/ELSA-2021-4455.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3572">https://nvd.nist.gov/vuln/detail/CVE-2021-3572</a><br><a href="https://packetstormsecurity.com/files/162712/USN-4961-1.txt">https://packetstormsecurity.com/files/162712/USN-4961-1.txt</a><br></details>  |
 | pip         |    pyup.io-42218   |   UNKNOWN  |  20.2.4 | 21.1 | <details><summary>Expand...</summary></details>  |
+| pytest-runner         |    pyup.io-43313   |   UNKNOWN  |  5.3.1 |  | <details><summary>Expand...</summary></details>  |
 | sendgrid         |    CVE-2021-43572   |   CRITICAL  |  6.8.2 | 6.9.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-92vm-mxjf-jqf3">https://github.com/advisories/GHSA-92vm-mxjf-jqf3</a><br><a href="https://github.com/starkbank/ecdsa-python/releases/tag/v2.0.1">https://github.com/starkbank/ecdsa-python/releases/tag/v2.0.1</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-43572">https://nvd.nist.gov/vuln/detail/CVE-2021-43572</a><br><a href="https://research.nccgroup.com/2021/11/08/technical-advisory-arbitrary-signature-forgery-in-stark-bank-ecdsa-libraries/">https://research.nccgroup.com/2021/11/08/technical-advisory-arbitrary-signature-forgery-in-stark-bank-ecdsa-libraries/</a><br></details>  |
 
 **gobinary**

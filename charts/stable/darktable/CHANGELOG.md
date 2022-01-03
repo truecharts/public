@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="darktable-0.0.9"></a>
+### [darktable-0.0.9](https://github.com/truecharts/apps/compare/darktable-0.0.8...darktable-0.0.9) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
 <a name="darktable-0.0.8"></a>
 ### [darktable-0.0.8](https://github.com/truecharts/apps/compare/darktable-0.0.7...darktable-0.0.8) (2021-12-28)
 

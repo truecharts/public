@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/overseerr"` | image repository |
-| image.tag | string | `"v1.27.0@sha256:cf3d0ae6c0df50e397a567e49d2ba891c2dc46cb1145f11acf0a12b82a3bfcd9"` | image tag |
+| image.tag | string | `"v1.28.0@sha256:50cd1bf4ba1fcc5a0fd040ff6a529557470e5c2d1dc5e6d40f144b40ca1607a0"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |

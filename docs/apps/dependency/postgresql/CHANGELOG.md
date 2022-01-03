@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.41"></a>
+### [postgresql-6.0.41](https://github.com/truecharts/apps/compare/postgresql-6.0.40...postgresql-6.0.41) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
 <a name="postgresql-6.0.40"></a>
 ### [postgresql-6.0.40](https://github.com/truecharts/apps/compare/postgresql-6.0.39...postgresql-6.0.40) (2021-12-28)
 

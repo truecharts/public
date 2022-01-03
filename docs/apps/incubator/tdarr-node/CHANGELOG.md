@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tdarr-node-1.0.32"></a>
+### [tdarr-node-1.0.32](https://github.com/truecharts/apps/compare/tdarr-node-1.0.31...tdarr-node-1.0.32) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
 <a name="tdarr-node-1.0.31"></a>
 ### [tdarr-node-1.0.31](https://github.com/truecharts/apps/compare/tdarr-node-1.0.30...tdarr-node-1.0.31) (2021-12-28)
 

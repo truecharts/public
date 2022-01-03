@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/shlink-web-client"` |  |
-| image.tag | string | `"v3.4.2@sha256:87c297799e41bb7e5928f4c9784637164fd86bfe61eecd47d6c8dc74ae9d1036"` |  |
+| image.tag | string | `"v3.5.0@sha256:6cd8d9060af9196895ec96f19203786fd55b6a671cb75a7139ffc6ad9a4f9684"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

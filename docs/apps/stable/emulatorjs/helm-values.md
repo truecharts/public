@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/emulatorjs"` |  |
-| image.tag | string | `"v1.4.2"` |  |
+| image.tag | string | `"v1.4.3"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

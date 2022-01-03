@@ -142,7 +142,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-25-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-26-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -184,6 +184,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://www.youtube.com/channel/UCOk-gHyjcWZNj3Br4oxwh0A"><img src="https://avatars.githubusercontent.com/u/1322205?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Techno Tim</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=timothystewart6" title="Documentation">📖</a></td>
     <td align="center"><a href="http://mingyaoliu.com"><img src="https://avatars.githubusercontent.com/u/3460335?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mingyao Liu</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=MingyaoLiu" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/NightShaman"><img src="https://avatars.githubusercontent.com/u/12952292?v=4?s=100" width="100px;" alt=""/><br /><sub><b>NightShaman</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=NightShaman" title="Code">💻</a> <a href="https://github.com/truecharts/apps/commits?author=NightShaman" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://espadav8.co.uk"><img src="https://avatars.githubusercontent.com/u/115825?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andrew Smith</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=EspadaV8" title="Documentation">📖</a></td>
   </tr>
 </table>
 

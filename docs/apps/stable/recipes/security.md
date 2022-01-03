@@ -62,8 +62,8 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:d1849137d3b53f5b5155d2a8d47fe0129b215d0c5b53a87096423f5c4feaf0e1
-          tccr.io/truecharts/recipes:v1.0.3@sha256:293f8d08b8326899e9ce0f4c4c8ffac521c22f168290ddfa0db1da0b81bda296
-        - 'tccr.io/truecharts/nginx:v1.21.4@sha256:361630c9cc477122ee5af45acab2c6acd192b0fef6ecbd7203c8d78aa2d16996'
+          tccr.io/truecharts/recipes:v1.0.4@sha256:3b15df975e692fc49d337a2ef937b53934d6b4c527bc1e8071cbb444b1a8bc20
+        - 'tccr.io/truecharts/nginx:v1.21.5@sha256:83a87113db9e86c2de4ba7a83b7ca796b3e455115ae545984c7a50ef16c1b45e'
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:f734751e367098b427baba1abec9728700f92e89d5dd370ae43910d7f2814b97
 
@@ -318,7 +318,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/recipes:v1.0.3@sha256:293f8d08b8326899e9ce0f4c4c8ffac521c22f168290ddfa0db1da0b81bda296 (alpine 3.12.7)
+#### Container: tccr.io/truecharts/recipes:v1.0.4@sha256:3b15df975e692fc49d337a2ef937b53934d6b4c527bc1e8071cbb444b1a8bc20 (alpine 3.12.7)
 
 
 **alpine**
@@ -367,10 +367,9 @@ hide:
 **python-pkg**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| django-allauth         |    pyup.io-43274   |   UNKNOWN  |  0.46.0 | 0.47.0 | <details><summary>Expand...</summary></details>  |
 
 
 

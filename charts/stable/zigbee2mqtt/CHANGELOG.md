@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-1.0.29"></a>
+### [zigbee2mqtt-1.0.29](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.28...zigbee2mqtt-1.0.29) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
 <a name="zigbee2mqtt-1.0.28"></a>
 ### [zigbee2mqtt-1.0.28](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.27...zigbee2mqtt-1.0.28) (2021-12-28)
 

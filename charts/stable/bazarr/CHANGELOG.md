@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bazarr-9.0.31"></a>
+### [bazarr-9.0.31](https://github.com/truecharts/apps/compare/bazarr-9.0.30...bazarr-9.0.31) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
 <a name="bazarr-9.0.30"></a>
 ### [bazarr-9.0.30](https://github.com/truecharts/apps/compare/bazarr-9.0.29...bazarr-9.0.30) (2021-12-28)
 

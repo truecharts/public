@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.20"></a>
+### [wikijs-4.0.20](https://github.com/truecharts/apps/compare/wikijs-4.0.19...wikijs-4.0.20) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
 <a name="wikijs-4.0.19"></a>
 ### [wikijs-4.0.19](https://github.com/truecharts/apps/compare/wikijs-4.0.18...wikijs-4.0.19) (2021-12-28)
 

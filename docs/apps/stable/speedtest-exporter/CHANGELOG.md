@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-1.0.15"></a>
+### [speedtest-exporter-1.0.15](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.14...speedtest-exporter-1.0.15) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
 <a name="speedtest-exporter-1.0.14"></a>
 ### [speedtest-exporter-1.0.14](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.13...speedtest-exporter-1.0.14) (2021-12-28)
 
