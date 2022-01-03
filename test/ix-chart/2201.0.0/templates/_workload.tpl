@@ -55,6 +55,8 @@ hostNetwork: {{ template "hostNetworkingConfiguration" . }}
 containers:
 - name: {{ .Chart.Name }}
   {{- include "volumeMountsConfiguration" . | indent 2}}
+  tty: {{ .Values.tty }}
+  stdin: {{ .Values.stdin }}
   securityContext:
     privileged: {{ .Values.securityContext.privileged }}
     {{ if .Values.securityContext.capabilities }}

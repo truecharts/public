@@ -502,6 +502,22 @@ questions:
         - "definitions/gpuConfiguration"
       attrs: []
 
+  - variable: tty
+    label: "Enable TTY"
+    description: "Determines whether containers in a pod runs with TTY enabled. By default pod has it disabled."
+    group: "Workload Details"
+    schema:
+      type: boolean
+      default: false
+
+  - variable: stdin
+    label: "Enable STDIN"
+    description: "Determines whether containers in a pod runs with stdin enabled. By default pod has it disabled."
+    group: "Workload Details"
+    schema:
+      type: boolean
+      default: false
+
   - variable: securityContext
     label: "Security Context"
     group: "Workload Details"
