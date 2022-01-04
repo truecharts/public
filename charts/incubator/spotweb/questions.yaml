@@ -86,7 +86,7 @@ questions:
             type: string
             default: "myawesomeuser"
             # Some words are not allowed and '<' or '>' are not allowed
-            valid_chars: ^((?!god|mod|spot|admin|drazix|superuser|supervisor|root|anonymous)[^<>])*$  
+            valid_chars: ^((?!god|mod|spot|admin|drazix|superuser|supervisor|root|anonymous)[^<>])*$
             required: true
         - variable: SPOTWEB_PASSWORD
           label: "Admin password"
@@ -143,7 +143,7 @@ questions:
             type: string
             required: true
             default: firstname@lastname.com
-            valid_chars: ^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
+            valid_chars: ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
         - variable: SPOTWEB_RETRIEVE
           label: "SPOTWEB_RETRIEVE"
           description: "Schedule on which to automatically retrieve new spots."
