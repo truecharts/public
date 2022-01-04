@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PGSQL_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/quassel-core"` |  |
-| image.tag | string | `"v0.13.1"` |  |
+| image.tag | string | `"v0.14.0"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

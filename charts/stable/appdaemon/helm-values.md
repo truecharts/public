@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"America/Chicago"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/appdaemon"` |  |
-| image.tag | string | `"v4.1.0@sha256:f490c318750595459824cb9355b95c8cdab768271288477454b212a8a93499a6"` |  |
+| image.tag | string | `"v4.2.0@sha256:c3caaa7d7e2065cdfed6ccacf0998459e971054c1aeaf86725a62aa6aea61fd5"` |  |
 | persistence.conf.enabled | bool | `true` |  |
 | persistence.conf.mountPath | string | `"/conf"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

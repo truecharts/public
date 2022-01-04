@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="quassel-core-0.0.10"></a>
+### [quassel-core-0.0.10](https://github.com/truecharts/apps/compare/quassel-core-0.0.9...quassel-core-0.0.10) (2022-01-04)
+
+#### Chore
+
+* update docker general non-major ([#1648](https://github.com/truecharts/apps/issues/1648))
+
+
+
 <a name="quassel-core-0.0.9"></a>
 ### [quassel-core-0.0.9](https://github.com/truecharts/apps/compare/quassel-core-0.0.8...quassel-core-0.0.9) (2021-12-28)
 
