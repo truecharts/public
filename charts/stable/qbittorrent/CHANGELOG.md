@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.31"></a>
+### [qbittorrent-9.0.31](https://github.com/truecharts/apps/compare/qbittorrent-9.0.30...qbittorrent-9.0.31) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="qbittorrent-9.0.30"></a>
 ### [qbittorrent-9.0.30](https://github.com/truecharts/apps/compare/qbittorrent-9.0.29...qbittorrent-9.0.30) (2021-12-28)
 

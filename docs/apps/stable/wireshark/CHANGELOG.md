@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wireshark-0.0.9"></a>
+### [wireshark-0.0.9](https://github.com/truecharts/apps/compare/wireshark-0.0.8...wireshark-0.0.9) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="wireshark-0.0.8"></a>
 ### [wireshark-0.0.8](https://github.com/truecharts/apps/compare/wireshark-0.0.7...wireshark-0.0.8) (2021-12-28)
 

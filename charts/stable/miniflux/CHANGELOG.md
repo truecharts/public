@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-4.0.20"></a>
+### [miniflux-4.0.20](https://github.com/truecharts/apps/compare/miniflux-4.0.19...miniflux-4.0.20) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="miniflux-4.0.19"></a>
 ### [miniflux-4.0.19](https://github.com/truecharts/apps/compare/miniflux-4.0.18...miniflux-4.0.19) (2021-12-28)
 

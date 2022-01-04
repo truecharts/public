@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-1.0.1"></a>
+### [deepstack-1.0.1](https://github.com/truecharts/apps/compare/deepstack-1.0.0...deepstack-1.0.1) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="deepstack-1.0.0"></a>
 ### [deepstack-1.0.0](https://github.com/truecharts/apps/compare/deepstack-0.0.1...deepstack-1.0.0) (2021-12-29)
 

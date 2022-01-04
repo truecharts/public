@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="external-service-4.0.27"></a>
+### [external-service-4.0.27](https://github.com/truecharts/apps/compare/external-service-4.0.26...external-service-4.0.27) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="external-service-4.0.26"></a>
 ### [external-service-4.0.26](https://github.com/truecharts/apps/compare/external-service-4.0.25...external-service-4.0.26) (2021-12-28)
 

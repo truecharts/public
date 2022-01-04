@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="digikam-2.0.30"></a>
+### [digikam-2.0.30](https://github.com/truecharts/apps/compare/digikam-2.0.29...digikam-2.0.30) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="digikam-2.0.29"></a>
 ### [digikam-2.0.29](https://github.com/truecharts/apps/compare/digikam-2.0.28...digikam-2.0.29) (2021-12-28)
 

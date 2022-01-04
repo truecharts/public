@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freeradius-4.0.31"></a>
+### [freeradius-4.0.31](https://github.com/truecharts/apps/compare/freeradius-4.0.30...freeradius-4.0.31) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="freeradius-4.0.30"></a>
 ### [freeradius-4.0.30](https://github.com/truecharts/apps/compare/freeradius-4.0.29...freeradius-4.0.30) (2021-12-28)
 

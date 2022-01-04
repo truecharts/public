@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.17"></a>
+### [grafana-2.0.17](https://github.com/truecharts/apps/compare/grafana-2.0.16...grafana-2.0.17) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="grafana-2.0.16"></a>
 ### [grafana-2.0.16](https://github.com/truecharts/apps/compare/grafana-2.0.15...grafana-2.0.16) (2022-01-04)
 

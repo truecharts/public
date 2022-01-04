@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.35"></a>
+### [prometheus-1.1.35](https://github.com/truecharts/apps/compare/prometheus-1.1.34...prometheus-1.1.35) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="prometheus-1.1.34"></a>
 ### [prometheus-1.1.34](https://github.com/truecharts/apps/compare/prometheus-1.1.33...prometheus-1.1.34) (2022-01-04)
 

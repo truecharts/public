@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mstream-1.0.28"></a>
+### [mstream-1.0.28](https://github.com/truecharts/apps/compare/mstream-1.0.27...mstream-1.0.28) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="mstream-1.0.27"></a>
 ### [mstream-1.0.27](https://github.com/truecharts/apps/compare/mstream-1.0.26...mstream-1.0.27) (2021-12-28)
 

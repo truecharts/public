@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icantbelieveitsnotvaletudo-2.0.28"></a>
+### [icantbelieveitsnotvaletudo-2.0.28](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-2.0.27...icantbelieveitsnotvaletudo-2.0.28) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="icantbelieveitsnotvaletudo-2.0.27"></a>
 ### [icantbelieveitsnotvaletudo-2.0.27](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-2.0.26...icantbelieveitsnotvaletudo-2.0.27) (2021-12-28)
 

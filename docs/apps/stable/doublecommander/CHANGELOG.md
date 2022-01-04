@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="doublecommander-2.0.31"></a>
+### [doublecommander-2.0.31](https://github.com/truecharts/apps/compare/doublecommander-2.0.30...doublecommander-2.0.31) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="doublecommander-2.0.30"></a>
 ### [doublecommander-2.0.30](https://github.com/truecharts/apps/compare/doublecommander-2.0.29...doublecommander-2.0.30) (2021-12-28)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.11"></a>
+### [code-server-2.1.11](https://github.com/truecharts/apps/compare/openvscode-server-0.0.10...code-server-2.1.11) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+* move some appicons under img/appicons ([#1635](https://github.com/truecharts/apps/issues/1635))
+
+
+
 <a name="code-server-2.1.10"></a>
 ### [code-server-2.1.10](https://github.com/truecharts/apps/compare/openvscode-server-0.0.9...code-server-2.1.10) (2021-12-28)
 

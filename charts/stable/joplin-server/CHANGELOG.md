@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="joplin-server-5.0.19"></a>
+### [joplin-server-5.0.19](https://github.com/truecharts/apps/compare/joplin-server-5.0.18...joplin-server-5.0.19) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="joplin-server-5.0.18"></a>
 ### [joplin-server-5.0.18](https://github.com/truecharts/apps/compare/joplin-server-5.0.17...joplin-server-5.0.18) (2021-12-28)
 

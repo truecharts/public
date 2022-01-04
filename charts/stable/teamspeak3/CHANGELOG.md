@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teamspeak3-2.0.28"></a>
+### [teamspeak3-2.0.28](https://github.com/truecharts/apps/compare/teamspeak3-2.0.27...teamspeak3-2.0.28) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="teamspeak3-2.0.27"></a>
 ### [teamspeak3-2.0.27](https://github.com/truecharts/apps/compare/teamspeak3-2.0.26...teamspeak3-2.0.27) (2021-12-28)
 

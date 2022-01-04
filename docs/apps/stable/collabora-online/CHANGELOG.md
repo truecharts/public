@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="collabora-online-10.0.10"></a>
+### [collabora-online-10.0.10](https://github.com/truecharts/apps/compare/collabora-online-10.0.9...collabora-online-10.0.10) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+* move some appicons under img/appicons ([#1635](https://github.com/truecharts/apps/issues/1635))
+
+
+
 <a name="collabora-online-10.0.9"></a>
 ### [collabora-online-10.0.9](https://github.com/truecharts/apps/compare/collabora-online-10.0.8...collabora-online-10.0.9) (2021-12-28)
 

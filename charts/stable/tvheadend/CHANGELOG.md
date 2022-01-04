@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tvheadend-10.0.28"></a>
+### [tvheadend-10.0.28](https://github.com/truecharts/apps/compare/tvheadend-10.0.27...tvheadend-10.0.28) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
 <a name="tvheadend-10.0.27"></a>
 ### [tvheadend-10.0.27](https://github.com/truecharts/apps/compare/tvheadend-10.0.26...tvheadend-10.0.27) (2021-12-28)
 
