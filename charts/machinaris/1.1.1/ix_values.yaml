@@ -1,0 +1,181 @@
+apiPort: 8927
+btcgreen:
+  apiPort: 8938
+  farmerPort: 18655
+  ports:
+  - containerPort: 8938
+    name: api
+    protocol: TCP
+  - containerPort: 9282
+    name: blockchain
+    protocol: TCP
+  - containerPort: 18655
+    name: farming
+    protocol: TCP
+cactus:
+  apiPort: 8936
+  farmerPort: 11447
+  ports:
+  - containerPort: 8936
+    hostPort: 8936
+    name: api
+    protocol: TCP
+  - containerPort: 11444
+    hostPort: 11444
+    name: blockchain
+    protocol: TCP
+  - containerPort: 11447
+    hostPort: 11447
+    name: farming
+    protocol: TCP
+chives:
+  apiPort: 8931
+  farmerPort: 9647
+  ports:
+  - containerPort: 8931
+    name: api
+    protocol: TCP
+  - containerPort: 9699
+    name: blockchain
+    protocol: TCP
+  - containerPort: 9647
+    name: farming
+    protocol: TCP
+coins:
+- cactus
+- chives
+- cryptodoge
+- flax
+- flora
+- hddcoin
+- maize
+- nchain
+- staicoin
+- stor
+- btcgreen
+cryptodoge:
+  apiPort: 8937
+  farmerPort: 16895
+  ports:
+  - containerPort: 8937
+    name: api
+    protocol: TCP
+  - containerPort: 15994
+    name: blockchain
+    protocol: TCP
+  - containerPort: 16895
+    name: farming
+    protocol: TCP
+farmerPort: 8447
+flax:
+  apiPort: 8928
+  farmerPort: 6885
+  ports:
+  - containerPort: 8928
+    name: api
+    protocol: TCP
+  - containerPort: 6888
+    name: blockchain
+    protocol: TCP
+  - containerPort: 6885
+    name: farming
+    protocol: TCP
+flora:
+  apiPort: 8932
+  farmerPort: 18647
+  ports:
+  - containerPort: 8932
+    name: api
+    protocol: TCP
+  - containerPort: 18644
+    name: blockchain
+    protocol: TCP
+  - containerPort: 18647
+    name: farming
+    protocol: TCP
+hddcoin:
+  apiPort: 8930
+  farmerPort: 28447
+  ports:
+  - containerPort: 8930
+    name: api
+    protocol: TCP
+  - containerPort: 28444
+    name: blockchain
+    protocol: TCP
+  - containerPort: 28447
+    name: farming
+    protocol: TCP
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/guydavis/machinaris
+  tag: v0.6.8
+maize:
+  apiPort: 8933
+  farmerPort: 8647
+  ports:
+  - containerPort: 8933
+    name: api
+    protocol: TCP
+  - containerPort: 8644
+    name: blockchain
+    protocol: TCP
+  - containerPort: 8647
+    name: farming
+    protocol: TCP
+nchain:
+  apiPort: 8929
+  farmerPort: 38447
+  ports:
+  - containerPort: 8929
+    name: api
+    protocol: TCP
+  - containerPort: 58445
+    name: blockchain
+    protocol: TCP
+  - containerPort: 38447
+    name: farming
+    protocol: TCP
+ports:
+- containerPort: 8444
+  hostPort: 8444
+  name: chia-network
+  protocol: TCP
+- containerPort: 8926
+  name: machinaris-ui
+  protocol: TCP
+- containerPort: 8927
+  hostPort: 8927
+  name: machinaris-api
+  protocol: TCP
+- containerPort: 8447
+  hostPort: 8447
+  name: farming
+  protocol: TCP
+staicoin:
+  apiPort: 8934
+  farmerPort: 1692
+  ports:
+  - containerPort: 8934
+    name: api
+    protocol: TCP
+  - containerPort: 1999
+    name: blockchain
+    protocol: TCP
+  - containerPort: 1692
+    name: farming
+    protocol: TCP
+stor:
+  apiPort: 8935
+  farmerPort: 8337
+  ports:
+  - containerPort: 8935
+    name: api
+    protocol: TCP
+  - containerPort: 8668
+    name: blockchain
+    protocol: TCP
+  - containerPort: 8337
+    name: farming
+    protocol: TCP
+updateStrategy: Recreate
