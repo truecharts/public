@@ -85,7 +85,6 @@ questions:
           schema:
             type: string
             default: "myawesomeuser"
-            # Some words are not allowed and '<' or '>' are not allowed
             valid_chars: ^((?!god|mod|spot|admin|drazix|superuser|supervisor|root|anonymous)[^<>])*$
             required: true
         - variable: SPOTWEB_PASSWORD
@@ -125,7 +124,6 @@ questions:
             type: string
             required: true
             default: "firstname"
-            # Min 2 chars, '<' or '>' are not allowed
             valid_chars: ^([^<>]{2})([^<>]*)$ 
         - variable: SPOTWEB_LASTNAME
           label: "Admin last name"
@@ -134,7 +132,6 @@ questions:
             type: string
             required: true
             default: "lastname"
-            # Min 2 chars, '<' or '>' are not allowed
             valid_chars: ^([^<>]{2})([^<>]*)$ 
         - variable: SPOTWEB_MAIL
           label: "Admin mail adres"
