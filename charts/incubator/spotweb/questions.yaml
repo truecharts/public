@@ -84,7 +84,8 @@ questions:
           description: "Username to configure for the admin of this installation."
           schema:
             type: string
-            default: "admin"
+            default: "myawesomeuser"
+            valid_chars: ^((?!god|mod|spot|admin|drazix|superuser|supervisor|root|anonymous)[^<>])*$
             required: true
         - variable: SPOTWEB_PASSWORD
           label: "Admin password"
@@ -123,6 +124,7 @@ questions:
             type: string
             required: true
             default: "firstname"
+            valid_chars: ^([^<>]{2})([^<>]*)$ 
         - variable: SPOTWEB_LASTNAME
           label: "Admin last name"
           description: "Last name of the admin user."
@@ -130,6 +132,7 @@ questions:
             type: string
             required: true
             default: "lastname"
+            valid_chars: ^([^<>]{2})([^<>]*)$ 
         - variable: SPOTWEB_MAIL
           label: "Admin mail adres"
           description: "Email adres to configure for the provided admin user."
@@ -137,6 +140,7 @@ questions:
             type: string
             required: true
             default: firstname@lastname.com
+            valid_chars: ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
         - variable: SPOTWEB_RETRIEVE
           label: "SPOTWEB_RETRIEVE"
           description: "Schedule on which to automatically retrieve new spots."
