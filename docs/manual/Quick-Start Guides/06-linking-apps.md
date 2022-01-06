@@ -8,6 +8,8 @@ The backend for TrueNAS SCALE Apps is Kubernetes. Linking apps together in Kuber
 
 Instead we need to use their internal(!) domain name. Please beware: this name is only available between Apps and can not be reached from the host/node or your own PC.
 
+The internal domain name can be discovered by opening a shell in the desired pod and executing: `hostname -f`
+
 The format for internal domain name for the main service is explained bellow.
 Please replace `$NAME` with the name you gave your App when installing and `$APP` with the name the app has on the catalog where is needed.
 
