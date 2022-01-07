@@ -82,7 +82,20 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: FRIENDICA_ADMIN_MAIL
+          label: "Admin E-Mail"
+          description: "E-Mail address of the administrator."
+          schema:
+            type: string
+            required: true
+            default:
+        - variable: FRIENDICA_URL
+          label: "Friendica URL"
+          description: "The Friendica complete URL including protocol, domain and subpath (example: https://friendica.local/sub/ )."
+          schema:
+            type: string
+            required: true
+            default:
 # Include{containerConfig}
 
   - variable: service
