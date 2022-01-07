@@ -45,13 +45,7 @@ For big changes we do have a roadmap, every spot on the roadmap is synced to a T
 
 <br>
 
-**MariaDB and External-DNS - TrueNAS SCALE "Angelfish" RC2**
-
-_There are many community requested containers that cannot be run using just a postgresql servers, we'll aim to streamline support for a few more dependencies and some improved support for External-DNS on-top_
-
-<br>
-
-**Documentation - TrueNAS SCALE "Angelfish" RELEASE**
+**Documentation, MetalLB and External-DNS - TrueNAS SCALE "Angelfish" RELEASE**
 
 _While preparing for the formal release of TrueNAS SCALE, we still have some things to polish_
 
