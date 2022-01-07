@@ -318,3 +318,10 @@ questions:
                 schema:
                   type: hostpath
                   required: true
+              - variable: readOnly
+                label: "Read Only"
+                description: "Mount hostpath in read-only mode"
+                schema:
+                  type: boolean
+                  required: true
+                  default: false

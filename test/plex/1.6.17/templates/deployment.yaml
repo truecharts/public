@@ -22,6 +22,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
             {{ range $index, $hostPathConfiguration := .Values.extraAppVolumeMounts }}
             - name: extrappvolume-{{ $index }}
               mountPath: {{ $hostPathConfiguration.mountPath }}
+              readOnly: {{ $hostPathConfiguration.readOnly }}
             {{ end }}
           ports:
           - name: pms
