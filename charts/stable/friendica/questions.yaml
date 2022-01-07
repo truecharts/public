@@ -88,14 +88,14 @@ questions:
           schema:
             type: string
             required: true
-            default:
+            default: ""
         - variable: FRIENDICA_URL
           label: "Friendica URL"
           description: "The Friendica complete URL including protocol, domain and subpath (example: https://friendica.local/sub/ )."
           schema:
             type: string
             required: true
-            default:
+            default: ""
 # Include{containerConfig}
 
   - variable: service
