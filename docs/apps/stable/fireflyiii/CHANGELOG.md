@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.11"></a>
+### [fireflyiii-13.1.11](https://github.com/truecharts/apps/compare/fireflyiii-13.1.10...fireflyiii-13.1.11) (2022-01-07)
+
+#### Fix
+
+* internal links use targetPort ([#1658](https://github.com/truecharts/apps/issues/1658))
+
+
+
 <a name="fireflyiii-13.1.10"></a>
 ### [fireflyiii-13.1.10](https://github.com/truecharts/apps/compare/fireflyiii-13.1.9...fireflyiii-13.1.10) (2022-01-04)
 
