@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.12"></a>
+### [fireflyiii-13.1.12](https://github.com/truecharts/apps/compare/fireflyiii-13.1.11...fireflyiii-13.1.12) (2022-01-08)
+
+#### Fix
+
+* Actually render env on cronjob and revert port change ([#1664](https://github.com/truecharts/apps/issues/1664))
+
+
+
 <a name="fireflyiii-13.1.11"></a>
 ### [fireflyiii-13.1.11](https://github.com/truecharts/apps/compare/fireflyiii-13.1.10...fireflyiii-13.1.11) (2022-01-07)
 
