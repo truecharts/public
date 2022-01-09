@@ -18,6 +18,14 @@ service:
         targetPort: 10153
         port: 10153
 
+probes:
+  liveness:
+    path: "/rest/health"
+  readiness:
+    path: "/rest/health"
+  startup:
+    path: "/rest/health"
+
 env:
   DEFAULT_DOMAIN: ""
   GEOLITE_LICENSE_KEY: ""
