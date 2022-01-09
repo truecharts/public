@@ -1141,6 +1141,55 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 4.33.1
+    created: "2022-01-09T13:30:10.945413053Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.43
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org/
+      version: 1.0.48
+    description: Authelia is a Single Sign-On Multi-Factor portal for web apps
+    digest: dd2d5b18d9fd626217200654513562b63ae72325b8d528ff9e7abfec7540e4a9
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/authelia
+    icon: https://truecharts.org/_static/img/appicons/authelia-icon.png
+    keywords:
+    - authelia
+    - authentication
+    - login
+    - SSO
+    - Authentication
+    - Security
+    - Two-Factor
+    - U2F
+    - YubiKey
+    - Push Notifications
+    - LDAP
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: authelia
+    sources:
+    - https://github.com/authelia/chartrepo
+    - https://github.com/authelia/authelia
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/authelia-8.0.24/authelia-8.0.24.tgz
+    version: 8.0.24
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - security
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.33.1
     created: "2022-01-04T20:48:54.909273282Z"
     dependencies:
     - name: common
@@ -4000,6 +4049,27 @@ entries:
     - https://github.com/truecharts/apps/releases/download/collabora-online-9.0.20/collabora-online-9.0.20.tgz
     version: 9.0.20
   common:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-01-09T13:30:11.081653131Z"
+    description: Function library for TrueCharts
+    digest: 6916732221535a3c6a613ec1df8815fbfa367e61534da537a84f246b612fda27
+    home: https://github.com/truecharts/apps/tree/master/charts/common
+    icon: https://avatars.githubusercontent.com/u/76400755
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-8.10.3/common-8.10.3.tgz
+    version: 8.10.3
   - apiVersion: v2
     appVersion: latest
     created: "2022-01-04T13:50:35.9264658Z"
@@ -30972,6 +31042,48 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.53.1
+    created: "2022-01-09T13:30:11.268496272Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    - condition: exporters.enabled,exporters.node-exporter.enabled
+      name: node-exporter
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.3.17
+    - condition: exporters.enabled,exporters.kube-state-metrics.enabled
+      name: kube-state-metrics
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.1.19
+    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+      and Prometheus rules combined with documentation and scripts to provide easy
+      to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
+      Prometheus Operator.
+    digest: 6b17950570b0b16c2a25826966050264a434991b7a1e439c1075067ba3cc6eb5
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/prometheus
+    icon: https://truecharts.org/_static/img/appicons/prometheus-icon.png
+    keywords:
+    - metrics
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: prometheus
+    sources:
+    - https://github.com/prometheus-community/helm-charts
+    - https://github.com/prometheus-operator/kube-prometheus
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prometheus-1.1.36/prometheus-1.1.36.tgz
+    version: 1.1.36
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - metrics
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.53.1
     created: "2022-01-04T20:49:16.803433646Z"
     dependencies:
     - name: common
@@ -40390,6 +40502,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.5.6
+    created: "2022-01-09T13:30:11.404481648Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: Test App for Traefik
+    digest: 7bd97379343eb4b33ec6943448ba0c6a440afd5f8991fbb645cda1a025644122
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/traefik
+    icon: https://truecharts.org/_static/img/appicons/traefik-icon.png
+    keywords:
+    - traefik
+    - ingress
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    - https://traefik.io/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/traefik-10.0.34/traefik-10.0.34.tgz
+    version: 10.0.34
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - network
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.5.6
     created: "2022-01-04T20:49:22.946165032Z"
     dependencies:
     - name: common
@@ -44382,4 +44527,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-09T12:08:37.941170187Z"
+generated: "2022-01-09T13:30:11.415575828Z"

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.36"></a>
+### [prometheus-1.1.36](https://github.com/truecharts/apps/compare/prometheus-1.1.35...prometheus-1.1.36) (2022-01-09)
+
+#### Fix
+
+* fix logic in tpl ([#1668](https://github.com/truecharts/apps/issues/1668))
+
+
+
 <a name="prometheus-1.1.35"></a>
 ### [prometheus-1.1.35](https://github.com/truecharts/apps/compare/prometheus-1.1.34...prometheus-1.1.35) (2022-01-04)
 

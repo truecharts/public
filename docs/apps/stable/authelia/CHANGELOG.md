@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.24"></a>
+### [authelia-8.0.24](https://github.com/truecharts/apps/compare/authelia-8.0.23...authelia-8.0.24) (2022-01-09)
+
+#### Fix
+
+* fix logic in tpl ([#1668](https://github.com/truecharts/apps/issues/1668))
+
+
+
 <a name="authelia-8.0.23"></a>
 ### [authelia-8.0.23](https://github.com/truecharts/apps/compare/authelia-8.0.22...authelia-8.0.23) (2022-01-04)
 

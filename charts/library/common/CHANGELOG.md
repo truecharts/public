@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.10.3"></a>
+### [common-8.10.3](https://github.com/truecharts/apps/compare/common-8.10.2...common-8.10.3) (2022-01-09)
+
+#### Fix
+
+* fix logic in tpl ([#1668](https://github.com/truecharts/apps/issues/1668))
+
+
+
 <a name="common-8.10.2"></a>
 ### [common-8.10.2](https://github.com/truecharts/apps/compare/common-8.10.1...common-8.10.2) (2022-01-04)
 

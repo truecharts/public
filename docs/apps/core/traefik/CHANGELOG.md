@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.34"></a>
+### [traefik-10.0.34](https://github.com/truecharts/apps/compare/traefik-10.0.33...traefik-10.0.34) (2022-01-09)
+
+#### Fix
+
+* fix logic in tpl ([#1668](https://github.com/truecharts/apps/issues/1668))
+
+
+
 <a name="traefik-10.0.33"></a>
 ### [traefik-10.0.33](https://github.com/truecharts/apps/compare/traefik-10.0.32...traefik-10.0.33) (2022-01-04)
 
