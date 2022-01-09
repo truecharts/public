@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openvscode-server-0.0.12"></a>
+### [openvscode-server-0.0.12](https://github.com/truecharts/apps/compare/openvscode-server-0.0.11...openvscode-server-0.0.12) (2022-01-09)
+
+#### Fix
+
+* allow rootfs access, make token required ([#1611](https://github.com/truecharts/apps/issues/1611))
+
+
+
 <a name="openvscode-server-0.0.11"></a>
 ### [openvscode-server-0.0.11](https://github.com/truecharts/apps/compare/openvscode-server-0.0.10...openvscode-server-0.0.11) (2022-01-04)
 
