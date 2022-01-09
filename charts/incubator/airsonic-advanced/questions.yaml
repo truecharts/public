@@ -87,6 +87,19 @@ questions:
           schema:
             type: int
             default: 568
+        - variable: JAVA_OPTS
+          label: "JAVA_OPTS"
+          description: "JAVA_OPTS"
+          schema:
+            type: string
+            default: ""
+        - variable: CONTEXT_PATH
+          label: "CONTEXT_PATH"
+          description: "CONTEXT_PATH"
+          schema:
+            type: string
+            required: true
+            default: "/"
 
 # Include{containerConfig}
 
