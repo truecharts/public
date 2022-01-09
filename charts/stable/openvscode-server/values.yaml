@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.63.2
 
+portal:
+  path: "/?tkn={{ .Values.env.CONNECTION_TOKEN }}"
+
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
