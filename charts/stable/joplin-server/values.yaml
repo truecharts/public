@@ -13,7 +13,7 @@ podSecurityContext:
 
 env:
   TZ: UTC
-  APP_BASE_URL: https://joplin.domain
+  APP_BASE_URL: http://localhost:22300
   APP_PORT: 22300
   DB_CLIENT: "pg"
   POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
