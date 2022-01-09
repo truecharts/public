@@ -53,7 +53,7 @@ env:
 volumeMounts:
   - mountPath: {{ .Values.persistence.shared.mountPath }}
     name: shared
-{{- if or .Values.addons.vpn.configFile }}
+{{- if .Values.addons.vpn.configFile }}
   - name: vpnconfig
     mountPath: /etc/wireguard/wg0.conf
 {{- end }}

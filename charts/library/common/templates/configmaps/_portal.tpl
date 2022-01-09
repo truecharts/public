@@ -69,7 +69,7 @@
   {{- $host = .Values.portal.host }}
 {{- end }}
 
-{{- if and ( .Values.portal.path ) }}
+{{- if .Values.portal.path }}
   {{- $path = .Values.portal.path }}
 {{- end }}
 

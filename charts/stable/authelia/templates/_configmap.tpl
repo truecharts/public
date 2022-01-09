@@ -18,7 +18,7 @@ data:
   AUTHELIA_NOTIFIER_SMTP_PASSWORD_FILE: "/secrets/SMTP_PASSWORD"
   {{- end }}
   AUTHELIA_SESSION_REDIS_PASSWORD_FILE: "/secrets/REDIS_PASSWORD"
-  {{- if and .Values.redisProvider.high_availability.enabled}}
+  {{- if .Values.redisProvider.high_availability.enabled }}
   AUTHELIA_SESSION_REDIS_HIGH_AVAILABILITY_SENTINEL_PASSWORD_FILE: "/secrets/REDIS_SENTINEL_PASSWORD"
   {{- end }}
   {{- if .Values.duo_api.enabled }}
