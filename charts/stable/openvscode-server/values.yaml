@@ -15,8 +15,7 @@ podSecurityContext:
   runAsGroup: 0
 
 secret:
-  # CONNECTION_TOKEN: ""  (Optional)
-  # SUDO_PASSWORD: ""  (Optional)
+  CONNECTION_TOKEN: "somerandomstring"
 
 env:
   PUID: 568
