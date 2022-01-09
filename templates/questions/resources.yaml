@@ -19,29 +19,33 @@
                   attrs:
                     - variable: cpu
                       label: "CPU"
+                      description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/manual/indepth/validation/"
                       schema:
                         type: string
                         default: "4000m"
                         valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
                     - variable: memory
-                      label: "Memory RAM"
+                      label: "RAM"
+                      description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/manual/indepth/validation/"
                       schema:
                         type: string
                         default: "8Gi"
                         valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
               - variable: requests
-                label: "Advanced Request minimum resources required"
+                label: "Advanced Request Minimum Resources Required"
                 schema:
                   type: dict
                   attrs:
                     - variable: cpu
                       label: "CPU"
+                      description: "1000m means 1 hyperthread. Detailed info: https://truecharts.org/manual/indepth/validation/"
                       schema:
                         type: string
                         default: "10m"
                         valid_chars: '^(?!^0(\.0|m|)$)([0-9]+)(\.[0-9]|m?)$'
                     - variable: memory
-                      label: "Memory RAM"
+                      label: "RAM"
+                      description: "1Gi means 1 Gibibyte RAM. Detailed info: https://truecharts.org/manual/indepth/validation/"
                       schema:
                         type: string
                         default: "50Mi"
