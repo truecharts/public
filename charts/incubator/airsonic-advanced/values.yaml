@@ -14,18 +14,20 @@ podSecurityContext:
 env:
   PUID: 568
   TZ: UTC
+  AIRSONIC_DIR: "/"
   spring_liquibase_parameters_userTableQuote: '"'
   spring_datasource_username: "{{ .Values.postgresql.postgresqlUsername }}"
+  spring_datasource_password: "breakdb"
 
 envValueFrom:
   spring_datasource_url:
     secretKeyRef:
       name: dbcreds
       key: jdbc
-  spring_datasource_password:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
+  # spring_datasource_password:
+  #   secretKeyRef:
+  #     name: dbcreds
+  #     key: postgresql-password
 
 service:
   main:
@@ -44,13 +46,13 @@ postgresql:
 persistence:
   config:
     enabled: true
-    mountPath: "/var/airsonic"
+    mountPath: "/airsonic"
   music:
     enabled: true
-    moutPath: "/var/music"
+    moutPath: "/music"
   podcasts:
     enabled: true
-    moutPath: "/var/podcasts"
+    moutPath: "/podcasts"
   playlists:
     enabled: true
-    moutPath: "/var/playlists"
+    moutPath: "/playlists"
