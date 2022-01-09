@@ -1,0 +1,56 @@
+image:
+  repository: tccr.io/truecharts/airsonic-advanced
+  tag: edge-11.0.0-SNAPSHOT.20220109073049
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+  TZ: UTC
+  spring_liquibase_parameters_userTableQuote: '"'
+  spring_datasource_username: "{{ .Values.postgresql.postgresqlUsername }}"
+
+envValueFrom:
+  spring_datasource_url:
+    secretKeyRef:
+      name: dbcreds
+      key: jdbc
+  spring_datasource_password:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
+service:
+  main:
+    ports:
+      main:
+        port: 10122
+        targetPort: 4040
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: airsonic-advanced
+  postgresqlDatabase: airsonic-advanced
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/airsonic"
+  music:
+    enabled: true
+    moutPath: "/var/music"
+  podcasts:
+    enabled: true
+    moutPath: "/var/podcasts"
+  playlists:
+    enabled: true
+    moutPath: "/var/playlists"
