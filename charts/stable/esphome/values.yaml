@@ -8,6 +8,7 @@ securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
   privileged: true
+  allowPrivilegeEscalation: true
 
 podSecurityContext:
   runAsUser: 0
