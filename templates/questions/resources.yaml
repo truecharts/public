@@ -32,7 +32,7 @@
                         default: "8Gi"
                         valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
               - variable: requests
-                label: "Advanced Request Minimum Resources Required"
+                label: "Minimum Resources Required (request)"
                 schema:
                   type: dict
                   attrs:
