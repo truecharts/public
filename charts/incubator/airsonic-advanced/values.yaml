@@ -17,17 +17,16 @@ env:
   AIRSONIC_DIR: "/"
   spring_liquibase_parameters_userTableQuote: '"'
   spring_datasource_username: "{{ .Values.postgresql.postgresqlUsername }}"
-  spring_datasource_password: "breakdb"
 
 envValueFrom:
   spring_datasource_url:
     secretKeyRef:
       name: dbcreds
       key: jdbc
-  # spring_datasource_password:
-  #   secretKeyRef:
-  #     name: dbcreds
-  #     key: postgresql-password
+  spring_datasource_password:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
 
 service:
   main:
