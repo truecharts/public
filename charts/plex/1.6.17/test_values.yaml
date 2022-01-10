@@ -19,6 +19,10 @@ dnsConfig:
   options: []
 emptyDirVolumes: true
 environmentVariables: []
+extraAppVolumeMounts:
+  - mountPath: /mnt/extras
+    hostPath: /mnt/extras
+    readOnly: true
 gpuConfiguration: {}
 hostNetwork: false
 image:
