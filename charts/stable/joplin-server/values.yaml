@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/joplin-server
-  # -- image tag
   tag: v2.5.1@sha256:a285ff0cf05f534efd28c6652925b57a9774ba41923d15536b873fbbdbabcd2b
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -14,14 +11,9 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See [image docs](https://github.com/laurent22/joplin) for more details.
-# @default -- See below
 env:
-  # -- Set the container timezone
   TZ: UTC
-  # -- joplin-server base URL
-  APP_BASE_URL: https://joplin.domain
-  # -- joplin-server listening port (same as Service port)
+  APP_BASE_URL: http://localhost:22300
   APP_PORT: 22300
   DB_CLIENT: "pg"
   POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -38,8 +30,14 @@ envValueFrom:
       name: dbcreds
       key: plainhost
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+probes:
+  liveness:
+    path: "/api/ping"
+  readiness:
+    path: "/api/ping"
+  startup:
+    path: "/api/ping"
+
 service:
   main:
     ports:
@@ -51,8 +49,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-# -- Enable and configure postgresql database subchart under this key.
-# @default -- See values.yaml
+
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
