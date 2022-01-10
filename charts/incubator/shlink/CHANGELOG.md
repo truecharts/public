@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="shlink-0.0.5"></a>
+### [shlink-0.0.5](https://github.com/truecharts/apps/compare/shlink-0.0.4...shlink-0.0.5) (2022-01-10)
+
+#### Feat
+
+* add some gui options ([#1682](https://github.com/truecharts/apps/issues/1682))
+* add probes on health endpoint ([#1672](https://github.com/truecharts/apps/issues/1672))
+
+
+
 <a name="shlink-0.0.4"></a>
 ### [shlink-0.0.4](https://github.com/truecharts/apps/compare/shlink-web-client-0.0.2...shlink-0.0.4) (2022-01-04)
 

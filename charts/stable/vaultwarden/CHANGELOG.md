@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.21"></a>
+### [vaultwarden-13.0.21](https://github.com/truecharts/apps/compare/vaultwarden-13.0.20...vaultwarden-13.0.21) (2022-01-10)
+
+#### Feat
+
+* Add admin portal button ([#1673](https://github.com/truecharts/apps/issues/1673))
+
+
+
 <a name="vaultwarden-13.0.20"></a>
 ### [vaultwarden-13.0.20](https://github.com/truecharts/apps/compare/vaultwarden-13.0.19...vaultwarden-13.0.20) (2022-01-04)
 

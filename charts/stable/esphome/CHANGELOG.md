@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.36"></a>
+### [esphome-9.0.36](https://github.com/truecharts/apps/compare/esphome-9.0.35...esphome-9.0.36) (2022-01-10)
+
+#### Fix
+
+* compensate for upstream bug ([#1674](https://github.com/truecharts/apps/issues/1674))
+
+
+
 <a name="esphome-9.0.35"></a>
 ### [esphome-9.0.35](https://github.com/truecharts/apps/compare/esphome-9.0.34...esphome-9.0.35) (2022-01-04)
 

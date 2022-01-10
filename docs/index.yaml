@@ -125,6 +125,41 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/airsonic-4.0.23/airsonic-4.0.23.tgz
     version: 4.0.23
+  airsonic-advanced:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: edge-11.0
+    created: "2022-01-10T17:21:23.665577319Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.43
+    description: Airsonic is a Free and Open Source community driven media server
+    digest: 1724413142bc132c9b29d20de191449540740834c0a7f5cf6743b0f04c75fe4e
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/airsonic-advanced
+    icon: https://truecharts.org/_static/img/appicons/airsonic-icon.png
+    keywords:
+    - airsonic
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: airsonic-advanced
+    sources:
+    - https://github.com/airsonic/airsonic-advanced
+    - https://hub.docker.com/r/airsonicadvanced/airsonic-advanced
+    urls:
+    - https://github.com/truecharts/apps/releases/download/airsonic-advanced-1.0.0/airsonic-advanced-1.0.0.tgz
+    version: 1.0.0
   amcrest2mqtt:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -8572,6 +8607,38 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2021.12.3
+    created: "2022-01-10T17:21:23.828933818Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful
+      configuration files and control them remotely through Home Automation systems.
+    digest: 0a0afb2f1d4f59209e006bc8fdc8a6b0b7c26da9d8ae8387bb5c6927f53f65d4
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/esphome
+    icon: https://truecharts.org/_static/img/appicons/esphome-icon.png
+    keywords:
+    - esphome
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: esphome
+    sources:
+    - https://github.com/esphome/esphome
+    - https://hub.docker.com/u/esphome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/esphome-9.0.36/esphome-9.0.36.tgz
+    version: 9.0.36
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - tools
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2021.12.3
     created: "2022-01-04T20:48:59.676167524Z"
     dependencies:
     - name: common
@@ -16433,6 +16500,42 @@ entries:
     - https://github.com/truecharts/apps/releases/download/jellyfin-9.0.20/jellyfin-9.0.20.tgz
     version: 9.0.20
   joplin-server:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.5.1
+    created: "2022-01-10T17:21:24.016488857Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.43
+    description: This server allows you to sync any Joplin client
+    digest: 66498afe20bbfdbf6567277466c62b4fea7841b8bda4244fc939852c26eac133
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/jopplin-server
+    icon: https://truecharts.org/_static/img/appicons/joplin-server-icon.png
+    keywords:
+    - joplin
+    - notes
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: joplin-server
+    sources:
+    - https://github.com/laurent22/joplin/tree/dev/packages/server
+    - https://github.com/laurent22/joplin
+    - https://hub.docker.com/r/joplin/server
+    urls:
+    - https://github.com/truecharts/apps/releases/download/joplin-server-5.0.20/joplin-server-5.0.20.tgz
+    version: 5.0.20
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -36877,6 +36980,46 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.10.1
+    created: "2022-01-10T17:21:24.234167214Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.43
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org/
+      version: 1.0.48
+    description: A PHP-based self-hosted URL shortener that can be used to serve shortened
+      URLs under your own custom domain.
+    digest: 13d15ca4ee1998a27908f95f0bffdee8b251d9cf7d6b4be35ce6546828390d05
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/shlink
+    icon: https://truecharts.org/_static/img/appicons/shlink-icon.png
+    keywords:
+    - url
+    - shortener
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: shlink
+    sources:
+    - https://github.com/shlinkio/shlink
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/shlink-0.0.5/shlink-0.0.5.tgz
+    version: 0.0.5
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - utilities
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.10.1
     created: "2022-01-04T20:49:19.79048031Z"
     dependencies:
     - name: common
@@ -43072,6 +43215,45 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.23.1
+    created: "2022-01-10T17:21:24.397044282Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.43
+    description: Unofficial Bitwarden compatible server written in Rust
+    digest: 0d8823a3fc1ce38c270f0049fa9b4fce0fdfcb71ae454df9f857ee83ecc72a11
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/vaultwarden
+    icon: https://truecharts.org/_static/img/appicons/vaultwarden-icon.png
+    keywords:
+    - bitwarden
+    - bitwardenrs
+    - bitwarden_rs
+    - vaultwarden
+    - password
+    - rust
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/vaultwarden-13.0.21/vaultwarden-13.0.21.tgz
+    version: 13.0.21
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - security
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.23.1
     created: "2022-01-04T20:49:24.618289974Z"
     dependencies:
     - name: common
@@ -44709,4 +44891,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-10T16:29:20.42467277Z"
+generated: "2022-01-10T17:21:24.400094377Z"

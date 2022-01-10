@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="joplin-server-5.0.20"></a>
+### [joplin-server-5.0.20](https://github.com/truecharts/apps/compare/joplin-server-5.0.19...joplin-server-5.0.20) (2022-01-10)
+
+#### Feat
+
+* add probes on ping endpoint ([#1675](https://github.com/truecharts/apps/issues/1675))
+
+
+
 <a name="joplin-server-5.0.19"></a>
 ### [joplin-server-5.0.19](https://github.com/truecharts/apps/compare/joplin-server-5.0.18...joplin-server-5.0.19) (2022-01-04)
 

@@ -11,10 +11,12 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env.ANONYMIZE_REMOTE_ADDR | bool | `true` |  |
 | env.DB_DRIVER | string | `"postgres"` |  |
 | env.DB_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
 | env.DB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.DEFAULT_DOMAIN | string | `""` |  |
+| env.ENABLE_PERIODIC_VISIT_LOCATE | bool | `true` |  |
 | env.GEOLITE_LICENSE_KEY | string | `""` |  |
 | env.IS_HTTPS_ENABLED | bool | `true` |  |
 | env.PORT | int | `10153` |  |
@@ -33,6 +35,9 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"shlink"` |  |
 | postgresql.postgresqlUsername | string | `"shlink"` |  |
+| probes.liveness.path | string | `"/rest/health"` |  |
+| probes.readiness.path | string | `"/rest/health"` |  |
+| probes.startup.path | string | `"/rest/health"` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
 | redis.redisUsername | string | `"default"` |  |
