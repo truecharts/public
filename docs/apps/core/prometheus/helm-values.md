@@ -346,6 +346,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.thanos.selector.prometheus | string | `"{{ template \"kube-prometheus.prometheus.fullname\" . }}"` |  |
 | serviceAccount | object | `{"create":true}` | The service account the pods will use to interact with the Kubernetes API |
 | thanosImage.repository | string | `"tccr.io/truecharts/thanos"` |  |
-| thanosImage.tag | string | `"v0.24.0@sha256:e61cfe9dfadb13fb34713027c0526b7be5d442b403a7a42da085d08c9f5c623d"` |  |
+| thanosImage.tag | string | `"v0.24.0@sha256:44bb0705cc3874da5abc2567156cae4348c32618697b44a9678323dab974f5b4"` |  |
 
 All Rights Reserved - The TrueCharts Project
