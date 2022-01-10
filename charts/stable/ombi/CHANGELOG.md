@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ombi-9.0.33"></a>
+### [ombi-9.0.33](https://github.com/truecharts/apps/compare/ombi-9.0.32...ombi-9.0.33) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
 <a name="ombi-9.0.32"></a>
 ### [ombi-9.0.32](https://github.com/truecharts/apps/compare/ombi-9.0.31...ombi-9.0.32) (2022-01-04)
 

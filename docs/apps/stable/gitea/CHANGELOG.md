@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.25"></a>
+### [gitea-5.0.25](https://github.com/truecharts/apps/compare/gitea-5.0.24...gitea-5.0.25) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
 <a name="gitea-5.0.24"></a>
 ### [gitea-5.0.24](https://github.com/truecharts/apps/compare/gitea-5.0.23...gitea-5.0.24) (2022-01-04)
 

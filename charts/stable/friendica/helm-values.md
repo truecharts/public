@@ -11,6 +11,8 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| env.FRIENDICA_ADMIN_MAIL | string | `"my@domain.com"` |  |
+| env.FRIENDICA_URL | string | `"https://friendica.local"` |  |
 | env.MYSQL_DATABASE | string | `"friendica"` |  |
 | env.MYSQL_USER | string | `"friendica"` |  |
 | envValueFrom.MYSQL_HOST.secretKeyRef.key | string | `"plainhost"` |  |
@@ -23,7 +25,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_PW.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/friendica"` |  |
-| image.tag | string | `"v2021.09@sha256:b863f481ec80caa4d53539706f4b0a9e98f14c0b865f66f63ed7176f9a01b4a7"` |  |
+| image.tag | string | `"v2021.09@sha256:019ccf148e56afb866bec47eff00f09619bc214163cb99a1285c3e753b31b954"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"friendica"` |  |

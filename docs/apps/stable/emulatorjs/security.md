@@ -33,7 +33,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/emulatorjs:v1.4.3
+          tccr.io/truecharts/emulatorjs:v1.5.1
 
 ##### Scan Results
 

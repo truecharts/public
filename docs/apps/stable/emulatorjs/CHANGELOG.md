@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emulatorjs-0.0.13"></a>
+### [emulatorjs-0.0.13](https://github.com/truecharts/apps/compare/emulatorjs-0.0.12...emulatorjs-0.0.13) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
 <a name="emulatorjs-0.0.12"></a>
 ### [emulatorjs-0.0.12](https://github.com/truecharts/apps/compare/emulatorjs-0.0.11...emulatorjs-0.0.12) (2022-01-04)
 

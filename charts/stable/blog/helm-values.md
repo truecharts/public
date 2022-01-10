@@ -24,7 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.BLOG_POSTGRES_PASS.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/blog"` |  |
-| image.tag | string | `"latest@sha256:8f8164929c47c071024cabf591fbaea4f468dcddf3c276c3114d754c9e24dc47"` |  |
+| image.tag | string | `"latest@sha256:1b266160b63af34d10b2e78457ca77bbcd0bc7eba08b58d21f7e4bfe8ce2f208"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

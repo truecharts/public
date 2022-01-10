@@ -82,9 +82,9 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:43f930e836abc26019e9638e275d47ab3eb48acb289036cbf378cc4e36e5d686
-          'tccr.io/truecharts/gitea:v1.15.9@sha256:a295652c97aa6e9648fb4176ca213fa03af25c89c2d4d5fe312cf19aad882e15'
-          'tccr.io/truecharts/gitea:v1.15.9@sha256:a295652c97aa6e9648fb4176ca213fa03af25c89c2d4d5fe312cf19aad882e15'
-          tccr.io/truecharts/gitea:v1.15.9@sha256:a295652c97aa6e9648fb4176ca213fa03af25c89c2d4d5fe312cf19aad882e15
+          'tccr.io/truecharts/gitea:v1.15.9@sha256:f08e69d951a6be0d0e580eca38c7bcb987c5f8aeba8c0b91b26fc50bfcf726d4'
+          'tccr.io/truecharts/gitea:v1.15.9@sha256:f08e69d951a6be0d0e580eca38c7bcb987c5f8aeba8c0b91b26fc50bfcf726d4'
+          tccr.io/truecharts/gitea:v1.15.9@sha256:f08e69d951a6be0d0e580eca38c7bcb987c5f8aeba8c0b91b26fc50bfcf726d4
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:43f930e836abc26019e9638e275d47ab3eb48acb289036cbf378cc4e36e5d686
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
@@ -345,7 +345,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/gitea:v1.15.9@sha256:a295652c97aa6e9648fb4176ca213fa03af25c89c2d4d5fe312cf19aad882e15 (alpine 3.13.7)
+#### Container: tccr.io/truecharts/gitea:v1.15.9@sha256:f08e69d951a6be0d0e580eca38c7bcb987c5f8aeba8c0b91b26fc50bfcf726d4 (alpine 3.13.7)
 
 
 **alpine**

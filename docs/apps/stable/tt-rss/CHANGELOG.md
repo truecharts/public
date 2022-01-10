@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.30"></a>
+### [tt-rss-4.0.30](https://github.com/truecharts/apps/compare/tt-rss-4.0.29...tt-rss-4.0.30) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
 <a name="tt-rss-4.0.29"></a>
 ### [tt-rss-4.0.29](https://github.com/truecharts/apps/compare/tt-rss-4.0.28...tt-rss-4.0.29) (2022-01-04)
 

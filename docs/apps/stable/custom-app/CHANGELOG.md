@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.51"></a>
+### [custom-app-3.0.51](https://github.com/truecharts/apps/compare/custom-app-3.0.50...custom-app-3.0.51) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
 <a name="custom-app-3.0.50"></a>
 ### [custom-app-3.0.50](https://github.com/truecharts/apps/compare/custom-app-3.0.49...custom-app-3.0.50) (2022-01-04)
 

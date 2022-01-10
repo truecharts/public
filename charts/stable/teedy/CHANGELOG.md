@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teedy-4.0.20"></a>
+### [teedy-4.0.20](https://github.com/truecharts/apps/compare/teedy-4.0.19...teedy-4.0.20) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
 <a name="teedy-4.0.19"></a>
 ### [teedy-4.0.19](https://github.com/truecharts/apps/compare/teedy-4.0.18...teedy-4.0.19) (2022-01-04)
 

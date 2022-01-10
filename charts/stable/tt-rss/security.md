@@ -52,7 +52,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:43f930e836abc26019e9638e275d47ab3eb48acb289036cbf378cc4e36e5d686
-          tccr.io/truecharts/tt-rss:v1.9087.0@sha256:9314a7fe869b67241b76cc6f4b686f6b9f0b544771cf9ca739e35e46c8c4b0a4
+          tccr.io/truecharts/tt-rss:v1.9090.0@sha256:1f0c5734f5c1526de668922f13556ad74f1c346b9deef6f255dd6867122e5e9b
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:43f930e836abc26019e9638e275d47ab3eb48acb289036cbf378cc4e36e5d686
 
@@ -307,7 +307,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/tt-rss:v1.9087.0@sha256:9314a7fe869b67241b76cc6f4b686f6b9f0b544771cf9ca739e35e46c8c4b0a4 (ubuntu 20.04)
+#### Container: tccr.io/truecharts/tt-rss:v1.9090.0@sha256:1f0c5734f5c1526de668922f13556ad74f1c346b9deef6f255dd6867122e5e9b (ubuntu 20.04)
 
 
 **ubuntu**
@@ -415,10 +415,9 @@ hide:
 **node-pkg**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| dojo         |    CVE-2021-23450   |   CRITICAL  |  1.16.4 |  | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-m8gw-hjpr-rjv7">https://github.com/advisories/GHSA-m8gw-hjpr-rjv7</a><br><a href="https://github.com/dojo/dojo/blob/4c39c14349408fc8274e19b399ffc660512ed07c/_base/lang.js%23L172">https://github.com/dojo/dojo/blob/4c39c14349408fc8274e19b399ffc660512ed07c/_base/lang.js%23L172</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-23450">https://nvd.nist.gov/vuln/detail/CVE-2021-23450</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARS-2313036">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARS-2313036</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWER-2313035">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWER-2313035</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWERGITHUBDOJO-2313034">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSBOWERGITHUBDOJO-2313034</a><br><a href="https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-2313033">https://snyk.io/vuln/SNYK-JAVA-ORGWEBJARSNPM-2313033</a><br><a href="https://snyk.io/vuln/SNYK-JS-DOJO-1535223">https://snyk.io/vuln/SNYK-JS-DOJO-1535223</a><br></details>  |
 
 **composer**
 

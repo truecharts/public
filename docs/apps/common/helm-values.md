@@ -183,7 +183,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"v14.1.0@sha256:43f930e836abc26019e9638e275d47ab3eb48acb289036cbf378cc4e36e5d686"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"v14.1.0@sha256:12da40e510eacb5c7d28a6ca9738a501e5ad0e6486f4a466a092f28ebbd2f15c"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
