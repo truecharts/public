@@ -4192,6 +4192,27 @@ entries:
   common:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-01-10T19:43:30.923097394Z"
+    description: Function library for TrueCharts
+    digest: 44cda49ff130d975f56f5def84cd5510c4ee9752c8ad8192419654dff12cca1f
+    home: https://github.com/truecharts/apps/tree/master/charts/common
+    icon: https://avatars.githubusercontent.com/u/76400755
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-8.10.6/common-8.10.6.tgz
+    version: 8.10.6
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-01-10T18:07:18.158831494Z"
     description: Function library for TrueCharts
     digest: 3117169b107aa7c83123d189adcf21294dd1ea82df2012ffecf52b99e71b26b4
@@ -12742,6 +12763,41 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 8.3.3
+    created: "2022-01-10T19:43:31.125781204Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: Grafana is an open source, feature rich metrics dashboard and graph
+      editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
+    digest: e8c313e3b240b190b931543b5f6ae66c95d3367530f22822ee29d86ecae16017
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/grafana
+    icon: https://truecharts.org/_static/img/appicons/grafana-icon.png
+    keywords:
+    - analytics
+    - monitoring
+    - metrics
+    - logs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: grafana
+    sources:
+    - https://github.com/bitnami/bitnami-docker-grafana
+    - https://grafana.com/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/grafana-2.0.19/grafana-2.0.19.tgz
+    version: 2.0.19
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - metrics
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 8.3.3
     created: "2022-01-10T18:07:19.567192551Z"
     dependencies:
     - name: common
@@ -16912,6 +16968,42 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 2.7.3
+    created: "2022-01-10T19:43:31.352962749Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.43
+    description: This server allows you to sync any Joplin client
+    digest: 4780538aa2e83c0ad56b4937e060955637662c153a1c1390fa55bb05f5ffa518
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/jopplin-server
+    icon: https://truecharts.org/_static/img/appicons/joplin-server-icon.png
+    keywords:
+    - joplin
+    - notes
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: joplin-server
+    sources:
+    - https://github.com/laurent22/joplin/tree/dev/packages/server
+    - https://github.com/laurent22/joplin
+    - https://hub.docker.com/r/joplin/server
+    urls:
+    - https://github.com/truecharts/apps/releases/download/joplin-server-5.0.21/joplin-server-5.0.21.tgz
+    version: 5.0.21
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 2.5.1
     created: "2022-01-10T17:21:24.016488857Z"
     dependencies:
@@ -20328,6 +20420,42 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 10.6.5
+    created: "2022-01-10T19:43:31.598768196Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: Fast, reliable, scalable, and easy to use open-source relational
+      database system.
+    digest: 070148dece962579ce6a3b763d5a764843698e30a72e8944cb7ba476ed6f5457
+    home: https://github.com/truecharts/apps/tree/master/stable/mariadb
+    icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+    keywords:
+    - mariadb
+    - mysql
+    - database
+    - sql
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: mariadb
+    sources:
+    - https://github.com/bitnami/bitnami-docker-mariadb
+    - https://github.com/prometheus/mysqld_exporter
+    - https://mariadb.org
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mariadb-1.0.47/mariadb-1.0.47.tgz
+    version: 1.0.47
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 10.6.5
     created: "2022-01-10T18:07:21.715795154Z"
     dependencies:
     - name: common
@@ -21464,6 +21592,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/medusa-1.0.24/medusa-1.0.24.tgz
     version: 1.0.24
   memcached:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+        - cache
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.12
+    created: "2022-01-10T19:43:31.804904925Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: Memcached is a memory-backed database caching solution
+    digest: 98331dea1699f91247acf9e39e36a8e972f29fbab66bfa69507801924a40f6fa
+    home: https://github.com/truecharts/apps/tree/master/stable/memcached
+    icon: https://bitnami.com/assets/stacks/memcached/img/memcached-stack-220x234.png
+    keywords:
+    - memcached
+    - database
+    - cache
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: memcached
+    sources:
+    - https://github.com/bitnami/bitnami-docker-memcached
+    - http://memcached.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/memcached-1.0.47/memcached-1.0.47.tgz
+    version: 1.0.47
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -26040,6 +26202,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/odoo-4.0.12/odoo-4.0.12.tgz
     version: 4.0.12
   omada-controller:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "5.0"
+    created: "2022-01-10T19:43:32.00837364Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: Omada is a SDN tool for TP-Link Omada hardware
+    digest: 81b9b1b05c465f49a17fe5b758572d4a3efe84639532ac14cc8ad1852c7a6b80
+    home: https://github.com/truechartsapps/tree/master/charts/stable/omada-controller
+    icon: https://truecharts.org/_static/img/appicons/omada-controller-icon.png
+    keywords:
+    - omada-controller
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: omada-controller
+    sources:
+    - https://github.com/mbentley/docker-omada-controller
+    - https://github.com/truechartsapps/tree/master/charts/omada-controller
+    urls:
+    - https://github.com/truecharts/apps/releases/download/omada-controller-4.0.43/omada-controller-4.0.43.tgz
+    version: 4.0.43
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -30989,6 +31181,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 14.1.0
+    created: "2022-01-10T19:43:32.230618158Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: PostgresSQL
+    digest: 28bc0315dbcc01e6e20c238277d536686a14788c054d9bf6155f74edf6b96e5a
+    home: https://github.com/truecharts/apps/tree/master/stable/postgres
+    icon: https://d1q6f0aelx0por.cloudfront.net/product-logos/library-postgres-logo.png
+    keywords:
+    - postgres
+    - postgressql
+    - dtabase
+    - sql
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: postgresql
+    sources:
+    - https://www.postgresql.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/postgresql-6.0.45/postgresql-6.0.45.tgz
+    version: 6.0.45
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 14.1.0
     created: "2022-01-10T18:07:22.720353316Z"
     dependencies:
     - name: common
@@ -32119,6 +32344,48 @@ entries:
     - https://github.com/truecharts/apps/releases/download/promcord-2.0.0/promcord-2.0.0.tgz
     version: 2.0.0
   prometheus:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - metrics
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.53.1
+    created: "2022-01-10T19:43:32.475274298Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    - condition: exporters.enabled,exporters.node-exporter.enabled
+      name: node-exporter
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.3.17
+    - condition: exporters.enabled,exporters.kube-state-metrics.enabled
+      name: kube-state-metrics
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.1.19
+    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+      and Prometheus rules combined with documentation and scripts to provide easy
+      to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
+      Prometheus Operator.
+    digest: 0128a3b080a92c109f26a325c2473aa2c139e6bfce212d0a1a18d89fbf1d9ef3
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/prometheus
+    icon: https://truecharts.org/_static/img/appicons/prometheus-icon.png
+    keywords:
+    - metrics
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: prometheus
+    sources:
+    - https://github.com/prometheus-community/helm-charts
+    - https://github.com/prometheus-operator/kube-prometheus
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prometheus-1.1.38/prometheus-1.1.38.tgz
+    version: 1.1.38
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -34601,6 +34868,37 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-01-10T19:43:32.683037637Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: qBittorrent is a cross-platform free and open-source BitTorrent client
+    digest: e9399d6e6b6985e90facc32b4cf1befcb3f3aeb5a8c500f6acdad8bd26b6838f
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/qbittorrent
+    icon: https://truecharts.org/_static/img/appicons/qbittorrent-icon.png
+    keywords:
+    - qbittorrent
+    - torrrent
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: qbittorrent
+    sources:
+    - https://github.com/qbittorrent/qBittorrent
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/qbittorrent-9.0.32/qbittorrent-9.0.32.tgz
+    version: 9.0.32
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 4.3.9
     created: "2022-01-04T20:49:17.826925601Z"
     dependencies:
@@ -35880,6 +36178,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/recipes-4.0.16/recipes-4.0.16.tgz
     version: 4.0.16
   redis:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+        - cache
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 6.2.6
+    created: "2022-01-10T19:43:32.868924655Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: Open source, advanced key-value store.
+    digest: 5651312885c3420b66668e1a52512d2429c7225ca52b5b2464359b1f71951ba3
+    home: https://github.com/truecharts/apps/tree/master/stable/redis
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: redis
+    sources:
+    - https://github.com/bitnami/bitnami-docker-redis
+    - http://redis.io/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/redis-1.0.50/redis-1.0.50.tgz
+    version: 1.0.50
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -46034,4 +46366,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-10T18:07:24.915325232Z"
+generated: "2022-01-10T19:43:32.872545175Z"

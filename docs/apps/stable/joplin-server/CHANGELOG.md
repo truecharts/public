@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="joplin-server-5.0.21"></a>
+### [joplin-server-5.0.21](https://github.com/truecharts/apps/compare/joplin-server-5.0.20...joplin-server-5.0.21) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1685](https://github.com/truecharts/apps/issues/1685))
+
+
+
 <a name="joplin-server-5.0.20"></a>
 ### [joplin-server-5.0.20](https://github.com/truecharts/apps/compare/joplin-server-5.0.19...joplin-server-5.0.20) (2022-01-10)
 

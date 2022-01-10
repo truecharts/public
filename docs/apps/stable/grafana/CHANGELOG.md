@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.19"></a>
+### [grafana-2.0.19](https://github.com/truecharts/apps/compare/grafana-2.0.18...grafana-2.0.19) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1685](https://github.com/truecharts/apps/issues/1685))
+
+
+
 <a name="grafana-2.0.18"></a>
 ### [grafana-2.0.18](https://github.com/truecharts/apps/compare/grafana-2.0.17...grafana-2.0.18) (2022-01-10)
 
