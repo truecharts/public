@@ -3,6 +3,17 @@ image:
   pullPolicy: IfNotPresent
   tag: v2021.12.3@sha256:5627e9a2b7134603a2dbc950ce9ab501ed026b106b1eee95a00f5c531e26d1ad
 
+# App needs to run as root because of this: https://github.com/esphome/issues/issues/2752
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+  privileged: true
+  allowPrivilegeEscalation: true
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 service:
   main:
     ports:
