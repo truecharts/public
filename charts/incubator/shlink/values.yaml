@@ -21,8 +21,10 @@ service:
 env:
   DEFAULT_DOMAIN: ""
   GEOLITE_LICENSE_KEY: ""
-  PORT: 10153
+  ANONYMIZE_REMOTE_ADDR: true
+  ENABLE_PERIODIC_VISIT_LOCATE: true
   IS_HTTPS_ENABLED: true
+  PORT: 10153
   DB_DRIVER: "postgres"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"

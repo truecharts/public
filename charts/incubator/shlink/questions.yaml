@@ -74,6 +74,18 @@ questions:
           schema:
             type: string
             default: ""
+        - variable: ANONYMIZE_REMOTE_ADDR
+          label: "Anonymize Remote Address"
+          description: "Tells if IP addresses from visitors should be obfuscated before storing them in the database"
+          schema:
+            type: boolean
+            default: true
+        - variable: ENABLE_PERIODIC_VISIT_LOCATE
+          label: "Enable Periodic visit:locate"
+          description: "it schedules the visit:locate command to be run every hour inside the container using crontab"
+          schema:
+            type: boolean
+            default: true
         - variable: IS_HTTPS_ENABLED
           label: "Served over HTTPS"
           description: "Tells if Shlink is served with https or not"
