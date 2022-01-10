@@ -190,7 +190,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | wiki                       |      main       |      main       | 10044 |   TCP    |                                         |
 | wikijs                     |      main       |      main       | 10045 |   TCP    |                                         |
 | zwavejs2mqtt               |       ws        |       ws        | 10046 |   TCP    |                                         |
-| airsonic                   |      main       |      main       | 10047 |   TCP    |                                         |
 | booksonic-air              |      main       |      main       | 10048 |   TCP    |                                         |
 | deepstack                  |      main       |      main       | 10049 |   TCP    |                                         |
 | spotweb                    |      main       |      main       | 10050 |   TCP    |                                         |

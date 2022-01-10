@@ -1,6 +1,6 @@
 image:
-  repository: airsonicadvanced/airsonic-advanced
-  tag: edge-11.0.0-SNAPSHOT.20220109073049
+  repository: tccr.io/truecharts/airsonic-advanced
+  tag: vedge-11.0.0@sha256:b6a1b30ecc3e16c39ca56392cd13d55af80235b57ec2d27c2e5f1a21fec34bd9
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -51,10 +51,10 @@ persistence:
     mountPath: "/airsonic"
   music:
     enabled: true
-    moutPath: "/music"
+    mountPath: "/music"
   podcasts:
     enabled: true
-    moutPath: "/podcasts"
+    mountPath: "/podcasts"
   playlists:
     enabled: true
-    moutPath: "/playlists"
+    mountPath: "/playlists"
