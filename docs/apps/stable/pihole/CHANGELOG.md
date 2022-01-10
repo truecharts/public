@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.33"></a>
+### [pihole-4.0.33](https://github.com/truecharts/apps/compare/pihole-4.0.32...pihole-4.0.33) (2022-01-10)
+
+#### Chore
+
+* update docker general major docker tags (major) ([#1678](https://github.com/truecharts/apps/issues/1678))
+
+
+
 <a name="pihole-4.0.32"></a>
 ### [pihole-4.0.32](https://github.com/truecharts/apps/compare/pihole-4.0.31...pihole-4.0.32) (2022-01-04)
 

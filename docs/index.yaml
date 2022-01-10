@@ -3544,6 +3544,39 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 4.0.1
+    created: "2022-01-10T16:29:19.232452423Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: Run VS Code on any machine anywhere and access it in the browser.
+    digest: 879bf64ff72337af1adabb454e109742dd3db419cbf74e22df694a390737b15b
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/code-server
+    icon: https://truecharts.org/_static/img/appicons/codeserver-icon.png
+    keywords:
+    - code
+    - vs
+    - visual studio
+    - vscode
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: code-server
+    sources:
+    - https://github.com/cdr/code-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/code-server-2.1.12/code-server-2.1.12.tgz
+    version: 2.1.12
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 3.12.0
     created: "2022-01-04T20:48:56.552134016Z"
     dependencies:
@@ -4049,6 +4082,27 @@ entries:
     - https://github.com/truecharts/apps/releases/download/collabora-online-9.0.20/collabora-online-9.0.20.tgz
     version: 9.0.20
   common:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2022-01-10T16:29:19.451037864Z"
+    description: Function library for TrueCharts
+    digest: ca50c192e69a731f82cda050ec327a5a48ab9cb98951068202bdcd99d572e775
+    home: https://github.com/truecharts/apps/tree/master/charts/common
+    icon: https://avatars.githubusercontent.com/u/76400755
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-8.10.4/common-8.10.4.tgz
+    version: 8.10.4
   - apiVersion: v2
     appVersion: latest
     created: "2022-01-09T13:30:11.081653131Z"
@@ -24662,6 +24716,34 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 4.0.0
+    created: "2022-01-10T16:29:19.653322827Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    deprecated: true
+    description: Usenet meta search
+    digest: b7323a6173984f1df437661625ed65e316be6ba9798e2422cb7e1d86f9fa42b4
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/nzbhydra
+    icon: https://truecharts.org/_static/img/appicons/nzbhydra-icon.png
+    keywords:
+    - nzbhydra
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    name: nzbhydra
+    sources:
+    - https://github.com/theotherp/nzbhydra2
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/nzbhydra-9.0.33/nzbhydra-9.0.33.tgz
+    version: 9.0.33
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 3.18.4
     created: "2022-01-04T20:49:13.037615945Z"
     dependencies:
@@ -25155,6 +25237,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/odoo-4.0.12/odoo-4.0.12.tgz
     version: 4.0.12
   omada-controller:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "5.0"
+    created: "2022-01-10T16:29:19.867360702Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: Omada is a SDN tool for TP-Link Omada hardware
+    digest: 794f3f5b241f9562db12441d94ffda830e8221e7d7a1175b4f05830859cf3ef0
+    home: https://github.com/truechartsapps/tree/master/charts/stable/omada-controller
+    icon: https://truecharts.org/_static/img/appicons/omada-controller-icon.png
+    keywords:
+    - omada-controller
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: omada-controller
+    sources:
+    - https://github.com/mbentley/docker-omada-controller
+    - https://github.com/truechartsapps/tree/master/charts/omada-controller
+    urls:
+    - https://github.com/truecharts/apps/releases/download/omada-controller-4.0.42/omada-controller-4.0.42.tgz
+    version: 4.0.42
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -28047,6 +28159,44 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: "20220107"
+    created: "2022-01-10T16:29:20.146047786Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.45
+    description: PhotoPrismÂ® is a server-based application for browsing, organizing
+      and sharing your personal photo collection
+    digest: aba6aca71f448bcd1d174455d25b12a94d50b052f3fa3436d58ccf96018f0eba
+    home: https://github.com/truechartsapps/tree/master/charts/stable/photoprism
+    icon: https://truecharts.org/_static/img/appicons/photoprism-icon.png
+    keywords:
+    - photos
+    - photoprism
+    - pictures
+    - sharing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: photoprism
+    sources:
+    - https://github.com/photoprism/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
+    urls:
+    - https://github.com/truecharts/apps/releases/download/photoprism-7.0.12/photoprism-7.0.12.tgz
+    version: 7.0.12
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: "20211215"
     created: "2022-01-04T20:49:15.23679087Z"
     dependencies:
@@ -29139,6 +29289,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/pidgin-0.0.1/pidgin-0.0.1.tgz
     version: 0.0.1
   pihole:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - networking
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.01.1
+    created: "2022-01-10T16:29:20.421755192Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.10.2
+    description: DNS and Ad-filtering for your network
+    digest: 3f4fe0b2d0ee979b44ff63403c38cc3a6fc23198caf37c97f801999560d69cf5
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/pihole
+    icon: https://truecharts.org/_static/img/appicons/pihole-icon.png
+    keywords:
+    - DNS
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: pihole
+    sources:
+    - https://pi-hole.net/
+    - https://github.com/pi-hole
+    - https://github.com/pi-hole/docker-pi-hole
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/pihole-4.0.33/pihole-4.0.33.tgz
+    version: 4.0.33
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -44527,4 +44709,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-09T13:30:11.415575828Z"
+generated: "2022-01-10T16:29:20.42467277Z"
