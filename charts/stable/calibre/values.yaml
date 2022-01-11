@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/calibre
-  # -- image tag
   tag: v5.32.0-ls138@sha256:a7c6272300628eb747dc129001aef8bc53d9b462ebe6b4953de904a2a5e15c8e
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -15,27 +12,18 @@ podSecurityContext:
   runAsGroup: 0
 
 secret:
-  # -- Username for the calibre gui
-  GUAC_USER: ""
-  # -- Password's md5 hash for the calibre gui
-  GUAC_PASS: ""
-# -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-calibre#environment-variables-e) for more details.
-# @default -- See below
+  PASSWORD: ""
+
 env:
-  # -- Set the container timezone
   TZ: UTC
-  # -- Specify the user ID the application will run as
   PUID: 568
-  # -- Optionally pass cli start arguments to calibre.
   CLI_ARGS:
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
       main:
-        port: 10080
+        port: 8084
         targetPort: 8080
   webserver:
     enabled: true
@@ -45,8 +33,6 @@ service:
         port: 8081
         targetPort: 8081
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
