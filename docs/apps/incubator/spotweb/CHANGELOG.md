@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="spotweb-0.0.5"></a>
+### [spotweb-0.0.5](https://github.com/truecharts/apps/compare/spotweb-0.0.4...spotweb-0.0.5) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+#### Fix
+
+* Add validation to user information ([#1645](https://github.com/truecharts/apps/issues/1645))
+
+
+
 <a name="spotweb-0.0.4"></a>
 ### [spotweb-0.0.4](https://github.com/truecharts/apps/compare/spotweb-0.0.3...spotweb-0.0.4) (2022-01-04)
 

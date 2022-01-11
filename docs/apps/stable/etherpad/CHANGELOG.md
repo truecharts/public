@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="etherpad-5.0.20"></a>
+### [etherpad-5.0.20](https://github.com/truecharts/apps/compare/etherpad-5.0.19...etherpad-5.0.20) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
 <a name="etherpad-5.0.19"></a>
 ### [etherpad-5.0.19](https://github.com/truecharts/apps/compare/etherpad-5.0.18...etherpad-5.0.19) (2022-01-04)
 

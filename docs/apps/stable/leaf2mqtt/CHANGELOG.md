@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-2.0.29"></a>
+### [leaf2mqtt-2.0.29](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.28...leaf2mqtt-2.0.29) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
 <a name="leaf2mqtt-2.0.28"></a>
 ### [leaf2mqtt-2.0.28](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.27...leaf2mqtt-2.0.28) (2022-01-04)
 

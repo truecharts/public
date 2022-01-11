@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.20"></a>
+### [blog-0.0.20](https://github.com/truecharts/apps/compare/blog-0.0.19...blog-0.0.20) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
 <a name="blog-0.0.19"></a>
 ### [blog-0.0.19](https://github.com/truecharts/apps/compare/blog-0.0.18...blog-0.0.19) (2022-01-10)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="muximux-1.0.33"></a>
+### [muximux-1.0.33](https://github.com/truecharts/apps/compare/muximux-1.0.32...muximux-1.0.33) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
 <a name="muximux-1.0.32"></a>
 ### [muximux-1.0.32](https://github.com/truecharts/apps/compare/muximux-1.0.31...muximux-1.0.32) (2022-01-04)
 

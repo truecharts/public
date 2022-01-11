@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="reg-4.0.28"></a>
+### [reg-4.0.28](https://github.com/truecharts/apps/compare/reg-4.0.27...reg-4.0.28) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
 <a name="reg-4.0.27"></a>
 ### [reg-4.0.27](https://github.com/truecharts/apps/compare/reg-4.0.26...reg-4.0.27) (2022-01-04)
 

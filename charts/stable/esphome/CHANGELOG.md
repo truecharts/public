@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.37"></a>
+### [esphome-9.0.37](https://github.com/truecharts/apps/compare/esphome-9.0.36...esphome-9.0.37) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
 <a name="esphome-9.0.36"></a>
 ### [esphome-9.0.36](https://github.com/truecharts/apps/compare/esphome-9.0.35...esphome-9.0.36) (2022-01-10)
 

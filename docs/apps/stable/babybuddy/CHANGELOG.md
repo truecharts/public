@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.26"></a>
+### [babybuddy-5.0.26](https://github.com/truecharts/apps/compare/babybuddy-5.0.25...babybuddy-5.0.26) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
 <a name="babybuddy-5.0.25"></a>
 ### [babybuddy-5.0.25](https://github.com/truecharts/apps/compare/babybuddy-5.0.24...babybuddy-5.0.25) (2022-01-04)
 

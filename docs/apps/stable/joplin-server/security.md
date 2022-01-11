@@ -51,10 +51,10 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.1.0@sha256:43f930e836abc26019e9638e275d47ab3eb48acb289036cbf378cc4e36e5d686
+          tccr.io/truecharts/postgresql:v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92
           tccr.io/truecharts/joplin-server:v2.7.3@sha256:a664f072622f9ceb4c751c2c6b57e3a8b856cf6c543dc6eb4e97e9dabb587b62
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.1.0@sha256:43f930e836abc26019e9638e275d47ab3eb48acb289036cbf378cc4e36e5d686
+          tccr.io/truecharts/postgresql:v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92
 
 ##### Scan Results
 
@@ -91,7 +91,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:43f930e836abc26019e9638e275d47ab3eb48acb289036cbf378cc4e36e5d686 (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92 (debian 10.11)
 
 
 **debian**
@@ -1000,7 +1000,7 @@ hide:
 | linux-libc-dev         |    CVE-2021-4148   |   MEDIUM  |  5.10.84-1 |  | <details><summary>Expand...</summary><a href="https://lkml.org/lkml/2021/9/12/323">https://lkml.org/lkml/2021/9/12/323</a><br><a href="https://lkml.org/lkml/2021/9/17/1037">https://lkml.org/lkml/2021/9/17/1037</a><br></details>  |
 | linux-libc-dev         |    CVE-2021-4149   |   MEDIUM  |  5.10.84-1 |  | <details><summary>Expand...</summary><a href="https://lkml.org/lkml/2021/10/18/885">https://lkml.org/lkml/2021/10/18/885</a><br><a href="https://lkml.org/lkml/2021/9/13/2565">https://lkml.org/lkml/2021/9/13/2565</a><br></details>  |
 | linux-libc-dev         |    CVE-2021-4150   |   MEDIUM  |  5.10.84-1 |  | <details><summary>Expand...</summary><a href="https://lkml.org/lkml/2021/10/18/485">https://lkml.org/lkml/2021/10/18/485</a><br><a href="https://lkml.org/lkml/2021/9/6/781">https://lkml.org/lkml/2021/9/6/781</a><br></details>  |
-| linux-libc-dev         |    CVE-2021-4155   |   MEDIUM  |  5.10.84-1 |  | <details><summary>Expand...</summary><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=983d8e60f50806f90534cc5373d0ce867e5aaf79">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=983d8e60f50806f90534cc5373d0ce867e5aaf79</a><br><a href="https://linux.oracle.com/cve/CVE-2021-4155.html">https://linux.oracle.com/cve/CVE-2021-4155.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-9013.html">https://linux.oracle.com/errata/ELSA-2022-9013.html</a><br></details>  |
+| linux-libc-dev         |    CVE-2021-4155   |   MEDIUM  |  5.10.84-1 |  | <details><summary>Expand...</summary><a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=983d8e60f50806f90534cc5373d0ce867e5aaf79">https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=983d8e60f50806f90534cc5373d0ce867e5aaf79</a><br><a href="https://linux.oracle.com/cve/CVE-2021-4155.html">https://linux.oracle.com/cve/CVE-2021-4155.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2022-9014.html">https://linux.oracle.com/errata/ELSA-2022-9014.html</a><br></details>  |
 | linux-libc-dev         |    CVE-2021-4197   |   MEDIUM  |  5.10.84-1 |  | <details><summary>Expand...</summary><a href="https://lore.kernel.org/lkml/20211209214707.805617-1-tj@kernel.org/T/">https://lore.kernel.org/lkml/20211209214707.805617-1-tj@kernel.org/T/</a><br></details>  |
 | linux-libc-dev         |    CVE-2021-43976   |   MEDIUM  |  5.10.84-1 |  | <details><summary>Expand...</summary><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/X24M7KDC4OJOZNS3RDSYC7ELNELOLQ2N/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/X24M7KDC4OJOZNS3RDSYC7ELNELOLQ2N/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/YODMYMGZYDXQKGJGX7TJG4XV4L5YLLBD/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/YODMYMGZYDXQKGJGX7TJG4XV4L5YLLBD/</a><br><a href="https://patchwork.kernel.org/project/linux-wireless/patch/YX4CqjfRcTa6bVL+@Zekuns-MBP-16.fios-router.home/">https://patchwork.kernel.org/project/linux-wireless/patch/YX4CqjfRcTa6bVL+@Zekuns-MBP-16.fios-router.home/</a><br><a href="https://security.netapp.com/advisory/ntap-20211210-0001/">https://security.netapp.com/advisory/ntap-20211210-0001/</a><br></details>  |
 | linux-libc-dev         |    CVE-2021-45095   |   MEDIUM  |  5.10.84-1 |  | <details><summary>Expand...</summary><a href="https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?id=bcd0f93353326954817a4f9fa55ec57fb38acbb0">https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?id=bcd0f93353326954817a4f9fa55ec57fb38acbb0</a><br><a href="https://github.com/torvalds/linux/commit/bcd0f93353326954817a4f9fa55ec57fb38acbb0">https://github.com/torvalds/linux/commit/bcd0f93353326954817a4f9fa55ec57fb38acbb0</a><br></details>  |
@@ -1178,7 +1178,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:43f930e836abc26019e9638e275d47ab3eb48acb289036cbf378cc4e36e5d686 (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92 (debian 10.11)
 
 
 **debian**

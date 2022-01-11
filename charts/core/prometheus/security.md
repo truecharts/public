@@ -169,8 +169,8 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/prometheus-operator:v0.53.1@sha256:1411486f7a81e7234fb7137582ef64abf3b9f6efe57bd1a399773aa354fb1f14
-          bitnami/node-exporter:1.3.1-debian-10-r0
-          bitnami/kube-state-metrics:2.3.0-debian-10-r0
+          bitnami/node-exporter:1.3.1-debian-10-r28
+          bitnami/kube-state-metrics:2.3.0-debian-10-r31
 
 ##### Scan Results
 
@@ -378,7 +378,7 @@ hide:
 
 
 
-#### Container: bitnami/node-exporter:1.3.1-debian-10-r0 (debian 10.11)
+#### Container: bitnami/node-exporter:1.3.1-debian-10-r28 (debian 10.11)
 
 
 **debian**
@@ -541,7 +541,7 @@ hide:
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary></details>  |
 
 
-#### Container: bitnami/kube-state-metrics:2.3.0-debian-10-r0 (debian 10.11)
+#### Container: bitnami/kube-state-metrics:2.3.0-debian-10-r31 (debian 10.11)
 
 
 **debian**

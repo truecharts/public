@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fleet-0.0.10"></a>
+### [fleet-0.0.10](https://github.com/truecharts/apps/compare/fleet-0.0.9...fleet-0.0.10) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
 <a name="fleet-0.0.9"></a>
 ### [fleet-0.0.9](https://github.com/truecharts/apps/compare/fleet-0.0.8...fleet-0.0.9) (2022-01-04)
 

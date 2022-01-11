@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.46"></a>
+### [littlelink-4.0.46](https://github.com/truecharts/apps/compare/littlelink-4.0.45...littlelink-4.0.46) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
 <a name="littlelink-4.0.45"></a>
 ### [littlelink-4.0.45](https://github.com/truecharts/apps/compare/littlelink-4.0.44...littlelink-4.0.45) (2022-01-10)
 
