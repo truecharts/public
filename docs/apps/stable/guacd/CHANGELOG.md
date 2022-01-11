@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacd-0.0.11"></a>
+### [guacd-0.0.11](https://github.com/truecharts/apps/compare/guacd-0.0.10...guacd-0.0.11) (2022-01-11)
+
+#### Feat
+
+* use official image ([#1692](https://github.com/truecharts/apps/issues/1692))
+
+
+
 <a name="guacd-0.0.10"></a>
 ### [guacd-0.0.10](https://github.com/truecharts/apps/compare/guacd-0.0.9...guacd-0.0.10) (2022-01-04)
 
