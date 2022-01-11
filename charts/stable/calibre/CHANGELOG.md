@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-5.0.10"></a>
+### [calibre-5.0.10](https://github.com/truecharts/apps/compare/calibre-5.0.9...calibre-5.0.10) (2022-01-11)
+
+#### Fix
+
+* Replace deprecated env's and fix port ([#1689](https://github.com/truecharts/apps/issues/1689))
+
+
+
 <a name="calibre-5.0.9"></a>
 ### [calibre-5.0.9](https://github.com/truecharts/apps/compare/calibre-5.0.8...calibre-5.0.9) (2022-01-04)
 
