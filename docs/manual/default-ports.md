@@ -102,7 +102,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | unifi                      |      comm       |      comm       | 8080  |   TCP    |                                         |
 | calibre                    |    webserver    |    webserver    | 8081  |   TCP    |                                         |
 | traccar                    |      main       |      main       | 8082  |   TCP    |                                         |
-| calibre                    |      main       |      main       | 8083  |   TCP    |                                         |
+| calibre-web                |      main       |      main       | 8083  |   TCP    |                                         |
+| calibre                    |      main       |      main       | 8084  |   TCP    |                                         |
 | htpcmanager                |      main       |      main       | 8085  |   TCP    |                                         |
 | synclounge                 |      main       |      main       | 8088  |   TCP    |                                         |
 | mylar                      |      main       |      main       | 8090  |   TCP    |                                         |
@@ -223,7 +224,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | static                     |      main       |      main       | 10077 |   TCP    |                                         |
 | twtxt                      |      main       |      main       | 10078 |   TCP    |                                         |
 | emby                       |      main       |      main       | 10079 |   TCP    |                                         |
-| calibre                    |      main       |      main       | 10080 |   TCP    |                                         |
 | davos                      |      main       |      main       | 10081 |   TCP    |                                         |
 | fireflyiii                 |      main       |      main       | 10082 |   TCP    |                                         |
 | fossil                     |      main       |      main       | 10083 |   TCP    |                                         |

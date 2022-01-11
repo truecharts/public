@@ -79,19 +79,13 @@ questions:
     schema:
       type: dict
       attrs:
-        - variable: GUAC_USER
-          label: "GUAC_USER"
-          description: "Username for the calibre gui"
-          schema:
-            type: string
-            default: "REPLACETHIS"
-        - variable: GUAC_PASS
-          label: "GUAC_PASS"
-          description: "Password's md5 hash for the calibre gui"
+        - variable: PASSWORD
+          label: "PASSWORD"
+          description: "Optionally set a password for the gui."
           schema:
             type: string
             private: true
-            default: "REPLACETHIS"
+            default: ""
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -136,7 +130,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10080
+                              default: 8084
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
