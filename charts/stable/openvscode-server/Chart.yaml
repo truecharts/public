@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: openvscode-server
-version: 0.0.13
+version: 0.0.14
 appVersion: "1.63.2"
 description: Openvscode-server provides a version of VS Code that runs a server on a remote machine.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.10.6
+  version: 8.12.1
   # condition:
 maintainers:
 - email: info@truecharts.org
