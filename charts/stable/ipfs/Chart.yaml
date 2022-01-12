@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: ipfs
-version: 0.0.11
+version: 0.0.12
 appVersion: "2.13.0"
 description: Ipfs - A peer-to-peer hypermedia protocol designed to make the web faster, safer, and more open
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.10.6
+  version: 8.12.1
   # condition:
 maintainers:
 - email: info@truecharts.org
