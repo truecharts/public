@@ -51,47 +51,46 @@ initContainers:
     volumeMounts:
       - name: data
         mountPath: "/data"
-    command: ["/bin/sh"]
+    command: ["/bin/sh", "-c"]
     args:
-      - -c
-      - |
-        echo "Creating initdb.sql file..."
-        /opt/guacamole/bin/initdb.sh --postgres > /data/initdb.sql
-        if [ -e initdb.sql ]
+      - >
+        echo "Creating initdb.sql file...";
+        /opt/guacamole/bin/initdb.sh --postgres > /data/initdb.sql;
+        if [ -e /data/initdb.sql ];
         then
-          echo "Init file created successfully!"
-          exit 0
+          echo "Init file created successfully!";
+          exit 0;
         else
-          echo "Init file failed to create."
-          exit 1
-        fi
-  # Would the DB be ready at this point?
-  2-initdb:
-    image: "{{ .Values.postgresqlImage }}:{{ .Values.postgresqlImage.tag }}"
-    env:
-      POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-      POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-      POSTGRES_PORT: 5432
-      # Are those ok? Or should I use `envValueFrom`?
-      POSTGRES_HOSTNAME: "{{ .Values.POSTGRES_HOSTNAME }}"
-      PGPASSWORD: "{{ .Values.POSTGRES_PASSWORD }}"
-    volumeMounts:
-      - name: data
-        mountPath: "/data"
-    command: ["/bin/sh"]
-    args:
-      - -c
-      - |
-        echo "Initializing DB..."
-        psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /data/initdb.sql || true
-        echo "DB Initialized!"
-    # Until they release an image with the update driver, we need to manually download it.
-    # https://github.com/apache/guacamole-client/pull/655
-    3-tempHack:
-      image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-      # Needs proper volume mount
-      command: ["/bin/sh"]
-      args:
-      - -c
-      - |
-        curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "$DESTINATION/postgresql/postgresql-42.2.24.jre7.jar"
+          echo "Init file failed to create.";
+          exit 1;
+        fi;
+  # # Would the DB be ready at this point?
+  # 2-initdb:
+  #   image: "{{ .Values.postgresqlImage }}:{{ .Values.postgresqlImage.tag }}"
+  #   env:
+  #     POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  #     POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  #     POSTGRES_PORT: 5432
+  #     # Are those ok? Or should I use `envValueFrom`?
+  #     POSTGRES_HOSTNAME: "{{ .Values.POSTGRES_HOSTNAME }}"
+  #     PGPASSWORD: "{{ .Values.POSTGRES_PASSWORD }}"
+  #   volumeMounts:
+  #     - name: data
+  #       mountPath: "/data"
+  #   command: ["/bin/sh"]
+  #   args:
+  #     - -c
+  #     - |
+  #       echo "Initializing DB..."
+  #       psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /data/initdb.sql || true
+  #       echo "DB Initialized!"
+    # # Until they release an image with the update driver, we need to manually download it.
+    # # https://github.com/apache/guacamole-client/pull/655
+    # 3-tempHack:
+    #   image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    #   # Needs proper volume mount
+    #   command: ["/bin/sh"]
+    #   args:
+    #   - -c
+    #   - |
+    #     curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "$DESTINATION/postgresql/postgresql-42.2.24.jre7.jar"
