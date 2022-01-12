@@ -145,6 +145,12 @@ podLabelsList: []
 # -- Set labels on the pod
 podLabels: {}
 
+# -- Determines whether containers in a pod runs with TTY enabled.
+tty: false
+
+# -- Determines whether containers in a pod runs with stdin enabled.
+stdin: false
+
 # -- Add a Horizontal Pod Autoscaler
 # @default -- <disabled>
 autoscaling:
@@ -447,6 +453,12 @@ service:
     # -- Configure additional Service port information here.
     # @default -- See below
     portsList: []
+
+    # -- Specify the ip policy. Options: SingleStack, PreferDualStack, RequireDualStack
+    ipFamilyPolicy: SingleStack
+
+    # -- The ip families that should be used. Options: IPv4, IPv6
+    ipFamilies: [ ]
 
     # -- Configure the Service port information here.
     # Additional ports can be added by adding a dictionary key similar to the 'http' service.

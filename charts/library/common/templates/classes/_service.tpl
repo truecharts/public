@@ -72,6 +72,13 @@ spec:
   {{- if $values.publishNotReadyAddresses }}
   publishNotReadyAddresses: {{ $values.publishNotReadyAddresses }}
   {{- end }}
+  {{- if $values.ipFamilyPolicy }}
+  ipFamilyPolicy: {{ $values.ipFamilyPolicy }}
+  {{- end }}
+  {{- with $values.ipFamilies }}
+  ipFamilies:
+    {{ toYaml . | nindent 4 }}
+  {{- end }}
   ports:
   {{- range $name, $port := $values.ports }}
   {{- if $port.enabled }}

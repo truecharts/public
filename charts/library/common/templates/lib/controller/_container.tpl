@@ -19,6 +19,8 @@
     {{ toYaml . | nindent 4 }}
     {{- end }}
   {{- end }}
+  tty: {{ .Values.tty }}
+  stdin: {{ .Values.stdin }}
   {{- with .Values.securityContext }}
   securityContext:
     {{- toYaml . | nindent 4 }}
