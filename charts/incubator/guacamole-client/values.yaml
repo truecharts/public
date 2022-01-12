@@ -128,13 +128,13 @@ initContainers:
     # Until they release an image with the updated driver, we need to manually replace it.
     # https://issues.apache.org/jira/browse/GUACAMOLE-1433
     # https://github.com/apache/guacamole-client/pull/655
-  3-tempHack:
+  3-temp-hack:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     securityContext:
       runAsUser: 1001
       runAsGroup: 1001
     volumeMounts:
-      - name: tempHack
+      - name: temphack
         mountPath: "/opt/guacamole/postgresql"
     command: ["/bin/sh", "-c"]
     args:
@@ -166,6 +166,6 @@ persistence:
   initdbdata:
     enabled: true
     mountPath: /initdbdata
-  tempHack:
+  temphack:
     enabled: true
     mountPath: /opt/guacamole/postgresql
