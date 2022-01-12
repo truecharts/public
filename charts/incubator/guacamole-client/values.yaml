@@ -26,7 +26,7 @@ env:
   POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_PORT: 5432
-  GUACD_HOSTNAME: ""
+  GUACD_HOSTNAME: "localhost"
   GUACD_PORT: 4822
   TOTP_ENABLED: false
 
