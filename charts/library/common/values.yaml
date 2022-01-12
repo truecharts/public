@@ -126,7 +126,8 @@ args: []
 
 # -- Set the primary portal for TrueNAS SCALE
 portal:
-  enabled: true
+  # -- enable generation of the portal configmap
+  enabled: false
   # -- Override Path using helm variables
   # path: '/'
   # -- Override the host, for example: by using a custom IP
