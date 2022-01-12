@@ -86,9 +86,15 @@ initContainers:
         value: "5432"
       # Are those ok? Or should I use `envValueFrom`?
       - name: POSTGRES_HOSTNAME
-        value: "{{ .Values.POSTGRES_HOSTNAME }}"
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: plainhost
       - name: PGPASSWORD
-        value: "{{ .Values.POSTGRES_PASSWORD }}"
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
     volumeMounts:
       - name: initdbdata
         mountPath: "/initdbdata"
@@ -96,8 +102,10 @@ initContainers:
     args:
       - >
         echo $POSTGRES_DATABASE;
-        echo $PGPASSWORD;
+        echo $POSTGRES_USER;
         echo $POSTGRES_PORT;
+        echo $POSTGRES_HOSTNAME;
+        echo $PGPASSWORD;
         echo "Checking if DB is ready...";
         DBREADY=0;
         for i in {1..10};
