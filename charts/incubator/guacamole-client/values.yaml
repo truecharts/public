@@ -101,12 +101,7 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        echo $POSTGRES_DATABASE;
-        echo $POSTGRES_USER;
-        echo $POSTGRES_PORT;
-        echo $POSTGRES_HOSTNAME;
-        echo $PGPASSWORD;
-        echo "Checking if DB is ready...";
+        echo "Waiting for DB to be ready...";
         DBREADY=0;
         for i in {1..10};
         do pg_isready -t 5 -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT;
@@ -116,6 +111,7 @@ initContainers:
               break;
             else echo "DB not ready yet.";
           fi;
+          echo "Waiting...";
           sleep 5;
         done;
         if [ $DBREADY -eq 1 ];
