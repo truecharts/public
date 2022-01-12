@@ -79,12 +79,17 @@ initContainers:
   2-initdb:
     image: "{{ .Values.postgresqlImage }}:{{ .Values.postgresqlImage.tag }}"
     env:
-      - POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-      - POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-      - POSTGRES_PORT: 5432
+      - name: POSTGRES_DATABASE
+        value: "{{ .Values.postgresql.postgresqlDatabase }}"
+      - name: POSTGRES_USER
+        value: "{{ .Values.postgresql.postgresqlUsername }}"
+      - name: POSTGRES_PORT
+        value: 5432
       # Are those ok? Or should I use `envValueFrom`?
-      - POSTGRES_HOSTNAME: "{{ .Values.POSTGRES_HOSTNAME }}"
-      - PGPASSWORD: "{{ .Values.POSTGRES_PASSWORD }}"
+      - name: POSTGRES_HOSTNAME
+        value: "{{ .Values.POSTGRES_HOSTNAME }}"
+      - name: PGPASSWORD
+        value: "{{ .Values.POSTGRES_PASSWORD }}"
     volumeMounts:
       - name: data
         mountPath: "/data"
