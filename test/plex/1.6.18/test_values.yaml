@@ -18,19 +18,19 @@ claimToken: ''
 dnsConfig:
   options: []
 emptyDirVolumes: true
+enablePlexPass: false
 environmentVariables: []
 extraAppVolumeMounts:
-  - mountPath: /mnt/extras
-    hostPath: /mnt/extras
-    readOnly: true
+- hostPath: /mnt/extras
+  mountPath: /mnt/extras
+  readOnly: true
 gpuConfiguration: {}
 hostNetwork: false
 image:
   pullPolicy: IfNotPresent
   repository: plexinc/pms-docker
-  tag: 1.25.2.5319-c43dc0277
+  tag: 1.25.3.5385-f05b712b6
 plexServiceTCP:
   port: 32400
 timezone: Etc/UTC
 updateStrategy: Recreate
-enablePlexPass: false
