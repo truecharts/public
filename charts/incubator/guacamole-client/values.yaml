@@ -1,0 +1,86 @@
+image:
+  repository: tccr.io/truecharts/guacamole-client
+  pullPolicy: IfNotPresent
+  tag: v1.4.0@sha256:43f7b0575173f509b5215a89170dfea80ea07f0b2bfed405882a4bc7ec9dfa52
+
+portal:
+  path: "/guacamole"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10080
+        targetPort: 8080
+
+env:
+  POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRES_PORT: 5432
+  GUACD_HOSTNAME: ""
+  GUACD_PORT: 4822
+  TOTP_ENABLED: false
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: guacamole
+  postgresqlDatabase: guacamole
+
+envValueFrom:
+  POSTGRES_HOSTNAME:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
+probes:
+  liveness:
+    path: "/guacamole"
+  readiness:
+    path: "/guacamole"
+  startup:
+    path: "/guacamole"
+
+initContainers:
+  1-creat-initdb-file:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/data"
+    command: ["/bin/sh"]
+    args:
+      - -c
+      - |
+        /opt/guacamole/bin/initdb.sh --postgres > /data/initdb.sql
+  # Would the DB be ready at this point?
+  2-initdb:
+    image: "{{ .Values.postgresqlImage }}:{{ .Values.postgresqlImage.tag }}"
+    env:
+      POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+      POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+      POSTGRES_PORT: 5432
+      # Are those ok? Or should I use `envValueFrom`?
+      POSTGRES_HOSTNAME: "{{ .Values.POSTGRES_HOSTNAME }}"
+      PGPASSWORD: "{{ .Values.POSTGRES_PASSWORD }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/data"
+    command: ["/bin/sh"]
+    args:
+      - -c
+      - |
+        psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /data/initdb.sql || true
+    # Until they release an image with the update driver, we need to manually download it.
+    # https://github.com/apache/guacamole-client/pull/655
+    3-tempHack:
+      image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+      # Needs proper volume mount
+      command: ["/bin/sh"]
+      args:
+      - -c
+      - |
+        curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "$DESTINATION/postgresql/postgresql-42.2.24.jre7.jar"
