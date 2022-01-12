@@ -79,6 +79,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | envFrom | list | `[]` |  |
 | envTpl | object | `{}` |  |
 | envValueFrom | object | `{}` |  |
+| externalInterfaces | list | `[]` | Use this directly attach a pod to a SCALE interface. Please be aware: This bypasses k8s services |
 | global.fullnameOverride | string | `nil` | Set the entire name definition |
 | global.isSCALE | bool | `false` |  |
 | global.nameOverride | string | `nil` | Set an override for the prefix of the fullname |
