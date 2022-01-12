@@ -55,7 +55,16 @@ initContainers:
     args:
       - -c
       - |
+        echo "Creating initdb.sql file..."
         /opt/guacamole/bin/initdb.sh --postgres > /data/initdb.sql
+        if [ -e initdb.sql ]
+        then
+          echo "Init file created successfully!"
+          exit 0
+        else
+          echo "Init file failed to create."
+          exit 1
+        fi
   # Would the DB be ready at this point?
   2-initdb:
     image: "{{ .Values.postgresqlImage }}:{{ .Values.postgresqlImage.tag }}"
@@ -73,7 +82,9 @@ initContainers:
     args:
       - -c
       - |
+        echo "Initializing DB..."
         psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /data/initdb.sql || true
+        echo "DB Initialized!"
     # Until they release an image with the update driver, we need to manually download it.
     # https://github.com/apache/guacamole-client/pull/655
     3-tempHack:
