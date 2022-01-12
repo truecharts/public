@@ -38,6 +38,32 @@
                       label: "External IP"
                       schema:
                         type: string
+              - variable: ipFamilyPolicy
+                label: "IP Family Policy"
+                description: "(Advanced) Specify the ip policy"
+                schema:
+                  show_if: [["type", "!=", "Simple"]]
+                  type: string
+                  default: "SingleStack"
+                  enum:
+                    - value: "SingleStack"
+                      description: "SingleStack"
+                    - value: "PreferDualStack"
+                      description: "PreferDualStack"
+                    - value: "RequireDualStack"
+                      description: "RequireDualStack"
+              - variable: ipFamilies
+                label: "(advanced) IP families"
+                description: "(advanced) The ip families that should be used"
+                schema:
+                  show_if: [["type", "!=", "Simple"]]
+                  type: list
+                  default: []
+                  items:
+                    - variable: ipFamily
+                      label: "IP family"
+                      schema:
+                        type: string
               - variable: ports
                 label: "Service's Port(s) Configuration"
                 schema:

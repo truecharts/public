@@ -454,6 +454,12 @@ service:
     # @default -- See below
     portsList: []
 
+    # -- Specify the ip policy. Options: SingleStack, PreferDualStack, RequireDualStack
+    ipFamilyPolicy: SingleStack
+
+    # -- The ip families that should be used. Options: IPv4, IPv6
+    ipFamilies: [ ]
+
     # -- Configure the Service port information here.
     # Additional ports can be added by adding a dictionary key similar to the 'http' service.
     # @default -- See below
