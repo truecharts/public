@@ -118,9 +118,6 @@ initContainers:
         else echo "DB failed to start.";
         fi;
 
-
-
-
     # # Until they release an image with the update driver, we need to manually download it.
     # # https://github.com/apache/guacamole-client/pull/655
     # 3-tempHack:
@@ -131,7 +128,6 @@ initContainers:
     #   - -c
     #   - |
     #     curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "$DESTINATION/postgresql/postgresql-42.2.24.jre7.jar"
-
 
 persistence:
   initdbdata:
