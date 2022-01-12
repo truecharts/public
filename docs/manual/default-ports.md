@@ -224,6 +224,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | static                     |      main       |      main       | 10077 |   TCP    |                                         |
 | twtxt                      |      main       |      main       | 10078 |   TCP    |                                         |
 | emby                       |      main       |      main       | 10079 |   TCP    |                                         |
+| guacamole-client           |      main       |      main       | 10080 |   TCP    |                                         |
 | davos                      |      main       |      main       | 10081 |   TCP    |                                         |
 | fireflyiii                 |      main       |      main       | 10082 |   TCP    |                                         |
 | fossil                     |      main       |      main       | 10083 |   TCP    |                                         |
