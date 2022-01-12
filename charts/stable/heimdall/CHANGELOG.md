@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="heimdall-9.0.34"></a>
+### [heimdall-9.0.34](https://github.com/truecharts/apps/compare/heimdall-9.0.33...heimdall-9.0.34) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="heimdall-9.0.33"></a>
+### [heimdall-9.0.33](https://github.com/truecharts/apps/compare/heimdall-9.0.32...heimdall-9.0.33) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="heimdall-9.0.32"></a>
+### [heimdall-9.0.32](https://github.com/truecharts/apps/compare/heimdall-9.0.31...heimdall-9.0.32) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="heimdall-9.0.31"></a>
 ### [heimdall-9.0.31](https://github.com/truecharts/apps/compare/heimdall-9.0.30...heimdall-9.0.31) (2021-12-21)
 

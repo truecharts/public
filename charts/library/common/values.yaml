@@ -44,7 +44,7 @@ codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: v3.12.0@sha256:b2132ab84a76b799dca995c90d4eb5765f13267408f795541bec670ff22cce38
+  tag: v4.0.1@sha256:d9a55822e344aaacfca5151fa2b7e7bb79dd1170bb348ae34c6e74954cc9a85d
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.1.0@sha256:8eea4042533c968e93d292df002c2e2893609e593366d59c15160be37778a0d8
+  tag: v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
@@ -119,6 +119,10 @@ image:
   # -- image pull policy
   pullPolicy:
 
+# -- Image Selector allows for easy picking a different image dict, important for the SCALE GUI
+imageSelector: "image"
+
+
 # -- Override the command(s) for the default container
 command: []
 # -- Override the args for the default container
@@ -151,6 +155,12 @@ podLabelsList: []
 
 # -- Set labels on the pod
 podLabels: {}
+
+# -- Determines whether containers in a pod runs with TTY enabled.
+tty: false
+
+# -- Determines whether containers in a pod runs with stdin enabled.
+stdin: false
 
 # -- Add a Horizontal Pod Autoscaler
 # @default -- <disabled>
@@ -218,6 +228,22 @@ networkPolicy:
 
   # -- add or remove egress policies
   ingress: []
+
+# -- Use this directly attach a pod to a SCALE interface.
+# Please be aware: This bypasses k8s services
+externalInterfaces: []
+  # - hostInterface: "ens3"
+  #   ipam:
+  #    type: "dhcp"
+  # - hostInterface: "br0"
+  #   ipam:
+  #    type: "static"
+  #    staticIPConfigurations:
+  #      - "192.168.0.120/24"
+  #    staticRoutes:
+  #      - destination: "0.0.0.0/0"
+  #        gateway: "192.168.0.1"
+
 
 # -- Use this to populate a secret with the values you specify.
 # Be aware that these values are not encrypted by default, and could therefore visible
@@ -438,6 +464,12 @@ service:
     # -- Configure additional Service port information here.
     # @default -- See below
     portsList: []
+
+    # -- Specify the ip policy. Options: SingleStack, PreferDualStack, RequireDualStack
+    ipFamilyPolicy: SingleStack
+
+    # -- The ip families that should be used. Options: IPv4, IPv6
+    ipFamilies: [ ]
 
     # -- Configure the Service port information here.
     # Additional ports can be added by adding a dictionary key similar to the 'http' service.

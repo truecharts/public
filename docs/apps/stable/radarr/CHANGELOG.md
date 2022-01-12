@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="radarr-9.0.31"></a>
+### [radarr-9.0.31](https://github.com/truecharts/apps/compare/radarr-9.0.30...radarr-9.0.31) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="radarr-9.0.30"></a>
+### [radarr-9.0.30](https://github.com/truecharts/apps/compare/radarr-9.0.29...radarr-9.0.30) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="radarr-9.0.29"></a>
+### [radarr-9.0.29](https://github.com/truecharts/apps/compare/radarr-9.0.28...radarr-9.0.29) (2022-01-04)
+
+#### Chore
+
+* update docker general non-major ([#1648](https://github.com/truecharts/apps/issues/1648))
+
+
+
+<a name="radarr-9.0.28"></a>
+### [radarr-9.0.28](https://github.com/truecharts/apps/compare/radarr-9.0.27...radarr-9.0.28) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="radarr-9.0.27"></a>
 ### [radarr-9.0.27](https://github.com/truecharts/apps/compare/radarr-9.0.26...radarr-9.0.27) (2021-12-21)
 

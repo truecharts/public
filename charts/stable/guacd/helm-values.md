@@ -11,13 +11,12 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"tccr.io/truecharts/guacd"` |  |
-| image.tag | string | `"v1.3.0"` |  |
-| persistence.varrun.enabled | bool | `true` |  |
+| image.repository | string | `"tccr.io/truecharts/guacamole-server"` |  |
+| image.tag | string | `"v1.4.0@sha256:6b67e159e4e24524bf025a419062249763967085f6111d73d9f3d9ee7b0c13ee"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `4822` |  |
 | service.main.ports.main.targetPort | int | `4822` |  |

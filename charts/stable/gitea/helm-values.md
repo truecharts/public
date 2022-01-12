@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envFrom[0].configMapRef.name | string | `"gitea-env"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/gitea"` |  |
-| image.tag | string | `"v1.15.7@sha256:392dd2d31d497e8578f2f915a257789ef2a4193b7a63e336165962415dc1b9d7"` |  |
+| image.tag | string | `"v1.15.9@sha256:f08e69d951a6be0d0e580eca38c7bcb987c5f8aeba8c0b91b26fc50bfcf726d4"` |  |
 | initContainers.1-init-directories.command[0] | string | `"/usr/sbin/init_directory_structure.sh"` |  |
 | initContainers.1-init-directories.envFrom[0].configMapRef.name | string | `"gitea-env"` |  |
 | initContainers.1-init-directories.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |

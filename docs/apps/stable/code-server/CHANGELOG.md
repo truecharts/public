@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.13"></a>
+### [code-server-2.1.13](https://github.com/truecharts/apps/compare/code-server-2.1.12...code-server-2.1.13) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="code-server-2.1.12"></a>
+### [code-server-2.1.12](https://github.com/truecharts/apps/compare/openvscode-server-0.0.12...code-server-2.1.12) (2022-01-10)
+
+#### Chore
+
+* update docker general major docker tags (major) ([#1678](https://github.com/truecharts/apps/issues/1678))
+
+
+
+<a name="code-server-2.1.11"></a>
+### [code-server-2.1.11](https://github.com/truecharts/apps/compare/openvscode-server-0.0.10...code-server-2.1.11) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+* move some appicons under img/appicons ([#1635](https://github.com/truecharts/apps/issues/1635))
+
+
+
+<a name="code-server-2.1.10"></a>
+### [code-server-2.1.10](https://github.com/truecharts/apps/compare/openvscode-server-0.0.9...code-server-2.1.10) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="code-server-2.1.9"></a>
 ### [code-server-2.1.9](https://github.com/truecharts/apps/compare/code-server-2.1.8...code-server-2.1.9) (2021-12-21)
 

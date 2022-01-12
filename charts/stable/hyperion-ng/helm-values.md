@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/hyperion.ng"` | image repository |
-| image.tag | string | `"v2.0.12@sha256:90359e89c5a97fbf5ad3debf42d485d707eb7186664288ccfad100c325848a5d"` | image tag |
+| image.tag | string | `"v2.0.12@sha256:809405a6cd99dc4debb1c779a90042546530bd568995e177d6b0d43771f4012c"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/root/.hyperion"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

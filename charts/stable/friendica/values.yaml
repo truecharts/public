@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/friendica
   pullPolicy: IfNotPresent
-  tag: v2021.09@sha256:8baa6a742817d4e7763eea78eb6a9839a401b265ba40756576a71a6fdc7291bb
+  tag: v2021.09@sha256:019ccf148e56afb866bec47eff00f09619bc214163cb99a1285c3e753b31b954
 
 securityContext:
   runAsNonRoot: false
@@ -15,6 +15,8 @@ podSecurityContext:
 env:
   MYSQL_USER: friendica
   MYSQL_DATABASE: friendica
+  FRIENDICA_ADMIN_MAIL: "my@domain.com"
+  FRIENDICA_URL: "https://friendica.local"
 
 service:
   main:

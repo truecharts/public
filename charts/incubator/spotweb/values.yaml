@@ -1,0 +1,55 @@
+image:
+  repository: tccr.io/truecharts/spotweb
+  pullPolicy: IfNotPresent
+  tag: v1.5.1@sha256:75fe32474598f89d7b0741c3b96eeebd6b346da5219e1eabf8ed9e769f7a98f5
+
+# See more environment variables in the babybuddy documentation
+# https://hub.docker.com/r/jgeusebroek/spotweb
+env:
+  TZ: UTC
+  SPOTWEB_SYSTEMTYPE: single
+  SPOTWEB_FIRSTNAME: demo
+  SPOTWEB_LASTNAME: spotweb
+  SPOTWEB_MAIL: demo@spotweb.com
+  SPOTWEB_RETRIEVE: "15min"
+  DB_ENGINE: "pdo_pgsql"
+  DB_PORT: "5432"
+  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_SCHEMA: "public"
+
+envValueFrom:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+
+secret:
+  SPOTWEB_USERNAME: myawesomeuser
+  SPOTWEB_PASSWORD: changeme
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10050
+        targetPort: 80
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: spotweb
+  postgresqlDatabase: spotweb

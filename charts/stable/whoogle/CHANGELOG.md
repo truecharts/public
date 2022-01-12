@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="whoogle-1.0.30"></a>
+### [whoogle-1.0.30](https://github.com/truecharts/apps/compare/whoogle-1.0.29...whoogle-1.0.30) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="whoogle-1.0.29"></a>
+### [whoogle-1.0.29](https://github.com/truecharts/apps/compare/whoogle-1.0.28...whoogle-1.0.29) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="whoogle-1.0.28"></a>
+### [whoogle-1.0.28](https://github.com/truecharts/apps/compare/whoogle-1.0.27...whoogle-1.0.28) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="whoogle-1.0.27"></a>
 ### [whoogle-1.0.27](https://github.com/truecharts/apps/compare/whoogle-1.0.26...whoogle-1.0.27) (2021-12-21)
 

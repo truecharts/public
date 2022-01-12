@@ -1,6 +1,51 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-4.0.34"></a>
+### [hyperion-ng-4.0.34](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.33...hyperion-ng-4.0.34) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="hyperion-ng-4.0.33"></a>
+### [hyperion-ng-4.0.33](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.32...hyperion-ng-4.0.33) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
+<a name="hyperion-ng-4.0.32"></a>
+### [hyperion-ng-4.0.32](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.31...hyperion-ng-4.0.32) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="hyperion-ng-4.0.31"></a>
+### [hyperion-ng-4.0.31](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.30...hyperion-ng-4.0.31) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
+<a name="hyperion-ng-4.0.30"></a>
+### [hyperion-ng-4.0.30](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.29...hyperion-ng-4.0.30) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="hyperion-ng-4.0.29"></a>
 ### [hyperion-ng-4.0.29](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.28...hyperion-ng-4.0.29) (2021-12-21)
 

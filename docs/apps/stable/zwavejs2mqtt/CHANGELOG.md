@@ -1,6 +1,43 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.37"></a>
+### [zwavejs2mqtt-9.0.37](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.36...zwavejs2mqtt-9.0.37) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+* update docker general non-major docker tags ([#1691](https://github.com/truecharts/apps/issues/1691))
+
+
+
+<a name="zwavejs2mqtt-9.0.36"></a>
+### [zwavejs2mqtt-9.0.36](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.35...zwavejs2mqtt-9.0.36) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="zwavejs2mqtt-9.0.35"></a>
+### [zwavejs2mqtt-9.0.35](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.34...zwavejs2mqtt-9.0.35) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="zwavejs2mqtt-9.0.34"></a>
+### [zwavejs2mqtt-9.0.34](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.33...zwavejs2mqtt-9.0.34) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
 <a name="zwavejs2mqtt-9.0.33"></a>
 ### [zwavejs2mqtt-9.0.33](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.32...zwavejs2mqtt-9.0.33) (2021-12-21)
 

@@ -102,7 +102,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | unifi                      |      comm       |      comm       | 8080  |   TCP    |                                         |
 | calibre                    |    webserver    |    webserver    | 8081  |   TCP    |                                         |
 | traccar                    |      main       |      main       | 8082  |   TCP    |                                         |
-| calibre                    |      main       |      main       | 8083  |   TCP    |                                         |
+| calibre-web                |      main       |      main       | 8083  |   TCP    |                                         |
+| calibre                    |      main       |      main       | 8084  |   TCP    |                                         |
 | htpcmanager                |      main       |      main       | 8085  |   TCP    |                                         |
 | synclounge                 |      main       |      main       | 8088  |   TCP    |                                         |
 | mylar                      |      main       |      main       | 8090  |   TCP    |                                         |
@@ -192,8 +193,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | zwavejs2mqtt               |       ws        |       ws        | 10046 |   TCP    |                                         |
 | airsonic                   |      main       |      main       | 10047 |   TCP    |                                         |
 | booksonic-air              |      main       |      main       | 10048 |   TCP    |                                         |
-| deepstack-cpu              |      main       |      main       | 10049 |   TCP    |                                         |
-| deepstack-gpu              |      main       |      main       | 10050 |   TCP    |                                         |
+| deepstack                  |      main       |      main       | 10049 |   TCP    |                                         |
+| spotweb                    |      main       |      main       | 10050 |   TCP    |                                         |
 | firefox-syncserver         |      main       |      main       | 10051 |   TCP    |                                         |
 | whoogle                    |      main       |      main       | 10052 |   TCP    |                                         |
 | handbrake                  |      main       |      main       | 10053 |   TCP    |                                         |
@@ -223,7 +224,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | static                     |      main       |      main       | 10077 |   TCP    |                                         |
 | twtxt                      |      main       |      main       | 10078 |   TCP    |                                         |
 | emby                       |      main       |      main       | 10079 |   TCP    |                                         |
-| calibre                    |      main       |      main       | 10080 |   TCP    |                                         |
 | davos                      |      main       |      main       | 10081 |   TCP    |                                         |
 | fireflyiii                 |      main       |      main       | 10082 |   TCP    |                                         |
 | fossil                     |      main       |      main       | 10083 |   TCP    |                                         |
@@ -262,7 +262,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | monica                     |      main       |      main       | 10119 |   TCP    |                                         |
 | snipe-it                   |      main       |      main       | 10120 |   TCP    |                                         |
 | xbackbone                  |      main       |      main       | 10121 |   TCP    |                                         |
-| chevereto                  |      main       |      main       | 10122 |   TCP    |                                         |
+| airsonic-advanced          |      main       |      main       | 10122 |   TCP    |                                         |
 | dokuwiki                   |      main       |      main       | 10123 |   TCP    |                                         |
 | emulatorjs                 |      front      |      front      | 10124 |   TCP    |                                         |
 | ipfs                       |      main       |      main       | 10125 |   TCP    |                                         |
@@ -293,6 +293,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | pydio-cells                |      main       |      main       | 10150 |   TCP    |                                         |
 | scrutiny                   |      main       |      main       | 10151 |   TCP    |                                         |
 | kodi-headless              |    websocket    |    websocket    | 10152 |   TCP    |                                         |
+| shlink                     |      main       |      main       | 10153 |   TCP    |                                         |
+| shlink-web-client          |      main       |      main       | 10154 |   HTTP   |                                         |
 | hyperion-ng                | boblightservice | boblightservice | 19333 |   TCP    |                                         |
 | hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |   TCP    |                                         |
 | hyperion-ng                | protobufservice | protobufservice | 19445 |   TCP    |                                         |

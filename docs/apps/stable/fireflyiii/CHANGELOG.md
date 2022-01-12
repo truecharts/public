@@ -1,6 +1,51 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.13"></a>
+### [fireflyiii-13.1.13](https://github.com/truecharts/apps/compare/fireflyiii-13.1.12...fireflyiii-13.1.13) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="fireflyiii-13.1.12"></a>
+### [fireflyiii-13.1.12](https://github.com/truecharts/apps/compare/fireflyiii-13.1.11...fireflyiii-13.1.12) (2022-01-08)
+
+#### Fix
+
+* Actually render env on cronjob and revert port change ([#1664](https://github.com/truecharts/apps/issues/1664))
+
+
+
+<a name="fireflyiii-13.1.11"></a>
+### [fireflyiii-13.1.11](https://github.com/truecharts/apps/compare/fireflyiii-13.1.10...fireflyiii-13.1.11) (2022-01-07)
+
+#### Fix
+
+* internal links use targetPort ([#1658](https://github.com/truecharts/apps/issues/1658))
+
+
+
+<a name="fireflyiii-13.1.10"></a>
+### [fireflyiii-13.1.10](https://github.com/truecharts/apps/compare/fireflyiii-13.1.9...fireflyiii-13.1.10) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="fireflyiii-13.1.9"></a>
+### [fireflyiii-13.1.9](https://github.com/truecharts/apps/compare/fireflyiii-13.1.8...fireflyiii-13.1.9) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="fireflyiii-13.1.8"></a>
 ### [fireflyiii-13.1.8](https://github.com/truecharts/apps/compare/fireflyiii-13.1.7...fireflyiii-13.1.8) (2021-12-21)
 

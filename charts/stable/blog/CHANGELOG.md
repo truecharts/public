@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.20"></a>
+### [blog-0.0.20](https://github.com/truecharts/apps/compare/blog-0.0.19...blog-0.0.20) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="blog-0.0.19"></a>
+### [blog-0.0.19](https://github.com/truecharts/apps/compare/blog-0.0.18...blog-0.0.19) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
+<a name="blog-0.0.18"></a>
+### [blog-0.0.18](https://github.com/truecharts/apps/compare/blog-0.0.17...blog-0.0.18) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="blog-0.0.17"></a>
+### [blog-0.0.17](https://github.com/truecharts/apps/compare/blog-0.0.16...blog-0.0.17) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="blog-0.0.16"></a>
 ### [blog-0.0.16](https://github.com/truecharts/apps/compare/blog-0.0.15...blog-0.0.16) (2021-12-21)
 

@@ -14,11 +14,17 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/esphome"` |  |
-| image.tag | string | `"v2021.12.1@sha256:94fb670ae999f256b49343277bbf30147e188695ef8d942f8045527acc1e1185"` |  |
+| image.tag | string | `"v2021.12.3@sha256:5627e9a2b7134603a2dbc950ce9ab501ed026b106b1eee95a00f5c531e26d1ad"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.platformio.enabled | bool | `true` |  |
 | persistence.platformio.mountPath | string | `"/.platformio"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| securityContext.privileged | bool | `true` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `6052` |  |
 | service.main.ports.main.targetPort | int | `6052` |  |
 

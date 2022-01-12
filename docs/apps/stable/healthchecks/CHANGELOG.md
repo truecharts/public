@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="healthchecks-5.0.10"></a>
+### [healthchecks-5.0.10](https://github.com/truecharts/apps/compare/healthchecks-5.0.9...healthchecks-5.0.10) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="healthchecks-5.0.9"></a>
+### [healthchecks-5.0.9](https://github.com/truecharts/apps/compare/healthchecks-5.0.8...healthchecks-5.0.9) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="healthchecks-5.0.8"></a>
+### [healthchecks-5.0.8](https://github.com/truecharts/apps/compare/healthchecks-5.0.7...healthchecks-5.0.8) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="healthchecks-5.0.7"></a>
 ### [healthchecks-5.0.7](https://github.com/truecharts/apps/compare/healthchecks-5.0.6...healthchecks-5.0.7) (2021-12-21)
 

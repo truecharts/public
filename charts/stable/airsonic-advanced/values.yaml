@@ -1,0 +1,60 @@
+image:
+  repository: tccr.io/truecharts/airsonic-advanced
+  tag: v11.0.0@sha256:b6a1b30ecc3e16c39ca56392cd13d55af80235b57ec2d27c2e5f1a21fec34bd9
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PUID: 568
+  TZ: UTC
+  AIRSONIC_DIR: "/"
+  # -- For passing additional java options. For some reverse proxies, you may need to pass `JAVA_OPTS=-Dserver.use-forward-headers=true` for airsonic to generate the proper URL schemes.
+  JAVA_OPTS:
+  CONTEXT_PATH: "/"
+  spring_liquibase_parameters_userTableQuote: '"'
+  spring_datasource_username: "{{ .Values.postgresql.postgresqlUsername }}"
+
+envValueFrom:
+  spring_datasource_url:
+    secretKeyRef:
+      name: dbcreds
+      key: jdbc
+  spring_datasource_password:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
+service:
+  main:
+    ports:
+      main:
+        port: 10122
+        targetPort: 4040
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: airsonic-advanced
+  postgresqlDatabase: airsonic-advanced
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/airsonic"
+  music:
+    enabled: true
+    mountPath: "/music"
+  podcasts:
+    enabled: true
+    mountPath: "/podcasts"
+  playlists:
+    enabled: true
+    mountPath: "/playlists"

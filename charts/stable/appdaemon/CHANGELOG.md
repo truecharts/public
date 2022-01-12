@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="appdaemon-7.0.11"></a>
+### [appdaemon-7.0.11](https://github.com/truecharts/apps/compare/appdaemon-7.0.10...appdaemon-7.0.11) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="appdaemon-7.0.10"></a>
+### [appdaemon-7.0.10](https://github.com/truecharts/apps/compare/appdaemon-7.0.9...appdaemon-7.0.10) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="appdaemon-7.0.9"></a>
+### [appdaemon-7.0.9](https://github.com/truecharts/apps/compare/appdaemon-7.0.8...appdaemon-7.0.9) (2022-01-04)
+
+#### Chore
+
+* update docker general non-major ([#1648](https://github.com/truecharts/apps/issues/1648))
+
+
+
+<a name="appdaemon-7.0.8"></a>
+### [appdaemon-7.0.8](https://github.com/truecharts/apps/compare/appdaemon-7.0.7...appdaemon-7.0.8) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="appdaemon-7.0.7"></a>
 ### [appdaemon-7.0.7](https://github.com/truecharts/apps/compare/appdaemon-7.0.6...appdaemon-7.0.7) (2021-12-21)
 

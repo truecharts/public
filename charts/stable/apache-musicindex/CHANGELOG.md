@@ -1,6 +1,34 @@
 # Changelog<br>
 
 
+<a name="apache-musicindex-2.0.29"></a>
+### [apache-musicindex-2.0.29](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.28...apache-musicindex-2.0.29) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="apache-musicindex-2.0.28"></a>
+### [apache-musicindex-2.0.28](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.27...apache-musicindex-2.0.28) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="apache-musicindex-2.0.27"></a>
+### [apache-musicindex-2.0.27](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.26...apache-musicindex-2.0.27) (2021-12-28)
+
+#### Chore
+
+* move `port` up in gui ([#1620](https://github.com/truecharts/apps/issues/1620))
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="apache-musicindex-2.0.26"></a>
 ### [apache-musicindex-2.0.26](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.25...apache-musicindex-2.0.26) (2021-12-21)
 

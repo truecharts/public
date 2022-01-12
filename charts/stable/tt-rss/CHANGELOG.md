@@ -1,6 +1,51 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.31"></a>
+### [tt-rss-4.0.31](https://github.com/truecharts/apps/compare/tt-rss-4.0.30...tt-rss-4.0.31) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="tt-rss-4.0.30"></a>
+### [tt-rss-4.0.30](https://github.com/truecharts/apps/compare/tt-rss-4.0.29...tt-rss-4.0.30) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
+<a name="tt-rss-4.0.29"></a>
+### [tt-rss-4.0.29](https://github.com/truecharts/apps/compare/tt-rss-4.0.28...tt-rss-4.0.29) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="tt-rss-4.0.28"></a>
+### [tt-rss-4.0.28](https://github.com/truecharts/apps/compare/tt-rss-4.0.27...tt-rss-4.0.28) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="tt-rss-4.0.27"></a>
+### [tt-rss-4.0.27](https://github.com/truecharts/apps/compare/tt-rss-4.0.26...tt-rss-4.0.27) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
 <a name="tt-rss-4.0.26"></a>
 ### [tt-rss-4.0.26](https://github.com/truecharts/apps/compare/tt-rss-4.0.25...tt-rss-4.0.26) (2021-12-21)
 

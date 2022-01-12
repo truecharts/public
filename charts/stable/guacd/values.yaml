@@ -1,17 +1,15 @@
 image:
-  repository: tccr.io/truecharts/guacd
+  repository: tccr.io/truecharts/guacamole-server
   pullPolicy: IfNotPresent
-  tag: v1.3.0
+  tag: v1.4.0@sha256:6b67e159e4e24524bf025a419062249763967085f6111d73d9f3d9ee7b0c13ee
 
 securityContext:
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
-env:
-  PUID: 568
 
 service:
   main:
@@ -19,7 +17,3 @@ service:
       main:
         targetPort: 4822
         port: 4822
-
-persistence:
-  varrun:
-    enabled: true

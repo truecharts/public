@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.25"></a>
+### [authelia-8.0.25](https://github.com/truecharts/apps/compare/authelia-8.0.24...authelia-8.0.25) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="authelia-8.0.24"></a>
+### [authelia-8.0.24](https://github.com/truecharts/apps/compare/authelia-8.0.23...authelia-8.0.24) (2022-01-09)
+
+#### Fix
+
+* fix logic in tpl ([#1668](https://github.com/truecharts/apps/issues/1668))
+
+
+
+<a name="authelia-8.0.23"></a>
+### [authelia-8.0.23](https://github.com/truecharts/apps/compare/authelia-8.0.22...authelia-8.0.23) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="authelia-8.0.22"></a>
+### [authelia-8.0.22](https://github.com/truecharts/apps/compare/authelia-8.0.21...authelia-8.0.22) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="authelia-8.0.21"></a>
 ### [authelia-8.0.21](https://github.com/truecharts/apps/compare/authelia-8.0.20...authelia-8.0.21) (2021-12-21)
 

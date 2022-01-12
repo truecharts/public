@@ -1,7 +1,7 @@
 {{- /* The main container included in the controller */ -}}
 {{- define "common.controller.mainContainer" -}}
 - name: {{ include "common.names.fullname" . }}
-  image: {{ printf "%s:%s" .Values.image.repository (default .Chart.AppVersion .Values.image.tag) | quote }}
+  image: {{ include "common.images.selector" . }}
   imagePullPolicy: {{ .Values.image.pullPolicy }}
   {{- with .Values.command }}
   command:
@@ -19,6 +19,8 @@
     {{ toYaml . | nindent 4 }}
     {{- end }}
   {{- end }}
+  tty: {{ .Values.tty }}
+  stdin: {{ .Values.stdin }}
   {{- with .Values.securityContext }}
   securityContext:
     {{- toYaml . | nindent 4 }}

@@ -2,6 +2,9 @@
 Secondary entrypoint and primary loader for the common chart
 */}}
 {{- define "common.postSetup" -}}
+  {{- /* Render the externalInterfaces */ -}}
+  {{ include "common.classes.externalInterfaces" .  | nindent 0 }}
+
   {{- /* Enable code-server add-on if required */ -}}
   {{- if .Values.addons.codeserver.enabled }}
     {{- include "common.addon.codeserver" . }}

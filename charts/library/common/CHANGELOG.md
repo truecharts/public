@@ -1,6 +1,102 @@
 # Changelog<br>
 
 
+<a name="common-8.12.0"></a>
+### [common-8.12.0](https://github.com/truecharts/apps/compare/common-8.11.0...common-8.12.0) (2022-01-12)
+
+#### Feat
+
+* add TTY, STDIN and IPFamily support ([#1700](https://github.com/truecharts/apps/issues/1700))
+
+
+
+<a name="common-8.11.0"></a>
+### [common-8.11.0](https://github.com/truecharts/apps/compare/common-8.10.6...common-8.11.0) (2022-01-12)
+
+
+
+<a name="common-8.10.6"></a>
+### [common-8.10.6](https://github.com/truecharts/apps/compare/common-8.10.5...common-8.10.6) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1685](https://github.com/truecharts/apps/issues/1685))
+
+
+
+<a name="common-8.10.5"></a>
+### [common-8.10.5](https://github.com/truecharts/apps/compare/common-8.10.4...common-8.10.5) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1677](https://github.com/truecharts/apps/issues/1677))
+
+
+
+<a name="common-8.10.4"></a>
+### [common-8.10.4](https://github.com/truecharts/apps/compare/common-8.10.3...common-8.10.4) (2022-01-10)
+
+#### Chore
+
+* update docker general major docker tags (major) ([#1678](https://github.com/truecharts/apps/issues/1678))
+
+
+
+<a name="common-8.10.3"></a>
+### [common-8.10.3](https://github.com/truecharts/apps/compare/common-8.10.2...common-8.10.3) (2022-01-09)
+
+#### Fix
+
+* fix logic in tpl ([#1668](https://github.com/truecharts/apps/issues/1668))
+
+
+
+<a name="common-8.10.2"></a>
+### [common-8.10.2](https://github.com/truecharts/apps/compare/common-8.10.1...common-8.10.2) (2022-01-04)
+
+#### Chore
+
+* update docker general non-major ([#1648](https://github.com/truecharts/apps/issues/1648))
+
+
+
+<a name="common-8.10.1"></a>
+### [common-8.10.1](https://github.com/truecharts/apps/compare/common-8.10.0...common-8.10.1) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
+<a name="common-8.10.0"></a>
+### [common-8.10.0](https://github.com/truecharts/apps/compare/common-8.9.27...common-8.10.0) (2021-12-29)
+
+#### Feat
+
+* add support for a, renovate compatible, image selector ([#1627](https://github.com/truecharts/apps/issues/1627))
+
+
+
+<a name="common-8.9.27"></a>
+### [common-8.9.27](https://github.com/truecharts/apps/compare/common-8.9.26...common-8.9.27) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
+<a name="common-8.9.26"></a>
+### [common-8.9.26](https://github.com/truecharts/apps/compare/common-8.9.25...common-8.9.26) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+* update docker general non-major ([#1595](https://github.com/truecharts/apps/issues/1595))
+
+
+
 <a name="common-8.9.25"></a>
 ### [common-8.9.25](https://github.com/truecharts/apps/compare/common-8.9.24...common-8.9.25) (2021-12-20)
 

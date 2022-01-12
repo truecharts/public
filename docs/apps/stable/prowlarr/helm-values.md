@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/prowlarr"` | image repository |
-| image.tag | string | `"v0.1.8.1265@sha256:ed72a7bd1b9d36edb7d73fb68f9edee73d31d38e83d5a1ac0343443110a34dfb"` | image tag |
+| image.tag | string | `"v0.1.10.1375@sha256:c5d9c5029958d7496e484ec707696052cdd485262ffddc5319cd16a787f905c5"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

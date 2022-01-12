@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.SCRUTINY_WEB | bool | `true` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/scrutiny"` |  |
-| image.tag | string | `"v2021.11.18"` |  |
+| image.tag | string | `"v2021.12.16"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/scrutiny/config"` |  |
 | persistence.data.enabled | bool | `true` |  |

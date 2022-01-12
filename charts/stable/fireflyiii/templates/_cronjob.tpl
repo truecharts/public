@@ -47,7 +47,7 @@ spec:
               image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
               args:
               - curl
-              - "http://{{ $jobName }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/$STATIC_CRON_TOKEN"
+              - "http://{{ $jobName }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}/api/v1/cron/$(STATIC_CRON_TOKEN)"
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 

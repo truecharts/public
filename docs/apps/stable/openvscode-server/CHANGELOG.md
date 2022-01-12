@@ -1,6 +1,51 @@
 # Changelog<br>
 
 
+<a name="openvscode-server-0.0.13"></a>
+### [openvscode-server-0.0.13](https://github.com/truecharts/apps/compare/openvscode-server-0.0.12...openvscode-server-0.0.13) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="openvscode-server-0.0.12"></a>
+### [openvscode-server-0.0.12](https://github.com/truecharts/apps/compare/openvscode-server-0.0.11...openvscode-server-0.0.12) (2022-01-09)
+
+#### Fix
+
+* allow rootfs access, make token required ([#1611](https://github.com/truecharts/apps/issues/1611))
+
+
+
+<a name="openvscode-server-0.0.11"></a>
+### [openvscode-server-0.0.11](https://github.com/truecharts/apps/compare/openvscode-server-0.0.10...openvscode-server-0.0.11) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="openvscode-server-0.0.10"></a>
+### [openvscode-server-0.0.10](https://github.com/truecharts/apps/compare/openvscode-server-0.0.9...openvscode-server-0.0.10) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="openvscode-server-0.0.9"></a>
+### [openvscode-server-0.0.9](https://github.com/truecharts/apps/compare/openvscode-server-0.0.8...openvscode-server-0.0.9) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1609](https://github.com/truecharts/apps/issues/1609))
+
+
+
 <a name="openvscode-server-0.0.8"></a>
 ### [openvscode-server-0.0.8](https://github.com/truecharts/apps/compare/openvscode-server-0.0.7...openvscode-server-0.0.8) (2021-12-21)
 

@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="bookstack-0.0.20"></a>
+### [bookstack-0.0.20](https://github.com/truecharts/apps/compare/bookstack-0.0.19...bookstack-0.0.20) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="bookstack-0.0.19"></a>
+### [bookstack-0.0.19](https://github.com/truecharts/apps/compare/bookstack-0.0.18...bookstack-0.0.19) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="bookstack-0.0.18"></a>
+### [bookstack-0.0.18](https://github.com/truecharts/apps/compare/bookstack-0.0.17...bookstack-0.0.18) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="bookstack-0.0.17"></a>
+### [bookstack-0.0.17](https://github.com/truecharts/apps/compare/bookstack-0.0.16...bookstack-0.0.17) (2021-12-27)
+
+#### Chore
+
+* update docker general non-major ([#1615](https://github.com/truecharts/apps/issues/1615))
+
+
+
 <a name="bookstack-0.0.16"></a>
 ### [bookstack-0.0.16](https://github.com/truecharts/apps/compare/bookstack-0.0.15...bookstack-0.0.16) (2021-12-21)
 

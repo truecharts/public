@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: libreoffice
-version: 0.0.7
-appVersion: "6.4.6"
+version: 0.0.11
+appVersion: "7.2.2"
 description: LibreOffice is a free and powerful office suite, and a successor to OpenOffice.org.
 type: application
 deprecated: false
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.9.25
+  version: 8.10.6
   # condition:
 maintainers:
 - email: info@truecharts.org

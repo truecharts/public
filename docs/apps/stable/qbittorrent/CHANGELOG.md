@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.33"></a>
+### [qbittorrent-9.0.33](https://github.com/truecharts/apps/compare/qbittorrent-9.0.32...qbittorrent-9.0.33) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="qbittorrent-9.0.32"></a>
+### [qbittorrent-9.0.32](https://github.com/truecharts/apps/compare/qbittorrent-9.0.31...qbittorrent-9.0.32) (2022-01-10)
+
+#### Chore
+
+* update docker general non-major ([#1685](https://github.com/truecharts/apps/issues/1685))
+
+
+
+<a name="qbittorrent-9.0.31"></a>
+### [qbittorrent-9.0.31](https://github.com/truecharts/apps/compare/qbittorrent-9.0.30...qbittorrent-9.0.31) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="qbittorrent-9.0.30"></a>
+### [qbittorrent-9.0.30](https://github.com/truecharts/apps/compare/qbittorrent-9.0.29...qbittorrent-9.0.30) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="qbittorrent-9.0.29"></a>
 ### [qbittorrent-9.0.29](https://github.com/truecharts/apps/compare/qbittorrent-9.0.28...qbittorrent-9.0.29) (2021-12-21)
 

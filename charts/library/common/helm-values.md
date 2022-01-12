@@ -51,7 +51,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | codeserverImage | object | See below | codeserver specific configuration |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
-| codeserverImage.tag | string | `"v3.12.0@sha256:b2132ab84a76b799dca995c90d4eb5765f13267408f795541bec670ff22cce38"` | Specify the code-server image tag |
+| codeserverImage.tag | string | `"v4.0.1@sha256:d9a55822e344aaacfca5151fa2b7e7bb79dd1170bb348ae34c6e74954cc9a85d"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | configmap | object | See below | Configure configMaps for the chart here. Additional configMaps can be added by adding a dictionary key similar to the 'config' object. |
 | configmap.config.annotations | object | `{}` | Annotations to add to the configMap |
@@ -79,6 +79,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | envFrom | list | `[]` |  |
 | envTpl | object | `{}` |  |
 | envValueFrom | object | `{}` |  |
+| externalInterfaces | list | `[]` | Use this directly attach a pod to a SCALE interface. Please be aware: This bypasses k8s services |
 | global.fullnameOverride | string | `nil` | Set the entire name definition |
 | global.isSCALE | bool | `false` |  |
 | global.nameOverride | string | `nil` | Set an override for the prefix of the fullname |
@@ -88,6 +89,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | image.pullPolicy | string | `nil` | image pull policy |
 | image.repository | string | `nil` | image repository |
 | image.tag | string | `nil` | image tag |
+| imageSelector | string | `"image"` | Image Selector allows for easy picking a different image dict, important for the SCALE GUI |
 | ingress | object | See below | Configure the ingresses for the chart here. Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress. |
 | ingress.main.enableFixedMiddlewares | bool | `true` | disable to ignore any default middlwares |
 | ingress.main.enabled | bool | `false` | Enables or disables the ingress |
@@ -182,7 +184,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"v14.1.0@sha256:bb32d5eedec5f729ff1618cecf3291dc3588a5da6ba5321d9dd88873d92b0832"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
@@ -223,6 +225,8 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | securityContext | object | `{"allowPrivilegeEscalation":false,"capabilities":{"add":[],"drop":[]},"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true}` | Configure the Security Context for the main container |
 | service | object | See below | Configure the services for the chart here. Additional services can be added by adding a dictionary key similar to the 'main' service. |
 | service.main.enabled | bool | `true` | Enables or disables the service |
+| service.main.ipFamilies | list | `[]` | The ip families that should be used. Options: IPv4, IPv6 |
+| service.main.ipFamilyPolicy | string | `"SingleStack"` | Specify the ip policy. Options: SingleStack, PreferDualStack, RequireDualStack |
 | service.main.nameOverride | string | `nil` | Override the name suffix that is used for this service |
 | service.main.ports | object | See below | Configure the Service port information here. Additional ports can be added by adding a dictionary key similar to the 'http' service. |
 | service.main.ports.main.enabled | bool | `true` | Enables or disables the port |
@@ -240,11 +244,13 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | serviceAccount.create | bool | `false` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | serviceList | list | See below | Configure additional services for the chart here. |
+| stdin | bool | `false` | Determines whether containers in a pod runs with stdin enabled. |
 | termination.gracePeriodSeconds | int | `10` | Duration in seconds the pod needs to terminate gracefully -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)] |
 | termination.messagePath | string | `nil` | Configure the path at which the file to which the main container's termination message will be written. -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)] |
 | termination.messagePolicy | string | `nil` | Indicate how the main container's termination message should be populated. Valid options are `File` and `FallbackToLogsOnError`. -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)] |
 | tolerations | list | `[]` | Specify taint tolerations [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) |
 | topologySpreadConstraints | list | `[]` | Defines topologySpreadConstraint rules. [[ref]](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) |
+| tty | bool | `false` | Determines whether containers in a pod runs with TTY enabled. |
 | volumeClaimTemplates | list | `[]` | Used in conjunction with `controller.type: statefulset` to create individual disks for each instance. |
 | wireguardImage | object | See below | WireGuard specific configuration |
 | wireguardImage.pullPolicy | string | `"IfNotPresent"` | Specify the WireGuard image pull policy |

@@ -1,8 +1,8 @@
 ---
 name: App Request
 about: Request new apps to add to TrueCharts
-title: 'Add'
-labels: 'New App Request'
+title: 'Add APPNAME'
+labels: ['New App Request', 'backlog']
 assignees: ''
 
 ---

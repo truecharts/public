@@ -117,6 +117,7 @@ jobs:
           helm repo add metallb https://metallb.github.io/metallb
           helm repo add grafana https://grafana.github.io/helm-charts
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo add amd-gpu-helm https://radeonopencompute.github.io/k8s-device-plugin/
           helm repo update
 
       - uses: actions/setup-python@f38219332975fe8f9c04cca981d674bf22aea1d3 # renovate: tag=v2
@@ -126,7 +127,7 @@ jobs:
 
       - name: Set up chart-testing
         if: ${{ matrix.app != '.gitkee' }}
-        uses: helm/chart-testing-action@5f16c27cf7a4fa9c776ff73734df3909b2b65127 # renovate: tag=v2.1.0
+        uses: helm/chart-testing-action@6b64532d456fa490a3da177fbd181ac4c8192b58 # renovate: tag=v2.2.0
 
     ##
     # Chart-Testing Section

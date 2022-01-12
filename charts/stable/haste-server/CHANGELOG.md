@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="haste-server-4.0.29"></a>
+### [haste-server-4.0.29](https://github.com/truecharts/apps/compare/haste-server-4.0.28...haste-server-4.0.29) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="haste-server-4.0.28"></a>
+### [haste-server-4.0.28](https://github.com/truecharts/apps/compare/haste-server-4.0.27...haste-server-4.0.28) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="haste-server-4.0.27"></a>
+### [haste-server-4.0.27](https://github.com/truecharts/apps/compare/haste-server-4.0.26...haste-server-4.0.27) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="haste-server-4.0.26"></a>
 ### [haste-server-4.0.26](https://github.com/truecharts/apps/compare/haste-server-4.0.25...haste-server-4.0.26) (2021-12-21)
 

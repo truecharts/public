@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/medusa"` |  |
-| image.tag | string | `"v0.5.20@sha256:ab6d867b5a7328a6fd36e01d2c036865b31c86c855e0de58820cfb09e7996eed"` |  |
+| image.tag | string | `"v0.5.22@sha256:728c1bce233951186c95a40d92f1c0454af7c1e71357f5a43ddeaa4fcd6706f9"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

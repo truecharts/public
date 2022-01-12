@@ -1,6 +1,51 @@
 # Changelog<br>
 
 
+<a name="recipes-5.0.9"></a>
+### [recipes-5.0.9](https://github.com/truecharts/apps/compare/recipes-5.0.8...recipes-5.0.9) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="recipes-5.0.8"></a>
+### [recipes-5.0.8](https://github.com/truecharts/apps/compare/recipes-5.0.7...recipes-5.0.8) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="recipes-5.0.7"></a>
+### [recipes-5.0.7](https://github.com/truecharts/apps/compare/recipes-5.0.6...recipes-5.0.7) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
+<a name="recipes-5.0.6"></a>
+### [recipes-5.0.6](https://github.com/truecharts/apps/compare/recipes-5.0.5...recipes-5.0.6) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="recipes-5.0.5"></a>
+### [recipes-5.0.5](https://github.com/truecharts/apps/compare/recipes-5.0.4...recipes-5.0.5) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major ([#1607](https://github.com/truecharts/apps/issues/1607))
+
+
+
 <a name="recipes-5.0.4"></a>
 ### [recipes-5.0.4](https://github.com/truecharts/apps/compare/recipes-5.0.3...recipes-5.0.4) (2021-12-21)
 

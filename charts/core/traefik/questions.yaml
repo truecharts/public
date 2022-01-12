@@ -4,7 +4,7 @@ portals:
     protocols:
       - "http"
     host:
-      - "$kubernetes-resource_configmap_portal_host"
+        - "$kubernetes-resource_configmap_portal_host"
     ports:
       - "$kubernetes-resource_configmap_portal_port"
     path: "/dashboard/"
@@ -808,6 +808,17 @@ questions:
                                     type: int
                                     default: 9100
 
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            type: dict
+            attrs:
 # Include{ingressDefault}
 
 # Include{ingressTLS}

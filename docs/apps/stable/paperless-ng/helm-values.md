@@ -17,7 +17,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PAPERLESS_DBPORT | string | `"5432"` |  |
 | env.PAPERLESS_DBUSER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.PAPERLESS_MEDIA_ROOT | string | `"/media/"` |  |
-| env.PAPERLESS_STATICDIR | string | `"/static/"` |  |
 | env.PAPERLESS_TIME_ZONE | string | `"{{ .Values.env.TZ }}"` |  |
 | env.PUID | int | `568` |  |
 | env.USERMAP_GID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
@@ -39,8 +38,6 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.media.enabled | bool | `true` |  |
 | persistence.media.mountPath | string | `"/media"` |  |
-| persistence.static.enabled | bool | `true` |  |
-| persistence.static.mountPath | string | `"/static"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |

@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="darktable-0.0.11"></a>
+### [darktable-0.0.11](https://github.com/truecharts/apps/compare/darktable-0.0.10...darktable-0.0.11) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="darktable-0.0.10"></a>
+### [darktable-0.0.10](https://github.com/truecharts/apps/compare/darktable-0.0.9...darktable-0.0.10) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="darktable-0.0.9"></a>
+### [darktable-0.0.9](https://github.com/truecharts/apps/compare/darktable-0.0.8...darktable-0.0.9) (2022-01-03)
+
+#### Chore
+
+* update docker general non-major ([#1646](https://github.com/truecharts/apps/issues/1646))
+
+
+
+<a name="darktable-0.0.8"></a>
+### [darktable-0.0.8](https://github.com/truecharts/apps/compare/darktable-0.0.7...darktable-0.0.8) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="darktable-0.0.7"></a>
 ### [darktable-0.0.7](https://github.com/truecharts/apps/compare/darktable-0.0.6...darktable-0.0.7) (2021-12-21)
 

@@ -1,0 +1,30 @@
+# Include{groups}
+questions:
+# Include{global}
+
+  - variable: amd-gpu
+    group: "App Configuration"
+    label: ""
+    schema:
+      type: dict
+      attrs:
+        - variable: nfd
+          label: "nfd"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false
+        - variable: labeller
+          label: "labeller"
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "enabled"
+                schema:
+                  type: boolean
+                  default: false

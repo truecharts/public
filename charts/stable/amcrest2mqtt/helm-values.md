@@ -21,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/amcrest2mqtt"` | image repository |
-| image.tag | string | `"v1.0.11@sha256:8721ad99bcd3392b206c71720718f8e56e58188ecae5076b75c71a46cf1239fc"` | image tag |
+| image.tag | string | `"v1.0.15@sha256:e7063369671a95bea72866ca07d0b9e45ed1b204ca1df6f6e64532ed018cffa0"` | image tag |
 | probes.liveness.enabled | bool | `false` |  |
 | probes.readiness.enabled | bool | `false` |  |
 | probes.startup.enabled | bool | `false` |  |

@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="octoprint-4.0.31"></a>
+### [octoprint-4.0.31](https://github.com/truecharts/apps/compare/octoprint-4.0.30...octoprint-4.0.31) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="octoprint-4.0.30"></a>
+### [octoprint-4.0.30](https://github.com/truecharts/apps/compare/octoprint-4.0.29...octoprint-4.0.30) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="octoprint-4.0.29"></a>
+### [octoprint-4.0.29](https://github.com/truecharts/apps/compare/octoprint-4.0.28...octoprint-4.0.29) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
 <a name="octoprint-4.0.28"></a>
 ### [octoprint-4.0.28](https://github.com/truecharts/apps/compare/octoprint-4.0.27...octoprint-4.0.28) (2021-12-21)
 

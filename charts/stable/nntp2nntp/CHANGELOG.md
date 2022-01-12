@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="nntp2nntp-0.0.11"></a>
+### [nntp2nntp-0.0.11](https://github.com/truecharts/apps/compare/nntp2nntp-0.0.10...nntp2nntp-0.0.11) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="nntp2nntp-0.0.10"></a>
+### [nntp2nntp-0.0.10](https://github.com/truecharts/apps/compare/nntp2nntp-0.0.9...nntp2nntp-0.0.10) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="nntp2nntp-0.0.9"></a>
+### [nntp2nntp-0.0.9](https://github.com/truecharts/apps/compare/nntp2nntp-0.0.8...nntp2nntp-0.0.9) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+
+
+<a name="nntp2nntp-0.0.8"></a>
+### [nntp2nntp-0.0.8](https://github.com/truecharts/apps/compare/nntp2nntp-0.0.7...nntp2nntp-0.0.8) (2021-12-24)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1609](https://github.com/truecharts/apps/issues/1609))
+
+
+
 <a name="nntp2nntp-0.0.7"></a>
 ### [nntp2nntp-0.0.7](https://github.com/truecharts/apps/compare/nntp2nntp-0.0.6...nntp2nntp-0.0.7) (2021-12-21)
 

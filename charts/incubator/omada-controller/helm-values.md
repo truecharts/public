@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/omada-controller"` | image repository |
-| image.tag | string | `"v4.4@sha256:f4606fad1759210d5082d824f00c5fb89ff6ece428934fa23bda7605f2a7c0b3"` | image tag |
+| image.tag | string | `"v5.0@sha256:d7d14c3fe80e763ea2f9b49f20f4c08eabf1d54ffa4d02eae196abdf09c1dfeb"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

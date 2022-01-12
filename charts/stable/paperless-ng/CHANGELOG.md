@@ -1,6 +1,37 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-1.0.8"></a>
+### [paperless-ng-1.0.8](https://github.com/truecharts/apps/compare/paperless-ng-1.0.7...paperless-ng-1.0.8) (2022-01-11)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1693](https://github.com/truecharts/apps/issues/1693))
+
+
+
+<a name="paperless-ng-1.0.7"></a>
+### [paperless-ng-1.0.7](https://github.com/truecharts/apps/compare/paperless-ng-1.0.6...paperless-ng-1.0.7) (2022-01-04)
+
+#### Chore
+
+* update helm general non-major helm releases
+
+
+
+<a name="paperless-ng-1.0.6"></a>
+### [paperless-ng-1.0.6](https://github.com/truecharts/apps/compare/paperless-ng-1.0.5...paperless-ng-1.0.6) (2021-12-28)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1623](https://github.com/truecharts/apps/issues/1623))
+
+#### Fix
+
+* don't change default dir for static ([#1599](https://github.com/truecharts/apps/issues/1599))
+
+
+
 <a name="paperless-ng-1.0.5"></a>
 ### [paperless-ng-1.0.5](https://github.com/truecharts/apps/compare/paperless-ng-1.0.4...paperless-ng-1.0.5) (2021-12-21)
 
