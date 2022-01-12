@@ -126,18 +126,47 @@ initContainers:
         else echo "DB failed to start.";
         fi;
 
-    # # Until they release an image with the update driver, we need to manually download it.
-    # # https://github.com/apache/guacamole-client/pull/655
-    # 3-tempHack:
-    #   image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    #   # Needs proper volume mount
-    #   command: ["/bin/sh"]
-    #   args:
-    #   - -c
-    #   - |
-    #     curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "$DESTINATION/postgresql/postgresql-42.2.24.jre7.jar"
+    # Until they release an image with the updated driver, we need to manually replace it.
+    # https://issues.apache.org/jira/browse/GUACAMOLE-1433
+    # https://github.com/apache/guacamole-client/pull/655
+  3-tempHack:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    securityContext:
+      runAsUser: 0
+      runAsNonRoot: false
+    volumeMounts:
+      - name: tempHack
+        mountPath: "/opt/guacamole/postgresql"
+    command: ["/bin/sh", "-c"]
+    args:
+    - >
+      echo "Checing postgresql driver version...";
+      if [ -e /opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar ];
+        then echo "Old version found.";
+          echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
+          rm "/opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar";
+          if [ $? -eq 0 ];
+            then echo "Removed successfully!";
+            else "Failed to remove.";
+              exit 1;
+          fi;
+          echo "Downloading (postgresql-42.2.24.jre7.jar)...";
+          curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "/opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar";
+          if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
+            then echo "Downloaded successfully!";
+              echo "Debug test show contents:";
+              ls -la;
+            else echo "Failed to download.";
+              exit 1;
+          fi;
+        else echo "Version found is correct.";
+        exit 0;
+      fi;
 
 persistence:
   initdbdata:
     enabled: true
     mountPath: /initdbdata
+  tempHack:
+    enabled: true
+    mountPath: /opt/guacamole/postgresql
