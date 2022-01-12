@@ -140,6 +140,8 @@ initContainers:
     args:
     - >
       echo "Checing postgresql driver version...";
+      echo "Debug test show contents1:";
+      ls -la /opt/guacamole/postgresql/
       if [ -e /opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar ];
         then echo "Old version found.";
           echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
@@ -153,8 +155,8 @@ initContainers:
           curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "/opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar";
           if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
             then echo "Downloaded successfully!";
-              echo "Debug test show contents:";
-              ls -la;
+              echo "Debug test show contents2:";
+              ls -la /opt/guacamole/postgresql/;
             else echo "Failed to download.";
               exit 1;
           fi;
