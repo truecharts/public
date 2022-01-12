@@ -84,7 +84,7 @@ initContainers:
       - name: POSTGRES_USER
         value: "{{ .Values.postgresql.postgresqlUsername }}"
       - name: POSTGRES_PORT
-        value: 5432
+        value: "5432"
       # Are those ok? Or should I use `envValueFrom`?
       - name: POSTGRES_HOSTNAME
         value: "{{ .Values.POSTGRES_HOSTNAME }}"
