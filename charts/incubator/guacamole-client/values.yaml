@@ -69,7 +69,6 @@ initContainers:
         if [ -e /initdbdata/initdb.sql ];
         then
           echo "Init file created successfully!";
-          ls -la /initdbdata;
           exit 0;
         else
           echo "Init file failed to create.";
@@ -77,7 +76,7 @@ initContainers:
         fi;
   # Would the DB be ready at this point?
   2-initdb:
-    image: "{{ .Values.postgresqlImage }}:{{ .Values.postgresqlImage.tag }}"
+    image: "{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"
     env:
       - name: POSTGRES_DATABASE
         value: "{{ .Values.postgresql.postgresqlDatabase }}"
