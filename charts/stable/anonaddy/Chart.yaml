@@ -3,7 +3,7 @@ appVersion: "0.8.9"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.10.6
+  version: 8.11.0
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
@@ -25,7 +25,7 @@ maintainers:
 name: anonaddy
 sources:
 - https://github.com/anonaddy/docker
-version: 6.0.21
+version: 6.0.22
 annotations:
   truecharts.org/catagories: |
     - email

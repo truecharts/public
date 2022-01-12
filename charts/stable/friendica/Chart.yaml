@@ -3,7 +3,7 @@ appVersion: "2021.09"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.10.6
+  version: 8.11.0
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
@@ -27,7 +27,7 @@ name: friendica
 sources:
   - https://friendi.ca/
   - https://hub.docker.com/_/friendica
-version: 0.0.25
+version: 0.0.26
 annotations:
   truecharts.org/catagories: |
     - social

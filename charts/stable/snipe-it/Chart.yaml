@@ -3,7 +3,7 @@ appVersion: "5.3.6"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.10.6
+  version: 8.11.0
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
@@ -25,7 +25,7 @@ name: snipe-it
 sources:
   - https://snipeitapp.com/
   - https://hub.docker.com/r/linuxserver/
-version: 0.0.22
+version: 0.0.23
 annotations:
   truecharts.org/catagories: |
     - management
