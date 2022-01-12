@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacd-0.0.13"></a>
+### [guacd-0.0.13](https://github.com/truecharts/apps/compare/guacd-0.0.12...guacd-0.0.13) (2022-01-12)
+
+#### Fix
+
+* run as root as it's needed for freerdp ([#1695](https://github.com/truecharts/apps/issues/1695))
+
+
+
 <a name="guacd-0.0.12"></a>
 ### [guacd-0.0.12](https://github.com/truecharts/apps/compare/guacd-0.0.11...guacd-0.0.12) (2022-01-11)
 
