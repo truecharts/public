@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.12.0"></a>
+### [common-8.12.0](https://github.com/truecharts/apps/compare/common-8.11.0...common-8.12.0) (2022-01-12)
+
+#### Feat
+
+* add TTY, STDIN and IPFamily support ([#1700](https://github.com/truecharts/apps/issues/1700))
+
+
+
 <a name="common-8.11.0"></a>
 ### [common-8.11.0](https://github.com/truecharts/apps/compare/common-8.10.6...common-8.11.0) (2022-01-12)
 

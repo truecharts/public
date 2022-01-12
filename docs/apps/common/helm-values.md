@@ -225,6 +225,8 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | securityContext | object | `{"allowPrivilegeEscalation":false,"capabilities":{"add":[],"drop":[]},"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true}` | Configure the Security Context for the main container |
 | service | object | See below | Configure the services for the chart here. Additional services can be added by adding a dictionary key similar to the 'main' service. |
 | service.main.enabled | bool | `true` | Enables or disables the service |
+| service.main.ipFamilies | list | `[]` | The ip families that should be used. Options: IPv4, IPv6 |
+| service.main.ipFamilyPolicy | string | `"SingleStack"` | Specify the ip policy. Options: SingleStack, PreferDualStack, RequireDualStack |
 | service.main.nameOverride | string | `nil` | Override the name suffix that is used for this service |
 | service.main.ports | object | See below | Configure the Service port information here. Additional ports can be added by adding a dictionary key similar to the 'http' service. |
 | service.main.ports.main.enabled | bool | `true` | Enables or disables the port |
@@ -242,11 +244,13 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | serviceAccount.create | bool | `false` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | serviceList | list | See below | Configure additional services for the chart here. |
+| stdin | bool | `false` | Determines whether containers in a pod runs with stdin enabled. |
 | termination.gracePeriodSeconds | int | `10` | Duration in seconds the pod needs to terminate gracefully -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)] |
 | termination.messagePath | string | `nil` | Configure the path at which the file to which the main container's termination message will be written. -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)] |
 | termination.messagePolicy | string | `nil` | Indicate how the main container's termination message should be populated. Valid options are `File` and `FallbackToLogsOnError`. -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)] |
 | tolerations | list | `[]` | Specify taint tolerations [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) |
 | topologySpreadConstraints | list | `[]` | Defines topologySpreadConstraint rules. [[ref]](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) |
+| tty | bool | `false` | Determines whether containers in a pod runs with TTY enabled. |
 | volumeClaimTemplates | list | `[]` | Used in conjunction with `controller.type: statefulset` to create individual disks for each instance. |
 | wireguardImage | object | See below | WireGuard specific configuration |
 | wireguardImage.pullPolicy | string | `"IfNotPresent"` | Specify the WireGuard image pull policy |
