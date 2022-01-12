@@ -141,7 +141,7 @@ initContainers:
     - >
       echo "Checing postgresql driver version...";
       echo "Debug test show contents1:";
-      ls -la /opt/guacamole/postgresql/
+      ls -la /opt/guacamole/postgresql/;
       if [ -e /opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar ];
         then echo "Old version found.";
           echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
