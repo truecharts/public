@@ -6,6 +6,16 @@ image:
 portal:
   path: "/guacamole"
 
+## Check later if we can run this with gaucamole user
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
 service:
   main:
     ports:
@@ -59,31 +69,58 @@ initContainers:
         if [ -e /initdbdata/initdb.sql ];
         then
           echo "Init file created successfully!";
+          ls -la /data;
           exit 0;
         else
           echo "Init file failed to create.";
           exit 1;
         fi;
-  # # Would the DB be ready at this point?
-  # 2-initdb:
-  #   image: "{{ .Values.postgresqlImage }}:{{ .Values.postgresqlImage.tag }}"
-  #   env:
-  #     POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  #     POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  #     POSTGRES_PORT: 5432
-  #     # Are those ok? Or should I use `envValueFrom`?
-  #     POSTGRES_HOSTNAME: "{{ .Values.POSTGRES_HOSTNAME }}"
-  #     PGPASSWORD: "{{ .Values.POSTGRES_PASSWORD }}"
-  #   volumeMounts:
-  #     - name: data
-  #       mountPath: "/data"
-  #   command: ["/bin/sh" , "-c"]
-  #   args:
-  #     - >
-  #       echo "Checking if DB is ready...";
-  #       echo "Initializing DB...";
-  #       psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /data/initdb.sql || true
-  #       echo "DB Initialized!"
+  # Would the DB be ready at this point?
+  2-initdb:
+    image: "{{ .Values.postgresqlImage }}:{{ .Values.postgresqlImage.tag }}"
+    env:
+      POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+      POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+      POSTGRES_PORT: 5432
+      # Are those ok? Or should I use `envValueFrom`?
+      POSTGRES_HOSTNAME: "{{ .Values.POSTGRES_HOSTNAME }}"
+      PGPASSWORD: "{{ .Values.POSTGRES_PASSWORD }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/data"
+    command: ["/bin/sh" , "-c"]
+    args:
+      - >
+        echo $POSTGRES_DATABASE;
+        echo $PGPASSWORD;
+        echo $POSTGRES_PORT;
+        echo "Checking if DB is ready...";
+        DBREADY=0
+        for i in {1..10};
+        do pg_isready -t 5 -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT;
+          if [ $? -eq 0 ];
+            then echo "DB is ready!";
+              DBREADY=1
+              break;
+            else echo "DB not ready yet.";
+          fi;
+          sleep 5;
+        done;
+        if [ $DBREADY -eq 1 ];
+        then echo "Initializing DB's schema...";
+          psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /data/initdb.sql;
+          if [ $? -eq 0 ];
+            then echo "DB's schema initialized successfully!";
+              exit 0;
+            else echo "DB's schema failed to initialize.";
+              exit 1;
+          fi;
+        else echo "DB failed to start.";
+        fi;
+
+
+
+
     # # Until they release an image with the update driver, we need to manually download it.
     # # https://github.com/apache/guacamole-client/pull/655
     # 3-tempHack:
