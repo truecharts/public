@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.4.0@sha256:6b67e159e4e24524bf025a419062249763967085f6111d73d9f3d9ee7b0c13ee
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 service:
   main:
     ports:
