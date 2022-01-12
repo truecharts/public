@@ -6,14 +6,13 @@ image:
 portal:
   path: "/guacamole"
 
-## Check later if we can run this with gaucamole user
-
+# guacamole user = 1001
 podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  runAsUser: 1001
+  runAsGroup: 1001
 
 securityContext:
-  runAsNonRoot: false
+  # runAsNonRoot: false
   readOnlyRootFilesystem: false
 
 service:
@@ -132,8 +131,8 @@ initContainers:
   3-tempHack:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     securityContext:
-      runAsUser: 0
-      runAsNonRoot: false
+      runAsUser: 1001
+      runAsGroup: 1001
     volumeMounts:
       - name: tempHack
         mountPath: "/opt/guacamole/postgresql"
