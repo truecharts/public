@@ -66,11 +66,11 @@
 
 
 {{- if and ( .Values.portal.host ) ( eq $host "$node_ip" ) }}
-  {{- $host = .Values.portal.host }}
+  {{- $host = ( tpl .Values.portal.host $ ) }}
 {{- end }}
 
 {{- if .Values.portal.path }}
-  {{- $path = .Values.portal.path }}
+  {{- $path = ( tpl .Values.portal.path $ ) }}
 {{- end }}
 
 ---
