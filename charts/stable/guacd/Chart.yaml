@@ -10,8 +10,11 @@ home: https://github.com/truecharts/apps/tree/master/charts/stable/guacd
 icon: https://truecharts.org/_static/img/appicons/guacd-icon.png
 keywords:
   - guacd
+  - guacamole
+  - remote
 sources:
-  - https://hub.docker.com/r/linuxserver/guacd
+  - https://hub.docker.com/r/guacamole/guacd
+  - https://github.com/apache/guacamole-server
 dependencies:
 - name: common
   repository: https://truecharts.org
