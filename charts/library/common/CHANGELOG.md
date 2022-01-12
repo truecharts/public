@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.12.1"></a>
+### [common-8.12.1](https://github.com/truecharts/apps/compare/common-8.12.0...common-8.12.1) (2022-01-12)
+
+#### Fix
+
+* document the portal configmap and have it parse tpl for config ([#1612](https://github.com/truecharts/apps/issues/1612))
+
+
+
 <a name="common-8.12.0"></a>
 ### [common-8.12.0](https://github.com/truecharts/apps/compare/common-8.11.0...common-8.12.0) (2022-01-12)
 

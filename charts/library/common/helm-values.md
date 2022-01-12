@@ -178,6 +178,8 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | podLabels | object | `{}` | Set labels on the pod |
 | podLabelsList | list | `[]` | Set additional labels on the pod |
 | podSecurityContext | object | `{"fsGroup":568,"fsGroupChangePolicy":"OnRootMismatch","runAsGroup":568,"runAsUser":568,"supplementalGroups":[]}` | Configure the Security Context for the Pod |
+| portal | object | `{"enabled":false}` | Set the primary portal for TrueNAS SCALE |
+| portal.enabled | bool | `false` | enable generation of the portal configmap |
 | postgresql.enabled | bool | `false` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
