@@ -88,7 +88,7 @@ initContainers:
     volumeMounts:
       - name: data
         mountPath: "/data"
-    command: ["/bin/sh" , "-c"]
+    command: ["/bin/sh", "-c"]
     args:
       - >
         echo $POSTGRES_DATABASE;
