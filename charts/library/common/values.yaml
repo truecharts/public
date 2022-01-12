@@ -145,6 +145,12 @@ podLabelsList: []
 # -- Set labels on the pod
 podLabels: {}
 
+# -- Determines whether containers in a pod runs with TTY enabled.
+tty: false
+
+# -- Determines whether containers in a pod runs with stdin enabled.
+stdin: false
+
 # -- Add a Horizontal Pod Autoscaler
 # @default -- <disabled>
 autoscaling:

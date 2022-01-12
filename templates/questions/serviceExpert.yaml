@@ -1,78 +1,78 @@
-  - variable: externalInterfaces
-    description: "Add External Interfaces"
-    label: "Add external Interfaces"
-    group: "Networking"
-    schema:
-      type: list
-      items:
-        - variable: interfaceConfiguration
-          description: "Interface Configuration"
-          label: "Interface Configuration"
+        - variable: externalInterfaces
+          description: "Add External Interfaces"
+          label: "Add external Interfaces"
+          group: "Networking"
           schema:
-            type: dict
-            $ref:
-              - "normalize/interfaceConfiguration"
-            attrs:
-              - variable: hostInterface
-                description: "Please specify host interface"
-                label: "Host Interface"
-                schema:
-                  type: string
-                  required: true
-                  $ref:
-                    - "definitions/interface"
-              - variable: ipam
-                description: "Define how IP Address will be managed"
-                label: "IP Address Management"
+            type: list
+            items:
+              - variable: interfaceConfiguration
+                description: "Interface Configuration"
+                label: "Interface Configuration"
                 schema:
                   type: dict
-                  required: true
+                  $ref:
+                    - "normalize/interfaceConfiguration"
                   attrs:
-                    - variable: type
-                      description: "Specify type for IPAM"
-                      label: "IPAM Type"
+                    - variable: hostInterface
+                      description: "Please specify host interface"
+                      label: "Host Interface"
                       schema:
                         type: string
                         required: true
-                        enum:
-                          - value: "dhcp"
-                            description: "Use DHCP"
-                          - value: "static"
-                            description: "Use static IP"
-                        show_subquestions_if: "static"
-                        subquestions:
-                          - variable: staticIPConfigurations
-                            label: "Static IP Addresses"
+                        $ref:
+                          - "definitions/interface"
+                    - variable: ipam
+                      description: "Define how IP Address will be managed"
+                      label: "IP Address Management"
+                      schema:
+                        type: dict
+                        required: true
+                        attrs:
+                          - variable: type
+                            description: "Specify type for IPAM"
+                            label: "IPAM Type"
                             schema:
-                              type: list
-                              items:
-                                - variable: staticIP
-                                  label: "Static IP"
+                              type: string
+                              required: true
+                              enum:
+                                - value: "dhcp"
+                                  description: "Use DHCP"
+                                - value: "static"
+                                  description: "Use static IP"
+                              show_subquestions_if: "static"
+                              subquestions:
+                                - variable: staticIPConfigurations
+                                  label: "Static IP Addresses"
                                   schema:
-                                    type: ipaddr
-                                    cidr: true
-                          - variable: staticRoutes
-                            label: "Static Routes"
-                            schema:
-                              type: list
-                              items:
-                                - variable: staticRouteConfiguration
-                                  label: "Static Route Configuration"
-                                  schema:
-                                    type: dict
-                                    attrs:
-                                      - variable: destination
-                                        label: "Destination"
+                                    type: list
+                                    items:
+                                      - variable: staticIP
+                                        label: "Static IP"
                                         schema:
                                           type: ipaddr
                                           cidr: true
-                                          required: true
-                                      - variable: gateway
-                                        label: "Gateway"
+                                - variable: staticRoutes
+                                  label: "Static Routes"
+                                  schema:
+                                    type: list
+                                    items:
+                                      - variable: staticRouteConfiguration
+                                        label: "Static Route Configuration"
                                         schema:
-                                          type: ipaddr
-                                          cidr: false
-                                          required: true
+                                          type: dict
+                                          attrs:
+                                            - variable: destination
+                                              label: "Destination"
+                                              schema:
+                                                type: ipaddr
+                                                cidr: true
+                                                required: true
+                                            - variable: gateway
+                                              label: "Gateway"
+                                              schema:
+                                                type: ipaddr
+                                                cidr: false
+                                                required: true
 
         - variable: dnsPolicy
           group: "Networking and Services"
