@@ -117,6 +117,7 @@ jobs:
           helm repo add metallb https://metallb.github.io/metallb
           helm repo add grafana https://grafana.github.io/helm-charts
           helm repo add prometheus https://prometheus-community.github.io/helm-charts
+          helm repo add amd-gpu-helm https://radeonopencompute.github.io/k8s-device-plugin/
           helm repo update
 
       - uses: actions/setup-python@f38219332975fe8f9c04cca981d674bf22aea1d3 # renovate: tag=v2
