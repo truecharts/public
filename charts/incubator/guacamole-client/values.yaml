@@ -120,7 +120,7 @@ initContainers:
         done;
         if [ $DBREADY -eq 1 ];
         then echo "Initializing DB's schema...";
-          psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /data/initdb.sql;
+          psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql;
           if [ $? -eq 0 ];
             then echo "DB's schema initialized successfully!";
               exit 0;
