@@ -94,3 +94,9 @@ initContainers:
     #   - -c
     #   - |
     #     curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "$DESTINATION/postgresql/postgresql-42.2.24.jre7.jar"
+
+
+persistence:
+  initdbdata:
+    enabled: true
+    mountPath: /initdbdata
