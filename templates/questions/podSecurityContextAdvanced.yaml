@@ -1,0 +1,20 @@
+        - variable: fsGroupChangePolicy
+          label: "When should we take ownership?"
+          schema:
+            type: string
+            default: "OnRootMismatch"
+            enum:
+              - value: "OnRootMismatch"
+                description: "OnRootMismatch"
+              - value: "Always"
+                description: "Always"
+        - variable: supplementalGroups
+          label: "supplemental Groups"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: supplementalGroupsEntry
+                label: "supplemental Group"
+                schema:
+                  type: int
