@@ -111,11 +111,89 @@
                                         schema:
                                           type: dict
                                           attrs:
+                                            - variable: matchExpressions
+                                              label: "matchExpressions"
+                                              schema:
+                                                type: list
+                                                default: []
+                                                items:
+                                                  - variable: expressionEntry
+                                                    label: ""
+                                                    schema:
+                                                      type: dict
+                                                      attrs:
+                                                        - variable: key
+                                                          label: "Key"
+                                                          schema:
+                                                            type: string
+                                                        - variable: operator
+                                                          label: "operator"
+                                                          schema:
+                                                            type: string
+                                                            default: "TCP"
+                                                            enum:
+                                                              - value: "In"
+                                                                description: "In"
+                                                              - value: "NotIn"
+                                                                description: "NotIn"
+                                                              - value: "Exists "
+                                                                description: "Exists "
+                                                              - value: "DoesNotExist "
+                                                                description: "DoesNotExist "
+                                                        - variable: values
+                                                          label: "values"
+                                                          schema:
+                                                            type: list
+                                                            default: []
+                                                            items:
+                                                              - variable: value
+                                                                label: ""
+                                                                schema:
+                                                                  type: string
                                       - variable: podSelector
                                         label: ""
                                         schema:
                                           type: dict
                                           attrs:
+                                            - variable: matchExpressions
+                                              label: "matchExpressions"
+                                              schema:
+                                                type: list
+                                                default: []
+                                                items:
+                                                  - variable: expressionEntry
+                                                    label: ""
+                                                    schema:
+                                                      type: dict
+                                                      attrs:
+                                                        - variable: key
+                                                          label: "Key"
+                                                          schema:
+                                                            type: string
+                                                        - variable: operator
+                                                          label: "operator"
+                                                          schema:
+                                                            type: string
+                                                            default: "TCP"
+                                                            enum:
+                                                              - value: "In"
+                                                                description: "In"
+                                                              - value: "NotIn"
+                                                                description: "NotIn"
+                                                              - value: "Exists "
+                                                                description: "Exists "
+                                                              - value: "DoesNotExist "
+                                                                description: "DoesNotExist "
+                                                        - variable: values
+                                                          label: "values"
+                                                          schema:
+                                                            type: list
+                                                            default: []
+                                                            items:
+                                                              - variable: value
+                                                                label: ""
+                                                                schema:
+                                                                  type: string
                           - variable: ports
                             label: "Ports"
                             schema:
@@ -194,11 +272,89 @@
                                         schema:
                                           type: dict
                                           attrs:
+                                            - variable: matchExpressions
+                                              label: "matchExpressions"
+                                              schema:
+                                                type: list
+                                                default: []
+                                                items:
+                                                  - variable: expressionEntry
+                                                    label: ""
+                                                    schema:
+                                                      type: dict
+                                                      attrs:
+                                                        - variable: key
+                                                          label: "Key"
+                                                          schema:
+                                                            type: string
+                                                        - variable: operator
+                                                          label: "operator"
+                                                          schema:
+                                                            type: string
+                                                            default: "TCP"
+                                                            enum:
+                                                              - value: "In"
+                                                                description: "In"
+                                                              - value: "NotIn"
+                                                                description: "NotIn"
+                                                              - value: "Exists "
+                                                                description: "Exists "
+                                                              - value: "DoesNotExist "
+                                                                description: "DoesNotExist "
+                                                        - variable: values
+                                                          label: "values"
+                                                          schema:
+                                                            type: list
+                                                            default: []
+                                                            items:
+                                                              - variable: value
+                                                                label: ""
+                                                                schema:
+                                                                  type: string
                                       - variable: podSelector
                                         label: ""
                                         schema:
                                           type: dict
                                           attrs:
+                                            - variable: matchExpressions
+                                              label: "matchExpressions"
+                                              schema:
+                                                type: list
+                                                default: []
+                                                items:
+                                                  - variable: expressionEntry
+                                                    label: ""
+                                                    schema:
+                                                      type: dict
+                                                      attrs:
+                                                        - variable: key
+                                                          label: "Key"
+                                                          schema:
+                                                            type: string
+                                                        - variable: operator
+                                                          label: "operator"
+                                                          schema:
+                                                            type: string
+                                                            default: "TCP"
+                                                            enum:
+                                                              - value: "In"
+                                                                description: "In"
+                                                              - value: "NotIn"
+                                                                description: "NotIn"
+                                                              - value: "Exists "
+                                                                description: "Exists "
+                                                              - value: "DoesNotExist "
+                                                                description: "DoesNotExist "
+                                                        - variable: values
+                                                          label: "values"
+                                                          schema:
+                                                            type: list
+                                                            default: []
+                                                            items:
+                                                              - variable: value
+                                                                label: ""
+                                                                schema:
+                                                                  type: string
                           - variable: ports
                             label: "Ports"
                             schema:
