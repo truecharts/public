@@ -49,6 +49,20 @@ spec:
       {{- end -}}
       {{- end -}}
       {{- end -}}
+
+      {{- if .namespaceSelector }}
+      {{- if or ( .namespaceSelector.matchLabels ) ( .namespaceSelector.matchExpressions ) }}
+      namespaceSelector:
+        {{- .namespaceSelector | toYaml | nindent 8 }}
+      {{- end -}}
+      {{- end -}}
+
+      {{- if .podSelector }}
+      {{- if or ( .podSelector.matchLabels ) ( .podSelector.matchExpressions ) }}
+      podSelector:
+        {{- .podSelector | toYaml | nindent 8 }}
+      {{- end -}}
+      {{- end -}}
     {{- end -}}
 
   {{- with .ports }}
@@ -73,6 +87,20 @@ spec:
         - {{ . }}
         {{- end }}
       {{- end -}}
+      {{- end -}}
+      {{- end -}}
+
+      {{- if .namespaceSelector }}
+      {{- if or ( .namespaceSelector.matchLabels ) ( .namespaceSelector.matchExpressions ) }}
+      namespaceSelector:
+        {{- .namespaceSelector | toYaml | nindent 8 }}
+      {{- end -}}
+      {{- end -}}
+
+      {{- if .podSelector }}
+      {{- if or ( .podSelector.matchLabels ) ( .podSelector.matchExpressions ) }}
+      podSelector:
+        {{- .podSelector | toYaml | nindent 8 }}
       {{- end -}}
       {{- end -}}
     {{- end -}}
