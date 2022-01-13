@@ -95,6 +95,17 @@ questions:
             default: 4822
 
 # Include{containerConfig}
+  - variable: api
+    group: "App Configuration"
+    label: "API Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: API_SESSION_TIMEOUT
+          label: "API Session Timeout (Leave blank for default)"
+          schema:
+            type: string
+            default: ""
   - variable: totp
     group: "App Configuration"
     label: "TOTP Configuration"
@@ -164,17 +175,7 @@ questions:
                 schema:
                   type: string
                   default: ""
-  - variable: api
-    group: "App Configuration"
-    label: "API Configuration"
-    schema:
-      type: dict
-      attrs:
-        - variable: API_SESSION_TIMEOUT
-          label: "API Session Timeout (Leave blank for default)"
-          schema:
-            type: string
-            default: ""
+    # TODO: Hide with toggle button
   - variable: json
     group: "App Configuration"
     label: "JSON Configuration"
@@ -192,6 +193,7 @@ questions:
           schema:
             type: string
             default: ""
+    # TODO: Hide with toggle button
   - variable: duo
     group: "App Configuration"
     label: "DUO Configuration"
@@ -223,6 +225,7 @@ questions:
             min_length: 40
             type: string
             default: ""
+    # TODO: Hide with toggle button
   - variable: cas
     group: "App Configuration"
     label: "CAS Configuration"
@@ -271,6 +274,7 @@ questions:
           schema:
             type: string
             default: ""
+    # TODO: Hide with toggle button
   - variable: openid
     group: "App Configuration"
     label: "OpenID Configuration"

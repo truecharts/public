@@ -7,6 +7,10 @@ metadata:
   name: guacamole-client-env
 data:
   {{/* TODO: add "require" to envs */}}
+  {{/*  API */}}
+  {{- if .Values.api.API_SESSION_TIMEOUT }}
+  API_SESSION_TIMEOUT: {{ .Values.api.API_SESSION_TIMEOUT | quote }}
+  {{- end }}
   {{/* TOTP */}}
   {{- if eq .Values.totp.TOTP_ENABLED true }}
   TOTP_ENABLED: {{ .Values.totp.TOTP_ENABLED | quote }}
@@ -29,10 +33,6 @@ data:
   {{- if .Values.header.HTTP_AUTH_HEADER }}
   HTTP_AUTH_HEADER: {{ .Values.header.HTTP_AUTH_HEADER | quote }}
   {{- end }}
-  {{- end }}
-  {{/*  API */}}
-  {{- if .Values.api.API_SESSION_TIMEOUT }}
-  API_SESSION_TIMEOUT: {{ .Values.api.API_SESSION_TIMEOUT | quote }}
   {{- end }}
   {{/*  JSON */}}
   {{- if .Values.json.JSON_SECRET_KEY }}
