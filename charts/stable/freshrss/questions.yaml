@@ -272,7 +272,8 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: false# Include{securityContextAdvanced}
+
   - variable: podSecurityContext
     group: "Security and Permissions"
     label: "Pod Security Context"
