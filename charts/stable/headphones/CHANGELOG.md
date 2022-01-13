@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="headphones-2.0.30"></a>
+### [headphones-2.0.30](https://github.com/truecharts/apps/compare/headphones-2.0.29...headphones-2.0.30) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="headphones-2.0.29"></a>
 ### [headphones-2.0.29](https://github.com/truecharts/apps/compare/headphones-2.0.28...headphones-2.0.29) (2022-01-11)
 

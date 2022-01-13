@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="stash-5.0.12"></a>
+### [stash-5.0.12](https://github.com/truecharts/apps/compare/stash-5.0.11...stash-5.0.12) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="stash-5.0.11"></a>
 ### [stash-5.0.11](https://github.com/truecharts/apps/compare/stash-5.0.10...stash-5.0.11) (2022-01-11)
 

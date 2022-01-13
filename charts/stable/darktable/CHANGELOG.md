@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="darktable-0.0.12"></a>
+### [darktable-0.0.12](https://github.com/truecharts/apps/compare/darktable-0.0.11...darktable-0.0.12) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="darktable-0.0.11"></a>
 ### [darktable-0.0.11](https://github.com/truecharts/apps/compare/darktable-0.0.10...darktable-0.0.11) (2022-01-11)
 

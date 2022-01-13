@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.38"></a>
+### [zwavejs2mqtt-9.0.38](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.37...zwavejs2mqtt-9.0.38) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="zwavejs2mqtt-9.0.37"></a>
 ### [zwavejs2mqtt-9.0.37](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.36...zwavejs2mqtt-9.0.37) (2022-01-11)
 

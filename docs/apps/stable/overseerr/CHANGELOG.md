@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="overseerr-4.0.31"></a>
+### [overseerr-4.0.31](https://github.com/truecharts/apps/compare/overseerr-4.0.30...overseerr-4.0.31) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="overseerr-4.0.30"></a>
 ### [overseerr-4.0.30](https://github.com/truecharts/apps/compare/overseerr-4.0.29...overseerr-4.0.30) (2022-01-11)
 

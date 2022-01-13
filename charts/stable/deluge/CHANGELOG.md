@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deluge-9.0.31"></a>
+### [deluge-9.0.31](https://github.com/truecharts/apps/compare/deluge-9.0.30...deluge-9.0.31) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="deluge-9.0.30"></a>
 ### [deluge-9.0.30](https://github.com/truecharts/apps/compare/deluge-9.0.29...deluge-9.0.30) (2022-01-11)
 

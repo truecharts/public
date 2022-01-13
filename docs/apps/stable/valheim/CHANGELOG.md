@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.11"></a>
+### [valheim-2.0.11](https://github.com/truecharts/apps/compare/valheim-2.0.10...valheim-2.0.11) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="valheim-2.0.10"></a>
 ### [valheim-2.0.10](https://github.com/truecharts/apps/compare/valheim-2.0.9...valheim-2.0.10) (2022-01-11)
 

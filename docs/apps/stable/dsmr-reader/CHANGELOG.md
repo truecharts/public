@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-5.0.20"></a>
+### [dsmr-reader-5.0.20](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.19...dsmr-reader-5.0.20) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="dsmr-reader-5.0.19"></a>
 ### [dsmr-reader-5.0.19](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.18...dsmr-reader-5.0.19) (2022-01-11)
 

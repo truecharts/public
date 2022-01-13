@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="oscam-4.0.31"></a>
+### [oscam-4.0.31](https://github.com/truecharts/apps/compare/oscam-4.0.30...oscam-4.0.31) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="oscam-4.0.30"></a>
 ### [oscam-4.0.30](https://github.com/truecharts/apps/compare/oscam-4.0.29...oscam-4.0.30) (2022-01-11)
 

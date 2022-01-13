@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="navidrome-9.0.31"></a>
+### [navidrome-9.0.31](https://github.com/truecharts/apps/compare/navidrome-9.0.30...navidrome-9.0.31) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="navidrome-9.0.30"></a>
 ### [navidrome-9.0.30](https://github.com/truecharts/apps/compare/navidrome-9.0.29...navidrome-9.0.30) (2022-01-11)
 

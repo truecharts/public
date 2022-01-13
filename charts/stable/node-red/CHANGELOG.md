@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="node-red-9.0.31"></a>
+### [node-red-9.0.31](https://github.com/truecharts/apps/compare/node-red-9.0.30...node-red-9.0.31) (2022-01-12)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1704](https://github.com/truecharts/apps/issues/1704))
+
+
+
 <a name="node-red-9.0.30"></a>
 ### [node-red-9.0.30](https://github.com/truecharts/apps/compare/node-red-9.0.29...node-red-9.0.30) (2022-01-11)
 
