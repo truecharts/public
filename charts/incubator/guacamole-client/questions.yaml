@@ -306,7 +306,7 @@ questions:
       type: dict
       attrs:
         - variable: openid_enabled
-          label: "Enable OPENID"
+          label: "Enable OpenID"
           schema:
             type: boolean
             default: false
@@ -357,6 +357,143 @@ questions:
                 schema:
                   type: string
                   default: ""
+  - variable: radius
+    group: "App Configuration"
+    label: "Radius Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: radius_enabled
+          label: "Enable Radius"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: RADIUS_SHARED_SECRET
+                label: "Radius Shared Secret"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: RADIUS_AUTH_PROTOCOL
+                label: "Radius Auth Protocol"
+                schema:
+                  type: string
+                  required: true
+                  default: "pap"
+                  enum:
+                    - value: "pap"
+                      description: "pap"
+                    - value: "chap"
+                      description: "chap"
+                    - value: "mschapv1"
+                      description: "mschapv1"
+                    - value: "mschapv2"
+                      description: "mschapv2"
+                    - value: "eap-md5"
+                      description: "eap-md5"
+                    - value: "eap-tls"
+                      description: "eap-tls"
+                    - value: "eap-ttls"
+                      description: "eap-ttls"
+              - variable: RADIUS_HOSTNAME
+                label: "Radius Hostname (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: RADIUS_AUTH_PORT
+                label: "Radius Auth Port (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: RADIUS_KEY_FILE
+                label: "Radius Key File"
+                schema:
+                  type: string
+                  default: ""
+              - variable: RADIUS_KEY_TYPE
+                label: "Radius Key Type"
+                schema:
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "pem"
+                      description: "pem"
+                    - value: "jceks"
+                      description: "jceks"
+                    - value: "jks"
+                      description: "jks"
+                    - value: "pkcs12"
+                      description: "pkcs12"
+              - variable: RADIUS_KEY_PASSWORD
+                label: "Radius Key Password (Leave blank if no password)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: RADIUS_CA_FILE
+                label: "Radius CA File"
+                schema:
+                  type: string
+                  default: ""
+              - variable: RADIUS_CA_TYPE
+                label: "Radius CA Type"
+                schema:
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "pem"
+                      description: "pem"
+                    - value: "jceks"
+                      description: "jceks"
+                    - value: "jks"
+                      description: "jks"
+                    - value: "pkcs12"
+                      description: "pkcs12"
+              - variable: RADIUS_CA_PASSWORD
+                label: "Radius CA Password (Leave blank if no password)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: RADIUS_TRUST_ALL
+                label: "Radius Trust All"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: RADIUS_RETRIES
+                label: "Radius Retries (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: RADIUS_TIMEOUT
+                label: "Radius Timeout (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: RADIUS_EAP_TTLS_INNER_PROTOCOL
+                label: "Radius eap-ttls Inner Protocol"
+                description: "Only has effect when RADIUS_AUTH_PROTOCOL is set to eap-ttls"
+                schema:
+                  type: string
+                  default: "pap"
+                  enum:
+                    - value: "pap"
+                      description: "pap"
+                    - value: "chap"
+                      description: "chap"
+                    - value: "mschapv1"
+                      description: "mschapv1"
+                    - value: "mschapv2"
+                      description: "mschapv2"
+                    - value: "eap-md5"
+                      description: "eap-md5"
+                    - value: "eap-tls"
+                      description: "eap-tls"
+
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
