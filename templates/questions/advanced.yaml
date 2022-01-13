@@ -64,3 +64,75 @@
                       description: "Egress"
                     - value: "ingress-egress"
                       description: "Ingress and Egress"
+              - variable: egress
+                label: "Egress"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: egressEntry
+                      label: ""
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: ports
+                            label: "Ports"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: port
+                                  label: "port"
+                                  schema:
+                                    type: int
+                                - variable: endPort
+                                  label: "port"
+                                  schema:
+                                    type: int
+                                - variable: protocol
+                                  label: "Protocol"
+                                  schema:
+                                    type: string
+                                    default: "TCP"
+                                    enum:
+                                      - value: "TCP"
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                      - value: "SCTP"
+                                        description: "SCTP"
+              - variable: ingress
+                label: "Ingress"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: ingressEntry
+                      label: ""
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: ports
+                            label: "Ports"
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: port
+                                  label: "port"
+                                  schema:
+                                    type: int
+                                - variable: endPort
+                                  label: "port"
+                                  schema:
+                                    type: int
+                                - variable: protocol
+                                  label: "Protocol"
+                                  schema:
+                                    type: string
+                                    default: "TCP"
+                                    enum:
+                                      - value: "TCP"
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                      - value: "SCTP"
+                                        description: "SCTP"
