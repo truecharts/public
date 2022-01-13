@@ -175,6 +175,23 @@ questions:
           schema:
             type: string
             default: ""
+  - variable: json
+    group: "App Configuration"
+    label: "JSON Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: JSON_SECRET_KEY
+          label: "JSON Secret Key"
+          schema:
+            type: string
+            default: ""
+        - variable: JSON_TRUSTED_NETWORKS
+          label: "JSON Trusted Networks"
+          description: "Comma separated list e.g.: 127.0.0.0/8, 10.0.0.0/8"
+          schema:
+            type: string
+            default: ""
 
   - variable: service
     group: "Networking and Services"

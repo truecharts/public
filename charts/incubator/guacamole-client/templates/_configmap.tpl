@@ -33,6 +33,13 @@ data:
   {{- if .Values.api.API_SESSION_TIMEOUT }}
   API_SESSION_TIMEOUT: {{ .Values.api.API_SESSION_TIMEOUT | quote }}
   {{- end }}
+  {{/*  JSON */}}
+  {{- if .Values.json.JSON_SECRET_KEY }}
+  JSON_SECRET_KEY: {{ .Values.json.JSON_SECRET_KEY | quote }}
+  {{- if .Values.json.JSON_TRUSTED_NETWORKS }}
+  JSON_TRUSTED_NETWORKS: {{ .Values.json.JSON_TRUSTED_NETWORKS | quote }}
+  {{- end }}
+  {{- end }}
   {{/*  LDAP */}}
   {{/*  LDAP_HOSTNAME: {{ .Values.ldap.LDAP_HOSTNAME | quote }} */}}
   {{/*  LDAP_USER_BASE_DN: {{ .Values.ldap.LDAP_USER_BASE_DN | quote }} */}}
@@ -67,9 +74,6 @@ data:
   {{/*  CAS_GROUP_FORMAT: {{ .Values.cas.CAS_GROUP_FORMAT | quote }} */}}
   {{/*  CAS_GROUP_LDAP_BASE_DN: {{ .Values.cas.CAS_GROUP_LDAP_BASE_DN | quote }} */}}
   {{/*  CAS_GROUP_LDAP_ATTRIBUTE: {{ .Values.cas.CAS_GROUP_LDAP_ATTRIBUTE | quote }} */}}
-  {{/*  JSON */}}
-  {{/*  JSON_SECRET_KEY: {{ .Values.json.JSON_SECRET_KEY | quote }} */}}
-  {{/*  JSON_TRUSTED_NETWORKS: {{ .Values.json.JSON_TRUSTED_NETWORKS | quote }} */}}
   {{/*  RADIUS */}}
   {{/*  RADIUS_HOSTNAME: {{ .Values.radius.RADIUS_HOSTNAME | quote }} */}}
   {{/*  RADIUS_AUTH_PORT: {{ .Values.radius.RADIUS_AUTH_PORT | quote }} */}}
