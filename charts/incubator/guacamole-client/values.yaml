@@ -3,9 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.4.0@sha256:43f7b0575173f509b5215a89170dfea80ea07f0b2bfed405882a4bc7ec9dfa52
 
-portal:
-  path: "/guacamole"
-
 podSecurityContext:
   runAsUser: 1001
   runAsGroup: 1001
