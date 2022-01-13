@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.12.2"></a>
+### [common-8.12.2](https://github.com/truecharts/apps/compare/common-8.12.1...common-8.12.2) (2022-01-13)
+
+#### Feat
+
+* properly setup extra-args support ([#1708](https://github.com/truecharts/apps/issues/1708))
+
+
+
 <a name="common-8.12.1"></a>
 ### [common-8.12.1](https://github.com/truecharts/apps/compare/common-8.12.0...common-8.12.1) (2022-01-12)
 
