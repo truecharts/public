@@ -11,19 +11,10 @@
                   type: list
                   default: []
                   items:
-                    - variable: argItem
-                      label: "Arg"
+                    - variable: arg
+                      label: "arg"
                       schema:
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: "Name"
-                            schema:
-                              type: string
-                          - variable: value
-                            label: "Value"
-                            schema:
-                              type: string
+                        type: string
               - variable: labelsList
                 label: "Controller Labels"
                 schema:
