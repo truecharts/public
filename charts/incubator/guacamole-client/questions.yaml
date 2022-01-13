@@ -223,7 +223,54 @@ questions:
             min_length: 40
             type: string
             default: ""
-
+  - variable: cas
+    group: "App Configuration"
+    label: "CAS Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: CAS_AUTHORIZATION_ENDPOINT
+          label: "CAS Authorization endpoint"
+          schema:
+            type: string
+            default: ""
+        - variable: CAS_REDIRECT_URI
+          label: "CAS Redirect URI"
+          schema:
+            type: string
+            default: ""
+        - variable: CAS_CLEARPASS_KEY
+          label: "CAS Clearpass Key"
+          schema:
+            type: string
+            default: ""
+        - variable: CAS_GROUP_ATTRIBUTE
+          label: "CAS Group Attribute"
+          schema:
+            type: string
+            default: ""
+        - variable: CAS_GROUP_FORMAT
+          label: "CAS Group Format"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "default"
+              - value: "plain"
+                description: "plain"
+              - value: "ldap"
+                description: "ldap"
+        - variable: CAS_GROUP_LDAP_BASE_DN
+          label: "CAS Group LDAP Base DN"
+          schema:
+            type: string
+            default: ""
+        - variable: CAS_GROUP_LDAP_ATTRIBUTE
+          label: "CAS Group LDAP Attribute"
+          schema:
+            type: string
+            default: ""
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"

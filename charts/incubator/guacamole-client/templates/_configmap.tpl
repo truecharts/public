@@ -6,6 +6,7 @@ kind: ConfigMap
 metadata:
   name: guacamole-client-env
 data:
+  {{/* TODO: add "require" to envs */}}
   {{/* TOTP */}}
   {{- if eq .Values.totp.TOTP_ENABLED true }}
   TOTP_ENABLED: {{ .Values.totp.TOTP_ENABLED | quote }}
@@ -49,13 +50,27 @@ data:
   DUO_APPLICATION_KEY: {{ .Values.duo.DUO_APPLICATION_KEY | quote }}
   {{- end }}
   {{/*  CAS */}}
-  {{/*  CAS_AUTHORIZATION_ENDPOINT: {{ .Values.cas.CAS_AUTHORIZATION_ENDPOINT | quote }} */}}
-  {{/*  CAS_REDIRECT_URI: {{ .Values.cas.CAS_REDIRECT_URI | quote }} */}}
-  {{/*  CAS_CLEARPASS_KEY: {{ .Values.cas.CAS_CLEARPASS_KEY | quote }} */}}
-  {{/*  CAS_GROUP_ATTRIBUTE: {{ .Values.cas.CAS_GROUP_ATTRIBUTE | quote }} */}}
-  {{/*  CAS_GROUP_FORMAT: {{ .Values.cas.CAS_GROUP_FORMAT | quote }} */}}
-  {{/*  CAS_GROUP_LDAP_BASE_DN: {{ .Values.cas.CAS_GROUP_LDAP_BASE_DN | quote }} */}}
-  {{/*  CAS_GROUP_LDAP_ATTRIBUTE: {{ .Values.cas.CAS_GROUP_LDAP_ATTRIBUTE | quote }} */}}
+  {{- if and .Values.cas.CAS_AUTHORIZATION_ENDPOINT .Values.cas.CAS_REDIRECT_URI }}
+  CAS_AUTHORIZATION_ENDPOINT: {{ .Values.cas.CAS_AUTHORIZATION_ENDPOINT | quote }}
+  CAS_REDIRECT_URI: {{ .Values.cas.CAS_REDIRECT_URI | quote }}
+  {{- if .Values.cas.CAS_CLEARPASS_KEY }}
+  CAS_CLEARPASS_KEY: {{ .Values.cas.CAS_CLEARPASS_KEY | quote }}
+  {{- end }}
+  {{- if .Values.cas.CAS_GROUP_ATTRIBUTE }}
+  CAS_GROUP_ATTRIBUTE: {{ .Values.cas.CAS_GROUP_ATTRIBUTE | quote }}
+  {{- if .Values.cas.CAS_GROUP_FORMAT }}
+  CAS_GROUP_FORMAT: {{ .Values.cas.CAS_GROUP_FORMAT | quote }}
+  {{- if eq .Values.cas.CAS_GROUP_FORMAT "ldap" }}
+  {{- if .Values.cas.CAS_GROUP_LDAP_BASE_DN }}
+  CAS_GROUP_LDAP_BASE_DN: {{ .Values.cas.CAS_GROUP_LDAP_BASE_DN | quote }}
+  {{- if .Values.cas.CAS_GROUP_LDAP_ATTRIBUTE }}
+  CAS_GROUP_LDAP_ATTRIBUTE: {{ .Values.cas.CAS_GROUP_LDAP_ATTRIBUTE | quote }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
+  {{- end }}
   {{/*  OpenID */}}
   {{/*  OPENID_AUTHORIZATION_ENDPOINT: {{ .Values.openid.OPENID_AUTHORIZATION_ENDPOINT | quote }} */}}
   {{/*  OPENID_JWKS_ENDPOINT: {{ .Values.openid.OPENID_JWKS_ENDPOINT | quote }} */}}
