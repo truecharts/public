@@ -41,6 +41,7 @@ data:
   {{- end }}
   {{- end }}
   {{/*  DUO */}}
+  {{/* TODO: Add validation for length */}}
   {{- if and .Values.duo.DUO_API_HOSTNAME .Values.duo.DUO_INTEGRATION_KEY .Values.duo.DUO_SECRET_KEY .Values.duo.DUO_APPLICATION_KEY}}
   DUO_API_HOSTNAME: {{ .Values.duo.DUO_API_HOSTNAME | quote }}
   DUO_INTEGRATION_KEY: {{ .Values.duo.DUO_INTEGRATION_KEY | quote }}
