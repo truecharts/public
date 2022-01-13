@@ -125,8 +125,13 @@ imageSelector: "image"
 
 # -- Override the command(s) for the default container
 command: []
+
 # -- Override the args for the default container
 args: []
+
+# -- Add args in addition to the arguments set by default.
+# Primarily for the SCALE GUI
+extraArgs: []
 
 # -- Set the primary portal for TrueNAS SCALE
 portal:
@@ -325,7 +330,6 @@ securityContext:
   capabilities:
     drop: []
     add: []
-
 
 # -- Configure the lifecycle for the main container
 lifecycle: {}

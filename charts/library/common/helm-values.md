@@ -80,6 +80,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | envTpl | object | `{}` |  |
 | envValueFrom | object | `{}` |  |
 | externalInterfaces | list | `[]` | Use this directly attach a pod to a SCALE interface. Please be aware: This bypasses k8s services |
+| extraArgs | list | `[]` | Add args in addition to the arguments set by default. Primarily for the SCALE GUI |
 | global.fullnameOverride | string | `nil` | Set the entire name definition |
 | global.isSCALE | bool | `false` |  |
 | global.nameOverride | string | `nil` | Set an override for the prefix of the fullname |

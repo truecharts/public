@@ -178,6 +178,16 @@ include_questions(){
     /# Include{persistenceList}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/persistenceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+    # Replace # Include{securityContextAdvanced} with the standard securityContextAdvanced codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{securityContextAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/securityContextAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
+    # Replace # Include{podSecurityContextAdvanced} with the standard podSecurityContextAdvanced codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{podSecurityContextAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/podSecurityContextAdvanced.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     # Replace # Include{ingressDefault} with the standard ingressDefault codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{ingressDefault}/ { for (i=0;i<n;++i) print a[i]; next }
