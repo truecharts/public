@@ -93,14 +93,56 @@ questions:
           schema:
             type: int
             default: 4822
-        - variable: TOTP_ENABLED
-          label: "Enable TOTP"
-          description: "Enable TOTP"
-          schema:
-            type: boolean
-            default: true
 
 # Include{containerConfig}
+  - variable: totp
+    group: "App Configuration"
+    label: "TOTP Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: TOTP_ENABLED
+          label: "Enable TOTP"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: TOTP_ISSUER
+                label: "TOTP Issuer"
+                schema:
+                  type: string
+                  default: "Apache Guacamole"
+              - variable: TOTP_DIGITS
+                label: "TOTP Digits"
+                schema:
+                  type: string
+                  default: "6"
+                  enum:
+                    - value: "6"
+                      description: "6"
+                    - value: "7"
+                      description: "7"
+                    - value: "8"
+                      description: "8"
+              - variable: TOTP_PERIOD
+                label: "TOTP Period"
+                schema:
+                  type: string
+                  default: "30"
+              - variable: TOTP_MODE
+                label: "TOTP Mode"
+                schema:
+                  type: string
+                  default: "sha1"
+                  enum:
+                    - value: "sha1"
+                      description: "sha1"
+                    - value: "sha256"
+                      description: "sha256"
+                    - value: "sha512"
+                      description: "sha512"
+
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
