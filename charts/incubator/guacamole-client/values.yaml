@@ -186,9 +186,7 @@ initContainers:
     args:
     - >
       echo "Copying postgres driver into the final destination.";
-      ls -la /opt/guacamole/postgresql-hack;
       cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/;
-      ls -la /opt/guacamole/postgresql;
       if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
         then echo "Driver copied successfully!";
         else echo "Failed to copy the driver";
