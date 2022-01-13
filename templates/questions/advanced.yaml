@@ -86,6 +86,36 @@
                                   schema:
                                     type: dict
                                     attrs:
+                                      - variable: ipBlock
+                                        label: "ipBlock"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                            - variable: cidr
+                                              label: "cidr"
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                  - variable: except
+                                                    label: "except"
+                                                    schema:
+                                                      type: list
+                                                      default: []
+                                                      items:
+                                                        - variable: exceptint
+                                                          label: ""
+                                                          schema:
+                                                            type: int
+                                      - variable: namespaceSelector
+                                        label: "namespaceSelector"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                      - variable: podSelector
+                                        label: ""
+                                        schema:
+                                          type: dict
+                                          attrs:
                           - variable: ports
                             label: "Ports"
                             schema:
@@ -139,6 +169,36 @@
                                   schema:
                                     type: dict
                                     attrs:
+                                      - variable: ipBlock
+                                        label: "ipBlock"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                            - variable: cidr
+                                              label: "cidr"
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                  - variable: except
+                                                    label: "except"
+                                                    schema:
+                                                      type: list
+                                                      default: []
+                                                      items:
+                                                        - variable: exceptint
+                                                          label: ""
+                                                          schema:
+                                                            type: int
+                                      - variable: namespaceSelector
+                                        label: "namespaceSelector"
+                                        schema:
+                                          type: dict
+                                          attrs:
+                                      - variable: podSelector
+                                        label: ""
+                                        schema:
+                                          type: dict
+                                          attrs:
                           - variable: ports
                             label: "Ports"
                             schema:
