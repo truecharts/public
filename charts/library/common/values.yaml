@@ -225,8 +225,8 @@ networkPolicy:
   # customizes the podSelector (defaults to the helm-chart selector-labels
   # podSelector:
 
-  # -- add or remove Policy types
-  policyTypes: []
+  # -- add or remove Policy types. Options: ingress, egress, ingress-egress
+  policyType: ""
 
   # -- add or remove egress policies
   egress: []

@@ -21,20 +21,142 @@ spec:
     {{- include "common.labels.selectorLabels" . | nindent 6 }}
   {{- end }}
 
-  {{- with .Values.networkPolicy.policyTypes }}
-  policyTypes:
-    {{- . | toYaml | nindent 4 }}
+  {{- if .Values.networkPolicy.policyType }}
+  {{- if eq .Values.networkPolicy.policyType "ingress" }}
+  policyTypes: ["Ingress"]
+  {{- else if eq .Values.networkPolicy.policyType "egress" }}
+  policyTypes: ["Egress"]
+
+  {{- else if eq .Values.networkPolicy.policyType "ingress-egress" }}
+  policyTypes: ["Ingress", "Egress"]
+  {{- end -}}
   {{- end -}}
 
-  {{- with .Values.networkPolicy.egress }}
+  {{- if .Values.networkPolicy.egress }}
   egress:
-    {{- . | toYaml | nindent 4 }}
+  {{- range .Values.networkPolicy.egress }}
+  - to:
+    {{- range .to }}
+    {{- $nss := false }}
+    {{- $ipb := false }}
+      {{- if .ipBlock }}
+      {{- if .ipBlock.cidr }}
+      {{- $ipb = true }}
+    - ipBlock:
+        cidr: {{ .ipBlock.cidr }}
+      {{- if .ipBlock.except }}
+        except:
+        {{- range .ipBlock.except }}
+        - {{ . }}
+        {{- end }}
+      {{- end -}}
+      {{- end -}}
+      {{- end -}}
+
+      {{- if and ( .namespaceSelector ) ( not $ipb ) }}
+      {{- if or ( .namespaceSelector.matchLabels ) ( .namespaceSelector.matchExpressions ) -}}
+      {{- $nss = true }}
+    - namespaceSelector:
+       {{- if .namespaceSelector.matchLabels }}
+         matchLabels:
+          {{- .namespaceSelector.matchLabels | toYaml | nindent 12 }}
+       {{- end -}}
+       {{- if .namespaceSelector.matchExpressions }}
+         matchExpressions:
+          {{- .namespaceSelector.matchExpressions | toYaml | nindent 12 }}
+       {{- end -}}
+      {{- end -}}
+      {{- end -}}
+
+      {{- if and ( .podSelector ) ( not $ipb ) }}
+      {{- if or ( .podSelector.matchLabels ) ( .podSelector.matchExpressions ) }}
+      {{- if $nss }}
+      podSelector:
+      {{- else }}
+    - podSelector:
+      {{- end }}
+       {{- if .podSelector.matchLabels }}
+         matchLabels:
+          {{- .podSelector.matchLabels | toYaml | nindent 12 }}
+       {{- end -}}
+       {{- if .podSelector.matchExpressions }}
+         matchExpressions:
+          {{- .podSelector.matchExpressions | toYaml | nindent 12 }}
+       {{- end -}}
+      {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+
+  {{- with .ports }}
+    ports:
+    {{- . | toYaml | nindent 6 }}
+  {{- end -}}
+  {{- end -}}
   {{- end -}}
 
-  {{- with .Values.networkPolicy.ingress }}
+  {{- if .Values.networkPolicy.ingress }}
   ingress:
-    {{- . | toYaml | nindent 4 }}
+  {{- range .Values.networkPolicy.ingress }}
+  - from:
+    {{- range .from }}
+    {{- $nss := false }}
+    {{- $ipb := false }}
+      {{- if .ipBlock }}
+      {{- if .ipBlock.cidr }}
+      {{- $ipb = true }}
+    - ipBlock:
+        cidr: {{ .ipBlock.cidr }}
+      {{- if .ipBlock.except }}
+        except:
+        {{- range .ipBlock.except }}
+        - {{ . }}
+        {{- end }}
+      {{- end -}}
+      {{- end -}}
+      {{- end -}}
+
+      {{- if and ( .namespaceSelector ) ( not $ipb ) }}
+      {{- if or ( .namespaceSelector.matchLabels ) ( .namespaceSelector.matchExpressions ) -}}
+      {{- $nss = true }}
+    - namespaceSelector:
+       {{- if .namespaceSelector.matchLabels }}
+         matchLabels:
+          {{- .namespaceSelector.matchLabels | toYaml | nindent 12 }}
+       {{- end -}}
+       {{- if .namespaceSelector.matchExpressions }}
+         matchExpressions:
+          {{- .namespaceSelector.matchExpressions | toYaml | nindent 12 }}
+       {{- end -}}
+      {{- end -}}
+      {{- end -}}
+
+      {{- if and ( .podSelector ) ( not $ipb ) }}
+      {{- if or ( .podSelector.matchLabels ) ( .podSelector.matchExpressions ) }}
+      {{- if $nss }}
+      podSelector:
+      {{- else }}
+    - podSelector:
+      {{- end }}
+       {{- if .podSelector.matchLabels }}
+         matchLabels:
+          {{- .podSelector.matchLabels | toYaml | nindent 12 }}
+       {{- end -}}
+       {{- if .podSelector.matchExpressions }}
+         matchExpressions:
+          {{- .podSelector.matchExpressions | toYaml | nindent 12 }}
+       {{- end -}}
+      {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+  {{- with .ports }}
+    ports:
+    {{- . | toYaml | nindent 6 }}
   {{- end -}}
+  {{- end -}}
+  {{- end -}}
+
 
 {{- end -}}
 {{- end -}}
