@@ -381,7 +381,7 @@ questions:
                 schema:
                   type: string
                   required: true
-                  default: "pap"
+                  default: "eap-tls"
                   enum:
                     - value: "pap"
                       description: "pap"
@@ -408,7 +408,7 @@ questions:
                   type: string
                   default: ""
               - variable: RADIUS_KEY_FILE
-                label: "Radius Key File"
+                label: "Radius Key File (Leave blank for default)"
                 schema:
                   type: string
                   default: ""
@@ -434,7 +434,7 @@ questions:
                   type: string
                   default: ""
               - variable: RADIUS_CA_FILE
-                label: "Radius CA File"
+                label: "Radius CA File (Leave blank for default)"
                 schema:
                   type: string
                   default: ""
@@ -479,7 +479,7 @@ questions:
                 description: "Only has effect when RADIUS_AUTH_PROTOCOL is set to eap-ttls"
                 schema:
                   type: string
-                  default: "pap"
+                  default: "eap-tls"
                   enum:
                     - value: "pap"
                       description: "pap"

@@ -42,7 +42,6 @@ data:
   {{- end }}
   {{- end }}
   {{/*  DUO */}}
-  {{/* TODO: Add validation for length */}}
   {{- if and .Values.duo.DUO_API_HOSTNAME .Values.duo.DUO_INTEGRATION_KEY .Values.duo.DUO_SECRET_KEY .Values.duo.DUO_APPLICATION_KEY }}
   DUO_API_HOSTNAME: {{ .Values.duo.DUO_API_HOSTNAME | quote }}
   DUO_INTEGRATION_KEY: {{ .Values.duo.DUO_INTEGRATION_KEY | quote }}
@@ -89,20 +88,46 @@ data:
   {{- end }}
   {{- end }}
   {{/*  RADIUS */}}
-  {{/*  RADIUS_HOSTNAME: {{ .Values.radius.RADIUS_HOSTNAME | quote }} */}}
-  {{/*  RADIUS_AUTH_PORT: {{ .Values.radius.RADIUS_AUTH_PORT | quote }} */}}
-  {{/*  RADIUS_SHARED_SECRET: {{ .Values.radius.RADIUS_SHARED_SECRET | quote }} */}}
-  {{/*  RADIUS_AUTH_PROTOCOL: {{ .Values.radius.RADIUS_AUTH_PROTOCOL | quote }} */}}
-  {{/*  RADIUS_KEY_FILE: {{ .Values.radius.RADIUS_KEY_FILE | quote }} */}}
-  {{/*  RADIUS_KEY_TYPE: {{ .Values.radius.RADIUS_KEY_TYPE | quote }} */}}
-  {{/*  RADIUS_KEY_PASSWORD: {{ .Values.radius.RADIUS_KEY_PASSWORD | quote }} */}}
-  {{/*  RADIUS_CA_FILE: {{ .Values.radius.RADIUS_CA_FILE | quote }} */}}
-  {{/*  RADIUS_CA_TYPE: {{ .Values.radius.RADIUS_CA_TYPE | quote }} */}}
-  {{/*  RADIUS_CA_PASSWORD: {{ .Values.radius.RADIUS_CA_PASSWORD | quote }} */}}
-  {{/*  RADIUS_TRUST_ALL: {{ .Values.radius.RADIUS_TRUST_ALL | quote }} */}}
-  {{/*  RADIUS_RETRIES: {{ .Values.radius.RADIUS_RETRIES | quote }} */}}
-  {{/*  RADIUS_TIMEOUT: {{ .Values.radius.RADIUS_TIMEOUT | quote }} */}}
-  {{/*  RADIUS_EAP_TTLS_INNER_PROTOCOL: {{ .Values.radius.RADIUS_EAP_TTLS_INNER_PROTOCOL | quote }} */}}
+  {{- if and .Values.radius.RADIUS_SHARED_SECRET .Values.radius.RADIUS_AUTH_PROTOCOL }}
+  RADIUS_SHARED_SECRET: {{ .Values.radius.RADIUS_SHARED_SECRET | quote }}
+  RADIUS_AUTH_PROTOCOL: {{ .Values.radius.RADIUS_AUTH_PROTOCOL | quote }}
+  {{- if .Values.radius.RADIUS_HOSTNAME }}
+  RADIUS_HOSTNAME: {{ .Values.radius.RADIUS_HOSTNAME | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_AUTH_PORT }}
+  RADIUS_AUTH_PORT: {{ .Values.radius.RADIUS_AUTH_PORT | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_KEY_FILE }}
+  RADIUS_KEY_FILE: {{ .Values.radius.RADIUS_KEY_FILE | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_KEY_TYPE }}
+  RADIUS_KEY_TYPE: {{ .Values.radius.RADIUS_KEY_TYPE | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_KEY_PASSWORD }}
+  RADIUS_KEY_PASSWORD: {{ .Values.radius.RADIUS_KEY_PASSWORD | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_CA_FILE }}
+  RADIUS_CA_FILE: {{ .Values.radius.RADIUS_CA_FILE | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_CA_TYPE }}
+  RADIUS_CA_TYPE: {{ .Values.radius.RADIUS_CA_TYPE | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_CA_PASSWORD }}
+  RADIUS_CA_PASSWORD: {{ .Values.radius.RADIUS_CA_PASSWORD | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_TRUST_ALL }}
+  RADIUS_TRUST_ALL: {{ .Values.radius.RADIUS_TRUST_ALL | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_RETRIES }}
+  RADIUS_RETRIES: {{ .Values.radius.RADIUS_RETRIES | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_TIMEOUT }}
+  RADIUS_TIMEOUT: {{ .Values.radius.RADIUS_TIMEOUT | quote }}
+  {{- end }}
+  {{- if .Values.radius.RADIUS_EAP_TTLS_INNER_PROTOCOL }}
+  RADIUS_EAP_TTLS_INNER_PROTOCOL: {{ .Values.radius.RADIUS_EAP_TTLS_INNER_PROTOCOL | quote }}
+  {{- end }}
+  {{- end }}
   {{/*  LDAP */}}
   {{/*  LDAP_HOSTNAME: {{ .Values.ldap.LDAP_HOSTNAME | quote }} */}}
   {{/*  LDAP_USER_BASE_DN: {{ .Values.ldap.LDAP_USER_BASE_DN | quote }} */}}
