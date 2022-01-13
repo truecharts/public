@@ -72,14 +72,22 @@ data:
   {{- end }}
   {{- end }}
   {{/*  OpenID */}}
-  {{/*  OPENID_AUTHORIZATION_ENDPOINT: {{ .Values.openid.OPENID_AUTHORIZATION_ENDPOINT | quote }} */}}
-  {{/*  OPENID_JWKS_ENDPOINT: {{ .Values.openid.OPENID_JWKS_ENDPOINT | quote }} */}}
-  {{/*  OPENID_ISSUER: {{ .Values.openid.OPENID_ISSUER | quote }} */}}
-  {{/*  OPENID_CLIENT_ID: {{ .Values.openid.OPENID_CLIENT_ID | quote }} */}}
-  {{/*  OPENID_REDIRECT_URI: {{ .Values.openid.OPENID_REDIRECT_URI | quote }} */}}
-  {{/*  OPENID_USERNAME_CLAIM_TYPE: {{ .Values.openid.OPENID_USERNAME_CLAIM_TYPE | quote }} */}}
-  {{/*  OPENID_GROUPS_CLAIM_TYPE: {{ .Values.openid.OPENID_GROUPS_CLAIM_TYPE | quote }} */}}
-  {{/*  OPENID_MAX_TOKEN_VALIDITY: {{ .Values.openid.OPENID_MAX_TOKEN_VALIDITY | quote }} */}}
+  {{- if and .Values.openid.OPENID_AUTHORIZATION_ENDPOINT .Values.openid.OPENID_JWKS_ENDPOINT .Values.openid.OPENID_ISSUER .Values.openid.OPENID_CLIENT_ID .Values.openid.OPENID_REDIRECT_URI }}
+  OPENID_AUTHORIZATION_ENDPOINT: {{ .Values.openid.OPENID_AUTHORIZATION_ENDPOINT | quote }}
+  OPENID_JWKS_ENDPOINT: {{ .Values.openid.OPENID_JWKS_ENDPOINT | quote }}
+  OPENID_ISSUER: {{ .Values.openid.OPENID_ISSUER | quote }}
+  OPENID_CLIENT_ID: {{ .Values.openid.OPENID_CLIENT_ID | quote }}
+  OPENID_REDIRECT_URI: {{ .Values.openid.OPENID_REDIRECT_URI | quote }}
+  {{- if .Values.openid.OPENID_USERNAME_CLAIM_TYPE }}
+  OPENID_USERNAME_CLAIM_TYPE: {{ .Values.openid.OPENID_USERNAME_CLAIM_TYPE | quote }}
+  {{- end }}
+  {{- if .Values.openid.OPENID_GROUPS_CLAIM_TYPE }}
+  OPENID_GROUPS_CLAIM_TYPE: {{ .Values.openid.OPENID_GROUPS_CLAIM_TYPE | quote }}
+  {{- end }}
+  {{- if .Values.openid.OPENID_MAX_TOKEN_VALIDITY }}
+  OPENID_MAX_TOKEN_VALIDITY: {{ .Values.openid.OPENID_MAX_TOKEN_VALIDITY | quote }}
+  {{- end }}
+  {{- end }}
   {{/*  RADIUS */}}
   {{/*  RADIUS_HOSTNAME: {{ .Values.radius.RADIUS_HOSTNAME | quote }} */}}
   {{/*  RADIUS_AUTH_PORT: {{ .Values.radius.RADIUS_AUTH_PORT | quote }} */}}

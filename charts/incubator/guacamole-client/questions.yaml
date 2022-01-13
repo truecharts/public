@@ -230,7 +230,7 @@ questions:
       type: dict
       attrs:
         - variable: CAS_AUTHORIZATION_ENDPOINT
-          label: "CAS Authorization endpoint"
+          label: "CAS Authorization Endpoint"
           schema:
             type: string
             default: ""
@@ -268,6 +268,52 @@ questions:
             default: ""
         - variable: CAS_GROUP_LDAP_ATTRIBUTE
           label: "CAS Group LDAP Attribute"
+          schema:
+            type: string
+            default: ""
+  - variable: openid
+    group: "App Configuration"
+    label: "OpenID Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: OPENID_AUTHORIZATION_ENDPOINT
+          label: "OpenID Authorization Endpoint"
+          schema:
+            type: string
+            default: ""
+        - variable: OPENID_JWKS_ENDPOINT
+          label: "OpenID JWKS Endpoint"
+          schema:
+            type: string
+            default: ""
+        - variable: OPENID_ISSUER
+          label: "OpenID Issuer"
+          schema:
+            type: string
+            default: ""
+        - variable: OPENID_CLIENT_ID
+          label: "OpenID Client ID"
+          schema:
+            type: string
+            default: ""
+        - variable: OPENID_REDIRECT_URI
+          label: "OpenID Redirect URI"
+          schema:
+            type: string
+            default: ""
+        - variable: OPENID_USERNAME_CLAIM_TYPE
+          label: "OpenID Username Claim Type (Leave blank for default)"
+          schema:
+            type: string
+            default: ""
+        - variable: OPENID_GROUPS_CLAIM_TYPE
+          label: "OpenID Groups Claim Type (Leave blank for default)"
+          schema:
+            type: string
+            default: ""
+        - variable: OPENID_MAX_TOKEN_VALIDITY
+          label: "OpenID Max Token Validity (Leave blank for default)"
           schema:
             type: string
             default: ""
