@@ -40,6 +40,13 @@ data:
   JSON_TRUSTED_NETWORKS: {{ .Values.json.JSON_TRUSTED_NETWORKS | quote }}
   {{- end }}
   {{- end }}
+  {{/*  DUO */}}
+  {{- if and .Values.duo.DUO_API_HOSTNAME .Values.duo.DUO_INTEGRATION_KEY .Values.duo.DUO_SECRET_KEY .Values.duo.DUO_APPLICATION_KEY}}
+  DUO_API_HOSTNAME: {{ .Values.duo.DUO_API_HOSTNAME | quote }}
+  DUO_INTEGRATION_KEY: {{ .Values.duo.DUO_INTEGRATION_KEY | quote }}
+  DUO_SECRET_KEY: {{ .Values.duo.DUO_SECRET_KEY | quote }}
+  DUO_APPLICATION_KEY: {{ .Values.duo.DUO_APPLICATION_KEY | quote }}
+  {{- end }}
   {{/*  LDAP */}}
   {{/*  LDAP_HOSTNAME: {{ .Values.ldap.LDAP_HOSTNAME | quote }} */}}
   {{/*  LDAP_USER_BASE_DN: {{ .Values.ldap.LDAP_USER_BASE_DN | quote }} */}}
@@ -61,11 +68,6 @@ data:
   {{/*  LDAP_FOLLOW_REFERRALS: {{ .Values.ldap.LDAP_FOLLOW_REFERRALS | quote }} */}}
   {{/*  LDAP_MAX_REFERRAL_HOPS: {{ .Values.ldap.LDAP_MAX_REFERRAL_HOPS | quote }} */}}
   {{/*  LDAP_OPERATION_TIMEOUT: {{ .Values.ldap.LDAP_OPERATION_TIMEOUT | quote }} */}}
-  {{/*  DUO */}}
-  {{/*  DUO_API_HOSTNAME: {{ .Values.duo.DUO_API_HOSTNAME | quote }} */}}
-  {{/*  DUO_INTEGRATION_KEY: {{ .Values.duo.DUO_INTEGRATION_KEY | quote }} */}}
-  {{/*  DUO_SECRET_KEY: {{ .Values.duo.DUO_SECRET_KEY | quote }} */}}
-  {{/*  DUO_APPLICATION_KEY: {{ .Values.duo.DUO_APPLICATION_KEY | quote }} */}}
   {{/*  CAS */}}
   {{/*  CAS_AUTHORIZATION_ENDPOINT: {{ .Values.cas.CAS_AUTHORIZATION_ENDPOINT | quote }} */}}
   {{/*  CAS_REDIRECT_URI: {{ .Values.cas.CAS_REDIRECT_URI | quote }} */}}

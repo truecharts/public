@@ -42,8 +42,14 @@ api: {}
   # API_SESSION_TIMEOUT: "60"
 
 json: {}
-  # JSON_SECRET_KEY: random32charstring
+  # JSON_SECRET_KEY: random32charkey
   # JSON_TRUSTED_NETWORKS: 127.0.0.0/8, 10.0.0.0/8
+
+duo: {}
+#  DUO_API_HOSTNAME: api-XXXXXXXX.duosecurity.com
+#  DUO_INTEGRATION_KEY: exactly20charkey
+#  DUO_SECRET_KEY: exactly40charkey
+#  DUO_APPLICATION_KEY: atleast40charkey
 
 # ldap:
 #   LDAP_HOSTNAME:
@@ -66,12 +72,6 @@ json: {}
 #   LDAP_FOLLOW_REFERRALS:
 #   LDAP_MAX_REFERRAL_HOPS:
 #   LDAP_OPERATION_TIMEOUT:
-
-# duo:
-#   DUO_API_HOSTNAME:
-#   DUO_INTEGRATION_KEY:
-#   DUO_SECRET_KEY:
-#   DUO_APPLICATION_KEY:
 
 # cas:
 #   CAS_AUTHORIZATION_ENDPOINT:
