@@ -96,16 +96,16 @@
                                               schema:
                                                 type: string
                                                 default: ""
-                                                  - variable: except
-                                                    label: "except"
+                                            - variable: except
+                                              label: "except"
+                                              schema:
+                                                type: list
+                                                default: []
+                                                items:
+                                                  - variable: exceptint
+                                                    label: ""
                                                     schema:
-                                                      type: list
-                                                      default: []
-                                                      items:
-                                                        - variable: exceptint
-                                                          label: ""
-                                                          schema:
-                                                            type: int
+                                                      type: int
                                       - variable: namespaceSelector
                                         label: "namespaceSelector"
                                         schema:
@@ -257,16 +257,16 @@
                                               schema:
                                                 type: string
                                                 default: ""
-                                                  - variable: except
-                                                    label: "except"
+                                            - variable: except
+                                              label: "except"
+                                              schema:
+                                                type: list
+                                                default: []
+                                                items:
+                                                  - variable: exceptint
+                                                    label: ""
                                                     schema:
-                                                      type: list
-                                                      default: []
-                                                      items:
-                                                        - variable: exceptint
-                                                          label: ""
-                                                          schema:
-                                                            type: int
+                                                      type: int
                                       - variable: namespaceSelector
                                         label: "namespaceSelector"
                                         schema:
