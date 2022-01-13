@@ -10,7 +10,8 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
+portal:
+  enabled: true
 env:
 
 service:
@@ -19,18 +20,14 @@ service:
       main:
         targetPort: 5000
         port: 5000
+  rtmp:
+    enabled: true
+    ports:
       rtmp:
         protocol: TCP
         enabled: true
         port: 1935
         targetPort: 1935
-probes:
-  liveness:
-    enabled: true
-  readiness:
-    enabled: true
-  startup:
-    enabled: false
 
 frigate:
   mqtt:
@@ -80,18 +77,11 @@ persistence:
     enabled: true
     mountPath: "/tmp/cache"
     type: "emptyDir"
-    medium: "Memory"
-    sizeLimit: 2Gi
   shm:
     enabled: true
     mountPath: "/dev/shm"
     type: "emptyDir"
     medium: "Memory"
-    sizeLimit: 1Gi
   media:
     enabled: true
     mountPath: "/media"
-    size: 1000Gi
-  coral:
-    enabled: false
-    hostPath: "/dev/bus/usb"
