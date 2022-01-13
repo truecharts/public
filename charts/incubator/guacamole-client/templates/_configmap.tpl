@@ -6,7 +6,6 @@ kind: ConfigMap
 metadata:
   name: guacamole-client-env
 data:
-  {{/* TODO: add "require" to envs */}}
   {{/*  API */}}
   {{- if .Values.api.API_SESSION_TIMEOUT }}
   API_SESSION_TIMEOUT: {{ .Values.api.API_SESSION_TIMEOUT | quote }}
