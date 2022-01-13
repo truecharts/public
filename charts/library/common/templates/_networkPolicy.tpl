@@ -32,14 +32,54 @@ spec:
   {{- end -}}
   {{- end -}}
 
-  {{- with .Values.networkPolicy.egress }}
+  {{- if .Values.networkPolicy.egress }}
   egress:
-    {{- . | toYaml | nindent 4 }}
+  {{- range .Values.networkPolicy.egress }}
+  - to:
+    {{- range .to }}
+      {{- if .ipBlock }}
+      {{- if .ipBlock.cidr }}
+    - ipBlock:
+        cidr: {{ .ipBlock.cidr }}
+      {{- if .ipBlock.except }}
+        except:
+        {{ range .ipBlock.except }}
+        - {{ . }}
+        {{- end }}
+      {{- end -}}
+      {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+  {{- with .ports }}
+    ports:
+    {{- . | toYaml | nindent 6 }}
+  {{- end -}}
+  {{- end -}}
   {{- end -}}
 
-  {{- with .Values.networkPolicy.ingress }}
+  {{- if .Values.networkPolicy.ingress }}
   ingress:
-    {{- . | toYaml | nindent 4 }}
+  {{- range .Values.networkPolicy.ingress }}
+  - from:
+    {{- range .from }}
+      {{- if .ipBlock }}
+      {{- if .ipBlock.cidr }}
+    - ipBlock:
+        cidr: {{ .ipBlock.cidr }}
+      {{- if .ipBlock.except }}
+        except:
+        {{ range .ipBlock.except }}
+        - {{ . }}
+        {{- end }}
+      {{- end -}}
+      {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- with .ports }}
+    {{- . | toYaml | nindent 6 }}
+  {{- end -}}
+  {{- end -}}
   {{- end -}}
 
 {{- end -}}
