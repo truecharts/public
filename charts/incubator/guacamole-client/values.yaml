@@ -158,7 +158,7 @@ initContainers:
           curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar";
           if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ];
             then echo "Downloaded successfully!";
-              cp -a /opt/guacamole/postgresql/. /opt/guacamole/postgresql-hack/;
+              cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/;
               if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ];
                 then echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
                   rm "/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar";
@@ -187,7 +187,7 @@ initContainers:
     - >
       echo "Copying postgres driver into the final destination.";
       ls -la /opt/guacamole/postgresql-hack;
-      cp -a /opt/guacamole/postgresql-hack/. /opt/guacamole/postgresql/;
+      cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/;
       ls -la /opt/guacamole/postgresql;
       if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
         then echo "Driver copied successfully!";
