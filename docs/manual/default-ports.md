@@ -48,7 +48,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | node-red                   |      main       |      main       | 1880  |   TCP    |                                         |
 | mosquitto                  |      main       |      main       | 1883  |   TCP    |                                         |
 | minisatip                  |    discovery    |    discovery    | 1900  |   UDP    |                                         |
-| owncast                    |      rtmp       |      rtmp       | 1935  |   TCP    |                                         |
+| owncast                    |      rtmp       |      rtmp       | 1935  |   TCP    |     Potential conflict with frigate     |
+| frigate                    |      rtmp       |      rtmp       | 1935  |   TCP    |     Potential conflict with owncast     |
 | ubooquity                  |      main       |      main       | 2202  |   TCP    |                                         |
 | gitea                      |       ssh       |       ssh       | 2222  |   TCP    |                                         |
 | photoprism                 |      main       |      main       | 2342  |   TCP    |                                         |
@@ -70,6 +71,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | navidrome                  |      main       |      main       | 4533  |   TCP    |                                         |
 | requestrr                  |      main       |      main       | 4545  |   TCP    |                                         |
 | guacd                      |      main       |      main       | 4822  |   TCP    |                                         |
+| frigate                    |      main       |      main       | 5000  |   TCP    |                                         |
 | ipfs                       |       api       |       api       | 5001  |   TCP    |                                         |
 | appdaemon                  |      main       |      main       | 5050  |   TCP    |                                         |
 | overseer                   |      main       |      main       | 5055  |   TCP    |                                         |
