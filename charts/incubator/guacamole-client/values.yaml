@@ -56,6 +56,8 @@ persistence:
   initdbdata:
     enabled: true
     mountPath: "/initdbdata"
+
+# Both temphack and temphackalso will be removed on the next image release
   temphack:
     enabled: true
     mountPath: "/opt/guacamole/postgresql-hack"
@@ -135,6 +137,7 @@ initContainers:
     # Until they release an image with the updated driver, we need to manually replace it.
     # https://issues.apache.org/jira/browse/GUACAMOLE-1433
     # https://github.com/apache/guacamole-client/pull/655
+    # Both 3-temp-hach and 4-temp-hack will be removed on the next image release
   3-temp-hack:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     securityContext:
@@ -143,8 +146,6 @@ initContainers:
     volumeMounts:
       - name: temphack
         mountPath: "/opt/guacamole/postgresql-hack"
-      # - name: temphackalso
-      #   mountPath: "/opt/guacamole/postgresql"
     command: ["/bin/sh", "-c"]
     args:
     - >
@@ -167,9 +168,28 @@ initContainers:
                       exit 1;
                   fi;
               fi;
-              echo "Debug test show hack contents:";
-              ls -la /opt/guacamole/postgresql-hack/;
             else echo "Failed to download.";
               exit 1;
           fi;
+      fi;
+  4-temp-hack:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    securityContext:
+      runAsUser: 1001
+      runAsGroup: 1001
+    volumeMounts:
+      - name: temphack
+        mountPath: "/opt/guacamole/postgresql-hack"
+      - name: temphackalso
+        mountPath: "/opt/guacamole/postgresql"
+    command: ["/bin/sh", "-c"]
+    args:
+    - >
+      echo "Copying postgres driver into the final destination.";
+      ls -la /opt/guacamole/postgresql-hack;
+      cp -a /opt/guacamole/postgresql-hack/. /opt/guacamole/postgresql/;
+      ls -la /opt/guacamole/postgresql;
+      if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
+        then echo "Driver copied successfully!";
+        else echo "Failed to copy the driver";
       fi;
