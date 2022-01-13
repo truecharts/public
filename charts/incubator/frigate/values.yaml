@@ -1,0 +1,87 @@
+image:
+  repository: blakeblackshear/frigate
+  pullPolicy: IfNotPresent
+  tag: 0.10.0-beta6-amd64nvidia
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+portal:
+  enabled: true
+env:
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 5000
+        port: 5000
+  rtmp:
+    enabled: true
+    ports:
+      rtmp:
+        protocol: TCP
+        enabled: true
+        port: 1935
+        targetPort: 1935
+
+frigate:
+  mqtt:
+    host: mosquitto.ix-mosquitto.svc.cluster.local
+    port: 1883
+    authentitcated: false
+    username: mqtt_user
+    password: password
+  birdseye:
+    enabled: true
+    mode: motion
+  cameras:
+    - name: camera1
+      objects:
+        # Optional: list of objects to track from labelmap.txt (default: shown below)
+        track:
+          - person
+          - car
+          - motorcyle
+          - cat
+          - dog
+      detect:
+        height: 720
+        width: 1280
+      inputs:
+        # Required: the path to the stream
+        # NOTE: path may include environment variables, which must begin with 'FRIGATE_' and be referenced in {}
+        - path: rtsp://username:password@highres.url
+          # Required: list of roles for this stream. valid values are: detect,record,rtmp
+          # NOTICE: In addition to assigning the record, and rtmp roles,
+          # they must also be enabled in the camera config.
+          roles:
+            - record
+        - path: rtsp://username:password@lowres.url
+          roles:
+            - detect
+            - rtmp
+      record:
+        enabled: True
+      # Optional: timeout for highest scoring image before allowing it
+      # to be replaced by a newer image. (default: shown below)
+      best_image_timeout: 60
+      snapshots:
+        enabled: True
+persistence:
+  cache:
+    enabled: true
+    mountPath: "/tmp/cache"
+    type: "emptyDir"
+  shm:
+    enabled: true
+    mountPath: "/dev/shm"
+    type: "emptyDir"
+    medium: "Memory"
+  media:
+    enabled: true
+    mountPath: "/media"
