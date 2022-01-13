@@ -493,6 +493,148 @@ questions:
                       description: "eap-md5"
                     - value: "eap-tls"
                       description: "eap-tls"
+  - variable: ldap
+    group: "App Configuration"
+    label: "LDAP Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: ldap_enabled
+          label: "Enable LDAP"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: LDAP_HOSTNAME
+                label: "LDAP Hostname (Leave blank for default)"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: LDAP_USER_BASE_DN
+                label: "LDAP User Base DN"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: LDAP_PORT
+                label: "LDAP Port (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_ENCRYPTION_METHOD
+                label: "LDAP Encryption Method (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "none"
+                      description: "none"
+                    - value: "ssl"
+                      description: "ssl"
+                    - value: "starttls"
+                      description: "starttls"
+              - variable: LDAP_MAX_SEARCH_RESULTS
+                label: "LDAP Max Search Results (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_SEARCH_BIND_DN
+                label: "LDAP Search Bind DN (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_USER_ATTRIBUTES
+                label: "LDAP User Attributes"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_SEARCH_BIND_PASSWORD
+                label: "LDAP Search Bind Password (Leave blank if no password)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_USERNAME_ATTRIBUTE
+                label: "LDAP Username Attribute"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_MEMBER_ATTRIBUTE
+                label: "LDAP Member Attribute"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_USER_SEARCH_FILTER
+                label: "LDAP User Search Filter (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_CONFIG_BASE_DN
+                label: "LDAP Config Base DN"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_GROUP_BASE_DN
+                label: "LDAP Group Base DN"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_GROUP_SEARCH_FILTER
+                label: "LDAP Group Search Filter (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_MEMBER_ATTRIBUTE_TYPE
+                label: "LDAP Encryption Method"
+                schema:
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "dn"
+                      description: "dn"
+                    - value: "uid"
+                      description: "uid"
+              - variable: LDAP_GROUP_NAME_ATTRIBUTE
+                label: "LDAP Group Name Attribute (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_DEREFERENCE_ALIASES
+                label: "LDAP Dereference Aliases"
+                schema:
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "never"
+                      description: "never"
+                    - value: "searching"
+                      description: "searching"
+                    - value: "finding"
+                      description: "finding"
+                    - value: "always"
+                      description: "always"
+              - variable: LDAP_FOLLOW_REFERRALS
+                label: "LDAP Follow Referrals"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: LDAP_MAX_REFERRAL_HOPS
+                label: "LDAP Max Referrals Hops (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: LDAP_OPERATION_TIMEOUT
+                label: "LDAP Operation Timeout (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
 
   - variable: service
     group: "Networking and Services"

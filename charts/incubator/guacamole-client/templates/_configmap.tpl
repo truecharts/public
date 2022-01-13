@@ -128,24 +128,62 @@ data:
   {{- end }}
   {{- end }}
   {{/*  LDAP */}}
-  {{/*  LDAP_HOSTNAME: {{ .Values.ldap.LDAP_HOSTNAME | quote }} */}}
-  {{/*  LDAP_USER_BASE_DN: {{ .Values.ldap.LDAP_USER_BASE_DN | quote }} */}}
-  {{/*  LDAP_PORT: {{ .Values.ldap.LDAP_PORT | quote }} */}}
-  {{/*  LDAP_ENCRYPTION_METHOD: {{ .Values.ldap.LDAP_ENCRYPTION_METHOD | quote }} */}}
-  {{/*  LDAP_MAX_SEARCH_RESULTS: {{ .Values.ldap.LDAP_MAX_SEARCH_RESULTS | quote }} */}}
-  {{/*  LDAP_SEARCH_BIND_DN: {{ .Values.ldap.LDAP_SEARCH_BIND_DN | quote }} */}}
-  {{/*  LDAP_USER_ATTRIBUTES: {{ .Values.ldap.LDAP_USER_ATTRIBUTES | quote }} */}}
-  {{/*  LDAP_SEARCH_BIND_PASSWORD: {{ .Values.ldap.LDAP_SEARCH_BIND_PASSWORD | quote }} */}}
-  {{/*  LDAP_USERNAME_ATTRIBUTE: {{ .Values.ldap.LDAP_USERNAME_ATTRIBUTE | quote }} */}}
-  {{/*  LDAP_MEMBER_ATTRIBUTE: {{ .Values.ldap.LDAP_MEMBER_ATTRIBUTE | quote }} */}}
-  {{/*  LDAP_USER_SEARCH_FILTER: {{ .Values.ldap.LDAP_USER_SEARCH_FILTER | quote }} */}}
-  {{/*  LDAP_CONFIG_BASE_DN: {{ .Values.ldap.LDAP_CONFIG_BASE_DN | quote }} */}}
-  {{/*  LDAP_GROUP_BASE_DN: {{ .Values.ldap.LDAP_GROUP_BASE_DN | quote }} */}}
-  {{/*  LDAP_GROUP_SEARCH_FILTER: {{ .Values.ldap.LDAP_GROUP_SEARCH_FILTER | quote }} */}}
-  {{/*  LDAP_MEMBER_ATTRIBUTE_TYPE: {{ .Values.ldap.LDAP_MEMBER_ATTRIBUTE_TYPE | quote }} */}}
-  {{/*  LDAP_GROUP_NAME_ATTRIBUTE: {{ .Values.ldap.LDAP_GROUP_NAME_ATTRIBUTE | quote }} */}}
-  {{/*  LDAP_DEREFERENCE_ALIASES: {{ .Values.ldap.LDAP_DEREFERENCE_ALIASES | quote }} */}}
-  {{/*  LDAP_FOLLOW_REFERRALS: {{ .Values.ldap.LDAP_FOLLOW_REFERRALS | quote }} */}}
-  {{/*  LDAP_MAX_REFERRAL_HOPS: {{ .Values.ldap.LDAP_MAX_REFERRAL_HOPS | quote }} */}}
-  {{/*  LDAP_OPERATION_TIMEOUT: {{ .Values.ldap.LDAP_OPERATION_TIMEOUT | quote }} */}}
+  {{- if and .Values.ldap.LDAP_HOSTNAME .Values.ldap.LDAP_USER_BASE_DN }}
+  LDAP_HOSTNAME: {{ .Values.ldap.LDAP_HOSTNAME | quote }}
+  LDAP_USER_BASE_DN: {{ .Values.ldap.LDAP_USER_BASE_DN | quote }}
+  {{- if .Values.ldap.LDAP_PORT }}
+  LDAP_PORT: {{ .Values.ldap.LDAP_PORT | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_ENCRYPTION_METHOD }}
+  LDAP_ENCRYPTION_METHOD: {{ .Values.ldap.LDAP_ENCRYPTION_METHOD | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_MAX_SEARCH_RESULTS }}
+  LDAP_MAX_SEARCH_RESULTS: {{ .Values.ldap.LDAP_MAX_SEARCH_RESULTS | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_SEARCH_BIND_DN }}
+  LDAP_SEARCH_BIND_DN: {{ .Values.ldap.LDAP_SEARCH_BIND_DN | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_USER_ATTRIBUTES }}
+  LDAP_USER_ATTRIBUTES: {{ .Values.ldap.LDAP_USER_ATTRIBUTES | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_SEARCH_BIND_PASSWORD }}
+  LDAP_SEARCH_BIND_PASSWORD: {{ .Values.ldap.LDAP_SEARCH_BIND_PASSWORD | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_USERNAME_ATTRIBUTE }}
+  LDAP_USERNAME_ATTRIBUTE: {{ .Values.ldap.LDAP_USERNAME_ATTRIBUTE | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_MEMBER_ATTRIBUTE }}
+  LDAP_MEMBER_ATTRIBUTE: {{ .Values.ldap.LDAP_MEMBER_ATTRIBUTE | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_USER_SEARCH_FILTER }}
+  LDAP_USER_SEARCH_FILTER: {{ .Values.ldap.LDAP_USER_SEARCH_FILTER | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_CONFIG_BASE_DN }}
+  LDAP_CONFIG_BASE_DN: {{ .Values.ldap.LDAP_CONFIG_BASE_DN | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_GROUP_BASE_DN }}
+  LDAP_GROUP_BASE_DN: {{ .Values.ldap.LDAP_GROUP_BASE_DN | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_GROUP_SEARCH_FILTER }}
+  LDAP_GROUP_SEARCH_FILTER: {{ .Values.ldap.LDAP_GROUP_SEARCH_FILTER | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_MEMBER_ATTRIBUTE_TYPE }}
+  LDAP_MEMBER_ATTRIBUTE_TYPE: {{ .Values.ldap.LDAP_MEMBER_ATTRIBUTE_TYPE | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_GROUP_NAME_ATTRIBUTE }}
+  LDAP_GROUP_NAME_ATTRIBUTE: {{ .Values.ldap.LDAP_GROUP_NAME_ATTRIBUTE | quote }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_DEREFERENCE_ALIASES }}
+  LDAP_DEREFERENCE_ALIASES: {{ .Values.ldap.LDAP_DEREFERENCE_ALIASES | quote }}
+  {{- end }}
+  {{- if eq .Values.ldap.LDAP_FOLLOW_REFERRALS "true"}}
+  LDAP_FOLLOW_REFERRALS: {{ .Values.ldap.LDAP_FOLLOW_REFERRALS | quote }}
+  {{- if .Values.ldap.LDAP_MAX_REFERRAL_HOPS }}
+  LDAP_MAX_REFERRAL_HOPS: {{ .Values.ldap.LDAP_MAX_REFERRAL_HOPS | quote }}
+  {{- end }}
+  {{- end }}
+  {{- if .Values.ldap.LDAP_OPERATION_TIMEOUT }}
+  LDAP_OPERATION_TIMEOUT: {{ .Values.ldap.LDAP_OPERATION_TIMEOUT | quote }}
+  {{- end }}
+  {{- end }}
 {{- end -}}
