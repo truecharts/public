@@ -137,8 +137,8 @@ initContainers:
   3-temp-hack:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     securityContext:
-      runAsUser: 1001
-      runAsGroup: 1001
+      runAsUser: 0
+      runAsNonRoot: false
     volumeMounts:
       - name: temphack
         mountPath: "/opt/guacamole/postgresql"
@@ -151,7 +151,7 @@ initContainers:
       if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
         then echo "Version found is correct.";
           exit 0;
-        elif [-e /opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar ];
+        elif [ -e /opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar ];
           then echo "Old version found.";
             echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
             rm "/opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar";
