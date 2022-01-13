@@ -54,6 +54,14 @@ probes:
   startup:
     path: "/guacamole"
 
+persistence:
+  initdbdata:
+    enabled: true
+    mountPath: "/initdbdata"
+  temphack:
+    enabled: true
+    mountPath: "/opt/guacamole/postgresql"
+
 initContainers:
   1-creat-initdb-file:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -73,7 +81,6 @@ initContainers:
           echo "Init file failed to create.";
           exit 1;
         fi;
-  # Would the DB be ready at this point?
   2-initdb:
     image: "{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"
     env:
@@ -83,7 +90,6 @@ initContainers:
         value: "{{ .Values.postgresql.postgresqlUsername }}"
       - name: POSTGRES_PORT
         value: "5432"
-      # Are those ok? Or should I use `envValueFrom`?
       - name: POSTGRES_HOSTNAME
         valueFrom:
           secretKeyRef:
@@ -142,15 +148,19 @@ initContainers:
       echo "Checing postgresql driver version...";
       echo "Debug test show contents1:";
       ls -la /opt/guacamole/postgresql/;
-      if [ -e /opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar ];
-        then echo "Old version found.";
-          echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
-          rm "/opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar";
-          if [ $? -eq 0 ];
-            then echo "Removed successfully!";
-            else "Failed to remove.";
-              exit 1;
-          fi;
+      if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
+        then echo "Version found is correct.";
+          exit 0;
+        elif [-e /opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar ];
+          then echo "Old version found.";
+            echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
+            rm "/opt/guacamole/postgresql/postgresql-9.4-1201.jdbc41.jar";
+            if [ $? -eq 0 ];
+              then echo "Removed successfully!";
+              else "Failed to remove.";
+                exit 1;
+            fi;
+        else echo "Version not found. Will try to download a known-to-work version.";
           echo "Downloading (postgresql-42.2.24.jre7.jar)...";
           curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "/opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar";
           if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
@@ -160,14 +170,4 @@ initContainers:
             else echo "Failed to download.";
               exit 1;
           fi;
-        else echo "Version found is correct.";
-        exit 0;
       fi;
-
-persistence:
-  initdbdata:
-    enabled: true
-    mountPath: /initdbdata
-  temphack:
-    enabled: true
-    mountPath: /opt/guacamole/postgresql
