@@ -48,6 +48,38 @@ data:
   DUO_SECRET_KEY: {{ .Values.duo.DUO_SECRET_KEY | quote }}
   DUO_APPLICATION_KEY: {{ .Values.duo.DUO_APPLICATION_KEY | quote }}
   {{- end }}
+  {{/*  CAS */}}
+  {{/*  CAS_AUTHORIZATION_ENDPOINT: {{ .Values.cas.CAS_AUTHORIZATION_ENDPOINT | quote }} */}}
+  {{/*  CAS_REDIRECT_URI: {{ .Values.cas.CAS_REDIRECT_URI | quote }} */}}
+  {{/*  CAS_CLEARPASS_KEY: {{ .Values.cas.CAS_CLEARPASS_KEY | quote }} */}}
+  {{/*  CAS_GROUP_ATTRIBUTE: {{ .Values.cas.CAS_GROUP_ATTRIBUTE | quote }} */}}
+  {{/*  CAS_GROUP_FORMAT: {{ .Values.cas.CAS_GROUP_FORMAT | quote }} */}}
+  {{/*  CAS_GROUP_LDAP_BASE_DN: {{ .Values.cas.CAS_GROUP_LDAP_BASE_DN | quote }} */}}
+  {{/*  CAS_GROUP_LDAP_ATTRIBUTE: {{ .Values.cas.CAS_GROUP_LDAP_ATTRIBUTE | quote }} */}}
+  {{/*  OpenID */}}
+  {{/*  OPENID_AUTHORIZATION_ENDPOINT: {{ .Values.openid.OPENID_AUTHORIZATION_ENDPOINT | quote }} */}}
+  {{/*  OPENID_JWKS_ENDPOINT: {{ .Values.openid.OPENID_JWKS_ENDPOINT | quote }} */}}
+  {{/*  OPENID_ISSUER: {{ .Values.openid.OPENID_ISSUER | quote }} */}}
+  {{/*  OPENID_CLIENT_ID: {{ .Values.openid.OPENID_CLIENT_ID | quote }} */}}
+  {{/*  OPENID_REDIRECT_URI: {{ .Values.openid.OPENID_REDIRECT_URI | quote }} */}}
+  {{/*  OPENID_USERNAME_CLAIM_TYPE: {{ .Values.openid.OPENID_USERNAME_CLAIM_TYPE | quote }} */}}
+  {{/*  OPENID_GROUPS_CLAIM_TYPE: {{ .Values.openid.OPENID_GROUPS_CLAIM_TYPE | quote }} */}}
+  {{/*  OPENID_MAX_TOKEN_VALIDITY: {{ .Values.openid.OPENID_MAX_TOKEN_VALIDITY | quote }} */}}
+  {{/*  RADIUS */}}
+  {{/*  RADIUS_HOSTNAME: {{ .Values.radius.RADIUS_HOSTNAME | quote }} */}}
+  {{/*  RADIUS_AUTH_PORT: {{ .Values.radius.RADIUS_AUTH_PORT | quote }} */}}
+  {{/*  RADIUS_SHARED_SECRET: {{ .Values.radius.RADIUS_SHARED_SECRET | quote }} */}}
+  {{/*  RADIUS_AUTH_PROTOCOL: {{ .Values.radius.RADIUS_AUTH_PROTOCOL | quote }} */}}
+  {{/*  RADIUS_KEY_FILE: {{ .Values.radius.RADIUS_KEY_FILE | quote }} */}}
+  {{/*  RADIUS_KEY_TYPE: {{ .Values.radius.RADIUS_KEY_TYPE | quote }} */}}
+  {{/*  RADIUS_KEY_PASSWORD: {{ .Values.radius.RADIUS_KEY_PASSWORD | quote }} */}}
+  {{/*  RADIUS_CA_FILE: {{ .Values.radius.RADIUS_CA_FILE | quote }} */}}
+  {{/*  RADIUS_CA_TYPE: {{ .Values.radius.RADIUS_CA_TYPE | quote }} */}}
+  {{/*  RADIUS_CA_PASSWORD: {{ .Values.radius.RADIUS_CA_PASSWORD | quote }} */}}
+  {{/*  RADIUS_TRUST_ALL: {{ .Values.radius.RADIUS_TRUST_ALL | quote }} */}}
+  {{/*  RADIUS_RETRIES: {{ .Values.radius.RADIUS_RETRIES | quote }} */}}
+  {{/*  RADIUS_TIMEOUT: {{ .Values.radius.RADIUS_TIMEOUT | quote }} */}}
+  {{/*  RADIUS_EAP_TTLS_INNER_PROTOCOL: {{ .Values.radius.RADIUS_EAP_TTLS_INNER_PROTOCOL | quote }} */}}
   {{/*  LDAP */}}
   {{/*  LDAP_HOSTNAME: {{ .Values.ldap.LDAP_HOSTNAME | quote }} */}}
   {{/*  LDAP_USER_BASE_DN: {{ .Values.ldap.LDAP_USER_BASE_DN | quote }} */}}
@@ -69,36 +101,4 @@ data:
   {{/*  LDAP_FOLLOW_REFERRALS: {{ .Values.ldap.LDAP_FOLLOW_REFERRALS | quote }} */}}
   {{/*  LDAP_MAX_REFERRAL_HOPS: {{ .Values.ldap.LDAP_MAX_REFERRAL_HOPS | quote }} */}}
   {{/*  LDAP_OPERATION_TIMEOUT: {{ .Values.ldap.LDAP_OPERATION_TIMEOUT | quote }} */}}
-  {{/*  CAS */}}
-  {{/*  CAS_AUTHORIZATION_ENDPOINT: {{ .Values.cas.CAS_AUTHORIZATION_ENDPOINT | quote }} */}}
-  {{/*  CAS_REDIRECT_URI: {{ .Values.cas.CAS_REDIRECT_URI | quote }} */}}
-  {{/*  CAS_CLEARPASS_KEY: {{ .Values.cas.CAS_CLEARPASS_KEY | quote }} */}}
-  {{/*  CAS_GROUP_ATTRIBUTE: {{ .Values.cas.CAS_GROUP_ATTRIBUTE | quote }} */}}
-  {{/*  CAS_GROUP_FORMAT: {{ .Values.cas.CAS_GROUP_FORMAT | quote }} */}}
-  {{/*  CAS_GROUP_LDAP_BASE_DN: {{ .Values.cas.CAS_GROUP_LDAP_BASE_DN | quote }} */}}
-  {{/*  CAS_GROUP_LDAP_ATTRIBUTE: {{ .Values.cas.CAS_GROUP_LDAP_ATTRIBUTE | quote }} */}}
-  {{/*  RADIUS */}}
-  {{/*  RADIUS_HOSTNAME: {{ .Values.radius.RADIUS_HOSTNAME | quote }} */}}
-  {{/*  RADIUS_AUTH_PORT: {{ .Values.radius.RADIUS_AUTH_PORT | quote }} */}}
-  {{/*  RADIUS_SHARED_SECRET: {{ .Values.radius.RADIUS_SHARED_SECRET | quote }} */}}
-  {{/*  RADIUS_AUTH_PROTOCOL: {{ .Values.radius.RADIUS_AUTH_PROTOCOL | quote }} */}}
-  {{/*  RADIUS_KEY_FILE: {{ .Values.radius.RADIUS_KEY_FILE | quote }} */}}
-  {{/*  RADIUS_KEY_TYPE: {{ .Values.radius.RADIUS_KEY_TYPE | quote }} */}}
-  {{/*  RADIUS_KEY_PASSWORD: {{ .Values.radius.RADIUS_KEY_PASSWORD | quote }} */}}
-  {{/*  RADIUS_CA_FILE: {{ .Values.radius.RADIUS_CA_FILE | quote }} */}}
-  {{/*  RADIUS_CA_TYPE: {{ .Values.radius.RADIUS_CA_TYPE | quote }} */}}
-  {{/*  RADIUS_CA_PASSWORD: {{ .Values.radius.RADIUS_CA_PASSWORD | quote }} */}}
-  {{/*  RADIUS_TRUST_ALL: {{ .Values.radius.RADIUS_TRUST_ALL | quote }} */}}
-  {{/*  RADIUS_RETRIES: {{ .Values.radius.RADIUS_RETRIES | quote }} */}}
-  {{/*  RADIUS_TIMEOUT: {{ .Values.radius.RADIUS_TIMEOUT | quote }} */}}
-  {{/*  RADIUS_EAP_TTLS_INNER_PROTOCOL: {{ .Values.radius.RADIUS_EAP_TTLS_INNER_PROTOCOL | quote }} */}}
-  {{/*  OpenID */}}
-  {{/*  OPENID_AUTHORIZATION_ENDPOINT: {{ .Values.openid.OPENID_AUTHORIZATION_ENDPOINT | quote }} */}}
-  {{/*  OPENID_JWKS_ENDPOINT: {{ .Values.openid.OPENID_JWKS_ENDPOINT | quote }} */}}
-  {{/*  OPENID_ISSUER: {{ .Values.openid.OPENID_ISSUER | quote }} */}}
-  {{/*  OPENID_CLIENT_ID: {{ .Values.openid.OPENID_CLIENT_ID | quote }} */}}
-  {{/*  OPENID_REDIRECT_URI: {{ .Values.openid.OPENID_REDIRECT_URI | quote }} */}}
-  {{/*  OPENID_USERNAME_CLAIM_TYPE: {{ .Values.openid.OPENID_USERNAME_CLAIM_TYPE | quote }} */}}
-  {{/*  OPENID_GROUPS_CLAIM_TYPE: {{ .Values.openid.OPENID_GROUPS_CLAIM_TYPE | quote }} */}}
-  {{/*  OPENID_MAX_TOKEN_VALIDITY: {{ .Values.openid.OPENID_MAX_TOKEN_VALIDITY | quote }} */}}
 {{- end -}}
