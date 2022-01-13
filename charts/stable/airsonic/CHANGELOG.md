@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="airsonic-4.0.33"></a>
+### [airsonic-4.0.33](https://github.com/truecharts/apps/compare/airsonic-4.0.32...airsonic-4.0.33) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="airsonic-4.0.32"></a>
 ### [airsonic-4.0.32](https://github.com/truecharts/apps/compare/airsonic-4.0.31...airsonic-4.0.32) (2022-01-12)
 

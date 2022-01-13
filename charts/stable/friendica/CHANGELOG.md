@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.27"></a>
+### [friendica-0.0.27](https://github.com/truecharts/apps/compare/friendica-0.0.26...friendica-0.0.27) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="friendica-0.0.26"></a>
 ### [friendica-0.0.26](https://github.com/truecharts/apps/compare/friendica-0.0.25...friendica-0.0.26) (2022-01-12)
 

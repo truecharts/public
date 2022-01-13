@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.39"></a>
+### [zwavejs2mqtt-9.0.39](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.38...zwavejs2mqtt-9.0.39) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="zwavejs2mqtt-9.0.38"></a>
 ### [zwavejs2mqtt-9.0.38](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.37...zwavejs2mqtt-9.0.38) (2022-01-12)
 

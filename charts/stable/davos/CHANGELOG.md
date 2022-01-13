@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="davos-2.0.31"></a>
+### [davos-2.0.31](https://github.com/truecharts/apps/compare/davos-2.0.30...davos-2.0.31) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="davos-2.0.30"></a>
 ### [davos-2.0.30](https://github.com/truecharts/apps/compare/davos-2.0.29...davos-2.0.30) (2022-01-12)
 

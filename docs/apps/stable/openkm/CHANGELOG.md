@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="openkm-4.0.22"></a>
+### [openkm-4.0.22](https://github.com/truecharts/apps/compare/openkm-4.0.21...openkm-4.0.22) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="openkm-4.0.21"></a>
 ### [openkm-4.0.21](https://github.com/truecharts/apps/compare/openkm-4.0.20...openkm-4.0.21) (2022-01-12)
 

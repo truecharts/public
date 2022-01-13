@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.42"></a>
+### [prometheus-1.1.42](https://github.com/truecharts/apps/compare/prometheus-1.1.41...prometheus-1.1.42) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+
+
 <a name="prometheus-1.1.41"></a>
 ### [prometheus-1.1.41](https://github.com/truecharts/apps/compare/prometheus-1.1.40...prometheus-1.1.41) (2022-01-12)
 

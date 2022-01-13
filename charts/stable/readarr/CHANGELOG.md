@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.49"></a>
+### [readarr-9.0.49](https://github.com/truecharts/apps/compare/readarr-9.0.48...readarr-9.0.49) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="readarr-9.0.48"></a>
 ### [readarr-9.0.48](https://github.com/truecharts/apps/compare/readarr-9.0.47...readarr-9.0.48) (2022-01-12)
 

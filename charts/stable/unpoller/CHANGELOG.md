@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="unpoller-1.0.23"></a>
+### [unpoller-1.0.23](https://github.com/truecharts/apps/compare/unpoller-1.0.22...unpoller-1.0.23) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="unpoller-1.0.22"></a>
 ### [unpoller-1.0.22](https://github.com/truecharts/apps/compare/unpoller-1.0.21...unpoller-1.0.22) (2022-01-12)
 

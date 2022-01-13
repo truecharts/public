@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.24"></a>
+### [snipe-it-0.0.24](https://github.com/truecharts/apps/compare/snipe-it-0.0.23...snipe-it-0.0.24) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="snipe-it-0.0.23"></a>
 ### [snipe-it-0.0.23](https://github.com/truecharts/apps/compare/snipe-it-0.0.22...snipe-it-0.0.23) (2022-01-12)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.42"></a>
+### [lazylibrarian-9.0.42](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.41...lazylibrarian-9.0.42) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="lazylibrarian-9.0.41"></a>
 ### [lazylibrarian-9.0.41](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.40...lazylibrarian-9.0.41) (2022-01-12)
 

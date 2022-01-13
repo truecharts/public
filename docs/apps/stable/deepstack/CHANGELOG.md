@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="deepstack-1.0.4"></a>
+### [deepstack-1.0.4](https://github.com/truecharts/apps/compare/deepstack-1.0.3...deepstack-1.0.4) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="deepstack-1.0.3"></a>
 ### [deepstack-1.0.3](https://github.com/truecharts/apps/compare/deepstack-1.0.2...deepstack-1.0.3) (2022-01-12)
 

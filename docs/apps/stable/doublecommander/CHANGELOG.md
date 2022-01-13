@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="doublecommander-2.0.34"></a>
+### [doublecommander-2.0.34](https://github.com/truecharts/apps/compare/doublecommander-2.0.33...doublecommander-2.0.34) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="doublecommander-2.0.33"></a>
 ### [doublecommander-2.0.33](https://github.com/truecharts/apps/compare/doublecommander-2.0.32...doublecommander-2.0.33) (2022-01-12)
 

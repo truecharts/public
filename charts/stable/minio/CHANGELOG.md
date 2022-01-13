@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="minio-1.0.19"></a>
+### [minio-1.0.19](https://github.com/truecharts/apps/compare/minio-1.0.18...minio-1.0.19) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="minio-1.0.18"></a>
 ### [minio-1.0.18](https://github.com/truecharts/apps/compare/minio-console-1.0.37...minio-1.0.18) (2022-01-12)
 

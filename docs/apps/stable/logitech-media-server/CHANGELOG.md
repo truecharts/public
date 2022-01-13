@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.46"></a>
+### [logitech-media-server-2.0.46](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.45...logitech-media-server-2.0.46) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="logitech-media-server-2.0.45"></a>
 ### [logitech-media-server-2.0.45](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.44...logitech-media-server-2.0.45) (2022-01-12)
 

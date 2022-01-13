@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="cloud9-2.0.34"></a>
+### [cloud9-2.0.34](https://github.com/truecharts/apps/compare/cloud9-2.0.33...cloud9-2.0.34) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="cloud9-2.0.33"></a>
 ### [cloud9-2.0.33](https://github.com/truecharts/apps/compare/cloud9-2.0.32...cloud9-2.0.33) (2022-01-12)
 

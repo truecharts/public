@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="kanboard-5.0.23"></a>
+### [kanboard-5.0.23](https://github.com/truecharts/apps/compare/kanboard-5.0.22...kanboard-5.0.23) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="kanboard-5.0.22"></a>
 ### [kanboard-5.0.22](https://github.com/truecharts/apps/compare/kanboard-5.0.21...kanboard-5.0.22) (2022-01-12)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="clarkson-0.0.23"></a>
+### [clarkson-0.0.23](https://github.com/truecharts/apps/compare/clarkson-0.0.22...clarkson-0.0.23) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="clarkson-0.0.22"></a>
 ### [clarkson-0.0.22](https://github.com/truecharts/apps/compare/clarkson-0.0.21...clarkson-0.0.22) (2022-01-12)
 

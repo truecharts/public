@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.46"></a>
+### [omada-controller-4.0.46](https://github.com/truecharts/apps/compare/omada-controller-4.0.45...omada-controller-4.0.46) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="omada-controller-4.0.45"></a>
 ### [omada-controller-4.0.45](https://github.com/truecharts/apps/compare/omada-controller-4.0.44...omada-controller-4.0.45) (2022-01-12)
 

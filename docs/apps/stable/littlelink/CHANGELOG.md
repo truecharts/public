@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.48"></a>
+### [littlelink-4.0.48](https://github.com/truecharts/apps/compare/littlelink-4.0.47...littlelink-4.0.48) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="littlelink-4.0.47"></a>
 ### [littlelink-4.0.47](https://github.com/truecharts/apps/compare/littlelink-4.0.46...littlelink-4.0.47) (2022-01-12)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.27"></a>
+### [authelia-8.0.27](https://github.com/truecharts/apps/compare/authelia-8.0.26...authelia-8.0.27) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="authelia-8.0.26"></a>
 ### [authelia-8.0.26](https://github.com/truecharts/apps/compare/authelia-8.0.25...authelia-8.0.26) (2022-01-12)
 

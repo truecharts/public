@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="kodi-headless-0.0.13"></a>
+### [kodi-headless-0.0.13](https://github.com/truecharts/apps/compare/kodi-headless-0.0.12...kodi-headless-0.0.13) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="kodi-headless-0.0.12"></a>
 ### [kodi-headless-0.0.12](https://github.com/truecharts/apps/compare/kodi-headless-0.0.11...kodi-headless-0.0.12) (2022-01-12)
 

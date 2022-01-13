@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="fleet-0.0.12"></a>
+### [fleet-0.0.12](https://github.com/truecharts/apps/compare/fleet-0.0.11...fleet-0.0.12) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="fleet-0.0.11"></a>
 ### [fleet-0.0.11](https://github.com/truecharts/apps/compare/fleet-0.0.10...fleet-0.0.11) (2022-01-12)
 

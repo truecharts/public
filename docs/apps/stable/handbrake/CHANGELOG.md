@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="handbrake-10.0.12"></a>
+### [handbrake-10.0.12](https://github.com/truecharts/apps/compare/handbrake-10.0.11...handbrake-10.0.12) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="handbrake-10.0.11"></a>
 ### [handbrake-10.0.11](https://github.com/truecharts/apps/compare/handbrake-10.0.10...handbrake-10.0.11) (2022-01-12)
 

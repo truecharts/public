@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="scrutiny-0.0.14"></a>
+### [scrutiny-0.0.14](https://github.com/truecharts/apps/compare/scrutiny-0.0.13...scrutiny-0.0.14) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="scrutiny-0.0.13"></a>
 ### [scrutiny-0.0.13](https://github.com/truecharts/apps/compare/scrutiny-0.0.12...scrutiny-0.0.13) (2022-01-12)
 

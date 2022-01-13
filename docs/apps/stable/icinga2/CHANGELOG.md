@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="icinga2-0.0.20"></a>
+### [icinga2-0.0.20](https://github.com/truecharts/apps/compare/icinga2-0.0.19...icinga2-0.0.20) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="icinga2-0.0.19"></a>
 ### [icinga2-0.0.19](https://github.com/truecharts/apps/compare/icinga2-0.0.18...icinga2-0.0.19) (2022-01-12)
 

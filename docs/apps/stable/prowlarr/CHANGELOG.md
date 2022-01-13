@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.54"></a>
+### [prowlarr-4.0.54](https://github.com/truecharts/apps/compare/prowlarr-4.0.53...prowlarr-4.0.54) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="prowlarr-4.0.53"></a>
 ### [prowlarr-4.0.53](https://github.com/truecharts/apps/compare/prowlarr-4.0.52...prowlarr-4.0.53) (2022-01-12)
 

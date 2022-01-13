@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-4.0.32"></a>
+### [phpldapadmin-4.0.32](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.31...phpldapadmin-4.0.32) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="phpldapadmin-4.0.31"></a>
 ### [phpldapadmin-4.0.31](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.30...phpldapadmin-4.0.31) (2022-01-12)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="lidarr-9.0.37"></a>
+### [lidarr-9.0.37](https://github.com/truecharts/apps/compare/lidarr-9.0.36...lidarr-9.0.37) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="lidarr-9.0.36"></a>
 ### [lidarr-9.0.36](https://github.com/truecharts/apps/compare/lidarr-9.0.35...lidarr-9.0.36) (2022-01-12)
 

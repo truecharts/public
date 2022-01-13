@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="mstream-1.0.31"></a>
+### [mstream-1.0.31](https://github.com/truecharts/apps/compare/mstream-1.0.30...mstream-1.0.31) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="mstream-1.0.30"></a>
 ### [mstream-1.0.30](https://github.com/truecharts/apps/compare/mstream-1.0.29...mstream-1.0.30) (2022-01-12)
 

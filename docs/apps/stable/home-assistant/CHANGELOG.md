@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="home-assistant-12.0.30"></a>
+### [home-assistant-12.0.30](https://github.com/truecharts/apps/compare/home-assistant-12.0.29...home-assistant-12.0.30) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="home-assistant-12.0.29"></a>
 ### [home-assistant-12.0.29](https://github.com/truecharts/apps/compare/home-assistant-12.0.28...home-assistant-12.0.29) (2022-01-12)
 

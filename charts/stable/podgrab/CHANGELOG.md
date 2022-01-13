@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="podgrab-8.0.12"></a>
+### [podgrab-8.0.12](https://github.com/truecharts/apps/compare/podgrab-8.0.11...podgrab-8.0.12) (2022-01-13)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="podgrab-8.0.11"></a>
 ### [podgrab-8.0.11](https://github.com/truecharts/apps/compare/podgrab-8.0.10...podgrab-8.0.11) (2022-01-12)
 
