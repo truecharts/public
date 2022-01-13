@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.54"></a>
+### [redis-1.0.54](https://github.com/truecharts/apps/compare/redis-1.0.53...redis-1.0.54) (2022-01-13)
+
+#### Chore
+
+* update helm chart common to v8.13.0 ([#1711](https://github.com/truecharts/apps/issues/1711))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="redis-1.0.53"></a>
 ### [redis-1.0.53](https://github.com/truecharts/apps/compare/redis-1.0.52...redis-1.0.53) (2022-01-12)
 
