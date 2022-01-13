@@ -62,7 +62,7 @@ spec:
   ingress:
   {{- range .Values.networkPolicy.ingress }}
   - from:
-    {{- range .from }}
+    {{- range .to }}
       {{- if .ipBlock }}
       {{- if .ipBlock.cidr }}
     - ipBlock:
@@ -76,11 +76,14 @@ spec:
       {{- end -}}
       {{- end -}}
     {{- end -}}
+
   {{- with .ports }}
+    ports:
     {{- . | toYaml | nindent 6 }}
   {{- end -}}
   {{- end -}}
   {{- end -}}
+
 
 {{- end -}}
 {{- end -}}
