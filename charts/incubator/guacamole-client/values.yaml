@@ -27,6 +27,9 @@ env:
   GUACD_HOSTNAME: "localhost"
   GUACD_PORT: 4822
 
+totp:
+  TOTP_ENABLED: false
+
 ldap:
   LDAP_HOSTNAME:
   LDAP_USER_BASE_DN:

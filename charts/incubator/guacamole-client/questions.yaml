@@ -109,16 +109,18 @@ questions:
             show_subquestions_if: true
             subquestions:
               - variable: TOTP_ISSUER
-                label: "TOTP Issuer"
+                label: "TOTP Issuer (Leave blank for default)"
                 schema:
                   type: string
-                  default: "Apache Guacamole"
+                  default: ""
               - variable: TOTP_DIGITS
                 label: "TOTP Digits"
                 schema:
                   type: string
-                  default: "6"
+                  default: ""
                   enum:
+                    - value: ""
+                      description: "default"
                     - value: "6"
                       description: "6"
                     - value: "7"
@@ -126,16 +128,18 @@ questions:
                     - value: "8"
                       description: "8"
               - variable: TOTP_PERIOD
-                label: "TOTP Period"
+                label: "TOTP Period (Leave blank for default)"
                 schema:
                   type: string
-                  default: "30"
+                  default: ""
               - variable: TOTP_MODE
                 label: "TOTP Mode"
                 schema:
                   type: string
-                  default: "sha1"
+                  default: ""
                   enum:
+                    - value: ""
+                      description: "default"
                     - value: "sha1"
                       description: "sha1"
                     - value: "sha256"
