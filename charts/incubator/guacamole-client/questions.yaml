@@ -187,7 +187,7 @@ questions:
             type: string
             default: ""
         - variable: JSON_TRUSTED_NETWORKS
-          label: "JSON Trusted Networks"
+          label: "JSON Trusted Networks (Leave blank for unrestricted"
           description: "Comma separated list e.g.: 127.0.0.0/8, 10.0.0.0/8"
           schema:
             type: string
