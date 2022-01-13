@@ -175,152 +175,188 @@ questions:
                 schema:
                   type: string
                   default: ""
-    # TODO: Hide with toggle button
   - variable: json
     group: "App Configuration"
     label: "JSON Configuration"
     schema:
       type: dict
       attrs:
-        - variable: JSON_SECRET_KEY
-          label: "JSON Secret Key"
+        - variable: json_enabled
+          label: "Enable JSON"
           schema:
-            type: string
-            default: ""
-        - variable: JSON_TRUSTED_NETWORKS
-          label: "JSON Trusted Networks (Leave blank for unrestricted"
-          description: "Comma separated list e.g.: 127.0.0.0/8, 10.0.0.0/8"
-          schema:
-            type: string
-            default: ""
-    # TODO: Hide with toggle button
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: JSON_SECRET_KEY
+                label: "JSON Secret Key"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: JSON_TRUSTED_NETWORKS
+                label: "JSON Trusted Networks (Leave blank for unrestricted"
+                description: "Comma separated list e.g.: 127.0.0.0/8, 10.0.0.0/8"
+                schema:
+                  type: string
+                  default: ""
   - variable: duo
     group: "App Configuration"
     label: "DUO Configuration"
     schema:
       type: dict
       attrs:
-        - variable: DUO_API_HOSTNAME
-          label: "DUO API Hostname (api-XXXXXXXX.duosecurity.com)"
+        - variable: duo_enabled
+          label: "Enable DUO"
           schema:
-            type: string
-            default: ""
-        - variable: DUO_INTEGRATION_KEY
-          label: "DUO Integration Key (Exactly 20 chars)"
-          schema:
-            min_length: 20
-            max_length: 20
-            type: string
-            default: ""
-        - variable: DUO_SECRET_KEY
-          label: "DUO Secret Key (Exactly 40 chars)"
-          schema:
-            min_length: 40
-            max_length: 40
-            type: string
-            default: ""
-        - variable: DUO_APPLICATION_KEY
-          label: "DUO Application Key (At least 40 chars)"
-          schema:
-            min_length: 40
-            type: string
-            default: ""
-    # TODO: Hide with toggle button
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: DUO_API_HOSTNAME
+                label: "DUO API Hostname (api-XXXXXXXX.duosecurity.com)"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: DUO_INTEGRATION_KEY
+                label: "DUO Integration Key (Exactly 20 chars)"
+                schema:
+                  min_length: 20
+                  max_length: 20
+                  type: string
+                  required: true
+                  default: ""
+              - variable: DUO_SECRET_KEY
+                label: "DUO Secret Key (Exactly 40 chars)"
+                schema:
+                  min_length: 40
+                  max_length: 40
+                  type: string
+                  required: true
+                  default: ""
+              - variable: DUO_APPLICATION_KEY
+                label: "DUO Application Key (At least 40 chars)"
+                schema:
+                  min_length: 40
+                  type: string
+                  required: true
+                  default: ""
   - variable: cas
     group: "App Configuration"
     label: "CAS Configuration"
     schema:
       type: dict
       attrs:
-        - variable: CAS_AUTHORIZATION_ENDPOINT
-          label: "CAS Authorization Endpoint"
+        - variable: cas_enabled
+          label: "Enable CAS"
           schema:
-            type: string
-            default: ""
-        - variable: CAS_REDIRECT_URI
-          label: "CAS Redirect URI"
-          schema:
-            type: string
-            default: ""
-        - variable: CAS_CLEARPASS_KEY
-          label: "CAS Clearpass Key"
-          schema:
-            type: string
-            default: ""
-        - variable: CAS_GROUP_ATTRIBUTE
-          label: "CAS Group Attribute"
-          schema:
-            type: string
-            default: ""
-        - variable: CAS_GROUP_FORMAT
-          label: "CAS Group Format"
-          schema:
-            type: string
-            default: ""
-            enum:
-              - value: ""
-                description: "default"
-              - value: "plain"
-                description: "plain"
-              - value: "ldap"
-                description: "ldap"
-        - variable: CAS_GROUP_LDAP_BASE_DN
-          label: "CAS Group LDAP Base DN"
-          schema:
-            type: string
-            default: ""
-        - variable: CAS_GROUP_LDAP_ATTRIBUTE
-          label: "CAS Group LDAP Attribute"
-          schema:
-            type: string
-            default: ""
-    # TODO: Hide with toggle button
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: CAS_AUTHORIZATION_ENDPOINT
+                label: "CAS Authorization Endpoint"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: CAS_REDIRECT_URI
+                label: "CAS Redirect URI"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: CAS_CLEARPASS_KEY
+                label: "CAS Clearpass Key"
+                schema:
+                  type: string
+                  default: ""
+              - variable: CAS_GROUP_ATTRIBUTE
+                label: "CAS Group Attribute"
+                schema:
+                  type: string
+                  default: ""
+              - variable: CAS_GROUP_FORMAT
+                label: "CAS Group Format"
+                schema:
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "default"
+                    - value: "plain"
+                      description: "plain"
+                    - value: "ldap"
+                      description: "ldap"
+              - variable: CAS_GROUP_LDAP_BASE_DN
+                label: "CAS Group LDAP Base DN"
+                schema:
+                  type: string
+                  default: ""
+              - variable: CAS_GROUP_LDAP_ATTRIBUTE
+                label: "CAS Group LDAP Attribute"
+                schema:
+                  type: string
+                  default: ""
   - variable: openid
     group: "App Configuration"
     label: "OpenID Configuration"
     schema:
       type: dict
       attrs:
-        - variable: OPENID_AUTHORIZATION_ENDPOINT
-          label: "OpenID Authorization Endpoint"
+        - variable: openid_enabled
+          label: "Enable OPENID"
           schema:
-            type: string
-            default: ""
-        - variable: OPENID_JWKS_ENDPOINT
-          label: "OpenID JWKS Endpoint"
-          schema:
-            type: string
-            default: ""
-        - variable: OPENID_ISSUER
-          label: "OpenID Issuer"
-          schema:
-            type: string
-            default: ""
-        - variable: OPENID_CLIENT_ID
-          label: "OpenID Client ID"
-          schema:
-            type: string
-            default: ""
-        - variable: OPENID_REDIRECT_URI
-          label: "OpenID Redirect URI"
-          schema:
-            type: string
-            default: ""
-        - variable: OPENID_USERNAME_CLAIM_TYPE
-          label: "OpenID Username Claim Type (Leave blank for default)"
-          schema:
-            type: string
-            default: ""
-        - variable: OPENID_GROUPS_CLAIM_TYPE
-          label: "OpenID Groups Claim Type (Leave blank for default)"
-          schema:
-            type: string
-            default: ""
-        - variable: OPENID_MAX_TOKEN_VALIDITY
-          label: "OpenID Max Token Validity (Leave blank for default)"
-          schema:
-            type: string
-            default: ""
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: OPENID_AUTHORIZATION_ENDPOINT
+                label: "OpenID Authorization Endpoint"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: OPENID_JWKS_ENDPOINT
+                label: "OpenID JWKS Endpoint"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: OPENID_ISSUER
+                label: "OpenID Issuer"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: OPENID_CLIENT_ID
+                label: "OpenID Client ID"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: OPENID_REDIRECT_URI
+                label: "OpenID Redirect URI"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: OPENID_USERNAME_CLAIM_TYPE
+                label: "OpenID Username Claim Type (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: OPENID_GROUPS_CLAIM_TYPE
+                label: "OpenID Groups Claim Type (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: OPENID_MAX_TOKEN_VALIDITY
+                label: "OpenID Max Token Validity (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
