@@ -3,11 +3,11 @@ appVersion: "latest"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.12.1
+  version: 8.13.0
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 6.0.48
+  version: 6.0.49
 description: "Lightweight self-hosted facebook-styled PHP blog."
 home: https://github.com/truechartsapps/tree/master/charts/stable/blog
 icon: https://truecharts.org/_static/img/appicons/blog-icon.png
@@ -26,7 +26,7 @@ name: blog
 sources:
   - https://github.com/m1k1o/blog
   - https://github.com/nicholaswilde/docker-blog
-version: 0.0.21
+version: 0.0.22
 annotations:
   truecharts.org/catagories: |
     - hosting

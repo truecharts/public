@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: dillinger
-version: 0.0.11
+version: 0.0.12
 appVersion: "3.39.1"
 description: Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.12.1
+  version: 8.13.0
   # condition:
 maintainers:
 - email: info@truecharts.org
