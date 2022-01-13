@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="common-8.13.0"></a>
+### [common-8.13.0](https://github.com/truecharts/apps/compare/common-8.12.2...common-8.13.0) (2022-01-13)
+
+#### Feat
+
+* add GUI for networkPolicy ([#1710](https://github.com/truecharts/apps/issues/1710))
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="common-8.12.2"></a>
 ### [common-8.12.2](https://github.com/truecharts/apps/compare/common-8.12.1...common-8.12.2) (2022-01-13)
 
