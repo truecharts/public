@@ -11,13 +11,22 @@
       {{ toYaml . | nindent 4 }}
     {{- end }}
   {{- end }}
-  {{- with .Values.args }}
+  {{- if or ( .Values.extraArgs ) ( .Values.args ) }}
   args:
+  {{- with .Values.args }}
     {{- if kindIs "string" . }}
     - {{ . }}
     {{- else }}
     {{ toYaml . | nindent 4 }}
     {{- end }}
+  {{- end }}
+  {{- with .Values.extraArgs }}
+    {{- if kindIs "string" . }}
+    - {{ . }}
+    {{- else }}
+    {{ toYaml . | nindent 4 }}
+    {{- end }}
+  {{- end }}
   {{- end }}
   tty: {{ .Values.tty }}
   stdin: {{ .Values.stdin }}
