@@ -22,6 +22,13 @@ data:
   TOTP_MODE: {{ .Values.totp.TOTP_MODE | quote }}
   {{- end }}
   {{- end }}
+  {{/*  HEADER */}}
+  {{- if eq .Values.header.HEADER_ENABLED true }}
+  HEADER_ENABLED: {{ .Values.header.HEADER_ENABLED | quote }}
+  {{- if .Values.header.HTTP_AUTH_HEADER }}
+  HTTP_AUTH_HEADER: {{ .Values.header.HTTP_AUTH_HEADER | quote }}
+  {{- end }}
+  {{- end }}
   {{/*  LDAP */}}
   {{/*  LDAP_HOSTNAME: {{ .Values.ldap.LDAP_HOSTNAME | quote }} */}}
   {{/*  LDAP_USER_BASE_DN: {{ .Values.ldap.LDAP_USER_BASE_DN | quote }} */}}
@@ -43,9 +50,6 @@ data:
   {{/*  LDAP_FOLLOW_REFERRALS: {{ .Values.ldap.LDAP_FOLLOW_REFERRALS | quote }} */}}
   {{/*  LDAP_MAX_REFERRAL_HOPS: {{ .Values.ldap.LDAP_MAX_REFERRAL_HOPS | quote }} */}}
   {{/*  LDAP_OPERATION_TIMEOUT: {{ .Values.ldap.LDAP_OPERATION_TIMEOUT | quote }} */}}
-  {{/*  HEADER */}}
-  {{/*  HEADER_ENABLED: {{ .Values.header.HEADER_ENABLED | quote }} */}}
-  {{/*  HTTP_AUTH_HEADER: {{ .Values.header.HTTP_AUTH_HEADER | quote }} */}}
   {{/*  DUO */}}
   {{/*  DUO_API_HOSTNAME: {{ .Values.duo.DUO_API_HOSTNAME | quote }} */}}
   {{/*  DUO_INTEGRATION_KEY: {{ .Values.duo.DUO_INTEGRATION_KEY | quote }} */}}
