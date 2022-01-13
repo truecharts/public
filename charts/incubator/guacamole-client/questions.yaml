@@ -206,21 +206,21 @@ questions:
         - variable: DUO_INTEGRATION_KEY
           label: "DUO Integration Key (Exactly 20 chars)"
           schema:
-            # min_length: 20
-            # max_length: 20
+            min_length: 20
+            max_length: 20
             type: string
             default: ""
         - variable: DUO_SECRET_KEY
           label: "DUO Secret Key (Exactly 40 chars)"
           schema:
-            # min_length: 40
-            # max_length: 40
+            min_length: 40
+            max_length: 40
             type: string
             default: ""
         - variable: DUO_APPLICATION_KEY
           label: "DUO Application Key (At least 40 chars)"
           schema:
-            # min_length: 40
+            min_length: 40
             type: string
             default: ""
 
