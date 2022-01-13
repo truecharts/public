@@ -21,9 +21,15 @@ spec:
     {{- include "common.labels.selectorLabels" . | nindent 6 }}
   {{- end }}
 
-  {{- with .Values.networkPolicy.policyTypes }}
-  policyTypes:
-    {{- . | toYaml | nindent 4 }}
+  {{- if .Values.networkPolicy.policyType }}
+  {{- if eq .Values.networkPolicy.policyType "ingress" }}
+  policyTypes: ["Ingress"]
+  {{- else if eq .Values.networkPolicy.policyType "egress" }}
+  policyTypes: ["Egress"]
+
+  {{- else if eq .Values.networkPolicy.policyType "ingress-egress" }}
+  policyTypes: ["Ingress", "Egress"]
+  {{- end -}}
   {{- end -}}
 
   {{- with .Values.networkPolicy.egress }}
