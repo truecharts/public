@@ -146,6 +146,35 @@ questions:
                       description: "sha256"
                     - value: "sha512"
                       description: "sha512"
+  - variable: header
+    group: "App Configuration"
+    label: "Header Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: HEADER_ENABLED
+          label: "Enable Header"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: HTTP_AUTH_HEADER
+                label: "HTTP Auth Header (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
+  - variable: api
+    group: "App Configuration"
+    label: "API Configuration"
+    schema:
+      type: dict
+      attrs:
+        - variable: API_SESSION_TIMEOUT
+          label: "API Session Timeout (Leave blank for default)"
+          schema:
+            type: string
+            default: ""
 
   - variable: service
     group: "Networking and Services"

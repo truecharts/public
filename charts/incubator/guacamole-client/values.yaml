@@ -34,6 +34,13 @@ totp:
   # TOTP_PERIOD: "30"
   # TOTP_MODE: "sha1"
 
+header:
+  HEADER_ENABLED: false
+  # HTTP_AUTH_HEADER: "REMOTE_USER"
+
+api: {}
+  # API_SESSION_TIMEOUT: "60"
+
 # ldap:
 #   LDAP_HOSTNAME:
 #   LDAP_USER_BASE_DN:
@@ -56,10 +63,6 @@ totp:
 #   LDAP_MAX_REFERRAL_HOPS:
 #   LDAP_OPERATION_TIMEOUT:
 
-# header:
-#   HEADER_ENABLED: false
-#   HTTP_AUTH_HEADER: "REMOTE_USER"
-
 # duo:
 #   DUO_API_HOSTNAME:
 #   DUO_INTEGRATION_KEY:
@@ -78,9 +81,6 @@ totp:
 # json:
 #   JSON_SECRET_KEY:
 #   JSON_TRUSTED_NETWORKS:
-
-# api:
-#   API_SESSION_TIMEOUT:
 
 # radius:
 #   RADIUS_HOSTNAME:

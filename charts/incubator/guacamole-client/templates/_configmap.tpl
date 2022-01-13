@@ -29,6 +29,10 @@ data:
   HTTP_AUTH_HEADER: {{ .Values.header.HTTP_AUTH_HEADER | quote }}
   {{- end }}
   {{- end }}
+  {{/*  API */}}
+  {{- if .Values.api.API_SESSION_TIMEOUT }}
+  API_SESSION_TIMEOUT: {{ .Values.api.API_SESSION_TIMEOUT | quote }}
+  {{- end }}
   {{/*  LDAP */}}
   {{/*  LDAP_HOSTNAME: {{ .Values.ldap.LDAP_HOSTNAME | quote }} */}}
   {{/*  LDAP_USER_BASE_DN: {{ .Values.ldap.LDAP_USER_BASE_DN | quote }} */}}
@@ -66,8 +70,6 @@ data:
   {{/*  JSON */}}
   {{/*  JSON_SECRET_KEY: {{ .Values.json.JSON_SECRET_KEY | quote }} */}}
   {{/*  JSON_TRUSTED_NETWORKS: {{ .Values.json.JSON_TRUSTED_NETWORKS | quote }} */}}
-  {{/*  API */}}
-  {{/*  API_SESSION_TIMEOUT: {{ .Values.api.API_SESSION_TIMEOUT | quote }} */}}
   {{/*  RADIUS */}}
   {{/*  RADIUS_HOSTNAME: {{ .Values.radius.RADIUS_HOSTNAME | quote }} */}}
   {{/*  RADIUS_AUTH_PORT: {{ .Values.radius.RADIUS_AUTH_PORT | quote }} */}}
