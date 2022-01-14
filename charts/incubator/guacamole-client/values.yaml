@@ -183,6 +183,8 @@ initContainers:
       - name: initdbdata
         mountPath: "/initdbdata"
     command: ["/bin/sh", "-c"]
+    # TODO: Check if DB is already initiated, and skip.
+    # While initiating it recreates the default admin user which is not ok :)
     args:
       - >
         echo "Waiting for DB to be ready...";

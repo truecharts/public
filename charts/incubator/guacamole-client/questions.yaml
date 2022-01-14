@@ -125,6 +125,11 @@ questions:
                 schema:
                   type: string
                   default: ""
+              - variable: TOTP_PERIOD
+                label: "TOTP Period (Leave blank for default)"
+                schema:
+                  type: string
+                  default: ""
               - variable: TOTP_DIGITS
                 label: "TOTP Digits"
                 schema:
@@ -139,11 +144,6 @@ questions:
                       description: "7"
                     - value: "8"
                       description: "8"
-              - variable: TOTP_PERIOD
-                label: "TOTP Period (Leave blank for default)"
-                schema:
-                  type: string
-                  default: ""
               - variable: TOTP_MODE
                 label: "TOTP Mode"
                 schema:
@@ -278,6 +278,16 @@ questions:
                 schema:
                   type: string
                   default: ""
+              - variable: CAS_GROUP_LDAP_BASE_DN
+                label: "CAS Group LDAP Base DN"
+                schema:
+                  type: string
+                  default: ""
+              - variable: CAS_GROUP_LDAP_ATTRIBUTE
+                label: "CAS Group LDAP Attribute"
+                schema:
+                  type: string
+                  default: ""
               - variable: CAS_GROUP_FORMAT
                 label: "CAS Group Format"
                 schema:
@@ -290,16 +300,6 @@ questions:
                       description: "plain"
                     - value: "ldap"
                       description: "ldap"
-              - variable: CAS_GROUP_LDAP_BASE_DN
-                label: "CAS Group LDAP Base DN"
-                schema:
-                  type: string
-                  default: ""
-              - variable: CAS_GROUP_LDAP_ATTRIBUTE
-                label: "CAS Group LDAP Attribute"
-                schema:
-                  type: string
-                  default: ""
   - variable: openid
     group: "App Configuration"
     label: "OpenID Configuration"
