@@ -206,7 +206,7 @@ initContainers:
         done;
         if [ $DBREADY -eq 1 ];
           then
-            psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -q -c 'SELECT * FROM public.guacamole_user';
+            psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -o '/dev/null' -c 'SELECT * FROM public.guacamole_user';
             if [ $? -eq 0 ];
               then
                 echo "DB already initialized. Skipping...";
