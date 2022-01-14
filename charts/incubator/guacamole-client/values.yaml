@@ -192,24 +192,36 @@ initContainers:
         for i in {1..10};
         do pg_isready -t 5 -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT;
           if [ $? -eq 0 ];
-            then echo "DB is ready!";
+            then
+              echo "DB is ready!";
               DBREADY=1;
               break;
-            else echo "DB not ready yet.";
+            else
+              echo "DB not ready yet.";
           fi;
           echo "Waiting...";
           sleep 5;
         done;
         if [ $DBREADY -eq 1 ];
-        then echo "Initializing DB's schema...";
-          psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql;
-          if [ $? -eq 0 ];
-            then echo "DB's schema initialized successfully!";
-              exit 0;
-            else echo "DB's schema failed to initialize.";
-              exit 1;
-          fi;
-        else echo "DB failed to start.";
+          then
+            psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -c 'SELECT * FROM public.guacamole_user';
+            if [ $? -eq 0 ];
+              then
+                echo "DB already initialized. Skipping...";
+              else
+                echo "Initializing DB's schema...";
+                psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql;
+                if [ $? -eq 0 ];
+                  then
+                    echo "DB's schema initialized successfully!";
+                    exit 0;
+                  else
+                    echo "DB's schema failed to initialize.";
+                    exit 1;
+                fi;
+            fi;
+          else
+            echo "DB failed to start.";
         fi;
 
     # Until they release an image with the updated driver, we need to manually replace it.
@@ -229,24 +241,31 @@ initContainers:
     - >
       echo "Checing postgresql driver version...";
       if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
-        then echo "Version found is correct.";
+        then
+          echo "Version found is correct.";
           exit 0;
-        else echo "Old version found. Will try to download a known-to-work version.";
+        else
+          echo "Old version found. Will try to download a known-to-work version.";
           echo "Downloading (postgresql-42.2.24.jre7.jar)...";
           curl -L "https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar" > "/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar";
           if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ];
-            then echo "Downloaded successfully!";
+            then
+              echo "Downloaded successfully!";
               cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/;
               if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ];
-                then echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
+                then
+                  echo "Removing old version... (postgresql-9.4-1201.jdbc41.jar)";
                   rm "/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar";
                   if [ $? -eq 0 ];
-                    then echo "Removed successfully!";
-                    else "Failed to remove.";
+                    then
+                      echo "Removed successfully!";
+                    else
+                      echo "Failed to remove.";
                       exit 1;
                   fi;
               fi;
-            else echo "Failed to download.";
+            else
+              echo "Failed to download.";
               exit 1;
           fi;
       fi;
@@ -266,6 +285,8 @@ initContainers:
       echo "Copying postgres driver into the final destination.";
       cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/;
       if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];
-        then echo "Driver copied successfully!";
-        else echo "Failed to copy the driver";
+        then
+          echo "Driver copied successfully!";
+        else
+          echo "Failed to copy the driver";
       fi;
