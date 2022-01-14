@@ -1,0 +1,16 @@
+image:
+  repository: hub.docker.com/r/zadam/trilium
+  pullPolicy: IfNotPresent
+  tag: v0.49.3@sha256:01305359c92238d1bd892f65ff035635d59359bb3b91919b473240937560f529
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        port: 17496
+        
+persistence:
+  config:
+    enabled: true
+    mountPath: "/home/node/trilium-data"
