@@ -7,4 +7,3 @@
 #### Feat
 
 * Add Frigate ([#1639](https://github.com/truecharts/apps/issues/1639))
-
