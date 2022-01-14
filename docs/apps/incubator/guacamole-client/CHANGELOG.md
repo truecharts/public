@@ -7,4 +7,3 @@
 #### Feat
 
 * Add guacamole-client ([#1696](https://github.com/truecharts/apps/issues/1696))
-

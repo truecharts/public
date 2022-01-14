@@ -340,6 +340,40 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/amcrest2mqtt-2.0.23/amcrest2mqtt-2.0.23.tgz
     version: 2.0.23
+  amd-gpu-plugin:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - core
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: upstream
+    created: "2022-01-14T22:43:30.503903009Z"
+    dependencies:
+    - name: amd-gpu
+      repository: https://radeonopencompute.github.io/k8s-device-plugin/
+      version: 0.2.0
+    description: A kubernetes plugin to add AMD GPU's to Pods
+    digest: 51d800a9dcabaa37d8f98282f250d3fc546d6793cfd31aa05bf923be8b96d528
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/amd-gpu-plugin
+    icon: https://truecharts.org/_static/img/appicons/amd-gpu-plugin.png
+    keywords:
+    - amd
+    - gpu
+    - plugin
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: amd-gpu-plugin
+    sources:
+    - https://github.com/metallb/metallb
+    - https://metallb.universe.tf
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/amd-gpu-plugin-0.0.2/amd-gpu-plugin-0.0.2.tgz
+    version: 0.0.2
   anonaddy:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -47156,4 +47190,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-14T08:39:43.503119847Z"
+generated: "2022-01-14T22:43:30.507575511Z"
