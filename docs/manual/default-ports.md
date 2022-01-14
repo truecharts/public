@@ -298,6 +298,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | kodi-headless              |    websocket    |    websocket    | 10152 |   TCP    |                                         |
 | shlink                     |      main       |      main       | 10153 |   TCP    |                                         |
 | shlink-web-client          |      main       |      main       | 10154 |   HTTP   |                                         |
+| trilium-notes              |      main       |      main       | 10155 |   HTTP   |                                         |
 | hyperion-ng                | boblightservice | boblightservice | 19333 |   TCP    |                                         |
 | hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |   TCP    |                                         |
 | hyperion-ng                | protobufservice | protobufservice | 19445 |   TCP    |                                         |
@@ -364,6 +365,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | webui   |  80  |   HTTP   |      |
 | webui   | 443  |  HTTPS   |      |
 
-##### Note: TCP and UPD ports that are the same in some Apps, are not by mistake.
+##### Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
 
 ##### If you notice a port conflict, please notify us so we can resolve it (when possible).
