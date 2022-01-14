@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 set -eu
 
-echo -e "\033[1mTrueCharts HotPatcher for TrueNAS SCALE RC2"
+echo -e "\033[1mTrueCharts HotPatcher for TrueNAS SCALE RC2\033[0m"
 echo "This tool is going to patch your system to fix performance of the Apps interface..."
 echo ""
 sleep 5
 echo "---"
-echo -e "\033[1mApplying HotPatch 1"
-( wget -q -P /tmp https://github.com/truecharts/apps/raw/master/tools/RC2-HP1.deb && echo "download completed" || echo "download failed" ) && ( dpkg -i /tmp/RC2-HP1.deb 2>&1 /dev/null && echo "patch completed" || echo "patch failed" ) && rm -rf /tmp/RC2-HP1.deb
+echo -e "\033[1mApplying HotPatch 1\033[0m"
+( wget -q -P /tmp https://github.com/truecharts/apps/raw/master/tools/RC2-HP1.deb && echo "download completed" || echo "download failed" ) && ( dpkg -i /tmp/RC2-HP1.deb > /dev/null && echo "patch completed" || echo "patch failed" ) && rm -rf /tmp/RC2-HP1.deb
 echo ""
 sleep 5
 echo "---"
-echo -e "\033[1mApplying HotPatch 2"
-( wget -q -P /tmp https://github.com/truecharts/apps/raw/master/tools/RC2-HP2.patch && echo "download completed" || echo "download failed" ) && ( patch -N -s -p0 -d /usr/lib/python3/dist-packages/middlewared/ < /tmp/RC2-HP2.patch 2>&1 /dev/null && echo "patch completed" || echo "patch failed" ) && rm -rf /tmp/RC2-HP2.patch
+echo -e "\033[1mApplying HotPatch 2\033[0m"
+( wget -q -P /tmp https://github.com/truecharts/apps/raw/master/tools/RC2-HP2.patch && echo "download completed" || echo "download failed" ) && ( patch -N -s -p0 -d /usr/lib/python3/dist-packages/middlewared/ < /tmp/RC2-HP2.patch > /dev/null && echo "patch completed" || echo "patch failed" ) && rm -rf /tmp/RC2-HP2.patch
 
 echo "Restarting Middleware..." && systemctl restart middlewared
 sleep 10
