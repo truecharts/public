@@ -19,6 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.POSTGRES_DATABASE | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
 | env.POSTGRES_PORT | int | `5432` |  |
 | env.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
+| envFrom[0].configMapRef.name | string | `"guacamole-client-env"` |  |
 | envValueFrom.POSTGRES_HOSTNAME.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.POSTGRES_HOSTNAME.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
@@ -33,7 +34,7 @@ You will, however, be able to use all values referenced in the common chart here
 | initContainers.1-creat-initdb-file.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
 | initContainers.1-creat-initdb-file.volumeMounts[0].mountPath | string | `"/initdbdata"` |  |
 | initContainers.1-creat-initdb-file.volumeMounts[0].name | string | `"initdbdata"` |  |
-| initContainers.2-initdb.args[0] | string | `"echo \"Waiting for DB to be ready...\"; DBREADY=0; for i in {1..10}; do pg_isready -t 5 -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT;\n  if [ $? -eq 0 ];\n    then echo \"DB is ready!\";\n      DBREADY=1;\n      break;\n    else echo \"DB not ready yet.\";\n  fi;\n  echo \"Waiting...\";\n  sleep 5;\ndone; if [ $DBREADY -eq 1 ]; then echo \"Initializing DB's schema...\";\n  psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql;\n  if [ $? -eq 0 ];\n    then echo \"DB's schema initialized successfully!\";\n      exit 0;\n    else echo \"DB's schema failed to initialize.\";\n      exit 1;\n  fi;\nelse echo \"DB failed to start.\"; fi;\n"` |  |
+| initContainers.2-initdb.args[0] | string | `"echo \"Waiting for DB to be ready...\"; DBREADY=0; for i in {1..10}; do pg_isready -t 5 -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT;\n  if [ $? -eq 0 ];\n    then\n      echo \"DB is ready!\";\n      DBREADY=1;\n      break;\n    else\n      echo \"DB not ready yet.\";\n  fi;\n  echo \"Waiting...\";\n  sleep 5;\ndone; if [ $DBREADY -eq 1 ];\n  then\n    psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -q -c 'SELECT * FROM public.guacamole_user';\n    if [ $? -eq 0 ];\n      then\n        echo \"DB already initialized. Skipping...\";\n      else\n        echo \"Initializing DB's schema...\";\n        psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql;\n        if [ $? -eq 0 ];\n          then\n            echo \"DB's schema initialized successfully!\";\n            exit 0;\n          else\n            echo \"DB's schema failed to initialize.\";\n            exit 1;\n        fi;\n    fi;\n  else\n    echo \"DB failed to start.\";\nfi;\n"` |  |
 | initContainers.2-initdb.command[0] | string | `"/bin/sh"` |  |
 | initContainers.2-initdb.command[1] | string | `"-c"` |  |
 | initContainers.2-initdb.env[0].name | string | `"POSTGRES_DATABASE"` |  |
@@ -51,7 +52,7 @@ You will, however, be able to use all values referenced in the common chart here
 | initContainers.2-initdb.image | string | `"{{ .Values.postgresqlImage.repository }}:{{ .Values.postgresqlImage.tag }}"` |  |
 | initContainers.2-initdb.volumeMounts[0].mountPath | string | `"/initdbdata"` |  |
 | initContainers.2-initdb.volumeMounts[0].name | string | `"initdbdata"` |  |
-| initContainers.3-temp-hack.args[0] | string | `"echo \"Checing postgresql driver version...\"; if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];\n  then echo \"Version found is correct.\";\n    exit 0;\n  else echo \"Old version found. Will try to download a known-to-work version.\";\n    echo \"Downloading (postgresql-42.2.24.jre7.jar)...\";\n    curl -L \"https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar\" > \"/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar\";\n    if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ];\n      then echo \"Downloaded successfully!\";\n        cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/;\n        if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ];\n          then echo \"Removing old version... (postgresql-9.4-1201.jdbc41.jar)\";\n            rm \"/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar\";\n            if [ $? -eq 0 ];\n              then echo \"Removed successfully!\";\n              else \"Failed to remove.\";\n                exit 1;\n            fi;\n        fi;\n      else echo \"Failed to download.\";\n        exit 1;\n    fi;\nfi;\n"` |  |
+| initContainers.3-temp-hack.args[0] | string | `"echo \"Checing postgresql driver version...\"; if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];\n  then\n    echo \"Version found is correct.\";\n    exit 0;\n  else\n    echo \"Old version found. Will try to download a known-to-work version.\";\n    echo \"Downloading (postgresql-42.2.24.jre7.jar)...\";\n    curl -L \"https://jdbc.postgresql.org/download/postgresql-42.2.24.jre7.jar\" > \"/opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar\";\n    if [ -e /opt/guacamole/postgresql-hack/postgresql-42.2.24.jre7.jar ];\n      then\n        echo \"Downloaded successfully!\";\n        cp -r /opt/guacamole/postgresql/* /opt/guacamole/postgresql-hack/;\n        if [ -e /opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar ];\n          then\n            echo \"Removing old version... (postgresql-9.4-1201.jdbc41.jar)\";\n            rm \"/opt/guacamole/postgresql-hack/postgresql-9.4-1201.jdbc41.jar\";\n            if [ $? -eq 0 ];\n              then\n                echo \"Removed successfully!\";\n              else\n                echo \"Failed to remove.\";\n                exit 1;\n            fi;\n        fi;\n      else\n        echo \"Failed to download.\";\n        exit 1;\n    fi;\nfi;\n"` |  |
 | initContainers.3-temp-hack.command[0] | string | `"/bin/sh"` |  |
 | initContainers.3-temp-hack.command[1] | string | `"-c"` |  |
 | initContainers.3-temp-hack.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
@@ -59,7 +60,7 @@ You will, however, be able to use all values referenced in the common chart here
 | initContainers.3-temp-hack.securityContext.runAsUser | int | `1001` |  |
 | initContainers.3-temp-hack.volumeMounts[0].mountPath | string | `"/opt/guacamole/postgresql-hack"` |  |
 | initContainers.3-temp-hack.volumeMounts[0].name | string | `"temphack"` |  |
-| initContainers.4-temp-hack.args[0] | string | `"echo \"Copying postgres driver into the final destination.\"; cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/; if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];\n  then echo \"Driver copied successfully!\";\n  else echo \"Failed to copy the driver\";\nfi;\n"` |  |
+| initContainers.4-temp-hack.args[0] | string | `"echo \"Copying postgres driver into the final destination.\"; cp -r /opt/guacamole/postgresql-hack/* /opt/guacamole/postgresql/; if [ -e /opt/guacamole/postgresql/postgresql-42.2.24.jre7.jar ];\n  then\n    echo \"Driver copied successfully!\";\n  else\n    echo \"Failed to copy the driver\";\nfi;\n"` |  |
 | initContainers.4-temp-hack.command[0] | string | `"/bin/sh"` |  |
 | initContainers.4-temp-hack.command[1] | string | `"-c"` |  |
 | initContainers.4-temp-hack.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
@@ -89,7 +90,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.path | string | `"/guacamole"` |  |
 | radius | object | `{}` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service.main.ports.main.port | int | `10080` |  |
+| service.main.ports.main.port | int | `9998` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
 | totp.TOTP_ENABLED | bool | `false` |  |
 
