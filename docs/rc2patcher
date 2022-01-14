@@ -5,6 +5,6 @@ echo "Applying HotPatch 1"
 ( wget -q -P /tmp https://github.com/truecharts/apps/raw/master/tools/RC2-HP1.deb && echo "download completed" || echo "download failed" ) && ( dpkg -i /tmp/RC2-HP1.deb && echo "patch completed" || echo "patch failed" ) && rm -rf /tmp/RC2-HP1.deb
 
 echo "Applying HotPatch 2"
-( wget -q -P /tmp https://github.com/truecharts/apps/raw/master/tools/RC2-HP2.patch && echo "download completed" || echo "download failed" ) && ( patch -s -p0 -d /usr/lib/python3/dist-packages/middlewared/ < /tmp/RC2-HP2.patch && echo "patch completed" || echo "patch failed" ) && rm -rf /tmp/RC2-HP2.patch
+( wget -q -P /tmp https://github.com/truecharts/apps/raw/master/tools/RC2-HP2.patch && echo "download completed" || echo "download failed" ) && ( patch -N -s -p0 -d /usr/lib/python3/dist-packages/middlewared/ < /tmp/RC2-HP2.patch && echo "patch completed" || echo "patch failed" ) && rm -rf /tmp/RC2-HP2.patch
 
 echo "Restarting Middleware..." && systemctl restart middlewared
