@@ -48,7 +48,6 @@ _This list is to track `App Requests` from one place._
 - [ ] LANraragi #1159
 - [ ] ArchiSteamFarm #1164
 - [ ] Docker Registry #1165
-- [ ] Trilium Notes #1261
 - [ ] Monero #1228
 - [ ] AriaNG #1224
 - [ ] FileBrowser #1278
@@ -514,3 +513,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] Requestrr #237
 - [x] DMS (Document Manage System) #810
 - [x] scrutiny ( Needs customised solution for direct disk access )
+- [x] Trilium Notes #1261
