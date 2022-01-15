@@ -189,43 +189,22 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        echo "Waiting for DB to be ready...";
-        DBREADY=0;
-        for i in {1..10};
-        do pg_isready -t 5 -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT;
-          if [ $? -eq 0 ];
-            then
-              echo "DB is ready!";
-              DBREADY=1;
-              break;
-            else
-              echo "DB not ready yet.";
-          fi;
-          echo "Waiting...";
-          sleep 5;
-        done;
-        if [ $DBREADY -eq 1 ];
+        psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -o '/dev/null' -c 'SELECT * FROM public.guacamole_user';
+        if [ $? -eq 0 ];
           then
-            psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -o '/dev/null' -c 'SELECT * FROM public.guacamole_user';
+            echo "DB already initialized. Skipping...";
+          else
+            echo "Initializing DB's schema...";
+            psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql;
             if [ $? -eq 0 ];
               then
-                echo "DB already initialized. Skipping...";
+                echo "DB's schema initialized successfully!";
+                exit 0;
               else
-                echo "Initializing DB's schema...";
-                psql -h $POSTGRES_HOSTNAME -d $POSTGRES_DATABASE -U $POSTGRES_USER -p $POSTGRES_PORT -a -w -f /initdbdata/initdb.sql;
-                if [ $? -eq 0 ];
-                  then
-                    echo "DB's schema initialized successfully!";
-                    exit 0;
-                  else
-                    echo "DB's schema failed to initialize.";
-                    exit 1;
-                fi;
+                echo "DB's schema failed to initialize.";
+                exit 1;
             fi;
-          else
-            echo "DB failed to start.";
         fi;
-
     # Until they release an image with the updated driver, we need to manually replace it.
     # https://issues.apache.org/jira/browse/GUACAMOLE-1433
     # https://github.com/apache/guacamole-client/pull/655
