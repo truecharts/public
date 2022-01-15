@@ -227,7 +227,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | static                     |      main       |      main       | 10077 |   TCP    |                                         |
 | twtxt                      |      main       |      main       | 10078 |   TCP    |                                         |
 | emby                       |      main       |      main       | 10079 |   TCP    |                                         |
-| _Do-not-use-for-HTTP_      |      main       |      main       | 10080 |    -     | HTTP access blocked by web browsers.    |
 | davos                      |      main       |      main       | 10081 |   TCP    |                                         |
 | fireflyiii                 |      main       |      main       | 10082 |   TCP    |                                         |
 | fossil                     |      main       |      main       | 10083 |   TCP    |                                         |
@@ -365,6 +364,12 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | ssh     |  22  |   TCP    |      |
 | webui   |  80  |   HTTP   |      |
 | webui   | 443  |  HTTPS   |      |
+
+## Ports above 10000 blocked in major web browsers
+
+| Port  |
+| :---: |
+| 10080 |
 
 ##### Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
 
