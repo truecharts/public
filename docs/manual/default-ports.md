@@ -227,12 +227,13 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | static                     |      main       |      main       | 10077 |   TCP    |                                         |
 | twtxt                      |      main       |      main       | 10078 |   TCP    |                                         |
 | emby                       |      main       |      main       | 10079 |   TCP    |                                         |
-| trilium-notes              |      main       |      main       | 10080 |   HTTP   |                                         |
+| _Do-not-use-for-HTTP_      |      main       |      main       | 10080 |    -     | HTTP access blocked by web browsers.    |
 | davos                      |      main       |      main       | 10081 |   TCP    |                                         |
 | fireflyiii                 |      main       |      main       | 10082 |   TCP    |                                         |
 | fossil                     |      main       |      main       | 10083 |   TCP    |                                         |
 | gotify                     |      main       |      main       | 10084 |   TCP    |                                         |
 | komga                      |      main       |      main       | 10085 |   TCP    |                                         |
+| trilium-notes              |      main       |      main       | 10086 |   HTTP   |                                         |
 | owncast                    |      main       |      main       | 10088 |   TCP    |                                         |
 | openkm                     |      main       |      main       | 10090 |   TCP    |                                         |
 | miniflux                   |      main       |      main       | 10091 |   TCP    |                                         |
