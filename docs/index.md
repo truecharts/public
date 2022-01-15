@@ -109,6 +109,8 @@ To contact the TrueCharts project:
 
 - Create an issue on [Github issues](https://github.com/truecharts/apps/issues)
 
+- File a [support ticket](https://truecharts.org/discord)
+
 - Send us an [email](mailto://info@truecharts.org)
 
 - Or [join our Discord server](https://truecharts.org/discord)
