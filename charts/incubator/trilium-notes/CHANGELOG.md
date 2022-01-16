@@ -7,4 +7,3 @@
 #### Feat
 
 * Add Trilium Notes ([#1715](https://github.com/truecharts/apps/issues/1715))
-
