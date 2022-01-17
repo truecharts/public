@@ -9,8 +9,8 @@ image:
 #   runAsUser: 568
 #   runAsGroup: 568
 
-securityContext:
-  readOnlyRootFilesystem: false
+# securityContext:
+  # readOnlyRootFilesystem: false
 #   runAsNonRoot: true
 
 service:
@@ -39,3 +39,5 @@ persistence:
   scandir:
     enabled: true
     mountPath: "/scandir"
+  varrun:
+    enabled: true
