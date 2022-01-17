@@ -17,16 +17,16 @@ service:
       main:
         port: 3310
         targetPort: 3310
-  mitter:
+  milter:
     ports:
-      main:
+      milter:
         port: 7357
         targetPort: 7357
 
 env:
   CLAMAV_NO_CLAMD: false
   CLAMAV_NO_FRESHCLAMD: false
-  CLAMAV_NO_MILTERD: false
+  CLAMAV_NO_MILTERD: true
   CLAMD_STARTUP_TIMEOUT: 1800
   FRESHCLAM_CHECKS: 1
 

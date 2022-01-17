@@ -78,7 +78,7 @@ questions:
           description: "Do not start the clamav-milter daemon."
           schema:
             type: boolean
-            default: false
+            default: true
         - variable: CLAMD_STARTUP_TIMEOUT
           label: "STARTUP TIMEOUT"
           description: "Seconds to wait for clamd to start."
@@ -158,14 +158,14 @@ questions:
                                   schema:
                                     type: int
                                     default: 3310
-        - variable: mitter
-          label:  "Mitter Service"
+        - variable: milter
+          label:  "Milter Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: mitter
+                    - variable: milter
                       label: "Main Service Port Configuration"
                       schema:
                         type: dict
