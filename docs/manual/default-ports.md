@@ -62,6 +62,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | loki                       |      main       |      main       | 3100  |   HTTP   |                                         |
 | jdownloader2               |      myjd       |      myjd       | 3129  |   TCP    |                                         |
 | pylon                      |      main       |      main       | 3131  |   TCP    |                                         |
+| clamav                     |      main       |      main       | 3310  |   TCP    |                                         |
 | unifi                      |      stun       |    mstunain     | 3478  |   UDP    |                                         |
 | logitech-media-server      |    playertcp    |  slimprototcp   | 3483  |   TCP    |                                         |
 | logitech-media-server      |    playerudp    |  slimprotoudp   | 3483  |   UDP    |                                         |
@@ -93,6 +94,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | qbittorrent                |   torrentudp    |   torrentudp    | 6881  |   UDP    |                                         |
 | aria2                      |     listen      |     listen      | 6888  |   TCP    |                                         |
 | logitech-media-server      |      main       |      main       | 7000  |   TCP    |                                         |
+| clamav                     |     milter      |     milter      | 7357  |   TCP    |                                         |
 | foldingathome              |      main       |      main       | 7396  |   TCP    |                                         |
 | haste-server               |      main       |      main       | 7777  |   TCP    |                                         |
 | nextcloud                  |       hpb       |       hpb       | 7867  |   TCP    |                                         |
@@ -145,7 +147,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | tvheadend                  |      main       |      main       | 9981  |   TCP    |                                         |
 | tvheadend                  |      htsp       |      htsp       | 9982  |   TCP    |                                         |
 | teamspeak3                 |      voice      |      voice      | 9987  |   UDP    |                                         |
-| guacamole-client           |      main       |      main       | 9998 |   TCP    |                                         |
+| guacamole-client           |      main       |      main       | 9998  |   TCP    |                                         |
 | stash                      |      main       |      main       | 9999  |   TCP    |                                         |
 | ser2sock                   |      main       |      main       | 10000 |   TCP    |                                         |
 | deconz                     |    websocket    |    websocket    | 10001 |   TCP    |                                         |
@@ -367,88 +369,89 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 
 ## Ports that are blocked in major web browsers
 
-| Port  | Used by (example) |
-| :---: | :---: |
-| 1 | tcpmux |
-| 7 | echo |
-| 9 | discard |
-| 11 | systat |
-| 13 | daytime |
-| 15 | netstat |
-| 17 | qotd |
-| 19 | chargen |
-| 20 | ftp data |
-| 21 | ftp access |
-| 22 | ssh |
-| 23 | telnet |
-| 25 | smtp |
-| 37 | time |
-| 42 | name |
-| 43 | nicname |
-| 53 | domain |
-| 69 | tftp |
-| 77 | priv-rjs |
-| 79 | finger |
-| 87 | ttylink |
-| 95 | supdup |
-| 101 | hostriame |
-| 102 | iso-tsap |
-| 103 | gppitnp |
-| 104 | acr-nema |
-| 109 | pop2 |
-| 110 | pop3 |
-| 111 | sunrpc |
-| 113 | auth |
-| 115 | sftp |
-| 117 | uucp-path |
-| 119 | nntp |
-| 123 | NTP |
-| 135 | loc-srv /epmap |
-| 137 | netbios |
-| 139 | netbios |
-| 143 | imap2 |
-| 161 | snmp |
-| 179 | BGP |
-| 389 | ldap |
-| 427 | SLP (Also used by Apple Filing Protocol) |
-| 465 | smtp+ssl |
-| 512 | print / exec |
-| 513 | login |
-| 514 | shell |
-| 515 | printer |
-| 526 | tempo |
-| 530 | courier |
-| 531 | chat |
-| 532 | netnews |
-| 540 | uucp |
-| 548 | AFP (Apple Filing Protocol) |
-| 554 | rtsp |
-| 556 | remotefs |
-| 563 | nntp+ssl |
-| 587 | smtp (rfc6409) |
-| 601 | syslog-conn (rfc3195) |
-| 636 | ldap+ssl |
-| 989 | ftps-data |
-| 990 | ftps |
-| 993 | ldap+ssl |
-| 995 | pop3+ssl |
-| 1719 | h323gatestat |
-| 1720 | h323hostcall |
-| 1723 | pptp |
-| 2049 | nfs |
-| 3659 | apple-sasl / PasswordServer |
-| 4045 | lockd |
-| 5060 | sip |
-| 5061 | sips |
-| 6000 | X11 |
-| 6566 | sane-port |
-| 6665 | Alternate IRC [Apple addition] |
-| 6666 | Alternate IRC [Apple addition] |
-| 6667 | Standard IRC [Apple addition] |
-| 6668 | Alternate IRC [Apple addition] |
-| 6669 | Alternate IRC [Apple addition] |
-| 6697 | IRC + TLS |
-| 10080 | Amanda |
+| Port  |            Used by (example)             |
+| :---: | :--------------------------------------: |
+|   1   |                  tcpmux                  |
+|   7   |                   echo                   |
+|   9   |                 discard                  |
+|  11   |                  systat                  |
+|  13   |                 daytime                  |
+|  15   |                 netstat                  |
+|  17   |                   qotd                   |
+|  19   |                 chargen                  |
+|  20   |                 ftp data                 |
+|  21   |                ftp access                |
+|  22   |                   ssh                    |
+|  23   |                  telnet                  |
+|  25   |                   smtp                   |
+|  37   |                   time                   |
+|  42   |                   name                   |
+|  43   |                 nicname                  |
+|  53   |                  domain                  |
+|  69   |                   tftp                   |
+|  77   |                 priv-rjs                 |
+|  79   |                  finger                  |
+|  87   |                 ttylink                  |
+|  95   |                  supdup                  |
+|  101  |                hostriame                 |
+|  102  |                 iso-tsap                 |
+|  103  |                 gppitnp                  |
+|  104  |                 acr-nema                 |
+|  109  |                   pop2                   |
+|  110  |                   pop3                   |
+|  111  |                  sunrpc                  |
+|  113  |                   auth                   |
+|  115  |                   sftp                   |
+|  117  |                uucp-path                 |
+|  119  |                   nntp                   |
+|  123  |                   NTP                    |
+|  135  |              loc-srv /epmap              |
+|  137  |                 netbios                  |
+|  139  |                 netbios                  |
+|  143  |                  imap2                   |
+|  161  |                   snmp                   |
+|  179  |                   BGP                    |
+|  389  |                   ldap                   |
+|  427  | SLP (Also used by Apple Filing Protocol) |
+|  465  |                 smtp+ssl                 |
+|  512  |               print / exec               |
+|  513  |                  login                   |
+|  514  |                  shell                   |
+|  515  |                 printer                  |
+|  526  |                  tempo                   |
+|  530  |                 courier                  |
+|  531  |                   chat                   |
+|  532  |                 netnews                  |
+|  540  |                   uucp                   |
+|  548  |       AFP (Apple Filing Protocol)        |
+|  554  |                   rtsp                   |
+|  556  |                 remotefs                 |
+|  563  |                 nntp+ssl                 |
+|  587  |              smtp (rfc6409)              |
+|  601  |          syslog-conn (rfc3195)           |
+|  636  |                 ldap+ssl                 |
+|  989  |                ftps-data                 |
+|  990  |                   ftps                   |
+|  993  |                 ldap+ssl                 |
+|  995  |                 pop3+ssl                 |
+| 1719  |               h323gatestat               |
+| 1720  |               h323hostcall               |
+| 1723  |                   pptp                   |
+| 2049  |                   nfs                    |
+| 3659  |       apple-sasl / PasswordServer        |
+| 4045  |                  lockd                   |
+| 5060  |                   sip                    |
+| 5061  |                   sips                   |
+| 6000  |                   X11                    |
+| 6566  |                sane-port                 |
+| 6665  |      Alternate IRC [Apple addition]      |
+| 6666  |      Alternate IRC [Apple addition]      |
+| 6667  |      Standard IRC [Apple addition]       |
+| 6668  |      Alternate IRC [Apple addition]      |
+| 6669  |      Alternate IRC [Apple addition]      |
+| 6697  |                IRC + TLS                 |
+| 10080 |                  Amanda                  |
+
 ##### Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
 
 ##### If you notice a port conflict, please notify us so we can resolve it (when possible).
