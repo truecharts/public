@@ -11,27 +11,25 @@ podSecurityContext:
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: true
+  runAsNonRoot: false
 
 livenessProbe:
-  enabled: false
-  # exec:
-  #   command:
-  #     - clamdcheck.sh
-  # initialDelaySeconds: 15
-  # periodSeconds: 30
-  # failureThreshold: 10
-  # timeoutSeconds: 1
+  exec:
+    command:
+      - clamdcheck.sh
+  initialDelaySeconds: 15
+  periodSeconds: 30
+  failureThreshold: 10
+  timeoutSeconds: 1
 
 readinessProbe:
-  enabled: false
-  # exec:
-  #   command:
-  #     - clamdcheck.sh
-  # initialDelaySeconds: 15
-  # periodSeconds: 30
-  # failureThreshold: 10
-  # timeoutSeconds: 1
+  exec:
+    command:
+      - clamdcheck.sh
+  initialDelaySeconds: 15
+  periodSeconds: 30
+  failureThreshold: 10
+  timeoutSeconds: 1
 
 service:
   main:
@@ -59,3 +57,4 @@ persistence:
   scandir:
     enabled: true
     mountPath: "/scandir"
+    readOnly: true
