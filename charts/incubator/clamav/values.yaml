@@ -9,8 +9,8 @@ podSecurityContext:
   runAsUser: 100
   runAsGroup: 101
 
-# securityContext:
-  # readOnlyRootFilesystem: false
+securityContext:
+  readOnlyRootFilesystem: false
 #   runAsNonRoot: true
 
 service:
@@ -39,5 +39,3 @@ persistence:
   scandir:
     enabled: true
     mountPath: "/scandir"
-  # varrun:
-  #   enabled: true
