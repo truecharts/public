@@ -1,9 +1,7 @@
 image:
-  # repository: tccr.io/truecharts/clamav
-  repository: clamav/clamav
+  repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
-  # tag: v0.104.2@sha256:9b600aac57738b292236fc534220b317ee3185fc96d0a995e08f44b19c4dcb25
-  tag: 0.104.2
+  tag: v0.104.2@sha256:9b600aac57738b292236fc534220b317ee3185fc96d0a995e08f44b19c4dcb25
 
 podSecurityContext:
   runAsUser: 0
