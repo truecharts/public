@@ -396,13 +396,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 1001
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 1001
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
