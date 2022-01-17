@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-1.0.1"></a>
+### [guacamole-client-1.0.1](https://github.com/truecharts/apps/compare/guacamole-client-1.0.0...guacamole-client-1.0.1) (2022-01-17)
+
+#### Fix
+
+* fix default readFS on questions ([#1727](https://github.com/truecharts/apps/issues/1727))
+
+
+
 <a name="guacamole-client-1.0.0"></a>
 ### [guacamole-client-1.0.0](https://github.com/truecharts/apps/compare/guacamole-client-0.0.2...guacamole-client-1.0.0) (2022-01-16)
 
