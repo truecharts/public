@@ -14,22 +14,24 @@ securityContext:
   runAsNonRoot: true
 
 livenessProbe:
-  exec:
-    command:
-      - clamdcheck.sh
-  initialDelaySeconds: 15
-  periodSeconds: 30
-  failureThreshold: 10
-  timeoutSeconds: 1
+  enabled: false
+  # exec:
+  #   command:
+  #     - clamdcheck.sh
+  # initialDelaySeconds: 15
+  # periodSeconds: 30
+  # failureThreshold: 10
+  # timeoutSeconds: 1
 
 readinessProbe:
-  exec:
-    command:
-      - clamdcheck.sh
-  initialDelaySeconds: 15
-  periodSeconds: 30
-  failureThreshold: 10
-  timeoutSeconds: 1
+  enabled: false
+  # exec:
+  #   command:
+  #     - clamdcheck.sh
+  # initialDelaySeconds: 15
+  # periodSeconds: 30
+  # failureThreshold: 10
+  # timeoutSeconds: 1
 
 service:
   main:
