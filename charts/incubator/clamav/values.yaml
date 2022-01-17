@@ -13,23 +13,40 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 
-livenessProbe:
-  exec:
-    command:
-      - clamdcheck.sh
-  initialDelaySeconds: 15
-  periodSeconds: 30
-  failureThreshold: 10
-  timeoutSeconds: 1
-
-readinessProbe:
-  exec:
-    command:
-      - clamdcheck.sh
-  initialDelaySeconds: 15
-  periodSeconds: 30
-  failureThreshold: 10
-  timeoutSeconds: 1
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - clamdcheck.sh
+      initialDelaySeconds: 15
+      periodSeconds: 30
+      failureThreshold: 10
+      timeoutSeconds: 1
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - clamdcheck.sh
+      initialDelaySeconds: 15
+      periodSeconds: 30
+      failureThreshold: 10
+      timeoutSeconds: 1
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - clamdcheck.sh
+      initialDelaySeconds: 15
+      periodSeconds: 30
+      failureThreshold: 10
+      timeoutSeconds: 1
 
 service:
   main:
