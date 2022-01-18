@@ -24,7 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | forward.secondary | string | `"tls://1.0.0.1"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/k8s_gateway"` |  |
-| image.tag | string | `"v0.1.8@sha256:c71ea11938d6c93b0af6f25230810ec13c7d28b29dfb8512adc6d1def7f200b6"` |  |
+| image.tag | string | `"v0.2.1@sha256:950f10e707c4e7e10258bc34c4fb7dcd3534f2dad0938b919c2a9e748b178d34"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | probes.liveness.custom | bool | `true` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appdaemon-7.0.14"></a>
+### [appdaemon-7.0.14](https://github.com/truecharts/apps/compare/appdaemon-7.0.13...appdaemon-7.0.14) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
 <a name="appdaemon-7.0.13"></a>
 ### [appdaemon-7.0.13](https://github.com/truecharts/apps/compare/appdaemon-7.0.12...appdaemon-7.0.13) (2022-01-13)
 

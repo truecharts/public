@@ -32,7 +32,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/k8s_gateway:v0.1.8@sha256:c71ea11938d6c93b0af6f25230810ec13c7d28b29dfb8512adc6d1def7f200b6
+          tccr.io/truecharts/k8s_gateway:v0.2.1@sha256:950f10e707c4e7e10258bc34c4fb7dcd3534f2dad0938b919c2a9e748b178d34
 
 ##### Scan Results
 
@@ -77,5 +77,4 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| go.etcd.io/etcd         |    CVE-2020-15106   |   MEDIUM  |  v0.5.0-alpha.5.0.20200306183522-221f0cc107cb | 0.5.0-alpha.5.0.20200423152442-f4b650b51dc4 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15106">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15106</a><br><a href="https://github.com/etcd-io/etcd/security/advisories/GHSA-p4g4-wgrh-qrg2">https://github.com/etcd-io/etcd/security/advisories/GHSA-p4g4-wgrh-qrg2</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/L6B6R43Y7M3DCHWK3L3UVGE2K6WWECMP/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/L6B6R43Y7M3DCHWK3L3UVGE2K6WWECMP/</a><br></details>  |
 | golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary></details>  |

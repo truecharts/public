@@ -51,7 +51,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/loki"` |  |
-| image.tag | string | `"v2.4.1@sha256:79c6f31e246f6edac4efa651f1e246273bd1370bb140d1fa4f3fe143c2251aff"` |  |
+| image.tag | string | `"v2.4.2@sha256:72adb0e2891b3dc41bd40e9ba8445ffc60309d36ed391eab26d9dec10b4e1c88"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/loki"` | Where to mount the volume in the main container. |
 | persistence.config.objectName | string | `"{{ include \"common.names.fullname\" . -}}-config"` | Specify the name of the configmap object to be mounted |

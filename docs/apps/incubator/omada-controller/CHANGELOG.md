@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.47"></a>
+### [omada-controller-4.0.47](https://github.com/truecharts/apps/compare/omada-controller-4.0.46...omada-controller-4.0.47) (2022-01-17)
+
+#### Chore
+
+* remove remaining mountPaths from incubator apps ([#1718](https://github.com/truecharts/apps/issues/1718))
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
 <a name="omada-controller-4.0.46"></a>
 ### [omada-controller-4.0.46](https://github.com/truecharts/apps/compare/omada-controller-4.0.45...omada-controller-4.0.46) (2022-01-13)
 

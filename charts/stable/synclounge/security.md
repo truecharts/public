@@ -32,7 +32,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/synclounge:v5.1.111
+          tccr.io/truecharts/synclounge:v5.1.112
 
 ##### Scan Results
 

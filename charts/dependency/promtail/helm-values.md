@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | config.snippets.extraScrapeConfigs | string | empty | You can put here any additional scrape configs you want to add to the config file. |
 | envValueFrom.HOSTNAME.fieldRef.fieldPath | string | `"spec.nodeName"` |  |
 | image.repository | string | `"ghcr.io/truecharts/promtail"` |  |
-| image.tag | string | `"v2.4.1@sha256:83bceed26a638b211d65b6e80d4a33d01dc82b81e630d57e883b490ac0c57ef4"` |  |
+| image.tag | string | `"v2.4.2@sha256:171e08dcdd1d6c09bff949c37ce4f4756b9ee0132f8d84631986faa223562a30"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/etc/promtail"` |  |
 | persistence.config.objectName | string | `"promtail-config"` |  |

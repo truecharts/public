@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.23"></a>
+### [blog-0.0.23](https://github.com/truecharts/apps/compare/blog-0.0.22...blog-0.0.23) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
 <a name="blog-0.0.22"></a>
 ### [blog-0.0.22](https://github.com/truecharts/apps/compare/blog-0.0.21...blog-0.0.22) (2022-01-13)
 

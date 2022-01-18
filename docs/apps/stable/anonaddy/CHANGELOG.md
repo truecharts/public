@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="anonaddy-6.0.24"></a>
+### [anonaddy-6.0.24](https://github.com/truecharts/apps/compare/anonaddy-6.0.23...anonaddy-6.0.24) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
 <a name="anonaddy-6.0.23"></a>
 ### [anonaddy-6.0.23](https://github.com/truecharts/apps/compare/anonaddy-6.0.22...anonaddy-6.0.23) (2022-01-13)
 

@@ -7,4 +7,3 @@
 #### Feat
 
 * add clamav ([#1725](https://github.com/truecharts/apps/issues/1725))
-

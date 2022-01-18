@@ -187,7 +187,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"v14.1.0@sha256:8fdcaf482cf457e6051b0e8f14d8c0374c06862789ab6563d36ec2797b43124a"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` |  |
 | probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
@@ -211,7 +211,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | promtailImage | object | See below | promtail specific configuration |
 | promtailImage.pullPolicy | string | `"IfNotPresent"` | Specify the promtail image pull policy |
 | promtailImage.repository | string | `"ghcr.io/truecharts/promtail"` | Specify the promtail image |
-| promtailImage.tag | string | `"v2.4.1@sha256:83bceed26a638b211d65b6e80d4a33d01dc82b81e630d57e883b490ac0c57ef4"` | Specify the promtail image tag |
+| promtailImage.tag | string | `"v2.4.2@sha256:171e08dcdd1d6c09bff949c37ce4f4756b9ee0132f8d84631986faa223562a30"` | Specify the promtail image tag |
 | rbac | object | See below | Create a ClusterRole and ClusterRoleBinding |
 | rbac.clusterRoleAnnotations | object | `{}` | Set labels on the ClusterRole |
 | rbac.clusterRoleBindingAnnotations | object | `{}` | Set labels on the ClusterRoleBinding |

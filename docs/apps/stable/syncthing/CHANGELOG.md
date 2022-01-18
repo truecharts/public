@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-9.0.34"></a>
+### [syncthing-9.0.34](https://github.com/truecharts/apps/compare/syncthing-9.0.33...syncthing-9.0.34) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
 <a name="syncthing-9.0.33"></a>
 ### [syncthing-9.0.33](https://github.com/truecharts/apps/compare/syncthing-9.0.32...syncthing-9.0.33) (2022-01-13)
 

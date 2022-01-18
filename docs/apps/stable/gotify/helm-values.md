@@ -24,7 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envFrom[0].configMapRef.name | string | `"gotifyenv"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/gotify-server"` |  |
-| image.tag | string | `"v2.1.3@sha256:832ee2e12000da56c5778813dd69b60694dcfcea853afac684f12402c89295f4"` |  |
+| image.tag | string | `"v2.1.4@sha256:3f568cbc18808a8d138b07073233411a1077676e28a468b7e345fffae639fa32"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/app/data"` |  |
 | postgresql.enabled | bool | `true` |  |

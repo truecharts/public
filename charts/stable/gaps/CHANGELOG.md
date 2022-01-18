@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gaps-9.0.33"></a>
+### [gaps-9.0.33](https://github.com/truecharts/apps/compare/gaps-9.0.32...gaps-9.0.33) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
 <a name="gaps-9.0.32"></a>
 ### [gaps-9.0.32](https://github.com/truecharts/apps/compare/gaps-9.0.31...gaps-9.0.32) (2022-01-13)
 

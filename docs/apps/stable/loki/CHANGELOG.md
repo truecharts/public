@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-2.0.20"></a>
+### [loki-2.0.20](https://github.com/truecharts/apps/compare/loki-2.0.19...loki-2.0.20) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
 <a name="loki-2.0.19"></a>
 ### [loki-2.0.19](https://github.com/truecharts/apps/compare/loki-2.0.18...loki-2.0.19) (2022-01-13)
 

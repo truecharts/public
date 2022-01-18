@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.13.1"></a>
+### [common-8.13.1](https://github.com/truecharts/apps/compare/common-8.13.0...common-8.13.1) (2022-01-17)
+
+#### Chore
+
+* update docker general non-major ([#1728](https://github.com/truecharts/apps/issues/1728))
+
+
+
 <a name="common-8.13.0"></a>
 ### [common-8.13.0](https://github.com/truecharts/apps/compare/common-8.12.2...common-8.13.0) (2022-01-13)
 

@@ -33,7 +33,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/emulatorjs:v1.5.1
+          tccr.io/truecharts/emulatorjs:v1.6.0
 
 ##### Scan Results
 
@@ -84,6 +84,5 @@ hide:
 **gobinary**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.3 | 0.3.7 | <details><summary>Expand...</summary></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|

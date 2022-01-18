@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/lidarr"` |  |
-| image.tag | string | `"v1.0.0.2422@sha256:f40ec3b7edd829ceb9fa497ca0fa725679030499a7c6caf91ff257c6e8244a23"` |  |
+| image.tag | string | `"v1.0.0.2424@sha256:6a4b279b958695e1537b469b1a56a2eaa69baf9597f70e992d6e4d51efc41325"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.custom | bool | `true` |  |

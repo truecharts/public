@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/node-red"` |  |
-| image.tag | string | `"v2.1.4@sha256:a27f379420bfdc1a1b6b14786f4eaf5a17f3d1a33028d54dba5ec43d51118eae"` |  |
+| image.tag | string | `"v2.1.5@sha256:fe5bbd3116587e7bcd44364257b7d6449922b0226790dcf00d1f70cbe699372b"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | service.main.ports.main.port | int | `1880` |  |
