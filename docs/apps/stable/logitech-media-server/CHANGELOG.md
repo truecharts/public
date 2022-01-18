@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.48"></a>
+### [logitech-media-server-2.0.48](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.47...logitech-media-server-2.0.48) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="logitech-media-server-2.0.47"></a>
 ### [logitech-media-server-2.0.47](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.46...logitech-media-server-2.0.47) (2022-01-17)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audacity-2.0.32"></a>
+### [audacity-2.0.32](https://github.com/truecharts/apps/compare/audacity-2.0.31...audacity-2.0.32) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="audacity-2.0.31"></a>
 ### [audacity-2.0.31](https://github.com/truecharts/apps/compare/audacity-2.0.30...audacity-2.0.31) (2022-01-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.44"></a>
+### [komga-4.0.44](https://github.com/truecharts/apps/compare/komga-4.0.43...komga-4.0.44) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="komga-4.0.43"></a>
 ### [komga-4.0.43](https://github.com/truecharts/apps/compare/komga-4.0.42...komga-4.0.43) (2022-01-17)
 

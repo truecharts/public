@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grav-2.0.32"></a>
+### [grav-2.0.32](https://github.com/truecharts/apps/compare/grav-2.0.31...grav-2.0.32) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="grav-2.0.31"></a>
 ### [grav-2.0.31](https://github.com/truecharts/apps/compare/grav-2.0.30...grav-2.0.31) (2022-01-13)
 

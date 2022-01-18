@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-3.0.13"></a>
+### [onlyoffice-document-server-3.0.13](https://github.com/truecharts/apps/compare/onlyoffice-document-server-3.0.12...onlyoffice-document-server-3.0.13) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="onlyoffice-document-server-3.0.12"></a>
 ### [onlyoffice-document-server-3.0.12](https://github.com/truecharts/apps/compare/onlyoffice-document-server-3.0.11...onlyoffice-document-server-3.0.12) (2022-01-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-9.0.36"></a>
+### [unifi-9.0.36](https://github.com/truecharts/apps/compare/unifi-9.0.35...unifi-9.0.36) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="unifi-9.0.35"></a>
 ### [unifi-9.0.35](https://github.com/truecharts/apps/compare/unifi-9.0.34...unifi-9.0.35) (2022-01-13)
 

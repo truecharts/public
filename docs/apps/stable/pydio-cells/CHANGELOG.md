@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pydio-cells-0.0.14"></a>
+### [pydio-cells-0.0.14](https://github.com/truecharts/apps/compare/pydio-cells-0.0.13...pydio-cells-0.0.14) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="pydio-cells-0.0.13"></a>
 ### [pydio-cells-0.0.13](https://github.com/truecharts/apps/compare/pydio-cells-0.0.12...pydio-cells-0.0.13) (2022-01-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="scrutiny-0.0.15"></a>
+### [scrutiny-0.0.15](https://github.com/truecharts/apps/compare/scrutiny-0.0.14...scrutiny-0.0.15) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="scrutiny-0.0.14"></a>
 ### [scrutiny-0.0.14](https://github.com/truecharts/apps/compare/scrutiny-0.0.13...scrutiny-0.0.14) (2022-01-13)
 

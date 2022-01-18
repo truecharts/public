@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-5.0.15"></a>
+### [openldap-5.0.15](https://github.com/truecharts/apps/compare/openldap-5.0.14...openldap-5.0.15) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="openldap-5.0.14"></a>
 ### [openldap-5.0.14](https://github.com/truecharts/apps/compare/openldap-5.0.13...openldap-5.0.14) (2022-01-13)
 

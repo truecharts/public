@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-4.0.32"></a>
+### [protonmail-bridge-4.0.32](https://github.com/truecharts/apps/compare/protonmail-bridge-4.0.31...protonmail-bridge-4.0.32) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="protonmail-bridge-4.0.31"></a>
 ### [protonmail-bridge-4.0.31](https://github.com/truecharts/apps/compare/protonmail-bridge-4.0.30...protonmail-bridge-4.0.31) (2022-01-13)
 

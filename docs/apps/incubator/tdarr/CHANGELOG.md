@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="tdarr-1.0.38"></a>
+### [tdarr-1.0.38](https://github.com/truecharts/apps/compare/tdarr-node-1.0.37...tdarr-1.0.38) (2022-01-18)
+
+#### Chore
+
+* remove remaining mountPaths from incubator apps ([#1718](https://github.com/truecharts/apps/issues/1718))
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="tdarr-1.0.37"></a>
 ### [tdarr-1.0.37](https://github.com/truecharts/apps/compare/tdarr-node-1.0.36...tdarr-1.0.37) (2022-01-13)
 

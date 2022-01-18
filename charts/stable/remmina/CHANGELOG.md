@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="remmina-1.0.36"></a>
+### [remmina-1.0.36](https://github.com/truecharts/apps/compare/remmina-1.0.34...remmina-1.0.36) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+* update helm general non-major helm releases ([#1712](https://github.com/truecharts/apps/issues/1712))
+
+#### Feat
+
+* expose capabilities in GUI ([#1709](https://github.com/truecharts/apps/issues/1709))
+
+
+
 <a name="remmina-1.0.35"></a>
 ### [remmina-1.0.35](https://github.com/truecharts/apps/compare/remmina-1.0.34...remmina-1.0.35) (2022-01-13)
 

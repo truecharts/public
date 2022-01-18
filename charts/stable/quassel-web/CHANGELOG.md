@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="quassel-web-0.0.14"></a>
+### [quassel-web-0.0.14](https://github.com/truecharts/apps/compare/quassel-web-0.0.13...quassel-web-0.0.14) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="quassel-web-0.0.13"></a>
 ### [quassel-web-0.0.13](https://github.com/truecharts/apps/compare/quassel-web-0.0.12...quassel-web-0.0.13) (2022-01-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pylon-0.0.13"></a>
+### [pylon-0.0.13](https://github.com/truecharts/apps/compare/pylon-0.0.12...pylon-0.0.13) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="pylon-0.0.12"></a>
 ### [pylon-0.0.12](https://github.com/truecharts/apps/compare/pylon-0.0.11...pylon-0.0.12) (2022-01-13)
 

@@ -81,14 +81,14 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92
+          tccr.io/truecharts/postgresql:v14.1.0@sha256:8fdcaf482cf457e6051b0e8f14d8c0374c06862789ab6563d36ec2797b43124a
           'tccr.io/truecharts/gitea:v1.15.10@sha256:2a8f096d72a943477db14520625b663d027bcb84c7ee46dab70cc67b2903fc71'
           'tccr.io/truecharts/gitea:v1.15.10@sha256:2a8f096d72a943477db14520625b663d027bcb84c7ee46dab70cc67b2903fc71'
           tccr.io/truecharts/gitea:v1.15.10@sha256:2a8f096d72a943477db14520625b663d027bcb84c7ee46dab70cc67b2903fc71
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/memcached:v1.6.12@sha256:f1cce33d66379742a0fa9f5b448de96c71dbd64e7915e6500b97c0cbbbe1f294
+          tccr.io/truecharts/memcached:v1.6.13@sha256:f7164754ad2db7be95d48c68d78c0f1dc916ed6760d9f63abbc88b31e895ad31
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/postgresql:v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92
+          tccr.io/truecharts/postgresql:v14.1.0@sha256:9bd4cab3391b2c8ddca31095557386b5f3f577b457072e941caece660eb9aaee
 
 ##### Scan Results
 
@@ -125,7 +125,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92 (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:8fdcaf482cf457e6051b0e8f14d8c0374c06862789ab6563d36ec2797b43124a (debian 10.11)
 
 
 **debian**
@@ -369,10 +369,16 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| expat         |    CVE-2022-22822   |   CRITICAL  |  2.2.10-r1 | 2.2.10-r2 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
+| expat         |    CVE-2022-22823   |   CRITICAL  |  2.2.10-r1 | 2.2.10-r2 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
+| expat         |    CVE-2022-22824   |   CRITICAL  |  2.2.10-r1 | 2.2.10-r2 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
+| expat         |    CVE-2021-45960   |   HIGH  |  2.2.10-r1 | 2.2.10-r2 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1217609">https://bugzilla.mozilla.org/show_bug.cgi?id=1217609</a><br><a href="https://github.com/libexpat/libexpat/issues/531">https://github.com/libexpat/libexpat/issues/531</a><br><a href="https://github.com/libexpat/libexpat/pull/534">https://github.com/libexpat/libexpat/pull/534</a><br></details>  |
+| expat         |    CVE-2021-46143   |   HIGH  |  2.2.10-r1 | 2.2.10-r2 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/issues/532">https://github.com/libexpat/libexpat/issues/532</a><br><a href="https://github.com/libexpat/libexpat/pull/538">https://github.com/libexpat/libexpat/pull/538</a><br></details>  |
+| expat         |    CVE-2022-22825   |   HIGH  |  2.2.10-r1 | 2.2.10-r2 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
+| expat         |    CVE-2022-22826   |   HIGH  |  2.2.10-r1 | 2.2.10-r2 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
+| expat         |    CVE-2022-22827   |   HIGH  |  2.2.10-r1 | 2.2.10-r2 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
 
 **gobinary**
 
@@ -422,7 +428,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/memcached:v1.6.12@sha256:f1cce33d66379742a0fa9f5b448de96c71dbd64e7915e6500b97c0cbbbe1f294 (debian 10.11)
+#### Container: tccr.io/truecharts/memcached:v1.6.13@sha256:f7164754ad2db7be95d48c68d78c0f1dc916ed6760d9f63abbc88b31e895ad31 (debian 10.11)
 
 
 **debian**
@@ -624,7 +630,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:d50f2f6707cf1fbe960479e3bd3b8dd05cb402612a149df0fb3c6325271d4a92 (debian 10.11)
+#### Container: tccr.io/truecharts/postgresql:v14.1.0@sha256:9bd4cab3391b2c8ddca31095557386b5f3f577b457072e941caece660eb9aaee (debian 10.11)
 
 
 **debian**

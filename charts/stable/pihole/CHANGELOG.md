@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pihole-4.0.37"></a>
+### [pihole-4.0.37](https://github.com/truecharts/apps/compare/pihole-4.0.36...pihole-4.0.37) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="pihole-4.0.36"></a>
 ### [pihole-4.0.36](https://github.com/truecharts/apps/compare/pihole-4.0.35...pihole-4.0.36) (2022-01-13)
 

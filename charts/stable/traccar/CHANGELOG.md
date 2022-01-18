@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traccar-4.0.23"></a>
+### [traccar-4.0.23](https://github.com/truecharts/apps/compare/traccar-4.0.22...traccar-4.0.23) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="traccar-4.0.22"></a>
 ### [traccar-4.0.22](https://github.com/truecharts/apps/compare/traccar-4.0.21...traccar-4.0.22) (2022-01-13)
 

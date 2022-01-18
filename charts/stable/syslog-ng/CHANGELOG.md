@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syslog-ng-0.0.14"></a>
+### [syslog-ng-0.0.14](https://github.com/truecharts/apps/compare/syslog-ng-0.0.13...syslog-ng-0.0.14) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="syslog-ng-0.0.13"></a>
 ### [syslog-ng-0.0.13](https://github.com/truecharts/apps/compare/syslog-ng-0.0.12...syslog-ng-0.0.13) (2022-01-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lychee-9.0.33"></a>
+### [lychee-9.0.33](https://github.com/truecharts/apps/compare/lychee-9.0.32...lychee-9.0.33) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="lychee-9.0.32"></a>
 ### [lychee-9.0.32](https://github.com/truecharts/apps/compare/lychee-9.0.31...lychee-9.0.32) (2022-01-13)
 

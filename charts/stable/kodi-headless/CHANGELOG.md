@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kodi-headless-0.0.14"></a>
+### [kodi-headless-0.0.14](https://github.com/truecharts/apps/compare/kodi-headless-0.0.13...kodi-headless-0.0.14) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="kodi-headless-0.0.13"></a>
 ### [kodi-headless-0.0.13](https://github.com/truecharts/apps/compare/kodi-headless-0.0.12...kodi-headless-0.0.13) (2022-01-13)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="foldingathome-0.0.14"></a>
+### [foldingathome-0.0.14](https://github.com/truecharts/apps/compare/foldingathome-0.0.13...foldingathome-0.0.14) (2022-01-18)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+
+
 <a name="foldingathome-0.0.13"></a>
 ### [foldingathome-0.0.13](https://github.com/truecharts/apps/compare/foldingathome-0.0.12...foldingathome-0.0.13) (2022-01-13)
 
