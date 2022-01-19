@@ -9,6 +9,9 @@ This list may, ofcoarse, change without notice. All non-filled staff positions f
 
 **Tasks:**
 - General Project management
+- Primary maintainer for the `core`, `dependency` and `enterprise` trains
+- Primary maintainer for the container(-mirror)
+- Primary maintainer for the misc. tools, like trueupdate
 - Finances
 - Primary Core Developer
 
@@ -18,6 +21,7 @@ This list may, ofcoarse, change without notice. All non-filled staff positions f
 ##### Co-Maintainer: StavrosK
 
 **Tasks:**
+- Primary maintainer for the `Stable` and `incubator` trains
 - Second-In-Command
 - Cooridnating Support Requests
 - Secondary Core Developer
