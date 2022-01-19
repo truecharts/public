@@ -15,6 +15,8 @@ secret:
 # -- environment variables. See [image docs](https://docs.photoprism.org/getting-started/config-options/) for more details.
 # @default -- See below
 env:
+
+  HOME: "/photoprism"
   # -- Set the container timezone
   TZ: UTC
   # -- Photoprism originals path
@@ -36,9 +38,10 @@ env:
   # -- Disable authentication / password protection
   PHOTOPRISM_PUBLIC: false
   # -- Sets UID Photoprism runs under.
-  UID:  # 1000
+  PHOTOPRISM_UID: "{{ .Values.podSecurityContext.runAsUser }}"
   # -- Sets GID Photoprism runs under.
-  GID:  # 1000
+  PHOTOPRISM_GID:  "{{ .Values.podSecurityContext.runAsGroup }}"
+  PHOTOPRISM_UMASK: "{{ .Values.env.UMASK }}"
   PHOTOPRISM_DATABASE_DRIVER: "mysql"            # Use MariaDB 10.5+ or MySQL 8+ instead of SQLite for improved performance
   PHOTOPRISM_DATABASE_NAME: "photoprism"         # MariaDB or MySQL database schema name
   PHOTOPRISM_DATABASE_USER: "photoprism"         # MariaDB or MySQL database user name
