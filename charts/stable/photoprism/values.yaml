@@ -21,7 +21,6 @@ env:
   PROTOPRISM_BACKUP_PATH: "/assets/backup"
   PHOTOPRISM_PUBLIC: false
   PHOTOPRISM_UID: "{{ .Values.podSecurityContext.runAsUser }}"
-
   PHOTOPRISM_GID: "{{ .Values.podSecurityContext.runAsGroup }}"
   PHOTOPRISM_UMASK: "{{ .Values.env.UMASK }}"
   PHOTOPRISM_DATABASE_DRIVER: "mysql"
