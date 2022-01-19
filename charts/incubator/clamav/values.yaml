@@ -53,8 +53,10 @@ service:
         port: 3310
         targetPort: 3310
   milter:
+    enabled: true
     ports:
       milter:
+        enabled: true
         port: 7357
         targetPort: 7357
 
