@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emulatorjs-0.0.19"></a>
+### [emulatorjs-0.0.19](https://github.com/truecharts/apps/compare/emulatorjs-0.0.18...emulatorjs-0.0.19) (2022-01-19)
+
+#### Chore
+
+* update docker general non-major ([#1741](https://github.com/truecharts/apps/issues/1741))
+
+
+
 <a name="emulatorjs-0.0.18"></a>
 ### [emulatorjs-0.0.18](https://github.com/truecharts/apps/compare/emulatorjs-0.0.17...emulatorjs-0.0.18) (2022-01-18)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.45"></a>
+### [prometheus-1.1.45](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.13...prometheus-1.1.45) (2022-01-19)
+
+#### Chore
+
+* update docker general non-major ([#1741](https://github.com/truecharts/apps/issues/1741))
+
+
+
 <a name="prometheus-1.1.43"></a>
 ### [prometheus-1.1.43](https://github.com/truecharts/apps/compare/prometheus-1.1.42...prometheus-1.1.43) (2022-01-17)
 
