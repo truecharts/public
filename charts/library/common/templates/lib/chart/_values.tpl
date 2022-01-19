@@ -134,6 +134,7 @@
   {{- if .Values.securityContext.privileged }}
   {{- else if .Values.deviceList }}
   {{- $_ := set .Values.securityContext "privileged" true -}}
+  {{- $_ := set .Values.securityContext "allowPrivilegeEscalation" true -}}
   {{- end }}
 
 
@@ -150,7 +151,7 @@
 
   {{/* Append requered groups to supplementalGroups when deviceList is used */}}
   {{- if .Values.deviceList}}
-  {{- $devGroups = list 5 20 24 }}
+  {{- $devGroups = list 5 10 20 24 }}
   {{- end }}
 
   {{/* Append requered groups to supplementalGroups when scaleGPU is used */}}
