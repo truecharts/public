@@ -3418,6 +3418,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.104.2
+    created: "2022-01-20T16:29:53.120441108Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.1
+    description: ClamAV® is an open source antivirus engine for detecting trojans,
+      viruses, malware & other malicious threats.
+    digest: 7e96a53213ac98e2c2c2940f9703501a81061c036981e3695c8254577369e489
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/clamav
+    icon: https://truecharts.org/_static/img/appicons/clamav-icon.png
+    keywords:
+    - clamav
+    - antivirus
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: clamav
+    sources:
+    - https://github.com/Cisco-Talos/clamav
+    - https://hub.docker.com/r/clamav/clamav
+    - https://docs.clamav.net/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/clamav-0.0.3/clamav-0.0.3.tgz
+    version: 0.0.3
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - utilities
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.104.2
     created: "2022-01-17T23:32:51.669825422Z"
     dependencies:
     - name: common
@@ -10322,36 +10356,6 @@ entries:
     - https://github.com/truecharts/apps/releases/download/fireflyiii-13.0.10/fireflyiii-13.0.10.tgz
     version: 13.0.10
   firefox:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - incubator
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 78.15.0
-    created: "2022-01-20T16:17:05.401639567Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.13.1
-    description: Firefox Browser, also known as Mozilla Firefox or simply Firefox,
-    digest: 3ec096900179b9a041d9f8027075eb229c4242b8c0af8a549e3bcbdff52cefbe
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/firefox
-    icon: https://truecharts.org/_static/img/appicons/firefox-icon.png
-    keywords:
-    - firefox
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: firefox
-    sources:
-    - https://hub.docker.com/r/linuxserver/firefox
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/firefox-0.0.14/firefox-0.0.14.tgz
-    version: 0.0.14
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -48968,4 +48972,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-20T16:17:05.405626526Z"
+generated: "2022-01-20T16:29:53.12395439Z"

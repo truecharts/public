@@ -51,6 +51,8 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `3310` |  |
 | service.main.ports.main.targetPort | int | `3310` |  |
+| service.milter.enabled | bool | `true` |  |
+| service.milter.ports.milter.enabled | bool | `true` |  |
 | service.milter.ports.milter.port | int | `7357` |  |
 | service.milter.ports.milter.targetPort | int | `7357` |  |
 
