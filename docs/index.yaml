@@ -10329,6 +10329,36 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 78.15.0
+    created: "2022-01-20T16:17:05.401639567Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.1
+    description: Firefox Browser, also known as Mozilla Firefox or simply Firefox,
+    digest: 3ec096900179b9a041d9f8027075eb229c4242b8c0af8a549e3bcbdff52cefbe
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/firefox
+    icon: https://truecharts.org/_static/img/appicons/firefox-icon.png
+    keywords:
+    - firefox
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: firefox
+    sources:
+    - https://hub.docker.com/r/linuxserver/firefox
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/firefox-0.0.14/firefox-0.0.14.tgz
+    version: 0.0.14
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 78.15.0
     created: "2022-01-04T20:49:00.481415865Z"
     dependencies:
     - name: common
@@ -40585,46 +40615,6 @@ entries:
         - utilities
       truecharts.org/grade: U
     apiVersion: v2
-    appVersion: 2.10.2
-    created: "2022-01-19T23:40:55.363505141Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.13.1
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: https://truecharts.org/
-      version: 6.0.51
-    - condition: redis.enabled
-      name: redis
-      repository: https://truecharts.org/
-      version: 1.0.56
-    description: A PHP-based self-hosted URL shortener that can be used to serve shortened
-      URLs under your own custom domain.
-    digest: 89b874b15d8695cb670ac6e5e758b110b6aa40c476e60d82b6fea10d441ec484
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/shlink
-    icon: https://truecharts.org/_static/img/appicons/shlink-icon.png
-    keywords:
-    - url
-    - shortener
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: shlink
-    sources:
-    - https://github.com/shlinkio/shlink
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/shlink-1.0.0/shlink-1.0.0.tgz
-    version: 1.0.0
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - utilities
-      truecharts.org/grade: U
-    apiVersion: v2
     appVersion: 2.10.1
     created: "2022-01-10T17:21:24.234167214Z"
     dependencies:
@@ -40740,38 +40730,6 @@ entries:
     - https://github.com/truecharts/apps/releases/download/shlink-0.0.1/shlink-0.0.1.tgz
     version: 0.0.1
   shlink-web-client:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - utilities
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 3.5.1
-    created: "2022-01-19T23:40:55.554704528Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.13.1
-    description: A ReactJS-based progressive web application for Shlink.
-    digest: ef197cd3d12fbc6db196210cb2e0c8ac3abfa0d1fd1755c1d740b7b33e658279
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/shlink-web-client
-    icon: https://truecharts.org/_static/img/appicons/shlink-web-client-icon.png
-    keywords:
-    - url
-    - shortener
-    - frontend
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: shlink-web-client
-    sources:
-    - https://github.com/shlinkio/shlink-web-client
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/shlink-web-client-1.0.0/shlink-web-client-1.0.0.tgz
-    version: 1.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -49010,4 +48968,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-19T23:40:55.55851805Z"
+generated: "2022-01-20T16:17:05.405626526Z"

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-0.0.14"></a>
+### [firefox-0.0.14](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.23...firefox-0.0.14) (2022-01-20)
+
+#### Fix
+
+* disable rofs ([#1746](https://github.com/truecharts/apps/issues/1746))
+
+
+
 <a name="firefox-0.0.13"></a>
 ### [firefox-0.0.13](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.22...firefox-0.0.13) (2022-01-18)
 
