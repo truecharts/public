@@ -131,7 +131,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-28-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-29-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -176,6 +176,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://espadav8.co.uk"><img src="https://avatars.githubusercontent.com/u/115825?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andrew Smith</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=EspadaV8" title="Documentation">📖</a></td>
     <td align="center"><a href="http://xilix.com"><img src="https://avatars.githubusercontent.com/u/2821?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bob Klosinski</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=fluxin" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/sukarn-m"><img src="https://avatars.githubusercontent.com/u/10946339?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sukarn</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=sukarn-m" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/sebsx"><img src="https://avatars.githubusercontent.com/u/735033?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sebs</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=sebsx" title="Code">💻</a></td>
   </tr>
 </table>
 
