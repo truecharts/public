@@ -3418,40 +3418,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.104.2
-    created: "2022-01-20T22:43:11.374475882Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.13.1
-    description: ClamAV® is an open source antivirus engine for detecting trojans,
-      viruses, malware & other malicious threats.
-    digest: 1335c28df8e3e1547935b3feeff992adb2cbd4fbcb6ee5379f7e1482e9cb3d68
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/clamav
-    icon: https://truecharts.org/_static/img/appicons/clamav-icon.png
-    keywords:
-    - clamav
-    - antivirus
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: clamav
-    sources:
-    - https://github.com/Cisco-Talos/clamav
-    - https://hub.docker.com/r/clamav/clamav
-    - https://docs.clamav.net/
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/clamav-1.0.0/clamav-1.0.0.tgz
-    version: 1.0.0
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - utilities
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 0.104.2
     created: "2022-01-17T23:32:51.669825422Z"
     dependencies:
     - name: common
@@ -45164,6 +45130,41 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.49.5
+    created: "2022-01-21T00:19:12.857073281Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.1
+    description: Trilium Notes is a hierarchical note taking application with focus
+      on building large personal knowledge bases.
+    digest: f667957500c0cee5227fff4b0f10b224677f30ebe607f5d76adb6f32e999f5ab
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/trilium-notes
+    icon: https://truecharts.org/_static/img/appicons/trilium-notes-icon.png
+    keywords:
+    - trilium
+    - notes
+    - note
+    - information
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: trilium-notes
+    sources:
+    - https://hub.docker.com/r/zadam/trilium
+    - https://github.com/zadam/trilium
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/trilium-notes-1.0.0/trilium-notes-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.49.5
     created: "2022-01-18T00:16:30.157185589Z"
     dependencies:
     - name: common
@@ -48972,4 +48973,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-20T22:43:11.379152839Z"
+generated: "2022-01-21T00:19:12.861443276Z"
