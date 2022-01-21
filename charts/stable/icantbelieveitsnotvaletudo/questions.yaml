@@ -94,6 +94,7 @@ questions:
         - variable: mapsettings
           label: "Map Settings"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: drawPath
@@ -119,6 +120,7 @@ questions:
         - variable: mqtt
           label: "MQTT Settings"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: identifier
@@ -159,6 +161,7 @@ questions:
         - variable: webserver
           label: "Webserver Settings"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -180,12 +183,14 @@ questions:
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -261,6 +266,7 @@ questions:
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -311,6 +317,7 @@ questions:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -334,6 +341,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged

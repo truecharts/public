@@ -97,12 +97,14 @@ questions:
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -152,12 +154,14 @@ questions:
           label: "Odoo Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: odoo-1
                       label: "Odoo-1 Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -204,6 +208,7 @@ questions:
                     - variable: odoo-2
                       label: "Odoo-2 Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -279,6 +284,7 @@ questions:
           label: "App Storage"
           description: "Stores the Application."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -321,6 +327,7 @@ questions:
           label: "App Addons Storage"
           description: "Stores the Application addons."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -371,6 +378,7 @@ questions:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -389,6 +397,7 @@ questions:
                           - variable: hostEntry
                             label: "Host"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: host
@@ -406,6 +415,7 @@ questions:
                                       - variable: pathEntry
                                         label: "Host"
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: path
@@ -429,6 +439,7 @@ questions:
                           - variable: tlsEntry
                             label: "Host"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: hosts
@@ -491,6 +502,7 @@ questions:
                           - variable: labelItem
                             label: "Label"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name
@@ -510,6 +522,7 @@ questions:
                           - variable: annotationItem
                             label: "Label"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name
@@ -534,6 +547,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged

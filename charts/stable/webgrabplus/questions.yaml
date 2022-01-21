@@ -96,6 +96,7 @@ questions:
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -138,6 +139,7 @@ questions:
           label: "App Data Storage"
           description: "Stores the Application Data."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -191,6 +193,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged

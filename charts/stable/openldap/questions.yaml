@@ -218,12 +218,14 @@ questions:
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -273,12 +275,14 @@ questions:
           label: "ldaps Service"
           description: "The ldaps service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: ldaps
                       label: "ldaps Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -354,6 +358,7 @@ questions:
           label: "App Data Storage"
           description: "Stores the Application Data."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -390,6 +395,7 @@ questions:
           label: "App slapd Storage"
           description: "Stores the Application slapd."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -435,6 +441,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged

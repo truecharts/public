@@ -104,6 +104,7 @@ questions:
         - variable: yubico
           label: "Yubico OTP authentication"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -133,6 +134,7 @@ questions:
         - variable: admin
           label: "Admin Portal"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -156,6 +158,7 @@ questions:
         - variable: icons
           label: "Icon Download Settings"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: disableDownload
@@ -179,6 +182,7 @@ questions:
         - variable: log
           label: "Logging"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: level
@@ -208,6 +212,7 @@ questions:
         - variable: smtp
           label: "SMTP Settings (Email)"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -393,12 +398,14 @@ questions:
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -448,12 +455,14 @@ questions:
           label: "WebSocket Service"
           description: "WebSocket Service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: ws
                       label: "WebSocket Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -529,6 +538,7 @@ questions:
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -580,6 +590,7 @@ questions:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -603,6 +614,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged

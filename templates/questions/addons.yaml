@@ -3,11 +3,13 @@
     group: "Addons"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: vpn
           label: "VPN"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -121,6 +123,7 @@
                     - variable: envItem
                       label: "Environment Variable"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: name
@@ -137,6 +140,7 @@
         - variable: codeserver
           label: "Codeserver"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -149,6 +153,7 @@
                     - variable: git
                       label: "Git Settings"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: deployKey
@@ -164,6 +169,7 @@
                     - variable: service
                       label: ""
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: type
@@ -201,11 +207,13 @@
                           - variable: ports
                             label: ""
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: codeserver
                                   label: ""
                                   schema:
+                                    additional_attrs: true
                                     type: dict
                                     attrs:
                                       - variable: nodePort
@@ -224,6 +232,7 @@
                           - variable: envItem
                             label: "Environment Variable"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name
@@ -241,6 +250,7 @@
         - variable: promtail
           label: "Promtail"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -258,6 +268,7 @@
                     - variable: logs
                       label: "Log Paths"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: name
@@ -292,6 +303,7 @@
                           - variable: envItem
                             label: "Environment Variable"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name
@@ -311,6 +323,7 @@
         - variable: netshoot
           label: "Netshoot"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -330,6 +343,7 @@
                           - variable: envItem
                             label: "Environment Variable"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name

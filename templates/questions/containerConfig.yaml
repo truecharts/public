@@ -8,6 +8,7 @@
         - variable: envItem
           label: "Environment Variable"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: name
@@ -45,6 +46,7 @@
           group: "Container Configuration"
           label: "Termination settings"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: gracePeriodSeconds
@@ -62,6 +64,7 @@
               - variable: podLabelItem
                 label: "Label"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -83,6 +86,7 @@
               - variable: podAnnotationItem
                 label: "Label"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name

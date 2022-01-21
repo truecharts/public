@@ -12,6 +12,7 @@ questions:
         - variable: configInline
           label: "MetalLB Configuration"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: address-pools
@@ -24,6 +25,7 @@ questions:
                       group: "Address Pool"
                       label: ""
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: name

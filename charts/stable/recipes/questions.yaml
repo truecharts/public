@@ -132,12 +132,14 @@ questions:
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -213,6 +215,7 @@ questions:
           label: "App Media Storage"
           description: "Stores the Application media."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -264,6 +267,7 @@ questions:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -282,6 +286,7 @@ questions:
                           - variable: hostEntry
                             label: "Host"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: host
@@ -299,6 +304,7 @@ questions:
                                       - variable: pathEntry
                                         label: "Host"
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: path
@@ -322,6 +328,7 @@ questions:
                           - variable: tlsEntry
                             label: "Host"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: hosts
@@ -384,6 +391,7 @@ questions:
                           - variable: labelItem
                             label: "Label"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name
@@ -403,6 +411,7 @@ questions:
                           - variable: annotationItem
                             label: "Label"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name
@@ -427,6 +436,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged

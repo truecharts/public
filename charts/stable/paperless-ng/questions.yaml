@@ -128,12 +128,14 @@ questions:
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -214,6 +216,7 @@ questions:
           label: "App Data Storage"
           description: "This is where paperless stores all its data (search index, classification model, etc)"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -256,6 +259,7 @@ questions:
           label: "To-be consumed Document Storage"
           description: "This where your documents should go to be consumed."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -298,6 +302,7 @@ questions:
           label: "App Document Storage"
           description: "This is where your documents and thumbnails are stored."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -348,6 +353,7 @@ questions:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -371,6 +377,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged

@@ -12,6 +12,7 @@ questions:
         - variable: nfd
           label: "nfd"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -22,6 +23,7 @@ questions:
         - variable: labeller
           label: "labeller"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled

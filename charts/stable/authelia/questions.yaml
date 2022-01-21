@@ -311,6 +311,7 @@ questions:
           label: "LDAP backend configuration"
           description: "Used for verifying user passwords and retrieve information such as email address and groups users belong to"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -353,6 +354,7 @@ questions:
                     - variable: tls
                       label: "TLS Settings"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: server_name
@@ -461,6 +463,7 @@ questions:
           label: "File backend configuration"
           description: "With this backend, the users database is stored in a file which is updated when users reset their passwords."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -479,6 +482,7 @@ questions:
                     - variable: password
                       label: "Password Settings"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: algorithm
@@ -538,6 +542,7 @@ questions:
         - variable: filesystem
           label: "Filesystem Provider"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -557,6 +562,7 @@ questions:
           label: "SMTP Provider"
           description: "Use a SMTP server for sending notifications. Authelia uses the PLAIN or LOGIN methods to authenticate."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -636,6 +642,7 @@ questions:
                     - variable: tls
                       label: "TLS Settings"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: server_name
@@ -698,6 +705,7 @@ questions:
               - variable: networkItem
                 label: "Network Item"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -728,6 +736,7 @@ questions:
               - variable: rulesItem
                 label: "Rule"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: domain
@@ -808,12 +817,14 @@ questions:
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -889,6 +900,7 @@ questions:
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -940,6 +952,7 @@ questions:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -962,6 +975,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -1028,6 +1042,7 @@ questions:
         - variable: oidc
           label: "OpenID Connect(BETA)"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -1075,6 +1090,7 @@ questions:
                           - variable: clientEntry
                             label: "Client"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: id
