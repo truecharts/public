@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-1.0.1"></a>
+### [trilium-notes-1.0.1](https://github.com/truecharts/apps/compare/trilium-notes-1.0.0...trilium-notes-1.0.1) (2022-01-21)
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+* Change port as it was a conflict with core app ([#1756](https://github.com/truecharts/apps/issues/1756))
+
+
+
 <a name="trilium-notes-1.0.0"></a>
 ### [trilium-notes-1.0.0](https://github.com/truecharts/apps/compare/trilium-notes-0.0.4...trilium-notes-1.0.0) (2022-01-21)
 
