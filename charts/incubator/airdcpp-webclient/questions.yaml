@@ -114,7 +114,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10187
+                              default: 10155
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -154,7 +154,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 10187
+                                    default: 10155
 
         - variable: unencrypted-tcp
           label: "Unencrypted Transfers"
