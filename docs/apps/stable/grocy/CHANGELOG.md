@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="grocy-9.0.34"></a>
+### [grocy-9.0.34](https://github.com/truecharts/apps/compare/grocy-9.0.33...grocy-9.0.34) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="grocy-9.0.33"></a>
 ### [grocy-9.0.33](https://github.com/truecharts/apps/compare/grocy-9.0.32...grocy-9.0.33) (2022-01-18)
 

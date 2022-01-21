@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.49"></a>
+### [logitech-media-server-2.0.49](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.48...logitech-media-server-2.0.49) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="logitech-media-server-2.0.48"></a>
 ### [logitech-media-server-2.0.48](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.47...logitech-media-server-2.0.48) (2022-01-18)
 

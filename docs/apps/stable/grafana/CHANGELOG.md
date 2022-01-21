@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.26"></a>
+### [grafana-2.0.26](https://github.com/truecharts/apps/compare/grafana-2.0.25...grafana-2.0.26) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="grafana-2.0.25"></a>
 ### [grafana-2.0.25](https://github.com/truecharts/apps/compare/grafana-2.0.24...grafana-2.0.25) (2022-01-19)
 

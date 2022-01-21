@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="anonaddy-6.0.26"></a>
+### [anonaddy-6.0.26](https://github.com/truecharts/apps/compare/anonaddy-6.0.25...anonaddy-6.0.26) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="anonaddy-6.0.25"></a>
 ### [anonaddy-6.0.25](https://github.com/truecharts/apps/compare/anonaddy-6.0.24...anonaddy-6.0.25) (2022-01-18)
 

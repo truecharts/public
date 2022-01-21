@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.67"></a>
+### [jackett-9.0.67](https://github.com/truecharts/apps/compare/jackett-9.0.66...jackett-9.0.67) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="jackett-9.0.65"></a>
 ### [jackett-9.0.65](https://github.com/truecharts/apps/compare/jackett-9.0.64...jackett-9.0.65) (2022-01-17)
 

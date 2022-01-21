@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.46"></a>
+### [prometheus-1.1.46](https://github.com/truecharts/apps/compare/prometheus-1.1.45...prometheus-1.1.46) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="prometheus-1.1.45"></a>
 ### [prometheus-1.1.45](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.13...prometheus-1.1.45) (2022-01-19)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.27"></a>
+### [snipe-it-0.0.27](https://github.com/truecharts/apps/compare/snipe-it-0.0.26...snipe-it-0.0.27) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="snipe-it-0.0.26"></a>
 ### [snipe-it-0.0.26](https://github.com/truecharts/apps/compare/snipe-it-0.0.25...snipe-it-0.0.26) (2022-01-18)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.55"></a>
+### [memcached-1.0.55](https://github.com/truecharts/apps/compare/memcached-1.0.54...memcached-1.0.55) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="memcached-1.0.54"></a>
 ### [memcached-1.0.54](https://github.com/truecharts/apps/compare/memcached-1.0.53...memcached-1.0.54) (2022-01-19)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="nextcloud-11.0.17"></a>
+### [nextcloud-11.0.17](https://github.com/truecharts/apps/compare/nextcloud-11.0.16...nextcloud-11.0.17) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="nextcloud-11.0.16"></a>
 ### [nextcloud-11.0.16](https://github.com/truecharts/apps/compare/nextcloud-11.0.15...nextcloud-11.0.16) (2022-01-18)
 

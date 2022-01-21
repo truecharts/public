@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.58"></a>
+### [custom-app-3.0.58](https://github.com/truecharts/apps/compare/custom-app-3.0.57...custom-app-3.0.58) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+* update helm general non-major helm releases ([#1732](https://github.com/truecharts/apps/issues/1732))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="custom-app-3.0.56"></a>
 ### [custom-app-3.0.56](https://github.com/truecharts/apps/compare/custom-app-3.0.55...custom-app-3.0.56) (2022-01-17)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="lidarr-9.0.40"></a>
+### [lidarr-9.0.40](https://github.com/truecharts/apps/compare/lidarr-9.0.39...lidarr-9.0.40) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="lidarr-9.0.39"></a>
 ### [lidarr-9.0.39](https://github.com/truecharts/apps/compare/lidarr-9.0.38...lidarr-9.0.39) (2022-01-18)
 

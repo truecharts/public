@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.server_name | string | `"collabora\\.domain\\.tld"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/collabora"` |  |
-| image.tag | string | `"v21.11.1.1.1@sha256:d32de4b70b845b714a9af57a85ebb126da667f29599eb1e79d408922e1872229"` |  |
+| image.tag | string | `"v21.11.1.3.1@sha256:b2575f370fa55cfe2b415d0f55f9a3e87600ece4ec06ec365ce3e1a020798c6c"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `104` |  |
 | secret.password | string | `"changeme"` |  |

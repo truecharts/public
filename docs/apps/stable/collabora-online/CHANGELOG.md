@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="collabora-online-10.0.17"></a>
+### [collabora-online-10.0.17](https://github.com/truecharts/apps/compare/collabora-online-10.0.16...collabora-online-10.0.17) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="collabora-online-10.0.16"></a>
 ### [collabora-online-10.0.16](https://github.com/truecharts/apps/compare/collabora-online-10.0.15...collabora-online-10.0.16) (2022-01-18)
 
