@@ -20,6 +20,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -69,6 +70,7 @@ questions:
     group: "Container Configuration"
     label: "Image Secrets"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: LDAP_READONLY_USER_USERNAME
@@ -102,6 +104,7 @@ questions:
     group: "App Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
 # Include{fixedEnv}
@@ -208,18 +211,21 @@ questions:
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -269,12 +275,14 @@ questions:
           label: "ldaps Service"
           description: "The ldaps service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: ldaps
                       label: "ldaps Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -343,12 +351,14 @@ questions:
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: data
           label: "App Data Storage"
           description: "Stores the Application Data."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -385,6 +395,7 @@ questions:
           label: "App slapd Storage"
           description: "Stores the Application slapd."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -430,6 +441,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -458,6 +470,7 @@ questions:
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser

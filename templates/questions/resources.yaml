@@ -10,11 +10,13 @@
         - variable: resources
           label: ""
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: limits
                 label: "Advanced Limit Resource Consumption"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: cpu
@@ -34,6 +36,7 @@
               - variable: requests
                 label: "Minimum Resources Required (request)"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: cpu
@@ -61,6 +64,7 @@
         - variable: deviceListEntry
           label: "Device"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled

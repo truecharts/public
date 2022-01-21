@@ -29,6 +29,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -79,6 +80,7 @@ questions:
     group: "Container Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
 # Include{fixedEnv}
@@ -102,6 +104,7 @@ questions:
     group: "App Configuration"
     label: "API Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: API_SESSION_TIMEOUT
@@ -113,6 +116,7 @@ questions:
     group: "App Configuration"
     label: "TOTP Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: TOTP_ENABLED
@@ -164,6 +168,7 @@ questions:
     group: "App Configuration"
     label: "Header Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: HEADER_ENABLED
@@ -182,6 +187,7 @@ questions:
     group: "App Configuration"
     label: "JSON Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: json_enabled
@@ -207,6 +213,7 @@ questions:
     group: "App Configuration"
     label: "DUO Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: duo_enabled
@@ -249,6 +256,7 @@ questions:
     group: "App Configuration"
     label: "CAS Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: cas_enabled
@@ -306,6 +314,7 @@ questions:
     group: "App Configuration"
     label: "OpenID Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: openid_enabled
@@ -364,6 +373,7 @@ questions:
     group: "App Configuration"
     label: "Radius Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: radius_enabled
@@ -500,6 +510,7 @@ questions:
     group: "App Configuration"
     label: "LDAP Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: ldap_enabled
@@ -643,18 +654,21 @@ questions:
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -729,11 +743,13 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -757,6 +773,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -784,6 +801,7 @@ questions:
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser

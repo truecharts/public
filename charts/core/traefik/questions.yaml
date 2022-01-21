@@ -29,6 +29,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -79,6 +80,7 @@ questions:
     group: "Container Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
 # Include{fixedEnv}
@@ -89,6 +91,7 @@ questions:
     label: "Traefik Pilot"
     group: "App Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -113,6 +116,7 @@ questions:
     label: "ingressClass"
     group: "App Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -132,11 +136,13 @@ questions:
     label: "Logs"
     group: "App Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: general
           label: "General Logs"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: level
@@ -160,6 +166,7 @@ questions:
         - variable: access
           label: "Access Logs"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -179,6 +186,7 @@ questions:
                           - variable: filters
                             label: "Filters"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                               - variable: statuscodes
@@ -199,11 +207,13 @@ questions:
                     - variable: fields
                       label: "Fields"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: general
                             label: "General"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: defaultmode
@@ -219,6 +229,7 @@ questions:
                           - variable: headers
                             label: "Headers"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: defaultmode
@@ -236,6 +247,7 @@ questions:
     label: ""
     group: "Middlewares"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: basicAuth
@@ -247,6 +259,7 @@ questions:
               - variable: basicAuthEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -264,6 +277,7 @@ questions:
                           - variable: usersEntry
                             label: ""
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: username
@@ -288,6 +302,7 @@ questions:
               - variable: basicAuthEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -343,6 +358,7 @@ questions:
               - variable: chainEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -372,6 +388,7 @@ questions:
               - variable: redirectSchemeEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -406,6 +423,7 @@ questions:
               - variable: rateLimitEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -434,6 +452,7 @@ questions:
               - variable: redirectRegexEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -469,6 +488,7 @@ questions:
               - variable: ipWhiteListEntry
                 label: ""
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -492,6 +512,7 @@ questions:
                     - variable: ipStrategy
                       label: "IP Strategy"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: depth
@@ -517,18 +538,21 @@ questions:
     group: "Networking and Services"
     label: "Configure Service Entrypoint"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Entrypoint Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: advanced
@@ -576,12 +600,14 @@ questions:
           label: "TCP Service"
           description: "The tcp Entrypoint service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: web
                       label: "web Entrypoint Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -635,6 +661,7 @@ questions:
                     - variable: websecure
                       label: "websecure Entrypoints Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -705,6 +732,7 @@ questions:
                     - variable: portsListEntry
                       label: "Custom Entrypoints"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: enabled
@@ -739,6 +767,7 @@ questions:
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: enabled
@@ -758,12 +787,14 @@ questions:
           label: "metrics Service"
           description: "The metrics Entrypoint service"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: metrics
                       label: "metrics Entrypoints Configurations"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -812,11 +843,13 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -840,6 +873,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -868,6 +902,7 @@ questions:
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser

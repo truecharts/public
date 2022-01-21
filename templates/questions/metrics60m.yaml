@@ -2,6 +2,7 @@
     group: "Metrics"
     label: "Prometheus Metrics"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -15,6 +16,7 @@
               - variable: serviceMonitor
                 label: "Service Monitor Settings"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: interval

@@ -59,6 +59,7 @@
                                       - variable: staticRouteConfiguration
                                         label: "Static Route Configuration"
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: destination
@@ -95,6 +96,7 @@
           group: "Networking and Services"
           description: "Specify custom DNS configuration which will be applied to the pod"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: nameservers
@@ -116,6 +118,7 @@
                     - variable: option
                       label: "Option Entry"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: name

@@ -1,17 +1,44 @@
 # 14 - Backup and Restore
 
-This section is a WIP, please do NOT consider this to be either finished or working.
+## Requirements
+
+This guide makes use of our commandline tool, called `TrueTool`.
+
+This should be installed by using:
+`pip install truetool`
+
+Please be aware this needs reinstalling after each TrueNAS SCALE update.
 
 ## Backup
+
+##### Creating Manual Backups
+
+Manual backups can easily be made using TrueTool.
+
+`truetool -b`
+
+It automatically deletes excessive backups, which defaults to a max. of 14 backups.
+To increase this, to 31 for example, use:
+
+`truetool -b 31`
+
+This can also easily be combined with TrueTool update, sync, prune etc. like this:
+
+`truetool -b 31 -u -s -p`
+
+To find out which backups are made previously, you can run the following command:
+
+`truetool -l`
 
 ##### Creating Frequent Backups
 
 SCALE includes an integrated system to backup the kubernetes objects as well as make snapshots of the `PVC` and `ix_volume` storage.
 However, it does NOT create these outside of SCALE upgrades.
 
-To create daily backups of the kubernetes objects, create the following Cron Job:
+To create daily backups of the kubernetes objects, create a Cron Job in the SCALE UI with the TrueTool command you want to run.
+If you want to ensure TrueTool automatically gets updated and/or (re)installed after a TrueNAS SCALE update, you can use:
 
-<a href="https://truecharts.org/_static/img/backup/cron.png"><img src="https://truecharts.org/_static/img/backup/cron.png" width="100%"/></a>
+`pip install --no-cache-dir --upgrade truetool && truetool -b -s -u -a -p`
 
 ##### Exporting Backups
 
@@ -37,7 +64,7 @@ However this is not part of this guide and we will assume you've done so yoursel
 
 To make which backups are present, one can use the following command in a shell:
 
-`cli -c "app kubernetes list_backups"`
+`truetool -l`
 
 ## Restore
 
@@ -48,6 +75,7 @@ There are two scenario's for a restore:
 
 2. Total System Restore
 
+
 ##### Reverting a running system
 
 Reverting a running system is rather trivial. But there are a few caveats:
@@ -57,11 +85,13 @@ Reverting a running system is rather trivial. But there are a few caveats:
 
 To revert an existing system, the process is as follows:
 
-1. List your current backups using `cli -c "app kubernetes list_backups"`
+1. List your current backups using `truetool -l`
 
 2. Pick a backup to revert and note it's name
 
-3. Run: `cli -c "app kubernetes list_backups { 'backup_name': 'BACKUPNAME'}` (where you replease BACKUPNAME with the name of the backup you selected above)
+3. Run: `truetool -r BACKUPNAME` (where you replease BACKUPNAME with the name of the backup you selected above)
+
+Please keep in mind this can take a LONG time.
 
 
 ##### Total System restore
@@ -76,6 +106,7 @@ With the above steps this is all very-much-possible.
 2. Using ZFS replication, move back the previously backed-up `ix-applications` dataset.
 
 3. Continue with the steps listed on `Reverting a running system`
+
 
 #### Video Guide
 

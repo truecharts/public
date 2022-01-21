@@ -2,6 +2,7 @@
     group: "Advanced"
     label: "(Advanced) Horizontal Pod Autoscaler"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -41,6 +42,7 @@
     group: "Advanced"
     label: "(Advanced) Network Policy"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -73,6 +75,7 @@
                     - variable: egressEntry
                       label: ""
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: to
@@ -84,11 +87,13 @@
                                 - variable: toEntry
                                   label: ""
                                   schema:
+                                    additional_attrs: true
                                     type: dict
                                     attrs:
                                       - variable: ipBlock
                                         label: "ipBlock"
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: cidr
@@ -109,6 +114,7 @@
                                       - variable: namespaceSelector
                                         label: "namespaceSelector"
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: matchExpressions
@@ -120,6 +126,7 @@
                                                   - variable: expressionEntry
                                                     label: ""
                                                     schema:
+                                                      additional_attrs: true
                                                       type: dict
                                                       attrs:
                                                         - variable: key
@@ -153,6 +160,7 @@
                                       - variable: podSelector
                                         label: ""
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: matchExpressions
@@ -164,6 +172,7 @@
                                                   - variable: expressionEntry
                                                     label: ""
                                                     schema:
+                                                      additional_attrs: true
                                                       type: dict
                                                       attrs:
                                                         - variable: key
@@ -203,6 +212,7 @@
                                 - variable: portsEntry
                                   label: ""
                                   schema:
+                                    additional_attrs: true
                                     type: dict
                                     attrs:
                                       - variable: port
@@ -234,6 +244,7 @@
                     - variable: ingressEntry
                       label: ""
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: from
@@ -245,11 +256,13 @@
                                 - variable: fromEntry
                                   label: ""
                                   schema:
+                                    additional_attrs: true
                                     type: dict
                                     attrs:
                                       - variable: ipBlock
                                         label: "ipBlock"
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: cidr
@@ -270,6 +283,7 @@
                                       - variable: namespaceSelector
                                         label: "namespaceSelector"
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: matchExpressions
@@ -281,6 +295,7 @@
                                                   - variable: expressionEntry
                                                     label: ""
                                                     schema:
+                                                      additional_attrs: true
                                                       type: dict
                                                       attrs:
                                                         - variable: key
@@ -314,6 +329,7 @@
                                       - variable: podSelector
                                         label: ""
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: matchExpressions
@@ -325,6 +341,7 @@
                                                   - variable: expressionEntry
                                                     label: ""
                                                     schema:
+                                                      additional_attrs: true
                                                       type: dict
                                                       attrs:
                                                         - variable: key
@@ -364,6 +381,7 @@
                                 - variable: portsEntry
                                   label: ""
                                   schema:
+                                    additional_attrs: true
                                     type: dict
                                     attrs:
                                       - variable: port
