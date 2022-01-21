@@ -62,6 +62,7 @@ service:
         targetPort: 29811
       omada-udp3:
         enabled: true
+        protocol: UDP
         port: 29812
         targetPort: 29812
       omada-udp4:
