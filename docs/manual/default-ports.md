@@ -235,7 +235,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | gotify                     |      main       |      main       | 10084 |   TCP    |                                         |
 | komga                      |      main       |      main       | 10085 |   TCP    |                                         |
 | trilium-notes              |      main       |      main       | 10086 |   HTTP   |                                         |
-| airdcpp-webclient          |      main       |      main       | 10087 |   HTTP   |                                         |
+| airdcpp-webclient          |      main       |      main       | 10155 |   HTTP   |                                         |
 | owncast                    |      main       |      main       | 10088 |   TCP    |                                         |
 | openkm                     |      main       |      main       | 10090 |   TCP    |                                         |
 | miniflux                   |      main       |      main       | 10091 |   TCP    |                                         |
