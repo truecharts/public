@@ -6,6 +6,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -56,6 +57,7 @@ questions:
     group: "Container Configuration"
     label: "Image Secrets"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: AMCREST_USERNAME
@@ -85,6 +87,7 @@ questions:
     group: "Container Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
 
@@ -189,6 +192,7 @@ questions:
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser

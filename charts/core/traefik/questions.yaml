@@ -29,6 +29,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -79,6 +80,7 @@ questions:
     group: "Container Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
 # Include{fixedEnv}
@@ -89,6 +91,7 @@ questions:
     label: "Traefik Pilot"
     group: "App Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -113,6 +116,7 @@ questions:
     label: "ingressClass"
     group: "App Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -132,6 +136,7 @@ questions:
     label: "Logs"
     group: "App Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: general
@@ -236,6 +241,7 @@ questions:
     label: ""
     group: "Middlewares"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: basicAuth
@@ -517,6 +523,7 @@ questions:
     group: "Networking and Services"
     label: "Configure Service Entrypoint"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
@@ -812,6 +819,7 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
@@ -868,6 +876,7 @@ questions:
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser

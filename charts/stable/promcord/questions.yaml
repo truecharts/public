@@ -7,6 +7,7 @@ questions:
     group: "Container Configuration"
     label: "Image Secrets"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: DISCORD_TOKEN
@@ -21,6 +22,7 @@ questions:
     group: "Container Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
 # Include{fixedEnv}
@@ -89,6 +91,7 @@ questions:
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
