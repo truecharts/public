@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.45"></a>
+### [lazylibrarian-9.0.45](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.44...lazylibrarian-9.0.45) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="lazylibrarian-9.0.44"></a>
 ### [lazylibrarian-9.0.44](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.43...lazylibrarian-9.0.44) (2022-01-18)
 

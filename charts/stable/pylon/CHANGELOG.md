@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="pylon-0.0.14"></a>
+### [pylon-0.0.14](https://github.com/truecharts/apps/compare/pylon-0.0.13...pylon-0.0.14) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="pylon-0.0.13"></a>
 ### [pylon-0.0.13](https://github.com/truecharts/apps/compare/pylon-0.0.12...pylon-0.0.13) (2022-01-18)
 

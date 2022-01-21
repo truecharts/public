@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="traccar-4.0.24"></a>
+### [traccar-4.0.24](https://github.com/truecharts/apps/compare/traccar-4.0.23...traccar-4.0.24) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="traccar-4.0.23"></a>
 ### [traccar-4.0.23](https://github.com/truecharts/apps/compare/traccar-4.0.22...traccar-4.0.23) (2022-01-18)
 

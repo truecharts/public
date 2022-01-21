@@ -169,7 +169,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/prometheus-operator:v0.53.1@sha256:940b78b009864751228b89c9dbe8ece452a281ce914ed49f0be87a148f8e5392
-          bitnami/node-exporter:1.3.1-debian-10-r28
+          bitnami/node-exporter:1.3.1-debian-10-r43
           bitnami/kube-state-metrics:2.3.0-debian-10-r31
 
 ##### Scan Results
@@ -386,7 +386,7 @@ hide:
 
 
 
-#### Container: bitnami/node-exporter:1.3.1-debian-10-r28 (debian 10.11)
+#### Container: bitnami/node-exporter:1.3.1-debian-10-r43 (debian 10.11)
 
 
 **debian**

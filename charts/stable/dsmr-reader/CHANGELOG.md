@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="dsmr-reader-5.0.23"></a>
+### [dsmr-reader-5.0.23](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.22...dsmr-reader-5.0.23) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="dsmr-reader-5.0.22"></a>
 ### [dsmr-reader-5.0.22](https://github.com/truecharts/apps/compare/dsmr-reader-5.0.21...dsmr-reader-5.0.22) (2022-01-18)
 

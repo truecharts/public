@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="icinga2-0.0.22"></a>
+### [icinga2-0.0.22](https://github.com/truecharts/apps/compare/icinga2-0.0.21...icinga2-0.0.22) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="icinga2-0.0.21"></a>
 ### [icinga2-0.0.21](https://github.com/truecharts/apps/compare/icinga2-0.0.20...icinga2-0.0.21) (2022-01-18)
 

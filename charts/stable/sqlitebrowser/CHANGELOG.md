@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-1.0.37"></a>
+### [sqlitebrowser-1.0.37](https://github.com/truecharts/apps/compare/sqlitebrowser-1.0.36...sqlitebrowser-1.0.37) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="sqlitebrowser-1.0.36"></a>
 ### [sqlitebrowser-1.0.36](https://github.com/truecharts/apps/compare/sqlitebrowser-1.0.35...sqlitebrowser-1.0.36) (2022-01-18)
 

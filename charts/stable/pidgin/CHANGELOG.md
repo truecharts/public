@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="pidgin-0.0.15"></a>
+### [pidgin-0.0.15](https://github.com/truecharts/apps/compare/pidgin-0.0.14...pidgin-0.0.15) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="pidgin-0.0.14"></a>
 ### [pidgin-0.0.14](https://github.com/truecharts/apps/compare/pidgin-0.0.13...pidgin-0.0.14) (2022-01-18)
 
