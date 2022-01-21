@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-5.0.14"></a>
+### [jdownloader2-5.0.14](https://github.com/truecharts/apps/compare/jdownloader2-5.0.13...jdownloader2-5.0.14) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="jdownloader2-5.0.13"></a>
 ### [jdownloader2-5.0.13](https://github.com/truecharts/apps/compare/jdownloader2-5.0.12...jdownloader2-5.0.13) (2022-01-18)
 

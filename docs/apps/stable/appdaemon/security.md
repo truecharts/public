@@ -99,6 +99,7 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| ammonia         |    RUSTSEC-2022-0003   |   UNKNOWN  |  3.1.0 | &gt;= 3.1.3 | <details><summary>Expand...</summary><a href="https://github.com/rust-ammonia/ammonia/pull/147">https://github.com/rust-ammonia/ammonia/pull/147</a><br></details>  |
 | chrono         |    RUSTSEC-2020-0159   |   UNKNOWN  |  0.4.19 |  | <details><summary>Expand...</summary><a href="https://github.com/chronotope/chrono/issues/499">https://github.com/chronotope/chrono/issues/499</a><br></details>  |
 | cpuid-bool         |    RUSTSEC-2021-0064   |   UNKNOWN  |  0.1.2 |  | <details><summary>Expand...</summary><a href="https://github.com/RustCrypto/utils/pull/381">https://github.com/RustCrypto/utils/pull/381</a><br></details>  |
 | difference         |    RUSTSEC-2020-0095   |   UNKNOWN  |  2.0.0 |  | <details><summary>Expand...</summary><a href="https://github.com/johannhof/difference.rs/issues/45">https://github.com/johannhof/difference.rs/issues/45</a><br></details>  |

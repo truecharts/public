@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.26"></a>
+### [wikijs-4.0.26](https://github.com/truecharts/apps/compare/wikijs-4.0.25...wikijs-4.0.26) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="wikijs-4.0.25"></a>
 ### [wikijs-4.0.25](https://github.com/truecharts/apps/compare/wikijs-4.0.24...wikijs-4.0.25) (2022-01-18)
 

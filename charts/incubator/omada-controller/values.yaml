@@ -2,7 +2,7 @@ image:
   # -- image repository
   repository: tccr.io/truecharts/omada-controller
   # -- image tag
-  tag: v5.0@sha256:015fec3da820bbcc8b253443812ac5df2ab263bf84b5edb74c0be854e41374e7
+  tag: v5.0@sha256:f728bf224b39889cb8fbae9857db13aa003c19468d64c03a865f60335da95ad2
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -62,6 +62,7 @@ service:
         targetPort: 29811
       omada-udp3:
         enabled: true
+        protocol: UDP
         port: 29812
         targetPort: 29812
       omada-udp4:

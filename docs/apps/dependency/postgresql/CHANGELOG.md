@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.54"></a>
+### [postgresql-6.0.54](https://github.com/truecharts/apps/compare/postgresql-6.0.53...postgresql-6.0.54) (2022-01-21)
+
+#### Chore
+
+* update helm chart common to v8.13.4 ([#1758](https://github.com/truecharts/apps/issues/1758))
+
+
+
+<a name="postgresql-6.0.53"></a>
+### [postgresql-6.0.53](https://github.com/truecharts/apps/compare/postgresql-6.0.52...postgresql-6.0.53) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="postgresql-6.0.52"></a>
 ### [postgresql-6.0.52](https://github.com/truecharts/apps/compare/postgresql-6.0.51...postgresql-6.0.52) (2022-01-19)
 

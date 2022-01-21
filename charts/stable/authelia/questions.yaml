@@ -28,6 +28,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -78,6 +79,7 @@ questions:
     group: "Container Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
 # Include{fixedEnv}
@@ -120,6 +122,7 @@ questions:
     group: "App Configuration"
     label: "Log Configuration "
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: level
@@ -149,6 +152,7 @@ questions:
     group: "App Configuration"
     label: "TOTP Configuration"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: issuer
@@ -175,6 +179,7 @@ questions:
     label: "DUO API Configuration"
     description: "Parameters used to contact the Duo API."
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: enabled
@@ -209,6 +214,7 @@ questions:
     label: "Session Provider"
     description: "The session cookies identify the user once logged in."
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: name
@@ -256,6 +262,7 @@ questions:
     label: "Regulation Configuration"
     description: "his mechanism prevents attackers from brute forcing the first factor."
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: max_retries
@@ -284,6 +291,7 @@ questions:
     label: "Authentication Backend Provider"
     description: "sed for verifying user passwords and retrieve information such as email address and groups users belong to."
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: disable_reset_password
@@ -303,6 +311,7 @@ questions:
           label: "LDAP backend configuration"
           description: "Used for verifying user passwords and retrieve information such as email address and groups users belong to"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -345,6 +354,7 @@ questions:
                     - variable: tls
                       label: "TLS Settings"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: server_name
@@ -453,6 +463,7 @@ questions:
           label: "File backend configuration"
           description: "With this backend, the users database is stored in a file which is updated when users reset their passwords."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -471,6 +482,7 @@ questions:
                     - variable: password
                       label: "Password Settings"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: algorithm
@@ -519,6 +531,7 @@ questions:
     label: "Notifier Configuration"
     description: "otifications are sent to users when they require a password reset, a u2f registration or a TOTP registration."
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: disable_startup_check
@@ -529,6 +542,7 @@ questions:
         - variable: filesystem
           label: "Filesystem Provider"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -548,6 +562,7 @@ questions:
           label: "SMTP Provider"
           description: "Use a SMTP server for sending notifications. Authelia uses the PLAIN or LOGIN methods to authenticate."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -627,6 +642,7 @@ questions:
                     - variable: tls
                       label: "TLS Settings"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: server_name
@@ -661,6 +677,7 @@ questions:
     label: "Access Control Configuration"
     description: "Access control is a list of rules defining the authorizations applied for one resource to users or group of users."
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: default_policy
@@ -688,6 +705,7 @@ questions:
               - variable: networkItem
                 label: "Network Item"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: name
@@ -718,6 +736,7 @@ questions:
               - variable: rulesItem
                 label: "Rule"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: domain
@@ -791,18 +810,21 @@ questions:
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -871,12 +893,14 @@ questions:
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -922,11 +946,13 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -949,6 +975,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -976,6 +1003,7 @@ questions:
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser
@@ -1008,11 +1036,13 @@ questions:
     group: "Advanced"
     label: "Authelia Identity Providers (BETA)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: oidc
           label: "OpenID Connect(BETA)"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -1060,6 +1090,7 @@ questions:
                           - variable: clientEntry
                             label: "Client"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: id

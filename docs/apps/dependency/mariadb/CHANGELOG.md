@@ -1,6 +1,37 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.57"></a>
+### [mariadb-1.0.57](https://github.com/truecharts/apps/compare/mariadb-1.0.56...mariadb-1.0.57) (2022-01-21)
+
+#### Chore
+
+* update helm chart common to v8.13.4 ([#1758](https://github.com/truecharts/apps/issues/1758))
+
+
+
+<a name="mariadb-1.0.56"></a>
+### [mariadb-1.0.56](https://github.com/truecharts/apps/compare/mariadb-1.0.55...mariadb-1.0.56) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1757](https://github.com/truecharts/apps/issues/1757))
+
+
+
+<a name="mariadb-1.0.55"></a>
+### [mariadb-1.0.55](https://github.com/truecharts/apps/compare/mariadb-1.0.54...mariadb-1.0.55) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="mariadb-1.0.54"></a>
 ### [mariadb-1.0.54](https://github.com/truecharts/apps/compare/mariadb-1.0.53...mariadb-1.0.54) (2022-01-19)
 

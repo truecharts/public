@@ -31,7 +31,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/node-red:v2.1.5@sha256:fe5bbd3116587e7bcd44364257b7d6449922b0226790dcf00d1f70cbe699372b
+          tccr.io/truecharts/node-red:v2.1.6@sha256:104a259937abe3fe250bb3a5acbcacb23aba8c6719419a00f01f5ec74632a3d2
 
 ##### Scan Results
 
@@ -68,22 +68,16 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/node-red:v2.1.5@sha256:fe5bbd3116587e7bcd44364257b7d6449922b0226790dcf00d1f70cbe699372b (alpine 3.12.9)
+#### Container: tccr.io/truecharts/node-red:v2.1.6@sha256:104a259937abe3fe250bb3a5acbcacb23aba8c6719419a00f01f5ec74632a3d2 (alpine 3.12.9)
 
 
 **alpine**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| expat         |    CVE-2022-22822   |   CRITICAL  |  2.2.9-r1 | 2.2.10-r0 | <details><summary>Expand...</summary><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
-| expat         |    CVE-2022-22823   |   CRITICAL  |  2.2.9-r1 | 2.2.10-r0 | <details><summary>Expand...</summary><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
-| expat         |    CVE-2022-22824   |   CRITICAL  |  2.2.9-r1 | 2.2.10-r0 | <details><summary>Expand...</summary><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
-| expat         |    CVE-2021-45960   |   HIGH  |  2.2.9-r1 | 2.2.10-r0 | <details><summary>Expand...</summary><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1217609">https://bugzilla.mozilla.org/show_bug.cgi?id=1217609</a><br><a href="https://github.com/libexpat/libexpat/issues/531">https://github.com/libexpat/libexpat/issues/531</a><br><a href="https://github.com/libexpat/libexpat/pull/534">https://github.com/libexpat/libexpat/pull/534</a><br></details>  |
-| expat         |    CVE-2021-46143   |   HIGH  |  2.2.9-r1 | 2.2.10-r0 | <details><summary>Expand...</summary><a href="https://github.com/libexpat/libexpat/issues/532">https://github.com/libexpat/libexpat/issues/532</a><br><a href="https://github.com/libexpat/libexpat/pull/538">https://github.com/libexpat/libexpat/pull/538</a><br></details>  |
-| expat         |    CVE-2022-22825   |   HIGH  |  2.2.9-r1 | 2.2.10-r0 | <details><summary>Expand...</summary><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
-| expat         |    CVE-2022-22826   |   HIGH  |  2.2.9-r1 | 2.2.10-r0 | <details><summary>Expand...</summary><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
-| expat         |    CVE-2022-22827   |   HIGH  |  2.2.9-r1 | 2.2.10-r0 | <details><summary>Expand...</summary><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 **node-pkg**
 

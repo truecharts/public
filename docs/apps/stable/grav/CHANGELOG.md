@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="grav-2.0.33"></a>
+### [grav-2.0.33](https://github.com/truecharts/apps/compare/grav-2.0.32...grav-2.0.33) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="grav-2.0.32"></a>
 ### [grav-2.0.32](https://github.com/truecharts/apps/compare/grav-2.0.31...grav-2.0.32) (2022-01-18)
 

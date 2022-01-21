@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="spotweb-0.0.9"></a>
+### [spotweb-0.0.9](https://github.com/truecharts/apps/compare/spotweb-0.0.8...spotweb-0.0.9) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="spotweb-0.0.8"></a>
 ### [spotweb-0.0.8](https://github.com/truecharts/apps/compare/spotweb-0.0.7...spotweb-0.0.8) (2022-01-18)
 

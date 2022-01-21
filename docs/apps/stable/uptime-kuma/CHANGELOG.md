@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-1.0.34"></a>
+### [uptime-kuma-1.0.34](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.33...uptime-kuma-1.0.34) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+* fix tag ([#1739](https://github.com/truecharts/apps/issues/1739))
+
+
+
 <a name="uptime-kuma-1.0.33"></a>
 ### [uptime-kuma-1.0.33](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.32...uptime-kuma-1.0.33) (2022-01-18)
 

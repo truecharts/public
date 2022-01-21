@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-1.0.12"></a>
+### [paperless-ng-1.0.12](https://github.com/truecharts/apps/compare/paperless-ng-1.0.11...paperless-ng-1.0.12) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="paperless-ng-1.0.11"></a>
 ### [paperless-ng-1.0.11](https://github.com/truecharts/apps/compare/paperless-ng-1.0.10...paperless-ng-1.0.11) (2022-01-18)
 

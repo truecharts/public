@@ -1,6 +1,7 @@
               - variable: capabilities
                 label: "Capabilities"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:
                     - variable: drop

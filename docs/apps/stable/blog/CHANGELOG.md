@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.25"></a>
+### [blog-0.0.25](https://github.com/truecharts/apps/compare/blog-0.0.24...blog-0.0.25) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="blog-0.0.24"></a>
 ### [blog-0.0.24](https://github.com/truecharts/apps/compare/blog-0.0.23...blog-0.0.24) (2022-01-18)
 

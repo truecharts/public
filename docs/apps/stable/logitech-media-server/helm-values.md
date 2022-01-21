@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/logitechmediaserver"` |  |
-| image.tag | string | `"v8.3.0@sha256:fc179e1d6d1a2781ea57c9119555779e9cac57b19e00d8b7a41db0fdf6fe8a4e"` |  |
+| image.tag | string | `"v8.3.0@sha256:6801ea2b452e1a825e2f2f8c0d5cd76f83e8b7b4e5c3bcd385acaf9c9bc1386e"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

@@ -67,5 +67,6 @@
               - variable: ports
                 label: "Service's Port(s) Configuration"
                 schema:
+                  additional_attrs: true
                   type: dict
                   attrs:

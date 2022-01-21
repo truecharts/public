@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="smokeping-1.0.35"></a>
+### [smokeping-1.0.35](https://github.com/truecharts/apps/compare/smokeping-1.0.34...smokeping-1.0.35) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="smokeping-1.0.34"></a>
 ### [smokeping-1.0.34](https://github.com/truecharts/apps/compare/smokeping-1.0.33...smokeping-1.0.34) (2022-01-18)
 

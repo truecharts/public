@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="syncthing-9.0.36"></a>
+### [syncthing-9.0.36](https://github.com/truecharts/apps/compare/syncthing-9.0.35...syncthing-9.0.36) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="syncthing-9.0.35"></a>
 ### [syncthing-9.0.35](https://github.com/truecharts/apps/compare/syncthing-9.0.34...syncthing-9.0.35) (2022-01-18)
 

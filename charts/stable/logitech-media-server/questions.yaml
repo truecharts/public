@@ -28,6 +28,7 @@ questions:
     group: "Controller"
     label: ""
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: advanced
@@ -77,6 +78,7 @@ questions:
     group: "Container Configuration"
     label: "Image Environment"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
 # Include{fixedEnv}
@@ -93,18 +95,21 @@ questions:
     group: "Networking and Services"
     label: "Configure Service(s)"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Service"
           description: "Logitech Media Web UI and music streaming"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: main
                       label: "Web Interface and music streaming port"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
@@ -153,12 +158,14 @@ questions:
           label: "CLI Service"
           description: "Logitech Media Server Telnet Command Line Interface"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: cli
                       label: "Port used for remote control using the Telnet Command Line interface"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: protocol
@@ -187,12 +194,14 @@ questions:
           label: "Logitech Media Server Player TCP Communcation"
           description: "Logitech Media Server Player Service for TCP communication"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: slimprototcp
                       label: "Player to server TCP communication"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: protocol
@@ -221,12 +230,14 @@ questions:
           label: "Logitech Media Server Player Communcation"
           description: "Logitech Media Server Player Service for UDP communication"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
                     - variable: slimprotoudp
                       label: "Player to server UDP communication"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: protocol
@@ -276,12 +287,14 @@ questions:
     description: "Integrated Persistent Storage"
     group: "Storage and Persistence"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: type
@@ -327,11 +340,13 @@ questions:
     label: ""
     group: "Ingress"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: main
           label: "Main Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
 # Include{ingressDefault}
@@ -354,6 +369,7 @@ questions:
         - variable: securityContext
           label: "Security Context"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: privileged
@@ -381,6 +397,7 @@ questions:
     group: "Security and Permissions"
     label: "Pod Security Context"
     schema:
+      additional_attrs: true
       type: dict
       attrs:
         - variable: runAsUser

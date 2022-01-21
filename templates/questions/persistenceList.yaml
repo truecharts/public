@@ -8,6 +8,7 @@
         - variable: persistenceListEntry
           label: "Custom Storage"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -154,6 +155,7 @@
                           - variable: labelItem
                             label: "Label"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name
@@ -173,6 +175,7 @@
                           - variable: annotationItem
                             label: "Label"
                             schema:
+                              additional_attrs: true
                               type: dict
                               attrs:
                                 - variable: name

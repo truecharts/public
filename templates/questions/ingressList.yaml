@@ -8,6 +8,7 @@
         - variable: ingressListEntry
           label: "Custom Ingress"
           schema:
+            additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
@@ -35,6 +36,7 @@
                     - variable: labelItem
                       label: "Label"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: name
@@ -54,6 +56,7 @@
                     - variable: annotationItem
                       label: "Label"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: name
@@ -73,6 +76,7 @@
                     - variable: hostEntry
                       label: "Host"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: host
@@ -90,6 +94,7 @@
                                 - variable: pathEntry
                                   label: "Host"
                                   schema:
+                                    additional_attrs: true
                                     type: dict
                                     attrs:
                                       - variable: path
@@ -107,6 +112,7 @@
                                       - variable: service
                                         label: "Linked Service"
                                         schema:
+                                          additional_attrs: true
                                           type: dict
                                           attrs:
                                             - variable: name
@@ -127,6 +133,7 @@
                     - variable: tlsEntry
                       label: "Host"
                       schema:
+                        additional_attrs: true
                         type: dict
                         attrs:
                           - variable: hosts

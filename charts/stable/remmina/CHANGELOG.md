@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="remmina-1.0.37"></a>
+### [remmina-1.0.37](https://github.com/truecharts/apps/compare/remmina-1.0.36...remmina-1.0.37) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="remmina-1.0.36"></a>
 ### [remmina-1.0.36](https://github.com/truecharts/apps/compare/remmina-1.0.34...remmina-1.0.36) (2022-01-18)
 

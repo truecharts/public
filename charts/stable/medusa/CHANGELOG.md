@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="medusa-1.0.39"></a>
+### [medusa-1.0.39](https://github.com/truecharts/apps/compare/medusa-1.0.38...medusa-1.0.39) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+
+
+<a name="medusa-1.0.38"></a>
+### [medusa-1.0.38](https://github.com/truecharts/apps/compare/medusa-1.0.37...medusa-1.0.38) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1751](https://github.com/truecharts/apps/issues/1751))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="medusa-1.0.37"></a>
 ### [medusa-1.0.37](https://github.com/truecharts/apps/compare/medusa-1.0.36...medusa-1.0.37) (2022-01-18)
 

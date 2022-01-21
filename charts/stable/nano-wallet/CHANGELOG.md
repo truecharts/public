@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="nano-wallet-0.0.17"></a>
+### [nano-wallet-0.0.17](https://github.com/truecharts/apps/compare/nano-wallet-0.0.16...nano-wallet-0.0.17) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="nano-wallet-0.0.16"></a>
 ### [nano-wallet-0.0.16](https://github.com/truecharts/apps/compare/nano-wallet-0.0.15...nano-wallet-0.0.16) (2022-01-18)
 

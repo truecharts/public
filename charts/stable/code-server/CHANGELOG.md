@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.17"></a>
+### [code-server-2.1.17](https://github.com/truecharts/apps/compare/code-server-2.1.16...code-server-2.1.17) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="code-server-2.1.16"></a>
 ### [code-server-2.1.16](https://github.com/truecharts/apps/compare/code-server-2.1.15...code-server-2.1.16) (2022-01-18)
 
