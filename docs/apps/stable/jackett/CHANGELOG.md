@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.70"></a>
+### [jackett-9.0.70](https://github.com/truecharts/apps/compare/jackett-9.0.69...jackett-9.0.70) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="jackett-9.0.69"></a>
 ### [jackett-9.0.69](https://github.com/truecharts/apps/compare/jackett-9.0.68...jackett-9.0.69) (2022-01-22)
 

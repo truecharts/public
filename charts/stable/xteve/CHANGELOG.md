@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xteve-4.0.34"></a>
+### [xteve-4.0.34](https://github.com/truecharts/apps/compare/xteve-4.0.33...xteve-4.0.34) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="xteve-4.0.33"></a>
 ### [xteve-4.0.33](https://github.com/truecharts/apps/compare/xteve-4.0.32...xteve-4.0.33) (2022-01-21)
 

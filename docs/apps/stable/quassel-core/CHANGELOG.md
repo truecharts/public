@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="quassel-core-0.0.18"></a>
+### [quassel-core-0.0.18](https://github.com/truecharts/apps/compare/quassel-core-0.0.17...quassel-core-0.0.18) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="quassel-core-0.0.17"></a>
 ### [quassel-core-0.0.17](https://github.com/truecharts/apps/compare/quassel-core-0.0.16...quassel-core-0.0.17) (2022-01-22)
 

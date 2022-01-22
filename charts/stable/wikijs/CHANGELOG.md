@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.28"></a>
+### [wikijs-4.0.28](https://github.com/truecharts/apps/compare/wikijs-4.0.27...wikijs-4.0.28) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="wikijs-4.0.27"></a>
 ### [wikijs-4.0.27](https://github.com/truecharts/apps/compare/wikijs-4.0.26...wikijs-4.0.27) (2022-01-22)
 

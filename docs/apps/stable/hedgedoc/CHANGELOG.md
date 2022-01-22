@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hedgedoc-0.0.16"></a>
+### [hedgedoc-0.0.16](https://github.com/truecharts/apps/compare/hedgedoc-0.0.15...hedgedoc-0.0.16) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="hedgedoc-0.0.15"></a>
 ### [hedgedoc-0.0.15](https://github.com/truecharts/apps/compare/hedgedoc-0.0.13...hedgedoc-0.0.15) (2022-01-22)
 

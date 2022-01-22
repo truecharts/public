@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piwigo-1.0.35"></a>
+### [piwigo-1.0.35](https://github.com/truecharts/apps/compare/piwigo-1.0.34...piwigo-1.0.35) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="piwigo-1.0.34"></a>
 ### [piwigo-1.0.34](https://github.com/truecharts/apps/compare/piwigo-1.0.33...piwigo-1.0.34) (2022-01-21)
 

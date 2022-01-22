@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpackerr-4.0.36"></a>
+### [unpackerr-4.0.36](https://github.com/truecharts/apps/compare/unpackerr-4.0.35...unpackerr-4.0.36) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="unpackerr-4.0.35"></a>
 ### [unpackerr-4.0.35](https://github.com/truecharts/apps/compare/unpackerr-4.0.34...unpackerr-4.0.35) (2022-01-21)
 

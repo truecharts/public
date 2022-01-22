@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="handbrake-10.0.15"></a>
+### [handbrake-10.0.15](https://github.com/truecharts/apps/compare/handbrake-10.0.14...handbrake-10.0.15) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="handbrake-10.0.14"></a>
 ### [handbrake-10.0.14](https://github.com/truecharts/apps/compare/handbrake-10.0.13...handbrake-10.0.14) (2022-01-21)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duplicati-4.0.34"></a>
+### [duplicati-4.0.34](https://github.com/truecharts/apps/compare/duplicati-4.0.33...duplicati-4.0.34) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="duplicati-4.0.33"></a>
 ### [duplicati-4.0.33](https://github.com/truecharts/apps/compare/duplicati-4.0.32...duplicati-4.0.33) (2022-01-21)
 

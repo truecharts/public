@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="whoogle-1.0.35"></a>
+### [whoogle-1.0.35](https://github.com/truecharts/apps/compare/whoogle-1.0.34...whoogle-1.0.35) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="whoogle-1.0.34"></a>
 ### [whoogle-1.0.34](https://github.com/truecharts/apps/compare/whoogle-1.0.33...whoogle-1.0.34) (2022-01-21)
 

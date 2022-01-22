@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-4.0.35"></a>
+### [focalboard-4.0.35](https://github.com/truecharts/apps/compare/focalboard-4.0.34...focalboard-4.0.35) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="focalboard-4.0.34"></a>
 ### [focalboard-4.0.34](https://github.com/truecharts/apps/compare/focalboard-4.0.33...focalboard-4.0.34) (2022-01-21)
 

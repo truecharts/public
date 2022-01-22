@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xbackbone-0.0.24"></a>
+### [xbackbone-0.0.24](https://github.com/truecharts/apps/compare/xbackbone-0.0.23...xbackbone-0.0.24) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="xbackbone-0.0.23"></a>
 ### [xbackbone-0.0.23](https://github.com/truecharts/apps/compare/xbackbone-0.0.21...xbackbone-0.0.23) (2022-01-22)
 

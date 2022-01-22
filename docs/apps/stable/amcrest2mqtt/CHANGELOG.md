@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-2.0.37"></a>
+### [amcrest2mqtt-2.0.37](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.36...amcrest2mqtt-2.0.37) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="amcrest2mqtt-2.0.36"></a>
 ### [amcrest2mqtt-2.0.36](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.35...amcrest2mqtt-2.0.36) (2022-01-21)
 

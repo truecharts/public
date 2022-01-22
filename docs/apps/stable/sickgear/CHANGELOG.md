@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sickgear-1.0.34"></a>
+### [sickgear-1.0.34](https://github.com/truecharts/apps/compare/sickgear-1.0.33...sickgear-1.0.34) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="sickgear-1.0.33"></a>
 ### [sickgear-1.0.33](https://github.com/truecharts/apps/compare/sickgear-1.0.32...sickgear-1.0.33) (2022-01-21)
 

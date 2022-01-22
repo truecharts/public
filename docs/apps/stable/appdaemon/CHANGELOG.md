@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="appdaemon-7.0.17"></a>
+### [appdaemon-7.0.17](https://github.com/truecharts/apps/compare/appdaemon-7.0.16...appdaemon-7.0.17) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
 <a name="appdaemon-7.0.16"></a>
 ### [appdaemon-7.0.16](https://github.com/truecharts/apps/compare/appdaemon-7.0.15...appdaemon-7.0.16) (2022-01-21)
 
