@@ -71,8 +71,8 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:3dfac182823c0cdd642f85c297d8910c8185ac15c5e612bd9ff06c5800344019
-          tccr.io/truecharts/nextcloud:v23.0.0@sha256:4b6eb54a1efcacebe35060b63ee59188e766c4520d967632696bde71e7749498
-              tccr.io/truecharts/nextcloud:v23.0.0@sha256:4b6eb54a1efcacebe35060b63ee59188e766c4520d967632696bde71e7749498
+          tccr.io/truecharts/nextcloud:v23.0.0@sha256:204b689c02383892fe16a5db10e4562ade08bd73be0e6cdcf5ab0696e38cc6f5
+              tccr.io/truecharts/nextcloud:v23.0.0@sha256:204b689c02383892fe16a5db10e4562ade08bd73be0e6cdcf5ab0696e38cc6f5
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/redis:v6.2.6@sha256:7d340fc46e5e7df273385590ff5588e223e393d8c95ca329c800425e8e622461
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
@@ -347,7 +347,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/nextcloud:v23.0.0@sha256:4b6eb54a1efcacebe35060b63ee59188e766c4520d967632696bde71e7749498 (debian 11.2)
+#### Container: tccr.io/truecharts/nextcloud:v23.0.0@sha256:204b689c02383892fe16a5db10e4562ade08bd73be0e6cdcf5ab0696e38cc6f5 (debian 11.2)
 
 
 **debian**
@@ -1009,7 +1009,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/nextcloud:v23.0.0@sha256:4b6eb54a1efcacebe35060b63ee59188e766c4520d967632696bde71e7749498 (debian 11.2)
+#### Container: tccr.io/truecharts/nextcloud:v23.0.0@sha256:204b689c02383892fe16a5db10e4562ade08bd73be0e6cdcf5ab0696e38cc6f5 (debian 11.2)
 
 
 **debian**

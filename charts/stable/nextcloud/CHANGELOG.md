@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-11.0.21"></a>
+### [nextcloud-11.0.21](https://github.com/truecharts/apps/compare/nextcloud-11.0.20...nextcloud-11.0.21) (2022-01-22)
+
+#### Chore
+
+* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
+
+
+
 <a name="nextcloud-11.0.20"></a>
 ### [nextcloud-11.0.20](https://github.com/truecharts/apps/compare/nextcloud-11.0.19...nextcloud-11.0.20) (2022-01-22)
 

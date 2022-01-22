@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.31"></a>
+### [authelia-8.0.31](https://github.com/truecharts/apps/compare/authelia-8.0.30...authelia-8.0.31) (2022-01-22)
+
+#### Chore
+
+* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
+
+
+
 <a name="authelia-8.0.30"></a>
 ### [authelia-8.0.30](https://github.com/truecharts/apps/compare/authelia-8.0.29...authelia-8.0.30) (2022-01-22)
 

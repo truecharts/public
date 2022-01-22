@@ -63,7 +63,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:3dfac182823c0cdd642f85c297d8910c8185ac15c5e612bd9ff06c5800344019
-          tccr.io/truecharts/authelia:v4.33.1@sha256:e4c82afea63b9f9985fb597a75ebc637ee6cbc7a78d92de53829f8aa4bed4178
+          tccr.io/truecharts/authelia:v4.33.2@sha256:5baba5c2757ac96b56c2a5c672be66d17ac73af08fa7b8b2bb471cc4cf0d4bed
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/redis:v6.2.6@sha256:7d340fc46e5e7df273385590ff5588e223e393d8c95ca329c800425e8e622461
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
@@ -338,7 +338,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/authelia:v4.33.1@sha256:e4c82afea63b9f9985fb597a75ebc637ee6cbc7a78d92de53829f8aa4bed4178 (alpine 3.15.0)
+#### Container: tccr.io/truecharts/authelia:v4.33.2@sha256:5baba5c2757ac96b56c2a5c672be66d17ac73af08fa7b8b2bb471cc4cf0d4bed (alpine 3.15.0)
 
 
 **alpine**

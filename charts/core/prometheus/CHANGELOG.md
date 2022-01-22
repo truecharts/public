@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.49"></a>
+### [prometheus-1.1.49](https://github.com/truecharts/apps/compare/prometheus-1.1.48...prometheus-1.1.49) (2022-01-22)
+
+#### Chore
+
+* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
+
+
+
 <a name="prometheus-1.1.48"></a>
 ### [prometheus-1.1.48](https://github.com/truecharts/apps/compare/prometheus-1.1.47...prometheus-1.1.48) (2022-01-21)
 
