@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: fleet
-version: 0.0.14
+version: 0.0.15
 appVersion: "2.3.2"
 description: Fleet provides an online web interface which displays a set of maintained images from one or more owned repositories.
 type: application
@@ -19,7 +19,7 @@ dependencies:
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
-  version: 1.0.56
+  version: 1.0.57
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
