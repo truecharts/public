@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shiori-4.0.25"></a>
+### [shiori-4.0.25](https://github.com/truecharts/apps/compare/shiori-4.0.24...shiori-4.0.25) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
 <a name="shiori-4.0.24"></a>
 ### [shiori-4.0.24](https://github.com/truecharts/apps/compare/shiori-4.0.23...shiori-4.0.24) (2022-01-21)
 

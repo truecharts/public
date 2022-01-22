@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.30"></a>
+### [friendica-0.0.30](https://github.com/truecharts/apps/compare/friendica-0.0.28...friendica-0.0.30) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="friendica-0.0.29"></a>
 ### [friendica-0.0.29](https://github.com/truecharts/apps/compare/friendica-0.0.28...friendica-0.0.29) (2022-01-21)
 

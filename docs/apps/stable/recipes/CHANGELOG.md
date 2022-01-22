@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-5.0.14"></a>
+### [recipes-5.0.14](https://github.com/truecharts/apps/compare/recipes-5.0.13...recipes-5.0.14) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
 <a name="recipes-5.0.13"></a>
 ### [recipes-5.0.13](https://github.com/truecharts/apps/compare/recipes-5.0.12...recipes-5.0.13) (2022-01-21)
 
