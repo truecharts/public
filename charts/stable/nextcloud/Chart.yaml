@@ -7,11 +7,11 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 6.0.53
+  version: 6.0.54
 - condition: redis.enabled
   name: redis
   repository: https://truecharts.org
-  version: 1.0.58
+  version: 1.0.59
 deprecated: false
 description: A private cloud server that puts the control and security of your own
   data back into your hands.
@@ -33,7 +33,7 @@ sources:
 - https://github.com/nextcloud/docker
 - https://github.com/nextcloud/helm
 type: application
-version: 11.0.19
+version: 11.0.20
 annotations:
   truecharts.org/catagories: |
     - cloud
