@@ -59,23 +59,7 @@ configmap:
   deepstack:
     enabled: true
     data:
-      {{- if eq .Values.deepstack.vision_face true }}
-      VISION-FACE: "True"
-      {{- else }}
-      VISION-FACE: "False"
-      {{- end }}
-      {{- if eq .Values.deepstack.vision_detection true }}
-      VISION-DETECTION: "True"
-      {{- else }}
-      VISION-DETECTION: "False"
-      {{- end }}
-      {{- if eq .Values.deepstack.vision_scene true }}
-      VISION-SCENE: "True"
-      {{- else }}
-      VISION-SCENE: "False"
-      {{- end }}
-      {{- if eq .Values.deepstack.vision_enhance true }}
-      VISION-ENHANCE: "True"
-      {{- else }}
-      VISION-ENHANCE: "False"
-      {{- end }}
+      VISION-FACE: {{ ternary "True" "False" .Values.deepstack.vision_face }}
+      VISION-DETECTION: {{ ternary "True" "False" .Values.deepstack.vision_detection }}
+      VISION-SCENE: {{ ternary "True" "False" .Values.deepstack.vision_scene }}
+      VISION-ENHANCE: {{ ternary "True" "False" .Values.deepstack.vision_enhance }}
