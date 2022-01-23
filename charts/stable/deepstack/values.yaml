@@ -25,16 +25,27 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secret:
+  API-KEY: ""
+  ADMIN-KEY: ""
+
 env:
   PUID: 568
   USER_ID: "{{ .Values.env.PUID }}"
-  VISION-FACE: "True"
-  VISION-DETECTION: "True"
-  VISION-SCENE: "True"
   # Path to custom models (needs to be on documentation)
   MODELSTORE-DETECTION: "{{ .Values.persistence.modelstore.mountPath }}"
   # High|Medium|Low
   MODE: "High"
+
+envFrom:
+  - configMapRef:
+      name: deepstack-env
+
+app:
+  vision_face: true
+  vision_detection: true
+  vision_scene: true
+  vision_enhance: true
 
 persistence:
   data:
