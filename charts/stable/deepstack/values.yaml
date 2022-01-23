@@ -39,7 +39,7 @@ env:
 
 envFrom:
   - configMapRef:
-      name: deepstack-env
+      name: deepstack
 
 deepstack:
   vision_face: true
