@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.14.0"></a>
+### [common-8.14.0](https://github.com/truecharts/apps/compare/common-8.13.5...common-8.14.0) (2022-01-23)
+
+#### Feat
+
+* add upgrade and install specific initContainers
+
+
+
 <a name="common-8.13.5"></a>
 ### [common-8.13.5](https://github.com/truecharts/apps/compare/common-8.13.4...common-8.13.5) (2022-01-22)
 

@@ -107,6 +107,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | ingress.main.tls | list | `[]` | Configure TLS for the ingress. Both secretName and hosts can process a Helm template. |
 | ingressList | list | [] | Configure ingressList for the chart here. Additional items can be added by adding a items similar to ingress |
 | initContainers | object | `{}` | Specify any initContainers here as dictionary items. Each initContainer should have its own key. The dictionary item key will determine the order. Helm templates can be used. |
+| installContainers | object | `{}` | These containers will be run, as an initcontainer, a single time at install only. |
 | lifecycle | object | `{}` | Configure the lifecycle for the main container |
 | mariadb | object | See below | mariadb dependency configuration |
 | mariadb.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
@@ -254,6 +255,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | tolerations | list | `[]` | Specify taint tolerations [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) |
 | topologySpreadConstraints | list | `[]` | Defines topologySpreadConstraint rules. [[ref]](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) |
 | tty | bool | `false` | Determines whether containers in a pod runs with TTY enabled. |
+| upgradeContainers | object | `{}` | These containers will be run, as an initcontainer, a single time at each edit or update of the chart. |
 | volumeClaimTemplates | list | `[]` | Used in conjunction with `controller.type: statefulset` to create individual disks for each instance. |
 | wireguardImage | object | See below | WireGuard specific configuration |
 | wireguardImage.pullPolicy | string | `"IfNotPresent"` | Specify the WireGuard image pull policy |

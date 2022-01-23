@@ -7,4 +7,3 @@
 #### Feat
 
 * Add airdcpp-webclient ([#1752](https://github.com/truecharts/apps/issues/1752))
-
