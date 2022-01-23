@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="haste-server-4.0.34"></a>
+### [haste-server-4.0.34](https://github.com/truecharts/apps/compare/haste-server-4.0.33...haste-server-4.0.34) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="haste-server-4.0.33"></a>
+### [haste-server-4.0.33](https://github.com/truecharts/apps/compare/haste-server-4.0.32...haste-server-4.0.33) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="haste-server-4.0.32"></a>
 ### [haste-server-4.0.32](https://github.com/truecharts/apps/compare/haste-server-4.0.31...haste-server-4.0.32) (2022-01-18)
 

@@ -1,6 +1,37 @@
 # Changelog<br>
 
 
+<a name="airsonic-advanced-1.0.8"></a>
+### [airsonic-advanced-1.0.8](https://github.com/truecharts/apps/compare/airsonic-advanced-1.0.7...airsonic-advanced-1.0.8) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="airsonic-advanced-1.0.7"></a>
+### [airsonic-advanced-1.0.7](https://github.com/truecharts/apps/compare/airsonic-advanced-1.0.6...airsonic-advanced-1.0.7) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
+<a name="airsonic-advanced-1.0.6"></a>
+### [airsonic-advanced-1.0.6](https://github.com/truecharts/apps/compare/airsonic-advanced-1.0.5...airsonic-advanced-1.0.6) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="airsonic-advanced-1.0.5"></a>
 ### [airsonic-advanced-1.0.5](https://github.com/truecharts/apps/compare/airsonic-advanced-1.0.4...airsonic-advanced-1.0.5) (2022-01-18)
 

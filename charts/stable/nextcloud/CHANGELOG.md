@@ -1,6 +1,51 @@
 # Changelog<br>
 
 
+<a name="nextcloud-11.0.22"></a>
+### [nextcloud-11.0.22](https://github.com/truecharts/apps/compare/nextcloud-11.0.21...nextcloud-11.0.22) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="nextcloud-11.0.21"></a>
+### [nextcloud-11.0.21](https://github.com/truecharts/apps/compare/nextcloud-11.0.20...nextcloud-11.0.21) (2022-01-22)
+
+#### Chore
+
+* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
+
+
+
+<a name="nextcloud-11.0.20"></a>
+### [nextcloud-11.0.20](https://github.com/truecharts/apps/compare/nextcloud-11.0.19...nextcloud-11.0.20) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
+<a name="nextcloud-11.0.19"></a>
+### [nextcloud-11.0.19](https://github.com/truecharts/apps/compare/nextcloud-11.0.18...nextcloud-11.0.19) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+
+
+<a name="nextcloud-11.0.18"></a>
+### [nextcloud-11.0.18](https://github.com/truecharts/apps/compare/nextcloud-11.0.17...nextcloud-11.0.18) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1757](https://github.com/truecharts/apps/issues/1757))
+
+
+
 <a name="nextcloud-11.0.17"></a>
 ### [nextcloud-11.0.17](https://github.com/truecharts/apps/compare/nextcloud-11.0.16...nextcloud-11.0.17) (2022-01-21)
 

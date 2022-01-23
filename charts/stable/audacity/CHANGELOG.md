@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="audacity-2.0.34"></a>
+### [audacity-2.0.34](https://github.com/truecharts/apps/compare/audacity-2.0.33...audacity-2.0.34) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="audacity-2.0.33"></a>
+### [audacity-2.0.33](https://github.com/truecharts/apps/compare/audacity-2.0.32...audacity-2.0.33) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="audacity-2.0.32"></a>
 ### [audacity-2.0.32](https://github.com/truecharts/apps/compare/audacity-2.0.31...audacity-2.0.32) (2022-01-18)
 

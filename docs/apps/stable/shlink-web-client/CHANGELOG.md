@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="shlink-web-client-1.0.2"></a>
+### [shlink-web-client-1.0.2](https://github.com/truecharts/apps/compare/shlink-web-client-1.0.1...shlink-web-client-1.0.2) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="shlink-web-client-1.0.1"></a>
+### [shlink-web-client-1.0.1](https://github.com/truecharts/apps/compare/shlink-web-client-1.0.0...shlink-web-client-1.0.1) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="shlink-web-client-1.0.0"></a>
 ### [shlink-web-client-1.0.0](https://github.com/truecharts/apps/compare/shlink-web-client-0.0.8...shlink-web-client-1.0.0) (2022-01-19)
 

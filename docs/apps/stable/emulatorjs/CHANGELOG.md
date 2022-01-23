@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="emulatorjs-0.0.21"></a>
+### [emulatorjs-0.0.21](https://github.com/truecharts/apps/compare/emulatorjs-0.0.20...emulatorjs-0.0.21) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="emulatorjs-0.0.20"></a>
+### [emulatorjs-0.0.20](https://github.com/truecharts/apps/compare/emulatorjs-0.0.19...emulatorjs-0.0.20) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="emulatorjs-0.0.19"></a>
 ### [emulatorjs-0.0.19](https://github.com/truecharts/apps/compare/emulatorjs-0.0.18...emulatorjs-0.0.19) (2022-01-19)
 

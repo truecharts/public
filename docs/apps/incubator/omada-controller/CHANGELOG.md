@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.52"></a>
+### [omada-controller-4.0.52](https://github.com/truecharts/apps/compare/omada-controller-4.0.51...omada-controller-4.0.52) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="omada-controller-4.0.51"></a>
+### [omada-controller-4.0.51](https://github.com/truecharts/apps/compare/omada-controller-4.0.50...omada-controller-4.0.51) (2022-01-22)
+
+#### Chore
+
+* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
+
+
+
+<a name="omada-controller-4.0.50"></a>
+### [omada-controller-4.0.50](https://github.com/truecharts/apps/compare/omada-controller-4.0.49...omada-controller-4.0.50) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+
+
 <a name="omada-controller-4.0.49"></a>
 ### [omada-controller-4.0.49](https://github.com/truecharts/apps/compare/omada-controller-4.0.48...omada-controller-4.0.49) (2022-01-21)
 

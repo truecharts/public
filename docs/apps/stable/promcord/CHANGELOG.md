@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="promcord-2.0.15"></a>
+### [promcord-2.0.15](https://github.com/truecharts/apps/compare/promcord-2.0.14...promcord-2.0.15) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="promcord-2.0.14"></a>
+### [promcord-2.0.14](https://github.com/truecharts/apps/compare/promcord-2.0.13...promcord-2.0.14) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="promcord-2.0.13"></a>
 ### [promcord-2.0.13](https://github.com/truecharts/apps/compare/promcord-2.0.12...promcord-2.0.13) (2022-01-18)
 

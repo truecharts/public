@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="leantime-1.0.13"></a>
+### [leantime-1.0.13](https://github.com/truecharts/apps/compare/leantime-1.0.12...leantime-1.0.13) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="leantime-1.0.12"></a>
+### [leantime-1.0.12](https://github.com/truecharts/apps/compare/leantime-1.0.10...leantime-1.0.12) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
+<a name="leantime-1.0.11"></a>
+### [leantime-1.0.11](https://github.com/truecharts/apps/compare/leantime-1.0.10...leantime-1.0.11) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="leantime-1.0.10"></a>
 ### [leantime-1.0.10](https://github.com/truecharts/apps/compare/leantime-1.0.9...leantime-1.0.10) (2022-01-18)
 

@@ -1,6 +1,37 @@
 # Changelog<br>
 
 
+<a name="recipes-5.0.15"></a>
+### [recipes-5.0.15](https://github.com/truecharts/apps/compare/recipes-5.0.14...recipes-5.0.15) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="recipes-5.0.14"></a>
+### [recipes-5.0.14](https://github.com/truecharts/apps/compare/recipes-5.0.13...recipes-5.0.14) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
+<a name="recipes-5.0.13"></a>
+### [recipes-5.0.13](https://github.com/truecharts/apps/compare/recipes-5.0.12...recipes-5.0.13) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="recipes-5.0.12"></a>
 ### [recipes-5.0.12](https://github.com/truecharts/apps/compare/recipes-5.0.11...recipes-5.0.12) (2022-01-18)
 

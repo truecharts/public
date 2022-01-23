@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.52"></a>
+### [logitech-media-server-2.0.52](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.51...logitech-media-server-2.0.52) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="logitech-media-server-2.0.51"></a>
+### [logitech-media-server-2.0.51](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.50...logitech-media-server-2.0.51) (2022-01-22)
+
+#### Chore
+
+* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
+
+
+
+<a name="logitech-media-server-2.0.50"></a>
+### [logitech-media-server-2.0.50](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.49...logitech-media-server-2.0.50) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+
+
 <a name="logitech-media-server-2.0.49"></a>
 ### [logitech-media-server-2.0.49](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.48...logitech-media-server-2.0.49) (2022-01-21)
 

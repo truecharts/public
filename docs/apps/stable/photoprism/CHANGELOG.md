@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="photoprism-7.0.20"></a>
+### [photoprism-7.0.20](https://github.com/truecharts/apps/compare/photoprism-7.0.19...photoprism-7.0.20) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="photoprism-7.0.19"></a>
+### [photoprism-7.0.19](https://github.com/truecharts/apps/compare/photoprism-7.0.17...photoprism-7.0.19) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
+<a name="photoprism-7.0.18"></a>
+### [photoprism-7.0.18](https://github.com/truecharts/apps/compare/photoprism-7.0.17...photoprism-7.0.18) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="photoprism-7.0.16"></a>
 ### [photoprism-7.0.16](https://github.com/truecharts/apps/compare/photoprism-7.0.15...photoprism-7.0.16) (2022-01-18)
 

@@ -1,6 +1,37 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-1.0.5"></a>
+### [guacamole-client-1.0.5](https://github.com/truecharts/apps/compare/guacamole-client-1.0.4...guacamole-client-1.0.5) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="guacamole-client-1.0.4"></a>
+### [guacamole-client-1.0.4](https://github.com/truecharts/apps/compare/guacamole-client-1.0.3...guacamole-client-1.0.4) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
+<a name="guacamole-client-1.0.3"></a>
+### [guacamole-client-1.0.3](https://github.com/truecharts/apps/compare/guacamole-client-1.0.2...guacamole-client-1.0.3) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="guacamole-client-1.0.2"></a>
 ### [guacamole-client-1.0.2](https://github.com/truecharts/apps/compare/guacamole-client-1.0.1...guacamole-client-1.0.2) (2022-01-18)
 

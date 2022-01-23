@@ -1,6 +1,42 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.30"></a>
+### [grafana-2.0.30](https://github.com/truecharts/apps/compare/grafana-2.0.29...grafana-2.0.30) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="grafana-2.0.29"></a>
+### [grafana-2.0.29](https://github.com/truecharts/apps/compare/grafana-2.0.28...grafana-2.0.29) (2022-01-22)
+
+#### Chore
+
+* update docker general non-major ([#1764](https://github.com/truecharts/apps/issues/1764))
+
+
+
+<a name="grafana-2.0.28"></a>
+### [grafana-2.0.28](https://github.com/truecharts/apps/compare/grafana-2.0.27...grafana-2.0.28) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+
+
+<a name="grafana-2.0.27"></a>
+### [grafana-2.0.27](https://github.com/truecharts/apps/compare/grafana-2.0.26...grafana-2.0.27) (2022-01-21)
+
+#### Chore
+
+* update docker general non-major ([#1757](https://github.com/truecharts/apps/issues/1757))
+
+
+
 <a name="grafana-2.0.26"></a>
 ### [grafana-2.0.26](https://github.com/truecharts/apps/compare/grafana-2.0.25...grafana-2.0.26) (2022-01-21)
 

@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="domoticz-0.0.20"></a>
+### [domoticz-0.0.20](https://github.com/truecharts/apps/compare/domoticz-0.0.19...domoticz-0.0.20) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="domoticz-0.0.19"></a>
+### [domoticz-0.0.19](https://github.com/truecharts/apps/compare/domoticz-0.0.18...domoticz-0.0.19) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="domoticz-0.0.18"></a>
 ### [domoticz-0.0.18](https://github.com/truecharts/apps/compare/domoticz-0.0.17...domoticz-0.0.18) (2022-01-18)
 

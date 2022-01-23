@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.52"></a>
+### [littlelink-4.0.52](https://github.com/truecharts/apps/compare/littlelink-4.0.51...littlelink-4.0.52) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="littlelink-4.0.51"></a>
+### [littlelink-4.0.51](https://github.com/truecharts/apps/compare/littlelink-4.0.50...littlelink-4.0.51) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="littlelink-4.0.50"></a>
 ### [littlelink-4.0.50](https://github.com/truecharts/apps/compare/littlelink-4.0.49...littlelink-4.0.50) (2022-01-18)
 

@@ -52,6 +52,32 @@ terminationGracePeriodSeconds: {{ . }}
 initContainers:
   {{-  include "common.controller.autopermissions" . | nindent 2 }}
   {{-  include "common.dependencies.postgresql.init" . | nindent 2 }}
+  {{- if .Release.IsInstall }}
+  {{- if .Values.installContainers }}
+    {{- $installContainers := list }}
+    {{- range $index, $key := (keys .Values.installContainers | uniq | sortAlpha) }}
+      {{- $container := get $.Values.installContainers $key }}
+      {{- if not $container.name -}}
+        {{- $_ := set $container "name" $key }}
+      {{- end }}
+      {{- $installContainers = append $installContainers $container }}
+    {{- end }}
+    {{- tpl (toYaml $installContainers) $ | nindent 2 }}
+  {{- end }}
+  {{- end }}
+  {{- if .Release.IsUpgrade }}
+  {{- if .Values.upgradeContainers }}
+    {{- $upgradeContainers := list }}
+    {{- range $index, $key := (keys .Values.upgradeContainers | uniq | sortAlpha) }}
+      {{- $container := get $.Values.upgradeContainers $key }}
+      {{- if not $container.name -}}
+        {{- $_ := set $container "name" $key }}
+      {{- end }}
+      {{- $upgradeContainers = append $upgradeContainers $container }}
+    {{- end }}
+    {{- tpl (toYaml $upgradeContainers) $ | nindent 2 }}
+  {{- end }}
+  {{- end }}
   {{- if .Values.initContainers }}
     {{- $initContainers := list }}
     {{- range $index, $key := (keys .Values.initContainers | uniq | sortAlpha) }}

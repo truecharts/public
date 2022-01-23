@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v0.49.5@sha256:32262e0829730850f83f5e0227ff83cd5c9cc443aeacb461daf1cec7b710259e"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/trilium-data"` |  |
-| service.main.ports.main.port | int | `10086` |  |
+| service.main.ports.main.port | int | `10156` |  |
 | service.main.ports.main.protocol | string | `"HTTP"` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
 

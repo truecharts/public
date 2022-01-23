@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="promtail-1.0.27"></a>
+### [promtail-1.0.27](https://github.com/truecharts/apps/compare/promtail-1.0.26...promtail-1.0.27) (2022-01-22)
+
+#### Chore
+
+* update helm chart common to v8.13.5 ([#1765](https://github.com/truecharts/apps/issues/1765))
+
+
+
+<a name="promtail-1.0.26"></a>
+### [promtail-1.0.26](https://github.com/truecharts/apps/compare/promtail-1.0.25...promtail-1.0.26) (2022-01-21)
+
+#### Chore
+
+* update helm chart common to v8.13.4 ([#1758](https://github.com/truecharts/apps/issues/1758))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="promtail-1.0.25"></a>
 ### [promtail-1.0.25](https://github.com/truecharts/apps/compare/promtail-1.0.24...promtail-1.0.25) (2022-01-18)
 

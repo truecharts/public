@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="heimdall-9.0.39"></a>
+### [heimdall-9.0.39](https://github.com/truecharts/apps/compare/heimdall-9.0.38...heimdall-9.0.39) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="heimdall-9.0.38"></a>
+### [heimdall-9.0.38](https://github.com/truecharts/apps/compare/heimdall-9.0.37...heimdall-9.0.38) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="heimdall-9.0.37"></a>
 ### [heimdall-9.0.37](https://github.com/truecharts/apps/compare/heimdall-9.0.36...heimdall-9.0.37) (2022-01-18)
 

@@ -1,6 +1,37 @@
 # Changelog<br>
 
 
+<a name="home-assistant-12.0.36"></a>
+### [home-assistant-12.0.36](https://github.com/truecharts/apps/compare/home-assistant-12.0.35...home-assistant-12.0.36) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="home-assistant-12.0.35"></a>
+### [home-assistant-12.0.35](https://github.com/truecharts/apps/compare/home-assistant-12.0.34...home-assistant-12.0.35) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
+<a name="home-assistant-12.0.34"></a>
+### [home-assistant-12.0.34](https://github.com/truecharts/apps/compare/home-assistant-12.0.33...home-assistant-12.0.34) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="home-assistant-12.0.33"></a>
 ### [home-assistant-12.0.33](https://github.com/truecharts/apps/compare/home-assistant-12.0.32...home-assistant-12.0.33) (2022-01-19)
 

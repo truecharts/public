@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="gaps-9.0.36"></a>
+### [gaps-9.0.36](https://github.com/truecharts/apps/compare/gaps-9.0.35...gaps-9.0.36) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="gaps-9.0.35"></a>
+### [gaps-9.0.35](https://github.com/truecharts/apps/compare/gaps-9.0.34...gaps-9.0.35) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="gaps-9.0.34"></a>
 ### [gaps-9.0.34](https://github.com/truecharts/apps/compare/gaps-9.0.33...gaps-9.0.34) (2022-01-18)
 

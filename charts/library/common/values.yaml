@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.1.0@sha256:3dfac182823c0cdd642f85c297d8910c8185ac15c5e612bd9ff06c5800344019
+  tag: v14.1.0@sha256:8eb0f1249b16e6b3afea27ecb20bf94605b03b088f03c8801a7f4cc9b7f2d699
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
@@ -333,6 +333,12 @@ securityContext:
 
 # -- Configure the lifecycle for the main container
 lifecycle: {}
+
+# -- These containers will be run, as an initcontainer, a single time at install only.
+installContainers: {}
+
+# -- These containers will be run, as an initcontainer, a single time at each edit or update of the chart.
+upgradeContainers: {}
 
 # -- Specify any initContainers here as dictionary items. Each initContainer should have its own key.
 # The dictionary item key will determine the order. Helm templates can be used.

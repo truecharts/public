@@ -18,9 +18,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | kube-state-metrics | 2.2.3 |
-| https://charts.bitnami.com/bitnami | node-exporter | 2.4.0 |
-| https://truecharts.org | common | 8.13.1 |
+| https://charts.bitnami.com/bitnami | kube-state-metrics | 2.2.4 |
+| https://charts.bitnami.com/bitnami | node-exporter | 2.4.1 |
+| https://truecharts.org | common | 8.13.5 |
 
 ## Installing the Chart
 

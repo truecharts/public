@@ -234,7 +234,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | fossil                     |      main       |      main       | 10083 |   TCP    |                                         |
 | gotify                     |      main       |      main       | 10084 |   TCP    |                                         |
 | komga                      |      main       |      main       | 10085 |   TCP    |                                         |
-| trilium-notes              |      main       |      main       | 10086 |   HTTP   |                                         |
 | owncast                    |      main       |      main       | 10088 |   TCP    |                                         |
 | openkm                     |      main       |      main       | 10090 |   TCP    |                                         |
 | miniflux                   |      main       |      main       | 10091 |   TCP    |                                         |
@@ -301,10 +300,15 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | kodi-headless              |    websocket    |    websocket    | 10152 |   TCP    |                                         |
 | shlink                     |      main       |      main       | 10153 |   TCP    |                                         |
 | shlink-web-client          |      main       |      main       | 10154 |   HTTP   |                                         |
+| airdcpp-webclient          |      main       |      main       | 10155 |   HTTP   |                                         |
+| trilium-notes              |      main       |      main       | 10156 |   HTTP   |                                         |
 | hyperion-ng                | boblightservice | boblightservice | 19333 |   TCP    |                                         |
 | hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |   TCP    |                                         |
 | hyperion-ng                | protobufservice | protobufservice | 19445 |   TCP    |                                         |
 | syncthing                  |    discovery    |    discovery    | 21027 |   UDP    |                                         |
+| airdcpp-webclient          | unencrypted-tcp | unencrypted-tcp | 21248 |   TCP    |                                         |
+| airdcpp-webclient          |    search-udp   |    search-udp   | 21248 |   UDP    |                                         |
+| airdcpp-webclient          |  encrypted-tcp  |  encrypted-tcp  | 21249 |   TCP    |                                         |
 | syncthing                  |    listeners    |       tcp       | 22000 |   TCP    |                                         |
 | syncthing                  |  listeners-udp  |       udp       | 22000 |   UDP    |                                         |
 | joplin-server              |      main       |      main       | 22300 |   TCP    |                                         |

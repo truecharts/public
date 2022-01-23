@@ -1,6 +1,37 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.28"></a>
+### [vaultwarden-13.0.28](https://github.com/truecharts/apps/compare/vaultwarden-13.0.27...vaultwarden-13.0.28) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="vaultwarden-13.0.27"></a>
+### [vaultwarden-13.0.27](https://github.com/truecharts/apps/compare/vaultwarden-13.0.26...vaultwarden-13.0.27) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1763](https://github.com/truecharts/apps/issues/1763))
+
+
+
+<a name="vaultwarden-13.0.26"></a>
+### [vaultwarden-13.0.26](https://github.com/truecharts/apps/compare/vaultwarden-13.0.25...vaultwarden-13.0.26) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="vaultwarden-13.0.25"></a>
 ### [vaultwarden-13.0.25](https://github.com/truecharts/apps/compare/vaultwarden-13.0.24...vaultwarden-13.0.25) (2022-01-18)
 

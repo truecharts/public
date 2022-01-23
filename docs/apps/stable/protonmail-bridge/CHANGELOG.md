@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="protonmail-bridge-4.0.34"></a>
+### [protonmail-bridge-4.0.34](https://github.com/truecharts/apps/compare/protonmail-bridge-4.0.33...protonmail-bridge-4.0.34) (2022-01-22)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1766](https://github.com/truecharts/apps/issues/1766))
+
+
+
+<a name="protonmail-bridge-4.0.33"></a>
+### [protonmail-bridge-4.0.33](https://github.com/truecharts/apps/compare/protonmail-bridge-4.0.32...protonmail-bridge-4.0.33) (2022-01-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1759](https://github.com/truecharts/apps/issues/1759))
+
+#### Fix
+
+* set additional_attrs: true on all dicts ([#1750](https://github.com/truecharts/apps/issues/1750))
+
+
+
 <a name="protonmail-bridge-4.0.32"></a>
 ### [protonmail-bridge-4.0.32](https://github.com/truecharts/apps/compare/protonmail-bridge-4.0.31...protonmail-bridge-4.0.32) (2022-01-18)
 
