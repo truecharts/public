@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: airdcpp-webclient/templates/common.yaml
+    
 
-
-
+      
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV003   |   Default capabilities not dropped  |  LOW | <details><summary>Expand...</summary> The container should drop all default capabilities and add only those that are needed for its execution. <br> <hr> <br> Container &#39;RELEASE-NAME-airdcpp-webclient&#39; of Deployment &#39;RELEASE-NAME-airdcpp-webclient&#39; should add &#39;ALL&#39; to &#39;securityContext.capabilities.drop&#39; </details>| <details><summary>Expand...</summary><a href="https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/">https://kubesec.io/basics/containers-securitycontext-capabilities-drop-index-all/</a><br><a href="https://avd.aquasec.com/appshield/ksv003">https://avd.aquasec.com/appshield/ksv003</a><br></details>  |
@@ -37,11 +37,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-
+    
 
 **alpine**
 
-
+      
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -69,11 +69,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/airdcpp-webclient:v2.11.2@sha256:9dfc8d1ca4ff738c9586c902eaf3dc92d914412e5a8f3ec9a5002633a58d7a35 (debian 11.0)
-
+    
 
 **debian**
 
-
+      
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  2.2.4 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -220,3 +220,4 @@ hide:
 | python3.9-minimal         |    CVE-2021-4189   |   MEDIUM  |  3.9.2-1 |  | <details><summary>Expand...</summary><a href="https://bugs.python.org/issue43285">https://bugs.python.org/issue43285</a><br></details>  |
 | python3.9-minimal         |    CVE-2020-27619   |   LOW  |  3.9.2-1 |  | <details><summary>Expand...</summary><a href="https://bugs.python.org/issue41944">https://bugs.python.org/issue41944</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27619">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-27619</a><br><a href="https://github.com/python/cpython/commit/2ef5caa58febc8968e670e39e3d37cf8eef3cab8">https://github.com/python/cpython/commit/2ef5caa58febc8968e670e39e3d37cf8eef3cab8</a><br><a href="https://github.com/python/cpython/commit/43e523103886af66d6c27cd72431b5d9d14cd2a9">https://github.com/python/cpython/commit/43e523103886af66d6c27cd72431b5d9d14cd2a9</a><br><a href="https://github.com/python/cpython/commit/6c6c256df3636ff6f6136820afaefa5a10a3ac33">https://github.com/python/cpython/commit/6c6c256df3636ff6f6136820afaefa5a10a3ac33</a><br><a href="https://github.com/python/cpython/commit/b664a1df4ee71d3760ab937653b10997081b1794">https://github.com/python/cpython/commit/b664a1df4ee71d3760ab937653b10997081b1794</a><br><a href="https://github.com/python/cpython/commit/e912e945f2960029d039d3390ea08835ad39374b">https://github.com/python/cpython/commit/e912e945f2960029d039d3390ea08835ad39374b</a><br><a href="https://linux.oracle.com/cve/CVE-2020-27619.html">https://linux.oracle.com/cve/CVE-2020-27619.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-4151.html">https://linux.oracle.com/errata/ELSA-2021-4151.html</a><br><a href="https://lists.apache.org/thread.html/r58af02e294bd07f487e2c64ffc0a29b837db5600e33b6e698b9d696b@%3Cissues.bookkeeper.apache.org%3E">https://lists.apache.org/thread.html/r58af02e294bd07f487e2c64ffc0a29b837db5600e33b6e698b9d696b@%3Cissues.bookkeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rf4c02775860db415b4955778a131c2795223f61cb8c6a450893651e4@%3Cissues.bookkeeper.apache.org%3E">https://lists.apache.org/thread.html/rf4c02775860db415b4955778a131c2795223f61cb8c6a450893651e4@%3Cissues.bookkeeper.apache.org%3E</a><br><a href="https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E">https://lists.apache.org/thread.html/rf9fa47ab66495c78bb4120b0754dd9531ca2ff0430f6685ac9b07772@%3Cdev.mina.apache.org%3E</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RSLQD5CCM75IZGAMBDGUZEATYU5YSGJ7/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RSLQD5CCM75IZGAMBDGUZEATYU5YSGJ7/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SGIY6I4YS3WOXAK4SXKIEOC2G4VZKIR7/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SGIY6I4YS3WOXAK4SXKIEOC2G4VZKIR7/</a><br><a href="https://security.netapp.com/advisory/ntap-20201123-0004/">https://security.netapp.com/advisory/ntap-20201123-0004/</a><br><a href="https://ubuntu.com/security/notices/USN-4754-1">https://ubuntu.com/security/notices/USN-4754-1</a><br><a href="https://ubuntu.com/security/notices/USN-4754-3">https://ubuntu.com/security/notices/USN-4754-3</a><br></details>  |
 | tar         |    CVE-2005-2541   |   LOW  |  1.34+dfsg-1 |  | <details><summary>Expand...</summary><a href="http://marc.info/?l=bugtraq&amp;m=112327628230258&amp;w=2">http://marc.info/?l=bugtraq&amp;m=112327628230258&amp;w=2</a><br><a href="https://lists.apache.org/thread.html/rc713534b10f9daeee2e0990239fa407e2118e4aa9e88a7041177497c@%3Cissues.guacamole.apache.org%3E">https://lists.apache.org/thread.html/rc713534b10f9daeee2e0990239fa407e2118e4aa9e88a7041177497c@%3Cissues.guacamole.apache.org%3E</a><br></details>  |
+

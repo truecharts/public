@@ -8,6 +8,42 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.11.2
+    created: "2022-01-23T21:09:09.279758154Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.5
+    description: AirDC++ Web Client is a locally installed application, which is designed
+      for flexible sharing of files or directories within groups of people in a local
+      network or over internet.
+    digest: c7543ec8610df9b0c1cdaf6c3b054d5c6196a52471560f32dad2ab9cedc6e7e8
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/airdcpp-webclient
+    icon: https://truecharts.org/_static/img/appicons/airdcpp-webclient-icon.png
+    keywords:
+    - DC++
+    - dcpp
+    - airdcpp
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: airdcpp-webclient
+    sources:
+    - https://airdcpp-web.github.io/
+    - https://github.com/airdcpp-web/airdcpp-webclient
+    - https://hub.docker.com/r/gangefors/airdcpp-webclient
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/airdcpp-webclient-1.0.0/airdcpp-webclient-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.11.2
     created: "2022-01-22T20:56:56.143121261Z"
     dependencies:
     - name: common
@@ -52155,4 +52191,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-23T17:19:06.436946861Z"
+generated: "2022-01-23T21:09:09.285214455Z"
