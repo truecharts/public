@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="smokeping-1.0.37"></a>
+### [smokeping-1.0.37](https://github.com/truecharts/apps/compare/smokeping-1.0.36...smokeping-1.0.37) (2022-01-23)
+
+#### Fix
+
+* Allow priviledge escalation ([#1769](https://github.com/truecharts/apps/issues/1769))
+
+
+
 <a name="smokeping-1.0.36"></a>
 ### [smokeping-1.0.36](https://github.com/truecharts/apps/compare/smokeping-1.0.35...smokeping-1.0.36) (2022-01-22)
 

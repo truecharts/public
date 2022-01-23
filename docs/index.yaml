@@ -44174,6 +44174,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.7.3
+    created: "2022-01-23T22:24:49.085385568Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.5
+    description: Keep track of your network latency.
+    digest: 3d81450aacdaecc36c6577e796206eaf4bd3efadd94e3da6e987dfbd787e7e5d
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/smokeping
+    icon: https://truecharts.org/_static/img/appicons/smokeping-icon.png
+    keywords:
+    - smokeping
+    - network
+    - latency
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: smokeping
+    sources:
+    - https://oss.oetiker.ch/smokeping/
+    - https://hub.docker.com/r/linuxserver/smokeping
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/smokeping-1.0.37/smokeping-1.0.37.tgz
+    version: 1.0.37
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.7.3
     created: "2022-01-04T20:49:20.396042111Z"
     dependencies:
     - name: common
@@ -52191,4 +52224,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-23T21:09:09.285214455Z"
+generated: "2022-01-23T22:24:49.089358416Z"
