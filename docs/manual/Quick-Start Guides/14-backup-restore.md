@@ -43,18 +43,17 @@ If you want to ensure TrueTool automatically gets updated and/or (re)installed a
 ##### Exporting Backups
 
 The above only creates only a backup of the kubernetes objects and a snapshot of the `PVC` and `ix_volume` storage.
+These backups are saved under the same ix_applications dataset.
+
 It does not protect these against, for example, deletion of datasets or save them on an external system.
 
 We **highly** advice making both an internal backup (seperate dataset on the same system) *and* an offsite backup.
 One could create a normal recursive(!) replication of the `ix-volumes` dataset using the SCALE GUI, with the following few special tricks by editing the replication after creation:
 
-1. Exclude the docker images:
+To do so, setup the following replication task:
 
-<a href="https://truecharts.org/_static/img/backup/dockerignore.png"><img src="https://truecharts.org/_static/img/backup/dockerignore.png" width="100%"/></a>
-
-2. Include any snapshots made by the above backup task
-
-<a href="https://truecharts.org/_static/img/backup/includebackups.png"><img src="https://truecharts.org/_static/img/backup/includebackups.png" width="100%"/></a>
+<a href="https://truecharts.org/_static/img/backup/rep1.png"><img src="https://truecharts.org/_static/img/backup/rep1.png" width="100%"/></a>
+<a href="https://truecharts.org/_static/img/backup/rep2.png"><img src="https://truecharts.org/_static/img/backup/rep2.png" width="100%"/></a>
 
 It's also important to ensure you keep regular config backups of the SCALE system itself, preferably right after the Apps backup above).
 However this is not part of this guide and we will assume you've done so yourself.
