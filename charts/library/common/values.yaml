@@ -334,6 +334,12 @@ securityContext:
 # -- Configure the lifecycle for the main container
 lifecycle: {}
 
+# -- These containers will be run, as an initcontainer, a single time at install only.
+installContainers: {}
+
+# -- These containers will be run, as an initcontainer, a single time at each edit or update of the chart.
+upgradeContainers: {}
+
 # -- Specify any initContainers here as dictionary items. Each initContainer should have its own key.
 # The dictionary item key will determine the order. Helm templates can be used.
 initContainers: {}

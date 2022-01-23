@@ -63,6 +63,32 @@ initContainers:
     {{- end }}
     {{- tpl (toYaml $initContainers) $ | nindent 2 }}
   {{- end }}
+  {{- if .Release.IsInstall }}
+  {{- if .Values.installContainers }}
+    {{- $initContainers := list }}
+    {{- range $index, $key := (keys .Values.initContainers | uniq | sortAlpha) }}
+      {{- $container := get $.Values.initContainers $key }}
+      {{- if not $container.name -}}
+        {{- $_ := set $container "name" $key }}
+      {{- end }}
+      {{- $initContainers = append $initContainers $container }}
+    {{- end }}
+    {{- tpl (toYaml $initContainers) $ | nindent 2 }}
+  {{- end }}
+  {{- end }}
+  {{- if .Release.IsUpgrade }}
+  {{- if .Values.upgradeContainers }}
+    {{- $initContainers := list }}
+    {{- range $index, $key := (keys .Values.initContainers | uniq | sortAlpha) }}
+      {{- $container := get $.Values.initContainers $key }}
+      {{- if not $container.name -}}
+        {{- $_ := set $container "name" $key }}
+      {{- end }}
+      {{- $initContainers = append $initContainers $container }}
+    {{- end }}
+    {{- tpl (toYaml $initContainers) $ | nindent 2 }}
+  {{- end }}
+  {{- end }}
 containers:
   {{- include "common.controller.mainContainer" . | nindent 2 }}
   {{- with .Values.additionalContainers }}
