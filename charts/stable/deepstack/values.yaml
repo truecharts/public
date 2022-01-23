@@ -41,7 +41,7 @@ envFrom:
   - configMapRef:
       name: deepstack-env
 
-app:
+deepstack:
   vision_face: true
   vision_detection: true
   vision_scene: true
