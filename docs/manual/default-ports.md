@@ -99,6 +99,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | haste-server               |      main       |      main       | 7777  |   TCP    |                                         |
 | nextcloud                  |       hpb       |       hpb       | 7867  |   TCP    |                                         |
 | radarr                     |      main       |      main       | 7878  |   TCP    |                                         |
+| synapse                    |      main       |      main       | 8008  |   TCP    |                                         |
 | omada-controller           |      main       |      main       | 8043  |   TCP    |                                         |
 | odoo                       |      main       |      main       | 8069  |   TCP    |                                         |
 | odoo                       |      odoo       |     odoo-1      | 8071  |   TCP    |                                         |
@@ -137,6 +138,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | pihole                     |      main       |      main       | 9089  |   TCP    |                                         |
 | minio-console              |      main       |      main       | 9090  |   TCP    |                                         |
 | authelia                   |      main       |      main       | 9091  |   TCP    |                                         |
+| synapse                    |   replication   |   replication   | 9092  |   TCP    |                                         |
+| synapse                    |     metrics     |     metrics     | 9093  |   TCP    |                                         |
 | jacket                     |      main       |      main       | 9117  |   HTTP   |                                         |
 | unpoller                   |      main       |     metrics     | 9130  |   TCP    |                                         |
 | owncloud-ocis              |      main       |      main       | 9200  |   TCP    |                                         |
@@ -307,7 +310,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | hyperion-ng                | protobufservice | protobufservice | 19445 |   TCP    |                                         |
 | syncthing                  |    discovery    |    discovery    | 21027 |   UDP    |                                         |
 | airdcpp-webclient          | unencrypted-tcp | unencrypted-tcp | 21248 |   TCP    |                                         |
-| airdcpp-webclient          |    search-udp   |    search-udp   | 21248 |   UDP    |                                         |
+| airdcpp-webclient          |   search-udp    |   search-udp    | 21248 |   UDP    |                                         |
 | airdcpp-webclient          |  encrypted-tcp  |  encrypted-tcp  | 21249 |   TCP    |                                         |
 | syncthing                  |    listeners    |       tcp       | 22000 |   TCP    |                                         |
 | syncthing                  |  listeners-udp  |       udp       | 22000 |   UDP    |                                         |
