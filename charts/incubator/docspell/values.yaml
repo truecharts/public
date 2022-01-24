@@ -76,7 +76,7 @@ additionalContainers:
     livenessProbe:
       exec:
         # TODO: Replace with internal DNS URL
-        command: ["curl", "-f", "http://localhost:8983/solr/docspell/admin/ping"]
+        command: ["curl", "-f", "http://localhost:{{ .Values.additionalContainers.solr.ports.containerPort[0] }}/solr/docspell/admin/ping"]
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
