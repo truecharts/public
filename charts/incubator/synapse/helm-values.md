@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"matrixdotorg/synapse"` |  |
-| image.tag | string | `"v1.50.1"` |  |
+| image.tag | string | `"v1.50.2"` |  |
 | installContainers.generate-signing-key.args[0] | string | `"-m"` |  |
 | installContainers.generate-signing-key.args[1] | string | `"synapse.app.homeserver"` |  |
 | installContainers.generate-signing-key.args[2] | string | `"--config-path"` |  |
@@ -102,13 +102,11 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.path | string | `"/health"` |  |
 | secret | object | `{}` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.readOnlyRootFilesystem | bool | `true` |  |
-| securityContext.runAsNonRoot | bool | `true` |  |
 | service.main.ports.main.port | int | `8008` |  |
 | service.main.ports.main.targetPort | int | `8008` |  |
 | service.metrics.enabled | bool | `true` |  |
 | service.metrics.ports.metrics.enabled | bool | `true` |  |
-| service.metrics.ports.metrics.port | int | `9090` |  |
+| service.metrics.ports.metrics.port | int | `9093` |  |
 | service.metrics.ports.metrics.targetPort | int | `9090` |  |
 | service.replication.enabled | bool | `true` |  |
 | service.replication.ports.replication.enabled | bool | `true` |  |

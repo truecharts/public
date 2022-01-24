@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.73"></a>
+### [jackett-9.0.73](https://github.com/truecharts/apps/compare/jackett-9.0.72...jackett-9.0.73) (2022-01-24)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1787](https://github.com/truecharts/apps/issues/1787))
+
+
+
 <a name="jackett-9.0.72"></a>
 ### [jackett-9.0.72](https://github.com/truecharts/apps/compare/jackett-9.0.71...jackett-9.0.72) (2022-01-24)
 

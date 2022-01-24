@@ -5930,6 +5930,36 @@ entries:
         - custom
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 0.20.440
+    created: "2022-01-24T19:31:14.364687123Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.5
+    description: Advanced tool to create your own TrueCharts-based App
+    digest: b4878974570481ae23b514817d838fa42450e0382265621c053200b5cce9e0ad
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/custom-app
+    icon: https://truecharts.org/_static/img/appicons/custom-app-icon.png
+    keywords:
+    - custom
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: custom-app
+    sources:
+    - https://github.com/truecharts/apps/tree/master/charts/stable/custom-app
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/custom-app-3.0.64/custom-app-3.0.64.tgz
+    version: 3.0.64
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - custom
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 0.20.428
     created: "2022-01-24T13:05:55.669424677Z"
     dependencies:
@@ -18388,6 +18418,39 @@ entries:
         - test
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 0.20.440
+    created: "2022-01-24T19:31:14.5408048Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.5
+    description: API Support for your favorite torrent trackers.
+    digest: f8cca47bc35636e71063baecf80c4988559b6fe7c2a945ce57590b7a998950eb
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/jackett
+    icon: https://truecharts.org/_static/img/appicons/jackett-icon.png
+    keywords:
+    - jackett
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/jackett-9.0.73/jackett-9.0.73.tgz
+    version: 9.0.73
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+        - test
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 0.20.428
     created: "2022-01-24T13:05:56.264269927Z"
     dependencies:
@@ -20779,6 +20842,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/komga-4.0.24/komga-4.0.24.tgz
     version: 4.0.24
   lazylibrarian:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-01-24T19:31:14.818249562Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.5
+    description: Get all your books, like series with Sonarr...
+    digest: 64aba688f344a241d5c409600b28f959625802beb96bc81e370cc27de7fc19a7
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/lazylibrarian
+    icon: https://truecharts.org/_static/img/appicons/lazylibrarian-icon.png
+    keywords:
+    - lazylibrarian
+    - ebooks
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: lazylibrarian
+    sources:
+    - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
+    - https://lazylibrarian.gitlab.io
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lazylibrarian-9.0.47/lazylibrarian-9.0.47.tgz
+    version: 9.0.47
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -30453,6 +30548,36 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: "5.0"
+    created: "2022-01-24T19:31:15.008510222Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.5
+    description: Omada is a SDN tool for TP-Link Omada hardware
+    digest: 9d51ac044fdfedf95081b00675b883bea1b4366e8228694f7aac4881cf8de726
+    home: https://github.com/truechartsapps/tree/master/charts/stable/omada-controller
+    icon: https://truecharts.org/_static/img/appicons/omada-controller-icon.png
+    keywords:
+    - omada-controller
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: omada-controller
+    sources:
+    - https://github.com/mbentley/docker-omada-controller
+    - https://github.com/truechartsapps/tree/master/charts/omada-controller
+    urls:
+    - https://github.com/truecharts/apps/releases/download/omada-controller-4.0.54/omada-controller-4.0.54.tgz
+    version: 4.0.54
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "5.0"
     created: "2022-01-24T13:05:57.744983819Z"
     dependencies:
     - name: common
@@ -37349,6 +37474,48 @@ entries:
     - https://github.com/truecharts/apps/releases/download/promcord-2.0.0/promcord-2.0.0.tgz
     version: 2.0.0
   prometheus:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - metrics
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.53.1
+    created: "2022-01-24T19:31:15.208669091Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.5
+    - condition: exporters.enabled,exporters.node-exporter.enabled
+      name: node-exporter
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.4.1
+    - condition: exporters.enabled,exporters.kube-state-metrics.enabled
+      name: kube-state-metrics
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.2.4
+    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+      and Prometheus rules combined with documentation and scripts to provide easy
+      to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
+      Prometheus Operator.
+    digest: c559c519ea1f433ee837e5bfe41bd68f505a0399dbbcda9ccbf8799f30e84b86
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/prometheus
+    icon: https://truecharts.org/_static/img/appicons/prometheus-icon.png
+    keywords:
+    - metrics
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: prometheus
+    sources:
+    - https://github.com/prometheus-community/helm-charts
+    - https://github.com/prometheus-operator/kube-prometheus
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prometheus-1.1.52/prometheus-1.1.52.tgz
+    version: 1.1.52
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -46691,6 +46858,40 @@ entries:
         - cloud
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 1.50.2
+    created: "2022-01-24T19:31:15.38799Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.56
+    description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
+    digest: 06c49618ba7fd970e377a0012e7141bcc008d07515f07a7e39004466dc41eb3b
+    home: https://github.com/truecharts/apps/charts/stable/synapse
+    icon: https://truecharts.org/_static/img/appicons/synapse-icon.png
+    keywords:
+    - chat
+    - matrix
+    - synapse
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: synapse
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/synapse-0.0.2/synapse-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - cloud
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 1.50.1
     created: "2022-01-23T23:26:16.575298968Z"
     dependencies:
@@ -53130,4 +53331,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-24T13:05:59.063180083Z"
+generated: "2022-01-24T19:31:15.392031567Z"
