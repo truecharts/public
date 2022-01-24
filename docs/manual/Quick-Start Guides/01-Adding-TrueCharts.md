@@ -32,7 +32,7 @@ TrueCharts has multiple "trains": All trains contain Apps that should work fine.
 
 #### Video Guide
 
-![type:video](https://www.youtube.com/embed/EP04NBOpj4k)
+![type:video](https://www.youtube.com/embed/Vomm8uvdCM0)
 
 ##### Notes
 
