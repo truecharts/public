@@ -72,7 +72,7 @@ envValueFrom:
 
 
 additionalContainers:
-  sorl:
+  solr:
     name: solr
     image: "{{ .Values.solrImage.repository }}:{{ .Values.solrImage.tag }}"
     ports:
@@ -97,7 +97,7 @@ additionalContainers:
       failureThreshold: 5
   joex:
     name: joex
-    image: "{{ .Values.sorlImage.repository }}:{{ .Values.solrImage.tag }}"
+    image: "{{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}"
     ports:
       - containerPort: 7878
     env:
