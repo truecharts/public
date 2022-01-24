@@ -1,0 +1,160 @@
+image:
+  repository: docspell/restserver
+  tag: v0.31.0@sha256:4faf2b35598e9e7e1f9add59130ca9cf43ccbca675011b2ff5f772ae55e19b21
+  pullPolicy: IfNotPresent
+
+dscImage:
+  repository: docspell/dsc
+  tag: v0.6.1@sha256:eac63d39e461d2f2583fd20a28ac044e6c26c18006411e655de3fadb5aef7ad4
+
+joexImage:
+  repository: docspell/joex
+  tag: v0.31.0@sha256:05ad93fc95e9178d3ecd270438d41a237060a4d8546815c6488c687c9b854671
+
+solrImage:
+  repository: solr
+  tag: 8.11.1@sha256:4f7445630b788708b070ec3a18d21d4a2cb40d79c373ede76720633e936e9d41
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+secret:
+  #  The secret. If empty, the endpoint is disabled
+  DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: "changeme"
+  #  The secret for this server that is used to sign the authenicator
+  #  tokens. If multiple servers are running, all must share the same
+  #  secret. You can use base64 or hex strings (prefix with b64: and
+  #  hex:, respectively). If empty, a random secret is generated.
+  #  Example: b64:YRx77QujCGkHSvll0TVEmtTaw3Z5eXr+nWMsEJowgKg=
+  DOCSPELL_SERVER_AUTH_SERVER__SECRET: "changeme"
+
+env:
+  TZ: "UTC"
+  DOCSPELL_SERVER_BACKEND_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  #  This url is the base url for reaching this server internally.
+  #  While you might set `base-url` to some external address (like
+  #  mydocs.myserver.com), the `internal-url` must be set such that
+  #  other nodes can reach this server.
+  DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
+  #  This is the base URL this application is deployed to. This is used
+  #  to create absolute URLs and to configure the cookie.
+  #
+  #  If default is not changed, the HOST line of the login request is
+  #  used instead or the value of the `X-Forwarded-For` header. If set
+  #  to some other value, the request is not inspected.
+  DOCSPELL_SERVER_BASE__URL: "http://localhost:7880"
+  # The host and port the http server binds to. This applies to both components.
+  # The joex component also exposes a small REST api to inspect its state and notify the scheduler.
+  # By default, it binds to localhost and some predefined port. This must be changed, if components are on different machines.
+  DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local'
+  DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+  # DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: true
+  # DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: http://docspell-solr:8983/solr/docspell
+  # DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: true
+  # DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: true
+  # DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: integration-password123
+
+envValueFrom:
+  DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DOCSPELL_SERVER_BACKEND_JDBC_URL:
+    secretKeyRef:
+      name: dbcreds
+      key: jdbc
+
+
+additionalContainers:
+  sorl:
+    name: solr
+    image: "{{ .Values.sorlImage.repository }}:{{ .Values.solrImage.tag }}"
+    ports:
+      - containerPort: 8983
+        name: main
+    command:
+      - solr-precreate
+      - docspell
+    livenessProbe:
+      exec:
+        command: ["curl", "-f", "http://localhost:8983/solr/docspell/admin/ping"]
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 5
+    readinessProbe:
+      exec:
+        command: ["curl", "-f", "http://localhost:8983/solr/docspell/admin/ping"]
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      timeoutSeconds: 5
+      failureThreshold: 5
+  joex:
+    name: joex
+    image: "{{ .Values.sorlImage.repository }}:{{ .Values.solrImage.tag }}"
+    ports:
+      - containerPort: 7878
+    env:
+      - name: TZ
+        value: "{{ .Values.env.TZ }}"
+      - name: DOCSPELL_JOEX_JDBC_USER
+        value: "{{ .Values.postgresql.postgresqlUsername }}"
+      - name: DOCSPELL_JOEX_JDBC_URL
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: jdbc
+      - name: DOCSPELL_JOEX_JDBC_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: dbcreds
+            key: postgresql-password
+      - name: DOCSPELL_JOEX_BASE__URL
+        value: "http://docspell-joex:7878"
+
+
+
+  # nginx:
+  #   name: nginx
+  #   image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
+  #   ports:
+  #     - containerPort: 80
+  #       name: main
+  #   volumeMounts:
+  #   - name: recipes-config
+  #     mountPath: "/etc/nginx/nginx.conf"
+  #     subPath: nginx-config
+  #     readOnly: true
+  #   - name: media
+  #     mountPath: "/media"
+  #   - name: static
+  #     mountPath: "/static"
+
+service:
+  main:
+    ports:
+      main:
+        port: 7880
+        targetPort: 7880
+
+# persistence:
+#   media:
+#     enabled: true
+#     mountPath: "/opt/recipes/mediafiles"
+#   static:
+#     enabled: true
+#     type: emptyDir
+#     mountPath: "/opt/recipes/staticfiles"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: docspell
+  postgresqlDatabase: docspell
