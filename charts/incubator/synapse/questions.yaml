@@ -82,6 +82,66 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
+  - variable: coturn
+    group: "Container Configuration"
+    label: "Coturn Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable Coturn"
+          schema:
+            type: boolean
+            default: false
+  - variable: mail
+    group: "Container Configuration"
+    label: "Mail Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable Mail"
+          schema:
+            type: boolean
+            default: false
+        - variable: from
+          label: "From: "
+          schema:
+            type: string
+            default: "Matrix <matrix@example.com>"
+        - variable: riotUrl
+          label: "Riot URL"
+          schema:
+            type: string
+            default: ""
+        - variable: host
+          label: "Host"
+          schema:
+            type: string
+            default: ""
+        - variable: port
+          label: "Port"
+          schema:
+            type: int
+            default: 25
+        - variable: username
+          label: "Username"
+          schema:
+            type: string
+            default: ""
+        - variable: password
+          label: "Password"
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: requireTransportSecurity
+          label: "Require Transport Security"
+          schema:
+            type: boolean
+            default: true
 
 
 # Include{containerConfig}
