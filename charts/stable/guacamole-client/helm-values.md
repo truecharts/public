@@ -24,6 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.POSTGRES_HOSTNAME.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
+| general | object | `{}` |  |
 | header.HEADER_ENABLED | bool | `false` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/guacamole-client"` |  |

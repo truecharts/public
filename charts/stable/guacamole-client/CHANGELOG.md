@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-1.0.6"></a>
+### [guacamole-client-1.0.6](https://github.com/truecharts/apps/compare/guacamole-client-1.0.5...guacamole-client-1.0.6) (2022-01-24)
+
+#### Feat
+
+* Add extension-priority setting ([#1772](https://github.com/truecharts/apps/issues/1772))
+
+
+
 <a name="guacamole-client-1.0.5"></a>
 ### [guacamole-client-1.0.5](https://github.com/truecharts/apps/compare/guacamole-client-1.0.4...guacamole-client-1.0.5) (2022-01-22)
 
