@@ -76,7 +76,7 @@ additionalContainers:
     livenessProbe:
       exec:
         # TODO: Replace with internal DNS URL
-        command: ["curl", "-f", "http://{{ .Release.Name }}-container.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.additionalContainers.solr.ports.containerPort }}/solr/docspell/admin/ping"]
+        command: ["curl", "-f", "http://{{ .Release.Name }}-container.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.additionalContainers.solr.ports[0].containerPort }}/solr/docspell/admin/ping"]
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
@@ -84,7 +84,7 @@ additionalContainers:
     readinessProbe:
       exec:
         # TODO: Replace with internal DNS URL
-        command: ["curl", "-f", "http://{{ .Release.Name }}-container.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.additionalContainers.solr.ports.containerPort }}/solr/docspell/admin/ping"]
+        command: ["curl", "-f", "http://{{ .Release.Name }}-container.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.additionalContainers.solr.ports[0].containerPort }}/solr/docspell/admin/ping"]
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
