@@ -142,6 +142,81 @@ questions:
           schema:
             type: boolean
             default: true
+  - variable: security
+    group: "Container Configuration"
+    label: "Security Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: macaroonSecretKey
+          label: "Macaroon Secret Key"
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: surpressKeyServerWarning
+          label: "Surpress Key Server Warning"
+          schema:
+            type: boolean
+            default: true
+        - variable: trustedKeyServers
+          label: "Truested Key Servers"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: serverName
+                label: Server Name
+                schema:
+                  type: string
+                  default: ""
+              - variable: verifyKeys
+                label: "Verify Keys"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: id
+                      label: "id"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: key
+                      label: "key"
+                      schema:
+                        type: string
+                        default: ""
+                        private: true
+              - variable: acceptKeysInsecurely
+                label: "Accept Keys Insecurely"
+                schema:
+                  type: boolean
+                  default: false
+
+
+  - variable: logging
+    group: "Container Configuration"
+    label: "Logging Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: rootLogLevel
+          label: "Root Log Level"
+          schema:
+            type: string
+            default: "WARNING"
+        - variable: sqlLogLevel
+          label: "Root Log Level"
+          schema:
+            type: string
+            default: "WARNING"
+        - variable: sqlLogLevel
+          label: "Root Log Level"
+          schema:
+            type: string
+            default: "WARNING"
 
 
 # Include{containerConfig}
