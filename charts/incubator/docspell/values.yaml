@@ -37,6 +37,7 @@ env:
   #  While you might set `base-url` to some external address (like
   #  mydocs.myserver.com), the `internal-url` must be set such that
   #  other nodes can reach this server.
+  # TODO: Fix fullname, this is the pods full name, we need the service?
   DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   #  This is the base URL this application is deployed to. This is used
   #  to create absolute URLs and to configure the cookie.
@@ -48,7 +49,7 @@ env:
   # The host and port the http server binds to. This applies to both components.
   # The joex component also exposes a small REST api to inspect its state and notify the scheduler.
   # By default, it binds to localhost and some predefined port. This must be changed, if components are on different machines.
-  # TODO: Fix fullname, this is the pods full name, we need the service
+  # TODO: Fix fullname, this is the pods full name, we need the service?
   DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
 
@@ -56,7 +57,6 @@ env:
   # DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: http://docspell-solr:8983/solr/docspell
   # DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: true
   # DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: true
-
 
 envValueFrom:
   DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD:
@@ -83,6 +83,7 @@ additionalContainers:
       mountPath: "/var/solr"
     livenessProbe:
       exec:
+        # TODO: Replace with internal DNS URL
         command: ["curl", "-f", "http://localhost:8983/solr/docspell/admin/ping"]
       initialDelaySeconds: 10
       periodSeconds: 10
@@ -90,6 +91,7 @@ additionalContainers:
       failureThreshold: 5
     readinessProbe:
       exec:
+        # TODO: Replace with internal DNS URL
         command: ["curl", "-f", "http://localhost:8983/solr/docspell/admin/ping"]
       initialDelaySeconds: 10
       periodSeconds: 10
@@ -100,6 +102,7 @@ additionalContainers:
     image: "{{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}"
     ports:
       - containerPort: 7878
+        name: main
     env:
       - name: TZ
         value: "{{ .Values.env.TZ }}"
@@ -116,6 +119,7 @@ additionalContainers:
             name: dbcreds
             key: postgresql-password
       - name: DOCSPELL_JOEX_BASE__URL
+        # TODO: Replace with internal DNS URL
         value: "http://docspell-joex:7878"
 
 service:
@@ -129,9 +133,6 @@ persistence:
   solr:
     enabled: true
     mountPath: "/var/solr"
-  consume:
-    enabled: true
-    mountPath: "/opt/docs"
 
 # Enabled postgres
 postgresql:
