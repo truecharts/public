@@ -11,14 +11,6 @@ solrImage:
   repository: solr
   tag: 8.11.1@sha256:4f7445630b788708b070ec3a18d21d4a2cb40d79c373ede76720633e936e9d41
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 secret:
   #  The secret. If empty, the endpoint is disabled
   DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: "changeme"
@@ -38,19 +30,19 @@ env:
   #  mydocs.myserver.com), the `internal-url` must be set such that
   #  other nodes can reach this server.
   # TODO: Fix fullname, this is the pods full name, we need the service?
-  DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
+  DOCSPELL_SERVER_INTERNAL__URL: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}"
   #  This is the base URL this application is deployed to. This is used
   #  to create absolute URLs and to configure the cookie.
   #
   #  If default is not changed, the HOST line of the login request is
   #  used instead or the value of the `X-Forwarded-For` header. If set
   #  to some other value, the request is not inspected.
-  DOCSPELL_SERVER_BASE__URL: "http://localhost:7880"
+  DOCSPELL_SERVER_BASE__URL: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}"
   # The host and port the http server binds to. This applies to both components.
   # The joex component also exposes a small REST api to inspect its state and notify the scheduler.
   # By default, it binds to localhost and some predefined port. This must be changed, if components are on different machines.
   # TODO: Fix fullname, this is the pods full name, we need the service?
-  DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local'
+  DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
 
   # DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: true
