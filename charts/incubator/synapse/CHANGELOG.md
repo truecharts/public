@@ -7,4 +7,3 @@
 #### Feat
 
 * add synapse ([#1768](https://github.com/truecharts/apps/issues/1768))
-

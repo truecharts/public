@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-9.0.39"></a>
+### [unifi-9.0.39](https://github.com/truecharts/apps/compare/unifi-9.0.38...unifi-9.0.39) (2022-01-24)
+
+#### Fix
+
+* fix include ([#1773](https://github.com/truecharts/apps/issues/1773))
+
+
+
 <a name="unifi-9.0.38"></a>
 ### [unifi-9.0.38](https://github.com/truecharts/apps/compare/unifi-9.0.37...unifi-9.0.38) (2022-01-22)
 

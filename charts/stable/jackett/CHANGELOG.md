@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.71"></a>
+### [jackett-9.0.71](https://github.com/truecharts/apps/compare/jackett-9.0.70...jackett-9.0.71) (2022-01-24)
+
+#### Fix
+
+* fix include ([#1773](https://github.com/truecharts/apps/issues/1773))
+
+
+
 <a name="jackett-9.0.70"></a>
 ### [jackett-9.0.70](https://github.com/truecharts/apps/compare/jackett-9.0.69...jackett-9.0.70) (2022-01-22)
 

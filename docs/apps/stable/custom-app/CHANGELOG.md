@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.62"></a>
+### [custom-app-3.0.62](https://github.com/truecharts/apps/compare/custom-app-3.0.61...custom-app-3.0.62) (2022-01-24)
+
+#### Fix
+
+* fix include ([#1773](https://github.com/truecharts/apps/issues/1773))
+
+
+
 <a name="custom-app-3.0.61"></a>
 ### [custom-app-3.0.61](https://github.com/truecharts/apps/compare/custom-app-3.0.60...custom-app-3.0.61) (2022-01-22)
 

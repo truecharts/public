@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freshrss-9.0.39"></a>
+### [freshrss-9.0.39](https://github.com/truecharts/apps/compare/freshrss-9.0.38...freshrss-9.0.39) (2022-01-24)
+
+#### Fix
+
+* fix include ([#1773](https://github.com/truecharts/apps/issues/1773))
+
+
+
 <a name="freshrss-9.0.38"></a>
 ### [freshrss-9.0.38](https://github.com/truecharts/apps/compare/freshrss-9.0.37...freshrss-9.0.38) (2022-01-22)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.33"></a>
+### [authelia-8.0.33](https://github.com/truecharts/apps/compare/authelia-8.0.32...authelia-8.0.33) (2022-01-24)
+
+#### Fix
+
+* fix include ([#1773](https://github.com/truecharts/apps/issues/1773))
+
+
+
 <a name="authelia-8.0.32"></a>
 ### [authelia-8.0.32](https://github.com/truecharts/apps/compare/authelia-8.0.31...authelia-8.0.32) (2022-01-22)
 

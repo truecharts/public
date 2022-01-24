@@ -63,11 +63,11 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:8eb0f1249b16e6b3afea27ecb20bf94605b03b088f03c8801a7f4cc9b7f2d699
-          tccr.io/truecharts/authelia:v4.33.2@sha256:5baba5c2757ac96b56c2a5c672be66d17ac73af08fa7b8b2bb471cc4cf0d4bed
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/redis:v6.2.6@sha256:015c3a71e0a0d3e5ae1ac85e2b592ca498102b6f968b479b2431052aa63e140d
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:8eb0f1249b16e6b3afea27ecb20bf94605b03b088f03c8801a7f4cc9b7f2d699
+          tccr.io/truecharts/authelia:v4.33.2@sha256:5baba5c2757ac96b56c2a5c672be66d17ac73af08fa7b8b2bb471cc4cf0d4bed
 
 ##### Scan Results
 
@@ -322,26 +322,6 @@ hide:
 | util-linux         |    CVE-2021-37600   |   LOW  |  2.33.1-0.1 |  | <details><summary>Expand...</summary><a href="https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c">https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c</a><br><a href="https://github.com/karelzak/util-linux/issues/1395">https://github.com/karelzak/util-linux/issues/1395</a><br><a href="https://security.netapp.com/advisory/ntap-20210902-0002/">https://security.netapp.com/advisory/ntap-20210902-0002/</a><br></details>  |
 
 **jar**
-
-
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
-
-**gobinary**
-
-
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
-
-
-#### Container: tccr.io/truecharts/authelia:v4.33.2@sha256:5baba5c2757ac96b56c2a5c672be66d17ac73af08fa7b8b2bb471cc4cf0d4bed (alpine 3.15.0)
-
-
-**alpine**
 
 
 | No Vulnerabilities found         |
@@ -818,6 +798,26 @@ hide:
 | util-linux         |    CVE-2021-37600   |   LOW  |  2.33.1-0.1 |  | <details><summary>Expand...</summary><a href="https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c">https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c</a><br><a href="https://github.com/karelzak/util-linux/issues/1395">https://github.com/karelzak/util-linux/issues/1395</a><br><a href="https://security.netapp.com/advisory/ntap-20210902-0002/">https://security.netapp.com/advisory/ntap-20210902-0002/</a><br></details>  |
 
 **jar**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+
+#### Container: tccr.io/truecharts/authelia:v4.33.2@sha256:5baba5c2757ac96b56c2a5c672be66d17ac73af08fa7b8b2bb471cc4cf0d4bed (alpine 3.15.0)
+
+
+**alpine**
 
 
 | No Vulnerabilities found         |
