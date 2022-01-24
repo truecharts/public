@@ -34,9 +34,7 @@ service:
         targetPort: 9090
 
 securityContext:
-  readOnlyRootFilesystem: true
   allowPrivilegeEscalation: true
-  runAsNonRoot: true
 
 secret: {}
 

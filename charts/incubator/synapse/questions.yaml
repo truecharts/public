@@ -293,7 +293,6 @@ questions:
                                     type: int
                                     default: 9093
 
-
   - variable: serviceexpert
     group: "Networking and Services"
     label: "Show Expert Config"
@@ -413,17 +412,17 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: runAsNonRoot
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -438,19 +437,19 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
           schema:
             type: int
-            default: 33
+            default: 568
 # Include{podSecurityContextAdvanced}
 
 # Include{resources}
