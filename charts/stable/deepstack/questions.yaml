@@ -87,7 +87,29 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-        # Configure Enviroment Variables
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: API-KEY
+          label: "API Key"
+          description: "The API Key protects all recognition and detection endpoints including face, scene, object detection and custom models"
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: ADMIN-KEY
+          label: "Admin key"
+          description: "The admin key protects admin apis such as adding models, deleting models, list models, backup and restore."
+          schema:
+            type: string
+            default: ""
+            private: true
+
+  # Configure Enviroment Variables
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -102,39 +124,6 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: VISION-FACE
-          label: "VISION-FACE"
-          description: "Enables Face Detection"
-          schema:
-            type: string
-            default: "False"
-            enum:
-              - value: "False"
-                description: "False"
-              - value: "True"
-                description: "True"
-        - variable: VISION-DETECTION
-          label: "VISION-DETECTION"
-          description: "Enables Object Detection"
-          schema:
-            type: string
-            default: "True"
-            enum:
-              - value: "False"
-                description: "False"
-              - value: "True"
-                description: "True"
-        - variable: VISION-SCENE
-          label: "VISION-SCENE"
-          description: "Enables Scene Detection"
-          schema:
-            type: string
-            default: "False"
-            enum:
-              - value: "False"
-                description: "False"
-              - value: "True"
-                description: "True"
         - variable: MODE
           label: "Mode"
           description: "Sets the performance mode"
@@ -148,6 +137,39 @@ questions:
                 description: "Medium"
               - value: "Low"
                 description: "Low"
+  - variable: deepstack
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: vision_face
+          label: "VISION-FACE"
+          description: "Enables Face Detection"
+          schema:
+            type: boolean
+            default: false
+        - variable: vision_detection
+          label: "VISION-DETECTION"
+          description: "Enables Object Detection"
+          schema:
+            type: boolean
+            default: true
+            enum:
+        - variable: vision_scene
+          label: "VISION-SCENE"
+          description: "Enables Scene Detection"
+          schema:
+            type: boolean
+            default: false
+        - variable: vision_face
+          label: "VISION-ENHANCE"
+          description: "Enables Enhance Endpoint"
+          schema:
+            type: boolean
+            default: false
+
 # Include{containerConfig}
 
   - variable: service
