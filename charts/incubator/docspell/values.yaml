@@ -117,8 +117,21 @@ additionalContainers:
             key: postgresql-password
       - name: DOCSPELL_JOEX_BASE__URL
         value: "http://docspell-joex:7878"
-
-
+  dsc:
+    name: dsc
+    image: "{{ .Values.dscImage.repository }}:{{ .Values.dscImage.tag }}"
+    command:
+      - dsc
+      - "-d"
+      - "http://docspell-restserver:7880"
+      - "watch"
+      - "--delete"
+      - "-ir"
+      - "--not-matches"
+      - "**/.*"
+      - "--header"
+      - "Docspell-Integration:integration-password123"
+      - "/opt/docs"
 
   # nginx:
   #   name: nginx
