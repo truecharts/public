@@ -74,7 +74,7 @@ envValueFrom:
 additionalContainers:
   sorl:
     name: solr
-    image: "{{ .Values.sorlImage.repository }}:{{ .Values.solrImage.tag }}"
+    image: "{{ .Values.solrImage.repository }}:{{ .Values.solrImage.tag }}"
     ports:
       - containerPort: 8983
         name: main
