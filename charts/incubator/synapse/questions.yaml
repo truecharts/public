@@ -82,6 +82,7 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
+# Include{containerConfig}
   - variable: coturn
     group: "Container Configuration"
     label: "Coturn Configuration"
@@ -142,84 +143,196 @@ questions:
           schema:
             type: boolean
             default: true
-  - variable: security
+
+  - variable: matrix
     group: "Container Configuration"
-    label: "Security Configuration"
+    label: "Matrix Configuration"
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: macaroonSecretKey
-          label: "Macaroon Secret Key"
+        - variable: disabled
+          label: "Disable Server Globally"
+          schema:
+            type: boolean
+            default: false
+        - variable: disabledMessage
+          label: "Disabled Message"
           schema:
             type: string
             default: ""
-            private: true
-        - variable: surpressKeyServerWarning
-          label: "Surpress Key Server Warning"
+        - variable: serverName
+          label: "Server Name"
+          schema:
+            type: string
+            default: "example.com"
+        - variable: presence
+          label: "Presence"
           schema:
             type: boolean
             default: true
-        - variable: trustedKeyServers
-          label: "Truested Key Servers"
+        - variable: blockNonAdminInvites
+          label: "Block Non Admin Invites"
           schema:
-            type: list
-            default: []
-            items:
-              - variable: serverName
-                label: Server Name
+            type: boolean
+            default: false
+        - variable: search
+          label: "Search"
+          schema:
+            type: boolean
+            default: true
+        - variable: encryptByDefault
+          label: "Encrypt By Default"
+          schema:
+            type: string
+            default: "invite"
+            enum:
+              - value: "off"
+                description: "off"
+              - value: "invite"
+                description: "invite"
+              - value: "all"
+                description: "all"
+        - variable: adminEmail
+          label: "Admin Email"
+          schema:
+            type: string
+            default: "admin@example.com"
+        - variable: uploads
+          label: "Uploads Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: maxSize
+                label: "Max Size"
                 schema:
                   type: string
-                  default: ""
-              - variable: verifyKeys
-                label: "Verify Keys"
+                  default: "10M"
+              - variable: maxPixels
+                label: "Max Pixels"
                 schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: id
-                      label: "id"
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: key
-                      label: "key"
-                      schema:
-                        type: string
-                        default: ""
-                        private: true
-              - variable: acceptKeysInsecurely
-                label: "Accept Keys Insecurely"
+                  type: string
+                  default: "32M"
+        - variable: urlPreviews
+          label: "URL Previews Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable URL Previews"
                 schema:
                   type: boolean
                   default: false
-
-
-  - variable: logging
-    group: "Container Configuration"
-    label: "Logging Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: rootLogLevel
-          label: "Root Log Level"
+        - variable: federation
+          label: "Federation Configuration"
           schema:
-            type: string
-            default: "WARNING"
-        - variable: sqlLogLevel
-          label: "Root Log Level"
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Federation"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allowPublicRooms
+                label: "Allow Public Rooms"
+                schema:
+                  type: boolean
+                  default: true
+      # TODO: whitelist:
+      # TODO: blacklist:
+        - variable: registration
+          label: "Registration Configuration"
           schema:
-            type: string
-            default: "WARNING"
-        - variable: sqlLogLevel
-          label: "Root Log Level"
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Registration"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowGuests
+                label: "Allow Guests"
+                schema:
+                  type: boolean
+                  default: false
+      # TODO: autoJoinRooms
+        - variable: security
+          label: "Security Configuration"
           schema:
-            type: string
-            default: "WARNING"
-
-
-# Include{containerConfig}
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: macaroonSecretKey
+                label: "Macaroon Secret Key"
+                schema:
+                  type: string
+                  default: ""
+                  private: true
+              - variable: surpressKeyServerWarning
+                label: "Surpress Key Server Warning"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: trustedKeyServers
+                label: "Truested Key Servers"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: serverName
+                      label: Server Name
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: verifyKeys
+                      label: "Verify Keys"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: id
+                            label: "id"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: key
+                            label: "key"
+                            schema:
+                              type: string
+                              default: ""
+                              private: true
+                    - variable: acceptKeysInsecurely
+                      label: "Accept Keys Insecurely"
+                      schema:
+                        type: boolean
+                        default: false
+        - variable: logging
+          group: "Container Configuration"
+          label: "Logging Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# TODO: Find the log levels and make the enum's
+              - variable: rootLogLevel
+                label: "Root Log Level"
+                schema:
+                  type: string
+                  default: "WARNING"
+              - variable: sqlLogLevel
+                label: "Root Log Level"
+                schema:
+                  type: string
+                  default: "WARNING"
+              - variable: sqlLogLevel
+                label: "Root Log Level"
+                schema:
+                  type: string
+                  default: "WARNING"
 
   - variable: service
     group: "Networking and Services"
