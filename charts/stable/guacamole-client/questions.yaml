@@ -93,13 +93,26 @@ questions:
             default: ""
         - variable: GUACD_PORT
           label: "Guacd Port"
-          description: "The port that Guacamole should use when connecting to guacd."
+          description: "The port that Guacamole should use when connecting to guacd"
           schema:
             type: int
             required: true
             default: 4822
 
 # Include{containerConfig}
+  - variable: general
+    group: "App Configuration"
+    label: "General Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: EXTENSION_PRIORITY
+          label: "Extension Priority (Leave blank for default)"
+          description: "A comma-separated list of the namespaces of all extensions that should be loaded in a specific order"
+          schema:
+            type: string
+            default: ""
   - variable: api
     group: "App Configuration"
     label: "API Configuration"
@@ -818,7 +831,7 @@ questions:
             default: 1001
         - variable: fsGroup
           label: "fsGroup"
-          description: "The group that should own ALL storage."
+          description: "The group that should own ALL storage"
           schema:
             type: int
             default: 568
