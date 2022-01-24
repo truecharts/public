@@ -3,10 +3,6 @@ image:
   tag: v0.31.0@sha256:4faf2b35598e9e7e1f9add59130ca9cf43ccbca675011b2ff5f772ae55e19b21
   pullPolicy: IfNotPresent
 
-dscImage:
-  repository: docspell/dsc
-  tag: v0.6.1@sha256:eac63d39e461d2f2583fd20a28ac044e6c26c18006411e655de3fadb5aef7ad4
-
 joexImage:
   repository: docspell/joex
   tag: v0.31.0@sha256:05ad93fc95e9178d3ecd270438d41a237060a4d8546815c6488c687c9b854671
@@ -32,6 +28,7 @@ secret:
   #  hex:, respectively). If empty, a random secret is generated.
   #  Example: b64:YRx77QujCGkHSvll0TVEmtTaw3Z5eXr+nWMsEJowgKg=
   DOCSPELL_SERVER_AUTH_SERVER__SECRET: "changeme"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "changeme"
 
 env:
   TZ: "UTC"
@@ -51,6 +48,7 @@ env:
   # The host and port the http server binds to. This applies to both components.
   # The joex component also exposes a small REST api to inspect its state and notify the scheduler.
   # By default, it binds to localhost and some predefined port. This must be changed, if components are on different machines.
+  # TODO: Fix fullname, this is the pods full name, we need the service
   DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
 
@@ -58,7 +56,7 @@ env:
   # DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: http://docspell-solr:8983/solr/docspell
   # DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: true
   # DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: true
-  # DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: integration-password123
+
 
 envValueFrom:
   DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD:
@@ -119,37 +117,6 @@ additionalContainers:
             key: postgresql-password
       - name: DOCSPELL_JOEX_BASE__URL
         value: "http://docspell-joex:7878"
-  dsc:
-    name: dsc
-    image: "{{ .Values.dscImage.repository }}:{{ .Values.dscImage.tag }}"
-    command:
-      - dsc
-      - "-d"
-      - "http://docspell-restserver:7880"
-      - "watch"
-      - "--delete"
-      - "-ir"
-      - "--not-matches"
-      - "**/.*"
-      - "--header"
-      - "Docspell-Integration:integration-password123"
-      - "/opt/docs"
-
-  # nginx:
-  #   name: nginx
-  #   image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
-  #   ports:
-  #     - containerPort: 80
-  #       name: main
-  #   volumeMounts:
-  #   - name: recipes-config
-  #     mountPath: "/etc/nginx/nginx.conf"
-  #     subPath: nginx-config
-  #     readOnly: true
-  #   - name: media
-  #     mountPath: "/media"
-  #   - name: static
-  #     mountPath: "/static"
 
 service:
   main:
@@ -162,10 +129,9 @@ persistence:
   solr:
     enabled: true
     mountPath: "/var/solr"
-#   static:
-#     enabled: true
-#     type: emptyDir
-#     mountPath: "/opt/recipes/staticfiles"
+  consume:
+    enabled: true
+    mountPath: "/opt/docs"
 
 # Enabled postgres
 postgresql:
