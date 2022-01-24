@@ -70,7 +70,6 @@ envValueFrom:
       name: dbcreds
       key: jdbc
 
-
 additionalContainers:
   solr:
     name: solr
@@ -81,6 +80,9 @@ additionalContainers:
     command:
       - solr-precreate
       - docspell
+    volumeMounts:
+    - name: solr
+      mountPath: "/var/solr"
     livenessProbe:
       exec:
         command: ["curl", "-f", "http://localhost:8983/solr/docspell/admin/ping"]
@@ -156,10 +158,10 @@ service:
         port: 7880
         targetPort: 7880
 
-# persistence:
-#   media:
-#     enabled: true
-#     mountPath: "/opt/recipes/mediafiles"
+persistence:
+  solr:
+    enabled: true
+    mountPath: "/var/solr"
 #   static:
 #     enabled: true
 #     type: emptyDir
