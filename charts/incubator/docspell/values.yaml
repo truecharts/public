@@ -73,7 +73,7 @@ additionalContainers:
       mountPath: "/var/solr"
     livenessProbe:
       exec:
-        command: ["curl", "-f", 'http://{{ include \"common.names.fullname\" . }}-container.{{ .Release.Namespace }}.svc.cluster.local:8983/solr/docspell/admin/ping']
+        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}-container.{{ .Release.Namespace }}.svc.cluster.local:8983/solr/docspell/admin/ping']
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
