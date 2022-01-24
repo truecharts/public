@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.33"></a>
+### [babybuddy-5.0.33](https://github.com/truecharts/apps/compare/babybuddy-5.0.32...babybuddy-5.0.33) (2022-01-24)
+
+#### Chore
+
+* remove default values from values.yaml ([#1785](https://github.com/truecharts/apps/issues/1785))
+* update docker general non-major ([#1786](https://github.com/truecharts/apps/issues/1786))
+
+
+
 <a name="babybuddy-5.0.32"></a>
 ### [babybuddy-5.0.32](https://github.com/truecharts/apps/compare/babybuddy-5.0.31...babybuddy-5.0.32) (2022-01-22)
 

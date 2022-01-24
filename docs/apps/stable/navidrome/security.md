@@ -31,7 +31,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/navidrome:v0.47.0@sha256:18e691ba523ac0100e28e8d76ef34c2b15e78bb951c0aaf5d846366f756e0ab6
+          tccr.io/truecharts/navidrome:v0.47.5@sha256:a7e6b081e2a2ffc86eda6f98eeae5b690235e78611a243ab3c8f576b716378d6
 
 ##### Scan Results
 
@@ -68,26 +68,19 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/navidrome:v0.47.0@sha256:18e691ba523ac0100e28e8d76ef34c2b15e78bb951c0aaf5d846366f756e0ab6 (alpine 3.14.3)
+#### Container: tccr.io/truecharts/navidrome:v0.47.5@sha256:a7e6b081e2a2ffc86eda6f98eeae5b690235e78611a243ab3c8f576b716378d6 (alpine 3.15.0)
 
 
 **alpine**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| expat         |    CVE-2022-22822   |   CRITICAL  |  2.4.1-r0 | 2.4.3-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
-| expat         |    CVE-2022-22823   |   CRITICAL  |  2.4.1-r0 | 2.4.3-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
-| expat         |    CVE-2022-22824   |   CRITICAL  |  2.4.1-r0 | 2.4.3-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
-| expat         |    CVE-2021-45960   |   HIGH  |  2.4.1-r0 | 2.4.3-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1217609">https://bugzilla.mozilla.org/show_bug.cgi?id=1217609</a><br><a href="https://github.com/libexpat/libexpat/issues/531">https://github.com/libexpat/libexpat/issues/531</a><br><a href="https://github.com/libexpat/libexpat/pull/534">https://github.com/libexpat/libexpat/pull/534</a><br><a href="https://security.netapp.com/advisory/ntap-20220121-0004/">https://security.netapp.com/advisory/ntap-20220121-0004/</a><br></details>  |
-| expat         |    CVE-2021-46143   |   HIGH  |  2.4.1-r0 | 2.4.3-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/issues/532">https://github.com/libexpat/libexpat/issues/532</a><br><a href="https://github.com/libexpat/libexpat/pull/538">https://github.com/libexpat/libexpat/pull/538</a><br><a href="https://security.netapp.com/advisory/ntap-20220121-0006/">https://security.netapp.com/advisory/ntap-20220121-0006/</a><br></details>  |
-| expat         |    CVE-2022-22825   |   HIGH  |  2.4.1-r0 | 2.4.3-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
-| expat         |    CVE-2022-22826   |   HIGH  |  2.4.1-r0 | 2.4.3-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
-| expat         |    CVE-2022-22827   |   HIGH  |  2.4.1-r0 | 2.4.3-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/01/17/3">http://www.openwall.com/lists/oss-security/2022/01/17/3</a><br><a href="https://github.com/libexpat/libexpat/pull/539">https://github.com/libexpat/libexpat/pull/539</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 **gobinary**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="octoprint-4.0.37"></a>
+### [octoprint-4.0.37](https://github.com/truecharts/apps/compare/octoprint-4.0.36...octoprint-4.0.37) (2022-01-24)
+
+#### Chore
+
+* update docker general non-major ([#1786](https://github.com/truecharts/apps/issues/1786))
+
+
+
 <a name="octoprint-4.0.36"></a>
 ### [octoprint-4.0.36](https://github.com/truecharts/apps/compare/octoprint-4.0.35...octoprint-4.0.36) (2022-01-22)
 

@@ -50,9 +50,9 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:8eb0f1249b16e6b3afea27ecb20bf94605b03b088f03c8801a7f4cc9b7f2d699
-          tccr.io/truecharts/miniflux:v2.0.34@sha256:38c0a023f8c60eea0b752b7b08170f8bd381ce0effdb406b6945201907edf81b
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:8eb0f1249b16e6b3afea27ecb20bf94605b03b088f03c8801a7f4cc9b7f2d699
+          tccr.io/truecharts/miniflux:v2.0.35@sha256:dec697eea60b1db6d6938b213b6d4655c6c3a222d9175049c812e12043100c02
 
 ##### Scan Results
 
@@ -323,26 +323,6 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/miniflux:v2.0.34@sha256:38c0a023f8c60eea0b752b7b08170f8bd381ce0effdb406b6945201907edf81b (alpine 3.15.0)
-
-
-**alpine**
-
-
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
-
-**gobinary**
-
-
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| golang.org/x/crypto         |    CVE-2020-29652   |   HIGH  |  v0.0.0-20200622213623-75b288015ac9 | v0.0.0-20201216223049-8b5274cf687f | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652</a><br><a href="https://go-review.googlesource.com/c/crypto/+/278852">https://go-review.googlesource.com/c/crypto/+/278852</a><br><a href="https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1">https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1</a><br><a href="https://linux.oracle.com/cve/CVE-2020-29652.html">https://linux.oracle.com/cve/CVE-2020-29652.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1796.html">https://linux.oracle.com/errata/ELSA-2021-1796.html</a><br><a href="https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E">https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-29652">https://nvd.nist.gov/vuln/detail/CVE-2020-29652</a><br></details>  |
-| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary></details>  |
-
-
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
 
 
@@ -605,3 +585,25 @@ hide:
 
 | No Vulnerabilities found         |
 |:---------------------------------|
+
+
+
+
+#### Container: tccr.io/truecharts/miniflux:v2.0.35@sha256:dec697eea60b1db6d6938b213b6d4655c6c3a222d9175049c812e12043100c02 (alpine 3.15.0)
+
+
+**alpine**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**gobinary**
+
+
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| golang.org/x/crypto         |    CVE-2020-29652   |   HIGH  |  v0.0.0-20200622213623-75b288015ac9 | v0.0.0-20201216223049-8b5274cf687f | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-29652</a><br><a href="https://go-review.googlesource.com/c/crypto/+/278852">https://go-review.googlesource.com/c/crypto/+/278852</a><br><a href="https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1">https://groups.google.com/g/golang-announce/c/ouZIlBimOsE?pli=1</a><br><a href="https://linux.oracle.com/cve/CVE-2020-29652.html">https://linux.oracle.com/cve/CVE-2020-29652.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-1796.html">https://linux.oracle.com/errata/ELSA-2021-1796.html</a><br><a href="https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E">https://lists.apache.org/thread.html/r68032132c0399c29d6cdc7bd44918535da54060a10a12b1591328bff@%3Cnotifications.skywalking.apache.org%3E</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-29652">https://nvd.nist.gov/vuln/detail/CVE-2020-29652</a><br></details>  |
+| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary></details>  |

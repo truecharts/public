@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DATABASE_URL | object | `{"secretKeyRef":{"key":"urlnossl","name":"dbcreds"}}` | Postgresql connection parameters. See [lib/pq](https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/miniflux"` |  |
-| image.tag | string | `"v2.0.34@sha256:38c0a023f8c60eea0b752b7b08170f8bd381ce0effdb406b6945201907edf81b"` |  |
+| image.tag | string | `"v2.0.35@sha256:dec697eea60b1db6d6938b213b6d4655c6c3a222d9175049c812e12043100c02"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | postgresql | object | Enabled (see values.yaml for more details) | Enable and configure postgresql database subchart under this key. |

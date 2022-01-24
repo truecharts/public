@@ -65,11 +65,11 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:8eb0f1249b16e6b3afea27ecb20bf94605b03b088f03c8801a7f4cc9b7f2d699
-          tccr.io/truecharts/shlink:v2.10.2@sha256:0c1e6af979733458024f143651f32fe63d3294b2320faccff864ba19a9b4b0b8
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/redis:v6.2.6@sha256:015c3a71e0a0d3e5ae1ac85e2b592ca498102b6f968b479b2431052aa63e140d
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:8eb0f1249b16e6b3afea27ecb20bf94605b03b088f03c8801a7f4cc9b7f2d699
+          tccr.io/truecharts/shlink:v2.10.3@sha256:295abebd789ac67b17e40ef09880f77a56ed23479ff924d183fe6bd1f9866029
 
 ##### Scan Results
 
@@ -332,26 +332,6 @@ hide:
 
 
 **gobinary**
-
-
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
-
-
-#### Container: tccr.io/truecharts/shlink:v2.10.2@sha256:0c1e6af979733458024f143651f32fe63d3294b2320faccff864ba19a9b4b0b8 (alpine 3.15.0)
-
-
-**alpine**
-
-
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
-
-**composer**
 
 
 | No Vulnerabilities found         |
@@ -828,6 +808,26 @@ hide:
 
 
 **gobinary**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+
+#### Container: tccr.io/truecharts/shlink:v2.10.3@sha256:295abebd789ac67b17e40ef09880f77a56ed23479ff924d183fe6bd1f9866029 (alpine 3.15.0)
+
+
+**alpine**
+
+
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
+
+**composer**
 
 
 | No Vulnerabilities found         |

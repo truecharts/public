@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mariadb-1.0.60"></a>
+### [mariadb-1.0.60](https://github.com/truecharts/apps/compare/mariadb-1.0.59...mariadb-1.0.60) (2022-01-24)
+
+#### Chore
+
+* update docker general non-major ([#1786](https://github.com/truecharts/apps/issues/1786))
+
+
+
 <a name="mariadb-1.0.59"></a>
 ### [mariadb-1.0.59](https://github.com/truecharts/apps/compare/mariadb-1.0.58...mariadb-1.0.59) (2022-01-22)
 

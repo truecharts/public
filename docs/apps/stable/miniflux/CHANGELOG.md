@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-4.0.28"></a>
+### [miniflux-4.0.28](https://github.com/truecharts/apps/compare/miniflux-4.0.27...miniflux-4.0.28) (2022-01-24)
+
+#### Chore
+
+* update docker general non-major ([#1786](https://github.com/truecharts/apps/issues/1786))
+
+
+
 <a name="miniflux-4.0.27"></a>
 ### [miniflux-4.0.27](https://github.com/truecharts/apps/compare/miniflux-4.0.26...miniflux-4.0.27) (2022-01-22)
 

@@ -21,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/babybuddy"` |  |
-| image.tag | string | `"v1.9.3@sha256:254668977f7efbf6e631b3a5155744a7ce194075b7336ad0f136e5d5e4de3077"` |  |
+| image.tag | string | `"v1.9.3@sha256:528e799220a9b36a75a6b98762007a84dfbfd2013e4060288e6263366bcac17c"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -32,7 +32,6 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlDatabase | string | `"babybuddy"` |  |
 | postgresql.postgresqlUsername | string | `"babybuddy"` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.readOnlyRootFilesystem | bool | `true` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10069` |  |
 | service.main.ports.main.targetPort | int | `8000` |  |

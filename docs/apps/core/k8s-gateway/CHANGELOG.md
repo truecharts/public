@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-4.0.36"></a>
+### [k8s-gateway-4.0.36](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.35...k8s-gateway-4.0.36) (2022-01-24)
+
+#### Chore
+
+* update docker general non-major ([#1786](https://github.com/truecharts/apps/issues/1786))
+
+
+
 <a name="k8s-gateway-4.0.35"></a>
 ### [k8s-gateway-4.0.35](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.34...k8s-gateway-4.0.35) (2022-01-22)
 

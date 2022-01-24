@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/minio-console"` | image repository |
-| image.tag | string | `"v0.13.2@sha256:5751e182b18a2b21305e26a9e5729afb0c593f5f52b1a9d5f80aa0e2a087761a"` | image tag |
+| image.tag | string | `"v0.13.3@sha256:1e436226b9673f6ad01b94d4b5ea911387a971081c0e57405e38798e45affb04"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

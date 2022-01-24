@@ -33,7 +33,7 @@ hide:
 ##### Detected Containers
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/emulatorjs:v1.6.1
+          tccr.io/truecharts/emulatorjs:v1.6.6
 
 ##### Scan Results
 
@@ -76,9 +76,10 @@ hide:
 **node-pkg**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| node-fetch         |    CVE-2022-0235   |   MEDIUM  |  2.6.7 | 3.1.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-r683-j2x4-v87g">https://github.com/advisories/GHSA-r683-j2x4-v87g</a><br><a href="https://github.com/node-fetch/node-fetch/commit/36e47e8a6406185921e4985dcbeff140d73eaa10">https://github.com/node-fetch/node-fetch/commit/36e47e8a6406185921e4985dcbeff140d73eaa10</a><br><a href="https://huntr.dev/bounties/d26ab655-38d6-48b3-be15-f9ad6b6ae6f7">https://huntr.dev/bounties/d26ab655-38d6-48b3-be15-f9ad6b6ae6f7</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-0235">https://nvd.nist.gov/vuln/detail/CVE-2022-0235</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 **gobinary**
 
