@@ -74,28 +74,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: secret
-    group: "Container Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: NEXTCLOUD_ADMIN_USER
-          label: "NEXTCLOUD_ADMIN_USER (First Install Only)"
-          description: "Sets the initial nextcloud's admin username, changing this variable after first launch will NOT change admin's username"
-          schema:
-            type: string
-            required: true
-            default: "REPLACETHIS"
-        - variable: NEXTCLOUD_ADMIN_PASSWORD
-          label: "NEXTCLOUD_ADMIN_PASSWORD (First Install Only)"
-          description: "Sets the initial nextcloud's admin password, changing this variable after first launch will NOT change admin's password"
-          schema:
-            type: string
-            private: true
-            required: true
-            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -104,21 +82,269 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: TRUSTED_PROXIES
-          label: "Trusted Proxies (Advanced)"
-          description: "Sets nextcloud Trusted Proxies"
-          schema:
-            type: string
-            default: "172.16.0.0/16"
-        - variable: NODE_IP
-          label: "NODE_IP"
-          description: "Sets nextcloud nodeip for nodeport connections (Ensure this is correct at first install!)"
-          schema:
-            type: string
-            $ref:
-              - "definitions/nodeIP"
-
 # Include{containerConfig}
+  - variable: coturn
+    group: "Container Configuration"
+    label: "Coturn Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable Coturn"
+          schema:
+            type: boolean
+            default: false
+  - variable: mail
+    group: "Container Configuration"
+    label: "Mail Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable Mail"
+          schema:
+            type: boolean
+            default: false
+        - variable: from
+          label: "From: "
+          schema:
+            type: string
+            default: "Matrix <matrix@example.com>"
+        - variable: riotUrl
+          label: "Riot URL"
+          schema:
+            type: string
+            default: ""
+        - variable: host
+          label: "Host"
+          schema:
+            type: string
+            default: ""
+        - variable: port
+          label: "Port"
+          schema:
+            type: int
+            default: 25
+        - variable: username
+          label: "Username"
+          schema:
+            type: string
+            default: ""
+        - variable: password
+          label: "Password"
+          schema:
+            type: string
+            default: ""
+            private: true
+        - variable: requireTransportSecurity
+          label: "Require Transport Security"
+          schema:
+            type: boolean
+            default: true
+
+  - variable: matrix
+    group: "Container Configuration"
+    label: "Matrix Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: disabled
+          label: "Disable Server Globally"
+          schema:
+            type: boolean
+            default: false
+        - variable: disabledMessage
+          label: "Disabled Message"
+          schema:
+            type: string
+            default: ""
+        - variable: serverName
+          label: "Server Name"
+          schema:
+            type: string
+            default: "example.com"
+        - variable: hostname
+          label: "Hostname"
+          schema:
+            type: string
+            default: "matrix.example.com"
+        - variable: presence
+          label: "Presence"
+          schema:
+            type: boolean
+            default: true
+        - variable: blockNonAdminInvites
+          label: "Block Non Admin Invites"
+          schema:
+            type: boolean
+            default: false
+        - variable: search
+          label: "Search"
+          schema:
+            type: boolean
+            default: true
+        - variable: encryptByDefault
+          label: "Encrypt By Default"
+          schema:
+            type: string
+            default: "invite"
+            enum:
+              - value: "off"
+                description: "off"
+              - value: "invite"
+                description: "invite"
+              - value: "all"
+                description: "all"
+        - variable: adminEmail
+          label: "Admin Email"
+          schema:
+            type: string
+            default: "admin@example.com"
+        - variable: uploads
+          label: "Uploads Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: maxSize
+                label: "Max Size"
+                schema:
+                  type: string
+                  default: "10M"
+              - variable: maxPixels
+                label: "Max Pixels"
+                schema:
+                  type: string
+                  default: "32M"
+        - variable: urlPreviews
+          label: "URL Previews Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable URL Previews"
+                schema:
+                  type: boolean
+                  default: false
+        - variable: federation
+          label: "Federation Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Federation"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allowPublicRooms
+                label: "Allow Public Rooms"
+                schema:
+                  type: boolean
+                  default: true
+      # TODO: whitelist:
+      # TODO: blacklist:
+        - variable: registration
+          label: "Registration Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Registration"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: maxPixels
+                label: "Max Pixels"
+                schema:
+                  type: string
+                  default: "32M"
+              - variable: sharedSecret
+                label: "Shared Secret"
+                schema:
+                  type: string
+                  default: ""
+                  private: true
+      # TODO: required3PIDs
+      # TODO: autoJoinRooms
+        - variable: security
+          label: "Security Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: macaroonSecretKey
+                label: "Macaroon Secret Key"
+                schema:
+                  type: string
+                  default: ""
+                  private: true
+              - variable: surpressKeyServerWarning
+                label: "Surpress Key Server Warning"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: trustedKeyServers
+                label: "Truested Key Servers"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: serverName
+                      label: Server Name
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: verifyKeys
+                      label: "Verify Keys"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: id
+                            label: "id"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: key
+                            label: "key"
+                            schema:
+                              type: string
+                              default: ""
+                              private: true
+                    - variable: acceptKeysInsecurely
+                      label: "Accept Keys Insecurely"
+                      schema:
+                        type: boolean
+                        default: false
+        - variable: logging
+          group: "Container Configuration"
+          label: "Logging Configuration"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# TODO: Find the log levels and make the enum's
+              - variable: rootLogLevel
+                label: "Root Log Level"
+                schema:
+                  type: string
+                  default: "WARNING"
+              - variable: sqlLogLevel
+                label: "Root Log Level"
+                schema:
+                  type: string
+                  default: "WARNING"
+              - variable: sqlLogLevel
+                label: "Root Log Level"
+                schema:
+                  type: string
+                  default: "WARNING"
 
   - variable: service
     group: "Networking and Services"
@@ -146,7 +372,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10020
+                              default: 8008
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -181,7 +407,117 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
+                                    default: 8008
+        - variable: replication
+          label: "Replication Service"
+          description: "The Replication Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: replication
+                      label: "Replication Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9092
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9092
+        - variable: metrics
+          label: "Metrics Service"
+          description: "The Metrics Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: metrics
+                      label: "Replication Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9093
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 9093
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -210,9 +546,95 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: data
-          label: "App Data Storage"
-          description: "Stores the Application Data."
+        - variable: key
+          label: "App Key Storage"
+          description: "Stores the Application Key."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: media
+          label: "App Media Storage"
+          description: "Stores the Application Media."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: uploads
+          label: "App Upload Storage"
+          description: "Stores the Application Upload."
           schema:
             additional_attrs: true
             type: dict
@@ -302,17 +724,17 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: runAsNonRoot
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -327,19 +749,19 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
           schema:
             type: int
-            default: 33
+            default: 568
 # Include{podSecurityContextAdvanced}
 
 # Include{resources}
