@@ -22,7 +22,6 @@ envValueFrom:
       key: plainhost
 
 securityContext:
-  readOnlyRootFilesystem: true
   allowPrivilegeEscalation: true
   runAsNonRoot: false
 

@@ -4,7 +4,6 @@ image:
   tag: version-v1.5.0@sha256:6c6331888c9a5162def49b6212327242f7f5c96e2d5a1bb031f79321cc1c0549
 
 securityContext:
-  readOnlyRootFilesystem: true
   allowPrivilegeEscalation: true
   runAsNonRoot: false
 
