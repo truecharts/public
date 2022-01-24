@@ -30,19 +30,19 @@ env:
   #  mydocs.myserver.com), the `internal-url` must be set such that
   #  other nodes can reach this server.
   # TODO: Fix fullname, this is the pods full name, we need the service?
-  DOCSPELL_SERVER_INTERNAL__URL: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}"
+  DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   #  This is the base URL this application is deployed to. This is used
   #  to create absolute URLs and to configure the cookie.
   #
   #  If default is not changed, the HOST line of the login request is
   #  used instead or the value of the `X-Forwarded-For` header. If set
   #  to some other value, the request is not inspected.
-  DOCSPELL_SERVER_BASE__URL: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}"
+  DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   # The host and port the http server binds to. This applies to both components.
   # The joex component also exposes a small REST api to inspect its state and notify the scheduler.
   # By default, it binds to localhost and some predefined port. This must be changed, if components are on different machines.
   # TODO: Fix fullname, this is the pods full name, we need the service?
-  DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local'
+  DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
 
   # DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: true
@@ -76,7 +76,7 @@ additionalContainers:
     livenessProbe:
       exec:
         # TODO: Replace with internal DNS URL
-        command: ["curl", "-f", "http://{{ .Release.Name }}-container.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.additionalContainers.solr.ports[0].containerPort }}/solr/docspell/admin/ping"]
+        command: ["curl", "-f", "http://{{ include \"common.names.fullname\" . }}-container.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.additionalContainers.solr.ports[0].containerPort }}/solr/docspell/admin/ping"]
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
@@ -84,7 +84,7 @@ additionalContainers:
     readinessProbe:
       exec:
         # TODO: Replace with internal DNS URL
-        command: ["curl", "-f", "http://{{ .Release.Name }}-container.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.additionalContainers.solr.ports[0].containerPort }}/solr/docspell/admin/ping"]
+        command: ["curl", "-f", "http://{{ include \"common.names.fullname\" . }}-container.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.additionalContainers.solr.ports[0].containerPort }}/solr/docspell/admin/ping"]
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
