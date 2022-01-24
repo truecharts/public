@@ -6,6 +6,10 @@ kind: ConfigMap
 metadata:
   name: guacamole-client-env
 data:
+  {{/*  GENERAL */}}
+  {{- if .Values.general.EXTENSION_PRIORITY }}
+  EXTENSION_PRIORITY: {{ .Values.general.EXTENSION_PRIORITY | quote }}
+  {{- end }}
   {{/*  API */}}
   {{- if .Values.api.API_SESSION_TIMEOUT }}
   API_SESSION_TIMEOUT: {{ .Values.api.API_SESSION_TIMEOUT | quote }}
