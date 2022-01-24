@@ -166,6 +166,11 @@ questions:
           schema:
             type: string
             default: "example.com"
+        - variable: hostname
+          label: "Hostname"
+          schema:
+            type: string
+            default: "matrix.example.com"
         - variable: presence
           label: "Presence"
           schema:
@@ -254,11 +259,18 @@ questions:
                 schema:
                   type: boolean
                   default: false
-              - variable: allowGuests
-                label: "Allow Guests"
+              - variable: maxPixels
+                label: "Max Pixels"
                 schema:
-                  type: boolean
-                  default: false
+                  type: string
+                  default: "32M"
+              - variable: sharedSecret
+                label: "Shared Secret"
+                schema:
+                  type: string
+                  default: ""
+                  private: true
+      # TODO: required3PIDs
       # TODO: autoJoinRooms
         - variable: security
           label: "Security Configuration"
