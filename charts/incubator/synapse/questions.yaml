@@ -74,28 +74,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  - variable: secret
-    group: "Container Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: NEXTCLOUD_ADMIN_USER
-          label: "NEXTCLOUD_ADMIN_USER (First Install Only)"
-          description: "Sets the initial nextcloud's admin username, changing this variable after first launch will NOT change admin's username"
-          schema:
-            type: string
-            required: true
-            default: "REPLACETHIS"
-        - variable: NEXTCLOUD_ADMIN_PASSWORD
-          label: "NEXTCLOUD_ADMIN_PASSWORD (First Install Only)"
-          description: "Sets the initial nextcloud's admin password, changing this variable after first launch will NOT change admin's password"
-          schema:
-            type: string
-            private: true
-            required: true
-            default: "REPLACETHIS"
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
