@@ -1,0 +1,34 @@
+apiVersion: v2
+appVersion: "0.31.0"
+description: Docspell is a personal document organizer
+name: docspell
+version: 0.0.1
+kubeVersion: ">=1.16.0-0"
+keywords:
+- dms
+- documents
+home: https://github.com/truecharts/apps/tree/master/charts/stable/docspell
+icon: https://truecharts.org/_static/img/appicons/docspell-icon.png
+sources:
+- https://github.com/eikek/docspell
+- https://hub.docker.com/r/docspell/dsc
+- https://hub.docker.com/r/docspell/joex
+- https://hub.docker.com/r/docspell/restserver
+- https://docspell.org/docs/install/docker/
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.13.5
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://truecharts.org/
+  version: 6.0.56
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
