@@ -7096,6 +7096,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2021.09.1
+    created: "2022-01-24T10:12:16.884242505Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.13.5
+    description: DeepStack AI provides AI features including Face Recognition, Object
+      Detection, Scene Recognition and custom AI Models
+    digest: ec3be4250d7d97b305712704e09dcf2ab097b943f8753ceefc761278303c46e9
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/deepstack
+    icon: https://truecharts.org/_static/img/appicons/deepstack-icon.png
+    keywords:
+    - AI
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: deepstack
+    sources:
+    - https://github.com/johnolafenwa/DeepStack
+    - https://hub.docker.com/r/deepquestai/deepstack
+    - https://www.deepstack.cc/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deepstack-2.0.0/deepstack-2.0.0.tgz
+    version: 2.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - AI
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2021.09.1
     created: "2022-01-04T20:48:57.821175111Z"
     dependencies:
     - name: common
@@ -15317,43 +15350,6 @@ entries:
     - https://github.com/truecharts/apps/releases/download/grocy-9.0.19/grocy-9.0.19.tgz
     version: 9.0.19
   guacamole-client:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - utilities
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 1.4.0
-    created: "2022-01-24T10:00:56.202059768Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.13.5
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: https://truecharts.org/
-      version: 6.0.56
-    description: Apache Guacamole is a clientless remote desktop gateway.
-    digest: b9b56e96fa6abb3c0240d49d4f4e6e2bba8a2b67076f913d263d5b0c55aee640
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/guacamole-client
-    icon: https://truecharts.org/_static/img/appicons/guacamole-client-icon.png
-    keywords:
-    - guacamole
-    - remote
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: guacamole-client
-    sources:
-    - https://github.com/apache/guacamole-client
-    - https://hub.docker.com/r/guacamole/guacamole
-    - http://guacamole.incubator.apache.org/doc/gug/introduction.html
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/guacamole-client-1.0.6/guacamole-client-1.0.6.tgz
-    version: 1.0.6
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -52296,4 +52292,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-24T10:00:56.207371301Z"
+generated: "2022-01-24T10:12:16.88820418Z"

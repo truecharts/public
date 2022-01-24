@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-2.0.0"></a>
+### [deepstack-2.0.0](https://github.com/truecharts/apps/compare/deepstack-1.0.7...deepstack-2.0.0) (2022-01-24)
+
+#### Feat
+
+* use configmap to clean up gui ([#1771](https://github.com/truecharts/apps/issues/1771))
+
+
+
 <a name="deepstack-1.0.7"></a>
 ### [deepstack-1.0.7](https://github.com/truecharts/apps/compare/deepstack-1.0.6...deepstack-1.0.7) (2022-01-22)
 
