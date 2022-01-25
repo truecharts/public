@@ -228,7 +228,7 @@ additionalContainers:
     ports:
       - containerPort: 8983
         name: main
-    command: ["curl", 'http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
+    command: ["solr-precreate", "docspell", "&&", "curl", 'http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
       # - solr-precreate
       # - docspell
     volumeMounts:
