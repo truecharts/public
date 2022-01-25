@@ -234,22 +234,22 @@ additionalContainers:
     volumeMounts:
     - name: solr
       mountPath: "/var/solr"
-    livenessProbe:
-      exec:
-      # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 5
-    readinessProbe:
-      exec:
-      # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 5
+    # livenessProbe:
+    #   exec:
+    #   # TODO: Figure out the dns genertaion for additional containers
+    #     command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
+    #   initialDelaySeconds: 10
+    #   periodSeconds: 10
+    #   timeoutSeconds: 5
+    #   failureThreshold: 5
+    # readinessProbe:
+    #   exec:
+    #   # TODO: Figure out the dns genertaion for additional containers
+    #     command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
+    #   initialDelaySeconds: 10
+    #   periodSeconds: 10
+    #   timeoutSeconds: 5
+    #   failureThreshold: 5
   joex:
     name: joex
     image: "{{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}"
