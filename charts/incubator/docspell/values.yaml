@@ -12,20 +12,23 @@ solrImage:
   tag: 8.11.1@sha256:4f7445630b788708b070ec3a18d21d4a2cb40d79c373ede76720633e936e9d41
 
 secret:
-  DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: "changeme"
+  # If empty, endpoint is disabled
+  DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: ""
   DOCSPELL_SERVER_AUTH_SERVER__SECRET: "changeme"
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "changeme"
   DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: "changeme"
 
 env:
   TZ: "UTC"
+  # App ID should be unique on each node
+  DOCSPELL_SERVER_APP__ID: "{{ randAlphaNum 10 | quote }}"
+  # App name to show on the top right corner
+  DOCSPELL_SERVER_APP__NAME: "Docspell"
   DOCSPELL_SERVER_BACKEND_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
-  DOCSPELL_SERVER_APP__ID: "{{ randAlphaNum 5 | quote }}"
-  DOCSPELL_SERVER_APP__NAME: "Docspell"
   DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: true
   DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: "30 days"
   DOCSPELL_SERVER_AUTH_SESSION__VALID: "5 minutes"
@@ -38,6 +41,23 @@ env:
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "lucene"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_LOG__VERBOSE: false
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "OR"
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: "http://localhost:8983/solr/docspell"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: false
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: false
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: false
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD: "docspell-int"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM: "Docspell Integration"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER: "docspell-int"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: false
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME: "Docspell-Integration"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_PRIORITY: "low"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_SOURCE__NAME: "integration"
+  DOCSPELL_SERVER_MAX__ITEM__PAGE__SIZE: 200
+  DOCSPELL_SERVER_MAX__NOTE__LENGTH: 180
+  DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: true
+
+
+
 
 envValueFrom:
   DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD:
