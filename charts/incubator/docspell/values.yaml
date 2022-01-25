@@ -14,28 +14,28 @@ solrImage:
 secret:
   # If empty, endpoint is disabled
   DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: ""
-  # If empty a ramdon will be generated, this is to sign authenticator tokens
+  # If empty a random will be generated, this is to sign authenticator tokens # TODO: We should generate one and store it to secrets
   DOCSPELL_SERVER_AUTH_SERVER__SECRET: ""
   # Header secret for the integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "changeme"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "http-header-secret"
   # HTTP Header name for integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME: "Docspell-Integration"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME: "docspell-integration-header"
   # User for http basic for integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER: "docspell-int"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER: "basic-user"
   # Password for http basic for integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD: "docspell-int"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD: "basic-password"
   # Realm for http basic for integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM: "Docspell Integration"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM: "Docspell Integration Realm"
   # When mode = "invite", this password will be used to generate inv keys
-  DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: "changeme"
+  DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: "new-invite-generator-password"
 
 env:
   TZ: "UTC"
   DOCSPELL_SERVER_BACKEND_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   # App ID should be unique on each node
-  DOCSPELL_SERVER_APP__ID: "{{ randAlphaNum 10 | quote }}"
+  DOCSPELL_SERVER_APP__ID: "{{ randAlphaNum 10 }}"
   # App name to show on the top right corner
-  DOCSPELL_SERVER_APP__NAME: "Docspell"
+  DOCSPELL_SERVER_APP__NAME: "Docspell On Helm"
   # Enable "Remember Cookie/Token
   DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: true
   # Cookie/Token Valid for
@@ -62,7 +62,7 @@ env:
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "OR"
   # This url is the base url for reaching this server internally.
   DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
-  # Base URL eg https://doc.mydomain.com
+  # Base URL eg https://doc.mydomain.com TODO: Set this automatically?
   DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   # The priority to use when uploading to this endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_PRIORITY: "low"
@@ -107,11 +107,13 @@ service:
     ports:
       solr:
         port: 8983
+        # Set this based on `additionalContainers.solr.ports[0].containerPort`
         targetPort: 8983
   joex:
     ports:
       joex:
         port: 7878
+        # Set this based on `additionalContainers.joex.ports[0].containerPort`
         targetPort: 7878
 
 additionalContainers:
