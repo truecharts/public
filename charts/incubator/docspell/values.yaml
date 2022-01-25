@@ -16,6 +16,7 @@ secret:
   DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: ""
   # If empty a ramdon will be generated, this is to sign authenticator tokens
   DOCSPELL_SERVER_AUTH_SERVER__SECRET: ""
+  # Header secret for the integration endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "changeme"
   # When mode = "invite", this password will be used to generate inv keys
   DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: "changeme"
@@ -55,19 +56,6 @@ env:
   DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   # Base URL eg https://doc.mydomain.com
   DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
-  DOCSPELL_SERVER_BIND_ADDRESS: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
-  DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell'
-
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: false
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: false
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: false
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD: "docspell-int"
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM: "Docspell Integration"
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER: "docspell-int"
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: false
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME: "Docspell-Integration"
-
   # The priority to use when uploading to this endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_PRIORITY: "low"
   # The name used for the item source property
@@ -78,6 +66,23 @@ env:
   DOCSPELL_SERVER_MAX__NOTE__LENGTH: 180
   # Show classification form
   DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: true
+  # SOLR URL
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell'
+  # Enable the integration endpoint
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: false
+  # Enable the allowed IPs, for the integration endpoint (No env to set the ips?!)
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: false
+  # Enable HTTP Basic for  integrtion endpoint
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: false
+  # Password for http basic for integration endpoint
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD: "docspell-int"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM: "Docspell Integration"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER: "docspell-int"
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: false
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME: "Docspell-Integration"
+
+  DOCSPELL_SERVER_BIND_ADDRESS: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
+  DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
 
 
 envValueFrom:
@@ -112,7 +117,7 @@ additionalContainers:
     name: solr
     image: "{{ .Values.solrImage.repository }}:{{ .Values.solrImage.tag }}"
     ports:
-      - containerPort: "{{ .Values.service.solr.targetPort | int }}"
+      - containerPort: {{ .Values.service.solr.targetPort }}
         name: main
     command:
       - solr-precreate
@@ -140,7 +145,7 @@ additionalContainers:
     name: joex
     image: "{{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}"
     ports:
-      - containerPort: "{{ .Values.service.joex.targetPort | int }}"
+      - containerPort: {{ .Values.service.joex.targetPort }}
         name: main
     env:
       - name: TZ
