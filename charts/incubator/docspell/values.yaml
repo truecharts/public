@@ -59,7 +59,7 @@ env:
   # ["open", "invite", "closed"]
   DOCSPELL_SERVER_BACKEND_SIGNUP_MODE: "open"
   # Enable full text search
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: true
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: false
   # Tell solr when to commit the data
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: 1000
   # SOLR parser
@@ -111,12 +111,12 @@ service:
       main:
         port: 7880
         targetPort: 7880
-  solr:
-    ports:
-      solr:
-        port: 8983
-        # Set this based on `additionalContainers.solr.ports[0].containerPort`
-        targetPort: 8983
+  # solr:
+  #   ports:
+  #     solr:
+  #       port: 8983
+  #       # Set this based on `additionalContainers.solr.ports[0].containerPort`
+  #       targetPort: 8983
   joex:
     ports:
       joex:
@@ -125,37 +125,37 @@ service:
         targetPort: 7878
 
 additionalContainers:
-  solr:
-    name: solr
-    image: "{{ .Values.solrImage.repository }}:{{ .Values.solrImage.tag }}"
-    securityContext:
-      runAsUser: 568
-      runAsNonRoot: true
-    ports:
-      - containerPort: 8983
-        name: main
-    command:
-      - solr-precreate
-      - docspell
-    volumeMounts:
-    - name: solr
-      mountPath: "/var/solr"
-    livenessProbe:
-      exec:
-      # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ .Release.Name }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 5
-    readinessProbe:
-      exec:
-      # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ .Release.Name }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 5
+  # solr:
+  #   name: solr
+  #   image: "{{ .Values.solrImage.repository }}:{{ .Values.solrImage.tag }}"
+  #   securityContext:
+  #     runAsUser: 568
+  #     runAsNonRoot: true
+  #   ports:
+  #     - containerPort: 8983
+  #       name: main
+  #   command:
+  #     - solr-precreate
+  #     - docspell
+  #   volumeMounts:
+  #   - name: solr
+  #     mountPath: "/var/solr"
+  #   livenessProbe:
+  #     exec:
+  #     # TODO: Figure out the dns genertaion for additional containers
+  #       command: ["curl", "-f", 'http://{{ .Release.Name }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
+  #     initialDelaySeconds: 10
+  #     periodSeconds: 10
+  #     timeoutSeconds: 5
+  #     failureThreshold: 5
+  #   readinessProbe:
+  #     exec:
+  #     # TODO: Figure out the dns genertaion for additional containers
+  #       command: ["curl", "-f", 'http://{{ .Release.Name }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
+  #     initialDelaySeconds: 10
+  #     periodSeconds: 10
+  #     timeoutSeconds: 5
+  #     failureThreshold: 5
   joex:
     name: joex
     image: "{{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}"
@@ -190,7 +190,7 @@ additionalContainers:
       - name: DOCSPELL_JOEX_BIND_PORT
         value: "{{ .Values.service.joex.ports.joex.targetPort }}"
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_ENABLED
-        value: "true"
+        value: "false"
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL
         value: 'http://{{ .Release.Name }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
 
