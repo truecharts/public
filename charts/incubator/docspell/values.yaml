@@ -92,7 +92,7 @@ env:
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: false
   # Enable HTTP Header for integration endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: false
-  DOCSPELL_SERVER_BIND_ADDRESS: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
+  DOCSPELL_SERVER_BIND_ADDRESS: "0.0.0.0"
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
   RELNAME: "{{ .Release.Name }}"
   FULNAME: '{{ include "common.names.fullname" . }}'
@@ -183,7 +183,9 @@ additionalContainers:
       # TODO: Figure out the dns genertaion for additional containers
         value: 'http://{{ include "common.names.fullname" . }}-joex.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
       - name: DOCSPELL_JOEX_BIND_ADDRESS
-        value: '{{ include "common.names.fullname" . }}-joex.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
+        value: "0.0.0.0"
+      - name: DOCSPELL_JOEX_BIND_PORT
+        value: "{{ .Values.service.joex.ports.joex.targetPort }}"
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_ENABLED
         value: "true"
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL
