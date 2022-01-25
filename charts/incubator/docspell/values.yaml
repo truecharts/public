@@ -12,41 +12,17 @@ solrImage:
   tag: 8.11.1@sha256:4f7445630b788708b070ec3a18d21d4a2cb40d79c373ede76720633e936e9d41
 
 secret:
-  #  The secret. If empty, the endpoint is disabled
   DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: "changeme"
-  #  The secret for this server that is used to sign the authenicator
-  #  tokens. If multiple servers are running, all must share the same
-  #  secret. You can use base64 or hex strings (prefix with b64: and
-  #  hex:, respectively). If empty, a random secret is generated.
-  #  Example: b64:YRx77QujCGkHSvll0TVEmtTaw3Z5eXr+nWMsEJowgKg=
   DOCSPELL_SERVER_AUTH_SERVER__SECRET: "changeme"
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "changeme"
 
 env:
   TZ: "UTC"
   DOCSPELL_SERVER_BACKEND_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  #  This url is the base url for reaching this server internally.
-  #  While you might set `base-url` to some external address (like
-  #  mydocs.myserver.com), the `internal-url` must be set such that
-  #  other nodes can reach this server.
   DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
-  #  This is the base URL this application is deployed to. This is used
-  #  to create absolute URLs and to configure the cookie.
-  #
-  #  If default is not changed, the HOST line of the login request is
-  #  used instead or the value of the `X-Forwarded-For` header. If set
-  #  to some other value, the request is not inspected.
   DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
-  # The host and port the http server binds to. This applies to both components.
-  # The joex component also exposes a small REST api to inspect its state and notify the scheduler.
-  # By default, it binds to localhost and some predefined port. This must be changed, if components are on different machines.
   DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
-
-  # DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: true
-  # DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: http://docspell-solr:8983/solr/docspell
-  # DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: true
-  # DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: true
 
 envValueFrom:
   DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD:
@@ -74,7 +50,7 @@ additionalContainers:
     livenessProbe:
       exec:
       # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell/admin/ping']
+        command: ["curl", "-f", "http://{{ include \"common.names.fullname\" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell/admin/ping"]
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
@@ -82,7 +58,7 @@ additionalContainers:
     readinessProbe:
       exec:
       # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell/admin/ping']
+        command: ["curl", "-f", "http://{{ include \"common.names.fullname\" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell/admin/ping"]
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
