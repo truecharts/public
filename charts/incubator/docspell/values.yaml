@@ -41,7 +41,7 @@ env:
   TZ: "UTC"
   DOCSPELL_SERVER_BACKEND_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   # App ID should be unique on each node
-  DOCSPELL_SERVER_APP__ID: '{{ randAlphaNum 10 }}'
+  DOCSPELL_SERVER_APP__ID: 'restserver-{{ randAlphaNum 10 }}'
   # App name to show on the top right corner
   DOCSPELL_SERVER_APP__NAME: "Docspell On Helm"
   # Enable "Remember Cookie/Token
@@ -180,6 +180,8 @@ additionalContainers:
           secretKeyRef:
             name: dbcreds
             key: postgresql-password
+      - name: DOCSPELL_JOEX_APP__ID
+        value: 'joex-{{ randAlphaNum 10 }}'
       - name: DOCSPELL_JOEX_BASE__URL
       # TODO: Figure out the dns genertaion for additional containers
         value: 'http://{{ .Release.Name }}-joex.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
