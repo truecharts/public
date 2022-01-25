@@ -23,7 +23,7 @@ data:
   {{/* SOLR */}}
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: "{{ .Values.rest.solr.enabled }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: "{{ .Values.rest.solr.commit_within}}"
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "{{ .Value.rest.solr.parser }}"
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "{{ .Values.rest.solr.parser }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_LOG__VERBOSE: "{{ .Values.rest.solr.debug_enabled }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "{{ .Values.rest.solr.combiner }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: "{{ .Values.rest.solr.url }}"
