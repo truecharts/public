@@ -4,7 +4,5 @@
 {{/* Render configmap for docpsell */}}
 {{- include "docspell.configmap" . }}
 
-# {{- include "docspell-joex.configmap" . }}
-
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}
