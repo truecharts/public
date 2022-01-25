@@ -51,12 +51,13 @@ env:
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_LOG__VERBOSE: false
   # Default combiner for tokens ["OR","AND"]
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "OR"
-
+  # This url is the base url for reaching this server internally.
   DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
+  # Base URL eg https://doc.mydomain.com
   DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
-  DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
+  DOCSPELL_SERVER_BIND_ADDRESS: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: "http://localhost:8983/solr/docspell"
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell'
 
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: false
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: false
@@ -111,7 +112,7 @@ additionalContainers:
     name: solr
     image: "{{ .Values.solrImage.repository }}:{{ .Values.solrImage.tag }}"
     ports:
-      - containerPort: "{{ .Values.service.solr.targetPort }}"
+      - containerPort: "{{ .Values.service.solr.targetPort | int }}"
         name: main
     command:
       - solr-precreate
@@ -122,7 +123,7 @@ additionalContainers:
     livenessProbe:
       exec:
       # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", "http://{{ include \"common.names.fullname\" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell/admin/ping"]
+        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell/admin/ping']
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
@@ -130,7 +131,7 @@ additionalContainers:
     readinessProbe:
       exec:
       # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", "http://{{ include \"common.names.fullname\" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell/admin/ping"]
+        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell/admin/ping']
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
@@ -139,7 +140,7 @@ additionalContainers:
     name: joex
     image: "{{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}"
     ports:
-      - containerPort: "{{ .Values.service.joex.targetPort }}"
+      - containerPort: "{{ .Values.service.joex.targetPort | int }}"
         name: main
     env:
       - name: TZ
