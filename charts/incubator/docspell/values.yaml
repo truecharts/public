@@ -15,6 +15,7 @@ secret:
   DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: "changeme"
   DOCSPELL_SERVER_AUTH_SERVER__SECRET: "changeme"
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "changeme"
+  DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: "changeme"
 
 env:
   TZ: "UTC"
@@ -23,6 +24,20 @@ env:
   DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
+  DOCSPELL_SERVER_APP__ID: "{{ randAlphaNum 5 | quote }}"
+  DOCSPELL_SERVER_APP__NAME: "Docspell"
+  DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: true
+  DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: "30 days"
+  DOCSPELL_SERVER_AUTH_SESSION__VALID: "5 minutes"
+  DOCSPELL_SERVER_BACKEND_FILES_CHUNK__SIZE: 524288
+  DOCSPELL_SERVER_BACKEND_MAIL__DEBUG: false
+  DOCSPELL_SERVER_BACKEND_SIGNUP_INVITE__TIME: "3 days"
+  DOCSPELL_SERVER_BACKEND_SIGNUP_MODE: "open"
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: false
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: 1000
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "lucene"
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_LOG__VERBOSE: false
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "OR"
 
 envValueFrom:
   DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD:
@@ -33,6 +48,23 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: jdbc
+
+service:
+  main:
+    ports:
+      main:
+        port: 7880
+        targetPort: 7880
+  solr:
+    ports:
+      solr:
+        port: 8983
+        targetPort: "{{ .Values.additionalContainers.solr.ports.main.containerPort }}"
+  joex:
+    ports:
+      joex:
+        port: 7878
+        targetPort: "{{ .Values.additionalContainers.joex.ports[0].containerPort }}"
 
 additionalContainers:
   solr:
@@ -88,22 +120,6 @@ additionalContainers:
       # TODO: Figure out the dns genertaion for additional containers
         value: 'http://{{ include "common.names.fullname" . }}-joex.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
 
-service:
-  main:
-    ports:
-      main:
-        port: 7880
-        targetPort: 7880
-  solr:
-    ports:
-      solr:
-        port: 8983
-        targetPort: "{{ .Values.additionalContainers.solr.ports.main.containerPort }}"
-  joex:
-    ports:
-      joex:
-        port: 7878
-        targetPort: "{{ .Values.additionalContainers.joex.ports.main.containerPort }}"
 
 persistence:
   solr:
