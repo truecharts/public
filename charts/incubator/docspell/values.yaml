@@ -17,6 +17,7 @@ secret:
   # If empty a ramdon will be generated, this is to sign authenticator tokens
   DOCSPELL_SERVER_AUTH_SERVER__SECRET: ""
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "changeme"
+  # When mode = "invite", this password will be used to generate inv keys
   DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: "changeme"
 
 env:
@@ -38,21 +39,25 @@ env:
   DOCSPELL_SERVER_BACKEND_MAIL__DEBUG: false
   # When mode ="invite", invite is valid for
   DOCSPELL_SERVER_BACKEND_SIGNUP_INVITE__TIME: "3 days"
-  # "open", "invite", "closed"
+  # ["open", "invite", "closed"]
   DOCSPELL_SERVER_BACKEND_SIGNUP_MODE: "open"
+  # Enable full text search
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: true
+  # Tell solr when to commit the data
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: 1000
+  # SOLR parser
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "lucene"
+  # Enable SOLR debbuging
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_LOG__VERBOSE: false
+  # Default combiner for tokens ["OR","AND"]
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "OR"
 
   DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
-
-
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: false
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: 1000
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "lucene"
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_LOG__VERBOSE: false
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "OR"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: "http://localhost:8983/solr/docspell"
+
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: false
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: false
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: false
@@ -61,10 +66,16 @@ env:
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER: "docspell-int"
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: false
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME: "Docspell-Integration"
+
+  # The priority to use when uploading to this endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_PRIORITY: "low"
+  # The name used for the item source property
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_SOURCE__NAME: "integration"
+  # Hard limit to search returns
   DOCSPELL_SERVER_MAX__ITEM__PAGE__SIZE: 200
+  # Hard limit for char lenght on search
   DOCSPELL_SERVER_MAX__NOTE__LENGTH: 180
+  # Show classification form
   DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: true
 
 
@@ -88,19 +99,19 @@ service:
     ports:
       solr:
         port: 8983
-        targetPort: "{{ .Values.additionalContainers.solr.ports.main.containerPort }}"
+        targetPort: 8983
   joex:
     ports:
       joex:
         port: 7878
-        targetPort: "{{ .Values.additionalContainers.joex.ports[0].containerPort }}"
+        targetPort: 7878
 
 additionalContainers:
   solr:
     name: solr
     image: "{{ .Values.solrImage.repository }}:{{ .Values.solrImage.tag }}"
     ports:
-      - containerPort: 8983
+      - containerPort: "{{ .Values.service.solr.targetPort }}"
         name: main
     command:
       - solr-precreate
@@ -128,7 +139,7 @@ additionalContainers:
     name: joex
     image: "{{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}"
     ports:
-      - containerPort: 7878
+      - containerPort: "{{ .Values.service.joex.targetPort }}"
         name: main
     env:
       - name: TZ
