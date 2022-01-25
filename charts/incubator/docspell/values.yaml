@@ -11,6 +11,14 @@ solrImage:
   repository: solr
   tag: 8.11.1@sha256:4f7445630b788708b070ec3a18d21d4a2cb40d79c373ede76720633e936e9d41
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 secret:
   # If empty, endpoint is disabled
   DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: ""
@@ -148,9 +156,6 @@ additionalContainers:
   joex:
     name: joex
     image: "{{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}"
-    securityContext:
-      runAsUser: 0
-      runAsNonRoot: false
     ports:
       - containerPort: 7878
         name: main
@@ -175,7 +180,7 @@ additionalContainers:
       - name: DOCSPELL_JOEX_BIND_ADDRESS
         value: '{{ include "common.names.fullname" . }}-joex.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_ENABLED
-        value: "true"
+        value: true
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL
         value: 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
 
