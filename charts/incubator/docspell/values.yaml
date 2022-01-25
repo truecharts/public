@@ -175,7 +175,7 @@ additionalContainers:
       - name: DOCSPELL_JOEX_BIND_ADDRESS
         value: '{{ include "common.names.fullname" . }}-joex.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_ENABLED
-        value: true
+        value: "true"
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL
         value: 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
 
