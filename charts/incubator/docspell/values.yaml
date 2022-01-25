@@ -114,12 +114,37 @@ joex:
   app:
     id: 'joex-{{ randAlphaNum 10 }}'
     # TODO: Figure out the dns genertaion for additional containers
+    chunk_size: 524288
     base_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
     bind_address: "0.0.0.0"
     bind_port: "{{ .Values.service.joex.ports.joex.targetPort }}"
   solr:
     enabled: true
     url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
+    commit_within: 1000
+    parser: "lucene"
+    combiner: "OR"
+    index_chunk: 10
+    logs_verbose: false
+  convert:
+    chunk_size: 524288
+    converted_filename_part: "converted"
+    decrypt_pdf_enabled: true
+    md_internal_css: '\n        body { padding: 2em 5em; }\n      '
+    max_image_size: 14000000
+    ocrmypdf_enabled: true
+    ocrmypdf_cmd_program: "ocrmypdf"
+    ocrmypdf_cmd_timeout: "5 minutes"
+    ocrmypdf_workdir: "/tmp/docspell-convert"
+    tesseract_cmd_program: "tesseract"
+    tesseract_cmd_timeout: "5 minutes"
+    tesseract_workdir: "/tmp/docspell-convert"
+    unoconv_cmd_program: "unoconv"
+    unoconv_cmd_timeout: "2 minutes"
+    unoconv_workdir: "/tmp/docspell-convert"
+    wkhtmlpdf_cmd_program: "wkhtlmtopdf"
+    wkhtmlpdf_cmd_timeout: "2 minutes"
+    whhtmlpdf_workdir: "/tmp/docspell-convert"
 
 env:
   TZ: "UTC"
