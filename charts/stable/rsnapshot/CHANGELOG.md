@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="rsnapshot-0.0.16"></a>
+### [rsnapshot-0.0.16](https://github.com/truecharts/apps/compare/rsnapshot-0.0.15...rsnapshot-0.0.16) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="rsnapshot-0.0.15"></a>
 ### [rsnapshot-0.0.15](https://github.com/truecharts/apps/compare/rsnapshot-0.0.14...rsnapshot-0.0.15) (2022-01-22)
 

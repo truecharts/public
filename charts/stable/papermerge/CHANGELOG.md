@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="papermerge-0.0.18"></a>
+### [papermerge-0.0.18](https://github.com/truecharts/apps/compare/papermerge-0.0.17...papermerge-0.0.18) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="papermerge-0.0.17"></a>
 ### [papermerge-0.0.17](https://github.com/truecharts/apps/compare/papermerge-0.0.16...papermerge-0.0.17) (2022-01-22)
 

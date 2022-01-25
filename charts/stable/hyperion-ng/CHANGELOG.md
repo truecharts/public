@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-4.0.40"></a>
+### [hyperion-ng-4.0.40](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.39...hyperion-ng-4.0.40) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="hyperion-ng-4.0.39"></a>
 ### [hyperion-ng-4.0.39](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.38...hyperion-ng-4.0.39) (2022-01-22)
 

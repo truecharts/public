@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptimerobot-prometheus-2.0.16"></a>
+### [uptimerobot-prometheus-2.0.16](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.15...uptimerobot-prometheus-2.0.16) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="uptimerobot-prometheus-2.0.15"></a>
 ### [uptimerobot-prometheus-2.0.15](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.14...uptimerobot-prometheus-2.0.15) (2022-01-22)
 

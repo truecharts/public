@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.31"></a>
+### [snipe-it-0.0.31](https://github.com/truecharts/apps/compare/snipe-it-0.0.30...snipe-it-0.0.31) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="snipe-it-0.0.30"></a>
 ### [snipe-it-0.0.30](https://github.com/truecharts/apps/compare/snipe-it-0.0.29...snipe-it-0.0.30) (2022-01-22)
 

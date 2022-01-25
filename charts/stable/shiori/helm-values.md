@@ -31,7 +31,6 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.postgresqlDatabase | string | `"shiori"` |  |
 | postgresql.postgresqlUsername | string | `"shiori"` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |
-| securityContext.readOnlyRootFilesystem | bool | `true` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10098` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |

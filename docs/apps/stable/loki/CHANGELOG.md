@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-2.0.25"></a>
+### [loki-2.0.25](https://github.com/truecharts/apps/compare/loki-2.0.24...loki-2.0.25) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="loki-2.0.24"></a>
 ### [loki-2.0.24](https://github.com/truecharts/apps/compare/loki-2.0.23...loki-2.0.24) (2022-01-22)
 

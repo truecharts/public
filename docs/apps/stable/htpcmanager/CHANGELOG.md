@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="htpcmanager-0.0.16"></a>
+### [htpcmanager-0.0.16](https://github.com/truecharts/apps/compare/htpcmanager-0.0.15...htpcmanager-0.0.16) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="htpcmanager-0.0.15"></a>
 ### [htpcmanager-0.0.15](https://github.com/truecharts/apps/compare/htpcmanager-0.0.14...htpcmanager-0.0.15) (2022-01-22)
 

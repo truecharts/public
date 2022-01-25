@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.47"></a>
+### [piaware-4.0.47](https://github.com/truecharts/apps/compare/piaware-4.0.46...piaware-4.0.47) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="piaware-4.0.46"></a>
 ### [piaware-4.0.46](https://github.com/truecharts/apps/compare/piaware-4.0.45...piaware-4.0.46) (2022-01-22)
 

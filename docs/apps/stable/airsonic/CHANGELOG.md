@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-4.0.37"></a>
+### [airsonic-4.0.37](https://github.com/truecharts/apps/compare/airsonic-4.0.36...airsonic-4.0.37) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="airsonic-4.0.36"></a>
 ### [airsonic-4.0.36](https://github.com/truecharts/apps/compare/airsonic-advanced-1.0.7...airsonic-4.0.36) (2022-01-22)
 

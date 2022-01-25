@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="jdownloader2-5.0.16"></a>
+### [jdownloader2-5.0.16](https://github.com/truecharts/apps/compare/jdownloader2-5.0.15...jdownloader2-5.0.16) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="jdownloader2-5.0.15"></a>
 ### [jdownloader2-5.0.15](https://github.com/truecharts/apps/compare/jdownloader2-5.0.14...jdownloader2-5.0.15) (2022-01-22)
 

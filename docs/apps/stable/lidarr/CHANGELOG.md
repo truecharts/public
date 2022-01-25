@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lidarr-9.0.43"></a>
+### [lidarr-9.0.43](https://github.com/truecharts/apps/compare/lidarr-9.0.42...lidarr-9.0.43) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="lidarr-9.0.42"></a>
 ### [lidarr-9.0.42](https://github.com/truecharts/apps/compare/lidarr-9.0.41...lidarr-9.0.42) (2022-01-22)
 

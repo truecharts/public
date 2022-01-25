@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="shiori-4.0.27"></a>
+### [shiori-4.0.27](https://github.com/truecharts/apps/compare/shiori-4.0.26...shiori-4.0.27) (2022-01-25)
+
+#### Chore
+
+* remove default values from values.yaml ([#1785](https://github.com/truecharts/apps/issues/1785))
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="shiori-4.0.26"></a>
 ### [shiori-4.0.26](https://github.com/truecharts/apps/compare/shiori-4.0.25...shiori-4.0.26) (2022-01-22)
 

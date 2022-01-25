@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zigbee2mqtt-1.0.37"></a>
+### [zigbee2mqtt-1.0.37](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.36...zigbee2mqtt-1.0.37) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="zigbee2mqtt-1.0.36"></a>
 ### [zigbee2mqtt-1.0.36](https://github.com/truecharts/apps/compare/zigbee2mqtt-1.0.35...zigbee2mqtt-1.0.36) (2022-01-22)
 

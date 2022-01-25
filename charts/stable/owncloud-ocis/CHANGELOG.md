@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-4.0.38"></a>
+### [owncloud-ocis-4.0.38](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.37...owncloud-ocis-4.0.38) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="owncloud-ocis-4.0.37"></a>
 ### [owncloud-ocis-4.0.37](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.36...owncloud-ocis-4.0.37) (2022-01-22)
 

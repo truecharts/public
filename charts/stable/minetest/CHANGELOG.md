@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minetest-0.0.16"></a>
+### [minetest-0.0.16](https://github.com/truecharts/apps/compare/minetest-0.0.15...minetest-0.0.16) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="minetest-0.0.15"></a>
 ### [minetest-0.0.15](https://github.com/truecharts/apps/compare/minetest-0.0.14...minetest-0.0.15) (2022-01-22)
 

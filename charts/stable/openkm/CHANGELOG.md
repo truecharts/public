@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openkm-4.0.27"></a>
+### [openkm-4.0.27](https://github.com/truecharts/apps/compare/openkm-4.0.26...openkm-4.0.27) (2022-01-25)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+
+
 <a name="openkm-4.0.26"></a>
 ### [openkm-4.0.26](https://github.com/truecharts/apps/compare/openkm-4.0.25...openkm-4.0.26) (2022-01-22)
 
