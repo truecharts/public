@@ -8,16 +8,16 @@ metadata:
 data:
   DOCSPELL_SERVER_BACKEND_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   {{/* General */}}
-  DOCSPELL_SERVER_APP__ID: "{{ .Values.rest.app.id }}"
+  DOCSPELL_SERVER_APP__ID: "restserver-{{ randAlphaNum 10 }}"
   DOCSPELL_SERVER_APP__NAME: "{{ .Values.rest.app.name }}"
   DOCSPELL_SERVER_BACKEND_FILES_CHUNK__SIZE: "{{ .Values.rest.app.chunk_size }}"
-  DOCSPELL_SERVER_INTERNAL__URL: "{{ .Values.rest.app.internal_url }}"
+  DOCSPELL_SERVER_INTERNAL__URL: "http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}"
   DOCSPELL_SERVER_BASE__URL: "{{ .Values.rest.app.base_url }}"
   DOCSPELL_SERVER_MAX__ITEM__PAGE__SIZE: "{{ .Values.rest.app.max_page_size }}"
   DOCSPELL_SERVER_MAX__NOTE__LENGTH: "{{ .Values.rest.app.max_char_length }}"
   DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: "{{ .Values.rest.app.classification_enabled }}"
-  DOCSPELL_SERVER_BIND_ADDRESS: {{ .Values.rest.app.bind_address }}
-  DOCSPELL_SERVER_BIND_PORT: "{{ .Values.rest.app.bind_port }}"
+  DOCSPELL_SERVER_BIND_ADDRESS: {{ .Values.rest.app.bind_address}}
+  DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
   {{/* Mail */}}
   DOCSPELL_SERVER_BACKEND_MAIL__DEBUG: "{{ .Values.rest.mail.debug_enabled }}"
   {{/* SOLR */}}
@@ -26,7 +26,7 @@ data:
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "{{ .Values.rest.solr.parser }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_LOG__VERBOSE: "{{ .Values.rest.solr.debug_enabled }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "{{ .Values.rest.solr.combiner }}"
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: "{{ .Values.rest.solr.url }}"
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: "http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell"
   {{/* Auth */}}
   DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: "{{ .Values.rest.auth.remember_me_enabled }}"
   DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: "{{ .Values.rest.auth.remember_me_valid }}"

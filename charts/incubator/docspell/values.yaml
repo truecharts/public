@@ -34,16 +34,13 @@ envValueFrom:
       key: jdbc
 rest:
   app:
-    # App ID should be unique on each node
-    id: 'restserver-{{ randAlphaNum 10 }}'
     # App name to show on the top right corner
     name: "Docspell on Helm"
     # Chunk size used to store files in db and in ram while up/down
     chunk_size: 524288
-    # This url is the base url for reaching this server internally.
-    internal_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
     # Base URL eg https://doc.mydomain.com TODO: Set this automatically?
-    base_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
+    base_url:
+    # base_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
     # Hard limit to search returns
     max_page_size: 200
     # Hard limit for char length on search
@@ -51,7 +48,6 @@ rest:
     # Show classification form
     classification_enabled: true
     bind_address: "0.0.0.0"
-    bind_port: "{{ .Values.service.main.ports.main.port }}"
   mail:
     # Enable debugging for mail
     debug_enabled: false
@@ -66,11 +62,9 @@ rest:
     debug_enabled: false
     # Default combiner for tokens ["OR","AND"]
     combiner: "OR"
-    # SOLR URL
-    url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
   auth:
     # Enable "Remember Cookie/Token
-    remember_me_enabled: true
+    remember_me_enabled: "true"
     # Cookie/Token Valid for
     remember_me_valid: "30 days"
     # Authetication token valid for
@@ -112,18 +106,16 @@ rest:
 
 joex:
   app:
-    id: 'joex-{{ randAlphaNum 10 }}'
     # TODO: Figure out the dns genertaion for additional containers
     chunk_size: 524288
-    base_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
+    base_url: ""
+    # base_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
     bind_address: "0.0.0.0"
-    bind_port: "{{ .Values.service.joex.ports.joex.targetPort }}"
   mail:
     debug_enabled: false
     send_mail_list_id: ""
   solr:
     enabled: true
-    url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
     commit_within: 1000
     parser: "lucene"
     combiner: "OR"

@@ -8,17 +8,17 @@ metadata:
 data:
   DOCSPELL_JOEX_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   {{/* General */}}
-  DOCSPELL_JOEX_APP__ID: "{{ .Values.joex.app.id }}"
+  DOCSPELL_JOEX_APP__ID: "joex-{{ randAlphaNum 10 }}"
   DOCSPELL_JOEX_FILES_CHUNK__SIZE: "{{ .Values.joex.app.chunk_size }}"
   DOCSPELL_JOEX_BASE__URL: "{{ .Values.joex.app.base_url }}"
   DOCSPELL_JOEX_BIND_ADDRESS: "{{ .Values.joex.app.bind_address }}"
-  DOCSPELL_JOEX_BIND_PORT: "{{ .Values.joex.app.bind_port }}"
+  DOCSPELL_JOEX_BIND_PORT: "{{ .Values.service.joex.ports.joex.port }}"
   {{/* Mail */}}
   DOCSPELL_JOEX_MAIL__DEBUG: "{{ .Values.joex.mail.debug_enabled }}"
   DOCSPELL_JOEX_SEND__MAIL_LIST__ID: "{{ .Values.joex.mail.send_mail_list_id }}"
   {{/* SOLR */}}
   DOCSPELL_JOEX_FULL__TEXT__SEARCH_ENABLED: "{{ .Values.joex.solr.enabled }}"
-  DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL: "{{ .Values.joex.solr.url }}"
+  DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL: "http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell"
   DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: "{{ .Values.joex.solr.commit_within }}"
   DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "{{ .Values.joex.solr.parser }}"
   DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_Q__OP: "{{ .Values.joex.solr.combiner }}"
