@@ -17,13 +17,13 @@ data:
   DOCSPELL_SERVER_MAX__ITEM__PAGE__SIZE: "{{ .Values.rest.app.max_page_size }}"
   DOCSPELL_SERVER_MAX__NOTE__LENGTH: "{{ .Values.rest.app.max_char_length }}"
   DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: "{{ .Values.rest.app.classification_enabled }}"
-  DOCSPELL_SERVER_BIND_ADDRESS: {{ .Values.rest.app.bind_address}}
+  DOCSPELL_SERVER_BIND_ADDRESS: "{{ .Values.rest.app.bind_address }}"
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
   {{/* Mail */}}
   DOCSPELL_SERVER_BACKEND_MAIL__DEBUG: "{{ .Values.rest.mail.debug_enabled }}"
   {{/* SOLR */}}
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: "{{ .Values.rest.solr.enabled }}"
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: "{{ .Values.rest.solr.commit_within}}"
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: "{{ .Values.rest.solr.commit_within }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "{{ .Values.rest.solr.parser }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_LOG__VERBOSE: "{{ .Values.rest.solr.debug_enabled }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "{{ .Values.rest.solr.combiner }}"
@@ -74,7 +74,7 @@ data:
   DOCSPELL_JOEX_CONVERT_CONVERTED__FILENAME__PART: "{{ .Values.joex.convert.converted_filename_part }}"
   DOCSPELL_JOEX_CONVERT_DECRYPT__PDF_ENABLED: "{{ .Values.joex.convert.decrypt_pdf_enabled }}"
   DOCSPELL_JOEX_CONVERT_MARKDOWN_INTERNAL__CSS: "{{ .Values.joex.convert.md_internal_css }}"
-  DOCSPELL_JOEX_CONVERT_MAX__IMAGE__SIZE: "{{ .Values.joex.convert.md_internal_css }}"
+  DOCSPELL_JOEX_CONVERT_MAX__IMAGE__SIZE: "{{ .Values.joex.convert.max_image_size }}"
   DOCSPELL_JOEX_CONVERT_OCRMYPDF_ENABLED: "{{ .Values.joex.convert.ocrmypdf_enabled }}"
   DOCSPELL_JOEX_CONVERT_OCRMYPDF_COMMAND_PROGRAM: "{{ .Values.joex.convert.ocrmypdf_cmd_program }}"
   DOCSPELL_JOEX_CONVERT_OCRMYPDF_COMMAND_TIMEOUT: "{{ .Values.joex.convert.ocrmypdf_cmd_timeout }}"
