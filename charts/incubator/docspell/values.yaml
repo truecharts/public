@@ -118,6 +118,9 @@ joex:
     base_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
     bind_address: "0.0.0.0"
     bind_port: "{{ .Values.service.joex.ports.joex.targetPort }}"
+  mail:
+    debug_enabled: false
+    send_mail_list_id: ""
   solr:
     enabled: true
     url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
@@ -145,6 +148,61 @@ joex:
     wkhtmlpdf_cmd_program: "wkhtlmtopdf"
     wkhtmlpdf_cmd_timeout: "2 minutes"
     whhtmlpdf_workdir: "/tmp/docspell-convert"
+  extraction:
+    gs_cmd: "gs"
+    gs_cmd_timeout: "5 minutes"
+    gs_workdir: "/tmp/docspell-extraction"
+    max_image_size: "14000000"
+    page_range_begin: 10
+    tesseract_cmd_program: "tesseract"
+    tesseract_cmd_timeout: "5 minutes"
+    unpaper_cmd_program: "unpaper"
+    unpaper_cmd_timeout: "5 minutes"
+    pdf_min_text_length: 500
+    preview_dpi: 32
+  housekeeping:
+    check_nodes_enabled: true
+    check_nodes_min_not_found: 2
+    cleanup_invites_enabled: true
+    cleanup_invites_older_than: "30 days"
+    cleanup_jobs_enabled: true
+    cleanup_jobs_delete_batch: 100
+    cleanup_jobs_older_than: "30 days"
+    cleanup_remember_me_enabled: true
+    cleanup_remember_me_older_than: "30 days"
+    schedule: 'Sun *-*-* 00:00:00'
+  scheduler:
+    periodic_name: "joex1"
+    periodic_wakeup_period: "10 minutes"
+    counting_scheme: "4,1"
+    log_buffer_size: 500
+    name: "joex1"
+    pool_size: 1
+    retries: 2
+    retry_delay: "1 minute"
+    wakeup_period: "30 minutes"
+  textanalysis:
+    classification_enabled: true
+    classification_item_count: 600
+    max_length: 5000
+    nlp_clear_interval: "15 minutes"
+    nlp_max_due_date_years: 10
+    nlp_mode: "full"
+    nlp_regex_ner_file_cache_time: "1 minute"
+    nlp_regex_ner_max_entries: 1000
+    workdir: "/tmp/docspell-analysis"
+  updatecheck:
+    enabled: false
+    body: '\nHello,\n\nYou are currently running Docspell {{ currentVersion }}. Version *{{ latestVersion }}*\nis now available, which was released on {{ releasedAt }}. Check the release page at:\n\n<https://github.com/eikek/docspell/releases/latest>\n\nHave a nice day!\n\nDocpell Update Check\n'
+    schedule: 'Sun *-*-* 00:00:00'
+    sender_account: ""
+    smtp_id: ""
+    subject: 'Docspell {{ latestVersion }} is available'
+    test_run: false
+  usertasks:
+    scan_mailbox_chunk_size: 50
+    scan_mailbox_max_folders: 50
+    scan_mailbox_max_mails: 500
 
 env:
   TZ: "UTC"
