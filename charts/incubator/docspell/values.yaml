@@ -148,6 +148,9 @@ additionalContainers:
   joex:
     name: joex
     image: "{{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}"
+    securityContext:
+      runAsUser: 0
+      runAsNonRoot: false
     ports:
       - containerPort: 7878
         name: main
