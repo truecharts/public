@@ -18,6 +18,14 @@ secret:
   DOCSPELL_SERVER_AUTH_SERVER__SECRET: ""
   # Header secret for the integration endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "changeme"
+  # HTTP Header name for integration endpoint
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME: "Docspell-Integration"
+  # User for http basic for integration endpoint
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER: "docspell-int"
+  # Password for http basic for integration endpoint
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD: "docspell-int"
+  # Realm for http basic for integration endpoint
+  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM: "Docspell Integration"
   # When mode = "invite", this password will be used to generate inv keys
   DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: "changeme"
 
@@ -74,16 +82,10 @@ env:
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: false
   # Enable HTTP Basic for  integrtion endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: false
-  # Password for http basic for integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD: "docspell-int"
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM: "Docspell Integration"
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER: "docspell-int"
+  # Enable HTTP Header for integration endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: false
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME: "Docspell-Integration"
-
   DOCSPELL_SERVER_BIND_ADDRESS: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
-
 
 envValueFrom:
   DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD:
@@ -117,7 +119,7 @@ additionalContainers:
     name: solr
     image: "{{ .Values.solrImage.repository }}:{{ .Values.solrImage.tag }}"
     ports:
-      - containerPort: {{ .Values.service.solr.targetPort }}
+      - containerPort: '{{ .Values.service.solr.targetPort }}'
         name: main
     command:
       - solr-precreate
@@ -145,7 +147,7 @@ additionalContainers:
     name: joex
     image: "{{ .Values.joexImage.repository }}:{{ .Values.joexImage.tag }}"
     ports:
-      - containerPort: {{ .Values.service.joex.targetPort }}
+      - containerPort: '{{ .Values.service.joex.targetPort }}'
         name: main
     env:
       - name: TZ
