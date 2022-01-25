@@ -69,9 +69,9 @@ env:
   # Default combiner for tokens ["OR","AND"]
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "OR"
   # This url is the base url for reaching this server internally.
-  DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
+  DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   # Base URL eg https://doc.mydomain.com TODO: Set this automatically?
-  DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
+  DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   # The priority to use when uploading to this endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_PRIORITY: "low"
   # The name used for the item source property
@@ -83,7 +83,7 @@ env:
   # Show classification form
   DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: true
   # SOLR URL
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
   # Enable the integration endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: false
   # Enable the allowed IPs, for the integration endpoint (No env to set the ips?!)
@@ -143,7 +143,7 @@ additionalContainers:
     livenessProbe:
       exec:
       # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
+        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
@@ -151,7 +151,7 @@ additionalContainers:
     readinessProbe:
       exec:
       # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
+        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
@@ -184,7 +184,7 @@ additionalContainers:
         value: 'joex-{{ randAlphaNum 10 }}'
       - name: DOCSPELL_JOEX_BASE__URL
       # TODO: Figure out the dns genertaion for additional containers
-        value: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
+        value: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
       - name: DOCSPELL_JOEX_BIND_ADDRESS
         value: "0.0.0.0"
       - name: DOCSPELL_JOEX_BIND_PORT
@@ -192,7 +192,7 @@ additionalContainers:
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_ENABLED
         value: "true"
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL
-        value: 'http://{{ include "common.names.fullname" . }}.ix-{{ .Release.Name }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
+        value: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
 
 persistence:
   solr:
