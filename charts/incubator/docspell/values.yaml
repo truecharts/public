@@ -94,6 +94,8 @@ env:
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: false
   DOCSPELL_SERVER_BIND_ADDRESS: '{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
+  RELNAME: "{{ .Release.Name }}"
+  FULNAME: '{{ include "common.names.fullname" . }}'
 
 envValueFrom:
   DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD:
