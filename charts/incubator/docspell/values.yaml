@@ -14,28 +14,39 @@ solrImage:
 secret:
   # If empty, endpoint is disabled
   DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: ""
-  DOCSPELL_SERVER_AUTH_SERVER__SECRET: "changeme"
+  # If empty a ramdon will be generated, this is to sign authenticator tokens
+  DOCSPELL_SERVER_AUTH_SERVER__SECRET: ""
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "changeme"
   DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: "changeme"
 
 env:
   TZ: "UTC"
+  DOCSPELL_SERVER_BACKEND_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   # App ID should be unique on each node
   DOCSPELL_SERVER_APP__ID: "{{ randAlphaNum 10 | quote }}"
   # App name to show on the top right corner
   DOCSPELL_SERVER_APP__NAME: "Docspell"
-  DOCSPELL_SERVER_BACKEND_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  # Enable "Remember Cookie/Token
+  DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: true
+  # Cookie/Token Valid for
+  DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: "30 days"
+  # Authetication token valid for
+  DOCSPELL_SERVER_AUTH_SESSION__VALID: "5 minutes"
+  # Chunk size used to store files in db and in ram while up/down
+  DOCSPELL_SERVER_BACKEND_FILES_CHUNK__SIZE: 524288
+  # Enable debugging for mail
+  DOCSPELL_SERVER_BACKEND_MAIL__DEBUG: false
+  # When mode ="invite", invite is valid for
+  DOCSPELL_SERVER_BACKEND_SIGNUP_INVITE__TIME: "3 days"
+  # "open", "invite", "closed"
+  DOCSPELL_SERVER_BACKEND_SIGNUP_MODE: "open"
+
   DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
   DOCSPELL_SERVER_BIND_ADDRESS: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local'
   DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
-  DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: true
-  DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: "30 days"
-  DOCSPELL_SERVER_AUTH_SESSION__VALID: "5 minutes"
-  DOCSPELL_SERVER_BACKEND_FILES_CHUNK__SIZE: 524288
-  DOCSPELL_SERVER_BACKEND_MAIL__DEBUG: false
-  DOCSPELL_SERVER_BACKEND_SIGNUP_INVITE__TIME: "3 days"
-  DOCSPELL_SERVER_BACKEND_SIGNUP_MODE: "open"
+
+
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: false
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: 1000
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "lucene"
@@ -55,8 +66,6 @@ env:
   DOCSPELL_SERVER_MAX__ITEM__PAGE__SIZE: 200
   DOCSPELL_SERVER_MAX__NOTE__LENGTH: 180
   DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: true
-
-
 
 
 envValueFrom:
