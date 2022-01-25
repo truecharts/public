@@ -130,6 +130,9 @@ additionalContainers:
   solr:
     name: solr
     image: "{{ .Values.solrImage.repository }}:{{ .Values.solrImage.tag }}"
+    securityContext:
+      runAsUser: 568
+      runAsNonRoot: true
     ports:
       - containerPort: 8983
         name: main
