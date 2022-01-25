@@ -39,7 +39,7 @@ rest:
     # Chunk size used to store files in db and in ram while up/down
     chunk_size: 524288
     # Base URL eg https://doc.mydomain.com TODO: Set this automatically?
-    base_url: ""
+    base_url: "localhost"
     # base_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
     # Hard limit to search returns
     max_page_size: 200
@@ -108,7 +108,7 @@ joex:
   app:
     # TODO: Figure out the dns genertaion for additional containers
     chunk_size: 524288
-    base_url: ""
+    base_url: "localhost"
     # base_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
     bind_address: "0.0.0.0"
   mail:
