@@ -19,81 +19,9 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-secret:
-  # If empty, endpoint is disabled
-  DOCSPELL_SERVER_ADMIN__ENDPOINT_SECRET: ""
-  # If empty a random will be generated, this is to sign authenticator tokens # TODO: We should generate one and store it to secrets
-  DOCSPELL_SERVER_AUTH_SERVER__SECRET: ""
-  # Header secret for the integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__VALUE: "http-header-secret"
-  # HTTP Header name for integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_HEADER__NAME: "docspell-integration-header"
-  # User for http basic for integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_USER: "basic-user"
-  # Password for http basic for integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_PASSWORD: "basic-password"
-  # Realm for http basic for integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_REALM: "Docspell Integration Realm"
-  # When mode = "invite", this password will be used to generate inv keys
-  DOCSPELL_SERVER_BACKEND_SIGNUP_NEW__INVITE__PASSWORD: "new-invite-generator-password"
-
-env:
-  TZ: "UTC"
-  DOCSPELL_SERVER_BACKEND_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  # App ID should be unique on each node
-  DOCSPELL_SERVER_APP__ID: 'restserver-{{ randAlphaNum 10 }}'
-  # App name to show on the top right corner
-  DOCSPELL_SERVER_APP__NAME: "Docspell On Helm"
-  # Enable "Remember Cookie/Token
-  DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: true
-  # Cookie/Token Valid for
-  DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: "30 days"
-  # Authetication token valid for
-  DOCSPELL_SERVER_AUTH_SESSION__VALID: "5 minutes"
-  # Chunk size used to store files in db and in ram while up/down
-  DOCSPELL_SERVER_BACKEND_FILES_CHUNK__SIZE: 524288
-  # Enable debugging for mail
-  DOCSPELL_SERVER_BACKEND_MAIL__DEBUG: false
-  # When mode ="invite", invite is valid for
-  DOCSPELL_SERVER_BACKEND_SIGNUP_INVITE__TIME: "3 days"
-  # ["open", "invite", "closed"]
-  DOCSPELL_SERVER_BACKEND_SIGNUP_MODE: "open"
-  # Enable full text search
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_ENABLED: true
-  # Tell solr when to commit the data
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: 1000
-  # SOLR parser
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "lucene"
-  # Enable SOLR debbuging
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_LOG__VERBOSE: false
-  # Default combiner for tokens ["OR","AND"]
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "OR"
-  # This url is the base url for reaching this server internally.
-  DOCSPELL_SERVER_INTERNAL__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
-  # Base URL eg https://doc.mydomain.com TODO: Set this automatically?
-  DOCSPELL_SERVER_BASE__URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
-  # The priority to use when uploading to this endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_PRIORITY: "low"
-  # The name used for the item source property
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_SOURCE__NAME: "integration"
-  # Hard limit to search returns
-  DOCSPELL_SERVER_MAX__ITEM__PAGE__SIZE: 200
-  # Hard limit for char lenght on search
-  DOCSPELL_SERVER_MAX__NOTE__LENGTH: 180
-  # Show classification form
-  DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: true
-  # SOLR URL
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
-  # Enable the integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: false
-  # Enable the allowed IPs, for the integration endpoint (No env to set the ips?!)
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ALLOWED__IPS_ENABLED: false
-  # Enable HTTP Basic for  integrtion endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__BASIC_ENABLED: false
-  # Enable HTTP Header for integration endpoint
-  DOCSPELL_SERVER_INTEGRATION__ENDPOINT_HTTP__HEADER_ENABLED: false
-  DOCSPELL_SERVER_BIND_ADDRESS: "0.0.0.0"
-  DOCSPELL_SERVER_BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
+envFrom:
+  - configMapRef:
+      name: "docspell-restserver-env"
 
 envValueFrom:
   DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD:
@@ -104,6 +32,86 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: jdbc
+rest:
+  app:
+    # App ID should be unique on each node
+    id: 'restserver-{{ randAlphaNum 10 }}'
+    # App name to show on the top right corner
+    name: "Docspell on Helm"
+    # Chunk size used to store files in db and in ram while up/down
+    chunk_size: 524288
+    # This url is the base url for reaching this server internally.
+    internal_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
+    # Base URL eg https://doc.mydomain.com TODO: Set this automatically?
+    base_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
+    # Hard limit to search returns
+    max_page_size: 200
+    # Hard limit for char length on search
+    max_char_length: 180
+    # Show classification form
+    classification_enabled: true
+    bind_address: "0.0.0.0"
+    bind_port: "{{ .Values.service.main.ports.main.port }}"
+  mail:
+    # Enable debugging for mail
+    debug_enabled: false
+  solr:
+    # Enable full text search
+    enabled: true
+    # Tell solr when to commit the data
+    commit_within: 1000
+    # SOLR parser
+    parser: "lucene"
+    # Enable SOLR debbuging
+    debug_enabled: false
+    # Default combiner for tokens ["OR","AND"]
+    combiner: "OR"
+    # SOLR URL
+    url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
+  auth:
+    # Enable "Remember Cookie/Token
+    remember_me_enabled: true
+    # Cookie/Token Valid for
+    remember_me_valid: "30 days"
+    # Authetication token valid for
+    session_valid: "5 minutes"
+    # If empty a random will be generated, this is to sign authenticator tokens # TODO: We should generate one and store it to secrets
+    server_secret: ""
+    # If empty, endpoint is disabled
+    admin_endpoint_secret: ""
+  singup:
+    # ["open", "invite", "closed"]
+    mode: "open"
+    # When mode ="invite", invite is valid for
+    invite_time: "3 days"
+    # When mode = "invite", this password will be used to generate inv keys
+    invite_password: "new-invite-generator-password"
+  integration:
+    # Enable the integration endpoint
+    enabled: false
+    # The name used for the item source property
+    priority: "low"
+    # The priority to use when uploading to this endpoint
+    source_name: "integration"
+    # Enable the allowed IPs, for the integration endpoint TODO: (No env to set the ips?!)
+    allowed_ips_enabled: false
+    # Enable HTTP Basic for  integrtion endpoint
+    http_basic_enabled: false
+    # User for http basic for integration endpoint
+    http_basic_user: "basic-user"
+    # Password for http basic for integration endpoint
+    http_basic_password: "basic-password"
+    # Realm for http basic for integration endpoint
+    http_basic_realm: "Docspell Integration Realm"
+    # Enable HTTP Header for integration endpoint
+    http_header_enabled: false
+    # HTTP Header name for integration endpoint
+    http_header_name: "docspell-integration-header"
+    # Header secret for the integration endpoint
+    http_header_value: "http-header-secret"
+
+env:
+  TZ: "UTC"
 
 service:
   main:
