@@ -5,12 +5,12 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
+  priviledged: true
   allowPrivilegeEscalation: true
-  runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 104
-  runAsGroup: 0
+  runAsGroup: 106
 
 service:
   main:

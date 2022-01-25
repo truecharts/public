@@ -272,7 +272,7 @@ questions:
                 label: "Privileged mode"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: readOnlyRootFilesystem
                 label: "ReadOnly Root Filesystem"
                 schema:
@@ -287,7 +287,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -308,7 +308,7 @@ questions:
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 106
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
