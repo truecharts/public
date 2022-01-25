@@ -12,7 +12,7 @@ data:
   DOCSPELL_SERVER_APP__ID: "restserver-{{ randAlphaNum 10 }}"
   DOCSPELL_SERVER_APP__NAME: "{{ .Values.rest.app.name }}"
   DOCSPELL_SERVER_BACKEND_FILES_CHUNK__SIZE: "{{ .Values.rest.app.chunk_size }}"
-  DOCSPELL_SERVER_INTERNAL__URL: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}"
+  DOCSPELL_SERVER_INTERNAL__URL: "http://{{ .Release.Name }}:{{ .Values.service.main.ports.main.port }}"
   DOCSPELL_SERVER_BASE__URL: "{{ .Values.rest.app.base_url }}"
   DOCSPELL_SERVER_MAX__ITEM__PAGE__SIZE: "{{ .Values.rest.app.max_page_size }}"
   DOCSPELL_SERVER_MAX__NOTE__LENGTH: "{{ .Values.rest.app.max_char_length }}"
@@ -27,7 +27,7 @@ data:
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "{{ .Values.rest.solr.parser }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_LOG__VERBOSE: "{{ .Values.rest.solr.debug_enabled }}"
   DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_Q__OP: "{{ .Values.rest.solr.combiner }}"
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell"
+  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: "http://{{ .Release.Name }}-solr:{{ .Values.service.solr.ports.solr.port }}/solr/docspell"
   {{/* Auth */}}
   DOCSPELL_SERVER_AUTH_REMEMBER__ME_ENABLED: "{{ .Values.rest.auth.remember_me_enabled }}"
   DOCSPELL_SERVER_AUTH_REMEMBER__ME_VALID: "{{ .Values.rest.auth.remember_me_valid }}"
@@ -63,7 +63,7 @@ data:
   DOCSPELL_JOEX_SEND__MAIL_LIST__ID: "{{ .Values.joex.mail.send_mail_list_id }}"
   {{/* SOLR */}}
   DOCSPELL_JOEX_FULL__TEXT__SEARCH_ENABLED: "{{ .Values.joex.solr.enabled }}"
-  DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell"
+  DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL: "http://{{ .Release.Name }}-solr:{{ .Values.service.solr.ports.solr.port }}/solr/docspell"
   DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_COMMIT__WITHIN: "{{ .Values.joex.solr.commit_within }}"
   DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_DEF__TYPE: "{{ .Values.joex.solr.parser }}"
   DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_Q__OP: "{{ .Values.joex.solr.combiner }}"
