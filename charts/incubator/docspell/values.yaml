@@ -33,7 +33,7 @@ env:
   TZ: "UTC"
   DOCSPELL_SERVER_BACKEND_JDBC_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   # App ID should be unique on each node
-  DOCSPELL_SERVER_APP__ID: "{{ randAlphaNum 10 }}"
+  DOCSPELL_SERVER_APP__ID: '{{ randAlphaNum 10 }}'
   # App name to show on the top right corner
   DOCSPELL_SERVER_APP__NAME: "Docspell On Helm"
   # Enable "Remember Cookie/Token
