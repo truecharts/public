@@ -39,7 +39,7 @@ rest:
     # Chunk size used to store files in db and in ram while up/down
     chunk_size: 524288
     # Base URL eg https://doc.mydomain.com TODO: Set this automatically?
-    base_url:
+    base_url: ""
     # base_url: 'http://{{ include "common.names.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.main.ports.main.port }}'
     # Hard limit to search returns
     max_page_size: 200
