@@ -83,7 +83,7 @@ env:
   # Show classification form
   DOCSPELL_SERVER_SHOW__CLASSIFICATION__SETTINGS: true
   # SOLR URL
-  DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: 'http://{{ .Release.Name }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
+  # DOCSPELL_SERVER_FULL__TEXT__SEARCH_SOLR_URL: 'http://{{ .Release.Name }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
   # Enable the integration endpoint
   DOCSPELL_SERVER_INTEGRATION__ENDPOINT_ENABLED: false
   # Enable the allowed IPs, for the integration endpoint (No env to set the ips?!)
@@ -191,8 +191,8 @@ additionalContainers:
         value: "{{ .Values.service.joex.ports.joex.targetPort }}"
       - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_ENABLED
         value: "false"
-      - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL
-        value: 'http://{{ .Release.Name }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
+      # - name: DOCSPELL_JOEX_FULL__TEXT__SEARCH_SOLR_URL
+      #   value: 'http://{{ .Release.Name }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell'
 
 persistence:
   solr:
