@@ -98,12 +98,12 @@ service:
     ports:
       solr:
         port: 8983
-        targetPort: "{{ .Values.additionalContainers.solr.main.containerPort }}"
+        targetPort: "{{ .Values.additionalContainers.solr.ports.main.containerPort }}"
   joex:
     ports:
       joex:
         port: 7878
-        targetPort: "{{ .Values.additionalContainers.joex.main.containerPort }}"
+        targetPort: "{{ .Values.additionalContainers.joex.ports.main.containerPort }}"
 
 persistence:
   solr:
