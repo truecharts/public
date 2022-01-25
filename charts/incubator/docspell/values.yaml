@@ -21,7 +21,7 @@ podSecurityContext:
 
 envFrom:
   - configMapRef:
-      name: "docspell-restserver-env"
+      name: "docspell-env"
 
 envValueFrom:
   DOCSPELL_SERVER_BACKEND_JDBC_PASSWORD:
@@ -261,7 +261,7 @@ additionalContainers:
         name: main
     envFrom:
       - configMapRef:
-          name: "docspell-joex-env"
+          name: "docspell-env"
     env:
       - name: TZ
         value: "{{ .Values.env.TZ }}"

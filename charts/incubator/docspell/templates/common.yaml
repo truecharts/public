@@ -2,7 +2,8 @@
 {{- include "common.setup" . }}
 
 {{/* Render configmap for docpsell */}}
-{{- include "docspell-restserver.configmap" . }}
+{{- include "docspell.configmap" . }}
+
 # {{- include "docspell-joex.configmap" . }}
 
 {{/* Render the templates */}}
