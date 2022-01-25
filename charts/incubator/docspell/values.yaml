@@ -74,7 +74,7 @@ additionalContainers:
     livenessProbe:
       exec:
       # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:"{{ .Values.additionalContainers.solr.ports[0].containerPort }}"/solr/docspell/admin/ping']
+        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell/admin/ping']
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
@@ -82,7 +82,7 @@ additionalContainers:
     readinessProbe:
       exec:
       # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:"{{ .Values.additionalContainers.solr.ports[0].containerPort }}"/solr/docspell/admin/ping']
+        command: ["curl", "-f", 'http://{{ include "common.names.fullname" . }}-solr.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.targetPort }}/solr/docspell/admin/ping']
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
@@ -110,7 +110,7 @@ additionalContainers:
             key: postgresql-password
       - name: DOCSPELL_JOEX_BASE__URL
       # TODO: Figure out the dns genertaion for additional containers
-        value: 'http://{{ include "common.names.fullname" . }}-joex.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.additionalContainers.joex.ports[0].containerPort }}'
+        value: 'http://{{ include "common.names.fullname" . }}-joex.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.joex.ports.joex.targetPort }}'
 
 service:
   main:
