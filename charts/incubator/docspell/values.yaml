@@ -237,7 +237,7 @@ additionalContainers:
     livenessProbe:
       exec:
       # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
+        command: ["curl", 'http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
@@ -245,7 +245,7 @@ additionalContainers:
     readinessProbe:
       exec:
       # TODO: Figure out the dns genertaion for additional containers
-        command: ["curl", "-f", 'http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
+        command: ["curl", 'http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.solr.ports.solr.port }}/solr/docspell/admin/ping']
       initialDelaySeconds: 10
       periodSeconds: 10
       timeoutSeconds: 5
