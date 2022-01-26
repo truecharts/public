@@ -31,7 +31,7 @@ envValueFrom:
   DB_PWD:
     secretKeyRef:
       name: dbcreds
-      key: postgresql-passwor
+      key: postgresql-password
   REDIS_SERVER_HOST:
     secretKeyRef:
       name: rediscreds
