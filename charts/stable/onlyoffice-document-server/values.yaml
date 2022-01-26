@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/documentserver
-  # -- image tag
-  tag: v6.4.2.6@sha256:c298cbb59a2d7f73a5a9bc5cc11f9e0e299ef2ab966e64f3e8d8382921a6341c
-  # -- image pull policy
+  tag: v7.0.0.132@sha256:25c99327a7a76a186dec4d4bf8f31eaeebf0e57b8c3476a1cf29e7c5d9ac185a
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -16,10 +13,30 @@ podSecurityContext:
 
 secret:
   JWT_SECRET: "randomgeneratedstring"
-# -- environment variables. See [image docs](https://github.com/ONLYOFFICE/Docker-DocumentServer#available-configuration-parameters) for more details.
+
 env:
   WOPI_ENABLED: true
   JWT_ENABLED: true
+  DB_TYPE: "postgres"
+  DB_PORT: 5432
+  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  REDIS_SERVER_PORT: 6379
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DB_PWD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  REDIS_SERVER_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
 service:
   main:
     ports:
@@ -27,8 +44,14 @@ service:
         port: 10043
         targetPort: 80
 
-ingress:
-  # -- Enable and configure ingress settings for the chart under this key.
-  # @default -- See values.yaml
-  main:
-    enabled: false
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: onlyoffice
+  postgresqlDatabase: onlyoffice
+
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
