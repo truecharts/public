@@ -23,8 +23,8 @@ service:
         targetPort: 8888
 
 persistence:
-  varrun:
-    enabled: true
+  # varrun:
+  #   enabled: true
   config:
     enabled: true
     mountPath: "/config"
