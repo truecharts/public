@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/airsonic
+  tag: version-v10.6.2@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  TZ: UTC
+  PUID: 568
+
+service:
+  main:
+    ports:
+      main:
+        port: 10157
+        targetPort: 8888
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  cache:
+    enabled: true
+    mountPath: "/tmp/unmanic"
+    type: emptyDir
+  library:
+    enabled: true
+    mountPath: "/library"
