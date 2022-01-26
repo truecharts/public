@@ -23,15 +23,15 @@ service:
         targetPort: 8888
 
 persistence:
-  varrun:
-    enabled: true
   config:
     enabled: true
     mountPath: "/config"
+  library:
+    enabled: true
+    mountPath: "/library"
   cache:
     enabled: true
     mountPath: "/tmp/unmanic"
     type: emptyDir
-  library:
+  varrun:
     enabled: true
-    mountPath: "/library"
