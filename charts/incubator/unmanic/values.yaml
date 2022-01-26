@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/airsonic
-  tag: version-v10.6.2@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+  repository: josh5/unmanic
+  tag: 0.1.4@sha256:2ef194cdb6459f7010c67eba73a7795e2afb162479ddf15876d648c2d734fa14
   pullPolicy: IfNotPresent
 
 # securityContext:
@@ -23,6 +23,8 @@ service:
         targetPort: 8888
 
 persistence:
+  varrun:
+    enabled: true
   config:
     enabled: true
     mountPath: "/config"
