@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-3.0.17"></a>
+### [onlyoffice-document-server-3.0.17](https://github.com/truecharts/apps/compare/onlyoffice-document-server-3.0.16...onlyoffice-document-server-3.0.17) (2022-01-26)
+
+#### Feat
+
+* Use our db and redis instead of buildin ([#1794](https://github.com/truecharts/apps/issues/1794))
+
+
+
 <a name="onlyoffice-document-server-3.0.16"></a>
 ### [onlyoffice-document-server-3.0.16](https://github.com/truecharts/apps/compare/onlyoffice-document-server-3.0.15...onlyoffice-document-server-3.0.16) (2022-01-25)
 
