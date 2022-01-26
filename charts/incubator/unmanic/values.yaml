@@ -3,13 +3,13 @@ image:
   tag: 0.1.4@sha256:2ef194cdb6459f7010c67eba73a7795e2afb162479ddf15876d648c2d734fa14
   pullPolicy: IfNotPresent
 
-# securityContext:
+securityContext:
 #   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   TZ: UTC
@@ -23,8 +23,8 @@ service:
         targetPort: 8888
 
 persistence:
-  # varrun:
-  #   enabled: true
+  varrun:
+    enabled: true
   config:
     enabled: true
     mountPath: "/config"
