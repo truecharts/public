@@ -28,6 +28,11 @@ ingressRoute:
     # Additional ingressRoute labels (e.g. for filtering IngressRoute by custom labels)
     labels: {}
 
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/path: "/metrics"
+  prometheus.io/port: "9100"
+
 #
 # -- Configure providers
 providers:
