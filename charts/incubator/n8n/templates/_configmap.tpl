@@ -1,10 +1,10 @@
 {{/* Define the configmap */}}
-{{- define "n8n.configmap" -}}
+{{- define "neightn.configmap" -}}
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: n8n-env
+  name: neightn-env
 data:
   {{/*  Workflows */}}
   {{- if .Values.workflows.WORKFLOWS_DEFAULT_NAME }}
