@@ -81,9 +81,9 @@ security: {}
 workflows: {}
   # WORKFLOWS_DEFAULT_NAME: "My workflow"
 
-# envFrom:
-#   - configMapRef:
-#       name: n8n-env
+envFrom:
+  - configMapRef:
+      name: neightn-env
 
 envValueFrom:
   DB_POSTGRESDB_HOST:
