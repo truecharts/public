@@ -6,11 +6,11 @@ kind: ConfigMap
 metadata:
   name: n8n-env
 data:
-  {{/*  Workflows */}}
+  {{/*  Workflows */ }}
   {{- if .Values.workflows.WORKFLOWS_DEFAULT_NAME }}
   WORKFLOWS_DEFAULT_NAME: {{ .Values.workflows.WORKFLOWS_DEFAULT_NAME | quote }}
   {{- end }}
-  {{/*  Security */}}
+  {{/*  Security */ }}
   {{- if .Values.security.N8N_BASIC_AUTH_ACTIVE }}
   N8N_BASIC_AUTH_ACTIVE: {{ .Values.security.N8N_BASIC_AUTH_ACTIVE | quote }}
   {{- end }}
@@ -47,7 +47,7 @@ data:
   {{- if .Values.security.N8N_JWT_ALLOWED_TENANT_KEY }}
   N8N_JWT_ALLOWED_TENANT_KEY: {{ .Values.security.N8N_JWT_ALLOWED_TENANT_KEY | quote }}
   {{- end }}
-  {{/*  Logs */}}
+  {{/*  Logs */ }}
   {{- if .Values.logs.N8N_LOG_LEVEL }}
   N8N_LOG_LEVEL: {{ .Values.logs.N8N_LOG_LEVEL | quote }}
   {{- end }}
@@ -55,15 +55,15 @@ data:
   N8N_LOG_OUTPUT: {{ .Values.logs.N8N_LOG_OUTPUT | quote }}
   {{- end }}
   {{- if .Values.logs.N8N_LOG_FILE_COUNT_MAX }}
-  N8N_LOG_FILE_COUNT_MAX: {{ .Values.logs.N8N_LOG_FILE_COUNT_MAX}}
+  N8N_LOG_FILE_COUNT_MAX: {{ .Values.logs.N8N_LOG_FILE_COUNT_MAX }}
   {{- end }}
   {{- if .Values.logs.N8N_LOG_FILE_SIZE_MAX }}
-  N8N_LOG_FILE_SIZE_MAX: {{ .Values.logs.N8N_LOG_FILE_SIZE_MAX}}
+  N8N_LOG_FILE_SIZE_MAX: {{ .Values.logs.N8N_LOG_FILE_SIZE_MAX }}
   {{- end }}
   {{- if .Values.logs.N8N_LOG_FILE_LOCATION }}
   N8N_LOG_FILE_LOCATION: {{ .Values.logs.N8N_LOG_FILE_LOCATION | quote }}
   {{- end }}
-  {{/*  Executions */}}
+  {{/*  Executions */ }}
   {{- if .Values.executions.EXECUTIONS_PROCESS }}
   EXECUTIONS_PROCESS: {{ .Values.executions.EXECUTIONS_PROCESS | quote }}
   {{- end }}
@@ -97,7 +97,7 @@ data:
   {{- if .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT }}
   EXECUTIONS_DATA_PRUNE_TIMEOUT: {{ .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT }}
   {{- end }}
-  {{/*  Endpoints */}}
+  {{/*  Endpoints */ }}
   {{- if .Values.endpoints.N8N_PAYLOAD_SIZE_MAX }}
   N8N_PAYLOAD_SIZE_MAX: {{ .Values.endpoints.N8N_PAYLOAD_SIZE_MAX }}
   {{- end }}
@@ -128,7 +128,7 @@ data:
   {{- if .Values.endpoints.N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN }}
   N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN: {{ .Values.endpoints.N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN }}
   {{- end }}
-  {{/*  Credentials */}}
+  {{/*  Credentials */ }}
   {{- if .Values.credentials.CREDENTIALS_OVERWRITE_DATA }}
   CREDENTIALS_OVERWRITE_DATA: {{ .Values.credentials.CREDENTIALS_OVERWRITE_DATA | quote }}
   {{- end }}
@@ -138,7 +138,7 @@ data:
   {{- if .Values.credentials.CREDENTIALS_DEFAULT_NAME }}
   CREDENTIALS_DEFAULT_NAME: {{ .Values.credentials.CREDENTIALS_DEFAULT_NAME | quote }}
   {{- end }}
-  {{/*  Deployment */}}
+  {{/*  Deployment */ }}
   {{- if .Values.deployment.N8N_HOST }}
   N8N_HOST: {{ .Values.deployment.N8N_HOST | quote }}
   {{- end }}
