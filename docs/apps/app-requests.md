@@ -50,7 +50,6 @@ _This list is to track `App Requests` from one place._
 - [ ] Monero #1228
 - [ ] AriaNG #1224
 - [ ] FileBrowser #1278
-- [ ] Unmanic #1279
 - [ ] powerdns
 - [ ] Self Service Password  #1482
 - [ ] MakeMKV #1469
@@ -69,13 +68,13 @@ _This list is to track `App Requests` from one place._
 - [ ] Ghost #1282
 
 ##### TODO: Requires More-Than-Average effort
+
 - [ ] Taiga #438 (Clusterfuck of containers and already depricated)
 - [ ] Netdata #280
 - [ ] Appwrite/Parse Framework #278
 - [ ] GitLab #227
 - [ ] Wordpress #437
 - [ ] Steamcmd & 7 Days to die #599
-- [ ] Synapse (Matrix Server) #410
 - [ ] MovieNight #139 (not a good docker container available)
 - [ ] LanCache #138
 
@@ -91,7 +90,6 @@ _This list is to track `App Requests` from one place._
 - [ ] nginx ( Should be called "nginx-webserver" to prevent ingress-provider confusion )
 - [ ] openssh-server ( Maybe call this "openssh-sandbox?" )
 - [ ] rutorrent ( needs another container source and has config complications )
-
 - [ ] snapdrop ( Not sure about networking requirements/design )
 - [ ] serviio ( very niche, no good containers )
 
@@ -126,9 +124,8 @@ _This list is to track `App Requests` from one place._
 
 ##### TODO: Requires Postgresql+redis customisation
 
-- [ ] shlink ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] wallabag ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] papermerge ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+
 
 ##### TODO: Requires MariaDB to be added first
 - [ ] FreePBX #1111
@@ -513,4 +510,8 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] DMS (Document Manage System) #810
 - [x] scrutiny ( Needs customised solution for direct disk access )
 - [x] Trilium Notes #1261
+- [x] Unmanic #1279
+- [x] shlink ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] papermerge ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [x] Synapse (Matrix Server) #410
 - [x] n8n #27
