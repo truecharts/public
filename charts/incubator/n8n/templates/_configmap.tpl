@@ -47,4 +47,20 @@ data:
   {{- if .Values.security.N8N_JWT_ALLOWED_TENANT_KEY }}
   N8N_JWT_ALLOWED_TENANT_KEY: {{ .Values.security.N8N_JWT_ALLOWED_TENANT_KEY | quote }}
   {{- end }}
+  {{/*  Logs */}}
+  {{- if .Values.logs.N8N_LOG_LEVEL }}
+  N8N_LOG_LEVEL: {{ .Values.logs.N8N_LOG_LEVEL | quote }}
+  {{- end }}
+  {{- if .Values.logs.N8N_LOG_OUTPUT }}
+  N8N_LOG_OUTPUT: {{ .Values.logs.N8N_LOG_OUTPUT | quote }}
+  {{- end }}
+  {{- if .Values.logs.N8N_LOG_FILE_COUNT_MAX }}
+  N8N_LOG_FILE_COUNT_MAX: {{ .Values.logs.N8N_LOG_FILE_COUNT_MAX }}
+  {{- end }}
+  {{- if .Values.logs.N8N_LOG_FILE_SIZE_MAX }}
+  N8N_LOG_FILE_SIZE_MAX: {{ .Values.logs.N8N_LOG_FILE_SIZE_MAX }}
+  {{- end }}
+  {{- if .Values.logs.N8N_LOG_FILE_LOCATION }}
+  N8N_LOG_FILE_LOCATION: {{ .Values.logs.N8N_LOG_FILE_LOCATION | quote }}
+  {{- end }}
 {{- end -}}
