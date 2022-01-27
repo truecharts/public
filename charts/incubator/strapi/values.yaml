@@ -1,0 +1,49 @@
+image:
+  repository: strapi/strapi
+  tag: 3.6.8@sha256:be2aa1b207c74474319873d2a343c572e17273f5c3017c308c4a21bd6e1992e9
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  TZ: UTC
+  DATABASE_CLIENT: "postgres"
+  DATABASE_PORT: 5432
+  DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DATABASE_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  EXTRA_ARGS: ""
+
+envValueFrom:
+  DATABASE_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DATABASE_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
+service:
+  main:
+    ports:
+      main:
+        port: 1337
+        targetPort: 1337
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/srv/app"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: strapi
+  postgresqlDatabase: strapi
