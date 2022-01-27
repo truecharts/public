@@ -97,4 +97,35 @@ data:
   {{- if .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT }}
   EXECUTIONS_DATA_PRUNE_TIMEOUT: {{ .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT }}
   {{- end }}
+  {{/*  Endpoints */}}
+  {{- if .Values.endpoints.N8N_PAYLOAD_SIZE_MAX }}
+  N8N_PAYLOAD_SIZE_MAX: {{ .Values.endpoints.N8N_PAYLOAD_SIZE_MAX }}
+  {{- end }}
+  {{- if .Values.endpoints.N8N_METRICS }}
+  N8N_METRICS: {{ .Values.endpoints.N8N_METRICS }}
+  {{- end }}
+  {{- if .Values.endpoints.N8N_METRICS_PREFIX }}
+  N8N_METRICS_PREFIX: {{ .Values.endpoints.N8N_METRICS_PREFIX | quote }}
+  {{- end }}
+  {{- if .Values.endpoints.N8N_ENDPOINT_REST }}
+  N8N_ENDPOINT_REST: {{ .Values.endpoints.N8N_ENDPOINT_REST | quote }}
+  {{- end }}
+  {{- if .Values.endpoints.N8N_ENDPOINT_WEBHOOK }}
+  N8N_ENDPOINT_WEBHOOK: {{ .Values.endpoints.N8N_ENDPOINT_WEBHOOK | quote }}
+  {{- end }}
+  {{- if .Values.endpoints.N8N_ENDPOINT_WEBHOOK_TEST }}
+  N8N_ENDPOINT_WEBHOOK_TEST: {{ .Values.endpoints.N8N_ENDPOINT_WEBHOOK_TEST | quote }}
+  {{- end }}
+  {{- if .Values.endpoints.N8N_ENDPOINT_WEBHOOK_WAIT }}
+  N8N_ENDPOINT_WEBHOOK_WAIT: {{ .Values.endpoints.N8N_ENDPOINT_WEBHOOK_WAIT | quote }}
+  {{- end }}
+  {{- if .Values.endpoints.WEBHOOK_URL }}
+  WEBHOOK_URL: {{ .Values.endpoints.WEBHOOK_URL | quote }}
+  {{- end }}
+  {{- if .Values.endpoints.N8N_DISABLE_PRODUCTION_MAIN_PROCESS }}
+  N8N_DISABLE_PRODUCTION_MAIN_PROCESS: {{ .Values.endpoints.N8N_DISABLE_PRODUCTION_MAIN_PROCESS }}
+  {{- end }}
+  {{- if .Values.endpoints.N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN }}
+  N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN: {{ .Values.endpoints.N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN }}
+  {{- end }}
 {{- end -}}
