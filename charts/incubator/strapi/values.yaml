@@ -4,7 +4,7 @@ image:
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
+  # readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
