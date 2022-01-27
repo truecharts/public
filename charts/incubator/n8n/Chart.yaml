@@ -1,0 +1,36 @@
+apiVersion: v2
+appVersion: "0.160.0"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.14.2
+- condition: postgresql.enabled
+  name: postgresql
+  repository: https://truecharts.org/
+  version: 6.0.58
+- condition: redis.enabled
+  name: redis
+  repository: https://truecharts.org
+  version: 1.0.63
+description: n8n is an extendable workflow automation tool.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/n8n
+icon: https://truecharts.org/_static/img/appicons/n8n-icon.png
+keywords:
+- workflows
+- automation
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: n8n
+sources:
+- https://docs.n8n.io/
+- https://github.com/n8n-io/n8n
+- https://hub.docker.com/r/n8nio/n8n
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

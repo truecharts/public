@@ -19,7 +19,6 @@ _This list is to track `App Requests` from one place._
 - [ ] Deemix #628
 - [ ] Trackarr #602
 - [ ] Locast2Plex #473
-- [ ] n8n #27
 - [ ] InfluxDB #5
 - [ ] External-Auth-Server #28
 - [ ] Borg Backup #782
@@ -514,3 +513,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] DMS (Document Manage System) #810
 - [x] scrutiny ( Needs customised solution for direct disk access )
 - [x] Trilium Notes #1261
+- [x] n8n #27
