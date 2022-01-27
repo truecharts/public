@@ -11,8 +11,11 @@ data:
   WORKFLOWS_DEFAULT_NAME: {{ .Values.workflows.WORKFLOWS_DEFAULT_NAME | quote }}
   {{- end }}
   {{/*  Security */}}
+  {{- if .Values.security.N8N_AUTH_EXCLUDE_ENDPOINTS }}
+  N8N_AUTH_EXCLUDE_ENDPOINTS: {{ .Values.security.N8N_AUTH_EXCLUDE_ENDPOINTS | quote }}
+  {{- end }}
   {{- if .Values.security.N8N_BASIC_AUTH_ACTIVE }}
-  N8N_BASIC_AUTH_ACTIVE: {{ .Values.security.N8N_BASIC_AUTH_ACTIVE | quote }}
+  N8N_BASIC_AUTH_ACTIVE: {{ .Values.security.N8N_BASIC_AUTH_ACTIVE }}
   {{- end }}
   {{- if .Values.security.N8N_BASIC_AUTH_USER }}
   N8N_BASIC_AUTH_USER: {{ .Values.security.N8N_BASIC_AUTH_USER | quote }}
@@ -21,10 +24,10 @@ data:
   N8N_BASIC_AUTH_PASSWORD: {{ .Values.security.N8N_BASIC_AUTH_PASSWORD | quote }}
   {{- end }}
   {{- if .Values.security.N8N_BASIC_AUTH_HASH }}
-  N8N_BASIC_AUTH_HASH: {{ .Values.security.N8N_BASIC_AUTH_HASH | quote }}
+  N8N_BASIC_AUTH_HASH: {{ .Values.security.N8N_BASIC_AUTH_HASH }}
   {{- end }}
   {{- if .Values.security.N8N_JWT_AUTH_ACTIVE }}
-  N8N_JWT_AUTH_ACTIVE: {{ .Values.security.N8N_JWT_AUTH_ACTIVE | quote }}
+  N8N_JWT_AUTH_ACTIVE: {{ .Values.security.N8N_JWT_AUTH_ACTIVE }}
   {{- end }}
   {{- if .Values.security.N8N_JWT_AUTH_HEADER }}
   N8N_JWT_AUTH_HEADER: {{ .Values.security.N8N_JWT_AUTH_HEADER | quote }}

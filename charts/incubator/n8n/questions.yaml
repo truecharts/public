@@ -205,19 +205,91 @@ questions:
           description: "The timeout (in seconds) after execution data has been pruned"
           schema:
             type: int
-  # - variable: security
-  #   group: "Container Configuration"
-  #   label: "Security"
-  #   schema:
-  #     additional_attrs: true
-  #     type: dict
-  #     attrs:
-  #       - variable: WORKFLOWS_DEFAULT_NAME
-  #         label: "Workflows Default Name (Leave empty for default)"
-  #         description: "The default name used for new workflows"
-  #         schema:
-  #           type: string
-  #           default: ""
+  - variable: security
+    group: "Container Configuration"
+    label: "Security"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: N8N_AUTH_EXCLUDE_ENDPOINTS
+          label: "Additional Endpoints to Exclude Auth Checks (Leave empty for default)"
+          description: 'Additional endpoints to exclude auth checks. Multiple endpoints can be provided separated by a colon (":"). The endpoints should not start with a forward slash ("/")'
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_BASIC_AUTH_ACTIVE
+          label: "Enable Basic Auth"
+          description: "Whether basic auth should be activated for editor and REST-API access"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_BASIC_AUTH_USER
+          label: "Basic Auth User (Leave empty for default)"
+          description: "The name of the n8n user for basic authentication"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_BASIC_AUTH_PASSWORD
+          label: "Basic Auth Password (Leave empty for default)"
+          description: "The password of the n8n user for basic authentication"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_BASIC_AUTH_HASH
+          label: "Enable Basic Auth Hash"
+          description: "Whether the basic authentication password is hashed"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_JWT_AUTH_ACTIVE
+          label: "Enable JWT Auth"
+          description: "Whether JWT authentication should be activated for editor and REST-API access"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_JWT_AUTH_HEADER
+          label: "JWT Auth Header (Leave empty for default)"
+          description: "The request header containing a signed JWT"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWT_AUTH_HEADER_VALUE_PREFIX
+          label: "JWT Auth Header Prefix to strip (Leave empty for default)"
+          description: "Optional. The request header value prefix to strip"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWKS_URI
+          label: "JWT Set URI (Leave empty for default)"
+          description: "The URI to fetch JWK Set for JWT authentication"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWT_ISSUER
+          label: "JWT Issuer (Leave empty for default)"
+          description: "Optional. The expected JWT issuer"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWT_NAMESPACE
+          label: "JWT Namespace (Leave empty for default)"
+          description: "Optional. The expected JWT namespace"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWT_ALLOWED_TENANT
+          label: "JWT Allowed Tenant (Leave empty for default)"
+          description: "Optional. The allowed JWT tenant"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWT_ALLOWED_TENANT_KEY
+          label: "JWT Allowed Tenant Key (Leave empty for default)"
+          description: "Optional. The JWT tenant key name to inspect within the JWT namespace"
+          schema:
+            type: string
+            default: ""
   - variable: endpoints
     group: "Container Configuration"
     label: "Endpoints"
