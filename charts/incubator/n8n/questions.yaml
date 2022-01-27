@@ -205,19 +205,19 @@ questions:
           description: "The timeout (in seconds) after execution data has been pruned"
           schema:
             type: int
-  - variable: security
-    group: "Container Configuration"
-    label: "Security"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: WORKFLOWS_DEFAULT_NAME
-          label: "Workflows Default Name (Leave empty for default)"
-          description: "The default name used for new workflows"
-          schema:
-            type: string
-            default: ""
+  # - variable: security
+  #   group: "Container Configuration"
+  #   label: "Security"
+  #   schema:
+  #     additional_attrs: true
+  #     type: dict
+  #     attrs:
+  #       - variable: WORKFLOWS_DEFAULT_NAME
+  #         label: "Workflows Default Name (Leave empty for default)"
+  #         description: "The default name used for new workflows"
+  #         schema:
+  #           type: string
+  #           default: ""
   - variable: endpoints
     group: "Container Configuration"
     label: "Endpoints"
