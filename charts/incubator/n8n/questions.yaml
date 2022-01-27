@@ -82,19 +82,56 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-  # - variable: deployment
-  #   group: "Container Configuration"
-  #   label: "Deployment"
-  #   schema:
-  #     additional_attrs: true
-  #     type: dict
-  #     attrs:
-  #       - variable: N8N_HOST
-  #         label: "N8N_HOST"
-  #         description: "safsd"
-  #         schema:
-  #           type: string
-  #           default: ""
+  - variable: deployment
+    group: "Container Configuration"
+    label: "Deployment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: N8N_HOST
+          label: "Host"
+          description: "Host name where n8n can be reached."
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: N8N_CONFIG_FILES
+          label: "Config Files (Leave empty for default)"
+          description: "Use to provide the path to any JSON configuration file(s)"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_DISABLE_UI
+          label: "Disable UI"
+          description: "Whether the UI should be disabled"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_ENCRYPTION_KEY
+          label: "Encryption Key (Leave empty for default)"
+          description: "Provide a custom key used to encrypt credentials in the n8n database. By default a random key is generated on first launch"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_PERSONALIZATION_ENABLED
+          label: "Enable Personalization"
+          description: "Whether to ask users personalisation questions and then customise n8n accordingly"
+          schema:
+            type: boolean
+            default: true
+        - variable: N8N_VERSION_NOTIFICATIONS_ENABLED
+          label: "Enable Version Notifications"
+          description: "When enabled, notifications of new versions and security updates are provided"
+          schema:
+            type: boolean
+            default: true
+        - variable: N8N_DIAGNOSTICS_ENABLED
+          label: "Enable Diagnostics"
+          description: "Whether to share selected, anonymous telemetry with n8n"
+          schema:
+            type: boolean
+            default: false
   - variable: workflows
     group: "Container Configuration"
     label: "Workflows"

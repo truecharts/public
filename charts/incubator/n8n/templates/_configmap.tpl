@@ -101,6 +101,9 @@ data:
   EXECUTIONS_DATA_PRUNE_TIMEOUT: {{ .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT }}
   {{- end }}
   {{/*  Endpoints */}}
+  {{- if .Values.endpoints.WEBHOOK_URL }}
+  WEBHOOK_URL: {{ .Values.endpoints.WEBHOOK_URL | quote }}
+  {{- end }}
   {{- if .Values.endpoints.N8N_PAYLOAD_SIZE_MAX }}
   N8N_PAYLOAD_SIZE_MAX: {{ .Values.endpoints.N8N_PAYLOAD_SIZE_MAX }}
   {{- end }}
@@ -121,9 +124,6 @@ data:
   {{- end }}
   {{- if .Values.endpoints.N8N_ENDPOINT_WEBHOOK_WAIT }}
   N8N_ENDPOINT_WEBHOOK_WAIT: {{ .Values.endpoints.N8N_ENDPOINT_WEBHOOK_WAIT | quote }}
-  {{- end }}
-  {{- if .Values.endpoints.WEBHOOK_URL }}
-  WEBHOOK_URL: {{ .Values.endpoints.WEBHOOK_URL | quote }}
   {{- end }}
   {{- if .Values.endpoints.N8N_DISABLE_PRODUCTION_MAIN_PROCESS }}
   N8N_DISABLE_PRODUCTION_MAIN_PROCESS: {{ .Values.endpoints.N8N_DISABLE_PRODUCTION_MAIN_PROCESS }}
@@ -148,19 +148,19 @@ data:
   {{- if .Values.deployment.N8N_CONFIG_FILES }}
   N8N_CONFIG_FILES: {{ .Values.deployment.N8N_CONFIG_FILES | quote }}
   {{- end }}
+  {{- if .Values.deployment.N8N_DISABLE_UI }}
+  N8N_DISABLE_UI: {{ .Values.deployment.N8N_DISABLE_UI }}
+  {{- end }}
   {{- if .Values.deployment.N8N_ENCRYPTION_KEY }}
   N8N_ENCRYPTION_KEY: {{ .Values.deployment.N8N_ENCRYPTION_KEY | quote }}
   {{- end }}
-  {{- if .Values.deployment.N8N_DIAGNOSTICS_ENABLED }}
-  N8N_DIAGNOSTICS_ENABLED: {{ .Values.deployment.N8N_DIAGNOSTICS_ENABLED | quote }}
-  {{- end }}
-  {{- if .Values.deployment.N8N_DISABLE_UI }}
-  N8N_DISABLE_UI: {{ .Values.deployment.N8N_DISABLE_UI | quote }}
-  {{- end }}
   {{- if .Values.deployment.N8N_PERSONALIZATION_ENABLED }}
-  N8N_PERSONALIZATION_ENABLED: {{ .Values.deployment.N8N_PERSONALIZATION_ENABLED | quote }}
+  N8N_PERSONALIZATION_ENABLED: {{ .Values.deployment.N8N_PERSONALIZATION_ENABLED }}
   {{- end }}
   {{- if .Values.deployment.N8N_VERSION_NOTIFICATIONS_ENABLED }}
-  N8N_VERSION_NOTIFICATIONS_ENABLED: {{ .Values.deployment.N8N_VERSION_NOTIFICATIONS_ENABLED | quote }}
+  N8N_VERSION_NOTIFICATIONS_ENABLED: {{ .Values.deployment.N8N_VERSION_NOTIFICATIONS_ENABLED }}
+  {{- end }}
+  {{- if .Values.deployment.N8N_DIAGNOSTICS_ENABLED }}
+  N8N_DIAGNOSTICS_ENABLED: {{ .Values.deployment.N8N_DIAGNOSTICS_ENABLED }}
   {{- end }}
 {{- end -}}
