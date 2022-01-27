@@ -108,19 +108,103 @@ questions:
           schema:
             type: string
             default: ""
-  # - variable: executions
-  #   group: "Container Configuration"
-  #   label: "Executions"
-  #   schema:
-  #     additional_attrs: true
-  #     type: dict
-  #     attrs:
-  #       - variable: WORKFLOWS_DEFAULT_NAME
-  #         label: "Workflows Default Name (Leave empty for default)"
-  #         description: "The default name used for new workflows"
-  #         schema:
-  #           type: string
-  #           default: ""
+  - variable: executions
+    group: "Container Configuration"
+    label: "Executions"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: EXECUTIONS_PROCESS
+          label: "Execution Process"
+          description: "Whether processes are executed in their own process or the main process"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "main"
+                description: "Main"
+              - value: "own"
+                description: "Own"
+        - variable: EXECUTIONS_MODE
+          label: "Execution Mode"
+          description: "Whether processes should run directly or via queue"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "regular"
+                description: "Regular"
+              - value: "queue"
+                description: "Queue"
+        - variable: EXECUTIONS_TIMEOUT
+          label: "Execution Timeout (Leave empty for default)"
+          description: "The max run time (in seconds) before stopping a workflow execution"
+          schema:
+            type: int
+        - variable: EXECUTIONS_TIMEOUT_MAX
+          label: "Max Execution Timeout (Leave empty for default)"
+          description: "The max execution time (in seconds) that can be set for a workflow individually"
+          schema:
+            type: int
+        - variable: EXECUTIONS_DATA_SAVE_ON_ERROR
+          label: "Execution Data Save on Error"
+          description: "Whether execution data is saved on error"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "all"
+                description: "All"
+              - value: "none"
+                description: "None"
+        - variable: EXECUTIONS_DATA_SAVE_ON_SUCCESS
+          label: "Execution Data Save on Success"
+          description: "Whether execution data is saved on success"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "all"
+                description: "All"
+              - value: "none"
+                description: "None"
+        - variable: EXECUTIONS_DATA_SAVE_ON_PROGRESS
+          label: "Execution Data Save on Progress"
+          description: "Whether to save progress for each node executed"
+          schema:
+            type: boolean
+            default: false
+        - variable: EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS
+          label: "Execution Data Save on Manual Executions"
+          description: "Whether to save data of executions when started manually"
+          schema:
+            type: boolean
+            default: false
+        - variable: EXECUTIONS_DATA_PRUNE
+          label: "Execution Data Prune"
+          description: "Whether to delete data of past executions on a rolling basis"
+          schema:
+            type: boolean
+            default: false
+        - variable: EXECUTIONS_DATA_MAX_AGE
+          label: "Execution Data Max Age (Leave empty for default)"
+          description: "The execution age (in hours) before it is deleted"
+          schema:
+            type: int
+        - variable: EXECUTIONS_DATA_PRUNE_TIMEOUT
+          label: "Data Prune Timeout (Leave empty for default)"
+          description: "The timeout (in seconds) after execution data has been pruned"
+          schema:
+            type: int
   - variable: security
     group: "Container Configuration"
     label: "Security"

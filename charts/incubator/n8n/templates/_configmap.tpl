@@ -71,10 +71,10 @@ data:
   EXECUTIONS_MODE: {{ .Values.executions.EXECUTIONS_MODE | quote }}
   {{- end }}
   {{- if .Values.executions.EXECUTIONS_TIMEOUT }}
-  EXECUTIONS_TIMEOUT: {{ .Values.executions.EXECUTIONS_TIMEOUT | quote }}
+  EXECUTIONS_TIMEOUT: {{ .Values.executions.EXECUTIONS_TIMEOUT }}
   {{- end }}
   {{- if .Values.executions.EXECUTIONS_TIMEOUT_MAX }}
-  EXECUTIONS_TIMEOUT_MAX: {{ .Values.executions.EXECUTIONS_TIMEOUT_MAX | quote }}
+  EXECUTIONS_TIMEOUT_MAX: {{ .Values.executions.EXECUTIONS_TIMEOUT_MAX }}
   {{- end }}
   {{- if .Values.executions.EXECUTIONS_DATA_SAVE_ON_ERROR }}
   EXECUTIONS_DATA_SAVE_ON_ERROR: {{ .Values.executions.EXECUTIONS_DATA_SAVE_ON_ERROR | quote }}
@@ -83,19 +83,19 @@ data:
   EXECUTIONS_DATA_SAVE_ON_SUCCESS: {{ .Values.executions.EXECUTIONS_DATA_SAVE_ON_SUCCESS | quote }}
   {{- end }}
   {{- if .Values.executions.EXECUTIONS_DATA_SAVE_ON_PROGRESS }}
-  EXECUTIONS_DATA_SAVE_ON_PROGRESS: {{ .Values.executions.EXECUTIONS_DATA_SAVE_ON_PROGRESS | quote }}
+  EXECUTIONS_DATA_SAVE_ON_PROGRESS: {{ .Values.executions.EXECUTIONS_DATA_SAVE_ON_PROGRESS }}
   {{- end }}
   {{- if .Values.executions.EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS }}
-  EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS: {{ .Values.executions.EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS | quote }}
+  EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS: {{ .Values.executions.EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS }}
   {{- end }}
   {{- if .Values.executions.EXECUTIONS_DATA_PRUNE }}
-  EXECUTIONS_DATA_PRUNE: {{ .Values.executions.EXECUTIONS_DATA_PRUNE | quote }}
+  EXECUTIONS_DATA_PRUNE: {{ .Values.executions.EXECUTIONS_DATA_PRUNE }}
   {{- end }}
   {{- if .Values.executions.EXECUTIONS_DATA_MAX_AGE }}
-  EXECUTIONS_DATA_MAX_AGE: {{ .Values.executions.EXECUTIONS_DATA_MAX_AGE | quote }}
+  EXECUTIONS_DATA_MAX_AGE: {{ .Values.executions.EXECUTIONS_DATA_MAX_AGE }}
   {{- end }}
   {{- if .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT }}
-  EXECUTIONS_DATA_PRUNE_TIMEOUT: {{ .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT | quote }}
+  EXECUTIONS_DATA_PRUNE_TIMEOUT: {{ .Values.executions.EXECUTIONS_DATA_PRUNE_TIMEOUT }}
   {{- end }}
   {{/*  Endpoints */}}
   {{- if .Values.endpoints.N8N_PAYLOAD_SIZE_MAX }}
