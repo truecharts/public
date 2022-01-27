@@ -1,0 +1,63 @@
+image:
+  repository: n8nio/n8n
+  tag: 0.160.0@sha256:06c4ef2abf1f288984e332065b4f80fae84c14e5e3b45430487c32bc0620169f
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  TZ: UTC
+  DB_TYPE: "postgresdb"
+  DB_POSTGRESDB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_POSTGRESDB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_POSTGRESDB_PORT: 5432
+  QUEUE_BULL_REDIS_PORT: 6379
+  N8N_USER_FOLDER: "/data"
+
+envValueFrom:
+  DB_POSTGRESDB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DB_POSTGRESDB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  QUEUE_BULL_REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  QUEUE_BULL_REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+
+service:
+  main:
+    ports:
+      main:
+        port: 5678
+        targetPort: 5678
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+# Enabled redis
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: n8n
+  postgresqlDatabase: n8n
