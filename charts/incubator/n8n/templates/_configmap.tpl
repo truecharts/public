@@ -138,4 +138,26 @@ data:
   {{- if .Values.credentials.CREDENTIALS_DEFAULT_NAME }}
   CREDENTIALS_DEFAULT_NAME: {{ .Values.credentials.CREDENTIALS_DEFAULT_NAME | quote }}
   {{- end }}
+  {{/*  Deployment */}}
+  {{- if .Values.deployment.N8N_HOST }}
+  N8N_HOST: {{ .Values.deployment.N8N_HOST | quote }}
+  {{- end }}
+  {{- if .Values.deployment.N8N_CONFIG_FILES }}
+  N8N_CONFIG_FILES: {{ .Values.deployment.N8N_CONFIG_FILES | quote }}
+  {{- end }}
+  {{- if .Values.deployment.N8N_ENCRYPTION_KEY }}
+  N8N_ENCRYPTION_KEY: {{ .Values.deployment.N8N_ENCRYPTION_KEY | quote }}
+  {{- end }}
+  {{- if .Values.deployment.N8N_DIAGNOSTICS_ENABLED }}
+  N8N_DIAGNOSTICS_ENABLED: {{ .Values.deployment.N8N_DIAGNOSTICS_ENABLED | quote }}
+  {{- end }}
+  {{- if .Values.deployment.N8N_DISABLE_UI }}
+  N8N_DISABLE_UI: {{ .Values.deployment.N8N_DISABLE_UI | quote }}
+  {{- end }}
+  {{- if .Values.deployment.N8N_PERSONALIZATION_ENABLED }}
+  N8N_PERSONALIZATION_ENABLED: {{ .Values.deployment.N8N_PERSONALIZATION_ENABLED | quote }}
+  {{- end }}
+  {{- if .Values.deployment.N8N_VERSION_NOTIFICATIONS_ENABLED }}
+  N8N_VERSION_NOTIFICATIONS_ENABLED: {{ .Values.deployment.N8N_VERSION_NOTIFICATIONS_ENABLED | quote }}
+  {{- end }}
 {{- end -}}
