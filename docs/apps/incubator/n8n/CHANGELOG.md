@@ -7,4 +7,3 @@
 #### Feat
 
 * Add n8n ([#1797](https://github.com/truecharts/apps/issues/1797))
-
