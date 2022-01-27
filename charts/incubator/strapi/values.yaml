@@ -1,0 +1,49 @@
+image:
+  repository: tccr.io/truecharts/strapi
+  tag: v3.6.8@sha256:25d345a1787c5be5ef1771b069e0eeaeba5b244a62870cc2b9d5acba0eaedd89
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  TZ: UTC
+  DATABASE_CLIENT: "postgres"
+  DATABASE_PORT: 5432
+  DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DATABASE_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  EXTRA_ARGS: ""
+
+envValueFrom:
+  DATABASE_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DATABASE_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+
+service:
+  main:
+    ports:
+      main:
+        port: 1337
+        targetPort: 1337
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/srv/app"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: strapi
+  postgresqlDatabase: strapi
