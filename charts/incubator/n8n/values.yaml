@@ -3,7 +3,7 @@ image:
   tag: 0.160.0@sha256:06c4ef2abf1f288984e332065b4f80fae84c14e5e3b45430487c32bc0620169f
   pullPolicy: IfNotPresent
 
-# securityContext:
+securityContext:
   # readOnlyRootFilesystem: false
   runAsNonRoot: false
 
@@ -20,6 +20,17 @@ env:
   DB_POSTGRESDB_PORT: 5432
   QUEUE_BULL_REDIS_PORT: 6379
   N8N_USER_FOLDER: "/data"
+
+  N8N_HOST: "localhost"
+  N8N_VERSION_NOTIFICATIONS_ENABLED: true
+  N8N_PERSONALIZATION_ENABLED: true
+  N8N_DISABLE_UI: false
+  N8N_METRICS: false
+  N8N_ENDPOINT_REST: "rest"
+  N8N_ENDPOINT_WEBHOOK: "webhook"
+  N8N_ENDPOINT_WEBHOOK_TEST: "webhook-test"
+  N8N_ENDPOINT_WEBHOOK_WAIT: "webhook-waiting"
+  WEBHOOK_URL: ""
 
 envValueFrom:
   DB_POSTGRESDB_HOST:
