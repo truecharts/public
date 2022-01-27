@@ -19,7 +19,6 @@ _This list is to track `App Requests` from one place._
 - [ ] Deemix #628
 - [ ] Trackarr #602
 - [ ] Locast2Plex #473
-- [ ] n8n #27
 - [ ] InfluxDB #5
 - [ ] External-Auth-Server #28
 - [ ] Borg Backup #782
@@ -515,3 +514,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] shlink ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [x] papermerge ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [x] Synapse (Matrix Server) #410
+- [x] n8n #27

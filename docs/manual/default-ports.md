@@ -40,6 +40,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | openldap                   |      main       |      main       |  389  |   TCP    |                                         |
 | minisatip                  |      rtsp       |      rtsp       |  554  |   TCP    |                                         |
 | openldap                   |      ldaps      |      ldaps      |  636  |   TCP    |                                         |
+| strapi                     |      main       |      main       | 1337  |   TCP    |                                         |
 | domoticz                   |      comm2      |      comm2      | 1443  |   TCP    |                                         |
 | nntp2nntp                  |      main       |      main       | 1563  |   TCP    |                                         |
 | kms                        |      main       |      main       | 1688  |   TCP    |                                         |
@@ -79,6 +80,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | nzbhydra                   |      main       |      main       | 5076  |   TCP    |                                         |
 | lazylibrarian              |      main       |      main       | 5299  |   TCP    |                                         |
 | syslog-ng                  |   syslog-udp    |   syslog-udp    | 5514  |   UDP    |                                         |
+| n8n                        |      main       |      main       | 5678  |   TCP    |                                         |
 | esphome                    |      main       |      main       | 6052  |   TCP    |                                         |
 | novnc                      |      main       |      main       | 6080  |   TCP    |                                         |
 | domoticz                   |      comm1      |      comm1      | 6144  |   TCP    |                                         |
