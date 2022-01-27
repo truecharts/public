@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.43"></a>
+### [traefik-10.0.43](https://github.com/truecharts/apps/compare/traefik-10.0.42...traefik-10.0.43) (2022-01-27)
+
+#### Fix
+
+* hide Traefik metrics port and enable prometheus metrics
+
+
+
 <a name="traefik-10.0.42"></a>
 ### [traefik-10.0.42](https://github.com/truecharts/apps/compare/traefik-10.0.41...traefik-10.0.42) (2022-01-25)
 

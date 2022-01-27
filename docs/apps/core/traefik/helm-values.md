@@ -25,6 +25,9 @@ You will, however, be able to use all values referenced in the common chart here
 | metrics.prometheus.entryPoint | string | `"metrics"` |  |
 | middlewares | object | `{"basicAuth":[],"chain":[],"forwardAuth":[],"ipWhiteList":[],"rateLimit":[],"redirectRegex":[],"redirectScheme":[]}` | SCALE Middleware Handlers |
 | pilot | object | `{"enabled":false,"token":""}` | Activate Pilot integration |
+| podAnnotations."prometheus.io/path" | string | `"/metrics"` |  |
+| podAnnotations."prometheus.io/port" | string | `"9100"` |  |
+| podAnnotations."prometheus.io/scrape" | string | `"true"` |  |
 | portalhook.enabled | bool | `true` |  |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
@@ -41,7 +44,7 @@ You will, however, be able to use all values referenced in the common chart here
 | providers.kubernetesIngress.namespaces | list | `[]` |  |
 | providers.kubernetesIngress.publishedService.enabled | bool | `true` |  |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":[""],"resources":["services","endpoints","secrets"],"verbs":["get","list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses","ingressclasses"],"verbs":["get","list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses/status"],"verbs":["update"]},{"apiGroups":["traefik.containo.us"],"resources":["ingressroutes","ingressroutetcps","ingressrouteudps","middlewares","middlewaretcps","tlsoptions","tlsstores","traefikservices","serverstransports"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
-| service | object | `{"main":{"ports":{"main":{"port":9000,"protocol":"HTTP","targetPort":9000}},"type":"LoadBalancer"},"metrics":{"enabled":true,"ports":{"metrics":{"enabled":true,"port":9100,"protocol":"HTTP","targetPort":9100}},"type":"LoadBalancer"},"tcp":{"enabled":true,"ports":{"web":{"enabled":true,"port":9080,"protocol":"HTTP","redirectTo":"websecure"},"websecure":{"enabled":true,"port":9443,"protocol":"HTTPS"}},"type":"LoadBalancer"},"udp":{"enabled":false}}` | Options for the main traefik service, where the entrypoints traffic comes from from. |
+| service | object | `{"main":{"ports":{"main":{"port":9000,"protocol":"HTTP","targetPort":9000}},"type":"LoadBalancer"},"metrics":{"enabled":true,"ports":{"metrics":{"enabled":true,"port":9100,"protocol":"HTTP","targetPort":9100}},"type":"ClusterIP"},"tcp":{"enabled":true,"ports":{"web":{"enabled":true,"port":9080,"protocol":"HTTP","redirectTo":"websecure"},"websecure":{"enabled":true,"port":9443,"protocol":"HTTPS"}},"type":"LoadBalancer"},"udp":{"enabled":false}}` | Options for the main traefik service, where the entrypoints traffic comes from from. |
 | serviceAccount | object | `{"create":true}` | The service account the pods will use to interact with the Kubernetes API |
 | tlsOptions | object | `{"default":{"cipherSuites":["TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256","TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384","TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305","TLS_AES_128_GCM_SHA256","TLS_AES_256_GCM_SHA384","TLS_CHACHA20_POLY1305_SHA256"],"curvePreferences":["CurveP521","CurveP384"],"minVersion":"VersionTLS12","sniStrict":false}}` | TLS Options to be created as TLSOption CRDs https://doc.traefik.io/tccr.io/truecharts/https/tls/#tls-options Example: |
 

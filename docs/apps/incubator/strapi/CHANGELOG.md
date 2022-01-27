@@ -7,4 +7,3 @@
 #### Feat
 
 * Add strapi ([#1800](https://github.com/truecharts/apps/issues/1800))
-
