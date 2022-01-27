@@ -128,4 +128,14 @@ data:
   {{- if .Values.endpoints.N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN }}
   N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN: {{ .Values.endpoints.N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN }}
   {{- end }}
+  {{/*  Credentials */}}
+  {{- if .Values.credentials.CREDENTIALS_OVERWRITE_DATA }}
+  CREDENTIALS_OVERWRITE_DATA: {{ .Values.credentials.CREDENTIALS_OVERWRITE_DATA | quote }}
+  {{- end }}
+  {{- if .Values.credentials.CREDENTIALS_OVERWRITE_ENDPOINT }}
+  CREDENTIALS_OVERWRITE_ENDPOINT: {{ .Values.credentials.CREDENTIALS_OVERWRITE_ENDPOINT | quote }}
+  {{- end }}
+  {{- if .Values.credentials.CREDENTIALS_DEFAULT_NAME }}
+  CREDENTIALS_DEFAULT_NAME: {{ .Values.credentials.CREDENTIALS_DEFAULT_NAME | quote }}
+  {{- end }}
 {{- end -}}
