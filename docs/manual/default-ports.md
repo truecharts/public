@@ -79,6 +79,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | nzbhydra                   |      main       |      main       | 5076  |   TCP    |                                         |
 | lazylibrarian              |      main       |      main       | 5299  |   TCP    |                                         |
 | syslog-ng                  |   syslog-udp    |   syslog-udp    | 5514  |   UDP    |                                         |
+| n8n                        |      main       |      main       | 5678  |   TCP    |                                         |
 | esphome                    |      main       |      main       | 6052  |   TCP    |                                         |
 | novnc                      |      main       |      main       | 6080  |   TCP    |                                         |
 | domoticz                   |      comm1      |      comm1      | 6144  |   TCP    |                                         |

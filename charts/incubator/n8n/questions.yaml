@@ -1,0 +1,700 @@
+# Include{groups}
+portals:
+  web_portal:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$kubernetes-resource_configmap_portal_port"
+questions:
+  - variable: portal
+    group: "Container Image"
+    label: "Configure Portal Button"
+    schema:
+      type: dict
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          description: "enable the portal button"
+          schema:
+            hidden: true
+            editable: false
+            type: boolean
+            default: true
+# Include{global}
+  - variable: controller
+    group: "Controller"
+    label: ""
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: advanced
+          label: "Show Advanced Controller Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: type
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Controller Type"
+                schema:
+                  type: string
+                  default: "deployment"
+                  required: true
+                  enum:
+                    - value: "deployment"
+                      description: "Deployment"
+                    - value: "statefulset"
+                      description: "Statefulset"
+                    - value: "daemonset"
+                      description: "Daemonset"
+              - variable: replicas
+                description: "Number of desired pod replicas"
+                label: "Desired Replicas"
+                schema:
+                  type: int
+                  default: 1
+                  required: true
+              - variable: strategy
+                description: "Please specify type of workload to deploy"
+                label: "(Advanced) Update Strategy"
+                schema:
+                  type: string
+                  default: "Recreate"
+                  required: true
+                  enum:
+                    - value: "Recreate"
+                      description: "Recreate: Kill existing pods before creating new ones"
+                    - value: "RollingUpdate"
+                      description: "RollingUpdate: Create new pods and then kill old ones"
+                    - value: "OnDelete"
+                      description: "(Legacy) OnDelete: ignore .spec.template changes"
+# Include{controllerExpert}
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+# Include{fixedEnv}
+  - variable: deployment
+    group: "Container Configuration"
+    label: "Deployment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: N8N_HOST
+          label: "Host"
+          description: "Host name where n8n can be reached."
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: N8N_CONFIG_FILES
+          label: "Config Files (Leave empty for default)"
+          description: "Use to provide the path to any JSON configuration file(s)"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_DISABLE_UI
+          label: "Disable UI"
+          description: "Whether the UI should be disabled"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_ENCRYPTION_KEY
+          label: "Encryption Key (Leave empty for default)"
+          description: "Provide a custom key used to encrypt credentials in the n8n database. By default a random key is generated on first launch"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_PERSONALIZATION_ENABLED
+          label: "Enable Personalization"
+          description: "Whether to ask users personalisation questions and then customise n8n accordingly"
+          schema:
+            type: boolean
+            default: true
+        - variable: N8N_VERSION_NOTIFICATIONS_ENABLED
+          label: "Enable Version Notifications"
+          description: "When enabled, notifications of new versions and security updates are provided"
+          schema:
+            type: boolean
+            default: true
+        - variable: N8N_DIAGNOSTICS_ENABLED
+          label: "Enable Diagnostics"
+          description: "Whether to share selected, anonymous telemetry with n8n"
+          schema:
+            type: boolean
+            default: false
+  - variable: workflows
+    group: "Container Configuration"
+    label: "Workflows"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: WORKFLOWS_DEFAULT_NAME
+          label: "Workflows Default Name (Leave empty for default)"
+          description: "The default name used for new workflows"
+          schema:
+            type: string
+            default: ""
+  - variable: executions
+    group: "Container Configuration"
+    label: "Executions"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: EXECUTIONS_PROCESS
+          label: "Execution Process"
+          description: "Whether processes are executed in their own process or the main process"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "main"
+                description: "Main"
+              - value: "own"
+                description: "Own"
+        - variable: EXECUTIONS_MODE
+          label: "Execution Mode"
+          description: "Whether processes should run directly or via queue"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "regular"
+                description: "Regular"
+              - value: "queue"
+                description: "Queue"
+        - variable: EXECUTIONS_TIMEOUT
+          label: "Execution Timeout (Leave empty for default)"
+          description: "The max run time (in seconds) before stopping a workflow execution"
+          schema:
+            type: int
+        - variable: EXECUTIONS_TIMEOUT_MAX
+          label: "Max Execution Timeout (Leave empty for default)"
+          description: "The max execution time (in seconds) that can be set for a workflow individually"
+          schema:
+            type: int
+        - variable: EXECUTIONS_DATA_SAVE_ON_ERROR
+          label: "Execution Data Save on Error"
+          description: "Whether execution data is saved on error"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "all"
+                description: "All"
+              - value: "none"
+                description: "None"
+        - variable: EXECUTIONS_DATA_SAVE_ON_SUCCESS
+          label: "Execution Data Save on Success"
+          description: "Whether execution data is saved on success"
+          schema:
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "all"
+                description: "All"
+              - value: "none"
+                description: "None"
+        - variable: EXECUTIONS_DATA_SAVE_ON_PROGRESS
+          label: "Execution Data Save on Progress"
+          description: "Whether to save progress for each node executed"
+          schema:
+            type: boolean
+            default: false
+        - variable: EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS
+          label: "Execution Data Save on Manual Executions"
+          description: "Whether to save data of executions when started manually"
+          schema:
+            type: boolean
+            default: false
+        - variable: EXECUTIONS_DATA_PRUNE
+          label: "Execution Data Prune"
+          description: "Whether to delete data of past executions on a rolling basis"
+          schema:
+            type: boolean
+            default: false
+        - variable: EXECUTIONS_DATA_MAX_AGE
+          label: "Execution Data Max Age (Leave empty for default)"
+          description: "The execution age (in hours) before it is deleted"
+          schema:
+            type: int
+        - variable: EXECUTIONS_DATA_PRUNE_TIMEOUT
+          label: "Data Prune Timeout (Leave empty for default)"
+          description: "The timeout (in seconds) after execution data has been pruned"
+          schema:
+            type: int
+  - variable: security
+    group: "Container Configuration"
+    label: "Security"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: N8N_AUTH_EXCLUDE_ENDPOINTS
+          label: "Additional Endpoints to Exclude Auth Checks (Leave empty for default)"
+          description: 'Additional endpoints to exclude auth checks. Multiple endpoints can be provided separated by a colon (":"). The endpoints should not start with a forward slash ("/")'
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_BASIC_AUTH_ACTIVE
+          label: "Enable Basic Auth"
+          description: "Whether basic auth should be activated for editor and REST-API access"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_BASIC_AUTH_USER
+          label: "Basic Auth User (Leave empty for default)"
+          description: "The name of the n8n user for basic authentication"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_BASIC_AUTH_PASSWORD
+          label: "Basic Auth Password (Leave empty for default)"
+          description: "The password of the n8n user for basic authentication"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_BASIC_AUTH_HASH
+          label: "Enable Basic Auth Hash"
+          description: "Whether the basic authentication password is hashed"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_JWT_AUTH_ACTIVE
+          label: "Enable JWT Auth"
+          description: "Whether JWT authentication should be activated for editor and REST-API access"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_JWT_AUTH_HEADER
+          label: "JWT Auth Header (Leave empty for default)"
+          description: "The request header containing a signed JWT"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWT_AUTH_HEADER_VALUE_PREFIX
+          label: "JWT Auth Header Prefix to strip (Leave empty for default)"
+          description: "Optional. The request header value prefix to strip"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWKS_URI
+          label: "JWT Set URI (Leave empty for default)"
+          description: "The URI to fetch JWK Set for JWT authentication"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWT_ISSUER
+          label: "JWT Issuer (Leave empty for default)"
+          description: "Optional. The expected JWT issuer"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWT_NAMESPACE
+          label: "JWT Namespace (Leave empty for default)"
+          description: "Optional. The expected JWT namespace"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWT_ALLOWED_TENANT
+          label: "JWT Allowed Tenant (Leave empty for default)"
+          description: "Optional. The allowed JWT tenant"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_JWT_ALLOWED_TENANT_KEY
+          label: "JWT Allowed Tenant Key (Leave empty for default)"
+          description: "Optional. The JWT tenant key name to inspect within the JWT namespace"
+          schema:
+            type: string
+            default: ""
+  - variable: endpoints
+    group: "Container Configuration"
+    label: "Endpoints"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: WEBHOOK_URL
+          label: "Webhook URL"
+          description: "Used to manually provide the Webhook URL when running n8n behind a reverse proxy"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_PAYLOAD_SIZE_MAX
+          label: "Max Payload Size (Leave empty for default)"
+          description: "The maximum payload size in MB"
+          schema:
+            type: int
+        - variable: N8N_METRICS
+          label: "Enable Metrics endpoint"
+          description: "Whether to enable the metrics endpoint"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_METRICS_PREFIX
+          label: "Metrics Prefix (Leave empty for default)"
+          description: "Optional prefix to be used for metrics names"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_ENDPOINT_REST
+          label: "Rest Endpoint Path (Leave empty for default)"
+          description: "The path used for REST endpoint"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_ENDPOINT_WEBHOOK
+          label: "Webhook Endpoint Path (Leave empty for default)"
+          description: "The path used for webhook endpoint"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_ENDPOINT_WEBHOOK_TEST
+          label: "Test-Webhook Endpoint Path (Leave empty for default)"
+          description: "The path used for test-webhook endpoin"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_ENDPOINT_WEBHOOK_WAIT
+          label: "Waiting-Webhook Endpoint Path (Leave empty for default)"
+          description: "The path used for waiting-webhook endpoint"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_DISABLE_PRODUCTION_MAIN_PROCESS
+          label: "Disable Production Webhooks"
+          description: "Disable production webhooks from main process. This helps ensures no HTTP traffic load to main process when using webhook-specific processes"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN
+          label: "Deregister External Webhooks"
+          description: "Deregister webhooks on external services only when workflows are deactivated"
+          schema:
+            type: boolean
+            default: false
+  - variable: credentials
+    group: "Container Configuration"
+    label: "Credentials"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: CREDENTIALS_OVERWRITE_DATA
+          label: "Credentianls Overwrites"
+          description: "Overwrites for credentials"
+          schema:
+            type: string
+            default: "default"
+        - variable: CREDENTIALS_OVERWRITE_ENDPOINT
+          label: "Credentials Overwrite Endpoint"
+          description: "The API endpoint to fetch credentials"
+          schema:
+            type: string
+            default: ""
+        - variable: CREDENTIALS_DEFAULT_NAME
+          label: "Credentials Default Name (Leave empty for default)"
+          description: "The default name for credentials"
+          schema:
+            type: string
+            default: ""
+  - variable: logs
+    group: "Container Configuration"
+    label: "Logs"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: N8N_LOG_LEVEL
+          label: "Log Level"
+          description: "Log output level"
+          schema:
+            type: string
+            default: "default"
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "info"
+                description: "Info"
+              - value: "warn"
+                description: "Warn"
+              - value: "error"
+                description: "Error"
+              - value: "verbose"
+                description: "Verbose"
+              - value: "debug"
+                description: "Debug"
+        - variable: N8N_LOG_OUTPUT
+          label: "Log Output"
+          description: "Where to output logs"
+          schema:
+            type: string
+            default: "default"
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "console"
+                description: "Console"
+              - value: "file"
+                description: "File"
+              - value: "console,file"
+                description: "Console and File"
+        - variable: N8N_LOG_FILE_COUNT_MAX
+          label: "Max Log File Count (Leave empty for default)"
+          description: "Max number of log files to keep"
+          schema:
+            type: int
+        - variable: N8N_LOG_FILE_SIZE_MAX
+          label: "Max Log File Size (Leave empty for default)"
+          description: "Max size of each log file in MB"
+          schema:
+            type: int
+
+# Include{containerConfig}
+  - variable: service
+    group: "Networking and Services"
+    label: "Configure Service(s)"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelector}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 5678
+                              required: true
+                          - variable: advanced
+                            label: "Show Advanced settings"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: protocol
+                                  label: "Port Type"
+                                  schema:
+                                    type: string
+                                    default: "HTTP"
+                                    enum:
+                                      - value: HTTP
+                                        description: "HTTP"
+                                      - value: "HTTPS"
+                                        description: "HTTPS"
+                                      - value: TCP
+                                        description: "TCP"
+                                      - value: "UDP"
+                                        description: "UDP"
+                                - variable: nodePort
+                                  label: "Node Port (Optional)"
+                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
+                                  schema:
+                                    type: int
+                                    min: 9000
+                                    max: 65535
+                                - variable: targetPort
+                                  label: "Target Port"
+                                  description: "The internal(!) port on the container the Application runs on"
+                                  schema:
+                                    type: int
+                                    default: 5678
+
+  - variable: serviceexpert
+    group: "Networking and Services"
+    label: "Show Expert Config"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: hostNetwork
+          group: "Networking and Services"
+          label: "Host-Networking (Complicated)"
+          schema:
+            type: boolean
+            default: false
+
+# Include{serviceExpert}
+
+# Include{serviceList}
+
+  - variable: persistence
+    label: "Integrated Persistent Storage"
+    description: "Integrated Persistent Storage"
+    group: "Storage and Persistence"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+
+# Include{persistenceList}
+
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
+# Include{ingressList}
+
+  - variable: advancedSecurity
+    label: "Show Advanced Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: securityContext
+          label: "Security Context"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: privileged
+                label: "Privileged mode"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: readOnlyRootFilesystem
+                label: "ReadOnly Root Filesystem"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: allowPrivilegeEscalation
+                label: "Allow Privilege Escalation"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: runAsNonRoot
+                label: "runAsNonRoot"
+                schema:
+                  type: boolean
+                  default: false
+# Include{securityContextAdvanced}
+
+  - variable: podSecurityContext
+    group: "Security and Permissions"
+    label: "Pod Security Context"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: runAsUser
+          label: "runAsUser"
+          description: "The UserID of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: "runAsGroup"
+          description: The groupID this App of the user running the application"
+          schema:
+            type: int
+            default: 0
+        - variable: fsGroup
+          label: "fsGroup"
+          description: "The group that should own ALL storage."
+          schema:
+            type: int
+            default: 568
+# Include{podSecurityContextAdvanced}
+
+# Include{resources}
+
+# Include{advanced}
+
+# Include{addons}
