@@ -172,7 +172,7 @@ service:
 #          #     - bar.example.com
   metrics:
     enabled: true
-    type: LoadBalancer
+    type: ClusterIP
     ports:
       metrics:
         enabled: true
