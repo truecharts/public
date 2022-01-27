@@ -74,7 +74,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -83,16 +82,202 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+  # - variable: deployment
+  #   group: "Container Configuration"
+  #   label: "Deployment"
+  #   schema:
+  #     additional_attrs: true
+  #     type: dict
+  #     attrs:
+  #       - variable: N8N_HOST
+  #         label: "N8N_HOST"
+  #         description: "safsd"
+  #         schema:
+  #           type: string
+  #           default: ""
+  - variable: workflows
+    group: "Container Configuration"
+    label: "Workflows"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: WORKFLOWS_DEFAULT_NAME
+          label: "Workflows Default Name (Leave empty for default)"
+          description: "The default name used for new workflows"
+          schema:
+            type: string
+            default: ""
+  # - variable: executions
+  #   group: "Container Configuration"
+  #   label: "Executions"
+  #   schema:
+  #     additional_attrs: true
+  #     type: dict
+  #     attrs:
+  #       - variable: WORKFLOWS_DEFAULT_NAME
+  #         label: "Workflows Default Name (Leave empty for default)"
+  #         description: "The default name used for new workflows"
+  #         schema:
+  #           type: string
+  #           default: ""
+  - variable: security
+    group: "Container Configuration"
+    label: "Security"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: WORKFLOWS_DEFAULT_NAME
+          label: "Workflows Default Name (Leave empty for default)"
+          description: "The default name used for new workflows"
+          schema:
+            type: string
+            default: ""
+  - variable: endpoints
+    group: "Container Configuration"
+    label: "Endpoints"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: WEBHOOK_URL
+          label: "Webhook URL"
+          description: "Used to manually provide the Webhook URL when running n8n behind a reverse proxy"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_PAYLOAD_SIZE_MAX
+          label: "Max Payload Size (Leave empty for default)"
+          description: "The maximum payload size in MB"
           schema:
             type: int
-            default: 568
-
+        - variable: N8N_METRICS
+          label: "Enable Metrics endpoint"
+          description: "Whether to enable the metrics endpoint"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_METRICS_PREFIX
+          label: "Metrics Prefix (Leave empty for default)"
+          description: "Optional prefix to be used for metrics names"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_ENDPOINT_REST
+          label: "Rest Endpoint Path (Leave empty for default)"
+          description: "The path used for REST endpoint"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_ENDPOINT_WEBHOOK
+          label: "Webhook Endpoint Path (Leave empty for default)"
+          description: "The path used for webhook endpoint"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_ENDPOINT_WEBHOOK_TEST
+          label: "Test-Webhook Endpoint Path (Leave empty for default)"
+          description: "The path used for test-webhook endpoin"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_ENDPOINT_WEBHOOK_WAIT
+          label: "Waiting-Webhook Endpoint Path (Leave empty for default)"
+          description: "The path used for waiting-webhook endpoint"
+          schema:
+            type: string
+            default: ""
+        - variable: N8N_DISABLE_PRODUCTION_MAIN_PROCESS
+          label: "Disable Production Webhooks"
+          description: "Disable production webhooks from main process. This helps ensures no HTTP traffic load to main process when using webhook-specific processes"
+          schema:
+            type: boolean
+            default: false
+        - variable: N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN
+          label: "Deregister External Webhooks"
+          description: "Deregister webhooks on external services only when workflows are deactivated"
+          schema:
+            type: boolean
+            default: false
+  - variable: credentials
+    group: "Container Configuration"
+    label: "Credentials"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: CREDENTIALS_OVERWRITE_DATA
+          label: "Credentianls Overwrites"
+          description: "Overwrites for credentials"
+          schema:
+            type: string
+            default: "default"
+        - variable: CREDENTIALS_OVERWRITE_ENDPOINT
+          label: "Credentials Overwrite Endpoint"
+          description: "The API endpoint to fetch credentials"
+          schema:
+            type: string
+            default: ""
+        - variable: CREDENTIALS_DEFAULT_NAME
+          label: "Credentials Default Name (Leave empty for default)"
+          description: "The default name for credentials"
+          schema:
+            type: string
+            default: ""
+  - variable: logs
+    group: "Container Configuration"
+    label: "Logs"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: N8N_LOG_LEVEL
+          label: "Log Level"
+          description: "Log output level"
+          schema:
+            type: string
+            default: "default"
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "info"
+                description: "Info"
+              - value: "warn"
+                description: "Warn"
+              - value: "error"
+                description: "Error"
+              - value: "verbose"
+                description: "Verbose"
+              - value: "debug"
+                description: "Debug"
+        - variable: N8N_LOG_OUTPUT
+          label: "Log Output"
+          description: "Where to output logs"
+          schema:
+            type: string
+            default: "default"
+            enum:
+              - value: ""
+                description: "Default"
+              - value: "console"
+                description: "Console"
+              - value: "file"
+                description: "File"
+              - value: "console,file"
+                description: "Console and File"
+        - variable: N8N_LOG_FILE_COUNT_MAX
+          label: "Max Log File Count (Leave empty for default)"
+          description: "Max number of log files to keep"
+          schema:
+            type: int
+        - variable: N8N_LOG_FILE_SIZE_MAX
+          label: "Max Log File Size (Leave empty for default)"
+          description: "Max size of each log file in MB"
+          schema:
+            type: int
 
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -119,7 +304,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10047
+                              default: 5678
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -154,7 +339,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 5678
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -183,9 +368,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict
