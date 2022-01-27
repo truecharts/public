@@ -78,12 +78,12 @@ env:
   # N8N_JWT_NAMESPACE: ""
   # N8N_JWT_ALLOWED_TENANT: ""
   # N8N_JWT_ALLOWED_TENANT_KEY: ""
-# workflows: {}
+workflows: {}
   # WORKFLOWS_DEFAULT_NAME: "My workflow"
 
-# envFrom:
-#   - configMapRef:
-#       name: neightn-env
+envFrom:
+  - configMapRef:
+      name: n8n-config
 
 envValueFrom:
   DB_POSTGRESDB_HOST:
