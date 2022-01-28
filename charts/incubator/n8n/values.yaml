@@ -108,7 +108,7 @@ service:
         targetPort: 5678
 
 persistence:
-  config:
+  data:
     enabled: true
     mountPath: "/home/node/.n8n"
 
