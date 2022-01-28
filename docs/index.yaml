@@ -47156,6 +47156,43 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 3.6.8
+    created: "2022-01-28T22:59:32.400813161Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.58
+    description: Strapi is the leading open-source headless CMS. It’s 100% JavaScript,
+      fully customizable and developer-first.
+    digest: e24b3aaebbc0c9fbcb3151162568f3fd7a272c1a42500f854f184c60e80b2fbb
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/strapi
+    icon: https://truecharts.org/_static/img/appicons/strapi-icon.png
+    keywords:
+    - strapi
+    - cms
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: strapi
+    sources:
+    - https://hub.docker.com/r/strapi/strapi
+    - https://github.com/strapi/strapi
+    - https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/installation/docker.html#creating-a-strapi-project
+    urls:
+    - https://github.com/truecharts/apps/releases/download/strapi-0.0.3/strapi-0.0.3.tgz
+    version: 0.0.3
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.6.8
     created: "2022-01-28T13:00:59.808489363Z"
     dependencies:
     - name: common
@@ -53769,4 +53806,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-28T20:31:14.302082887Z"
+generated: "2022-01-28T22:59:32.404290201Z"
