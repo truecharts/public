@@ -401,13 +401,13 @@ questions:
       type: dict
       attrs:
         - variable: CREDENTIALS_OVERWRITE_DATA
-          label: "Credentianls Overwrites"
+          label: "Credentianls Overwrites (Leave empty for default)"
           description: "Overwrites for credentials"
           schema:
             type: string
-            default: "default"
+            default: ""
         - variable: CREDENTIALS_OVERWRITE_ENDPOINT
-          label: "Credentials Overwrite Endpoint"
+          label: "Credentials Overwrite Endpoint (Leave empty for default)"
           description: "The API endpoint to fetch credentials"
           schema:
             type: string
@@ -430,7 +430,7 @@ questions:
           description: "Log output level"
           schema:
             type: string
-            default: "default"
+            default: "Default"
             enum:
               - value: ""
                 description: "Default"
@@ -449,7 +449,7 @@ questions:
           description: "Where to output logs"
           schema:
             type: string
-            default: "default"
+            default: "Default"
             enum:
               - value: ""
                 description: "Default"
