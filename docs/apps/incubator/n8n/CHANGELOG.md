@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="n8n-0.0.2"></a>
+### [n8n-0.0.2](https://github.com/truecharts/apps/compare/n8n-0.0.1...n8n-0.0.2) (2022-01-28)
+
+#### Fix
+
+* quote values on configmap ([#1802](https://github.com/truecharts/apps/issues/1802))
+
+
+
 <a name="n8n-0.0.1"></a>
 ### n8n-0.0.1 (2022-01-27)
 
