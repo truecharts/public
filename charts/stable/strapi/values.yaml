@@ -17,6 +17,7 @@ env:
   DATABASE_PORT: 5432
   DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DATABASE_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  NODE_ENV: "production"
   EXTRA_ARGS: ""
 
 envValueFrom:
