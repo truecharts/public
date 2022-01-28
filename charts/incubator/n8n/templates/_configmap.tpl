@@ -108,7 +108,7 @@ data:
   N8N_PAYLOAD_SIZE_MAX: {{ .Values.endpoints.N8N_PAYLOAD_SIZE_MAX | quote }}
   {{- end }}
   {{- if .Values.endpoints.N8N_METRICS }}
-  N8N_METRICS: {{ .Values.endpoints.N8N_METRICS }}
+  N8N_METRICS: {{ .Values.endpoints.N8N_METRICS | quote }}
   {{- end }}
   {{- if .Values.endpoints.N8N_METRICS_PREFIX }}
   N8N_METRICS_PREFIX: {{ .Values.endpoints.N8N_METRICS_PREFIX | quote }}
