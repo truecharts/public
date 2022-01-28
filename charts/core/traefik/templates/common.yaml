@@ -5,7 +5,7 @@
 {{- if .Values.metrics.prometheus }}
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "9100" -}}
+{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "9180" -}}
 {{- end }}
 {{- end }}
 
