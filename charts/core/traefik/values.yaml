@@ -31,7 +31,7 @@ ingressRoute:
 podAnnotations:
   prometheus.io/scrape: "true"
   prometheus.io/path: "/metrics"
-  prometheus.io/port: "9100"
+  prometheus.io/port: "9180"
 
 #
 # -- Configure providers
@@ -181,8 +181,8 @@ service:
     ports:
       metrics:
         enabled: true
-        port: 9100
-        targetPort: 9100
+        port: 9180
+        targetPort: 9180
         protocol: HTTP
   udp:
     enabled: false
