@@ -91,9 +91,20 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
+        - variable: NODE_ENV
+          label: "Node Environment"
+          description: "Sets Node's Environment"
+          schema:
+            type: string
+            default: "production"
+            enum:
+              - value: "production"
+                description: "Production"
+              - value: "develop"
+                description: "Development"
         - variable: EXTRA_ARGS
           label: "Extra Args (Leave empty for default)"
-          description: "pass extra args to the strapi new"
+          description: "Pass extra args to the strapi new"
           schema:
             type: string
             default: ""
