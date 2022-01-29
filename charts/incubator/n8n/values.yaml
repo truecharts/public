@@ -9,7 +9,7 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 0
-  runAsGroup: 0
+  fsGroup: 1000
 
 env:
   TZ: UTC
@@ -19,6 +19,7 @@ env:
   DB_POSTGRESDB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_POSTGRESDB_PORT: 5432
   QUEUE_BULL_REDIS_PORT: 6379
+  N8N_USER_FOLDER: "/data"
 
 credentials: {}
   # CREDENTIALS_OVERWRITE_DATA: ""
@@ -110,7 +111,7 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: "/home/node/.n8n"
+    mountPath: "/data"
 
 # Enabled redis
 redis:
