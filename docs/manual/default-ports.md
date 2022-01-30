@@ -308,6 +308,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | airdcpp-webclient          |      main       |      main       | 10155 |   HTTP   |                                         |
 | trilium-notes              |      main       |      main       | 10156 |   HTTP   |                                         |
 | unmanic                    |      main       |      main       | 10157 |   TCP    |                                         |
+| weblate                    |      main       |      main       | 10158 |   TCP    |                                         |
 | hyperion-ng                | boblightservice | boblightservice | 19333 |   TCP    |                                         |
 | hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |   TCP    |                                         |
 | hyperion-ng                | protobufservice | protobufservice | 19445 |   TCP    |                                         |
