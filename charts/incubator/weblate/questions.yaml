@@ -128,7 +128,7 @@ questions:
               private: true
               default: ""
           - variable: WEBLATE_ENABLE_HTTPS
-            label: "WEBLATE_ENABLE_HTTPS (Leave empty for default)"
+            label: "WEBLATE_ENABLE_HTTPS"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
@@ -196,7 +196,7 @@ questions:
               type: string
               default: ""
           - variable: WEBLATE_REGISTRATION_OPEN
-            label: "WEBLATE_REGISTRATION_OPEN (Leave empty for default)"
+            label: "WEBLATE_REGISTRATION_OPEN"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
@@ -208,7 +208,7 @@ questions:
               type: string
               default: ""
           - variable: WEBLATE_REQUIRE_LOGIN
-            label: "WEBLATE_REQUIRE_LOGIN (Leave empty for default)"
+            label: "WEBLATE_REQUIRE_LOGIN"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
@@ -277,7 +277,7 @@ questions:
               private: true
               default: ""
           - variable: WEBLATE_SIMPLIFY_LANGUAGES
-            label: "WEBLATE_SIMPLIFY_LANGUAGES (Leave empty for default)"
+            label: "WEBLATE_SIMPLIFY_LANGUAGES"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
@@ -289,13 +289,13 @@ questions:
               type: string
               default: ""
           - variable: WEBLATE_DEFAULT_RESTRICTED_COMPONENT
-            label: "WEBLATE_DEFAULT_RESTRICTED_COMPONENT (Leave empty for default)"
+            label: "WEBLATE_DEFAULT_RESTRICTED_COMPONENT"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
               default: false
           - variable: WEBLATE_DEFAULT_TRANSLATION_PROPAGATION
-            label: "WEBLATE_DEFAULT_TRANSLATION_PROPAGATION (Leave empty for default)"
+            label: "WEBLATE_DEFAULT_TRANSLATION_PROPAGATION"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
@@ -313,7 +313,7 @@ questions:
               type: string
               default: ""
           - variable: WEBLATE_DEFAULT_SHARED_TM
-            label: "WEBLATE_DEFAULT_SHARED_TM (Leave empty for default)"
+            label: "WEBLATE_DEFAULT_SHARED_TM"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
@@ -379,19 +379,19 @@ questions:
               type: string
               default: ""
           - variable: WEBLATE_LICENSE_REQUIRED
-            label: "WEBLATE_LICENSE_REQUIRED (Leave empty for default)"
+            label: "WEBLATE_LICENSE_REQUIRED"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
               default: false
           - variable: WEBLATE_WEBSITE_REQUIRED
-            label: "WEBLATE_WEBSITE_REQUIRED (Leave empty for default)"
+            label: "WEBLATE_WEBSITE_REQUIRED"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
               default: true
           - variable: WEBLATE_HIDE_VERSION
-            label: "WEBLATE_HIDE_VERSION (Leave empty for default)"
+            label: "WEBLATE_HIDE_VERSION"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
@@ -403,7 +403,7 @@ questions:
               type: string
               default: ""
           - variable: WEBLATE_DEFAULT_AUTO_WATCH
-            label: "WEBLATE_DEFAULT_AUTO_WATCH (Leave empty for default)"
+            label: "WEBLATE_DEFAULT_AUTO_WATCH"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
@@ -427,13 +427,13 @@ questions:
               type: string
               default: ""
           - variable: WEBLATE_ENABLE_AVATARS
-            label: "WEBLATE_ENABLE_AVATARS (Leave empty for default)"
+            label: "WEBLATE_ENABLE_AVATARS"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
               default: true
           - variable: WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH
-            label: "WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH (Leave empty for default)"
+            label: "WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
@@ -464,7 +464,7 @@ questions:
                 - value: "none"
                   description: "none"
           - variable: WEBLATE_DEBUG
-            label: "WEBLATE_DEBUG (Leave empty for default)"
+            label: "WEBLATE_DEBUG"
             description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
             schema:
               type: boolean
@@ -699,7 +699,7 @@ questions:
                           private: true
                           default: ""
                       - variable: WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS
-                        label: "WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS (Leave empty for default)"
+                        label: "WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: boolean
@@ -995,19 +995,19 @@ questions:
                     show_subquestions_if: true
                     subquestions:
                       - variable: WEBLATE_SOCIAL_AUTH_FEDORA
-                        label: "WEBLATE_SOCIAL_AUTH_FEDORA (Leave empty for default)"
+                        label: "WEBLATE_SOCIAL_AUTH_FEDORA"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: boolean
                           default: false
                       - variable: WEBLATE_SOCIAL_AUTH_OPENSUSE
-                        label: "WEBLATE_SOCIAL_AUTH_OPENSUSE (Leave empty for default)"
+                        label: "WEBLATE_SOCIAL_AUTH_OPENSUSE)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: boolean
                           default: false
                       - variable: WEBLATE_SOCIAL_AUTH_UBUNTU
-                        label: "WEBLATE_SOCIAL_AUTH_UBUNTU (Leave empty for default)"
+                        label: "WEBLATE_SOCIAL_AUTH_UBUNTU"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: boolean
