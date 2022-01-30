@@ -52467,6 +52467,48 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/webgrabplus-0.0.1/webgrabplus-0.0.1.tgz
     version: 0.0.1
+  weblate:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.10.1
+    created: "2022-01-30T18:24:43.069461449Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.58
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.63
+    description: Weblate is a copylefted libre software web-based continuous localization
+      system
+    digest: c887d370a7185b1d7a5e069f689df510b79a3276be90a8c36d5b3cbffe5b28ac
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/weblate
+    icon: https://truecharts.org/_static/img/appicons/weblate-icon.png
+    keywords:
+    - translate
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: weblate
+    sources:
+    - https://github.com/WeblateOrg/weblate
+    - https://github.com/WeblateOrg/docker
+    - https://github.com/WeblateOrg/docker-compose
+    - https://docs.weblate.org/en/latest/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/weblate-0.0.1/weblate-0.0.1.tgz
+    version: 0.0.1
   whoogle:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -53877,4 +53919,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-30T13:02:50.474266425Z"
+generated: "2022-01-30T18:24:43.073146475Z"

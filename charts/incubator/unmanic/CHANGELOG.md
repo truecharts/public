@@ -7,4 +7,3 @@
 #### Fix
 
 * Fix permissions and add healthcheck path ([#1809](https://github.com/truecharts/apps/issues/1809))
-
