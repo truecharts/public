@@ -38,17 +38,17 @@ data:
   WEBLATE_ALLOWED_HOSTS: {{ .Values.weblate.general.WEBLATE_ALLOWED_HOSTS | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_REGISTRATION_OPEN }}
-  WEBLATE_REGISTRATION_OPEN: true
+  WEBLATE_REGISTRATION_OPEN: "true"
   {{- else }}
-  WEBLATE_REGISTRATION_OPEN: false
+  WEBLATE_REGISTRATION_OPEN: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_REGISTRATION_ALLOW_BACKENDS }}
   WEBLATE_REGISTRATION_ALLOW_BACKENDS: {{ .Values.weblate.general.WEBLATE_REGISTRATION_ALLOW_BACKENDS | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_ENABLE_HTTPS }}
-  WEBLATE_ENABLE_HTTPS: true
+  WEBLATE_ENABLE_HTTPS: "true"
   {{- else }}
-  WEBLATE_ENABLE_HTTPS: false
+  WEBLATE_ENABLE_HTTPS: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_IP_PROXY_HEADER }}
   WEBLATE_IP_PROXY_HEADER: {{ .Values.weblate.general.WEBLATE_IP_PROXY_HEADER | quote }}
@@ -57,9 +57,9 @@ data:
   WEBLATE_SECURE_PROXY_SSL_HEADER: {{ .Values.weblate.general.WEBLATE_SECURE_PROXY_SSL_HEADER | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_REQUIRE_LOGIN }}
-  WEBLATE_REQUIRE_LOGIN: true
+  WEBLATE_REQUIRE_LOGIN: "true"
   {{- else }}
-  WEBLATE_REQUIRE_LOGIN: false
+  WEBLATE_REQUIRE_LOGIN: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_LOGIN_REQUIRED_URLS_EXCEPTIONS }}
   WEBLATE_LOGIN_REQUIRED_URLS_EXCEPTIONS: {{ .Values.weblate.general.WEBLATE_LOGIN_REQUIRED_URLS_EXCEPTIONS | quote }}
@@ -92,22 +92,22 @@ data:
   WEBLATE_PAGURE_TOKEN: {{ .Values.weblate.general.WEBLATE_PAGURE_TOKEN | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_SIMPLIFY_LANGUAGES }}
-  WEBLATE_SIMPLIFY_LANGUAGES: true
+  WEBLATE_SIMPLIFY_LANGUAGES: "true"
   {{- else }}
-  WEBLATE_SIMPLIFY_LANGUAGES: false
+  WEBLATE_SIMPLIFY_LANGUAGES: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_DEFAULT_ACCESS_CONTROL }}
   WEBLATE_DEFAULT_ACCESS_CONTROL: {{ .Values.weblate.general.WEBLATE_DEFAULT_ACCESS_CONTROL | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_DEFAULT_RESTRICTED_COMPONENT }}
-  WEBLATE_DEFAULT_RESTRICTED_COMPONENT: true
+  WEBLATE_DEFAULT_RESTRICTED_COMPONENT: "true"
   {{- else }}
-  WEBLATE_DEFAULT_RESTRICTED_COMPONENT: false
+  WEBLATE_DEFAULT_RESTRICTED_COMPONENT: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_DEFAULT_TRANSLATION_PROPAGATION }}
-  WEBLATE_DEFAULT_TRANSLATION_PROPAGATION: true
+  WEBLATE_DEFAULT_TRANSLATION_PROPAGATION: "true"
   {{- else }}
-  WEBLATE_DEFAULT_TRANSLATION_PROPAGATION: false
+  WEBLATE_DEFAULT_TRANSLATION_PROPAGATION: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_DEFAULT_COMMITER_EMAIL }}
   WEBLATE_DEFAULT_COMMITER_EMAIL: {{ .Values.weblate.general.WEBLATE_DEFAULT_COMMITER_EMAIL | quote }}
@@ -116,9 +116,9 @@ data:
   WEBLATE_DEFAULT_COMMITER_NAME: {{ .Values.weblate.general.WEBLATE_DEFAULT_COMMITER_NAME | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_DEFAULT_SHARED_TM }}
-  WEBLATE_DEFAULT_SHARED_TM: true
+  WEBLATE_DEFAULT_SHARED_TM: "true"
   {{- else }}
-  WEBLATE_DEFAULT_SHARED_TM: false
+  WEBLATE_DEFAULT_SHARED_TM: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_AKISMET_API_KEY }}
   WEBLATE_AKISMET_API_KEY: {{ .Values.weblate.general.WEBLATE_AKISMET_API_KEY | quote }}
@@ -151,27 +151,27 @@ data:
   WEBLATE_LICENSE_FILTER: {{ .Values.weblate.general.WEBLATE_LICENSE_FILTER | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_LICENSE_REQUIRED }}
-  WEBLATE_LICENSE_REQUIRED: true
+  WEBLATE_LICENSE_REQUIRED: "true"
   {{- else }}
-  WEBLATE_LICENSE_REQUIRED: false
+  WEBLATE_LICENSE_REQUIRED: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_WEBSITE_REQUIRED }}
-  WEBLATE_WEBSITE_REQUIRED: true
+  WEBLATE_WEBSITE_REQUIRED: "true"
   {{- else }}
-  WEBLATE_WEBSITE_REQUIRED: false
+  WEBLATE_WEBSITE_REQUIRED: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_HIDE_VERSION }}
-  WEBLATE_HIDE_VERSION: true
+  WEBLATE_HIDE_VERSION: "true"
   {{- else }}
-  WEBLATE_HIDE_VERSION: false
+  WEBLATE_HIDE_VERSION: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_BASIC_LANGUAGES }}
   WEBLATE_BASIC_LANGUAGES: {{ .Values.weblate.general.WEBLATE_BASIC_LANGUAGES | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_DEFAULT_AUTO_WATCH }}
-  WEBLATE_DEFAULT_AUTO_WATCH: true
+  WEBLATE_DEFAULT_AUTO_WATCH: "true"
   {{- else }}
-  WEBLATE_DEFAULT_AUTO_WATCH: false
+  WEBLATE_DEFAULT_AUTO_WATCH: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_RATELIMIT_ATTEMPTS }}
   WEBLATE_RATELIMIT_ATTEMPTS: {{ .Values.weblate.general.WEBLATE_RATELIMIT_ATTEMPTS | quote }}
@@ -183,14 +183,14 @@ data:
   WEBLATE_RATELIMIT_WINDOW: {{ .Values.weblate.general.WEBLATE_RATELIMIT_WINDOW | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_ENABLE_AVATARS }}
-  WEBLATE_ENABLE_AVATARS: true
+  WEBLATE_ENABLE_AVATARS: "true"
   {{- else }}
-  WEBLATE_ENABLE_AVATARS: false
+  WEBLATE_ENABLE_AVATARS: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH }}
-  WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH: true
+  WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH: "true"
   {{- else }}
-  WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH: false
+  WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_SSH_EXTRA_ARGS }}
   WEBLATE_SSH_EXTRA_ARGS: {{ .Values.weblate.general.WEBLATE_SSH_EXTRA_ARGS | quote }}
@@ -202,9 +202,9 @@ data:
   WEBLATE_DATABASE_BACKUP: {{ .Values.weblate.general.WEBLATE_DATABASE_BACKUP | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_DEBUG }}
-  WEBLATE_DEBUG: true
+  WEBLATE_DEBUG: "true"
   {{- else }}
-  WEBLATE_DEBUG: false
+  WEBLATE_DEBUG: "false"
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_LOGLEVEL }}
   WEBLATE_LOGLEVEL: {{ .Values.weblate.general.WEBLATE_LOGLEVEL | quote }}
@@ -262,19 +262,19 @@ data:
   WEBLATE_MT_MODERNMT_KEY: {{ .Values.weblate.machinetranslate.WEBLATE_MT_MODERNMT_KEY | quote }}
   {{- end }}
   {{- if .Values.weblate.machinetranslate.WEBLATE_MT_MYMEMORY_ENABLED }}
-  WEBLATE_MT_MYMEMORY_ENABLED: true
+  WEBLATE_MT_MYMEMORY_ENABLED: "true"
   {{- else }}
-  WEBLATE_MT_MYMEMORY_ENABLED: false
+  WEBLATE_MT_MYMEMORY_ENABLED: "false"
   {{- end }}
   {{- if .Values.weblate.machinetranslate.WEBLATE_MT_GLOSBE_ENABLED }}
-  WEBLATE_MT_GLOSBE_ENABLED: true
+  WEBLATE_MT_GLOSBE_ENABLED: "true"
   {{- else }}
-  WEBLATE_MT_GLOSBE_ENABLED: false
+  WEBLATE_MT_GLOSBE_ENABLED: "false"
   {{- end }}
   {{- if .Values.weblate.machinetranslate.WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED }}
-  WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED: true
+  WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED: "true"
   {{- else }}
-  WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED: false
+  WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED: "false"
   {{- end }}
   {{- if .Values.weblate.machinetranslate.WEBLATE_MT_SAP_BASE_URL }}
   WEBLATE_MT_SAP_BASE_URL: {{ .Values.weblate.machinetranslate.WEBLATE_MT_SAP_BASE_URL | quote }}
@@ -289,9 +289,9 @@ data:
   WEBLATE_MT_SAP_PASSWORD: {{ .Values.weblate.machinetranslate.WEBLATE_MT_SAP_PASSWORD | quote }}
   {{- end }}
   {{- if .Values.weblate.machinetranslate.WEBLATE_MT_SAP_USE_MT }}
-  WEBLATE_MT_SAP_USE_MT: true
+  WEBLATE_MT_SAP_USE_MT: "true"
   {{- else }}
-  WEBLATE_MT_SAP_USE_MT: false
+  WEBLATE_MT_SAP_USE_MT: "false"
   {{- end }}
   {{/* Authentication */}}
   {{/* LDAP */}}
@@ -311,9 +311,9 @@ data:
   WEBLATE_AUTH_LDAP_BIND_PASSWORD: {{ .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_BIND_PASSWORD | quote }}
   {{- end }}
   {{- if .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS }}
-  WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS: true
+  WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS: "true"
   {{- else }}
-  WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS: false
+  WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS: "false"
   {{- end }}
   {{- if .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_USER_SEARCH }}
   WEBLATE_AUTH_LDAP_USER_SEARCH: {{ .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_USER_SEARCH | quote }}
@@ -427,13 +427,13 @@ data:
   {{- end }}
   {{/* Linux vendors */}}
   {{- if .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_FEDORA }}
-  WEBLATE_SOCIAL_AUTH_FEDORA: true
+  WEBLATE_SOCIAL_AUTH_FEDORA: "true"
   {{- end }}
   {{- if .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_OPENSUSE }}
-  WEBLATE_SOCIAL_AUTH_OPENSUSE: true
+  WEBLATE_SOCIAL_AUTH_OPENSUSE: "true"
   {{- end }}
   {{- if .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_UBUNTU }}
-  WEBLATE_SOCIAL_AUTH_UBUNTU: true
+  WEBLATE_SOCIAL_AUTH_UBUNTU: "true"
   {{- end }}
   {{/* Slack */}}
   {{- if .Values.weblate.auth.slack.WEBLATE_SOCIAL_AUTH_SLACK_KEY }}
@@ -466,14 +466,14 @@ data:
   WEBLATE_EMAIL_HOST_PASSWORD: {{ .Values.weblate.email.WEBLATE_EMAIL_HOST_PASSWORD | quote }}
   {{- end }}
   {{- if .Values.weblate.email.WEBLATE_EMAIL_USE_SSL }}
-  WEBLATE_EMAIL_USE_SSL: true
+  WEBLATE_EMAIL_USE_SSL: "true"
   {{- else }}
-  WEBLATE_EMAIL_USE_SSL: false
+  WEBLATE_EMAIL_USE_SSL: "false"
   {{- end }}
   {{- if .Values.weblate.email.WEBLATE_EMAIL_USE_TLS }}
-  WEBLATE_EMAIL_USE_TLS: true
+  WEBLATE_EMAIL_USE_TLS: "true"
   {{- else }}
-  WEBLATE_EMAIL_USE_TLS: false
+  WEBLATE_EMAIL_USE_TLS: "false"
   {{- end }}
   {{- if .Values.weblate.email.WEBLATE_EMAIL_BACKEND }}
   WEBLATE_EMAIL_BACKEND: {{ .Values.weblate.email.WEBLATE_EMAIL_BACKEND | quote }}
