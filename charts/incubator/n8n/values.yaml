@@ -9,7 +9,7 @@ securityContext:
 
 podSecurityContext:
   runAsUser: 0
-  runAsGroup: 0
+  fsGroup: 1000
 
 env:
   TZ: UTC
@@ -20,6 +20,14 @@ env:
   DB_POSTGRESDB_PORT: 5432
   QUEUE_BULL_REDIS_PORT: 6379
   N8N_USER_FOLDER: "/data"
+
+probes:
+  liveness:
+    path: "/healthz"
+  readiness:
+    path: "/healthz"
+  startup:
+    path: "/healthz"
 
 credentials: {}
   # CREDENTIALS_OVERWRITE_DATA: ""
@@ -109,9 +117,6 @@ service:
         targetPort: 5678
 
 persistence:
-  config:
-    enabled: true
-    mountPath: "/home/node/.n8n"
   data:
     enabled: true
     mountPath: "/data"
