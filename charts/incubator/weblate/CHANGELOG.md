@@ -7,4 +7,3 @@
 #### Feat
 
 * Add weblate ([#1812](https://github.com/truecharts/apps/issues/1812))
-
