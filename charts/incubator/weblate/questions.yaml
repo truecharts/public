@@ -225,19 +225,19 @@ questions:
                     private: true
                     default: ""
                 - variable: WEBLATE_MT_MYMEMORY_ENABLED
-                  label: "WEBLATE_MT_MYMEMORY_ENABLED (Leave empty for default)"
+                  label: "WEBLATE_MT_MYMEMORY_ENABLED"
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                   schema:
                     type: boolean
                     default: false
                 - variable: WEBLATE_MT_GLOSBE_ENABLED
-                  label: "WEBLATE_MT_GLOSBE_ENABLED (Leave empty for default)"
+                  label: "WEBLATE_MT_GLOSBE_ENABLED"
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                   schema:
                     type: boolean
                     default: false
                 - variable: WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED
-                  label: "WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED (Leave empty for default)"
+                  label: "WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED"
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                   schema:
                     type: boolean
@@ -268,7 +268,7 @@ questions:
                     private: true
                     default: ""
                 - variable: WEBLATE_MT_SAP_USE_MT
-                  label: "WEBLATE_MT_SAP_USE_MT (Leave empty for default)"
+                  label: "WEBLATE_MT_SAP_USE_MT"
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                   schema:
                     type: boolean
@@ -322,6 +322,7 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS
                         label: "WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS (Leave empty for default)"
@@ -365,24 +366,28 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_GITHUB_SECRET
                         label: "WEBLATE_SOCIAL_AUTH_GITHUB_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_GITHUB_ORG_KEY
                         label: "WEBLATE_SOCIAL_AUTH_GITHUB_ORG_KEY (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_GITHUB_ORG_SECRET
                         label: "WEBLATE_SOCIAL_AUTH_GITHUB_ORG_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_GITHUB_ORG_NAME
                         label: "WEBLATE_SOCIAL_AUTH_GITHUB_ORG_NAME (Leave empty for default)"
@@ -395,18 +400,21 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_GITHUB_TEAM_SECRET
                         label: "WEBLATE_SOCIAL_AUTH_GITHUB_TEAM_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_GITHUB_TEAM_ID
                         label: "WEBLATE_SOCIAL_AUTH_GITHUB_TEAM_ID (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                 - variable: enabledbitbucket
                   label: "Show Bitbucket Authentication Settings"
@@ -420,12 +428,14 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_BITBUCKET_SECRET
                         label: "WEBLATE_SOCIAL_AUTH_BITBUCKET_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                 - variable: enabledfacebook
                   label: "Show Facebook Authentication Settings"
@@ -439,12 +449,14 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_FACEBOOK_SECRET
                         label: "WEBLATE_SOCIAL_AUTH_FACEBOOK_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                 - variable: enabledgoogle
                   label: "Show Google Authentication Settings"
@@ -458,12 +470,14 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
                         label: "WEBLATE_SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS
                         label: "WEBLATE_SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS (Leave empty for default)"
@@ -489,12 +503,14 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_GITLAB_SECRET
                         label: "WEBLATE_SOCIAL_AUTH_GITLAB_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_GITLAB_API_URL
                         label: "WEBLATE_SOCIAL_AUTH_GITLAB_API_URL (Leave empty for default)"
@@ -514,12 +530,14 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_AZUREAD_OAUTH2_SECRET
                         label: "WEBLATE_SOCIAL_AUTH_AZUREAD_OAUTH2_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                 - variable: enabledazuretenant
                   label: "Show Azure AD with Tenant Authentication Settings"
@@ -533,18 +551,21 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_SECRET
                         label: "WEBLATE_SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_TENANT_ID
                         label: "WEBLATE_SOCIAL_AUTH_AZUREAD_TENANT_OAUTH2_TENANT_ID (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                 - variable: enabledkeycloak
                   label: "Show Keycloak Authentication Settings"
@@ -558,18 +579,21 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_KEYCLOAK_SECRET
                         label: "WEBLATE_SOCIAL_AUTH_KEYCLOAK_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_KEYCLOAK_PUBLIC_KEY
                         label: "WEBLATE_SOCIAL_AUTH_KEYCLOAK_PUBLIC_KEY (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SOCIAL_AUTH_KEYCLOAK_ALGORITHM
                         label: "WEBLATE_SOCIAL_AUTH_KEYCLOAK_ALGORITHM (Leave empty for default)"
@@ -626,12 +650,14 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: SOCIAL_AUTH_SLACK_SECRET
                         label: "SOCIAL_AUTH_SLACK_SECRET (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                 - variable: enabledsaml
                   label: "Show SAML Authentication Settings"
@@ -645,6 +671,7 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                       - variable: WEBLATE_SAML_IDP_URL
                         label: "WEBLATE_SAML_IDP_URL (Leave empty for default)"
@@ -657,6 +684,7 @@ questions:
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
                           type: string
+                          private: true
                           default: ""
                 - variable: enabledother
                   label: "Show Other Authentication Settings"
@@ -707,19 +735,20 @@ questions:
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                   schema:
                     type: string
+                    private: true
                     default: ""
                 - variable: WEBLATE_EMAIL_USE_SSL
-                  label: "WEBLATE_EMAIL_USE_SSL (Leave empty for default)"
+                  label: "WEBLATE_EMAIL_USE_SSL"
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                   schema:
-                    type: string
-                    default: ""
+                    type: boolean
+                    default: false
                 - variable: WEBLATE_EMAIL_USE_TLS
-                  label: "WEBLATE_EMAIL_USE_TLS (Leave empty for default)"
+                  label: "WEBLATE_EMAIL_USE_TLS"
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                   schema:
-                    type: string
-                    default: ""
+                    type: boolean
+                    default: false
                 - variable: WEBLATE_EMAIL_BACKEND
                   label: "WEBLATE_EMAIL_BACKEND (Leave empty for default)"
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
@@ -787,6 +816,7 @@ questions:
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                   schema:
                     type: string
+                    private: true
                     default: ""
                 - variable: ROLLBAR_ENVIRONMENT
                   label: "ROLLBAR_ENVIRONMENT (Leave empty for default)"
