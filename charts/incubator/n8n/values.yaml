@@ -21,6 +21,14 @@ env:
   QUEUE_BULL_REDIS_PORT: 6379
   N8N_USER_FOLDER: "/data"
 
+probes:
+  liveness:
+    path: "/healthz"
+  readiness:
+    path: "/healthz"
+  startup:
+    path: "/healthz"
+
 credentials: {}
   # CREDENTIALS_OVERWRITE_DATA: ""
   # CREDENTIALS_OVERWRITE_ENDPOINT: ""
