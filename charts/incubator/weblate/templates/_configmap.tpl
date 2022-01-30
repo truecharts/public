@@ -310,7 +310,7 @@ data:
   {{- if .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_BIND_PASSWORD }}
   WEBLATE_AUTH_LDAP_BIND_PASSWORD: {{ .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_BIND_PASSWORD | quote }}
   {{- end }}
-  {{- if .Values.weblate.ldap.WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS }}
+  {{- if .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS }}
   WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS: true
   {{- else }}
   WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS: false
