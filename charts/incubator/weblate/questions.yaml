@@ -89,19 +89,392 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-      # - variable: general
-      #   label: "General Configuration"
-      #   schema:
-      #     additional_attrs: true
-      #     type: dict
-      #     attrs:
-            # - variable: GUACD_HOSTNAME
-            #   label: "Guacd Hostname"
-            #   description: "The hostname of the guacd instance to use to establish remote desktop connections"
-            #   schema:
-            #     type: string
-            #     required: true
-            #     default: ""
+      - variable: general
+        label: "General Configuration"
+        schema:
+          additional_attrs: true
+          type: dict
+          attrs:
+          - variable: WEBLATE_SITE_DOMAIN
+            label: "WEBLATE_SITE_DOMAIN"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              required: true
+              default: ""
+          - variable: WEBLATE_SITE_TITLE
+            label: "WEBLATE_SITE_TITLE (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_ADMIN_NAME
+            label: "WEBLATE_ADMIN_NAME (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_ADMIN_EMAIL
+            label: "WEBLATE_ADMIN_EMAIL (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_ADMIN_PASSWORD
+            label: "WEBLATE_ADMIN_PASSWORD (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              private: true
+              default: ""
+          - variable: WEBLATE_ENABLE_HTTPS
+            label: "WEBLATE_ENABLE_HTTPS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: false
+          - variable: WEBLATE_IP_PROXY_HEADER
+            label: "WEBLATE_IP_PROXY_HEADER (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_SECURE_PROXY_SSL_HEADER
+            label: "WEBLATE_SECURE_PROXY_SSL_HEADER (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_AUTO_UPDATE
+            label: "WEBLATE_AUTO_UPDATE (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+              enum:
+                - value: ""
+                  description: "none"
+                - value: "remote"
+                  description: "remote"
+                - value: "full"
+                  description: "full"
+          - variable: WEBLATE_SERVER_EMAIL
+            label: "WEBLATE_SERVER_EMAIL (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_SERVER_EMAIL
+            label: "WEBLATE_SERVER_EMAIL (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_DEFAULT_FROM_EMAIL
+            label: "WEBLATE_DEFAULT_FROM_EMAIL (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_CONTACT_FORM
+            label: "WEBLATE_CONTACT_FORM (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+              enum:
+                - value: ""
+                  description: "Default"
+                - value: "reply-to"
+                  description: "reply-to"
+                - value: "from"
+                  description: "from"
+          - variable: WEBLATE_ALLOWED_HOSTS
+            label: "WEBLATE_ALLOWED_HOSTS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_REGISTRATION_OPEN
+            label: "WEBLATE_REGISTRATION_OPEN (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: true
+          - variable: WEBLATE_REGISTRATION_ALLOW_BACKENDS
+            label: "WEBLATE_REGISTRATION_ALLOW_BACKENDS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_REQUIRE_LOGIN
+            label: "WEBLATE_REQUIRE_LOGIN (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: false
+          - variable: WEBLATE_LOGIN_REQUIRED_URLS_EXCEPTIONS
+            label: "WEBLATE_LOGIN_REQUIRED_URLS_EXCEPTIONS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_ADD_LOGIN_REQUIRED_URLS_EXCEPTIONS
+            label: "WEBLATE_ADD_LOGIN_REQUIRED_URLS_EXCEPTIONS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_REMOVE_LOGIN_REQUIRED_URLS_EXCEPTIONS
+            label: "WEBLATE_REMOVE_LOGIN_REQUIRED_URLS_EXCEPTIONS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_GOOGLE_ANALYTICS_ID
+            label: "WEBLATE_GOOGLE_ANALYTICS_ID (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_GITHUB_USERNAME
+            label: "WEBLATE_GITHUB_USERNAME (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_GITHUB_TOKEN
+            label: "WEBLATE_GITHUB_TOKEN (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              private: true
+              default: ""
+          - variable: WEBLATE_GITLAB_USERNAME
+            label: "WEBLATE_GITLAB_USERNAME (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_GITLAB_TOKEN
+            label: "WEBLATE_GITLAB_TOKEN (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              private: true
+              default: ""
+          - variable: WEBLATE_PAGURE_USERNAME
+            label: "WEBLATE_PAGURE_USERNAME (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_PAGURE_TOKEN
+            label: "WEBLATE_PAGURE_TOKEN (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              private: true
+              default: ""
+          - variable: WEBLATE_SIMPLIFY_LANGUAGES
+            label: "WEBLATE_SIMPLIFY_LANGUAGES (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: true
+          - variable: WEBLATE_DEFAULT_ACCESS_CONTROL
+            label: "WEBLATE_DEFAULT_ACCESS_CONTROL (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_DEFAULT_RESTRICTED_COMPONENT
+            label: "WEBLATE_DEFAULT_RESTRICTED_COMPONENT (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: false
+          - variable: WEBLATE_DEFAULT_TRANSLATION_PROPAGATION
+            label: "WEBLATE_DEFAULT_TRANSLATION_PROPAGATION (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: true
+          - variable: WEBLATE_DEFAULT_COMMITER_EMAIL
+            label: "WEBLATE_DEFAULT_COMMITER_EMAIL (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_DEFAULT_COMMITER_NAME
+            label: "WEBLATE_DEFAULT_COMMITER_NAME (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_DEFAULT_SHARED_TM
+            label: "WEBLATE_DEFAULT_SHARED_TM (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: true
+          - variable: WEBLATE_AKISMET_API_KEY
+            label: "WEBLATE_AKISMET_API_KEY (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_GPG_IDENTITY
+            label: "WEBLATE_GPG_IDENTITY (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_URL_PREFIX
+            label: "WEBLATE_URL_PREFIX (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_SILENCED_SYSTEM_CHECKS
+            label: "WEBLATE_SILENCED_SYSTEM_CHECKS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_CSP_SCRIPT_SRC
+            label: "WEBLATE_CSP_SCRIPT_SRC (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_CSP_IMG_SRC
+            label: "WEBLATE_CSP_IMG_SRC (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_CSP_CONNECT_SRC
+            label: "WEBLATE_CSP_CONNECT_SRC (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_CSP_STYLE_SRC
+            label: "WEBLATE_CSP_STYLE_SRC (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_CSP_FONT_SRC
+            label: "WEBLATE_CSP_FONT_SRC (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_LICENSE_FILTER
+            label: "WEBLATE_LICENSE_FILTER (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_LICENSE_REQUIRED
+            label: "WEBLATE_LICENSE_REQUIRED (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: false
+          - variable: WEBLATE_WEBSITE_REQUIRED
+            label: "WEBLATE_WEBSITE_REQUIRED (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: true
+          - variable: WEBLATE_HIDE_VERSION
+            label: "WEBLATE_HIDE_VERSION (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: true
+          - variable: WEBLATE_BASIC_LANGUAGES
+            label: "WEBLATE_BASIC_LANGUAGES (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_DEFAULT_AUTO_WATCH
+            label: "WEBLATE_DEFAULT_AUTO_WATCH (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: true
+          - variable: WEBLATE_RATELIMIT_ATTEMPTS
+            label: "WEBLATE_RATELIMIT_ATTEMPTS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_RATELIMIT_LOCKOUT
+            label: "WEBLATE_RATELIMIT_LOCKOUT (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_RATELIMIT_WINDOW
+            label: "WEBLATE_RATELIMIT_WINDOW (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_ENABLE_AVATARS
+            label: "WEBLATE_ENABLE_AVATARS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: true
+          - variable: WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH
+            label: "WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: true
+          - variable: WEBLATE_SSH_EXTRA_ARGS
+            label: "WEBLATE_SSH_EXTRA_ARGS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_BORG_EXTRA_ARGS
+            label: "WEBLATE_BORG_EXTRA_ARGS (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
+          - variable: WEBLATE_DATABASE_BACKUP
+            label: "WEBLATE_DATABASE_BACKUP (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: "plain"
+              enum:
+                - value: "plain"
+                  description: "plain"
+                - value: "compressed"
+                  description: "compressed"
+                - value: "none"
+                  description: "none"
+          - variable: WEBLATE_DEBUG
+            label: "WEBLATE_DEBUG (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: boolean
+              default: false
+          - variable: WEBLATE_LOGLEVEL
+            label: "WEBLATE_LOGLEVEL (Leave empty for default)"
+            description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
+            schema:
+              type: string
+              default: ""
       - variable: machinetranslate
         label: "Machine Translation Configuration"
         schema:
@@ -253,6 +626,7 @@ questions:
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                   schema:
                     type: string
+                    private: true
                     default: ""
                 - variable: WEBLATE_MT_SAP_USERNAME
                   label: "WEBLATE_MT_SAP_USERNAME (Leave empty for default)"
@@ -328,8 +702,8 @@ questions:
                         label: "WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
-                          type: string
-                          default: ""
+                          type: boolean
+                          default: false
                       - variable: WEBLATE_AUTH_LDAP_USER_SEARCH
                         label: "WEBLATE_AUTH_LDAP_USER_SEARCH (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
@@ -624,20 +998,20 @@ questions:
                         label: "WEBLATE_SOCIAL_AUTH_FEDORA (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
-                          type: string
-                          default: ""
+                          type: boolean
+                          default: false
                       - variable: WEBLATE_SOCIAL_AUTH_OPENSUSE
                         label: "WEBLATE_SOCIAL_AUTH_OPENSUSE (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
-                          type: string
-                          default: ""
+                          type: boolean
+                          default: false
                       - variable: WEBLATE_SOCIAL_AUTH_UBUNTU
                         label: "WEBLATE_SOCIAL_AUTH_UBUNTU (Leave empty for default)"
                         description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                         schema:
-                          type: string
-                          default: ""
+                          type: boolean
+                          default: false
                 - variable: enabledslack
                   label: "Show Slack Authentication Settings"
                   schema:
@@ -685,19 +1059,6 @@ questions:
                         schema:
                           type: string
                           private: true
-                          default: ""
-                - variable: enabledother
-                  label: "Show Other Authentication Settings"
-                  schema:
-                    type: boolean
-                    default: false
-                    show_subquestions_if: true
-                    subquestions:
-                      - variable: WEBLATE_NO_EMAIL_AUTH
-                        label: "WEBLATE_NO_EMAIL_AUTH (Leave empty for default)"
-                        description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
-                        schema:
-                          type: string
                           default: ""
       - variable: email
         label: "Email Server Configuration"
@@ -751,12 +1112,6 @@ questions:
                     default: false
                 - variable: WEBLATE_EMAIL_BACKEND
                   label: "WEBLATE_EMAIL_BACKEND (Leave empty for default)"
-                  description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
-                  schema:
-                    type: string
-                    default: ""
-                - variable: WEBLATE_AUTO_UPDATE
-                  label: "WEBLATE_AUTO_UPDATE (Leave empty for default)"
                   description: "Visit https://docs.weblate.org/en/ on section Environment Variables for more info"
                   schema:
                     type: string

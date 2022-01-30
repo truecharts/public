@@ -7,6 +7,12 @@ metadata:
   name: weblate-env
 data:
   {{/* General */}}
+  {{- if .Values.weblate.general.WEBLATE_SITE_DOMAIN }}
+  WEBLATE_SITE_DOMAIN: {{ .Values.weblate.general.WEBLATE_SITE_DOMAIN | quote }}
+  {{- end }}
+  {{- if .Values.weblate.general.WEBLATE_SITE_TITLE }}
+  WEBLATE_SITE_TITLE: {{ .Values.weblate.general.WEBLATE_SITE_TITLE | quote }}
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_ADMIN_NAME }}
   WEBLATE_ADMIN_NAME: {{ .Values.weblate.general.WEBLATE_ADMIN_NAME | quote }}
   {{- end }}
@@ -16,23 +22,11 @@ data:
   {{- if .Values.weblate.general.WEBLATE_ADMIN_PASSWORD }}
   WEBLATE_ADMIN_PASSWORD: {{ .Values.weblate.general.WEBLATE_ADMIN_PASSWORD | quote }}
   {{- end }}
+  {{- if .Values.weblate.WEBLATE_AUTO_UPDATE }}
+  WEBLATE_AUTO_UPDATE: {{ .Values.weblate.WEBLATE_AUTO_UPDATE | quote }}
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_SERVER_EMAIL }}
   WEBLATE_SERVER_EMAIL: {{ .Values.weblate.general.WEBLATE_SERVER_EMAIL | quote }}
-  {{- end }}
-  {{- if .Values.weblate.general.WEBLATE_SITE_TITLE }}
-  WEBLATE_SITE_TITLE: {{ .Values.weblate.general.WEBLATE_SITE_TITLE | quote }}
-  {{- end }}
-  {{- if .Values.weblate.general.WEBLATE_SITE_DOMAIN }}
-  WEBLATE_SITE_DOMAIN: {{ .Values.weblate.general.WEBLATE_SITE_DOMAIN | quote }}
-  {{- end }}
-  {{- if .Values.weblate.general.WEBLATE_DATABASE_BACKUP }}
-  WEBLATE_DATABASE_BACKUP: {{ .Values.weblate.general.WEBLATE_DATABASE_BACKUP | quote }}
-  {{- end }}
-  {{- if .Values.weblate.general.WEBLATE_DEBUG }}
-  WEBLATE_DEBUG: {{ .Values.weblate.general.WEBLATE_DEBUG | quote }}
-  {{- end }}
-  {{- if .Values.weblate.general.WEBLATE_LOGLEVEL }}
-  WEBLATE_LOGLEVEL: {{ .Values.weblate.general.WEBLATE_LOGLEVEL | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_DEFAULT_FROM_EMAIL }}
   WEBLATE_DEFAULT_FROM_EMAIL: {{ .Values.weblate.general.WEBLATE_DEFAULT_FROM_EMAIL | quote }}
@@ -48,9 +42,6 @@ data:
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_REGISTRATION_ALLOW_BACKENDS }}
   WEBLATE_REGISTRATION_ALLOW_BACKENDS: {{ .Values.weblate.general.WEBLATE_REGISTRATION_ALLOW_BACKENDS | quote }}
-  {{- end }}
-  {{- if .Values.weblate.general.WEBLATE_TIME_ZONE }}
-  WEBLATE_TIME_ZONE: {{ .Values.weblate.general.WEBLATE_TIME_ZONE | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_ENABLE_HTTPS }}
   WEBLATE_ENABLE_HTTPS: {{ .Values.weblate.general.WEBLATE_ENABLE_HTTPS | quote }}
@@ -180,6 +171,15 @@ data:
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_BORG_EXTRA_ARGS }}
   WEBLATE_BORG_EXTRA_ARGS: {{ .Values.weblate.general.WEBLATE_BORG_EXTRA_ARGS | quote }}
+  {{- end }}
+  {{- if .Values.weblate.general.WEBLATE_DATABASE_BACKUP }}
+  WEBLATE_DATABASE_BACKUP: {{ .Values.weblate.general.WEBLATE_DATABASE_BACKUP | quote }}
+  {{- end }}
+  {{- if .Values.weblate.general.WEBLATE_DEBUG }}
+  WEBLATE_DEBUG: {{ .Values.weblate.general.WEBLATE_DEBUG | quote }}
+  {{- end }}
+  {{- if .Values.weblate.general.WEBLATE_LOGLEVEL }}
+  WEBLATE_LOGLEVEL: {{ .Values.weblate.general.WEBLATE_LOGLEVEL | quote }}
   {{- end }}
   {{/* Machine Translation */}}
   {{- if .Values.weblate.machinetranslate.WEBLATE_MT_APERTIUM_APY }}
@@ -414,10 +414,6 @@ data:
   {{- if .Values.weblate.auth.saml.WEBLATE_SAML_IDP_X509CERT }}
   WEBLATE_SAML_IDP_X509CERT: {{ .Values.weblate.auth.saml.WEBLATE_SAML_IDP_X509CERT | quote }}
   {{- end }}
-  {{/* Other authentication settings */}}
-  {{- if .Values.weblate.auth.other.WEBLATE_NO_EMAIL_AUTH }}
-  WEBLATE_NO_EMAIL_AUTH: {{ .Values.weblate.auth.other.WEBLATE_NO_EMAIL_AUTH | quote }}
-  {{- end }}
   {{/* Email Server */}}
   {{- if .Values.weblate.email.WEBLATE_EMAIL_HOST }}
   WEBLATE_EMAIL_HOST: {{ .Values.weblate.email.WEBLATE_EMAIL_HOST | quote }}
@@ -439,9 +435,6 @@ data:
   {{- end }}
   {{- if .Values.weblate.email.WEBLATE_EMAIL_BACKEND }}
   WEBLATE_EMAIL_BACKEND: {{ .Values.weblate.email.WEBLATE_EMAIL_BACKEND | quote }}
-  {{- end }}
-  {{- if .Values.weblate.email.WEBLATE_AUTO_UPDATE }}
-  WEBLATE_AUTO_UPDATE: {{ .Values.weblate.email.WEBLATE_AUTO_UPDATE | quote }}
   {{- end }}
   {{/* Site Integration */}}
   {{- if .Values.weblate.siteintegration.WEBLATE_GET_HELP_URL }}
