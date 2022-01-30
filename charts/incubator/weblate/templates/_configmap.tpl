@@ -119,6 +119,7 @@ data:
   WEBLATE_DEFAULT_SHARED_TM: true
   {{- else }}
   WEBLATE_DEFAULT_SHARED_TM: false
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_AKISMET_API_KEY }}
   WEBLATE_AKISMET_API_KEY: {{ .Values.weblate.general.WEBLATE_AKISMET_API_KEY | quote }}
   {{- end }}
@@ -171,6 +172,7 @@ data:
   WEBLATE_DEFAULT_AUTO_WATCH: true
   {{- else }}
   WEBLATE_DEFAULT_AUTO_WATCH: false
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_RATELIMIT_ATTEMPTS }}
   WEBLATE_RATELIMIT_ATTEMPTS: {{ .Values.weblate.general.WEBLATE_RATELIMIT_ATTEMPTS | quote }}
   {{- end }}
