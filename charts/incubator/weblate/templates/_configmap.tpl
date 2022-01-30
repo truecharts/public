@@ -37,18 +37,24 @@ data:
   {{- if .Values.weblate.general.WEBLATE_ALLOWED_HOSTS }}
   WEBLATE_ALLOWED_HOSTS: {{ .Values.weblate.general.WEBLATE_ALLOWED_HOSTS | quote }}
   {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_REGISTRATION_OPEN (eq .Values.weblate.general.WEBLATE_REGISTRATION_OPEN false) }}
   WEBLATE_REGISTRATION_OPEN: {{ .Values.weblate.general.WEBLATE_REGISTRATION_OPEN | quote }}
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_REGISTRATION_ALLOW_BACKENDS }}
   WEBLATE_REGISTRATION_ALLOW_BACKENDS: {{ .Values.weblate.general.WEBLATE_REGISTRATION_ALLOW_BACKENDS | quote }}
   {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_ENABLE_HTTPS (eq .Values.weblate.general.WEBLATE_ENABLE_HTTPS false) }}
   WEBLATE_ENABLE_HTTPS: {{ .Values.weblate.general.WEBLATE_ENABLE_HTTPS | quote }}
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_IP_PROXY_HEADER }}
   WEBLATE_IP_PROXY_HEADER: {{ .Values.weblate.general.WEBLATE_IP_PROXY_HEADER | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_SECURE_PROXY_SSL_HEADER }}
   WEBLATE_SECURE_PROXY_SSL_HEADER: {{ .Values.weblate.general.WEBLATE_SECURE_PROXY_SSL_HEADER | quote }}
   {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_REQUIRE_LOGIN (eq .Values.weblate.general.WEBLATE_REQUIRE_LOGIN false) }}
   WEBLATE_REQUIRE_LOGIN: {{ .Values.weblate.general.WEBLATE_REQUIRE_LOGIN | quote }}
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_LOGIN_REQUIRED_URLS_EXCEPTIONS }}
   WEBLATE_LOGIN_REQUIRED_URLS_EXCEPTIONS: {{ .Values.weblate.general.WEBLATE_LOGIN_REQUIRED_URLS_EXCEPTIONS | quote }}
   {{- end }}
@@ -83,8 +89,12 @@ data:
   {{- if .Values.weblate.general.WEBLATE_DEFAULT_ACCESS_CONTROL }}
   WEBLATE_DEFAULT_ACCESS_CONTROL: {{ .Values.weblate.general.WEBLATE_DEFAULT_ACCESS_CONTROL | quote }}
   {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_DEFAULT_RESTRICTED_COMPONENT (eq .Values.weblate.general.WEBLATE_DEFAULT_RESTRICTED_COMPONENT false) }}
   WEBLATE_DEFAULT_RESTRICTED_COMPONENT: {{ .Values.weblate.general.WEBLATE_DEFAULT_RESTRICTED_COMPONENT | quote }}
+  {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_DEFAULT_TRANSLATION_PROPAGATION (eq .Values.weblate.general.WEBLATE_DEFAULT_TRANSLATION_PROPAGATION false) }}
   WEBLATE_DEFAULT_TRANSLATION_PROPAGATION: {{ .Values.weblate.general.WEBLATE_DEFAULT_TRANSLATION_PROPAGATION | quote }}
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_DEFAULT_COMMITER_EMAIL }}
   WEBLATE_DEFAULT_COMMITER_EMAIL: {{ .Values.weblate.general.WEBLATE_DEFAULT_COMMITER_EMAIL | quote }}
   {{- end }}
@@ -122,9 +132,15 @@ data:
   {{- if .Values.weblate.general.WEBLATE_LICENSE_FILTER }}
   WEBLATE_LICENSE_FILTER: {{ .Values.weblate.general.WEBLATE_LICENSE_FILTER | quote }}
   {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_LICENSE_REQUIRED (eq .Values.weblate.general.WEBLATE_LICENSE_REQUIRED false) }}
   WEBLATE_LICENSE_REQUIRED: {{ .Values.weblate.general.WEBLATE_LICENSE_REQUIRED | quote }}
+  {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_WEBSITE_REQUIRED (eq .Values.weblate.general.WEBLATE_WEBSITE_REQUIRED false) }}
   WEBLATE_WEBSITE_REQUIRED: {{ .Values.weblate.general.WEBLATE_WEBSITE_REQUIRED | quote }}
+  {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_HIDE_VERSION (eq .Values.weblate.general.WEBLATE_HIDE_VERSION false) }}
   WEBLATE_HIDE_VERSION: {{ .Values.weblate.general.WEBLATE_HIDE_VERSION | quote }}
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_BASIC_LANGUAGES }}
   WEBLATE_BASIC_LANGUAGES: {{ .Values.weblate.general.WEBLATE_BASIC_LANGUAGES | quote }}
   {{- end }}
@@ -138,8 +154,12 @@ data:
   {{- if .Values.weblate.general.WEBLATE_RATELIMIT_WINDOW }}
   WEBLATE_RATELIMIT_WINDOW: {{ .Values.weblate.general.WEBLATE_RATELIMIT_WINDOW | quote }}
   {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_ENABLE_AVATARS (eq .Values.weblate.general.WEBLATE_ENABLE_AVATARS false) }}
   WEBLATE_ENABLE_AVATARS: {{ .Values.weblate.general.WEBLATE_ENABLE_AVATARS | quote }}
+  {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH (eq .Values.weblate.general.WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH false) }}
   WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH: {{ .Values.weblate.general.WEBLATE_LIMIT_TRANSLATION_LENGTH_BY_SOURCE_LENGTH | quote }}
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_SSH_EXTRA_ARGS }}
   WEBLATE_SSH_EXTRA_ARGS: {{ .Values.weblate.general.WEBLATE_SSH_EXTRA_ARGS | quote }}
   {{- end }}
@@ -149,7 +169,9 @@ data:
   {{- if .Values.weblate.general.WEBLATE_DATABASE_BACKUP }}
   WEBLATE_DATABASE_BACKUP: {{ .Values.weblate.general.WEBLATE_DATABASE_BACKUP | quote }}
   {{- end }}
+  {{- if or .Values.weblate.general.WEBLATE_DEBUG (eq .Values.weblate.general.WEBLATE_DEBUG false) }}
   WEBLATE_DEBUG: {{ .Values.weblate.general.WEBLATE_DEBUG | quote }}
+  {{- end }}
   {{- if .Values.weblate.general.WEBLATE_LOGLEVEL }}
   WEBLATE_LOGLEVEL: {{ .Values.weblate.general.WEBLATE_LOGLEVEL | quote }}
   {{- end }}
@@ -205,9 +227,15 @@ data:
   {{- if .Values.weblate.machinetranslate.WEBLATE_MT_MODERNMT_KEY }}
   WEBLATE_MT_MODERNMT_KEY: {{ .Values.weblate.machinetranslate.WEBLATE_MT_MODERNMT_KEY | quote }}
   {{- end }}
+  {{- if or .Values.weblate.machinetranslate.WEBLATE_MT_MYMEMORY_ENABLED (eq .Values.weblate.machinetranslate.WEBLATE_MT_MYMEMORY_ENABLED false) }}
   WEBLATE_MT_MYMEMORY_ENABLED: {{ .Values.weblate.machinetranslate.WEBLATE_MT_MYMEMORY_ENABLED | quote }}
+  {{- end }}
+  {{- if or .Values.weblate.machinetranslate.WEBLATE_MT_GLOSBE_ENABLED (eq .Values.weblate.machinetranslate.WEBLATE_MT_GLOSBE_ENABLED false) }}
   WEBLATE_MT_GLOSBE_ENABLED: {{ .Values.weblate.machinetranslate.WEBLATE_MT_GLOSBE_ENABLED | quote }}
+  {{- end }}
+  {{- if or .Values.weblate.machinetranslate.WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED (eq .Values.weblate.machinetranslate.WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED false) }}
   WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED: {{ .Values.weblate.machinetranslate.WEBLATE_MT_MICROSOFT_TERMINOLOGY_ENABLED | quote }}
+  {{- end }}
   {{- if .Values.weblate.machinetranslate.WEBLATE_MT_SAP_BASE_URL }}
   WEBLATE_MT_SAP_BASE_URL: {{ .Values.weblate.machinetranslate.WEBLATE_MT_SAP_BASE_URL | quote }}
   {{- end }}
@@ -220,7 +248,9 @@ data:
   {{- if .Values.weblate.machinetranslate.WEBLATE_MT_SAP_PASSWORD }}
   WEBLATE_MT_SAP_PASSWORD: {{ .Values.weblate.machinetranslate.WEBLATE_MT_SAP_PASSWORD | quote }}
   {{- end }}
+  {{- if or .Values.weblate.machinetranslate.WEBLATE_MT_SAP_USE_MT (eq .Values.weblate.machinetranslate.WEBLATE_MT_SAP_USE_MT false) }}
   WEBLATE_MT_SAP_USE_MT: {{ .Values.weblate.machinetranslate.WEBLATE_MT_SAP_USE_MT | quote }}
+  {{- end }}
   {{/* Authentication */}}
   {{/* LDAP */}}
   {{- if .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_SERVER_URI }}
@@ -389,8 +419,12 @@ data:
   {{- if .Values.weblate.email.WEBLATE_EMAIL_HOST_PASSWORD }}
   WEBLATE_EMAIL_HOST_PASSWORD: {{ .Values.weblate.email.WEBLATE_EMAIL_HOST_PASSWORD | quote }}
   {{- end }}
+  {{- if or .Values.weblate.email.WEBLATE_EMAIL_USE_SSL (eq .Values.weblate.email.WEBLATE_EMAIL_USE_SSL false) }}
   WEBLATE_EMAIL_USE_SSL: {{ .Values.weblate.email.WEBLATE_EMAIL_USE_SSL | quote }}
+  {{- end }}
+  {{- if or .Values.weblate.email.WEBLATE_EMAIL_USE_TLS (eq .Values.weblate.email.WEBLATE_EMAIL_USE_TLS false) }}
   WEBLATE_EMAIL_USE_TLS: {{ .Values.weblate.email.WEBLATE_EMAIL_USE_TLS | quote }}
+  {{- end }}
   {{- if .Values.weblate.email.WEBLATE_EMAIL_BACKEND }}
   WEBLATE_EMAIL_BACKEND: {{ .Values.weblate.email.WEBLATE_EMAIL_BACKEND | quote }}
   {{- end }}
