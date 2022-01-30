@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="n8n-0.0.4"></a>
+### [n8n-0.0.4](https://github.com/truecharts/apps/compare/n8n-0.0.3...n8n-0.0.4) (2022-01-30)
+
+#### Fix
+
+* Fix permissions and add healthcheck path ([#1809](https://github.com/truecharts/apps/issues/1809))
+
+
+
 <a name="n8n-0.0.3"></a>
 ### [n8n-0.0.3](https://github.com/truecharts/apps/compare/n8n-0.0.2...n8n-0.0.3) (2022-01-28)
 
