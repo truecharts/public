@@ -1,0 +1,98 @@
+image:
+  repository: weblate/weblate
+  tag: 4.10.1-1@sha256:9004b8512ac8b056232f5c7368818ed336d7b266a91be0c7ce783ad31a2029ef
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+  fsGroup: 1000
+
+secret:
+  WEBLATE_ADMIN_EMAIL: "admin@example.com"
+  WEBLATE_ADMIN_NAME: "admin"
+  # This sets the password on EVERY app startup
+  WEBLATE_ADMIN_PASSWORD: "supersecretpassword"
+
+env:
+  TZ: UTC
+  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  POSTGRES_PORT: 5432
+  REDIS_PORT: 6379
+  REDIS_DB: "0"
+  # plain, compressed, none
+  DATABASE_BACKUP: "plain"
+  WEBLATE_TIME_ZONE: "{{ .Values.env.TZ }}"
+  WEBLATE_DEBUG: false
+  # WEBLATE_LOGLEVEL: ""
+  WEBLATE_SITE_TITLE: "My Project's Weblate"
+  # WEBLATE_SITE_DOMAIN: "weblate.example.com"
+  # WEBLATE_SERVER_EMAIL: "weblate@example.com"
+  # WEBLATE_DEFAULT_FROM_EMAIL: "weblate@example.com"
+  # WEBLATE_CONTACT_FORM: "reply-to"
+  # WEBLATE_ALLOWED_HOSTS: "*"
+  # WEBLATE_REGISTRATION_OPEN: false
+  # WEBLATE_REGISTRATION_ALLOW_BACKENDS: ""
+  # Enable this when ingress is enabled
+  # WEBLATE_ENABLE_HTTPS: false
+  # WEBLATE_IP_PROXY_HEADER: "HTTP_X_FORWARDED_FOR"
+  # WEBLATE_SECURE_PROXY_SSL_HEADER: "HTTP_X_FORWARDED_PROTO,https"
+
+envValueFrom:
+  POSTGRES_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  POSTGRES_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+
+
+probes:
+  liveness:
+    path: "/healthz"
+  readiness:
+    path: "/healthz"
+  startup:
+    path: "/healthz"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10158
+        targetPort: 8080
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/app/data"
+  cache:
+    enabled: true
+    type: emptyDir
+    mountPath: "/app/cache"
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+  redisUsername: default
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: weblate
+  postgresqlDatabase: weblate
