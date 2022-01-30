@@ -30,7 +30,7 @@ env:
   WEBLATE_DEBUG: false
   # WEBLATE_LOGLEVEL: ""
   WEBLATE_SITE_TITLE: "My Project's Weblate"
-  # WEBLATE_SITE_DOMAIN: "weblate.example.com"
+  WEBLATE_SITE_DOMAIN: "weblate.example.com"
   # WEBLATE_SERVER_EMAIL: "weblate@example.com"
   # WEBLATE_DEFAULT_FROM_EMAIL: "weblate@example.com"
   # WEBLATE_CONTACT_FORM: "reply-to"
@@ -41,6 +41,10 @@ env:
   # WEBLATE_ENABLE_HTTPS: false
   # WEBLATE_IP_PROXY_HEADER: "HTTP_X_FORWARDED_FOR"
   # WEBLATE_SECURE_PROXY_SSL_HEADER: "HTTP_X_FORWARDED_PROTO,https"
+
+# envFrom:
+#   - configMapRef:
+#       name: weblate-env
 
 envValueFrom:
   POSTGRES_PASSWORD:
