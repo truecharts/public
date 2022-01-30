@@ -36,7 +36,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/app/data"` |  |
 | podSecurityContext.fsGroup | int | `1000` |  |
-| podSecurityContext.runAsGroup | int | `1000` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `1000` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
@@ -65,7 +65,6 @@ You will, however, be able to use all values referenced in the common chart here
 | weblate.auth.slack | object | `{}` |  |
 | weblate.email | object | `{}` |  |
 | weblate.errorreport | object | `{}` |  |
-| weblate.general.WEBLATE_DEBUG | string | `"false"` |  |
 | weblate.general.WEBLATE_SITE_DOMAIN | string | `"weblate.example.com"` |  |
 | weblate.general.WEBLATE_SITE_TITLE | string | `"My Project's Weblate"` |  |
 | weblate.localization | object | `{}` |  |

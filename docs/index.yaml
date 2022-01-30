@@ -51143,36 +51143,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.1.4
-    created: "2022-01-30T23:33:45.880712626Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.14.2
-    description: Unmanic is a simple tool for optimising your file library.
-    digest: 87125f858cdbad3addffaf2ff3089b566d48da9c6c5bb9765f9cdebed8cd98c1
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/unmanic
-    icon: https://truecharts.org/_static/img/appicons/unmanic-icon.png
-    keywords:
-    - media
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: unmanic
-    sources:
-    - https://github.com/Unmanic/unmanic
-    - https://hub.docker.com/r/josh5/unmanic
-    urls:
-    - https://github.com/truecharts/apps/releases/download/unmanic-0.0.3/unmanic-0.0.3.tgz
-    version: 0.0.3
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 0.1.4
     created: "2022-01-30T13:02:50.470413025Z"
     dependencies:
     - name: common
@@ -52498,6 +52468,47 @@ entries:
     - https://github.com/truecharts/apps/releases/download/webgrabplus-0.0.1/webgrabplus-0.0.1.tgz
     version: 0.0.1
   weblate:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.10.1
+    created: "2022-01-30T23:51:22.490533317Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.58
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.63
+    description: Weblate is a copylefted libre software web-based continuous localization
+      system
+    digest: 4fd24272b388df4db55dce098f751cf1ef6058ec61e5a52111c7c29be6a62b49
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/weblate
+    icon: https://truecharts.org/_static/img/appicons/weblate-icon.png
+    keywords:
+    - translate
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: weblate
+    sources:
+    - https://github.com/WeblateOrg/weblate
+    - https://github.com/WeblateOrg/docker
+    - https://github.com/WeblateOrg/docker-compose
+    - https://docs.weblate.org/en/latest/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/weblate-0.0.2/weblate-0.0.2.tgz
+    version: 0.0.2
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -53949,4 +53960,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-30T23:33:45.88431108Z"
+generated: "2022-01-30T23:51:22.494203165Z"
