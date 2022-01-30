@@ -74,7 +74,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -83,13 +82,6 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: int
-            default: 568
-
 
 # Include{containerConfig}
 
@@ -119,7 +111,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10047
+                              default: 10158
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -154,7 +146,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 8080
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -285,7 +277,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -300,19 +292,19 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 1000
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 1000
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
           schema:
             type: int
-            default: 568
+            default: 1000
 # Include{podSecurityContextAdvanced}
 
 # Include{resources}
