@@ -426,14 +426,14 @@ data:
   WEBLATE_SOCIAL_AUTH_KEYCLOAK_ACCESS_TOKEN_URL: {{ .Values.weblate.auth.keycloak.WEBLATE_SOCIAL_AUTH_KEYCLOAK_ACCESS_TOKEN_URL | quote }}
   {{- end }}
   {{/* Linux vendors */}}
-  {{- if eq .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_FEDORA true }}
-  WEBLATE_SOCIAL_AUTH_FEDORA: {{ .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_FEDORA | quote }}
+  {{- if .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_FEDORA }}
+  WEBLATE_SOCIAL_AUTH_FEDORA: true
   {{- end }}
-  {{- if eq .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_OPENSUSE true }}
-  WEBLATE_SOCIAL_AUTH_OPENSUSE: {{ .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_OPENSUSE | quote }}
+  {{- if .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_OPENSUSE }}
+  WEBLATE_SOCIAL_AUTH_OPENSUSE: true
   {{- end }}
-  {{- if eq .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_UBUNTU true }}
-  WEBLATE_SOCIAL_AUTH_UBUNTU: {{ .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_UBUNTU | quote }}
+  {{- if .Values.weblate.auth.linux.WEBLATE_SOCIAL_AUTH_UBUNTU }}
+  WEBLATE_SOCIAL_AUTH_UBUNTU: true
   {{- end }}
   {{/* Slack */}}
   {{- if .Values.weblate.auth.slack.WEBLATE_SOCIAL_AUTH_SLACK_KEY }}
