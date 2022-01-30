@@ -37,7 +37,7 @@ data:
   {{- if .Values.weblate.general.WEBLATE_ALLOWED_HOSTS }}
   WEBLATE_ALLOWED_HOSTS: {{ .Values.weblate.general.WEBLATE_ALLOWED_HOSTS | quote }}
   {{- end }}
-  {{- if or .Values.weblate.general.WEBLATE_REGISTRATION_OPEN (eq .Values.weblate.general.WEBLATE_REGISTRATION_OPEN false) }}
+  {{- if or (eq .Values.weblate.general.WEBLATE_REGISTRATION_OPEN true) (eq .Values.weblate.general.WEBLATE_REGISTRATION_OPEN false) }}
   WEBLATE_REGISTRATION_OPEN: {{ .Values.weblate.general.WEBLATE_REGISTRATION_OPEN | quote }}
   {{- end }}
   {{- if .Values.weblate.general.WEBLATE_REGISTRATION_ALLOW_BACKENDS }}
@@ -268,7 +268,9 @@ data:
   {{- if .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_BIND_PASSWORD }}
   WEBLATE_AUTH_LDAP_BIND_PASSWORD: {{ .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_BIND_PASSWORD | quote }}
   {{- end }}
+  {{- if or .Values.weblate.ldap.WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS (eq .Values.weblate.ldap.WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS false) }}
   WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS: {{ .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_CONNECTION_OPTION_REFERRALS | quote }}
+  {{- end }}
   {{- if .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_USER_SEARCH }}
   WEBLATE_AUTH_LDAP_USER_SEARCH: {{ .Values.weblate.auth.ldap.WEBLATE_AUTH_LDAP_USER_SEARCH | quote }}
   {{- end }}
