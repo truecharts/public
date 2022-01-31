@@ -47406,6 +47406,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.50.2
+    created: "2022-01-31T18:38:03.27064276Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.58
+    description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
+    digest: 28f789ed2b45010be7bb3c0b4ece5723a1e32050bcbc1a96b8841cfc4059c1c2
+    home: https://github.com/truecharts/apps/charts/stable/synapse
+    icon: https://truecharts.org/_static/img/appicons/synapse-icon.png
+    keywords:
+    - chat
+    - matrix
+    - synapse
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: synapse
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/synapse-0.0.12/synapse-0.0.12.tgz
+    version: 0.0.12
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - cloud
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.50.2
     created: "2022-01-31T18:07:52.61783257Z"
     dependencies:
     - name: common
@@ -54335,4 +54369,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-31T18:07:52.622546702Z"
+generated: "2022-01-31T18:38:03.274398065Z"

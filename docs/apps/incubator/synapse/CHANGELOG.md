@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-0.0.12"></a>
+### [synapse-0.0.12](https://github.com/truecharts/apps/compare/synapse-0.0.11...synapse-0.0.12) (2022-01-31)
+
+#### Fix
+
+* secret tweaking
+
+
+
 <a name="synapse-0.0.11"></a>
 ### [synapse-0.0.11](https://github.com/truecharts/apps/compare/synapse-0.0.10...synapse-0.0.11) (2022-01-31)
 
