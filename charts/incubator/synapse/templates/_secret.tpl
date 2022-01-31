@@ -1,5 +1,21 @@
 {{/* Define the configs */}}
 {{- define "synapse.secret" -}}
+{{- $previous := lookup "v1" "Secret" .Release.Namespace "synapse-secret-macaroon" }}
+{{- $msk := randAlphaNum 50 }}
+{{- if $previous }}
+{{- $msk = ( index $previous.data "key" ) | b64dec }}
+{{- end }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: synapse-secret-macaroon
+  labels:
+  {{ include "common.labels" . | nindent 4 }}
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
+data:
+  key: {{ $msk | b64enc }}
 ---
 apiVersion: v1
 kind: Secret
@@ -10,8 +26,6 @@ metadata:
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
 stringData:
-  {{- $previous := lookup "v1" "Secret" .Release.Namespace "synapse-secret" }}
-  {{- $msk := randAlphaNum 50 }}
   secret.yaml: |
     {{- if .Values.mail.enabled }}
     email:
@@ -40,9 +54,6 @@ stringData:
     registration_shared_secret: {{ .Values.matrix.registration.sharedSecret }}
     {{- end }}
 
-    {{- if $previous }}
-    {{- $msk = ( index $previous.stringData "macaroon_secret_key" )  }}
-    {{- end }}
     macaroon_secret_key: {{ $msk }}
 
     {{- if .Values.coturn.enabled -}}
