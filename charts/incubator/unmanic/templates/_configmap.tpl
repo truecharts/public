@@ -7,8 +7,8 @@ metadata:
   name: unmanic-config
 data:
   {{- if .Values.scaleGPU }}
-  NVIDIA_VISIBLE_DEVIES: "all"
+  NVIDIA_VISIBLE_DEVICES: "all"
   {{- else }}
-  NVIDIA_VISIBLE_DEVIES: "void"
+  NVIDIA_VISIBLE_DEVICES: "void"
   {{- end }}
 {{- end -}}
