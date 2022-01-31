@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-0.0.8"></a>
+### [synapse-0.0.8](https://github.com/truecharts/apps/compare/synapse-0.0.7...synapse-0.0.8) (2022-01-31)
+
+#### Fix
+
+* fix federation service
+
+
+
 <a name="synapse-0.0.7"></a>
 ### [synapse-0.0.7](https://github.com/truecharts/apps/compare/synapse-0.0.5...synapse-0.0.7) (2022-01-31)
 
