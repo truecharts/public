@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="strapi-1.0.0"></a>
+### [strapi-1.0.0](https://github.com/truecharts/apps/compare/strapi-0.0.3...strapi-1.0.0) (2022-01-31)
+
+
+
 <a name="strapi-0.0.3"></a>
 ### [strapi-0.0.3](https://github.com/truecharts/apps/compare/strapi-0.0.2...strapi-0.0.3) (2022-01-28)
 

@@ -28266,6 +28266,46 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.160.0
+    created: "2022-01-31T07:51:20.016404633Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.58
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.63
+    description: n8n is an extendable workflow automation tool.
+    digest: 39a89b1ea5d6e2edceb04eb947b8919f15b84aaf85b709cf972bd31f5c02f7f5
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/n8n
+    icon: https://truecharts.org/_static/img/appicons/n8n-icon.png
+    keywords:
+    - workflows
+    - automation
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: n8n
+    sources:
+    - https://docs.n8n.io/
+    - https://github.com/n8n-io/n8n
+    - https://hub.docker.com/r/n8nio/n8n
+    urls:
+    - https://github.com/truecharts/apps/releases/download/n8n-1.0.0/n8n-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.160.0
     created: "2022-01-30T13:02:50.348768825Z"
     dependencies:
     - name: common
@@ -47196,6 +47236,43 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 3.6.8
+    created: "2022-01-31T07:51:20.232625222Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.58
+    description: Strapi is the leading open-source headless CMS. It’s 100% JavaScript,
+      fully customizable and developer-first.
+    digest: 7c6a7f5c2b1f93c92d34a6615389da1531f7f38b6068776a1572ad754f8a1fb7
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/strapi
+    icon: https://truecharts.org/_static/img/appicons/strapi-icon.png
+    keywords:
+    - strapi
+    - cms
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: strapi
+    sources:
+    - https://hub.docker.com/r/strapi/strapi
+    - https://github.com/strapi/strapi
+    - https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/installation/docker.html#creating-a-strapi-project
+    urls:
+    - https://github.com/truecharts/apps/releases/download/strapi-1.0.0/strapi-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.6.8
     created: "2022-01-28T22:59:32.400813161Z"
     dependencies:
     - name: common
@@ -51143,36 +51220,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.1.4
-    created: "2022-01-31T07:28:27.206812975Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.14.2
-    description: Unmanic is a simple tool for optimising your file library.
-    digest: ed1c1950afe6c524e90e022cacc4cb69532de6a29f415d279fa023d405dee698
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/unmanic
-    icon: https://truecharts.org/_static/img/appicons/unmanic-icon.png
-    keywords:
-    - media
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: unmanic
-    sources:
-    - https://github.com/Unmanic/unmanic
-    - https://hub.docker.com/r/josh5/unmanic
-    urls:
-    - https://github.com/truecharts/apps/releases/download/unmanic-0.0.4/unmanic-0.0.4.tgz
-    version: 0.0.4
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 0.1.4
     created: "2022-01-30T13:02:50.470413025Z"
     dependencies:
     - name: common
@@ -52498,6 +52545,47 @@ entries:
     - https://github.com/truecharts/apps/releases/download/webgrabplus-0.0.1/webgrabplus-0.0.1.tgz
     version: 0.0.1
   weblate:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.10.1
+    created: "2022-01-31T07:51:20.444961562Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.58
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.63
+    description: Weblate is a copylefted libre software web-based continuous localization
+      system
+    digest: ad57178d1eda4e6fc4c207b2ffe3374d0734c170766441b183231a149a12dd08
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/weblate
+    icon: https://truecharts.org/_static/img/appicons/weblate-icon.png
+    keywords:
+    - translate
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: weblate
+    sources:
+    - https://github.com/WeblateOrg/weblate
+    - https://github.com/WeblateOrg/docker
+    - https://github.com/WeblateOrg/docker-compose
+    - https://docs.weblate.org/en/latest/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/weblate-1.0.0/weblate-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -53990,4 +54078,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-31T07:28:27.210913035Z"
+generated: "2022-01-31T07:51:20.448522008Z"
