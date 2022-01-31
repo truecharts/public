@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-0.0.14"></a>
+### [synapse-0.0.14](https://github.com/truecharts/apps/compare/synapse-0.0.13...synapse-0.0.14) (2022-01-31)
+
+#### Fix
+
+* use opencors headerset
+
+
+
 <a name="synapse-0.0.13"></a>
 ### [synapse-0.0.13](https://github.com/truecharts/apps/compare/synapse-0.0.12...synapse-0.0.13) (2022-01-31)
 

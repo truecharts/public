@@ -47406,6 +47406,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.50.2
+    created: "2022-01-31T20:49:41.99284935Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.58
+    description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
+    digest: b25c30ebcc7951e3cc4935e488581c6f6fb11a6850caed0d168da6708521e438
+    home: https://github.com/truecharts/apps/charts/stable/synapse
+    icon: https://truecharts.org/_static/img/appicons/synapse-icon.png
+    keywords:
+    - chat
+    - matrix
+    - synapse
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: synapse
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/synapse-0.0.14/synapse-0.0.14.tgz
+    version: 0.0.14
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - cloud
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.50.2
     created: "2022-01-31T19:43:07.35147795Z"
     dependencies:
     - name: common
@@ -49690,39 +49724,6 @@ entries:
     - https://github.com/truecharts/apps/releases/download/traccar-4.0.12/traccar-4.0.12.tgz
     version: 4.0.12
   traefik:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - network
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 2.5.6
-    created: "2022-01-31T20:42:25.087347296Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.14.2
-    description: Traefik is a flexible reverse proxy and Ingress Provider.
-    digest: 34d35d7d6d52588ef0addd629d11ea5a2688dc34106f0cb086ceb1a0b45809e4
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/traefik
-    icon: https://truecharts.org/_static/img/appicons/traefik-icon.png
-    keywords:
-    - traefik
-    - ingress
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: traefik
-    sources:
-    - https://github.com/traefik/traefik
-    - https://github.com/traefik/traefik-helm-chart
-    - https://traefik.io/
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/traefik-10.0.49/traefik-10.0.49.tgz
-    version: 10.0.49
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -54435,4 +54436,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-31T20:42:25.09443881Z"
+generated: "2022-01-31T20:49:41.996367448Z"
