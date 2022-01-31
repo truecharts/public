@@ -18,6 +18,11 @@ service:
       main:
         port: 8008
         targetPort: 8008
+  federation:
+    ports:
+      federation:
+        port: 8448
+        targetPort: 8008
   replication:
     enabled: true
     ports:
