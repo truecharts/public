@@ -7703,38 +7703,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.0.3
-    created: "2022-01-31T20:58:39.617999923Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.14.2
-    description: Deluge App for TrueNAS SCALE
-    digest: 4772407ccc5b73dfcf47acacf713a708e45a3402a6952848a0eba230b501a9d9
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/deluge
-    icon: https://truecharts.org/_static/img/appicons/deluge-icon.png
-    keywords:
-    - transmission
-    - torrent
-    - usenet
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: deluge
-    sources:
-    - https://github.com/deluge-torrent/deluge
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/deluge-9.0.37/deluge-9.0.37.tgz
-    version: 9.0.37
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 2.0.3
     created: "2022-01-04T20:48:57.939244993Z"
     dependencies:
     - name: common
@@ -47438,6 +47406,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.50.2
+    created: "2022-01-31T21:11:58.88552071Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.58
+    description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
+    digest: cfeb17d82847da390cd94c419c20f31fb3c239868ba6311bf06d63d89c5e6572
+    home: https://github.com/truecharts/apps/charts/stable/synapse
+    icon: https://truecharts.org/_static/img/appicons/synapse-icon.png
+    keywords:
+    - chat
+    - matrix
+    - synapse
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: synapse
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/synapse-1.0.0/synapse-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - cloud
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.50.2
     created: "2022-01-31T19:43:07.35147795Z"
     dependencies:
     - name: common
@@ -54434,4 +54436,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-31T20:58:39.621880444Z"
+generated: "2022-01-31T21:11:58.889846915Z"
