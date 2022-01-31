@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-0.0.10"></a>
+### [synapse-0.0.10](https://github.com/truecharts/apps/compare/synapse-0.0.9...synapse-0.0.10) (2022-01-31)
+
+#### Fix
+
+* fix mistake in variable definition
+
+
+
 <a name="synapse-0.0.9"></a>
 ### [synapse-0.0.9](https://github.com/truecharts/apps/compare/synapse-0.0.8...synapse-0.0.9) (2022-01-31)
 
