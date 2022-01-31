@@ -20,12 +20,16 @@ You will, however, be able to use all values referenced in the common chart here
 | image.repository | string | `"matrixdotorg/synapse"` |  |
 | image.tag | string | `"v1.50.2"` |  |
 | installContainers.generate-signing-key.args[0] | string | `"-m"` |  |
+| installContainers.generate-signing-key.args[10] | string | `"--generate-keys"` |  |
 | installContainers.generate-signing-key.args[1] | string | `"synapse.app.homeserver"` |  |
 | installContainers.generate-signing-key.args[2] | string | `"--config-path"` |  |
 | installContainers.generate-signing-key.args[3] | string | `"/data/homeserver.yaml"` |  |
-| installContainers.generate-signing-key.args[4] | string | `"--keys-directory"` |  |
-| installContainers.generate-signing-key.args[5] | string | `"/data/keys"` |  |
-| installContainers.generate-signing-key.args[6] | string | `"--generate-keys"` |  |
+| installContainers.generate-signing-key.args[4] | string | `"--config-path"` |  |
+| installContainers.generate-signing-key.args[5] | string | `"/data/secret/secret.yaml"` |  |
+| installContainers.generate-signing-key.args[6] | string | `"--config-path"` |  |
+| installContainers.generate-signing-key.args[7] | string | `"/data/custom.yaml"` |  |
+| installContainers.generate-signing-key.args[8] | string | `"--keys-directory"` |  |
+| installContainers.generate-signing-key.args[9] | string | `"/data/keys"` |  |
 | installContainers.generate-signing-key.command[0] | string | `"python"` |  |
 | installContainers.generate-signing-key.env[0].name | string | `"SYNAPSE_SERVER_NAME"` |  |
 | installContainers.generate-signing-key.env[0].value | string | `"{{ .Values.matrix.serverName }}"` |  |

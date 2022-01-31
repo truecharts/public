@@ -11,6 +11,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | additionalContainers | object | `{}` | Specify any additional containers here as dictionary items. Each additional container should have its own key. Helm templates can be used. |
 | addons | object | See below | The common chart supports several add-ons. These can be configured under this key. |
 | addons.codeserver | object | See values.yaml | The common library supports adding a code-server add-on to access files. It can be configured under this key. For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#code-server) |
+| addons.codeserver.args | list | `["--auth","none"]` | Set codeserver command line arguments. Consider setting --user-data-dir to a persistent location to preserve code-server setting changes |
 | addons.codeserver.enabled | bool | `false` | Enable running a code-server container in the pod |
 | addons.codeserver.env | object | `{}` | Set any environment variables for code-server here |
 | addons.codeserver.envList | list | `[]` | All variables specified here will be added to the codeserver sidecar container See the documentation of the codeserver image for all config values |
@@ -26,6 +27,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | addons.netshoot.env | object | `{}` | Set any environment variables for netshoot here |
 | addons.netshoot.envList | list | `[]` | All variables specified here will be added to the netshoot sidecar container See the documentation of the netshoot image for all config values |
 | addons.promtail | object | See values.yaml | The common library supports adding a promtail add-on to to access logs and ship them to loki. It can be configured under this key. |
+| addons.promtail.args | list | `[]` | Set promtail command line arguments |
 | addons.promtail.enabled | bool | `false` | Enable running a promtail container in the pod |
 | addons.promtail.env | object | `{}` | Set any environment variables for promtail here |
 | addons.promtail.envList | list | `[]` | All variables specified here will be added to the promtail sidecar container See the documentation of the promtail image for all config values |
@@ -58,10 +60,10 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | configmap.config.data | object | `{}` | configMap data content. Helm template enabled. |
 | configmap.config.enabled | bool | `false` | Enables or disables the configMap |
 | configmap.config.labels | object | `{}` | Labels to add to the configMap |
-| controller.annotations | object | `{}` |  |
+| controller.annotations | object | `{}` | Set  annotations on the deployment/statefulset/daemonset |
 | controller.annotationsList | list | `[]` | Set additional annotations on the deployment/statefulset/daemonset |
 | controller.enabled | bool | `true` | enable the controller. |
-| controller.labels | object | `{}` |  |
+| controller.labels | object | `{}` | Set labels on the deployment/statefulset/daemonset |
 | controller.labelsList | list | `[]` | Set additional labels on the deployment/statefulset/daemonset |
 | controller.replicas | int | `1` | Number of desired pods |
 | controller.revisionHistoryLimit | int | `3` | ReplicaSet revision history limit |
@@ -92,6 +94,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | image.tag | string | `nil` | image tag |
 | imageSelector | string | `"image"` | Image Selector allows for easy picking a different image dict, important for the SCALE GUI |
 | ingress | object | See below | Configure the ingresses for the chart here. Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress. |
+| ingress.main.annotations | object | `{}` | Provide additional annotations which may be required. |
 | ingress.main.enableFixedMiddlewares | bool | `true` | disable to ignore any default middlwares |
 | ingress.main.enabled | bool | `false` | Enables or disables the ingress |
 | ingress.main.fixedMiddlewares | list | `["chain-basic"]` | List of middlewares in the traefikmiddlewares k8s namespace to add automatically Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user |
@@ -101,6 +104,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | ingress.main.hosts[0].paths[0].service.name | string | `nil` | Overrides the service name reference for this path |
 | ingress.main.hosts[0].paths[0].service.port | string | `nil` | Overrides the service port reference for this path |
 | ingress.main.ingressClassName | string | `nil` | Set the ingressClass that is used for this ingress. Requires Kubernetes >=1.19 |
+| ingress.main.labels | object | `{}` | Provide additional labels which may be required. |
 | ingress.main.middlewares | list | `[]` | Additional List of middlewares in the traefikmiddlewares k8s namespace to add automatically Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names |
 | ingress.main.nameOverride | string | `nil` | Override the name suffix that is used for this ingress. |
 | ingress.main.primary | bool | `true` | Make this the primary ingress (used in probes, notes, etc...). If there is more than 1 ingress, make sure that only 1 ingress is marked as primary. |
@@ -119,16 +123,20 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | networkPolicy.egress | list | `[]` | add or remove egress policies |
 | networkPolicy.enabled | bool | `false` | Enables or disables the networkPolicy |
 | networkPolicy.ingress | list | `[]` | add or remove egress policies |
-| nodeSelector | object | `{}` |  |
+| networkPolicy.policyType | string | `""` | add or remove Policy types. Options: ingress, egress, ingress-egress |
+| nodeSelector | object | `{}` | Node selection constraint [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) |
 | openvpnImage | object | See below | OpenVPN specific configuration |
 | openvpnImage.pullPolicy | string | `"IfNotPresent"` | Specify the openvpn client image pull policy |
 | openvpnImage.repository | string | `"ghcr.io/truecharts/openvpn-client"` | Specify the openvpn client image |
 | openvpnImage.tag | string | `"latest@sha256:bc3a56b2c195a4b4ce5c67fb0c209f38036521ebd316df2a7d68b425b9c48b30"` | Specify the openvpn client image tag |
 | persistence | object | See below | Configure persistence for the chart here. Additional items can be added by adding a dictionary key similar to the 'config' key. |
 | persistence.config | object | See below | Default persistence for configuration files. |
+| persistence.config.accessMode | string | `"ReadWriteOnce"` | AccessMode for the persistent volume. Make sure to select an access mode that is supported by your storage provider! [[ref]](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) |
+| persistence.config.annotations | object | `{}` | Add annotations to PVC object |
 | persistence.config.enabled | bool | `false` | Enables or disables the persistence item |
 | persistence.config.existingClaim | string | `nil` | If you want to reuse an existing claim, the name of the existing PVC can be passed here. |
 | persistence.config.forceName | string | `""` | force the complete PVC name Will not add any prefix or suffix |
+| persistence.config.labels | object | `{}` | Add labels to PVC object |
 | persistence.config.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.config.nameOverride | string | `nil` | Override the name suffix that is used for this volume. |
 | persistence.config.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
@@ -175,22 +183,21 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | persistence.varrun.medium | string | `"Memory"` | Set the medium to "Memory" to mount a tmpfs (RAM-backed filesystem) instead of the storage medium that backs the node. |
 | persistence.varrun.sizeLimit | string | `nil` | If the `SizeMemoryBackedVolumes` feature gate is enabled, you can specify a size for memory backed volumes. |
 | persistenceList | list | [] | Configure persistenceList for the chart here. Additional items can be added by adding a items similar to persistence |
-| podAnnotations | object | `{}` |  |
+| podAnnotations | object | `{}` | Set annotations on the pod |
 | podAnnotationsList | list | `[]` | Set additional annotations on the pod |
 | podLabels | object | `{}` | Set labels on the pod |
 | podLabelsList | list | `[]` | Set additional labels on the pod |
 | podSecurityContext | object | `{"fsGroup":568,"fsGroupChangePolicy":"OnRootMismatch","runAsGroup":568,"runAsUser":568,"supplementalGroups":[]}` | Configure the Security Context for the Pod |
 | portal | object | `{"enabled":false}` | Set the primary portal for TrueNAS SCALE |
 | portal.enabled | bool | `false` | enable generation of the portal configmap |
-| postgresql.enabled | bool | `false` |  |
-| postgresql.existingSecret | string | `"dbcreds"` |  |
+| postgresql | object | See below | Postgresql dependency configuration |
 | postgresql.url | object | `{}` | can be used to make an easy accessable note which URLS to use to access the DB. |
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
 | postgresqlImage.tag | string | `"v14.1.0@sha256:d4e2ab2f3d41e04b2e4d1812058b26b0fbf409b65ce9352d8c714ff33fc66986"` | Specify the postgresql image tag |
-| priorityClassName | string | `nil` |  |
-| probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
+| priorityClassName | string | `nil` | Custom priority class for different treatment by the scheduler |
+| probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.custom | bool | `false` | Set this to `true` if you wish to specify your own livenessProbe |
 | probes.liveness.enabled | bool | `true` | Enable the liveness probe |
@@ -228,9 +235,11 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | secret | object | `{}` | Use this to populate a secret with the values you specify. Be aware that these values are not encrypted by default, and could therefore visible to anybody with access to the values.yaml file. |
 | securityContext | object | `{"allowPrivilegeEscalation":false,"capabilities":{"add":[],"drop":[]},"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true}` | Configure the Security Context for the main container |
 | service | object | See below | Configure the services for the chart here. Additional services can be added by adding a dictionary key similar to the 'main' service. |
+| service.main.annotations | object | `{}` | Provide additional annotations which may be required. |
 | service.main.enabled | bool | `true` | Enables or disables the service |
 | service.main.ipFamilies | list | `[]` | The ip families that should be used. Options: IPv4, IPv6 |
 | service.main.ipFamilyPolicy | string | `"SingleStack"` | Specify the ip policy. Options: SingleStack, PreferDualStack, RequireDualStack |
+| service.main.labels | object | `{}` | Provide additional labels which may be required. |
 | service.main.nameOverride | string | `nil` | Override the name suffix that is used for this service |
 | service.main.ports | object | See below | Configure the Service port information here. Additional ports can be added by adding a dictionary key similar to the 'http' service. |
 | service.main.ports.main.enabled | bool | `true` | Enables or disables the port |
@@ -249,9 +258,9 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | serviceList | list | See below | Configure additional services for the chart here. |
 | stdin | bool | `false` | Determines whether containers in a pod runs with stdin enabled. |
-| termination.gracePeriodSeconds | int | `10` | Duration in seconds the pod needs to terminate gracefully -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)] |
-| termination.messagePath | string | `nil` | Configure the path at which the file to which the main container's termination message will be written. -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)] |
-| termination.messagePolicy | string | `nil` | Indicate how the main container's termination message should be populated. Valid options are `File` and `FallbackToLogsOnError`. -- [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)] |
+| termination.gracePeriodSeconds | int | `10` | [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle)] |
+| termination.messagePath | string | `nil` | [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)] |
+| termination.messagePolicy | string | `nil` | [[ref](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#lifecycle-1)] |
 | tolerations | list | `[]` | Specify taint tolerations [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) |
 | topologySpreadConstraints | list | `[]` | Defines topologySpreadConstraint rules. [[ref]](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) |
 | tty | bool | `false` | Determines whether containers in a pod runs with TTY enabled. |

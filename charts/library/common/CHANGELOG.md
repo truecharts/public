@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.14.3"></a>
+### [common-8.14.3](https://github.com/truecharts/apps/compare/common-8.14.2...common-8.14.3) (2022-01-31)
+
+#### Feat
+
+* force `NVIDIA_VISIBLE_DEVICES: "void"` when no GPU is assigned ([#1819](https://github.com/truecharts/apps/issues/1819))
+
+
+
 <a name="common-8.14.2"></a>
 ### [common-8.14.2](https://github.com/truecharts/apps/compare/common-8.14.1...common-8.14.2) (2022-01-24)
 
