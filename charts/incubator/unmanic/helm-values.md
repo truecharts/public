@@ -13,6 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.PUID | int | `568` |  |
 | env.TZ | string | `"UTC"` |  |
+| envFrom[0].configMapRef.name | string | `"unmanic-config"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/unmanic"` |  |
 | image.tag | string | `"v0.1.4@sha256:9a255521474745ab6ee4ea481db72b86da27ff390741d030839efb61d2cff60e"` |  |
@@ -23,6 +24,8 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.library.enabled | bool | `true` |  |
 | persistence.library.mountPath | string | `"/library"` |  |
+| persistence.remote.enabled | bool | `true` |  |
+| persistence.remote.mountPath | string | `"/tmp/unmanic/remote_library"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

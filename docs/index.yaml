@@ -51143,6 +51143,36 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.1.4
+    created: "2022-01-31T07:28:27.206812975Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    description: Unmanic is a simple tool for optimising your file library.
+    digest: ed1c1950afe6c524e90e022cacc4cb69532de6a29f415d279fa023d405dee698
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/unmanic
+    icon: https://truecharts.org/_static/img/appicons/unmanic-icon.png
+    keywords:
+    - media
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: unmanic
+    sources:
+    - https://github.com/Unmanic/unmanic
+    - https://hub.docker.com/r/josh5/unmanic
+    urls:
+    - https://github.com/truecharts/apps/releases/download/unmanic-0.0.4/unmanic-0.0.4.tgz
+    version: 0.0.4
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.1.4
     created: "2022-01-30T13:02:50.470413025Z"
     dependencies:
     - name: common
@@ -53960,4 +53990,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-30T23:51:22.494203165Z"
+generated: "2022-01-31T07:28:27.210913035Z"
