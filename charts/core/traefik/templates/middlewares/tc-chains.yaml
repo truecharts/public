@@ -7,23 +7,23 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: tc-synapse-headers
-  namespace: {{ $namespace }}
-spec:
-  headers:
-    accessControlAllowOriginList:
-      - "*"
-
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
-  name: tc-synapse-chain
+  name: tc-opencors-chain
   namespace: {{ $namespace }}
 spec:
   chain:
     middlewares:
     - name: basic-ratelimit
-    - name: basic-secure-headers
-    - name: tc-synapse-headers
+    - name: tc-opencors-headers
+    - name: compress
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: tc-closedcors-chain
+  namespace: {{ $namespace }}
+spec:
+  chain:
+    middlewares:
+    - name: basic-ratelimit
+    - name: tc-closedcors-headers
     - name: compress
