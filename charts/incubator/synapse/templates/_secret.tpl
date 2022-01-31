@@ -42,11 +42,10 @@ stringData:
 
     {{- if $previous }}
     {{- $msk = ( index $previous.data "macaroon_secret_key" )  }}
-    macaroon_secret_key: {{ ( index $previous.data "macaroon_secret_key" ) }}
     {{- else }}
     {{- $msk = randAlphaNum 50 }}
-    macaroon_secret_key: {{ $msk | quote }}
     {{- end }}
+    macaroon_secret_key: {{ $msk }}
 
     {{- if .Values.coturn.enabled -}}
     turn_shared_secret: {{ include "matrix.coturn.sharedSecret" . }}
