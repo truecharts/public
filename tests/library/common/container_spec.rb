@@ -101,14 +101,14 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][4]["name"])
-        assert_equal(values[:env].values[0].to_s, mainContainer["env"][4]["value"])
-        assert_equal(values[:env].keys[1].to_s, mainContainer["env"][5]["name"])
-        assert_equal(values[:env].values[1].to_s, mainContainer["env"][5]["value"])
-        assert_equal(values[:env].keys[2].to_s, mainContainer["env"][6]["name"])
-        assert_equal(values[:env].values[2].to_s, mainContainer["env"][6]["value"])
-        assert_equal(values[:env].keys[3].to_s, mainContainer["env"][7]["name"])
-        assert_equal(values[:env].values[3].to_s, mainContainer["env"][7]["value"])
+        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][5]["name"])
+        assert_equal(values[:env].values[0].to_s, mainContainer["env"][5]["value"])
+        assert_equal(values[:env].keys[1].to_s, mainContainer["env"][6]["name"])
+        assert_equal(values[:env].values[1].to_s, mainContainer["env"][6]["value"])
+        assert_equal(values[:env].keys[2].to_s, mainContainer["env"][7]["name"])
+        assert_equal(values[:env].values[2].to_s, mainContainer["env"][7]["value"])
+        assert_equal(values[:env].keys[3].to_s, mainContainer["env"][8]["name"])
+        assert_equal(values[:env].values[3].to_s, mainContainer["env"][8]["value"])
       end
 
       it 'set list of static "kubernetes style" environment variables' do
