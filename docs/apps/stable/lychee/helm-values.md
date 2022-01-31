@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/lychee-laravel"` |  |
-| image.tag | string | `"v4.3.6@sha256:34d3e89ab62184efaeed53cc4fffca468c92febfa49ef3d1da971fd0aef34e7d"` |  |
+| image.tag | string | `"v4.4.0@sha256:f241d62fa4b2f97577d494c319eaab9e5b127e4a67af58ea90861ce56ff0fb88"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

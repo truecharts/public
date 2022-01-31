@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/valheim-server"` | image repository |
-| image.tag | string | `"latest@sha256:12a0e638db1b54e93af61d8a94c275224ec8524e65304f058eff34dfdbaafef0"` | image tag |
+| image.tag | string | `"latest@sha256:5a417fb9a880321ab9af1d63b0d7a9d68a5340f61a005265f16d13297c3a5f6d"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

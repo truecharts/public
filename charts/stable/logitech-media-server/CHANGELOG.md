@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.55"></a>
+### [logitech-media-server-2.0.55](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.54...logitech-media-server-2.0.55) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="logitech-media-server-2.0.54"></a>
 ### [logitech-media-server-2.0.54](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.53...logitech-media-server-2.0.54) (2022-01-25)
 

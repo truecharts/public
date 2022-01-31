@@ -29,7 +29,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/nextcloud"` |  |
-| image.tag | string | `"v23.0.0@sha256:204b689c02383892fe16a5db10e4562ade08bd73be0e6cdcf5ab0696e38cc6f5"` |  |
+| image.tag | string | `"v23.0.0@sha256:a76a22f34a4751913818ad6307f63c547f709601dc75fd01b7168b285f08a7b5"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html"` |  |
 | podSecurityContext.fsGroup | int | `33` |  |
@@ -39,7 +39,7 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"nextcloud"` |  |
 | postgresql.postgresqlUsername | string | `"nextcloud"` |  |
-| probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
+| probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.readiness | object | See below | Redainess probe configuration |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.40"></a>
+### [qbittorrent-9.0.40](https://github.com/truecharts/apps/compare/qbittorrent-9.0.39...qbittorrent-9.0.40) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="qbittorrent-9.0.39"></a>
 ### [qbittorrent-9.0.39](https://github.com/truecharts/apps/compare/qbittorrent-9.0.38...qbittorrent-9.0.39) (2022-01-25)
 

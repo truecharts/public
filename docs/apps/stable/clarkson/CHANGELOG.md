@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-0.0.30"></a>
+### [clarkson-0.0.30](https://github.com/truecharts/apps/compare/clarkson-0.0.29...clarkson-0.0.30) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="clarkson-0.0.29"></a>
 ### [clarkson-0.0.29](https://github.com/truecharts/apps/compare/clarkson-0.0.28...clarkson-0.0.29) (2022-01-25)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.32"></a>
+### [snipe-it-0.0.32](https://github.com/truecharts/apps/compare/snipe-it-0.0.31...snipe-it-0.0.32) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="snipe-it-0.0.31"></a>
 ### [snipe-it-0.0.31](https://github.com/truecharts/apps/compare/snipe-it-0.0.30...snipe-it-0.0.31) (2022-01-25)
 

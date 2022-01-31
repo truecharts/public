@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.39"></a>
+### [plex-8.0.39](https://github.com/truecharts/apps/compare/plex-8.0.38...plex-8.0.39) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="plex-8.0.38"></a>
 ### [plex-8.0.38](https://github.com/truecharts/apps/compare/plex-8.0.37...plex-8.0.38) (2022-01-25)
 

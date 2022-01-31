@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="n8n-1.0.1"></a>
+### [n8n-1.0.1](https://github.com/truecharts/apps/compare/n8n-1.0.0...n8n-1.0.1) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="n8n-1.0.0"></a>
 ### [n8n-1.0.0](https://github.com/truecharts/apps/compare/n8n-0.0.4...n8n-1.0.0) (2022-01-31)
 

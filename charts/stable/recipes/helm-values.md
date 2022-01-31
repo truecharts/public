@@ -32,9 +32,9 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.SECRET_KEY.secretKeyRef.name | string | `"recipes-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/recipes"` | image repository |
-| image.tag | string | `"v1.0.4@sha256:3b15df975e692fc49d337a2ef937b53934d6b4c527bc1e8071cbb444b1a8bc20"` | image tag |
+| image.tag | string | `"v1.0.5@sha256:c74923879e7d2bf5bff4d1e953a100307462ad191a79908165f3364b97446833"` | image tag |
 | nginxImage.repository | string | `"tccr.io/truecharts/nginx"` | nginx sidecar image repository |
-| nginxImage.tag | string | `"v1.21.5@sha256:83a87113db9e86c2de4ba7a83b7ca796b3e455115ae545984c7a50ef16c1b45e"` | nginx sidecar image tag |
+| nginxImage.tag | string | `"v1.21.6@sha256:80d87a1d4d67749d2caaa64ee061a66a946b81942ac56f4780e36f8356cee371"` | nginx sidecar image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

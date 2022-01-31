@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/flaresolverr"` | image repository |
-| image.tag | string | `"v2.1.0@sha256:40f642ede742c53dae48d72f18f604ff6e30a6dfe485efd5fa9156cef3761ebb"` | image tag |
+| image.tag | string | `"v2.2.0@sha256:f9cb7b69e25282d0d379498e36ab6a4de46d6ff7393b269d5927ee77eadfb3cd"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

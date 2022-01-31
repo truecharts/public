@@ -27,13 +27,13 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/mariadb"` |  |
-| image.tag | string | `"v10.6.5@sha256:7a739766b75de3a4356b57d3271ec30f78c3b6bec261c0cc3d8d645cd5814008"` |  |
+| image.tag | string | `"v10.6.5@sha256:2f6231753b63e02ef7877171314b46f3d92a308adee7e8ead83c76dea4637661"` |  |
 | mariadbDatabase | string | `"test"` |  |
 | mariadbPassword | string | `"testpass"` |  |
 | mariadbRootPassword | string | `"testroot"` |  |
 | mariadbUsername | string | `"test"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
-| probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
+| probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.custom | bool | `true` | Set this to `true` if you wish to specify your own livenessProbe |
 | probes.liveness.enabled | bool | `true` | Enable the liveness probe |

@@ -88,7 +88,7 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.volumeMounts | list | `[]` |  |
 | alertmanager.volumes | list | `[]` |  |
 | alertmanagerImage.repository | string | `"tccr.io/truecharts/alertmanager"` |  |
-| alertmanagerImage.tag | string | `"v0.23.0@sha256:f32ea7ef87f792be2f73d82a1be2e46ab36b4363ef6a589d6559eacfd3c60278"` |  |
+| alertmanagerImage.tag | string | `"v0.23.0@sha256:07f6ee20c93bc6d8e7e95c36fcf690debd76b42cd087b69cabe3ae1184502c21"` |  |
 | coreDns.enabled | bool | `true` |  |
 | coreDns.namespace | string | `"kube-system"` |  |
 | coreDns.service.enabled | bool | `true` |  |
@@ -104,7 +104,7 @@ You will, however, be able to use all values referenced in the common chart here
 | exporters.node-exporter.enabled | bool | `true` |  |
 | global.labels | object | `{}` |  |
 | image.repository | string | `"tccr.io/truecharts/prometheus-operator"` |  |
-| image.tag | string | `"v0.53.1@sha256:de37c6aece6dc852bf21bfcfde4afecb61da1f1a753556784619a72c808b91b2"` |  |
+| image.tag | string | `"v0.54.0@sha256:d24b852454b66d6e96779e56efd6680bf12086511c387f3ba9f6228a961a7b71"` |  |
 | ingress.alertmanager.enabled | bool | `false` |  |
 | ingress.main.enabled | bool | `false` |  |
 | ingress.thanos.enabled | bool | `false` |  |
@@ -317,7 +317,7 @@ You will, however, be able to use all values referenced in the common chart here
 | prometheus.volumes | list | `[]` |  |
 | prometheus.walCompression | bool | `false` |  |
 | prometheusImage.repository | string | `"tccr.io/truecharts/prometheus"` |  |
-| prometheusImage.tag | string | `"v2.32.1@sha256:cf546ed7533b1cdad77e94c8cf69ba381472ced460c1dd749d7e100b7d06138a"` |  |
+| prometheusImage.tag | string | `"v2.33.0@sha256:065775cca95339e66a9287e9143f564443dc2ca52af4aa59bf69ab3d120a4917"` |  |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":["apiextensions.k8s.io"],"resources":["customresourcedefinitions"],"verbs":["create"]},{"apiGroups":["apiextensions.k8s.io"],"resourceNames":["alertmanagers.monitoring.coreos.com","podmonitors.monitoring.coreos.com","prometheuses.monitoring.coreos.com","prometheusrules.monitoring.coreos.com","servicemonitors.monitoring.coreos.com","thanosrulers.monitoring.coreos.com","probes.monitoring.coreos.com"],"resources":["customresourcedefinitions"],"verbs":["get","update"]},{"apiGroups":["monitoring.coreos.com"],"resources":["alertmanagers","alertmanagers/finalizers","alertmanagerconfigs","prometheuses","prometheuses/finalizers","thanosrulers","thanosrulers/finalizers","servicemonitors","podmonitors","probes","prometheusrules"],"verbs":["*"]},{"apiGroups":["apps"],"resources":["statefulsets"],"verbs":["*"]},{"apiGroups":[""],"resources":["configmaps","secrets"],"verbs":["*"]},{"apiGroups":[""],"resources":["pods"],"verbs":["list","delete"]},{"apiGroups":[""],"resources":["services","services/finalizers","endpoints"],"verbs":["get","create","update","delete"]},{"apiGroups":[""],"resources":["nodes"],"verbs":["list","watch"]},{"apiGroups":[""],"resources":["namespaces"],"verbs":["get","list","watch"]},{"apiGroups":["networking.k8s.io"],"resources":["ingresses"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.alertmanager.enabled | bool | `true` |  |
@@ -346,6 +346,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.thanos.selector.prometheus | string | `"{{ template \"kube-prometheus.prometheus.fullname\" . }}"` |  |
 | serviceAccount | object | `{"create":true}` | The service account the pods will use to interact with the Kubernetes API |
 | thanosImage.repository | string | `"tccr.io/truecharts/thanos"` |  |
-| thanosImage.tag | string | `"v0.24.0@sha256:a5d3b75f3e983468905d8569808c16c155a70c37c755f44084d50f9982a2c2b2"` |  |
+| thanosImage.tag | string | `"v0.24.0@sha256:f93ec826a676561abe21c4d68376d092fea96bde0980ed1f52df8e28b5a316d3"` |  |
 
 All Rights Reserved - The TrueCharts Project

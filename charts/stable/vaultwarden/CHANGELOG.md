@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.30"></a>
+### [vaultwarden-13.0.30](https://github.com/truecharts/apps/compare/vaultwarden-13.0.29...vaultwarden-13.0.30) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="vaultwarden-13.0.29"></a>
 ### [vaultwarden-13.0.29](https://github.com/truecharts/apps/compare/vaultwarden-13.0.28...vaultwarden-13.0.29) (2022-01-25)
 

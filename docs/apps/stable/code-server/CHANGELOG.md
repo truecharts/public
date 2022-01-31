@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.20"></a>
+### [code-server-2.1.20](https://github.com/truecharts/apps/compare/openvscode-server-0.0.19...code-server-2.1.20) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="code-server-2.1.19"></a>
 ### [code-server-2.1.19](https://github.com/truecharts/apps/compare/code-server-2.1.18...code-server-2.1.19) (2022-01-25)
 

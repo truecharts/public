@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-9.0.41"></a>
+### [nzbhydra-9.0.41](https://github.com/truecharts/apps/compare/nzbhydra-9.0.40...nzbhydra-9.0.41) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="nzbhydra-9.0.40"></a>
 ### [nzbhydra-9.0.40](https://github.com/truecharts/apps/compare/nzbhydra-9.0.39...nzbhydra-9.0.40) (2022-01-25)
 

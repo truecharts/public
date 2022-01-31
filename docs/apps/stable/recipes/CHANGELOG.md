@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="recipes-5.0.17"></a>
+### [recipes-5.0.17](https://github.com/truecharts/apps/compare/recipes-5.0.16...recipes-5.0.17) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="recipes-5.0.16"></a>
 ### [recipes-5.0.16](https://github.com/truecharts/apps/compare/recipes-5.0.15...recipes-5.0.16) (2022-01-25)
 

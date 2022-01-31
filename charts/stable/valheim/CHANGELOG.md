@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.17"></a>
+### [valheim-2.0.17](https://github.com/truecharts/apps/compare/valheim-2.0.16...valheim-2.0.17) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="valheim-2.0.16"></a>
 ### [valheim-2.0.16](https://github.com/truecharts/apps/compare/valheim-2.0.15...valheim-2.0.16) (2022-01-25)
 

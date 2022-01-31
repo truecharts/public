@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="habridge-0.0.18"></a>
+### [habridge-0.0.18](https://github.com/truecharts/apps/compare/habridge-0.0.16...habridge-0.0.18) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+* update helm general non-major helm releases ([#1791](https://github.com/truecharts/apps/issues/1791))
+
+#### Fix
+
+* correct mistakes in install and upgrade init containers
+
+
+
 <a name="habridge-0.0.17"></a>
 ### [habridge-0.0.17](https://github.com/truecharts/apps/compare/habridge-0.0.16...habridge-0.0.17) (2022-01-25)
 

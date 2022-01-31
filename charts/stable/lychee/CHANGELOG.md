@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lychee-9.0.37"></a>
+### [lychee-9.0.37](https://github.com/truecharts/apps/compare/lychee-9.0.36...lychee-9.0.37) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="lychee-9.0.36"></a>
 ### [lychee-9.0.36](https://github.com/truecharts/apps/compare/lychee-9.0.35...lychee-9.0.36) (2022-01-25)
 

@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="collabora-online-10.0.21"></a>
+### [collabora-online-10.0.21](https://github.com/truecharts/apps/compare/collabora-online-10.0.20...collabora-online-10.0.21) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+#### Fix
+
+* change perms to remove some errors ([#1792](https://github.com/truecharts/apps/issues/1792))
+
+
+
 <a name="collabora-online-10.0.20"></a>
 ### [collabora-online-10.0.20](https://github.com/truecharts/apps/compare/collabora-online-10.0.19...collabora-online-10.0.20) (2022-01-25)
 

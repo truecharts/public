@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/lazylibrarian"` |  |
-| image.tag | string | `"latest@sha256:a3022be0ff12b8be3bfb57c31f8b17b2a46c8fcd869fa7f8a14257ab02b5001f"` |  |
+| image.tag | string | `"latest@sha256:69baa760b6cb6fb69f8969d51a6151721b5e728cfe7f92f8e0ce572c7724aede"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

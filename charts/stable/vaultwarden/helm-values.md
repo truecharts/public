@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DATABASE_URL.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/vaultwarden"` |  |
-| image.tag | string | `"v1.23.1@sha256:094eae865c2650b033313228359aafdef5f00008b8f44cb856ee418270cebdf9"` |  |
+| image.tag | string | `"v1.24.0@sha256:de9c2df3042be86e57c6e56bc1c7d6a72567527b25895836bdf4c6e7b899814d"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | postgresql.enabled | bool | `true` |  |

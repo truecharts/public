@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-1.0.1"></a>
+### [synapse-1.0.1](https://github.com/truecharts/apps/compare/synapse-1.0.0...synapse-1.0.1) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="synapse-1.0.0"></a>
 ### [synapse-1.0.0](https://github.com/truecharts/apps/compare/synapse-0.0.14...synapse-1.0.0) (2022-01-31)
 

@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MYSQL_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/clarkson"` |  |
-| image.tag | string | `"v1.1.2@sha256:e9671031058f4c3219fb2294a22fcb946b5f13c4c4c3cbfc4ec163b49526690a"` |  |
+| image.tag | string | `"v1.1.2@sha256:cfbc3aca546a36a74d62969511c0bbc1aad521867610faf502ee8abe0dbe3258"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"clarkson"` |  |

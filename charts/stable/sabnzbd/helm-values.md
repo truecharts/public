@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/sabnzbd"` |  |
-| image.tag | string | `"v3.4.2@sha256:899d64a2006cccb885b2a1c7d41ad5b144de09b5e7c5017d9a714f39e8a25047"` |  |
+| image.tag | string | `"v3.5.0@sha256:105abe5a671dc23e2291ffa20dc6b74c73946ddcb3d7618a417ac79247368925"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | service.main.ports.main.port | int | `10097` |  |

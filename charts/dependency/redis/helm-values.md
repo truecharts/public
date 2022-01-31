@@ -28,13 +28,13 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/redis"` |  |
-| image.tag | string | `"v6.2.6@sha256:52275ab8ef5bc70fd994e48bb6e66368dc312f176127390194c077aed424d2b7"` |  |
+| image.tag | string | `"v6.2.6@sha256:d32f1e5a73090250b70ef02f924d5e1394a97eadbde6c1730778d5f8e9df6253"` |  |
 | persistence.redis-health | object | See below | redis-health configmap mount |
 | persistence.redis-health.mountPath | string | `"/health"` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.redis-health.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
 | persistence.redis-health.volumeSpec | object | `{"configMap":{"defaultMode":493,"name":"redis-health"}}` | Define the custom Volume spec here [[ref]](https://kubernetes.io/docs/concepts/storage/volumes/) |
 | podSecurityContext.runAsGroup | int | `0` |  |
-| probes | object | See below | Probe configuration -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
+| probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.liveness.custom | bool | `true` | Set this to `true` if you wish to specify your own livenessProbe |
 | probes.liveness.enabled | bool | `true` | Enable the liveness probe |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="node-red-9.0.38"></a>
+### [node-red-9.0.38](https://github.com/truecharts/apps/compare/node-red-9.0.37...node-red-9.0.38) (2022-01-31)
+
+#### Chore
+
+* update docker general non-major docker tags ([#1823](https://github.com/truecharts/apps/issues/1823))
+
+
+
 <a name="node-red-9.0.37"></a>
 ### [node-red-9.0.37](https://github.com/truecharts/apps/compare/node-red-9.0.36...node-red-9.0.37) (2022-01-25)
 

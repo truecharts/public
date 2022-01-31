@@ -17,14 +17,13 @@ You will, however, be able to use all values referenced in the common chart here
 | env.server_name | string | `"collabora\\.domain\\.tld"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/collabora"` |  |
-| image.tag | string | `"v21.11.1.3.1@sha256:b2575f370fa55cfe2b415d0f55f9a3e87600ece4ec06ec365ce3e1a020798c6c"` |  |
-| podSecurityContext.runAsGroup | int | `0` |  |
+| image.tag | string | `"v21.11.1.4.1@sha256:468614d28494396c97bd71cd59711e5cd64312491b0333f9e80e4317ef86fa3c"` |  |
+| podSecurityContext.runAsGroup | int | `106` |  |
 | podSecurityContext.runAsUser | int | `104` |  |
 | secret.password | string | `"changeme"` |  |
 | secret.username | string | `"admin"` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10105` |  |
 | service.main.ports.main.targetPort | int | `9980` |  |
 
