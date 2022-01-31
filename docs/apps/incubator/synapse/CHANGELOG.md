@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-0.0.4"></a>
+### [synapse-0.0.4](https://github.com/truecharts/apps/compare/synapse-0.0.3...synapse-0.0.4) (2022-01-31)
+
+#### Fix
+
+* update questions.yaml to beter reflect values.yaml
+
+
+
 <a name="synapse-0.0.3"></a>
 ### [synapse-0.0.3](https://github.com/truecharts/apps/compare/synapse-0.0.2...synapse-0.0.3) (2022-01-25)
 
