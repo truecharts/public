@@ -56,6 +56,10 @@
     - name: S6_READ_ONLY_ROOT
       value: "1"
    {{- end }}
+   {{- if not ( .Values.scaleGPU ) }}
+    - name: NVIDIA_VISIBLE_DEVICES
+      value: "void"
+   {{- end }}
    {{- range $key, $value := .Values.envTpl }}
     - name: {{ $key }}
       value: {{ tpl $value $ | quote }}
