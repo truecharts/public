@@ -11,7 +11,7 @@ metadata:
     rollme: {{ randAlphaNum 5 | quote }}
 stringData:
   {{- $previous := lookup "v1" "Secret" .Release.Namespace "synapse-secret" }}
-  {{- $msk := "" }}
+  {{- $msk = randAlphaNum 50 }}
   secret.yaml: |
     {{- if .Values.mail.enabled }}
     email:
@@ -43,7 +43,7 @@ stringData:
     {{- if $previous }}
     {{- $msk = ( index $previous.data "macaroon_secret_key" )  }}
     {{- else }}
-    {{- $msk = randAlphaNum 50 }}
+
     {{- end }}
     macaroon_secret_key: {{ $msk }}
 

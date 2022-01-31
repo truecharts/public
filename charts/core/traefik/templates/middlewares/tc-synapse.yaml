@@ -1,0 +1,25 @@
+{{- $values := .Values }}
+{{- $namespace := ( printf "ix-%s" .Release.Name ) }}
+{{- if or ( not .Values.ingressClass.enabled ) ( and ( .Values.ingressClass.enabled ) ( .Values.ingressClass.isDefaultClass ) ) }}
+{{- $namespace = "default" }}
+{{- end }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: tc-synapse-headers
+  namespace: {{ $namespace }}
+spec:
+  headers:
+    accesscontrolalloworigin: '*'
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: tc-synapse-chain
+  namespace: {{ $namespace }}
+spec:
+  chain:
+    middlewares:
+    - name: tc-synapse-headers
