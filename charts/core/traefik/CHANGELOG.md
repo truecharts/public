@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.47"></a>
+### [traefik-10.0.47](https://github.com/truecharts/apps/compare/traefik-10.0.46...traefik-10.0.47) (2022-01-31)
+
+#### Fix
+
+* replace depricated header references
+
+
+
 <a name="traefik-10.0.46"></a>
 ### [traefik-10.0.46](https://github.com/truecharts/apps/compare/traefik-10.0.45...traefik-10.0.46) (2022-01-31)
 
