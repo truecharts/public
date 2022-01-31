@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-0.0.7"></a>
+### [synapse-0.0.7](https://github.com/truecharts/apps/compare/synapse-0.0.5...synapse-0.0.7) (2022-01-31)
+
+#### Fix
+
+* Try another way of defining the macaroon secret
+
+
+
 <a name="synapse-0.0.5"></a>
 ### [synapse-0.0.5](https://github.com/truecharts/apps/compare/synapse-0.0.4...synapse-0.0.5) (2022-01-31)
 

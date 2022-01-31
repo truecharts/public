@@ -102,6 +102,8 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.path | string | `"/health"` |  |
 | secret | object | `{}` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |
+| service.federation.ports.federation.port | int | `8448` |  |
+| service.federation.ports.federation.targetPort | int | `8008` |  |
 | service.main.ports.main.port | int | `8008` |  |
 | service.main.ports.main.targetPort | int | `8008` |  |
 | service.metrics.enabled | bool | `true` |  |
