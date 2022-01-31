@@ -41,11 +41,11 @@ stringData:
     {{- end }}
 
     {{- if $previous }}
-    {{- $msk = ( index $previous.data "macaroon_secret_key" ) | b64dec  }}
+    {{- $msk = ( index $previous.data "macaroon_secret_key" )  }}
     macaroon_secret_key: {{ ( index $previous.data "macaroon_secret_key" ) }}
     {{- else }}
     {{- $msk = randAlphaNum 50 }}
-    macaroon_secret_key: {{ $msk | b64enc | quote }}
+    macaroon_secret_key: {{ $msk | quote }}
     {{- end }}
 
     {{- if .Values.coturn.enabled -}}
