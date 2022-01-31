@@ -11,7 +11,7 @@ metadata:
   namespace: {{ $namespace }}
 spec:
   headers:
-    accesscontrolalloworigin: '*'
+    accessControlAllowOrigin: "*"
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
