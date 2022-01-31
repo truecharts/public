@@ -11,10 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| additionalArguments[0] | string | `"--metrics.prometheus"` |  |
-| additionalArguments[1] | string | `"--ping"` |  |
-| additionalArguments[2] | string | `"--serverstransport.insecureskipverify=true"` |  |
-| additionalArguments[3] | string | `"--providers.kubernetesingress.allowexternalnameservices=true"` |  |
+| additionalArguments | list | `["--metrics.prometheus","--ping","--serverstransport.insecureskipverify=true","--providers.kubernetesingress.allowexternalnameservices=true"]` | Additional arguments to be passed at Traefik's binary All available options available on https://docs.traefik.io/reference/static-configuration/cli/ |
 | globalArguments[0] | string | `"--global.checknewversion"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/traefik"` |  |
@@ -38,11 +35,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup | object | See below | Startup probe configuration |
 | probes.startup.path | string | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
 | probes.startup.type | string | "TCP" | sets the probe type when not using a custom probe |
-| providers.kubernetesCRD.enabled | bool | `true` |  |
-| providers.kubernetesCRD.namespaces | list | `[]` |  |
-| providers.kubernetesIngress.enabled | bool | `true` |  |
-| providers.kubernetesIngress.namespaces | list | `[]` |  |
-| providers.kubernetesIngress.publishedService.enabled | bool | `true` |  |
+| providers | object | `{"kubernetesCRD":{"enabled":true,"namespaces":[]},"kubernetesIngress":{"enabled":true,"namespaces":[],"publishedService":{"enabled":true}}}` | Configure providers |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":[""],"resources":["services","endpoints","secrets"],"verbs":["get","list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses","ingressclasses"],"verbs":["get","list","watch"]},{"apiGroups":["extensions","networking.k8s.io"],"resources":["ingresses/status"],"verbs":["update"]},{"apiGroups":["traefik.containo.us"],"resources":["ingressroutes","ingressroutetcps","ingressrouteudps","middlewares","middlewaretcps","tlsoptions","tlsstores","traefikservices","serverstransports"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
 | service | object | `{"main":{"ports":{"main":{"port":9000,"protocol":"HTTP","targetPort":9000}},"type":"LoadBalancer"},"metrics":{"enabled":true,"ports":{"metrics":{"enabled":true,"port":9180,"protocol":"HTTP","targetPort":9180}},"type":"ClusterIP"},"tcp":{"enabled":true,"ports":{"web":{"enabled":true,"port":9080,"protocol":"HTTP","redirectTo":"websecure"},"websecure":{"enabled":true,"port":9443,"protocol":"HTTPS"}},"type":"LoadBalancer"},"udp":{"enabled":false}}` | Options for the main traefik service, where the entrypoints traffic comes from from. |
 | serviceAccount | object | `{"create":true}` | The service account the pods will use to interact with the Kubernetes API |

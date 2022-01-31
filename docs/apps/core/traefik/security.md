@@ -38,6 +38,12 @@ hide:
 
 
 
+
+| No Misconfigurations found         |
+|:---------------------------------|
+
+
+
 ## Containers
 
 ##### Detected Containers
