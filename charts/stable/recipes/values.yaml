@@ -2,7 +2,7 @@ image:
   # -- image repository
   repository: tccr.io/truecharts/recipes
   # -- image tag
-  tag: v1.0.4@sha256:3b15df975e692fc49d337a2ef937b53934d6b4c527bc1e8071cbb444b1a8bc20
+  tag: v1.0.5@sha256:c74923879e7d2bf5bff4d1e953a100307462ad191a79908165f3364b97446833
   # -- image pull policy
   pullPolicy: IfNotPresent
 
@@ -10,7 +10,7 @@ nginxImage:
   # -- nginx sidecar image repository
   repository: tccr.io/truecharts/nginx
   # -- nginx sidecar image tag
-  tag: v1.21.5@sha256:83a87113db9e86c2de4ba7a83b7ca796b3e455115ae545984c7a50ef16c1b45e
+  tag: v1.21.6@sha256:80d87a1d4d67749d2caaa64ee061a66a946b81942ac56f4780e36f8356cee371
 
 securityContext:
   readOnlyRootFilesystem: false
