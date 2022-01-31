@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.49"></a>
+### [traefik-10.0.49](https://github.com/truecharts/apps/compare/traefik-10.0.48...traefik-10.0.49) (2022-01-31)
+
+#### Fix
+
+* introduce two basic changes with different CORS policy
+
+
+
 <a name="traefik-10.0.48"></a>
 ### [traefik-10.0.48](https://github.com/truecharts/apps/compare/traefik-10.0.47...traefik-10.0.48) (2022-01-31)
 
