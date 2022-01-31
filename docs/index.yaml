@@ -25841,6 +25841,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.6.13
+    created: "2022-01-31T22:20:51.969844724Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    description: Memcached is a memory-backed database caching solution
+    digest: 27ce68332adaf4d42ccb0df50cedd217b7d251dc1192153a8813fd80704cf80a
+    home: https://github.com/truecharts/apps/tree/master/stable/memcached
+    icon: https://bitnami.com/assets/stacks/memcached/img/memcached-stack-220x234.png
+    keywords:
+    - memcached
+    - database
+    - cache
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: memcached
+    sources:
+    - https://github.com/bitnami/bitnami-docker-memcached
+    - http://memcached.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/memcached-1.0.62/memcached-1.0.62.tgz
+    version: 1.0.62
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+        - cache
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.13
     created: "2022-01-31T21:40:55.810389841Z"
     dependencies:
     - name: common
@@ -51024,6 +51058,39 @@ entries:
         - network
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 2.6.0
+    created: "2022-01-31T22:20:52.109878653Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    description: Traefik is a flexible reverse proxy and Ingress Provider.
+    digest: ada70bd94f4dd7181c0e8959e08dfc347fd715f1788160caf8da88de8ac4eadf
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/traefik
+    icon: https://truecharts.org/_static/img/appicons/traefik-icon.png
+    keywords:
+    - traefik
+    - ingress
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    - https://traefik.io/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/traefik-10.0.51/traefik-10.0.51.tgz
+    version: 10.0.51
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - network
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 2.5.7
     created: "2022-01-31T21:40:58.939852664Z"
     dependencies:
@@ -55934,4 +56001,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-01-31T21:40:59.786676299Z"
+generated: "2022-01-31T22:20:52.118676492Z"
