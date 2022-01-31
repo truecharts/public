@@ -7,7 +7,7 @@
 {{/* Render secret for synapse */}}
 {{- include "synapse.secret" . }}
 
-{{- $newMiddlewares :=  list "tc-synapse-chain" }}
+{{- $newMiddlewares :=  list "tc-opencors-headers" }}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
 
 {{/* Render the templates */}}
