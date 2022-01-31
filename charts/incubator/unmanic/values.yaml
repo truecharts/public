@@ -33,6 +33,9 @@ persistence:
   library:
     enabled: true
     mountPath: "/library"
+  remote:
+    enabled: true
+    mountPath: "/tmp/unmanic/remote_library"
   cache:
     enabled: true
     mountPath: "/tmp/unmanic"
