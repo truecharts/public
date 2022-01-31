@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.46"></a>
+### [traefik-10.0.46](https://github.com/truecharts/apps/compare/traefik-10.0.45...traefik-10.0.46) (2022-01-31)
+
+#### Fix
+
+* correct mistaken indentation on synapse middleware
+
+
+
 <a name="traefik-10.0.45"></a>
 ### [traefik-10.0.45](https://github.com/truecharts/apps/compare/traefik-10.0.44...traefik-10.0.45) (2022-01-31)
 
