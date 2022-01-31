@@ -41,9 +41,7 @@ stringData:
     {{- end }}
 
     {{- if $previous }}
-    {{- $msk = ( index $previous.data "macaroon_secret_key" )  }}
-    {{- else }}
-
+    {{- $msk = ( index $previous.stringData "macaroon_secret_key" )  }}
     {{- end }}
     macaroon_secret_key: {{ $msk }}
 
