@@ -211,11 +211,6 @@ matrix:
   retentionPeriod: 7d
 
   security:
-    # a secret which is used to sign access tokens. If none is specified,
-    # the registration_shared_secret is used, if one is given; otherwise,
-    # a secret key is derived from the signing key.
-    #
-    # macaroonSecretKey: <PRIVATE STRING>
 
     # This disables the warning that is emitted when the
     # trustedKeyServers include 'matrix.org'. See below.

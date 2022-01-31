@@ -107,42 +107,44 @@ questions:
           schema:
             type: boolean
             default: false
-        - variable: from
-          label: "From: "
-          schema:
-            type: string
-            default: "Matrix <matrix@example.com>"
-        - variable: riotUrl
-          label: "Riot URL"
-          schema:
-            type: string
-            default: ""
-        - variable: host
-          label: "Host"
-          schema:
-            type: string
-            default: ""
-        - variable: port
-          label: "Port"
-          schema:
-            type: int
-            default: 25
-        - variable: username
-          label: "Username"
-          schema:
-            type: string
-            default: ""
-        - variable: password
-          label: "Password"
-          schema:
-            type: string
-            default: ""
-            private: true
-        - variable: requireTransportSecurity
-          label: "Require Transport Security"
-          schema:
-            type: boolean
-            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: from
+                label: "From: "
+                schema:
+                  type: string
+                  default: "Matrix <matrix@example.com>"
+              - variable: riotUrl
+                label: "Riot URL"
+                schema:
+                  type: string
+                  default: ""
+              - variable: host
+                label: "Host"
+                schema:
+                  type: string
+                  default: ""
+              - variable: port
+                label: "Port"
+                schema:
+                  type: int
+                  default: 25
+              - variable: username
+                label: "Username"
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: "Password"
+                schema:
+                  type: string
+                  default: ""
+                  private: true
+              - variable: requireTransportSecurity
+                label: "Require Transport Security"
+                schema:
+                  type: boolean
+                  default: true
 
   - variable: matrix
     group: "Container Configuration"
@@ -156,11 +158,13 @@ questions:
           schema:
             type: boolean
             default: false
-        - variable: disabledMessage
-          label: "Disabled Message"
-          schema:
-            type: string
-            default: ""
+            show_subquestions_if: true
+            subquestions:
+              - variable: disabledMessage
+                label: "Disabled Message"
+                schema:
+                  type: string
+                  default: ""
         - variable: serverName
           label: "Server Name"
           schema:
@@ -259,17 +263,19 @@ questions:
                 schema:
                   type: boolean
                   default: false
-              - variable: maxPixels
-                label: "Max Pixels"
-                schema:
-                  type: string
-                  default: "32M"
-              - variable: sharedSecret
-                label: "Shared Secret"
-                schema:
-                  type: string
-                  default: ""
-                  private: true
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: maxPixels
+                      label: "Max Pixels"
+                      schema:
+                        type: string
+                        default: "32M"
+                    - variable: sharedSecret
+                      label: "Shared Secret"
+                      schema:
+                        type: string
+                        default: ""
+                        private: true
       # TODO: required3PIDs
       # TODO: autoJoinRooms
         - variable: security
@@ -278,12 +284,6 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: macaroonSecretKey
-                label: "Macaroon Secret Key"
-                schema:
-                  type: string
-                  default: ""
-                  private: true
               - variable: surpressKeyServerWarning
                 label: "Surpress Key Server Warning"
                 schema:
