@@ -23,4 +23,7 @@ metadata:
 spec:
   chain:
     middlewares:
+    - name: basic-ratelimit
+    - name: basic-secure-headers
     - name: tc-synapse-headers
+    - name: compress

@@ -7,7 +7,7 @@
 {{/* Render secret for synapse */}}
 {{- include "synapse.secret" . }}
 
-{{- $newMiddlewares :=  append .Values.ingress.main.fixedMiddlewares "tc-synapse-chain" }}
+{{- $newMiddlewares :=  list "tc-synapse-chain" }}
 {{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
 
 {{/* Render the templates */}}
