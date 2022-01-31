@@ -15,10 +15,6 @@ env:
   TZ: UTC
   PUID: 568
 
-envFrom:
-  - configMapRef:
-      name: unmanic-config
-
 service:
   main:
     ports:
