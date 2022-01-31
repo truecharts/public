@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "4.10.1"
+appVersion: "0.160.0"
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -12,23 +12,23 @@ dependencies:
   name: redis
   repository: https://truecharts.org
   version: 1.0.63
-description: Weblate is a copylefted libre software web-based continuous localization system
-home: https://github.com/truecharts/apps/tree/master/charts/stable/weblate
-icon: https://truecharts.org/_static/img/appicons/weblate-icon.png
+description: n8n is an extendable workflow automation tool.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/n8n
+icon: https://truecharts.org/_static/img/appicons/n8n-icon.png
 keywords:
-- translate
+- workflows
+- automation
 kubeVersion: '>=1.16.0-0'
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
   url: https://truecharts.org
-name: weblate
+name: n8n
 sources:
-- https://github.com/WeblateOrg/weblate
-- https://github.com/WeblateOrg/docker
-- https://github.com/WeblateOrg/docker-compose
-- https://docs.weblate.org/en/latest/
-version: 0.0.2
+- https://docs.n8n.io/
+- https://github.com/n8n-io/n8n
+- https://hub.docker.com/r/n8nio/n8n
+version: 1.0.0
 annotations:
   truecharts.org/catagories: |
     - media
