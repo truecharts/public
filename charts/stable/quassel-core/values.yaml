@@ -14,7 +14,8 @@ podSecurityContext:
 env:
   PUID: 568
   DB_BACKEND: "PostgreSQL"
-  DB_PGSQL_USERNAME: "quassel-core"
+  DB_PGSQL_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PGSQL_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_PGSQL_PORT: 5432
   AUTH_AUTHENTICATOR: "Database"
   RUN_OPTS: "--config-from-environment"
