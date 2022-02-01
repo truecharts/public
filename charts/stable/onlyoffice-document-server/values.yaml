@@ -15,6 +15,7 @@ secret:
   JWT_SECRET: "randomgeneratedstring"
 
 env:
+  PRODUCT_NAME: "notdocumentserver"
   WOPI_ENABLED: true
   JWT_ENABLED: true
   DB_TYPE: "postgres"
@@ -55,3 +56,4 @@ postgresql:
 redis:
   enabled: true
   existingSecret: "rediscreds"
+  redisUsername: default
