@@ -1621,3 +1621,128 @@ questions:
                             label: "Value"
                             schema:
                               type: string
+# Shibgreen Configurations
+  - variable: shibgreenEnabled
+    label: "Enable Shibgreen"
+    group: "Configure Coins"
+    schema:
+      type: boolean
+      default: false
+      show_subquestions_if: true
+      subquestions:
+        - variable: shibgreen
+          label: "Configure Shibgreen"
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: volumeMounts
+                label: "Storage Configurations"
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: config
+                      label: "Configuration Volume"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: datasetName
+                            label: "Configuration Volume Dataset Name"
+                            schema:
+                              type: string
+                              hidden: true
+                              $ref:
+                                - "normalize/ixVolume"
+                              show_if: [["hostPathEnabled", "=", false]]
+                              default: "shibgreen-config"
+                              editable: false
+                          - variable: mountPath
+                            label: "Configuration Mount Path"
+                            description: "Path where the volume will be mounted inside the pod"
+                            schema:
+                              type: path
+                              hidden: true
+                              editable: false
+                              default: "/root/.chia"
+                          - variable: hostPathEnabled
+                            label: "Enable Custom Host Path for Configuration Volume"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: hostPath
+                                  label: "Host Path for Configuration Volume"
+                                  schema:
+                                    type: hostpath
+                                    required: true
+                    - variable: mnemonic
+                      label: "Mnemonic Volume"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: datasetName
+                            label: "Mnemonic Volume Dataset Name"
+                            schema:
+                              type: string
+                              hidden: true
+                              $ref:
+                                - "normalize/ixVolume"
+                              show_if: [["hostPathEnabled", "=", false]]
+                              default: "config"
+                              editable: false
+                          - variable: mountPath
+                            label: "Mnemonic Mount Path"
+                            description: "Path where the volume will be mounted inside the pod"
+                            schema:
+                              type: path
+                              hidden: true
+                              editable: false
+                              default: "/root/.chia/mnemonic.txt"
+                          - variable: subPath
+                            label: "Subpath in the Dataset"
+                            schema:
+                              type: string
+                              hidden: true
+                              show_if: [["hostPathEnabled", "=", false]]
+                              default: "mnemonic.txt"
+                              editable: false
+                          - variable: readOnly
+                            label: "Mode"
+                            description: "Mnemonic file mode"
+                            schema:
+                              type: boolean
+                              hidden: true
+                              editable: false
+                              default: true
+                          - variable: hostPathEnabled
+                            label: "Enable Custom Host Path for Mnemonic Volume"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: hostPath
+                                  label: "Host Path for Mnemonic Volume"
+                                  schema:
+                                    type: hostpath
+                                    required: true
+              - variable: environmentVariables
+                label: "Environment Variables"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: environmentVariable
+                      label: "Environment Variable"
+                      schema:
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: "Name"
+                            schema:
+                              type: string
+                          - variable: value
+                            label: "Value"
+                            schema:
+                              type: string

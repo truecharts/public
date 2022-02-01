@@ -53,6 +53,7 @@ coins:
 - staicoin
 - stor
 - btcgreen
+- shibgreen
 cryptodoge:
   apiPort: 8937
   farmerPort: 16895
@@ -176,6 +177,19 @@ stor:
     name: blockchain
     protocol: TCP
   - containerPort: 8337
+    name: farming
+    protocol: TCP
+shibgreen:
+  apiPort: 8939
+  farmerPort: 18974
+  ports:
+  - containerPort: 8939
+    name: api
+    protocol: TCP
+  - containerPort: 7442
+    name: blockchain
+    protocol: TCP
+  - containerPort: 18974
     name: farming
     protocol: TCP
 updateStrategy: Recreate

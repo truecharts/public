@@ -3,7 +3,7 @@ Machinaris
 
 [MACHINARIS](https://github.com/guydavis/machinaris) is an easy-to-use WebUI for Chia plotting and farming. This includes Chia, Plotman, MadMax, Chiadog under main node along with various coin-forks which can be enabled conditionally.
 
-Coins include Cactus, Chives, CrypoDoge, Flax, Flora, HDDCoin, Maize, NChain, StaiCoin, Stor and BTCGreen.
+Coins include Cactus, Chives, CrypoDoge, Flax, Flora, HDDCoin, Maize, NChain, StaiCoin, Stor, BTCGreen and Shibgreen.
 
 Introduction
 ------------
@@ -68,4 +68,4 @@ Following are the Volume Configurations for Machinaris main node & the coin-fork
 | 	`plotting`           |  `<ix-volumes>/plotting`                              | `/plotting`             | Plotting temp volume for main node & coin forks |
 | 	`<coinName>-config`  |  `<ix-volumes>/<coinName>-config`                     | `/root/.chia`           | Chia config for each of the coin-fork containers|
 
-Where `<ix-volumes>` is `/mnt/<pool_name>/ix-applications/releases/<application_name>/volumes/ix_volumes/` and `<coinName>` is one of the following: `[ cactus, chives, crypodoge, flax, flora, hddcoin, maize, nchain, staicoin, stor, btcgreen ]`.
+Where `<ix-volumes>` is `/mnt/<pool_name>/ix-applications/releases/<application_name>/volumes/ix_volumes/` and `<coinName>` is one of the following: `[ cactus, chives, crypodoge, flax, flora, hddcoin, maize, nchain, staicoin, stor, btcgreen, shibgreen ]`.
