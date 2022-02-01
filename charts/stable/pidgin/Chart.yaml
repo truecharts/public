@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: pidgin
-version: 0.0.17
+version: 0.0.18
 appVersion: "2.14.8"
 description: Pidgin is a chat program which lets you log into accounts on multiple chat networks simultaneously.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.14.2
+  version: 8.14.4
   # condition:
 maintainers:
 - email: info@truecharts.org
