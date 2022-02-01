@@ -42372,6 +42372,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.14.0
+    created: "2022-02-01T10:47:29.753183124Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.58
+    description: Quassel-core is a modern, cross-platform, distributed IRC client.
+    digest: 5a2d51cbde01f946e5b3b32782076011fe8c81bb05ced251be721a625815882a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/quassel-core
+    icon: https://truecharts.org/_static/img/appicons/quassel-core-icon.png
+    keywords:
+    - quassel-core
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: quassel-core
+    sources:
+    - https://hub.docker.com/r/linuxserver/quassel-core
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/quassel-core-0.0.20/quassel-core-0.0.20.tgz
+    version: 0.0.20
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.14.0
     created: "2022-01-22T10:53:36.857467988Z"
     dependencies:
     - name: common
@@ -56173,4 +56207,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-01T04:59:23.346469075Z"
+generated: "2022-02-01T10:47:29.757659476Z"

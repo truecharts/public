@@ -13,8 +13,9 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env.AUTH_AUTHENTICATOR | string | `"Database"` |  |
 | env.DB_BACKEND | string | `"PostgreSQL"` |  |
+| env.DB_PGSQL_DATABASE | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
 | env.DB_PGSQL_PORT | int | `5432` |  |
-| env.DB_PGSQL_USERNAME | string | `"quassel-core"` |  |
+| env.DB_PGSQL_USERNAME | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.PUID | int | `568` |  |
 | env.RUN_OPTS | string | `"--config-from-environment"` |  |
 | envValueFrom.DB_PGSQL_HOSTNAME.secretKeyRef.key | string | `"plainhost"` |  |

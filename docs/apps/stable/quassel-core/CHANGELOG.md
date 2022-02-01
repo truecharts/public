@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="quassel-core-0.0.20"></a>
+### [quassel-core-0.0.20](https://github.com/truecharts/apps/compare/quassel-core-0.0.19...quassel-core-0.0.20) (2022-02-01)
+
+#### Fix
+
+* Add db name ([#1826](https://github.com/truecharts/apps/issues/1826))
+
+
+
 <a name="quassel-core-0.0.19"></a>
 ### [quassel-core-0.0.19](https://github.com/truecharts/apps/compare/quassel-core-0.0.18...quassel-core-0.0.19) (2022-01-25)
 
