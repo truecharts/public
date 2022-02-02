@@ -11,14 +11,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 env:
   PUID: 568
   DB_BACKEND: "PostgreSQL"
