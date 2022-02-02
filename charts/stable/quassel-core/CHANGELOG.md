@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="quassel-core-0.0.22"></a>
+### [quassel-core-0.0.22](https://github.com/truecharts/apps/compare/quassel-core-0.0.21...quassel-core-0.0.22) (2022-02-02)
+
+#### Fix
+
+* Restore probes ([#1832](https://github.com/truecharts/apps/issues/1832))
+* Remove probes and portal, as this is only a backend ([#1827](https://github.com/truecharts/apps/issues/1827))
+
+
+
 <a name="quassel-core-0.0.21"></a>
 ### [quassel-core-0.0.21](https://github.com/truecharts/apps/compare/quassel-core-0.0.20...quassel-core-0.0.21) (2022-02-02)
 
