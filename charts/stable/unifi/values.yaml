@@ -48,7 +48,6 @@ service:
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: true
 
 podSecurityContext:
   runAsGroup: 999
