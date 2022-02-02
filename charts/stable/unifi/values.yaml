@@ -48,18 +48,12 @@ service:
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: false
 
 podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  runAsGroup: 999
+  runAsUser: 999
 
-env:
-  # TZ:
-  PUID: 568
-  # Permissions Settings
-  UNIFI_GID: "{{ .Values.env.PUID }}"
-  UNIFI_UID: "{{ .Values.podSecurityContext.fsGroup }}"
+env: {}
 
 persistence:
   config:
