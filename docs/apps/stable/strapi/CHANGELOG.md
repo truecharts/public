@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="strapi-1.0.1"></a>
+### [strapi-1.0.1](https://github.com/truecharts/apps/compare/strapi-1.0.0...strapi-1.0.1) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="strapi-1.0.0"></a>
 ### [strapi-1.0.0](https://github.com/truecharts/apps/compare/strapi-0.0.3...strapi-1.0.0) (2022-01-31)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-9.0.39"></a>
+### [syncthing-9.0.39](https://github.com/truecharts/apps/compare/syncthing-9.0.38...syncthing-9.0.39) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="syncthing-9.0.38"></a>
 ### [syncthing-9.0.38](https://github.com/truecharts/apps/compare/syncthing-9.0.37...syncthing-9.0.38) (2022-01-25)
 

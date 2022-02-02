@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dillinger-0.0.17"></a>
+### [dillinger-0.0.17](https://github.com/truecharts/apps/compare/dillinger-0.0.16...dillinger-0.0.17) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="dillinger-0.0.16"></a>
 ### [dillinger-0.0.16](https://github.com/truecharts/apps/compare/dillinger-0.0.15...dillinger-0.0.16) (2022-01-25)
 

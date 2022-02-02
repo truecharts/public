@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.55"></a>
+### [prometheus-1.1.55](https://github.com/truecharts/apps/compare/prometheus-1.1.54...prometheus-1.1.55) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="prometheus-1.1.54"></a>
 ### [prometheus-1.1.54](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.16...prometheus-1.1.54) (2022-01-31)
 

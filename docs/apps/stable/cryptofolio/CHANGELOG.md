@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cryptofolio-2.0.36"></a>
+### [cryptofolio-2.0.36](https://github.com/truecharts/apps/compare/cryptofolio-2.0.35...cryptofolio-2.0.36) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="cryptofolio-2.0.35"></a>
 ### [cryptofolio-2.0.35](https://github.com/truecharts/apps/compare/cryptofolio-2.0.34...cryptofolio-2.0.35) (2022-01-25)
 

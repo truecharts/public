@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-web-client-1.0.4"></a>
+### [shlink-web-client-1.0.4](https://github.com/truecharts/apps/compare/shlink-web-client-1.0.3...shlink-web-client-1.0.4) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="shlink-web-client-1.0.3"></a>
 ### [shlink-web-client-1.0.3](https://github.com/truecharts/apps/compare/shlink-web-client-1.0.2...shlink-web-client-1.0.3) (2022-01-25)
 

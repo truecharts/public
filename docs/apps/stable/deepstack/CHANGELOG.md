@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deepstack-2.0.2"></a>
+### [deepstack-2.0.2](https://github.com/truecharts/apps/compare/deepstack-2.0.1...deepstack-2.0.2) (2022-02-02)
+
+#### Chore
+
+* use single quote instead of espace ([#1793](https://github.com/truecharts/apps/issues/1793))
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="deepstack-2.0.1"></a>
 ### [deepstack-2.0.1](https://github.com/truecharts/apps/compare/deepstack-2.0.0...deepstack-2.0.1) (2022-01-25)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.21"></a>
+### [fireflyiii-13.1.21](https://github.com/truecharts/apps/compare/fireflyiii-13.1.20...fireflyiii-13.1.21) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="fireflyiii-13.1.20"></a>
 ### [fireflyiii-13.1.20](https://github.com/truecharts/apps/compare/fireflyiii-13.1.19...fireflyiii-13.1.20) (2022-01-25)
 

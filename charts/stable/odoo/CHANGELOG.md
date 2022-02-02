@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="odoo-4.0.28"></a>
+### [odoo-4.0.28](https://github.com/truecharts/apps/compare/odoo-4.0.27...odoo-4.0.28) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="odoo-4.0.27"></a>
 ### [odoo-4.0.27](https://github.com/truecharts/apps/compare/odoo-4.0.26...odoo-4.0.27) (2022-01-25)
 

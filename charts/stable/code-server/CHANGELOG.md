@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.21"></a>
+### [code-server-2.1.21](https://github.com/truecharts/apps/compare/code-server-2.1.20...code-server-2.1.21) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="code-server-2.1.20"></a>
 ### [code-server-2.1.20](https://github.com/truecharts/apps/compare/openvscode-server-0.0.19...code-server-2.1.20) (2022-01-31)
 

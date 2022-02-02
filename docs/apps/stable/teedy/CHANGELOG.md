@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="teedy-4.0.29"></a>
+### [teedy-4.0.29](https://github.com/truecharts/apps/compare/teedy-4.0.28...teedy-4.0.29) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="teedy-4.0.28"></a>
 ### [teedy-4.0.28](https://github.com/truecharts/apps/compare/teedy-4.0.27...teedy-4.0.28) (2022-01-25)
 

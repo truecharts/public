@@ -76,10 +76,9 @@ hide:
 **node-pkg**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| simple-get         |    CVE-2022-0355   |   HIGH  |  3.1.0 | 4.0.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-wpg7-2c88-r8xv">https://github.com/advisories/GHSA-wpg7-2c88-r8xv</a><br><a href="https://github.com/feross/simple-get/commit/e4af095e06cd69a9235013e8507e220a79b9684f">https://github.com/feross/simple-get/commit/e4af095e06cd69a9235013e8507e220a79b9684f</a><br><a href="https://huntr.dev/bounties/42c79c23-6646-46c4-871d-219c0d4b4e31">https://huntr.dev/bounties/42c79c23-6646-46c4-871d-219c0d4b4e31</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2022-0355">https://nvd.nist.gov/vuln/detail/CVE-2022-0355</a><br></details>  |
 
 **gobinary**
 

@@ -74,10 +74,9 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| gmp         |    CVE-2021-43618   |   HIGH  |  6.2.1-r0 | 6.2.1-r1 | <details><summary>Expand...</summary><a href="https://bugs.debian.org/994405">https://bugs.debian.org/994405</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43618">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43618</a><br><a href="https://gmplib.org/list-archives/gmp-bugs/2021-September/005077.html">https://gmplib.org/list-archives/gmp-bugs/2021-September/005077.html</a><br><a href="https://gmplib.org/repo/gmp-6.2/rev/561a9c25298e">https://gmplib.org/repo/gmp-6.2/rev/561a9c25298e</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/12/msg00001.html">https://lists.debian.org/debian-lts-announce/2021/12/msg00001.html</a><br></details>  |
 
 **gobinary**
 

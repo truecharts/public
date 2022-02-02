@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.52"></a>
+### [traefik-10.0.52](https://github.com/truecharts/apps/compare/traefik-10.0.51...traefik-10.0.52) (2022-02-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1828](https://github.com/truecharts/apps/issues/1828))
+
+
+
 <a name="traefik-10.0.51"></a>
 ### [traefik-10.0.51](https://github.com/truecharts/apps/compare/traefik-10.0.50...traefik-10.0.51) (2022-01-31)
 
