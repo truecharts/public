@@ -11,18 +11,15 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
-| env.UNIFI_GID | string | `"{{ .Values.env.PUID }}"` |  |
-| env.UNIFI_UID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
+| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/unifi"` |  |
 | image.tag | string | `"v6.5.55@sha256:c74556ef862dab1534ed848d6efa57f40a11399172230aec57e5e850ce542921"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/unifi"` |  |
-| podSecurityContext.runAsGroup | int | `0` |  |
-| podSecurityContext.runAsUser | int | `0` |  |
+| podSecurityContext.runAsGroup | int | `999` |  |
+| podSecurityContext.runAsUser | int | `999` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| securityContext.runAsNonRoot | bool | `false` |  |
 | service.comm.enabled | bool | `true` |  |
 | service.comm.ports.comm.enabled | bool | `true` |  |
 | service.comm.ports.comm.port | int | `8080` |  |
