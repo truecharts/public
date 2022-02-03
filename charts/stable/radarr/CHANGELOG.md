@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radarr-9.0.39"></a>
+### [radarr-9.0.39](https://github.com/truecharts/apps/compare/radarr-9.0.38...radarr-9.0.39) (2022-02-03)
+
+#### Chore
+
+* update docker general major docker tags (major) ([#1835](https://github.com/truecharts/apps/issues/1835))
+
+
+
 <a name="radarr-9.0.38"></a>
 ### [radarr-9.0.38](https://github.com/truecharts/apps/compare/radarr-9.0.37...radarr-9.0.38) (2022-02-02)
 

@@ -3038,6 +3038,38 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 2201.1.0
+    created: "2022-02-03T18:16:37.444618863Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    description: Booksonic is a platform for accessing the audibooks you own wherever
+      you are
+    digest: 8a345fb59d1236f49109d8b2aad79cf56a28884a3806d2890da2f3f8b79ceaad
+    home: https://github.com/truechartsapps/tree/master/charts/stable/booksonic-air
+    icon: https://truecharts.org/_static/img/appicons/booksonic-air-icon.png
+    keywords:
+    - booksonic
+    - audiobook
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: booksonic-air
+    sources:
+    - https://github.com/popeen/Booksonic-Air
+    - https://hub.docker.com/r/linuxserver/booksonic-air
+    urls:
+    - https://github.com/truecharts/apps/releases/download/booksonic-air-4.0.39/booksonic-air-4.0.39.tgz
+    version: 4.0.39
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 2009.1.0
     created: "2022-01-04T20:48:55.777965202Z"
     dependencies:
@@ -8701,6 +8733,37 @@ entries:
         - incubator
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 2022.1.202
+    created: "2022-02-03T18:16:37.633331527Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    description: Domoticz is a Home Automation System that lets you monitor and configure
+      various devices like Lights, Switches and much more.
+    digest: 5ab074dfd06331594792aaf9f0ddea8ca0fce2d9018625de7fde8183066bda53
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/domoticz
+    icon: https://truecharts.org/_static/img/appicons/domoticz-icon.png
+    keywords:
+    - domoticz
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: domoticz
+    sources:
+    - https://hub.docker.com/r/linuxserver/domoticz
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/domoticz-0.0.24/domoticz-0.0.24.tgz
+    version: 0.0.24
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 2021.1.202
     created: "2022-01-24T13:05:55.801814702Z"
     dependencies:
@@ -10419,6 +10482,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/endlessh-0.0.1/endlessh-0.0.1.tgz
     version: 0.0.1
   esphome:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - tools
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.1.3
+    created: "2022-02-03T18:16:37.82409862Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful
+      configuration files and control them remotely through Home Automation systems.
+    digest: 0a05c8b5f92cc8477b5aaf5a82de7fcd39b599171860a11238fc2ad010ae61e3
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/esphome
+    icon: https://truecharts.org/_static/img/appicons/esphome-icon.png
+    keywords:
+    - esphome
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: esphome
+    sources:
+    - https://github.com/esphome/esphome
+    - https://hub.docker.com/u/esphome
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/esphome-9.0.45/esphome-9.0.45.tgz
+    version: 9.0.45
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -35241,6 +35336,44 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: "20220121"
+    created: "2022-02-03T18:16:38.027965291Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.63
+    description: PhotoPrismÂ® is a server-based application for browsing, organizing
+      and sharing your personal photo collection
+    digest: 51754b02d87042b1ae66a821dfd4cb48acb0ed9cf86b90cee8b261431605d1e7
+    home: https://github.com/truechartsapps/tree/master/charts/stable/photoprism
+    icon: https://truecharts.org/_static/img/appicons/photoprism-icon.png
+    keywords:
+    - photos
+    - photoprism
+    - pictures
+    - sharing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: photoprism
+    sources:
+    - https://github.com/photoprism/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
+    urls:
+    - https://github.com/truecharts/apps/releases/download/photoprism-7.0.23/photoprism-7.0.23.tgz
+    version: 7.0.23
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: "20220107"
     created: "2022-01-22T10:53:36.693376705Z"
     dependencies:
@@ -35880,6 +36013,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/phpldapadmin-4.0.20/phpldapadmin-4.0.20.tgz
     version: 4.0.20
   piaware:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "7.1"
+    created: "2022-02-03T18:16:38.19568487Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    description: Program for forwarding ADS-B data to FlightAware
+    digest: 70d0f48c6c18e03989f2da93dafc9fbf139ee205c3464c616f4cf67eb46c6bcb
+    home: https://github.com/truechartsapps/tree/master/charts/stable/piaware
+    icon: https://truecharts.org/_static/img/appicons/piaware-icon.png
+    keywords:
+    - piaware
+    - flight-aware
+    - flight-tracker
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: piaware
+    sources:
+    - https://github.com/flightaware/piaware
+    urls:
+    - https://github.com/truecharts/apps/releases/download/piaware-4.0.49/piaware-4.0.49.tgz
+    version: 4.0.49
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -42863,6 +43027,38 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 4.0.4.5922
+    created: "2022-02-03T18:16:38.374990707Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    description: A fork of Sonarr to work with movies à la Couchpotato
+    digest: efec025be9865ce1787796129ac0e5e722cc442d69738ead024cd042697deb5d
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/radarr
+    icon: https://truecharts.org/_static/img/appicons/radarr-icon.png
+    keywords:
+    - radarr
+    - torrent
+    - usenet
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: radarr
+    sources:
+    - https://github.com/Radarr/Radarr
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/radarr-9.0.39/radarr-9.0.39.tgz
+    version: 9.0.39
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 3.2.2.5080
     created: "2022-01-04T20:49:18.224322639Z"
     dependencies:
@@ -46353,6 +46549,46 @@ entries:
     - https://github.com/truecharts/apps/releases/download/shiori-4.0.12/shiori-4.0.12.tgz
     version: 4.0.12
   shlink:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - utilities
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.0.0
+    created: "2022-02-03T18:16:38.580899805Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.60
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org/
+      version: 1.0.65
+    description: A PHP-based self-hosted URL shortener that can be used to serve shortened
+      URLs under your own custom domain.
+    digest: c613f9962b034dd564733efdeaf05986020d2bedf8145b25faab6fde6463fa81
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/shlink
+    icon: https://truecharts.org/_static/img/appicons/shlink-icon.png
+    keywords:
+    - url
+    - shortener
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: shlink
+    sources:
+    - https://github.com/shlinkio/shlink
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/shlink-1.0.7/shlink-1.0.7.tgz
+    version: 1.0.7
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -56273,4 +56509,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-02T23:35:44.27978258Z"
+generated: "2022-02-03T18:16:38.586074476Z"

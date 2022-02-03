@@ -28,7 +28,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_SERVERS.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/shlink"` |  |
-| image.tag | string | `"v2.10.3@sha256:295abebd789ac67b17e40ef09880f77a56ed23479ff924d183fe6bd1f9866029"` |  |
+| image.tag | string | `"v3.0.0@sha256:fa99a41e3fbe1c67b2b15f3a7768b13328dfd95e59e870956f0e4f9df82f024d"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.45"></a>
+### [esphome-9.0.45](https://github.com/truecharts/apps/compare/esphome-9.0.44...esphome-9.0.45) (2022-02-03)
+
+#### Chore
+
+* update docker general major docker tags (major) ([#1835](https://github.com/truecharts/apps/issues/1835))
+
+
+
 <a name="esphome-9.0.44"></a>
 ### [esphome-9.0.44](https://github.com/truecharts/apps/compare/esphome-9.0.43...esphome-9.0.44) (2022-02-02)
 

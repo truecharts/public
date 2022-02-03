@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-1.0.7"></a>
+### [shlink-1.0.7](https://github.com/truecharts/apps/compare/shlink-1.0.6...shlink-1.0.7) (2022-02-03)
+
+#### Chore
+
+* update docker general major docker tags (major) ([#1835](https://github.com/truecharts/apps/issues/1835))
+
+
+
 <a name="shlink-1.0.6"></a>
 ### [shlink-1.0.6](https://github.com/truecharts/apps/compare/shlink-1.0.5...shlink-1.0.6) (2022-02-02)
 

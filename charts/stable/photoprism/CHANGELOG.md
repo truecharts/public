@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-7.0.23"></a>
+### [photoprism-7.0.23](https://github.com/truecharts/apps/compare/photoprism-7.0.22...photoprism-7.0.23) (2022-02-03)
+
+#### Chore
+
+* update docker general major docker tags (major) ([#1835](https://github.com/truecharts/apps/issues/1835))
+
+
+
 <a name="photoprism-7.0.22"></a>
 ### [photoprism-7.0.22](https://github.com/truecharts/apps/compare/photoprism-7.0.21...photoprism-7.0.22) (2022-02-02)
 
