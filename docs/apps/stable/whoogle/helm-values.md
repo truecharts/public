@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/whoogle-search"` | image repository |
-| image.tag | string | `"v0.7.0@sha256:d48b7433fa86fbcee3fbee1e8e58ce78bd5bc52cd3a7422c05058d63207bd27c"` | image tag |
+| image.tag | string | `"v0.7.1@sha256:6f4178d1154128cdcd01171a2bc36f3ed9f2fd428cfc8c40eff9664669e7e907"` | image tag |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

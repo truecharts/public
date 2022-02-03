@@ -39,7 +39,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.STATIC_CRON_TOKEN.secretKeyRef.name | string | `"fireflyiii-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/fireflyiii-core"` |  |
-| image.tag | string | `"v5.6.5@sha256:fe75d9df1daf62871eccb976643ff393ed1bd402b61baa0f17f7ad5289697264"` |  |
+| image.tag | string | `"v5.6.13@sha256:df9474b6dae556d71f19609a74712869e94316b0380709e672b120158fc4324a"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html/storage/upload"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

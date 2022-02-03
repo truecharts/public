@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.FRESHCLAM_CHECKS | int | `1` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/clamav"` |  |
-| image.tag | string | `"v0.104.2@sha256:9b600aac57738b292236fc534220b317ee3185fc96d0a995e08f44b19c4dcb25"` |  |
+| image.tag | string | `"v0.104.2@sha256:d30296ee9d7520f4d422a8933cbc9d03218ffdfcfaec3ed257306a5077b4f1d5"` |  |
 | persistence.scandir.enabled | bool | `true` |  |
 | persistence.scandir.mountPath | string | `"/scandir"` |  |
 | persistence.scandir.readOnly | bool | `true` |  |

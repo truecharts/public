@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pydio-cells-0.0.19"></a>
+### [pydio-cells-0.0.19](https://github.com/truecharts/apps/compare/pydio-cells-0.0.18...pydio-cells-0.0.19) (2022-02-03)
+
+#### Chore
+
+* update docker general non-major ([#1836](https://github.com/truecharts/apps/issues/1836))
+
+
+
 <a name="pydio-cells-0.0.18"></a>
 ### [pydio-cells-0.0.18](https://github.com/truecharts/apps/compare/pydio-cells-0.0.17...pydio-cells-0.0.18) (2022-02-02)
 

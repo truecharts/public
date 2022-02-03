@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-console-1.0.46"></a>
+### [minio-console-1.0.46](https://github.com/truecharts/apps/compare/minio-console-1.0.45...minio-console-1.0.46) (2022-02-03)
+
+#### Chore
+
+* update docker general non-major ([#1836](https://github.com/truecharts/apps/issues/1836))
+
+
+
 <a name="minio-console-1.0.45"></a>
 ### [minio-console-1.0.45](https://github.com/truecharts/apps/compare/minio-console-1.0.44...minio-console-1.0.45) (2022-02-02)
 

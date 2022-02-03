@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DATABASE_URL.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/traccar"` | image repository |
-| image.tag | string | `"v4.14@sha256:39fe3c8c65caef00ab79591c98b383432fe2d21bf745c925df6fd7891ce6fe78"` | image tag |
+| image.tag | string | `"v4.15@sha256:3959d04826ee12f2affcd651a68299d98de088a234483bf8d804c27b8e5081ea"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |

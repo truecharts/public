@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/syncthing"` |  |
-| image.tag | string | `"v1.18.6@sha256:7445bdff2799d054ffdc6935cf16de5c97e53e0e04843fc056f5244464c95de9"` |  |
+| image.tag | string | `"v1.19.0@sha256:2b374cc7ffe76f3636b7be6c9e1eb6c0bf429d98390ea7c22a26d3aa101fbc19"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/syncthing"` |  |
 | service.discovery.enabled | bool | `true` |  |
