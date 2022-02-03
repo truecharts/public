@@ -58,7 +58,7 @@ jobs:
       fail-fast: false
     steps:
     - name: Container Security scan
-      uses: Azure/container-scan@595707a78db6069af4db7d81902d7a886ec73973 # renovate: tag=v0
+      uses: Azure/container-scan@74375b0068a9527f6bcc8abfc4b8758c445ae197 # renovate: tag=v0
       with:
         image-name: ghcr.io/${{ github.repository_owner }}/${{matrix.dir}}:latest
         severity-threshold: HIGH
