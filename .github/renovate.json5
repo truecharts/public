@@ -97,9 +97,8 @@
     {
       "matchDatasources": ["docker"],
       "updateTypes": ["major"],
-      "bumpVersion": "patch",
+      "bumpVersion": "minor",
       "labels": ["update/docker/enterprise/major"],
-      "groupName": ["docker enterprise  major"],
       "paths": ["charts/enterprise/"],
       "schedule": [
         "after 1am and before 2am on monday"
@@ -141,9 +140,8 @@
     {
       "matchDatasources": ["docker"],
       "updateTypes": ["major"],
-      "bumpVersion": "patch",
+      "bumpVersion": "minor",
       "labels": ["update/docker/general/major"],
-      "groupName": ["docker general major"],
       "paths": ["charts/dependency/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 1am and before 2am  on monday"
