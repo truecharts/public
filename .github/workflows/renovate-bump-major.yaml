@@ -1,0 +1,83 @@
+name: "Renovate: Bump on Push"
+
+on:
+  push:
+    branches:
+      - 'renovate/**'
+    tags-ignore:
+      - '**'
+
+jobs:
+  renovate-bump:
+    name: Get changed Apps
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
+        name: Checkout
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_TOKEN }}
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
+        name: Checkout
+        with:
+          fetch-depth: 0
+          ref: master
+          path: master
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          list-files: json
+          filters: |
+            changed:
+            - 'charts/stable/**'
+            - 'charts/incubator/**'
+            - 'charts/library/**'
+            - 'charts/dependency/**'
+            - 'charts/core/**'
+      - name: Filter filter-output
+        run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
+      - name: Bump
+        run: |
+            APPS=$(jq --raw-output '.changed_files | fromjson | .[] |= sub("(?<filepath>(?<first_directory>(?<root1>[\/]?)[^\/]+\/)(?<second_directory>(?<root2>[\/]?)[^\/]+\/)(?<third_directory>(?<root3>[\/]?)[^\/]+)(?<extra_paths>.+))"; "\(.third_directory)") | unique' changes.json  |  jq -r '.[]')
+            echo "changed apps: ${APPS[*]}"
+            for chart in ${APPS[*]}
+            do
+              if [[ "${chart}" == '.gitkee' ]]; then
+                echo "Skipping..."
+                return
+              elif test -f "./charts/stable/${chart}/Chart.yaml"; then
+                train="stable"
+              elif test -f "./charts/incubator/${chart}/Chart.yaml"; then
+                train="incubator"
+              elif test -f "./charts/library/${chart}/Chart.yaml"; then
+                train="library"
+              elif test -f "./charts/dependency/${chart}/Chart.yaml"; then
+                train="dependency"
+              elif test -f "./charts/core/${chart}/Chart.yaml"; then
+                train="core"
+              else
+                train="incubator"
+              fi
+              echo "Comparing versions for ${train}/${chart}"
+              master=$(cat ./master/charts/${train}/${chart}/Chart.yaml | grep "^version")
+              current=$(cat ./charts/${train}/${chart}/Chart.yaml | grep "^version")
+              echo "master version: ${master}"
+              echo "current version: ${current}"
+              if [[ "${master}" != "${current}" ]]; then
+                echo "Version does not have to be bumped"
+              else
+                echo "Bumping minor version for ${train}/${chart}"
+                ./tools/bump.sh minor ./charts/${train}/${chart}
+              fi
+            done
+      - name: Cleanup
+        run: |
+          rm -rf changes.json
+          rm -rf master
+      - name: Commit and Push new version
+        run: |
+          git config user.name "TrueCharts-Bot"
+          git config user.email "bot@truecharts.org"
+          git add --all
+          git commit -sm "Commit bumped App Version" || exit 0
+          git push
