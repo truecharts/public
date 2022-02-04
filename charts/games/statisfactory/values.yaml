@@ -21,8 +21,8 @@ env:
   STEAMBETA: false
 
 podSecurityContext:
- runAsUser: 0
- runAsGroup: 0
+  runAsUser: 0
+  runAsGroup: 0
 
 persistence:
   config:
