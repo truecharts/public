@@ -20,6 +20,9 @@ env:
   SKIPUPDATE: false
   STEAMBETA: false
 
+securityContext:
+  runAsNonRoot: false
+
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
