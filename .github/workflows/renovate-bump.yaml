@@ -34,6 +34,8 @@ jobs:
             - 'charts/library/**'
             - 'charts/dependency/**'
             - 'charts/core/**'
+            - 'charts/enterprise/**'
+            - 'charts/games/**'
       - name: Filter filter-output
         run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
       - name: Bump
@@ -55,6 +57,10 @@ jobs:
                 train="dependency"
               elif test -f "./charts/core/${chart}/Chart.yaml"; then
                 train="core"
+            elif test -f "./charts/games/${{ matrix.app }}/Chart.yaml"; then
+              train="games"
+            elif test -f "./charts/enterprise/${{ matrix.app }}/Chart.yaml"; then
+              train="enterprise"
               else
                 train="incubator"
               fi
