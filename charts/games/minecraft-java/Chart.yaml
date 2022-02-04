@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "21.26.0"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.14.4
+deprecated: false
+description: Minecraft Java Dedicated Server
+home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-java
+icon: https://truecharts.org/_static/img/appicons/minecraft-java-icon.png
+keywords:
+- minecraft
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: minecraft-java
+sources:
+- https://github.com/itzg/docker-minecraft-server
+- https://hub.docker.com/r/itzg/minecraft-server
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - games
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
