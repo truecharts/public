@@ -142,7 +142,7 @@
       "updateTypes": ["major"],
       "bumpVersion": "minor",
       "labels": ["update/docker/general/major"],
-      "paths": ["charts/dependency/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
+      "paths": ["charts/dependency/", "charts/games/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 1am and before 2am  on monday"
       ],
@@ -159,7 +159,7 @@
       "bumpVersion": "patch",
       "labels": ["update/docker/general/non-major"],
       "groupName": ["docker general non-major"],
-      "paths": ["charts/dependency/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
+      "paths": ["charts/dependency/",  "charts/games/", "charts/incubator/", "charts/dev/", "charts/library/", "charts/stable/", "charts/core/", "templates/app/"],
       "schedule": [
         "after 1am and before 2am  on monday"
       ],

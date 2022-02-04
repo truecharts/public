@@ -1,0 +1,62 @@
+image:
+  repository: tccr.io/truecharts/minecraft-java
+  tag: 21.26.0@sha256:faf49a0177e95e3af763dd5fddb9077885870055364edbf194a1b94eaeaf4641
+  pullPolicy: Always
+j11Image:
+  repository: tccr.io/truecharts/minecraft-java11
+  tag: latest@sha256:33b93b09ac060814fb5d985d472cfa0369a6de042eacb6306e125aa008be2eec
+  pullPolicy: Always
+j11j9Image:
+  repository: tccr.io/truecharts/minecraft-java11-openj9
+  tag: latest@sha256:248ecbdca94efa8ab7c0b0437a0b59ba82ca9dabe6cd1f90a8cbd43319f15b82
+  pullPolicy: Always
+j8Image:
+  repository: tccr.io/truecharts/minecraft-java8-openj9
+  tag: latest@sha256:3e606f04009ab1341ed119a9d10cb83a444d942e61a3f446281d9d17c1f84c04
+  pullPolicy: Always
+j8j9Image:
+  repository: tccr.io/truecharts/minecraft-java8-openj9
+  tag: latest@sha256:6abc50828cd72c26e1258af759f9fff091db01ac13253b13bd548e3ef2f359e6
+  pullPolicy: Always
+
+portal:
+  enabled: false
+
+env:
+  EULA: "TRUE"
+  VERSION: "LATEST"
+  TYPE: "VANILLA"
+  DIFFICULTY: easy
+  MAX_PLAYERS: 20
+  MAX_WORLD_SIZE: 10000
+  ALLOW_NETHER: true
+  ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+  ENABLE_COMMAND_BLOCK: false
+  FORCE_GAMEMODE: false
+  GENERATE_STRUCTURES: true
+  HARDCORE: false
+  MAX_BUILD_HEIGHT: 256
+  MAX_TICK_TIME: 60000
+  SPAWN_ANIMALS: true
+  SPAWN_MONSTERS: true
+  SPAWN_NPCS: true
+  VIEW_DISTANCE: 16
+  MODE: survival
+  MOTD: "Welcome to Minecraft on TrueNAS Scale!"
+  PVP: false
+  LEVEL_TYPE: DEFAULT
+  LEVEL: world
+  ONLINE_MODE: true
+  MEMORY: 2048M
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+        targetPort: 25565
