@@ -34,6 +34,8 @@ jobs:
           - 'charts/dependency/**'
           - 'charts/library/**'
           - 'charts/core/**'
+          - 'charts/enterprise/**'
+          - 'charts/games/**'
     - run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
     - id: reduce
       run: |
@@ -90,6 +92,10 @@ jobs:
               train="dependency"
             elif test -f "./charts/core/${{ matrix.app }}/Chart.yaml"; then
               train="core"
+            elif test -f "./charts/games/${{ matrix.app }}/Chart.yaml"; then
+              train="games"
+            elif test -f "./charts/enterprise/${{ matrix.app }}/Chart.yaml"; then
+              train="enterprise"
             else
               train="incubator"
             fi

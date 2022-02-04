@@ -1,0 +1,38 @@
+image:
+  repository: aeonlucid/impostor
+  pullPolicy: IfNotPresent
+  tag: nightly@sha256:5909ea16b303f785afc6cd53d693771a2a1c0783b3438adb50c5b877fe4e1ad8
+
+env:
+  PUID: 568
+  USER_ID: "{{ .Values.env.PUID }}"
+  IMPOSTOR_Server__PublicIp: "127.0.0.1"
+  IMPOSTOR_Server__ListenIp: "0.0.0.0"
+  IMPOSTOR_AntiCheat__Enabled: true
+  IMPOSTOR_AntiCheat__BanIpFromGame: true
+  IMPOSTOR_Debug__GameRecorderEnabled: false
+  IMPOSTOR_Debug__GameRecorderPath: ""
+
+service:
+  main:
+    ports:
+      main:
+        protocol: UDP
+        port: 22023
+        targetPort: 22023
+
+probes:
+  # -- Liveness probe configuration
+  # @default -- See below
+  liveness:
+    enabled: false
+
+  # -- Redainess probe configuration
+  # @default -- See below
+  readiness:
+    enabled: false
+
+  # -- Startup probe configuration
+  # @default -- See below
+  startup:
+    enabled: false
