@@ -18911,6 +18911,37 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/icinga2-0.0.10/icinga2-0.0.10.tgz
     version: 0.0.10
+  imposter-server:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.0
+    created: "2022-02-04T20:21:34.28676633Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    description: A private Among Us server
+    digest: c9d6d8093ec5225fa9c08c0b99c186f5b334aad40201c844092d71bcc8a92883
+    home: https://github.com/truecharts/apps/tree/master/charts/games/impostor-server
+    icon: https://truecharts.org/_static/img/appicons/impostor-server-icon.png
+    keywords:
+    - imposter-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: imposter-server
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/imposter-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/imposter-server-0.0.2/imposter-server-0.0.2.tgz
+    version: 0.0.2
   ipfs:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -27520,6 +27551,38 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/metallb-1.0.2/metallb-1.0.2.tgz
     version: 1.0.2
+  minecraft-bedrock:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.1.0
+    created: "2022-02-04T20:21:34.495362207Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    description: Minecraft Bedrock Dedicated Server
+    digest: 021d175bb745f3d63d4cbf0b10155720fee133882785fcbd0b9419d4ab3972ad
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-bedrock
+    icon: https://truecharts.org/_static/img/appicons/minecraft-bedrock-icon.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-bedrock
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.2/minecraft-bedrock-0.0.2.tgz
+    version: 0.0.2
   minetest:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -57250,4 +57313,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-04T11:23:35.2577263Z"
+generated: "2022-02-04T20:21:34.500533886Z"
