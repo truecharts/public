@@ -10,7 +10,7 @@ env:
   VERSION: "LATEST"
   SERVER_NAME: "TrueCharts Dedicated Server!"
   SERVER_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
-  SERVER_PORT_V6: "{{ .Values.service.main.ports.main.targetPort }}"
+  SERVER_PORT_V6: 19133
   GAMEMODE: "survival"
   DIFFICULTY: "easy"
   LEVEL_TYPE: "DEFAULT"
