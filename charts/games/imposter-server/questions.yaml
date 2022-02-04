@@ -32,9 +32,9 @@ questions:
       default: "image"
       enum:
         - value: "image"
-          description: "CPU"
-        - value: "imageGPU"
-          description: "GPU"
+          description: "Stable"
+        - value: "nightlyImage"
+          description: "Nightly"
 
   - variable: controller
     group: "Controller"

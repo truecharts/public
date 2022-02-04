@@ -33,9 +33,9 @@ questions:
       default: "image"
       enum:
         - value: "image"
-          description: "Stable"
-        - value: "nightlyImage"
-          description: "Nightly"
+          description: "CPU"
+        - value: "imageGPU"
+          description: "GPU"
 
   - variable: controller
     group: "Controller"
