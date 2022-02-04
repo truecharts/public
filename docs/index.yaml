@@ -27583,6 +27583,38 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.2/minecraft-bedrock-0.0.2.tgz
     version: 0.0.2
+  minecraft-java:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 21.26.0
+    created: "2022-02-04T22:02:49.214262537Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    description: Minecraft Java Dedicated Server
+    digest: 4b54174cef0888c6590433f6fc5d33e0368fdabe8f375a664d6556fbc1ae7605
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-java
+    icon: https://truecharts.org/_static/img/appicons/minecraft-java-icon.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-java
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-java-0.0.1/minecraft-java-0.0.1.tgz
+    version: 0.0.1
   minetest:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -49515,6 +49547,38 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/static-1.0.21/static-1.0.21.tgz
     version: 1.0.21
+  statisfactory:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.2.3
+    created: "2022-02-04T22:02:49.420173329Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    description: Satisfactory Dedicated Server
+    digest: c3e0f1b0ef899f1b8051460e8fe25c85a7e5e2c73927a2929d63e0b50f17b7d3
+    home: https://github.com/truecharts/apps/tree/master/charts/games/Satisfactory
+    icon: https://truecharts.org/_static/img/appicons/Satisfactory -icon.png
+    keywords:
+    - satisfactory
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: statisfactory
+    sources:
+    - https://github.com/wolveix/satisfactory-server
+    - https://hub.docker.com/r/wolveix/satisfactory-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/statisfactory-0.0.1/statisfactory-0.0.1.tgz
+    version: 0.0.1
   statping:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -57313,4 +57377,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-04T20:21:34.500533886Z"
+generated: "2022-02-04T22:02:49.425263423Z"
