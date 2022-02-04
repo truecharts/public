@@ -33286,6 +33286,50 @@ entries:
         - productivity
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 7.0.0
+    created: "2022-02-04T11:23:35.253303428Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.14.4
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.60
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.65
+    description: 'ONLYOFFICE Document Server is an online office suite comprising
+      viewers and editors for texts, spreadsheets and presentations, fully compatible
+      with Office Open XML formats: .docx, .xlsx, .pptx and enabling collaborative
+      editing in real time.'
+    digest: e6299cbc68d9f7efb3210725207fe81fffbe7abe31328dabb86440261017a45e
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/onlyoffice-document-server
+    icon: https://truecharts.org/_static/img/appicons/onlyoffice-document-server-icon.png
+    keywords:
+    - onlyoffice
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: onlyoffice-document-server
+    sources:
+    - https://github.com/ONLYOFFICE/DocumentServer
+    - https://github.com/ONLYOFFICE/Docker-DocumentServer
+    - https://hub.docker.com/r/onlyoffice/documentserver/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/onlyoffice-document-server-3.1.0/onlyoffice-document-server-3.1.0.tgz
+    version: 3.1.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - office
+        - documents
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 7.0.0.132
     created: "2022-01-26T00:59:11.629778397Z"
     dependencies:
@@ -57206,4 +57250,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-03T18:31:18.503377381Z"
+generated: "2022-02-04T11:23:35.2577263Z"

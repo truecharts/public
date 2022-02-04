@@ -25,8 +25,8 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_SERVER_HOST.secretKeyRef.key | string | `"url"` |  |
 | envValueFrom.REDIS_SERVER_HOST.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"tccr.io/truecharts/documentserver"` |  |
-| image.tag | string | `"v7.0.0.132@sha256:25c99327a7a76a186dec4d4bf8f31eaeebf0e57b8c3476a1cf29e7c5d9ac185a"` |  |
+| image.repository | string | `"tccr.io/truecharts/onlyoffice-ds"` |  |
+| image.tag | string | `"v7.0.0@sha256:957599910369a83815b4529d65e1eef41b8eac33eed98da6be33bd80f7464512"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | postgresql.enabled | bool | `true` |  |
