@@ -57,10 +57,10 @@ jobs:
                 train="dependency"
               elif test -f "./charts/core/${chart}/Chart.yaml"; then
                 train="core"
-            elif test -f "./charts/games/${{ matrix.app }}/Chart.yaml"; then
-              train="games"
-            elif test -f "./charts/enterprise/${{ matrix.app }}/Chart.yaml"; then
-              train="enterprise"
+              elif test -f "./charts/games/${{ matrix.app }}/Chart.yaml"; then
+                train="games"
+              elif test -f "./charts/enterprise/${{ matrix.app }}/Chart.yaml"; then
+                train="enterprise"
               else
                 train="incubator"
               fi
