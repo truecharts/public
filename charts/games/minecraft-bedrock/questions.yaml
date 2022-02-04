@@ -85,10 +85,11 @@ questions:
       attrs:
 # Include{fixedEnv}
         - variable: PUID
-          label: "Run as User"
+          label: "PUID"
+          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
           schema:
             type: int
-            default: "568"
+            default: 568
         - variable: VERSION
           label: "Minecraft version"
           description: "Options: LATEST, PREVIOUS or version number"
