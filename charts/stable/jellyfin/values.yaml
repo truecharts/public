@@ -6,6 +6,9 @@ image:
 securityContext:
   readOnlyRootFilesystem: false
 
+env:
+  JELLYFIN_PublishedServerUrl: "https://jelly.mydomain.com"
+
 service:
   main:
     ports:
@@ -17,3 +20,7 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  cache:
+    enabled: true
+    mountPath: "/cache"
+    type: "emptyDir"

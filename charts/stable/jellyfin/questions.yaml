@@ -82,7 +82,11 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: JELLYFIN_PublishedServerUrl
+          description: "Published Server URL"
+          label: "The Server URL to publish in UDP Auto Discovery response."
+          schema:
+            type: string
 # Include{containerConfig}
 
   - variable: service
