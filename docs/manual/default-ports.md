@@ -17,7 +17,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | prometheus  |    promop    |    promop    | 10089 |   HTTP   |                                          |
 | prometheus  |    thanos    |    thanos    | 10901 |   HTTP   |                                          |
 
-## Stable and Incubator Apps
+## Stable, Games and Incubator Apps
 
 | App                        |     Service     |    Port Name    | Port  | Protocol |                  Note                   |
 | :------------------------- | :-------------: | :-------------: | :---: | :------: | :-------------------------------------: |
@@ -98,6 +98,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | logitech-media-server      |      main       |      main       | 7000  |   TCP    |                                         |
 | clamav                     |     milter      |     milter      | 7357  |   TCP    |                                         |
 | foldingathome              |      main       |      main       | 7396  |   TCP    |                                         |
+| satisfactory               |      main       |      main       | 7777  |   UDP    |                                         |
 | haste-server               |      main       |      main       | 7777  |   TCP    |                                         |
 | nextcloud                  |       hpb       |       hpb       | 7867  |   TCP    |                                         |
 | radarr                     |      main       |      main       | 7878  |   TCP    |                                         |
@@ -309,6 +310,9 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | trilium-notes              |      main       |      main       | 10156 |   HTTP   |                                         |
 | unmanic                    |      main       |      main       | 10157 |   TCP    |                                         |
 | weblate                    |      main       |      main       | 10158 |   TCP    |                                         |
+| satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
+| satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
+| minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |
 | hyperion-ng                | boblightservice | boblightservice | 19333 |   TCP    |                                         |
 | hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |   TCP    |                                         |
 | hyperion-ng                | protobufservice | protobufservice | 19445 |   TCP    |                                         |
@@ -318,7 +322,9 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | airdcpp-webclient          |  encrypted-tcp  |  encrypted-tcp  | 21249 |   TCP    |                                         |
 | syncthing                  |    listeners    |       tcp       | 22000 |   TCP    |                                         |
 | syncthing                  |  listeners-udp  |       udp       | 22000 |   UDP    |                                         |
+| impostor-server            |      main       |      main       | 22023 |   UDP    |                                         |
 | joplin-server              |      main       |      main       | 22300 |   TCP    |                                         |
+| minecraft-java             |      main       |      main       | 25565 |   TCP    |                                         |
 | omada-controller           |    omada-tcp    |   omada-tcp1    | 29810 |   TCP    |                                         |
 | omada-controller           |    omada-udp    |   omada-udp1    | 29810 |   UDP    |                                         |
 | omada-controller           |    omada-tcp    |   omada-tcp2    | 29811 |   TCP    |                                         |
