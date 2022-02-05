@@ -7,4 +7,3 @@
 #### Feat
 
 * add 2 more gameservers ([#1840](https://github.com/truecharts/apps/issues/1840))
-
