@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v0.14.0
 
+portal:
+  enabled: false
+
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
