@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbget-9.0.38"></a>
+### [nzbget-9.0.38](https://github.com/truecharts/apps/compare/nzbget-9.0.37...nzbget-9.0.38) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="nzbget-9.0.37"></a>
 ### [nzbget-9.0.37](https://github.com/truecharts/apps/compare/nzbget-9.0.36...nzbget-9.0.37) (2022-02-02)
 

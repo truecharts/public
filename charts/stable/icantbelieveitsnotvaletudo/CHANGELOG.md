@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icantbelieveitsnotvaletudo-2.0.37"></a>
+### [icantbelieveitsnotvaletudo-2.0.37](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-2.0.36...icantbelieveitsnotvaletudo-2.0.37) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="icantbelieveitsnotvaletudo-2.0.36"></a>
 ### [icantbelieveitsnotvaletudo-2.0.36](https://github.com/truecharts/apps/compare/icantbelieveitsnotvaletudo-2.0.35...icantbelieveitsnotvaletudo-2.0.36) (2022-02-02)
 

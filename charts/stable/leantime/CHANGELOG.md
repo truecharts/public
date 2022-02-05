@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leantime-1.0.16"></a>
+### [leantime-1.0.16](https://github.com/truecharts/apps/compare/leantime-1.0.15...leantime-1.0.16) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="leantime-1.0.15"></a>
 ### [leantime-1.0.15](https://github.com/truecharts/apps/compare/leantime-1.0.14...leantime-1.0.15) (2022-02-02)
 

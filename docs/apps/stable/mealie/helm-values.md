@@ -19,7 +19,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.POSTGRES_SERVER.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/mealie"` | image repository |
-| image.tag | string | `"v0.5.4@sha256:fcbbd8328e0eae400813319852e899c4270cc0fde1092d1f4adb6c0d23f02f03"` | image tag |
+| image.tag | string | `"v0.5.6@sha256:49fca9d0e53aa4ceb92dd41b9bf58ca47d31d3ceff0b9575fe86d193c0484f66"` | image tag |
 | ingress.main | object | See values.yaml | Enable and configure ingress settings for the chart under this key. |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |

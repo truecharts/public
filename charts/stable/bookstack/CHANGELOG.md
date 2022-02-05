@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="bookstack-0.0.29"></a>
+### [bookstack-0.0.29](https://github.com/truecharts/apps/compare/bookstack-0.0.28...bookstack-0.0.29) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="bookstack-0.0.28"></a>
 ### [bookstack-0.0.28](https://github.com/truecharts/apps/compare/bookstack-0.0.27...bookstack-0.0.28) (2022-02-02)
 

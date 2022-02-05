@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.35"></a>
+### [friendica-0.0.35](https://github.com/truecharts/apps/compare/friendica-0.0.34...friendica-0.0.35) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="friendica-0.0.34"></a>
 ### [friendica-0.0.34](https://github.com/truecharts/apps/compare/friendica-0.0.33...friendica-0.0.34) (2022-02-02)
 

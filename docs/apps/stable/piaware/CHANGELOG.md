@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.50"></a>
+### [piaware-4.0.50](https://github.com/truecharts/apps/compare/piaware-4.0.49...piaware-4.0.50) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+
+
 <a name="piaware-4.0.49"></a>
 ### [piaware-4.0.49](https://github.com/truecharts/apps/compare/piaware-4.0.48...piaware-4.0.49) (2022-02-03)
 

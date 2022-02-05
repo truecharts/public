@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="twtxt-1.0.37"></a>
+### [twtxt-1.0.37](https://github.com/truecharts/apps/compare/twtxt-1.0.36...twtxt-1.0.37) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="twtxt-1.0.36"></a>
 ### [twtxt-1.0.36](https://github.com/truecharts/apps/compare/twtxt-1.0.35...twtxt-1.0.36) (2022-02-02)
 

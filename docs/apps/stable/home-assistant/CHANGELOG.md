@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="home-assistant-12.0.39"></a>
+### [home-assistant-12.0.39](https://github.com/truecharts/apps/compare/home-assistant-12.0.38...home-assistant-12.0.39) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update container image tccr.io/truecharts/home-assistant to v2022.2.2 ([#1850](https://github.com/truecharts/apps/issues/1850))
+
+
+
 <a name="home-assistant-12.0.38"></a>
 ### [home-assistant-12.0.38](https://github.com/truecharts/apps/compare/home-assistant-12.0.37...home-assistant-12.0.38) (2022-02-02)
 

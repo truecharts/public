@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="beets-2.0.41"></a>
+### [beets-2.0.41](https://github.com/truecharts/apps/compare/beets-2.0.40...beets-2.0.41) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+
+
 <a name="beets-2.0.40"></a>
 ### [beets-2.0.40](https://github.com/truecharts/apps/compare/beets-2.0.39...beets-2.0.40) (2022-02-03)
 

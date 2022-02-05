@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emby-9.0.39"></a>
+### [emby-9.0.39](https://github.com/truecharts/apps/compare/embystat-0.0.17...emby-9.0.39) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="emby-9.0.38"></a>
 ### [emby-9.0.38](https://github.com/truecharts/apps/compare/emby-9.0.37...emby-9.0.38) (2022-02-02)
 

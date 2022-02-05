@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pixapop-1.0.37"></a>
+### [pixapop-1.0.37](https://github.com/truecharts/apps/compare/pixapop-1.0.36...pixapop-1.0.37) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="pixapop-1.0.36"></a>
 ### [pixapop-1.0.36](https://github.com/truecharts/apps/compare/pixapop-1.0.35...pixapop-1.0.36) (2022-02-02)
 

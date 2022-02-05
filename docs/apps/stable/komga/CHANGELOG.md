@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.51"></a>
+### [komga-4.0.51](https://github.com/truecharts/apps/compare/komga-4.0.50...komga-4.0.51) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+
+
 <a name="komga-4.0.50"></a>
 ### [komga-4.0.50](https://github.com/truecharts/apps/compare/komga-4.0.49...komga-4.0.50) (2022-02-03)
 

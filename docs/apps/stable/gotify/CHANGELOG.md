@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gotify-5.0.31"></a>
+### [gotify-5.0.31](https://github.com/truecharts/apps/compare/gotify-5.0.30...gotify-5.0.31) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="gotify-5.0.30"></a>
 ### [gotify-5.0.30](https://github.com/truecharts/apps/compare/gotify-5.0.29...gotify-5.0.30) (2022-02-02)
 

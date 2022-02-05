@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mosquitto-4.0.39"></a>
+### [mosquitto-4.0.39](https://github.com/truecharts/apps/compare/mosquitto-4.0.38...mosquitto-4.0.39) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="mosquitto-4.0.38"></a>
 ### [mosquitto-4.0.38](https://github.com/truecharts/apps/compare/mosquitto-4.0.37...mosquitto-4.0.38) (2022-02-02)
 

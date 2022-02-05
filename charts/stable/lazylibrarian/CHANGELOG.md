@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.52"></a>
+### [lazylibrarian-9.0.52](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.51...lazylibrarian-9.0.52) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+
+
 <a name="lazylibrarian-9.0.51"></a>
 ### [lazylibrarian-9.0.51](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.50...lazylibrarian-9.0.51) (2022-02-03)
 

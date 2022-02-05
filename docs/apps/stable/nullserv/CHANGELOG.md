@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nullserv-4.0.37"></a>
+### [nullserv-4.0.37](https://github.com/truecharts/apps/compare/nullserv-4.0.36...nullserv-4.0.37) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="nullserv-4.0.36"></a>
 ### [nullserv-4.0.36](https://github.com/truecharts/apps/compare/nullserv-4.0.35...nullserv-4.0.36) (2022-02-02)
 

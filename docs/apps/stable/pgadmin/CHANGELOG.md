@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pgadmin-5.0.20"></a>
+### [pgadmin-5.0.20](https://github.com/truecharts/apps/compare/pgadmin-5.0.19...pgadmin-5.0.20) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="pgadmin-5.0.19"></a>
 ### [pgadmin-5.0.19](https://github.com/truecharts/apps/compare/pgadmin-5.0.18...pgadmin-5.0.19) (2022-02-02)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="resilio-sync-4.0.38"></a>
+### [resilio-sync-4.0.38](https://github.com/truecharts/apps/compare/resilio-sync-4.0.37...resilio-sync-4.0.38) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="resilio-sync-4.0.37"></a>
 ### [resilio-sync-4.0.37](https://github.com/truecharts/apps/compare/resilio-sync-4.0.36...resilio-sync-4.0.37) (2022-02-02)
 

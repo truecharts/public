@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.66"></a>
+### [prowlarr-4.0.66](https://github.com/truecharts/apps/compare/prowlarr-4.0.65...prowlarr-4.0.66) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+
+
 <a name="prowlarr-4.0.65"></a>
 ### [prowlarr-4.0.65](https://github.com/truecharts/apps/compare/prowlarr-4.0.64...prowlarr-4.0.65) (2022-02-03)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filezilla-2.0.37"></a>
+### [filezilla-2.0.37](https://github.com/truecharts/apps/compare/filezilla-2.0.36...filezilla-2.0.37) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="filezilla-2.0.36"></a>
 ### [filezilla-2.0.36](https://github.com/truecharts/apps/compare/filezilla-2.0.35...filezilla-2.0.36) (2022-02-02)
 

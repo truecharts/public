@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statping-4.0.29"></a>
+### [statping-4.0.29](https://github.com/truecharts/apps/compare/statping-4.0.28...statping-4.0.29) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="statping-4.0.28"></a>
 ### [statping-4.0.28](https://github.com/truecharts/apps/compare/statping-4.0.27...statping-4.0.28) (2022-02-02)
 

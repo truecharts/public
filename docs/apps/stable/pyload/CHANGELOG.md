@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pyload-4.0.37"></a>
+### [pyload-4.0.37](https://github.com/truecharts/apps/compare/pyload-4.0.36...pyload-4.0.37) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="pyload-4.0.36"></a>
 ### [pyload-4.0.36](https://github.com/truecharts/apps/compare/pyload-4.0.35...pyload-4.0.36) (2022-02-02)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="libreoffice-0.0.19"></a>
+### [libreoffice-0.0.19](https://github.com/truecharts/apps/compare/libreoffice-0.0.18...libreoffice-0.0.19) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="libreoffice-0.0.18"></a>
 ### [libreoffice-0.0.18](https://github.com/truecharts/apps/compare/libreoffice-0.0.17...libreoffice-0.0.18) (2022-02-02)
 

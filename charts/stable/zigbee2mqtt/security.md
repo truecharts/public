@@ -74,10 +74,10 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| libblkid         |    CVE-2021-3995   |   MEDIUM  |  2.35.2-r0 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
+| libblkid         |    CVE-2021-3996   |   MEDIUM  |  2.35.2-r0 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
 
 **node-pkg**
 

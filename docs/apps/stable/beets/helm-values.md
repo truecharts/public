@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/beets"` |  |
-| image.tag | string | `"v1.6.0@sha256:8fed531cb444deaedf244132c4249bb1691bcd561587ea8cfca813b7c0b1ad6f"` |  |
+| image.tag | string | `"v1.6.0@sha256:c1cdee3b69e98f993fa01b72b41496d311a56d9ff214c0c86a697ff589a13f1c"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

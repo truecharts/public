@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.40"></a>
+### [tt-rss-4.0.40](https://github.com/truecharts/apps/compare/tt-rss-4.0.39...tt-rss-4.0.40) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+
+
 <a name="tt-rss-4.0.39"></a>
 ### [tt-rss-4.0.39](https://github.com/truecharts/apps/compare/tt-rss-4.0.38...tt-rss-4.0.39) (2022-02-02)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="aria2-3.0.18"></a>
+### [aria2-3.0.18](https://github.com/truecharts/apps/compare/aria2-3.0.17...aria2-3.0.18) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="aria2-3.0.17"></a>
 ### [aria2-3.0.17](https://github.com/truecharts/apps/compare/aria2-3.0.16...aria2-3.0.17) (2022-02-02)
 

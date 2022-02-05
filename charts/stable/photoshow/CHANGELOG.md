@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoshow-1.0.41"></a>
+### [photoshow-1.0.41](https://github.com/truecharts/apps/compare/photoshow-1.0.40...photoshow-1.0.41) (2022-02-05)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1852](https://github.com/truecharts/apps/issues/1852))
+
+
+
 <a name="photoshow-1.0.40"></a>
 ### [photoshow-1.0.40](https://github.com/truecharts/apps/compare/photoshow-1.0.39...photoshow-1.0.40) (2022-02-02)
 
