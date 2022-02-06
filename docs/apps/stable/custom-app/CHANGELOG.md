@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.71"></a>
+### [custom-app-3.0.71](https://github.com/truecharts/apps/compare/custom-app-3.0.70...custom-app-3.0.71) (2022-02-06)
+
+#### Feat
+
+* Allow to disable probes on GUI ([#1860](https://github.com/truecharts/apps/issues/1860))
+
+
+
 <a name="custom-app-3.0.70"></a>
 ### [custom-app-3.0.70](https://github.com/truecharts/apps/compare/custom-app-3.0.69...custom-app-3.0.70) (2022-02-06)
 
