@@ -117,6 +117,52 @@ questions:
       attrs:
 # Include{fixedEnv}
 # Include{containerConfig}
+  - variable: probes
+    group: "Container Configuration"
+    label: "Healthcheck Probes"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: liveness
+          label: "Liveness"
+          description: "Liveness Probe"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Probe"
+                description: "Enables the probe"
+                schema:
+                  type: boolean
+                  default: true
+        - variable: readiness
+          label: "Readiness"
+          description: "Readiness Probe"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Probe"
+                description: "Enables the probe"
+                schema:
+                  type: boolean
+                  default: true
+        - variable: startup
+          label: "Startup"
+          description: "Startup Probe"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Probe"
+                description: "Enables the probe"
+                schema:
+                  type: boolean
+                  default: true
 
   - variable: service
     group: "Networking and Services"
