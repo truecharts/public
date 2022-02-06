@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-11.0.27"></a>
+### [nextcloud-11.0.27](https://github.com/truecharts/apps/compare/nextcloud-11.0.26...nextcloud-11.0.27) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="nextcloud-11.0.26"></a>
 ### [nextcloud-11.0.26](https://github.com/truecharts/apps/compare/nextcloud-11.0.25...nextcloud-11.0.26) (2022-02-05)
 

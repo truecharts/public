@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-7.0.25"></a>
+### [photoprism-7.0.25](https://github.com/truecharts/apps/compare/photoprism-7.0.24...photoprism-7.0.25) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="photoprism-7.0.24"></a>
 ### [photoprism-7.0.24](https://github.com/truecharts/apps/compare/photoprism-7.0.23...photoprism-7.0.24) (2022-02-05)
 

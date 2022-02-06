@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xbackbone-0.0.28"></a>
+### [xbackbone-0.0.28](https://github.com/truecharts/apps/compare/xbackbone-0.0.27...xbackbone-0.0.28) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="xbackbone-0.0.27"></a>
 ### [xbackbone-0.0.27](https://github.com/truecharts/apps/compare/xbackbone-0.0.26...xbackbone-0.0.27) (2022-02-05)
 

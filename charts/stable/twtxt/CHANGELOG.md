@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="twtxt-1.0.38"></a>
+### [twtxt-1.0.38](https://github.com/truecharts/apps/compare/twtxt-1.0.37...twtxt-1.0.38) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="twtxt-1.0.37"></a>
 ### [twtxt-1.0.37](https://github.com/truecharts/apps/compare/twtxt-1.0.36...twtxt-1.0.37) (2022-02-05)
 

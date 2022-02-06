@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unifi-9.0.44"></a>
+### [unifi-9.0.44](https://github.com/truecharts/apps/compare/unifi-9.0.43...unifi-9.0.44) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="unifi-9.0.43"></a>
 ### [unifi-9.0.43](https://github.com/truecharts/apps/compare/unifi-9.0.42...unifi-9.0.43) (2022-02-05)
 

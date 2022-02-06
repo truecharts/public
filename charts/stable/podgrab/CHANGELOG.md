@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="podgrab-8.0.19"></a>
+### [podgrab-8.0.19](https://github.com/truecharts/apps/compare/podgrab-8.0.18...podgrab-8.0.19) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="podgrab-8.0.18"></a>
 ### [podgrab-8.0.18](https://github.com/truecharts/apps/compare/podgrab-8.0.17...podgrab-8.0.18) (2022-02-05)
 

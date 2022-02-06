@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.24"></a>
+### [fireflyiii-13.1.24](https://github.com/truecharts/apps/compare/fireflyiii-13.1.23...fireflyiii-13.1.24) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="fireflyiii-13.1.23"></a>
 ### [fireflyiii-13.1.23](https://github.com/truecharts/apps/compare/fireflyiii-13.1.22...fireflyiii-13.1.23) (2022-02-05)
 

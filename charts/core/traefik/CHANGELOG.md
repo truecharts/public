@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.54"></a>
+### [traefik-10.0.54](https://github.com/truecharts/apps/compare/traefik-10.0.53...traefik-10.0.54) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="traefik-10.0.53"></a>
 ### [traefik-10.0.53](https://github.com/truecharts/apps/compare/traefik-10.0.52...traefik-10.0.53) (2022-02-05)
 

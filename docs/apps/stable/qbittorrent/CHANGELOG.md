@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.43"></a>
+### [qbittorrent-9.0.43](https://github.com/truecharts/apps/compare/qbittorrent-9.0.42...qbittorrent-9.0.43) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="qbittorrent-9.0.42"></a>
 ### [qbittorrent-9.0.42](https://github.com/truecharts/apps/compare/qbittorrent-9.0.41...qbittorrent-9.0.42) (2022-02-05)
 

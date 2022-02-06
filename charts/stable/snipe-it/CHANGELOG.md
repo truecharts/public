@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.35"></a>
+### [snipe-it-0.0.35](https://github.com/truecharts/apps/compare/snipe-it-0.0.34...snipe-it-0.0.35) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="snipe-it-0.0.34"></a>
 ### [snipe-it-0.0.34](https://github.com/truecharts/apps/compare/snipe-it-0.0.33...snipe-it-0.0.34) (2022-02-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.36"></a>
+### [friendica-0.0.36](https://github.com/truecharts/apps/compare/friendica-0.0.35...friendica-0.0.36) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="friendica-0.0.35"></a>
 ### [friendica-0.0.35](https://github.com/truecharts/apps/compare/friendica-0.0.34...friendica-0.0.35) (2022-02-05)
 

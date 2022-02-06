@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-1.0.7"></a>
+### [trilium-notes-1.0.7](https://github.com/truecharts/apps/compare/trilium-notes-1.0.6...trilium-notes-1.0.7) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="trilium-notes-1.0.6"></a>
 ### [trilium-notes-1.0.6](https://github.com/truecharts/apps/compare/trilium-notes-1.0.5...trilium-notes-1.0.6) (2022-02-05)
 

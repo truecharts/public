@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.41"></a>
+### [booksonic-air-4.0.41](https://github.com/truecharts/apps/compare/booksonic-air-4.0.40...booksonic-air-4.0.41) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="booksonic-air-4.0.40"></a>
 ### [booksonic-air-4.0.40](https://github.com/truecharts/apps/compare/booksonic-air-4.0.39...booksonic-air-4.0.40) (2022-02-05)
 

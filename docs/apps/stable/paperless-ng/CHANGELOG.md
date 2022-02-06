@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-1.0.18"></a>
+### [paperless-ng-1.0.18](https://github.com/truecharts/apps/compare/paperless-ng-1.0.17...paperless-ng-1.0.18) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="paperless-ng-1.0.17"></a>
 ### [paperless-ng-1.0.17](https://github.com/truecharts/apps/compare/paperless-ng-1.0.16...paperless-ng-1.0.17) (2022-02-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.59"></a>
+### [littlelink-4.0.59](https://github.com/truecharts/apps/compare/littlelink-4.0.58...littlelink-4.0.59) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="littlelink-4.0.58"></a>
 ### [littlelink-4.0.58](https://github.com/truecharts/apps/compare/littlelink-4.0.57...littlelink-4.0.58) (2022-02-05)
 

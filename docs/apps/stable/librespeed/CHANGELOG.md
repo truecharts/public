@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librespeed-4.0.42"></a>
+### [librespeed-4.0.42](https://github.com/truecharts/apps/compare/librespeed-4.0.41...librespeed-4.0.42) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="librespeed-4.0.41"></a>
 ### [librespeed-4.0.41](https://github.com/truecharts/apps/compare/librespeed-4.0.40...librespeed-4.0.41) (2022-02-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="habridge-0.0.21"></a>
+### [habridge-0.0.21](https://github.com/truecharts/apps/compare/habridge-0.0.20...habridge-0.0.21) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="habridge-0.0.20"></a>
 ### [habridge-0.0.20](https://github.com/truecharts/apps/compare/habridge-0.0.19...habridge-0.0.20) (2022-02-05)
 

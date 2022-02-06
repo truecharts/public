@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airdcpp-webclient-1.0.4"></a>
+### [airdcpp-webclient-1.0.4](https://github.com/truecharts/apps/compare/airdcpp-webclient-1.0.3...airdcpp-webclient-1.0.4) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="airdcpp-webclient-1.0.3"></a>
 ### [airdcpp-webclient-1.0.3](https://github.com/truecharts/apps/compare/airdcpp-webclient-1.0.2...airdcpp-webclient-1.0.3) (2022-02-05)
 

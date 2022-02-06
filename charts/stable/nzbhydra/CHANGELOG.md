@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-9.0.44"></a>
+### [nzbhydra-9.0.44](https://github.com/truecharts/apps/compare/nzbhydra-9.0.43...nzbhydra-9.0.44) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="nzbhydra-9.0.43"></a>
 ### [nzbhydra-9.0.43](https://github.com/truecharts/apps/compare/nzbhydra-9.0.42...nzbhydra-9.0.43) (2022-02-05)
 

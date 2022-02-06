@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="pyload-4.0.38"></a>
+### [pyload-4.0.38](https://github.com/truecharts/apps/compare/pyload-4.0.37...pyload-4.0.38) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="pyload-4.0.37"></a>
 ### [pyload-4.0.37](https://github.com/truecharts/apps/compare/pyload-4.0.36...pyload-4.0.37) (2022-02-05)
 

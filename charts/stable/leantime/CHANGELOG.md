@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="leantime-1.0.17"></a>
+### [leantime-1.0.17](https://github.com/truecharts/apps/compare/leantime-1.0.16...leantime-1.0.17) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="leantime-1.0.16"></a>
 ### [leantime-1.0.16](https://github.com/truecharts/apps/compare/leantime-1.0.15...leantime-1.0.16) (2022-02-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gotify-5.0.32"></a>
+### [gotify-5.0.32](https://github.com/truecharts/apps/compare/gotify-5.0.31...gotify-5.0.32) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="gotify-5.0.31"></a>
 ### [gotify-5.0.31](https://github.com/truecharts/apps/compare/gotify-5.0.30...gotify-5.0.31) (2022-02-05)
 

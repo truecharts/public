@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-4.0.39"></a>
+### [focalboard-4.0.39](https://github.com/truecharts/apps/compare/focalboard-4.0.38...focalboard-4.0.39) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="focalboard-4.0.38"></a>
 ### [focalboard-4.0.38](https://github.com/truecharts/apps/compare/focalboard-4.0.37...focalboard-4.0.38) (2022-02-05)
 

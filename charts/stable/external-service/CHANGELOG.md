@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="external-service-4.0.37"></a>
+### [external-service-4.0.37](https://github.com/truecharts/apps/compare/external-service-4.0.36...external-service-4.0.37) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="external-service-4.0.36"></a>
 ### [external-service-4.0.36](https://github.com/truecharts/apps/compare/external-service-4.0.35...external-service-4.0.36) (2022-02-05)
 

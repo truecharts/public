@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freeradius-4.0.41"></a>
+### [freeradius-4.0.41](https://github.com/truecharts/apps/compare/freeradius-4.0.40...freeradius-4.0.41) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="freeradius-4.0.40"></a>
 ### [freeradius-4.0.40](https://github.com/truecharts/apps/compare/freeradius-4.0.39...freeradius-4.0.40) (2022-02-05)
 

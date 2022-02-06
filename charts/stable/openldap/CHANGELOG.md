@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openldap-5.0.21"></a>
+### [openldap-5.0.21](https://github.com/truecharts/apps/compare/openldap-5.0.20...openldap-5.0.21) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="openldap-5.0.20"></a>
 ### [openldap-5.0.20](https://github.com/truecharts/apps/compare/openldap-5.0.19...openldap-5.0.20) (2022-02-05)
 

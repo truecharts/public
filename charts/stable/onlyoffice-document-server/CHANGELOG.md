@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-3.1.2"></a>
+### [onlyoffice-document-server-3.1.2](https://github.com/truecharts/apps/compare/onlyoffice-document-server-3.1.1...onlyoffice-document-server-3.1.2) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="onlyoffice-document-server-3.1.1"></a>
 ### [onlyoffice-document-server-3.1.1](https://github.com/truecharts/apps/compare/onlyoffice-document-server-3.1.0...onlyoffice-document-server-3.1.1) (2022-02-05)
 

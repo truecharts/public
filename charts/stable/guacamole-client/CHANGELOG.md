@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-1.0.10"></a>
+### [guacamole-client-1.0.10](https://github.com/truecharts/apps/compare/guacamole-client-1.0.9...guacamole-client-1.0.10) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="guacamole-client-1.0.9"></a>
 ### [guacamole-client-1.0.9](https://github.com/truecharts/apps/compare/guacamole-client-1.0.8...guacamole-client-1.0.9) (2022-02-05)
 

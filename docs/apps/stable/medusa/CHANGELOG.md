@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="medusa-1.0.44"></a>
+### [medusa-1.0.44](https://github.com/truecharts/apps/compare/medusa-1.0.43...medusa-1.0.44) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="medusa-1.0.43"></a>
 ### [medusa-1.0.43](https://github.com/truecharts/apps/compare/medusa-1.0.42...medusa-1.0.43) (2022-02-05)
 

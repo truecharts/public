@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="duckdns-0.0.19"></a>
+### [duckdns-0.0.19](https://github.com/truecharts/apps/compare/duckdns-0.0.18...duckdns-0.0.19) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="duckdns-0.0.18"></a>
 ### [duckdns-0.0.18](https://github.com/truecharts/apps/compare/duckdns-0.0.17...duckdns-0.0.18) (2022-02-05)
 

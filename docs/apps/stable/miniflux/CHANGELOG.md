@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="miniflux-4.0.32"></a>
+### [miniflux-4.0.32](https://github.com/truecharts/apps/compare/miniflux-4.0.31...miniflux-4.0.32) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="miniflux-4.0.31"></a>
 ### [miniflux-4.0.31](https://github.com/truecharts/apps/compare/miniflux-4.0.30...miniflux-4.0.31) (2022-02-05)
 

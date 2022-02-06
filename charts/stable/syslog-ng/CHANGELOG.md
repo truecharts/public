@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syslog-ng-0.0.20"></a>
+### [syslog-ng-0.0.20](https://github.com/truecharts/apps/compare/syslog-ng-0.0.19...syslog-ng-0.0.20) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="syslog-ng-0.0.19"></a>
 ### [syslog-ng-0.0.19](https://github.com/truecharts/apps/compare/syslog-ng-0.0.18...syslog-ng-0.0.19) (2022-02-05)
 

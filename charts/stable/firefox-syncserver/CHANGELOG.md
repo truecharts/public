@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-5.0.30"></a>
+### [firefox-syncserver-5.0.30](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.29...firefox-syncserver-5.0.30) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="firefox-syncserver-5.0.29"></a>
 ### [firefox-syncserver-5.0.29](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.28...firefox-syncserver-5.0.29) (2022-02-05)
 

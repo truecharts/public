@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="icinga2-0.0.28"></a>
+### [icinga2-0.0.28](https://github.com/truecharts/apps/compare/icinga2-0.0.27...icinga2-0.0.28) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="icinga2-0.0.27"></a>
 ### [icinga2-0.0.27](https://github.com/truecharts/apps/compare/icinga2-0.0.26...icinga2-0.0.27) (2022-02-05)
 

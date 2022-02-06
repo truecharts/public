@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="loki-2.0.28"></a>
+### [loki-2.0.28](https://github.com/truecharts/apps/compare/loki-2.0.27...loki-2.0.28) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="loki-2.0.27"></a>
 ### [loki-2.0.27](https://github.com/truecharts/apps/compare/loki-2.0.26...loki-2.0.27) (2022-02-05)
 

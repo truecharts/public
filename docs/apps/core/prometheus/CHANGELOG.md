@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.58"></a>
+### [prometheus-1.1.58](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.18...prometheus-1.1.58) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
 <a name="prometheus-1.1.57"></a>
 ### [prometheus-1.1.57](https://github.com/truecharts/apps/compare/prometheus-1.1.56...prometheus-1.1.57) (2022-02-05)
 

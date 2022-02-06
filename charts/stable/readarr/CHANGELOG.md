@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.60"></a>
+### [readarr-9.0.60](https://github.com/truecharts/apps/compare/readarr-9.0.59...readarr-9.0.60) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="readarr-9.0.59"></a>
 ### [readarr-9.0.59](https://github.com/truecharts/apps/compare/readarr-9.0.58...readarr-9.0.59) (2022-02-05)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.67"></a>
+### [prowlarr-4.0.67](https://github.com/truecharts/apps/compare/prowlarr-4.0.66...prowlarr-4.0.67) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
 <a name="prowlarr-4.0.66"></a>
 ### [prowlarr-4.0.66](https://github.com/truecharts/apps/compare/prowlarr-4.0.65...prowlarr-4.0.66) (2022-02-05)
 

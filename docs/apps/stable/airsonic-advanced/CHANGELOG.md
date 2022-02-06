@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-advanced-1.0.12"></a>
+### [airsonic-advanced-1.0.12](https://github.com/truecharts/apps/compare/airsonic-advanced-1.0.11...airsonic-advanced-1.0.12) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="airsonic-advanced-1.0.11"></a>
 ### [airsonic-advanced-1.0.11](https://github.com/truecharts/apps/compare/airsonic-advanced-1.0.10...airsonic-advanced-1.0.11) (2022-02-05)
 

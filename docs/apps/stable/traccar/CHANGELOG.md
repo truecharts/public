@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="traccar-4.0.31"></a>
+### [traccar-4.0.31](https://github.com/truecharts/apps/compare/traccar-4.0.30...traccar-4.0.31) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="traccar-4.0.30"></a>
 ### [traccar-4.0.30](https://github.com/truecharts/apps/compare/traccar-4.0.29...traccar-4.0.30) (2022-02-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloud9-2.0.41"></a>
+### [cloud9-2.0.41](https://github.com/truecharts/apps/compare/cloud9-2.0.40...cloud9-2.0.41) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="cloud9-2.0.40"></a>
 ### [cloud9-2.0.40](https://github.com/truecharts/apps/compare/cloud9-2.0.39...cloud9-2.0.40) (2022-02-05)
 

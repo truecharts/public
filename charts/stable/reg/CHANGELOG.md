@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="reg-4.0.37"></a>
+### [reg-4.0.37](https://github.com/truecharts/apps/compare/reg-4.0.36...reg-4.0.37) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="reg-4.0.36"></a>
 ### [reg-4.0.36](https://github.com/truecharts/apps/compare/reg-4.0.35...reg-4.0.36) (2022-02-05)
 

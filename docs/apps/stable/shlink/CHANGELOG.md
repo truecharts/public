@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-1.0.9"></a>
+### [shlink-1.0.9](https://github.com/truecharts/apps/compare/shlink-1.0.8...shlink-1.0.9) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="shlink-1.0.8"></a>
 ### [shlink-1.0.8](https://github.com/truecharts/apps/compare/shlink-1.0.7...shlink-1.0.8) (2022-02-05)
 

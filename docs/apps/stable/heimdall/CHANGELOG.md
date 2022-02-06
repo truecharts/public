@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-9.0.43"></a>
+### [heimdall-9.0.43](https://github.com/truecharts/apps/compare/heimdall-9.0.42...heimdall-9.0.43) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="heimdall-9.0.42"></a>
 ### [heimdall-9.0.42](https://github.com/truecharts/apps/compare/heimdall-9.0.41...heimdall-9.0.42) (2022-02-05)
 

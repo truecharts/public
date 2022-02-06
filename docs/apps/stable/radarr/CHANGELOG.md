@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="radarr-9.0.41"></a>
+### [radarr-9.0.41](https://github.com/truecharts/apps/compare/radarr-9.0.40...radarr-9.0.41) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="radarr-9.0.40"></a>
 ### [radarr-9.0.40](https://github.com/truecharts/apps/compare/radarr-9.0.39...radarr-9.0.40) (2022-02-05)
 

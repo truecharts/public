@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="papermerge-0.0.21"></a>
+### [papermerge-0.0.21](https://github.com/truecharts/apps/compare/papermerge-0.0.20...papermerge-0.0.21) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="papermerge-0.0.20"></a>
 ### [papermerge-0.0.20](https://github.com/truecharts/apps/compare/papermerge-0.0.19...papermerge-0.0.20) (2022-02-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clarkson-0.0.33"></a>
+### [clarkson-0.0.33](https://github.com/truecharts/apps/compare/clarkson-0.0.32...clarkson-0.0.33) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="clarkson-0.0.32"></a>
 ### [clarkson-0.0.32](https://github.com/truecharts/apps/compare/clarkson-0.0.31...clarkson-0.0.32) (2022-02-05)
 

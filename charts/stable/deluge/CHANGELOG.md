@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deluge-9.0.40"></a>
+### [deluge-9.0.40](https://github.com/truecharts/apps/compare/deluge-9.0.39...deluge-9.0.40) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="deluge-9.0.39"></a>
 ### [deluge-9.0.39](https://github.com/truecharts/apps/compare/deluge-9.0.38...deluge-9.0.39) (2022-02-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.52"></a>
+### [komga-4.0.52](https://github.com/truecharts/apps/compare/komga-4.0.51...komga-4.0.52) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="komga-4.0.51"></a>
 ### [komga-4.0.51](https://github.com/truecharts/apps/compare/komga-4.0.50...komga-4.0.51) (2022-02-05)
 

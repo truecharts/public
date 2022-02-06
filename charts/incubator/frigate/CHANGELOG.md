@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="frigate-0.0.11"></a>
+### [frigate-0.0.11](https://github.com/truecharts/apps/compare/frigate-0.0.10...frigate-0.0.11) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="frigate-0.0.10"></a>
 ### [frigate-0.0.10](https://github.com/truecharts/apps/compare/frigate-0.0.9...frigate-0.0.10) (2022-02-05)
 

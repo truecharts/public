@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mealie-5.0.21"></a>
+### [mealie-5.0.21](https://github.com/truecharts/apps/compare/mealie-5.0.20...mealie-5.0.21) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="mealie-5.0.20"></a>
 ### [mealie-5.0.20](https://github.com/truecharts/apps/compare/mealie-5.0.19...mealie-5.0.20) (2022-02-05)
 

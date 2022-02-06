@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.70"></a>
+### [custom-app-3.0.70](https://github.com/truecharts/apps/compare/custom-app-3.0.69...custom-app-3.0.70) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
 <a name="custom-app-3.0.69"></a>
 ### [custom-app-3.0.69](https://github.com/truecharts/apps/compare/custom-app-3.0.68...custom-app-3.0.69) (2022-02-05)
 

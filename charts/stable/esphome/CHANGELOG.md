@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.47"></a>
+### [esphome-9.0.47](https://github.com/truecharts/apps/compare/esphome-9.0.46...esphome-9.0.47) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="esphome-9.0.46"></a>
 ### [esphome-9.0.46](https://github.com/truecharts/apps/compare/esphome-9.0.45...esphome-9.0.46) (2022-02-05)
 

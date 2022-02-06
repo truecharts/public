@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="remmina-1.0.42"></a>
+### [remmina-1.0.42](https://github.com/truecharts/apps/compare/remmina-1.0.41...remmina-1.0.42) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="remmina-1.0.41"></a>
 ### [remmina-1.0.41](https://github.com/truecharts/apps/compare/remmina-1.0.40...remmina-1.0.41) (2022-02-05)
 

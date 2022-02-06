@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.60"></a>
+### [omada-controller-4.0.60](https://github.com/truecharts/apps/compare/omada-controller-4.0.59...omada-controller-4.0.60) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="omada-controller-4.0.59"></a>
 ### [omada-controller-4.0.59](https://github.com/truecharts/apps/compare/omada-controller-4.0.58...omada-controller-4.0.59) (2022-02-05)
 

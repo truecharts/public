@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minio-console-1.0.48"></a>
+### [minio-console-1.0.48](https://github.com/truecharts/apps/compare/minio-console-1.0.47...minio-console-1.0.48) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
 <a name="minio-console-1.0.47"></a>
 ### [minio-console-1.0.47](https://github.com/truecharts/apps/compare/minio-console-1.0.46...minio-console-1.0.47) (2022-02-05)
 

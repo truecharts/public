@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="webgrabplus-0.0.20"></a>
+### [webgrabplus-0.0.20](https://github.com/truecharts/apps/compare/webgrabplus-0.0.19...webgrabplus-0.0.20) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="webgrabplus-0.0.19"></a>
 ### [webgrabplus-0.0.19](https://github.com/truecharts/apps/compare/webgrabplus-0.0.18...webgrabplus-0.0.19) (2022-02-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.33"></a>
+### [vaultwarden-13.0.33](https://github.com/truecharts/apps/compare/vaultwarden-13.0.32...vaultwarden-13.0.33) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="vaultwarden-13.0.32"></a>
 ### [vaultwarden-13.0.32](https://github.com/truecharts/apps/compare/vaultwarden-13.0.31...vaultwarden-13.0.32) (2022-02-05)
 

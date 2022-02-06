@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.49"></a>
+### [zwavejs2mqtt-9.0.49](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.48...zwavejs2mqtt-9.0.49) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="zwavejs2mqtt-9.0.48"></a>
 ### [zwavejs2mqtt-9.0.48](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.47...zwavejs2mqtt-9.0.48) (2022-02-05)
 

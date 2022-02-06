@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kodi-headless-0.0.20"></a>
+### [kodi-headless-0.0.20](https://github.com/truecharts/apps/compare/kodi-headless-0.0.19...kodi-headless-0.0.20) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="kodi-headless-0.0.19"></a>
 ### [kodi-headless-0.0.19](https://github.com/truecharts/apps/compare/kodi-headless-0.0.18...kodi-headless-0.0.19) (2022-02-05)
 

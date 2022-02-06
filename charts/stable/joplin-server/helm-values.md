@@ -24,7 +24,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/joplin-server"` |  |
-| image.tag | string | `"v2.7.3@sha256:a664f072622f9ceb4c751c2c6b57e3a8b856cf6c543dc6eb4e97e9dabb587b62"` |  |
+| image.tag | string | `"v2.7.4@sha256:6832f3ed894279ba8a1ab03b4033d11dadc28e3f36364eed7b69eadb52f8e1e4"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-web-client-1.0.6"></a>
+### [shlink-web-client-1.0.6](https://github.com/truecharts/apps/compare/shlink-web-client-1.0.5...shlink-web-client-1.0.6) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="shlink-web-client-1.0.5"></a>
 ### [shlink-web-client-1.0.5](https://github.com/truecharts/apps/compare/shlink-web-client-1.0.4...shlink-web-client-1.0.5) (2022-02-05)
 

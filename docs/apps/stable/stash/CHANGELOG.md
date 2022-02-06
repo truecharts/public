@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="stash-5.0.20"></a>
+### [stash-5.0.20](https://github.com/truecharts/apps/compare/stash-5.0.19...stash-5.0.20) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="stash-5.0.19"></a>
 ### [stash-5.0.19](https://github.com/truecharts/apps/compare/stash-5.0.18...stash-5.0.19) (2022-02-05)
 

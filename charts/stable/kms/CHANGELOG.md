@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-9.0.45"></a>
+### [kms-9.0.45](https://github.com/truecharts/apps/compare/kms-9.0.44...kms-9.0.45) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="kms-9.0.44"></a>
 ### [kms-9.0.44](https://github.com/truecharts/apps/compare/kms-9.0.43...kms-9.0.44) (2022-02-05)
 

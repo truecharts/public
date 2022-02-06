@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="audacity-2.0.38"></a>
+### [audacity-2.0.38](https://github.com/truecharts/apps/compare/audacity-2.0.37...audacity-2.0.38) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="audacity-2.0.37"></a>
 ### [audacity-2.0.37](https://github.com/truecharts/apps/compare/audacity-2.0.36...audacity-2.0.37) (2022-02-05)
 

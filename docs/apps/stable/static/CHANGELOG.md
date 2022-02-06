@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="static-1.0.38"></a>
+### [static-1.0.38](https://github.com/truecharts/apps/compare/static-1.0.37...static-1.0.38) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="static-1.0.37"></a>
 ### [static-1.0.37](https://github.com/truecharts/apps/compare/static-1.0.36...static-1.0.37) (2022-02-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="anonaddy-6.0.33"></a>
+### [anonaddy-6.0.33](https://github.com/truecharts/apps/compare/anonaddy-6.0.32...anonaddy-6.0.33) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="anonaddy-6.0.32"></a>
 ### [anonaddy-6.0.32](https://github.com/truecharts/apps/compare/anonaddy-6.0.31...anonaddy-6.0.32) (2022-02-05)
 

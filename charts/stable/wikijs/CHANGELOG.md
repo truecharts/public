@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="wikijs-4.0.34"></a>
+### [wikijs-4.0.34](https://github.com/truecharts/apps/compare/wikijs-4.0.33...wikijs-4.0.34) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="wikijs-4.0.33"></a>
 ### [wikijs-4.0.33](https://github.com/truecharts/apps/compare/wikijs-4.0.32...wikijs-4.0.33) (2022-02-05)
 

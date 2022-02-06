@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.23"></a>
+### [code-server-2.1.23](https://github.com/truecharts/apps/compare/openvscode-server-0.0.21...code-server-2.1.23) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="code-server-2.1.22"></a>
 ### [code-server-2.1.22](https://github.com/truecharts/apps/compare/code-server-2.1.21...code-server-2.1.22) (2022-02-05)
 

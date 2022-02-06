@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="guacd-0.0.22"></a>
+### [guacd-0.0.22](https://github.com/truecharts/apps/compare/guacd-0.0.21...guacd-0.0.22) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="guacd-0.0.21"></a>
 ### [guacd-0.0.21](https://github.com/truecharts/apps/compare/guacd-0.0.20...guacd-0.0.21) (2022-02-05)
 

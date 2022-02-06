@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="amcrest2mqtt-2.0.41"></a>
+### [amcrest2mqtt-2.0.41](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.40...amcrest2mqtt-2.0.41) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="amcrest2mqtt-2.0.40"></a>
 ### [amcrest2mqtt-2.0.40](https://github.com/truecharts/apps/compare/amcrest2mqtt-2.0.39...amcrest2mqtt-2.0.40) (2022-02-05)
 

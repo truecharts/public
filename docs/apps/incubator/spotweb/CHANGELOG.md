@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="spotweb-0.0.15"></a>
+### [spotweb-0.0.15](https://github.com/truecharts/apps/compare/spotweb-0.0.14...spotweb-0.0.15) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="spotweb-0.0.14"></a>
 ### [spotweb-0.0.14](https://github.com/truecharts/apps/compare/spotweb-0.0.13...spotweb-0.0.14) (2022-02-05)
 

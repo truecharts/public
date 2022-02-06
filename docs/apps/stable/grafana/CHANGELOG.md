@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="grafana-2.0.37"></a>
+### [grafana-2.0.37](https://github.com/truecharts/apps/compare/grafana-2.0.36...grafana-2.0.37) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
 <a name="grafana-2.0.36"></a>
 ### [grafana-2.0.36](https://github.com/truecharts/apps/compare/grafana-2.0.35...grafana-2.0.36) (2022-02-05)
 

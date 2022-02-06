@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="dillinger-0.0.19"></a>
+### [dillinger-0.0.19](https://github.com/truecharts/apps/compare/dillinger-0.0.18...dillinger-0.0.19) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="dillinger-0.0.18"></a>
 ### [dillinger-0.0.18](https://github.com/truecharts/apps/compare/dillinger-0.0.17...dillinger-0.0.18) (2022-02-05)
 

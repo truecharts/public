@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-2.0.4"></a>
+### [deepstack-2.0.4](https://github.com/truecharts/apps/compare/deepstack-2.0.3...deepstack-2.0.4) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="deepstack-2.0.3"></a>
 ### [deepstack-2.0.3](https://github.com/truecharts/apps/compare/deepstack-2.0.2...deepstack-2.0.3) (2022-02-05)
 

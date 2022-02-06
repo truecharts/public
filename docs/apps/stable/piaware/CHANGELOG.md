@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.51"></a>
+### [piaware-4.0.51](https://github.com/truecharts/apps/compare/piaware-4.0.50...piaware-4.0.51) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
 <a name="piaware-4.0.50"></a>
 ### [piaware-4.0.50](https://github.com/truecharts/apps/compare/piaware-4.0.49...piaware-4.0.50) (2022-02-05)
 

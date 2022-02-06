@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="clamav-1.0.7"></a>
+### [clamav-1.0.7](https://github.com/truecharts/apps/compare/clamav-1.0.6...clamav-1.0.7) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="clamav-1.0.6"></a>
 ### [clamav-1.0.6](https://github.com/truecharts/apps/compare/clamav-1.0.5...clamav-1.0.6) (2022-02-05)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synapse-1.0.4"></a>
+### [synapse-1.0.4](https://github.com/truecharts/apps/compare/synapse-1.0.3...synapse-1.0.4) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="synapse-1.0.3"></a>
 ### [synapse-1.0.3](https://github.com/truecharts/apps/compare/synapse-1.0.2...synapse-1.0.3) (2022-02-05)
 

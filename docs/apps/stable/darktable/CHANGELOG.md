@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="darktable-1.0.3"></a>
+### [darktable-1.0.3](https://github.com/truecharts/apps/compare/darktable-1.0.2...darktable-1.0.3) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="darktable-1.0.2"></a>
 ### [darktable-1.0.2](https://github.com/truecharts/apps/compare/darktable-1.0.1...darktable-1.0.2) (2022-02-05)
 

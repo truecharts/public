@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.41"></a>
+### [tt-rss-4.0.41](https://github.com/truecharts/apps/compare/tt-rss-4.0.40...tt-rss-4.0.41) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="tt-rss-4.0.40"></a>
 ### [tt-rss-4.0.40](https://github.com/truecharts/apps/compare/tt-rss-4.0.39...tt-rss-4.0.40) (2022-02-05)
 

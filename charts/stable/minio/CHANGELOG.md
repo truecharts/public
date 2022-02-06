@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-1.0.26"></a>
+### [minio-1.0.26](https://github.com/truecharts/apps/compare/minio-1.0.25...minio-1.0.26) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="minio-1.0.25"></a>
 ### [minio-1.0.25](https://github.com/truecharts/apps/compare/minio-console-1.0.46...minio-1.0.25) (2022-02-05)
 

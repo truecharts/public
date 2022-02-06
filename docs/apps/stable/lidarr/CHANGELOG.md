@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lidarr-9.0.47"></a>
+### [lidarr-9.0.47](https://github.com/truecharts/apps/compare/lidarr-9.0.46...lidarr-9.0.47) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="lidarr-9.0.46"></a>
 ### [lidarr-9.0.46](https://github.com/truecharts/apps/compare/lidarr-9.0.45...lidarr-9.0.46) (2022-02-05)
 

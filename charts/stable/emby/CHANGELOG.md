@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="emby-9.0.40"></a>
+### [emby-9.0.40](https://github.com/truecharts/apps/compare/emby-9.0.39...emby-9.0.40) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="emby-9.0.39"></a>
 ### [emby-9.0.39](https://github.com/truecharts/apps/compare/embystat-0.0.17...emby-9.0.39) (2022-02-05)
 

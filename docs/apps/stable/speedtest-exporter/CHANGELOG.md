@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="speedtest-exporter-1.0.26"></a>
+### [speedtest-exporter-1.0.26](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.25...speedtest-exporter-1.0.26) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+
+
+
 <a name="speedtest-exporter-1.0.25"></a>
 ### [speedtest-exporter-1.0.25](https://github.com/truecharts/apps/compare/speedtest-exporter-1.0.24...speedtest-exporter-1.0.25) (2022-02-05)
 

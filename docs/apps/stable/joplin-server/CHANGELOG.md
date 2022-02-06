@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="joplin-server-5.0.32"></a>
+### [joplin-server-5.0.32](https://github.com/truecharts/apps/compare/joplin-server-5.0.31...joplin-server-5.0.32) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1859](https://github.com/truecharts/apps/issues/1859))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
 <a name="joplin-server-5.0.31"></a>
 ### [joplin-server-5.0.31](https://github.com/truecharts/apps/compare/joplin-server-5.0.30...joplin-server-5.0.31) (2022-02-05)
 
