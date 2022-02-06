@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="common-8.15.0"></a>
+### [common-8.15.0](https://github.com/truecharts/apps/compare/common-8.14.5...common-8.15.0) (2022-02-06)
+
+#### Chore
+
+* update docker general non-major ([#1849](https://github.com/truecharts/apps/issues/1849))
+
+#### Feat
+
+* add an initial inotify patch ([#1854](https://github.com/truecharts/apps/issues/1854))
+
+
+
 <a name="common-8.14.5"></a>
 ### [common-8.14.5](https://github.com/truecharts/apps/compare/common-8.14.4...common-8.14.5) (2022-02-03)
 
