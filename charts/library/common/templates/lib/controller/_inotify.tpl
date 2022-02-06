@@ -8,7 +8,6 @@ before chart installation.
   securityContext:
     runAsUser: 0
     privileged: true
-    allowPrivilegeEscalation: false
   command:
     - "/bin/sh"
     - "-c"
