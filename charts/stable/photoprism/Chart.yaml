@@ -3,7 +3,7 @@ appVersion: "20220121"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.14.5
+  version: 8.15.0
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
@@ -26,7 +26,7 @@ name: photoprism
 sources:
 - https://github.com/photoprism/photoprism
 - https://hub.docker.com/r/photoprism/photoprism
-version: 7.0.24
+version: 7.0.25
 annotations:
   truecharts.org/catagories: |
     - media
