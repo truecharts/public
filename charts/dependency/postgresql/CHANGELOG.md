@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="postgresql-6.0.63"></a>
+### [postgresql-6.0.63](https://github.com/truecharts/apps/compare/postgresql-6.0.62...postgresql-6.0.63) (2022-02-06)
+
+#### Chore
+
+* update helm chart common to v8.15.0 ([#1858](https://github.com/truecharts/apps/issues/1858))
+* update docker general non-major ([#1855](https://github.com/truecharts/apps/issues/1855))
+
+
+
 <a name="postgresql-6.0.62"></a>
 ### [postgresql-6.0.62](https://github.com/truecharts/apps/compare/postgresql-6.0.61...postgresql-6.0.62) (2022-02-05)
 
