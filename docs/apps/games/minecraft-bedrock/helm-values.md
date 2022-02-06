@@ -31,7 +31,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.SERVER_AUTHORITATIVE_MOVEMENT | string | `"server-auth"` |  |
 | env.SERVER_NAME | string | `"TrueCharts Dedicated Server!"` |  |
 | env.SERVER_PORT | string | `"{{ .Values.service.main.ports.main.targetPort }}"` |  |
-| env.SERVER_PORT_V6 | string | `"{{ .Values.service.main.ports.main.targetPort }}"` |  |
+| env.SERVER_PORT_V6 | int | `19133` |  |
 | env.TEXTUREPACK_REQUIRED | bool | `false` |  |
 | env.TICK_DISTANCE | int | `4` |  |
 | env.UID | string | `"{{ .Values.env.PUID }}"` |  |
