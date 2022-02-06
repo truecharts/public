@@ -51,6 +51,7 @@ terminationGracePeriodSeconds: {{ . }}
   {{- end }}
 initContainers:
   {{-  include "common.controller.autopermissions" . | nindent 2 }}
+  {{-  include "common.controller.inotify" . | nindent 2 }}
   {{-  include "common.dependencies.postgresql.init" . | nindent 2 }}
   {{- if .Release.IsInstall }}
   {{- if .Values.installContainers }}
