@@ -3,7 +3,7 @@ appVersion: "2022.2.2"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.14.5
+  version: 8.15.0
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -26,7 +26,7 @@ sources:
 - https://github.com/home-assistant/home-assistant
 - https://github.com/cdr/code-server
 type: application
-version: 12.0.39
+version: 12.0.40
 annotations:
   truecharts.org/catagories: |
     - home-automation

@@ -3,7 +3,7 @@ appVersion: "3.3.3"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.14.5
+  version: 8.15.0
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
@@ -23,7 +23,7 @@ name: xbackbone
 sources:
 - https://github.com/SergiX44/XBackBone
 - https://hub.docker.com/r/pe46dro/xbackbone-docker
-version: 0.0.27
+version: 0.0.28
 annotations:
   truecharts.org/catagories: |
     - files

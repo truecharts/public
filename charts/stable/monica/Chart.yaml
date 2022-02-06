@@ -3,7 +3,7 @@ appVersion: "3.6.1"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.14.5
+  version: 8.15.0
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
@@ -22,7 +22,7 @@ name: monica
 sources:
 - https://github.com/monicahq/monica
 - https://hub.docker.com/_/monica
-version: 0.0.37
+version: 0.0.38
 annotations:
   truecharts.org/catagories: |
     - crm
