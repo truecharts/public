@@ -1,17 +1,11 @@
 image:
-  repository: tccr.io/truecharts/odoo
+  repository: docker.io/odoo
   pullPolicy: IfNotPresent
-  tag: version-14.0@sha256:dec23986ced979e029a78512272e2be18bab60d811bccb3d7ddc4b3241b210e2
+  tag: 15.0@sha256:d5309469826d4737e37b93aba92c9a0f2638221042ec6092eac85daf6b76b0d9
 
-secret: {}
-  # USER: "odoo"
-  # PASSWORD: "myodoo"
-
-# See more environment variables in the odoo documentation
-# https://github.com/nicholaswilde/docker-odoo
 env:
   USER: "{{ .Values.postgresql.postgresqlUsername }}"
-    # HOST: "odoo-db"
+  PORT: 5432
 
 envValueFrom:
   PASSWORD:
@@ -54,4 +48,4 @@ postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: odoo
-  postgresqlDatabase: postgres
+  postgresqlDatabase: odoo
