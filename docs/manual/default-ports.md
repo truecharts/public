@@ -105,8 +105,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | synapse                    |      main       |      main       | 8008  |   TCP    |                                         |
 | omada-controller           |      main       |      main       | 8043  |   TCP    |                                         |
 | odoo                       |      main       |      main       | 8069  |   TCP    |                                         |
-| odoo                       |      odoo       |     odoo-1      | 8071  |   TCP    |                                         |
-| odoo                       |      odoo       |     odoo-2      | 8072  |   TCP    |                                         |
+| odoo                       |      odoo       |     xmlrpcs     | 8071  |   TCP    |                                         |
+| odoo                       |      odoo       |   longpolling   | 8072  |   TCP    |                                         |
 | unifi                      |      comm       |      comm       | 8080  |   TCP    |                                         |
 | calibre                    |    webserver    |    webserver    | 8081  |   TCP    |                                         |
 | traccar                    |      main       |      main       | 8082  |   TCP    |                                         |
