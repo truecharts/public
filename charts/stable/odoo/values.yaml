@@ -26,11 +26,11 @@ service:
   odoo:
     enabled: true
     ports:
-      odoo-1:
+      xmlrpcs:
         enabled: true
         port: 8071
         targetPort: 8071
-      odoo-2:
+      longpolling:
         enabled: true
         port: 8072
         targetPort: 8072
