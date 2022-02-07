@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.42"></a>
+### [booksonic-air-4.0.42](https://github.com/truecharts/apps/compare/booksonic-air-4.0.41...booksonic-air-4.0.42) (2022-02-07)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update docker general non-major ([#1863](https://github.com/truecharts/apps/issues/1863))
+
+
+
 <a name="booksonic-air-4.0.41"></a>
 ### [booksonic-air-4.0.41](https://github.com/truecharts/apps/compare/booksonic-air-4.0.40...booksonic-air-4.0.41) (2022-02-06)
 

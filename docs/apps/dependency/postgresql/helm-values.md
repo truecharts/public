@@ -28,7 +28,7 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/postgresql"` |  |
-| image.tag | string | `"v14.1.0@sha256:6a65ba0081b1a9936b1e28a3605a29b47a9cfe13dc367046dc3bcb5446c0b441"` |  |
+| image.tag | string | `"v14.1.0@sha256:5d65d8f372e4c8275c1b29e5512ec9762c689c32bf07da2345297ccf38768ebe"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | postgrespassword | string | `"testroot"` |  |
 | postgresqlDatabase | string | `"test"` |  |

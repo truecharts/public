@@ -21,7 +21,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/babybuddy"` |  |
-| image.tag | string | `"v1.9.3@sha256:c7f323112a9eca04ab2e7701507af70aa60ae2dc79cdd3e4cc2be66df656b27e"` |  |
+| image.tag | string | `"v1.9.3@sha256:6fa60f37bc4b5be5d07b05344e7343f15b9103642fc04305dca0d751ca8f4836"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
