@@ -37,6 +37,14 @@ envValueFrom:
       name: rediscreds
       key: url
 
+probes:
+  liveness:
+    path: "/healthcheck"
+  readiness:
+    path: "/healthcheck"
+  startup:
+    path: "/healthcheck"
+
 service:
   main:
     ports:
