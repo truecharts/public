@@ -42,6 +42,9 @@ persistence:
   addons:
     enabled: true
     mountPath: "/mnt/extra-addons"
+  customconfig:
+    enabled: true
+    mountPath: "/etc/odoo"
 
 # Enabled postgres
 postgresql:
