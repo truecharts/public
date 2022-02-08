@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.52"></a>
+### [piaware-4.0.52](https://github.com/truecharts/apps/compare/piaware-4.0.51...piaware-4.0.52) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update docker general non-major ([#1869](https://github.com/truecharts/apps/issues/1869))
+
+
+
 <a name="piaware-4.0.51"></a>
 ### [piaware-4.0.51](https://github.com/truecharts/apps/compare/piaware-4.0.50...piaware-4.0.51) (2022-02-06)
 

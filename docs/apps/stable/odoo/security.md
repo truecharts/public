@@ -73,7 +73,7 @@ hide:
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:f729127ca5517840f75e3ab107e2b60efe8257b27f2c679e070dffcaf534e88a
-          tccr.io/truecharts/odoo:v15.0@sha256:314cfa4776c8fd0a45974bb0a7211d4d9258d0dd4616130c671f95595a306972
+          tccr.io/truecharts/odoo:v15.0@sha256:2cde7608ba62f1b1299b84150e803949532562ab5534fd455fa814779da692f7
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:f729127ca5517840f75e3ab107e2b60efe8257b27f2c679e070dffcaf534e88a
@@ -381,7 +381,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/odoo:v15.0@sha256:314cfa4776c8fd0a45974bb0a7211d4d9258d0dd4616130c671f95595a306972 (debian 11.2)
+#### Container: tccr.io/truecharts/odoo:v15.0@sha256:2cde7608ba62f1b1299b84150e803949532562ab5534fd455fa814779da692f7 (debian 11.2)
 
 
 **debian**
