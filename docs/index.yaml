@@ -32713,48 +32713,6 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
-    appVersion: "15.0"
-    created: "2022-02-08T08:59:10.425444467Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.15.0
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: https://truecharts.org/
-      version: 6.0.62
-    description: All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting,
-      PM, HR, Procurement, Point of Sale, MRP, Marketing, etc.
-    digest: 3257f2230dae8fe7f211821555e49cd86f0703f1bb15ccaafca40506934641a9
-    home: https://github.com/truecharts/apps/tree/main/charts/odoo
-    icon: https://truecharts.org/_static/img/appicons/odoo-icon.png
-    keywords:
-    - odoo
-    - crm
-    - pm
-    - hr
-    - accounting
-    - mrp
-    - marketing
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: odoo
-    sources:
-    - https://www.odoo.com/
-    - https://hub.docker.com/repository/docker/nicholaswilde/odoo
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/odoo-5.0.0/odoo-5.0.0.tgz
-    version: 5.0.0
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-      truecharts.org/grade: U
-    apiVersion: v2
     appVersion: "14.0"
     created: "2022-01-22T10:53:36.043558831Z"
     dependencies:
@@ -33922,6 +33880,50 @@ entries:
     - https://github.com/truecharts/apps/releases/download/ombi-9.0.20/ombi-9.0.20.tgz
     version: 9.0.20
   onlyoffice-document-server:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - office
+        - documents
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 7.0.0
+    created: "2022-02-08T09:13:59.199604055Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.62
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.67
+    description: 'ONLYOFFICE Document Server is an online office suite comprising
+      viewers and editors for texts, spreadsheets and presentations, fully compatible
+      with Office Open XML formats: .docx, .xlsx, .pptx and enabling collaborative
+      editing in real time.'
+    digest: d6223eba1f712476ff74ecf403cfdff1c910c43e0a129fa3cfb12da5f5ad854f
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/onlyoffice-document-server
+    icon: https://truecharts.org/_static/img/appicons/onlyoffice-document-server-icon.png
+    keywords:
+    - onlyoffice
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: onlyoffice-document-server
+    sources:
+    - https://github.com/ONLYOFFICE/DocumentServer
+    - https://github.com/ONLYOFFICE/Docker-DocumentServer
+    - https://hub.docker.com/r/onlyoffice/documentserver/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/onlyoffice-document-server-3.1.3/onlyoffice-document-server-3.1.3.tgz
+    version: 3.1.3
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -58363,4 +58365,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-08T08:59:10.430769803Z"
+generated: "2022-02-08T09:13:59.203895473Z"

@@ -33,6 +33,9 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"onlyoffice"` |  |
 | postgresql.postgresqlUsername | string | `"onlyoffice"` |  |
+| probes.liveness.path | string | `"/healthcheck"` |  |
+| probes.readiness.path | string | `"/healthcheck"` |  |
+| probes.startup.path | string | `"/healthcheck"` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
 | secret.JWT_SECRET | string | `"randomgeneratedstring"` |  |
