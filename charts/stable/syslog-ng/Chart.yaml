@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: syslog-ng
-version: 0.0.20
+version: 0.0.21
 appVersion: "3.30.1"
 description: syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate logs.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.15.0
+  version: 8.15.2
   # condition:
 maintainers:
 - email: info@truecharts.org
