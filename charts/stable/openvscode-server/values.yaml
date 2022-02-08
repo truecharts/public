@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.63.2
 
+portal:
+  path: "/?tkn={{ .Values.secret.CONNECTION_TOKEN }}"
+
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
@@ -12,8 +15,7 @@ podSecurityContext:
   runAsGroup: 0
 
 secret:
-  # CONNECTION_TOKEN: ""  (Optional)
-  # SUDO_PASSWORD: ""  (Optional)
+  CONNECTION_TOKEN: "somerandomstring"
 
 env:
   PUID: 568
