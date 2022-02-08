@@ -1,6 +1,6 @@
 apiVersion: v2
 appVersion: "1.5.0"
-version: 4.0.30
+version: 4.0.31
 kubeVersion: '>=1.16.0-0'
 name: shiori
 description: A simple bookmark manager built with Go
@@ -18,11 +18,11 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.15.0
+  version: 8.15.2
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 6.0.62
+  version: 6.0.66
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
