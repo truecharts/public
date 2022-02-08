@@ -32713,6 +32713,48 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: "15.0"
+    created: "2022-02-08T08:59:10.425444467Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.62
+    description: All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting,
+      PM, HR, Procurement, Point of Sale, MRP, Marketing, etc.
+    digest: 3257f2230dae8fe7f211821555e49cd86f0703f1bb15ccaafca40506934641a9
+    home: https://github.com/truecharts/apps/tree/main/charts/odoo
+    icon: https://truecharts.org/_static/img/appicons/odoo-icon.png
+    keywords:
+    - odoo
+    - crm
+    - pm
+    - hr
+    - accounting
+    - mrp
+    - marketing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: odoo
+    sources:
+    - https://www.odoo.com/
+    - https://hub.docker.com/repository/docker/nicholaswilde/odoo
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/odoo-5.0.0/odoo-5.0.0.tgz
+    version: 5.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: "14.0"
     created: "2022-01-22T10:53:36.043558831Z"
     dependencies:
@@ -58321,4 +58363,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-07T11:24:48.79726145Z"
+generated: "2022-02-08T08:59:10.430769803Z"

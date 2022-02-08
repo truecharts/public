@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="odoo-5.0.0"></a>
+### [odoo-5.0.0](https://github.com/truecharts/apps/compare/odoo-4.0.30...odoo-5.0.0) (2022-02-08)
+
+#### Feat
+
+* use official image ([#1866](https://github.com/truecharts/apps/issues/1866))
+
+
+
 <a name="odoo-4.0.30"></a>
 ### [odoo-4.0.30](https://github.com/truecharts/apps/compare/odoo-4.0.29...odoo-4.0.30) (2022-02-06)
 
