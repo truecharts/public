@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openvscode-server-0.0.23"></a>
+### [openvscode-server-0.0.23](https://github.com/truecharts/apps/compare/openvscode-server-0.0.22...openvscode-server-0.0.23) (2022-02-08)
+
+#### Fix
+
+* Use CONNECTION_TOKEN on portal button ([#1666](https://github.com/truecharts/apps/issues/1666))
+
+
+
 <a name="openvscode-server-0.0.22"></a>
 ### [openvscode-server-0.0.22](https://github.com/truecharts/apps/compare/openvscode-server-0.0.21...openvscode-server-0.0.22) (2022-02-06)
 

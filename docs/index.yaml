@@ -34659,6 +34659,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.63.2
+    created: "2022-02-08T12:33:58.300706171Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.0
+    description: Openvscode-server provides a version of VS Code that runs a server
+      on a remote machine.
+    digest: 675e7c5f9d24555b7561fece97245e32d439d754aeb9aaf8ec9e89104ce89f75
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/openvscode-server
+    icon: https://truecharts.org/_static/img/appicons/openvscode-server-icon.png
+    keywords:
+    - openvscode-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: openvscode-server
+    sources:
+    - https://hub.docker.com/r/linuxserver/openvscode-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/openvscode-server-0.0.23/openvscode-server-0.0.23.tgz
+    version: 0.0.23
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.63.2
     created: "2022-01-09T12:08:37.938428688Z"
     dependencies:
     - name: common
@@ -58365,4 +58396,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-08T09:13:59.203895473Z"
+generated: "2022-02-08T12:33:58.307977979Z"
