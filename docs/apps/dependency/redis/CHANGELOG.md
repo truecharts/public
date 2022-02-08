@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="redis-1.0.71"></a>
+### [redis-1.0.71](https://github.com/truecharts/apps/compare/redis-1.0.70...redis-1.0.71) (2022-02-08)
+
+#### Chore
+
+* update helm chart common to v8.15.2 ([#1868](https://github.com/truecharts/apps/issues/1868))
+
+
+
 <a name="redis-1.0.70"></a>
 ### [redis-1.0.70](https://github.com/truecharts/apps/compare/redis-1.0.69...redis-1.0.70) (2022-02-08)
 
