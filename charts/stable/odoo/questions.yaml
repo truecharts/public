@@ -152,14 +152,14 @@ questions:
 
         - variable: odoo
           label: "Odoo Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          description: "Odoo Services"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelector}
-                    - variable: odoo-1
-                      label: "Odoo-1 Service Port Configuration"
+                    - variable: xmlrpcs
+                      label: "xmlrpcs Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -205,8 +205,8 @@ questions:
                                   schema:
                                     type: int
                                     default: 8071
-                    - variable: odoo-2
-                      label: "Odoo-2 Service Port Configuration"
+                    - variable: longpolling
+                      label: "longpolling Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -326,6 +326,49 @@ questions:
         - variable: addons
           label: "App Addons Storage"
           description: "Stores the Application addons."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: customconfig
+          label: "Custom Config Storage"
+          description: "Stores the Custom Config."
           schema:
             additional_attrs: true
             type: dict
