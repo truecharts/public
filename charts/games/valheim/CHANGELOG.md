@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.21"></a>
+### [valheim-2.0.21](https://github.com/truecharts/apps/compare/valheim-2.0.20...valheim-2.0.21) (2022-02-08)
+
+#### Chore
+
+* update helm chart common to v8.15.2 ([#1870](https://github.com/truecharts/apps/issues/1870))
+
+
+
 <a name="valheim-2.0.20"></a>
 ### [valheim-2.0.20](https://github.com/truecharts/apps/compare/valheim-2.0.19...valheim-2.0.20) (2022-02-07)
 

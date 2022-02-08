@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.5"></a>
+### [minecraft-java-0.0.5](https://github.com/truecharts/apps/compare/minecraft-java-0.0.4...minecraft-java-0.0.5) (2022-02-08)
+
+#### Chore
+
+* update helm chart common to v8.15.2 ([#1870](https://github.com/truecharts/apps/issues/1870))
+
+
+
 <a name="minecraft-java-0.0.4"></a>
 ### [minecraft-java-0.0.4](https://github.com/truecharts/apps/compare/minecraft-java-0.0.3...minecraft-java-0.0.4) (2022-02-08)
 

@@ -19120,6 +19120,36 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.6.0
+    created: "2022-02-08T15:53:37.751888564Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.2
+    description: A private Among Us server
+    digest: 5d92c2f5088db25132eb5def4cc70a339de2b5ff024a2153f13ab3cd9f5e57e2
+    home: https://github.com/truecharts/apps/tree/master/charts/games/impostor-server
+    icon: https://truecharts.org/_static/img/appicons/impostor-server-icon.png
+    keywords:
+    - impostor-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: impostor-server
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/impostor-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/impostor-server-0.0.6/impostor-server-0.0.6.tgz
+    version: 0.0.6
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.0
     created: "2022-02-07T11:24:48.080024283Z"
     dependencies:
     - name: common
@@ -28173,6 +28203,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2022.1.0
+    created: "2022-02-08T15:53:37.975296342Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.2
+    description: Minecraft Bedrock Dedicated Server
+    digest: 24dacce9348b5f8824a879e003659e4cc2f7e3d9fcc9e7c72833d9d4b8d0d63c
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-bedrock
+    icon: https://truecharts.org/_static/img/appicons/minecraft-bedrock-icon.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-bedrock
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.6/minecraft-bedrock-0.0.6.tgz
+    version: 0.0.6
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.1.0
     created: "2022-02-07T11:24:48.2604099Z"
     dependencies:
     - name: common
@@ -28260,6 +28321,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.2/minecraft-bedrock-0.0.2.tgz
     version: 0.0.2
   minecraft-java:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 21.26.0
+    created: "2022-02-08T15:53:38.191936636Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.2
+    description: Minecraft Java Dedicated Server
+    digest: 59ce02ef268f9325dfe2896c3eb3c07159288322e1fd2230791f75106dfd4344
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-java
+    icon: https://truecharts.org/_static/img/appicons/minecraft-java-icon.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-java
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-java-0.0.5/minecraft-java-0.0.5.tgz
+    version: 0.0.5
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -50996,6 +51088,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.2.3
+    created: "2022-02-08T15:53:38.432157823Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.2
+    description: Satisfactory Dedicated Server
+    digest: 4f2033de938c37328792be8bc96efb0f1ffc27eb4cf91e8917160e4e37966f0d
+    home: https://github.com/truecharts/apps/tree/master/charts/games/satisfactory
+    icon: https://truecharts.org/_static/img/appicons/satisfactory-icon.png
+    keywords:
+    - satisfactory
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: statisfactory
+    sources:
+    - https://github.com/wolveix/satisfactory-server
+    - https://hub.docker.com/r/wolveix/satisfactory-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/statisfactory-0.0.5/statisfactory-0.0.5.tgz
+    version: 0.0.5
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.2.3
     created: "2022-02-07T11:24:48.612049554Z"
     dependencies:
     - name: common
@@ -56537,6 +56660,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: latest
+    created: "2022-02-08T15:53:38.679746502Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.2
+    description: Valheim dedicated gameserver with automatic update and world backup
+      support
+    digest: f81d887e53d4ac624691920239a37b0153d4c87beb9a3a55c4556ed19a1151df
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/valheim
+    icon: https://truecharts.org/_static/img/appicons/valheim-icon.png
+    keywords:
+    - valheim
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: valheim
+    sources:
+    - https://github.com/lloesche/valheim-server-docker
+    - https://hub.docker.com/r/lloesche/valheim-server
+    urls:
+    - https://github.com/truecharts/apps/releases/download/valheim-2.0.21/valheim-2.0.21.tgz
+    version: 2.0.21
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
     created: "2022-02-07T11:24:48.791420318Z"
     dependencies:
     - name: common
@@ -58976,4 +59130,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-08T14:41:04.119156465Z"
+generated: "2022-02-08T15:53:38.683344647Z"
