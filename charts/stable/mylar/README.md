@@ -9,7 +9,7 @@ TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not gu
 
 * <https://github.com/mylar3/mylar3>
 * <https://github.com/linuxserver/docker-mylar3>
-* <https://github.com/truechartsapps/tree/master/charts/mylar>
+* <https://github.com/truecharts/apps/tree/master/charts/mylar>
 
 ## Requirements
 
@@ -19,7 +19,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 8.15.0 |
+| https://truecharts.org | common | 8.15.2 |
 
 ## Installing the Chart
 

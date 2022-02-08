@@ -1,6 +1,6 @@
 # Introduction
 
-Straightforward open source project management system to make your ideas reality.
+Monica is a great open source personal relationship management system.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
@@ -18,8 +18,8 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | mariadb | 1.0.65 |
-| https://truecharts.org | common | 8.15.0 |
+| https://truecharts.org/ | mariadb | 1.0.68 |
+| https://truecharts.org | common | 8.15.2 |
 
 ## Installing the Chart
 

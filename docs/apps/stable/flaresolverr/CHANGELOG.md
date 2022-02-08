@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="flaresolverr-4.0.42"></a>
+### [flaresolverr-4.0.42](https://github.com/truecharts/apps/compare/flaresolverr-4.0.41...flaresolverr-4.0.42) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="flaresolverr-4.0.41"></a>
 ### [flaresolverr-4.0.41](https://github.com/truecharts/apps/compare/flaresolverr-4.0.40...flaresolverr-4.0.41) (2022-02-06)
 

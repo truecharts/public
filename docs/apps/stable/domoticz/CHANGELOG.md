@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="domoticz-0.0.27"></a>
+### [domoticz-0.0.27](https://github.com/truecharts/apps/compare/domoticz-0.0.26...domoticz-0.0.27) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="domoticz-0.0.26"></a>
 ### [domoticz-0.0.26](https://github.com/truecharts/apps/compare/domoticz-0.0.25...domoticz-0.0.26) (2022-02-06)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="focalboard-4.0.40"></a>
+### [focalboard-4.0.40](https://github.com/truecharts/apps/compare/focalboard-4.0.39...focalboard-4.0.40) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="focalboard-4.0.39"></a>
 ### [focalboard-4.0.39](https://github.com/truecharts/apps/compare/focalboard-4.0.38...focalboard-4.0.39) (2022-02-06)
 

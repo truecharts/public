@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pyload-4.0.39"></a>
+### [pyload-4.0.39](https://github.com/truecharts/apps/compare/pyload-4.0.38...pyload-4.0.39) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="pyload-4.0.38"></a>
 ### [pyload-4.0.38](https://github.com/truecharts/apps/compare/pyload-4.0.37...pyload-4.0.38) (2022-02-06)
 

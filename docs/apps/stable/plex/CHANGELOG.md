@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="plex-8.0.44"></a>
+### [plex-8.0.44](https://github.com/truecharts/apps/compare/plex-8.0.43...plex-8.0.44) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="plex-8.0.43"></a>
 ### [plex-8.0.43](https://github.com/truecharts/apps/compare/plex-8.0.42...plex-8.0.43) (2022-02-06)
 

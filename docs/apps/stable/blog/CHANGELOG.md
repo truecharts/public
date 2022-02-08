@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="blog-0.0.32"></a>
+### [blog-0.0.32](https://github.com/truecharts/apps/compare/blog-0.0.31...blog-0.0.32) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="blog-0.0.31"></a>
 ### [blog-0.0.31](https://github.com/truecharts/apps/compare/blog-0.0.30...blog-0.0.31) (2022-02-06)
 

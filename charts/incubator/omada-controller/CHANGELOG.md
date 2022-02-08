@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.61"></a>
+### [omada-controller-4.0.61](https://github.com/truecharts/apps/compare/omada-controller-4.0.60...omada-controller-4.0.61) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="omada-controller-4.0.60"></a>
 ### [omada-controller-4.0.60](https://github.com/truecharts/apps/compare/omada-controller-4.0.59...omada-controller-4.0.60) (2022-02-06)
 

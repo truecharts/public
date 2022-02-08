@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.36"></a>
+### [snipe-it-0.0.36](https://github.com/truecharts/apps/compare/snipe-it-0.0.35...snipe-it-0.0.36) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="snipe-it-0.0.35"></a>
 ### [snipe-it-0.0.35](https://github.com/truecharts/apps/compare/snipe-it-0.0.34...snipe-it-0.0.35) (2022-02-06)
 

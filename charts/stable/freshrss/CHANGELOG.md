@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="freshrss-9.0.44"></a>
+### [freshrss-9.0.44](https://github.com/truecharts/apps/compare/freshrss-9.0.43...freshrss-9.0.44) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="freshrss-9.0.43"></a>
 ### [freshrss-9.0.43](https://github.com/truecharts/apps/compare/freshrss-9.0.42...freshrss-9.0.43) (2022-02-06)
 

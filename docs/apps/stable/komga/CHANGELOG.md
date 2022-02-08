@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.53"></a>
+### [komga-4.0.53](https://github.com/truecharts/apps/compare/komga-4.0.52...komga-4.0.53) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="komga-4.0.52"></a>
 ### [komga-4.0.52](https://github.com/truecharts/apps/compare/komga-4.0.51...komga-4.0.52) (2022-02-06)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="apache-musicindex-2.0.39"></a>
+### [apache-musicindex-2.0.39](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.38...apache-musicindex-2.0.39) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="apache-musicindex-2.0.38"></a>
 ### [apache-musicindex-2.0.38](https://github.com/truecharts/apps/compare/apache-musicindex-2.0.37...apache-musicindex-2.0.38) (2022-02-06)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="xbackbone-0.0.29"></a>
+### [xbackbone-0.0.29](https://github.com/truecharts/apps/compare/xbackbone-0.0.28...xbackbone-0.0.29) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="xbackbone-0.0.28"></a>
 ### [xbackbone-0.0.28](https://github.com/truecharts/apps/compare/xbackbone-0.0.27...xbackbone-0.0.28) (2022-02-06)
 

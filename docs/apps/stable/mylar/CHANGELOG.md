@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mylar-4.0.39"></a>
+### [mylar-4.0.39](https://github.com/truecharts/apps/compare/mylar-4.0.38...mylar-4.0.39) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="mylar-4.0.38"></a>
 ### [mylar-4.0.38](https://github.com/truecharts/apps/compare/mylar-4.0.37...mylar-4.0.38) (2022-02-06)
 

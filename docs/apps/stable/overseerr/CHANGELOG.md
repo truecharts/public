@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="overseerr-4.0.40"></a>
+### [overseerr-4.0.40](https://github.com/truecharts/apps/compare/overseerr-4.0.39...overseerr-4.0.40) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="overseerr-4.0.39"></a>
 ### [overseerr-4.0.39](https://github.com/truecharts/apps/compare/overseerr-4.0.38...overseerr-4.0.39) (2022-02-06)
 

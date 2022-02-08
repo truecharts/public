@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airdcpp-webclient-1.0.5"></a>
+### [airdcpp-webclient-1.0.5](https://github.com/truecharts/apps/compare/airdcpp-webclient-1.0.4...airdcpp-webclient-1.0.5) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="airdcpp-webclient-1.0.4"></a>
 ### [airdcpp-webclient-1.0.4](https://github.com/truecharts/apps/compare/airdcpp-webclient-1.0.3...airdcpp-webclient-1.0.4) (2022-02-06)
 

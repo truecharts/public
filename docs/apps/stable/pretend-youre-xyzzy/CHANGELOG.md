@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pretend-youre-xyzzy-4.0.39"></a>
+### [pretend-youre-xyzzy-4.0.39](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-4.0.38...pretend-youre-xyzzy-4.0.39) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="pretend-youre-xyzzy-4.0.38"></a>
 ### [pretend-youre-xyzzy-4.0.38](https://github.com/truecharts/apps/compare/pretend-youre-xyzzy-4.0.37...pretend-youre-xyzzy-4.0.38) (2022-02-06)
 

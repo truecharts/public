@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-web-9.0.39"></a>
+### [calibre-web-9.0.39](https://github.com/truecharts/apps/compare/calibre-web-9.0.38...calibre-web-9.0.39) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="calibre-web-9.0.38"></a>
 ### [calibre-web-9.0.38](https://github.com/truecharts/apps/compare/calibre-web-9.0.37...calibre-web-9.0.38) (2022-02-06)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-4.0.42"></a>
+### [owncloud-ocis-4.0.42](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.41...owncloud-ocis-4.0.42) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="owncloud-ocis-4.0.41"></a>
 ### [owncloud-ocis-4.0.41](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.40...owncloud-ocis-4.0.41) (2022-02-06)
 

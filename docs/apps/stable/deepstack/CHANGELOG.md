@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deepstack-2.0.5"></a>
+### [deepstack-2.0.5](https://github.com/truecharts/apps/compare/deepstack-2.0.4...deepstack-2.0.5) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="deepstack-2.0.4"></a>
 ### [deepstack-2.0.4](https://github.com/truecharts/apps/compare/deepstack-2.0.3...deepstack-2.0.4) (2022-02-06)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="monica-0.0.39"></a>
+### [monica-0.0.39](https://github.com/truecharts/apps/compare/monica-0.0.38...monica-0.0.39) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="monica-0.0.38"></a>
 ### [monica-0.0.38](https://github.com/truecharts/apps/compare/monica-0.0.37...monica-0.0.38) (2022-02-06)
 

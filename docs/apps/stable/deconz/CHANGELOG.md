@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deconz-6.0.20"></a>
+### [deconz-6.0.20](https://github.com/truecharts/apps/compare/deconz-6.0.19...deconz-6.0.20) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="deconz-6.0.19"></a>
 ### [deconz-6.0.19](https://github.com/truecharts/apps/compare/deconz-6.0.18...deconz-6.0.19) (2022-02-06)
 

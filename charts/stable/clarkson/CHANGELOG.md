@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="clarkson-0.0.34"></a>
+### [clarkson-0.0.34](https://github.com/truecharts/apps/compare/clarkson-0.0.33...clarkson-0.0.34) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="clarkson-0.0.33"></a>
 ### [clarkson-0.0.33](https://github.com/truecharts/apps/compare/clarkson-0.0.32...clarkson-0.0.33) (2022-02-06)
 

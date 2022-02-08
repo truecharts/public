@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="octoprint-4.0.42"></a>
+### [octoprint-4.0.42](https://github.com/truecharts/apps/compare/octoprint-4.0.41...octoprint-4.0.42) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="octoprint-4.0.41"></a>
 ### [octoprint-4.0.41](https://github.com/truecharts/apps/compare/octoprint-4.0.40...octoprint-4.0.41) (2022-02-06)
 

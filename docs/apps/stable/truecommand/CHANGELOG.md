@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="truecommand-9.0.40"></a>
+### [truecommand-9.0.40](https://github.com/truecharts/apps/compare/truecommand-9.0.39...truecommand-9.0.40) (2022-02-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="truecommand-9.0.39"></a>
 ### [truecommand-9.0.39](https://github.com/truecharts/apps/compare/truecommand-9.0.38...truecommand-9.0.39) (2022-02-06)
 

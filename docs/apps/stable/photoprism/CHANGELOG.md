@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="photoprism-7.0.26"></a>
+### [photoprism-7.0.26](https://github.com/truecharts/apps/compare/photoprism-7.0.25...photoprism-7.0.26) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="photoprism-7.0.25"></a>
 ### [photoprism-7.0.25](https://github.com/truecharts/apps/compare/photoprism-7.0.24...photoprism-7.0.25) (2022-02-06)
 

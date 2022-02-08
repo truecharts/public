@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="leantime-1.0.18"></a>
+### [leantime-1.0.18](https://github.com/truecharts/apps/compare/leantime-1.0.17...leantime-1.0.18) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="leantime-1.0.17"></a>
 ### [leantime-1.0.17](https://github.com/truecharts/apps/compare/leantime-1.0.16...leantime-1.0.17) (2022-02-06)
 

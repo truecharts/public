@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="anonaddy-6.0.34"></a>
+### [anonaddy-6.0.34](https://github.com/truecharts/apps/compare/anonaddy-6.0.33...anonaddy-6.0.34) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="anonaddy-6.0.33"></a>
 ### [anonaddy-6.0.33](https://github.com/truecharts/apps/compare/anonaddy-6.0.32...anonaddy-6.0.33) (2022-02-06)
 

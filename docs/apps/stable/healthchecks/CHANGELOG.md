@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="healthchecks-5.0.20"></a>
+### [healthchecks-5.0.20](https://github.com/truecharts/apps/compare/healthchecks-5.0.19...healthchecks-5.0.20) (2022-02-08)
+
+#### Chore
+
+* fix links on `Chart.yaml` ([#1862](https://github.com/truecharts/apps/issues/1862))
+* update helm general non-major helm releases ([#1871](https://github.com/truecharts/apps/issues/1871))
+
+
+
 <a name="healthchecks-5.0.19"></a>
 ### [healthchecks-5.0.19](https://github.com/truecharts/apps/compare/healthchecks-5.0.18...healthchecks-5.0.19) (2022-02-06)
 
