@@ -1,0 +1,14 @@
+command: ["cat", "/configuration.yaml"]
+
+access_control:
+  rules:
+  - domain: domain.com
+    policy: bypass
+    resources:
+      - "^/api.*"
+  - domain: "*.domain.com"
+    policy: bypass
+    resources:
+      - ^/api.*
+  - domain: *.domain.com
+    policy: bypass
