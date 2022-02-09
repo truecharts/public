@@ -6,6 +6,7 @@ spec: {{ include "common.deployment.common_spec" . | nindent 2 }}
       hostNetwork: {{ .Values.hostNetwork }}
       dnsPolicy: ClusterFirstWithHostNet
     {{- end }}
+      hostname: {{ template "common.names.fullname" . }}
       containers:
         - name: {{ .Chart.Name }}
           {{ if .Values.enablePlexPass }}
