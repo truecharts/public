@@ -242,7 +242,7 @@ data:
     {{- if (eq (len .Values.access_control.rules) 0) }}
       rules: []
     {{- else }}
-      rules: {{ tpl .Values.access_control.rules $ | quote | nindent 6 }}
+      rules: {{ toYaml .Values.access_control.rules | quote | nindent 6 }}
     {{- end }}
     ...
 {{- end -}}
