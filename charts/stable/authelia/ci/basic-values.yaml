@@ -1,4 +1,6 @@
-command: ["cat", "/configuration.yaml"]
+command:
+  - cat
+  - /configuration.yaml
 
 access_control:
   rules:
