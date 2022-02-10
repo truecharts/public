@@ -99,7 +99,7 @@ hide:
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:c0975b3bbd08e750d6514e38961a2fcfacce0ec2ddf764583dff2bd54a062609
-          tccr.io/truecharts/shlink:v3.0.0@sha256:fa99a41e3fbe1c67b2b15f3a7768b13328dfd95e59e870956f0e4f9df82f024d
+          tccr.io/truecharts/shlink:v3.0.1@sha256:b6effa3ce1797ba00770b6b5004065c3c2ce575c534bceb7748f6502801dbabd
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:c0975b3bbd08e750d6514e38961a2fcfacce0ec2ddf764583dff2bd54a062609
@@ -410,7 +410,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/shlink:v3.0.0@sha256:fa99a41e3fbe1c67b2b15f3a7768b13328dfd95e59e870956f0e4f9df82f024d (alpine 3.15.0)
+#### Container: tccr.io/truecharts/shlink:v3.0.1@sha256:b6effa3ce1797ba00770b6b5004065c3c2ce575c534bceb7748f6502801dbabd (alpine 3.15.0)
 
 
 **alpine**

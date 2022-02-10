@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ipfs-0.0.22"></a>
+### [ipfs-0.0.22](https://github.com/truecharts/apps/compare/ipfs-0.0.21...ipfs-0.0.22) (2022-02-10)
+
+#### Chore
+
+* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
+
+
+
 <a name="ipfs-0.0.21"></a>
 ### [ipfs-0.0.21](https://github.com/truecharts/apps/compare/ipfs-0.0.20...ipfs-0.0.21) (2022-02-08)
 

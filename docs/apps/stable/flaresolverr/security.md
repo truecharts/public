@@ -45,7 +45,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/flaresolverr:v2.2.0@sha256:f9cb7b69e25282d0d379498e36ab6a4de46d6ff7393b269d5927ee77eadfb3cd
+          tccr.io/truecharts/flaresolverr:v2.2.1@sha256:de719161a96db4901f6fc7e3bd29ae1c424a66d40676b59653af267eaf254cfd
 
 ##### Scan Results
 
@@ -114,22 +114,16 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/flaresolverr:v2.2.0@sha256:f9cb7b69e25282d0d379498e36ab6a4de46d6ff7393b269d5927ee77eadfb3cd (alpine 3.15.0)
+#### Container: tccr.io/truecharts/flaresolverr:v2.2.1@sha256:de719161a96db4901f6fc7e3bd29ae1c424a66d40676b59653af267eaf254cfd (alpine 3.15.0)
 
 
 **alpine**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| expat         |    CVE-2022-23852   |   CRITICAL  |  2.4.3-r0 | 2.4.4-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23852">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23852</a><br><a href="https://github.com/libexpat/libexpat/pull/550">https://github.com/libexpat/libexpat/pull/550</a><br></details>  |
-| expat         |    CVE-2022-23990   |   CRITICAL  |  2.4.3-r0 | 2.4.4-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23990">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23990</a><br><a href="https://github.com/libexpat/libexpat/pull/551">https://github.com/libexpat/libexpat/pull/551</a><br></details>  |
-| libblkid         |    CVE-2021-3995   |   MEDIUM  |  2.37.2-r1 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
-| libblkid         |    CVE-2021-3996   |   MEDIUM  |  2.37.2-r1 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
-| libmount         |    CVE-2021-3995   |   MEDIUM  |  2.37.2-r1 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
-| libmount         |    CVE-2021-3996   |   MEDIUM  |  2.37.2-r1 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
-| libuuid         |    CVE-2021-3995   |   MEDIUM  |  2.37.2-r1 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
-| libuuid         |    CVE-2021-3996   |   MEDIUM  |  2.37.2-r1 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 **node-pkg**
 

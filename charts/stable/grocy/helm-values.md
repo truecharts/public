@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/grocy"` |  |
-| image.tag | string | `"v3.1.3@sha256:ffd978ec1a4cb51733120a7466ee6ef8d38567ea5f66a9273b8408f407302cfb"` |  |
+| image.tag | string | `"v3.1.3@sha256:ad30295243f283972db60b3977918480ac13e5fa3f109f27ba10d79cc49f61ea"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

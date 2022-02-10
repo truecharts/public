@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.6"></a>
+### [minecraft-java-0.0.6](https://github.com/truecharts/apps/compare/minecraft-java-0.0.5...minecraft-java-0.0.6) (2022-02-10)
+
+#### Chore
+
+* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
+
+
+
 <a name="minecraft-java-0.0.5"></a>
 ### [minecraft-java-0.0.5](https://github.com/truecharts/apps/compare/minecraft-java-0.0.4...minecraft-java-0.0.5) (2022-02-08)
 

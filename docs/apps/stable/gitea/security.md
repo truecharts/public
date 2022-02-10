@@ -116,9 +116,9 @@ hide:
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:c0975b3bbd08e750d6514e38961a2fcfacce0ec2ddf764583dff2bd54a062609
-          'tccr.io/truecharts/gitea:v1.16.0@sha256:d248e0dcc76de23704e75c447711f8b747f870aa799ba3e0f3c62759a1a11c5b'
-          'tccr.io/truecharts/gitea:v1.16.0@sha256:d248e0dcc76de23704e75c447711f8b747f870aa799ba3e0f3c62759a1a11c5b'
-          tccr.io/truecharts/gitea:v1.16.0@sha256:d248e0dcc76de23704e75c447711f8b747f870aa799ba3e0f3c62759a1a11c5b
+          'tccr.io/truecharts/gitea:v1.16.1@sha256:6111b5797e58c6c1459b02f975902ad340d32f583ccab279e8818f4925cde1d1'
+          'tccr.io/truecharts/gitea:v1.16.1@sha256:6111b5797e58c6c1459b02f975902ad340d32f583ccab279e8818f4925cde1d1'
+          tccr.io/truecharts/gitea:v1.16.1@sha256:6111b5797e58c6c1459b02f975902ad340d32f583ccab279e8818f4925cde1d1
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:c0975b3bbd08e750d6514e38961a2fcfacce0ec2ddf764583dff2bd54a062609
@@ -433,18 +433,16 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/gitea:v1.16.0@sha256:d248e0dcc76de23704e75c447711f8b747f870aa799ba3e0f3c62759a1a11c5b (alpine 3.13.7)
+#### Container: tccr.io/truecharts/gitea:v1.16.1@sha256:6111b5797e58c6c1459b02f975902ad340d32f583ccab279e8818f4925cde1d1 (alpine 3.13.7)
 
 
 **alpine**
 
 
-| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
-|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| libblkid         |    CVE-2021-3995   |   MEDIUM  |  2.36.1-r1 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
-| libblkid         |    CVE-2021-3996   |   MEDIUM  |  2.36.1-r1 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
-| libmount         |    CVE-2021-3995   |   MEDIUM  |  2.36.1-r1 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3995</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
-| libmount         |    CVE-2021-3996   |   MEDIUM  |  2.36.1-r1 | 2.37.3-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3996</a><br><a href="https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes">https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/v2.37.3-ReleaseNotes</a><br><a href="https://www.openwall.com/lists/oss-security/2022/01/24/2">https://www.openwall.com/lists/oss-security/2022/01/24/2</a><br></details>  |
+| No Vulnerabilities found         |
+|:---------------------------------|
+
+
 
 **gobinary**
 

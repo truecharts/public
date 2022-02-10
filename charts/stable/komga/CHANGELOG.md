@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="komga-4.0.54"></a>
+### [komga-4.0.54](https://github.com/truecharts/apps/compare/komga-4.0.53...komga-4.0.54) (2022-02-10)
+
+#### Chore
+
+* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
+
+
+
 <a name="komga-4.0.53"></a>
 ### [komga-4.0.53](https://github.com/truecharts/apps/compare/komga-4.0.52...komga-4.0.53) (2022-02-08)
 

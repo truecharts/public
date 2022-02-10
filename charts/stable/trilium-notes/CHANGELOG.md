@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-1.0.9"></a>
+### [trilium-notes-1.0.9](https://github.com/truecharts/apps/compare/trilium-notes-1.0.8...trilium-notes-1.0.9) (2022-02-10)
+
+#### Chore
+
+* update docker general non-major ([#1876](https://github.com/truecharts/apps/issues/1876))
+
+
+
 <a name="trilium-notes-1.0.8"></a>
 ### [trilium-notes-1.0.8](https://github.com/truecharts/apps/compare/trilium-notes-1.0.7...trilium-notes-1.0.8) (2022-02-08)
 
