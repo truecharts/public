@@ -76,7 +76,7 @@ additionalContainers:
     volumeMounts:
     - name: data
       mountPath: "/data"
-    - name: protected_media
+    - name: protected-media
       mountPath: "/protected_media"
   frontend:
     name: frontend
@@ -86,7 +86,7 @@ persistence:
   media:
     enabled: true
     mountPath: "/data"
-  protected_media:
+  protected-media:
     enabled: true
     mountPath: "/protected_media"
   logs:
