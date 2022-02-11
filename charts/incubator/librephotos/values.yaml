@@ -74,7 +74,7 @@ additionalContainers:
       - containerPort: 80
         name: main
     volumeMounts:
-    - name: data
+    - name: media
       mountPath: "/data"
     - name: protected-media
       mountPath: "/protected_media"
