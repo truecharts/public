@@ -65,6 +65,22 @@ service:
       main:
         port: 10160
         targetPort: 80
+  backend:
+    enabled: true
+    type: ClusterIP
+    ports:
+      backend:
+        enabled: true
+        port: 8001
+        targetPort: 8001
+  frontend:
+    enabled: true
+    type: ClusterIP
+    ports:
+      backend:
+        enabled: true
+        port: 3000
+        targetPort: 3000
 
 additionalContainers:
   proxy:
