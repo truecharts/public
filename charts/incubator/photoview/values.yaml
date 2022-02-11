@@ -25,7 +25,7 @@ envValueFrom:
   PHOTOVIEW_POSTGRES_URL:
     secretKeyRef:
       name: dbcreds
-      key: complete
+      key: url
 
 service:
   main:
