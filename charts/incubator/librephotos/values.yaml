@@ -1,0 +1,97 @@
+image:
+  repository: reallibrephotos/librephotos
+  tag: 2022w06@sha256:6f357ac814a555b6268aa5599751f79cbd8d83b32be63ece825903e989f12495
+  pullPolicy: IfNotPresent
+
+frontendImage:
+  repository: reallibrephotos/librephotos-frontend
+  tag: 2022w06@sha256:ab87727b3b1dcd378e84be2d61c23155e225850900fcb32029686c0ab9c751d1
+
+proxyImage:
+  repository: reallibrephotos/librephotos-proxy
+  tag: 2022w06@sha256:120d0d374a48577b882ef4a098c61c0170d6c45aa85fa52ca156d6392a8202d5
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  TZ: UTC
+  BACKEND_HOST: "backend"
+  DB_BACKEND: "postgresql"
+  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_PORT: "5432"
+  REDIS_PORT: "6379"
+  MAPBOX_API_KEY: ""
+  WEB_CONCURRENCY: 2
+  SKIP_PATTERNS: ""
+  HEAVYWEIGHT_PROCESS: 1
+  DEBUG: 0
+  SECRET_KEY: "randomstringthatidontknowwhereisused"
+
+envValueFrom:
+  DB_PASS:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: url
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+  redisUsername: default
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: librephotos
+  postgresqlDatabase: librephotos
+
+service:
+  main:
+    ports:
+      main:
+        port: 10047
+        targetPort: 4040
+
+additionalContainers:
+  proxy:
+    name: proxy
+    image: "{{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}"
+    ports:
+      - containerPort: 80
+        name: main
+    volumeMounts:
+    - name: data
+      mountPath: "/data"
+    - name: protected_media
+      mountPath: "/protected_media"
+  frontend:
+    name: frontend
+    image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
+
+persistence:
+  media:
+    enabled: true
+    mountPath: "/data"
+  protected_media:
+    enabled: true
+    mountPath: "/protected_media"
+  logs:
+    enabled: true
+    mountPath: "/logs"
+  cache:
+    enabled: true
+    mountPath: "/root/.cache"
