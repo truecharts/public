@@ -1,0 +1,50 @@
+image:
+  repository: viktorstrate/photoview
+  tag: 2.3.12@sha256:ec550acc73be5ca7170956514ab165187df6c40d79d22c76156dada78b3eef4a
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  TZ: UTC
+  PHOTOVIEW_DATABASE_DRIVER: "postgres"
+  PHOTOVIEW_LISTEN_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+  PHOTOVIEW_MEDIA_CACHE: "/cache"
+  MAPBOX_TOKEN: ""
+  PHOTOVIEW_DISABLE_FACE_RECOGNITION: false
+  PHOTOVIEW_DISABLE_VIDEO_ENCODING: false
+  PHOTOVIEW_DISABLE_RAW_PROCESSING: false
+
+envValueFrom:
+  PHOTOVIEW_POSTGRES_URL:
+    secretKeyRef:
+      name: dbcreds
+      key: complete
+
+service:
+  main:
+    ports:
+      main:
+        port: 10159
+        targetPort: 10159
+
+persistence:
+# Don't use emptyDir, it stores, thumbnails and optimized media
+  cache:
+    enabled: true
+    mountPath: "/cache"
+  photos:
+    enabled: true
+    mountPath: "/photos"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: photoview
+  postgresqlDatabase: photoview
