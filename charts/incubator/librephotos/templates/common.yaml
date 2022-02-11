@@ -1,1 +1,5 @@
-{{ include "common.all" . }}
+{{- include "common.setup" . }}
+
+{{- include "librephotos.configmap" . }}
+
+{{ include "common.postSetup" . }}
