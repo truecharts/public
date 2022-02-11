@@ -64,6 +64,7 @@ _This list is to track `App Requests` from one place._
 - [ ] Spotify Connect #1319
 - [ ] Machinaris #1304
 - [ ] Ghost #1282
+- [ ] teslamate
 
 ##### TODO: Requires More-Than-Average effort
 
@@ -422,7 +423,6 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] openkm
 - [x] statping
 - [x] teedy
-- [x] teslamate
 - [x] traccar
 - [x] tt-rss
 - [x] wikijs
@@ -515,3 +515,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] n8n #27
 - [x] WeblateOrg #817
 - [x] LinkAce #1020
+- [x] Photoview #293
