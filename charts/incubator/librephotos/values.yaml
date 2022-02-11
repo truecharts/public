@@ -77,7 +77,7 @@ service:
     enabled: true
     type: ClusterIP
     ports:
-      backend:
+      frontend:
         enabled: true
         port: 3000
         targetPort: 3000
