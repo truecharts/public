@@ -45,27 +45,22 @@ For big changes we do have a roadmap, every spot on the roadmap is synced to a T
 
 <br>
 
-**Documentation, MetalLB and External-DNS - TrueNAS SCALE "Angelfish" RELEASE**
+**Restructure of the Project - TrueNAS SCALE "Bluefin" 22.xx ALPHA 1**
 
-_While preparing for the formal release of TrueNAS SCALE, we still have some things to polish_
-
-<br>
-
-**Multi-Pod support for Common - TrueNAS SCALE "Bluefin" 22.xx ALPHA 1**
-
-_Our current common library is not fully supporting with multi-pod containers, while we cannot add everything we should support some basic multi-pod containers on common._
+_The current project is hitting internal performance issues, for this reason we need to rework the structure and split some parts of the project into seperate repositories._
 
 <br>
 
-**Finish Prometheus Support - TrueNAS SCALE "Bluefin" 22.xx ALPHA 2**
+**Refactor the Common Chart - TrueNAS SCALE "Bluefin" 22.xx ALPHA 2**
 
-_By this date it would be about a year after we first started considering adding Prometheus support, it's time to add metrics exporters to as many apps as we can._
+_The shared Common (chart) basis, used by all our Apps, needs some significant code cleanup. Primarily all code needs to follow a standardised format and comply to the same standard_
 
 <br>
 
-**Mail server - TrueNAS SCALE "Bluefin" 22.xx BETA 1**
+**Increased test coverage - TrueNAS SCALE "Bluefin" 22.xx BETA 1**
 
-_Great mail-server deployments require support for multi-pod containers, high availability and a solid backend. By this date, all those boxes should start to become checked and we should check the "mail server" box as well_
+_With most parts of our project somewhat cleaned up, we need to work on increasing the coverage of our test system. Our unittests should cover all features and we should also take upgrades into account when testing App changes_
+
 
 <br>
 
