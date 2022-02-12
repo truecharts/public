@@ -59,7 +59,7 @@ additionalContainers:
         name: main
     volumeMounts:
     - name: linkace-config
-      mountPath: "/etc/nginx/nginx.conf"
+      mountPath: "/etc/nginx/conf.d/linkace.conf"
       subPath: nginx-config
       readOnly: true
     - name: app

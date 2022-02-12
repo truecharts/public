@@ -6,7 +6,7 @@
 persistence:
   linkace-config:
     enabled: "true"
-    mountPath: "/etc/nginx/nginx.conf"
+    mountPath: "/etc/nginx/conf.d/linkace.conf"
     subPath: "nginx-config"
     type: "custom"
     volumeSpec:
