@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.42"></a>
+### [gitea-5.0.42](https://github.com/truecharts/apps/compare/gitea-5.0.41...gitea-5.0.42) (2022-02-12)
+
+#### Fix
+
+* fix ci ([#1883](https://github.com/truecharts/apps/issues/1883))
+
+
+
 <a name="gitea-5.0.41"></a>
 ### [gitea-5.0.41](https://github.com/truecharts/apps/compare/gitea-5.0.40...gitea-5.0.41) (2022-02-10)
 
