@@ -310,6 +310,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | trilium-notes              |      main       |      main       | 10156 |   HTTP   |                                         |
 | unmanic                    |      main       |      main       | 10157 |   TCP    |                                         |
 | weblate                    |      main       |      main       | 10158 |   TCP    |                                         |
+| linkace                    |      main       |      main       | 10160 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |

@@ -1,0 +1,5 @@
+{{- include "common.setup" . }}
+
+{{- include "recipes.secrets" . }}
+
+{{ include "common.postSetup" . }}
