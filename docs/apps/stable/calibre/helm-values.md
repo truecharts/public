@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/calibre"` |  |
-| image.tag | string | `"v5.32.0-ls138@sha256:a7c6272300628eb747dc129001aef8bc53d9b462ebe6b4953de904a2a5e15c8e"` |  |
+| image.tag | string | `"v5.36.08@sha256:b1358d3feff98cd3b187be778788ad74e884c46462a1a1bce081846ba38f51b0"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

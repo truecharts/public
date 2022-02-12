@@ -3544,6 +3544,36 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 5.36.08
+    created: "2022-02-12T19:35:15.139489597Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.2
+    description: Calibre is a powerful and easy to use e-book manager.
+    digest: 8566d9904a3766b53987d02df282310429696b3adbe101f153481b59ae1d2aae
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/calibre
+    icon: https://truecharts.org/_static/img/appicons/calibre-icon.png
+    keywords:
+    - calibre
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: calibre
+    sources:
+    - https://hub.docker.com/r/linuxserver/calibre/
+    - https://github.com/kovidgoyal/calibre/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/calibre-5.0.22/calibre-5.0.22.tgz
+    version: 5.0.22
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 5.32.0
     created: "2022-01-11T12:22:13.333778814Z"
     dependencies:
@@ -60526,4 +60556,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-12T13:44:18.675722041Z"
+generated: "2022-02-12T19:35:15.14574709Z"
