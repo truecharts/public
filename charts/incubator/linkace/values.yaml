@@ -19,7 +19,7 @@ env:
   # Internal Envs
   DB_CONNECTION: "mysql"
   DB_PORT: "3306"
-  DB_DATABASE: "{{ .Values.mariadb.mariadDatabase }}"
+  DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
   DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
   REDIS_PORT: "6379"
   CACHE_DRIVER: "redis"
