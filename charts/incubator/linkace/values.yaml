@@ -13,7 +13,7 @@ nginxImage:
 
 # podSecurityContext:
 #   runAsUser: 0
-  # runAsGroup: 0
+#   runAsGroup: 0
 
 env:
   # Internal Envs
@@ -30,8 +30,6 @@ env:
   # User Envs
   TZ: UTC
   # APP_URL: "http://localhost"
-  # Must be set to TRUE after initial setup. (LOL)
-  SETUP_COMPLETED: false
   APP_DEBUG: false
 
 envValueFrom:
@@ -67,6 +65,26 @@ additionalContainers:
     - name: app
       mountPath: "/app"
 
+initContainers:
+# App checks ".env" for "SETUP_COMPELTED" status, to determine if it needs to run initial setup or not.
+# We create this file and set it to false if it doesn't exists.
+# If it exists, we let the app decide it's value (true|false) and how to proceed.
+  1-create-env-file:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: app
+        mountPath: "/app"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        if [ ! -f ".env" ];
+        then
+          echo "Setting up for initial installation";
+          echo "SETUP_COMPLETED=false" > .env;
+        else
+          echo "Initial installation has already completed.";
+        fi;
+
 service:
   main:
     ports:
@@ -81,16 +99,12 @@ persistence:
   logs:
     enabled: true
     mountPath: "/logs"
-# Might be needed so the app can set the `SETUP_COMPLETE` flag there and store it persistently
-  # env:
-  #   enabled:
-  #   mountPath: "/app/.env"
 
 mariadb:
   enabled: true
   mariadbUsername: linkace
   mariadbDatabase: linkace
-  existingSecret: "mariadbcreds"
+  existingSecret: "mariadbcredss"
 
 redis:
   enabled: true
