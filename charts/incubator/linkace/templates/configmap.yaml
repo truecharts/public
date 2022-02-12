@@ -56,7 +56,7 @@ data:
             fastcgi_pass app:9000;
 
             try_files $uri /index.php;
-            include fastcgi.conf;
+            include fastcgi_params;
             fastcgi_keep_conn on;
             fastcgi_intercept_errors on;
             fastcgi_index index.php;
