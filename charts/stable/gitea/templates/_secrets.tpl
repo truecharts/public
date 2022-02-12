@@ -3,7 +3,7 @@
 
 ---
 
-{{- $DOMAIN := ( printf "%s-gitea.%s.svc.%s" .Release.Name .Release.Namespace "cluster.local" | quote ) -}}
+{{ $DOMAIN := ( printf "%s-gitea.%s.svc.%s" .Release.Name .Release.Namespace "cluster.local" | quote ) -}}
 {{- if and ( .Values.ingress.main.enabled ) ( gt (len .Values.ingress.main.hosts) 0 ) -}}
 {{- $DOMAIN = (index .Values.ingress.main.hosts 0).host -}}
 {{- end -}}
