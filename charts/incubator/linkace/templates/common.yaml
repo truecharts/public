@@ -1,21 +1,23 @@
-{{/* Make sure all variables are set properly */}}
-{{- include "common.setup" . }}
+# {{/* Make sure all variables are set properly */}}
+# {{- include "common.setup" . }}
 
-{{/* Append the general configMap volume to the volumes */}}
-{{- define "linkace.harcodedValues" -}}
-persistence:
-  linkace-config:
-    enabled: "true"
-    mountPath: "/etc/nginx/nginx.conf"
-    subPath: "nginx-config"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: {{ printf "%v-config" (include "common.names.fullname" .) }}
-{{- end -}}
-{{- $_ := mergeOverwrite .Values (include "linkace.harcodedValues" . | fromYaml) -}}
+# {{/* Append the general configMap volume to the volumes */}}
+# {{- define "linkace.harcodedValues" -}}
+# persistence:
+#   linkace-config:
+#     enabled: "true"
+#     mountPath: "/etc/nginx/nginx.conf"
+#     subPath: "nginx-config"
+#     type: "custom"
+#     volumeSpec:
+#       configMap:
+#         name: {{ printf "%v-config" (include "common.names.fullname" .) }}
+# {{- end -}}
+# {{- $_ := mergeOverwrite .Values (include "linkace.harcodedValues" . | fromYaml) -}}
 
-{{- include "linkace.secrets" . }}
+# {{- include "linkace.secrets" . }}
 
-{{/* Render the templates */}}
-{{ include "common.postSetup" . }}
+# {{/* Render the templates */}}
+# {{ include "common.postSetup" . }}
+
+{{ include "common.all" . }}

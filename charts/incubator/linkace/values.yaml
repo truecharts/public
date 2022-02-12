@@ -35,11 +35,11 @@ env:
 envValueFrom:
   DB_HOST:
     secretKeyRef:
-      name: mariadbcreds3
+      name: mariadbcreds
       key: plainhost
   DB_PASSWORD:
     secretKeyRef:
-      name: mariadbcreds2
+      name: mariadbcreds
       key: mariadb-password
   REDIS_HOST:
     secretKeyRef:
@@ -50,40 +50,40 @@ envValueFrom:
       name: rediscreds
       key: redis-password
 
-additionalContainers:
-  nginx:
-    name: nginx
-    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
-    ports:
-      - containerPort: 80
-        name: main
-    volumeMounts:
-    - name: linkace-config
-      mountPath: "/etc/nginx/nginx.conf"
-      subPath: nginx-config
-      readOnly: true
-    - name: app
-      mountPath: "/app"
+# additionalContainers:
+#   nginx:
+#     name: nginx
+#     image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
+#     ports:
+#       - containerPort: 80
+#         name: main
+#     volumeMounts:
+#     - name: linkace-config
+#       mountPath: "/etc/nginx/nginx.conf"
+#       subPath: nginx-config
+#       readOnly: true
+#     - name: app
+#       mountPath: "/app"
 
-initContainers:
-# App checks ".env" for "SETUP_COMPELTED" status, to determine if it needs to run initial setup or not.
-# We create this file and set it to false if it doesn't exists.
-# If it exists, we let the app decide it's value (true|false) and how to proceed.
-  1-create-env-file:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: app
-        mountPath: "/app"
-    command: ["/bin/sh", "-c"]
-    args:
-      - >
-        if [ ! -f ".env" ];
-        then
-          echo "Setting up for initial installation";
-          echo "SETUP_COMPLETED=false" > .env;
-        else
-          echo "Initial installation has already completed.";
-        fi;
+# initContainers:
+# # App checks ".env" for "SETUP_COMPELTED" status, to determine if it needs to run initial setup or not.
+# # We create this file and set it to false if it doesn't exists.
+# # If it exists, we let the app decide it's value (true|false) and how to proceed.
+#   1-create-env-file:
+#     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+#     volumeMounts:
+#       - name: app
+#         mountPath: "/app"
+#     command: ["/bin/sh", "-c"]
+#     args:
+#       - >
+#         if [ ! -f ".env" ];
+#         then
+#           echo "Setting up for initial installation";
+#           echo "SETUP_COMPLETED=false" > .env;
+#         else
+#           echo "Initial installation has already completed.";
+#         fi;
 
 service:
   main:
@@ -104,7 +104,7 @@ mariadb:
   enabled: true
   mariadbUsername: linkace
   mariadbDatabase: linkace
-  existingSecret: "mariadbcreds1"
+  existingSecret: "mariadbcreds"
 
 redis:
   enabled: true
