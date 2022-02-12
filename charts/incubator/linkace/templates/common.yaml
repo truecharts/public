@@ -1,5 +1,16 @@
 {{- include "common.setup" . }}
 
+{{- define "linkace.harcodedValues" -}}
+persistence:
+  linkace-config:
+    enabled: "true"
+    mountPath: "/etc/nginx/nginx.conf"
+    subPath: "nginx-config"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-config" (include "common.names.fullname" .) }}
+
 {{- include "linkace.secrets" . }}
 
 {{ include "common.postSetup" . }}
