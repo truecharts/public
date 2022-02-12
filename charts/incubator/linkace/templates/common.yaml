@@ -10,6 +10,8 @@ persistence:
     volumeSpec:
       configMap:
         name: {{ printf "%v-config" (include "common.names.fullname" .) }}
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "linkace.harcodedValues" . | fromYaml) -}}
 
 {{- include "linkace.secrets" . }}
 
