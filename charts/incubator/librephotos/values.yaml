@@ -60,6 +60,14 @@ envValueFrom:
       name: librephotos-secrets
       key: SECRET_KEY
 
+probes:
+  liveness:
+    path: "/login"
+  readiness:
+    path: "/login"
+  startup:
+    path: "/login"
+
 redis:
   enabled: true
   existingSecret: "rediscreds"
