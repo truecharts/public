@@ -54,7 +54,6 @@ envValueFrom:
       name: linkace-secrets
       key: APP_KEY
 
-
 initContainers:
 # Copy app to a temp folder as we gonna need it, so we can create the ".env" file in there.
   1-copy-app:
