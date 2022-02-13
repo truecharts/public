@@ -3,14 +3,6 @@ image:
   tag: 2.3.12@sha256:84a2a71f6efdf659bbe127dc017cc4ef5fab34a20ba1d5c9c75321c2a75b9531
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 env:
   TZ: UTC
   PHOTOVIEW_DATABASE_DRIVER: "postgres"
