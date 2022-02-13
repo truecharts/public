@@ -92,6 +92,12 @@ initContainers:
           echo "Initial installation has already completed.";
         fi;
 
+cronjob:
+  schedule: "* * * * *"
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
+
 service:
   main:
     ports:

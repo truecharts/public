@@ -15,6 +15,8 @@ persistence:
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "linkace.harcodedValues" . | fromYaml) -}}
 
+{{- include "linkace.cronjob" . }}
+
 {{- include "linkace.secrets" . }}
 
 {{/* Render the templates */}}
