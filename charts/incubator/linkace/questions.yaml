@@ -125,6 +125,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: CRON_TOKEN
+          label: "CRON_TOKEN (Generate this inside the app)"
+          description: "Generate token inside the app and come back later to fill this."
+          schema:
+            type: string
+            default: ""
         - variable: AWS_ACCESS_KEY_ID
           label: "AWS_ACCESS_KEY_ID"
           description: "AWS Access Key ID"
