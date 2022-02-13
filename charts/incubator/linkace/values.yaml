@@ -77,10 +77,10 @@ initContainers:
     command: ["/bin/sh", "-c"]
     args:
       - >
-        if [ ! -f ".env" ];
+        if [ ! -f "/app/.env" ];
         then
-          echo "Setting up for initial installation";
-          echo "SETUP_COMPLETED=false" > .env;
+          echo "Preparing for initial installation";
+          echo "SETUP_COMPLETED=false" > /app/.env;
         else
           echo "Initial installation has already completed.";
         fi;
