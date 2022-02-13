@@ -112,6 +112,18 @@ ldap: {}
   # LDAP_MAX_REFERRAL_HOPS: "5"
   # LDAP_OPERATION_TIMEOUT: "30"
 
+saml: {}
+  # SAML_IDP_METADATA_URL: ""
+  # SAML_IDP_URL:
+  # SAML_ENTITY_ID:
+  # SAML_CALLBACK_URL:
+  # SAML_STRICT:
+  # SAML_DEBUG:
+  # SAML_COMPRESS_REQUEST:
+  # SAML_COMPRESS_RESPONSE:
+  # SAML_GROUP_ATTRIBUTE:
+
+
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
