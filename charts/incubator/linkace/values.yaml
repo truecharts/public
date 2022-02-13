@@ -8,7 +8,6 @@ nginxImage:
   tag: v1.21.6@sha256:80d87a1d4d67749d2caaa64ee061a66a946b81942ac56f4780e36f8356cee371
 
 securityContext:
-  # readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
@@ -29,8 +28,12 @@ env:
   APP_TIMEZONE: "{{ .Values.env.TZ }}"
   # User Envs
   TZ: UTC
-  # APP_URL: "http://localhost"
+  APP_URL: "http://localhost"
   APP_DEBUG: false
+  BACKUP_ENABLED: false
+  BACKUP_DISK: s3
+  BACKUP_NOTIFICATION_EMAIL: your@email.com
+  BACKUP_MAX_SIZE: 512
 
 envValueFrom:
   DB_HOST:
@@ -98,7 +101,10 @@ persistence:
     mountPath: "/app"
   logs:
     enabled: true
-    mountPath: "/logs"
+    mountPath: "/app/storage/logs"
+  backups:
+    enabled: true
+    mountPath: "/app/storage/app/backups"
 
 mariadb:
   enabled: true
@@ -109,38 +115,3 @@ mariadb:
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
-
-# ## Backup configuration
-# # Enable backups here
-# BACKUP_ENABLED=false
-# # Choose the destination of the backup. If you set up AWS S3 credentials below you may choose 's3' which is used
-# # as a synonym for AWS. Leave blank or set to 'local' if you want to store backups within /storage/app/backups.
-# BACKUP_DISK=s3
-# # The notification email may be used to get backup notifications
-# BACKUP_NOTIFICATION_EMAIL=your@email.com
-# # Maximum size of all backups in megabytes
-# BACKUP_MAX_SIZE=512
-
-# ## Amazon Web Services (AWS) S3 configuration
-# # Define the key ID, the access key, the region and your bucket name here if you want to use AWS S3 for backups
-# AWS_ACCESS_KEY_ID=
-# AWS_SECRET_ACCESS_KEY=
-# AWS_DEFAULT_REGION=us-east-1
-# AWS_BUCKET=
-
-
-# ## Mail configuration
-# MAIL_FROM_ADDRESS=your@email.com
-# MAIL_FROM_NAME=LinkAce
-# # Set the driver used for sending email here, default is `smtp`
-# MAIL_DRIVER=smtp
-# # Set the SMTP host and its port here
-# MAIL_HOST=smtp.mailtrap.io
-# MAIL_PORT=2525
-# # Set the username used to connect to the SMTP server here
-# MAIL_USERNAME=null
-# # Set the password used to connect to the SMTP server here
-# MAIL_PASSWORD=null
-# # If your SMTP server uses encrypted connections, enable it here by setting the variable to `tls`
-# MAIL_ENCRYPTION=null

@@ -83,13 +83,134 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+        - variable: APP_URL
+          label: "APP_URL"
+          description: "Application URL eg. https://linkace.mydomain.com"
+          schema:
+            type: string
+            default: "http://localhost"
+        - variable: APP_DEBUG
+          label: "APP_DEBUG"
+          description: "Enables the debug info"
+          schema:
+            type: boolean
+            default: false
+        - variable: BACKUP_ENABLED
+          label: "BACKUP_ENABLED"
+          description: "Enables backups"
+          schema:
+            type: boolean
+            default: false
+        - variable: BACKUP_DISK
+          label: "BACKUP_DISK"
+          description: "Backup destination"
+          schema:
+            type: string
+            default: "local"
+            enum:
+              - value: "local"
+                description: "local"
+              - value: "s3"
+                description: "s3"
+        - variable: BACKUP_MAX_SIZE
+          label: "BACKUP_MAX_SIZE"
+          description: "Max size of backup in MB"
           schema:
             type: int
-            default: 568
-
+            default: 512
+  - variable: secret
+    group: "Container Configuration"
+    label: "Secret Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: AWS_ACCESS_KEY_ID
+          label: "AWS_ACCESS_KEY_ID"
+          description: "AWS Access Key ID"
+          schema:
+            type: string
+            default: ""
+        - variable: AWS_SECRET_ACCESS_KEY
+          label: "AWS_SECRET_ACCESS_KEY"
+          description: "AWS Secret Access Key"
+          schema:
+            type: string
+            default: ""
+        - variable: AWS_DEFAULT_REGION
+          label: "AWS_DEFAULT_REGION"
+          description: "AWS Default Region"
+          schema:
+            type: string
+            default: ""
+        - variable: AWS_BUCKET
+          label: "AWS_BUCKET"
+          description: "AWS Bucket"
+          schema:
+            type: string
+            default: ""
+        - variable: MAIL_FROM_ADDRESS
+          label: "MAIL_FROM_ADDRESS"
+          description: "Mail from Address"
+          schema:
+            type: string
+            default: ""
+        - variable: MAIL_FROM_NAME
+          label: "MAIL_FROM_NAME"
+          description: "Mail from Name"
+          schema:
+            type: string
+            default: ""
+        - variable: MAIL_DRIVER
+          label: "MAIL_DRIVER"
+          description: "Mail Driver"
+          schema:
+            type: string
+            default: "smtp"
+            enum:
+              - value: "smtp"
+                description: "smtp"
+              - value: "mailgun"
+                description: "mailgun"
+              - value: "sendmail"
+                description: "sendmail"
+              - value: "ses"
+                description: "ses"
+              - value: "postmark"
+                description: "postmark"
+              - value: "log"
+                description: "log"
+              - value: "array"
+                description: "array"
+        - variable: MAIL_HOST
+          label: "MAIL_HOST"
+          description: "Mail Host"
+          schema:
+            type: string
+            default: ""
+        - variable: MAIL_PORT
+          label: "MAIL_PORT"
+          description: "Mail Port"
+          schema:
+            type: int
+        - variable: MAIL_USERNAME
+          label: "MAIL_USERNAME"
+          description: "Mail Username"
+          schema:
+            type: string
+            default: ""
+        - variable: MAIL_PASSWORD
+          label: "MAIL_PASSWORD"
+          description: "Mail Password"
+          schema:
+            type: string
+            default: ""
+        - variable: MAIL_ENCRYPTION
+          label: "MAIL_ENCRYPTION"
+          description: "Mail Encryption"
+          schema:
+            type: string
+            default: "tls"
 
 # Include{containerConfig}
 
@@ -119,7 +240,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10047
+                              default: 10160
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -154,7 +275,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 4040
+                                    default: 80
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -183,9 +304,95 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: app
+          label: "App Storage"
+          description: "Stores the Application."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: logs
+          label: "App Log Storage"
+          description: "Stores the Application Logs."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: backups
+          label: "App Backup Storage"
+          description: "Stores the Application Backup."
           schema:
             additional_attrs: true
             type: dict
@@ -275,7 +482,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
