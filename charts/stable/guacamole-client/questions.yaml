@@ -662,6 +662,65 @@ questions:
                 schema:
                   type: string
                   default: ""
+  - variable: saml
+    group: "App Configuration"
+    label: "SAML Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: saml_enabled
+          label: "Enable SAML"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: SAML_IDP_METADATA_URL
+                label: "SAML IDP Metadata URL"
+                schema:
+                  type: string
+                  default: ""
+              - variable: SAML_IDP_URL
+                label: "SAML IDP URL"
+                schema:
+                  type: string
+                  default: ""
+              - variable: SAML_ENTITY_ID
+                label: "SAML Entity ID"
+                schema:
+                  type: string
+                  default: ""
+              - variable: SAML_CALLBACK_URL
+                label: "SAML Callback URL"
+                schema:
+                  type: string
+                  default: ""
+              - variable: SAML_STRICT
+                label: "SAML Strict"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: SAML_DEBUG
+                label: "SAML Debug"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: SAML_COMPRESS_REQUEST
+                label: "SAML Compress Request"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: SAML_COMPRESS_RESPONSE
+                label: "SAML Compress Response"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: SAML_GROUP_ATTRIBUTE
+                label: "SAML Group Attribute (Leave empty for default)"
+                schema:
+                  type: string
+                  default: ""
 
   - variable: service
     group: "Networking and Services"
