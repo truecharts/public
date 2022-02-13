@@ -23604,45 +23604,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2022w06
-    created: "2022-02-13T21:29:42.015124143Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.15.2
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: https://truecharts.org/
-      version: 6.0.66
-    - condition: redis.enabled
-      name: redis
-      repository: https://truecharts.org
-      version: 1.0.71
-    description: A self-hosted open source photo management service.
-    digest: a8fe0dd2c045750b2cea5ffd548656625cbeedc701836e9051a35921b3ab83aa
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/librephotos
-    icon: https://truecharts.org/_static/img/appicons/librephotos-icon.png
-    keywords:
-    - photos
-    - gallery
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: librephotos
-    sources:
-    - https://github.com/LibrePhotos/librephotos
-    - https://hub.docker.com/r/reallibrephotos/librephotos
-    urls:
-    - https://github.com/truecharts/apps/releases/download/librephotos-0.0.2/librephotos-0.0.2.tgz
-    version: 0.0.2
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 2022w06
     created: "2022-02-13T13:17:32.039001633Z"
     dependencies:
     - name: common
@@ -38462,6 +38423,42 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/photoshow-1.0.25/photoshow-1.0.25.tgz
     version: 1.0.25
+  photoview:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.3.12
+    created: "2022-02-13T21:42:25.455531172Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.66
+    description: Photoview is a simple and user-friendly photo gallery.
+    digest: a1ed7a9d23e6227ae1e386e6e983975ba8822cc97a534e8aed364804bae71497
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/photoview
+    icon: https://truecharts.org/_static/img/appicons/photoview-icon.png
+    keywords:
+    - photo
+    - gallery
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: photoview
+    sources:
+    - https://github.com/photoview/photoview
+    - https://hub.docker.com/r/viktorstrate/photoview
+    urls:
+    - https://github.com/truecharts/apps/releases/download/photoview-1.0.0/photoview-1.0.0.tgz
+    version: 1.0.0
   phpldapadmin:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -60712,4 +60709,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-13T21:29:42.020214974Z"
+generated: "2022-02-13T21:42:25.462710775Z"
