@@ -19,9 +19,14 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
+secret:
+  ADMIN_EMAIL: "admin@mydomain.com"
+  ADMIN_USERNAME: "admin"
+  ADMIN_PASSWORD: "password"
+
 env:
   TZ: UTC
-  BACKEND_HOST: "backend"
+  BACKEND_HOST: "localhost"
   DB_BACKEND: "postgresql"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
