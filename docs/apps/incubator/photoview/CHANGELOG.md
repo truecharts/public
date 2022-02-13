@@ -7,4 +7,3 @@
 #### Feat
 
 * Add photoview ([#1881](https://github.com/truecharts/apps/issues/1881))
-
