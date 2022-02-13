@@ -11,19 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| additionalContainers.nginx.image | string | `"{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"` |  |
-| additionalContainers.nginx.name | string | `"nginx"` |  |
-| additionalContainers.nginx.ports[0].containerPort | int | `80` |  |
-| additionalContainers.nginx.ports[0].name | string | `"main"` |  |
-| additionalContainers.nginx.volumeMounts[0].mountPath | string | `"/etc/nginx/conf.d/linkace.conf"` |  |
-| additionalContainers.nginx.volumeMounts[0].name | string | `"linkace-config"` |  |
-| additionalContainers.nginx.volumeMounts[0].readOnly | bool | `true` |  |
-| additionalContainers.nginx.volumeMounts[0].subPath | string | `"nginx-config"` |  |
-| additionalContainers.nginx.volumeMounts[1].mountPath | string | `"/app"` |  |
-| additionalContainers.nginx.volumeMounts[1].name | string | `"app"` |  |
 | cronjob.annotations | object | `{}` |  |
 | cronjob.failedJobsHistoryLimit | int | `5` |  |
-| cronjob.schedule | string | `"* * * * *"` |  |
+| cronjob.schedule | string | `"*/15 * * * *"` |  |
 | cronjob.successfulJobsHistoryLimit | int | `2` |  |
 | env.APP_DEBUG | bool | `false` |  |
 | env.APP_ENV | string | `"production"` |  |
@@ -54,19 +44,33 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/linkace"` |  |
-| image.tag | string | `"v1.9.1@sha256:d56fa76113e3e5ab0889a13bdfb463d12b71b3e2ec839a8ff6fa99ec036be862"` |  |
-| initContainers.1-create-env-file.args[0] | string | `"if [ ! -f \"/app/.env\" ]; then\n  echo \"Preparing for initial installation\";\n  echo \"SETUP_COMPLETED=false\" > /app/.env;\nelse\n  echo \"Initial installation has already completed.\";\nfi;\n"` |  |
-| initContainers.1-create-env-file.command[0] | string | `"/bin/sh"` |  |
-| initContainers.1-create-env-file.command[1] | string | `"-c"` |  |
-| initContainers.1-create-env-file.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
-| initContainers.1-create-env-file.volumeMounts[0].mountPath | string | `"/app"` |  |
-| initContainers.1-create-env-file.volumeMounts[0].name | string | `"app"` |  |
+| image.tag | string | `"v1.9.1@sha256:88923f556900b0c6b79ea978e3692c690c0a6f9c28d048f2067a803095de1ef1"` |  |
+| initContainers.1-copy-app.args[0] | string | `"echo \"Copying app...\"; cp -R /app/* /tmp/;\n"` |  |
+| initContainers.1-copy-app.command[0] | string | `"/bin/sh"` |  |
+| initContainers.1-copy-app.command[1] | string | `"-c"` |  |
+| initContainers.1-copy-app.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
+| initContainers.1-copy-app.volumeMounts[0].mountPath | string | `"/tmp"` |  |
+| initContainers.1-copy-app.volumeMounts[0].name | string | `"app"` |  |
+| initContainers.2-create-env-file.args[0] | string | `"if [ ! -f \"/app/.env\" ]; then\n  echo \"Preparing for initial installation\";\n  echo \"SETUP_COMPLETED=false\" > /app/.env;\n  echo \"File .env created.\";\nelse\n  echo \"Initial installation has already completed.\";\nfi;\n"` |  |
+| initContainers.2-create-env-file.command[0] | string | `"/bin/sh"` |  |
+| initContainers.2-create-env-file.command[1] | string | `"-c"` |  |
+| initContainers.2-create-env-file.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
+| initContainers.2-create-env-file.volumeMounts[0].mountPath | string | `"/app"` |  |
+| initContainers.2-create-env-file.volumeMounts[0].name | string | `"app"` |  |
+| initContainers.3-chmod.args[0] | string | `"echo \"CHMOD-ing files...\"; chmod -R 777 /app; chmod -R 777 /app/storage/logs; chmod -R 777 /app/storage/app/backups; echo \"CHMOD Complete\";\n"` |  |
+| initContainers.3-chmod.command[0] | string | `"/bin/sh"` |  |
+| initContainers.3-chmod.command[1] | string | `"-c"` |  |
+| initContainers.3-chmod.image | string | `"{{ .Values.image.repository }}:{{ .Values.image.tag }}"` |  |
+| initContainers.3-chmod.volumeMounts[0].mountPath | string | `"/app"` |  |
+| initContainers.3-chmod.volumeMounts[0].name | string | `"app"` |  |
+| initContainers.3-chmod.volumeMounts[1].mountPath | string | `"/app/storage/logs"` |  |
+| initContainers.3-chmod.volumeMounts[1].name | string | `"logs"` |  |
+| initContainers.3-chmod.volumeMounts[2].mountPath | string | `"/app/storage/app/backups"` |  |
+| initContainers.3-chmod.volumeMounts[2].name | string | `"backups"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"linkace"` |  |
 | mariadb.mariadbUsername | string | `"linkace"` |  |
-| nginxImage.repository | string | `"tccr.io/truecharts/nginx"` |  |
-| nginxImage.tag | string | `"v1.21.6@sha256:80d87a1d4d67749d2caaa64ee061a66a946b81942ac56f4780e36f8356cee371"` |  |
 | persistence.app.enabled | bool | `true` |  |
 | persistence.app.mountPath | string | `"/app"` |  |
 | persistence.backups.enabled | bool | `true` |  |
@@ -77,6 +81,7 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsUser | int | `0` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10160` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
