@@ -24078,6 +24078,46 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/lidarr-9.0.21/lidarr-9.0.21.tgz
     version: 9.0.21
+  linkace:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.9.1
+    created: "2022-02-13T12:15:23.01117631Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.68
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.71
+    description: Your self-hosted bookmark archive. Free and open source.
+    digest: 097f3152af6cb90a55df3166a70c27ef24b7b1693ee02df6655f66e0915d8310
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/linkace
+    icon: https://truecharts.org/_static/img/appicons/linkace-icon.png
+    keywords:
+    - linkace
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: linkace
+    sources:
+    - https://www.linkace.org/docs/
+    - https://github.com/linkace/linkace
+    - https://hub.docker.com/r/linkace/linkace
+    urls:
+    - https://github.com/truecharts/apps/releases/download/linkace-0.0.1/linkace-0.0.1.tgz
+    version: 0.0.1
   littlelink:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -60593,4 +60633,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-13T10:56:51.711552028Z"
+generated: "2022-02-13T12:15:23.016111937Z"
