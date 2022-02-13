@@ -53,7 +53,7 @@ data:
 
         # PHP handling
         location ~ \.php$ {
-            fastcgi_pass app:9000;
+            fastcgi_pass localhost:9000;
 
             try_files $uri /index.php;
             include fastcgi_params;
