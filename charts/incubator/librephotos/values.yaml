@@ -32,7 +32,6 @@ env:
   SKIP_PATTERNS: ""
   HEAVYWEIGHT_PROCESS: 1
   DEBUG: 0
-  SECRET_KEY: "randomstringthatidontknowwhereisused"
 
 envValueFrom:
   DB_PASS:
@@ -47,6 +46,10 @@ envValueFrom:
     secretKeyRef:
       name: rediscreds
       key: url
+  SECRET_KEY:
+    secretKeyRef:
+      name: librephotos-secrets
+      key: SECRET_KEY
 
 redis:
   enabled: true
@@ -63,24 +66,8 @@ service:
   main:
     ports:
       main:
-        port: 10160
+        port: 10161
         targetPort: 80
-  backend:
-    enabled: true
-    type: ClusterIP
-    ports:
-      backend:
-        enabled: true
-        port: 8001
-        targetPort: 8001
-  frontend:
-    enabled: true
-    type: ClusterIP
-    ports:
-      frontend:
-        enabled: true
-        port: 3000
-        targetPort: 3000
 
 additionalContainers:
   proxy:
