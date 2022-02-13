@@ -45,7 +45,11 @@ envValueFrom:
   REDIS_HOST:
     secretKeyRef:
       name: rediscreds
-      key: url
+      key: plainhost
+  REDIS_PASS:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
   SECRET_KEY:
     secretKeyRef:
       name: librephotos-secrets
