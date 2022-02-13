@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-1.0.12"></a>
+### [guacamole-client-1.0.12](https://github.com/truecharts/apps/compare/guacamole-client-1.0.11...guacamole-client-1.0.12) (2022-02-13)
+
+
+
 <a name="guacamole-client-1.0.11"></a>
 ### [guacamole-client-1.0.11](https://github.com/truecharts/apps/compare/guacamole-client-1.0.10...guacamole-client-1.0.11) (2022-02-08)
 

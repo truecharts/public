@@ -90,6 +90,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.readiness.path | string | `"/guacamole"` |  |
 | probes.startup.path | string | `"/guacamole"` |  |
 | radius | object | `{}` |  |
+| saml | object | `{}` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.main.ports.main.port | int | `9998` |  |
 | service.main.ports.main.targetPort | int | `8080` |  |
