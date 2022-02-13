@@ -30,7 +30,7 @@ data:
         location ~ ^/(api|media)/ {
           proxy_set_header X-Forwarded-Proto $scheme;
           proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header Host backend;
+          proxy_set_header Host $host;
           include uwsgi_params;
           proxy_pass http://localhost:8001;
         }
