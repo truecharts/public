@@ -23,6 +23,7 @@ secret:
   ADMIN_EMAIL: "admin@mydomain.com"
   ADMIN_USERNAME: "admin"
   ADMIN_PASSWORD: "password"
+  MAPBOX_API_KEY: ""
 
 env:
   TZ: UTC
@@ -32,7 +33,6 @@ env:
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_PORT: "5432"
   REDIS_PORT: "6379"
-  MAPBOX_API_KEY: ""
   WEB_CONCURRENCY: 2
   SKIP_PATTERNS: ""
   HEAVYWEIGHT_PROCESS: 1
