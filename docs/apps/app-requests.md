@@ -33,7 +33,6 @@ _This list is to track `App Requests` from one place._
 - [ ] Filestash #1000
 - [ ] UISP #1007
 - [ ] Openspeedtest #1018
-- [ ] LinkAce #1020
 - [ ] Zoneminder #1021
 - [ ] OpenHAB #1043
 - [ ] Suricata #1063
@@ -515,3 +514,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] Synapse (Matrix Server) #410
 - [x] n8n #27
 - [x] WeblateOrg #817
+- [x] LinkAce #1020

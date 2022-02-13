@@ -1,0 +1,127 @@
+image:
+  repository: tccr.io/truecharts/linkace
+  tag: v1.9.1@sha256:d56fa76113e3e5ab0889a13bdfb463d12b71b3e2ec839a8ff6fa99ec036be862
+  pullPolicy: IfNotPresent
+
+nginxImage:
+  repository: tccr.io/truecharts/nginx
+  tag: v1.21.6@sha256:80d87a1d4d67749d2caaa64ee061a66a946b81942ac56f4780e36f8356cee371
+
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  # Internal Envs
+  DB_CONNECTION: "mysql"
+  DB_PORT: "3306"
+  DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+  DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+  REDIS_PORT: "6379"
+  CACHE_DRIVER: "redis"
+  SESSION_DRIVER: "redis"
+  APP_NAME: "LinkAce"
+  APP_ENV: "production"
+  APP_TIMEZONE: "{{ .Values.env.TZ }}"
+  # User Envs
+  TZ: UTC
+  APP_URL: "http://localhost"
+  APP_DEBUG: false
+  BACKUP_ENABLED: false
+  BACKUP_DISK: s3
+  BACKUP_NOTIFICATION_EMAIL: your@email.com
+  BACKUP_MAX_SIZE: 512
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+  APP_KEY:
+    secretKeyRef:
+      name: linkace-secrets
+      key: APP_KEY
+
+additionalContainers:
+  nginx:
+    name: nginx
+    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
+    ports:
+      - containerPort: 80
+        name: main
+    volumeMounts:
+    - name: linkace-config
+      mountPath: "/etc/nginx/conf.d/linkace.conf"
+      subPath: nginx-config
+      readOnly: true
+    - name: app
+      mountPath: "/app"
+
+initContainers:
+# App checks ".env" for "SETUP_COMPELTED" status, to determine if it needs to run initial setup or not.
+# We create this file and set it to false if it doesn't exists.
+# If it exists, we let the app decide it's value (true|false) and how to proceed.
+  1-create-env-file:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: app
+        mountPath: "/app"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        if [ ! -f "/app/.env" ];
+        then
+          echo "Preparing for initial installation";
+          echo "SETUP_COMPLETED=false" > /app/.env;
+        else
+          echo "Initial installation has already completed.";
+        fi;
+
+cronjob:
+  schedule: "* * * * *"
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
+
+service:
+  main:
+    ports:
+      main:
+        port: 10160
+        targetPort: 80
+
+persistence:
+  app:
+    enabled: true
+    mountPath: "/app"
+  logs:
+    enabled: true
+    mountPath: "/app/storage/logs"
+  backups:
+    enabled: true
+    mountPath: "/app/storage/app/backups"
+
+mariadb:
+  enabled: true
+  mariadbUsername: linkace
+  mariadbDatabase: linkace
+  existingSecret: "mariadbcreds"
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
