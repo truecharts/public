@@ -1,13 +1,10 @@
 image:
   repository: tccr.io/truecharts/linkace
-  tag: v1.9.1@sha256:d56fa76113e3e5ab0889a13bdfb463d12b71b3e2ec839a8ff6fa99ec036be862
+  tag: v1.9.1@sha256:88923f556900b0c6b79ea978e3692c690c0a6f9c28d048f2067a803095de1ef1
   pullPolicy: IfNotPresent
 
-nginxImage:
-  repository: tccr.io/truecharts/nginx
-  tag: v1.21.6@sha256:80d87a1d4d67749d2caaa64ee061a66a946b81942ac56f4780e36f8356cee371
-
 securityContext:
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
@@ -57,26 +54,22 @@ envValueFrom:
       name: linkace-secrets
       key: APP_KEY
 
-additionalContainers:
-  nginx:
-    name: nginx
-    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
-    ports:
-      - containerPort: 80
-        name: main
-    volumeMounts:
-    - name: linkace-config
-      mountPath: "/etc/nginx/conf.d/linkace.conf"
-      subPath: nginx-config
-      readOnly: true
-    - name: app
-      mountPath: "/app"
-
 initContainers:
+# Copy app to a temp folder as we gonna need it, so we can create the ".env" file in there.
+  1-copy-app:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: app
+        mountPath: "/tmp"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        echo "Copying app...";
+        cp -R /app/* /tmp/;
 # App checks ".env" for "SETUP_COMPELTED" status, to determine if it needs to run initial setup or not.
 # We create this file and set it to false if it doesn't exists.
 # If it exists, we let the app decide it's value (true|false) and how to proceed.
-  1-create-env-file:
+  2-create-env-file:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     volumeMounts:
       - name: app
@@ -88,12 +81,33 @@ initContainers:
         then
           echo "Preparing for initial installation";
           echo "SETUP_COMPLETED=false" > /app/.env;
+          echo "File .env created.";
         else
           echo "Initial installation has already completed.";
         fi;
+# App does not like 775 perms on dirs.. So we have to set 777
+  3-chmod:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: app
+        mountPath: "/app"
+      - name: logs
+        mountPath: "/app/storage/logs"
+      - name: backups
+        mountPath: "/app/storage/app/backups"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        echo "CHMOD-ing files...";
+        chmod -R 777 /app;
+        chmod -R 777 /app/storage/logs;
+        chmod -R 777 /app/storage/app/backups;
+        echo "CHMOD Complete";
 
+# Set cron every 15 min, official docs says every minute, but seems excesive.
+# It just checks for dead links and sends a request to WayBack Machine to archive.
 cronjob:
-  schedule: "* * * * *"
+  schedule: "*/15 * * * *"
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
