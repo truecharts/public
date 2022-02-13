@@ -81,9 +81,6 @@ additionalContainers:
       mountPath: "/etc/nginx/nginx.conf"
       subPath: nginx-config
       readOnly: true
-      volumeSpec:
-        configMap:
-          name: {{ printf "%v-config" (include "common.names.fullname" .) }}
     - name: media
       mountPath: "/data"
     - name: protected-media
