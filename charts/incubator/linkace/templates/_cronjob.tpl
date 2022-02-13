@@ -1,6 +1,6 @@
 {{/* Define the cronjob */}}
 {{- define "linkace.cronjob" -}}
-{{-if .Values.secret.CRON_TOKEN }}
+{{- if .Values.secret.CRON_TOKEN }}
 {{- $jobName := include "common.names.fullname" . }}
 
 ---
