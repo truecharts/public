@@ -23604,6 +23604,45 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2022w06
+    created: "2022-02-14T09:26:21.771587531Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.66
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.71
+    description: A self-hosted open source photo management service.
+    digest: a1c3b76ab387b62f0887ec240374a0560d04ea81af9d69093d582f348736a55c
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/librephotos
+    icon: https://truecharts.org/_static/img/appicons/librephotos-icon.png
+    keywords:
+    - photos
+    - gallery
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: librephotos
+    sources:
+    - https://github.com/LibrePhotos/librephotos
+    - https://hub.docker.com/r/reallibrephotos/librephotos
+    urls:
+    - https://github.com/truecharts/apps/releases/download/librephotos-1.0.0/librephotos-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022w06
     created: "2022-02-13T21:29:42.015124143Z"
     dependencies:
     - name: common
@@ -60751,4 +60790,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-13T22:08:04.250260323Z"
+generated: "2022-02-14T09:26:21.77688747Z"
