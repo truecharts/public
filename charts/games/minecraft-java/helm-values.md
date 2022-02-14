@@ -38,7 +38,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.VIEW_DISTANCE | int | `16` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.repository | string | `"tccr.io/truecharts/minecraft-java"` |  |
-| image.tag | string | `"21.26.0@sha256:faf49a0177e95e3af763dd5fddb9077885870055364edbf194a1b94eaeaf4641"` |  |
+| image.tag | string | `"v2022.3.0@sha256:dc121eacba1f056fa287783d06a88dbb75bb50471cf0b6a8edcf04c96fd9dfc8"` |  |
 | j11Image.pullPolicy | string | `"Always"` |  |
 | j11Image.repository | string | `"tccr.io/truecharts/minecraft-java11"` |  |
 | j11Image.tag | string | `"latest@sha256:99418d96c7c5c4e2ffc990479851943267b0958a5369479101da2bb22acfdde0"` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.7"></a>
+### [minecraft-java-0.0.7](https://github.com/truecharts/apps/compare/minecraft-java-0.0.6...minecraft-java-0.0.7) (2022-02-14)
+
+#### Chore
+
+* update container image tccr.io/truecharts/minecraft-java to v2022.3.0 ([#1897](https://github.com/truecharts/apps/issues/1897))
+
+
+
 <a name="minecraft-java-0.0.6"></a>
 ### [minecraft-java-0.0.6](https://github.com/truecharts/apps/compare/minecraft-java-0.0.5...minecraft-java-0.0.6) (2022-02-10)
 
