@@ -47,10 +47,10 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.SECRET_KEY.secretKeyRef.key | string | `"SECRET_KEY"` |  |
 | envValueFrom.SECRET_KEY.secretKeyRef.name | string | `"librephotos-secrets"` |  |
 | frontendImage.repository | string | `"tccr.io/truecharts/librephotos-frontend"` |  |
-| frontendImage.tag | string | `"v2022w06@sha256:9cb2cb4865197d460405fecd79bdd7808333443cb2089753825f7f97365a53a3"` |  |
+| frontendImage.tag | string | `"v2022w6@sha256:9cb2cb4865197d460405fecd79bdd7808333443cb2089753825f7f97365a53a3"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/librephotos-backend"` |  |
-| image.tag | string | `"v2022w06@sha256:4c24ce4ea5b340f83da0be0935eaea4ca525a15ed6da014f8ad8c709b377a837"` |  |
+| image.tag | string | `"v2022w6@sha256:4c24ce4ea5b340f83da0be0935eaea4ca525a15ed6da014f8ad8c709b377a837"` |  |
 | persistence.cache.enabled | bool | `true` |  |
 | persistence.cache.mountPath | string | `"/root/.cache"` |  |
 | persistence.logs.enabled | bool | `true` |  |
@@ -69,7 +69,7 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.readiness.path | string | `"/login"` |  |
 | probes.startup.path | string | `"/login"` |  |
 | proxyImage.repository | string | `"tccr.io/truecharts/librephotos-proxy"` |  |
-| proxyImage.tag | string | `"v2022w06@sha256:c147eaa3e96348e44132958ca871114a2ce240f0fa3604f738801317af09a160"` |  |
+| proxyImage.tag | string | `"v2022w6@sha256:c147eaa3e96348e44132958ca871114a2ce240f0fa3604f738801317af09a160"` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
 | redis.redisUsername | string | `"default"` |  |

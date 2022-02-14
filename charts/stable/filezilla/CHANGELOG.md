@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="filezilla-2.0.41"></a>
+### [filezilla-2.0.41](https://github.com/truecharts/apps/compare/filezilla-2.0.40...filezilla-2.0.41) (2022-02-14)
+
+#### Chore
+
+* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
+
+
+
 <a name="filezilla-2.0.39"></a>
 ### [filezilla-2.0.39](https://github.com/truecharts/apps/compare/filezilla-2.0.38...filezilla-2.0.39) (2022-02-08)
 

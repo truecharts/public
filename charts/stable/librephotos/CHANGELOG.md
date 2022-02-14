@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="librephotos-1.0.1"></a>
+### [librephotos-1.0.1](https://github.com/truecharts/apps/compare/librephotos-1.0.0...librephotos-1.0.1) (2022-02-14)
+
+#### Chore
+
+* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
+
+
+
 <a name="librephotos-1.0.0"></a>
 ### [librephotos-1.0.0](https://github.com/truecharts/apps/compare/librephotos-0.0.2...librephotos-1.0.0) (2022-02-14)
 

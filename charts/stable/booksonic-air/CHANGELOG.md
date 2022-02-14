@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.44"></a>
+### [booksonic-air-4.0.44](https://github.com/truecharts/apps/compare/booksonic-air-4.0.43...booksonic-air-4.0.44) (2022-02-14)
+
+#### Chore
+
+* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
+
+
+
 <a name="booksonic-air-4.0.43"></a>
 ### [booksonic-air-4.0.43](https://github.com/truecharts/apps/compare/booksonic-air-4.0.42...booksonic-air-4.0.43) (2022-02-08)
 

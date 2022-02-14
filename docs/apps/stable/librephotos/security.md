@@ -119,9 +119,9 @@ hide:
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:c0975b3bbd08e750d6514e38961a2fcfacce0ec2ddf764583dff2bd54a062609
-          tccr.io/truecharts/librephotos-backend:v2022w06@sha256:4c24ce4ea5b340f83da0be0935eaea4ca525a15ed6da014f8ad8c709b377a837
-        - 'tccr.io/truecharts/librephotos-frontend:v2022w06@sha256:9cb2cb4865197d460405fecd79bdd7808333443cb2089753825f7f97365a53a3'
-        - 'tccr.io/truecharts/librephotos-proxy:v2022w06@sha256:c147eaa3e96348e44132958ca871114a2ce240f0fa3604f738801317af09a160'
+          tccr.io/truecharts/librephotos-backend:v2022w6@sha256:4c24ce4ea5b340f83da0be0935eaea4ca525a15ed6da014f8ad8c709b377a837
+        - 'tccr.io/truecharts/librephotos-frontend:v2022w6@sha256:9cb2cb4865197d460405fecd79bdd7808333443cb2089753825f7f97365a53a3'
+        - 'tccr.io/truecharts/librephotos-proxy:v2022w6@sha256:c147eaa3e96348e44132958ca871114a2ce240f0fa3604f738801317af09a160'
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/postgresql:v14.1.0@sha256:c0975b3bbd08e750d6514e38961a2fcfacce0ec2ddf764583dff2bd54a062609
@@ -431,7 +431,7 @@ hide:
 | github.com/opencontainers/runc         |    CVE-2021-43784   |   MEDIUM  |  v1.0.1 | v1.0.3 | <details><summary>Expand...</summary><a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=2241">https://bugs.chromium.org/p/project-zero/issues/detail?id=2241</a><br><a href="https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554">https://github.com/opencontainers/runc/commit/9c444070ec7bb83995dbc0185da68284da71c554</a><br><a href="https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae">https://github.com/opencontainers/runc/commit/d72d057ba794164c3cce9451a00b72a78b25e1ae</a><br><a href="https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed">https://github.com/opencontainers/runc/commit/f50369af4b571e358f20b139eea52d612eb55eed</a><br><a href="https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f">https://github.com/opencontainers/runc/security/advisories/GHSA-v95c-p5hm-xq8f</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html">https://lists.debian.org/debian-lts-announce/2021/12/msg00005.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-43784">https://nvd.nist.gov/vuln/detail/CVE-2021-43784</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/librephotos-backend:v2022w06@sha256:4c24ce4ea5b340f83da0be0935eaea4ca525a15ed6da014f8ad8c709b377a837 (ubuntu 21.04)
+#### Container: tccr.io/truecharts/librephotos-backend:v2022w6@sha256:4c24ce4ea5b340f83da0be0935eaea4ca525a15ed6da014f8ad8c709b377a837 (ubuntu 21.04)
 
 
 **ubuntu**
