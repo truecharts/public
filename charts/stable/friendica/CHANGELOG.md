@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-0.0.39"></a>
+### [friendica-0.0.39](https://github.com/truecharts/apps/compare/friendica-0.0.38...friendica-0.0.39) (2022-02-14)
+
+#### Chore
+
+* update container image tccr.io/truecharts/friendica to v2022.02 ([#1896](https://github.com/truecharts/apps/issues/1896))
+
+
+
 <a name="friendica-0.0.38"></a>
 ### [friendica-0.0.38](https://github.com/truecharts/apps/compare/friendica-0.0.37...friendica-0.0.38) (2022-02-10)
 
