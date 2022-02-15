@@ -13,10 +13,18 @@ podSecurityContext:
 
 service:
   main:
+    enabled: false
     ports:
       main:
-        port: 8688
-        targetPort: 8688
+        enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
 
 env:
   TZ: UTC
