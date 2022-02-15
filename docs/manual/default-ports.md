@@ -130,6 +130,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | unifi                      |      main       |      main       | 8443  |  HTTPS   |                                         |
 | gaps                       |      main       |      main       | 8484  |   TCP    |                                         |
 | lidarr                     |      main       |      main       | 8686  |   TCP    |                                         |
+| amd-automatic-music-downloa|      main       |      main       | 8688  |   TCP    |                                         |
 | readarr                    |      main       |      main       | 8787  |   TCP    |                                         |
 | unifi                      |   guestportal   |    websecure    | 8843  |  HTTPS   |                                         |
 | minisatip                  |      main       |      main       | 8875  |   TCP    |                                         |
