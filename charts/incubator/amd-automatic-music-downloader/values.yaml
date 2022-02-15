@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/amd-automatic-music-downloader
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
   tag: latest@sha256:9d0cf8206966456e065a1ded124b28dd0fb6172c5e6ded082e10788cfcadb24f
 
 securityContext:
@@ -18,9 +18,8 @@ service:
         port: 8688
         targetPort: 8688
 
-env: {}
-  # TZ: UTC
-  # PUID: 1001
+env:
+  TZ: UTC
 persistence:
   config:
     enabled: true
