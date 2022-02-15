@@ -109,10 +109,15 @@ questions:
             default: "1h"
         - variable: DOWNLOADMODE
           label: "Download Mode"
-          description: "Wanted or artist :: wanted mode only download missing/cutoff :: artist mode downloads all albums by an artist (requires lidarr volume mapping root media folders for import)"
+          description: "`wanted` or `artist` :: wanted mode only download missing/cutoff :: artist mode downloads all albums by an artist (requires lidarr volume mapping root media folders for import)"
           schema:
             type: string
             default: "wanted"
+            enum:
+              - value: "wanted"
+                description: "Only download missing/cutoff"
+              - value:
+                description: "Downloads all albums by an artist (requires lidarr volume mapping root media folders for import)"
         - variable: FALLBACKSEARCH
           label: "Fallback Search"
           description: "True or False :: True = enabled :: Allows DL client to search for missing songs when they are not available"
@@ -125,12 +130,26 @@ questions:
           schema:
             type: string
             default: "both"
+            enum:
+              - value: "both"
+                description: "missing + cutoff"
+              - value: "missing"
+                description: "lidarr missing list"
+              - value: "cutoff"
+                description: "lidarr cutoff list"
         - variable: SearchType
           label: "Search Type"
           description: "both or artist or fuzzy :: both = artist + fuzzy searching :: artist = only artist searching :: fuzzy = only fuzzy searching (Various Artist is always fuzzy searched, regardless of setting)"
           schema:
             type: string
             default: "both"
+            enum:
+              - value: "both"
+                description: "artist + fuzzy searching "
+              - value: "artist"
+                description: "artist = only artist searching"
+              - value: "fuzzy"
+                description: "only fuzzy searching (Various Artist is always fuzzy searched, regardless of setting)"
         - variable: Concurrency
           label: "Concurrency"
           description: "Number of concurrent downloads"
@@ -149,6 +168,17 @@ questions:
           schema:
             type: string
             default: "FLAC"
+            enum:
+              - value: "FLAC"
+                description: "FLAC is an audio coding format for lossless compression of digital audio"
+              - value: "MP3"
+                description: "MP3 (or mp3) as a file format commonly designates files containing an elementary stream of MPEG-1 Audio or MPEG-2 Audio encoded data"
+              - value: "OPUS"
+                description: "Opus is a lossy audio coding format developed by the Xiph.Org Foundation and standardized by the Internet Engineering Task Force"
+              - value: "AAC"
+                description: "Advanced Audio Coding (AAC) is an audio coding standard for lossy digital audio compression."
+              - value: "ALAC"
+                description: "The Apple Lossless Audio Codec (ALAC), also known as Apple Lossless, or Apple Lossless Encoder (ALE), is an audio coding format, and its reference audio codec implementation, developed by Apple Inc."
         - variable: BITRATE
           label: "Bit Rate"
           description: "FLAC -> OPUS/AAC/MP3 will be converted using this bitrate (MP3 320/128 is native, not converted)"
@@ -223,7 +253,7 @@ questions:
             default: "LIDARRAPI"
         - variable: ARL_TOKEN
           label: "ARL Token"
-          description: User token for dl client, use google..."
+          description: "Deezer ARL Cookie"
           schema:
             type: string
             default: "ARLTOKEN"
@@ -233,24 +263,26 @@ questions:
           schema:
             type: boolean
             default: false
-        - variable: PLEXLIBRARYNAME
-          label: "PLEX Library Name"
-          description: "This must exactly match the name of the Plex Library that contains the Lidarr Media Folder data"
-          schema:
-            type: string
-            default: "Music"
-        - variable: PLEXURL
-          label: "PLEX URL"
-          description: "ONLY used if NOTIFYPLEX is enabled..."
-          schema:
-            type: string
-            default: "http://x.x.x.x:32400"
-        - variable: PLEXTOKEN
-          label: "PLEX Token"
-          description: "ONLY used if NOTIFYPLEX is enabled..."
-          schema:
-            type: string
-            default: "plextoken"
+            show_subquestions_if: true
+            subquestions:
+            - variable: PLEXLIBRARYNAME
+              label: "PLEX Library Name"
+              description: "This must exactly match the name of the Plex Library that contains the Lidarr Media Folder data"
+              schema:
+                type: string
+                default: "Music"
+            - variable: PLEXURL
+              label: "PLEX URL"
+              description: "Path to PLEX."
+              schema:
+                type: string
+                default: "http://x.x.x.x:32400"
+            - variable: PLEXTOKEN
+              label: "PLEX Token"
+              description: "PLEX API token."
+              schema:
+                type: string
+                default: "plextoken"
         - variable: ALBUM_TYPE_FILTER
           label: "Album Type Filter"
           description: 'Filter Types: COMPILE, SINGLE, ALBUM, EP (this is a ", " separated list of Album Types to skip) (Applicable to artist mode only)'
