@@ -16,7 +16,6 @@ _This list is to track `App Requests` from one place._
 - [ ] Flexget #726
 - [ ] Seafile #725
 - [ ] dnsmasq #711
-- [ ] Deemix #628
 - [ ] Trackarr #602
 - [ ] Locast2Plex #473
 - [ ] InfluxDB #5
@@ -517,3 +516,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] LinkAce #1020
 - [x] Photoview #293
 - [x] Librephotos #293
+- [x] Deemix #628

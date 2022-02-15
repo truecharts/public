@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.15.2
+deprecated: false
+description: HTPC/Homelab Services Organizer
+home: https://github.com/truecharts/apps/tree/master/charts/stable/deemix
+icon: https://truecharts.org/_static/img/appicons/deemix-icon.png
+keywords:
+- deemix
+- music
+- deezer
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: deemix
+sources:
+- https://gitlab.com/Bockiii/deemix-docker.git
+- registry.gitlab.com/bockiii/deemix-docker
+type: application
+version: 1.0.0
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
