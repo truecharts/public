@@ -3,11 +3,11 @@ appVersion: "2.4.2"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.15.2
+  version: 8.15.4
 - name: "promtail"
   condition: promtail.enabled
   repository: https://truecharts.org
-  version: "1.0.32"
+  version: "1.0.33"
 deprecated: false
 description: "Loki: like Prometheus, but for logs."
 home: https://github.com/truecharts/apps/tree/master/charts/stable/loki
@@ -23,7 +23,7 @@ name: loki
 sources:
   - https://github.com/grafana/loki
 type: application
-version: 2.0.29
+version: 2.0.30
 annotations:
   truecharts.org/catagories: |
     - logs
