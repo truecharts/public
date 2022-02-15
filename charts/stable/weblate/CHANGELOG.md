@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="weblate-1.0.5"></a>
+### [weblate-1.0.5](https://github.com/truecharts/apps/compare/weblate-1.0.4...weblate-1.0.5) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="weblate-1.0.4"></a>
 ### [weblate-1.0.4](https://github.com/truecharts/apps/compare/weblate-1.0.3...weblate-1.0.4) (2022-02-08)
 

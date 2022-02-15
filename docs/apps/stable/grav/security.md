@@ -128,10 +128,9 @@ hide:
 **composer**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| enshrined/svg-sanitize         |    CVE-2022-23638   |   MEDIUM  |  0.14.0 | 0.15.0 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-fqx8-v33p-4qcc">https://github.com/advisories/GHSA-fqx8-v33p-4qcc</a><br><a href="https://github.com/darylldoyle/svg-sanitizer/commit/17e12ba9c2881caa6b167d0fbea555c11207fbb0">https://github.com/darylldoyle/svg-sanitizer/commit/17e12ba9c2881caa6b167d0fbea555c11207fbb0</a><br><a href="https://github.com/darylldoyle/svg-sanitizer/security/advisories/GHSA-fqx8-v33p-4qcc">https://github.com/darylldoyle/svg-sanitizer/security/advisories/GHSA-fqx8-v33p-4qcc</a><br></details>  |
 
 **composer**
 

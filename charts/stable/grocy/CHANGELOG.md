@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grocy-9.0.46"></a>
+### [grocy-9.0.46](https://github.com/truecharts/apps/compare/grocy-9.0.45...grocy-9.0.46) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="grocy-9.0.45"></a>
 ### [grocy-9.0.45](https://github.com/truecharts/apps/compare/grocy-9.0.44...grocy-9.0.45) (2022-02-14)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-4.0.41"></a>
+### [phpldapadmin-4.0.41](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.40...phpldapadmin-4.0.41) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="phpldapadmin-4.0.40"></a>
 ### [phpldapadmin-4.0.40](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.39...phpldapadmin-4.0.40) (2022-02-08)
 

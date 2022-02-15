@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="synclounge-0.0.22"></a>
+### [synclounge-0.0.22](https://github.com/truecharts/apps/compare/synclounge-0.0.21...synclounge-0.0.22) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="synclounge-0.0.21"></a>
 ### [synclounge-0.0.21](https://github.com/truecharts/apps/compare/synclounge-0.0.20...synclounge-0.0.21) (2022-02-08)
 

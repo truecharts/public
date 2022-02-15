@@ -119,5 +119,6 @@ hide:
 **python-pkg**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| Twisted         |    CVE-2022-21712   |   HIGH  |  20.3.0 | 22.1 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21712">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21712</a><br><a href="https://github.com/advisories/GHSA-92x2-jw7w-xvvx">https://github.com/advisories/GHSA-92x2-jw7w-xvvx</a><br><a href="https://github.com/twisted/twisted/commit/af8fe78542a6f2bf2235ccee8158d9c88d31e8e2">https://github.com/twisted/twisted/commit/af8fe78542a6f2bf2235ccee8158d9c88d31e8e2</a><br><a href="https://github.com/twisted/twisted/releases/tag/twisted-22.1.0">https://github.com/twisted/twisted/releases/tag/twisted-22.1.0</a><br><a href="https://github.com/twisted/twisted/security/advisories/GHSA-92x2-jw7w-xvvx">https://github.com/twisted/twisted/security/advisories/GHSA-92x2-jw7w-xvvx</a><br></details>  |

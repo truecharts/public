@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="cloud9-2.0.43"></a>
+### [cloud9-2.0.43](https://github.com/truecharts/apps/compare/cloud9-2.0.42...cloud9-2.0.43) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="cloud9-2.0.42"></a>
 ### [cloud9-2.0.42](https://github.com/truecharts/apps/compare/cloud9-2.0.41...cloud9-2.0.42) (2022-02-08)
 
