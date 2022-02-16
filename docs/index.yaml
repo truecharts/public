@@ -57244,6 +57244,36 @@ entries:
         - Administration
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: "2.1"
+    created: "2022-02-16T00:02:09.638938597Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.4
+    description: Aggregated management of TrueNAS devices
+    digest: 3e6cf28e76dd6c46df3e2621ef9c80e7bff5bf5039817ab0d15b28a7db5a8e9d
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/truecommand
+    icon: https://truecharts.org/_static/img/appicons/truecommand-icon.png
+    keywords:
+    - truecommand
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: truecommand
+    sources:
+    - https://hub.docker.com/r/ixsystems/truecommand
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/truecommand-9.0.42/truecommand-9.0.42.tgz
+    version: 9.0.42
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - Administration
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 2.0.2
     created: "2022-01-04T20:49:23.178193583Z"
     dependencies:
@@ -61743,4 +61773,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-15T22:16:33.970462577Z"
+generated: "2022-02-16T00:02:09.644785392Z"

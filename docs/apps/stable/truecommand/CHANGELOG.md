@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="truecommand-9.0.42"></a>
+### [truecommand-9.0.42](https://github.com/truecharts/apps/compare/truecommand-9.0.41...truecommand-9.0.42) (2022-02-15)
+
+
+
 <a name="truecommand-9.0.41"></a>
 ### [truecommand-9.0.41](https://github.com/truecharts/apps/compare/truecommand-9.0.40...truecommand-9.0.41) (2022-02-15)
 
