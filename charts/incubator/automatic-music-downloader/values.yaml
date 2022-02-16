@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/amd-automatic-music-downloader
+  repository: tccr.io/truecharts/automatic-music-downloader
   pullPolicy: IfNotPresent
-  tag: latest@sha256:9d0cf8206966456e065a1ded124b28dd0fb6172c5e6ded082e10788cfcadb24f
+  tag: latest
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -13,17 +13,23 @@ podSecurityContext:
 
 service:
   main:
+    enabled: false
     ports:
       main:
-        port: 8688
-        targetPort: 8688
+        enabled: false
 
-env:
-  TZ: UTC
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   data:
     enabled: true
-    mountPath: "/data"
+    mountPath: "/downloads-amd"
