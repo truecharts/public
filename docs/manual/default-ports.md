@@ -131,7 +131,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | gaps                       |      main       |      main       | 8484  |   TCP    |                                         |
 | lidarr                     |      main       |      main       | 8686  |   TCP    |                                         |
 | readarr                    |      main       |      main       | 8787  |   TCP    |                                         |
-| unifi                      |   guestportal   |    websecure    | 8843  |  HTTPS   |                                         |
+| omada-controller           |   userportal    |    websecure    | 8843  |  HTTPS   |  Potential conflict with unifi          |
+| unifi                      |   guestportal   |    websecure    | 8843  |  HTTPS   |  Potential conflict with omada          |
 | minisatip                  |      main       |      main       | 8875  |   TCP    |                                         |
 | unifi                      |   guestportal   |       web       | 8880  |   HTTP   |                                         |
 | resilio-sync               |      main       |      main       | 8888  |   TCP    |                                         |
