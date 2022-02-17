@@ -1,17 +1,17 @@
 apiVersion: v2
-appVersion: "2022w06"
+appVersion: "2022w6"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.15.2
+  version: 8.15.4
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 6.0.66
+  version: 6.0.68
 - condition: redis.enabled
   name: redis
   repository: https://truecharts.org
-  version: 1.0.71
+  version: 1.0.74
 description: "A self-hosted open source photo management service."
 home: https://github.com/truecharts/apps/tree/master/charts/stable/librephotos
 icon: https://truecharts.org/_static/img/appicons/librephotos-icon.png
@@ -27,7 +27,7 @@ name: librephotos
 sources:
 - https://github.com/LibrePhotos/librephotos
 - https://hub.docker.com/r/reallibrephotos/librephotos
-version: 0.0.2
+version: 1.0.2
 annotations:
   truecharts.org/catagories: |
     - media

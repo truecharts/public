@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-1.0.20"></a>
+### [paperless-ng-1.0.20](https://github.com/truecharts/apps/compare/paperless-ng-1.0.19...paperless-ng-1.0.20) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="paperless-ng-1.0.19"></a>
 ### [paperless-ng-1.0.19](https://github.com/truecharts/apps/compare/paperless-ng-1.0.18...paperless-ng-1.0.19) (2022-02-08)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="xbackbone-0.0.30"></a>
+### [xbackbone-0.0.30](https://github.com/truecharts/apps/compare/xbackbone-0.0.29...xbackbone-0.0.30) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="xbackbone-0.0.29"></a>
 ### [xbackbone-0.0.29](https://github.com/truecharts/apps/compare/xbackbone-0.0.28...xbackbone-0.0.29) (2022-02-08)
 

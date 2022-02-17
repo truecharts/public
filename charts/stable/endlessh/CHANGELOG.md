@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="endlessh-0.0.21"></a>
+### [endlessh-0.0.21](https://github.com/truecharts/apps/compare/endlessh-0.0.20...endlessh-0.0.21) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="endlessh-0.0.20"></a>
 ### [endlessh-0.0.20](https://github.com/truecharts/apps/compare/endlessh-0.0.19...endlessh-0.0.20) (2022-02-08)
 

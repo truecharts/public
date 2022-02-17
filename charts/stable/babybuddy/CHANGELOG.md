@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.42"></a>
+### [babybuddy-5.0.42](https://github.com/truecharts/apps/compare/babybuddy-5.0.41...babybuddy-5.0.42) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
+<a name="babybuddy-5.0.41"></a>
+### [babybuddy-5.0.41](https://github.com/truecharts/apps/compare/babybuddy-5.0.40...babybuddy-5.0.41) (2022-02-14)
+
+#### Chore
+
+* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
+
+
+
 <a name="babybuddy-5.0.40"></a>
 ### [babybuddy-5.0.40](https://github.com/truecharts/apps/compare/babybuddy-5.0.39...babybuddy-5.0.40) (2022-02-08)
 

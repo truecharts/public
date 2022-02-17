@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/code-server"` |  |
-| image.tag | string | `"v4.0.2@sha256:48e7660ccfdc3cadc7f1a952cbb241d96412f79a7154ceb77b70bbc38484f224"` |  |
+| image.tag | string | `"v4.0.2@sha256:f97835402cf3006fcffb9e3a5cb64df8e78aa41ef4ba50a3158c9422229d2f7e"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |

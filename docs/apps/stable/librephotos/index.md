@@ -1,15 +1,14 @@
 # Introduction
 
-Your self-hosted bookmark archive. Free and open source.
+A self-hosted open source photo management service.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://www.linkace.org/docs/>
-* <https://github.com/linkace/linkace>
-* <https://hub.docker.com/r/linkace/linkace>
+* <https://github.com/LibrePhotos/librephotos>
+* <https://hub.docker.com/r/reallibrephotos/librephotos>
 
 ## Requirements
 
@@ -19,9 +18,9 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | mariadb | 1.0.68 |
-| https://truecharts.org | common | 8.15.2 |
-| https://truecharts.org | redis | 1.0.71 |
+| https://truecharts.org/ | postgresql | 6.0.68 |
+| https://truecharts.org | common | 8.15.4 |
+| https://truecharts.org | redis | 1.0.74 |
 
 ## Installing the Chart
 

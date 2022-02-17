@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-1.0.42"></a>
+### [uptime-kuma-1.0.42](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.41...uptime-kuma-1.0.42) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="uptime-kuma-1.0.41"></a>
 ### [uptime-kuma-1.0.41](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.40...uptime-kuma-1.0.41) (2022-02-10)
 

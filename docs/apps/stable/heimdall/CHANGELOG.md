@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="heimdall-9.0.45"></a>
+### [heimdall-9.0.45](https://github.com/truecharts/apps/compare/heimdall-9.0.44...heimdall-9.0.45) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="heimdall-9.0.44"></a>
 ### [heimdall-9.0.44](https://github.com/truecharts/apps/compare/heimdall-9.0.43...heimdall-9.0.44) (2022-02-08)
 

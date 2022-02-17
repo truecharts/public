@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.57"></a>
+### [traefik-10.0.57](https://github.com/truecharts/apps/compare/traefik-10.0.56...traefik-10.0.57) (2022-02-15)
+
+#### Fix
+
+* fix errors rendering ingressroute
+
+
+
+<a name="traefik-10.0.56"></a>
+### [traefik-10.0.56](https://github.com/truecharts/apps/compare/traefik-10.0.55...traefik-10.0.56) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="traefik-10.0.55"></a>
 ### [traefik-10.0.55](https://github.com/truecharts/apps/compare/traefik-10.0.54...traefik-10.0.55) (2022-02-08)
 

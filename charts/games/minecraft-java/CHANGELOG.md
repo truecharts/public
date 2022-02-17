@@ -1,6 +1,33 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.9"></a>
+### [minecraft-java-0.0.9](https://github.com/truecharts/apps/compare/minecraft-java-0.0.8...minecraft-java-0.0.9) (2022-02-16)
+
+#### Chore
+
+* update helm chart common to v8.15.4 ([#1879](https://github.com/truecharts/apps/issues/1879))
+
+
+
+<a name="minecraft-java-0.0.8"></a>
+### [minecraft-java-0.0.8](https://github.com/truecharts/apps/compare/minecraft-java-0.0.7...minecraft-java-0.0.8) (2022-02-14)
+
+#### Chore
+
+* update docker general non-major ([#1895](https://github.com/truecharts/apps/issues/1895))
+
+
+
+<a name="minecraft-java-0.0.7"></a>
+### [minecraft-java-0.0.7](https://github.com/truecharts/apps/compare/minecraft-java-0.0.6...minecraft-java-0.0.7) (2022-02-14)
+
+#### Chore
+
+* update container image tccr.io/truecharts/minecraft-java to v2022.3.0 ([#1897](https://github.com/truecharts/apps/issues/1897))
+
+
+
 <a name="minecraft-java-0.0.6"></a>
 ### [minecraft-java-0.0.6](https://github.com/truecharts/apps/compare/minecraft-java-0.0.5...minecraft-java-0.0.6) (2022-02-10)
 

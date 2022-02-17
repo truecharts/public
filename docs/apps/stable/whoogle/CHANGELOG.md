@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="whoogle-1.0.42"></a>
+### [whoogle-1.0.42](https://github.com/truecharts/apps/compare/whoogle-1.0.41...whoogle-1.0.42) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="whoogle-1.0.41"></a>
 ### [whoogle-1.0.41](https://github.com/truecharts/apps/compare/whoogle-1.0.40...whoogle-1.0.41) (2022-02-08)
 

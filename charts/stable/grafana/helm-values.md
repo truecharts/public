@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.GF_PATHS_PROVISIONING | string | `"/opt/bitnami/grafana/conf/provisioning"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/grafana"` |  |
-| image.tag | string | `"v8.3.6@sha256:9b54ff414395398c9554e341fe3025c03d9efb35d378955762299c0e536c0560"` |  |
+| image.tag | string | `"v8.3.6@sha256:a6224cd92ecd4353c4fe7b018148ed9f2796f232aeb908ef74a3fe3cee0a42a9"` |  |
 | metrics.enabled | bool | See values.yaml | Enable and configure a Prometheus serviceMonitor for the chart under this key. |
 | metrics.prometheusRule | object | See values.yaml | Enable and configure Prometheus Rules for the chart under this key. |
 | metrics.prometheusRule.rules | list | See prometheusrules.yaml | Configure additionial rules for the chart under this key. |

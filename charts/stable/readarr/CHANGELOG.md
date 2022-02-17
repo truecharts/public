@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.63"></a>
+### [readarr-9.0.63](https://github.com/truecharts/apps/compare/readarr-9.0.62...readarr-9.0.63) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="readarr-9.0.62"></a>
 ### [readarr-9.0.62](https://github.com/truecharts/apps/compare/readarr-9.0.61...readarr-9.0.62) (2022-02-10)
 
