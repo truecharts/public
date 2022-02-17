@@ -109,15 +109,17 @@ questions:
             default: "1h"
         - variable: DOWNLOADMODE
           label: "Download Mode"
-          description: "`wanted` or `artist` :: wanted mode only download missing/cutoff :: artist mode downloads all albums by an artist (requires lidarr volume mapping root media folders for import)"
+          description: >
+            "`wanted` or `artist` :: wanted mode only download missing/cutoff ::
+            artist mode downloads all albums by an artist (requires lidarr volume mapping root media folders for import)"
           schema:
             type: string
             default: "wanted"
             enum:
               - value: "wanted"
-                description: "Only download missing/cutoff"
+                description: "Only missing/cutoff"
               - value: "artist"
-                description: "Downloads all albums by an artist (requires lidarr volume mapping root media folders for import)"
+                description: "All albums"
         - variable: FALLBACKSEARCH
           label: "Fallback Search"
           description: "True or False :: True = enabled :: Allows DL client to search for missing songs when they are not available"
@@ -139,17 +141,21 @@ questions:
                 description: "lidarr cutoff list"
         - variable: SearchType
           label: "Search Type"
-          description: "both or artist or fuzzy :: both = artist + fuzzy searching :: artist = only artist searching :: fuzzy = only fuzzy searching (Various Artist is always fuzzy searched, regardless of setting)"
+          description: |
+            both or artist or fuzzy
+            both = artist + fuzzy searching
+            artist = only artist searching
+            fuzzy = only fuzzy searching (Various Artist is always fuzzy searched, regardless of setting)
           schema:
             type: string
             default: "both"
             enum:
               - value: "both"
-                description: "artist + fuzzy searching "
+                description: "Artist + fuzzy searching."
               - value: "artist"
-                description: "artist = only artist searching"
+                description: "Only artist searching."
               - value: "fuzzy"
-                description: "only fuzzy searching (Various Artist is always fuzzy searched, regardless of setting)"
+                description: "Only fuzzy searching."
         - variable: Concurrency
           label: "Concurrency"
           description: "Number of concurrent downloads"
@@ -164,21 +170,26 @@ questions:
             default: 80
         - variable: FORMAT
           label: "Format"
-          description: "FLAC or MP3 or OPUS or AAC or ALAC"
+          description: |
+            FLAC or MP3 or OPUS or AAC or ALAC.
+            FLAC is an audio coding format for lossless compression of digital audio.
+            MP3 (or mp3) as a file format commonly designates files containing an elementary stream of MPEG-1 Audio or MPEG-2 Audio encoded data.
+            Opus is a lossy audio coding format developed by the Xiph.Org Foundation and standardized by the Internet Engineering Task Force.
+            Advanced Audio Coding (AAC) is an audio coding standard for lossy digital audio compression.
           schema:
             type: string
             default: "FLAC"
             enum:
               - value: "FLAC"
-                description: "FLAC is an audio coding format for lossless compression of digital audio"
+                description: "FLAC"
               - value: "MP3"
-                description: "MP3 (or mp3) as a file format commonly designates files containing an elementary stream of MPEG-1 Audio or MPEG-2 Audio encoded data"
+                description: "MP3"
               - value: "OPUS"
-                description: "Opus is a lossy audio coding format developed by the Xiph.Org Foundation and standardized by the Internet Engineering Task Force"
+                description: "OPUS"
               - value: "AAC"
-                description: "Advanced Audio Coding (AAC) is an audio coding standard for lossy digital audio compression."
+                description: "AAC"
               - value: "ALAC"
-                description: "The Apple Lossless Audio Codec (ALAC), also known as Apple Lossless, or Apple Lossless Encoder (ALE), is an audio coding format, and its reference audio codec implementation, developed by Apple Inc."
+                description: "ALAC"
         - variable: BITRATE
           label: "Bit Rate"
           description: "FLAC -> OPUS/AAC/MP3 will be converted using this bitrate (MP3 320/128 is native, not converted)"
@@ -205,7 +216,10 @@ questions:
             default: true
         - variable: MatchDistance
           label: "Match Distance"
-          description: "Set as an integer, the higher the number, the more lenient it is. Example: A match score of 0 is a perfect match :: For more information, this score is produced using this function: Algorithm Implementation/Strings/Levenshtein distance"
+          description: >
+            "Set as an integer, the higher the number, the more lenient it is.
+            Example: A match score of 0 is a perfect match :: For more information,
+            this score is produced using this function: Algorithm Implementation/Strings/Levenshtein distance"
           schema:
             type: int
             default: 10
