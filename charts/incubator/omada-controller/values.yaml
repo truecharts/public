@@ -26,8 +26,16 @@ service:
   main:
     ports:
       main:
+        protocol: HTTPS
         port: 8043
         targetPort: 8043
+  comm:
+    enabled: true
+    ports:
+      comm:
+        enabled: true
+        port: 8843
+        targetPor: 8843
   omada-tcp:
     enabled: true
     ports:
