@@ -89,12 +89,6 @@ questions:
           schema:
             type: int
             default: 568
-        - variable: PGID
-          label: "PGID"
-          description: "Sets the PGID env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: int
-            default: 568
         - variable: AUTOSTART
           label: "Auto Start"
           description: "true = Enabled :: Runs script automatically on startup"
