@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "common.names.fullname" . }}-config
+  labels:
+    {{- include "common.labels" . | nindent 4 }}
+data:
+  pydiocells-install: |-
+    frontendlogin: {{ .Values.pydioinstall.username }}
+    frontendpassword: {{ .Values.pydioinstall.password }}
+    dbconnectiontype: tcp
+    dbtcphostname: {{ .Values.env.DB_HOST }}
+    dbtcpport: 3306
+    dbtcpname: {{ .Values.mariadb.mariadbDatabase }}
+    dbtcpuser: {{ .Values.mariadb.mariadbUsername }}
+    dbtcppassword: {{ .Values.env.DB_PASSWORD }}

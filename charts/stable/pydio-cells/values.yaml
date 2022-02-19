@@ -1,24 +1,41 @@
 image:
-  repository: tccr.io/truecharts/pydio-cells
+  repository: pydio/cells
   pullPolicy: IfNotPresent
-  tag: v3.0.4
+  tag: 3.0.4@sha256:3aea8ee8f3adb13fedc7d633619b1b69c3f75b79d3f2ea34e5f33755bacfdb1f
 
-securityContext:
-  runAsNonRoot: false
+# securityContext:
+#   runAsNonRoot: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
 
 env:
-  PUID: 568
-  EXTERNALURL: ""
+  CELLS_EXTERNAL: ""
+  CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
+  CELLS_GRPC_EXTERNAL: 33060
+  CELLS_LOG_LEVEL: "production"
+  CELLS_WORKING_DIR: "/cells"
+  CELLS_DATA_DIR: "/cells/data"
+  CELLS_LOG_DIR: "/cells/logs"
+  CELLS_SERVICES_DIR: "/cells/services"
+  CELLS_INSTALL_YAML: "/cells/install.yml"
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
 
 service:
   main:
     ports:
       main:
-        targetPort: 8080
+        targetPort: 10150
         port: 10150
   gprc:
     enabled: true
@@ -29,8 +46,23 @@ service:
         port: 33060
 
 persistence:
-  config:
+  cells:
     enabled: true
-    mountPath: "/config"
-  varrun:
+    mountPath: "/cells"
+  data:
     enabled: true
+    mountPath: "/cells/data"
+  logs:
+    enabled: true
+    mountPath: "/cells/logs"
+  services:
+    enabled: true
+    mountPath: "/cells/services"
+  # varrun:
+  #   enabled: true
+
+mariadb:
+  enabled: true
+  mariadbUsername: pydiocells
+  mariadbDatabase: pydiocells
+  existingSecret: "mariadbcreds"
