@@ -12,9 +12,15 @@ image:
 
 env:
   CELLS_EXTERNAL: ""
-  CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
   CELLS_GRPC_EXTERNAL: 33060
-  CELLS_LOG: "info"
+  CELLS_HEALTHCHECK: 6565
+  # http://your-cells:6565/healthcheck/
+  # CELLS_ENABLE_METRICS: true
+  # prometheus.yml
+  # - job_name: "cells"
+  #   file_sd_configs:
+  #     - files:
+  #         - ${CELLS_WORKING_DIR}/services/pydio.gateway.metrics/prom_clients.json
   CELLS_WORKING_DIR: "/cells"
   CELLS_DATA_DIR: "/cells/data"
   CELLS_LOG_DIR: "/cells/logs"
@@ -39,7 +45,7 @@ service:
   main:
     ports:
       main:
-        targetPort: 10150
+        targetPort: 8080
         port: 10150
   gprc:
     enabled: true

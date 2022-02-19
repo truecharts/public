@@ -7,11 +7,12 @@ metadata:
     {{- include "common.labels" . | nindent 4 }}
 data:
   pydiocells-install: |-
-    frontendlogin: {{ .Values.pydioinstall.username }}
-    frontendpassword: {{ .Values.pydioinstall.password }}
-    dbconnectiontype: tcp
-    dbtcphostname: {{ .Values.env.DB_HOST }}
-    dbtcpport: 3306
-    dbtcpname: {{ .Values.mariadb.mariadbDatabase }}
-    dbtcpuser: {{ .Values.mariadb.mariadbUsername }}
-    dbtcppassword: {{ .Values.env.DB_PASSWORD }}
+    frontendLogin: {{ .Values.pydioinstall.username }}
+    frontendPassword: {{ .Values.pydioinstall.password }}
+    frontendRepeatPassword: {{ .Values.pydioinstall.password }}
+    dbConnectionType: tcp
+    dbTCPHostname: {{ .Values.env.DB_HOST }}
+    dbTCPPort: 3306
+    dbTCPName: {{ .Values.mariadb.mariadbDatabase }}
+    dbTCPUser: {{ .Values.mariadb.mariadbUsername }}
+    dbTCPPassword: {{ .Values.env.DB_PASSWORD }}
