@@ -5,8 +5,8 @@ image:
 
 env:
   CELLS_EXTERNAL: ""
-  CELLS_GRPC_EXTERNAL: 33060
-  CELLS_HEALTHCHECK: 6565
+  CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.targetPort }}"
+  CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.targetPort }}"
   CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
   CELLS_WORKING_DIR: "/cells"
   CELLS_DATA_DIR: "/cells/data"
@@ -34,7 +34,6 @@ probes:
     custom: true
     spec:
       httpGet:
-        host: localhost
         path: /healthcheck
         port: 6565
         scheme: HTTP
@@ -47,7 +46,6 @@ probes:
     custom: true
     spec:
       httpGet:
-        host: localhost
         path: /healthcheck
         port: 6565
         scheme: HTTP
@@ -60,7 +58,6 @@ probes:
     custom: true
     spec:
       httpGet:
-        host: localhost
         path: /healthcheck
         port: 6565
         scheme: HTTP
@@ -82,6 +79,15 @@ service:
         enabled: true
         targetPort: 33060
         port: 33060
+  healthcheck:
+    enabled: true
+    type: ClusterIP
+    ports:
+      healtcheck:
+        enabled: true
+        targetPort: 6565
+        port: 6565
+        protocol: HTTP
 
 persistence:
   cells:
