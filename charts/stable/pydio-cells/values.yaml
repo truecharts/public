@@ -6,7 +6,7 @@ image:
 env:
   CELLS_EXTERNAL: ""
   CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.targetPort }}"
-  CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.targetPort }}"
+  CELLS_HEALTHCHECK: 10150
   CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
   CELLS_WORKING_DIR: "/cells"
   CELLS_DATA_DIR: "/cells/data"
@@ -31,40 +31,13 @@ pydioinstall:
 
 probes:
   liveness:
-    custom: true
-    spec:
-      httpGet:
-        path: /healthcheck
-        port: 6565
-        scheme: HTTP
-      initialDelaySeconds: 60
-      timeoutSeconds: 5
-      successThreshold: 1
-      failureThreshold: 5
+    path: /healthcheck"
 
   readiness:
-    custom: true
-    spec:
-      httpGet:
-        path: /healthcheck
-        port: 6565
-        scheme: HTTP
-      initialDelaySeconds: 10
-      timeoutSeconds: 5
-      successThreshold: 1
-      failureThreshold: 5
+    path: "/healthcheck"
 
   startup:
-    custom: true
-    spec:
-      httpGet:
-        path: /healthcheck
-        port: 6565
-        scheme: HTTP
-      initialDelaySeconds: 3
-      timeoutSeconds: 2
-      periodSeconds: 5
-      failureThreshold: 60
+    path: "/healthcheck"
 
 service:
   main:
@@ -79,15 +52,6 @@ service:
         enabled: true
         targetPort: 33060
         port: 33060
-  healthcheck:
-    enabled: true
-    type: ClusterIP
-    ports:
-      healtcheck:
-        enabled: true
-        targetPort: 6565
-        port: 6565
-        protocol: HTTP
 
 persistence:
   cells:
