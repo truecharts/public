@@ -7,6 +7,7 @@ metadata:
     {{- include "common.labels" . | nindent 4 }}
 data:
   pydiocells-install: |-
+    frontendapplicationtitle: {{ .Values.pydioinstall.title }}
     frontendLogin: {{ .Values.pydioinstall.username }}
     frontendPassword: {{ .Values.pydioinstall.password }}
     frontendRepeatPassword: {{ .Values.pydioinstall.password }}

@@ -84,14 +84,41 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: EXTERNALURL
-          label: "EXTERNALURL"
-          description: "EXTERNALURL"
+        - variable: CELLS_EXTERNAL
+          label: "Cells External URL"
+          description: "https://cells.mydomain.com"
           schema:
             type: string
             default: ""
+  - variable: pydioinstall
+    group: "Container Configuration"
+    label: "Pydio Cells Initial Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: title
+          label: "Cells Frontend Title (First install only)"
+          description: "Cells Frontend title"
+          schema:
+            type: string
+            required: true
+            default: "My Pydio Cells"
+        - variable: username
+          label: "Cells Admin Username (First install only)"
+          description: "Cells Admin Username"
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: title
+          label: "Cells Admin Password (First install only)"
+          description: "Cells Admin Password"
+          schema:
+            type: string
+            required: true
+            default: ""
 # Include{containerConfig}
-
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -158,7 +185,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8080
+                                    default: 10150
         - variable: gprc
           label: "gprc Service"
           description: "The gprc service."
@@ -247,9 +274,95 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+        - variable: data
+          label: "Data Storage"
+          description: "Stores the Data"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: logs
+          label: "Logs Storage"
+          description: "Stores the Logs"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: services
+          label: "Services Storage"
+          description: "Stores the Services"
           schema:
             additional_attrs: true
             type: dict
@@ -348,7 +461,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -363,13 +476,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."

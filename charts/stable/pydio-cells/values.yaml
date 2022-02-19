@@ -8,13 +8,6 @@ env:
   CELLS_GRPC_EXTERNAL: 33060
   CELLS_HEALTHCHECK: 6565
   CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
-  # http://your-cells:6565/healthcheck/
-  # CELLS_ENABLE_METRICS: true
-  # prometheus.yml
-  # - job_name: "cells"
-  #   file_sd_configs:
-  #     - files:
-  #         - ${CELLS_WORKING_DIR}/services/pydio.gateway.metrics/prom_clients.json
   CELLS_WORKING_DIR: "/cells"
   CELLS_DATA_DIR: "/cells/data"
   CELLS_LOG_DIR: "/cells/logs"
@@ -41,6 +34,7 @@ probes:
     custom: true
     spec:
       httpGet:
+        host: localhost
         path: /healthcheck
         port: 6565
         scheme: HTTP
@@ -53,6 +47,7 @@ probes:
     custom: true
     spec:
       httpGet:
+        host: localhost
         path: /healthcheck
         port: 6565
         scheme: HTTP
@@ -65,6 +60,7 @@ probes:
     custom: true
     spec:
       httpGet:
+        host: localhost
         path: /healthcheck
         port: 6565
         scheme: HTTP
