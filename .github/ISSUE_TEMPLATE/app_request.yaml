@@ -8,6 +8,7 @@ body:
       value: |
         Thanks for making this request.
         Keep in mind that this request is not a guarantee that the app will be added.
+
         ---
   - type: input
     attributes:
@@ -19,6 +20,8 @@ body:
   - type: textarea
     attributes:
       label: Sources
-      description: Provide sources for the app. Like documentation, github repo, container image, etc
+      description: |
+        Provide source links for the app.
+        Like documentation, github repo, container image, etc
     validations:
       required: true
