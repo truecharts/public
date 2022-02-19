@@ -105,13 +105,13 @@ questions:
       attrs:
 # Include{fixedEnv}
         - variable: TRUSTED_PROXIES
-          label: "Trusted Proxies (Advanced)"
+          label: "Trusted Proxies (First Install Only - Advanced)"
           description: "Sets nextcloud Trusted Proxies"
           schema:
             type: string
             default: "172.16.0.0/16"
         - variable: NODE_IP
-          label: "NODE_IP"
+          label: "NODE_IP (First Install Only)"
           description: "Sets nextcloud nodeip for nodeport connections (Ensure this is correct at first install!)"
           schema:
             type: string
