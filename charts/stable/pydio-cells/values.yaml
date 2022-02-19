@@ -14,6 +14,7 @@ env:
   CELLS_EXTERNAL: ""
   CELLS_GRPC_EXTERNAL: 33060
   CELLS_HEALTHCHECK: 6565
+  CELLS_BINDS: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
   # http://your-cells:6565/healthcheck/
   # CELLS_ENABLE_METRICS: true
   # prometheus.yml
@@ -45,7 +46,7 @@ service:
   main:
     ports:
       main:
-        targetPort: 8080
+        targetPort: 10150
         port: 10150
   gprc:
     enabled: true
