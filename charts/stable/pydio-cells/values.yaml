@@ -14,7 +14,7 @@ env:
   CELLS_EXTERNAL: ""
   CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
   CELLS_GRPC_EXTERNAL: 33060
-  CELLS_LOG_LEVEL: "production"
+  CELLS_LOG: "info"
   CELLS_WORKING_DIR: "/cells"
   CELLS_DATA_DIR: "/cells/data"
   CELLS_LOG_DIR: "/cells/logs"
@@ -50,6 +50,11 @@ service:
         port: 33060
 
 persistence:
+  installyml:
+    enabled: true
+    mountPath: "/cells/install.yml"
+    subpath: "install.yml"
+    readOnly: true
   cells:
     enabled: true
     mountPath: "/cells"
