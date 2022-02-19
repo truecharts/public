@@ -19,7 +19,7 @@ env:
   CELLS_DATA_DIR: "/cells/data"
   CELLS_LOG_DIR: "/cells/logs"
   CELLS_SERVICES_DIR: "/cells/services"
-  CELLS_INSTALL_YAML: "/install/install.yml"
+  CELLS_INSTALL_YAML: "/cells/install.yml"
 
 envValueFrom:
   DB_HOST:
@@ -50,11 +50,6 @@ service:
         port: 33060
 
 persistence:
-  installyml:
-    enabled: true
-    mountPath: "/install/install.yml"
-    subpath: "install.yml"
-    readOnly: true
   cells:
     enabled: true
     mountPath: "/cells"

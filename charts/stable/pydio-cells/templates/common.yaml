@@ -6,11 +6,11 @@ persistence:
   pydiocells-install:
     enabled: "true"
     mountPath: "/cells/install.yml"
-    subPath: "install.yml"
+    subPath: "pydiocells-install"
     type: "custom"
     volumeSpec:
       configMap:
-        name: {{ printf "%v-config" (include "common.names.fullname" .) }}
+        name: {{ printf "%v-install" (include "common.names.fullname" .) }}
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "pydiocells.harcodedValues" . | fromYaml) -}}
 
