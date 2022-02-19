@@ -36,42 +36,42 @@ pydioinstall:
   password: "supersecret"
   title: "Pydio Cells"
 
-# probes:
-#   liveness:
-#     custom: true
-#     spec:
-#       httpGet:
-#         path: /health
-#         port: 6565
-#         scheme: HTTP
-#       initialDelaySeconds: 60
-#       timeoutSeconds: 5
-#       successThreshold: 1
-#       failureThreshold: 5
+probes:
+  liveness:
+    custom: true
+    spec:
+      httpGet:
+        path: /healthcheck
+        port: 6565
+        scheme: HTTP
+      initialDelaySeconds: 60
+      timeoutSeconds: 5
+      successThreshold: 1
+      failureThreshold: 5
 
-#   readiness:
-#     custom: true
-#     spec:
-#       httpGet:
-#         path: /ready
-#         port: 6565
-#         scheme: HTTP
-#       initialDelaySeconds: 10
-#       timeoutSeconds: 5
-#       successThreshold: 1
-#       failureThreshold: 5
+  readiness:
+    custom: true
+    spec:
+      httpGet:
+        path: /healthcheck
+        port: 6565
+        scheme: HTTP
+      initialDelaySeconds: 10
+      timeoutSeconds: 5
+      successThreshold: 1
+      failureThreshold: 5
 
-#   startup:
-#     custom: true
-#     spec:
-#       httpGet:
-#         path: /ready
-#         port: 6565
-#         scheme: HTTP
-#       initialDelaySeconds: 3
-#       timeoutSeconds: 2
-#       periodSeconds: 5
-#       failureThreshold: 60
+  startup:
+    custom: true
+    spec:
+      httpGet:
+        path: /healthcheck
+        port: 6565
+        scheme: HTTP
+      initialDelaySeconds: 3
+      timeoutSeconds: 2
+      periodSeconds: 5
+      failureThreshold: 60
 
 service:
   main:
