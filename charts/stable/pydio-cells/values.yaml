@@ -3,18 +3,11 @@ image:
   pullPolicy: IfNotPresent
   tag: 3.0.4@sha256:3aea8ee8f3adb13fedc7d633619b1b69c3f75b79d3f2ea34e5f33755bacfdb1f
 
-# securityContext:
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
-
 env:
   CELLS_EXTERNAL: ""
   CELLS_GRPC_EXTERNAL: 33060
   CELLS_HEALTHCHECK: 6565
-  CELLS_BINDS: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
+  CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
   # http://your-cells:6565/healthcheck/
   # CELLS_ENABLE_METRICS: true
   # prometheus.yml
@@ -41,6 +34,44 @@ envValueFrom:
 pydioinstall:
   username: "admin"
   password: "supersecret"
+  title: "Pydio Cells"
+
+# probes:
+#   liveness:
+#     custom: true
+#     spec:
+#       httpGet:
+#         path: /health
+#         port: 6565
+#         scheme: HTTP
+#       initialDelaySeconds: 60
+#       timeoutSeconds: 5
+#       successThreshold: 1
+#       failureThreshold: 5
+
+#   readiness:
+#     custom: true
+#     spec:
+#       httpGet:
+#         path: /ready
+#         port: 6565
+#         scheme: HTTP
+#       initialDelaySeconds: 10
+#       timeoutSeconds: 5
+#       successThreshold: 1
+#       failureThreshold: 5
+
+#   startup:
+#     custom: true
+#     spec:
+#       httpGet:
+#         path: /ready
+#         port: 6565
+#         scheme: HTTP
+#       initialDelaySeconds: 3
+#       timeoutSeconds: 2
+#       periodSeconds: 5
+#       failureThreshold: 60
 
 service:
   main:
@@ -69,8 +100,6 @@ persistence:
   services:
     enabled: true
     mountPath: "/cells/services"
-  # varrun:
-  #   enabled: true
 
 mariadb:
   enabled: true
