@@ -19,7 +19,7 @@ env:
   CELLS_DATA_DIR: "/cells/data"
   CELLS_LOG_DIR: "/cells/logs"
   CELLS_SERVICES_DIR: "/cells/services"
-  CELLS_INSTALL_YAML: "/cells/install.yml"
+  CELLS_INSTALL_YAML: "/install/install.yml"
 
 envValueFrom:
   DB_HOST:
@@ -52,7 +52,7 @@ service:
 persistence:
   installyml:
     enabled: true
-    mountPath: "/cells/install.yml"
+    mountPath: "/install/install.yml"
     subpath: "install.yml"
     readOnly: true
   cells:
