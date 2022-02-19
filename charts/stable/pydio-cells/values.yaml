@@ -6,7 +6,7 @@ image:
 env:
   CELLS_EXTERNAL: ""
   CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.targetPort }}"
-  CELLS_HEALTHCHECK: 10150
+  CELLS_HEALTHCHECK: "{{ .Values.service.main.ports.main.targetPort }}"
   CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
   CELLS_WORKING_DIR: "/cells"
   CELLS_DATA_DIR: "/cells/data"
@@ -31,7 +31,7 @@ pydioinstall:
 
 probes:
   liveness:
-    path: /healthcheck"
+    path: "/healthcheck"
 
   readiness:
     path: "/healthcheck"
