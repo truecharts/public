@@ -29,15 +29,15 @@ service:
   main:
     ports:
       main:
-        port: 10106
-        targetPort: 10106
-  console:
+        port: 10107
+        targetPort: 10107
+  api:
     enabled: true
     ports:
-      console:
+      api:
         enabled: true
-        targetPort: 10107
-        port: 10107
+        targetPort: 10106
+        port: 10106
 
 securityContext:
   readOnlyRootFilesystem: false
