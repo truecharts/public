@@ -1,0 +1,122 @@
+name: ⚙️ Bug Report 🪛
+description: Request new apps to be added to TrueCharts Catalog
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for making this bug report.
+
+        ⚠️ Mind your title. ⚠️
+
+        - "App stuck in deploying state" - Is not the title/description of your actual bug.
+        - "Appname not working" - Is not the title/description of your actual bug.
+        - Don't refer version in title.
+
+        ---
+
+  - type: input
+    id: app-name
+    attributes:
+      label: App Name
+      description: |
+        The name of the app having the issue.
+    validations:
+      required: true
+  - type: dropdown
+    id: os-version
+    attributes:
+      label: SCALE Version
+      description: |
+        The version of truenas scale you are currently running.
+        FOUND IN: System Settings > General > OS Version
+      multiple: false
+      options:
+        - "22.02.0"
+        - "22.02-RC2"
+    validations:
+      required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: App Version
+      description: |
+        The version of the app having the issue and versions of any apps being used in conjunction.
+        FOUND IN: Apps > Installed Applications
+    validations:
+      required: true
+  - type: textarea
+    id: app-events
+    attributes:
+      label: Application Events
+      description: |
+        Debug information from the app(s) specifically
+        FOUND IN: Apps > Installed Applications > (Click on the app name) > Click the caret next to application events and include a screenshot here.
+      render: Shell
+    validations:
+      required: true
+  - type: textarea
+    id: app-logs
+    attributes:
+      label: Application Logs
+      description: |
+        Log output from the containers involved in the app
+        FOUND IN: Apps > Installed Applications > (Click the 3 dots on the top right of the app box) > Logs
+        Open the logs for each pod used for the app and copy/paste here.
+
+        Note: It can take a moment for the logs to show on the logs screen.
+      render: Shell
+    validations:
+      required: true
+  - type: textarea
+    id: app-config
+    attributes:
+      label: Application Configuration
+      description: |
+        The configuration settings for the app (Make sure to include what you have changed AND what you didn't change).
+        If possible use the edit features in your screenshot tool to highlight the portions you changed intentionally.
+        FOUND IN: Apps > Installed Applications > (Click the 3 dots on the top right of the app box) > Edit
+    validations:
+      required: true
+  - type: textarea
+    id: bug-report
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: repro-steps
+    attributes:
+      label: To Reproduce
+      description: |
+        Make sure that if you follow these steps again yourself the bug happens again. If it doesn't it's Probably a configuration error and should be handled with a support ticket on the discord.
+        Steps to reproduce the behavior:
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error.
+    validations:
+      required: true
+  - type: textarea
+    id: exp-behaviour
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem.
+    validations:
+      required: true
+  - type: textarea
+    id: add-contaxt
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here.
+    validations:
+      required: true
