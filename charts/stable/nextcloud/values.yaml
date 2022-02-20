@@ -28,6 +28,7 @@ service:
 secret:
   NEXTCLOUD_ADMIN_USER: "admin"
   NEXTCLOUD_ADMIN_PASSWORD: "adminpass"
+
 env:
   TRUSTED_PROXIES: "172.16.0.0/16"
   POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -59,16 +60,10 @@ persistence:
   data:
     enabled: true
     mountPath: "/var/www/html"
-# -- Probe configuration
-# -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
-# @default -- See below
+
 probes:
-  # -- Liveness probe configuration
-  # @default -- See below
   liveness:
     custom: true
-    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-    # @default -- "/"
     spec:
       httpGet:
         path: /status.php
@@ -77,12 +72,8 @@ probes:
         - name: Host
           value: "test.fakedomain.dns"
 
-  # -- Redainess probe configuration
-  # @default -- See below
   readiness:
     custom: true
-    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-    # @default -- "/"
     spec:
       httpGet:
         path: /status.php
@@ -91,12 +82,8 @@ probes:
         - name: Host
           value: "test.fakedomain.dns"
 
-  # -- Startup probe configuration
-  # @default -- See below
   startup:
     custom: true
-    # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
-    # @default -- "/"
     spec:
       httpGet:
         path: /status.php
@@ -105,27 +92,18 @@ probes:
         - name: Host
           value: "test.fakedomain.dns"
 
-## Cronjob to execute Nextcloud background tasks
-## ref: https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/background_jobs_configuration.html#webcron
-##
 cronjob:
-  # Every 5 minutes
-  # Note: Setting this to any any other value than 5 minutes might
-  #  cause issues with how nextcloud background jobs are executed
   schedule: "*/5 * * * *"
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: nextcloud
   postgresqlDatabase: nextcloud
 
-# Enabled redis
-# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/redis
 redis:
   enabled: true
   existingSecret: "rediscreds"
