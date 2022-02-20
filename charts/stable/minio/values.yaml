@@ -9,11 +9,6 @@ secret:
   MINIO_ROOT_PASSWORD: "changeme"
 
 env:
-  # Set User "minio" to run the app with UID/GID from "runAs*"
-  MINIO_USERNAME: "minio"
-  MINIO_GROUPNAME: "minio"
-  MINIO_UID: "{{ .Values.podSecurityContext.runAsUser }}"
-  MINIO_GID: "{{ .Values.podSecurityContext.runAsGroup }}"
   MINIO_ROOT_USER: "minio"
   MINIO_BROWSER_REDIRECT_URL: ""
   MINIO_SERVER_URL: ""
