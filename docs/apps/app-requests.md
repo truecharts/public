@@ -517,3 +517,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] LinkAce #1020
 - [x] Photoview #293
 - [x] Librephotos #293
+- [x] AMD - Automated Music Downloader
