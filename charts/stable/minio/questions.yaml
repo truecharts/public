@@ -178,7 +178,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9000
+                                    default: 10106
 
         - variable: console
           label: "Console Service"
@@ -234,7 +234,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 9001
+                                    default: 10107
 
   - variable: serviceexpert
     group: "Networking and Services"
