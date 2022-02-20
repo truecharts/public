@@ -3,18 +3,20 @@ image:
   tag: latest@sha256:8129f69c85b84e13f085a1ce127f108cee0ea84a1f496e8065796c7a15a08442
   pullPolicy: IfNotPresent
 
-args: ["server", "/data", "--console-address", ":9001"]
+args: ["server", "/data", "--address", ":10106", "--console-address", ":10107"]
 
 secret:
   MINIO_ROOT_PASSWORD: "changeme"
 
 env:
+  # Set User "minio" to run the app with UID/GID from "runAs*"
   MINIO_USERNAME: "minio"
   MINIO_GROUPNAME: "minio"
   MINIO_UID: "{{ .Values.podSecurityContext.runAsUser }}"
   MINIO_GID: "{{ .Values.podSecurityContext.runAsGroup }}"
   MINIO_ROOT_USER: "minio"
   MINIO_BROWSER_REDIRECT_URL: ""
+  MINIO_SERVER_URL: ""
 
 probes:
   liveness:
@@ -28,13 +30,13 @@ service:
     ports:
       main:
         port: 10106
-        targetPort: 9000
+        targetPort: 10106
   console:
     enabled: true
     ports:
       console:
         enabled: true
-        targetPort: 9001
+        targetPort: 10107
         port: 10107
 
 securityContext:
