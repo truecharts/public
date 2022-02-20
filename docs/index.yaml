@@ -1924,6 +1924,41 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/authelia-8.0.13/authelia-8.0.13.tgz
     version: 8.0.13
+  automatic-music-downloader:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-02-20T14:40:36.340479325Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.4
+    description: A Lidarr companion script to automatically download music for Lidarr.
+    digest: 1f66c40616468dbc8d3af3642f45469c7e62ed79767f609998e4fce28b77bab2
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/automatic-music-downloader
+    icon: https://truecharts.org/_static/img/appicons/automatic-music-downloader-icon.png
+    keywords:
+    - automatic
+    - music
+    - downloader
+    - deemix
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: automatic-music-downloader
+    sources:
+    - https://github.com/RandomNinjaAtk/docker-amd
+    - https://hub.docker.com/r/randomninjaatk/amd
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/automatic-music-downloader-0.0.1/automatic-music-downloader-0.0.1.tgz
+    version: 0.0.1
   babybuddy:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -61988,4 +62023,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-17T08:26:21.495078903Z"
+generated: "2022-02-20T14:40:36.345841261Z"
