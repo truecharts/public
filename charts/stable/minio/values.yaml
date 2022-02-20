@@ -20,15 +20,14 @@ probes:
       httpGet:
         scheme: HTTP
         path: "/minio/health/live"
-        port: 10106
+        port: "{{ .Values.service.api.ports.api.targetPort }}"
   readiness:
     custom: true
     spec:
       httpGet:
         scheme: HTTP
         path: "/minio/health/ready"
-        port: 10106
-
+        port: "{{ .Values.service.api.ports.api.targetPort }}"
 
 service:
   main:
