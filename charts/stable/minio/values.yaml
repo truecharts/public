@@ -1,24 +1,18 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/minio
-  # -- image tag
   tag: latest@sha256:8129f69c85b84e13f085a1ce127f108cee0ea84a1f496e8065796c7a15a08442
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
-# -- Override the args for the default container.
 args: ["server", "/data", "--console-address", ":9001"]
 
 secret:
-    # -- Minio Password
   MINIO_ROOT_PASSWORD: "changeme"
 
-# -- environment variables. See more environment variables in the [minio documentation](https://docs.min.io).
-# @default -- See below
 env:
-  # -- Set the container timezone
-  TZ: UTC
-  # -- Minio Username
+  MINIO_USERNAME: "minio"
+  MINIO_GROUPNAME: "minio"
+  MINIO_UID: "{{ .Values.podSecurityContext.runAsUser }}"
+  MINIO_GID: "{{ .Values.podSecurityContext.runAsGroup }}"
   MINIO_ROOT_USER: "minio"
   MINIO_BROWSER_REDIRECT_URL: ""
 
@@ -29,8 +23,6 @@ probes:
   readiness:
     path: "/minio/health/ready"
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
