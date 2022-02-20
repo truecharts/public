@@ -13,12 +13,33 @@ env:
   MINIO_BROWSER_REDIRECT_URL: ""
   MINIO_SERVER_URL: ""
 
-probes:
-  liveness:
-    path: "/minio/health/live"
-
   readiness:
     path: "/minio/health/ready"
+
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 1
+      failureThreshold: 3
+      httpGet:
+        path: "/minio/health/live"
+        port: 10106
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 1
+      failureThreshold: 3
+      httpGet:
+        path: "/minio/health/ready"
+        port: 10106
+
 
 service:
   main:
