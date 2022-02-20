@@ -33,3 +33,11 @@ body:
       description: Add any other context or screenshots about the feature request here.
     validations:
       required: true
+  - type: checkboxes
+    attributes:
+      label: I've read and agree with the following
+      options:
+        - label: I've checked all open and closed issues and my request is not there.
+          required: true
+        - label: I've checked all open and closed pull requests and my request is not there.
+          required: true
