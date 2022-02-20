@@ -6,7 +6,7 @@ portals:
     host:
       - "$kubernetes-resource_configmap_portal_host"
     ports:
-      - "$kubernetes-resource_configmap_portal_port"
+      - "$variable-service.console.ports.console.port"
 questions:
   - variable: portal
     group: "Container Image"
@@ -104,6 +104,13 @@ questions:
             required: true
         - variable: MINIO_BROWSER_REDIRECT_URL
           label: "MINIO_BROWSER_REDIRECT_URL"
+          description: "Specify the URL the MinIO Console provides as the redirect URL eg. https://minioconsole.mydomain.com"
+          schema:
+            type: string
+            default: ""
+        - variable: MINIO_SERVER_URL
+          label: "MINIO_SERVER_URL"
+          description: "Specify the URL hostname the MinIO Console should use for connecting to the MinIO Server. eg. https://minio.mydomain.com"
           schema:
             type: string
             default: ""
