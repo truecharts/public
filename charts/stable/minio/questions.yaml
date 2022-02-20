@@ -329,6 +329,20 @@ questions:
 
 # Include{ingressExpert}
 
+        - variable: console
+          label: "Console Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
+
 # Include{ingressList}
 
   - variable: advancedSecurity
