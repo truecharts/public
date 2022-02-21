@@ -1,26 +1,21 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/valheim-server
-  # -- image tag
   tag: latest@sha256:8f87fda54429923cac3601d581d6dc0ff273ef6438374e9f4b1e5ac1141b461d
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 secret:
   SUPERVISOR_HTTP_USER: admin
   SUPERVISOR_HTTP_PASS: secret
   SERVER_PASS: secret
-# -- environment variables. See [image docs](https://github.com/lloesche/valheim-server-docker#environment-variables) for more details.
-# @default -- See below
+
 env:
-  # -- Set the container timezone
   TZ: UTC
   STATUS_HTTP: true
-  STATUS_HTTP_PORT: 9010
-  SUPERVISOR_HTTP_PORT: 9011
+  STATUS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+  SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.port }}"
   SUPERVISOR_HTTP: true
   SERVER_NAME: My Server
-  SERVER_PORT: 2456
+  SERVER_PORT: "{{ .Values.service.valheim.ports.valheim-1.port }}"
   WORLD_NAME: Dedicated
   SERVER_PUBLIC: true
   UPDATE_INTERVAL: 10800
@@ -37,21 +32,19 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
       main:
         port: 9010
-        targetPort: 9010
+        targetPort: "{{ .Values.service.main.ports.main.port }}"
   supervisor:
     enabled: true
     ports:
       supervisor:
         enabled: true
         port: 9011
-        targetPort: 9011
+        targetPort: "{{ .Values.service.supervisor.ports.supervisor.port }}"
   valheim:
     enabled: true
     type: LoadBalancer
@@ -59,21 +52,19 @@ service:
       valheim-1:
         enabled: true
         port: 2456
-        targetPort: 2456
+        targetPort: "{{ .Values.service.valheim.ports.valheim-1.port }}"
         protocol: UDP
       valheim-2:
         enabled: true
         port: 2457
-        targetPort: 2457
+        targetPort: "{{ .Values.service.valheim.ports.valheim-2.port }}"
         protocol: UDP
       valheim-3:
         enabled: true
         port: 2458
         protocol: UDP
-        targetPort: 2458
+        targetPort: "{{ .Values.service.valheim.ports.valheim-3.port }}"
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
