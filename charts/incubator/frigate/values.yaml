@@ -10,9 +10,11 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 portal:
   enabled: true
-env:
+
+env: {}
 
 service:
   main:
@@ -79,6 +81,7 @@ frigate:
       best_image_timeout: 60
       snapshots:
         enabled: True
+
 persistence:
   cache:
     enabled: true
