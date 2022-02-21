@@ -18,10 +18,68 @@ service:
         port: 10017
         targetPort: 80
 
-env: {}
-  # PHP_TZ: UTC
-  # PUID: 1001
+env:
+  # Internal Envs
+  TIMEZONE: "{{ .Values.env.TZ }}"
+  PHP_TZ: "{{ .Values.env.TZ }}"
+  DB_CONNECTION: "pgsql"
+  DB_PORT: "5432"
+  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  REDIS_PORT: "6379"
+  CACHE_DRIVER: "redis"
+  SESSION_DRIVER: "redis"
+  APP_ENV: "production"
+  APP_NAME: "Lychee"
+  MIX_PUSHER_APP_KEY: "{{ .Values.env.PUSHER_APP_KEY }}"
+  MIX_PUSHER_APP_CLUSTER: "{{ .Values.env.PUSHER_APP_CLUSTER }}"
+  # User Envs
+  PUID: 568
+  SECURITY_HEADER_HSTS_ENABLE: false
+  APP_DEBUG: false
+  PUSHER_APP_KEY: ""
+  PUSHER_APP_CLUSTER: ""
+  APP_URL: http://localhost
+
+envValueFrom:
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+  APP_KEY:
+    secretKeyRef:
+      name: lychee-secrets
+      key: APP_KEY
+
 persistence:
-  config:
+  conf:
     enabled: true
-    mountPath: "/config"
+    mountPath: "/conf"
+  sym:
+    enabled: true
+    mountPath: "/sym"
+  uploads:
+    enabled: true
+    mountPath: "/uploads"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: lychee
+  postgresqlDatabase: lychee
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
