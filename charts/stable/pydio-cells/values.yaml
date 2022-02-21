@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: v3.0.4@sha256:81c6f8675ffc243af9ffab5a43da0ed50f33f0c153c352aad027127c3c0318ad
 
-command: ["cat", "/cells/install.yaml"]
+command: ["cat", "/cells/install.yml"]
 
 env:
   CELLS_EXTERNAL: ""
