@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "1.10"
 description: Teedy is an open source, lightweight document management system for individuals and businesses.
 name: teedy
-version: 4.0.33
+version: 4.0.34
 kubeVersion: ">=1.16.0-0"
 keywords:
 - teedy
@@ -16,11 +16,11 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.15.4
+  version: 8.16.0
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 6.0.68
+  version: 6.0.69
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
