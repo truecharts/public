@@ -43,6 +43,13 @@ service:
         targetPort: 10106
         port: 10106
 
+ingress:
+  api:
+    hosts:
+      paths:
+        service:
+          name: api
+
 securityContext:
   readOnlyRootFilesystem: false
 
