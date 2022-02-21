@@ -13,8 +13,9 @@ Otherwise you will have to either re-install the App or edit the `config.php` ma
 The mentioned values are:
   - TRUSTED_PROXIES
   - NODE_IP
+  - Ingress, if you plan to use it.
+  - Data storage location, type (eg. PVC, hostPath).
 
-And if you plan to use ingress, this also needs to be configured correctly on the first time.
 
 Also Nextcloud creates an Admin user on the first startup/installation, which you can only define it's username and password on the first install.
 Changing them later, will have no effect.
