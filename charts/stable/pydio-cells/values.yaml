@@ -14,16 +14,6 @@ env:
   CELLS_SERVICES_DIR: "/cells/services"
   CELLS_INSTALL_YAML: "/cells/install.yml"
 
-envValueFrom:
-  DB_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  DB_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-
 pydioinstall:
   username: "admin"
   password: "supersecret"
@@ -52,6 +42,17 @@ service:
         enabled: true
         targetPort: 33060
         port: 33060
+
+initContainers:
+  1-create-install-config:
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - name: cells
+        mountPath: "/cells"
+    command: ["/bin/sh", "-c"]
+    args:
+      - >
+        cat /cells/install.yml;
 
 persistence:
   cells:

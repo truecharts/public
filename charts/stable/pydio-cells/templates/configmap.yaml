@@ -12,8 +12,8 @@ data:
     frontendPassword: {{ .Values.pydioinstall.password }}
     frontendRepeatPassword: {{ .Values.pydioinstall.password }}
     dbConnectionType: tcp
-    dbTCPHostname: {{ .Values.env.DB_HOST }}
+    dbTCPHostname: {{ .Values.mariadb.url.plainhost }}
     dbTCPPort: 3306
     dbTCPName: {{ .Values.mariadb.mariadbDatabase }}
     dbTCPUser: {{ .Values.mariadb.mariadbUsername }}
-    dbTCPPassword: {{ .Values.env.DB_PASSWORD }}
+    dbTCPPassword: {{ .Values.mariadb.mariadbPassword }}
