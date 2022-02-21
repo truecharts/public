@@ -36,14 +36,14 @@ service:
   main:
     ports:
       main:
-        port: 9010
+        port: "{{ .Values.service.main.ports.main.targetPort }}"
         targetPort: 9010
   supervisor:
     enabled: true
     ports:
       supervisor:
         enabled: true
-        port: 9011
+        port: "{{ .Values.service.supervisor.ports.supervisor.targetPort }}"
         targetPort: 9011
   valheim:
     enabled: true
@@ -51,17 +51,17 @@ service:
     ports:
       valheim1:
         enabled: true
-        port: 2456
+        port: "{{ .Values.service.valheim.ports.valheim1.targetPort }}"
         targetPort: 2456
         protocol: UDP
       valheim2:
         enabled: true
-        port: 2457
+        port: "{{ .Values.service.valheim.ports.valheim2.targetPort }}"
         targetPort: 2457
         protocol: UDP
       valheim3:
         enabled: true
-        port: 2458
+        port: "{{ .Values.service.valheim.ports.valheim3.targetPort }}"
         protocol: UDP
         targetPort: 2458
 
