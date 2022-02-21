@@ -530,6 +530,9 @@ ingress:
     # -- Override the name suffix that is used for this ingress.
     nameOverride:
 
+    # -- Autolink the ingress to a service and port, both with the same name as the ingress.
+    autoLink: false
+
     # -- disable to ignore any default middlwares
     enableFixedMiddlewares: true
 

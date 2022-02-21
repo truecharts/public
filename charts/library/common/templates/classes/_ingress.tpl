@@ -18,11 +18,19 @@ within the common library.
   {{- end -}}
 
   {{- $primaryService := get .Values.service (include "common.service.primary" .) -}}
+  {{- $autoLinkService := get .Values.service (include "common.service.primary" .) -}}
   {{- $defaultServiceName := $fullName -}}
   {{- if and (hasKey $primaryService "nameOverride") $primaryService.nameOverride -}}
     {{- $defaultServiceName = printf "%v-%v" $defaultServiceName $primaryService.nameOverride -}}
   {{- end -}}
   {{- $defaultServicePort := get $primaryService.ports (include "common.classes.service.ports.primary" (dict "values" $primaryService)) -}}
+
+  {{- if and (hasKey $values "nameOverride") ( $values.nameOverride ) ( $values.autoLink ) -}}
+    {{- $autoLinkService = get .Values.service $values.nameOverride -}}
+    {{- $defaultServiceName = $ingressName -}}
+    {{- $defaultServicePort = get $autoLinkService.ports $values.nameOverride -}}
+  {{- end -}}
+
 
   {{- $isStable := include "common.capabilities.ingress.isStable" . }}
 
