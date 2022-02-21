@@ -26918,6 +26918,42 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 10.6.7
+    created: "2022-02-21T19:20:30.475950207Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Fast, reliable, scalable, and easy to use open-source relational
+      database system.
+    digest: 9f41bc754ba11e73184b678a76b7689a0bc343462eae38520d9b6c976eb8b83a
+    home: https://github.com/truecharts/apps/tree/master/stable/mariadb
+    icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+    keywords:
+    - mariadb
+    - mysql
+    - database
+    - sql
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: mariadb
+    sources:
+    - https://github.com/bitnami/bitnami-docker-mariadb
+    - https://github.com/prometheus/mysqld_exporter
+    - https://mariadb.org
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mariadb-1.0.73/mariadb-1.0.73.tgz
+    version: 1.0.73
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 10.6.7
     created: "2022-02-21T17:07:57.78707498Z"
     dependencies:
     - name: common
@@ -28952,6 +28988,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/medusa-1.0.24/medusa-1.0.24.tgz
     version: 1.0.24
   memcached:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+        - cache
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.14
+    created: "2022-02-21T19:20:30.825799338Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Memcached is a memory-backed database caching solution
+    digest: 4ac43398c2dfb32f54fc6bdc2b0c98dd882d3256091aa7ea87cabfd1e85aa971
+    home: https://github.com/truecharts/apps/tree/master/stable/memcached
+    icon: https://bitnami.com/assets/stacks/memcached/img/memcached-stack-220x234.png
+    keywords:
+    - memcached
+    - database
+    - cache
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: memcached
+    sources:
+    - https://github.com/bitnami/bitnami-docker-memcached
+    - http://memcached.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/memcached-1.0.73/memcached-1.0.73.tgz
+    version: 1.0.73
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -42243,6 +42313,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 14.1.0
+    created: "2022-02-21T19:20:31.025733699Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: PostgresSQL
+    digest: e211350f41f515025d7629656ac5354bb952a2935a478f3e7161d60bbec461a5
+    home: https://github.com/truecharts/apps/tree/master/stable/postgres
+    icon: https://d1q6f0aelx0por.cloudfront.net/product-logos/library-postgres-logo.png
+    keywords:
+    - postgres
+    - postgressql
+    - dtabase
+    - sql
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: postgresql
+    sources:
+    - https://www.postgresql.org/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/postgresql-6.0.69/postgresql-6.0.69.tgz
+    version: 6.0.69
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 14.1.0
     created: "2022-02-14T21:55:47.976687738Z"
     dependencies:
     - name: common
@@ -45537,6 +45640,41 @@ entries:
     - https://github.com/truecharts/apps/releases/download/prometheus-1.1.10/prometheus-1.1.10.tgz
     version: 1.1.10
   promtail:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - metrics
+        - logs
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.4.2
+    created: "2022-02-21T19:20:31.262827753Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Promtail is an agent which ships the contents of local logs to a
+      Loki instance
+    digest: 6bb12e081678c3dc01835bd9f343096f3a8c5f4406ec9852a42194d2789a3372
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/prometheus
+    icon: https://raw.githubusercontent.com/grafana/loki/master/docs/sources/logo.png
+    keywords:
+    - metrics
+    - logs
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: promtail
+    sources:
+    - https://github.com/grafana/loki
+    - https://grafana.com/oss/loki/
+    - https://grafana.com/docs/loki/latest/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/promtail-1.0.34/promtail-1.0.34.tgz
+    version: 1.0.34
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -49577,6 +49715,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/recipes-4.0.16/recipes-4.0.16.tgz
     version: 4.0.16
   redis:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+        - cache
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 6.2.6
+    created: "2022-02-21T19:20:31.484116109Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Open source, advanced key-value store.
+    digest: 1e129245b281fa734bfe1bbd385cd0b4d8966a3164a5482808ee5fd898810ce0
+    home: https://github.com/truecharts/apps/tree/master/stable/redis
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: redis
+    sources:
+    - https://github.com/bitnami/bitnami-docker-redis
+    - http://redis.io/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/redis-1.0.76/redis-1.0.76.tgz
+    version: 1.0.76
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -60698,37 +60870,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: latest
-    created: "2022-02-21T18:49:22.614634476Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.15.4
-    description: Valheim dedicated gameserver with automatic update and world backup
-      support
-    digest: f01ec4fc3b1acf8f12b3189140f652db41ceaa893e63421552a86069dc0b8d56
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/valheim
-    icon: https://truecharts.org/_static/img/appicons/valheim-icon.png
-    keywords:
-    - valheim
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: valheim
-    sources:
-    - https://github.com/lloesche/valheim-server-docker
-    - https://hub.docker.com/r/lloesche/valheim-server
-    urls:
-    - https://github.com/truecharts/apps/releases/download/valheim-2.0.24/valheim-2.0.24.tgz
-    version: 2.0.24
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: latest
     created: "2022-02-21T17:08:02.070477912Z"
     dependencies:
     - name: common
@@ -63296,4 +63437,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-21T18:49:22.620129354Z"
+generated: "2022-02-21T19:20:31.494212507Z"
