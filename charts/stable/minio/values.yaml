@@ -43,6 +43,10 @@ service:
         targetPort: 10106
         port: 10106
 
+ingress:
+  api:
+    autoLink: true
+
 securityContext:
   readOnlyRootFilesystem: false
 

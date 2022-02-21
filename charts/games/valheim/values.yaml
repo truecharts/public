@@ -60,6 +60,10 @@ service:
         port: 2458
         protocol: UDP
 
+ingress:
+  supervisor:
+    autoLink: true
+
 persistence:
   config:
     enabled: true
