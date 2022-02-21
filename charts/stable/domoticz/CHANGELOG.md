@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="domoticz-0.0.30"></a>
+### [domoticz-0.0.30](https://github.com/truecharts/apps/compare/domoticz-0.0.29...domoticz-0.0.30) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
 <a name="domoticz-0.0.29"></a>
 ### [domoticz-0.0.29](https://github.com/truecharts/apps/compare/domoticz-0.0.28...domoticz-0.0.29) (2022-02-15)
 

@@ -29,7 +29,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_HOST_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/nextcloud"` |  |
-| image.tag | string | `"v23.0.1@sha256:f788d6fa38ad3b9ca8b5e24453ed648de604b2a2fee7a2953ba55b65eba427a0"` |  |
+| image.tag | string | `"v23.0.2@sha256:a2b897413098ea9a54ab9308c9c645e96189a496a89550be249089f7853c8ed3"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/var/www/html"` |  |
 | podSecurityContext.fsGroup | int | `33` |  |
@@ -39,13 +39,21 @@ You will, however, be able to use all values referenced in the common chart here
 | postgresql.existingSecret | string | `"dbcreds"` |  |
 | postgresql.postgresqlDatabase | string | `"nextcloud"` |  |
 | postgresql.postgresqlUsername | string | `"nextcloud"` |  |
-| probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
-| probes.liveness | object | See below | Liveness probe configuration |
-| probes.liveness.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
-| probes.readiness | object | See below | Redainess probe configuration |
-| probes.readiness.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
-| probes.startup | object | See below | Startup probe configuration |
-| probes.startup.spec | object | "/" | If a HTTP probe is used (default for HTTP/HTTPS services) this path is used |
+| probes.liveness.custom | bool | `true` |  |
+| probes.liveness.spec.httpGet.httpHeaders[0].name | string | `"Host"` |  |
+| probes.liveness.spec.httpGet.httpHeaders[0].value | string | `"test.fakedomain.dns"` |  |
+| probes.liveness.spec.httpGet.path | string | `"/status.php"` |  |
+| probes.liveness.spec.httpGet.port | int | `80` |  |
+| probes.readiness.custom | bool | `true` |  |
+| probes.readiness.spec.httpGet.httpHeaders[0].name | string | `"Host"` |  |
+| probes.readiness.spec.httpGet.httpHeaders[0].value | string | `"test.fakedomain.dns"` |  |
+| probes.readiness.spec.httpGet.path | string | `"/status.php"` |  |
+| probes.readiness.spec.httpGet.port | int | `80` |  |
+| probes.startup.custom | bool | `true` |  |
+| probes.startup.spec.httpGet.httpHeaders[0].name | string | `"Host"` |  |
+| probes.startup.spec.httpGet.httpHeaders[0].value | string | `"test.fakedomain.dns"` |  |
+| probes.startup.spec.httpGet.path | string | `"/status.php"` |  |
+| probes.startup.spec.httpGet.port | int | `80` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
 | secret.NEXTCLOUD_ADMIN_PASSWORD | string | `"adminpass"` |  |

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minio-1.1.1"></a>
+### [minio-1.1.1](https://github.com/truecharts/apps/compare/minio-1.1.0...minio-1.1.1) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
 <a name="minio-1.1.0"></a>
 ### [minio-1.1.0](https://github.com/truecharts/apps/compare/minio-console-1.0.50...minio-1.1.0) (2022-02-20)
 

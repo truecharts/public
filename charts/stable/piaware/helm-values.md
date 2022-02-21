@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/piaware"` | image repository |
-| image.tag | string | `"v7.1@sha256:66f7877eaf20967a98a4dc0fd3e545d15a6d463a0197df0f00a3ac36af18a325"` | image tag |
+| image.tag | string | `"v7.1@sha256:e3d405dfdc056586e5a506e990a18e248c828d2821c86255d7ab4600903079d8"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

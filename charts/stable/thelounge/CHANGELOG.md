@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="thelounge-4.0.43"></a>
+### [thelounge-4.0.43](https://github.com/truecharts/apps/compare/thelounge-4.0.42...thelounge-4.0.43) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
 <a name="thelounge-4.0.42"></a>
 ### [thelounge-4.0.42](https://github.com/truecharts/apps/compare/thelounge-4.0.41...thelounge-4.0.42) (2022-02-15)
 

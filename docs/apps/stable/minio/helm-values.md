@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MINIO_SERVER_URL | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/minio"` |  |
-| image.tag | string | `"latest@sha256:8129f69c85b84e13f085a1ce127f108cee0ea84a1f496e8065796c7a15a08442"` |  |
+| image.tag | string | `"latest@sha256:bd004ba41b2456f115c7f1360d7c49f4478f5d9ce20ad042c8ce2cf5aff46d24"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/data"` |  |
 | probes.liveness.custom | bool | `true` |  |

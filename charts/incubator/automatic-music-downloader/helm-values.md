@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/automatic-music-downloader"` |  |
-| image.tag | string | `"latest@sha256:7a1b9f4b3f0cc3341be14792259ed5bedd6c64d0e732bde644b32fcefd6e94b1"` |  |
+| image.tag | string | `"latest@sha256:541eff647695209e9071e9483f434420e2d333068865e75e9db40b045e1a8358"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.data.enabled | bool | `true` |  |

@@ -123,10 +123,10 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          'tccr.io/truecharts/linkace:v1.9.1@sha256:88923f556900b0c6b79ea978e3692c690c0a6f9c28d048f2067a803095de1ef1'
-          'tccr.io/truecharts/linkace:v1.9.1@sha256:88923f556900b0c6b79ea978e3692c690c0a6f9c28d048f2067a803095de1ef1'
-          'tccr.io/truecharts/linkace:v1.9.1@sha256:88923f556900b0c6b79ea978e3692c690c0a6f9c28d048f2067a803095de1ef1'
-          tccr.io/truecharts/linkace:v1.9.1@sha256:88923f556900b0c6b79ea978e3692c690c0a6f9c28d048f2067a803095de1ef1
+          'tccr.io/truecharts/linkace:v1.9.1@sha256:615c0ef285f03a7019db6d4b7a06103dc678b2b42c2ecdd4769232ab941ba9b3'
+          'tccr.io/truecharts/linkace:v1.9.1@sha256:615c0ef285f03a7019db6d4b7a06103dc678b2b42c2ecdd4769232ab941ba9b3'
+          'tccr.io/truecharts/linkace:v1.9.1@sha256:615c0ef285f03a7019db6d4b7a06103dc678b2b42c2ecdd4769232ab941ba9b3'
+          tccr.io/truecharts/linkace:v1.9.1@sha256:615c0ef285f03a7019db6d4b7a06103dc678b2b42c2ecdd4769232ab941ba9b3
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/mariadb:v10.6.5@sha256:a2a1df3e6d6c928c460fc8ab5ca2e005098768465213cdc0d598a4098251e81c
@@ -207,7 +207,7 @@ hide:
 
 
 
-#### Container: tccr.io/truecharts/linkace:v1.9.1@sha256:88923f556900b0c6b79ea978e3692c690c0a6f9c28d048f2067a803095de1ef1 (alpine 3.15.0)
+#### Container: tccr.io/truecharts/linkace:v1.9.1@sha256:615c0ef285f03a7019db6d4b7a06103dc678b2b42c2ecdd4769232ab941ba9b3 (alpine 3.15.0)
 
 
 **alpine**
@@ -215,8 +215,13 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| expat         |    CVE-2022-23852   |   CRITICAL  |  2.4.3-r0 | 2.4.4-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23852">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23852</a><br><a href="https://github.com/libexpat/libexpat/pull/550">https://github.com/libexpat/libexpat/pull/550</a><br><a href="https://www.debian.org/security/2022/dsa-5073">https://www.debian.org/security/2022/dsa-5073</a><br><a href="https://www.tenable.com/security/tns-2022-05">https://www.tenable.com/security/tns-2022-05</a><br></details>  |
+| expat         |    CVE-2022-23852   |   CRITICAL  |  2.4.3-r0 | 2.4.4-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23852">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23852</a><br><a href="https://github.com/libexpat/libexpat/pull/550">https://github.com/libexpat/libexpat/pull/550</a><br><a href="https://security.netapp.com/advisory/ntap-20220217-0001/">https://security.netapp.com/advisory/ntap-20220217-0001/</a><br><a href="https://www.debian.org/security/2022/dsa-5073">https://www.debian.org/security/2022/dsa-5073</a><br><a href="https://www.tenable.com/security/tns-2022-05">https://www.tenable.com/security/tns-2022-05</a><br></details>  |
 | expat         |    CVE-2022-23990   |   CRITICAL  |  2.4.3-r0 | 2.4.4-r0 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23990">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23990</a><br><a href="https://github.com/libexpat/libexpat/pull/551">https://github.com/libexpat/libexpat/pull/551</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/34NXVL2RZC2YZRV74ZQ3RNFB7WCEUP7D/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/34NXVL2RZC2YZRV74ZQ3RNFB7WCEUP7D/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R7FF2UH7MPXKTADYSJUAHI2Y5UHBSHUH/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/R7FF2UH7MPXKTADYSJUAHI2Y5UHBSHUH/</a><br><a href="https://www.debian.org/security/2022/dsa-5073">https://www.debian.org/security/2022/dsa-5073</a><br><a href="https://www.tenable.com/security/tns-2022-05">https://www.tenable.com/security/tns-2022-05</a><br></details>  |
+| expat         |    CVE-2022-25315   |   HIGH  |  2.4.3-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://github.com/libexpat/libexpat/pull/559">https://github.com/libexpat/libexpat/pull/559</a><br></details>  |
+| expat         |    CVE-2022-25313   |   MEDIUM  |  2.4.3-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://github.com/libexpat/libexpat/pull/558">https://github.com/libexpat/libexpat/pull/558</a><br></details>  |
+| expat         |    CVE-2022-25314   |   MEDIUM  |  2.4.3-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://github.com/libexpat/libexpat/pull/560">https://github.com/libexpat/libexpat/pull/560</a><br></details>  |
+| expat         |    CVE-2022-25235   |   UNKNOWN  |  2.4.3-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://github.com/libexpat/libexpat/pull/562">https://github.com/libexpat/libexpat/pull/562</a><br></details>  |
+| expat         |    CVE-2022-25236   |   UNKNOWN  |  2.4.3-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://github.com/libexpat/libexpat/pull/561">https://github.com/libexpat/libexpat/pull/561</a><br></details>  |
 
 **node-pkg**
 
