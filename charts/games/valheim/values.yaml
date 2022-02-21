@@ -72,6 +72,13 @@ service:
         protocol: UDP
         targetPort: 2458
 
+ingress:
+  supervisor:
+    hosts:
+      paths:
+        service:
+          name: supervisor
+
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
 persistence:
