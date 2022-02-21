@@ -1932,6 +1932,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: latest
+    created: "2022-02-21T15:35:28.786996979Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.15.4
+    description: A Lidarr companion script to automatically download music for Lidarr.
+    digest: a30711457144f2f861456c82e899a079f14f3b3b7be938d6500cb9b68f08b14f
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/automatic-music-downloader
+    icon: https://truecharts.org/_static/img/appicons/automatic-music-downloader-icon.png
+    keywords:
+    - automatic
+    - music
+    - downloader
+    - deemix
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: automatic-music-downloader
+    sources:
+    - https://github.com/RandomNinjaAtk/docker-amd
+    - https://hub.docker.com/r/randomninjaatk/amd
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/automatic-music-downloader-0.0.2/automatic-music-downloader-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
     created: "2022-02-20T14:40:36.340479325Z"
     dependencies:
     - name: common
@@ -30719,37 +30753,6 @@ entries:
     - https://github.com/truecharts/apps/releases/download/miniflux-4.0.12/miniflux-4.0.12.tgz
     version: 4.0.12
   minio:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: latest
-    created: "2022-02-20T20:08:33.051859013Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.15.4
-    description: Minio is a self-hosted S3 storage server
-    digest: b5eff7bf18a8334677814e0cdd7b6beee23d6280554640a983cda89e4ba9ff5e
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/minio
-    icon: https://truecharts.org/_static/img/appicons/minio-icon.png
-    keywords:
-    - minio
-    - s3
-    - storage
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: minio
-    sources:
-    - https://github.com/minio/minio
-    urls:
-    - https://github.com/truecharts/apps/releases/download/minio-1.1.0/minio-1.1.0.tgz
-    version: 1.1.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -62054,4 +62057,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-20T20:08:33.056383474Z"
+generated: "2022-02-21T15:35:28.791610235Z"
