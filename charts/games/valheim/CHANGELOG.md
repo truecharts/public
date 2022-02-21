@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.24"></a>
+### [valheim-2.0.24](https://github.com/truecharts/apps/compare/valheim-2.0.23...valheim-2.0.24) (2022-02-21)
+
+#### Fix
+
+* Correctly map ports when changed in the UI ([#1921](https://github.com/truecharts/apps/issues/1921))
+
+
+
 <a name="valheim-2.0.23"></a>
 ### [valheim-2.0.23](https://github.com/truecharts/apps/compare/valheim-2.0.22...valheim-2.0.23) (2022-02-21)
 
