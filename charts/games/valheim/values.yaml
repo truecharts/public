@@ -11,11 +11,11 @@ secret:
 env:
   TZ: UTC
   STATUS_HTTP: true
-  STATUS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-  SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.port }}"
+  STATUS_HTTP_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+  SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.targetPort }}"
   SUPERVISOR_HTTP: true
   SERVER_NAME: My Server
-  SERVER_PORT: "{{ .Values.service.valheim.ports.valheim1.port }}"
+  SERVER_PORT: "{{ .Values.service.valheim.ports.valheim1.targetPort }}"
   WORLD_NAME: Dedicated
   SERVER_PUBLIC: true
   UPDATE_INTERVAL: 10800
@@ -37,14 +37,14 @@ service:
     ports:
       main:
         port: 9010
-        targetPort: "{{ .Values.service.main.ports.main.port }}"
+        targetPort: 9010
   supervisor:
     enabled: true
     ports:
       supervisor:
         enabled: true
         port: 9011
-        targetPort: "{{ .Values.service.supervisor.ports.supervisor.port }}"
+        targetPort: 9011
   valheim:
     enabled: true
     type: LoadBalancer
@@ -52,18 +52,18 @@ service:
       valheim1:
         enabled: true
         port: 2456
-        targetPort: "{{ .Values.service.valheim.ports.valheim1.port }}"
+        targetPort: 2456
         protocol: UDP
       valheim2:
         enabled: true
         port: 2457
-        targetPort: "{{ .Values.service.valheim.ports.valheim2.port }}"
+        targetPort: 2457
         protocol: UDP
       valheim3:
         enabled: true
         port: 2458
         protocol: UDP
-        targetPort: "{{ .Values.service.valheim.ports.valheim3.port }}"
+        targetPort: 2458
 
 persistence:
   config:
