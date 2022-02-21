@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.16.0"></a>
+### [common-8.16.0](https://github.com/truecharts/apps/compare/common-8.15.4...common-8.16.0) (2022-02-21)
+
+#### Feat
+
+* add autolinking opion to ingress ([#1922](https://github.com/truecharts/apps/issues/1922))
+
+
+
 <a name="common-8.15.4"></a>
 ### [common-8.15.4](https://github.com/truecharts/apps/compare/common-8.15.3...common-8.15.4) (2022-02-14)
 
