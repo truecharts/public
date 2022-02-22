@@ -1,5 +1,5 @@
 {{/*
-This template generates a random password and ensures it persists across updates/edits to the chart
+This template generates a random appkey and ensures it persists across updates/edits to the chart
 */}}
 {{- define "monica.appkey" -}}
 ---
