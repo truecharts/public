@@ -24,6 +24,30 @@ questions:
             type: boolean
             default: true
 # Include{global}
+  - variable: PUID
+    label: "PUID"
+    description: "User ID of the user you want the container to run as in order to fix folder permission issues"
+    schema:
+      type: int
+      default: 1000
+  - variable: PGID
+    label: "PGID"
+    description: "Group ID, see PUID"
+    schema:
+      type: int
+      default: 1000
+  - variable: UMASK_SET
+    label: "UMASK_SET"
+    description: "Setting UMASK for file permissions Default is 022"
+    schema:
+      type: string
+      default: "022"
+  - variable: INTPORT
+    label: "Internal Port"
+    description: "This changes the internal port of deemix. DON'T CHANGE THIS IF YOU DONT KNOW WHY YOU WOULD DO IT"
+    schema:
+      type: int
+      default: 3333
   - variable: controller
     group: "Controller"
     label: ""
@@ -147,32 +171,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 6595
-        - variable: PUID
-          label: "PUID"
-          description: "User ID of the user you want the container to run as in order to fix folder permission issues"
-          schema:
-            type: int
-            default: 1000
-        - variable: PGID
-          label: "PGID"
-          description: "Group ID, see PUID"
-          schema:
-            type: int
-            default: 1000
-        - variable: UMASK_SET
-          label: "UMASK_SET"
-          description: "Setting UMASK for file permissions Default is 022"
-          schema:
-            type: string
-            default: "022"
-        - variable: INTPORT
-          label: "Internal Port"
-          description: "This changes the internal port of deemix. DON'T CHANGE THIS IF YOU DONT KNOW WHY YOU WOULD DO IT"
-          schema:
-            type: int
-            default: 3333
-# Include{containerConfig}
-
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -225,50 +223,7 @@ questions:
                       description: "pvc"
                     - value: "hostPath"
                       description: "hostPath"
-              # Include{persistenceBasic}
-              - variable: hostPath
-                label: "hostPath"
-                description: "Path inside the container the storage is mounted"
-                schema:
-                  show_if: [["type", "=", "hostPath"]]
-                  type: hostpath
-              - variable: medium
-                label: "EmptyDir Medium"
-                schema:
-                  show_if: [["type", "=", "emptyDir"]]
-                  type: string
-                  default: ""
-                  enum:
-                    - value: ""
-                      description: "Default"
-                    - value: "Memory"
-                      description: "Memory"
-        # Include{persistenceAdvanced}
-        - variable: data
-          label: "App Data Storage"
-          description: "Stores the Application Data."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: type
-                label: "Type of Storage"
-                description: "Sets the persistence type, Anything other than PVC could break rollback!"
-                schema:
-                  type: string
-                  default: "simplePVC"
-                  enum:
-                    - value: "simplePVC"
-                      description: "PVC (simple)"
-                    - value: "simpleHP"
-                      description: "HostPath (simple)"
-                    - value: "emptyDir"
-                      description: "emptyDir"
-                    - value: "pvc"
-                      description: "pvc"
-                    - value: "hostPath"
-                      description: "hostPath"
-              # Include{persistenceBasic}
+# Include{persistenceBasic}
               - variable: hostPath
                 label: "hostPath"
                 description: "Path inside the container the storage is mounted"
@@ -289,8 +244,30 @@ questions:
 # Include{persistenceAdvanced}
 # Include{persistenceList}
 
+  - variable: ingress
+    label: ""
+    group: "Ingress"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+
+# Include{ingressTLS}
+
+# Include{ingressTraefik}
+
+# Include{ingressExpert}
 
 # Include{ingressList}
+
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"
