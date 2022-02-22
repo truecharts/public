@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="impostor-server-0.0.9"></a>
+### [impostor-server-0.0.9](https://github.com/truecharts/apps/compare/impostor-server-0.0.8...impostor-server-0.0.9) (2022-02-22)
+
+#### Chore
+
+* update helm chart common to v8.16.0 ([#1925](https://github.com/truecharts/apps/issues/1925))
+
+
+
 <a name="impostor-server-0.0.8"></a>
 ### [impostor-server-0.0.8](https://github.com/truecharts/apps/compare/impostor-server-0.0.7...impostor-server-0.0.8) (2022-02-21)
 
