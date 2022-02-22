@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="gonic-4.0.40"></a>
+### [gonic-4.0.40](https://github.com/truecharts/apps/compare/gonic-4.0.39...gonic-4.0.40) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="gonic-4.0.39"></a>
 ### [gonic-4.0.39](https://github.com/truecharts/apps/compare/gonic-4.0.38...gonic-4.0.39) (2022-02-08)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="gitea-5.0.43"></a>
+### [gitea-5.0.43](https://github.com/truecharts/apps/compare/gitea-5.0.42...gitea-5.0.43) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+* remove dups from configmap ([#1878](https://github.com/truecharts/apps/issues/1878))
+
+
+
 <a name="gitea-5.0.42"></a>
 ### [gitea-5.0.42](https://github.com/truecharts/apps/compare/gitea-5.0.41...gitea-5.0.42) (2022-02-12)
 

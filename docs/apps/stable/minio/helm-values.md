@@ -11,19 +11,35 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| args | list | `["server","/data","--console-address",":9001"]` | Override the args for the default container. |
-| env | object | See below | environment variables. See more environment variables in the [minio documentation](https://docs.min.io). |
-| env.MINIO_ROOT_USER | string | `"minio"` | Minio Username |
-| env.TZ | string | `"UTC"` | Set the container timezone |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"tccr.io/truecharts/minio"` | image repository |
-| image.tag | string | `"latest@sha256:8129f69c85b84e13f085a1ce127f108cee0ea84a1f496e8065796c7a15a08442"` | image tag |
+| args[0] | string | `"server"` |  |
+| args[1] | string | `"/data"` |  |
+| args[2] | string | `"--address"` |  |
+| args[3] | string | `":10106"` |  |
+| args[4] | string | `"--console-address"` |  |
+| args[5] | string | `":10107"` |  |
+| env.MINIO_BROWSER_REDIRECT_URL | string | `""` |  |
+| env.MINIO_ROOT_USER | string | `"minio"` |  |
+| env.MINIO_SERVER_URL | string | `""` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"tccr.io/truecharts/minio"` |  |
+| image.tag | string | `"latest@sha256:8129f69c85b84e13f085a1ce127f108cee0ea84a1f496e8065796c7a15a08442"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/data"` |  |
-| probes.liveness.path | string | `"/minio/health/live"` |  |
-| probes.readiness.path | string | `"/minio/health/ready"` |  |
-| secret.MINIO_ROOT_PASSWORD | string | `"changeme"` | Minio Password |
+| probes.liveness.custom | bool | `true` |  |
+| probes.liveness.spec.httpGet.path | string | `"/minio/health/live"` |  |
+| probes.liveness.spec.httpGet.port | int | `10106` |  |
+| probes.liveness.spec.httpGet.scheme | string | `"HTTP"` |  |
+| probes.readiness.custom | bool | `true` |  |
+| probes.readiness.spec.httpGet.path | string | `"/minio/health/ready"` |  |
+| probes.readiness.spec.httpGet.port | int | `10106` |  |
+| probes.readiness.spec.httpGet.scheme | string | `"HTTP"` |  |
+| secret.MINIO_ROOT_PASSWORD | string | `"changeme"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service.api.enabled | bool | `true` |  |
+| service.api.ports.api.enabled | bool | `true` |  |
+| service.api.ports.api.port | int | `10106` |  |
+| service.api.ports.api.targetPort | int | `10106` |  |
+| service.main.ports.main.port | int | `10107` |  |
+| service.main.ports.main.targetPort | int | `10107` |  |
 
 All Rights Reserved - The TrueCharts Project

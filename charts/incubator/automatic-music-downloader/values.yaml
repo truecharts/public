@@ -1,0 +1,35 @@
+image:
+  repository: tccr.io/truecharts/automatic-music-downloader
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:7a1b9f4b3f0cc3341be14792259ed5bedd6c64d0e732bde644b32fcefd6e94b1
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/downloads-amd"

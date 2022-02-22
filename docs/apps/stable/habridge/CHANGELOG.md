@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="habridge-0.0.23"></a>
+### [habridge-0.0.23](https://github.com/truecharts/apps/compare/habridge-0.0.22...habridge-0.0.23) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="habridge-0.0.22"></a>
 ### [habridge-0.0.22](https://github.com/truecharts/apps/compare/habridge-0.0.21...habridge-0.0.22) (2022-02-08)
 

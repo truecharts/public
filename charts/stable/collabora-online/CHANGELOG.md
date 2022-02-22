@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="collabora-online-10.0.26"></a>
+### [collabora-online-10.0.26](https://github.com/truecharts/apps/compare/collabora-online-10.0.25...collabora-online-10.0.26) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="collabora-online-10.0.25"></a>
 ### [collabora-online-10.0.25](https://github.com/truecharts/apps/compare/collabora-online-10.0.24...collabora-online-10.0.25) (2022-02-08)
 

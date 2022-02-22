@@ -515,5 +515,6 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] WeblateOrg #817
 - [x] LinkAce #1020
 - [x] Photoview #293
-- [x] Librephotos #293
+- [x] Li
+- [x] AMD - Automated Music Downloader
 - [x] Deemix #628

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-0.0.7"></a>
+### [minecraft-bedrock-0.0.7](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.6...minecraft-bedrock-0.0.7) (2022-02-16)
+
+#### Chore
+
+* update helm chart common to v8.15.4 ([#1879](https://github.com/truecharts/apps/issues/1879))
+
+
+
 <a name="minecraft-bedrock-0.0.6"></a>
 ### [minecraft-bedrock-0.0.6](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.5...minecraft-bedrock-0.0.6) (2022-02-08)
 

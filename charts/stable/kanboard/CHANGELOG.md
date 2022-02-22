@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kanboard-5.0.33"></a>
+### [kanboard-5.0.33](https://github.com/truecharts/apps/compare/kanboard-5.0.32...kanboard-5.0.33) (2022-02-15)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1901](https://github.com/truecharts/apps/issues/1901))
+
+
+
 <a name="kanboard-5.0.32"></a>
 ### [kanboard-5.0.32](https://github.com/truecharts/apps/compare/kanboard-5.0.31...kanboard-5.0.32) (2022-02-08)
 

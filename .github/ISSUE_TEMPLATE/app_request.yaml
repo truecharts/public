@@ -1,0 +1,27 @@
+name: 📃 App Request 🙏
+description: Request new apps to be added to TrueCharts Catalog
+title: "[Add]: "
+labels: ["New App Request", "backlog"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for making this request.
+        Keep in mind that this request is not a guarantee that the app will be added.
+
+        ---
+  - type: textarea
+    attributes:
+      label: Short description of the app
+      description: Describe what the app does in a few words
+      placeholder: Ex. An online platform to share your code.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Sources
+      description: |
+        Provide source links for the app.
+        Like documentation, github repo, container image, etc
+    validations:
+      required: true
