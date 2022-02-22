@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="fossil-2.0.41"></a>
+### [fossil-2.0.41](https://github.com/truecharts/apps/compare/fossil-2.0.40...fossil-2.0.41) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
 <a name="fossil-2.0.40"></a>
 ### [fossil-2.0.40](https://github.com/truecharts/apps/compare/fossil-2.0.39...fossil-2.0.40) (2022-02-15)
 

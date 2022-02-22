@@ -18,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://metallb.github.io/metallb | metallb | 0.11.0 |
+| https://metallb.github.io/metallb | metallb | 0.12.1 |
 
 ## Installing the Chart
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="shlink-1.0.13"></a>
+### [shlink-1.0.13](https://github.com/truecharts/apps/compare/shlink-1.0.12...shlink-1.0.13) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
 <a name="shlink-1.0.12"></a>
 ### [shlink-1.0.12](https://github.com/truecharts/apps/compare/shlink-1.0.11...shlink-1.0.12) (2022-02-15)
 

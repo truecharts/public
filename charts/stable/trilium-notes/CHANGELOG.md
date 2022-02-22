@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="trilium-notes-1.0.11"></a>
+### [trilium-notes-1.0.11](https://github.com/truecharts/apps/compare/trilium-notes-1.0.10...trilium-notes-1.0.11) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
 <a name="trilium-notes-1.0.10"></a>
 ### [trilium-notes-1.0.10](https://github.com/truecharts/apps/compare/trilium-notes-1.0.9...trilium-notes-1.0.10) (2022-02-15)
 

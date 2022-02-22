@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/minio
-  tag: latest@sha256:8129f69c85b84e13f085a1ce127f108cee0ea84a1f496e8065796c7a15a08442
+  tag: latest@sha256:bd004ba41b2456f115c7f1360d7c49f4478f5d9ce20ad042c8ce2cf5aff46d24
   pullPolicy: IfNotPresent
 
 args: ["server", "/data", "--address", ":10106", "--console-address", ":10107"]
@@ -42,6 +42,10 @@ service:
         enabled: true
         targetPort: 10106
         port: 10106
+
+ingress:
+  api:
+    autoLink: true
 
 securityContext:
   readOnlyRootFilesystem: false

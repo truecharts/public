@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.76"></a>
+### [custom-app-3.0.76](https://github.com/truecharts/apps/compare/custom-app-3.0.75...custom-app-3.0.76) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="custom-app-3.0.75"></a>
+### [custom-app-3.0.75](https://github.com/truecharts/apps/compare/custom-app-3.0.74...custom-app-3.0.75) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
 <a name="custom-app-3.0.74"></a>
 ### [custom-app-3.0.74](https://github.com/truecharts/apps/compare/custom-app-3.0.73...custom-app-3.0.74) (2022-02-15)
 

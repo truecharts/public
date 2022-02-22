@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mealie-5.0.24"></a>
+### [mealie-5.0.24](https://github.com/truecharts/apps/compare/mealie-5.0.23...mealie-5.0.24) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
 <a name="mealie-5.0.23"></a>
 ### [mealie-5.0.23](https://github.com/truecharts/apps/compare/mealie-5.0.22...mealie-5.0.23) (2022-02-15)
 

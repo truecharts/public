@@ -44,6 +44,7 @@ data:
     # Optional: Detectors configuration. Defaults to a single CPU detector
     detectors:
     # Required: name of the detector
+{{- if .Values.persistence.coral }}
 {{- if .Values.persistence.coral.enabled }}
       coral:
         # Required: type of the detector
@@ -58,7 +59,7 @@ data:
         # This value is only used for CPU types
         num_threads: 2
 {{- end }}
-
+{{- end }}
 
 
     # Optional: Database configuration

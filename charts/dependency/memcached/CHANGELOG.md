@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="memcached-1.0.73"></a>
+### [memcached-1.0.73](https://github.com/truecharts/apps/compare/memcached-1.0.72...memcached-1.0.73) (2022-02-21)
+
+#### Chore
+
+* update helm chart common to v8.16.0 ([#1926](https://github.com/truecharts/apps/issues/1926))
+
+
+
+<a name="memcached-1.0.72"></a>
+### [memcached-1.0.72](https://github.com/truecharts/apps/compare/memcached-1.0.71...memcached-1.0.72) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
 <a name="memcached-1.0.71"></a>
 ### [memcached-1.0.71](https://github.com/truecharts/apps/compare/memcached-1.0.70...memcached-1.0.71) (2022-02-14)
 

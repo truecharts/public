@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="metallb-1.0.4"></a>
+### [metallb-1.0.4](https://github.com/truecharts/apps/compare/metallb-1.0.3...metallb-1.0.4) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+#### Fix
+
+* correct mistake in renovate bump
+
+
+
 <a name="metallb-1.0.3"></a>
 ### [metallb-1.0.3](https://github.com/truecharts/apps/compare/metallb-1.0.2...metallb-1.0.3) (2021-12-19)
 

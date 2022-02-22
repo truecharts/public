@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.66"></a>
+### [prometheus-1.1.66](https://github.com/truecharts/apps/compare/prometheus-1.1.65...prometheus-1.1.66) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="prometheus-1.1.65"></a>
+### [prometheus-1.1.65](https://github.com/truecharts/apps/compare/prometheus-1.1.64...prometheus-1.1.65) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
 <a name="prometheus-1.1.64"></a>
 ### [prometheus-1.1.64](https://github.com/truecharts/apps/compare/prometheus-1.1.63...prometheus-1.1.64) (2022-02-15)
 

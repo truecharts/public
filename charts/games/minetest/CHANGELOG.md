@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minetest-0.0.23"></a>
+### [minetest-0.0.23](https://github.com/truecharts/apps/compare/minetest-0.0.22...minetest-0.0.23) (2022-02-22)
+
+#### Chore
+
+* update helm chart common to v8.16.0 ([#1925](https://github.com/truecharts/apps/issues/1925))
+
+
+
 <a name="minetest-0.0.22"></a>
 ### [minetest-0.0.22](https://github.com/truecharts/apps/compare/minetest-0.0.21...minetest-0.0.22) (2022-02-16)
 

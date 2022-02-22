@@ -45,7 +45,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/automatic-music-downloader:latest@sha256:7a1b9f4b3f0cc3341be14792259ed5bedd6c64d0e732bde644b32fcefd6e94b1
+          tccr.io/truecharts/automatic-music-downloader:latest@sha256:541eff647695209e9071e9483f434420e2d333068865e75e9db40b045e1a8358
 
 ##### Scan Results
 

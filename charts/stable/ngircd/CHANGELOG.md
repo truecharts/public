@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ngircd-0.0.22"></a>
+### [ngircd-0.0.22](https://github.com/truecharts/apps/compare/ngircd-0.0.21...ngircd-0.0.22) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
 <a name="ngircd-0.0.21"></a>
 ### [ngircd-0.0.21](https://github.com/truecharts/apps/compare/ngircd-0.0.20...ngircd-0.0.21) (2022-02-15)
 

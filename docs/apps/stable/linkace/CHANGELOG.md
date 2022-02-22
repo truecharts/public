@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="linkace-1.0.3"></a>
+### [linkace-1.0.3](https://github.com/truecharts/apps/compare/linkace-1.0.2...linkace-1.0.3) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="linkace-1.0.2"></a>
+### [linkace-1.0.2](https://github.com/truecharts/apps/compare/linkace-1.0.1...linkace-1.0.2) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
 <a name="linkace-1.0.1"></a>
 ### [linkace-1.0.1](https://github.com/truecharts/apps/compare/linkace-1.0.0...linkace-1.0.1) (2022-02-15)
 

@@ -8,6 +8,12 @@ service:
     ports:
       main:
         port: 8080
+  autolink:
+    enabled: true
+    ports:
+      autolink:
+        enabled: true
+        port: 8081
 
 args:
   - --port
@@ -70,6 +76,21 @@ ingress:
               name:
               port:
     tls: []
+
+  autolink:
+    enabled: true
+    fixedMiddlewares:
+      - chain-basic
+    hosts:
+      - host: label.chart-example.local
+        paths:
+          - path: /
+            pathType: Prefix
+            service:
+              name:
+              port:
+    tls: []
+    autoLink: true
 
   labellist:
     enabled: true

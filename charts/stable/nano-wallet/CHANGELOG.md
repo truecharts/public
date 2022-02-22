@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nano-wallet-0.0.25"></a>
+### [nano-wallet-0.0.25](https://github.com/truecharts/apps/compare/nano-wallet-0.0.24...nano-wallet-0.0.25) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
 <a name="nano-wallet-0.0.24"></a>
 ### [nano-wallet-0.0.24](https://github.com/truecharts/apps/compare/nano-wallet-0.0.23...nano-wallet-0.0.24) (2022-02-15)
 

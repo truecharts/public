@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="ombi-9.0.51"></a>
+### [ombi-9.0.51](https://github.com/truecharts/apps/compare/ombi-9.0.50...ombi-9.0.51) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="ombi-9.0.50"></a>
+### [ombi-9.0.50](https://github.com/truecharts/apps/compare/ombi-9.0.49...ombi-9.0.50) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
 <a name="ombi-9.0.49"></a>
 ### [ombi-9.0.49](https://github.com/truecharts/apps/compare/ombi-9.0.48...ombi-9.0.49) (2022-02-15)
 

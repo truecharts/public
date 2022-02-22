@@ -3,15 +3,15 @@ appVersion: "1.9.1"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.15.4
+  version: 8.16.0
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
-  version: 1.0.71
+  version: 1.0.73
 - condition: redis.enabled
   name: redis
   repository: https://truecharts.org
-  version: 1.0.74
+  version: 1.0.76
 description: Your self-hosted bookmark archive. Free and open source.
 home: https://github.com/truecharts/apps/tree/master/charts/stable/linkace
 icon: https://truecharts.org/_static/img/appicons/linkace-icon.png
@@ -27,7 +27,7 @@ sources:
 - https://www.linkace.org/docs/
 - https://github.com/linkace/linkace
 - https://hub.docker.com/r/linkace/linkace
-version: 1.0.1
+version: 1.0.3
 annotations:
   truecharts.org/catagories: |
     - media

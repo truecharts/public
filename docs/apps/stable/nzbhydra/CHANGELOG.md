@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-9.0.47"></a>
+### [nzbhydra-9.0.47](https://github.com/truecharts/apps/compare/nzbhydra-9.0.46...nzbhydra-9.0.47) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
 <a name="nzbhydra-9.0.46"></a>
 ### [nzbhydra-9.0.46](https://github.com/truecharts/apps/compare/nzbhydra-9.0.45...nzbhydra-9.0.46) (2022-02-15)
 

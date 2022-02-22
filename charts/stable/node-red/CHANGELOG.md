@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="node-red-9.0.45"></a>
+### [node-red-9.0.45](https://github.com/truecharts/apps/compare/node-red-9.0.44...node-red-9.0.45) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
+<a name="node-red-9.0.44"></a>
+### [node-red-9.0.44](https://github.com/truecharts/apps/compare/node-red-9.0.43...node-red-9.0.44) (2022-02-21)
+
+#### Chore
+
+* update docker general non-major ([#1924](https://github.com/truecharts/apps/issues/1924))
+
+
+
 <a name="node-red-9.0.43"></a>
 ### [node-red-9.0.43](https://github.com/truecharts/apps/compare/node-red-9.0.42...node-red-9.0.43) (2022-02-15)
 

@@ -95,6 +95,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | imageSelector | string | `"image"` | Image Selector allows for easy picking a different image dict, important for the SCALE GUI |
 | ingress | object | See below | Configure the ingresses for the chart here. Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress. |
 | ingress.main.annotations | object | `{}` | Provide additional annotations which may be required. |
+| ingress.main.autoLink | bool | `false` | Autolink the ingress to a service and port, both with the same name as the ingress. |
 | ingress.main.enableFixedMiddlewares | bool | `true` | disable to ignore any default middlwares |
 | ingress.main.enabled | bool | `false` | Enables or disables the ingress |
 | ingress.main.fixedMiddlewares | list | `["chain-basic"]` | List of middlewares in the traefikmiddlewares k8s namespace to add automatically Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user |

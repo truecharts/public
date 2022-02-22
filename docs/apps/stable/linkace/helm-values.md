@@ -44,7 +44,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/linkace"` |  |
-| image.tag | string | `"v1.9.1@sha256:88923f556900b0c6b79ea978e3692c690c0a6f9c28d048f2067a803095de1ef1"` |  |
+| image.tag | string | `"v1.9.1@sha256:615c0ef285f03a7019db6d4b7a06103dc678b2b42c2ecdd4769232ab941ba9b3"` |  |
 | initContainers.1-copy-app.args[0] | string | `"echo \"Copying app...\"; cp -R /app/* /tmp/;\n"` |  |
 | initContainers.1-copy-app.command[0] | string | `"/bin/sh"` |  |
 | initContainers.1-copy-app.command[1] | string | `"-c"` |  |
