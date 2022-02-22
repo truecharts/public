@@ -18,3 +18,4 @@ data:
     dbTCPName: {{ .Values.mariadb.mariadbDatabase }}
     dbTCPUser: {{ .Values.mariadb.mariadbUsername }}
     dbTCPPassword: {{ .Values.mariadb.mariadbPassword }}
+{{- end -}}
