@@ -14,5 +14,7 @@ persistence:
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "pydiocells.harcodedValues" . | fromYaml) -}}
 
+{{- include "pydiocells.configmap" . }}
+
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}

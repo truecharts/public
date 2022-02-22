@@ -1,3 +1,4 @@
+{{- define "pydiocells.configmap" -}}
 ---
 apiVersion: v1
 kind: ConfigMap
