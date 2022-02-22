@@ -1,3 +1,6 @@
+{{/*
+This template generates a random password and ensures it persists across updates/edits to the chart
+*/}}
 {{- define "monica.appkey" -}}
 ---
 apiVersion: v1
