@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="lychee-10.0.0"></a>
+### [lychee-10.0.0](https://github.com/truecharts/apps/compare/lychee-9.0.43...lychee-10.0.0) (2022-02-22)
+
+#### Feat
+
+* Add db/redis, fix storage path, add app_key secret, add gui config options ([#1928](https://github.com/truecharts/apps/issues/1928))
+
+
+
 <a name="lychee-9.0.43"></a>
 ### [lychee-9.0.43](https://github.com/truecharts/apps/compare/lychee-9.0.42...lychee-9.0.43) (2022-02-21)
 

@@ -26713,6 +26713,48 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 4.4.0
+    created: "2022-02-22T10:34:00.121217631Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.68
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.74
+    description: Lychee is a free photo-management tool, which runs on your server
+      or web-space
+    digest: 8aa511deae294c3de8fbbd77a439d6b7333c280537e63e9ae601aa28c15213c8
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/lychee
+    icon: https://truecharts.org/_static/img/appicons/lychee-icon.png
+    keywords:
+    - lychee
+    - photo
+    - pictures
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: lychee
+    sources:
+    - https://github.com/LycheeOrg/Lychee
+    - https://hub.docker.com/r/lycheeorg/lychee
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lychee-10.0.0/lychee-10.0.0.tgz
+    version: 10.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.4.0
     created: "2022-01-31T21:40:55.473063878Z"
     dependencies:
     - name: common
@@ -32106,6 +32148,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minisatip-0.0.1/minisatip-0.0.1.tgz
     version: 0.0.1
   monica:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - crm
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.7.0
+    created: "2022-02-22T10:34:00.37095582Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.73
+    description: Monica is a great open source personal relationship management system.
+    digest: fce764560d259a704887515c36bac5049de327de50ea07d3aee4398f4415318a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/monica
+    icon: https://truecharts.org/_static/img/appicons/monica-icon.png
+    keywords:
+    - crm
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: monica
+    sources:
+    - https://github.com/monicahq/monica
+    - https://hub.docker.com/_/monica
+    urls:
+    - https://github.com/truecharts/apps/releases/download/monica-0.0.44/monica-0.0.44.tgz
+    version: 0.0.44
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -60904,6 +60980,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: latest
+    created: "2022-02-22T10:34:00.624510756Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Valheim dedicated gameserver with automatic update and world backup
+      support
+    digest: 33eaa032e698f40f7f8258fc88d9c10d0c18965ed83c00893d3ba200c435f9af
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/valheim
+    icon: https://truecharts.org/_static/img/appicons/valheim-icon.png
+    keywords:
+    - valheim
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: valheim
+    sources:
+    - https://github.com/lloesche/valheim-server-docker
+    - https://hub.docker.com/r/lloesche/valheim-server
+    urls:
+    - https://github.com/truecharts/apps/releases/download/valheim-2.0.25/valheim-2.0.25.tgz
+    version: 2.0.25
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
     created: "2022-02-21T17:08:02.070477912Z"
     dependencies:
     - name: common
@@ -63471,4 +63578,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-22T09:22:35.360810244Z"
+generated: "2022-02-22T10:34:00.630227027Z"

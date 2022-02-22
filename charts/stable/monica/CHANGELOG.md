@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="monica-0.0.44"></a>
+### [monica-0.0.44](https://github.com/truecharts/apps/compare/monica-0.0.43...monica-0.0.44) (2022-02-22)
+
+#### Fix
+
+* only b64enc the key once ([#1930](https://github.com/truecharts/apps/issues/1930))
+
+
+
 <a name="monica-0.0.43"></a>
 ### [monica-0.0.43](https://github.com/truecharts/apps/compare/monica-0.0.42...monica-0.0.43) (2022-02-21)
 

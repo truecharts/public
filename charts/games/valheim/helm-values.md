@@ -28,6 +28,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/valheim-server"` |  |
 | image.tag | string | `"latest@sha256:8f87fda54429923cac3601d581d6dc0ff273ef6438374e9f4b1e5ac1141b461d"` |  |
+| ingress.supervisor.autoLink | bool | `true` |  |
 | persistence.backups.enabled | bool | `true` |  |
 | persistence.backups.mountPath | string | `"/backups"` |  |
 | persistence.config.enabled | bool | `true` |  |
