@@ -88,25 +88,6 @@ questions:
           schema:
             type: int
             default: 1000
-        - variable: PGID
-          label: "PGID"
-          description: "Group ID, see PUID"
-          schema:
-            type: int
-            default: 1000
-        - variable: UMASK_SET
-          label: "UMASK_SET"
-          description: "Setting UMASK for file permissions Default is 022"
-          schema:
-            type: string
-            default: "022"
-        - variable: INTPORT
-          label: "Internal Port"
-          description: "This changes the internal port of deemix. DON'T CHANGE THIS IF YOU DONT KNOW WHY YOU WOULD DO IT"
-          schema:
-            type: int
-          default: 3333
-
 
 # Include{containerConfig}
 

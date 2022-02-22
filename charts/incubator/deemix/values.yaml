@@ -1,7 +1,11 @@
 image:
   repository: tccr.io/truecharts/deemix
   pullPolicy: IfNotPresent
-  tag: latest@sha256:61eda30552bca8c1fa1dd04f70adb20bf9d6ed56
+  tag: latest@sha256:c38cf91d6c069630359e4368ef7f1a56b7d1df37893c87f3e3c59aaef05db2d0
+
+env:
+  UMASK_SET: "{{ .Values.env.UMASK }}"
+  INTPORT: "{{ .Values.service.main.ports.main.targetPort }}"
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -18,14 +22,6 @@ service:
       main:
         port: 6595
         targetPort: 6595
-
-probes:
-  liveness:
-    enabled: true
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 
 persistence:
   config:
