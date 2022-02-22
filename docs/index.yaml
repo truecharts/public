@@ -20371,36 +20371,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.6.0
-    created: "2022-02-22T00:36:06.414227941Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.16.0
-    description: A private Among Us server
-    digest: f8301f2e51089dbc77fc68cb7321e232d023fa99034d25ceb1e3b77ac7b282f9
-    home: https://github.com/truecharts/apps/tree/master/charts/games/impostor-server
-    icon: https://truecharts.org/_static/img/appicons/impostor-server-icon.png
-    keywords:
-    - impostor-server
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: impostor-server
-    sources:
-    - https://github.com/truecharts/apps/tree/master/incubator/impostor-server
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/impostor-server-0.0.9/impostor-server-0.0.9.tgz
-    version: 0.0.9
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - games
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 1.6.0
     created: "2022-02-21T17:07:56.662313616Z"
     dependencies:
     - name: common
@@ -30589,37 +30559,6 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2022.1.0
-    created: "2022-02-22T00:36:06.613275934Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.16.0
-    description: Minecraft Bedrock Dedicated Server
-    digest: fd8e2f1e0b93d5256779c4eef26aa94d30c89d817b18456cd89ed64ddabad58c
-    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-bedrock
-    icon: https://truecharts.org/_static/img/appicons/minecraft-bedrock-icon.png
-    keywords:
-    - minecraft
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: minecraft-bedrock
-    sources:
-    - https://github.com/itzg/docker-minecraft-server
-    - https://hub.docker.com/r/itzg/minecraft-server
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.8/minecraft-bedrock-0.0.8.tgz
-    version: 0.0.8
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - games
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 2022.1.0
     created: "2022-02-16T08:52:31.592086656Z"
     dependencies:
     - name: common
@@ -30769,37 +30708,6 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.2/minecraft-bedrock-0.0.2.tgz
     version: 0.0.2
   minecraft-java:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - games
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 2022.3.0
-    created: "2022-02-22T00:36:06.825201075Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.16.0
-    description: Minecraft Java Dedicated Server
-    digest: cd70069e017d2a997a9e79ab2e72092bdc23784fdb03cc619fbcfe98318de388
-    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-java
-    icon: https://truecharts.org/_static/img/appicons/minecraft-java-icon.png
-    keywords:
-    - minecraft
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: minecraft-java
-    sources:
-    - https://github.com/itzg/docker-minecraft-server
-    - https://hub.docker.com/r/itzg/minecraft-server
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/minecraft-java-0.0.11/minecraft-java-0.0.11.tgz
-    version: 0.0.11
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -31111,37 +31019,6 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minecraft-java-0.0.1/minecraft-java-0.0.1.tgz
     version: 0.0.1
   minetest:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - games
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 5.4.1
-    created: "2022-02-22T00:36:07.036411518Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.16.0
-    description: Minetest (server) is a near-infinite-world block sandbox game and
-      a game engine.
-    digest: 7d84a20594b73cb262f96bdf26c5ac9c722b4b38ef4608a962b5084f58f8e95f
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/minetest
-    icon: https://truecharts.org/_static/img/appicons/minetest-icon.png
-    keywords:
-    - minetest
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: minetest
-    sources:
-    - https://hub.docker.com/r/linuxserver/minetest
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/minetest-0.0.23/minetest-0.0.23.tgz
-    version: 0.0.23
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -47584,6 +47461,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 3.0.4
+    created: "2022-02-22T09:22:35.352677487Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.71
+    description: Pydio-cells is the nextgen file sharing platform for organizations.
+    digest: db2478ae512f493c61ee4a9e870741d24237810a5b9f7a2622ce4d30f2a90602
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/pydio-cells
+    icon: https://truecharts.org/_static/img/appicons/pydio-cells-icon.png
+    keywords:
+    - pydio-cells
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: pydio-cells
+    sources:
+    - https://hub.docker.com/r/linuxserver/pydio-cells
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/pydio-cells-1.0.0/pydio-cells-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.0.4
     created: "2022-02-03T18:31:17.454907223Z"
     dependencies:
     - name: common
@@ -55125,37 +55036,6 @@ entries:
     - https://github.com/truecharts/apps/releases/download/static-1.0.21/static-1.0.21.tgz
     version: 1.0.21
   statisfactory:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - games
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 1.2.3
-    created: "2022-02-22T00:36:07.265648289Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.16.0
-    description: Satisfactory Dedicated Server
-    digest: 3f381b2a63f289ffd4b5c9689ae663db5108f67839a12bc77036006cf419c522
-    home: https://github.com/truecharts/apps/tree/master/charts/games/satisfactory
-    icon: https://truecharts.org/_static/img/appicons/satisfactory-icon.png
-    keywords:
-    - satisfactory
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: statisfactory
-    sources:
-    - https://github.com/wolveix/satisfactory-server
-    - https://hub.docker.com/r/wolveix/satisfactory-server
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/statisfactory-0.0.7/statisfactory-0.0.7.tgz
-    version: 0.0.7
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -63591,4 +63471,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-22T00:36:07.271612665Z"
+generated: "2022-02-22T09:22:35.360810244Z"
