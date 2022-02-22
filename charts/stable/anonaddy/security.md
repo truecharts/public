@@ -184,32 +184,32 @@ hide:
 | libblkid         |    CVE-2022-0563   |   MEDIUM  |  2.37.3-r0 | 2.37.4-r0 | <details><summary>Expand...</summary><a href="https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u">https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u</a><br></details>  |
 | libmount         |    CVE-2022-0563   |   MEDIUM  |  2.37.3-r0 | 2.37.4-r0 | <details><summary>Expand...</summary><a href="https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u">https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u</a><br></details>  |
 | libuuid         |    CVE-2022-0563   |   MEDIUM  |  2.37.3-r0 | 2.37.4-r0 | <details><summary>Expand...</summary><a href="https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u">https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u</a><br></details>  |
-| php8         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-common         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-ctype         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-curl         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-dom         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-fileinfo         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-fpm         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-gd         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-gmp         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-iconv         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-intl         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-mbstring         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-mysqlnd         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-opcache         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-openssl         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-pdo         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-pdo_mysql         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-phar         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-session         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-simplexml         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-sodium         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-tokenizer         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-xml         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-xmlreader         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-xmlwriter         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
-| php8-zip         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-common         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-ctype         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-curl         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-dom         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-fileinfo         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-fpm         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-gd         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-gmp         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-iconv         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-intl         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-mbstring         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-mysqlnd         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-opcache         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-openssl         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-pdo         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-pdo_mysql         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-phar         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-session         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-simplexml         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-sodium         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-tokenizer         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-xml         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-xmlreader         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-xmlwriter         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
+| php8-zip         |    CVE-2021-21708   |   MEDIUM  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary><a href="https://www.php.net/ChangeLog-7.php#PHP_7_4">https://www.php.net/ChangeLog-7.php#PHP_7_4</a><br></details>  |
 
 **node-pkg**
 

@@ -455,6 +455,43 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.9.1
+    created: "2022-02-22T23:23:39.54481664Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.73
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.76
+    description: Protect your email from spam using disposable addresses.
+    digest: c76ce8985000e57b361907a2c30623d665479490bf1183e0a5077ad50d8e509b
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/anonaddy
+    icon: https://truecharts.org/_static/img/appicons/anonaddy-icon.png
+    keywords:
+    - anonaddy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: anonaddy
+    sources:
+    - https://github.com/anonaddy/docker
+    urls:
+    - https://github.com/truecharts/apps/releases/download/anonaddy-6.0.39/anonaddy-6.0.39.tgz
+    version: 6.0.39
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - email
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.9.1
     created: "2022-02-14T11:51:32.436712875Z"
     dependencies:
     - name: common
@@ -1532,6 +1569,55 @@ entries:
     - https://github.com/truecharts/apps/releases/download/audacity-2.0.21/audacity-2.0.21.tgz
     version: 2.0.21
   authelia:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - security
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.33.2
+    created: "2022-02-22T23:23:39.690722851Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.69
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org/
+      version: 1.0.76
+    description: Authelia is a Single Sign-On Multi-Factor portal for web apps
+    digest: a862f21c60a6cc1ebf483382473848b071324aa2ebfde682c8c962b4aa962002
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/authelia
+    icon: https://truecharts.org/_static/img/appicons/authelia-icon.png
+    keywords:
+    - authelia
+    - authentication
+    - login
+    - SSO
+    - Authentication
+    - Security
+    - Two-Factor
+    - U2F
+    - YubiKey
+    - Push Notifications
+    - LDAP
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: authelia
+    sources:
+    - https://github.com/authelia/chartrepo
+    - https://github.com/authelia/authelia
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/authelia-8.0.41/authelia-8.0.41.tgz
+    version: 8.0.41
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -12230,6 +12316,45 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 5.6.13
+    created: "2022-02-22T23:23:39.852184567Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.69
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.76
+    description: A free and open source personal finance manager
+    digest: 6942d376b0058fef2833f6495fd658a55ea06d6e540ea00e41ba00eda598128a
+    home: https://github.com/firefly-iii/firefly-iii/
+    icon: https://truecharts.org/_static/img/appicons/fireflyiii-icon.png
+    keywords:
+    - fireflyiii
+    - finacial
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: fireflyiii
+    sources:
+    - https://github.com/firefly-iii/firefly-iii/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/fireflyiii-13.1.28/fireflyiii-13.1.28.tgz
+    version: 13.1.28
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - finacial
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 5.6.13
     created: "2022-02-03T18:31:14.277379192Z"
     dependencies:
     - name: common
@@ -20392,6 +20517,36 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.6.0
+    created: "2022-02-22T23:23:39.979992488Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.1
+    description: A private Among Us server
+    digest: fcff327450903c4babf33e5cac30bb23d396c7ce9035c920156125e3571c28b0
+    home: https://github.com/truecharts/apps/tree/master/charts/games/impostor-server
+    icon: https://truecharts.org/_static/img/appicons/impostor-server-icon.png
+    keywords:
+    - impostor-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: impostor-server
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/impostor-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/impostor-server-0.0.10/impostor-server-0.0.10.tgz
+    version: 0.0.10
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.0
     created: "2022-02-21T17:07:56.662313616Z"
     dependencies:
     - name: common
@@ -24103,6 +24258,43 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.1.8
+    created: "2022-02-22T23:23:40.130874069Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.73
+    description: Straightforward open source project management system to make your
+      ideas reality.
+    digest: c9c30439821f68532eef9eace5202ceee84809e08a6eae54adc3db351480a3d6
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/leantime
+    icon: https://truecharts.org/_static/img/appicons/leantime-icon.png
+    keywords:
+    - leantime
+    - project
+    - management
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: leantime
+    sources:
+    - https://leantime.io/
+    - https://hub.docker.com/r/nicholaswilde/leantime
+    urls:
+    - https://github.com/truecharts/apps/releases/download/leantime-1.0.21/leantime-1.0.21.tgz
+    version: 1.0.21
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - management
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.1.8
     created: "2022-01-22T10:53:35.007026551Z"
     dependencies:
     - name: common
@@ -24543,6 +24735,45 @@ entries:
     - https://github.com/truecharts/apps/releases/download/libreoffice-0.0.1/libreoffice-0.0.1.tgz
     version: 0.0.1
   librephotos:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022w6
+    created: "2022-02-22T23:23:40.277340476Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.69
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.76
+    description: A self-hosted open source photo management service.
+    digest: ba9a21591c04031026361186dfef3eb25d43a98144e5f7f0c6fc4fef56499171
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/librephotos
+    icon: https://truecharts.org/_static/img/appicons/librephotos-icon.png
+    keywords:
+    - photos
+    - gallery
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: librephotos
+    sources:
+    - https://github.com/LibrePhotos/librephotos
+    - https://hub.docker.com/r/reallibrephotos/librephotos
+    urls:
+    - https://github.com/truecharts/apps/releases/download/librephotos-1.0.4/librephotos-1.0.4.tgz
+    version: 1.0.4
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -25214,6 +25445,45 @@ entries:
     - https://github.com/truecharts/apps/releases/download/lidarr-9.0.21/lidarr-9.0.21.tgz
     version: 9.0.21
   linkace:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.9.1
+    created: "2022-02-22T23:23:40.432109333Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.73
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.76
+    description: Your self-hosted bookmark archive. Free and open source.
+    digest: 15927bc46398d4f30842cdc135609af5a96f10f4624f1ca8b426e77f906b5c38
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/linkace
+    icon: https://truecharts.org/_static/img/appicons/linkace-icon.png
+    keywords:
+    - linkace
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: linkace
+    sources:
+    - https://www.linkace.org/docs/
+    - https://github.com/linkace/linkace
+    - https://hub.docker.com/r/linkace/linkace
+    urls:
+    - https://github.com/truecharts/apps/releases/download/linkace-1.0.4/linkace-1.0.4.tgz
+    version: 1.0.4
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -30664,6 +30934,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2022.1.0
+    created: "2022-02-22T23:23:40.567581508Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.1
+    description: Minecraft Bedrock Dedicated Server
+    digest: b6be9c32bcccd7a333533cd894fdfff27dc141bc28ca6fb5a83a140843b86ee1
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-bedrock
+    icon: https://truecharts.org/_static/img/appicons/minecraft-bedrock-icon.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-bedrock
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.9/minecraft-bedrock-0.0.9.tgz
+    version: 0.0.9
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.1.0
     created: "2022-02-16T08:52:31.592086656Z"
     dependencies:
     - name: common
@@ -30813,6 +31114,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.2/minecraft-bedrock-0.0.2.tgz
     version: 0.0.2
   minecraft-java:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.3.0
+    created: "2022-02-22T23:23:40.701434792Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.1
+    description: Minecraft Java Dedicated Server
+    digest: a7e15bbdc014c50eba174690c5ca0f989b032a6c15d9009273c4b0b1604881d1
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-java
+    icon: https://truecharts.org/_static/img/appicons/minecraft-java-icon.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-java
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-java-0.0.12/minecraft-java-0.0.12.tgz
+    version: 0.0.12
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -31124,6 +31456,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minecraft-java-0.0.1/minecraft-java-0.0.1.tgz
     version: 0.0.1
   minetest:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 5.4.1
+    created: "2022-02-22T23:23:40.831150302Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.1
+    description: Minetest (server) is a near-infinite-world block sandbox game and
+      a game engine.
+    digest: 19034919cbe80ee5868ea070625b07c365b72101419e6201bd65e280c4f5a041
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/minetest
+    icon: https://truecharts.org/_static/img/appicons/minetest-icon.png
+    keywords:
+    - minetest
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minetest
+    sources:
+    - https://hub.docker.com/r/linuxserver/minetest
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minetest-0.0.24/minetest-0.0.24.tgz
+    version: 0.0.24
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -31588,6 +31951,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/miniflux-4.0.12/miniflux-4.0.12.tgz
     version: 4.0.12
   minio:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-02-22T23:23:40.961266609Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Minio is a self-hosted S3 storage server
+    digest: 29df49d6903caae338543d224d8c8da5d31c840c7e8ff420ddf61250126154b5
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/minio
+    icon: https://truecharts.org/_static/img/appicons/minio-icon.png
+    keywords:
+    - minio
+    - s3
+    - storage
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minio
+    sources:
+    - https://github.com/minio/minio
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minio-1.1.3/minio-1.1.3.tgz
+    version: 1.1.3
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -47642,6 +48036,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 3.0.4
+    created: "2022-02-22T23:23:41.113392882Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.73
+    description: Pydio-cells is the nextgen file sharing platform for organizations.
+    digest: 4aa2570ca70310692ba0bc47a8097330bb6cb663c9f837b87e34e7a378c2f147
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/pydio-cells
+    icon: https://truecharts.org/_static/img/appicons/pydio-cells-icon.png
+    keywords:
+    - pydio-cells
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: pydio-cells
+    sources:
+    - https://hub.docker.com/r/linuxserver/pydio-cells
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/pydio-cells-1.0.2/pydio-cells-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.0.4
     created: "2022-02-22T15:01:46.219482006Z"
     dependencies:
     - name: common
@@ -55258,6 +55686,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.2.3
+    created: "2022-02-22T23:23:41.761029436Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.1
+    description: Satisfactory Dedicated Server
+    digest: c7bdece0920e0488faa1662f5604d3e551cd0891768aaf799e0a05024c3ab874
+    home: https://github.com/truecharts/apps/tree/master/charts/games/satisfactory
+    icon: https://truecharts.org/_static/img/appicons/satisfactory-icon.png
+    keywords:
+    - satisfactory
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: statisfactory
+    sources:
+    - https://github.com/wolveix/satisfactory-server
+    - https://hub.docker.com/r/wolveix/satisfactory-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/statisfactory-0.0.8/statisfactory-0.0.8.tgz
+    version: 0.0.8
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.2.3
     created: "2022-02-16T08:52:32.01315196Z"
     dependencies:
     - name: common
@@ -56517,6 +56976,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/syncthing-9.0.20/syncthing-9.0.20.tgz
     version: 9.0.20
   syslog-ng:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.35.1
+    created: "2022-02-22T23:23:41.891261742Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: syslog-ng allows you to flexibly collect, parse, classify, rewrite
+      and correlate logs.
+    digest: 714ccf0948e8ffdf95dc455ab9facf55a588935c541dbe872bf1623a584d1f5b
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/syslog-ng
+    icon: https://truecharts.org/_static/img/appicons/syslog-ng-icon.png
+    keywords:
+    - syslog-ng
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: syslog-ng
+    sources:
+    - https://hub.docker.com/r/linuxserver/syslog-ng
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/syslog-ng-0.1.0/syslog-ng-0.1.0.tgz
+    version: 0.1.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -61119,6 +61609,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: latest
+    created: "2022-02-22T23:23:42.029240001Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.1
+    description: Valheim dedicated gameserver with automatic update and world backup
+      support
+    digest: 5b77a3edfb552d4b2009205cf11e934a364eb0448c98dc76d9e979a5690796ea
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/valheim
+    icon: https://truecharts.org/_static/img/appicons/valheim-icon.png
+    keywords:
+    - valheim
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: valheim
+    sources:
+    - https://github.com/lloesche/valheim-server-docker
+    - https://hub.docker.com/r/lloesche/valheim-server
+    urls:
+    - https://github.com/truecharts/apps/releases/download/valheim-2.0.26/valheim-2.0.26.tgz
+    version: 2.0.26
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
     created: "2022-02-22T10:34:00.624510756Z"
     dependencies:
     - name: common
@@ -63717,4 +64238,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-22T19:25:29.954728396Z"
+generated: "2022-02-22T23:23:42.03438967Z"

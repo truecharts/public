@@ -11,10 +11,10 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
+| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/syslog-ng"` |  |
-| image.tag | string | `"v3.30.1"` |  |
+| image.tag | string | `"v3.35.1@sha256:58fa2b58b78dbfd23f3e1ccfae757fa49fe065c1f5a1bf96e13a65319ef18f12"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
@@ -23,7 +23,7 @@ You will, however, be able to use all values referenced in the common chart here
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `6601` |  |
-| service.main.ports.main.targetPort | int | `6601` |  |
+| service.main.ports.main.targetPort | int | `601` |  |
 | service.syslog-tls.enabled | bool | `true` |  |
 | service.syslog-tls.ports.syslog-tls.enabled | bool | `true` |  |
 | service.syslog-tls.ports.syslog-tls.port | int | `6514` |  |
@@ -32,6 +32,6 @@ You will, however, be able to use all values referenced in the common chart here
 | service.syslog-udp.ports.syslog-udp.enabled | bool | `true` |  |
 | service.syslog-udp.ports.syslog-udp.port | int | `5514` |  |
 | service.syslog-udp.ports.syslog-udp.protocol | string | `"UDP"` |  |
-| service.syslog-udp.ports.syslog-udp.targetPort | int | `5514` |  |
+| service.syslog-udp.ports.syslog-udp.targetPort | int | `514` |  |
 
 All Rights Reserved - The TrueCharts Project

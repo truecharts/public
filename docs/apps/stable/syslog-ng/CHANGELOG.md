@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syslog-ng-0.1.0"></a>
+### [syslog-ng-0.1.0](https://github.com/truecharts/apps/compare/syslog-ng-0.0.23...syslog-ng-0.1.0) (2022-02-22)
+
+#### Feat
+
+* Use official image / remove portal ([#1938](https://github.com/truecharts/apps/issues/1938))
+
+
+
 <a name="syslog-ng-0.0.23"></a>
 ### [syslog-ng-0.0.23](https://github.com/truecharts/apps/compare/syslog-ng-0.0.22...syslog-ng-0.0.23) (2022-02-21)
 

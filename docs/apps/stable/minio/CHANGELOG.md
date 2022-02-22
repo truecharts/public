@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="minio-1.1.3"></a>
+### [minio-1.1.3](https://github.com/truecharts/apps/compare/minio-1.1.2...minio-1.1.3) (2022-02-22)
+
+#### Chore
+
+* Use correct label on api ingress ([#1936](https://github.com/truecharts/apps/issues/1936))
+
+#### Fix
+
+* map ingress to correct service ([#1929](https://github.com/truecharts/apps/issues/1929))
+
+
+
 <a name="minio-1.1.2"></a>
 ### [minio-1.1.2](https://github.com/truecharts/apps/compare/minio-1.1.1...minio-1.1.2) (2022-02-21)
 
