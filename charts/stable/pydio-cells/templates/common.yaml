@@ -1,1 +1,20 @@
-{{ include "common.all" . }}
+{{- include "common.setup" . }}
+
+{{/* Append the hardcoded settings */}}
+{{- define "pydiocells.harcodedValues" -}}
+persistence:
+  pydiocells-install:
+    enabled: "true"
+    mountPath: "/cells/install.yml"
+    subPath: "pydiocells-install"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-install" (include "common.names.fullname" .) }}
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "pydiocells.harcodedValues" . | fromYaml) -}}
+
+{{- include "pydiocells.configmap" . }}
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}

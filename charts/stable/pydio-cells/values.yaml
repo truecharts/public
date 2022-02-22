@@ -1,24 +1,39 @@
 image:
   repository: tccr.io/truecharts/pydio-cells
   pullPolicy: IfNotPresent
-  tag: v3.0.4
-
-securityContext:
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  tag: v3.0.4@sha256:81c6f8675ffc243af9ffab5a43da0ed50f33f0c153c352aad027127c3c0318ad
 
 env:
-  PUID: 568
-  EXTERNALURL: ""
+  CELLS_EXTERNAL: ""
+  CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.targetPort }}"
+  CELLS_HEALTHCHECK: "{{ .Values.service.main.ports.main.targetPort }}"
+  CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
+  CELLS_WORKING_DIR: "/cells"
+  CELLS_DATA_DIR: "/cells/data"
+  CELLS_LOG_DIR: "/cells/logs"
+  CELLS_SERVICES_DIR: "/cells/services"
+  CELLS_INSTALL_YAML: "/cells/install.yml"
+
+pydioinstall:
+  username: "admin"
+  password: "supersecret"
+  title: "Pydio Cells"
+
+probes:
+  liveness:
+    path: "/healthcheck"
+
+  readiness:
+    path: "/healthcheck"
+
+  startup:
+    path: "/healthcheck"
 
 service:
   main:
     ports:
       main:
-        targetPort: 8080
+        targetPort: 10150
         port: 10150
   gprc:
     enabled: true
@@ -29,8 +44,21 @@ service:
         port: 33060
 
 persistence:
-  config:
+  cells:
     enabled: true
-    mountPath: "/config"
-  varrun:
+    mountPath: "/cells"
+  data:
     enabled: true
+    mountPath: "/cells/data"
+  logs:
+    enabled: true
+    mountPath: "/cells/logs"
+  services:
+    enabled: true
+    mountPath: "/cells/services"
+
+mariadb:
+  enabled: true
+  mariadbUsername: pydiocells
+  mariadbDatabase: pydiocells
+  existingSecret: "mariadbcreds"
