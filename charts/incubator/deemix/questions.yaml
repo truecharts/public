@@ -24,30 +24,6 @@ questions:
             type: boolean
             default: true
 # Include{global}
-  - variable: PUID
-    label: "PUID"
-    description: "User ID of the user you want the container to run as in order to fix folder permission issues"
-    schema:
-      type: int
-      default: 1000
-  - variable: PGID
-    label: "PGID"
-    description: "Group ID, see PUID"
-    schema:
-      type: int
-      default: 1000
-  - variable: UMASK_SET
-    label: "UMASK_SET"
-    description: "Setting UMASK for file permissions Default is 022"
-    schema:
-      type: string
-      default: "022"
-  - variable: INTPORT
-    label: "Internal Port"
-    description: "This changes the internal port of deemix. DON'T CHANGE THIS IF YOU DONT KNOW WHY YOU WOULD DO IT"
-    schema:
-      type: int
-      default: 3333
   - variable: controller
     group: "Controller"
     label: ""
@@ -105,7 +81,32 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
+        # Include{fixedEnv}
+        - variable: PUID
+          label: "PUID"
+          description: "User ID of the user you want the container to run as in order to fix folder permission issues"
+          schema:
+            type: int
+            default: 1000
+        - variable: PGID
+          label: "PGID"
+          description: "Group ID, see PUID"
+          schema:
+            type: int
+            default: 1000
+        - variable: UMASK_SET
+          label: "UMASK_SET"
+          description: "Setting UMASK for file permissions Default is 022"
+          schema:
+            type: string
+            default: "022"
+        - variable: INTPORT
+          label: "Internal Port"
+          description: "This changes the internal port of deemix. DON'T CHANGE THIS IF YOU DONT KNOW WHY YOU WOULD DO IT"
+          schema:
+            type: int
+          default: 3333
+
 
 # Include{containerConfig}
 
