@@ -29,6 +29,10 @@ service:
         port: 1935
         targetPort: 1935
 
+ingress:
+  rtmp:
+    autoLink: true
+
 frigate:
   mqtt:
     host: mosquitto.ix-mosquitto.svc.cluster.local
