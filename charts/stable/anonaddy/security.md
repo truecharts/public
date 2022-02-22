@@ -96,10 +96,10 @@ hide:
           tccr.io/truecharts/anonaddy:v0.9.1@sha256:cfab6686d26822a0bde3c7f016409c6248f5e971f60a8ad9edca5954fd6e2ae0
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/mariadb:v10.6.5@sha256:a2a1df3e6d6c928c460fc8ab5ca2e005098768465213cdc0d598a4098251e81c
+          tccr.io/truecharts/mariadb:v10.6.7@sha256:d87a56cac383d54ff147971295d3705862a22f831fc33ab2790f17300e0bffbc
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/redis:v6.2.6@sha256:a1727c5389c03cdef4db37000305898fe7678586471c3fdd325dc24655517887
+          tccr.io/truecharts/redis:v6.2.6@sha256:f843271329edf9770752f2a01d8e6a1cafce3412cff56c59b5d6b305f75a99c0
 
 ##### Scan Results
 
@@ -174,10 +174,42 @@ hide:
 **alpine**
 
 
-| No Vulnerabilities found         |
-|:---------------------------------|
-
-
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| expat         |    CVE-2022-25315   |   HIGH  |  2.4.4-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://github.com/libexpat/libexpat/pull/559">https://github.com/libexpat/libexpat/pull/559</a><br></details>  |
+| expat         |    CVE-2022-25235   |   MEDIUM  |  2.4.4-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25235">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25235</a><br><a href="https://github.com/libexpat/libexpat/pull/562">https://github.com/libexpat/libexpat/pull/562</a><br><a href="https://github.com/libexpat/libexpat/pull/562/commits/367ae600b48d74261bbc339b17e9318424049791 (fix)">https://github.com/libexpat/libexpat/pull/562/commits/367ae600b48d74261bbc339b17e9318424049791 (fix)</a><br><a href="https://github.com/libexpat/libexpat/pull/562/commits/97cfdc3fa7dca759880d81e371901f4620279106 (tests)">https://github.com/libexpat/libexpat/pull/562/commits/97cfdc3fa7dca759880d81e371901f4620279106 (tests)</a><br><a href="https://ubuntu.com/security/notices/USN-5288-1">https://ubuntu.com/security/notices/USN-5288-1</a><br></details>  |
+| expat         |    CVE-2022-25236   |   MEDIUM  |  2.4.4-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25236">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-25236</a><br><a href="https://github.com/libexpat/libexpat/pull/561">https://github.com/libexpat/libexpat/pull/561</a><br><a href="https://github.com/libexpat/libexpat/pull/561/commits/2de077423fb22750ebea599677d523b53cb93b1d (test)">https://github.com/libexpat/libexpat/pull/561/commits/2de077423fb22750ebea599677d523b53cb93b1d (test)</a><br><a href="https://github.com/libexpat/libexpat/pull/561/commits/a2fe525e660badd64b6c557c2b1ec26ddc07f6e4 (fix)">https://github.com/libexpat/libexpat/pull/561/commits/a2fe525e660badd64b6c557c2b1ec26ddc07f6e4 (fix)</a><br><a href="https://ubuntu.com/security/notices/USN-5288-1">https://ubuntu.com/security/notices/USN-5288-1</a><br></details>  |
+| expat         |    CVE-2022-25313   |   MEDIUM  |  2.4.4-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://github.com/libexpat/libexpat/pull/558">https://github.com/libexpat/libexpat/pull/558</a><br></details>  |
+| expat         |    CVE-2022-25314   |   MEDIUM  |  2.4.4-r0 | 2.4.5-r0 | <details><summary>Expand...</summary><a href="http://www.openwall.com/lists/oss-security/2022/02/19/1">http://www.openwall.com/lists/oss-security/2022/02/19/1</a><br><a href="https://github.com/libexpat/libexpat/pull/560">https://github.com/libexpat/libexpat/pull/560</a><br></details>  |
+| libblkid         |    CVE-2022-0563   |   MEDIUM  |  2.37.3-r0 | 2.37.4-r0 | <details><summary>Expand...</summary><a href="https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u">https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u</a><br></details>  |
+| libmount         |    CVE-2022-0563   |   MEDIUM  |  2.37.3-r0 | 2.37.4-r0 | <details><summary>Expand...</summary><a href="https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u">https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u</a><br></details>  |
+| libuuid         |    CVE-2022-0563   |   MEDIUM  |  2.37.3-r0 | 2.37.4-r0 | <details><summary>Expand...</summary><a href="https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u">https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u</a><br></details>  |
+| php8         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-common         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-ctype         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-curl         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-dom         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-fileinfo         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-fpm         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-gd         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-gmp         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-iconv         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-intl         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-mbstring         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-mysqlnd         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-opcache         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-openssl         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-pdo         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-pdo_mysql         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-phar         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-session         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-simplexml         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-sodium         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-tokenizer         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-xml         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-xmlreader         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-xmlwriter         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
+| php8-zip         |    CVE-2021-21708   |   HIGH  |  8.0.14-r0 | 8.0.16-r0 | <details><summary>Expand...</summary></details>  |
 
 **node-pkg**
 
@@ -268,7 +300,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/mariadb:v10.6.5@sha256:a2a1df3e6d6c928c460fc8ab5ca2e005098768465213cdc0d598a4098251e81c (debian 10.11)
+#### Container: tccr.io/truecharts/mariadb:v10.6.7@sha256:d87a56cac383d54ff147971295d3705862a22f831fc33ab2790f17300e0bffbc (debian 10.11)
 
 
 **debian**
@@ -522,7 +554,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/redis:v6.2.6@sha256:a1727c5389c03cdef4db37000305898fe7678586471c3fdd325dc24655517887 (debian 10.11)
+#### Container: tccr.io/truecharts/redis:v6.2.6@sha256:f843271329edf9770752f2a01d8e6a1cafce3412cff56c59b5d6b305f75a99c0 (debian 10.11)
 
 
 **debian**

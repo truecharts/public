@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="mysql-workbench-0.0.23"></a>
+### [mysql-workbench-0.0.23](https://github.com/truecharts/apps/compare/mysql-workbench-0.0.22...mysql-workbench-0.0.23) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
 <a name="mysql-workbench-0.0.22"></a>
 ### [mysql-workbench-0.0.22](https://github.com/truecharts/apps/compare/mysql-workbench-0.0.21...mysql-workbench-0.0.22) (2022-02-15)
 

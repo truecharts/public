@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="monica-0.0.43"></a>
+### [monica-0.0.43](https://github.com/truecharts/apps/compare/monica-0.0.42...monica-0.0.43) (2022-02-21)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
 <a name="monica-0.0.42"></a>
 ### [monica-0.0.42](https://github.com/truecharts/apps/compare/monica-0.0.41...monica-0.0.42) (2022-02-21)
 
