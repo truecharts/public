@@ -74,7 +74,6 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -83,30 +82,7 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "OPTIONAL: User ID of the user you want the container to run as in order to fix folder permission issues"
-          schema:
-            type: int
-            default: 1000
-        - variable: PGID
-          label: "PGID"
-          description: "OPTIONAL: Group ID, see PUID"
-          schema:
-            type: int
-            default: 1000
-        - variable: UMASK_SET
-          label: "UMASK_SET"
-          description: "OPTIONAL: Setting UMASK for file permissions Default is 022"
-          schema:
-            type: string
-            default: "022"
-        - variable: INTPORT
-          label: "INTPORT"
-          description: "EXTRA OPTIONAL: This changes the internal port of deemix. DON'T CHANGE THIS IF YOU DONT KNOW WHY YOU WOULD DO IT"
-          schema:
-            type: int
-            default: 3333
+
 # Include{containerConfig}
 
   - variable: service
@@ -170,7 +146,33 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
+                                    default: 6595
+        - variable: PUID
+          label: "PUID"
+          description: "User ID of the user you want the container to run as in order to fix folder permission issues"
+          schema:
+            type: int
+            default: 1000
+        - variable: PGID
+          label: "PGID"
+          description: "Group ID, see PUID"
+          schema:
+            type: int
+            default: 1000
+        - variable: UMASK_SET
+          label: "UMASK_SET"
+          description: "Setting UMASK for file permissions Default is 022"
+          schema:
+            type: string
+            default: "022"
+        - variable: INTPORT
+          label: "Internal Port"
+          description: "This changes the internal port of deemix. DON'T CHANGE THIS IF YOU DONT KNOW WHY YOU WOULD DO IT"
+          schema:
+            type: int
+            default: 3333
+# Include{containerConfig}
+
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -223,7 +225,7 @@ questions:
                       description: "pvc"
                     - value: "hostPath"
                       description: "hostPath"
-# Include{persistenceBasic}
+              # Include{persistenceBasic}
               - variable: hostPath
                 label: "hostPath"
                 description: "Path inside the container the storage is mounted"
@@ -241,7 +243,7 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
-# Include{persistenceAdvanced}
+        # Include{persistenceAdvanced}
         - variable: data
           label: "App Data Storage"
           description: "Stores the Application Data."
@@ -266,7 +268,7 @@ questions:
                       description: "pvc"
                     - value: "hostPath"
                       description: "hostPath"
-# Include{persistenceBasic}
+              # Include{persistenceBasic}
               - variable: hostPath
                 label: "hostPath"
                 description: "Path inside the container the storage is mounted"
@@ -287,26 +289,6 @@ questions:
 # Include{persistenceAdvanced}
 # Include{persistenceList}
 
-  - variable: ingress
-    label: ""
-    group: "Ingress"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: main
-          label: "Main Ingress"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-
-# Include{ingressTLS}
-
-# Include{ingressTraefik}
-
-# Include{ingressExpert}
 
 # Include{ingressList}
   - variable: advancedSecurity
@@ -342,7 +324,7 @@ questions:
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext

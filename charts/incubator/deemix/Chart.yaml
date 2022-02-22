@@ -3,14 +3,14 @@ appVersion: "latest"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.15.2
+  version: 8.16.0
 deprecated: false
-description: HTPC/Homelab Services Organizer
-home: https://github.com/truecharts/apps/tree/master/charts/stable/deemix
+description: deemix is a deezer downloader built from the ashes of Deezloader Remix.
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/deemix
 icon: https://truecharts.org/_static/img/appicons/deemix-icon.png
 keywords:
-- deemix
 - music
+- deemix
 - deezer
 kubeVersion: '>=1.16.0-0'
 maintainers:
@@ -19,10 +19,10 @@ maintainers:
   url: https://truecharts.org
 name: deemix
 sources:
-- https://gitlab.com/Bockiii/deemix-docker.git
 - registry.gitlab.com/bockiii/deemix-docker
+- https://git.freezerapp.xyz/RemixDev/deemix-py
 type: application
-version: 1.0.0
+version: 0.0.1
 annotations:
   truecharts.org/catagories: |
     - media

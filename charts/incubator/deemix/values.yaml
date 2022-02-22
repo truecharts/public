@@ -1,0 +1,36 @@
+image:
+  repository: tccr.io/truecharts/deemix
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:61eda30552bca8c1fa1dd04f70adb20bf9d6ed56
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 6595
+        targetPort: 6595
+
+probes:
+  liveness:
+    enabled: true
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/downloads"
