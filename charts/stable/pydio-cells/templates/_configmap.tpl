@@ -17,5 +17,5 @@ data:
     dbTCPPort: 3306
     dbTCPName: {{ .Values.mariadb.mariadbDatabase }}
     dbTCPUser: {{ .Values.mariadb.mariadbUsername }}
-    dbTCPPassword: {{ .Values.mariadb.mariadbPassword }}
+    dbTCPPassword: {{ .Values.mariadb.mariadbPassword | trimAll "\"" }}
 {{- end -}}
