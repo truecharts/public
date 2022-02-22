@@ -14,7 +14,7 @@ data:
   APP_KEY: {{ index $lycheeprevious.data "APP_KEY" }}
   {{- else }}
   {{- $app_key := randAlphaNum 32 }}
-  APP_KEY: {{ $app_key | b64enc | quote }}
+  APP_KEY: {{ $app_key | b64enc }}
   {{- end }}
 
 {{- end -}}
