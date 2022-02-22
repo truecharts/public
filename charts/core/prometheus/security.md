@@ -181,8 +181,8 @@ hide:
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/prometheus-operator:v0.54.0@sha256:58fa04c0f244ff4e7dce0693fecd8edac22fdea84dc1c09ccebf91ca3015ba24
-          bitnami/kube-state-metrics:2.4.0-debian-10-r1
-          bitnami/node-exporter:1.3.1-debian-10-r43
+          bitnami/kube-state-metrics:2.4.0-debian-10-r5
+          bitnami/node-exporter:1.3.1-debian-10-r74
 
 ##### Scan Results
 
@@ -441,7 +441,7 @@ hide:
 
 
 
-#### Container: bitnami/kube-state-metrics:2.4.0-debian-10-r1 (debian 10.11)
+#### Container: bitnami/kube-state-metrics:2.4.0-debian-10-r5 (debian 10.11)
 
 
 **debian**
@@ -624,7 +624,7 @@ hide:
 
 
 
-#### Container: bitnami/node-exporter:1.3.1-debian-10-r43 (debian 10.11)
+#### Container: bitnami/node-exporter:1.3.1-debian-10-r74 (debian 10.11)
 
 
 **debian**
@@ -797,6 +797,13 @@ hide:
 | util-linux         |    CVE-2021-37600   |   LOW  |  2.33.1-0.1 |  | <details><summary>Expand...</summary><a href="https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c">https://github.com/karelzak/util-linux/commit/1c9143d0c1f979c3daf10e1c37b5b1e916c22a1c</a><br><a href="https://github.com/karelzak/util-linux/issues/1395">https://github.com/karelzak/util-linux/issues/1395</a><br><a href="https://security.netapp.com/advisory/ntap-20210902-0002/">https://security.netapp.com/advisory/ntap-20210902-0002/</a><br></details>  |
 | util-linux         |    CVE-2022-0563   |   LOW  |  2.33.1-0.1 |  | <details><summary>Expand...</summary><a href="https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u">https://lore.kernel.org/util-linux/20220214110609.msiwlm457ngoic6w@ws.net.home/T/#u</a><br></details>  |
 | wget         |    CVE-2021-31879   |   MEDIUM  |  1.20.1-1.1 |  | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31879">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-31879</a><br><a href="https://mail.gnu.org/archive/html/bug-wget/2021-02/msg00002.html">https://mail.gnu.org/archive/html/bug-wget/2021-02/msg00002.html</a><br><a href="https://savannah.gnu.org/bugs/?56909">https://savannah.gnu.org/bugs/?56909</a><br><a href="https://security.netapp.com/advisory/ntap-20210618-0002/">https://security.netapp.com/advisory/ntap-20210618-0002/</a><br></details>  |
+
+**gobinary**
+
+
+| Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
+|:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
+| golang.org/x/text         |    CVE-2021-38561   |   UNKNOWN  |  v0.3.6 | 0.3.7 | <details><summary>Expand...</summary></details>  |
 
 **gobinary**
 

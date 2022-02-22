@@ -26713,6 +26713,48 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 4.4.0
+    created: "2022-02-22T15:01:45.807895544Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.69
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.76
+    description: Lychee is a free photo-management tool, which runs on your server
+      or web-space
+    digest: 534e597ea025fa0bc38600ecd161c396c0d542ac08c7783fe1d54b7d0c21e82f
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/lychee
+    icon: https://truecharts.org/_static/img/appicons/lychee-icon.png
+    keywords:
+    - lychee
+    - photo
+    - pictures
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: lychee
+    sources:
+    - https://github.com/LycheeOrg/Lychee
+    - https://hub.docker.com/r/lycheeorg/lychee
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lychee-10.0.1/lychee-10.0.1.tgz
+    version: 10.0.1
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.4.0
     created: "2022-02-22T10:34:00.121217631Z"
     dependencies:
     - name: common
@@ -44252,6 +44294,48 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.54.0
+    created: "2022-02-22T15:01:46.039950814Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: exporters.enabled,exporters.node-exporter.enabled
+      name: node-exporter
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.4.3
+    - condition: exporters.enabled,exporters.kube-state-metrics.enabled
+      name: kube-state-metrics
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.2.8
+    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+      and Prometheus rules combined with documentation and scripts to provide easy
+      to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
+      Prometheus Operator.
+    digest: 9eb2838c1931337af259173d8f160dc68cdd341addf8e6aa4520afca2db3f975
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/prometheus
+    icon: https://truecharts.org/_static/img/appicons/prometheus-icon.png
+    keywords:
+    - metrics
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: prometheus
+    sources:
+    - https://github.com/prometheus-community/helm-charts
+    - https://github.com/prometheus-operator/kube-prometheus
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prometheus-1.1.67/prometheus-1.1.67.tgz
+    version: 1.1.67
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - metrics
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.54.0
     created: "2022-02-21T17:08:00.720426856Z"
     dependencies:
     - name: common
@@ -47530,6 +47614,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/pwndrop-0.0.1/pwndrop-0.0.1.tgz
     version: 0.0.1
   pydio-cells:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.0.4
+    created: "2022-02-22T15:01:46.219482006Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.73
+    description: Pydio-cells is the nextgen file sharing platform for organizations.
+    digest: 42f4994f30f3e9a073c99d1f01d0573f8bb9b536169acad17f3aed7ad245f375
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/pydio-cells
+    icon: https://truecharts.org/_static/img/appicons/pydio-cells-icon.png
+    keywords:
+    - pydio-cells
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: pydio-cells
+    sources:
+    - https://hub.docker.com/r/linuxserver/pydio-cells
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/pydio-cells-1.0.1/pydio-cells-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -63578,4 +63696,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-22T10:34:00.630227027Z"
+generated: "2022-02-22T15:01:46.226023653Z"

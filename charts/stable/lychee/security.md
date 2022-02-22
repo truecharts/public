@@ -105,7 +105,7 @@ hide:
           tccr.io/truecharts/postgresql:v14.1.0@sha256:1eb6ede5a83b4f6d15633c98b49f813b39519e3233b72e5d212a76f7e29bcd17
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/redis:v6.2.6@sha256:a1727c5389c03cdef4db37000305898fe7678586471c3fdd325dc24655517887
+          tccr.io/truecharts/redis:v6.2.6@sha256:f843271329edf9770752f2a01d8e6a1cafce3412cff56c59b5d6b305f75a99c0
 
 ##### Scan Results
 
@@ -435,7 +435,7 @@ hide:
 
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
-| laravel/framework         |    CVE-2021-43808   |   MEDIUM  |  v8.74.0 | 7.30.6, 8.75.0, 6.20.42 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-66hf-2p6w-jqfw">https://github.com/advisories/GHSA-66hf-2p6w-jqfw</a><br><a href="https://github.com/laravel/framework/commit/b8174169b1807f36de1837751599e2828ceddb9b">https://github.com/laravel/framework/commit/b8174169b1807f36de1837751599e2828ceddb9b</a><br><a href="https://github.com/laravel/framework/pull/39906">https://github.com/laravel/framework/pull/39906</a><br><a href="https://github.com/laravel/framework/pull/39908">https://github.com/laravel/framework/pull/39908</a><br><a href="https://github.com/laravel/framework/pull/39909">https://github.com/laravel/framework/pull/39909</a><br><a href="https://github.com/laravel/framework/releases/tag/v6.20.42">https://github.com/laravel/framework/releases/tag/v6.20.42</a><br><a href="https://github.com/laravel/framework/releases/tag/v7.30.6">https://github.com/laravel/framework/releases/tag/v7.30.6</a><br><a href="https://github.com/laravel/framework/releases/tag/v8.75.0">https://github.com/laravel/framework/releases/tag/v8.75.0</a><br><a href="https://github.com/laravel/framework/security/advisories/GHSA-66hf-2p6w-jqfw">https://github.com/laravel/framework/security/advisories/GHSA-66hf-2p6w-jqfw</a><br></details>  |
+| laravel/framework         |    CVE-2021-43808   |   MEDIUM  |  v8.74.0 | 6.20.42, 7.30.6, 8.75.0 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-66hf-2p6w-jqfw">https://github.com/advisories/GHSA-66hf-2p6w-jqfw</a><br><a href="https://github.com/laravel/framework/commit/b8174169b1807f36de1837751599e2828ceddb9b">https://github.com/laravel/framework/commit/b8174169b1807f36de1837751599e2828ceddb9b</a><br><a href="https://github.com/laravel/framework/pull/39906">https://github.com/laravel/framework/pull/39906</a><br><a href="https://github.com/laravel/framework/pull/39908">https://github.com/laravel/framework/pull/39908</a><br><a href="https://github.com/laravel/framework/pull/39909">https://github.com/laravel/framework/pull/39909</a><br><a href="https://github.com/laravel/framework/releases/tag/v6.20.42">https://github.com/laravel/framework/releases/tag/v6.20.42</a><br><a href="https://github.com/laravel/framework/releases/tag/v7.30.6">https://github.com/laravel/framework/releases/tag/v7.30.6</a><br><a href="https://github.com/laravel/framework/releases/tag/v8.75.0">https://github.com/laravel/framework/releases/tag/v8.75.0</a><br><a href="https://github.com/laravel/framework/security/advisories/GHSA-66hf-2p6w-jqfw">https://github.com/laravel/framework/security/advisories/GHSA-66hf-2p6w-jqfw</a><br></details>  |
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
@@ -811,7 +811,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/redis:v6.2.6@sha256:a1727c5389c03cdef4db37000305898fe7678586471c3fdd325dc24655517887 (debian 10.11)
+#### Container: tccr.io/truecharts/redis:v6.2.6@sha256:f843271329edf9770752f2a01d8e6a1cafce3412cff56c59b5d6b305f75a99c0 (debian 10.11)
 
 
 **debian**
