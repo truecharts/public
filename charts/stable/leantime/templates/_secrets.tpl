@@ -14,7 +14,7 @@ data:
   LEAN_SESSION_PASSWORD: {{ index $leantimeprevious.data "LEAN_SESSION_PASSWORD" }}
   {{- else }}
   {{- $session_password := randAlphaNum 32 }}
-  LEAN_SESSION_PASSWORD: {{ $session_password | b64enc | quote }}
+  LEAN_SESSION_PASSWORD: {{ $session_password | b64enc }}
   {{- end }}
 
 {{- end -}}
