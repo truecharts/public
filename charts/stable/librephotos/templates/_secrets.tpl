@@ -14,7 +14,7 @@ data:
   SECRET_KEY: {{ index $librephotosprevious.data "SECRET_KEY" }}
   {{- else }}
   {{- $secret_key := randAlphaNum 32 }}
-  SECRET_KEY: {{ $secret_key | b64enc | quote }}
+  SECRET_KEY: {{ $secret_key | b64enc }}
   {{- end }}
 
 {{- end -}}
