@@ -5,6 +5,7 @@ This template generates a random password and ensures it persists across updates
 ---
 apiVersion: v1
 kind: Secret
+type: Opaque
 metadata:
   labels:
     {{- include "common.labels" . | nindent 4 }}
@@ -14,15 +15,14 @@ metadata:
 {{- $secret := "" }}
 data:
 {{- if $keyprevious }}
-  {{- $appkey = ( index $keyprevious.data "appkey" ) | b64dec  }}
-  {{- $secret = ( index $keyprevious.data "secret" ) | b64dec  }}
+  {{- $appkey = ( index $keyprevious.data "appkey" ) }}
+  {{- $secret = ( index $keyprevious.data "secret" ) }}
   appkey: {{ ( index $keyprevious.data "appkey" ) }}
   secret: {{ ( index $keyprevious.data "secret" ) }}
 {{- else }}
-  {{- $appkey = randAlphaNum 32 | b64enc }}
-  {{- $secret = randAlphaNum 32 | b64enc }}
-  appkey: {{ $appkey | b64enc | quote }}
-  secret: {{ $secret | b64enc | quote }}
+  {{- $appkey = randAlphaNum 32 }}
+  {{- $secret = randAlphaNum 32 }}
+  appkey: {{ $appkey | b64enc }}
+  secret: {{ $secret | b64enc }}
 {{- end }}
-type: Opaque
 {{- end -}}
