@@ -46,6 +46,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.gprc.ports.gprc.port | int | `33060` |  |
 | service.gprc.ports.gprc.targetPort | int | `33060` |  |
 | service.main.ports.main.port | int | `10150` |  |
+| service.main.ports.main.protocol | string | `"HTTPS"` |  |
 | service.main.ports.main.targetPort | int | `10150` |  |
 
 All Rights Reserved - The TrueCharts Project

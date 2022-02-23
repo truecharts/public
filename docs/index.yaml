@@ -48036,6 +48036,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 3.0.4
+    created: "2022-02-23T07:49:59.909371359Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.73
+    description: Pydio-cells is the nextgen file sharing platform for organizations.
+    digest: 768262ced0450fa368775b5d30daf535e9837ac7f265e496c22ef61d8e8bd6ad
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/pydio-cells
+    icon: https://truecharts.org/_static/img/appicons/pydio-cells-icon.png
+    keywords:
+    - pydio-cells
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: pydio-cells
+    sources:
+    - https://hub.docker.com/r/linuxserver/pydio-cells
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/pydio-cells-1.0.3/pydio-cells-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.0.4
     created: "2022-02-22T23:23:41.113392882Z"
     dependencies:
     - name: common
@@ -64238,4 +64272,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-22T23:23:42.03438967Z"
+generated: "2022-02-23T07:49:59.915597407Z"
