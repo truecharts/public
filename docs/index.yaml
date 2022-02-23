@@ -33537,6 +33537,37 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 0.6.3
+    created: "2022-02-23T20:19:18.964355108Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Mylar is a automated Comic Book downloader
+    digest: 2cca6d6b48d52daca31dc70b01d626756179500672563987798940365fb7fe54
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/mylar
+    icon: https://truecharts.org/_static/img/appicons/mylar-icon.png
+    keywords:
+    - mylar
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: mylar
+    sources:
+    - https://github.com/mylar3/mylar3
+    - https://github.com/linuxserver/docker-mylar3
+    - https://github.com/truecharts/apps/tree/master/charts/mylar
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mylar-4.0.42/mylar-4.0.42.tgz
+    version: 4.0.42
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 0.5.3
     created: "2022-01-04T20:49:11.380047708Z"
     dependencies:
@@ -64272,4 +64303,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-23T07:49:59.915597407Z"
+generated: "2022-02-23T20:19:18.969461761Z"
