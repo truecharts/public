@@ -26,12 +26,9 @@ env:
   DECONZ_DEVICE:  # /dev/ttyUSB0
   # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
   DECONZ_VNC_MODE: 1
-  # -- Web UI listen port
-  DECONZ_WEB_PORT: 8080
-  # -- Websocket listen port
-  DECONZ_WS_PORT: 6080
-  # -- VNC server listen port
-  DECONZ_VNC_PORT: 5900
+  DECONZ_WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
+  DECONZ_WS_PORT: "{{ .Values.service.websocket.ports.websocket.port }}"
+  DECONZ_VNC_PORT: "{{ .Values.service.vnc.ports.vnc.port }}"
   DECONZ_UID: 568
   DECONZ_GID: 568
 
@@ -42,21 +39,18 @@ service:
     ports:
       main:
         port: 10008
-        targetPort: 8080
   websocket:
     enabled: true
     ports:
       websocket:
         enabled: true
         port: 10001
-        targetPort: 6080
   vnc:
     enabled: true
     ports:
       vnc:
         enabled: true
         port: 10002
-        targetPort: 5900
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
