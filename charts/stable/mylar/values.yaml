@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/mylar3
-  # -- image tag
-  tag: version-v0.5.3@sha256:97892fdbd4aaa622ea5b77d1c9c467985545094a13f4acd1ab3f5d4b0bb094ea
-  # -- image pull policy
+  tag: v0.6.3@sha256:2735700c6150206e0419c2036432b83018a53fb5797dad3dc80f4800988a18d2
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -13,16 +10,9 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-mylar3#environment-variables-e) for more details.
-# @default -- See below
 env:
-  # -- Set the container timezone
-  TZ: UTC
-    # -- Specify the user ID the application will run as
   PUID: 568
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -30,8 +20,6 @@ service:
         port: 8090
         targetPort: 8090
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
