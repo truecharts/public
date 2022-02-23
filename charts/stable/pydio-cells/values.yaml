@@ -3,6 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v3.0.4@sha256:81c6f8675ffc243af9ffab5a43da0ed50f33f0c153c352aad027127c3c0318ad
 
+command: ["cat", "/cells/install.yml"]
+
 env:
   CELLS_EXTERNAL: ""
   CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.targetPort }}"
@@ -33,6 +35,7 @@ service:
   main:
     ports:
       main:
+        protocol: HTTPS
         targetPort: 10150
         port: 10150
   gprc:
