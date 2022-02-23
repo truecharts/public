@@ -11,5 +11,5 @@ We also document which versions of TrueNAS will recieve TrueCharts updates and f
 | TrueNAS version | Branch| Supported with updates | Accepting Support tickets | Accepting Bugreports | Notes |
 | ------- | ------- |------------------ | -------------- | -------------- | -------------- |
 | 22.02 RC | `master` | :white_check_mark: | :x: | :x: | Adviced to update to 22.02 RELEASE
-| 22.02 RELEASE | `master`  | :white_check_mark: | :x:  | :x: | Most Stable Release
+| 22.02 RELEASE | `master`  | :white_check_mark: | :white_check_mark:  | :white_check_mark: | Most Stable Release
 | Nightly | `master` | :white_check_mark: | :x:  | :white_check_mark: | Please only submit bugreports during codefreeze
