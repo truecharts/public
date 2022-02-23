@@ -9,7 +9,6 @@ secret:
   SERVER_PASS: secret
 
 env:
-  TZ: UTC
   STATUS_HTTP: true
   STATUS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
   SUPERVISOR_HTTP_PORT: "{{ .Values.service.supervisor.ports.supervisor.port }}"

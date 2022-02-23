@@ -21,7 +21,6 @@ secret:
 # @default -- See below
 env:
   # -- Set the container timezone
-  TZ: UTC
   # -- Override the location where deCONZ looks for the RaspBee/Conbee device.
   DECONZ_DEVICE:  # /dev/ttyUSB0
   # -- Enable VNC access to the container to view the deCONZ ZigBee mesh

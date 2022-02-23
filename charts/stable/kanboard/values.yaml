@@ -19,7 +19,6 @@ podSecurityContext:
 # @default -- See below (only deviations from the default settings are specified)
 env:
   # -- Set the container timezone
-  TZ: UTC
   # -- Enable/disable email configuration from the user interface
   MAIL_CONFIGURATION: false
   # -- log driver: syslog, stderr, stdout or file

@@ -4,7 +4,6 @@ image:
   pullPolicy: IfNotPresent
 
 env:
-  TZ: UTC
   PHOTOVIEW_DATABASE_DRIVER: "postgres"
   PHOTOVIEW_LISTEN_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
   PHOTOVIEW_MEDIA_CACHE: "/cache"

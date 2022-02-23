@@ -12,7 +12,6 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  TZ: UTC
   APP_BASE_URL: http://localhost:22300
   APP_PORT: 22300
   DB_CLIENT: "pg"

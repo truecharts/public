@@ -12,7 +12,6 @@ secret:
   ADMIN_PASSWORD: "changeme"
 env:
   # -- Set the container timezone.
-  TZ: UTC
   # -- Set to `1` to run database migrations during application startup.
   RUN_MIGRATIONS: 1
   # -- Set to `1` to create an admin user from environment variables.

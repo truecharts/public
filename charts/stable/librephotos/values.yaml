@@ -26,7 +26,6 @@ secret:
   MAPBOX_API_KEY: ""
 
 env:
-  TZ: UTC
   BACKEND_HOST: "localhost"
   DB_BACKEND: "postgresql"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"

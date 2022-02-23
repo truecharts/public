@@ -10,7 +10,6 @@ image:
 # @default -- See below
 env:
   # -- Set the container timezone
-  TZ: UTC
   DJANGO_TIME_ZONE: "{{ .Values.env.TZ }}"
   DJANGO_DATABASE_ENGINE: "django.db.backends.postgresql"
   DJANGO_DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
