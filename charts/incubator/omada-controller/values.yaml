@@ -35,26 +35,26 @@ service:
       comm:
         enabled: true
         port: 8843
-        targetPor: 8843
+        targetPort: 8843
   omada-tcp:
     enabled: true
     ports:
       omada-tcp1:
         enabled: true
-        port: 29810
-        targetPort: 29810
-      omada-tcp2:
-        enabled: true
         port: 29811
         targetPort: 29811
-      omada-tcp3:
+      omada-tcp2:
         enabled: true
         port: 29812
         targetPort: 29812
-      omada-tcp4:
+      omada-tcp3:
         enabled: true
         port: 29813
         targetPort: 29813
+      omada-tcp4:
+        enabled: true
+        port: 29814
+        targetPort: 29814
   omada-udp:
     enabled: true
     ports:
@@ -63,21 +63,6 @@ service:
         protocol: UDP
         port: 29810
         targetPort: 29810
-      omada-udp2:
-        enabled: true
-        protocol: UDP
-        port: 29811
-        targetPort: 29811
-      omada-udp3:
-        enabled: true
-        protocol: UDP
-        port: 29812
-        targetPort: 29812
-      omada-udp4:
-        enabled: true
-        protocol: UDP
-        port: 29813
-        targetPort: 29813
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
