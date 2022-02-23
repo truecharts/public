@@ -33,6 +33,7 @@ service:
   main:
     ports:
       main:
+        protocol: HTTPS
         targetPort: 10150
         port: 10150
   gprc:

@@ -111,7 +111,7 @@ questions:
             type: string
             required: true
             default: ""
-        - variable: title
+        - variable: password
           label: "Cells Admin Password (First install only)"
           description: "Cells Admin Password"
           schema:
@@ -163,7 +163,7 @@ questions:
                                   label: "Port Type"
                                   schema:
                                     type: string
-                                    default: "HTTP"
+                                    default: "HTTPS"
                                     enum:
                                       - value: HTTP
                                         description: "HTTP"

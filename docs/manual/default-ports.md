@@ -302,7 +302,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | ipfs                       |     gateway     |     gateway     | 10147 |   TCP    |                                         |
 | kodi-headless              |      main       |      main       | 10148 |   TCP    |                                         |
 | pwndrop                    |      main       |      main       | 10149 |   TCP    |                                         |
-| pydio-cells                |      main       |      main       | 10150 |   TCP    |                                         |
+| pydio-cells                |      main       |      main       | 10150 |  HTTPS   |                                         |
 | scrutiny                   |      main       |      main       | 10151 |   TCP    |                                         |
 | kodi-headless              |    websocket    |    websocket    | 10152 |   TCP    |                                         |
 | shlink                     |      main       |      main       | 10153 |   TCP    |                                         |
