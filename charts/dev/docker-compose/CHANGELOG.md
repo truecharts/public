@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="docker-compose-0.0.6"></a>
+### [docker-compose-0.0.6](https://github.com/truecharts/apps/compare/docker-compose-0.0.5...docker-compose-0.0.6) (2022-02-24)
+
+#### Fix
+
+* fix autoloading of docker-compose file
+
+
+
 <a name="docker-compose-0.0.5"></a>
 ### [docker-compose-0.0.5](https://github.com/truecharts/apps/compare/docker-compose-0.0.4...docker-compose-0.0.5) (2022-02-24)
 

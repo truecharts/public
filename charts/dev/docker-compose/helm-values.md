@@ -26,7 +26,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v20.10.12@sha256:06af3ce416ac5d30697178378f164a9a9494bc5dcb182b0f441ed9f5087a5fe7"` |  |
 | lifecycle.postStart.exec.command[0] | string | `"/bin/bash"` |  |
 | lifecycle.postStart.exec.command[1] | string | `"-c"` |  |
-| lifecycle.postStart.exec.command[2] | string | `"if [ \"${COMPOSE_FILE}\" ]; then\ncounter=0;\nwhile ! docker info > /dev/null 2>&1 && [[ ${counter} -lt 10 ]]; do\necho \"docker not running yet. Waiting...\" >> /proc/1/fd/1;\nsleep 5;\ncounter=$((counter+1));\ndone\ndocker-compose up -d -f \"${COMPOSE_FILE}\" && echo \"Loading COMPOSE_FILE at location ${COMPOSE_FILE}\" >> /proc/1/fd/1;\nelse\necho \"COMPOSE_FILE not set, not auto-loading compose-file\" >> /proc/1/fd/1;\nfi\n"` |  |
+| lifecycle.postStart.exec.command[2] | string | `"if [ \"${COMPOSE_FILE}\" ]; then\ncounter=0;\nwhile ! docker info > /dev/null 2>&1 && [[ ${counter} -lt 10 ]]; do\necho \"docker not running yet. Waiting...\" >> /proc/1/fd/1;\nsleep 5;\ncounter=$((counter+1));\ndone\ndocker-compose -f \"${COMPOSE_FILE}\" up -d && echo \"Loading COMPOSE_FILE at location ${COMPOSE_FILE}\" >> /proc/1/fd/1;\nelse\necho \"COMPOSE_FILE not set, not auto-loading compose-file\" >> /proc/1/fd/1;\nfi\n"` |  |
 | persistence.cluster.enabled | bool | `true` |  |
 | persistence.cluster.hostPath | string | `"/cluster"` |  |
 | persistence.cluster.hostPathType | string | `""` |  |

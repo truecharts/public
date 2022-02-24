@@ -5839,27 +5839,6 @@ entries:
   common:
   - apiVersion: v2
     appVersion: latest
-    created: "2022-02-24T22:45:30.885010816Z"
-    description: Function library for TrueCharts
-    digest: b336b5e1a1fe7ea5b2ec353115f081f0e617396bb67f08c01324791dead81fe5
-    home: https://github.com/truecharts/apps/tree/master/charts/common
-    icon: https://avatars.githubusercontent.com/u/76400755
-    keywords:
-    - truecharts
-    - library-chart
-    - common
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: common
-    type: library
-    urls:
-    - https://github.com/truecharts/apps/releases/download/common-8.17.0/common-8.17.0.tgz
-    version: 8.17.0
-  - apiVersion: v2
-    appVersion: latest
     created: "2022-02-22T19:25:29.949684136Z"
     description: Function library for TrueCharts
     digest: 1c00bd4824eb7aa63c37921444ed5dd0e2dfe5aea357ac84380b88de37f58cbe
@@ -9595,6 +9574,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/dizquetv-4.0.19/dizquetv-4.0.19.tgz
     version: 4.0.19
   docker-compose:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - docker
+        - test
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 20.10.12
+    created: "2022-02-24T22:56:40.238423008Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Dedicated App for using Docker-Compose on TrueNAS SCALE
+    digest: 5d6e3b9f51d915156bd4965861fee201b180b6f967c34cf059a8f568cdbaf243
+    home: https://github.com/truecharts/apps/tree/master/charts/dev/docker-compose
+    icon: https://truecharts.org/_static/img/appicons/docker-compose-icon.png
+    keywords:
+    - docker-compose
+    - docker
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: docker-compose
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/docker-compose-0.0.6/docker-compose-0.0.6.tgz
+    version: 0.0.6
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -64552,4 +64563,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-24T22:45:30.892147665Z"
+generated: "2022-02-24T22:56:40.243788947Z"
