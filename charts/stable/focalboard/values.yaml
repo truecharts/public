@@ -1,33 +1,34 @@
 image:
-  # -- image repository
-  repository: tccr.io/truecharts/focalboard
-  # -- image pull policy
+  repository: mattermost/focalboard
   pullPolicy: IfNotPresent
-  # -- image tag
-  tag: v0.8.0@sha256:0c560a1e1b11015598e63b580d6e21b5bb41bc2e140b15e4a54b7b0c415e765e
+  tag: 0.14.0@sha256:f68105f710cd20f34dcdc4a0557e8297f97d98081d41e7aeff045d4722f2f33e
+
+command: ["cat", "/opt/focalboard/config.json"]
 
 securityContext:
   readOnlyRootFilesystem: false
 
-# -- environment variables. See more environment variables in the [image entrypoint script](https://github.com/FlipEnergy/container-images/blob/main/focalboard/entrypoint.sh)
-# @default -- See below
 env: {}
-  # SERVER_ROOT:
-  # DBTYPE:
-  # DBCONFIG:
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+focalboard:
+  serverRoot: "http://localhost:10072"
+  telemetry: false
+  localOnly: false
+  enableLocalMode: true
+
 service:
   main:
     ports:
       main:
         port: 10072
-        targetPort: 8000
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
-  data:
+  uploads:
     enabled: true
-    mountPath: "/data"
+    mountPath: "/uploads"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: focalboard
+  postgresqlDatabase: focalboard
