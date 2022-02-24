@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="ubooquity-1.0.0"></a>
+### [ubooquity-1.0.0](https://github.com/truecharts/apps/compare/ubooquity-0.0.22...ubooquity-1.0.0) (2022-02-24)
+
+#### Fix
+
+* Add admin service and portal ([#1951](https://github.com/truecharts/apps/issues/1951))
+
+
+
 <a name="ubooquity-0.0.22"></a>
 ### [ubooquity-0.0.22](https://github.com/truecharts/apps/compare/ubooquity-0.0.21...ubooquity-0.0.22) (2022-02-21)
 

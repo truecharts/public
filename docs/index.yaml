@@ -9573,6 +9573,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/dizquetv-4.0.19/dizquetv-4.0.19.tgz
     version: 4.0.19
+  docker-compose:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - docker
+        - test
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 20.10.12
+    created: "2022-02-24T15:59:45.617977727Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Dedicated App for using Docker-Compose on TrueNAS SCALE
+    digest: 4134a001a5ac44d14d46e7e15e46e2ac8d262724c55cb57ca36467be97ad6203
+    home: https://github.com/truecharts/apps/tree/master/charts/dev/docker-compose
+    icon: https://truecharts.org/_static/img/appicons/docker-compose.png
+    keywords:
+    - docker-compose
+    - docker
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: docker-compose
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/docker-compose-0.0.1/docker-compose-0.0.1.tgz
+    version: 0.0.1
   dokuwiki:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -60481,6 +60514,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.1.2
+    created: "2022-02-24T15:59:45.809769335Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Ubooquity is a free, lightweight and easy-to-use home server for
+      your comics and ebooks.
+    digest: 66bf0bbc605a488c6cf6c33b7eb5cc0662333c90d409f918d95987da1c03bfb7
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ubooquity
+    icon: https://truecharts.org/_static/img/appicons/ubooquity-icon.png
+    keywords:
+    - ubooquity
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: ubooquity
+    sources:
+    - https://hub.docker.com/r/linuxserver/ubooquity
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ubooquity-1.0.0/ubooquity-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.1.2
     created: "2022-01-04T20:49:23.700484679Z"
     dependencies:
     - name: common
@@ -64337,4 +64401,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-24T00:08:07.031557256Z"
+generated: "2022-02-24T15:59:45.816496924Z"
