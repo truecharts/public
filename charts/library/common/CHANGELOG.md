@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-8.17.0"></a>
+### [common-8.17.0](https://github.com/truecharts/apps/compare/common-8.16.1...common-8.17.0) (2022-02-24)
+
+#### Feat
+
+* block host docker-compose and create hostpatch initcontainer ([#1961](https://github.com/truecharts/apps/issues/1961))
+
+
+
 <a name="common-8.16.1"></a>
 ### [common-8.16.1](https://github.com/truecharts/apps/compare/common-8.16.0...common-8.16.1) (2022-02-22)
 
