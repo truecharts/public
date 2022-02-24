@@ -1,6 +1,6 @@
 {{- define "focalboard.configmap" -}}
 
-{{- $pgPass = .Values.postgresql.postgresqlPassword | trimAll "\"" }}
+{{- $pgPass := .Values.postgresql.postgresqlPassword | trimAll "\"" }}
 ---
 apiVersion: v1
 kind: ConfigMap
