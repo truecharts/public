@@ -5,9 +5,9 @@ image:
 
 env:
   CELLS_EXTERNAL: ""
-  CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.targetPort }}"
-  CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.targetPort }}"
-  CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
+  CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
+  CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.port }}"
+  CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
   CELLS_WORKING_DIR: "/cells"
   CELLS_DATA_DIR: "/cells/data"
   CELLS_LOG_DIR: "/cells/logs"
