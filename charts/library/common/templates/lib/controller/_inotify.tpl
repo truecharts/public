@@ -11,5 +11,5 @@ before chart installation.
   command:
     - "/bin/sh"
     - "-c"
-    - "sysctl -w fs.inotify.max_user_watches=524288 && sysctl -w fs.inotify.max_user_instances=512 && chmod -x /usr/bin/docker-compose && chmod -x /bin/docker-compose"
+    - ( sysctl -w fs.inotify.max_user_watches=524288 || echo "error setting inotify") && ( sysctl -w fs.inotify.max_user_instances=512 || echo "error setting inotify")&& ( chmod -x /usr/bin/docker-compose || echo "error locking docker-compose") && ( chmod -x /bin/docker-compose || echo "error locking docker-compose" )
 {{- end -}}
