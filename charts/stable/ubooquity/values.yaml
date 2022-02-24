@@ -12,6 +12,7 @@ podSecurityContext:
 
 env:
   PUID: 568
+  MAXMEM: 512
 
 service:
   main:
@@ -19,6 +20,11 @@ service:
       main:
         targetPort: 2202
         port: 2202
+  admin:
+    ports:
+      admin:
+        targetPort: 2203
+        port: 2203
 
 persistence:
   varrun:
@@ -26,3 +32,12 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  books:
+    enabled: true
+    mountPath: "/books"
+  comics:
+    enabled: true
+    mountPath: "/comics"
+  files:
+    enabled: true
+    mountPath: "/files"

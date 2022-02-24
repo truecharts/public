@@ -52,6 +52,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | owncast                    |      rtmp       |      rtmp       | 1935  |   TCP    |     Potential conflict with frigate     |
 | frigate                    |      rtmp       |      rtmp       | 1935  |   TCP    |     Potential conflict with owncast     |
 | ubooquity                  |      main       |      main       | 2202  |   TCP    |                                         |
+| ubooquity                  |      admin      |      admin      | 2203  |   TCP    |                                         |
 | gitea                      |       ssh       |       ssh       | 2222  |   TCP    |                                         |
 | photoprism                 |      main       |      main       | 2342  |   TCP    |                                         |
 | valheim                    |     valheim     |    valheim-1    | 2456  |   UDP    |                                         |
