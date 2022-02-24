@@ -100,19 +100,19 @@ questions:
           label: "telemetry"
           description: "Enable health diagnostics telemetry	"
           schema:
-            type: bolean
+            type: boolean
             default: false
         - variable: localOnly
           label: "localOnly"
           description: "Only allow connections from localhost"
           schema:
-            type: bolean
+            type: boolean
             default: false
         - variable: enableLocalMode
           label: "enableLocalMode"
           description: "Enable admin APIs on local Unix port"
           schema:
-            type: bolean
+            type: boolean
             default: true
 # Include{containerConfig}
 
