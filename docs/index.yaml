@@ -9582,6 +9582,38 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 20.10.12
+    created: "2022-02-24T18:23:57.553210792Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Dedicated App for using Docker-Compose on TrueNAS SCALE
+    digest: 133452cd1efd3cb5b4b33592ce6573ce7236dfe9175f8ca00ce18cf5111eda02
+    home: https://github.com/truecharts/apps/tree/master/charts/dev/docker-compose
+    icon: https://truecharts.org/_static/img/appicons/docker-compose-icon.png
+    keywords:
+    - docker-compose
+    - docker
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: docker-compose
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/docker-compose-0.0.2/docker-compose-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - docker
+        - test
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 20.10.12
     created: "2022-02-24T15:59:45.617977727Z"
     dependencies:
     - name: common
@@ -48134,6 +48166,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 3.0.4
+    created: "2022-02-24T18:23:57.769188917Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.73
+    description: Pydio-cells is the nextgen file sharing platform for organizations.
+    digest: e035cd3cf6c9b20db32d74379d7aa27f7d8d5ee095aa3c1f7c243cdf1829aa91
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/pydio-cells
+    icon: https://truecharts.org/_static/img/appicons/pydio-cells-icon.png
+    keywords:
+    - pydio-cells
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: pydio-cells
+    sources:
+    - https://hub.docker.com/r/linuxserver/pydio-cells
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/pydio-cells-1.0.4/pydio-cells-1.0.4.tgz
+    version: 1.0.4
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.0.4
     created: "2022-02-23T07:49:59.909371359Z"
     dependencies:
     - name: common
@@ -64401,4 +64467,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-24T15:59:45.816496924Z"
+generated: "2022-02-24T18:23:57.775303025Z"

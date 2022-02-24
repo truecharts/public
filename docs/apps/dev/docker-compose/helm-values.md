@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | hostNetwork | bool | `true` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/docker-in-docker"` |  |
-| image.tag | string | `"v20.10.12@sha256:e672e85d8141beffea3f7e5b97c79a2bca726bde478474e845fc338a08a1092f"` |  |
+| image.tag | string | `"v20.10.12@sha256:c62daf2fbd0b520a5849a5b463b059207e3669c892131eff1f0cf22d3b053deb"` |  |
 | persistence.docker-certs-ca.enabled | bool | `true` |  |
 | persistence.docker-certs-ca.mountPath | string | `"/config"` |  |
 | persistence.mnt.enabled | bool | `true` |  |
