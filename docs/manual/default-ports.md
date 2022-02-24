@@ -55,6 +55,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | ubooquity                  |      admin      |      admin      | 2203  |   TCP    |                                         |
 | gitea                      |       ssh       |       ssh       | 2222  |   TCP    |                                         |
 | photoprism                 |      main       |      main       | 2342  |   TCP    |                                         |
+| docker-compose             |      main       |      main       | 2376  |  HTTPS   |                                         |
 | valheim                    |     valheim     |    valheim-1    | 2456  |   UDP    |                                         |
 | valheim                    |     valheim     |    valheim-2    | 2457  |   UDP    |                                         |
 | valheim                    |     valheim     |    valheim-3    | 2458  |   UDP    |                                         |
