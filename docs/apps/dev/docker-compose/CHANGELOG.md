@@ -1,6 +1,11 @@
 # Changelog<br>
 
 
+<a name="docker-compose-0.0.4"></a>
+### [docker-compose-0.0.4](https://github.com/truecharts/apps/compare/docker-compose-0.0.3...docker-compose-0.0.4) (2022-02-24)
+
+
+
 <a name="docker-compose-0.0.3"></a>
 ### [docker-compose-0.0.3](https://github.com/truecharts/apps/compare/docker-compose-0.0.2...docker-compose-0.0.3) (2022-02-24)
 

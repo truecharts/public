@@ -26,7 +26,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v20.10.12@sha256:c62daf2fbd0b520a5849a5b463b059207e3669c892131eff1f0cf22d3b053deb"` |  |
 | lifecycle.postStart.exec.command[0] | string | `"/bin/sh"` |  |
 | lifecycle.postStart.exec.command[1] | string | `"-c"` |  |
-| lifecycle.postStart.exec.command[2] | string | `"sleep 20 && if [ ${COMPOSE_FILE} ]; then docker-compose up -d -f ${COMPOSE_FILE} && echo \"Loading COMPOSE_FILE at location ${COMPOSE_FILE}\"; else echo \"COMPOSE_FILE not set, not auto-loading compose-file\"; fi"` |  |
+| lifecycle.postStart.exec.command[2] | string | `"sleep 20 && if [ ${COMPOSE_FILE} ]; then docker-compose up -d -f ${COMPOSE_FILE} && echo \"Loading COMPOSE_FILE at location ${COMPOSE_FILE}\" >> /proc/1/fd/1; else echo \"COMPOSE_FILE not set, not auto-loading compose-file\" >> /proc/1/fd/1; fi\n"` |  |
 | persistence.cluster.enabled | bool | `true` |  |
 | persistence.cluster.hostPath | string | `"/cluster"` |  |
 | persistence.cluster.hostPathType | string | `""` |  |
