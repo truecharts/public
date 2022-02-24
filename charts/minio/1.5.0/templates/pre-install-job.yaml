@@ -9,6 +9,7 @@ metadata:
     helm.sh/chart: {{ template "common.names.chart" . }}
   annotations:
     "helm.sh/hook": pre-install
+    "helm.sh/hook-delete-policy": hook-succeeded
 spec:
   template:
     metadata:
