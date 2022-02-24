@@ -52,7 +52,7 @@ env:
 lifecycle:
   postStart:
     exec:
-      command: ["/bin/sh", "-c", "if [ ${COMPOSE_FILE} ]; then docker-compose up -d -f ${COMPOSE_FILE}; else echo "COMPOSE_FILE not set, not auto-loading compose-file"; fi"]
+      command: ["/bin/sh", "-c", 'if [ ${COMPOSE_FILE} ]; then docker-compose up -d -f ${COMPOSE_FILE}; else echo "COMPOSE_FILE not set, not auto-loading compose-file"; fi']
 
 persistence:
   varrun:
