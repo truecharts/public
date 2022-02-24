@@ -24,10 +24,6 @@ controller:
   # -- ReplicaSet revision history limit
   revisionHistoryLimit: 3
 
-persistence:
-  varrun:
-    enabled: false
-
 securityContext:
   privileged: true
   readOnlyRootFilesystem: false
@@ -59,6 +55,8 @@ env:
   DOCKER_TLS_CERTDIR: "/certs"
 
 persistence:
+  varrun:
+    enabled: false
   mnt:
     enabled: true
     type: hostPath
