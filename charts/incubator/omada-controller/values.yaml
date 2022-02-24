@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/omada-controller
-  # -- image tag
   tag: v5.0@sha256:31b3cd5a6eee52c2b04a694f8a103447fc98a03b52f3b20c49d867058f15e314
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -14,14 +11,9 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-# -- environment variables. See [image docs](https://github.com/mbentley/docker-omada-controller) for more details.
-# @default -- See below
 env:
-  # -- Set the container timezone
   TZ: UTC
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -33,28 +25,29 @@ service:
     enabled: true
     ports:
       comm:
+        protocol: HTTPS
         enabled: true
         port: 8843
-        targetPor: 8843
+        targetPort: 8843
   omada-tcp:
     enabled: true
     ports:
       omada-tcp1:
         enabled: true
-        port: 29810
-        targetPort: 29810
-      omada-tcp2:
-        enabled: true
         port: 29811
         targetPort: 29811
-      omada-tcp3:
+      omada-tcp2:
         enabled: true
         port: 29812
         targetPort: 29812
-      omada-tcp4:
+      omada-tcp3:
         enabled: true
         port: 29813
         targetPort: 29813
+      omada-tcp4:
+        enabled: true
+        port: 29814
+        targetPort: 29814
   omada-udp:
     enabled: true
     ports:
@@ -63,24 +56,7 @@ service:
         protocol: UDP
         port: 29810
         targetPort: 29810
-      omada-udp2:
-        enabled: true
-        protocol: UDP
-        port: 29811
-        targetPort: 29811
-      omada-udp3:
-        enabled: true
-        protocol: UDP
-        port: 29812
-        targetPort: 29812
-      omada-udp4:
-        enabled: true
-        protocol: UDP
-        port: 29813
-        targetPort: 29813
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   data:
     enabled: true
