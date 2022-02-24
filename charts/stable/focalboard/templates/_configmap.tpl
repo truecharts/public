@@ -12,7 +12,7 @@ data:
       "serverRoot": "{{ .Values.focalboard.serverRoot }}",
       "port": {{ .Values.service.main.ports.main.port }},
       "dbtype": "postgres",
-      "dbconfig": "{{ ( printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername ( .Values.postgresql.postgresqlPassword | trimAll "\"" ) .Release.Name .Values.postgresql.postgresqlDatabase ) | b64enc }}",
+      "dbconfig": "{{ ( printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername ( .Values.postgresql.postgresqlPassword | trimAll "\"" ) .Release.Name .Values.postgresql.postgresqlDatabase ) }}",
       "postgres_dbconfig": "dbname={{ .Values.postgresql.postgresqlDatabase }} sslmode=enable",
       "useSSL": true,
       "webpath": "./pack",
