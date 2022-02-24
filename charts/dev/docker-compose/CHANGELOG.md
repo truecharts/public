@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="docker-compose-0.0.5"></a>
+### [docker-compose-0.0.5](https://github.com/truecharts/apps/compare/docker-compose-0.0.4...docker-compose-0.0.5) (2022-02-24)
+
+#### Feat
+
+* wait for docker to be running before loading docker-compose file ([#1960](https://github.com/truecharts/apps/issues/1960))
+
+
+
 <a name="docker-compose-0.0.4"></a>
 ### [docker-compose-0.0.4](https://github.com/truecharts/apps/compare/docker-compose-0.0.3...docker-compose-0.0.4) (2022-02-24)
 
