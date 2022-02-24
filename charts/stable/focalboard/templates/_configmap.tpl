@@ -1,4 +1,4 @@
-{{- define "pydiocells.configmap" -}}
+{{- define "focalboard.configmap" -}}
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -12,7 +12,7 @@ data:
       "serverRoot": "{{ .Values.focalboard.serverRoot }}",
       "port": {{ .Values.service.main.ports.main.port }},
       "dbtype": "postgres",
-      "dbconfig": "{{ printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername $dbPass .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}",
+      "dbconfig": "{{ printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername .Values.postgresql.postgresqlPassword .Release.Name .Values.postgresql.postgresqlDatabase  ) | b64enc | quote }}",
       "postgres_dbconfig": "dbname={{ .Values.postgresql.postgresqlDatabase }} sslmode=enable",
       "useSSL": true,
       "webpath": "./pack",

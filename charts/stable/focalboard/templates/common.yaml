@@ -14,7 +14,7 @@ persistence:
 {{- end -}}
 {{- $_ := mergeOverwrite .Values (include "focalboard.harcodedValues" . | fromYaml) -}}
 
-{{- include "pydiocells.configmap" . }}
+{{- include "focalboard.configmap" . }}
 
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}
