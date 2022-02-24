@@ -58,7 +58,7 @@ lifecycle:
         - >
           if [ ${COMPOSE_FILE} ]; then
           ${counter} = 0
-          while [ ! docker info > /dev/null 2>&1 ] && [ ${counter} -lt 10 ]; do
+          while [[ ! docker info > /dev/null 2>&1 && ${counter} -lt 10 ]]; do
           echo "docker not running yet. Waiting..." >> /proc/1/fd/1
           sleep 5
           ${counter} = $((counter+1))
