@@ -5,6 +5,11 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   CELLS_EXTERNAL: ""
