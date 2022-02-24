@@ -22,7 +22,9 @@ service:
         port: 2202
   admin:
     ports:
+      enabled: true
       admin:
+        enabled: true
         targetPort: 2203
         port: 2203
 

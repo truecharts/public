@@ -18,11 +18,21 @@ You will, however, be able to use all values referenced in the common chart here
 | controller.rollingUpdate.unavailable | int | `1` | Set deployment RollingUpdate max unavailable |
 | controller.strategy | string | `"RollingUpdate"` | Set the controller upgrade strategy For Deployments, valid values are Recreate (default) and RollingUpdate. For StatefulSets, valid values are OnDelete and RollingUpdate (default). DaemonSets ignore this. |
 | controller.type | string | `"statefulset"` | Set the controller type. Valid options are deployment, daemonset or statefulset |
+| env.COMPOSE_FILE | string | `""` |  |
 | env.DOCKER_TLS_CERTDIR | string | `"/certs"` |  |
 | hostNetwork | bool | `true` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/docker-in-docker"` |  |
 | image.tag | string | `"v20.10.12@sha256:c62daf2fbd0b520a5849a5b463b059207e3669c892131eff1f0cf22d3b053deb"` |  |
+| lifecycle.postStart.exec.command[0] | string | `"/bin/sh"` |  |
+| lifecycle.postStart.exec.command[1] | string | `"-c"` |  |
+| lifecycle.postStart.exec.command[2] | string | `"sleep 20 && if [ ${COMPOSE_FILE} ]; then docker-compose up -d -f ${COMPOSE_FILE} && echo \"Loading COMPOSE_FILE at location ${COMPOSE_FILE}\"; else echo \"COMPOSE_FILE not set, not auto-loading compose-file\"; fi"` |  |
+| persistence.cluster.enabled | bool | `true` |  |
+| persistence.cluster.hostPath | string | `"/cluster"` |  |
+| persistence.cluster.hostPathType | string | `""` |  |
+| persistence.cluster.mountPath | string | `"/cluster"` |  |
+| persistence.cluster.readOnly | bool | `false` |  |
+| persistence.cluster.type | string | `"hostPath"` |  |
 | persistence.docker-certs-ca.enabled | bool | `true` |  |
 | persistence.docker-certs-ca.mountPath | string | `"/config"` |  |
 | persistence.mnt.enabled | bool | `true` |  |
@@ -41,6 +51,9 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.fsGroup | int | `0` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| probes.liveness.spec.initialDelaySeconds | int | `30` |  |
+| probes.readiness.spec.initialDelaySeconds | int | `30` |  |
+| probes.startup.spec.initialDelaySeconds | int | `30` |  |
 | securityContext.allowPrivilegeEscalation | bool | `true` |  |
 | securityContext.privileged | bool | `true` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
