@@ -56,14 +56,14 @@ lifecycle:
         - "/bin/bash"
         - "-c"
         - >
-          if [ ${COMPOSE_FILE} ]; then
-          ${counter} = 0
-          while [[ ! docker info > /dev/null 2>&1 ]] && [[ ${counter} -lt 10 ]]; do
+          if [ "${COMPOSE_FILE}" ]; then
+          counter=0
+          while ! docker info > /dev/null 2>&1 && [[ ${counter} -lt 10 ]]; do
           echo "docker not running yet. Waiting..." >> /proc/1/fd/1;
           sleep 5;
-          ${counter} = $((counter+1));
+          counter=$((counter+1));
           done
-          docker-compose up -d -f ${COMPOSE_FILE} && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}" >> /proc/1/fd/1;
+          docker-compose up -d -f "${COMPOSE_FILE}" && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}" >> /proc/1/fd/1;
           else
           echo "COMPOSE_FILE not set, not auto-loading compose-file" >> /proc/1/fd/1;
           fi
