@@ -1,6 +1,8 @@
 {{- define "focalboard.configmap" -}}
 
 {{- $pgPass := .Values.postgresql.postgresqlPassword | trimAll "\"" }}
+{{- $pgUser := .Values.postgresql.postgresqlUsername }}
+{{- $pgDB := .Values.postgresql.postgresqlDatabase }}
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -14,7 +16,7 @@ data:
       "serverRoot": "{{ .Values.focalboard.serverRoot }}",
       "port": {{ .Values.service.main.ports.main.port }},
       "dbtype": "postgres",
-      "dbconfig": "{{ printf "postgresql://%v:%v@%v-postgresql:5432/%v" .Values.postgresql.postgresqlUsername $pgPass .Release.Name .Values.postgresql.postgresqlDatabase }}",
+      "dbconfig": "{{ printf "postgresql://%v:%v@%v-postgresql:5432/%v" $pgUser $pgPass .Release.Name $pgDB }}",
       "postgres_dbconfig": "dbname={{ .Values.postgresql.postgresqlDatabase }} sslmode=disable",
       "useSSL": false,
       "webpath": "./pack",
