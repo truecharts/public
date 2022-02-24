@@ -64,6 +64,7 @@ service:
         port: 33060
   healthcheck:
     enabled: true
+    type: ClusterIP
     ports:
       healthcheck:
         enabled: true
