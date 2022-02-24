@@ -43,6 +43,7 @@ service:
     ports:
       main:
         port: 2376
+        type: HTTPS
 
 env:
   DOCKER_TLS_CERTDIR: "/certs"
