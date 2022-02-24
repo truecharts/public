@@ -63,7 +63,7 @@ lifecycle:
           sleep 5;
           counter=$((counter+1));
           done
-          docker-compose up -d -f "${COMPOSE_FILE}" && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}" >> /proc/1/fd/1;
+          docker-compose -f "${COMPOSE_FILE}" up -d && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}" >> /proc/1/fd/1;
           else
           echo "COMPOSE_FILE not set, not auto-loading compose-file" >> /proc/1/fd/1;
           fi
