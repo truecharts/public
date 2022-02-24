@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/docker-in-docker
   pullPolicy: IfNotPresent
-  tag: v20.10.12@sha256:c62daf2fbd0b520a5849a5b463b059207e3669c892131eff1f0cf22d3b053deb
+  tag: v20.10.12@sha256:06af3ce416ac5d30697178378f164a9a9494bc5dcb182b0f441ed9f5087a5fe7
 
 controller:
   # -- Set the controller type.
@@ -53,15 +53,20 @@ lifecycle:
   postStart:
     exec:
       command:
-        - "/bin/sh"
+        - "/bin/bash"
         - "-c"
-        - >
-          sleep 20 && if [ ${COMPOSE_FILE} ]; then
-          docker-compose up -d -f ${COMPOSE_FILE} && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}" >> /proc/1/fd/1;
-          else echo "COMPOSE_FILE not set, not auto-loading compose-file" >> /proc/1/fd/1;
+        - |
+          if [ "${COMPOSE_FILE}" ]; then
+          counter=0;
+          while ! docker info > /dev/null 2>&1 && [[ ${counter} -lt 10 ]]; do
+          echo "docker not running yet. Waiting..." >> /proc/1/fd/1;
+          sleep 5;
+          counter=$((counter+1));
+          done
+          docker-compose up -d -f "${COMPOSE_FILE}" && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}" >> /proc/1/fd/1;
+          else
+          echo "COMPOSE_FILE not set, not auto-loading compose-file" >> /proc/1/fd/1;
           fi
-
-
 probes:
   liveness:
     spec:
