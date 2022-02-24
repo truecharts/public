@@ -8,6 +8,15 @@ securityContext:
 
 env: {}
 
+initContainers:
+  init:
+    image: "{{ .Values.alpineImage.repository }}:{{ .Values.alpineImage.tag }}"
+    command: ["cat", "/opt/focalboard/config.json"]
+    volumeMounts:
+      - name: focalboard-config
+        mountPath: "/opt/focalboard/config.json"
+        subPath: "focalboard-config"
+
 focalboard:
   serverRoot: "http://localhost:10072"
   telemetry: false
