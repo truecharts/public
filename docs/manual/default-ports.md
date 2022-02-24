@@ -332,14 +332,11 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | impostor-server            |      main       |      main       | 22023 |   UDP    |                                         |
 | joplin-server              |      main       |      main       | 22300 |   TCP    |                                         |
 | minecraft-java             |      main       |      main       | 25565 |   TCP    |                                         |
-| omada-controller           |    omada-tcp    |   omada-tcp1    | 29810 |   TCP    |                                         |
 | omada-controller           |    omada-udp    |   omada-udp1    | 29810 |   UDP    |                                         |
 | omada-controller           |    omada-tcp    |   omada-tcp2    | 29811 |   TCP    |                                         |
-| omada-controller           |    omada-udp    |   omada-udp2    | 29811 |   UDP    |                                         |
 | omada-controller           |    omada-tcp    |   omada-tcp3    | 29812 |   TCP    |                                         |
-| omada-controller           |    omada-udp    |   omada-udp3    | 29812 |   UDP    |                                         |
 | omada-controller           |    omada-tcp    |   omada-tcp4    | 29813 |   TCP    |                                         |
-| omada-controller           |    omada-udp    |   omada-udp4    | 29813 |   UDP    |                                         |
+| omada-controller           |    omada-udp    |   omada-tcp4    | 29814 |   TCP    |                                         |
 | minetest                   |      main       |      main       | 30000 |   UDP    |                                         |
 | teamspeak3                 |      files      |      files      | 30033 |   TCP    |                                         |
 | plex                       |      main       |      main       | 32400 |   TCP    | Potential conflict with plex (Official) |
