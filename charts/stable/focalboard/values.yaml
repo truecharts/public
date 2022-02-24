@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.14.0@sha256:f68105f710cd20f34dcdc4a0557e8297f97d98081d41e7aeff045d4722f2f33e
 
-command: ["cat", "/opt/focalboard/config.json"]
+command: ["/usr/bin/cat", "/opt/focalboard/config.json"]
 
 securityContext:
   readOnlyRootFilesystem: false
