@@ -32,21 +32,21 @@ probes:
     custom: true
     spec:
       httpGet:
-        scheme: HTTP
+        scheme: HTTPS
         path: "/healthcheck"
         port: 10162
   readiness:
     custom: true
     spec:
       httpGet:
-        scheme: HTTP
+        scheme: HTTPS
         path: "/healthcheck"
         port: 10162
   startup:
     custom: true
     spec:
       httpGet:
-        scheme: HTTP
+        scheme: HTTPS
         path: "/healthcheck"
         port: 10162
 
@@ -83,9 +83,6 @@ persistence:
   services:
     enabled: true
     mountPath: "/cells/services"
-  minio:
-    enabled:
-    mountPat: "/.minio"
 
 mariadb:
   enabled: true
