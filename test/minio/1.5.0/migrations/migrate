@@ -14,6 +14,11 @@ def path_in_locked_datasets(path: str) -> bool:
         return c.call('pool.dataset.path_in_locked_datasets', path)
 
 
+def get_configured_user_group(path: str) -> dict:
+    with Client() as c:
+        return c.call('filesystem.stat', path)
+
+
 def get_host_path_attachments(path: str) -> set:
     with Client() as c:
         return {
@@ -82,8 +87,12 @@ def migrate(values: dict) -> dict:
     else:
         app_dataset = values["appVolumeMounts"]["export"]["datasetName"]
         host_path = os.path.join(
-            "/mnt", k8s_config['dataset'], "releases", values["release_name"], app_dataset
+            "/mnt", k8s_config['dataset'], "releases", values["release_name"], "volumes/ix_volumes", app_dataset
         )
+
+    current_config = get_configured_user_group(host_path)
+    if current_config["uid"] == uid and current_config["gid"] == gid:
+        return values
 
     validate_host_path(host_path, values['release_name'], verrors)
     verrors.check()
