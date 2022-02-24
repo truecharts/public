@@ -34,7 +34,7 @@ probes:
       httpGet:
         scheme: HTTP
         path: "/healthcheck"
-        port: healthcheck
+        port: 10162
       failureThreshold: 15
       initialDelaySeconds: 30
       periodSeconds: 10
@@ -45,7 +45,7 @@ probes:
       httpGet:
         scheme: HTTP
         path: "/healthcheck"
-        port: healthcheck
+        port: 10162
       failureThreshold: 15
       initialDelaySeconds: 30
       periodSeconds: 10
@@ -56,7 +56,7 @@ probes:
       httpGet:
         scheme: HTTP
         path: "/healthcheck"
-        port: healthcheck
+        port: 10162
       failureThreshold: 15
       initialDelaySeconds: 30
       periodSeconds: 10
