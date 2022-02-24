@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="focalboard-5.0.0"></a>
+### [focalboard-5.0.0](https://github.com/truecharts/apps/compare/focalboard-4.0.42...focalboard-5.0.0) (2022-02-24)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+
+#### Feat
+
+* Use official image ([#1952](https://github.com/truecharts/apps/issues/1952))
+
+
+
 <a name="focalboard-4.0.42"></a>
 ### [focalboard-4.0.42](https://github.com/truecharts/apps/compare/focalboard-4.0.41...focalboard-4.0.42) (2022-02-21)
 

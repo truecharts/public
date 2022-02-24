@@ -92,13 +92,13 @@ questions:
       attrs:
         - variable: serverRoot
           label: "serverRoot"
-          description: "Root URL of the server.	eg. https://focal.mydomain.com"
+          description: "Root URL of the server.    eg. https://focal.mydomain.com"
           schema:
             type: string
             default: "http://localhost:10072"
         - variable: telemetry
           label: "telemetry"
-          description: "Enable health diagnostics telemetry	"
+          description: "Enable health diagnostics telemetry    "
           schema:
             type: boolean
             default: false

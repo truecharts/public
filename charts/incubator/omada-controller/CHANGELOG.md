@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.67"></a>
+### [omada-controller-4.0.67](https://github.com/truecharts/apps/compare/omada-controller-4.0.66...omada-controller-4.0.67) (2022-02-24)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+
+#### Fix
+
+* Use correct ports for v5.x and fix typo ([#1962](https://github.com/truecharts/apps/issues/1962))
+
+
+
 <a name="omada-controller-4.0.66"></a>
 ### [omada-controller-4.0.66](https://github.com/truecharts/apps/compare/omada-controller-4.0.65...omada-controller-4.0.66) (2022-02-21)
 
