@@ -83,6 +83,37 @@ questions:
       attrs:
 # Include{fixedEnv}
 
+  - variable: focalboard
+    group: "Container Configuration"
+    label: "Focalboard Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: serverRoot
+          label: "serverRoot"
+          description: "Root URL of the server.	eg. https://focal.mydomain.com"
+          schema:
+            type: string
+            default: "http://localhost:10072"
+        - variable: telemetry
+          label: "telemetry"
+          description: "Enable health diagnostics telemetry	"
+          schema:
+            type: boolean
+            default: false
+        - variable: localOnly
+          label: "localOnly"
+          description: "Only allow connections from localhost"
+          schema:
+            type: boolean
+            default: false
+        - variable: enableLocalMode
+          label: "enableLocalMode"
+          description: "Enable admin APIs on local Unix port"
+          schema:
+            type: boolean
+            default: true
 # Include{containerConfig}
 
   - variable: service
@@ -146,7 +177,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8000
+                                    default: 10072
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -175,9 +206,9 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: data
-          label: "App Data Storage"
-          description: "Stores the Application Data."
+        - variable: uploads
+          label: "App Uploads Storage"
+          description: "Stores the Application Uploads."
           schema:
             additional_attrs: true
             type: dict
