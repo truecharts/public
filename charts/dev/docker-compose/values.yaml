@@ -55,7 +55,19 @@ lifecycle:
       command:
         - "/bin/sh"
         - "-c"
-        - 'if [ ${COMPOSE_FILE} ]; then docker-compose up -d -f ${COMPOSE_FILE} && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}"; else echo "COMPOSE_FILE not set, not auto-loading compose-file"; fi'
+        - 'sleep 20 && if [ ${COMPOSE_FILE} ]; then docker-compose up -d -f ${COMPOSE_FILE} && echo "Loading COMPOSE_FILE at location ${COMPOSE_FILE}"; else echo "COMPOSE_FILE not set, not auto-loading compose-file"; fi'
+
+
+probes:
+  liveness:
+    spec:
+      initialDelaySeconds: 30
+  readiness:
+    spec:
+      initialDelaySeconds: 30
+  startup:
+    spec:
+      initialDelaySeconds: 30
 
 persistence:
   varrun:
