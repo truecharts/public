@@ -35,6 +35,10 @@ probes:
         scheme: HTTP
         path: "/healthcheck"
         port: healthcheck
+      failureThreshold: 15
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 10
   readiness:
     custom: true
     spec:
@@ -42,6 +46,10 @@ probes:
         scheme: HTTP
         path: "/healthcheck"
         port: healthcheck
+      failureThreshold: 15
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 10
   startup:
     custom: true
     spec:
@@ -49,6 +57,10 @@ probes:
         scheme: HTTP
         path: "/healthcheck"
         port: healthcheck
+      failureThreshold: 15
+      initialDelaySeconds: 30
+      periodSeconds: 10
+      timeoutSeconds: 10
 
 service:
   main:
