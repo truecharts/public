@@ -39,17 +39,10 @@ hostNetwork: true
 
 service:
   main:
-    enabled: false
-
-probes:
-  liveness:
-    enabled: false
-
-  readiness:
-    enabled: false
-
-  startup:
-    enabled: false
+    enabled: true
+    ports:
+      main:
+        port: 2376
 
 env:
   DOCKER_TLS_CERTDIR: "/certs"
