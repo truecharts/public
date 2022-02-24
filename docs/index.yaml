@@ -3331,6 +3331,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 18.04.1
+    created: "2022-02-24T00:08:06.795152837Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: BOINC is a platform for high-throughput computing on a large scale
+      (thousands or millions of computers).
+    digest: dca667e52667561bcacde5be093cdf0dc664717962aa6a2d884125c712e8ecaa
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/boinc
+    icon: https://truecharts.org/_static/img/appicons/boinc-icon.png
+    keywords:
+    - boinc
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: boinc
+    sources:
+    - https://hub.docker.com/r/linuxserver/boinc
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/boinc-0.0.23/boinc-0.0.23.tgz
+    version: 0.0.23
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 18.04.1
     created: "2022-01-04T20:48:55.640956439Z"
     dependencies:
     - name: common
@@ -8194,6 +8225,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/ddclient-0.0.1/ddclient-0.0.1.tgz
     version: 0.0.1
   deconz:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.13.01
+    created: "2022-02-24T00:08:07.026631568Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: deCONZ is an easy to use control software, with which you can set
+      up and control Zigbee networks of any size without further programming effort.
+    digest: 7d1fe0e385b277150c1f74b211ffe581734ca93efc5ac579c5e115ac03dbf510
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/deconz
+    icon: https://truecharts.org/_static/img/appicons/deconz-icon.png
+    keywords:
+    - deconz
+    - home-automation
+    - zigbee
+    - conbee
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: deconz
+    sources:
+    - https://github.com/dresden-elektronik/deconz-rest-plugin
+    - https://github.com/marthoc/docker-deconz
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deconz-6.0.23/deconz-6.0.23.tgz
+    version: 6.0.23
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -33531,37 +33596,6 @@ entries:
     - https://github.com/truecharts/apps/releases/download/muximux-1.0.25/muximux-1.0.25.tgz
     version: 1.0.25
   mylar:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 0.6.3
-    created: "2022-02-23T20:19:18.964355108Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 8.16.0
-    description: Mylar is a automated Comic Book downloader
-    digest: 2cca6d6b48d52daca31dc70b01d626756179500672563987798940365fb7fe54
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/mylar
-    icon: https://truecharts.org/_static/img/appicons/mylar-icon.png
-    keywords:
-    - mylar
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: mylar
-    sources:
-    - https://github.com/mylar3/mylar3
-    - https://github.com/linuxserver/docker-mylar3
-    - https://github.com/truecharts/apps/tree/master/charts/mylar
-    urls:
-    - https://github.com/truecharts/apps/releases/download/mylar-4.0.42/mylar-4.0.42.tgz
-    version: 4.0.42
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -64303,4 +64337,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-23T20:19:18.969461761Z"
+generated: "2022-02-24T00:08:07.031557256Z"

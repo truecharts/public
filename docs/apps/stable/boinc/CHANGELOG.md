@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="boinc-0.0.23"></a>
+### [boinc-0.0.23](https://github.com/truecharts/apps/compare/boinc-0.0.22...boinc-0.0.23) (2022-02-24)
+
+#### Fix
+
+* allow root fs access ([#1947](https://github.com/truecharts/apps/issues/1947))
+
+
+
 <a name="boinc-0.0.22"></a>
 ### [boinc-0.0.22](https://github.com/truecharts/apps/compare/boinc-0.0.21...boinc-0.0.22) (2022-02-21)
 
