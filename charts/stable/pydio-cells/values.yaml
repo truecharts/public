@@ -74,6 +74,9 @@ persistence:
   services:
     enabled: true
     mountPath: "/cells/services"
+  minio:
+    enabled:
+    mountPat: "/.minio"
 
 mariadb:
   enabled: true
