@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/deemix
   pullPolicy: IfNotPresent
-  tag: latest@sha256:c38cf91d6c069630359e4368ef7f1a56b7d1df37893c87f3e3c59aaef05db2d0
+  tag: latest@sha256:cc770caa2f11b2e1b89129e17ebbbbb2533bd3e7c93303e52a072e1b3e471f70
 
 env:
   UMASK_SET: "{{ .Values.env.UMASK }}"
