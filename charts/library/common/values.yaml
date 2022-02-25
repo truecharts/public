@@ -741,6 +741,34 @@ persistence:
     sizeLimit:  # 1Gi
 
 
+  # -- Hostpath mountpoint to allow mounting the /usr/bin folder to disable docker-compose
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
+  # @default -- See below
+  # TODO Delete this once iX has blocked docker-compose
+  host-usr-bin:
+    enabled: true
+    noMount: true
+    type: hostPath
+    # -- Which path on the host should be mounted.
+    hostPath: /usr/bin
+    # -- Where to mount the path in the main container.
+    # Defaults to the value of `hostPath`
+    mountPath: "/host/usr/bin"
+
+  # -- Hostpath mountpoint to allow mounting the /bin folder to disable docker-compose
+  # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
+  # @default -- See below
+  # TODO Delete this once iX has blocked docker-compose
+  host-usr-bin:
+    enabled: true
+    noMount: true
+    type: hostPath
+    # -- Which path on the host should be mounted.
+    hostPath: /bin
+    # -- Where to mount the path in the main container.
+    # Defaults to the value of `hostPath`
+    mountPath: "/host/bin"
+
   # -- Example of a hostPath mount
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
   # @default -- See below
