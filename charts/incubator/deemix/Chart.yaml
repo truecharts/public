@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.16.0
+deprecated: false
+description: deemix is a deezer downloader built from the ashes of Deezloader Remix.
+home: https://github.com/truecharts/apps/tree/master/charts/incubator/deemix
+icon: https://truecharts.org/_static/img/appicons/deemix-icon.png
+keywords:
+- music
+- deemix
+- deezer
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: deemix
+sources:
+- https://gitlab.com/Bockiii/deemix-docker.git
+- https://git.freezerapp.xyz/RemixDev/deemix-py
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

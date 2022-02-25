@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="docker-compose-0.0.7"></a>
+### [docker-compose-0.0.7](https://github.com/truecharts/apps/compare/docker-compose-0.0.6...docker-compose-0.0.7) (2022-02-25)
+
+#### Chore
+
+* update common to test host-compose-disable
+
+
+
 <a name="docker-compose-0.0.6"></a>
 ### [docker-compose-0.0.6](https://github.com/truecharts/apps/compare/docker-compose-0.0.5...docker-compose-0.0.6) (2022-02-24)
 

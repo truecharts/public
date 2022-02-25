@@ -1,0 +1,32 @@
+image:
+  repository: tccr.io/truecharts/deemix
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:cc770caa2f11b2e1b89129e17ebbbbb2533bd3e7c93303e52a072e1b3e471f70
+
+env:
+  UMASK_SET: "{{ .Values.env.UMASK }}"
+  INTPORT: "{{ .Values.service.main.ports.main.targetPort }}"
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        port: 6595
+        targetPort: 6595
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/downloads"

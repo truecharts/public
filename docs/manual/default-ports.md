@@ -89,6 +89,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | znc                        |      main       |      main       | 6501  |   TCP    |                                         |
 | syslog-ng                  |   syslog-tls    |   syslog-tls    | 6514  |   TCP    |                                         |
 | embystat                   |      main       |      main       | 6555  |   TCP    |                                         |
+| deemix                     |      main       |      main       | 6595  |   TCP    |                                         |
 | syslog-ng                  |      main       |      main       | 6601  |   TCP    |                                         |
 | ngircd                     |      main       |      main       | 6667  |   TCP    |                                         |
 | bazarr                     |      main       |      main       | 6767  |   TCP    |                                         |

@@ -5839,6 +5839,27 @@ entries:
   common:
   - apiVersion: v2
     appVersion: latest
+    created: "2022-02-25T14:23:55.591672522Z"
+    description: Function library for TrueCharts
+    digest: e558b5f3af742178dc54f2c207116e31a0bc85826d65d177ae261720dd2e1b6a
+    home: https://github.com/truecharts/apps/tree/master/charts/common
+    icon: https://avatars.githubusercontent.com/u/76400755
+    keywords:
+    - truecharts
+    - library-chart
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: common
+    type: library
+    urls:
+    - https://github.com/truecharts/apps/releases/download/common-8.17.1/common-8.17.1.tgz
+    version: 8.17.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2022-02-22T19:25:29.949684136Z"
     description: Function library for TrueCharts
     digest: 1c00bd4824eb7aa63c37921444ed5dd0e2dfe5aea357ac84380b88de37f58cbe
@@ -8463,6 +8484,41 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/deconz-5.0.7/deconz-5.0.7.tgz
     version: 5.0.7
+  deemix:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-02-25T11:41:32.847808393Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: deemix is a deezer downloader built from the ashes of Deezloader
+      Remix.
+    digest: 13119f4dd844ce9d5b200119146598007f592de3c77155b9e018d60d7c337488
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/deemix
+    icon: https://truecharts.org/_static/img/appicons/deemix-icon.png
+    keywords:
+    - music
+    - deemix
+    - deezer
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: deemix
+    sources:
+    - https://gitlab.com/Bockiii/deemix-docker.git
+    - https://git.freezerapp.xyz/RemixDev/deemix-py
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/deemix-0.0.1/deemix-0.0.1.tgz
+    version: 0.0.1
   deepstack:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -9574,6 +9630,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/dizquetv-4.0.19/dizquetv-4.0.19.tgz
     version: 4.0.19
   docker-compose:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - docker
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 20.10.12
+    created: "2022-02-25T15:12:50.371561587Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.17.1
+    description: Dedicated App for using Docker-Compose on TrueNAS SCALE
+    digest: 357fc05a16020d884388e89c9b2d42fb45f03f74ad394c6b9c15bbf4233353ab
+    home: https://github.com/truecharts/apps/tree/master/charts/dev/docker-compose
+    icon: https://truecharts.org/_static/img/appicons/docker-compose-icon.png
+    keywords:
+    - docker-compose
+    - docker
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: docker-compose
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/docker-compose-0.0.7/docker-compose-0.0.7.tgz
+    version: 0.0.7
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -36971,6 +37058,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/odoo-4.0.12/odoo-4.0.12.tgz
     version: 4.0.12
   omada-controller:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "5.0"
+    created: "2022-02-25T10:18:10.052399991Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Omada is a SDN tool for TP-Link Omada hardware
+    digest: 2e9b80024de8bbf9bd03a6c7620bdf118cf686435e0a541fca9722b9cf8c67e0
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/omada-controller
+    icon: https://truecharts.org/_static/img/appicons/omada-controller-icon.png
+    keywords:
+    - omada-controller
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: omada-controller
+    sources:
+    - https://github.com/mbentley/docker-omada-controller
+    - https://github.com/truecharts/apps/tree/master/charts/omada-controller
+    urls:
+    - https://github.com/truecharts/apps/releases/download/omada-controller-4.0.68/omada-controller-4.0.68.tgz
+    version: 4.0.68
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -64631,4 +64748,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-24T23:56:09.82317115Z"
+generated: "2022-02-25T15:12:50.377998638Z"
