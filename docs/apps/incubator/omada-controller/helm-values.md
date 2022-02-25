@@ -17,6 +17,8 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v5.0@sha256:31b3cd5a6eee52c2b04a694f8a103447fc98a03b52f3b20c49d867058f15e314"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
+| persistence.work.enabled | bool | `true` |  |
+| persistence.work.mountPath | string | `"/work"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |

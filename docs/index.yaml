@@ -36978,6 +36978,36 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: "5.0"
+    created: "2022-02-25T10:18:10.052399991Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Omada is a SDN tool for TP-Link Omada hardware
+    digest: 2e9b80024de8bbf9bd03a6c7620bdf118cf686435e0a541fca9722b9cf8c67e0
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/omada-controller
+    icon: https://truecharts.org/_static/img/appicons/omada-controller-icon.png
+    keywords:
+    - omada-controller
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: omada-controller
+    sources:
+    - https://github.com/mbentley/docker-omada-controller
+    - https://github.com/truecharts/apps/tree/master/charts/omada-controller
+    urls:
+    - https://github.com/truecharts/apps/releases/download/omada-controller-4.0.68/omada-controller-4.0.68.tgz
+    version: 4.0.68
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "5.0"
     created: "2022-02-24T23:56:09.81750901Z"
     dependencies:
     - name: common
@@ -64631,4 +64661,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-24T23:56:09.82317115Z"
+generated: "2022-02-25T10:18:10.057737231Z"
