@@ -13,11 +13,11 @@ extraArgs: []
 image:
   pullPolicy: IfNotPresent
   repository: minio/minio
-  tag: RELEASE.2022-01-28T02-28-16Z
+  tag: RELEASE.2022-02-24T22-12-01Z
 minioDomain: null
+runAsGroup: 473
+runAsUser: 473
 service:
   consolePort: 32325
   nodePort: 32324
 updateStrategy: RollingUpdate
-runAsUser: 473
-runAsGroup: 473
