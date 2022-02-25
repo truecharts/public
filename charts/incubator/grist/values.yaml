@@ -1,0 +1,48 @@
+image:
+  repository: gristlabs/grist
+  tag: latest@sha256:cb27ebb228d031e91a4fd677df7582aa37cd7f01c1e5cf05de1caef715be76a4
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+# env:
+#   TZ: UTC
+#   PUID: 568
+
+envValueFrom:
+  # DB_PASSWORD:
+  #   secretKeyRef:
+  #     name: dbcreds
+  #     key: postgresql-password
+  # DB_HOST:
+  #   secretKeyRef:
+  #     name: dbcreds
+  #     key: plainhost
+
+# service:
+#   main:
+#     ports:
+#       main:
+#         port: 10047
+#         targetPort: 4040
+
+# persistence:
+#   config:
+#     enabled: true
+#     mountPath: "/config"
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: spotweb
+  postgresqlDatabase: spotweb
