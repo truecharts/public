@@ -60,7 +60,7 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: "/data"
+    mountPath: "/opt/tplink/EAPController/data"
   work:
     enabled: true
-    mountPath: "/work"
+    mountPath: "/opt/tplink/EAPController/work"
