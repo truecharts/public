@@ -759,7 +759,7 @@ persistence:
   # [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
   # @default -- See below
   # TODO Delete this once iX has blocked docker-compose
-  host-usr-bin:
+  host-bin:
     enabled: true
     noMount: true
     type: hostPath
