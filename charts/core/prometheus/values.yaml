@@ -1146,7 +1146,7 @@ exporters:
     enabled: true
 ## @param node-exporter [object] Node Exporter deployment configuration
 ##
-node-exporter
+node-exporter:
   service:
     port: 9910
     targetPort: 9910
