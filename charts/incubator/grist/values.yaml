@@ -13,6 +13,7 @@ podSecurityContext:
 
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
+  HOME_PORT: "{{ .Values.service.api.ports.api.port }}"
   GRIST_DEFAULT_EMAIL: "user@mydomain.com"
 
 # https://github.com/gristlabs/grist-core/issues/128
@@ -28,6 +29,11 @@ service:
       main:
         port: 10163
         targetPort: 10163
+  api:
+    ports:
+      api:
+        port: 10164
+        targetPort: 10164
 
 persistence:
   persist:

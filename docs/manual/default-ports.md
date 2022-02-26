@@ -319,6 +319,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | librephotos                |      main       |      main       | 10161 |   TCP    |                                         |
 | pydio-cells                |   healthcheck   |   healthcheck   | 10162 |   TCP    |                                         |
 | grist                      |      main       |      main       | 10163 |   TCP    |                                         |
+| grist                      |       api       |       api       | 10164 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |
