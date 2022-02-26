@@ -5,11 +5,11 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
@@ -32,6 +32,7 @@ persistence:
   persist:
     enabled: true
     mountPath: "/persist"
+
 
 redis:
   enabled: true
