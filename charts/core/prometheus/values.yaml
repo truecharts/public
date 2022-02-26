@@ -1146,9 +1146,10 @@ exporters:
     enabled: true
 ## @param node-exporter [object] Node Exporter deployment configuration
 ##
-node-exporter:
-  hostNetwork: false
+node-exporter
   service:
+    port: 9910
+    targetPort: 9910
     labels:
       jobLabel: node-exporter
   serviceMonitor:
