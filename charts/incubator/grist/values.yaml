@@ -1,6 +1,6 @@
 image:
   repository: gristlabs/grist
-  tag: latest@sha256:cb27ebb228d031e91a4fd677df7582aa37cd7f01c1e5cf05de1caef715be76a4
+  tag: latest@sha256:f28bc8762e602d5a4c0ef368ee3c8abe7b26bc4b90c7ad4ebc21e7b3ac7b3e70
   pullPolicy: IfNotPresent
 
 # securityContext:
@@ -11,38 +11,28 @@ image:
 #   runAsUser: 0
 #   runAsGroup: 0
 
-# env:
-#   TZ: UTC
-#   PUID: 568
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  GRIST_DEFAULT_EMAIL: "user@mydomain.com"
 
 envValueFrom:
-  # DB_PASSWORD:
-  #   secretKeyRef:
-  #     name: dbcreds
-  #     key: postgresql-password
-  # DB_HOST:
-  #   secretKeyRef:
-  #     name: dbcreds
-  #     key: plainhost
+  REDIS_URL:
+    secretKeyRef:
+      name: rediscres
+      key: url
 
-# service:
-#   main:
-#     ports:
-#       main:
-#         port: 10047
-#         targetPort: 4040
+service:
+  main:
+    ports:
+      main:
+        port: 10163
+        targetPort: 10163
 
-# persistence:
-#   config:
-#     enabled: true
-#     mountPath: "/config"
+persistence:
+  persist:
+    enabled: true
+    mountPath: "/persist"
 
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: spotweb
-  postgresqlDatabase: spotweb
