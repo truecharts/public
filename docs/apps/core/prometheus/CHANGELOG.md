@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.68"></a>
+### [prometheus-1.1.68](https://github.com/truecharts/apps/compare/prometheus-1.1.67...prometheus-1.1.68) (2022-02-26)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+
+#### Fix
+
+* don't export node-exporter on host
+
+
+
 <a name="prometheus-1.1.67"></a>
 ### [prometheus-1.1.67](https://github.com/truecharts/apps/compare/prometheus-1.1.66...prometheus-1.1.67) (2022-02-22)
 

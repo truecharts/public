@@ -151,6 +151,7 @@ You will, however, be able to use all values referenced in the common chart here
 | kubelet.serviceMonitor.relabelings | list | `[]` |  |
 | node-exporter.extraArgs."collector.filesystem.ignored-fs-types" | string | `"^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"` |  |
 | node-exporter.extraArgs."collector.filesystem.ignored-mount-points" | string | `"^/(dev|proc|sys|var/lib/docker/.+)($|/)"` |  |
+| node-exporter.hostNetwork | bool | `false` |  |
 | node-exporter.service.labels.jobLabel | string | `"node-exporter"` |  |
 | node-exporter.serviceMonitor.enabled | bool | `true` |  |
 | node-exporter.serviceMonitor.jobLabel | string | `"jobLabel"` |  |
