@@ -22,6 +22,14 @@ j8j9Image:
 portal:
   enabled: false
 
+securityContext:
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+
 env:
   UID: 568
   EULA: "TRUE"
