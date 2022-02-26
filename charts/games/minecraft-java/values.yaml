@@ -23,12 +23,12 @@ portal:
   enabled: false
 
 securityContext:
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 
 env:
   UID: 568
