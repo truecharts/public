@@ -18,7 +18,7 @@ env:
 envValueFrom:
   REDIS_URL:
     secretKeyRef:
-      name: rediscres
+      name: rediscreds
       key: url
 
 service:
