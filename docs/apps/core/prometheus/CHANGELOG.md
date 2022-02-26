@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.69"></a>
+### [prometheus-1.1.69](https://github.com/truecharts/apps/compare/prometheus-1.1.68...prometheus-1.1.69) (2022-02-26)
+
+#### Fix
+
+* enable hostNetworking and change port ([#1969](https://github.com/truecharts/apps/issues/1969))
+
+
+
 <a name="prometheus-1.1.68"></a>
 ### [prometheus-1.1.68](https://github.com/truecharts/apps/compare/prometheus-1.1.67...prometheus-1.1.68) (2022-02-26)
 
