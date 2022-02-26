@@ -1147,6 +1147,7 @@ exporters:
 ## @param node-exporter [object] Node Exporter deployment configuration
 ##
 node-exporter:
+  hostNetwork: false
   service:
     labels:
       jobLabel: node-exporter
