@@ -101,6 +101,12 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
+        - variable: UID
+          label: "UID"
+          description: "Sets the UID env var"
+          schema:
+            type: int
+            default: 568
         - variable: EULA
           label: "Minecraft Eula - Link in readme sources"
           schema:
@@ -227,9 +233,9 @@ questions:
         - variable: PAPER_DOWNLOAD_URL
           label: "Paper Download URL"
           schema:
-            type: int
+            type: string
             required: false
-            default: 0
+            default: ""
             show_if: [[TYPE, "=", "PAPER"]]
         - variable: PACKWIZ_URL
           label: "Packwiz URL"
