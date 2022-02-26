@@ -57247,6 +57247,38 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.19.0
+    created: "2022-02-26T15:18:58.446741363Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: P2P file synchronization application
+    digest: a161bb896f1bf577966c5618359e4c19eaca07decc0aeb45ec2d70dec11c78ca
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/syncthing
+    icon: https://truecharts.org/_static/img/appicons/syncthing-icon.png
+    keywords:
+    - syncthing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: syncthing
+    sources:
+    - https://syncthing.net/
+    - https://github.com/syncthing/syncthing
+    - https://hub.docker.com/r/syncthing/syncthing
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/syncthing-9.0.46/syncthing-9.0.46.tgz
+    version: 9.0.46
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.19.0
     created: "2022-02-03T18:31:17.789292543Z"
     dependencies:
     - name: common
@@ -64790,4 +64822,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-26T00:42:55.325350335Z"
+generated: "2022-02-26T15:18:58.451244145Z"

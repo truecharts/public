@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="syncthing-9.0.46"></a>
+### [syncthing-9.0.46](https://github.com/truecharts/apps/compare/syncthing-9.0.45...syncthing-9.0.46) (2022-02-26)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+
+#### Joke
+
+* push an extra release for Tom Lawrence to showcase
+
+
+
 <a name="syncthing-9.0.45"></a>
 ### [syncthing-9.0.45](https://github.com/truecharts/apps/compare/syncthing-9.0.44...syncthing-9.0.45) (2022-02-21)
 
