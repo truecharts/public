@@ -19,9 +19,9 @@ env:
   database__connection__database: "{{ .Values.mariadb.mariadbDatabase }}"
   # server env
   NODE_ENV: "production"
-  server__port: "{{ .Values.service.main.ports.main }}"
+  # server__port: "{{ .Values.service.main.ports.main }}"
   # server env
-  url: "http://localhost:10165"
+  url: "http://localhost:2368"
   # privacy env
   privacy__useTinfoil: true
   privacy__useUpdateCheck: false
@@ -52,7 +52,7 @@ service:
     ports:
       main:
         port: 10165
-        targetPort: 10165
+        targetPort: 2368
 
 persistence:
   content:

@@ -130,7 +130,56 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
+        - variable: mailenabled
+          label: "Mail Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: mail__from
+                label: "Mail: From Address"
+                description: "From Address eg ('Ghost Admin' <support@example.com>)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: mail__transport
+                label: "Mail: Transport"
+                description: "Transport"
+                schema:
+                  type: string
+                  default: "SMTP"
+              - variable: mail__options__service
+                label: "Mail: Options - Service"
+                description: "Service eg (Mailgun)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: mail__options__port
+                label: "Mail: Options - Port"
+                description: "Port eg (587)"
+                schema:
+                  type: string
+                  default: ""
+              - variable: mail__options__secure
+                label: "Mail: Options - Secure"
+                description: "Enable Secure Mail"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: mail__options__auth__user
+                label: "Mail: Options - Auth - User"
+                description: "Username for mail provider"
+                schema:
+                  type: string
+                  default: ""
+              - variable: mail__options__auth__pass
+                label: "Mail: Options - Auth - Password"
+                description: "Password for mail provider"
+                schema:
+                  type: string
+                  private: true
+                  default: ""
 # Include{containerConfig}
 
   - variable: service
