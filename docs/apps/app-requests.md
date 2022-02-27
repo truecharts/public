@@ -62,7 +62,6 @@ _This list is to track `App Requests` from one place._
 - [ ] Geth #1348
 - [ ] Spotify Connect #1319
 - [ ] Machinaris #1304
-- [ ] Ghost #1282
 - [ ] teslamate
 
 ##### TODO: Requires More-Than-Average effort
@@ -518,3 +517,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] Librephotos #293
 - [x] AMD - Automated Music Downloader
 - [x] Deemix #628
+- [x] Ghost #1282
