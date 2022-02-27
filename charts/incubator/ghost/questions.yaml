@@ -98,6 +98,12 @@ questions:
           schema:
             type: string
             default: "http://localhost:10165"
+        - variable: useMinFiles
+          label: "useMinFiles"
+          description: "Generate assets url with .min notation"
+          schema:
+            type: boolean
+            default: true
         - variable: privacy__useTinfoil
           label: "Privacy: Use Tin Foil"
           description: "Turn privacy features on or off"
