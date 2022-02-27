@@ -22,6 +22,8 @@ service:
         targetPort: 80
 
 persistence:
+  varrun:
+    enabled: true
   config:
     enabled: true
     mountPath: "/config"
