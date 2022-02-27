@@ -5,19 +5,18 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 
 ## Core Apps
 
-| App         |   Service    |  Port Name   | Port  | Protocol |                   Note                   |
-| :---------- | :----------: | :----------: | :---: | :------: | :--------------------------------------: |
-| k8s-gateway |     main     |     main     |  53   |   UDP    |      Potential conflict with pihole      |
-| traefik     |     main     |     main     | 9000  |   HTTP   | Potential conflict with minio (Official) |
-| traefik     |     tcp      |     web      | 9080  |   HTTP   |      Adviced to be moved to port 80      |
-| traefik     |   metrics    |   metrics    | 9100  |   HTTP   |                                          |
-| traefik     |     tcp      |  websecure   | 9443  |  HTTPS   |     Adviced to be moved to port 443      |
-| prometheus  | node-exporter|node-exporter |  9910 |   HTTP   |                                          |
-| prometheus  |     main     |     main     | 10086 |   HTTP   |                                          |
-| prometheus  | alertmanager | alertmanager | 10087 |   HTTP   |                                          |
-| prometheus  |    promop    |    promop    | 10089 |   HTTP   |                                          |
-| prometheus  |    thanos    |    thanos    | 10901 |   HTTP   |                                          |
-
+| App         |    Service    |   Port Name   | Port  | Protocol |                   Note                   |
+| :---------- | :-----------: | :-----------: | :---: | :------: | :--------------------------------------: |
+| k8s-gateway |     main      |     main      |  53   |   UDP    |      Potential conflict with pihole      |
+| traefik     |     main      |     main      | 9000  |   HTTP   | Potential conflict with minio (Official) |
+| traefik     |      tcp      |      web      | 9080  |   HTTP   |      Adviced to be moved to port 80      |
+| traefik     |    metrics    |    metrics    | 9100  |   HTTP   |                                          |
+| traefik     |      tcp      |   websecure   | 9443  |  HTTPS   |     Adviced to be moved to port 443      |
+| prometheus  | node-exporter | node-exporter | 9910  |   HTTP   |                                          |
+| prometheus  |     main      |     main      | 10086 |   HTTP   |                                          |
+| prometheus  | alertmanager  | alertmanager  | 10087 |   HTTP   |                                          |
+| prometheus  |    promop     |    promop     | 10089 |   HTTP   |                                          |
+| prometheus  |    thanos     |    thanos     | 10901 |   HTTP   |                                          |
 
 ## Stable, Games and Incubator Apps
 
@@ -320,6 +319,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | linkace                    |      main       |      main       | 10160 |   TCP    |                                         |
 | librephotos                |      main       |      main       | 10161 |   TCP    |                                         |
 | pydio-cells                |   healthcheck   |   healthcheck   | 10162 |   TCP    |                                         |
+| budge                      |      main       |      main       | 10164 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |
