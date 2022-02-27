@@ -1,0 +1,66 @@
+image:
+  repository: tccr.io/truecharts/airsonic
+  tag: version-v10.6.2@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  # db env
+  database__client: "mysql"
+  database__connection__port: 3306
+  database__connection__user: "{{ .Values.mariadb.mariadbUsername }}"
+  database__connection__database: "{{ .Values.mariadb.mariadbDatabase }}"
+  # server env
+  NODE_ENV: "production"
+  server__port: "{{ .Values.service.main.ports.main }}"
+  # server env
+  url: "https://ghost.mydomain.com"
+  # privacy env
+  privacy__useTinfoil: true
+  privacy__useUpdateChech: false
+  privacy__useGravatar: false
+  privacy__useRpcPing: false
+  privacy__useStructuredData: false
+  # mail env
+  mail__from: ""
+  mail__transport: ""
+  mail__options__service: ""
+  mail__options__port: ""
+  mail__options__secure: false
+  mail__options__auth__user: ""
+  mail__options__auth__pass: ""
+
+envValueFrom:
+  database__connection__host:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  database__connection__password:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+service:
+  main:
+    ports:
+      main:
+        port: 10165
+        targetPort: 10165
+
+persistence:
+  content:
+    enabled: true
+    mountPath: "/var/lib/ghost/content"
+
+mariadb:
+  enabled: true
+  mariadbUsername: ghost
+  mariadbDatabase: ghost
+  existingSecret: "mariadbcreds"
