@@ -92,13 +92,44 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+        - variable: url
+          label: "URL"
+          description: "Enter the URL that is used to access your publication"
           schema:
-            type: int
-            default: 568
-
+            type: string
+            default: ""
+        - variable: privacy__useTinfoil
+          label: "Privacy: Use Tin Foil"
+          description: "Turn privacy features on or off"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: false
+            subquestions:
+              - variable: privacy__useUpdateCheck
+                label: "Privacy: Use Update Checks"
+                description: "Enable Update Checks"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: privacy__useGravatar
+                label: "Privacy: Use Gravatar"
+                description: "Enable Gravatar"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: privacy__useRpcPing
+                label: "Privacy: Use RPC Ping"
+                description: "Enable RPC Pings"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: privacy__useStructuredData
+                label: "Privacy: Use Structured Data"
+                description: "Enable Structured Data"
+                schema:
+                  type: boolean
+                  default: true
 
 # Include{containerConfig}
 

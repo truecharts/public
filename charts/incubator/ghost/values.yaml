@@ -3,13 +3,13 @@ image:
   tag: 4.36.32@sha256:a4dea95a32bfab4babff6b67c0e449294ff471687c1e347cb389303661390ec1
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   # db env
@@ -24,7 +24,7 @@ env:
   url: "https://ghost.mydomain.com"
   # privacy env
   privacy__useTinfoil: true
-  privacy__useUpdateChech: false
+  privacy__useUpdateCheck: false
   privacy__useGravatar: false
   privacy__useRpcPing: false
   privacy__useStructuredData: false
