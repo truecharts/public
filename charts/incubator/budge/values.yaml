@@ -12,6 +12,7 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
+  NODE_ENV: "production"
   PUID: 568
 
 service:
