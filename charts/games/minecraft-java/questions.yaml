@@ -101,9 +101,9 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-        - variable: UID
-          label: "UID"
-          description: "Sets the UID env var"
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the PUID env var"
           schema:
             type: int
             default: 568
