@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.13"></a>
+### [minecraft-java-0.0.13](https://github.com/truecharts/apps/compare/minecraft-java-0.0.12...minecraft-java-0.0.13) (2022-02-27)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+
+#### Fix
+
+* Fix variable type in questions and add UID variable ([#1974](https://github.com/truecharts/apps/issues/1974))
+
+
+
 <a name="minecraft-java-0.0.12"></a>
 ### [minecraft-java-0.0.12](https://github.com/truecharts/apps/compare/minecraft-java-0.0.11...minecraft-java-0.0.12) (2022-02-22)
 
