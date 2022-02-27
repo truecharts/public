@@ -97,7 +97,7 @@ questions:
           description: "Enter the URL that is used to access your publication"
           schema:
             type: string
-            default: ""
+            default: "http://localhost:10165"
         - variable: privacy__useTinfoil
           label: "Privacy: Use Tin Foil"
           description: "Turn privacy features on or off"

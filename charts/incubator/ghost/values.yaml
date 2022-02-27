@@ -21,7 +21,7 @@ env:
   NODE_ENV: "production"
   server__port: "{{ .Values.service.main.ports.main }}"
   # server env
-  # url: "https://ghost.mydomain.com"
+  url: "http://localhost:10165"
   # privacy env
   privacy__useTinfoil: true
   privacy__useUpdateCheck: false
