@@ -104,6 +104,72 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: imageOptimization__resize
+          label: "Image Optimization: Resize"
+          description: "Automatically process and compress"
+          schema:
+            type: boolean
+            default: true
+        - variable: imageOptimization__srcsets
+          label: "Image Optimization: srcsets"
+          description: "Image Optimization: srcsets"
+          schema:
+            type: boolean
+            default: true
+        - variable: compress
+          label: "Compress"
+          description: "Compress"
+          schema:
+            type: boolean
+            default: true
+        - variable: preloadHeaders
+          label: "Preload Headers"
+          description: "Preload Headers"
+          schema:
+            type: boolean
+            default: false
+        - variable: adminFrameProtection
+          label: "Admin Frame Protection"
+          description: "Admin Frame Protection"
+          schema:
+            type: boolean
+            default: true
+        - variable: sendWelcomeEmail
+          label: "Send Welcome Email"
+          description: "Send Welcome Email"
+          schema:
+            type: boolean
+            default: true
+        - variable: stripeDirect
+          label: "Stripe Direct"
+          description: "Stripe Direct"
+          schema:
+            type: boolean
+            default: false
+        - variable: enableStripePromoCodes
+          label: "Enable Stripe Promo Codes"
+          description: "Enable Stripe Promo Codes"
+          schema:
+            type: boolean
+            default: false
+        - variable: emailAnalytics
+          label: "Email Analytics"
+          description: "Email Analytics"
+          schema:
+            type: boolean
+            default: true
+        - variable: backgroundJobs__emailAnalytics
+          label: "Background Jobs Email Analytics"
+          description: "Background Jobs Email Analytics"
+          schema:
+            type: boolean
+            default: true
+        - variable: useMinFiles
+          label: "useMinFiles"
+          description: "Generate assets url with .min notation"
+          schema:
+            type: boolean
+            default: true
         - variable: privacy__useTinfoil
           label: "Privacy: Use Tin Foil"
           description: "Turn privacy features on or off"
@@ -186,6 +252,46 @@ questions:
                   type: string
                   private: true
                   default: ""
+        - variable: integrationsenabled
+          label: "Integration Settings"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: twitter__privateReadOnlyToken
+                label: "Twitter: Private Read Only Token"
+                description: "Twitter: Private Read Only Token"
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: opensea__privateReadOnlyApiKey
+                label: "Opensea: Private Read Only API Key"
+                description: "Opensea: Private Read Only API Key"
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: tenor__publicReadOnlyApiKey
+                label: "Tenor: Private Read Only API Key"
+                description: "Tenor: Private Read Only API Key"
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: tenor__contentFilter
+                label: "Tenor: Content Filter"
+                description: "Tenor: Content Filter"
+                schema:
+                  type: string
+                  default: "off"
+                  enum:
+                    - value: "off"
+                      description: "off"
+                    - value: "on"
+                      description: "on"
+
 # Include{containerConfig}
 
   - variable: service

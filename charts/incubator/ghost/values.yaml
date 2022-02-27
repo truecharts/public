@@ -20,9 +20,18 @@ env:
   # server env
   NODE_ENV: "production"
   server__port: "{{ .Values.service.main.ports.main.port }}"
-  # server env
   url: "http://localhost:10165"
   useMinFiles: true
+  compress: true
+  imageOptimization__resize: true
+  imageOptimization__srcsets: true
+  preloadHeaders: false
+  sendWelcomeEmail: true
+  adminFrameProtection: true
+  emailAnalytics: true
+  backgroundJobs__emailAnalytics: true
+  stripeDirect: false
+  enableStripePromoCodes: false
   # privacy env
   privacy__useTinfoil: true
   privacy__useUpdateCheck: false
@@ -37,6 +46,11 @@ env:
   mail__options__secure: false
   mail__options__auth__user: ""
   mail__options__auth__pass: ""
+  # integrations env
+  tenor__publicReadOnlyApiKey: ""
+  tenor__contentFilter: "off"
+  opensea__privateReadOnlyApiKey: ""
+  twitter__privateReadOnlyToken: ""
 
 envValueFrom:
   database__connection__host:
