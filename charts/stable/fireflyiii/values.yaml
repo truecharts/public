@@ -39,6 +39,8 @@ env:
   SESSION_DRIVER: redis
   REDIS_SCHEME: tcp
   REDIS_PORT: 6379
+  APP_URL: ""
+  TRUSTED_PROXIES: "**"
 
 envValueFrom:
   DB_HOST:

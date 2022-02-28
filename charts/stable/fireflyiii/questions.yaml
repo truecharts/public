@@ -82,7 +82,18 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
-
+        - variable: APP_URL
+          label: "APP_URL"
+          description: "Application URL eg. https://fireflyiii.mydomain.com"
+          schema:
+            type: string
+            default: "http://localhost:10082"
+        - variable: TRUSTED_PROXIES
+          label: "TRUSTED_PROXIES"
+          description: "TRUSTED_PROXIES"
+          schema:
+            type: string
+            default: "**"
 
 # Include{containerConfig}
 
