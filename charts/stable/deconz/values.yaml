@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/deconz
-    # -- image tag
   tag: v2.14.01@sha256:c3607b4e64b50acb52240d1b6e6798ccd132578fb3f065544be642709638b1c2
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -17,8 +14,6 @@ podSecurityContext:
 secret:
   DECONZ_VNC_PASSWORD: ""
 
-# -- environment variables. See [image docs](https://github.com/marthoc/docker-deconz/blob/master/README.md) for more details.
-# @default -- See below
 env:
   TZ: UTC
   PUID: 568
@@ -33,8 +28,7 @@ env:
   DECONZ_VNC_PORT: "{{ .Values.service.vnc.ports.vnc.port }}"
   DECONZ_UID: "{{ .Values.env.PUID }}"
   DECONZ_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+
 service:
   main:
     ports:
@@ -53,8 +47,6 @@ service:
         enabled: true
         port: 10002
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
