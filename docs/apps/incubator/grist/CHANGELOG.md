@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="grist-0.0.3"></a>
+### [grist-0.0.3](https://github.com/truecharts/apps/compare/grist-0.0.2...grist-0.0.3) (2022-02-28)
+
+#### Chore
+
+* update image ([#1985](https://github.com/truecharts/apps/issues/1985))
+
+
+
 <a name="grist-0.0.2"></a>
 ### [grist-0.0.2](https://github.com/truecharts/apps/compare/grist-0.0.1...grist-0.0.2) (2022-02-28)
 

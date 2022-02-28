@@ -15,8 +15,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.HOME_PORT | string | `"{{ .Values.service.api.ports.api.port }}"` |  |
 | env.PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"gristlabs/grist"` |  |
-| image.tag | string | `"latest@sha256:c88eccaddc0cfb7744147b8059d8d54399304535b0c6d4ec332f31432cfe057e"` |  |
+| image.repository | string | `"tccr.io/truecharts/grist"` |  |
+| image.tag | string | `"latest@sha256:f0d06a5b4a8dfb576449ee101fe0a0d3e0df09296b8533f01941331042907caa"` |  |
 | persistence.persist.enabled | bool | `true` |  |
 | persistence.persist.mountPath | string | `"/persist"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

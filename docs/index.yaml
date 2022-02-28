@@ -3846,6 +3846,46 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 22.02.2022
+    created: "2022-02-28T16:36:49.589538533Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.73
+    description: A simple, self-hosted, easy-to-use platform for organising and storing
+      information.
+    digest: 10a1af5e43332f4472e961c2fda37ce535f8f2919c937c651b33e06d79b65cf3
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/bookstack
+    icon: https://truecharts.org/_static/img/appicons/bookstack-icon.png
+    keywords:
+    - bookstack
+    - book
+    - stack
+    - organizer
+    - server
+    - hosted
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: bookstack
+    sources:
+    - https://www.bookstackapp.com/
+    - https://hub.docker.com/r/linuxserver/bookstack
+    urls:
+    - https://github.com/truecharts/apps/releases/download/bookstack-0.0.34/bookstack-0.0.34.tgz
+    version: 0.0.34
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 21.12.2021
     created: "2022-01-22T10:53:32.34758338Z"
     dependencies:
@@ -4048,14 +4088,14 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.0.3
-    created: "2022-02-28T15:17:11.46960968Z"
+    created: "2022-02-28T16:36:49.720776182Z"
     dependencies:
     - name: common
       repository: https://truecharts.org
       version: 8.16.0
     description: Budge is an open source 'budgeting with envelopes' personal finance
       app.
-    digest: 999eef04c4b63dae4db3a3db68efe25a856bf33cc01908df50125040e2e69a75
+    digest: 9887faf00f619b6e8ab48de36207546d1f7c4acafa84f9cff50d83b09ee88baa
     home: https://github.com/truecharts/apps/tree/master/charts/stable/budge
     icon: https://truecharts.org/_static/img/appicons/budge-icon.png
     keywords:
@@ -4071,8 +4111,8 @@ entries:
     - https://github.com/linuxserver/budge
     - https://github.com/linuxserver/docker-BudgE
     urls:
-    - https://github.com/truecharts/apps/releases/download/budge-0.0.1/budge-0.0.1.tgz
-    version: 0.0.1
+    - https://github.com/truecharts/apps/releases/download/budge-0.0.2/budge-0.0.2.tgz
+    version: 0.0.2
   calibre:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -15934,6 +15974,46 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/gaps-9.0.20/gaps-9.0.20.tgz
     version: 9.0.20
+  ghost:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.36.32
+    created: "2022-02-28T16:36:49.890305446Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 1.0.73
+    description: Ghost is an open source, professional publishing platform built on
+      a modern Node.js technology stack — designed for teams who need power, flexibility
+      and performance.
+    digest: 077b67e20de77c23b4371db3178a89757e72384f14f8b4f05a9f8c0df6155ffc
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/ghost
+    icon: https://truecharts.org/_static/img/appicons/ghost-icon.png
+    keywords:
+    - ghost
+    - blog
+    - cms
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: ghost
+    sources:
+    - https://github.com/TryGhost/Ghost
+    - https://hub.docker.com/_/ghost
+    - https://ghost.org/docs/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ghost-0.0.1/ghost-0.0.1.tgz
+    version: 0.0.1
   gitea:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -18144,6 +18224,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/grav-2.0.21/grav-2.0.21.tgz
     version: 2.0.21
   grist:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-02-28T16:36:50.046854305Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Grist is a modern relational spreadsheet. It combine the flexibility
+      of a spreadsheet with the robustness of a database to organize your data.
+    digest: 26687db66d010d0fc133af9ae71c38363c974bc76c92559d6b4b2584039ce2f2
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/grist
+    icon: https://truecharts.org/_static/img/appicons/grist-icon.png
+    keywords:
+    - grist
+    - spreadsheet
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: grist
+    sources:
+    - https://hub.docker.com/r/gristlabs/grist
+    - https://github.com/gristlabs/grist-core
+    - https://support.getgrist.com/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/grist-0.0.3/grist-0.0.3.tgz
+    version: 0.0.3
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -28285,6 +28399,42 @@ entries:
     - https://github.com/truecharts/apps/releases/download/lychee-9.0.20/lychee-9.0.20.tgz
     version: 9.0.20
   mariadb:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 10.6.7
+    created: "2022-02-28T16:36:50.171410752Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Fast, reliable, scalable, and easy to use open-source relational
+      database system.
+    digest: fbe6934c18b800cb16d358658568400a103d0d65ccf32410bdcc89f5ad357ac8
+    home: https://github.com/truecharts/apps/tree/master/stable/mariadb
+    icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+    keywords:
+    - mariadb
+    - mysql
+    - database
+    - sql
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: mariadb
+    sources:
+    - https://github.com/bitnami/bitnami-docker-mariadb
+    - https://github.com/prometheus/mysqld_exporter
+    - https://mariadb.org
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/mariadb-1.0.75/mariadb-1.0.75.tgz
+    version: 1.0.75
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -46136,6 +46286,48 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.54.1
+    created: "2022-02-28T16:36:50.332285212Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: exporters.enabled,exporters.node-exporter.enabled
+      name: node-exporter
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.4.3
+    - condition: exporters.enabled,exporters.kube-state-metrics.enabled
+      name: kube-state-metrics
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.2.8
+    description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+      and Prometheus rules combined with documentation and scripts to provide easy
+      to operate end-to-end Kubernetes cluster monitoring with Prometheus using the
+      Prometheus Operator.
+    digest: 6f688f05add8bfdd16db249b609640abe14be87e2cb7d988e987b9db898cdf2c
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/prometheus
+    icon: https://truecharts.org/_static/img/appicons/prometheus-icon.png
+    keywords:
+    - metrics
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: prometheus
+    sources:
+    - https://github.com/prometheus-community/helm-charts
+    - https://github.com/prometheus-operator/kube-prometheus
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/prometheus-1.1.71/prometheus-1.1.71.tgz
+    version: 1.1.71
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - metrics
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.54.1
     created: "2022-02-28T11:54:48.951347308Z"
     dependencies:
     - name: common
@@ -52039,6 +52231,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/recipes-4.0.16/recipes-4.0.16.tgz
     version: 4.0.16
   redis:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - database
+        - cache
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 6.2.6
+    created: "2022-02-28T16:36:50.470788564Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Open source, advanced key-value store.
+    digest: 4dd4f4dad880e346caca80d22797b6614392a26325d10b8607df051037b29769
+    home: https://github.com/truecharts/apps/tree/master/stable/redis
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: redis
+    sources:
+    - https://github.com/bitnami/bitnami-docker-redis
+    - http://redis.io/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/redis-1.0.78/redis-1.0.78.tgz
+    version: 1.0.78
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -66148,4 +66374,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-28T15:17:11.475182209Z"
+generated: "2022-02-28T16:36:50.477205167Z"
