@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/openvscode-server
   pullPolicy: IfNotPresent
-  tag: v1.64.0
+  tag: v1.64.2
 
 portal:
   path: "/?tkn={{ .Values.secret.CONNECTION_TOKEN }}"
