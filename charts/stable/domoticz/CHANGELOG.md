@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="domoticz-0.0.32"></a>
+### [domoticz-0.0.32](https://github.com/truecharts/apps/compare/domoticz-0.0.31...domoticz-0.0.32) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="domoticz-0.0.31"></a>
 ### [domoticz-0.0.31](https://github.com/truecharts/apps/compare/domoticz-0.0.30...domoticz-0.0.31) (2022-02-21)
 

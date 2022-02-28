@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="emulatorjs-0.0.30"></a>
+### [emulatorjs-0.0.30](https://github.com/truecharts/apps/compare/emulatorjs-0.0.29...emulatorjs-0.0.30) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="emulatorjs-0.0.29"></a>
 ### [emulatorjs-0.0.29](https://github.com/truecharts/apps/compare/emulatorjs-0.0.28...emulatorjs-0.0.29) (2022-02-21)
 

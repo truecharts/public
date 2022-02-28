@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-2.0.66"></a>
+### [logitech-media-server-2.0.66](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.65...logitech-media-server-2.0.66) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="logitech-media-server-2.0.65"></a>
 ### [logitech-media-server-2.0.65](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.64...logitech-media-server-2.0.65) (2022-02-21)
 

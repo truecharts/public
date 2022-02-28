@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="readarr-9.0.66"></a>
+### [readarr-9.0.66](https://github.com/truecharts/apps/compare/readarr-9.0.65...readarr-9.0.66) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="readarr-9.0.65"></a>
 ### [readarr-9.0.65](https://github.com/truecharts/apps/compare/readarr-9.0.64...readarr-9.0.65) (2022-02-21)
 

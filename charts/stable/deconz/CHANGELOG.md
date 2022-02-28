@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deconz-6.0.24"></a>
+### [deconz-6.0.24](https://github.com/truecharts/apps/compare/deconz-6.0.23...deconz-6.0.24) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="deconz-6.0.23"></a>
 ### [deconz-6.0.23](https://github.com/truecharts/apps/compare/deconz-6.0.22...deconz-6.0.23) (2022-02-24)
 

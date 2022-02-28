@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/deconz"` | image repository |
-| image.tag | string | `"v2.13.01@sha256:f43bf475d9d0cf6bc0700da1b10d5533e1eaea43f1a417a096ad8cafb033b249"` | image tag |
+| image.tag | string | `"v2.14.01@sha256:c3607b4e64b50acb52240d1b6e6798ccd132578fb3f065544be642709638b1c2"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

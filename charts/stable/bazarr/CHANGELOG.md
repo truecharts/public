@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="bazarr-9.0.46"></a>
+### [bazarr-9.0.46](https://github.com/truecharts/apps/compare/bazarr-9.0.45...bazarr-9.0.46) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="bazarr-9.0.45"></a>
 ### [bazarr-9.0.45](https://github.com/truecharts/apps/compare/bazarr-9.0.44...bazarr-9.0.45) (2022-02-21)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="piaware-4.0.59"></a>
+### [piaware-4.0.59](https://github.com/truecharts/apps/compare/piaware-4.0.58...piaware-4.0.59) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="piaware-4.0.58"></a>
 ### [piaware-4.0.58](https://github.com/truecharts/apps/compare/piaware-4.0.57...piaware-4.0.58) (2022-02-21)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="littlelink-4.0.65"></a>
+### [littlelink-4.0.65](https://github.com/truecharts/apps/compare/littlelink-4.0.64...littlelink-4.0.65) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="littlelink-4.0.64"></a>
 ### [littlelink-4.0.64](https://github.com/truecharts/apps/compare/littlelink-4.0.63...littlelink-4.0.64) (2022-02-21)
 

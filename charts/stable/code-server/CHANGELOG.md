@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="code-server-2.1.28"></a>
+### [code-server-2.1.28](https://github.com/truecharts/apps/compare/openvscode-server-0.0.27...code-server-2.1.28) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="code-server-2.1.27"></a>
 ### [code-server-2.1.27](https://github.com/truecharts/apps/compare/code-server-2.1.26...code-server-2.1.27) (2022-02-21)
 

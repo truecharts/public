@@ -53,7 +53,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | codeserverImage | object | See below | codeserver specific configuration |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
-| codeserverImage.tag | string | `"v4.0.2@sha256:f97835402cf3006fcffb9e3a5cb64df8e78aa41ef4ba50a3158c9422229d2f7e"` | Specify the code-server image tag |
+| codeserverImage.tag | string | `"v4.0.2@sha256:7c5ad7103055cb743b1f3647fcb2b2517d6ef6772a11d9c53443a056c2ea8002"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | configmap | object | See below | Configure configMaps for the chart here. Additional configMaps can be added by adding a dictionary key similar to the 'config' object. |
 | configmap.config.annotations | object | `{}` | Annotations to add to the configMap |

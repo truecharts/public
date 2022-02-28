@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="omada-controller-4.0.70"></a>
+### [omada-controller-4.0.70](https://github.com/truecharts/apps/compare/omada-controller-4.0.69...omada-controller-4.0.70) (2022-02-28)
+
+#### Chore
+
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="omada-controller-4.0.68"></a>
 ### [omada-controller-4.0.68](https://github.com/truecharts/apps/compare/omada-controller-4.0.67...omada-controller-4.0.68) (2022-02-25)
 

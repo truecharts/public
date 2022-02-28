@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="snipe-it-0.0.40"></a>
+### [snipe-it-0.0.40](https://github.com/truecharts/apps/compare/snipe-it-0.0.39...snipe-it-0.0.40) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="snipe-it-0.0.39"></a>
 ### [snipe-it-0.0.39](https://github.com/truecharts/apps/compare/snipe-it-0.0.38...snipe-it-0.0.39) (2022-02-21)
 

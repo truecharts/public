@@ -28,7 +28,7 @@ You will, however, be able to use all values referenced in the common chart here
 | existingSecret | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/redis"` |  |
-| image.tag | string | `"v6.2.6@sha256:f843271329edf9770752f2a01d8e6a1cafce3412cff56c59b5d6b305f75a99c0"` |  |
+| image.tag | string | `"v6.2.6@sha256:a6444d0edd2f9c49dd4aa09ae9e6dc96722ad2b3860bb6eb7933bdfcaa125789"` |  |
 | persistence.redis-health | object | See below | redis-health configmap mount |
 | persistence.redis-health.mountPath | string | `"/health"` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.redis-health.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |

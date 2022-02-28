@@ -14,11 +14,11 @@ You will, however, be able to use all values referenced in the common chart here
 | env.TZ | string | `"UTC"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/omada-controller"` |  |
-| image.tag | string | `"v5.0@sha256:31b3cd5a6eee52c2b04a694f8a103447fc98a03b52f3b20c49d867058f15e314"` |  |
+| image.tag | string | `"v5.0@sha256:88390176a042fcada0977c11c237a28d1c5e8e850d96ca72743396db9d6edb1d"` |  |
 | persistence.data.enabled | bool | `true` |  |
-| persistence.data.mountPath | string | `"/data"` |  |
+| persistence.data.mountPath | string | `"/opt/tplink/EAPController/data"` |  |
 | persistence.work.enabled | bool | `true` |  |
-| persistence.work.mountPath | string | `"/work"` |  |
+| persistence.work.mountPath | string | `"/opt/tplink/EAPController/work"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
