@@ -7,4 +7,3 @@
 #### Feat
 
 * Add grist ([#1972](https://github.com/truecharts/apps/issues/1972))
-

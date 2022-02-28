@@ -12,9 +12,9 @@ hide:
 ##### Scan Results
 
 #### Chart Object: grist/templates/common.yaml
-    
 
-      
+
+
 | Type         |    Misconfiguration ID   |   Check  |  Severity |                   Explaination                   | Links  |
 |:----------------|:------------------:|:-----------:|:------------------:|-----------------------------------------|-----------------------------------------|
 | Kubernetes Security Check         |    KSV001   |   Process can elevate its own privileges  |  MEDIUM | <details><summary>Expand...</summary> A program inside the container can elevate its own privileges and run as root, which might give the program control over the container and node. <br> <hr> <br> Container &#39;inotify&#39; of Deployment &#39;RELEASE-NAME-grist&#39; should set &#39;securityContext.allowPrivilegeEscalation&#39; to false </details>| <details><summary>Expand...</summary><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted">https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted</a><br><a href="https://avd.aquasec.com/appshield/ksv001">https://avd.aquasec.com/appshield/ksv001</a><br></details>  |
@@ -51,11 +51,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -83,11 +83,11 @@ hide:
 
 
 #### Container: tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c (alpine 3.14.2)
-    
+
 
 **alpine**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | busybox         |    CVE-2021-42378   |   HIGH  |  1.33.1-r3 | 1.33.1-r6 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-42378</a><br><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br><a href="https://ubuntu.com/security/notices/USN-5179-1">https://ubuntu.com/security/notices/USN-5179-1</a><br></details>  |
@@ -115,11 +115,11 @@ hide:
 
 
 #### Container: gristlabs/grist:latest@sha256:f28bc8762e602d5a4c0ef368ee3c8abe7b26bc4b90c7ad4ebc21e7b3ac7b3e70 (debian 10.11)
-    
+
 
 **debian**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | apt         |    CVE-2011-3374   |   LOW  |  1.8.2.3 |  | <details><summary>Expand...</summary><a href="https://access.redhat.com/security/cve/cve-2011-3374">https://access.redhat.com/security/cve/cve-2011-3374</a><br><a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=642480</a><br><a href="https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html">https://people.canonical.com/~ubuntu-security/cve/2011/CVE-2011-3374.html</a><br><a href="https://seclists.org/fulldisclosure/2011/Sep/221">https://seclists.org/fulldisclosure/2011/Sep/221</a><br><a href="https://security-tracker.debian.org/tracker/CVE-2011-3374">https://security-tracker.debian.org/tracker/CVE-2011-3374</a><br><a href="https://snyk.io/vuln/SNYK-LINUX-APT-116518">https://snyk.io/vuln/SNYK-LINUX-APT-116518</a><br><a href="https://ubuntu.com/security/CVE-2011-3374">https://ubuntu.com/security/CVE-2011-3374</a><br></details>  |
@@ -260,7 +260,7 @@ hide:
 
 **node-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | ajv         |    CVE-2020-15366   |   MEDIUM  |  6.12.2 | 6.12.3 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-v88g-cgmw-v5xw">https://github.com/advisories/GHSA-v88g-cgmw-v5xw</a><br><a href="https://github.com/ajv-validator/ajv/commit/65b2f7d76b190ac63a0d4e9154c712d7aa37049f">https://github.com/ajv-validator/ajv/commit/65b2f7d76b190ac63a0d4e9154c712d7aa37049f</a><br><a href="https://github.com/ajv-validator/ajv/releases/tag/v6.12.3">https://github.com/ajv-validator/ajv/releases/tag/v6.12.3</a><br><a href="https://github.com/ajv-validator/ajv/tags">https://github.com/ajv-validator/ajv/tags</a><br><a href="https://hackerone.com/bugs?subject=user&amp;report_id=894259">https://hackerone.com/bugs?subject=user&amp;report_id=894259</a><br><a href="https://linux.oracle.com/cve/CVE-2020-15366.html">https://linux.oracle.com/cve/CVE-2020-15366.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-0551.html">https://linux.oracle.com/errata/ELSA-2021-0551.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-15366">https://nvd.nist.gov/vuln/detail/CVE-2020-15366</a><br><a href="https://snyk.io/vuln/SNYK-JS-AJV-584908">https://snyk.io/vuln/SNYK-JS-AJV-584908</a><br></details>  |
@@ -354,7 +354,7 @@ hide:
 
 **python-pkg**
 
-      
+
 | Package         |    Vulnerability   |   Severity  |  Installed Version | Fixed Version |                   Links                   |
 |:----------------|:------------------:|:-----------:|:------------------:|:-------------:|-----------------------------------------|
 | lxml         |    CVE-2021-43818   |   HIGH  |  4.6.3 | 4.6.5 | <details><summary>Expand...</summary><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43818">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-43818</a><br><a href="https://github.com/advisories/GHSA-55x5-fj6c-h6m8">https://github.com/advisories/GHSA-55x5-fj6c-h6m8</a><br><a href="https://github.com/lxml/lxml/blob/lxml-4.6.5/CHANGES.txt">https://github.com/lxml/lxml/blob/lxml-4.6.5/CHANGES.txt</a><br><a href="https://github.com/lxml/lxml/commit/12fa9669007180a7bb87d990c375cf91ca5b664a">https://github.com/lxml/lxml/commit/12fa9669007180a7bb87d990c375cf91ca5b664a</a><br><a href="https://github.com/lxml/lxml/commit/12fa9669007180a7bb87d990c375cf91ca5b664a (lxml-4.6.5)">https://github.com/lxml/lxml/commit/12fa9669007180a7bb87d990c375cf91ca5b664a (lxml-4.6.5)</a><br><a href="https://github.com/lxml/lxml/commit/a3eacbc0dcf1de1c822ec29fb7d090a4b1712a9c#diff-59130575b4fb2932c957db2922977d7d89afb0b2085357db1a14615a2fcad776">https://github.com/lxml/lxml/commit/a3eacbc0dcf1de1c822ec29fb7d090a4b1712a9c#diff-59130575b4fb2932c957db2922977d7d89afb0b2085357db1a14615a2fcad776</a><br><a href="https://github.com/lxml/lxml/commit/f2330237440df7e8f39c3ad1b1aa8852be3b27c0">https://github.com/lxml/lxml/commit/f2330237440df7e8f39c3ad1b1aa8852be3b27c0</a><br><a href="https://github.com/lxml/lxml/commit/f2330237440df7e8f39c3ad1b1aa8852be3b27c0 (lxml-4.6.5)">https://github.com/lxml/lxml/commit/f2330237440df7e8f39c3ad1b1aa8852be3b27c0 (lxml-4.6.5)</a><br><a href="https://github.com/lxml/lxml/security/advisories/GHSA-55x5-fj6c-h6m8">https://github.com/lxml/lxml/security/advisories/GHSA-55x5-fj6c-h6m8</a><br><a href="https://lists.debian.org/debian-lts-announce/2021/12/msg00037.html">https://lists.debian.org/debian-lts-announce/2021/12/msg00037.html</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TUIS2KE3HZ2AAQKXFLTJFZPP2IFHJTC7/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/TUIS2KE3HZ2AAQKXFLTJFZPP2IFHJTC7/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/V2XMOM5PFT6U5AAXY6EFNT5JZCKKHK2V/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/V2XMOM5PFT6U5AAXY6EFNT5JZCKKHK2V/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WZGNET2A4WGLSUXLBFYKNC5PXHQMI3I7/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WZGNET2A4WGLSUXLBFYKNC5PXHQMI3I7/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZQ4SPKJX3RRJK4UWA6FXCRHD2TVRQI44/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZQ4SPKJX3RRJK4UWA6FXCRHD2TVRQI44/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-43818">https://nvd.nist.gov/vuln/detail/CVE-2021-43818</a><br><a href="https://security.netapp.com/advisory/ntap-20220107-0005/">https://security.netapp.com/advisory/ntap-20220107-0005/</a><br><a href="https://ubuntu.com/security/notices/USN-5225-1">https://ubuntu.com/security/notices/USN-5225-1</a><br><a href="https://www.debian.org/security/2022/dsa-5043">https://www.debian.org/security/2022/dsa-5043</a><br></details>  |
@@ -362,4 +362,3 @@ hide:
 | pip         |    CVE-2021-28363   |   MEDIUM  |  18.1 | 21.1 | <details><summary>Expand...</summary><a href="https://github.com/advisories/GHSA-5phf-pp7p-vc2r">https://github.com/advisories/GHSA-5phf-pp7p-vc2r</a><br><a href="https://github.com/pypa/advisory-db/tree/main/vulns/urllib3/PYSEC-2021-59.yaml">https://github.com/pypa/advisory-db/tree/main/vulns/urllib3/PYSEC-2021-59.yaml</a><br><a href="https://github.com/urllib3/urllib3/blob/main/CHANGES.rst#1264-2021-03-15">https://github.com/urllib3/urllib3/blob/main/CHANGES.rst#1264-2021-03-15</a><br><a href="https://github.com/urllib3/urllib3/commit/8d65ea1ecf6e2cdc27d42124e587c1b83a3118b0">https://github.com/urllib3/urllib3/commit/8d65ea1ecf6e2cdc27d42124e587c1b83a3118b0</a><br><a href="https://github.com/urllib3/urllib3/commits/main">https://github.com/urllib3/urllib3/commits/main</a><br><a href="https://github.com/urllib3/urllib3/releases/tag/1.26.4">https://github.com/urllib3/urllib3/releases/tag/1.26.4</a><br><a href="https://github.com/urllib3/urllib3/security/advisories/GHSA-5phf-pp7p-vc2r">https://github.com/urllib3/urllib3/security/advisories/GHSA-5phf-pp7p-vc2r</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4S65ZQVZ2ODGB52IC7VJDBUK4M5INCXL/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4S65ZQVZ2ODGB52IC7VJDBUK4M5INCXL/</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-28363">https://nvd.nist.gov/vuln/detail/CVE-2021-28363</a><br><a href="https://pypi.org/project/urllib3/1.26.4/">https://pypi.org/project/urllib3/1.26.4/</a><br><a href="https://security.gentoo.org/glsa/202107-36">https://security.gentoo.org/glsa/202107-36</a><br><a href="https://www.oracle.com/security-alerts/cpuoct2021.html">https://www.oracle.com/security-alerts/cpuoct2021.html</a><br></details>  |
 | pip         |    CVE-2021-3572   |   MEDIUM  |  18.1 | 21.1 | <details><summary>Expand...</summary><a href="https://access.redhat.com/errata/RHSA-2021:3254">https://access.redhat.com/errata/RHSA-2021:3254</a><br><a href="https://bugzilla.redhat.com/show_bug.cgi?id=1962856">https://bugzilla.redhat.com/show_bug.cgi?id=1962856</a><br><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3572">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-3572</a><br><a href="https://github.com/advisories/GHSA-5xp3-jfq3-5q8x">https://github.com/advisories/GHSA-5xp3-jfq3-5q8x</a><br><a href="https://github.com/pypa/pip/commit/e46bdda9711392fec0c45c1175bae6db847cb30b">https://github.com/pypa/pip/commit/e46bdda9711392fec0c45c1175bae6db847cb30b</a><br><a href="https://github.com/pypa/pip/issues/10042">https://github.com/pypa/pip/issues/10042</a><br><a href="https://github.com/pypa/pip/issues/10042#issuecomment-857452480">https://github.com/pypa/pip/issues/10042#issuecomment-857452480</a><br><a href="https://github.com/pypa/pip/pull/9827">https://github.com/pypa/pip/pull/9827</a><br><a href="https://github.com/skazi0/CVE-2021-3572/blob/master/CVE-2021-3572-v9.0.1.patch">https://github.com/skazi0/CVE-2021-3572/blob/master/CVE-2021-3572-v9.0.1.patch</a><br><a href="https://linux.oracle.com/cve/CVE-2021-3572.html">https://linux.oracle.com/cve/CVE-2021-3572.html</a><br><a href="https://linux.oracle.com/errata/ELSA-2021-4455.html">https://linux.oracle.com/errata/ELSA-2021-4455.html</a><br><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-3572">https://nvd.nist.gov/vuln/detail/CVE-2021-3572</a><br><a href="https://packetstormsecurity.com/files/162712/USN-4961-1.txt">https://packetstormsecurity.com/files/162712/USN-4961-1.txt</a><br></details>  |
 | pip         |    pyup.io-42218   |   UNKNOWN  |  18.1 | 21.1 | <details><summary>Expand...</summary></details>  |
-

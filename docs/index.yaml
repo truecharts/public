@@ -63761,6 +63761,37 @@ entries:
         - incubator
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 3.4.9
+    created: "2022-02-28T11:31:45.763642735Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Wireshark is the world’s foremost and widely-used network protocol
+      analyzer.
+    digest: 9a7eb814b61eef5a895100708a257a87c642dcaa1548a2284b87a45dd6a992db
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/wireshark
+    icon: https://truecharts.org/_static/img/appicons/wireshark-icon.png
+    keywords:
+    - wireshark
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: wireshark
+    sources:
+    - https://hub.docker.com/r/linuxserver/wireshark
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/wireshark-0.0.23/wireshark-0.0.23.tgz
+    version: 0.0.23
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: 2.4.5
     created: "2022-01-04T20:49:25.093143198Z"
     dependencies:
@@ -64919,4 +64950,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-27T23:06:37.868938762Z"
+generated: "2022-02-28T11:31:45.769001399Z"
