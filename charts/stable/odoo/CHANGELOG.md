@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="odoo-5.0.6"></a>
+### [odoo-5.0.6](https://github.com/truecharts/apps/compare/odoo-5.0.5...odoo-5.0.6) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="odoo-5.0.5"></a>
 ### [odoo-5.0.5](https://github.com/truecharts/apps/compare/odoo-5.0.4...odoo-5.0.5) (2022-02-21)
 

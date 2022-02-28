@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="synapse-1.0.9"></a>
+### [synapse-1.0.9](https://github.com/truecharts/apps/compare/synapse-1.0.8...synapse-1.0.9) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="synapse-1.0.8"></a>
 ### [synapse-1.0.8](https://github.com/truecharts/apps/compare/synapse-1.0.7...synapse-1.0.8) (2022-02-21)
 

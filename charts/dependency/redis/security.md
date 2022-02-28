@@ -44,7 +44,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/redis:v6.2.6@sha256:f843271329edf9770752f2a01d8e6a1cafce3412cff56c59b5d6b305f75a99c0
+          tccr.io/truecharts/redis:v6.2.6@sha256:a6444d0edd2f9c49dd4aa09ae9e6dc96722ad2b3860bb6eb7933bdfcaa125789
 
 ##### Scan Results
 
@@ -113,7 +113,7 @@ hide:
 | ssl_client         |    CVE-2021-42375   |   MEDIUM  |  1.33.1-r3 | 1.33.1-r5 | <details><summary>Expand...</summary><a href="https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/">https://jfrog.com/blog/unboxing-busybox-14-new-vulnerabilities-uncovered-by-claroty-and-jfrog/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/6T2TURBYYJGBMQTTN2DSOAIQGP7WCPGV/</a><br><a href="https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/">https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/UQXGOGWBIYWOIVXJVRKHZR34UMEHQBXS/</a><br><a href="https://security.netapp.com/advisory/ntap-20211223-0002/">https://security.netapp.com/advisory/ntap-20211223-0002/</a><br></details>  |
 
 
-#### Container: tccr.io/truecharts/redis:v6.2.6@sha256:f843271329edf9770752f2a01d8e6a1cafce3412cff56c59b5d6b305f75a99c0 (debian 10.11)
+#### Container: tccr.io/truecharts/redis:v6.2.6@sha256:a6444d0edd2f9c49dd4aa09ae9e6dc96722ad2b3860bb6eb7933bdfcaa125789 (debian 10.11)
 
 
 **debian**

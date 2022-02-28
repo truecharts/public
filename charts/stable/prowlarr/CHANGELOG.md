@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prowlarr-4.0.73"></a>
+### [prowlarr-4.0.73](https://github.com/truecharts/apps/compare/prowlarr-4.0.72...prowlarr-4.0.73) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="prowlarr-4.0.72"></a>
 ### [prowlarr-4.0.72](https://github.com/truecharts/apps/compare/prowlarr-4.0.71...prowlarr-4.0.72) (2022-02-21)
 

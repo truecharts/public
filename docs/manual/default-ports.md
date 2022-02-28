@@ -319,7 +319,10 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | linkace                    |      main       |      main       | 10160 |   TCP    |                                         |
 | librephotos                |      main       |      main       | 10161 |   TCP    |                                         |
 | pydio-cells                |   healthcheck   |   healthcheck   | 10162 |   TCP    |                                         |
-| ghost                      |      main       |      main       | 10165 |   TCP    |                                         |
+| grist                      |      main       |      main       | 10163 |   TCP    |                                         |
+| grist                      |       api       |       api       | 10164 |   TCP    |                                         |
+| budge                      |      main       |      main       | 10165 |   TCP    |                                         |
+| ghost                      |      main       |      main       | 10166 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |

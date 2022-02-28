@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="jackett-9.0.85"></a>
+### [jackett-9.0.85](https://github.com/truecharts/apps/compare/jackett-9.0.84...jackett-9.0.85) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="jackett-9.0.84"></a>
 ### [jackett-9.0.84](https://github.com/truecharts/apps/compare/jackett-9.0.83...jackett-9.0.84) (2022-02-21)
 

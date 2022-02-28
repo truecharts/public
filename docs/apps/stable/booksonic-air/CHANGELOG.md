@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="booksonic-air-4.0.47"></a>
+### [booksonic-air-4.0.47](https://github.com/truecharts/apps/compare/booksonic-air-4.0.46...booksonic-air-4.0.47) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="booksonic-air-4.0.46"></a>
 ### [booksonic-air-4.0.46](https://github.com/truecharts/apps/compare/booksonic-air-4.0.45...booksonic-air-4.0.46) (2022-02-21)
 

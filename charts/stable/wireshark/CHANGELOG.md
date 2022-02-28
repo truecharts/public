@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="wireshark-0.0.23"></a>
+### [wireshark-0.0.23](https://github.com/truecharts/apps/compare/wireshark-0.0.22...wireshark-0.0.23) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update container image tccr.io/truecharts/wireshark to v3.4.9 ([#1981](https://github.com/truecharts/apps/issues/1981))
+
+
+
 <a name="wireshark-0.0.22"></a>
 ### [wireshark-0.0.22](https://github.com/truecharts/apps/compare/wireshark-0.0.21...wireshark-0.0.22) (2022-02-21)
 
