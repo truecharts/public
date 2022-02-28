@@ -1,9 +1,6 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/deconz
-    # -- image tag
   tag: v2.14.01@sha256:c3607b4e64b50acb52240d1b6e6798ccd132578fb3f065544be642709638b1c2
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -17,23 +14,21 @@ podSecurityContext:
 secret:
   DECONZ_VNC_PASSWORD: ""
 
-# -- environment variables. See [image docs](https://github.com/marthoc/docker-deconz/blob/master/README.md) for more details.
-# @default -- See below
 env:
-  # -- Set the container timezone
   TZ: UTC
+  PUID: 568
   # -- Override the location where deCONZ looks for the RaspBee/Conbee device.
   DECONZ_DEVICE:  # /dev/ttyUSB0
+  DECONZ_UPNP: 0
+  DECONZ_START_VERBOSE: 0
   # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
   DECONZ_VNC_MODE: 1
   DECONZ_WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
   DECONZ_WS_PORT: "{{ .Values.service.websocket.ports.websocket.port }}"
   DECONZ_VNC_PORT: "{{ .Values.service.vnc.ports.vnc.port }}"
-  DECONZ_UID: 568
-  DECONZ_GID: 568
+  DECONZ_UID: "{{ .Values.env.PUID }}"
+  DECONZ_GID: "{{ .Values.podSecurityContext.fsGroup }}"
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -52,8 +47,6 @@ service:
         enabled: true
         port: 10002
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
