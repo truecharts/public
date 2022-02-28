@@ -7,4 +7,3 @@
 #### Feat
 
 * Add ghost ([#1977](https://github.com/truecharts/apps/issues/1977))
-
