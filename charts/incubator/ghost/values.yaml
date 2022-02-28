@@ -12,7 +12,7 @@ env:
   # server env
   NODE_ENV: "production"
   server__port: "{{ .Values.service.main.ports.main.port }}"
-  url: "http://localhost:10165"
+  url: "http://localhost:10166"
   useMinFiles: true
   compress: true
   imageOptimization__resize: true
