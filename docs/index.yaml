@@ -4040,6 +4040,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/bookstack-0.0.11/bookstack-0.0.11.tgz
     version: 0.0.11
+  budge:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.0.3
+    created: "2022-02-28T15:17:11.46960968Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Budge is an open source 'budgeting with envelopes' personal finance
+      app.
+    digest: 999eef04c4b63dae4db3a3db68efe25a856bf33cc01908df50125040e2e69a75
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/budge
+    icon: https://truecharts.org/_static/img/appicons/budge-icon.png
+    keywords:
+    - finance
+    - budge
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: budge
+    sources:
+    - https://github.com/linuxserver/budge
+    - https://github.com/linuxserver/docker-BudgE
+    urls:
+    - https://github.com/truecharts/apps/releases/download/budge-0.0.1/budge-0.0.1.tgz
+    version: 0.0.1
   calibre:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -66115,4 +66148,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-28T11:54:50.397883422Z"
+generated: "2022-02-28T15:17:11.475182209Z"
