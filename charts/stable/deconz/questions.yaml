@@ -97,6 +97,12 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: int
+            default: 568
         - variable: DECONZ_DEVICE
           label: "DECONZ_DEVICE"
           description: "Override the location where deCONZ looks for the RaspBee/Conbee device"
@@ -109,6 +115,18 @@ questions:
           schema:
             type: int
             default: 1
+        - variable: DECONZ_UPNP
+          label: "DECONZ_UPNP"
+          description: "Set this option to 0 to disable uPNP"
+          schema:
+            type: int
+            default: 0
+        - variable: DECONZ_START_VERBOSE
+          label: "DECONZ_START_VERBOSE"
+          description: "Set this option to 0 to disable verbose of start script, set to 1 to enable set -x logging"
+          schema:
+            type: int
+            default: 0
 
 # Include{containerConfig}
 
