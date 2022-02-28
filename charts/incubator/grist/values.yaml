@@ -30,8 +30,10 @@ service:
         port: 10163
         targetPort: 10163
   api:
+    enabled: true
     ports:
       api:
+        enabled: true
         port: 10164
         targetPort: 10164
 
