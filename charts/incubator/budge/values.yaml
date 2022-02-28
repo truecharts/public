@@ -19,7 +19,8 @@ service:
   main:
     ports:
       main:
-        port: 10164
+        port: 10165
+        targetPort: 80
         targetPort: 80
 
 persistence:
