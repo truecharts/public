@@ -29,11 +29,13 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MODE | string | `"survival"` |  |
 | env.MOTD | string | `"Welcome to Minecraft on TrueNAS Scale!"` |  |
 | env.ONLINE_MODE | bool | `true` |  |
+| env.PUID | int | `568` |  |
 | env.PVP | bool | `false` |  |
 | env.SPAWN_ANIMALS | bool | `true` |  |
 | env.SPAWN_MONSTERS | bool | `true` |  |
 | env.SPAWN_NPCS | bool | `true` |  |
 | env.TYPE | string | `"VANILLA"` |  |
+| env.UID | string | `"{{ .Values.env.PUID }}"` |  |
 | env.VERSION | string | `"LATEST"` |  |
 | env.VIEW_DISTANCE | int | `16` |  |
 | image.pullPolicy | string | `"Always"` |  |
@@ -53,7 +55,11 @@ You will, however, be able to use all values referenced in the common chart here
 | j8j9Image.tag | string | `"latest@sha256:9c78b6212b0905f1d418795b358f28a8005d7350066a568523510c1e7ea4eefa"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
 | portal.enabled | bool | `false` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `25565` |  |
 | service.main.ports.main.targetPort | int | `25565` |  |
 

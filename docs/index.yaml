@@ -17757,6 +17757,41 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/grav-2.0.21/grav-2.0.21.tgz
     version: 2.0.21
+  grist:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-02-27T23:06:37.711647969Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    description: Grist is a modern relational spreadsheet. It combine the flexibility
+      of a spreadsheet with the robustness of a database to organize your data.
+    digest: ede9caefd17a4cc11e50c072149ba7e5993b6ddda6f1cddce2a46229d978ea98
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/grist
+    icon: https://truecharts.org/_static/img/appicons/grist-icon.png
+    keywords:
+    - grist
+    - spreadsheet
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: grist
+    sources:
+    - https://hub.docker.com/r/gristlabs/grist
+    - https://github.com/gristlabs/grist-core
+    - https://support.getgrist.com/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/grist-0.0.1/grist-0.0.1.tgz
+    version: 0.0.1
   grocy:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -31465,6 +31500,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.2/minecraft-bedrock-0.0.2.tgz
     version: 0.0.2
   minecraft-java:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.3.0
+    created: "2022-02-27T14:46:38.783256627Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.1
+    description: Minecraft Java Dedicated Server
+    digest: bd955cbd1b871d037e3e9fcb7211f7934aa5c0fa2fd402a0358d9451673bf23b
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-java
+    icon: https://truecharts.org/_static/img/appicons/minecraft-java-icon.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-java
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-java-0.0.13/minecraft-java-0.0.13.tgz
+    version: 0.0.13
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -56207,6 +56273,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.2.3
+    created: "2022-02-27T23:06:37.861307875Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.1
+    description: Satisfactory Dedicated Server
+    digest: 6b37d5f7eebf4c82715f27a2867ea452f04beda721c43e5ba0b7f32d6a53d901
+    home: https://github.com/truecharts/apps/tree/master/charts/games/satisfactory
+    icon: https://truecharts.org/_static/img/appicons/satisfactory-icon.png
+    keywords:
+    - satisfactory
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: statisfactory
+    sources:
+    - https://github.com/wolveix/satisfactory-server
+    - https://hub.docker.com/r/wolveix/satisfactory-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/statisfactory-0.0.9/statisfactory-0.0.9.tgz
+    version: 0.0.9
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.2.3
     created: "2022-02-22T23:23:41.761029436Z"
     dependencies:
     - name: common
@@ -64822,4 +64919,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-26T15:18:58.451244145Z"
+generated: "2022-02-27T23:06:37.868938762Z"

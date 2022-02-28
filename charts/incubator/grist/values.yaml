@@ -1,0 +1,45 @@
+image:
+  repository: gristlabs/grist
+  tag: latest@sha256:f28bc8762e602d5a4c0ef368ee3c8abe7b26bc4b90c7ad4ebc21e7b3ac7b3e70
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  HOME_PORT: "{{ .Values.service.api.ports.api.port }}"
+  GRIST_DEFAULT_EMAIL: "user@mydomain.com"
+
+# https://github.com/gristlabs/grist-core/issues/128
+# envValueFrom:
+#   REDIS_URL:
+#     secretKeyRef:
+#       name: rediscreds
+#       key: url
+
+service:
+  main:
+    ports:
+      main:
+        port: 10163
+        targetPort: 10163
+  api:
+    ports:
+      api:
+        port: 10164
+        targetPort: 10164
+
+persistence:
+  persist:
+    enabled: true
+    mountPath: "/persist"
+
+# redis:
+#   enabled: true
+#   existingSecret: "rediscreds"

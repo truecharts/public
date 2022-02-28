@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="statisfactory-0.0.9"></a>
+### [statisfactory-0.0.9](https://github.com/truecharts/apps/compare/statisfactory-0.0.8...statisfactory-0.0.9) (2022-02-27)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+
+#### Fix
+
+* Remove portal button and correct runasuser on gui ([#1979](https://github.com/truecharts/apps/issues/1979))
+
+
+
 <a name="statisfactory-0.0.8"></a>
 ### [statisfactory-0.0.8](https://github.com/truecharts/apps/compare/statisfactory-0.0.7...statisfactory-0.0.8) (2022-02-22)
 
