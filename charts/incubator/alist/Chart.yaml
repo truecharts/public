@@ -1,0 +1,33 @@
+apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: CHARTNAME
+version: 0.0.19
+appVersion: 1.0.0
+description: CHARTNAME App for TrueNAS SCALE
+type: application
+deprecated: false
+home: https://github.com/truecharts/apps/tree/master/charts/stable/alist
+icon: https://u.pigax.cn/gh/alist-org/assets@main/logo.svg
+keywords:
+  - alist
+  - storage
+  - webdav
+  - google driver
+  - aliyun driver
+  - baiduyun
+sources:
+  - https://github.com/Xhofe/alist
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.16.0
+    # condition:
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+annotations:
+  truecharts.org/catagories: |
+    - cloud
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

@@ -1,0 +1,18 @@
+image:
+  repository: xhofe/alist
+  pullPolicy: IfNotPresent
+  tag: latest
+
+env: {}
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 5244
+        port: 5244
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/opt/alist/data"
