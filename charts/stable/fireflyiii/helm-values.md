@@ -15,6 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | cronjob.failedJobsHistoryLimit | int | `5` |  |
 | cronjob.schedule | string | `"0 3 * * *"` |  |
 | cronjob.successfulJobsHistoryLimit | int | `2` |  |
+| env.APP_URL | string | `""` |  |
 | env.CACHE_DRIVER | string | `"redis"` |  |
 | env.DB_CONNECTION | string | `"pgsql"` |  |
 | env.DB_DATABASE | string | `"firefly"` |  |
@@ -25,6 +26,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.REDIS_PORT | int | `6379` |  |
 | env.REDIS_SCHEME | string | `"tcp"` |  |
 | env.SESSION_DRIVER | string | `"redis"` |  |
+| env.TRUSTED_PROXIES | string | `"172.16.0.0/16"` |  |
 | envValueFrom.APP_KEY.secretKeyRef.key | string | `"APP_KEY"` |  |
 | envValueFrom.APP_KEY.secretKeyRef.name | string | `"fireflyiii-secrets"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |

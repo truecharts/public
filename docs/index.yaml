@@ -13055,6 +13055,45 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 5.6.13
+    created: "2022-03-02T11:04:55.213167178Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 8.16.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 6.0.69
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 1.0.76
+    description: A free and open source personal finance manager
+    digest: 75d8b23618bdd158ac57e71a40d591d6db2e7dd1516200f9b09ab4374e812a0e
+    home: https://github.com/firefly-iii/firefly-iii/
+    icon: https://truecharts.org/_static/img/appicons/fireflyiii-icon.png
+    keywords:
+    - fireflyiii
+    - finacial
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: fireflyiii
+    sources:
+    - https://github.com/firefly-iii/firefly-iii/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/fireflyiii-13.1.29/fireflyiii-13.1.29.tgz
+    version: 13.1.29
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - finacial
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 5.6.13
     created: "2022-02-22T23:23:39.852184567Z"
     dependencies:
     - name: common
@@ -66546,4 +66585,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-02-28T17:17:45.032551154Z"
+generated: "2022-03-02T11:04:55.219156033Z"

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-13.1.29"></a>
+### [fireflyiii-13.1.29](https://github.com/truecharts/apps/compare/fireflyiii-13.1.28...fireflyiii-13.1.29) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* Add gui options for trusted proxies and url ([#1987](https://github.com/truecharts/apps/issues/1987))
+
+
+
 <a name="fireflyiii-13.1.28"></a>
 ### [fireflyiii-13.1.28](https://github.com/truecharts/apps/compare/fireflyiii-13.1.27...fireflyiii-13.1.28) (2022-02-22)
 
