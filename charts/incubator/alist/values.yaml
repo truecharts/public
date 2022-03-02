@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/alist
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: v2.1.0@sha256:5aaf09a89ce257292d29260bd3e857d1ebf79d7bcf94db2ce8e64d7c0743a57a
 
 env: {}
 
@@ -10,7 +10,7 @@ service:
     ports:
       main:
         targetPort: 5244
-        port: 5244
+        port: 10167
 
 persistence:
   data:

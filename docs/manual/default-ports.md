@@ -81,7 +81,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | appdaemon                  |      main       |      main       | 5050  |   TCP    |                                         |
 | overseer                   |      main       |      main       | 5055  |   TCP    |                                         |
 | nzbhydra                   |      main       |      main       | 5076  |   TCP    |                                         |
-| alist                      |      main       |      main       | 5244  |   TCP    |                                         |
 | lazylibrarian              |      main       |      main       | 5299  |   TCP    |                                         |
 | syslog-ng                  |   syslog-udp    |   syslog-udp    | 5514  |   UDP    |                                         |
 | n8n                        |      main       |      main       | 5678  |   TCP    |                                         |
@@ -324,6 +323,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | grist                      |       api       |       api       | 10164 |   TCP    |                                         |
 | budge                      |      main       |      main       | 10165 |   TCP    |                                         |
 | ghost                      |      main       |      main       | 10166 |   TCP    |                                         |
+| alist                      |      main       |      main       | 10167 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |
