@@ -28,8 +28,10 @@ You will, however, be able to use all values referenced in the common chart here
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.admin.ports.admin.enabled | bool | `true` |  |
 | service.admin.ports.admin.port | int | `2203` |  |
 | service.admin.ports.admin.targetPort | int | `2203` |  |
+| service.admin.ports.enabled | bool | `true` |  |
 | service.main.ports.main.port | int | `2202` |  |
 | service.main.ports.main.targetPort | int | `2202` |  |
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pixapop-1.0.42"></a>
+### [pixapop-1.0.42](https://github.com/truecharts/apps/compare/pixapop-1.0.41...pixapop-1.0.42) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="pixapop-1.0.41"></a>
 ### [pixapop-1.0.41](https://github.com/truecharts/apps/compare/pixapop-1.0.40...pixapop-1.0.41) (2022-02-21)
 

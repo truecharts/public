@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-13.0.37"></a>
+### [vaultwarden-13.0.37](https://github.com/truecharts/apps/compare/vaultwarden-13.0.36...vaultwarden-13.0.37) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="vaultwarden-13.0.36"></a>
 ### [vaultwarden-13.0.36](https://github.com/truecharts/apps/compare/vaultwarden-13.0.35...vaultwarden-13.0.36) (2022-02-21)
 

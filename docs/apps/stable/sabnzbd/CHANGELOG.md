@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="sabnzbd-9.0.44"></a>
+### [sabnzbd-9.0.44](https://github.com/truecharts/apps/compare/sabnzbd-9.0.43...sabnzbd-9.0.44) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="sabnzbd-9.0.43"></a>
 ### [sabnzbd-9.0.43](https://github.com/truecharts/apps/compare/sabnzbd-9.0.42...sabnzbd-9.0.43) (2022-02-28)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="statping-4.0.34"></a>
+### [statping-4.0.34](https://github.com/truecharts/apps/compare/statping-4.0.33...statping-4.0.34) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="statping-4.0.33"></a>
 ### [statping-4.0.33](https://github.com/truecharts/apps/compare/statping-4.0.32...statping-4.0.33) (2022-02-21)
 

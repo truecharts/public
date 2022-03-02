@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="aria2-3.0.23"></a>
+### [aria2-3.0.23](https://github.com/truecharts/apps/compare/aria2-3.0.22...aria2-3.0.23) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="aria2-3.0.22"></a>
 ### [aria2-3.0.22](https://github.com/truecharts/apps/compare/aria2-3.0.21...aria2-3.0.22) (2022-02-21)
 

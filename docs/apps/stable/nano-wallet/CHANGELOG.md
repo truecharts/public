@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nano-wallet-0.0.26"></a>
+### [nano-wallet-0.0.26](https://github.com/truecharts/apps/compare/nano-wallet-0.0.25...nano-wallet-0.0.26) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="nano-wallet-0.0.25"></a>
 ### [nano-wallet-0.0.25](https://github.com/truecharts/apps/compare/nano-wallet-0.0.24...nano-wallet-0.0.25) (2022-02-21)
 

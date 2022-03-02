@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="strapi-1.0.7"></a>
+### [strapi-1.0.7](https://github.com/truecharts/apps/compare/strapi-1.0.6...strapi-1.0.7) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="strapi-1.0.6"></a>
 ### [strapi-1.0.6](https://github.com/truecharts/apps/compare/strapi-1.0.5...strapi-1.0.6) (2022-02-21)
 

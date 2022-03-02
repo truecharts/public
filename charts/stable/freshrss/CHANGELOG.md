@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="freshrss-9.0.47"></a>
+### [freshrss-9.0.47](https://github.com/truecharts/apps/compare/freshrss-9.0.46...freshrss-9.0.47) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="freshrss-9.0.46"></a>
 ### [freshrss-9.0.46](https://github.com/truecharts/apps/compare/freshrss-9.0.45...freshrss-9.0.46) (2022-02-21)
 

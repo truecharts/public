@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="statisfactory-0.0.10"></a>
+### [statisfactory-0.0.10](https://github.com/truecharts/apps/compare/statisfactory-0.0.9...statisfactory-0.0.10) (2022-03-02)
+
+#### Chore
+
+* update helm chart common to v8.17.2 ([#1965](https://github.com/truecharts/apps/issues/1965))
+
+
+
 <a name="statisfactory-0.0.9"></a>
 ### [statisfactory-0.0.9](https://github.com/truecharts/apps/compare/statisfactory-0.0.8...statisfactory-0.0.9) (2022-02-27)
 

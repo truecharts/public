@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="docker-compose-0.0.8"></a>
+### [docker-compose-0.0.8](https://github.com/truecharts/apps/compare/docker-compose-0.0.7...docker-compose-0.0.8) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="docker-compose-0.0.7"></a>
 ### [docker-compose-0.0.7](https://github.com/truecharts/apps/compare/docker-compose-0.0.6...docker-compose-0.0.7) (2022-02-25)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="grav-2.0.42"></a>
+### [grav-2.0.42](https://github.com/truecharts/apps/compare/grav-2.0.41...grav-2.0.42) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="grav-2.0.41"></a>
 ### [grav-2.0.41](https://github.com/truecharts/apps/compare/grav-2.0.40...grav-2.0.41) (2022-02-21)
 

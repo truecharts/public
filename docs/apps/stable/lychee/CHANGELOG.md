@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="lychee-10.0.2"></a>
+### [lychee-10.0.2](https://github.com/truecharts/apps/compare/lychee-10.0.1...lychee-10.0.2) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="lychee-10.0.1"></a>
 ### [lychee-10.0.1](https://github.com/truecharts/apps/compare/lychee-10.0.0...lychee-10.0.1) (2022-02-22)
 

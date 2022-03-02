@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="gotify-5.0.36"></a>
+### [gotify-5.0.36](https://github.com/truecharts/apps/compare/gotify-5.0.35...gotify-5.0.36) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="gotify-5.0.35"></a>
 ### [gotify-5.0.35](https://github.com/truecharts/apps/compare/gotify-5.0.34...gotify-5.0.35) (2022-02-21)
 

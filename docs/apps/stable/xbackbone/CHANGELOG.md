@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="xbackbone-0.0.32"></a>
+### [xbackbone-0.0.32](https://github.com/truecharts/apps/compare/xbackbone-0.0.31...xbackbone-0.0.32) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="xbackbone-0.0.31"></a>
 ### [xbackbone-0.0.31](https://github.com/truecharts/apps/compare/xbackbone-0.0.30...xbackbone-0.0.31) (2022-02-21)
 

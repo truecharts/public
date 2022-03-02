@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="digikam-2.0.44"></a>
+### [digikam-2.0.44](https://github.com/truecharts/apps/compare/digikam-2.0.43...digikam-2.0.44) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="digikam-2.0.43"></a>
 ### [digikam-2.0.43](https://github.com/truecharts/apps/compare/digikam-2.0.42...digikam-2.0.43) (2022-02-21)
 

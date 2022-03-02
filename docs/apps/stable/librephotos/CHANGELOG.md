@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="librephotos-1.0.5"></a>
+### [librephotos-1.0.5](https://github.com/truecharts/apps/compare/librephotos-1.0.4...librephotos-1.0.5) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="librephotos-1.0.4"></a>
 ### [librephotos-1.0.4](https://github.com/truecharts/apps/compare/librephotos-1.0.3...librephotos-1.0.4) (2022-02-22)
 

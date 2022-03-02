@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="babybuddy-5.0.44"></a>
+### [babybuddy-5.0.44](https://github.com/truecharts/apps/compare/babybuddy-5.0.43...babybuddy-5.0.44) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="babybuddy-5.0.43"></a>
 ### [babybuddy-5.0.43](https://github.com/truecharts/apps/compare/babybuddy-5.0.42...babybuddy-5.0.43) (2022-02-21)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-3.1.7"></a>
+### [onlyoffice-document-server-3.1.7](https://github.com/truecharts/apps/compare/onlyoffice-document-server-3.1.6...onlyoffice-document-server-3.1.7) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="onlyoffice-document-server-3.1.6"></a>
 ### [onlyoffice-document-server-3.1.6](https://github.com/truecharts/apps/compare/onlyoffice-document-server-3.1.5...onlyoffice-document-server-3.1.6) (2022-02-21)
 

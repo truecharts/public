@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-9.0.54"></a>
+### [zwavejs2mqtt-9.0.54](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.53...zwavejs2mqtt-9.0.54) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="zwavejs2mqtt-9.0.53"></a>
 ### [zwavejs2mqtt-9.0.53](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.52...zwavejs2mqtt-9.0.53) (2022-02-21)
 

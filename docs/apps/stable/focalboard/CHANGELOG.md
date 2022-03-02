@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="focalboard-5.0.1"></a>
+### [focalboard-5.0.1](https://github.com/truecharts/apps/compare/focalboard-5.0.0...focalboard-5.0.1) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="focalboard-5.0.0"></a>
 ### [focalboard-5.0.0](https://github.com/truecharts/apps/compare/focalboard-4.0.42...focalboard-5.0.0) (2022-02-24)
 

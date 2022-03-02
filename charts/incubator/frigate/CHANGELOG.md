@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="frigate-0.0.15"></a>
+### [frigate-0.0.15](https://github.com/truecharts/apps/compare/frigate-0.0.14...frigate-0.0.15) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+#### Fix
+
+* map ingress to correct service ([#1929](https://github.com/truecharts/apps/issues/1929))
+
+
+
 <a name="frigate-0.0.14"></a>
 ### [frigate-0.0.14](https://github.com/truecharts/apps/compare/frigate-0.0.13...frigate-0.0.14) (2022-02-21)
 

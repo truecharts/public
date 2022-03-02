@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-4.0.45"></a>
+### [owncloud-ocis-4.0.45](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.44...owncloud-ocis-4.0.45) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="owncloud-ocis-4.0.44"></a>
 ### [owncloud-ocis-4.0.44](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.43...owncloud-ocis-4.0.44) (2022-02-21)
 

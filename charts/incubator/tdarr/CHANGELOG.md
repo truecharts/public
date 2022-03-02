@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="tdarr-1.0.48"></a>
+### [tdarr-1.0.48](https://github.com/truecharts/apps/compare/tdarr-1.0.47...tdarr-1.0.48) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="tdarr-1.0.47"></a>
 ### [tdarr-1.0.47](https://github.com/truecharts/apps/compare/tdarr-1.0.46...tdarr-1.0.47) (2022-02-21)
 

@@ -1,6 +1,17 @@
 # Changelog<br>
 
 
+<a name="spotweb-0.0.19"></a>
+### [spotweb-0.0.19](https://github.com/truecharts/apps/compare/spotweb-0.0.17...spotweb-0.0.19) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+* update helm general non-major helm releases ([#1927](https://github.com/truecharts/apps/issues/1927))
+
+
+
 <a name="spotweb-0.0.18"></a>
 ### [spotweb-0.0.18](https://github.com/truecharts/apps/compare/spotweb-0.0.17...spotweb-0.0.18) (2022-02-21)
 

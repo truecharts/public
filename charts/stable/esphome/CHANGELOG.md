@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="esphome-9.0.52"></a>
+### [esphome-9.0.52](https://github.com/truecharts/apps/compare/esphome-9.0.51...esphome-9.0.52) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="esphome-9.0.51"></a>
 ### [esphome-9.0.51](https://github.com/truecharts/apps/compare/esphome-9.0.50...esphome-9.0.51) (2022-02-21)
 

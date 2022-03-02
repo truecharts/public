@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="airsonic-advanced-1.0.16"></a>
+### [airsonic-advanced-1.0.16](https://github.com/truecharts/apps/compare/airsonic-advanced-1.0.15...airsonic-advanced-1.0.16) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="airsonic-advanced-1.0.15"></a>
 ### [airsonic-advanced-1.0.15](https://github.com/truecharts/apps/compare/airsonic-advanced-1.0.14...airsonic-advanced-1.0.15) (2022-02-21)
 

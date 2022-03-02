@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="linkace-1.0.5"></a>
+### [linkace-1.0.5](https://github.com/truecharts/apps/compare/linkace-1.0.4...linkace-1.0.5) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="linkace-1.0.4"></a>
 ### [linkace-1.0.4](https://github.com/truecharts/apps/compare/linkace-1.0.3...linkace-1.0.4) (2022-02-22)
 
