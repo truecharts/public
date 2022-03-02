@@ -81,6 +81,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | appdaemon                  |      main       |      main       | 5050  |   TCP    |                                         |
 | overseer                   |      main       |      main       | 5055  |   TCP    |                                         |
 | nzbhydra                   |      main       |      main       | 5076  |   TCP    |                                         |
+| alist                      |      main       |      main       | 5244  |   TCP    |                                         |
 | lazylibrarian              |      main       |      main       | 5299  |   TCP    |                                         |
 | syslog-ng                  |   syslog-udp    |   syslog-udp    | 5514  |   UDP    |                                         |
 | n8n                        |      main       |      main       | 5678  |   TCP    |                                         |
@@ -359,7 +360,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | resilio-sync               |     bt-tcp      |     bt-tcp      | 55555 |   TCP    |                                         |
 | resilio-sync               |     bt-udp      |     bt-udp      | 55555 |   UDP    |                                         |
 | quassel-web                |      main       |      main       | 64080 |   TCP    |                                         |
-| alist                      |      main       |      main       | 5244  |   TCP    |                                         |
 ## Dependency Apps
 
 | App        | Service | Port Name | Port  | Protocol | Note |
