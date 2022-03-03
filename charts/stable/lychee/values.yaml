@@ -20,8 +20,8 @@ service:
 
 env:
   # Internal Envs
-  TIMEZONE: "{{ .Values.env.TZ }}"
-  PHP_TZ: "{{ .Values.env.TZ }}"
+  TIMEZONE: "{{ .Values.security.TZ }}"
+  PHP_TZ: "{{ .Values.security.TZ }}"
   DB_CONNECTION: "pgsql"
   DB_PORT: "5432"
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"

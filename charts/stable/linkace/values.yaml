@@ -22,7 +22,7 @@ env:
   SESSION_DRIVER: "redis"
   APP_NAME: "LinkAce"
   APP_ENV: "production"
-  APP_TIMEZONE: "{{ .Values.env.TZ }}"
+  APP_TIMEZONE: "{{ .Values.security.TZ }}"
   # User Envs
   APP_URL: "http://localhost"
   APP_DEBUG: false
