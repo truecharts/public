@@ -81,8 +81,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        # Include{fixedEnv}
-        - variable: PUID
+                - variable: PUID
           label: "PUID"
           description: "User ID of the user you want the container to run as in order to fix folder permission issues"
           schema:
