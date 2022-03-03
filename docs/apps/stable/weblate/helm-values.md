@@ -16,8 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.REDIS_DB | string | `"0"` |  |
 | env.REDIS_PORT | int | `6379` |  |
-| env.TZ | string | `"UTC"` |  |
-| env.WEBLATE_TIME_ZONE | string | `"{{ .Values.env.TZ }}"` |  |
+| env.WEBLATE_TIME_ZONE | string | `"{{ .Values.security.TZ }}"` |  |
 | envFrom[0].configMapRef.name | string | `"weblate-env"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |

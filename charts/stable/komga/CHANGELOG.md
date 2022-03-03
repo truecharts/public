@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="komga-5.0.0"></a>
+### [komga-5.0.0](https://github.com/truecharts/apps/compare/komga-4.0.57...komga-5.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="komga-4.0.57"></a>
 ### [komga-4.0.57](https://github.com/truecharts/apps/compare/komga-4.0.56...komga-4.0.57) (2022-03-02)
 

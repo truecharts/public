@@ -12,8 +12,6 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://docs.linuxserver.io/images/docker-pyload#environment-variables-e) for more details. |
-| env.PUID | int | `568` | Specify the user ID the application will run as |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/pyload"` | image repository |
 | image.tag | string | `"version-5de90278@sha256:c33489498cb4541bbf936b1ebd1eaebfb0cae279f738aa0e6184969089e94081"` | image tag |

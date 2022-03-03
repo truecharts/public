@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="grafana-3.0.0"></a>
+### [grafana-3.0.0](https://github.com/truecharts/apps/compare/grafana-2.0.45...grafana-3.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="grafana-2.0.45"></a>
 ### [grafana-2.0.45](https://github.com/truecharts/apps/compare/grafana-2.0.44...grafana-2.0.45) (2022-03-02)
 

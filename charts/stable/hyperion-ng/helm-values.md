@@ -12,8 +12,6 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://docs.linuxserver.io/images/docker-airsonic#environment-variables-e) for more details. |
-| env.PUID | int | `568` | Specify the user ID the application will run as |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/hyperion.ng"` | image repository |
 | image.tag | string | `"v2.0.12@sha256:809405a6cd99dc4debb1c779a90042546530bd568995e177d6b0d43771f4012c"` | image tag |

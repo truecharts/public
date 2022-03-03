@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/digikam"` |  |
 | image.tag | string | `"version-7.3.0@sha256:97cc7525c0e77c75933eea57f2aa52b76077837971a7866338d79ea93adb069c"` |  |

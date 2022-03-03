@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="phpldapadmin-5.0.0"></a>
+### [phpldapadmin-5.0.0](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.43...phpldapadmin-5.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove some ugly whitespace
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="phpldapadmin-4.0.43"></a>
 ### [phpldapadmin-4.0.43](https://github.com/truecharts/apps/compare/phpldapadmin-4.0.42...phpldapadmin-4.0.43) (2022-03-02)
 

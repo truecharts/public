@@ -15,7 +15,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.ELEVATION | int | `1217` |  |
 | env.LATITUDE | int | `46` |  |
 | env.LONGITUDE | int | `-94` |  |
-| env.TZ | string | `"America/Chicago"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/appdaemon"` |  |
 | image.tag | string | `"v4.2.1@sha256:4f3c06b9cd453f65e9e13b600b96a31bba25346e961d570b48881d4f63da3d60"` |  |

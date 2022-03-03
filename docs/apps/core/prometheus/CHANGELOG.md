@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="prometheus-2.0.0"></a>
+### [prometheus-2.0.0](https://github.com/truecharts/apps/compare/prometheus-1.1.73...prometheus-2.0.0) (2022-03-03)
+
+#### Chore
+
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+* update docker general non-major ([#2008](https://github.com/truecharts/apps/issues/2008))
+
+
+
 <a name="prometheus-1.1.73"></a>
 ### [prometheus-1.1.73](https://github.com/truecharts/apps/compare/uptimerobot-prometheus-2.0.23...prometheus-1.1.73) (2022-03-03)
 

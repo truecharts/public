@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="deluge-10.0.0"></a>
+### [deluge-10.0.0](https://github.com/truecharts/apps/compare/deluge-9.0.44...deluge-10.0.0) (2022-03-03)
+
+#### Chore
+
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="deluge-9.0.44"></a>
 ### [deluge-9.0.44](https://github.com/truecharts/apps/compare/deluge-9.0.43...deluge-9.0.44) (2022-03-02)
 

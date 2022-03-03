@@ -1,6 +1,22 @@
 # Changelog<br>
 
 
+<a name="clarkson-1.0.0"></a>
+### [clarkson-1.0.0](https://github.com/truecharts/apps/compare/clarkson-0.0.37...clarkson-1.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove PUID from per-app env-vars if set to 568
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="clarkson-0.0.37"></a>
 ### [clarkson-0.0.37](https://github.com/truecharts/apps/compare/clarkson-0.0.36...clarkson-0.0.37) (2022-03-02)
 

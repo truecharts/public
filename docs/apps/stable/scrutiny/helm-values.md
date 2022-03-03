@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | env.SCRUTINY_API_ENDPOINT | string | `"http://localhost:8080"` |  |
 | env.SCRUTINY_COLLECTOR | bool | `true` |  |
 | env.SCRUTINY_WEB | bool | `true` |  |

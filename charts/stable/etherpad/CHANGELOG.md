@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="etherpad-6.0.0"></a>
+### [etherpad-6.0.0](https://github.com/truecharts/apps/compare/etherpad-5.0.34...etherpad-6.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="etherpad-5.0.34"></a>
 ### [etherpad-5.0.34](https://github.com/truecharts/apps/compare/etherpad-5.0.33...etherpad-5.0.34) (2022-03-02)
 

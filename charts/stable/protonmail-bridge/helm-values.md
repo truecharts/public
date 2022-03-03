@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env | string | See below | environment variables. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/protonmail-bridge"` | image repository |
 | image.tag | string | `"v1.8.10-1@sha256:58a54002123cc9a83cfb3170deb0a1dbf4cedabdced09a9c6bcafc19ee4b5631"` | image tag |

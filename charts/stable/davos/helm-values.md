@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/davos"` |  |
 | image.tag | string | `"v2.2.1-ls76@sha256:f9359583fb20278b436e7b018ee244f2cce1480d6834775f19e9da3503dd0e9b"` |  |

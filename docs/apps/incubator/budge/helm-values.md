@@ -12,7 +12,6 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.NODE_ENV | string | `"production"` |  |
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/budge"` |  |
 | image.tag | string | `"v0.0.3@sha256:ba1d4152b5f89839dea33be6578b25d9a54fdf854953bfc0fc2f1f43fbe413e4"` |  |

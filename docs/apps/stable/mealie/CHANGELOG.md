@@ -1,6 +1,22 @@
 # Changelog<br>
 
 
+<a name="mealie-6.0.0"></a>
+### [mealie-6.0.0](https://github.com/truecharts/apps/compare/mealie-5.0.25...mealie-6.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="mealie-5.0.25"></a>
 ### [mealie-5.0.25](https://github.com/truecharts/apps/compare/mealie-5.0.24...mealie-5.0.25) (2022-03-02)
 

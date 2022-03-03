@@ -34,7 +34,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.HEAVYWEIGHT_PROCESS | int | `1` |  |
 | env.REDIS_PORT | string | `"6379"` |  |
 | env.SKIP_PATTERNS | string | `""` |  |
-| env.TZ | string | `"UTC"` |  |
 | env.WEB_CONCURRENCY | int | `2` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |

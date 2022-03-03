@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.TZ | string | `"UTC"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/omada-controller"` |  |
 | image.tag | string | `"v5.0@sha256:88390176a042fcada0977c11c237a28d1c5e8e850d96ca72743396db9d6edb1d"` |  |

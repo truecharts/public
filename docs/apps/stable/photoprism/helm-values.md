@@ -27,7 +27,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PHOTOPRISM_UID | string | `"{{ .Values.podSecurityContext.runAsUser }}"` |  |
 | env.PHOTOPRISM_UMASK | string | `"{{ .Values.env.UMASK }}"` |  |
 | env.PROTOPRISM_BACKUP_PATH | string | `"/assets/backup"` |  |
-| env.TZ | string | `"UTC"` |  |
 | envValueFrom.PHOTOPRISM_DATABASE_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |
 | envValueFrom.PHOTOPRISM_DATABASE_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | envValueFrom.PHOTOPRISM_DATABASE_SERVER.secretKeyRef.key | string | `"plainporthost"` |  |

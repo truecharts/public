@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | env.fleet_admin_authentication_type | string | `"DATABASE"` |  |
 | env.fleet_database_username | string | `"fleet"` |  |
 | envValueFrom.fleet_database_password.secretKeyRef.key | string | `"mariadb-password"` |  |

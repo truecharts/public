@@ -12,7 +12,6 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.MYSQL_USERNAME | string | `"clarkson"` |  |
-| env.PUID | int | `568` |  |
 | envValueFrom.MYSQL_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.MYSQL_HOST.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | envValueFrom.MYSQL_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |

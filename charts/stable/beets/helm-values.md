@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/beets"` |  |
 | image.tag | string | `"v1.6.0@sha256:3e4cc5337142aef1b708fdb4f61748e21af81cc7b31cf17609282bad7c827bee"` |  |

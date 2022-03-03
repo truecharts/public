@@ -18,7 +18,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PHOTOVIEW_DISABLE_VIDEO_ENCODING | bool | `false` |  |
 | env.PHOTOVIEW_LISTEN_PORT | string | `"{{ .Values.service.main.ports.main.targetPort }}"` |  |
 | env.PHOTOVIEW_MEDIA_CACHE | string | `"/cache"` |  |
-| env.TZ | string | `"UTC"` |  |
 | envValueFrom.PHOTOVIEW_POSTGRES_URL.secretKeyRef.key | string | `"url"` |  |
 | envValueFrom.PHOTOVIEW_POSTGRES_URL.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |

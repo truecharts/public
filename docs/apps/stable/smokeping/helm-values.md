@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/smokeping"` |  |
 | image.tag | string | `"version-2.7.3-r5@sha256:e56ba2420901250afb865a7e03e43956dcff17503ce44c48b20064980a42f5a4"` |  |

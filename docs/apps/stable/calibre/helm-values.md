@@ -12,8 +12,6 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.CLI_ARGS | string | `nil` |  |
-| env.PUID | int | `568` |  |
-| env.TZ | string | `"UTC"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/calibre"` |  |
 | image.tag | string | `"v5.36.08@sha256:b1358d3feff98cd3b187be778788ad74e884c46462a1a1bce081846ba38f51b0"` |  |

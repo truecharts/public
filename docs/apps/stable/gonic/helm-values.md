@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See more environment variables in the [gonic documentation](https://github.com/sentriz/gonic#configuration-options) |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env | string | See below | environment variables. See more environment variables in the [gonic documentation](https://github.com/sentriz/gonic#configuration-options) |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/gonic"` | image repository |
 | image.tag | string | `"v0.14.0@sha256:2965f50240b6fd9fb1535e87607c65f0f1212b5ce1df54966fb7d212efe1b770"` | image tag |

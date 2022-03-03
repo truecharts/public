@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/grav"` |  |
 | image.tag | string | `"version-1.7.18@sha256:709e672ef2cbe1235d896ed9bac213d773abfe70b37925f5870a8a925a047e16"` |  |

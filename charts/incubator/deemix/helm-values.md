@@ -12,7 +12,6 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.INTPORT | string | `"{{ .Values.service.main.ports.main.targetPort }}"` |  |
-| env.UMASK_SET | string | `"{{ .Values.env.UMASK }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/deemix"` |  |
 | image.tag | string | `"latest@sha256:cc770caa2f11b2e1b89129e17ebbbbb2533bd3e7c93303e52a072e1b3e471f70"` |  |

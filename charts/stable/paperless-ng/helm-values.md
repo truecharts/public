@@ -17,10 +17,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env.PAPERLESS_DBPORT | string | `"5432"` |  |
 | env.PAPERLESS_DBUSER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.PAPERLESS_MEDIA_ROOT | string | `"/media/"` |  |
-| env.PAPERLESS_TIME_ZONE | string | `"{{ .Values.env.TZ }}"` |  |
-| env.PUID | int | `568` |  |
+| env.PAPERLESS_TIME_ZONE | string | `"{{ .Values.security.TZ }}"` |  |
 | env.USERMAP_GID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
-| env.USERMAP_UID | string | `"{{ .Values.env.PUID }}"` |  |
+| env.USERMAP_UID | string | `"{{ .Values.security.PUID }}"` |  |
 | envValueFrom.PAPERLESS_DBHOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.PAPERLESS_DBHOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.PAPERLESS_DBPASS.secretKeyRef.key | string | `"postgresql-password"` |  |

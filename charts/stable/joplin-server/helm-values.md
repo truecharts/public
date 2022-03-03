@@ -17,7 +17,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.POSTGRES_DATABASE | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
 | env.POSTGRES_PORT | string | `"5432"` |  |
 | env.POSTGRES_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
-| env.TZ | string | `"UTC"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.POSTGRES_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.POSTGRES_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

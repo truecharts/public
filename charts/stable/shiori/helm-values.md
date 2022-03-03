@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | env.SHIORI_PG_NAME | string | `"{{ .Values.postgresql.postgresqlDatabase }}"` |  |
 | env.SHIORI_PG_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | envValueFrom.SHIORI_PG_HOST.secretKeyRef.key | string | `"plainhost"` |  |

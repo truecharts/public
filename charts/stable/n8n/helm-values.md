@@ -18,10 +18,9 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DB_POSTGRESDB_PORT | int | `5432` |  |
 | env.DB_POSTGRESDB_USER | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.DB_TYPE | string | `"postgresdb"` |  |
-| env.GENERIC_TIMEZONE | string | `"{{ .Values.env.TZ }}"` |  |
+| env.GENERIC_TIMEZONE | string | `"{{ .Values.security.TZ }}"` |  |
 | env.N8N_USER_FOLDER | string | `"/data"` |  |
 | env.QUEUE_BULL_REDIS_PORT | int | `6379` |  |
-| env.TZ | string | `"UTC"` |  |
 | envFrom[0].configMapRef.name | string | `"n8n-config"` |  |
 | envValueFrom.DB_POSTGRESDB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_POSTGRESDB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
