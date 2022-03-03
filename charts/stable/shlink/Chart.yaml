@@ -3,7 +3,7 @@ appVersion: "3.0.1"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.17.2
+  version: 9.0.0
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -28,7 +28,7 @@ name: shlink
 sources:
 - https://github.com/shlinkio/shlink
 type: application
-version: 1.0.14
+version: 2.0.0
 annotations:
   truecharts.org/catagories: |
     - utilities

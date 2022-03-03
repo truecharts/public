@@ -3,7 +3,7 @@ appVersion: "1.24.0"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.17.2
+  version: 9.0.0
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -28,7 +28,7 @@ name: vaultwarden
 sources:
 - https://github.com/dani-garcia/vaultwarden
 type: application
-version: 13.0.37
+version: 14.0.0
 annotations:
   truecharts.org/catagories: |
     - security

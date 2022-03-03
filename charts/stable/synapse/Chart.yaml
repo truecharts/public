@@ -3,7 +3,7 @@ appVersion: "1.53.0"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.17.2
+  version: 9.0.0
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -24,7 +24,7 @@ maintainers:
 name: synapse
 sources: []
 type: application
-version: 1.0.10
+version: 2.0.0
 annotations:
   truecharts.org/catagories: |
     - cloud

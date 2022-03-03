@@ -3,7 +3,7 @@ appVersion: "0.162.0"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 8.17.2
+  version: 9.0.0
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -28,7 +28,7 @@ sources:
 - https://docs.n8n.io/
 - https://github.com/n8n-io/n8n
 - https://hub.docker.com/r/n8nio/n8n
-version: 1.0.10
+version: 2.0.0
 annotations:
   truecharts.org/catagories: |
     - media
