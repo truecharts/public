@@ -263,9 +263,7 @@ secret: {}
 # C) PASSWD:
 #      envFrom:
 #        ...
-env:
-  TZ: UTC
-  PUID: 568
+env: {}
 
 ## Variables with values set from templates, example
 ## With a release name of: demo, the example env value will be: demo-admin

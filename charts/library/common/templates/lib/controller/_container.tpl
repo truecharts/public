@@ -60,6 +60,14 @@
     - name: NVIDIA_VISIBLE_DEVICES
       value: "void"
    {{- end }}
+   {{- if not ( .Values.env.TZ ) }}
+    - name: TZ
+      value: "UTC"
+   {{- end }}
+   {{- if not ( .Values.env.PUID ) }}
+    - name: PUID
+      value: "568"
+   {{- end }}
   {{- with .Values.env }}
     {{- range $k, $v := . }}
       {{- $name := $k }}

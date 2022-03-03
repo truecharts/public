@@ -85,7 +85,7 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_nil(mainContainer["env"][7])
+        assert_nil(mainContainer["env"][5])
       end
 
       it 'set static "k/v pair style" environment variables' do
@@ -101,14 +101,14 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][6]["name"])
-        assert_equal(values[:env].values[0].to_s, mainContainer["env"][6]["value"])
-        assert_equal(values[:env].keys[1].to_s, mainContainer["env"][7]["name"])
-        assert_equal(values[:env].values[1].to_s, mainContainer["env"][7]["value"])
-        assert_equal(values[:env].keys[2].to_s, mainContainer["env"][8]["name"])
-        assert_equal(values[:env].values[2].to_s, mainContainer["env"][8]["value"])
-        assert_equal(values[:env].keys[3].to_s, mainContainer["env"][10]["name"])
-        assert_equal(values[:env].values[3].to_s, mainContainer["env"][10]["value"])
+        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][8]["name"])
+        assert_equal(values[:env].values[0].to_s, mainContainer["env"][8]["value"])
+        assert_equal(values[:env].keys[1].to_s, mainContainer["env"][9]["name"])
+        assert_equal(values[:env].values[1].to_s, mainContainer["env"][9]["value"])
+        assert_equal(values[:env].keys[2].to_s, mainContainer["env"][10]["name"])
+        assert_equal(values[:env].values[2].to_s, mainContainer["env"][10]["value"])
+        assert_equal(values[:env].keys[3].to_s, mainContainer["env"][11]["name"])
+        assert_equal(values[:env].values[3].to_s, mainContainer["env"][11]["value"])
       end
 
       it 'set list of static "kubernetes style" environment variables' do
@@ -145,10 +145,10 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][7]["name"])
-        assert_equal(values[:env].values[0].to_s, mainContainer["env"][7]["value"])
-        assert_equal(values[:env].keys[1].to_s, mainContainer["env"][8]["name"])
-        assert_equal(values[:env].values[1][:valueFrom][:fieldRef][:fieldPath], mainContainer["env"][8]["valueFrom"]["fieldRef"]["fieldPath"])
+        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][8]["name"])
+        assert_equal(values[:env].values[0].to_s, mainContainer["env"][8]["value"])
+        assert_equal(values[:env].keys[1].to_s, mainContainer["env"][9]["name"])
+        assert_equal(values[:env].values[1][:valueFrom][:fieldRef][:fieldPath], mainContainer["env"][9]["valueFrom"]["fieldRef"]["fieldPath"])
       end
 
       it 'set static "k/explicitValueFrom pair style" environment variables' do
@@ -167,8 +167,8 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][6]["name"])
-        assert_equal(values[:env].values[0][:valueFrom][:fieldRef][:fieldPath], mainContainer["env"][6]["valueFrom"]["fieldRef"]["fieldPath"])
+        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][8]["name"])
+        assert_equal(values[:env].values[0][:valueFrom][:fieldRef][:fieldPath], mainContainer["env"][8]["valueFrom"]["fieldRef"]["fieldPath"])
       end
 
       it 'set static "k/implicitValueFrom pair style" environment variables' do
@@ -185,8 +185,8 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][6]["name"])
-        assert_equal(values[:env].values[0][:fieldRef][:fieldPath], mainContainer["env"][6]["valueFrom"]["fieldRef"]["fieldPath"])
+        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][8]["name"])
+        assert_equal(values[:env].values[0][:fieldRef][:fieldPath], mainContainer["env"][8]["valueFrom"]["fieldRef"]["fieldPath"])
       end
 
       it 'set both static "k/v pair style" and templated "k/v pair style" environment variables' do
@@ -202,8 +202,8 @@ class Test < ChartTest
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
         assert_equal(values[:env].keys[0].to_s, mainContainer["env"][8]["name"])
         assert_equal("common-test-admin", mainContainer["env"][8]["value"])
-        assert_equal(values[:env].keys[1].to_s, mainContainer["env"][6]["name"])
-        assert_equal(values[:env].values[1].to_s, mainContainer["env"][6]["value"])
+        assert_equal(values[:env].keys[1].to_s, mainContainer["env"][9]["name"])
+        assert_equal(values[:env].values[1].to_s, mainContainer["env"][9]["value"])
       end
 
       it 'set templated "k/v pair style" environment variables' do
@@ -216,8 +216,8 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][6]["name"])
-        assert_equal("common-test-admin", mainContainer["env"][6]["value"])
+        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][8]["name"])
+        assert_equal("common-test-admin", mainContainer["env"][8]["value"])
       end
 
       it 'set static "k/v pair style", templated "k/v pair style", static "k/explicitValueFrom pair style", and static "k/implicitValueFrom pair style" environment variables' do
@@ -243,14 +243,14 @@ class Test < ChartTest
         deployment = chart.resources(kind: "Deployment").first
         containers = deployment["spec"]["template"]["spec"]["containers"]
         mainContainer = containers.find{ |c| c["name"] == "common-test" }
-        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][6]["name"])
-        assert_equal("common-test-admin", mainContainer["env"][6]["value"])
-        assert_equal(values[:env].keys[1].to_s, mainContainer["env"][8]["name"])
-        assert_equal(values[:env].values[1].to_s, mainContainer["env"][8]["value"])
-        assert_equal(values[:env].keys[2].to_s, mainContainer["env"][9]["name"])
-        assert_equal(values[:env].values[2][:valueFrom][:fieldRef][:fieldPath], mainContainer["env"][9]["valueFrom"]["fieldRef"]["fieldPath"])
-        assert_equal(values[:env].keys[3].to_s, mainContainer["env"][10]["name"])
-        assert_equal(values[:env].values[3][:fieldRef][:fieldPath], mainContainer["env"][10]["valueFrom"]["fieldRef"]["fieldPath"])
+        assert_equal(values[:env].keys[0].to_s, mainContainer["env"][8]["name"])
+        assert_equal("common-test-admin", mainContainer["env"][8]["value"])
+        assert_equal(values[:env].keys[1].to_s, mainContainer["env"][9]["name"])
+        assert_equal(values[:env].values[1].to_s, mainContainer["env"][9]["value"])
+        assert_equal(values[:env].keys[2].to_s, mainContainer["env"][10]["name"])
+        assert_equal(values[:env].values[2][:valueFrom][:fieldRef][:fieldPath], mainContainer["env"][10]["valueFrom"]["fieldRef"]["fieldPath"])
+        assert_equal(values[:env].keys[3].to_s, mainContainer["env"][11]["name"])
+        assert_equal(values[:env].values[3][:fieldRef][:fieldPath], mainContainer["env"][11]["valueFrom"]["fieldRef"]["fieldPath"])
       end
 
       it 'set "static" secret variables' do
