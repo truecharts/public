@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="nextcloud-11.0.33"></a>
+### [nextcloud-11.0.33](https://github.com/truecharts/apps/compare/nextcloud-11.0.32...nextcloud-11.0.33) (2022-03-03)
+
+#### Chore
+
+* update docker general non-major ([#2006](https://github.com/truecharts/apps/issues/2006))
+
+
+
 <a name="nextcloud-11.0.32"></a>
 ### [nextcloud-11.0.32](https://github.com/truecharts/apps/compare/nextcloud-11.0.31...nextcloud-11.0.32) (2022-03-02)
 

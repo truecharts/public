@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="lazylibrarian-9.0.61"></a>
+### [lazylibrarian-9.0.61](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.60...lazylibrarian-9.0.61) (2022-03-03)
+
+#### Chore
+
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* update docker general non-major ([#2006](https://github.com/truecharts/apps/issues/2006))
+
+
+
 <a name="lazylibrarian-9.0.60"></a>
 ### [lazylibrarian-9.0.60](https://github.com/truecharts/apps/compare/lazylibrarian-9.0.59...lazylibrarian-9.0.60) (2022-03-02)
 

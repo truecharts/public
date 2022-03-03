@@ -88,7 +88,7 @@ You will, however, be able to use all values referenced in the common chart here
 | alertmanager.volumeMounts | list | `[]` |  |
 | alertmanager.volumes | list | `[]` |  |
 | alertmanagerImage.repository | string | `"tccr.io/truecharts/alertmanager"` |  |
-| alertmanagerImage.tag | string | `"v0.23.0@sha256:760286cba2b682c091a1fc90a831e9d437d6ba34033568b1526a01392b23bb25"` |  |
+| alertmanagerImage.tag | string | `"v0.23.0@sha256:15bc2c7be2c7c4ad497849abb0e95c30804727de68a0e9c93597b01aaf79b8bc"` |  |
 | coreDns.enabled | bool | `true` |  |
 | coreDns.namespace | string | `"kube-system"` |  |
 | coreDns.service.enabled | bool | `true` |  |
@@ -104,7 +104,7 @@ You will, however, be able to use all values referenced in the common chart here
 | exporters.node-exporter.enabled | bool | `true` |  |
 | global.labels | object | `{}` |  |
 | image.repository | string | `"tccr.io/truecharts/prometheus-operator"` |  |
-| image.tag | string | `"v0.54.1@sha256:5d3d49e7e78ba2c78f85258a3063f2d6b1bf7cf2d7c0defe8c4e4292ad489ad0"` |  |
+| image.tag | string | `"v0.54.1@sha256:7e13e152e1cc2bf2d7067d232fe1eb10087ba4471a70637fa7082839d2118e6c"` |  |
 | ingress.alertmanager.enabled | bool | `false` |  |
 | ingress.main.enabled | bool | `false` |  |
 | ingress.thanos.enabled | bool | `false` |  |
@@ -319,7 +319,7 @@ You will, however, be able to use all values referenced in the common chart here
 | prometheus.volumes | list | `[]` |  |
 | prometheus.walCompression | bool | `false` |  |
 | prometheusImage.repository | string | `"tccr.io/truecharts/prometheus"` |  |
-| prometheusImage.tag | string | `"v2.33.4@sha256:9c5191a2830c6f9f799a57f47d210b31b3ae693e03886f2ff6b66230502f1cb7"` |  |
+| prometheusImage.tag | string | `"v2.33.4@sha256:da73415d33ce2c2c653ac96737b48b4cf3a357d6b8655fd35b89438357e56b3a"` |  |
 | rbac | object | `{"enabled":true,"rules":[{"apiGroups":["apiextensions.k8s.io"],"resources":["customresourcedefinitions"],"verbs":["create"]},{"apiGroups":["apiextensions.k8s.io"],"resourceNames":["alertmanagers.monitoring.coreos.com","podmonitors.monitoring.coreos.com","prometheuses.monitoring.coreos.com","prometheusrules.monitoring.coreos.com","servicemonitors.monitoring.coreos.com","thanosrulers.monitoring.coreos.com","probes.monitoring.coreos.com"],"resources":["customresourcedefinitions"],"verbs":["get","update"]},{"apiGroups":["monitoring.coreos.com"],"resources":["alertmanagers","alertmanagers/finalizers","alertmanagerconfigs","prometheuses","prometheuses/finalizers","thanosrulers","thanosrulers/finalizers","servicemonitors","podmonitors","probes","prometheusrules"],"verbs":["*"]},{"apiGroups":["apps"],"resources":["statefulsets"],"verbs":["*"]},{"apiGroups":[""],"resources":["configmaps","secrets"],"verbs":["*"]},{"apiGroups":[""],"resources":["pods"],"verbs":["list","delete"]},{"apiGroups":[""],"resources":["services","services/finalizers","endpoints"],"verbs":["get","create","update","delete"]},{"apiGroups":[""],"resources":["nodes"],"verbs":["list","watch"]},{"apiGroups":[""],"resources":["namespaces"],"verbs":["get","list","watch"]},{"apiGroups":["networking.k8s.io"],"resources":["ingresses"],"verbs":["get","list","watch"]}]}` | Whether Role Based Access Control objects like roles and rolebindings should be created |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service.alertmanager.enabled | bool | `true` |  |

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="impostor-server-0.0.13"></a>
+### [impostor-server-0.0.13](https://github.com/truecharts/apps/compare/impostor-server-0.0.12...impostor-server-0.0.13) (2022-03-03)
+
+#### Chore
+
+* remove PUID from per-app env-vars if set to 568
+* update docker general non-major ([#2006](https://github.com/truecharts/apps/issues/2006))
+
+
+
 <a name="impostor-server-0.0.12"></a>
 ### [impostor-server-0.0.12](https://github.com/truecharts/apps/compare/impostor-server-0.0.11...impostor-server-0.0.12) (2022-03-02)
 
