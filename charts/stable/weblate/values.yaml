@@ -12,7 +12,6 @@ podSecurityContext:
   fsGroup: 1000
 
 env:
-  TZ: UTC
   WEBLATE_TIME_ZONE: "{{ .Values.env.TZ }}"
   POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
