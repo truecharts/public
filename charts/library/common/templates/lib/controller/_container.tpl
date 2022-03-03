@@ -50,6 +50,8 @@
       value: {{ .Values.security.PUID | quote }}
     - name: UMASK
       value: {{ .Values.security.UMASK | quote }}
+    - name: UMASK_SET
+      value: {{ .Values.security.UMASK | quote }}
     - name: PGID
       value: {{ .Values.podSecurityContext.fsGroup | quote }}
     - name: GROUP_ID
