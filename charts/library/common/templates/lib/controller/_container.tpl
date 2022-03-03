@@ -46,12 +46,12 @@
   {{- end }}
 
   env:
-    - name: PGID
-      value: {{ .Values.podSecurityContext.fsGroup | quote }}
    {{- if not ( .Values.env.PUID ) }}
     - name: PUID
       value: "568"
    {{- end }}
+    - name: PGID
+      value: {{ .Values.podSecurityContext.fsGroup | quote }}
     - name: GROUP_ID
       value: {{ .Values.podSecurityContext.fsGroup | quote }}
     - name: GID
