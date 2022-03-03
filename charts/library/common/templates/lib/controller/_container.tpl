@@ -46,10 +46,12 @@
   {{- end }}
 
   env:
-   {{- if not ( .Values.env.PUID ) }}
     - name: PUID
-      value: "568"
-   {{- end }}
+      value: {{ .Values.security.PUID | quote }}
+    - name: UMASK
+      value: {{ .Values.security.UMASK | quote }}
+    - name: UMASK_SET
+      value: {{ .Values.security.UMASK | quote }}
     - name: PGID
       value: {{ .Values.podSecurityContext.fsGroup | quote }}
     - name: GROUP_ID
@@ -64,10 +66,8 @@
     - name: NVIDIA_VISIBLE_DEVICES
       value: "void"
    {{- end }}
-   {{- if not ( .Values.env.TZ ) }}
     - name: TZ
-      value: "UTC"
-   {{- end }}
+      value: {{ .Values.TZ | quote }}
   {{- with .Values.env }}
     {{- range $k, $v := . }}
       {{- $name := $k }}

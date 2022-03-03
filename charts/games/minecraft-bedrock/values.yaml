@@ -4,7 +4,7 @@ image:
   pullPolicy: Always
 
 env:
-  UID: "{{ .Values.env.PUID }}"
+  UID: "{{ .Values.security.PUID }}"
   GID: "{{ .Values.podSecurityContext.fsGroup }}"
   EULA: "TRUE"
   VERSION: "LATEST"
