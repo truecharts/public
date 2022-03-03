@@ -1,3 +1,9 @@
+  - variable: security
+    label: "Container Security Settings"
+    group: "Security and Permissions"
+    schema:
+      type: dict
+      attrs:
         - variable: PUID
           label: "Process User ID - PUID"
           description: "When supported by the container, this sets the User ID running the Application Process. Not supported by all Apps"
