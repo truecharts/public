@@ -8,6 +8,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| TZ | string | `"UTC"` | Set Container Timezone |
 | additionalContainers | object | `{}` | Specify any additional containers here as dictionary items. Each additional container should have its own key. Helm templates can be used. |
 | addons | object | See below | The common chart supports several add-ons. These can be configured under this key. |
 | addons.codeserver | object | See values.yaml | The common library supports adding a code-server add-on to access files. It can be configured under this key. For more info, check out [our docs](http://docs.k8s-at-home.com/our-helm-charts/common-library-add-ons/#code-server) |
@@ -240,6 +241,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | resources | object | `{"limits":{"cpu":"4000m","memory":"8Gi"},"requests":{"cpu":"10m","memory":"50Mi"}}` | Set the resource requests / limits for the main container. |
 | schedulerName | string | `nil` | Allows specifying a custom scheduler name |
 | secret | object | `{}` | Use this to populate a secret with the values you specify. Be aware that these values are not encrypted by default, and could therefore visible to anybody with access to the values.yaml file. |
+| security | object | `{"PUID":568,"UMASK":2}` | Set the Process User ID (PUID) env-var seperately |
 | securityContext | object | `{"allowPrivilegeEscalation":false,"capabilities":{"add":[],"drop":[]},"privileged":false,"readOnlyRootFilesystem":true,"runAsNonRoot":true}` | Configure the Security Context for the main container |
 | service | object | See below | Configure the services for the chart here. Additional services can be added by adding a dictionary key similar to the 'main' service. |
 | service.main.annotations | object | `{}` | Provide additional annotations which may be required. |

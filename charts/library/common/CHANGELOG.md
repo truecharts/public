@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-9.0.0"></a>
+### [common-9.0.0](https://github.com/truecharts/apps/compare/common-8.17.3...common-9.0.0) (2022-03-03)
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="common-8.17.3"></a>
 ### [common-8.17.3](https://github.com/truecharts/apps/compare/common-8.17.2...common-8.17.3) (2022-03-03)
 
