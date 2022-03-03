@@ -96,12 +96,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: int
-            default: 568
+
         - variable: DECONZ_DEVICE
           label: "DECONZ_DEVICE"
           description: "Override the location where deCONZ looks for the RaspBee/Conbee device"

@@ -96,12 +96,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the userID inside the container"
-          schema:
-            type: int
-            default: 568
+
         - variable: PHOTOPRISM_ORIGINALS_PATH
           label: "PHOTOPRISM_ORIGINALS_PATH"
           description: "Photoprism originals path"

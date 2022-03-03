@@ -96,12 +96,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: int
-            default: 568
+
         - variable: gui
           label: "GUI Settings"
           description: "Always read description before changing a value here. Also refer to README"

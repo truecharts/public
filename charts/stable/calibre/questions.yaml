@@ -95,12 +95,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the userID inside the container"
-          schema:
-            type: int
-            default: 568
+
         - variable: CLI_ARGS
           label: "CLI_ARGS"
           description: "Optionally pass cli start arguments to calibre"
