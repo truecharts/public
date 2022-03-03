@@ -17,8 +17,6 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  TZ: "America/Los_Angeles"
   PUID: 568
   FF_SYNCSERVER_PUBLIC_URL: "firefox-syncserver.192.168.1.189.nip.io"
   FF_SYNCSERVER_FORCE_WSGI_ENVIRON: true

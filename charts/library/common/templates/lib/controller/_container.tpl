@@ -52,8 +52,6 @@
       value: {{ .Values.podSecurityContext.fsGroup | quote }}
     - name: GID
       value: {{ .Values.podSecurityContext.fsGroup | quote }}
-    - name: TZ
-      value: "UTC"
    {{- if or ( .Values.securityContext.readOnlyRootFilesystem ) ( .Values.securityContext.runAsNonRoot ) }}
     - name: S6_READ_ONLY_ROOT
       value: "1"
