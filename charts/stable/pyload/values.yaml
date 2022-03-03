@@ -15,10 +15,7 @@ podSecurityContext:
 
 # -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-pyload#environment-variables-e) for more details.
 # @default -- See below
-env:
-  # -- Set the container timezone
-  # -- Specify the user ID the application will run as
-  PUID: 568
+env: {}
 
 # -- Configures service settings for the chart.
 # @default -- See values.yaml

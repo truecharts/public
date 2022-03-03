@@ -36,7 +36,6 @@ secret:
   VNC_PASSWORD: ""
 env:
   # Permissions Settings
-  PUID: 568
   USER_ID: "{{ .Values.env.PUID }}"
   # General Settings
   KEEP_APP_RUNNING: 0

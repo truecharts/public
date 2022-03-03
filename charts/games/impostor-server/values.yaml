@@ -9,7 +9,6 @@ nightlyImage:
   tag: vnightly@sha256:2954766c55fac9242517f5637bec19d9bc3c2479f1557d05ad0b3e54d5a173a3
 
 env:
-  PUID: 568
   USER_ID: "{{ .Values.env.PUID }}"
   IMPOSTOR_Server__PublicIp: "127.0.0.1"
   IMPOSTOR_Server__ListenIp: "0.0.0.0"

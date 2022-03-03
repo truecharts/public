@@ -2,8 +2,6 @@ image:
   repository: tccr.io/truecharts/medusa
   pullPolicy: IfNotPresent
   tag: v0.5.24@sha256:f62623c4da61ce3cbf25c8965b1c442ac74dd855099292652e7da804e19348b7
-env:
-  PUID: 568
 
 securityContext:
   readOnlyRootFilesystem: false
@@ -12,6 +10,7 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
+
 service:
   main:
     ports:

@@ -16,10 +16,7 @@ podSecurityContext:
 
 # See more environment variables in the [booksonic-air documentation](https://github.com/linuxserver/docker-booksonic-air#parameters)
 # @default -- See below
-env:
-  # -- Set the container timezone
-  # -- Specify the user ID the application will run as
-  PUID: 568
+env: {}
   # -- Used to set the base path for reverse proxies eg. /booksonic, /books, etc.
   # CONTEXT_PATH=url-base
 

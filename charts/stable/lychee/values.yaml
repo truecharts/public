@@ -34,7 +34,6 @@ env:
   MIX_PUSHER_APP_KEY: "{{ .Values.env.PUSHER_APP_KEY }}"
   MIX_PUSHER_APP_CLUSTER: "{{ .Values.env.PUSHER_APP_CLUSTER }}"
   # User Envs
-  PUID: 568
   SECURITY_HEADER_HSTS_ENABLE: false
   APP_DEBUG: false
   PUSHER_APP_KEY: ""

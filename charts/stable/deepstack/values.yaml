@@ -30,7 +30,6 @@ secret:
   ADMIN-KEY: ""
 
 env:
-  PUID: 568
   USER_ID: "{{ .Values.env.PUID }}"
   # Path to custom models (needs to be on documentation)
   MODELSTORE-DETECTION: "{{ .Values.persistence.modelstore.mountPath }}"
