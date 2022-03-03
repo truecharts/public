@@ -18,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 8.17.3 |
+| https://truecharts.org | common | 9.0.0 |
 
 ## Installing the Chart
 

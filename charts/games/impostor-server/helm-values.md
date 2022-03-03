@@ -17,7 +17,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.IMPOSTOR_Debug__GameRecorderPath | string | `""` |  |
 | env.IMPOSTOR_Server__ListenIp | string | `"0.0.0.0"` |  |
 | env.IMPOSTOR_Server__PublicIp | string | `"127.0.0.1"` |  |
-| env.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
+| env.USER_ID | string | `"{{ .Values.security.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/impostor-server"` |  |
 | image.tag | string | `"v1.6.0@sha256:789dda6ea04417d5a7abb9f0373e53ecab7a2cd7b77fa7fc8d9620d977b0e863"` |  |

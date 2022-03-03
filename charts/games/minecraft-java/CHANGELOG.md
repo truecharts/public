@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.17"></a>
+### [minecraft-java-0.0.17](https://github.com/truecharts/apps/compare/minecraft-java-0.0.16...minecraft-java-0.0.17) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm chart common to v9 ([#2011](https://github.com/truecharts/apps/issues/2011))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="minecraft-java-0.0.15"></a>
 ### [minecraft-java-0.0.15](https://github.com/truecharts/apps/compare/minecraft-java-0.0.14...minecraft-java-0.0.15) (2022-03-02)
 

@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="mariadb-2.0.0"></a>
+### [mariadb-2.0.0](https://github.com/truecharts/apps/compare/mariadb-1.0.78...mariadb-2.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm chart common to v9 ([#2013](https://github.com/truecharts/apps/issues/2013))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="mariadb-1.0.78"></a>
 ### [mariadb-1.0.78](https://github.com/truecharts/apps/compare/mariadb-1.0.77...mariadb-1.0.78) (2022-03-03)
 

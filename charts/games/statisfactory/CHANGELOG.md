@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="statisfactory-0.0.12"></a>
+### [statisfactory-0.0.12](https://github.com/truecharts/apps/compare/statisfactory-0.0.11...statisfactory-0.0.12) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove some ugly whitespace
+* update helm chart common to v9 ([#2011](https://github.com/truecharts/apps/issues/2011))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="statisfactory-0.0.10"></a>
 ### [statisfactory-0.0.10](https://github.com/truecharts/apps/compare/statisfactory-0.0.9...statisfactory-0.0.10) (2022-03-02)
 

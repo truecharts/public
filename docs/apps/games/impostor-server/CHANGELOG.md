@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="impostor-server-0.0.15"></a>
+### [impostor-server-0.0.15](https://github.com/truecharts/apps/compare/impostor-server-0.0.14...impostor-server-0.0.15) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove some ugly whitespace
+* update helm chart common to v9 ([#2011](https://github.com/truecharts/apps/issues/2011))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="impostor-server-0.0.13"></a>
 ### [impostor-server-0.0.13](https://github.com/truecharts/apps/compare/impostor-server-0.0.12...impostor-server-0.0.13) (2022-03-03)
 

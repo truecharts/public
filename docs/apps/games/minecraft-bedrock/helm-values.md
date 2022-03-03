@@ -34,7 +34,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.SERVER_PORT_V6 | int | `19133` |  |
 | env.TEXTUREPACK_REQUIRED | bool | `false` |  |
 | env.TICK_DISTANCE | int | `4` |  |
-| env.UID | string | `"{{ .Values.env.PUID }}"` |  |
+| env.UID | string | `"{{ .Values.security.PUID }}"` |  |
 | env.VERSION | string | `"LATEST"` |  |
 | env.VIEW_DISTANCE | int | `32` |  |
 | env.WHITE_LIST | bool | `false` |  |
