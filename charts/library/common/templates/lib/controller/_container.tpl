@@ -46,14 +46,16 @@
   {{- end }}
 
   env:
+   {{- if not ( .Values.env.PUID ) }}
+    - name: PUID
+      value: "568"
+   {{- end }}
     - name: PGID
       value: {{ .Values.podSecurityContext.fsGroup | quote }}
     - name: GROUP_ID
       value: {{ .Values.podSecurityContext.fsGroup | quote }}
     - name: GID
       value: {{ .Values.podSecurityContext.fsGroup | quote }}
-    - name: TZ
-      value: "UTC"
    {{- if or ( .Values.securityContext.readOnlyRootFilesystem ) ( .Values.securityContext.runAsNonRoot ) }}
     - name: S6_READ_ONLY_ROOT
       value: "1"
@@ -62,6 +64,35 @@
     - name: NVIDIA_VISIBLE_DEVICES
       value: "void"
    {{- end }}
+   {{- if not ( .Values.env.TZ ) }}
+    - name: TZ
+      value: "UTC"
+   {{- end }}
+  {{- with .Values.env }}
+    {{- range $k, $v := . }}
+      {{- $name := $k }}
+      {{- $value := $v }}
+      {{- if kindIs "int" $name }}
+        {{- $name = required "environment variables as a list of maps require a name field" $value.name }}
+      {{- end }}
+    - name: {{ quote $name }}
+      {{- if kindIs "map" $value -}}
+        {{- if hasKey $value "value" }}
+            {{- $value = $value.value -}}
+        {{- else if hasKey $value "valueFrom" }}
+          {{- toYaml $value | nindent 6 }}
+        {{- else }}
+          {{- dict "valueFrom" $value | toYaml | nindent 6 }}
+        {{- end }}
+      {{- end }}
+      {{- if not (kindIs "map" $value) }}
+        {{- if kindIs "string" $value }}
+          {{- $value = tpl $value $ }}
+        {{- end }}
+      value: {{ quote $value }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
    {{- range $key, $value := .Values.envTpl }}
     - name: {{ $key }}
       value: {{ tpl $value $ | quote }}
@@ -89,31 +120,6 @@
     {{- fail "Please specify name/value for environment variable" }}
     {{- end }}
   {{- end}}
-  {{- with .Values.env }}
-    {{- range $k, $v := . }}
-      {{- $name := $k }}
-      {{- $value := $v }}
-      {{- if kindIs "int" $name }}
-        {{- $name = required "environment variables as a list of maps require a name field" $value.name }}
-      {{- end }}
-    - name: {{ quote $name }}
-      {{- if kindIs "map" $value -}}
-        {{- if hasKey $value "value" }}
-            {{- $value = $value.value -}}
-        {{- else if hasKey $value "valueFrom" }}
-          {{- toYaml $value | nindent 6 }}
-        {{- else }}
-          {{- dict "valueFrom" $value | toYaml | nindent 6 }}
-        {{- end }}
-      {{- end }}
-      {{- if not (kindIs "map" $value) }}
-        {{- if kindIs "string" $value }}
-          {{- $value = tpl $value $ }}
-        {{- end }}
-      value: {{ quote $value }}
-      {{- end }}
-    {{- end }}
-  {{- end }}
   envFrom:
   {{- range .Values.envFrom -}}
   {{- if  .secretRef }}
