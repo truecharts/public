@@ -91,16 +91,6 @@ questions:
           schema:
             type: string
             default: ""
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-
-
-
 # Include{containerConfig}
 
   - variable: service

@@ -94,15 +94,6 @@ questions:
             required: true
             private: true
             default: "REPLACETHIS"
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-
-
 # Include{containerConfig}
 
   - variable: service
