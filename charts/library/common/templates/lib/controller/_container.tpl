@@ -48,6 +48,10 @@
   env:
     - name: PGID
       value: {{ .Values.podSecurityContext.fsGroup | quote }}
+   {{- if not ( .Values.env.PUID ) }}
+    - name: PUID
+      value: "568"
+   {{- end }}
     - name: GROUP_ID
       value: {{ .Values.podSecurityContext.fsGroup | quote }}
     - name: GID
@@ -63,10 +67,6 @@
    {{- if not ( .Values.env.TZ ) }}
     - name: TZ
       value: "UTC"
-   {{- end }}
-   {{- if not ( .Values.env.PUID ) }}
-    - name: PUID
-      value: "568"
    {{- end }}
   {{- with .Values.env }}
     {{- range $k, $v := . }}
