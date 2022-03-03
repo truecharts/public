@@ -1,6 +1,34 @@
 # Changelog<br>
 
 
+<a name="deconz-6.0.26"></a>
+### [deconz-6.0.26](https://github.com/truecharts/apps/compare/deconz-6.0.25...deconz-6.0.26) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="deconz-6.0.24"></a>
+### [deconz-6.0.24](https://github.com/truecharts/apps/compare/deconz-6.0.23...deconz-6.0.24) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
+<a name="deconz-6.0.23"></a>
+### [deconz-6.0.23](https://github.com/truecharts/apps/compare/deconz-6.0.22...deconz-6.0.23) (2022-02-24)
+
+#### Fix
+
+* Dynamicly set env vars for ports based on service ([#1948](https://github.com/truecharts/apps/issues/1948))
+
+
+
 <a name="deconz-6.0.22"></a>
 ### [deconz-6.0.22](https://github.com/truecharts/apps/compare/deconz-6.0.21...deconz-6.0.22) (2022-02-21)
 

@@ -4,7 +4,7 @@ image:
   pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/minecraft-java11
-  tag: latest@sha256:376238f61e776fad1e0e27f112fff18b427f4dc0f4d84f2a91f283dbd1394db3
+  tag: latest@sha256:2bf5f6051331e1ed8c92f41411001a9641d0b9e0bea6da3ec1296363201e07ee
   pullPolicy: Always
 j11j9Image:
   repository: tccr.io/truecharts/minecraft-java11-openj9
@@ -12,17 +12,27 @@ j11j9Image:
   pullPolicy: Always
 j8Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:9c78b6212b0905f1d418795b358f28a8005d7350066a568523510c1e7ea4eefa
+  tag: latest@sha256:92af7100e72a3593bc09ab083deaf4d603751767806fa9b2496e6e81ccd0b3ac
   pullPolicy: Always
 j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: latest@sha256:9c78b6212b0905f1d418795b358f28a8005d7350066a568523510c1e7ea4eefa
+  tag: latest@sha256:92af7100e72a3593bc09ab083deaf4d603751767806fa9b2496e6e81ccd0b3ac
   pullPolicy: Always
 
 portal:
   enabled: false
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 env:
+  PUID: 568
+  UID: "{{ .Values.env.PUID }}"
   EULA: "TRUE"
   VERSION: "LATEST"
   TYPE: "VANILLA"

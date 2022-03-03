@@ -3,11 +3,19 @@ image:
   pullPolicy: IfNotPresent
   tag: v3.0.4@sha256:81c6f8675ffc243af9ffab5a43da0ed50f33f0c153c352aad027127c3c0318ad
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 env:
   CELLS_EXTERNAL: ""
-  CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.targetPort }}"
-  CELLS_HEALTHCHECK: "{{ .Values.service.main.ports.main.targetPort }}"
-  CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.targetPort }}"
+  CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
+  CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.port }}"
+  CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
   CELLS_WORKING_DIR: "/cells"
   CELLS_DATA_DIR: "/cells/data"
   CELLS_LOG_DIR: "/cells/logs"
@@ -21,28 +29,45 @@ pydioinstall:
 
 probes:
   liveness:
-    path: "/healthcheck"
-
+    custom: true
+    spec:
+      httpGet:
+        scheme: HTTP
+        path: "/healthcheck"
+        port: 10162
   readiness:
-    path: "/healthcheck"
-
+    custom: true
+    spec:
+      httpGet:
+        scheme: HTTP
+        path: "/healthcheck"
+        port: 10162
   startup:
-    path: "/healthcheck"
+    custom: true
+    spec:
+      httpGet:
+        scheme: HTTP
+        path: "/healthcheck"
+        port: 10162
 
 service:
   main:
     ports:
       main:
         protocol: HTTPS
-        targetPort: 10150
         port: 10150
   gprc:
     enabled: true
     ports:
       gprc:
         enabled: true
-        targetPort: 33060
         port: 33060
+  healthcheck:
+    enabled: true
+    ports:
+      healthcheck:
+        enabled: true
+        port: 10162
 
 persistence:
   cells:

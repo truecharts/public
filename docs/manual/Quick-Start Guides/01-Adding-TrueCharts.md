@@ -16,10 +16,10 @@ This will create a new dataset on the selected pool called "ix-applications", wh
 - Select the "Manage Catalogs" tab
 - Click "Add Catalog" and enter the required information:
 
-Name: `truecharts`
-Repository: `https://github.com/truecharts/catalog`
-Preferred Trains: `stable` and `core`
-Branch: `main`
+- Name: `truecharts`
+- Repository: `https://github.com/truecharts/catalog`
+- Preferred Trains: `stable` and `core`
+- Branch: `main`
 
 ##### Difference between Stable and Incubator
 
@@ -27,6 +27,8 @@ TrueCharts has multiple "trains": All trains contain Apps that should work fine.
 
 - `stable` contains most of our Apps. These are considered stable and working.
 - `core` contains important Apps that are used to supply features like "ingress" or advanced networking to our Apps.
+- `games` contains game servers
+- `dependency` contains apps that are mostly used as dependecies. This train is not supported, besides from bug fixes.
 - `incubator` These Apps are still in development and/or are not considered to be of high-enough quality.
 
 

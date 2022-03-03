@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nextcloud-11.0.32"></a>
+### [nextcloud-11.0.32](https://github.com/truecharts/apps/compare/nextcloud-11.0.31...nextcloud-11.0.32) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="nextcloud-11.0.31"></a>
 ### [nextcloud-11.0.31](https://github.com/truecharts/apps/compare/nextcloud-11.0.30...nextcloud-11.0.31) (2022-02-21)
 

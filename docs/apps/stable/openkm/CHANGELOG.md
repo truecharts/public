@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="openkm-4.0.34"></a>
+### [openkm-4.0.34](https://github.com/truecharts/apps/compare/openkm-4.0.33...openkm-4.0.34) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="openkm-4.0.33"></a>
 ### [openkm-4.0.33](https://github.com/truecharts/apps/compare/openkm-4.0.32...openkm-4.0.33) (2022-02-21)
 

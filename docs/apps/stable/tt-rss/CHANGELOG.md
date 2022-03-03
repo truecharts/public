@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="tt-rss-4.0.46"></a>
+### [tt-rss-4.0.46](https://github.com/truecharts/apps/compare/tt-rss-4.0.45...tt-rss-4.0.46) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="tt-rss-4.0.45"></a>
 ### [tt-rss-4.0.45](https://github.com/truecharts/apps/compare/tt-rss-4.0.44...tt-rss-4.0.45) (2022-02-21)
 

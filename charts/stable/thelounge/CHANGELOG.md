@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="thelounge-4.0.46"></a>
+### [thelounge-4.0.46](https://github.com/truecharts/apps/compare/thelounge-4.0.45...thelounge-4.0.46) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="thelounge-4.0.45"></a>
+### [thelounge-4.0.45](https://github.com/truecharts/apps/compare/thelounge-4.0.44...thelounge-4.0.45) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="thelounge-4.0.44"></a>
 ### [thelounge-4.0.44](https://github.com/truecharts/apps/compare/thelounge-4.0.43...thelounge-4.0.44) (2022-02-21)
 

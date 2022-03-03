@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="sqlitebrowser-1.0.46"></a>
+### [sqlitebrowser-1.0.46](https://github.com/truecharts/apps/compare/sqlitebrowser-1.0.45...sqlitebrowser-1.0.46) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="sqlitebrowser-1.0.45"></a>
 ### [sqlitebrowser-1.0.45](https://github.com/truecharts/apps/compare/sqlitebrowser-1.0.44...sqlitebrowser-1.0.45) (2022-02-21)
 

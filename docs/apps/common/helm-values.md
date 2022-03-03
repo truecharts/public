@@ -53,7 +53,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | codeserverImage | object | See below | codeserver specific configuration |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
-| codeserverImage.tag | string | `"v4.0.2@sha256:f97835402cf3006fcffb9e3a5cb64df8e78aa41ef4ba50a3158c9422229d2f7e"` | Specify the code-server image tag |
+| codeserverImage.tag | string | `"v4.0.2@sha256:7c5ad7103055cb743b1f3647fcb2b2517d6ef6772a11d9c53443a056c2ea8002"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | configmap | object | See below | Configure configMaps for the chart here. Additional configMaps can be added by adding a dictionary key similar to the 'config' object. |
 | configmap.config.annotations | object | `{}` | Annotations to add to the configMap |
@@ -153,6 +153,9 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | persistence.custom-mount.mountPath | string | `nil` | Where to mount the volume in the main container. Defaults to `/<name_of_the_volume>`, setting to '-' creates the volume but disables the volumeMount. |
 | persistence.custom-mount.readOnly | bool | `false` | Specify if the volume should be mounted read-only. |
 | persistence.custom-mount.volumeSpec | object | `{}` | Define the custom Volume spec here [[ref]](https://kubernetes.io/docs/concepts/storage/volumes/) |
+| persistence.host-bin | object | See below | Hostpath mountpoint to allow mounting the /bin folder to disable docker-compose [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) TODO Delete this once iX has blocked docker-compose |
+| persistence.host-bin.hostPath | string | `"/bin"` | Which path on the host should be mounted. |
+| persistence.host-bin.mountPath | string | `"/host/bin"` | Where to mount the path in the main container. Defaults to the value of `hostPath` |
 | persistence.host-dev | object | See below | Example of a hostPath mount [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) |
 | persistence.host-dev.hostPath | string | `"/dev"` | Which path on the host should be mounted. |
 | persistence.host-dev.hostPathType | string | `""` | Specifying a hostPathType adds a check before trying to mount the path. See Kubernetes documentation for options. |
@@ -165,6 +168,9 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | persistence.host-simple-dev.mountPath | string | `""` | Where to mount the path in the main container. Defaults to the value of `hostPath` |
 | persistence.host-simple-dev.readOnly | bool | `true` | Specify if the path should be mounted read-only. |
 | persistence.host-simple-dev.setPermissionsSimple | bool | `false` | Automatic set permissions using chown and chmod |
+| persistence.host-usr-bin | object | See below | Hostpath mountpoint to allow mounting the /usr/bin folder to disable docker-compose [[ref]]https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) TODO Delete this once iX has blocked docker-compose |
+| persistence.host-usr-bin.hostPath | string | `"/usr/bin"` | Which path on the host should be mounted. |
+| persistence.host-usr-bin.mountPath | string | `"/host/usr/bin"` | Where to mount the path in the main container. Defaults to the value of `hostPath` |
 | persistence.secret-example | object | See below | Example of a secret mount |
 | persistence.secret-example.defaultMode | int | `777` | define the default mount mode for the secret |
 | persistence.secret-example.items | list | `[{"key":"username","path":"my-group/my-username"}]` | Define the secret items to be mounted |

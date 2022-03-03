@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minio-console-1.0.52"></a>
+### [minio-console-1.0.52](https://github.com/truecharts/apps/compare/minio-console-1.0.51...minio-console-1.0.52) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="minio-console-1.0.51"></a>
 ### [minio-console-1.0.51](https://github.com/truecharts/apps/compare/minio-console-1.0.50...minio-console-1.0.51) (2022-02-21)
 

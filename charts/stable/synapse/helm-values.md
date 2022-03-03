@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"matrixdotorg/synapse"` |  |
-| image.tag | string | `"v1.52.0"` |  |
+| image.tag | string | `"v1.53.0"` |  |
 | installContainers.generate-signing-key.args[0] | string | `"-m"` |  |
 | installContainers.generate-signing-key.args[10] | string | `"--generate-keys"` |  |
 | installContainers.generate-signing-key.args[1] | string | `"synapse.app.homeserver"` |  |

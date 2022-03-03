@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="papermerge-0.0.25"></a>
+### [papermerge-0.0.25](https://github.com/truecharts/apps/compare/papermerge-0.0.24...papermerge-0.0.25) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="papermerge-0.0.24"></a>
 ### [papermerge-0.0.24](https://github.com/truecharts/apps/compare/papermerge-0.0.23...papermerge-0.0.24) (2022-02-21)
 

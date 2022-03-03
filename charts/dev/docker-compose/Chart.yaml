@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "20.10.12"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 8.17.2
+deprecated: false
+description: Dedicated App for using Docker-Compose on TrueNAS SCALE
+home: https://github.com/truecharts/apps/tree/master/charts/dev/docker-compose
+icon: https://truecharts.org/_static/img/appicons/docker-compose-icon.png
+keywords:
+- docker-compose
+- docker
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: docker-compose
+sources:
+- https://github.com/Jackett/Jackett
+type: application
+version: 0.0.8
+annotations:
+  truecharts.org/catagories: |
+    - docker
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

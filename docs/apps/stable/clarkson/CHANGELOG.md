@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="clarkson-0.0.37"></a>
+### [clarkson-0.0.37](https://github.com/truecharts/apps/compare/clarkson-0.0.36...clarkson-0.0.37) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="clarkson-0.0.36"></a>
 ### [clarkson-0.0.36](https://github.com/truecharts/apps/compare/clarkson-0.0.35...clarkson-0.0.36) (2022-02-21)
 

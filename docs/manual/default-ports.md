@@ -5,17 +5,18 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 
 ## Core Apps
 
-| App         |   Service    |  Port Name   | Port  | Protocol |                   Note                   |
-| :---------- | :----------: | :----------: | :---: | :------: | :--------------------------------------: |
-| k8s-gateway |     main     |     main     |  53   |   UDP    |      Potential conflict with pihole      |
-| traefik     |     main     |     main     | 9000  |   HTTP   | Potential conflict with minio (Official) |
-| traefik     |     tcp      |     web      | 9080  |   HTTP   |      Adviced to be moved to port 80      |
-| traefik     |   metrics    |   metrics    | 9100  |   HTTP   |                                          |
-| traefik     |     tcp      |  websecure   | 9443  |  HTTPS   |     Adviced to be moved to port 443      |
-| prometheus  |     main     |     main     | 10086 |   HTTP   |                                          |
-| prometheus  | alertmanager | alertmanager | 10087 |   HTTP   |                                          |
-| prometheus  |    promop    |    promop    | 10089 |   HTTP   |                                          |
-| prometheus  |    thanos    |    thanos    | 10901 |   HTTP   |                                          |
+| App         |    Service    |   Port Name   | Port  | Protocol |                   Note                   |
+| :---------- | :-----------: | :-----------: | :---: | :------: | :--------------------------------------: |
+| k8s-gateway |     main      |     main      |  53   |   UDP    |      Potential conflict with pihole      |
+| traefik     |     main      |     main      | 9000  |   HTTP   | Potential conflict with minio (Official) |
+| traefik     |      tcp      |      web      | 9080  |   HTTP   |      Adviced to be moved to port 80      |
+| traefik     |    metrics    |    metrics    | 9100  |   HTTP   |                                          |
+| traefik     |      tcp      |   websecure   | 9443  |  HTTPS   |     Adviced to be moved to port 443      |
+| prometheus  | node-exporter | node-exporter | 9910  |   HTTP   |                                          |
+| prometheus  |     main      |     main      | 10086 |   HTTP   |                                          |
+| prometheus  | alertmanager  | alertmanager  | 10087 |   HTTP   |                                          |
+| prometheus  |    promop     |    promop     | 10089 |   HTTP   |                                          |
+| prometheus  |    thanos     |    thanos     | 10901 |   HTTP   |                                          |
 
 ## Stable, Games and Incubator Apps
 
@@ -52,8 +53,10 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | owncast                    |      rtmp       |      rtmp       | 1935  |   TCP    |     Potential conflict with frigate     |
 | frigate                    |      rtmp       |      rtmp       | 1935  |   TCP    |     Potential conflict with owncast     |
 | ubooquity                  |      main       |      main       | 2202  |   TCP    |                                         |
+| ubooquity                  |      admin      |      admin      | 2203  |   TCP    |                                         |
 | gitea                      |       ssh       |       ssh       | 2222  |   TCP    |                                         |
 | photoprism                 |      main       |      main       | 2342  |   TCP    |                                         |
+| docker-compose             |      main       |      main       | 2376  |  HTTPS   |                                         |
 | valheim                    |     valheim     |    valheim-1    | 2456  |   UDP    |                                         |
 | valheim                    |     valheim     |    valheim-2    | 2457  |   UDP    |                                         |
 | valheim                    |     valheim     |    valheim-3    | 2458  |   UDP    |                                         |
@@ -87,6 +90,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | znc                        |      main       |      main       | 6501  |   TCP    |                                         |
 | syslog-ng                  |   syslog-tls    |   syslog-tls    | 6514  |   TCP    |                                         |
 | embystat                   |      main       |      main       | 6555  |   TCP    |                                         |
+| deemix                     |      main       |      main       | 6595  |   TCP    |                                         |
 | syslog-ng                  |      main       |      main       | 6601  |   TCP    |                                         |
 | ngircd                     |      main       |      main       | 6667  |   TCP    |                                         |
 | bazarr                     |      main       |      main       | 6767  |   TCP    |                                         |
@@ -314,6 +318,11 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | photoview                  |      main       |      main       | 10159 |   TCP    |                                         |
 | linkace                    |      main       |      main       | 10160 |   TCP    |                                         |
 | librephotos                |      main       |      main       | 10161 |   TCP    |                                         |
+| pydio-cells                |   healthcheck   |   healthcheck   | 10162 |   TCP    |                                         |
+| grist                      |      main       |      main       | 10163 |   TCP    |                                         |
+| grist                      |       api       |       api       | 10164 |   TCP    |                                         |
+| budge                      |      main       |      main       | 10165 |   TCP    |                                         |
+| ghost                      |      main       |      main       | 10166 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |
@@ -329,14 +338,11 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | impostor-server            |      main       |      main       | 22023 |   UDP    |                                         |
 | joplin-server              |      main       |      main       | 22300 |   TCP    |                                         |
 | minecraft-java             |      main       |      main       | 25565 |   TCP    |                                         |
-| omada-controller           |    omada-tcp    |   omada-tcp1    | 29810 |   TCP    |                                         |
 | omada-controller           |    omada-udp    |   omada-udp1    | 29810 |   UDP    |                                         |
 | omada-controller           |    omada-tcp    |   omada-tcp2    | 29811 |   TCP    |                                         |
-| omada-controller           |    omada-udp    |   omada-udp2    | 29811 |   UDP    |                                         |
 | omada-controller           |    omada-tcp    |   omada-tcp3    | 29812 |   TCP    |                                         |
-| omada-controller           |    omada-udp    |   omada-udp3    | 29812 |   UDP    |                                         |
 | omada-controller           |    omada-tcp    |   omada-tcp4    | 29813 |   TCP    |                                         |
-| omada-controller           |    omada-udp    |   omada-udp4    | 29813 |   UDP    |                                         |
+| omada-controller           |    omada-udp    |   omada-tcp4    | 29814 |   TCP    |                                         |
 | minetest                   |      main       |      main       | 30000 |   UDP    |                                         |
 | teamspeak3                 |      files      |      files      | 30033 |   TCP    |                                         |
 | plex                       |      main       |      main       | 32400 |   TCP    | Potential conflict with plex (Official) |

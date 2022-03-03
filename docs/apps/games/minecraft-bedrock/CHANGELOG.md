@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-0.0.10"></a>
+### [minecraft-bedrock-0.0.10](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.9...minecraft-bedrock-0.0.10) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm chart common to v8.17.2 ([#1965](https://github.com/truecharts/apps/issues/1965))
+
+
+
 <a name="minecraft-bedrock-0.0.9"></a>
 ### [minecraft-bedrock-0.0.9](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.8...minecraft-bedrock-0.0.9) (2022-02-22)
 

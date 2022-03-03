@@ -11,12 +11,21 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See more environment variables in the [image entrypoint script](https://github.com/FlipEnergy/container-images/blob/main/focalboard/entrypoint.sh) |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"tccr.io/truecharts/focalboard"` | image repository |
-| image.tag | string | `"v0.8.0@sha256:0c560a1e1b11015598e63b580d6e21b5bb41bc2e140b15e4a54b7b0c415e765e"` | image tag |
-| persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
+| env | object | `{}` |  |
+| focalboard.enableLocalMode | bool | `true` |  |
+| focalboard.localOnly | bool | `false` |  |
+| focalboard.serverRoot | string | `"http://localhost:10072"` |  |
+| focalboard.telemetry | bool | `false` |  |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"tccr.io/truecharts/focalboard"` |  |
+| image.tag | string | `"v0.14.0@sha256:489150257a4638e83a81e3e07afbb76fd891ae47c8b258b0a271ebcaa95638c3"` |  |
+| persistence.uploads.enabled | bool | `true` |  |
+| persistence.uploads.mountPath | string | `"/uploads"` |  |
+| postgresql.enabled | bool | `true` |  |
+| postgresql.existingSecret | string | `"dbcreds"` |  |
+| postgresql.postgresqlDatabase | string | `"focalboard"` |  |
+| postgresql.postgresqlUsername | string | `"focalboard"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
-| service | object | See values.yaml | Configures service settings for the chart. |
+| service.main.ports.main.port | int | `10072` |  |
 
 All Rights Reserved - The TrueCharts Project

@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="impostor-server-0.0.12"></a>
+### [impostor-server-0.0.12](https://github.com/truecharts/apps/compare/impostor-server-0.0.11...impostor-server-0.0.12) (2022-03-02)
+
+#### Chore
+
+* update helm chart common to v8.17.2 ([#1965](https://github.com/truecharts/apps/issues/1965))
+
+
+
+<a name="impostor-server-0.0.11"></a>
+### [impostor-server-0.0.11](https://github.com/truecharts/apps/compare/impostor-server-0.0.10...impostor-server-0.0.11) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="impostor-server-0.0.10"></a>
 ### [impostor-server-0.0.10](https://github.com/truecharts/apps/compare/impostor-server-0.0.9...impostor-server-0.0.10) (2022-02-22)
 

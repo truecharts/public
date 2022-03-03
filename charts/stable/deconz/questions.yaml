@@ -1,6 +1,6 @@
 # Include{groups}
 portals:
-  web_portal:
+  open:
     protocols:
       - "$kubernetes-resource_configmap_portal_protocol"
     host:
@@ -97,6 +97,12 @@ questions:
       type: dict
       attrs:
 # Include{fixedEnv}
+        - variable: PUID
+          label: "PUID"
+          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
+          schema:
+            type: int
+            default: 568
         - variable: DECONZ_DEVICE
           label: "DECONZ_DEVICE"
           description: "Override the location where deCONZ looks for the RaspBee/Conbee device"
@@ -109,24 +115,18 @@ questions:
           schema:
             type: int
             default: 1
-        - variable: DECONZ_WEB_PORT
-          label: "DECONZ_WEB_PORT"
-          description: "Web UI listen port"
+        - variable: DECONZ_UPNP
+          label: "DECONZ_UPNP"
+          description: "Set this option to 0 to disable uPNP"
           schema:
             type: int
-            default: 80
-        - variable: DECONZ_WS_PORT
-          label: "DECONZ_WS_PORT"
-          description: "Websocket listen port"
+            default: 0
+        - variable: DECONZ_START_VERBOSE
+          label: "DECONZ_START_VERBOSE"
+          description: "Set this option to 0 to disable verbose of start script, set to 1 to enable set -x logging"
           schema:
             type: int
-            default: 443
-        - variable: DECONZ_VNC_PORT
-          label: "DECONZ_VNC_PORT"
-          description: " VNC server listen port"
-          schema:
-            type: int
-            default: 5900
+            default: 0
 
 # Include{containerConfig}
 
@@ -191,7 +191,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
+                                    default: 10008
 
 
         - variable: websocket
@@ -248,7 +248,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 443
+                                    default: 10001
 
 
         - variable: vnc
@@ -305,7 +305,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 5900
+                                    default: 10002
 
   - variable: serviceexpert
     group: "Networking and Services"

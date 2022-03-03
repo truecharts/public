@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="unpoller-1.0.34"></a>
+### [unpoller-1.0.34](https://github.com/truecharts/apps/compare/unpoller-1.0.33...unpoller-1.0.34) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="unpoller-1.0.33"></a>
 ### [unpoller-1.0.33](https://github.com/truecharts/apps/compare/unpoller-1.0.32...unpoller-1.0.33) (2022-02-21)
 

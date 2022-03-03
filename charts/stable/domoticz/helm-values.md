@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.WEBROOT | string | `"domoticz"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/domoticz"` |  |
-| image.tag | string | `"v2022.1.20220217"` |  |
+| image.tag | string | `"v2022.1.20220224"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

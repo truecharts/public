@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="traefik-10.0.59"></a>
+### [traefik-10.0.59](https://github.com/truecharts/apps/compare/traefik-10.0.58...traefik-10.0.59) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="traefik-10.0.58"></a>
 ### [traefik-10.0.58](https://github.com/truecharts/apps/compare/traefik-10.0.57...traefik-10.0.58) (2022-02-21)
 

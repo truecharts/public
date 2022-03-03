@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="custom-app-3.0.78"></a>
+### [custom-app-3.0.78](https://github.com/truecharts/apps/compare/custom-app-3.0.77...custom-app-3.0.78) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="custom-app-3.0.77"></a>
+### [custom-app-3.0.77](https://github.com/truecharts/apps/compare/custom-app-3.0.76...custom-app-3.0.77) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="custom-app-3.0.76"></a>
 ### [custom-app-3.0.76](https://github.com/truecharts/apps/compare/custom-app-3.0.75...custom-app-3.0.76) (2022-02-21)
 

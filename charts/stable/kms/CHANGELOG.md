@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="kms-9.0.50"></a>
+### [kms-9.0.50](https://github.com/truecharts/apps/compare/kms-9.0.49...kms-9.0.50) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="kms-9.0.49"></a>
 ### [kms-9.0.49](https://github.com/truecharts/apps/compare/kms-9.0.48...kms-9.0.49) (2022-02-21)
 

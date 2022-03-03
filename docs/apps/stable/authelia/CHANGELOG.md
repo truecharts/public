@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="authelia-8.0.42"></a>
+### [authelia-8.0.42](https://github.com/truecharts/apps/compare/authelia-8.0.41...authelia-8.0.42) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="authelia-8.0.41"></a>
 ### [authelia-8.0.41](https://github.com/truecharts/apps/compare/authelia-8.0.40...authelia-8.0.41) (2022-02-22)
 

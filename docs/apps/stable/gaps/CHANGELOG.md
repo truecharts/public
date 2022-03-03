@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="gaps-9.0.44"></a>
+### [gaps-9.0.44](https://github.com/truecharts/apps/compare/gaps-9.0.43...gaps-9.0.44) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="gaps-9.0.43"></a>
 ### [gaps-9.0.43](https://github.com/truecharts/apps/compare/gaps-9.0.42...gaps-9.0.43) (2022-02-21)
 

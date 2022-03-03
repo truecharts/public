@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="smokeping-1.0.45"></a>
+### [smokeping-1.0.45](https://github.com/truecharts/apps/compare/smokeping-1.0.44...smokeping-1.0.45) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="smokeping-1.0.44"></a>
 ### [smokeping-1.0.44](https://github.com/truecharts/apps/compare/smokeping-1.0.43...smokeping-1.0.44) (2022-02-21)
 

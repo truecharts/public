@@ -1,6 +1,55 @@
 # Changelog<br>
 
 
+<a name="prometheus-1.1.72"></a>
+### [prometheus-1.1.72](https://github.com/truecharts/apps/compare/prometheus-1.1.71...prometheus-1.1.72) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="prometheus-1.1.71"></a>
+### [prometheus-1.1.71](https://github.com/truecharts/apps/compare/prometheus-1.1.70...prometheus-1.1.71) (2022-02-28)
+
+#### Chore
+
+* update docker general non-major ([#1983](https://github.com/truecharts/apps/issues/1983))
+
+
+
+<a name="prometheus-1.1.70"></a>
+### [prometheus-1.1.70](https://github.com/truecharts/apps/compare/prometheus-1.1.69...prometheus-1.1.70) (2022-02-28)
+
+#### Chore
+
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
+<a name="prometheus-1.1.69"></a>
+### [prometheus-1.1.69](https://github.com/truecharts/apps/compare/prometheus-1.1.68...prometheus-1.1.69) (2022-02-26)
+
+#### Fix
+
+* enable hostNetworking and change port ([#1969](https://github.com/truecharts/apps/issues/1969))
+
+
+
+<a name="prometheus-1.1.68"></a>
+### [prometheus-1.1.68](https://github.com/truecharts/apps/compare/prometheus-1.1.67...prometheus-1.1.68) (2022-02-26)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+
+#### Fix
+
+* don't export node-exporter on host
+
+
+
 <a name="prometheus-1.1.67"></a>
 ### [prometheus-1.1.67](https://github.com/truecharts/apps/compare/prometheus-1.1.66...prometheus-1.1.67) (2022-02-22)
 

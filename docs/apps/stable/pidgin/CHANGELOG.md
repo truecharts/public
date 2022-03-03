@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pidgin-0.0.24"></a>
+### [pidgin-0.0.24](https://github.com/truecharts/apps/compare/pidgin-0.0.23...pidgin-0.0.24) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="pidgin-0.0.23"></a>
 ### [pidgin-0.0.23](https://github.com/truecharts/apps/compare/pidgin-0.0.22...pidgin-0.0.23) (2022-02-21)
 

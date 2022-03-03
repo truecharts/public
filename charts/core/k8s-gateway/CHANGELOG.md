@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="k8s-gateway-4.0.44"></a>
+### [k8s-gateway-4.0.44](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.43...k8s-gateway-4.0.44) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="k8s-gateway-4.0.43"></a>
 ### [k8s-gateway-4.0.43](https://github.com/truecharts/apps/compare/k8s-gateway-4.0.42...k8s-gateway-4.0.43) (2022-02-21)
 

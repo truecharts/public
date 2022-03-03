@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="guacamole-client-1.0.15"></a>
+### [guacamole-client-1.0.15](https://github.com/truecharts/apps/compare/guacamole-client-1.0.14...guacamole-client-1.0.15) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="guacamole-client-1.0.14"></a>
 ### [guacamole-client-1.0.14](https://github.com/truecharts/apps/compare/guacamole-client-1.0.13...guacamole-client-1.0.14) (2022-02-21)
 

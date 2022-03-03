@@ -4,6 +4,7 @@ image:
   tag: v18.04.1
 
 securityContext:
+  readOnlyRootFilesystem: false
   runAsNonRoot: false
 
 podSecurityContext:

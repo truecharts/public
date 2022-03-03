@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="heimdall-9.0.47"></a>
+### [heimdall-9.0.47](https://github.com/truecharts/apps/compare/heimdall-9.0.46...heimdall-9.0.47) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="heimdall-9.0.46"></a>
 ### [heimdall-9.0.46](https://github.com/truecharts/apps/compare/heimdall-9.0.45...heimdall-9.0.46) (2022-02-21)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="airdcpp-webclient-1.0.8"></a>
+### [airdcpp-webclient-1.0.8](https://github.com/truecharts/apps/compare/airdcpp-webclient-1.0.7...airdcpp-webclient-1.0.8) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="airdcpp-webclient-1.0.7"></a>
 ### [airdcpp-webclient-1.0.7](https://github.com/truecharts/apps/compare/airdcpp-webclient-1.0.6...airdcpp-webclient-1.0.7) (2022-02-21)
 

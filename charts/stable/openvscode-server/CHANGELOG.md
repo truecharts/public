@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="openvscode-server-0.0.29"></a>
+### [openvscode-server-0.0.29](https://github.com/truecharts/apps/compare/openvscode-server-0.0.28...openvscode-server-0.0.29) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="openvscode-server-0.0.28"></a>
+### [openvscode-server-0.0.28](https://github.com/truecharts/apps/compare/openvscode-server-0.0.27...openvscode-server-0.0.28) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="openvscode-server-0.0.27"></a>
 ### [openvscode-server-0.0.27](https://github.com/truecharts/apps/compare/openvscode-server-0.0.26...openvscode-server-0.0.27) (2022-02-21)
 

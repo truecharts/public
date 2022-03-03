@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="medusa-1.0.50"></a>
+### [medusa-1.0.50](https://github.com/truecharts/apps/compare/medusa-1.0.49...medusa-1.0.50) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="medusa-1.0.49"></a>
+### [medusa-1.0.49](https://github.com/truecharts/apps/compare/medusa-1.0.48...medusa-1.0.49) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="medusa-1.0.48"></a>
 ### [medusa-1.0.48](https://github.com/truecharts/apps/compare/medusa-1.0.47...medusa-1.0.48) (2022-02-21)
 

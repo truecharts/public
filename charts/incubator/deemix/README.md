@@ -1,14 +1,14 @@
 # Introduction
 
-A is photo gallery software for the web, built by an active community of users and developers.
+deemix is a deezer downloader built from the ashes of Deezloader Remix.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <http://piwigo.org/>
-* <https://github.com/linuxserver/docker-piwigo>
+* <https://gitlab.com/Bockiii/deemix-docker.git>
+* <https://git.freezerapp.xyz/RemixDev/deemix-py>
 
 ## Requirements
 
@@ -18,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org | common | 8.16.0 |
+| https://truecharts.org | common | 8.17.2 |
 
 ## Installing the Chart
 

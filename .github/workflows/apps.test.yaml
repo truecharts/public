@@ -21,7 +21,7 @@ jobs:
       empty_matrix: ${{ steps.reduce.outputs.empty_matrix }}
     steps:
     - name: Checkout
-      uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
+      uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
     - uses: dorny/paths-filter@v2
       id: filter
       with:
@@ -63,7 +63,7 @@ jobs:
     ##
       - name: Checkout
         if: ${{ matrix.app != '.gitkee' }}
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           fetch-depth: 0
 
@@ -126,7 +126,7 @@ jobs:
           helm repo add amd-gpu-helm https://radeonopencompute.github.io/k8s-device-plugin/
           helm repo update
 
-      - uses: actions/setup-python@7f80679172b057fc5e90d70d197929d454754a5a # renovate: tag=v2
+      - uses: actions/setup-python@0ebf233433c08fb9061af664d501c3f3ff0e9e20 # tag=v3
         if: ${{ matrix.app != '.gitkee' }}
         with:
           python-version: 3.7
@@ -177,13 +177,13 @@ jobs:
             ~/.cache/helm/repository
             ~/.config/helm/repositories.yaml
 
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
+      - uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         name: Checkout
         with:
           fetch-depth: 100
 
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846 # tag=v3
         with:
           repository: truecharts/catalog
           path: catalog

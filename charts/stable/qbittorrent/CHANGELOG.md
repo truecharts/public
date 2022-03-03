@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="qbittorrent-9.0.48"></a>
+### [qbittorrent-9.0.48](https://github.com/truecharts/apps/compare/qbittorrent-9.0.47...qbittorrent-9.0.48) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="qbittorrent-9.0.47"></a>
 ### [qbittorrent-9.0.47](https://github.com/truecharts/apps/compare/qbittorrent-9.0.46...qbittorrent-9.0.47) (2022-02-21)
 

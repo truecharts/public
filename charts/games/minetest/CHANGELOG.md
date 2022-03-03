@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minetest-0.0.25"></a>
+### [minetest-0.0.25](https://github.com/truecharts/apps/compare/minetest-0.0.24...minetest-0.0.25) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm chart common to v8.17.2 ([#1965](https://github.com/truecharts/apps/issues/1965))
+
+
+
 <a name="minetest-0.0.24"></a>
 ### [minetest-0.0.24](https://github.com/truecharts/apps/compare/minetest-0.0.23...minetest-0.0.24) (2022-02-22)
 

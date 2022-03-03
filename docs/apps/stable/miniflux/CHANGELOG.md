@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="miniflux-4.0.36"></a>
+### [miniflux-4.0.36](https://github.com/truecharts/apps/compare/miniflux-4.0.35...miniflux-4.0.36) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="miniflux-4.0.35"></a>
 ### [miniflux-4.0.35](https://github.com/truecharts/apps/compare/miniflux-4.0.34...miniflux-4.0.35) (2022-02-21)
 

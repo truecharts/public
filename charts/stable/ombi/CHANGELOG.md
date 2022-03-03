@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="ombi-9.0.53"></a>
+### [ombi-9.0.53](https://github.com/truecharts/apps/compare/ombi-9.0.52...ombi-9.0.53) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="ombi-9.0.52"></a>
+### [ombi-9.0.52](https://github.com/truecharts/apps/compare/ombi-9.0.51...ombi-9.0.52) (2022-02-28)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update docker general non-major ([#1980](https://github.com/truecharts/apps/issues/1980))
+
+
+
 <a name="ombi-9.0.51"></a>
 ### [ombi-9.0.51](https://github.com/truecharts/apps/compare/ombi-9.0.50...ombi-9.0.51) (2022-02-21)
 

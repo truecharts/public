@@ -1,6 +1,29 @@
 # Changelog<br>
 
 
+<a name="ubooquity-1.0.1"></a>
+### [ubooquity-1.0.1](https://github.com/truecharts/apps/compare/ubooquity-1.0.0...ubooquity-1.0.1) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+#### Fix
+
+* Fix broken service and port reference
+
+
+
+<a name="ubooquity-1.0.0"></a>
+### [ubooquity-1.0.0](https://github.com/truecharts/apps/compare/ubooquity-0.0.22...ubooquity-1.0.0) (2022-02-24)
+
+#### Fix
+
+* Add admin service and portal ([#1951](https://github.com/truecharts/apps/issues/1951))
+
+
+
 <a name="ubooquity-0.0.22"></a>
 ### [ubooquity-0.0.22](https://github.com/truecharts/apps/compare/ubooquity-0.0.21...ubooquity-0.0.22) (2022-02-21)
 

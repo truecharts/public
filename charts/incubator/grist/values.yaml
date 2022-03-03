@@ -1,0 +1,47 @@
+image:
+  repository: tccr.io/truecharts/grist
+  tag: v0.7.5@sha256:1167922bec1f019de3cc0463f97f1bd3cad1d104ceee4d31e26d74493d6f79fc
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  HOME_PORT: "{{ .Values.service.api.ports.api.port }}"
+  GRIST_DEFAULT_EMAIL: "user@mydomain.com"
+
+# https://github.com/gristlabs/grist-core/issues/128
+# envValueFrom:
+#   REDIS_URL:
+#     secretKeyRef:
+#       name: rediscreds
+#       key: url
+
+service:
+  main:
+    ports:
+      main:
+        port: 10163
+        targetPort: 10163
+  api:
+    enabled: true
+    ports:
+      api:
+        enabled: true
+        port: 10164
+        targetPort: 10164
+
+persistence:
+  persist:
+    enabled: true
+    mountPath: "/persist"
+
+# redis:
+#   enabled: true
+#   existingSecret: "rediscreds"
