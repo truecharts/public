@@ -1,0 +1,12 @@
+        - variable: PUID
+          label: "Process User ID - PUID"
+          description: "When supported by the container, this sets the User ID running the Application Process. Not supported by all Apps"
+          schema:
+            type: int
+            default: 568
+        - variable: UMASK
+          label: "UMASK"
+          description: "When supported by the container, this sets the UMASK for tha App. Not supported by all Apps"
+          schema:
+            type: string
+            default: "002"
