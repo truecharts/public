@@ -16,7 +16,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.CMD_URL_ADDPORT | bool | `true` |  |
 | env.DB_NAME | string | `"hedgedoc"` |  |
 | env.DB_USER | string | `"hedgedoc"` |  |
-| env.PUID | int | `568` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | envValueFrom.DB_PASS.secretKeyRef.key | string | `"mariadb-password"` |  |

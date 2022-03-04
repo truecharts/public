@@ -13,7 +13,6 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. |
 | env.LOG_LEVEL | string | `"info"` | Set the application log level |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/overseerr"` | image repository |
 | image.tag | string | `"v1.28.0@sha256:50cd1bf4ba1fcc5a0fd040ff6a529557470e5c2d1dc5e6d40f144b40ca1607a0"` | image tag |

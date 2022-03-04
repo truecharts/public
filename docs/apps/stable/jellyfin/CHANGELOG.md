@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="jellyfin-10.0.0"></a>
+### [jellyfin-10.0.0](https://github.com/truecharts/apps/compare/jellyfin-9.0.44...jellyfin-10.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="jellyfin-9.0.44"></a>
 ### [jellyfin-9.0.44](https://github.com/truecharts/apps/compare/jellyfin-9.0.43...jellyfin-9.0.44) (2022-03-02)
 

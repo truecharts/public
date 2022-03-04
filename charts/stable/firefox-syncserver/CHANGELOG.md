@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="firefox-syncserver-6.0.0"></a>
+### [firefox-syncserver-6.0.0](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.34...firefox-syncserver-6.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove PUID from per-app env-vars if set to 568
+* remove some ugly whitespace
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+* fix TZ being wrongly defined in common and remove its references from some remaining Apps ([#2005](https://github.com/truecharts/apps/issues/2005))
+
+
+
 <a name="firefox-syncserver-5.0.34"></a>
 ### [firefox-syncserver-5.0.34](https://github.com/truecharts/apps/compare/firefox-syncserver-5.0.33...firefox-syncserver-5.0.34) (2022-03-02)
 

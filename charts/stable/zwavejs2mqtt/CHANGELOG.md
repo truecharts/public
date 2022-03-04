@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-10.0.0"></a>
+### [zwavejs2mqtt-10.0.0](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.54...zwavejs2mqtt-10.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+* correct some questions.yaml mistakes
+
+
+
 <a name="zwavejs2mqtt-9.0.54"></a>
 ### [zwavejs2mqtt-9.0.54](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.53...zwavejs2mqtt-9.0.54) (2022-03-02)
 

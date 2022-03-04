@@ -22,8 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | deepstack.vision_scene | bool | `true` |  |
 | env.MODE | string | `"High"` |  |
 | env.MODELSTORE-DETECTION | string | `"{{ .Values.persistence.modelstore.mountPath }}"` |  |
-| env.PUID | int | `568` |  |
-| env.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
+| env.USER_ID | string | `"{{ .Values.security.PUID }}"` |  |
 | envFrom[0].configMapRef.name | string | `"{{ include \"common.names.fullname\" . }}-deepstack"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/deepstack-cpu"` |  |

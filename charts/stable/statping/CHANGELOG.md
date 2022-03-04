@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="statping-5.0.0"></a>
+### [statping-5.0.0](https://github.com/truecharts/apps/compare/statping-4.0.34...statping-5.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="statping-4.0.34"></a>
 ### [statping-4.0.34](https://github.com/truecharts/apps/compare/statping-4.0.33...statping-4.0.34) (2022-03-02)
 

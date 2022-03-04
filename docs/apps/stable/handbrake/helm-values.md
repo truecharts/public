@@ -19,9 +19,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DISPLAY_HEIGHT | int | `768` |  |
 | env.DISPLAY_WIDTH | int | `1280` |  |
 | env.KEEP_APP_RUNNING | int | `0` |  |
-| env.PUID | int | `568` |  |
 | env.SECURE_CONNECTION | int | `0` |  |
-| env.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
+| env.USER_ID | string | `"{{ .Values.security.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/handbrake"` |  |
 | image.tag | string | `"v1.24.2@sha256:7b5fa65f152910287ac3346b8e71b67d9d85987ae28aec0730542506b9b5780a"` |  |

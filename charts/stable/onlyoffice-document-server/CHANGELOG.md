@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="onlyoffice-document-server-4.0.0"></a>
+### [onlyoffice-document-server-4.0.0](https://github.com/truecharts/apps/compare/onlyoffice-document-server-3.1.7...onlyoffice-document-server-4.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="onlyoffice-document-server-3.1.7"></a>
 ### [onlyoffice-document-server-3.1.7](https://github.com/truecharts/apps/compare/onlyoffice-document-server-3.1.6...onlyoffice-document-server-3.1.7) (2022-03-02)
 

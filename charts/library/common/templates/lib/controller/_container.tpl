@@ -65,6 +65,9 @@
    {{- if not ( .Values.scaleGPU ) }}
     - name: NVIDIA_VISIBLE_DEVICES
       value: "void"
+   {{- else }}
+    - name: NVIDIA_DRIVER_CAPABILITIES
+      value: "all"
    {{- end }}
     - name: TZ
       value: {{ .Values.TZ | quote }}

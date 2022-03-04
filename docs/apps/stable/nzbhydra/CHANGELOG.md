@@ -1,6 +1,22 @@
 # Changelog<br>
 
 
+<a name="nzbhydra-10.0.0"></a>
+### [nzbhydra-10.0.0](https://github.com/truecharts/apps/compare/nzbhydra-9.0.48...nzbhydra-10.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="nzbhydra-9.0.48"></a>
 ### [nzbhydra-9.0.48](https://github.com/truecharts/apps/compare/nzbhydra-9.0.47...nzbhydra-9.0.48) (2022-03-02)
 

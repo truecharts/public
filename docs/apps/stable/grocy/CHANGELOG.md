@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="grocy-10.0.0"></a>
+### [grocy-10.0.0](https://github.com/truecharts/apps/compare/grocy-9.0.48...grocy-10.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="grocy-9.0.48"></a>
 ### [grocy-9.0.48](https://github.com/truecharts/apps/compare/grocy-9.0.47...grocy-9.0.48) (2022-03-02)
 

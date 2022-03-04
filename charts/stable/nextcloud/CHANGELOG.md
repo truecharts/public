@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="nextcloud-12.0.0"></a>
+### [nextcloud-12.0.0](https://github.com/truecharts/apps/compare/nextcloud-11.0.33...nextcloud-12.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+* update docker general non-major ([#2008](https://github.com/truecharts/apps/issues/2008))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="nextcloud-11.0.33"></a>
 ### [nextcloud-11.0.33](https://github.com/truecharts/apps/compare/nextcloud-11.0.32...nextcloud-11.0.33) (2022-03-03)
 
