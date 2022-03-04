@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See [application docs](https://docs.miguelndecarvalho.pt/projects/speedtest-exporter/) for more details. |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env | string | See below | environment variables. See [application docs](https://docs.miguelndecarvalho.pt/projects/speedtest-exporter/) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/speedtest-exporter"` | image repository |
 | image.tag | string | `"v3.4.0"` | image tag |

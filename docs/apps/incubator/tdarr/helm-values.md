@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | env.serverIP | string | `"localhost"` |  |
 | env.serverPort | int | `8266` |  |
 | env.webUIPort | int | `8265` |  |

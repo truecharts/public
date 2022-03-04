@@ -75,15 +75,8 @@ questions:
       type: dict
       attrs:
 
-# Include{fixedEnv}
 
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var"
-          schema:
-            type: int
-            required: true
-            default: 568
+
         - variable: nodeID
           label: "nodeID"
           description: "Sets name of this node"
@@ -362,6 +355,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

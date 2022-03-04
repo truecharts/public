@@ -1,6 +1,39 @@
 # Changelog<br>
 
 
+<a name="memcached-2.0.0"></a>
+### [memcached-2.0.0](https://github.com/truecharts/apps/compare/memcached-1.0.77...memcached-2.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm chart common to v9 ([#2013](https://github.com/truecharts/apps/issues/2013))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="memcached-1.0.77"></a>
+### [memcached-1.0.77](https://github.com/truecharts/apps/compare/memcached-1.0.76...memcached-1.0.77) (2022-03-03)
+
+#### Chore
+
+* update helm chart common to v8.17.3 ([#2009](https://github.com/truecharts/apps/issues/2009))
+
+
+
+<a name="memcached-1.0.76"></a>
+### [memcached-1.0.76](https://github.com/truecharts/apps/compare/memcached-1.0.75...memcached-1.0.76) (2022-03-03)
+
+#### Chore
+
+* update docker general non-major ([#2006](https://github.com/truecharts/apps/issues/2006))
+
+
+
 <a name="memcached-1.0.75"></a>
 ### [memcached-1.0.75](https://github.com/truecharts/apps/compare/memcached-1.0.74...memcached-1.0.75) (2022-02-28)
 

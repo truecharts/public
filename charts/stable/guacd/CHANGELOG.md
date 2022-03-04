@@ -1,6 +1,30 @@
 # Changelog<br>
 
 
+<a name="guacd-1.0.0"></a>
+### [guacd-1.0.0](https://github.com/truecharts/apps/compare/guacd-0.0.26...guacd-1.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="guacd-0.0.26"></a>
+### [guacd-0.0.26](https://github.com/truecharts/apps/compare/guacd-0.0.25...guacd-0.0.26) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="guacd-0.0.25"></a>
 ### [guacd-0.0.25](https://github.com/truecharts/apps/compare/guacd-0.0.24...guacd-0.0.25) (2022-02-21)
 

@@ -12,8 +12,7 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | controller.replicas | int | `2` | Number of pods to load balance between |
-| env | object | See below | environment variables. See more environment variables in the [nullserv documentation](https://github.com/bmrzycki/nullserv/blob/master/README.md). |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env | string | See below | environment variables. See more environment variables in the [nullserv documentation](https://github.com/bmrzycki/nullserv/blob/master/README.md). |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/nullserv"` | image repository |
 | image.tag | string | `"v1.3.0@sha256:67aa9d50ba0c9547b4b0f7fc68c023a34b5e2b027f7bc9233120d5fbd6bcf3cd"` | image tag |

@@ -17,9 +17,6 @@ podSecurityContext:
 secret:
   CONNECTION_TOKEN: "somerandomstring"
 
-env:
-  PUID: 568
-
 service:
   main:
     ports:

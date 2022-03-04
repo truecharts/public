@@ -1,6 +1,30 @@
 # Changelog<br>
 
 
+<a name="freeradius-5.0.0"></a>
+### [freeradius-5.0.0](https://github.com/truecharts/apps/compare/freeradius-4.0.45...freeradius-5.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="freeradius-4.0.45"></a>
+### [freeradius-4.0.45](https://github.com/truecharts/apps/compare/freeradius-4.0.44...freeradius-4.0.45) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="freeradius-4.0.44"></a>
 ### [freeradius-4.0.44](https://github.com/truecharts/apps/compare/freeradius-4.0.43...freeradius-4.0.44) (2022-02-21)
 

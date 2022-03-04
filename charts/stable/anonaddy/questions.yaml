@@ -83,13 +83,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          schema:
-            type: int
-            default: 568
-            required: true
         - variable: ANONADDY_DOMAIN
           label: "ANONADDY_DOMAIN"
           schema:
@@ -321,6 +314,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

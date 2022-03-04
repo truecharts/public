@@ -73,7 +73,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: SUBDOMAINS
           label: "SUBDOMAINS"
           description: "SUBDOMAINS"
@@ -155,6 +154,8 @@ questions:
 # Include{persistenceList}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

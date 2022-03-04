@@ -62,7 +62,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: CLAMAV_NO_CLAMD
           label: "NO CLAMD"
           description: "Do not start clamd."
@@ -362,6 +361,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

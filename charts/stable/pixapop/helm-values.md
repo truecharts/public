@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/pixapop"` |  |
 | image.tag | string | `"v1.2-ls15@sha256:6a05383524fcd51b0b692d508dd16ed6948337aa272677e01baa6d8ba119c070"` |  |

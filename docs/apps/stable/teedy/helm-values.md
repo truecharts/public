@@ -16,7 +16,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DOCS_DEFAULT_LANGUAGE | string | `"eng"` | The language which will be used as default |
 | env.DOCS_SMTP_HOSTNAME | string | `""` | Hostname of the SMTP-Server to be used by Teedy |
 | env.DOCS_SMTP_PORT | int | `0` | The port of the SMTP-Server which should be used |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | envValueFrom.DATABASE_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |
 | envValueFrom.DATABASE_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DATABASE_URL.secretKeyRef.key | string | `"jdbc"` |  |

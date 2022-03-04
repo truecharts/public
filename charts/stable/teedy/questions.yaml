@@ -113,7 +113,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: DOCS_DEFAULT_LANGUAGE
           label: "DOCS_DEFAULT_LANGUAGE"
           description: "Sets the DOCS_DEFAULT_LANGUAGE env var"
@@ -443,6 +442,8 @@ questions:
                                     type: string
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

@@ -111,7 +111,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: domain
           label: "Domain(s) using collabora"
           description: 'Use pipe "|" to separate multiple domains'
@@ -254,6 +253,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"

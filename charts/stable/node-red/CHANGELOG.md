@@ -1,6 +1,31 @@
 # Changelog<br>
 
 
+<a name="node-red-10.0.0"></a>
+### [node-red-10.0.0](https://github.com/truecharts/apps/compare/node-red-9.0.46...node-red-10.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="node-red-9.0.46"></a>
+### [node-red-9.0.46](https://github.com/truecharts/apps/compare/node-red-9.0.45...node-red-9.0.46) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="node-red-9.0.45"></a>
 ### [node-red-9.0.45](https://github.com/truecharts/apps/compare/node-red-9.0.44...node-red-9.0.45) (2022-02-21)
 

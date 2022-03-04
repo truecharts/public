@@ -82,7 +82,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: REMOTE_HOST
           label: "REMOTE_HOST"
           description: "Sets the REMOTE_HOST env var"
@@ -203,6 +202,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

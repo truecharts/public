@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/mstream"` |  |
 | image.tag | string | `"version-v5.2.5@sha256:1ac2f1c3177e09428cf5be1f33c7110863b69a748f691f8385dc96a313d84e7b"` |  |

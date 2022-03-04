@@ -95,7 +95,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: OPEN_PROFILES
           label: "OPEN_PROFILES"
           description: "Sets the OPEN_PROFILES env var"
@@ -311,6 +310,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

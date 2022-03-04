@@ -10,7 +10,6 @@ image:
 # @default -- See below
 env:
   # -- Set the container timezone
-  TZ: UTC
   # -- Port where ser2sock listens
   LISTENER_PORT: "{{ .Values.service.main.ports.main.port }}"
   # -- Path to the serial device

@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/sickgear"` |  |
 | image.tag | string | `"version-release_0.25.4@sha256:6a78e9f784cf298552402143bee239858956f4783c7619e9a2b960c0d0d15d73"` |  |

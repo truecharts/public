@@ -95,7 +95,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: MINIO_ROOT_USER
           label: "MINIO_ROOT_USER"
           schema:
@@ -344,6 +343,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

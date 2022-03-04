@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See more environment variables in the [owncloud-ocis documentation](https://owncloud.dev/ocis/configuration/#environment-variables). |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env | string | See below | environment variables. See more environment variables in the [owncloud-ocis documentation](https://owncloud.dev/ocis/configuration/#environment-variables). |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/ocis"` | image repository |
 | image.tag | string | `"v1.16.0@sha256:a155374ebd2a17e0eb078dba4eb6eb0dd13f711c0536522613dbdbe23fed303c"` | image tag |

@@ -15,7 +15,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MYSQL_PORT_3306_TCP_PORT | string | `"3306"` |  |
 | env.MYSQL_USER | string | `"snipe-it"` |  |
 | env.NGINX_APP_URL | string | `"{{ include \"common.names.fullname\" . }}:8080"` |  |
-| env.PUID | int | `568` |  |
 | envValueFrom.MYSQL_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |
 | envValueFrom.MYSQL_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | envValueFrom.MYSQL_PORT_3306_TCP_ADDR.secretKeyRef.key | string | `"plainhost"` |  |

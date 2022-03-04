@@ -1,6 +1,24 @@
 # Changelog<br>
 
 
+<a name="common-9.0.0"></a>
+### [common-9.0.0](https://github.com/truecharts/apps/compare/common-8.17.3...common-9.0.0) (2022-03-03)
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="common-8.17.3"></a>
+### [common-8.17.3](https://github.com/truecharts/apps/compare/common-8.17.2...common-8.17.3) (2022-03-03)
+
+#### Fix
+
+* fix TZ being wrongly defined in common and remove its references from some remaining Apps ([#2005](https://github.com/truecharts/apps/issues/2005))
+
+
+
 <a name="common-8.17.2"></a>
 ### [common-8.17.2](https://github.com/truecharts/apps/compare/common-8.17.1...common-8.17.2) (2022-02-28)
 

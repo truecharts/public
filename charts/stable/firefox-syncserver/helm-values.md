@@ -17,8 +17,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.FF_SYNCSERVER_FORWARDED_ALLOW_IPS | string | `"*"` |  |
 | env.FF_SYNCSERVER_LOGLEVEL | string | `"info"` |  |
 | env.FF_SYNCSERVER_PUBLIC_URL | string | `"firefox-syncserver.192.168.1.189.nip.io"` |  |
-| env.PUID | int | `568` |  |
-| env.TZ | string | `"America/Los_Angeles"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"url"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |

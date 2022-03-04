@@ -3,9 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: version-2.7.3-r5@sha256:e56ba2420901250afb865a7e03e43956dcff17503ce44c48b20064980a42f5a4
 
-env:
-  PUID: 568
-
 strategy:
   type: Recreate
 

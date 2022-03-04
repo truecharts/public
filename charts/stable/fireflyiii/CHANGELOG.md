@@ -1,6 +1,39 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-14.0.0"></a>
+### [fireflyiii-14.0.0](https://github.com/truecharts/apps/compare/fireflyiii-13.1.30...fireflyiii-14.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="fireflyiii-13.1.30"></a>
+### [fireflyiii-13.1.30](https://github.com/truecharts/apps/compare/fireflyiii-13.1.29...fireflyiii-13.1.30) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
+<a name="fireflyiii-13.1.29"></a>
+### [fireflyiii-13.1.29](https://github.com/truecharts/apps/compare/fireflyiii-13.1.28...fireflyiii-13.1.29) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* Add gui options for trusted proxies and url ([#1987](https://github.com/truecharts/apps/issues/1987))
+
+
+
 <a name="fireflyiii-13.1.28"></a>
 ### [fireflyiii-13.1.28](https://github.com/truecharts/apps/compare/fireflyiii-13.1.27...fireflyiii-13.1.28) (2022-02-22)
 

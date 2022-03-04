@@ -11,8 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
-| env.TZ | string | `"UTC"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/oscam"` |  |
 | image.tag | string | `"version-11693@sha256:dcaa24c5076e020243aa0bcf2b5e2edbd1fcf6f9066c50e3f5c2f32937c68cb9"` |  |

@@ -1,6 +1,32 @@
 # Changelog<br>
 
 
+<a name="tvheadend-11.0.0"></a>
+### [tvheadend-11.0.0](https://github.com/truecharts/apps/compare/tvheadend-10.0.42...tvheadend-11.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+* fix TZ being wrongly defined in common and remove its references from some remaining Apps ([#2005](https://github.com/truecharts/apps/issues/2005))
+
+
+
+<a name="tvheadend-10.0.42"></a>
+### [tvheadend-10.0.42](https://github.com/truecharts/apps/compare/tvheadend-10.0.41...tvheadend-10.0.42) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="tvheadend-10.0.41"></a>
 ### [tvheadend-10.0.41](https://github.com/truecharts/apps/compare/tvheadend-10.0.40...tvheadend-10.0.41) (2022-02-21)
 

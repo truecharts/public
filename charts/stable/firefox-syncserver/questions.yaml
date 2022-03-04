@@ -95,13 +95,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: int
-            default: 568
         - variable: FF_SYNCSERVER_PUBLIC_URL
           label: "FF_SYNCSERVER_PUBLIC_URL"
           description: "Sets the FF_SYNCSERVER_PUBLIC_URL env var"
@@ -442,6 +435,8 @@ questions:
                                     type: string
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

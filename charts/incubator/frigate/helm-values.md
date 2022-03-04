@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | string | `nil` |  |
 | frigate.birdseye.enabled | bool | `true` |  |
 | frigate.birdseye.mode | string | `"motion"` |  |
 | frigate.cameras[0].best_image_timeout | int | `60` |  |
@@ -38,6 +37,7 @@ You will, however, be able to use all values referenced in the common chart here
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"blakeblackshear/frigate"` |  |
 | image.tag | string | `"0.10.0-beta6-amd64nvidia"` |  |
+| ingress.rtmp.autoLink | bool | `true` |  |
 | persistence.cache.enabled | bool | `true` |  |
 | persistence.cache.mountPath | string | `"/tmp/cache"` |  |
 | persistence.cache.type | string | `"emptyDir"` |  |

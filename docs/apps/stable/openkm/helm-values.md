@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See more environment variables in the [openkm documentation](https://openkm.org/docs). |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env | string | See below | environment variables. See more environment variables in the [openkm documentation](https://openkm.org/docs). |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/openkm-ce"` | image repository |
 | image.tag | string | `"v6.3.11@sha256:941156f70c16350fb92d66f60007ac68abaee11265448eaacc40e821a46afc4d"` | image tag |

@@ -14,8 +14,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.AIRSONIC_DIR | string | `"/"` |  |
 | env.CONTEXT_PATH | string | `"/"` |  |
 | env.JAVA_OPTS | string | `nil` | For passing additional java options. For some reverse proxies, you may need to pass `JAVA_OPTS=-Dserver.use-forward-headers=true` for airsonic to generate the proper URL schemes. |
-| env.PUID | int | `568` |  |
-| env.TZ | string | `"UTC"` |  |
 | env.spring_datasource_username | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.spring_liquibase_parameters_userTableQuote | string | `"\""` |  |
 | envValueFrom.spring_datasource_password.secretKeyRef.key | string | `"postgresql-password"` |  |

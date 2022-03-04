@@ -81,8 +81,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-
         - variable: BAUD_RATE
           label: "BAUD_RATE"
           description: "Serial device baud rate"
@@ -255,6 +253,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

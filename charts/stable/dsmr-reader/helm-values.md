@@ -12,7 +12,7 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://github.com/xirixiz/dsmr-reader-docker#dsmr-reader---environment-variables) for more details. |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env.DJANGO_TIME_ZONE | string | `"{{ .Values.security.TZ }}"` | Set the container timezone |
 | envValueFrom.DJANGO_DATABASE_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DJANGO_DATABASE_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DJANGO_DATABASE_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

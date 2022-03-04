@@ -3,9 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.6.0@sha256:3e4cc5337142aef1b708fdb4f61748e21af81cc7b31cf17609282bad7c827bee
 
-env:
-  PUID: 568
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false

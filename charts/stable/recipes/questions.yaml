@@ -81,7 +81,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: DEBUG
           label: "DEBUG"
           description: "Sets the DEBUG env var"
@@ -424,6 +423,8 @@ questions:
                                     type: string
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

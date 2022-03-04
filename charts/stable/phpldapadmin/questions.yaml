@@ -81,8 +81,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-
         - variable: PHPLDAPADMIN_HTTPS
           label: "PHPLDAPADMIN_HTTPS"
           schema:
@@ -203,6 +201,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

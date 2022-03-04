@@ -81,8 +81,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-
         - variable: STASH_PORT
           label: "STASH_PORT"
           schema:
@@ -247,6 +245,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

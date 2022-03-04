@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="external-service-5.0.0"></a>
+### [external-service-5.0.0](https://github.com/truecharts/apps/compare/external-service-4.0.41...external-service-5.0.0) (2022-03-03)
+
+#### Chore
+
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+
+
+<a name="external-service-4.0.41"></a>
+### [external-service-4.0.41](https://github.com/truecharts/apps/compare/external-service-4.0.40...external-service-4.0.41) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="external-service-4.0.40"></a>
 ### [external-service-4.0.40](https://github.com/truecharts/apps/compare/external-service-4.0.39...external-service-4.0.40) (2022-02-21)
 

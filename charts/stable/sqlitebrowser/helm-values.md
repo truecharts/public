@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/sqlitebrowser"` |  |
 | image.tag | string | `"version-3.12.2-02876202105241947ubuntu18.04.1@sha256:fc18746d4b3c37355ef0015b34c9bdd1d023c528d05097bf6dc839d54234fc48"` |  |

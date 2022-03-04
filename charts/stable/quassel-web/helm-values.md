@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | env.QUASSEL_CORE | string | `"0.0.0.0"` |  |
 | env.QUASSEL_PORT | int | `4242` |  |
 | env.URL_BASE | string | `""` |  |

@@ -1,6 +1,31 @@
 # Changelog<br>
 
 
+<a name="gotify-6.0.0"></a>
+### [gotify-6.0.0](https://github.com/truecharts/apps/compare/gotify-5.0.36...gotify-6.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+* fix TZ being wrongly defined in common and remove its references from some remaining Apps ([#2005](https://github.com/truecharts/apps/issues/2005))
+
+
+
+<a name="gotify-5.0.36"></a>
+### [gotify-5.0.36](https://github.com/truecharts/apps/compare/gotify-5.0.35...gotify-5.0.36) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="gotify-5.0.35"></a>
 ### [gotify-5.0.35](https://github.com/truecharts/apps/compare/gotify-5.0.34...gotify-5.0.35) (2022-02-21)
 

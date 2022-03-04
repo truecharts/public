@@ -88,15 +88,6 @@ questions:
             type: string
             private: true
             default: ""
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-# Include{fixedEnv}
-
 # Include{containerConfig}
 
   - variable: service
@@ -321,6 +312,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

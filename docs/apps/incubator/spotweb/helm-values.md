@@ -21,7 +21,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.SPOTWEB_MAIL | string | `"demo@spotweb.com"` |  |
 | env.SPOTWEB_RETRIEVE | string | `"15min"` |  |
 | env.SPOTWEB_SYSTEMTYPE | string | `"single"` |  |
-| env.TZ | string | `"UTC"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DB_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

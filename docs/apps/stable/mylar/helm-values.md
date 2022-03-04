@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/mylar3"` |  |
 | image.tag | string | `"v0.6.3@sha256:2735700c6150206e0419c2036432b83018a53fb5797dad3dc80f4800988a18d2"` |  |

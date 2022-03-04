@@ -89,12 +89,7 @@ questions:
             default: "Australia/Hobart"
             $ref:
               - "definitions/timezone"
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: int
-            default: 568
+
 
 # Include{containerConfig}
 
@@ -367,6 +362,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"

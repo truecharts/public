@@ -11,9 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | env.RPC_PORT | int | `6800` |  |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/aria2-pro"` | image repository |
 | image.tag | string | `"latest@sha256:6c0ddcc7be4da69ac146ff3153df727a5818f733636a1c4d9b78ccffd6106a23"` | image tag |

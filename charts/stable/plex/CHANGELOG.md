@@ -1,6 +1,29 @@
 # Changelog<br>
 
 
+<a name="plex-9.0.0"></a>
+### [plex-9.0.0](https://github.com/truecharts/apps/compare/plex-8.0.49...plex-9.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="plex-8.0.49"></a>
+### [plex-8.0.49](https://github.com/truecharts/apps/compare/plex-8.0.48...plex-8.0.49) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="plex-8.0.48"></a>
 ### [plex-8.0.48](https://github.com/truecharts/apps/compare/plex-8.0.47...plex-8.0.48) (2022-02-28)
 

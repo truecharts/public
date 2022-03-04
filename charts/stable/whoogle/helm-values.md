@@ -12,7 +12,7 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See [image docs](https://github.com/benbusby/whoogle-search#environment-variables) for more details. |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env.WHOOGLE_CONFIG_COUNTRY | string | `""` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/whoogle-search"` | image repository |
 | image.tag | string | `"v0.7.1@sha256:6f4178d1154128cdcd01171a2bc36f3ed9f2fd428cfc8c40eff9664669e7e907"` | image tag |

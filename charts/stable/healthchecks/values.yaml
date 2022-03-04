@@ -32,7 +32,6 @@ secret:
 # @default -- See below
 env:
   # -- Set the container timezone
-  TZ: UTC
   # -- Set to true to always override the local_settings.py file with values from environment variables. Do not set to True if you have made manual modifications to this file.
   REGENERATE_SETTINGS: "True"
   # -- The site's top-level URL and the port it listens to

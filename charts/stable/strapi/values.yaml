@@ -12,7 +12,6 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  TZ: UTC
   DATABASE_CLIENT: "postgres"
   DATABASE_PORT: 5432
   DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"

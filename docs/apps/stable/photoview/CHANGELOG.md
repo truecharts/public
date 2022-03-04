@@ -1,6 +1,31 @@
 # Changelog<br>
 
 
+<a name="photoview-2.0.0"></a>
+### [photoview-2.0.0](https://github.com/truecharts/apps/compare/photoview-1.0.3...photoview-2.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="photoview-1.0.3"></a>
+### [photoview-1.0.3](https://github.com/truecharts/apps/compare/photoview-1.0.2...photoview-1.0.3) (2022-03-02)
+
+#### Chore
+
+* rename `web_portal` to `open` ([#1957](https://github.com/truecharts/apps/issues/1957))
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="photoview-1.0.2"></a>
 ### [photoview-1.0.2](https://github.com/truecharts/apps/compare/photoview-1.0.1...photoview-1.0.2) (2022-02-21)
 

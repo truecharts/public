@@ -133,6 +133,9 @@ args: []
 # Primarily for the SCALE GUI
 extraArgs: []
 
+# -- Set Container Timezone
+TZ: UTC
+
 # -- Set the primary portal for TrueNAS SCALE
 portal:
   # -- enable generation of the portal configmap
@@ -264,6 +267,7 @@ secret: {}
 #      envFrom:
 #        ...
 env: {}
+
 ## Variables with values set from templates, example
 ## With a release name of: demo, the example env value will be: demo-admin
 envTpl: {}
@@ -307,6 +311,11 @@ dnsConfig:
 # -- Enable/disable the generation of environment variables for services.
 # [[ref]](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)
 enableServiceLinks: false
+
+# -- Set the Process User ID (PUID) env-var seperately
+security:
+  PUID: 568
+  UMASK: 002
 
 # -- Can be used to set securityContext.capabilities outside of the GUI on TrueNAS SCALE
 customCapabilities:

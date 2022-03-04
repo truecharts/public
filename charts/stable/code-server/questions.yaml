@@ -82,13 +82,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: int
-            default: 568
         - variable: PROXY_DOMAIN
           label: "PROXY_DOMAIN (Optional)"
           description: "Sets the PROXY_DOMAIN env var"
@@ -255,6 +248,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

@@ -81,7 +81,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: JELLYFIN_PublishedServerUrl
           description: "Published Server URL"
           label: "The Server URL to publish in UDP Auto Discovery response."
@@ -248,6 +247,8 @@ questions:
 
 # Include{ingressList}
 
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

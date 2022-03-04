@@ -20,7 +20,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.GOTIFY_SERVER_SSL_ENABLED | bool | `false` |  |
 | env.GOTIFY_SERVER_STREAM_PINGPERIODSECONDS | int | `45` |  |
 | env.GOTIFY_UPLOADEDIMAGESDIR | string | `"data/images"` |  |
-| env.TZ | string | `"America/Los_Angeles"` |  |
 | envFrom[0].configMapRef.name | string | `"gotifyenv"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/gotify-server"` |  |

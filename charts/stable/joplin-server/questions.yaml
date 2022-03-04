@@ -82,7 +82,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: APP_BASE_URL
           label: "APP_BASE_URL"
           description: "Sets the APP_BASE_URL env var"
@@ -395,6 +394,8 @@ questions:
                                     type: string
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

@@ -81,8 +81,18 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-
+        - variable: APP_URL
+          label: "APP_URL"
+          description: "Application URL eg. https://fireflyiii.mydomain.com"
+          schema:
+            type: string
+            default: "http://localhost:10082"
+        - variable: TRUSTED_PROXIES
+          label: "TRUSTED_PROXIES"
+          description: "TRUSTED_PROXIES"
+          schema:
+            type: string
+            default: "172.16.0.0/16"
 
 # Include{containerConfig}
 
@@ -244,6 +254,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

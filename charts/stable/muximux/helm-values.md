@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/muximux"` |  |
 | image.tag | string | `"version-057352e8@sha256:5942aa00a99c51a0d0fc9afda2f875450515a27a312572c0fcc62471131184e9"` |  |

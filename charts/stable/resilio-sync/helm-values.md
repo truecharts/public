@@ -11,8 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
-| env.TZ | string | `"UTC"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/resilio-sync"` |  |
 | image.tag | string | `"version-2.7.2.1375@sha256:54f42485d39a7773ff2e13c27ebfc32fc448eaf13f8972f38e14eedadb0b3a2e"` |  |

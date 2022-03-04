@@ -73,8 +73,9 @@ questions:
                       description: "RollingUpdate: Create new pods and then kill old ones"
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
+
 # Include{controllerExpert}
-  # Docker specific env
+
   - variable: env
     group: "Container Configuration"
     label: "Image Environment"
@@ -82,7 +83,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: GRIST_DEFAULT_EMAIL
           label: "GRIST_DEFAULT_EMAIL"
           description: "If set, login as this user if no other credentials presented"
@@ -175,6 +175,7 @@ questions:
                       description: "2"
                     - value: "3"
                       description: "3"
+
   - variable: secret
     group: "Container Configuration"
     label: "Secret Image Environment"
@@ -432,6 +433,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

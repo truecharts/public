@@ -81,8 +81,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-
         - variable: FLOOD_OPTION_RUNDIR
           label: "FLOOD_OPTION_RUNDIR"
           description: "Where to store Flood's runtime files (eg. database)"
@@ -249,6 +247,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

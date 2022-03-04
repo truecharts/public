@@ -87,7 +87,6 @@ questions:
           schema:
             type: string
             default: "/data"
-# Include{fixedEnv}
 
 # Include{containerConfig}
 
@@ -248,6 +247,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

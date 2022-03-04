@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/piwigo"` |  |
 | image.tag | string | `"version-11.5.0@sha256:8f8bb5d28b930edfded154d71dd2eab4ffe5631d2e4f21773bf33b220ab76f05"` |  |

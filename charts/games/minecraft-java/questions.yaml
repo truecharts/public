@@ -100,7 +100,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: PUID
           label: "PUID"
           description: "Sets the PUID env var"
@@ -711,6 +710,8 @@ questions:
 # Include{persistenceList}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

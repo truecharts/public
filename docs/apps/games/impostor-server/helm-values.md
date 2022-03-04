@@ -17,14 +17,13 @@ You will, however, be able to use all values referenced in the common chart here
 | env.IMPOSTOR_Debug__GameRecorderPath | string | `""` |  |
 | env.IMPOSTOR_Server__ListenIp | string | `"0.0.0.0"` |  |
 | env.IMPOSTOR_Server__PublicIp | string | `"127.0.0.1"` |  |
-| env.PUID | int | `568` |  |
-| env.USER_ID | string | `"{{ .Values.env.PUID }}"` |  |
+| env.USER_ID | string | `"{{ .Values.security.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/impostor-server"` |  |
 | image.tag | string | `"v1.6.0@sha256:789dda6ea04417d5a7abb9f0373e53ecab7a2cd7b77fa7fc8d9620d977b0e863"` |  |
 | nightlyImage.pullPolicy | string | `"IfNotPresent"` |  |
 | nightlyImage.repository | string | `"tccr.io/truecharts/impostor-server-nightly"` |  |
-| nightlyImage.tag | string | `"vnightly@sha256:2954766c55fac9242517f5637bec19d9bc3c2479f1557d05ad0b3e54d5a173a3"` |  |
+| nightlyImage.tag | string | `"vnightly@sha256:84b80cfecae507b18c9a6cd2aae1aa9c0c74722a926f541dded9053954f13cdf"` |  |
 | probes.liveness | object | See below | Liveness probe configuration |
 | probes.readiness | object | See below | Redainess probe configuration |
 | probes.startup | object | See below | Startup probe configuration |

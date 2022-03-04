@@ -22,7 +22,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.STATUS_HTTP_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | env.SUPERVISOR_HTTP | bool | `true` |  |
 | env.SUPERVISOR_HTTP_PORT | string | `"{{ .Values.service.supervisor.ports.supervisor.port }}"` |  |
-| env.TZ | string | `"UTC"` |  |
 | env.UPDATE_INTERVAL | int | `10800` |  |
 | env.WORLD_NAME | string | `"Dedicated"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |

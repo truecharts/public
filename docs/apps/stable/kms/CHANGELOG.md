@@ -1,6 +1,30 @@
 # Changelog<br>
 
 
+<a name="kms-10.0.0"></a>
+### [kms-10.0.0](https://github.com/truecharts/apps/compare/kms-9.0.50...kms-10.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="kms-9.0.50"></a>
+### [kms-9.0.50](https://github.com/truecharts/apps/compare/kms-9.0.49...kms-9.0.50) (2022-03-02)
+
+#### Chore
+
+* update helm general non-major helm releases ([#1999](https://github.com/truecharts/apps/issues/1999))
+
+
+
 <a name="kms-9.0.49"></a>
 ### [kms-9.0.49](https://github.com/truecharts/apps/compare/kms-9.0.48...kms-9.0.49) (2022-02-21)
 

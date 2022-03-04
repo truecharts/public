@@ -83,13 +83,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-        - variable: PUID
-          label: "PUID"
-          description: "Sets the PUID env var for LinuxServer.io (compatible) containers"
-          schema:
-            type: int
-            default: 568
         - variable: VERSION
           label: "Minecraft version"
           description: "Options: LATEST, PREVIOUS or version number"
@@ -413,6 +406,8 @@ questions:
 # Include{persistenceList}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

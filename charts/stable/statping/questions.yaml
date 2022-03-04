@@ -106,7 +106,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: NAME
           label: "NAME"
           description: "Sets the NAME env var"
@@ -441,6 +440,8 @@ questions:
                                     type: string
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
