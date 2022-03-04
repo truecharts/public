@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="boinc-1.0.1"></a>
+### [boinc-1.0.1](https://github.com/truecharts/apps/compare/boinc-1.0.0...boinc-1.0.1) (2022-03-04)
+
+#### Fix
+
+* update image reference ([#2015](https://github.com/truecharts/apps/issues/2015))
+
+
+
 <a name="boinc-1.0.0"></a>
 ### [boinc-1.0.0](https://github.com/truecharts/apps/compare/boinc-0.0.24...boinc-1.0.0) (2022-03-03)
 
