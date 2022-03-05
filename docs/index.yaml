@@ -301,6 +301,43 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/airsonic-advanced-1.0.0/airsonic-advanced-1.0.0.tgz
     version: 1.0.0
+  alist:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - cloud
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.1.0
+    created: "2022-03-05T12:30:08.62034003Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: Alist program that supports multiple storage, powered by Gin and
+      React
+    digest: 9b51a8db88108f114225eedd376cf2a4ec8c66d17176959085f17187bcd0b3a8
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/alist
+    icon: https://truecharts.org/_static/img/appicons/alist-icon.png
+    keywords:
+    - alist
+    - storage
+    - webdav
+    - google driver
+    - aliyun driver
+    - baiduyun
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: alist
+    sources:
+    - https://github.com/Xhofe/alist
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/alist-0.0.1/alist-0.0.1.tgz
+    version: 0.0.1
   amcrest2mqtt:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -67620,4 +67657,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-04T16:40:24.523717223Z"
+generated: "2022-03-05T12:30:08.62578914Z"
