@@ -175,14 +175,6 @@ questions:
                       description: "2"
                     - value: "3"
                       description: "3"
-
-  - variable: secret
-    group: "Container Configuration"
-    label: "Secret Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: enabledgdrive
           label: "Google Drive Integration"
           schema:
