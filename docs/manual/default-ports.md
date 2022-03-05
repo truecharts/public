@@ -323,6 +323,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | grist                      |       api       |       api       | 10164 |   TCP    |                                         |
 | budge                      |      main       |      main       | 10165 |   TCP    |                                         |
 | ghost                      |      main       |      main       | 10166 |   TCP    |                                         |
+| alist                      |      main       |      main       | 10167 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |
@@ -359,7 +360,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | resilio-sync               |     bt-tcp      |     bt-tcp      | 55555 |   TCP    |                                         |
 | resilio-sync               |     bt-udp      |     bt-udp      | 55555 |   UDP    |                                         |
 | quassel-web                |      main       |      main       | 64080 |   TCP    |                                         |
-
 ## Dependency Apps
 
 | App        | Service | Port Name | Port  | Protocol | Note |
