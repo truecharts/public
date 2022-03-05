@@ -99,7 +99,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: CONSOLE_MINIO_SERVER
           label: "CONSOLE_MINIO_SERVER"
           schema:
@@ -265,6 +264,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

@@ -98,7 +98,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: JWT_ENABLED
           label: "JWT_ENABLED"
           description: "Specifies the enabling the JSON Web Token validation by the ONLYOFFICE Document Server."
@@ -220,6 +219,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"

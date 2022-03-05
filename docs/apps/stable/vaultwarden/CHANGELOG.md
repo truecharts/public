@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="vaultwarden-14.0.0"></a>
+### [vaultwarden-14.0.0](https://github.com/truecharts/apps/compare/vaultwarden-13.0.37...vaultwarden-14.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="vaultwarden-13.0.37"></a>
 ### [vaultwarden-13.0.37](https://github.com/truecharts/apps/compare/vaultwarden-13.0.36...vaultwarden-13.0.37) (2022-03-02)
 

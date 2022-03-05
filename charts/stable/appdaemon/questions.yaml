@@ -97,7 +97,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: HA_URL
           label: "HA URL"
           description: "Your HomeAssistant URL"
@@ -274,6 +273,8 @@ questions:
 # Include{persistenceList}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

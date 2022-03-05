@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/doublecommander"` |  |
 | image.tag | string | `"version-0.8.2-1@sha256:9c71e7178c24bdd646fa65e49fd9cef59ad9584eac2d60d59ea3e62ea53d47f9"` |  |

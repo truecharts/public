@@ -1,6 +1,22 @@
 # Changelog<br>
 
 
+<a name="nano-wallet-1.0.0"></a>
+### [nano-wallet-1.0.0](https://github.com/truecharts/apps/compare/nano-wallet-0.0.26...nano-wallet-1.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove PUID from per-app env-vars if set to 568
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="nano-wallet-0.0.26"></a>
 ### [nano-wallet-0.0.26](https://github.com/truecharts/apps/compare/nano-wallet-0.0.25...nano-wallet-0.0.26) (2022-03-02)
 

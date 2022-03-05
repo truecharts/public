@@ -1,6 +1,22 @@
 # Changelog<br>
 
 
+<a name="digikam-3.0.0"></a>
+### [digikam-3.0.0](https://github.com/truecharts/apps/compare/digikam-2.0.44...digikam-3.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove PUID from per-app env-vars if set to 568
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="digikam-2.0.44"></a>
 ### [digikam-2.0.44](https://github.com/truecharts/apps/compare/digikam-2.0.43...digikam-2.0.44) (2022-03-02)
 

@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | env.nodeID | string | `"myFirstTdarrNode"` |  |
 | env.nodeIP | string | `"0.0.0.0"` |  |
 | env.nodePort | int | `8267` |  |

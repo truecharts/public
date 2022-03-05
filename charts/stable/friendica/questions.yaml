@@ -83,7 +83,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: FRIENDICA_ADMIN_MAIL
           label: "Admin E-Mail"
           description: "E-Mail address of the administrator."
@@ -262,6 +261,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

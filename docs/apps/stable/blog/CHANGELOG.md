@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="blog-1.0.0"></a>
+### [blog-1.0.0](https://github.com/truecharts/apps/compare/blog-0.0.35...blog-1.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="blog-0.0.35"></a>
 ### [blog-0.0.35](https://github.com/truecharts/apps/compare/blog-0.0.34...blog-0.0.35) (2022-03-02)
 

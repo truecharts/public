@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.APP_DEBUG | bool | `false` |  |
 | env.APP_ENV | string | `"production"` |  |
 | env.APP_NAME | string | `"LinkAce"` |  |
-| env.APP_TIMEZONE | string | `"{{ .Values.env.TZ }}"` |  |
+| env.APP_TIMEZONE | string | `"{{ .Values.security.TZ }}"` |  |
 | env.APP_URL | string | `"http://localhost"` |  |
 | env.BACKUP_DISK | string | `"s3"` |  |
 | env.BACKUP_ENABLED | bool | `false` |  |
@@ -31,7 +31,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DB_USERNAME | string | `"{{ .Values.mariadb.mariadbUsername }}"` |  |
 | env.REDIS_PORT | string | `"6379"` |  |
 | env.SESSION_DRIVER | string | `"redis"` |  |
-| env.TZ | string | `"UTC"` |  |
 | envValueFrom.APP_KEY.secretKeyRef.key | string | `"APP_KEY"` |  |
 | envValueFrom.APP_KEY.secretKeyRef.name | string | `"linkace-secrets"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |

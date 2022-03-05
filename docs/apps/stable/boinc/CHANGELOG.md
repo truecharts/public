@@ -1,6 +1,31 @@
 # Changelog<br>
 
 
+<a name="boinc-1.0.1"></a>
+### [boinc-1.0.1](https://github.com/truecharts/apps/compare/boinc-1.0.0...boinc-1.0.1) (2022-03-04)
+
+#### Fix
+
+* update image reference ([#2015](https://github.com/truecharts/apps/issues/2015))
+
+
+
+<a name="boinc-1.0.0"></a>
+### [boinc-1.0.0](https://github.com/truecharts/apps/compare/boinc-0.0.24...boinc-1.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove PUID from per-app env-vars if set to 568
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="boinc-0.0.24"></a>
 ### [boinc-0.0.24](https://github.com/truecharts/apps/compare/boinc-0.0.23...boinc-0.0.24) (2022-03-02)
 

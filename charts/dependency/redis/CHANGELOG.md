@@ -1,6 +1,39 @@
 # Changelog<br>
 
 
+<a name="redis-2.0.0"></a>
+### [redis-2.0.0](https://github.com/truecharts/apps/compare/redis-1.0.81...redis-2.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm chart common to v9 ([#2013](https://github.com/truecharts/apps/issues/2013))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="redis-1.0.81"></a>
+### [redis-1.0.81](https://github.com/truecharts/apps/compare/redis-1.0.80...redis-1.0.81) (2022-03-03)
+
+#### Chore
+
+* update helm chart common to v8.17.3 ([#2009](https://github.com/truecharts/apps/issues/2009))
+
+
+
+<a name="redis-1.0.80"></a>
+### [redis-1.0.80](https://github.com/truecharts/apps/compare/redis-1.0.79...redis-1.0.80) (2022-03-03)
+
+#### Chore
+
+* update docker general non-major ([#2006](https://github.com/truecharts/apps/issues/2006))
+
+
+
 <a name="redis-1.0.79"></a>
 ### [redis-1.0.79](https://github.com/truecharts/apps/compare/redis-1.0.78...redis-1.0.79) (2022-02-28)
 

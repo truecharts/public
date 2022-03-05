@@ -26,8 +26,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-
         - variable: UP_UNIFI_DEFAULT_URL
           label: "Unifi URL"
           description: "Unifi URL including Port and http(s) prefix"
@@ -67,6 +65,8 @@ questions:
 # Include{persistenceList}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

@@ -8,7 +8,6 @@ secret: {}
 # See more environment variables in the snipe documentation
 # https://github.com/linuxserver/docker-snipe-it#parameters
 env:
-  PUID: 568
   NGINX_APP_URL: '{{ include "common.names.fullname" . }}:8080'
   MYSQL_USER: snipe-it
   MYSQL_DATABASE: "snipe-it"

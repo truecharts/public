@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.29"></a>
+### [valheim-2.0.29](https://github.com/truecharts/apps/compare/valheim-2.0.28...valheim-2.0.29) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm chart common to v9 ([#2011](https://github.com/truecharts/apps/issues/2011))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="valheim-2.0.27"></a>
 ### [valheim-2.0.27](https://github.com/truecharts/apps/compare/valheim-2.0.26...valheim-2.0.27) (2022-03-02)
 

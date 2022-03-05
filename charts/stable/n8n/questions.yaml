@@ -73,15 +73,9 @@ questions:
                       description: "RollingUpdate: Create new pods and then kill old ones"
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
+
 # Include{controllerExpert}
-  - variable: env
-    group: "Container Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-# Include{fixedEnv}
+
   - variable: deployment
     group: "Container Configuration"
     label: "Deployment"
@@ -471,6 +465,7 @@ questions:
             type: int
 
 # Include{containerConfig}
+
   - variable: service
     group: "Networking and Services"
     label: "Configure Service(s)"
@@ -603,7 +598,9 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
+
 # Include{persistenceAdvanced}
+
 # Include{persistenceList}
 
   - variable: ingress
@@ -628,6 +625,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

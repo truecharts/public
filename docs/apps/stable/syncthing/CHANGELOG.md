@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="syncthing-10.0.0"></a>
+### [syncthing-10.0.0](https://github.com/truecharts/apps/compare/syncthing-9.0.47...syncthing-10.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+* correct some questions.yaml mistakes
+
+
+
 <a name="syncthing-9.0.47"></a>
 ### [syncthing-9.0.47](https://github.com/truecharts/apps/compare/syncthing-9.0.46...syncthing-9.0.47) (2022-03-02)
 

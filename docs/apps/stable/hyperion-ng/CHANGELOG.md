@@ -1,6 +1,23 @@
 # Changelog<br>
 
 
+<a name="hyperion-ng-5.0.0"></a>
+### [hyperion-ng-5.0.0](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.47...hyperion-ng-5.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove PUID from per-app env-vars if set to 568
+* remove empty env var declaration from questions.yaml
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="hyperion-ng-4.0.47"></a>
 ### [hyperion-ng-4.0.47](https://github.com/truecharts/apps/compare/hyperion-ng-4.0.46...hyperion-ng-4.0.47) (2022-03-02)
 

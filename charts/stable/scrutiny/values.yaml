@@ -14,7 +14,6 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  PUID: 568
   SCRUTINY_WEB: true
   SCRUTINY_COLLECTOR: true
   SCRUTINY_API_ENDPOINT: "http://localhost:8080"

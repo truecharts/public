@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="fireflyiii-14.0.0"></a>
+### [fireflyiii-14.0.0](https://github.com/truecharts/apps/compare/fireflyiii-13.1.30...fireflyiii-14.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="fireflyiii-13.1.30"></a>
 ### [fireflyiii-13.1.30](https://github.com/truecharts/apps/compare/fireflyiii-13.1.29...fireflyiii-13.1.30) (2022-03-02)
 

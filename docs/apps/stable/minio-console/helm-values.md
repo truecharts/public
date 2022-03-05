@@ -14,7 +14,6 @@ You will, however, be able to use all values referenced in the common chart here
 | args | list | `["server"]` | Override the args for the default container. |
 | env | object | See below | environment variables. See more environment variables in the [minio-console documentation](https://minio-console.org/docs). |
 | env.CONSOLE_MINIO_SERVER | string | `""` | Required: Minio server URL Example: https://minio.server:9000 |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/minio-console"` | image repository |
 | image.tag | string | `"v0.14.3@sha256:d8c34bbccf7cf7def77075cd3779838ea08c7835dd32e4670dbf86c3711e4798"` | image tag |

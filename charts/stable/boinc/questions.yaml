@@ -75,16 +75,18 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
-  - variable: env
+  - variable: secret
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "Image Secrets"
     schema:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
-
+        - variable: PASSWORD
+          label: "PASSWORD (Optional)"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 
   - variable: service
@@ -249,6 +251,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

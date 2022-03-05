@@ -15,14 +15,12 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DECONZ_DEVICE | string | `nil` | Override the location where deCONZ looks for the RaspBee/Conbee device. |
 | env.DECONZ_GID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
 | env.DECONZ_START_VERBOSE | int | `0` |  |
-| env.DECONZ_UID | string | `"{{ .Values.env.PUID }}"` |  |
+| env.DECONZ_UID | string | `"{{ .Values.security.PUID }}"` |  |
 | env.DECONZ_UPNP | int | `0` |  |
 | env.DECONZ_VNC_MODE | int | `1` | Enable VNC access to the container to view the deCONZ ZigBee mesh |
 | env.DECONZ_VNC_PORT | string | `"{{ .Values.service.vnc.ports.vnc.port }}"` |  |
 | env.DECONZ_WEB_PORT | string | `"{{ .Values.service.main.ports.main.port }}"` |  |
 | env.DECONZ_WS_PORT | string | `"{{ .Values.service.websocket.ports.websocket.port }}"` |  |
-| env.PUID | int | `568` |  |
-| env.TZ | string | `"UTC"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/deconz"` |  |
 | image.tag | string | `"v2.14.01@sha256:c3607b4e64b50acb52240d1b6e6798ccd132578fb3f065544be642709638b1c2"` |  |

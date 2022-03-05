@@ -20,8 +20,8 @@ service:
 
 env:
   # Internal Envs
-  TIMEZONE: "{{ .Values.env.TZ }}"
-  PHP_TZ: "{{ .Values.env.TZ }}"
+  TIMEZONE: "{{ .Values.security.TZ }}"
+  PHP_TZ: "{{ .Values.security.TZ }}"
   DB_CONNECTION: "pgsql"
   DB_PORT: "5432"
   DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
@@ -34,8 +34,6 @@ env:
   MIX_PUSHER_APP_KEY: "{{ .Values.env.PUSHER_APP_KEY }}"
   MIX_PUSHER_APP_CLUSTER: "{{ .Values.env.PUSHER_APP_CLUSTER }}"
   # User Envs
-  PUID: 568
-  TZ: UTC
   SECURITY_HEADER_HSTS_ENABLE: false
   APP_DEBUG: false
   PUSHER_APP_KEY: ""

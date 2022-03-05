@@ -1,6 +1,29 @@
 # Changelog<br>
 
 
+<a name="friendica-1.0.0"></a>
+### [friendica-1.0.0](https://github.com/truecharts/apps/compare/friendica-0.0.44...friendica-1.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="friendica-0.0.44"></a>
+### [friendica-0.0.44](https://github.com/truecharts/apps/compare/friendica-0.0.43...friendica-0.0.44) (2022-03-03)
+
+#### Chore
+
+* update docker general non-major ([#2006](https://github.com/truecharts/apps/issues/2006))
+
+
+
 <a name="friendica-0.0.43"></a>
 ### [friendica-0.0.43](https://github.com/truecharts/apps/compare/friendica-0.0.42...friendica-0.0.43) (2022-03-02)
 

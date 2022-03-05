@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="syslog-ng-1.0.0"></a>
+### [syslog-ng-1.0.0](https://github.com/truecharts/apps/compare/syslog-ng-0.1.1...syslog-ng-1.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="syslog-ng-0.1.1"></a>
 ### [syslog-ng-0.1.1](https://github.com/truecharts/apps/compare/syslog-ng-0.1.0...syslog-ng-0.1.1) (2022-03-02)
 

@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env | string | See below | environment variables. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/xteve"` | image repository |
 | image.tag | string | `"v2.2.0.200@sha256:77a1e4d934da1361c349fc3b9548e4e01b421df078759e5d11b4cc552c50bd7e"` | image tag |

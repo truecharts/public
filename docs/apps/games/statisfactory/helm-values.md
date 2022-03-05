@@ -19,7 +19,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DEBUG | bool | `false` |  |
 | env.DISABLESEASONALEVENTS | bool | `false` |  |
 | env.MAXPLAYERS | int | `4` |  |
-| env.PUID | int | `568` |  |
 | env.SERVERBEACONPORT | string | `"{{ .Values.service.beacon.ports.beacon.targetPort }}"` |  |
 | env.SERVERGAMEPORT | string | `"{{ .Values.service.main.ports.main.targetPort }}"` |  |
 | env.SERVERIP | string | `"0.0.0.0"` |  |

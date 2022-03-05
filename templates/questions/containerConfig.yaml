@@ -1,3 +1,12 @@
+  - variable: TZ
+    label: "Timezone"
+    group: "Container Configuration"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
+
   - variable: envList
     label: "Image environment"
     group: "Container Configuration"

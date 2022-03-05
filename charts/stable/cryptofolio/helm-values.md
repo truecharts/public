@@ -11,8 +11,7 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | See below | environment variables. See more environment variables in the [cryptofolio documentation](https://cryptofolio.org/docs). |
-| env.TZ | string | `"UTC"` | Set the container timezone |
+| env | string | See below | environment variables. See more environment variables in the [cryptofolio documentation](https://cryptofolio.org/docs). |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/cryptofolio"` | image repository |
 | image.tag | string | `"v2.2.0@sha256:e77706dd4748dbdf2665cb53434802a3c2ef85f3d9b1ca809f2615b15758f3d0"` | image tag |

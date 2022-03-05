@@ -103,7 +103,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: TRUSTED_PROXIES
           label: "Trusted Proxies (First Install Only - Advanced)"
           description: "Sets nextcloud Trusted Proxies"
@@ -278,6 +277,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

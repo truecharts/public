@@ -107,7 +107,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: LDAP_LOG_LEVEL
           label: "LDAP_LOG_LEVEL"
           schema:
@@ -430,6 +429,8 @@ questions:
 # Include{persistenceAdvanced}
 
 # Include{persistenceList}
+# Include{security}
+
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"
     group: "Security and Permissions"

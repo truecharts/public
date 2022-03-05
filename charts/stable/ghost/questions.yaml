@@ -91,7 +91,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: url
           label: "URL"
           description: "Enter the URL that is used to access your publication"
@@ -452,6 +451,10 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

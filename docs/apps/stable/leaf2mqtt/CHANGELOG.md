@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="leaf2mqtt-3.0.0"></a>
+### [leaf2mqtt-3.0.0](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.42...leaf2mqtt-3.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove some ugly whitespace
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="leaf2mqtt-2.0.42"></a>
 ### [leaf2mqtt-2.0.42](https://github.com/truecharts/apps/compare/leaf2mqtt-2.0.41...leaf2mqtt-2.0.42) (2022-03-02)
 

@@ -17,7 +17,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DATABASE_USERNAME | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.EXTRA_ARGS | string | `""` |  |
 | env.NODE_ENV | string | `"production"` |  |
-| env.TZ | string | `"UTC"` |  |
 | envValueFrom.DATABASE_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.DATABASE_HOST.secretKeyRef.name | string | `"dbcreds"` |  |
 | envValueFrom.DATABASE_PASSWORD.secretKeyRef.key | string | `"postgresql-password"` |  |

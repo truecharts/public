@@ -1,6 +1,21 @@
 # Changelog<br>
 
 
+<a name="appdaemon-8.0.0"></a>
+### [appdaemon-8.0.0](https://github.com/truecharts/apps/compare/appdaemon-7.0.25...appdaemon-8.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+* fix TZ being wrongly defined in common and remove its references from some remaining Apps ([#2005](https://github.com/truecharts/apps/issues/2005))
+
+
+
 <a name="appdaemon-7.0.25"></a>
 ### [appdaemon-7.0.25](https://github.com/truecharts/apps/compare/appdaemon-7.0.24...appdaemon-7.0.25) (2022-03-02)
 

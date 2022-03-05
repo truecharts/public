@@ -1,6 +1,20 @@
 # Changelog<br>
 
 
+<a name="monica-1.0.0"></a>
+### [monica-1.0.0](https://github.com/truecharts/apps/compare/monica-0.0.45...monica-1.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
 <a name="monica-0.0.45"></a>
 ### [monica-0.0.45](https://github.com/truecharts/apps/compare/monica-0.0.44...monica-0.0.45) (2022-03-02)
 

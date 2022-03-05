@@ -1,6 +1,30 @@
 # Changelog<br>
 
 
+<a name="postgresql-7.0.0"></a>
+### [postgresql-7.0.0](https://github.com/truecharts/apps/compare/postgresql-6.0.71...postgresql-7.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm chart common to v9 ([#2013](https://github.com/truecharts/apps/issues/2013))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="postgresql-6.0.71"></a>
+### [postgresql-6.0.71](https://github.com/truecharts/apps/compare/postgresql-6.0.70...postgresql-6.0.71) (2022-03-03)
+
+#### Chore
+
+* update helm chart common to v8.17.3 ([#2009](https://github.com/truecharts/apps/issues/2009))
+
+
+
 <a name="postgresql-6.0.70"></a>
 ### [postgresql-6.0.70](https://github.com/truecharts/apps/compare/postgresql-6.0.69...postgresql-6.0.70) (2022-02-28)
 

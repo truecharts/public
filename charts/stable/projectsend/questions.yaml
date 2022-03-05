@@ -83,7 +83,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: MAX_UPLOAD
           label: "MAX_UPLOAD"
           description: "MAX_UPLOAD"
@@ -255,6 +254,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

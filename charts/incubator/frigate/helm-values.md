@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | string | `nil` |  |
 | frigate.birdseye.enabled | bool | `true` |  |
 | frigate.birdseye.mode | string | `"motion"` |  |
 | frigate.cameras[0].best_image_timeout | int | `60` |  |

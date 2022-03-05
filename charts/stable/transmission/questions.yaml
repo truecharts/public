@@ -100,7 +100,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: TRANSMISSION_ALT_SPEED_DOWN
           label: TRANSMISSION_ALT_SPEED_DOWN
           schema:
@@ -673,6 +672,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

@@ -22,15 +22,13 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DB_USERNAME | string | `"{{ .Values.postgresql.postgresqlUsername }}"` |  |
 | env.MIX_PUSHER_APP_CLUSTER | string | `"{{ .Values.env.PUSHER_APP_CLUSTER }}"` |  |
 | env.MIX_PUSHER_APP_KEY | string | `"{{ .Values.env.PUSHER_APP_KEY }}"` |  |
-| env.PHP_TZ | string | `"{{ .Values.env.TZ }}"` |  |
-| env.PUID | int | `568` |  |
+| env.PHP_TZ | string | `"{{ .Values.security.TZ }}"` |  |
 | env.PUSHER_APP_CLUSTER | string | `""` |  |
 | env.PUSHER_APP_KEY | string | `""` |  |
 | env.REDIS_PORT | string | `"6379"` |  |
 | env.SECURITY_HEADER_HSTS_ENABLE | bool | `false` |  |
 | env.SESSION_DRIVER | string | `"redis"` |  |
-| env.TIMEZONE | string | `"{{ .Values.env.TZ }}"` |  |
-| env.TZ | string | `"UTC"` |  |
+| env.TIMEZONE | string | `"{{ .Values.security.TZ }}"` |  |
 | envValueFrom.APP_KEY.secretKeyRef.key | string | `"APP_KEY"` |  |
 | envValueFrom.APP_KEY.secretKeyRef.name | string | `"lychee-secrets"` |  |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |

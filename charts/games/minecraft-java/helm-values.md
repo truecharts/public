@@ -29,13 +29,12 @@ You will, however, be able to use all values referenced in the common chart here
 | env.MODE | string | `"survival"` |  |
 | env.MOTD | string | `"Welcome to Minecraft on TrueNAS Scale!"` |  |
 | env.ONLINE_MODE | bool | `true` |  |
-| env.PUID | int | `568` |  |
 | env.PVP | bool | `false` |  |
 | env.SPAWN_ANIMALS | bool | `true` |  |
 | env.SPAWN_MONSTERS | bool | `true` |  |
 | env.SPAWN_NPCS | bool | `true` |  |
 | env.TYPE | string | `"VANILLA"` |  |
-| env.UID | string | `"{{ .Values.env.PUID }}"` |  |
+| env.UID | string | `"{{ .Values.security.PUID }}"` |  |
 | env.VERSION | string | `"LATEST"` |  |
 | env.VIEW_DISTANCE | int | `16` |  |
 | image.pullPolicy | string | `"Always"` |  |

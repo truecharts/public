@@ -10,9 +10,6 @@ podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
-env:
-  PUID: 568
-
 service:
   main:
     ports:

@@ -12,13 +12,12 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env | object | See below | environment variables. See more environment variables in the [amcrest2mqtt repo](https://github.com/dchesterton/amcrest2mqtt). |
-| env.AMCREST_HOST | string | `""` | Host name used to connect to the Amcrest device |
+| env.AMCREST_HOST | string | `"localhost"` | Host name used to connect to the Amcrest device |
 | env.AMCREST_PORT | int | `80` | Port used to connect to the Amcrest device |
 | env.HOME_ASSISTANT | string | `"false"` | Enable Home Assistant autodiscovery |
 | env.HOME_ASSISTANT_PREFIX | string | `"homeassistant"` | Home Assistant autodiscovery prefix |
 | env.MQTT_HOST | string | `"localhost"` | Host name used to connect to the MQTT broker |
 | env.MQTT_PORT | int | `1883` | Port used to connect to the MQTT broker |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/amcrest2mqtt"` | image repository |
 | image.tag | string | `"v1.0.15@sha256:e7063369671a95bea72866ca07d0b9e45ed1b204ca1df6f6e64532ed018cffa0"` | image tag |

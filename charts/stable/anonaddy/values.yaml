@@ -18,7 +18,6 @@ podSecurityContext:
 # -- environment variables. See more environment variables in the [anonaddy documentation](https://github.com/anonaddy/docker#environment-variables).
 # @default -- See below
 env:
-  PUID: 568
   # -- Root domain to receive email from
   ANONADDY_DOMAIN: chart-example.local
   DB_DATABASE: anonaddy

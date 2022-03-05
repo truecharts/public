@@ -81,7 +81,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: HOST_WHITELIST_ENTRIES
           label: "HostName Whitelist"
           description: "If you use a reverse proxy, you might need to enter your hostname's here (comma seperated)"
@@ -249,6 +248,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

@@ -4,7 +4,6 @@ image:
   tag: v8.3.0@sha256:e5e7eaed3aca927dc8337b01b21eaaf683aaee30cb55a652e142bed275e670ba
 env:
   # Permissions Settings
-  PUID: 568
   HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
   # Port to host the web service on. This will be the internal container port exposed and needs to be the same as the public service port.
   # The main http port always has to be a 1:1 mapping between external and internal port.

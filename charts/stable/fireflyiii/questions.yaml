@@ -81,7 +81,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: APP_URL
           label: "APP_URL"
           description: "Application URL eg. https://fireflyiii.mydomain.com"
@@ -255,6 +254,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

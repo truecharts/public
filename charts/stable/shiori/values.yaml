@@ -14,8 +14,6 @@ podSecurityContext:
 # See more environment variables in the shiori documentation
 # https://github.com/go-shiori/shiori/wiki/Configuration#database
 env:
-  # TZ:
-  PUID: 568
   SHIORI_PG_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   SHIORI_PG_USER: "{{ .Values.postgresql.postgresqlUsername }}"
 

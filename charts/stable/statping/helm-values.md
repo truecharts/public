@@ -19,7 +19,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.DISABLE_LOGS | bool | `false` | Disable logs from appearing and writing to disk |
 | env.NAME | string | `"Statping Example"` | Name of the Statping instance |
 | env.POSTGRES_SSLMODE | string | `"disable"` |  |
-| env.TZ | string | `"UTC"` | Set the container timezone |
 | env.USE_CDN | bool | `false` | Use CDN for static context from third-parties |
 | env.VIRTUAL_HOST | string | `""` | External URL you use to connect to the statping (the one you enter in your browser) |
 | envValueFrom.DB_HOST.secretKeyRef.key | string | `"plainhost"` |  |

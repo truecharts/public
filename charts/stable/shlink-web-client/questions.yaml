@@ -83,7 +83,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: SHLINK_SERVER_URL
           label: "Server URL"
           description: "The fully qualified URL for the Shlink server."
@@ -214,6 +213,8 @@ questions:
 # Include{ingressExpert}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

@@ -62,7 +62,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-# Include{fixedEnv}
         - variable: COMPOSE_FILE
           label: "COMPOSE_FILE"
           description: "Path on the host of the composefile you want to load. Supported are paths inside /mnt, /root and /cluster"
@@ -93,6 +92,8 @@ questions:
 # Include{persistenceList}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

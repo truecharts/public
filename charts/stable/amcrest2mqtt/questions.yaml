@@ -91,7 +91,6 @@ questions:
       type: dict
       attrs:
 
-# Include{fixedEnv}
 
         - variable: AMCREST_HOST
           label: "AMCREST_HOST"
@@ -152,6 +151,8 @@ questions:
 # Include{persistenceList}
 
 # Include{ingressList}
+
+# Include{security}
 
   - variable: advancedSecurity
     label: "Show Advanced Security Settings"

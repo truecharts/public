@@ -1,6 +1,31 @@
 # Changelog<br>
 
 
+<a name="ombi-10.0.0"></a>
+### [ombi-10.0.0](https://github.com/truecharts/apps/compare/ombi-9.0.54...ombi-10.0.0) (2022-03-03)
+
+#### Chore
+
+* remove fixed env from questions.yaml
+* remove empty env var declaration from questions.yaml
+* update helm general major helm releases ([#2021](https://github.com/truecharts/apps/issues/2021))
+
+#### Fix
+
+* BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/truecharts/apps/issues/2010))
+
+
+
+<a name="ombi-9.0.54"></a>
+### [ombi-9.0.54](https://github.com/truecharts/apps/compare/ombi-9.0.53...ombi-9.0.54) (2022-03-03)
+
+#### Chore
+
+* remove TZ from values. ([#1945](https://github.com/truecharts/apps/issues/1945))
+* update docker general non-major ([#2006](https://github.com/truecharts/apps/issues/2006))
+
+
+
 <a name="ombi-9.0.53"></a>
 ### [ombi-9.0.53](https://github.com/truecharts/apps/compare/ombi-9.0.52...ombi-9.0.53) (2022-03-02)
 

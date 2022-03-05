@@ -11,7 +11,6 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env.PUID | int | `568` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/medusa"` |  |
 | image.tag | string | `"v0.5.24@sha256:f62623c4da61ce3cbf25c8965b1c442ac74dd855099292652e7da804e19348b7"` |  |

@@ -178,6 +178,11 @@ include_questions(){
     /# Include{persistenceList}/ { for (i=0;i<n;++i) print a[i]; next }
     1' templates/questions/persistenceList.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
 
+    # Replace # Include{security} with the standard security codesnippet
+    awk 'NR==FNR { a[n++]=$0; next }
+    /# Include{security}/ { for (i=0;i<n;++i) print a[i]; next }
+    1' templates/questions/security.yaml ${target}/questions.yaml > "tmp${chartname}" && mv "tmp${chartname}" ${target}/questions.yaml
+
     # Replace # Include{securityContextAdvanced} with the standard securityContextAdvanced codesnippet
     awk 'NR==FNR { a[n++]=$0; next }
     /# Include{securityContextAdvanced}/ { for (i=0;i<n;++i) print a[i]; next }
