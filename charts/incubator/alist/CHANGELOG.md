@@ -7,4 +7,3 @@
 #### Feat
 
 * Add alist ([#1996](https://github.com/truecharts/apps/issues/1996))
-

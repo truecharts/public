@@ -8650,6 +8650,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/ddclient-0.0.1/ddclient-0.0.1.tgz
     version: 0.0.1
+  ddns-go:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - cloud
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.5.0
+    created: "2022-03-05T16:23:20.781044724Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: Automatically obtain your public network IPv4 or IPv6 address and
+      resolve it to the corresponding domain name service
+    digest: 86ce41fa1d7b4a18589920eb64436a85c980135b8b7281c58987b178b0fffd0c
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/alist
+    icon: https://truecharts.org/_static/img/appicons/ddns-go.png
+    keywords:
+    - ddns-go
+    - ddns
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: ddns-go
+    sources:
+    - https://github.com/jeessy2/ddns-go
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ddns-go-0.0.1/ddns-go-0.0.1.tgz
+    version: 0.0.1
   deconz:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -67657,4 +67690,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-05T12:30:08.62578914Z"
+generated: "2022-03-05T16:23:20.792440067Z"
