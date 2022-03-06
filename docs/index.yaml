@@ -18552,6 +18552,40 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.7.5
+    created: "2022-03-06T14:10:29.046558196Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: Grist is a modern relational spreadsheet. It combine the flexibility
+      of a spreadsheet with the robustness of a database to organize your data.
+    digest: 7358d49165298aded3a04dc2d55e48c040dab85f48a745fc76ae1d21c6c751dc
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/grist
+    icon: https://truecharts.org/_static/img/appicons/grist-icon.png
+    keywords:
+    - grist
+    - spreadsheet
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: grist
+    sources:
+    - https://hub.docker.com/r/gristlabs/grist
+    - https://github.com/gristlabs/grist-core
+    - https://support.getgrist.com/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/grist-1.0.3/grist-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.7.5
     created: "2022-03-06T10:50:54.997968828Z"
     dependencies:
     - name: common
@@ -67934,4 +67968,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-06T10:50:55.685622901Z"
+generated: "2022-03-06T14:10:29.052776345Z"
