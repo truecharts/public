@@ -20,6 +20,7 @@ service:
 env:
   OPENHAB_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
   OPENHAB_HTTPS_PORT: "{{ .Values.service.https.ports.https.port }}"
+  USER_ID: "{{ .Values.security.PUID}}"
 
 
 persistence:
