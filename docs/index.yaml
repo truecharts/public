@@ -6219,27 +6219,6 @@ entries:
   common:
   - apiVersion: v2
     appVersion: latest
-    created: "2022-03-06T15:09:48.83643235Z"
-    description: Function library for TrueCharts
-    digest: 7c2e4e74fcb2f9b06e7ee660e7d880c346470efc204844b5d3cfa895a93a73af
-    home: https://github.com/truecharts/apps/tree/master/charts/common
-    icon: https://avatars.githubusercontent.com/u/76400755
-    keywords:
-    - truecharts
-    - library-chart
-    - common
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: common
-    type: library
-    urls:
-    - https://github.com/truecharts/apps/releases/download/common-9.1.1/common-9.1.1.tgz
-    version: 9.1.1
-  - apiVersion: v2
-    appVersion: latest
     created: "2022-03-06T14:25:17.069623893Z"
     description: Function library for TrueCharts
     digest: e90b9e1e36da0cf064c22b2c4f23b9024fce88b0f526e67768d6eb160003068e
@@ -10244,6 +10223,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/dizquetv-4.0.19/dizquetv-4.0.19.tgz
     version: 4.0.19
   docker-compose:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - docker
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 20.10.12
+    created: "2022-03-06T15:48:37.896417461Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: Dedicated App for using Docker-Compose on TrueNAS SCALE
+    digest: 3ebf130e6d51f1326dd9d62d324efd95127ae9baeb17ec5b2cbee8137121bc04
+    home: https://github.com/truecharts/apps/tree/master/charts/dev/docker-compose
+    icon: https://truecharts.org/_static/img/appicons/docker-compose-icon.png
+    keywords:
+    - docker-compose
+    - docker
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: docker-compose
+    sources:
+    - https://hub.docker.com/_/docker
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/docker-compose-1.0.1/docker-compose-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -40714,38 +40724,6 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/onlyoffice-document-server-3.0.0/onlyoffice-document-server-3.0.0.tgz
     version: 3.0.0
-  openhab:
-  - annotations:
-      truecharts.org/SCALE-support: "true"
-      truecharts.org/catagories: |
-        - media
-        - test
-      truecharts.org/grade: U
-    apiVersion: v2
-    appVersion: 3.2.0
-    created: "2022-03-06T15:09:49.063587384Z"
-    dependencies:
-    - name: common
-      repository: https://truecharts.org
-      version: 9.0.0
-    description: OpenHab is a home-automation application
-    digest: da714dfd6d0fb9d6165e94be77cc73a81429a27be5ba9c0fad197401f159c5e2
-    home: https://github.com/truecharts/apps/tree/master/charts/stable/openhab
-    icon: https://truecharts.org/_static/img/appicons/openhab-icon.png
-    keywords:
-    - openhab
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: openhab
-    sources:
-    - https://hub.docker.com/r/openhab/openhab
-    type: application
-    urls:
-    - https://github.com/truecharts/apps/releases/download/openhab-0.0.1/openhab-0.0.1.tgz
-    version: 0.0.1
   openkm:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -68008,4 +67986,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-06T15:09:49.069941854Z"
+generated: "2022-03-06T15:48:37.903358687Z"

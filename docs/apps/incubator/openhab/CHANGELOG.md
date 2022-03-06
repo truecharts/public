@@ -7,4 +7,3 @@
 #### Add
 
 * add openHAB ([#2038](https://github.com/truecharts/apps/issues/2038))
-
