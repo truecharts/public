@@ -1,10 +1,10 @@
-# App Request List
+# Old App Request List
 
-_This list is to track `App Requests` from one place._
+_This is the old list that was used to track `App Requests` from one place._
 
- -> New app request should be made by creating a new issue. The issue will be checked if it's viable, linked here and closed. <-
+ -> New app request should be made by creating a new issue. <-
 
- *Note that the order of the list is not the order that each app will be added! For an app to be added, it would need someone to make a PR for it*
+ *Note that the order of the list is not the order that each app will be added or a guarantee they will be added at all! For an app to be added, it would need someone to make a PR for it*
 
 - [ ] Still to be added to TrueCharts
 - [x] Already added to TrueCharts

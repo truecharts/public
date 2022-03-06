@@ -133,6 +133,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | syncthing                  |      main       |      main       | 8384  |   TCP    |                                         |
 | unifi                      |      main       |      main       | 8443  |  HTTPS   |                                         |
 | gaps                       |      main       |      main       | 8484  |   TCP    |                                         |
+| homebridge                 |      main       |      main       | 8581  |   TCP    |      might require hostnetwork          |
 | lidarr                     |      main       |      main       | 8686  |   TCP    |                                         |
 | readarr                    |      main       |      main       | 8787  |   TCP    |                                         |
 | omada-controller           |   userportal    |    websecure    | 8843  |  HTTPS   |      Potential conflict with unifi      |
