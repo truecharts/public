@@ -26,7 +26,7 @@ You will, however, be able to use all values referenced in the common chart here
 | persistence.odoo.mountPath | string | `"/var/lib/odoo"` |  |
 | postgresql.enabled | bool | `true` |  |
 | postgresql.existingSecret | string | `"dbcreds"` |  |
-| postgresql.postgresqlDatabase | string | `"odoo"` |  |
+| postgresql.postgresqlDatabase | string | `"postgres"` |  |
 | postgresql.postgresqlUsername | string | `"odoo"` |  |
 | service.main.ports.main.port | int | `8069` |  |
 | service.main.ports.main.targetPort | int | `8069` |  |

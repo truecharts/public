@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="odoo-6.0.3"></a>
+### [odoo-6.0.3](https://github.com/truecharts/apps/compare/odoo-6.0.2...odoo-6.0.3) (2022-03-06)
+
+#### Fix
+
+* change db name to "postgres" ([#2042](https://github.com/truecharts/apps/issues/2042))
+
+
+
 <a name="odoo-6.0.2"></a>
 ### [odoo-6.0.2](https://github.com/truecharts/apps/compare/odoo-6.0.0...odoo-6.0.2) (2022-03-06)
 

@@ -12979,6 +12979,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.66.6
+    created: "2022-03-06T17:30:29.658714084Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: Allow external services to be used like Apps.
+    digest: 9c856de6ad108098f39b86e272cad8ba53609bf616a34408d18e07fde295842a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/external-service
+    icon: https://truecharts.org/_static/img/appicons/external-service-icon.png
+    keywords:
+    - external-service
+    - reverse-proxy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: external-service
+    sources:
+    - https://github.com/truecharts/apps/tree/master/charts/stable/external-service
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/external-service-5.0.1/external-service-5.0.1.tgz
+    version: 5.0.1
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - networking
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.66.6
     created: "2022-01-04T20:49:00.070838584Z"
     dependencies:
     - name: common
@@ -38679,6 +38710,48 @@ entries:
     - https://github.com/truecharts/apps/releases/download/octoprint-4.0.21/octoprint-4.0.21.tgz
     version: 4.0.21
   odoo:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "15.0"
+    created: "2022-03-06T17:30:29.922551577Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.0
+    description: All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting,
+      PM, HR, Procurement, Point of Sale, MRP, Marketing, etc.
+    digest: 50bd0848f8879afa48a2c5f21e1bf999ac00c5cb6dc6aae0662b4d3e18aec1da
+    home: https://github.com/truecharts/apps/tree/main/charts/odoo
+    icon: https://truecharts.org/_static/img/appicons/odoo-icon.png
+    keywords:
+    - odoo
+    - crm
+    - pm
+    - hr
+    - accounting
+    - mrp
+    - marketing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: odoo
+    sources:
+    - https://www.odoo.com/
+    - https://hub.docker.com/repository/docker/nicholaswilde/odoo
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/odoo-6.0.3/odoo-6.0.3.tgz
+    version: 6.0.3
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -67986,4 +68059,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-06T15:48:37.903358687Z"
+generated: "2022-03-06T17:30:29.928604806Z"
