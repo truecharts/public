@@ -12,7 +12,7 @@ podSecurityContext:
   fsGroup: 1000
 
 env:
-  GENERIC_TIMEZONE: "{{ .Values.security.TZ }}"
+  GENERIC_TIMEZONE: "{{ .Values.TZ }}"
   DB_TYPE: "postgresdb"
   DB_POSTGRESDB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
   DB_POSTGRESDB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"

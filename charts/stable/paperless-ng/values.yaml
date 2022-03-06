@@ -22,7 +22,7 @@ env:
   PAPERLESS_MEDIA_ROOT: "/media/"
   USERMAP_UID: "{{ .Values.security.PUID }}"
   USERMAP_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-  PAPERLESS_TIME_ZONE: "{{ .Values.security.TZ }}"
+  PAPERLESS_TIME_ZONE: "{{ .Values.TZ }}"
   PAPERLESS_DBNAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   PAPERLESS_DBUSER: "{{ .Values.postgresql.postgresqlUsername }}"
   PAPERLESS_DBPORT: "5432"
