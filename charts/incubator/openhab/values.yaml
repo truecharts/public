@@ -1,0 +1,34 @@
+image:
+  repository: tccr.io/truecharts/openhab
+  pullPolicy: IfNotPresent
+  tag: v3.2.0@sha256:9c7db51efcae04c3a9d0d65652121b73d23e7736c18aa3a5bd507c9219bcdaaa
+
+service:
+  main:
+    protocol: HTTP
+    ports:
+      main:
+        port: 10169
+  https:
+    protocol: HTTPS
+    enabled: true
+    ports:
+      https:
+        enabled: true
+        port: 10170
+
+env:
+  OPENHAB_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+  OPENHAB_HTTPS_PORT: "{{ .Values.service.https.ports.https.port }}"
+
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/openhab/conf"
+  addons:
+    enabled: true
+    mountPath: "/openhab/addons"
+  userdata:
+    enabled: true
+    mountPath: "/openhab/userdata"

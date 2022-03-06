@@ -325,6 +325,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | ghost                      |      main       |      main       | 10166 |   TCP    |                                         |
 | alist                      |      main       |      main       | 10167 |   TCP    |                                         |
 | ddns-go                    |      main       |      main       | 10168 |   TCP    |                                         |
+| OpenHAB                    |      main       |      main       | 10169 |   HTTP   |                                         |
+| OpenHAB                    |      main       |      main       | 10170 |   HTTPS  |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |
