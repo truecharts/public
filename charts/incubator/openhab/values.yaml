@@ -17,6 +17,14 @@ service:
         enabled: true
         port: 10170
 
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
 env:
   OPENHAB_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
   OPENHAB_HTTPS_PORT: "{{ .Values.service.https.ports.https.port }}"
