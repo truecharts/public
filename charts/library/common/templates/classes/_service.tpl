@@ -30,6 +30,9 @@ metadata:
   {{- if eq ( $primaryPort.protocol | default "" ) "HTTPS" }}
     traefik.ingress.kubernetes.io/service.serversscheme: https
   {{- end }}
+  {{- if eq ( $svcType | default "" ) "LoadBalancer" }}
+    metallb.universe.tf/allow-shared-ip: {{ include "common.names.fullname" . }}
+  {{- end }}
   {{- with $values.annotations }}
     {{ toYaml . | nindent 4 }}
   {{- end }}
