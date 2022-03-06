@@ -56,6 +56,19 @@ envValueFrom:
       name: rediscreds
       key: redis-password
 
+lifecycle:
+  postStart:
+    exec:
+      command:
+        - "/bin/bash"
+        - "-c"
+        - |
+          echo "config.php BEFORE occ commands";
+          cat /var/www/html/config/config.php;
+          runuser --user www-data -- php /var/www/html/occ config:system:set default_phone_region --value="ISO 3166-2:GR";
+          echo "config.php AFTER occ commands";
+          cat /var/www/html/config/config.php;
+
 persistence:
   data:
     enabled: true
