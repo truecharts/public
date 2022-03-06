@@ -48,6 +48,10 @@
   env:
     - name: PUID
       value: {{ .Values.security.PUID | quote }}
+    - name: USER_ID
+      value: {{ .Values.security.PUID | quote }}
+    - name: UID
+      value: {{ .Values.security.PUID | quote }}
     - name: UMASK
       value: {{ .Values.security.UMASK | quote }}
     - name: UMASK_SET
