@@ -133,7 +133,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | syncthing                  |      main       |      main       | 8384  |   TCP    |                                         |
 | unifi                      |      main       |      main       | 8443  |  HTTPS   |                                         |
 | gaps                       |      main       |      main       | 8484  |   TCP    |                                         |
-| homebridge                 |      main       |      main       | 8581  |   TCP    |      might require hostnetwork          |
+| homebridge                 |      main       |      main       | 8581  |   TCP    |       Might require Host Network        |
 | lidarr                     |      main       |      main       | 8686  |   TCP    |                                         |
 | readarr                    |      main       |      main       | 8787  |   TCP    |                                         |
 | omada-controller           |   userportal    |    websecure    | 8843  |  HTTPS   |      Potential conflict with unifi      |
@@ -326,8 +326,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | ghost                      |      main       |      main       | 10166 |   TCP    |                                         |
 | alist                      |      main       |      main       | 10167 |   TCP    |                                         |
 | ddns-go                    |      main       |      main       | 10168 |   TCP    |                                         |
-| OpenHAB                    |      main       |      main       | 10169 |   HTTP   |                                         |
-| OpenHAB                    |      main       |      main       | 10170 |   HTTPS  |                                         |
+| openhab                    |      main       |      main       | 10169 |   HTTP   |                                         |
+| openhab                    |      main       |      main       | 10170 |   HTTPS  |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |
@@ -364,6 +364,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | resilio-sync               |     bt-tcp      |     bt-tcp      | 55555 |   TCP    |                                         |
 | resilio-sync               |     bt-udp      |     bt-udp      | 55555 |   UDP    |                                         |
 | quassel-web                |      main       |      main       | 64080 |   TCP    |                                         |
+
 ## Dependency Apps
 
 | App        | Service | Port Name | Port  | Protocol | Note |
