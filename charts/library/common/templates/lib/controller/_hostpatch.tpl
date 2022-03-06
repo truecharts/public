@@ -12,7 +12,7 @@ TODO: delete docker compose deletion once iX has disabled it
   command:
     - "/bin/sh"
     - "-c"
-    - ( sysctl -w fs.inotify.max_user_watches=524288 || echo "error setting inotify") && ( sysctl -w fs.inotify.max_user_instances=512 || echo "error setting inotify") && ( chmod -x /host/usr/bin/docker-compose || echo "error locking docker-compose") && ( chmod -x /host/usr/bin/docker-compose || echo "error locking docker-compose")
+    - ( sysctl -w fs.inotify.max_user_watches=524288 || echo "error setting inotify") && ( sysctl -w fs.inotify.max_user_instances=512 || echo "error setting inotify") && ( chmod -x /host/usr/bin/docker-compose || echo "error locking docker-compose") && ( chmod -x /host/bin/docker-compose || echo "error locking docker-compose")
   volumeMounts:
     - mountPath: /host/usr/bin
       name: host-usr-bin
