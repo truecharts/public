@@ -22,8 +22,6 @@ You will, however, be able to use all values referenced in the common chart here
 | image.tag | string | `"v15.0@sha256:7ef46614779a25788c3895cfc3428ae8a80936c77a06a13085b36992ac594f0e"` |  |
 | persistence.addons.enabled | bool | `true` |  |
 | persistence.addons.mountPath | string | `"/mnt/extra-addons"` |  |
-| persistence.customconfig.enabled | bool | `true` |  |
-| persistence.customconfig.mountPath | string | `"/etc/odoo"` |  |
 | persistence.odoo.enabled | bool | `true` |  |
 | persistence.odoo.mountPath | string | `"/var/lib/odoo"` |  |
 | postgresql.enabled | bool | `true` |  |

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="odoo-6.0.2"></a>
+### [odoo-6.0.2](https://github.com/truecharts/apps/compare/odoo-6.0.0...odoo-6.0.2) (2022-03-06)
+
+#### Fix
+
+* fix some apps and move some apps to stable
+* Don't mount conf dir ([#2027](https://github.com/truecharts/apps/issues/2027))
+
+
+
 <a name="odoo-6.0.0"></a>
 ### [odoo-6.0.0](https://github.com/truecharts/apps/compare/odoo-5.0.8...odoo-6.0.0) (2022-03-03)
 

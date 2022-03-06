@@ -309,6 +309,42 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2.1.0
+    created: "2022-03-06T10:50:54.351553964Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: Alist program that supports multiple storage, powered by Gin and
+      React
+    digest: 4195ed8103c3135cb0236e46669aacb61adf3ba15c5698d359aef10387c29ec9
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/alist
+    icon: https://truecharts.org/_static/img/appicons/alist-icon.png
+    keywords:
+    - alist
+    - storage
+    - webdav
+    - google driver
+    - aliyun driver
+    - baiduyun
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: alist
+    sources:
+    - https://github.com/Xhofe/alist
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/alist-1.0.0/alist-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - cloud
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.1.0
     created: "2022-03-05T12:30:08.62034003Z"
     dependencies:
     - name: common
@@ -4149,6 +4185,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/bookstack-0.0.11/bookstack-0.0.11.tgz
     version: 0.0.11
   budge:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.0.3
+    created: "2022-03-06T10:50:54.568898483Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: Budge is an open source 'budgeting with envelopes' personal finance
+      app.
+    digest: 70cafa7e021929496ca9f220b46b188a6a5a9088c140255fac504d1683b851c8
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/budge
+    icon: https://truecharts.org/_static/img/appicons/budge-icon.png
+    keywords:
+    - finance
+    - budge
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: budge
+    sources:
+    - https://github.com/linuxserver/budge
+    - https://github.com/linuxserver/docker-BudgE
+    urls:
+    - https://github.com/truecharts/apps/releases/download/budge-1.0.1/budge-1.0.1.tgz
+    version: 1.0.1
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -8651,6 +8719,38 @@ entries:
     - https://github.com/truecharts/apps/releases/download/ddclient-0.0.1/ddclient-0.0.1.tgz
     version: 0.0.1
   ddns-go:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - cloud
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.5.0
+    created: "2022-03-06T10:50:54.788138466Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: Automatically obtain your public network IPv4 or IPv6 address and
+      resolve it to the corresponding domain name service
+    digest: 81c9bffe1aeb464f0fdca0c0cae85704c29c56a56e627b0de1b7f9140e869a85
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/alist
+    icon: https://truecharts.org/_static/img/appicons/ddns-go.png
+    keywords:
+    - ddns-go
+    - ddns
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: ddns-go
+    sources:
+    - https://github.com/jeessy2/ddns-go
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/ddns-go-1.0.0/ddns-go-1.0.0.tgz
+    version: 1.0.0
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -18445,6 +18545,40 @@ entries:
     - https://github.com/truecharts/apps/releases/download/grav-2.0.21/grav-2.0.21.tgz
     version: 2.0.21
   grist:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.7.5
+    created: "2022-03-06T10:50:54.997968828Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: Grist is a modern relational spreadsheet. It combine the flexibility
+      of a spreadsheet with the robustness of a database to organize your data.
+    digest: 59b36738e21abb577799ab8a57fa28c1187a767d513f313393a5593e9bff7300
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/grist
+    icon: https://truecharts.org/_static/img/appicons/grist-icon.png
+    keywords:
+    - grist
+    - spreadsheet
+    - database
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: grist
+    sources:
+    - https://hub.docker.com/r/gristlabs/grist
+    - https://github.com/gristlabs/grist-core
+    - https://support.getgrist.com/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/grist-1.0.2/grist-1.0.2.tgz
+    version: 1.0.2
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -38500,6 +38634,48 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: "15.0"
+    created: "2022-03-06T10:50:55.23649217Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.0
+    description: All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting,
+      PM, HR, Procurement, Point of Sale, MRP, Marketing, etc.
+    digest: 8448dc36fc1c1f38d040f24e5651afe788869de2b02d80c2fb519da2f7c8587e
+    home: https://github.com/truecharts/apps/tree/main/charts/odoo
+    icon: https://truecharts.org/_static/img/appicons/odoo-icon.png
+    keywords:
+    - odoo
+    - crm
+    - pm
+    - hr
+    - accounting
+    - mrp
+    - marketing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: odoo
+    sources:
+    - https://www.odoo.com/
+    - https://hub.docker.com/repository/docker/nicholaswilde/odoo
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/odoo-6.0.2/odoo-6.0.2.tgz
+    version: 6.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "15.0"
     created: "2022-03-03T11:52:16.405869542Z"
     dependencies:
     - name: common
@@ -38872,6 +39048,36 @@ entries:
     - https://github.com/truecharts/apps/releases/download/odoo-4.0.12/odoo-4.0.12.tgz
     version: 4.0.12
   omada-controller:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "5.0"
+    created: "2022-03-06T10:50:55.460711524Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: Omada is a SDN tool for TP-Link Omada hardware
+    digest: b59631515c2cb1d77a1c20860e2205612adf07d51206dc014ef4773d73426e07
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/omada-controller
+    icon: https://truecharts.org/_static/img/appicons/omada-controller-icon.png
+    keywords:
+    - omada-controller
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: omada-controller
+    sources:
+    - https://github.com/mbentley/docker-omada-controller
+    - https://github.com/truecharts/apps/tree/master/charts/omada-controller
+    urls:
+    - https://github.com/truecharts/apps/releases/download/omada-controller-5.0.1/omada-controller-5.0.1.tgz
+    version: 5.0.1
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -42856,6 +43062,44 @@ entries:
     - https://github.com/truecharts/apps/releases/download/pgadmin-5.0.0/pgadmin-5.0.0.tgz
     version: 5.0.0
   photoprism:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "220302"
+    created: "2022-03-06T10:50:55.678733866Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.0
+    description: PhotoPrismÂ® is a server-based application for browsing, organizing
+      and sharing your personal photo collection
+    digest: 82a59fd2813bf287bd560383b82b36401222858c53b2f20823b22244e1b71b63
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/photoprism
+    icon: https://truecharts.org/_static/img/appicons/photoprism-icon.png
+    keywords:
+    - photos
+    - photoprism
+    - pictures
+    - sharing
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: photoprism
+    sources:
+    - https://github.com/photoprism/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
+    urls:
+    - https://github.com/truecharts/apps/releases/download/photoprism-8.0.2/photoprism-8.0.2.tgz
+    version: 8.0.2
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -67690,4 +67934,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-05T16:23:20.792440067Z"
+generated: "2022-03-06T10:50:55.685622901Z"

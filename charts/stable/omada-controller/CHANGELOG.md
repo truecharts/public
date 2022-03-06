@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="omada-controller-5.0.1"></a>
+### [omada-controller-5.0.1](https://github.com/truecharts/apps/compare/omada-controller-5.0.0...omada-controller-5.0.1) (2022-03-06)
+
+#### Feat
+
+* Move to stable ([#2029](https://github.com/truecharts/apps/issues/2029))
+
+#### Fix
+
+* fix some apps and move some apps to stable
+
+
+
 <a name="omada-controller-5.0.0"></a>
 ### [omada-controller-5.0.0](https://github.com/truecharts/apps/compare/omada-controller-4.0.71...omada-controller-5.0.0) (2022-03-03)
 

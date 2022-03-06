@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="grist-1.0.2"></a>
+### [grist-1.0.2](https://github.com/truecharts/apps/compare/grist-1.0.0...grist-1.0.2) (2022-03-06)
+
+#### Fix
+
+* fix some apps and move some apps to stable
+* can't have boolean under secret ([#2031](https://github.com/truecharts/apps/issues/2031))
+
+
+
 <a name="grist-1.0.0"></a>
 ### [grist-1.0.0](https://github.com/truecharts/apps/compare/grist-0.0.6...grist-1.0.0) (2022-03-03)
 
