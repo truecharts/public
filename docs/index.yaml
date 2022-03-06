@@ -6219,27 +6219,6 @@ entries:
   common:
   - apiVersion: v2
     appVersion: latest
-    created: "2022-03-06T14:25:17.069623893Z"
-    description: Function library for TrueCharts
-    digest: e90b9e1e36da0cf064c22b2c4f23b9024fce88b0f526e67768d6eb160003068e
-    home: https://github.com/truecharts/apps/tree/master/charts/common
-    icon: https://avatars.githubusercontent.com/u/76400755
-    keywords:
-    - truecharts
-    - library-chart
-    - common
-    kubeVersion: '>=1.16.0-0'
-    maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-    name: common
-    type: library
-    urls:
-    - https://github.com/truecharts/apps/releases/download/common-9.1.0/common-9.1.0.tgz
-    version: 9.1.0
-  - apiVersion: v2
-    appVersion: latest
     created: "2022-03-03T14:39:18.98831079Z"
     description: Function library for TrueCharts
     digest: 9acb3bacbae9a90f6e62c0a7aa8c0af3777b197e9164c071612f7f1f38233069
@@ -21125,6 +21104,40 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/home-assistant-12.0.12/home-assistant-12.0.12.tgz
     version: 12.0.12
+  homebridge:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+        - test
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "2022"
+    created: "2022-03-06T14:37:04.98791466Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    description: A lightweight NodeJS server that emulates the iOS HomeKit API
+    digest: 66aafb1ef351eb00da2a4869c7ee0152714bf9c4aa114b5a05e713e551c0b0c8
+    home: https://github.com/truecharts/apps/tree/master/charts/incubator/homebridge
+    icon: https://truecharts.org/_static/img/appicons/homebridge.png
+    keywords:
+    - homebridge
+    - homekit
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: homebridge
+    sources:
+    - https://homebridge.io/
+    - https://github.com/oznu/docker-homebridge
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/homebridge-0.0.1/homebridge-0.0.1.tgz
+    version: 0.0.1
   htpcmanager:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -67955,4 +67968,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-06T14:25:17.075153837Z"
+generated: "2022-03-06T14:37:04.996743575Z"
