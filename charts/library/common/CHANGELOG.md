@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="common-9.1.0"></a>
+### [common-9.1.0](https://github.com/truecharts/apps/compare/common-9.0.1...common-9.1.0) (2022-03-06)
+
+#### Feat
+
+* bump and patch docker-compose disable
+* allow shared ip ([#2033](https://github.com/truecharts/apps/issues/2033))
+
+
+
 <a name="common-9.0.0"></a>
 ### [common-9.0.0](https://github.com/truecharts/apps/compare/common-8.17.3...common-9.0.0) (2022-03-03)
 
