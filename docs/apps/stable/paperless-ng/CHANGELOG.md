@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-2.0.1"></a>
+### [paperless-ng-2.0.1](https://github.com/truecharts/apps/compare/paperless-ng-2.0.0...paperless-ng-2.0.1) (2022-03-06)
+
+#### Chore
+
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+#### Fix
+
+* Correctly map TZ variable ([#2044](https://github.com/truecharts/apps/issues/2044))
+
+
+
 <a name="paperless-ng-2.0.0"></a>
 ### [paperless-ng-2.0.0](https://github.com/truecharts/apps/compare/paperless-ng-1.0.23...paperless-ng-2.0.0) (2022-03-03)
 

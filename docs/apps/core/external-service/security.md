@@ -12,13 +12,13 @@ hide:
 ##### Scan Results
 
 #### Chart Object: external-service/templates/common.yaml
-    
 
-      
+
+
 | No Misconfigurations found         |
 |:---------------------------------|
 
-      
+
 
 ## Containers
 
@@ -26,4 +26,3 @@ hide:
 
 
 ##### Scan Results
-

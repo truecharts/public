@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.APP_DEBUG | bool | `false` |  |
 | env.APP_ENV | string | `"production"` |  |
 | env.APP_NAME | string | `"LinkAce"` |  |
-| env.APP_TIMEZONE | string | `"{{ .Values.security.TZ }}"` |  |
+| env.APP_TIMEZONE | string | `"{{ .Values.TZ }}"` |  |
 | env.APP_URL | string | `"http://localhost"` |  |
 | env.BACKUP_DISK | string | `"s3"` |  |
 | env.BACKUP_ENABLED | bool | `false` |  |

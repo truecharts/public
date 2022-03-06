@@ -11181,6 +11181,42 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2021.09.02
+    created: "2022-03-06T19:23:01.238377601Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.0
+    description: DSMR-protocol reader, telegram data storage and energy consumption
+      visualizer.
+    digest: 980a69b00640462cdd2b2cd82c80d8bdae558a494b6f69c53e20e2edb139c7d3
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/dsmr-reader
+    icon: https://truecharts.org/_static/img/appicons/dsmr-reader.png
+    keywords:
+    - dsmr-reader
+    - energy
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: dsmr-reader
+    sources:
+    - https://github.com/dsmrreader/dsmr-reader
+    - https://github.com/xirixiz/dsmr-reader-docker
+    urls:
+    - https://github.com/truecharts/apps/releases/download/dsmr-reader-6.0.1/dsmr-reader-6.0.1.tgz
+    version: 6.0.1
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2021.09.02
     created: "2022-01-22T10:53:32.512202608Z"
     dependencies:
     - name: common
@@ -27063,6 +27099,45 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.9.1
+    created: "2022-03-06T19:23:01.517475038Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.0
+    description: Your self-hosted bookmark archive. Free and open source.
+    digest: 2d0a162082c7bd3fbe944a9b0db4b03537b401211aa12c258ff11bb0abf51b52
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/linkace
+    icon: https://truecharts.org/_static/img/appicons/linkace.png
+    keywords:
+    - linkace
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: linkace
+    sources:
+    - https://www.linkace.org/docs/
+    - https://github.com/linkace/linkace
+    - https://hub.docker.com/r/linkace/linkace
+    urls:
+    - https://github.com/truecharts/apps/releases/download/linkace-2.0.1/linkace-2.0.1.tgz
+    version: 2.0.1
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.9.1
     created: "2022-02-22T23:23:40.432109333Z"
     dependencies:
     - name: common
@@ -28674,6 +28749,48 @@ entries:
     - https://github.com/truecharts/apps/releases/download/loki-2.0.9/loki-2.0.9.tgz
     version: 2.0.9
   lychee:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.4.0
+    created: "2022-03-06T19:23:01.781010066Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.0
+    description: Lychee is a free photo-management tool, which runs on your server
+      or web-space
+    digest: 57624d01a033a13e2a2f5b4ba981aaa844e440e83760f0689d851798b11958ed
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/lychee
+    icon: https://truecharts.org/_static/img/appicons/lychee.png
+    keywords:
+    - lychee
+    - photo
+    - pictures
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: lychee
+    sources:
+    - https://github.com/LycheeOrg/Lychee
+    - https://hub.docker.com/r/lycheeorg/lychee
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lychee-11.0.1/lychee-11.0.1.tgz
+    version: 11.0.1
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -36073,6 +36190,46 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 0.162.0
+    created: "2022-03-06T19:23:02.057154979Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.0
+    description: n8n is an extendable workflow automation tool.
+    digest: fbbdd665e39d09e57e658d466cd4e17a851b3fd50acbe5b8e0d7cbeb43f054b9
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/n8n
+    icon: https://truecharts.org/_static/img/appicons/n8n.png
+    keywords:
+    - workflows
+    - automation
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: n8n
+    sources:
+    - https://docs.n8n.io/
+    - https://github.com/n8n-io/n8n
+    - https://hub.docker.com/r/n8nio/n8n
+    urls:
+    - https://github.com/truecharts/apps/releases/download/n8n-2.0.1/n8n-2.0.1.tgz
+    version: 2.0.1
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 0.162.0
     created: "2022-02-10T16:27:56.672349964Z"
     dependencies:
     - name: common
@@ -42408,6 +42565,45 @@ entries:
     - https://github.com/truecharts/apps/releases/download/owncloud-ocis-4.0.21/owncloud-ocis-4.0.21.tgz
     version: 4.0.21
   paperless-ng:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.5.0
+    created: "2022-03-06T19:23:02.339900936Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.0
+    description: Paperless-ng is an application by Daniel Quinn and contributors that
+      indexes your scanned documents.
+    digest: 449944254f7629376add2debb2de1bef82b1c08c2027913e375b428d8cad331a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/paperless-ng
+    icon: https://truecharts.org/_static/img/appicons/paperless-ng.png
+    keywords:
+    - paperless-ng
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: paperless-ng
+    sources:
+    - https://hub.docker.com/r/linuxserver/paperless-ng
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/paperless-ng-2.0.1/paperless-ng-2.0.1.tgz
+    version: 2.0.1
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -53353,6 +53549,43 @@ entries:
     - https://github.com/truecharts/apps/releases/download/readarr-9.0.30/readarr-9.0.30.tgz
     version: 9.0.30
   recipes:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.0.8
+    created: "2022-03-06T19:23:02.582627516Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.0
+    description: Recipes is a Django application to manage, tag and search recipes
+      using either built in models or external storage providers hosting PDF's, Images
+      or other files.
+    digest: 2826d08943c796def7e954eb9bb0aec6073d2ed4e974fb4552045555625ff0ad
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/recipes
+    icon: https://truecharts.org/_static/img/appicons/recipes.png
+    keywords:
+    - recipes
+    - cooking
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: recipes
+    sources:
+    - https://github.com/vabene1111/recipes
+    - https://hub.docker.com/r/vabene1111/recipes
+    urls:
+    - https://github.com/truecharts/apps/releases/download/recipes-6.0.1/recipes-6.0.1.tgz
+    version: 6.0.1
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -66328,6 +66561,47 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 4.10.1
+    created: "2022-03-06T19:23:02.949922758Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.0.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.0
+    description: Weblate is a copylefted libre software web-based continuous localization
+      system
+    digest: 1b5262c3640da88128861a4d7f53c4b54f34fd13009f720d551c24e5ea25fcb7
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/weblate
+    icon: https://truecharts.org/_static/img/appicons/weblate.png
+    keywords:
+    - translate
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: weblate
+    sources:
+    - https://github.com/WeblateOrg/weblate
+    - https://github.com/WeblateOrg/docker
+    - https://github.com/WeblateOrg/docker-compose
+    - https://docs.weblate.org/en/latest/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/weblate-2.0.1/weblate-2.0.1.tgz
+    version: 2.0.1
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.10.1
     created: "2022-01-31T07:51:20.444961562Z"
     dependencies:
     - name: common
@@ -68059,4 +68333,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-06T17:30:29.928604806Z"
+generated: "2022-03-06T19:23:02.959105421Z"

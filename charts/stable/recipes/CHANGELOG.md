@@ -1,6 +1,19 @@
 # Changelog<br>
 
 
+<a name="recipes-6.0.1"></a>
+### [recipes-6.0.1](https://github.com/truecharts/apps/compare/recipes-6.0.0...recipes-6.0.1) (2022-03-06)
+
+#### Chore
+
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+#### Fix
+
+* Correctly map TZ variable ([#2044](https://github.com/truecharts/apps/issues/2044))
+
+
+
 <a name="recipes-6.0.0"></a>
 ### [recipes-6.0.0](https://github.com/truecharts/apps/compare/recipes-5.0.25...recipes-6.0.0) (2022-03-03)
 
