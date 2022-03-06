@@ -11,6 +11,10 @@ service:
         targetPort: 8581
         port: 8581
 
+securityContext:
+  readOnlyRootFilesystem: false
+
+
 # -- environment variables. See [image docs](https://github.com/oznu/docker-homebridge#parameters) for more details.
 # @default -- See below
 env:
