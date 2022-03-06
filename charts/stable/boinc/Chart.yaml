@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: boinc
-version: 1.0.1
+version: 1.0.2
 appVersion: "latest"
 description: BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers).
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 9.0.0
+  version: 9.1.0
   # condition:
 maintainers:
 - email: info@truecharts.org

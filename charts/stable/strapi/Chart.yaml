@@ -3,7 +3,7 @@ appVersion: "3.6.8"
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 9.0.0
+  version: 9.1.0
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
@@ -24,7 +24,7 @@ sources:
 - https://hub.docker.com/r/strapi/strapi
 - https://github.com/strapi/strapi
 - https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/installation/docker.html#creating-a-strapi-project
-version: 2.0.0
+version: 2.0.1
 annotations:
   truecharts.org/catagories: |
     - media
