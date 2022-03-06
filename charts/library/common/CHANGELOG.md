@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-9.1.1"></a>
+### [common-9.1.1](https://github.com/truecharts/apps/compare/common-9.1.0...common-9.1.1) (2022-03-06)
+
+#### Feat
+
+* allow more PUID/UID types to sync with GUID/GID ([#2039](https://github.com/truecharts/apps/issues/2039))
+
+
+
 <a name="common-9.1.0"></a>
 ### [common-9.1.0](https://github.com/truecharts/apps/compare/common-9.0.1...common-9.1.0) (2022-03-06)
 

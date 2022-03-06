@@ -7,4 +7,3 @@
 #### Add
 
 * Add homebridge app ([#2034](https://github.com/truecharts/apps/issues/2034))
-
