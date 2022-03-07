@@ -28,8 +28,8 @@ envValueFrom:
       name: redmine-secrets
       key: REDMINE_SECRET_KEY_BASE
 
-# securityContext:
-#   allowPrivilegeEscalation: true
+securityContext:
+  readOnlyRootFilesystem: false
 #   runAsNonRoot: false
 
 # podSecurityContext:
