@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/memcached"` |  |
-| image.tag | string | `"v1.6.14@sha256:b6cbe86b9d72738f9fb0482a9ad84e2a8900687cd0b6f2836dc88bf74f852440"` |  |
+| image.tag | string | `"v1.6.14@sha256:7f77eb0c310f1f45fcceec3e0cf92cecd0d23a650e8cfd12f1e9ecb24591e900"` |  |
 | service.main.ports.main.port | int | `11211` |  |
 | service.main.ports.main.targetPort | int | `11211` |  |
 
