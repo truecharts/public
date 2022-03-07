@@ -14,7 +14,7 @@ env:
 
 redmine:
   plugins_migrate: true
-  no_db_migrate: true
+  no_db_migrate: false
 
 envValueFrom:
   REDMINE_DB_PASSWORD:

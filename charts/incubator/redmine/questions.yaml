@@ -74,6 +74,25 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: redmine
+    group: "Container Configuration"
+    label: "Redmine Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: plugins_migrate
+          label: "Plugins Migrate"
+          description: "Set to true and the migrate script will be automatically run on every container start"
+          schema:
+            type: boolean
+            default: true
+        - variable: no_db_migrate
+          label: "No DB Migrate"
+          description: "Set to true and the migrate script will NOT automatically run on container start."
+          schema:
+            type: boolean
+            default: false
 
 # Include{containerConfig}
 
@@ -103,7 +122,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10069
+                              default: 10171
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -138,7 +157,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8000
+                                    default: 3000
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -167,7 +186,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
+        - variable: data
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
@@ -405,17 +424,17 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: runAsNonRoot
                 label: "runAsNonRoot"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
 # Include{securityContextAdvanced}
 
   - variable: podSecurityContext
@@ -430,13 +449,13 @@ questions:
           description: "The UserID of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: runAsGroup
           label: "runAsGroup"
           description: The groupID this App of the user running the application"
           schema:
             type: int
-            default: 0
+            default: 568
         - variable: fsGroup
           label: "fsGroup"
           description: "The group that should own ALL storage."
