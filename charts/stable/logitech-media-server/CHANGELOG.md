@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="logitech-media-server-3.0.1"></a>
+### [logitech-media-server-3.0.1](https://github.com/truecharts/apps/compare/logitech-media-server-3.0.0...logitech-media-server-3.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="logitech-media-server-3.0.0"></a>
 ### [logitech-media-server-3.0.0](https://github.com/truecharts/apps/compare/logitech-media-server-2.0.67...logitech-media-server-3.0.0) (2022-03-03)
 

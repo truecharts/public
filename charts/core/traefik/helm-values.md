@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | globalArguments[0] | string | `"--global.checknewversion"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/traefik"` |  |
-| image.tag | string | `"v2.6.0@sha256:cc9fc0d653690523166b8a32b6bb6e1c609283b7c1010fe32cc4d6b43feca3ac"` |  |
+| image.tag | string | `"v2.6.1@sha256:f99d9b3b84773d118e4239a73d83b32428197803a3207a2ae58870a4f5bda8db"` |  |
 | ingressClass | object | `{"enabled":false,"fallbackApiVersion":"","isDefaultClass":false}` | Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x |
 | ingressRoute | object | `{"dashboard":{"annotations":{},"enabled":true,"labels":{}}}` | Create an IngressRoute for the dashboard |
 | logs | object | `{"access":{"enabled":false,"fields":{"general":{"defaultmode":"keep","names":{}},"headers":{"defaultmode":"drop","names":{}}},"filters":{}},"general":{"level":"ERROR"}}` | Logs https://docs.traefik.io/observability/logs/ |

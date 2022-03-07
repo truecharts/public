@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.DB_PASSWORD.secretKeyRef.name | string | `"dbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/kanboard"` | image repository |
-| image.tag | string | `"v1.2.21@sha256:49f497110c498e0911413082fec4103de068970769874804d6229bd1b0bfec51"` | image tag |
+| image.tag | string | `"v1.2.22@sha256:693507bec023dacc214fcb5bdcfc7004fd116befc8aed63b1617315bf2de8f9c"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-5.0.1"></a>
+### [owncloud-ocis-5.0.1](https://github.com/truecharts/apps/compare/owncloud-ocis-5.0.0...owncloud-ocis-5.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="owncloud-ocis-5.0.0"></a>
 ### [owncloud-ocis-5.0.0](https://github.com/truecharts/apps/compare/owncloud-ocis-4.0.45...owncloud-ocis-5.0.0) (2022-03-03)
 

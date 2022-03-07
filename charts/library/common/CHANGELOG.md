@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-9.1.2"></a>
+### [common-9.1.2](https://github.com/truecharts/apps/compare/common-9.1.1...common-9.1.2) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+
+
+
 <a name="common-9.1.1"></a>
 ### [common-9.1.1](https://github.com/truecharts/apps/compare/common-9.1.0...common-9.1.1) (2022-03-06)
 

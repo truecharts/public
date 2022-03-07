@@ -16,7 +16,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.ZIGBEE2MQTT_DATA | string | `"/data"` | Set the data folder for Zigbee2MQTT. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/zigbee2mqtt"` | image repository |
-| image.tag | string | `"v1.23.0@sha256:b75a341e4836ad932bb02a3666564cbb09b1c60b759d2785e483c1e48d59fab8"` | image tag |
+| image.tag | string | `"v1.24.0@sha256:2574cbd6af36d0305c8034804e2c64f672757133d71b14f87f36913a9b97e754"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | service | object | See values.yaml | Configures service settings for the chart. Normally this does not need to be modified. |
 

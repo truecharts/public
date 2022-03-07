@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/uptime-kuma"` |  |
-| image.tag | string | `"v1.11.4@sha256:062bdad0fd729ea626556f941990cf396d294fa6e7a18cae032f3c9793ddd61d"` |  |
+| image.tag | string | `"v1.12.1@sha256:afedd806b88c56ec0e0354d359f49294674860c39ebee7f05ba7d5d3e7849f45"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/app/data"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | string | See below | environment variables. See [application docs](https://flightaware.com/adsb/piaware/advanced_configuration) for more details. |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/piaware"` | image repository |
-| image.tag | string | `"v7.1@sha256:2a6d8838a347f53ca2d40cb2ede763451268009d98866e96990686eef5430f04"` | image tag |
+| image.tag | string | `"v7.1@sha256:4c6112b62e50521dd46a90b3a38d6f7613fd402483fb5acd6931c7b9c1253905"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |

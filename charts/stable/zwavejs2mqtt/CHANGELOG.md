@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="zwavejs2mqtt-10.0.1"></a>
+### [zwavejs2mqtt-10.0.1](https://github.com/truecharts/apps/compare/zwavejs2mqtt-10.0.0...zwavejs2mqtt-10.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="zwavejs2mqtt-10.0.0"></a>
 ### [zwavejs2mqtt-10.0.0](https://github.com/truecharts/apps/compare/zwavejs2mqtt-9.0.54...zwavejs2mqtt-10.0.0) (2022-03-03)
 

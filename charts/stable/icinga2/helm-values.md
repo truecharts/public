@@ -20,7 +20,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.MYSQL_ROOT_PASSWORD.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/icinga2"` |  |
-| image.tag | string | `"v2.13.1@sha256:64116a1e267397888bcd6dd62b428322c81bf925f955867ada5207657a9d79db"` |  |
+| image.tag | string | `"v2.13.2@sha256:53095afc1ac7deb65f9c49342ca417bd6f90df03d465863fb0b150e96b16005c"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"icinga2"` |  |

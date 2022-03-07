@@ -22,7 +22,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.CELLS_WORKING_DIR | string | `"/cells"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/pydio-cells"` |  |
-| image.tag | string | `"v3.0.4@sha256:81c6f8675ffc243af9ffab5a43da0ed50f33f0c153c352aad027127c3c0318ad"` |  |
+| image.tag | string | `"v3.0.5@sha256:b41d67d6242b128f6d70540442a70e69b24ffa97936b4470c116fd783d6b2220"` |  |
 | mariadb.enabled | bool | `true` |  |
 | mariadb.existingSecret | string | `"mariadbcreds"` |  |
 | mariadb.mariadbDatabase | string | `"pydiocells"` |  |

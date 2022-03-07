@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/ddns-go"` |  |
-| image.tag | string | `"v3.5.0@sha256:47126c3903118731d3958c7fb9a81c1beb762645c5f77137835bffa9b95a728e"` |  |
+| image.tag | string | `"v3.5.0@sha256:58e341b102ea4ae6d7ab554cbd0727b41accf1175d9113edeacd3275c9e90550"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/root"` |  |
 | service.main.ports.main.port | int | `10168` |  |

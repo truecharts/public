@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.CLI_ARGS | string | `nil` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/calibre"` |  |
-| image.tag | string | `"v5.36.08@sha256:b1358d3feff98cd3b187be778788ad74e884c46462a1a1bce081846ba38f51b0"` |  |
+| image.tag | string | `"v5.37.0@sha256:b60bbe985d4f613bfdfb691bf62c01522d6f4d6f68f449f29764dddbf7f70aa1"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

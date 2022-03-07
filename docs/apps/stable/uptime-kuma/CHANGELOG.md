@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="uptime-kuma-2.0.1"></a>
+### [uptime-kuma-2.0.1](https://github.com/truecharts/apps/compare/uptime-kuma-2.0.0...uptime-kuma-2.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="uptime-kuma-2.0.0"></a>
 ### [uptime-kuma-2.0.0](https://github.com/truecharts/apps/compare/uptime-kuma-1.0.44...uptime-kuma-2.0.0) (2022-03-03)
 

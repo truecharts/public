@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="medusa-2.0.1"></a>
+### [medusa-2.0.1](https://github.com/truecharts/apps/compare/medusa-2.0.0...medusa-2.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="medusa-2.0.0"></a>
 ### [medusa-2.0.0](https://github.com/truecharts/apps/compare/medusa-1.0.50...medusa-2.0.0) (2022-03-03)
 

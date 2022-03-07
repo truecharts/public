@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/truecharts/whoami"` |  |
-| image.tag | string | `"v1.7.1@sha256:9140a27e94fdfa538f4c7f95e4c2c6910341e21aa0e2f2703718fcfdf0cc825a"` |  |
+| image.tag | string | `"v1.8.0@sha256:057b682b74eae04bdfc994050bc3a9c1ba5c13cb6f415464828f9d4219e7331f"` |  |
 | service.main.ports.main.port | int | `8080` |  |
 
 All Rights Reserved - The TrueCharts Project

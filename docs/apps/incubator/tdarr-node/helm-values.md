@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.serverPort | int | `8266` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/tdarr_node"` |  |
-| image.tag | string | `"v2.00.13@sha256:154af1098e1bb18e092385efb5af2ba41cdcc4750504f7d9fd3175870cca9e07"` |  |
+| image.tag | string | `"v2.00.14@sha256:77e579e36d56b4b15f82f4e5c9914f157c72f054337584258f7700906e85435b"` |  |
 | persistence.configs.enabled | bool | `true` |  |
 | persistence.configs.mountPath | string | `"/app/configs"` |  |
 | persistence.logs.enabled | bool | `true` |  |

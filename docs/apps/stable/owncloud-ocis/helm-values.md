@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | string | See below | environment variables. See more environment variables in the [owncloud-ocis documentation](https://owncloud.dev/ocis/configuration/#environment-variables). |
 | image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
 | image.repository | string | `"tccr.io/truecharts/ocis"` | image repository |
-| image.tag | string | `"v1.16.0@sha256:a155374ebd2a17e0eb078dba4eb6eb0dd13f711c0536522613dbdbe23fed303c"` | image tag |
+| image.tag | string | `"v1.17.0@sha256:3721e88225a3caa157c3308cc630a3adf4ebc546a1786b9e28bf66b8fb2c3a64"` | image tag |
 | persistence | object | See values.yaml | Configure persistence settings for the chart under this key. |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | service | object | See values.yaml | Configures service settings for the chart. |

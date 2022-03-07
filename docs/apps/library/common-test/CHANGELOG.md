@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="common-test-3.3.8"></a>
+### [common-test-3.3.8](https://github.com/truecharts/apps/compare/common-test-3.3.7...common-test-3.3.8) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+
+
+
 <a name="common-test-3.3.7"></a>
 ### [common-test-3.3.7](https://github.com/truecharts/apps/compare/common-test-3.3.6...common-test-3.3.7) (2021-12-08)
 

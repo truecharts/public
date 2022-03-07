@@ -46,7 +46,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/medusa:v0.5.24@sha256:f62623c4da61ce3cbf25c8965b1c442ac74dd855099292652e7da804e19348b7
+          tccr.io/truecharts/medusa:v0.5.24@sha256:8676cdbb729a474486b06038008ce5e1d0c366c919c2f95d306110db770cff42
 
 ##### Scan Results
 

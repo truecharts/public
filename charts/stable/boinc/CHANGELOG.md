@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="boinc-1.0.2"></a>
+### [boinc-1.0.2](https://github.com/truecharts/apps/compare/boinc-1.0.1...boinc-1.0.2) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="boinc-1.0.1"></a>
 ### [boinc-1.0.1](https://github.com/truecharts/apps/compare/boinc-1.0.0...boinc-1.0.1) (2022-03-04)
 

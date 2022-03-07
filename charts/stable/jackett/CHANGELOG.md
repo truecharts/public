@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="jackett-10.0.1"></a>
+### [jackett-10.0.1](https://github.com/truecharts/apps/compare/jackett-10.0.0...jackett-10.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="jackett-10.0.0"></a>
 ### [jackett-10.0.0](https://github.com/truecharts/apps/compare/jackett-9.0.86...jackett-10.0.0) (2022-03-03)
 

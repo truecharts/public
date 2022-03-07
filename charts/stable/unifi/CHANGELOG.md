@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="unifi-10.0.1"></a>
+### [unifi-10.0.1](https://github.com/truecharts/apps/compare/unifi-10.0.0...unifi-10.0.1) (2022-03-07)
+
+#### Chore
+
+* update container image tccr.io/truecharts/unifi to v7.0.23 ([#2048](https://github.com/truecharts/apps/issues/2048))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="unifi-10.0.0"></a>
 ### [unifi-10.0.0](https://github.com/truecharts/apps/compare/unifi-9.0.48...unifi-10.0.0) (2022-03-03)
 

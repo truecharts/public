@@ -33,7 +33,7 @@ You will, however, be able to use all values referenced in the common chart here
 | executions | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/n8n"` |  |
-| image.tag | string | `"v0.162.0@sha256:46a6e260cee21b5832faac6908a71c41f8fadadf32d0c69fdcd7d11502b06582"` |  |
+| image.tag | string | `"v0.165.1@sha256:598f31ba8654267ea385214daf73e7f31259c0b5cc783c7255305445bf604983"` |  |
 | logs.N8N_LOG_FILE_LOCATION | string | `"/data/logs"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |

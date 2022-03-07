@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/ombi"` |  |
-| image.tag | string | `"v4.14.0@sha256:e71f2c89567d54c2241c70b5388fe0a341ed0541e210867acd4f8fe51d95041d"` |  |
+| image.tag | string | `"v4.14.2@sha256:077d85e01f702c89472a8757b3700922ba15fc2e1e31a0f80c5483662177d3d2"` |  |
 | mariadb.architecture | string | `"standalone"` |  |
 | mariadb.auth.database | string | `"ombi"` |  |
 | mariadb.auth.password | string | `"ombi"` |  |

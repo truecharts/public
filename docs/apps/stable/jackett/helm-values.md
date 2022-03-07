@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/jackett"` |  |
-| image.tag | string | `"v0.20.636@sha256:9ccab7aac262520c131d8a465dc8b7eb2b36b00297764f17dddeb141e069666d"` |  |
+| image.tag | string | `"v0.20.660@sha256:153f9178bcfa3a5b3756cad95939c6300767706e764e67c41e0cc053f323b77a"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.path | string | `"/UI/Login"` |  |

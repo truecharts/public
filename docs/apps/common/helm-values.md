@@ -203,7 +203,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"v14.1.0@sha256:1eb6ede5a83b4f6d15633c98b49f813b39519e3233b72e5d212a76f7e29bcd17"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"v14.2.0@sha256:77d6613230878d835e888db6bd09e4174148111ddabaa90654b4179069b5eb51"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` | Custom priority class for different treatment by the scheduler |
 | probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |

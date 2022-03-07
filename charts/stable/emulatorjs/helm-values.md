@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/emulatorjs"` |  |
-| image.tag | string | `"v1.6.7"` |  |
+| image.tag | string | `"v1.7.0"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

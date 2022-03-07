@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pihole-5.0.1"></a>
+### [pihole-5.0.1](https://github.com/truecharts/apps/compare/pihole-5.0.0...pihole-5.0.1) (2022-03-07)
+
+#### Chore
+
+* update docker general non-major ([#2046](https://github.com/truecharts/apps/issues/2046))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="pihole-5.0.0"></a>
 ### [pihole-5.0.0](https://github.com/truecharts/apps/compare/pihole-4.0.47...pihole-5.0.0) (2022-03-03)
 

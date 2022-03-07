@@ -71,7 +71,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/pydio-cells:v3.0.4@sha256:81c6f8675ffc243af9ffab5a43da0ed50f33f0c153c352aad027127c3c0318ad
+          tccr.io/truecharts/pydio-cells:v3.0.5@sha256:b41d67d6242b128f6d70540442a70e69b24ffa97936b4470c116fd783d6b2220
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/mariadb:v10.6.7@sha256:6f04288f937c9ae3577c3222de4588d6ed2699ead03bc0ef400fc0597ecb9cfc
