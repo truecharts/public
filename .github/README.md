@@ -126,7 +126,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-36-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-37-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -183,6 +183,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/dlouie-swir"><img src="https://avatars.githubusercontent.com/u/81386715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Devon Louie</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Adlouie-swir" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/Alex-Orsholits"><img src="https://avatars.githubusercontent.com/u/56907127?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Alex-Orsholits</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3AAlex-Orsholits" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
