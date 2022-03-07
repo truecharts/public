@@ -1,0 +1,56 @@
+image:
+  repository: redmine
+  pullPolicy: IfNotPresent
+  tag: 4.2.4@sha256:6601248ef7e85023c68b666bcd6f4b91223ac4db7541a396c7827e0573d29daa
+
+env:
+  REDMINE_DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  REDMINE_DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  REDMINE_DB_PORT: "5432"
+  REDMINE_NO_DB_MIGRATE: "{{ ternary \"true\" \"\" .Values.redmine.no_db_migrate }}"
+  REDMINE_PLUGINS_MIGRATE: "{{ ternary \"true\" \"\" .Values.redmine.plugins_migrate }}"
+
+redmine:
+  plugins_migrate: false
+  no_db_migrate: false
+
+envValueFrom:
+  REDMINE_DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  REDMINE_DB_POSTGRES:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  REDMINE_SECRET_KEY_BASE:
+    secretKeyRef:
+      name: redmin-secrets
+      key: REDMINE_SECRET_KEY_BASE
+
+# securityContext:
+#   allowPrivilegeEscalation: true
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10171
+        targetPort: 3000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/usr/src/redmine/files"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: redmine
+  postgresqlDatabase: redmine
