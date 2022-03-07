@@ -38,6 +38,6 @@ service:
         targetPort: 9200
 
 persistence:
-  config:
+  data:
     enabled: true
     mountPath: "/var/lib/ocis"
