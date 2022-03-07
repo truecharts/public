@@ -93,6 +93,18 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: OCIS_LOG_PRETTY
+          label: "OCIS_LOG_PRETTY"
+          description: "OCIS_LOG_PRETTY"
+          schema:
+            type: boolean
+            default: true
+        - variable: OCIS_LOG_COLOR
+          label: "OCIS_LOG_COLOR"
+          description: "OCIS_LOG_COLOR"
+          schema:
+            type: boolean
+            default: true
         - variable: PROXY_HTTP_ADDR
           label: "PROXY_HTTP_ADDR"
           description: "PROXY_HTTP_ADDR"
