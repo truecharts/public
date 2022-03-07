@@ -25,7 +25,7 @@ envValueFrom:
       key: plainhost
   REDMINE_SECRET_KEY_BASE:
     secretKeyRef:
-      name: redmin-secrets
+      name: redmine-secrets
       key: REDMINE_SECRET_KEY_BASE
 
 # securityContext:
