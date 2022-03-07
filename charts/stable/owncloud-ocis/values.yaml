@@ -1,31 +1,40 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/ocis
-  # -- image tag
   tag: v1.17.0@sha256:3721e88225a3caa157c3308cc630a3adf4ebc546a1786b9e28bf66b8fb2c3a64
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
 securityContext:
   readOnlyRootFilesystem: false
 
-# -- environment variables. See more environment variables in the [owncloud-ocis documentation](https://owncloud.dev/ocis/configuration/#environment-variables).
-# @default -- See below
 env:
-  # -- Set the container timezone
+  OCIS_INSECURE: true
+  ACCOUNTS_DEMO_USERS_AND_GROUPS: false
+  PROXY_HTTP_ADDR: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+  OCIS_URL: "https://localhost:{{ .Values.service.main.ports.main.port }}"
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+envValueFrom:
+  OCIS_JWT_SECRET:
+    secretKeyRef:
+      name: ocis-secrets
+      key: OCIS_JWT_SECRET
+  STORAGE_TRANSFER_SECRET:
+    secretKeyRef:
+      name: ocis-secrets
+      key: STORAGE_TRANSFER_SECRET
+  OCIS_MACHINE_AUTH_API_KEY:
+    secretKeyRef:
+      name: ocis-secrets
+      key: OCIS_MACHINE_AUTH_API_KEY
+
 service:
   main:
     ports:
       main:
+        protocol: HTTPS
         port: 9200
         targetPort: 9200
 
-# -- Configure persistence settings for the chart under this key.
-# @default -- See values.yaml
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    mountPath: "/var/lib/ocis"
