@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-6.0.0"></a>
+### [owncloud-ocis-6.0.0](https://github.com/truecharts/apps/compare/owncloud-ocis-5.0.2...owncloud-ocis-6.0.0) (2022-03-07)
+
+#### Fix
+
+* fix portal, add auto generated tokens, add some gui options ([#2113](https://github.com/truecharts/apps/issues/2113))
+
+
+
 <a name="owncloud-ocis-5.0.2"></a>
 ### [owncloud-ocis-5.0.2](https://github.com/truecharts/apps/compare/owncloud-ocis-5.0.1...owncloud-ocis-5.0.2) (2022-03-07)
 
