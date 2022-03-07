@@ -16,3 +16,11 @@ persistence:
   data:
     enabled: true
     mountPath: "/root"
+    
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
