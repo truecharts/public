@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="impostor-server-0.0.16"></a>
+### [impostor-server-0.0.16](https://github.com/truecharts/apps/compare/impostor-server-0.0.15...impostor-server-0.0.16) (2022-03-07)
+
+#### Chore
+
+* update helm chart common to v9.1.2 ([#2049](https://github.com/truecharts/apps/issues/2049))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="impostor-server-0.0.15"></a>
 ### [impostor-server-0.0.15](https://github.com/truecharts/apps/compare/impostor-server-0.0.14...impostor-server-0.0.15) (2022-03-03)
 

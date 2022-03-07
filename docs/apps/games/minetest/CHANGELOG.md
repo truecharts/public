@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minetest-0.0.28"></a>
+### [minetest-0.0.28](https://github.com/truecharts/apps/compare/minetest-0.0.27...minetest-0.0.28) (2022-03-07)
+
+#### Chore
+
+* update helm chart common to v9.1.2 ([#2049](https://github.com/truecharts/apps/issues/2049))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="minetest-0.0.27"></a>
 ### [minetest-0.0.27](https://github.com/truecharts/apps/compare/minetest-0.0.26...minetest-0.0.27) (2022-03-03)
 

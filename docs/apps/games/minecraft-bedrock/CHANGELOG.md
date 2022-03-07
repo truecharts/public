@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minecraft-bedrock-0.0.13"></a>
+### [minecraft-bedrock-0.0.13](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.12...minecraft-bedrock-0.0.13) (2022-03-07)
+
+#### Chore
+
+* update helm chart common to v9.1.2 ([#2049](https://github.com/truecharts/apps/issues/2049))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="minecraft-bedrock-0.0.12"></a>
 ### [minecraft-bedrock-0.0.12](https://github.com/truecharts/apps/compare/minecraft-bedrock-0.0.11...minecraft-bedrock-0.0.12) (2022-03-03)
 
