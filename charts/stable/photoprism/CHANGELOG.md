@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="photoprism-8.0.4"></a>
+### [photoprism-8.0.4](https://github.com/truecharts/apps/compare/photoprism-8.0.3...photoprism-8.0.4) (2022-03-07)
+
+#### Fix
+
+* revert last image update ([#2051](https://github.com/truecharts/apps/issues/2051))
+
+
+
 <a name="photoprism-8.0.3"></a>
 ### [photoprism-8.0.3](https://github.com/truecharts/apps/compare/photoprism-8.0.2...photoprism-8.0.3) (2022-03-07)
 
