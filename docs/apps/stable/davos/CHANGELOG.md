@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="davos-3.0.1"></a>
+### [davos-3.0.1](https://github.com/truecharts/apps/compare/davos-3.0.0...davos-3.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="davos-3.0.0"></a>
 ### [davos-3.0.0](https://github.com/truecharts/apps/compare/davos-2.0.42...davos-3.0.0) (2022-03-03)
 

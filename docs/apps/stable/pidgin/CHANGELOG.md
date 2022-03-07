@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="pidgin-1.0.1"></a>
+### [pidgin-1.0.1](https://github.com/truecharts/apps/compare/pidgin-1.0.0...pidgin-1.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="pidgin-1.0.0"></a>
 ### [pidgin-1.0.0](https://github.com/truecharts/apps/compare/pidgin-0.0.24...pidgin-1.0.0) (2022-03-03)
 

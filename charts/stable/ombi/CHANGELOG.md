@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="ombi-10.0.2"></a>
+### [ombi-10.0.2](https://github.com/truecharts/apps/compare/ombi-10.0.1...ombi-10.0.2) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* update docker general non-major ([#2108](https://github.com/truecharts/apps/issues/2108))
+
+
+
 <a name="ombi-10.0.1"></a>
 ### [ombi-10.0.1](https://github.com/truecharts/apps/compare/ombi-10.0.0...ombi-10.0.1) (2022-03-07)
 

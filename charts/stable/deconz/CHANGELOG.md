@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deconz-7.0.1"></a>
+### [deconz-7.0.1](https://github.com/truecharts/apps/compare/deconz-7.0.0...deconz-7.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="deconz-7.0.0"></a>
 ### [deconz-7.0.0](https://github.com/truecharts/apps/compare/deconz-6.0.26...deconz-7.0.0) (2022-03-03)
 

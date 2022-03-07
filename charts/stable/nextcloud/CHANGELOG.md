@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="nextcloud-12.0.2"></a>
+### [nextcloud-12.0.2](https://github.com/truecharts/apps/compare/nextcloud-12.0.1...nextcloud-12.0.2) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* update container image tccr.io/truecharts/nextcloud to v23.0.2 ([#2110](https://github.com/truecharts/apps/issues/2110))
+
+
+
 <a name="nextcloud-12.0.1"></a>
 ### [nextcloud-12.0.1](https://github.com/truecharts/apps/compare/nextcloud-12.0.0...nextcloud-12.0.1) (2022-03-07)
 

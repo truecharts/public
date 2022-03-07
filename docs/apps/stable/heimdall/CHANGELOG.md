@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="heimdall-10.0.1"></a>
+### [heimdall-10.0.1](https://github.com/truecharts/apps/compare/heimdall-10.0.0...heimdall-10.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="heimdall-10.0.0"></a>
 ### [heimdall-10.0.0](https://github.com/truecharts/apps/compare/heimdall-9.0.47...heimdall-10.0.0) (2022-03-03)
 

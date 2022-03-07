@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="grist-1.0.4"></a>
+### [grist-1.0.4](https://github.com/truecharts/apps/compare/grist-1.0.3...grist-1.0.4) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="grist-1.0.3"></a>
 ### [grist-1.0.3](https://github.com/truecharts/apps/compare/grist-1.0.2...grist-1.0.3) (2022-03-06)
 

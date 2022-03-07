@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="unmanic-2.0.1"></a>
+### [unmanic-2.0.1](https://github.com/truecharts/apps/compare/unmanic-2.0.0...unmanic-2.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="unmanic-2.0.0"></a>
 ### [unmanic-2.0.0](https://github.com/truecharts/apps/compare/unmanic-1.0.8...unmanic-2.0.0) (2022-03-03)
 

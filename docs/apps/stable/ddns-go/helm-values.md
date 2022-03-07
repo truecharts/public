@@ -11,12 +11,15 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/ddns-go"` |  |
 | image.tag | string | `"v3.5.0@sha256:58e341b102ea4ae6d7ab554cbd0727b41accf1175d9113edeacd3275c9e90550"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/root"` |  |
+| podSecurityContext.runAsGroup | int | `0` |  |
+| podSecurityContext.runAsUser | int | `0` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
+| securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10168` |  |
 | service.main.ports.main.targetPort | int | `9876` |  |
 

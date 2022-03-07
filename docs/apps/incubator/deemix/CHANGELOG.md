@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deemix-1.0.1"></a>
+### [deemix-1.0.1](https://github.com/truecharts/apps/compare/deemix-1.0.0...deemix-1.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="deemix-1.0.0"></a>
 ### [deemix-1.0.0](https://github.com/truecharts/apps/compare/deemix-0.0.2...deemix-1.0.0) (2022-03-03)
 

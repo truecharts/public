@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="statping-5.0.1"></a>
+### [statping-5.0.1](https://github.com/truecharts/apps/compare/statping-5.0.0...statping-5.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="statping-5.0.0"></a>
 ### [statping-5.0.0](https://github.com/truecharts/apps/compare/statping-4.0.34...statping-5.0.0) (2022-03-03)
 

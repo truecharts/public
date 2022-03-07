@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="syncthing-10.0.2"></a>
+### [syncthing-10.0.2](https://github.com/truecharts/apps/compare/syncthing-10.0.1...syncthing-10.0.2) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+
+
+
 <a name="syncthing-10.0.1"></a>
 ### [syncthing-10.0.1](https://github.com/truecharts/apps/compare/syncthing-10.0.0...syncthing-10.0.1) (2022-03-07)
 

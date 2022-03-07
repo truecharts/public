@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="unpackerr-5.0.1"></a>
+### [unpackerr-5.0.1](https://github.com/truecharts/apps/compare/unpackerr-5.0.0...unpackerr-5.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="unpackerr-5.0.0"></a>
 ### [unpackerr-5.0.0](https://github.com/truecharts/apps/compare/unpackerr-4.0.44...unpackerr-5.0.0) (2022-03-03)
 

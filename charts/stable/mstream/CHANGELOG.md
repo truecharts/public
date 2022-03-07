@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="mstream-2.0.1"></a>
+### [mstream-2.0.1](https://github.com/truecharts/apps/compare/mstream-2.0.0...mstream-2.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="mstream-2.0.0"></a>
 ### [mstream-2.0.0](https://github.com/truecharts/apps/compare/mstream-1.0.42...mstream-2.0.0) (2022-03-03)
 

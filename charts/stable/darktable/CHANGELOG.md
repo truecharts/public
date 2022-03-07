@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="darktable-2.0.1"></a>
+### [darktable-2.0.1](https://github.com/truecharts/apps/compare/darktable-2.0.0...darktable-2.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="darktable-2.0.0"></a>
 ### [darktable-2.0.0](https://github.com/truecharts/apps/compare/darktable-1.0.6...darktable-2.0.0) (2022-03-03)
 

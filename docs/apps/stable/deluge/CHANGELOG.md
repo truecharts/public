@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="deluge-10.0.1"></a>
+### [deluge-10.0.1](https://github.com/truecharts/apps/compare/deluge-10.0.0...deluge-10.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="deluge-10.0.0"></a>
 ### [deluge-10.0.0](https://github.com/truecharts/apps/compare/deluge-9.0.44...deluge-10.0.0) (2022-03-03)
 

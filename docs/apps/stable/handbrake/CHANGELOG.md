@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="handbrake-11.0.1"></a>
+### [handbrake-11.0.1](https://github.com/truecharts/apps/compare/handbrake-11.0.0...handbrake-11.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="handbrake-11.0.0"></a>
 ### [handbrake-11.0.0](https://github.com/truecharts/apps/compare/handbrake-10.0.23...handbrake-11.0.0) (2022-03-03)
 

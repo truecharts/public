@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="loki-3.0.1"></a>
+### [loki-3.0.1](https://github.com/truecharts/apps/compare/loki-3.0.0...loki-3.0.1) (2022-03-07)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2111](https://github.com/truecharts/apps/issues/2111))
+* Remove `-icon` string from icon png's ([#2040](https://github.com/truecharts/apps/issues/2040))
+
+
+
 <a name="loki-3.0.0"></a>
 ### [loki-3.0.0](https://github.com/truecharts/apps/compare/loki-2.0.32...loki-3.0.0) (2022-03-03)
 
