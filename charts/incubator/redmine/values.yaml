@@ -1,7 +1,7 @@
 image:
   repository: redmine
   pullPolicy: IfNotPresent
-  tag: 4.2.4@sha256:6601248ef7e85023c68b666bcd6f4b91223ac4db7541a396c7827e0573d29daa
+  tag: 4.2.4@sha256:45d8d0b3b3b1314d7c75d9fbe9c6128c1fdae02ae93784c6ac836603deb1bbbc
 
 env:
   REDMINE_DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
