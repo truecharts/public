@@ -87,6 +87,12 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: PROXY_TLS
+          label: "PROXY_TLS"
+          description: "Set to true if you are traefik"
+          schema:
+            type: boolean
+            default: true
         - variable: ACCOUNTS_DEMO_USERS_AND_GROUPS
           label: "ACCOUNTS_DEMO_USERS_AND_GROUPS"
           description: "Set to false to skip the generation of demo users in the first place"
