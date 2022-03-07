@@ -177,7 +177,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Dyllan2000alfa"><img src="https://avatars.githubusercontent.com/u/29694020?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dyllan Tinoco</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=Dyllan2000alfa" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/StevenMcElligott"><img src="https://avatars.githubusercontent.com/u/89483932?v=4?s=100" width="100px;" alt=""/><br /><sub><b>StevenMcElligott</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=StevenMcElligott" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/brothergomez"><img src="https://avatars.githubusercontent.com/u/38558969?v=4?s=100" width="100px;" alt=""/><br /><sub><b>brothergomez</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=brothergomez" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/Sagit-chu"><img src="https://avatars.githubusercontent.com/u/36596628?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sagit</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=Sagit-chu" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Sagit-chu"><img src="https://avatars.githubusercontent.com/u/36596628?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sagit</b></sub></a><br /><a href="https://github.com/truecharts/apps/commits?author=Sagit-chu" title="Code">💻</a> <a href="https://github.com/truecharts/apps/issues?q=author%3ASagit-chu" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
