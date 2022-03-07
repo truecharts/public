@@ -7,12 +7,14 @@ env:
   REDMINE_DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
   REDMINE_DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
   REDMINE_DB_PORT: "5432"
+
+  # Anything but empty means true, empty means false
   REDMINE_NO_DB_MIGRATE: "{{ ternary \"true\" \"\" .Values.redmine.no_db_migrate }}"
   REDMINE_PLUGINS_MIGRATE: "{{ ternary \"true\" \"\" .Values.redmine.plugins_migrate }}"
 
 redmine:
-  plugins_migrate: false
-  no_db_migrate: false
+  plugins_migrate: true
+  no_db_migrate: true
 
 envValueFrom:
   REDMINE_DB_PASSWORD:
@@ -30,11 +32,6 @@ envValueFrom:
 
 securityContext:
   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
-
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
 
 service:
   main:
