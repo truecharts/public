@@ -126,7 +126,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-50-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-51-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -201,6 +201,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/eingemaischt"><img src="https://avatars.githubusercontent.com/u/151498?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Philipp</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Aeingemaischt" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/j0hnby"><img src="https://avatars.githubusercontent.com/u/18377483?v=4?s=100" width="100px;" alt=""/><br /><sub><b>John</b></sub></a><br /><a href="https://github.com/truecharts/apps/issues?q=author%3Aj0hnby" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
