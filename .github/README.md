@@ -126,7 +126,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-63-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-64-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -216,6 +216,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Ornias"><img src="https://avatars.githubusercontent.com/u/20852677?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ornias</b></sub></a><br /><a href="#video-ornias" title="Videos">📹</a></td>
     <td align="center"><a href="http://joshasplund.com"><img src="https://avatars.githubusercontent.com/u/3958801?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Josh Asplund</b></sub></a><br /><a href="#financial-joshuata" title="Financial">💵</a></td>
     <td align="center"><a href="https://github.com/midnight33233"><img src="https://avatars.githubusercontent.com/u/25982892?v=4?s=100" width="100px;" alt=""/><br /><sub><b>midnight33233</b></sub></a><br /><a href="#financial-midnight33233" title="Financial">💵</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/kbftech"><img src="https://avatars.githubusercontent.com/u/77502706?v=4?s=100" width="100px;" alt=""/><br /><sub><b>kbftech</b></sub></a><br /><a href="#financial-kbftech" title="Financial">💵</a></td>
   </tr>
 </table>
 
