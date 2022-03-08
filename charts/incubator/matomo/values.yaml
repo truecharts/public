@@ -54,11 +54,11 @@ env:
 
 probes:
   liveness:
-    path: "/matomo.php"
+    path: "/index.php?module=API&method=API.getMatomoVersion"
   readiness:
-    path: "/matomo.php"
+    path: "/index.php?module=API&method=API.getMatomoVersion"
   startup:
-    path: "/matomo.php"
+    path: "/index.php?module=API&method=API.getMatomoVersion"
 
 service:
   main:
