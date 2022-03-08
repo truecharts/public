@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "2.0.35"
 description: Miniflux is a minimalist and opinionated feed reader.
 name: miniflux
-version: 5.0.1
+version: 5.0.2
 kubeVersion: ">=1.16.0-0"
 keywords:
 - miniflux
@@ -19,7 +19,7 @@ dependencies:
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 7.0.1
+  version: 7.0.2
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
