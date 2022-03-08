@@ -83,13 +83,163 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PHP_MEMORY_LIMIT
-          label: "PHP_MEMORY_LIMIT"
+        - variable: BITNAMI_DEBUG
+          label: "BITNAMI_DEBUG"
+          description: "Increase verbosity on initialization logs."
           schema:
-            type: int
-            default: 2048
+            type: boolean
+            default: false
+        - variable: MATOMO_USERNAME
+          label: "MATOMO_USERNAME (First Install Only)"
+          description: "Matomo application username"
+          schema:
+            type: string
             required: true
-
+            default: "admin"
+        - variable: MATOMO_PASSWORD
+          label: "MATOMO_PASSWORD (First Install Only)"
+          description: "Matomo application password"
+          schema:
+            type: string
+            required: true
+            private: true
+            default: ""
+        - variable: MATOMO_HOST
+          label: "MATOMO_HOST (First Install Only)"
+          description: "Matomo application host"
+          schema:
+            type: string
+            required: true
+            default: "127.0.0.1"
+        - variable: MATOMO_EMAIL
+          label: "MATOMO_EMAIL (First Install Only)"
+          description: "Matomo application email"
+          schema:
+            type: string
+            required: true
+            default: "email@example.com"
+        - variable: MATOMO_WEBSITE_NAME
+          label: "MATOMO_WEBSITE_NAME (First Install Only)"
+          description: "Name of a website to track in Matomo"
+          schema:
+            type: string
+            required: true
+            default: "My Website"
+        - variable: MATOMO_WEBSITE_HOST
+          label: "MATOMO_WEBSITE_HOST (First Install Only)"
+          description: "Website's host or domain to track in Matomo"
+          schema:
+            type: string
+            required: true
+            default: "https://web.example.com"
+        - variable: MATOMO_SMTP_HOST
+          label: "MATOMO_SMTP_HOST (First Install Only)"
+          description: "Matomo SMTP host"
+          schema:
+            type: string
+            default: ""
+        - variable: MATOMO_SMTP_PORT
+          label: "MATOMO_SMTP_PORT (First Install Only)"
+          description: "Matomo SMTP port"
+          schema:
+            type: string
+            default: ""
+        - variable: MATOMO_SMTP_USER
+          label: "MATOMO_SMTP_USER (First Install Only)"
+          description: "Matomo SMTP user"
+          schema:
+            type: string
+            default: ""
+        - variable: MATOMO_SMTP_PASSWORD
+          label: "MATOMO_SMTP_PASSWORD (First Install Only)"
+          description: "Matomo SMTP password"
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: MATOMO_SMTP_PROTOCOL
+          label: "MATOMO_SMTP_PROTOCOL (First Install Only)"
+          description: "Matomo SMTP protocol"
+          schema:
+            type: string
+            private: true
+            default: "none"
+            enum:
+              - value: ssl
+                description: "ssl"
+              - value: "tls"
+                description: "tls"
+              - value: none
+                description: "none"
+        - variable: MATOMO_SMTP_AUTH
+          label: "MATOMO_SMTP_AUTH (First Install Only)"
+          description: "Matomo SMTP authentication mechanism to use"
+          schema:
+            type: string
+            private: true
+            default: "Plain"
+            enum:
+              - value: Crammd5
+                description: "Crammd5"
+              - value: "Login"
+                description: "Login"
+              - value: Plain
+                description: "Plain"
+        - variable: phpconfig
+          label: "PHP Config (Advanced)"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: PHP_MEMORY_LIMIT
+                label: "PHP_MEMORY_LIMIT"
+                description: "Memory limit for PHP scripts"
+                schema:
+                  type: string
+                  default: "2048M"
+              - variable: PHP_ENABLE_OPCACHE
+                label: "PHP_ENABLE_OPCACHE"
+                description: "Enable OPcache for PHP scripts"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: PHP_EXPOSE_PHP
+                label: "PHP_EXPOSE_PHP"
+                description: "Enables HTTP header with PHP version"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: PHP_MAX_EXECUTION_TIME
+                label: "PHP_MAX_EXECUTION_TIME"
+                description: "Maximum execution time for PHP scripts"
+                schema:
+                  type: string
+                  default: ""
+              - variable: PHP_MAX_INPUT_TIME
+                label: "PHP_MAX_INPUT_TIME"
+                description: "Maximum input time for PHP scripts"
+                schema:
+                  type: string
+                  default: ""
+              - variable: PHP_MAX_INPUT_VARS
+                label: "PHP_MAX_INPUT_VARS"
+                description: "Maximum amount of input variables for PHP scripts"
+                schema:
+                  type: string
+                  default: ""
+              - variable: PHP_POST_MAX_SIZE
+                label: "PHP_POST_MAX_SIZE"
+                description: "Maximum size for PHP POST requests"
+                schema:
+                  type: string
+                  default: ""
+              - variable: PHP_UPLOAD_MAX_FILESIZE
+                label: "PHP_UPLOAD_MAX_FILESIZE"
+                description: "Maximum file size for PHP uploads"
+                schema:
+                  type: string
+                  default: ""
 # Include{containerConfig}
 
   - variable: service
