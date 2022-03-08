@@ -52,6 +52,14 @@ env:
   # PHP_POST_MAX_SIZE:
   # PHP_UPLOAD_MAX_FILESIZE:
 
+probes:
+  liveness:
+    path: "/index.php?"
+  readiness:
+    path: "/index.php?"
+  startup:
+    path: "/index.php?"
+
 service:
   main:
     ports:
