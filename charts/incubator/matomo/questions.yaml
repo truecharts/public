@@ -89,12 +89,6 @@ questions:
             type: int
             default: 2048
             required: true
-        - variable: cronschedule
-          label: "Cron Schedule (scheduled-tasks:run)"
-          schema:
-            type: string
-            default: "5 * * * *"
-            required: true
 
 # Include{containerConfig}
 

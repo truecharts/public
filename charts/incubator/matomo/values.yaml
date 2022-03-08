@@ -15,7 +15,6 @@ env:
   MATOMO_DATABASE_DBNAME: "{{ .Values.mariadb.mariadbDatabase }}"
   MATOMO_DATABASE_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
   PHP_MEMORY_LIMIT: 2048
-  cronschedule: "5 * * * *"
 
 service:
   main:
@@ -40,7 +39,7 @@ envValueFrom:
       key: mariadb-password
 
 cronjob:
-  schedule: "{{ .Values.env.cronschedule }}"
+  schedule: "5 * * * *"
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
