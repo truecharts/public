@@ -39,9 +39,7 @@ envValueFrom:
       key: mariadb-password
 
 cronjob:
-  # every min for test
-  schedule: "* * * * *"
-  # schedule: "5 * * * *"
+  schedule: "5 * * * *"
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
