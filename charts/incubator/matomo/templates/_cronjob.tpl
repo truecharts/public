@@ -28,6 +28,10 @@ spec:
             runAsUser: {{ .Values.podSecurityContext.runAsUser }}
             runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
           restartPolicy: Never
+          {{- with (include "common.controller.volumes" . | trim) }}
+          volumes:
+            {{- nindent 12 . }}
+          {{- end }}
           containers:
             - name: {{ .Chart.Name }}
               # securityContext:
@@ -38,23 +42,23 @@ spec:
               #   capabilities:
               #     drop:
               #       - ALL
-              env:
-                - name: MATOMO_DATABASE_HOST
-                  valueFrom:
-                    secretKeyRef:
-                      name: mariadbcreds
-                      key: plainhost
-                - name: MATOMO_DATABASE_PASSWORD
-                  valueFrom:
-                    secretKeyRef:
-                      name: mariadbcreds
-                      key: mariadb-password
-                - name: MATOMO_DATABASE_DBNAME
-                  value: "{{ .Values.mariadb.mariadbDatabase }}"
-                - name: MATOMO_DATABASE_USERNAME
-                  value: "{{ .Values.mariadb.mariadbUsername }}"
-                - name: PHP_MEMORY_LIMIT
-                  value: "2048"
+              # env:
+              #   - name: MATOMO_DATABASE_HOST
+              #     valueFrom:
+              #       secretKeyRef:
+              #         name: mariadbcreds
+              #         key: plainhost
+              #   - name: MATOMO_DATABASE_PASSWORD
+              #     valueFrom:
+              #       secretKeyRef:
+              #         name: mariadbcreds
+              #         key: mariadb-password
+              #   - name: MATOMO_DATABASE_DBNAME
+              #     value: "{{ .Values.mariadb.mariadbDatabase }}"
+              #   - name: MATOMO_DATABASE_USERNAME
+              #     value: "{{ .Values.mariadb.mariadbUsername }}"
+              #   - name: PHP_MEMORY_LIMIT
+              #     value: "2048"
               {{- with (include "common.controller.volumeMounts" . | trim) }}
               volumeMounts:
                 {{ nindent 16 . }}
