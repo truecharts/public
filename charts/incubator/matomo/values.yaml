@@ -1,27 +1,68 @@
 image:
-  repository: matomo
-  tag: 4.7.1@sha256:ae56e2dc70bb91370fb26bbda0ddfea72bea04227170a69140fdba461200224e
+  repository: bitnami/matomo
+  tag: 4.7.1@sha256:def41abb955c9ef8b46f3391f413976abbbe7e57d2b13199657718b3f9e2f2cf
   pullPolicy: IfNotPresent
 
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
 
+# Run as root for the cron to work
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
 env:
-  MATOMO_DATABASE_DBNAME: "{{ .Values.mariadb.mariadbDatabase }}"
-  MATOMO_DATABASE_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
-  PHP_MEMORY_LIMIT: 2048
+  APACHE_HTTP_PORT_NUMBER: "{{ .Values.service.main.ports.main.port }}"
+  APACHE_HTTPS_PORT_NUMBER: "{{ .Values.service.https.ports.https.port }}"
+  MATOMO_DATABASE_PORT_NUMBER: 3306
+  MATOMO_DATABASE_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+  MATOMO_DATABASE_USER: "{{ .Values.mariadb.mariadbUsername }}"
+  # User / Site Config
+  MATOMO_USERNAME: "mysuperuser"
+  MATOMO_PASSWORD: "mysuperpassword"
+  MATOMO_EMAIL: "myemail@example.com"
+  MATOMO_WEBSITE_NAME: "My Website"
+  MATOMO_WEBSITE_HOST: "https://web.example.com"
+  MATOMO_HOST: "127.0.0.1"
+  # Reverse Proxy Config
+  MATOMO_ENABLE_PROXY_URI_HEADER: false
+  MATOMO_ENABLE_ASSUME_SECURE_PROTOCOL: false
+  MATOMO_ENABLE_FORCE_SSL: false
+  # No defaults, but usually this header is used
+  # MATOMO_PROXY_CLIENT_HEADER: "HTTP_X_FORWARDED_FOR"
+  # SMTP Config
+  MATOMO_SMTP_HOST: ""
+  MATOMO_SMTP_PORT: ""
+  MATOMO_SMTP_USER: ""
+  MATOMO_SMTP_PASSWORD: ""
+  # Available protocols are: "ssl", "tls", "none"
+  MATOMO_SMTP_PROTOCOL: ""
+  # Available mechanisms are: "Plain", "Login", "Crammd5"
+  MATOMO_SMTP_AUTH: "Plain"
+  # PHP Config
+  PHP_MEMORY_LIMIT: "2048M"
+  # PHP_ENABLE_OPCACHE:
+  # PHP_EXPOSE_PHP:
+  # PHP_MAX_EXECUTION_TIME:
+  # PHP_MAX_INPUT_TIME:
+  # PHP_MAX_INPUT_VARS:
+  # PHP_POST_MAX_SIZE:
+  # PHP_UPLOAD_MAX_FILESIZE:
 
 service:
   main:
     ports:
       main:
+        protocol: HTTP
         port: 10172
-        targetPort: 80
+        targetPort: 10172
+  https:
+    ports:
+      https:
+        protocol: HTTPS
+        port: 10173
+        targetPort: 10173
 
 persistence:
   data:
@@ -37,12 +78,6 @@ envValueFrom:
     secretKeyRef:
       name: mariadbcreds
       key: mariadb-password
-
-cronjob:
-  schedule: "5 * * * *"
-  annotations: {}
-  failedJobsHistoryLimit: 5
-  successfulJobsHistoryLimit: 2
 
 mariadb:
   enabled: true
