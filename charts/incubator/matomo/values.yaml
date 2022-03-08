@@ -67,7 +67,7 @@ service:
 persistence:
   data:
     enabled: true
-    mountPath: "/var/www/html"
+    mountPath: "/bitnami/matomo"
 
 envValueFrom:
   MATOMO_DATABASE_HOST:
