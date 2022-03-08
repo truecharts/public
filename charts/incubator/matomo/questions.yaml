@@ -83,11 +83,17 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: ANONADDY_DOMAIN
-          label: "ANONADDY_DOMAIN"
+        - variable: PHP_MEMORY_LIMIT
+          label: "PHP_MEMORY_LIMIT"
+          schema:
+            type: int
+            default: 2048
+            required: true
+        - variable: cronschedule
+          label: "Cron Schedule (scheduled-tasks:run)"
           schema:
             type: string
-            default: ""
+            default: "5 * * * *"
             required: true
 
 # Include{containerConfig}
@@ -118,7 +124,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10110
+                              default: 10172
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -158,67 +164,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 8000
-        - variable: smtp
-          label: "smtp Service"
-          description: "The smtp service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
-                    - variable: smtp
-                      label: "smtp Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 25
-                              required: true
-                          - variable: advanced
-                            label: "Show Advanced settings"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_subquestions_if: true
-                              subquestions:
-                                - variable: enabled
-                                  label: "Enable the port"
-                                  schema:
-                                    type: boolean
-                                    default: true
-                                - variable: protocol
-                                  label: "Port Type"
-                                  schema:
-                                    type: string
-                                    default: "HTTP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
-                                - variable: nodePort
-                                  label: "Node Port (Optional)"
-                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
-                                  schema:
-                                    type: int
-                                    min: 9000
-                                    max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 25
+                                    default: 80
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -247,7 +193,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: config
+        - variable: data
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
