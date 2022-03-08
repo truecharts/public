@@ -36,23 +36,23 @@ spec:
             - name: {{ .Chart.Name }}
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               imagePullPolicy: {{ default .Values.image.pullPolicy }}
-              # env:
-              #   - name: MATOMO_DATABASE_HOST
-              #     valueFrom:
-              #       secretKeyRef:
-              #         name: mariadbcreds
-              #         key: plainhost
-              #   - name: MATOMO_DATABASE_PASSWORD
-              #     valueFrom:
-              #       secretKeyRef:
-              #         name: mariadbcreds
-              #         key: mariadb-password
-              #   - name: MATOMO_DATABASE_DBNAME
-              #     value: "{{ .Values.mariadb.mariadbDatabase }}"
-              #   - name: MATOMO_DATABASE_USERNAME
-              #     value: "{{ .Values.mariadb.mariadbUsername }}"
-              #   - name: PHP_MEMORY_LIMIT
-              #     value: "2048"
+              env:
+                - name: MATOMO_DATABASE_HOST
+                  valueFrom:
+                    secretKeyRef:
+                      name: mariadbcreds
+                      key: plainhost
+                - name: MATOMO_DATABASE_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: mariadbcreds
+                      key: mariadb-password
+                - name: MATOMO_DATABASE_DBNAME
+                  value: "{{ .Values.mariadb.mariadbDatabase }}"
+                - name: MATOMO_DATABASE_USERNAME
+                  value: "{{ .Values.mariadb.mariadbUsername }}"
+                - name: PHP_MEMORY_LIMIT
+                  value: "2048"
               command:
               - /bin/bash
               - -c
@@ -66,9 +66,9 @@ spec:
                 readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
                 allowPrivilegeEscalation: false
                 runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-              #   capabilities:
-              #     drop:
-              #       - ALL
+                # capabilities:
+                #   drop:
+                #     - ALL
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 
