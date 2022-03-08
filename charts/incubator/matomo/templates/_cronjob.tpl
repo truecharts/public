@@ -66,9 +66,9 @@ spec:
                 readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
                 allowPrivilegeEscalation: false
                 runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
-                # capabilities:
-                #   drop:
-                #     - ALL
+                capabilities:
+                  drop:
+                    - ALL
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 
