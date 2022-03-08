@@ -54,7 +54,10 @@ spec:
                 - name: MATOMO_DATABASE_USERNAME
                   value: "{{ .Values.mariadb.mariadbUsername }}"
                 - name: PHP_MEMORY_LIMIT
-                  value: 2048
+                  value: "2048"
+              volumeMounts:
+                - name: data
+                  mountPath: "/var/www/html"
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               command:
               - /bin/bash
