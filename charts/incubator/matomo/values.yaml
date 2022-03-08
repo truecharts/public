@@ -15,7 +15,7 @@ env:
   MATOMO_DATABASE_DBNAME: "{{ .Values.mariadb.mariadbDatabase }}"
   MATOMO_DATABASE_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
   PHP_MEMORY_LIMIT: 2048
-  cronschedule: "* * * * *"
+  cronschedule: "5 * * * *"
 
 service:
   main:
