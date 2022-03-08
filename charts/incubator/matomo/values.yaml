@@ -54,11 +54,14 @@ env:
 
 probes:
   liveness:
-    path: "/index.php?module=API&method=API.getMatomoVersion"
+    path: "/index.php"
+    initialDelaySeconds: 120
   readiness:
-    path: "/index.php?module=API&method=API.getMatomoVersion"
+    path: "/index.php"
+    initialDelaySeconds: 120
   startup:
-    path: "/index.php?module=API&method=API.getMatomoVersion"
+    path: "/index.php"
+    initialDelaySeconds: 120
 
 service:
   main:
