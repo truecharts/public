@@ -34,14 +34,8 @@ spec:
           {{- end }}
           containers:
             - name: {{ .Chart.Name }}
-              # securityContext:
-              #   privileged: false
-              #   readOnlyRootFilesystem: true
-              #   allowPrivilegeEscalation: false
-              #   runAsNonRoot: true
-              #   capabilities:
-              #     drop:
-              #       - ALL
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ default .Values.image.pullPolicy }}
               # env:
               #   - name: MATOMO_DATABASE_HOST
               #     valueFrom:
@@ -59,15 +53,22 @@ spec:
               #     value: "{{ .Values.mariadb.mariadbUsername }}"
               #   - name: PHP_MEMORY_LIMIT
               #     value: "2048"
-              {{- with (include "common.controller.volumeMounts" . | trim) }}
-              volumeMounts:
-                {{ nindent 16 . }}
-              {{- end }}
-              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               command:
               - /bin/bash
               - -c
               - /usr/local/bin/php /var/www/html/console scheduled-tasks:run
+              {{- with (include "common.controller.volumeMounts" . | trim) }}
+              volumeMounts:
+                {{ nindent 16 . }}
+              {{- end }}
+              securityContext:
+                privileged: false
+                readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
+                allowPrivilegeEscalation: false
+                runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+              #   capabilities:
+              #     drop:
+              #       - ALL
               resources:
 {{ toYaml .Values.resources | indent 16 }}
 

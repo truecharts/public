@@ -3,13 +3,13 @@ image:
   tag: 4.7.1@sha256:ae56e2dc70bb91370fb26bbda0ddfea72bea04227170a69140fdba461200224e
   pullPolicy: IfNotPresent
 
-# securityContext:
-#   runAsNonRoot: false
-#   readOnlyRootFilesystem: false
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 env:
   MATOMO_DATABASE_DBNAME: "{{ .Values.mariadb.mariadbDatabase }}"
