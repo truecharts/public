@@ -55,9 +55,10 @@ spec:
                   value: "{{ .Values.mariadb.mariadbUsername }}"
                 - name: PHP_MEMORY_LIMIT
                   value: "2048"
+              {{- with (include "common.controller.volumeMounts" . | trim) }}
               volumeMounts:
-                - name: data
-                  mountPath: "/var/www/html"
+                {{ nindent 16 . }}
+              {{- end }}
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               command:
               - /bin/bash
