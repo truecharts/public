@@ -54,11 +54,11 @@ env:
 
 probes:
   liveness:
-    path: "/index.php?"
+    path: "/matomo.php"
   readiness:
-    path: "/index.php?"
+    path: "/matomo.php"
   startup:
-    path: "/index.php?"
+    path: "/matomo.php"
 
 service:
   main:
