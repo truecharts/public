@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="airsonic-advanced-2.0.2"></a>
+### [airsonic-advanced-2.0.2](https://github.com/truecharts/apps/compare/airsonic-advanced-2.0.1...airsonic-advanced-2.0.2) (2022-03-08)
+
+#### Chore
+
+* update helm general non-major helm releases ([#2116](https://github.com/truecharts/apps/issues/2116))
+
+
+
 <a name="airsonic-advanced-2.0.1"></a>
 ### [airsonic-advanced-2.0.1](https://github.com/truecharts/apps/compare/airsonic-advanced-2.0.0...airsonic-advanced-2.0.1) (2022-03-07)
 
