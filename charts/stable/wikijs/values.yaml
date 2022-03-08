@@ -1,23 +1,9 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/wikijs
-  # -- image tag
   tag: v2.5.276@sha256:5caedcd71492d09be8272d754eb93c7b3eabfc8db30cf71ff00b2fd809549954
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-# -- environment variables. See [image docs](https://docs.linuxserver.io/images/docker-wikijs#environment-variables-e) for more details.
-# @default -- See below
 env:
-  # -- Set the container timezone
   DB_TYPE: "postgres"
   DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
@@ -33,8 +19,14 @@ envValueFrom:
       name: dbcreds
       key: plainhost
 
-# -- Configures service settings for the chart.
-# @default -- See values.yaml
+probes:
+  liveness:
+    path: "/healthz"
+  readiness:
+    path: "/healthz"
+  startup:
+    path: "/healthz"
+
 service:
   main:
     ports:
@@ -42,9 +34,17 @@ service:
         port: 10045
         targetPort: 3000
 
-# Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: wikijs
   postgresqlDatabase: wikijs
+
+
+# /wiki/data is a temporary dir. Without mounting as emptyDir it's only writable by root.
+# https://docs.requarks.io/en/install/config#data-paths
+persistence:
+  wikicache:
+    enabled: true
+    mountPath: "/wiki/data/"
+    type: emptyDir
