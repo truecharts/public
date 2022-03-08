@@ -329,6 +329,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | openhab                    |      main       |      main       | 10169 |   HTTP   |                                         |
 | openhab                    |      https      |      https      | 10170 |  HTTPS   |                                         |
 | redmine                    |      main       |      main       | 10171 |   HTTP   |                                         |
+| matomo                     |      main       |      main       | 10172 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |

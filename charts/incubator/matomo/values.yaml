@@ -1,0 +1,54 @@
+image:
+  repository: matomo
+  tag: 4.7.1@sha256:ae56e2dc70bb91370fb26bbda0ddfea72bea04227170a69140fdba461200224e
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   runAsNonRoot: false
+#   readOnlyRootFilesystem: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  MATOMO_DATABASE_DBNAME: "{{ .Values.mariadb.mariadbDatabase }}"
+  MATOMO_DATABASE_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+  PHP_MEMORY_LIMIT: 2048
+
+service:
+  main:
+    ports:
+      main:
+        port: 10172
+        targetPort: 80
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/var/www/html"
+
+envValueFrom:
+  MATOMO_DATABASE_HOST:
+    secretKeyRef:
+      name: mariadbcreds
+      key: plainhost
+  MATOMO_DATABASE_PASSWORD:
+    secretKeyRef:
+      name: mariadbcreds
+      key: mariadb-password
+
+cronjob:
+  # every min for test
+  schedule: "* * * * *"
+  # schedule: "5 * * * *"
+  annotations: {}
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 2
+
+
+mariadb:
+  enabled: true
+  mariadbUsername: matomo
+  mariadbDatabase: matomo
+  existingSecret: "mariadbcreds"
