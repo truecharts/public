@@ -55,13 +55,10 @@ env:
 probes:
   liveness:
     path: "/index.php"
-    initialDelaySeconds: 240
   readiness:
     path: "/index.php"
-    initialDelaySeconds: 240
   startup:
     path: "/index.php"
-    initialDelaySeconds: 240
 
 service:
   main:
