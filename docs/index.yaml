@@ -33027,6 +33027,42 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/mariadb-1.0.25/mariadb-1.0.25.tgz
     version: 1.0.25
+  matomo:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.7.1
+    created: "2022-03-09T20:10:46.952788427Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.1
+    description: Matomo is the leading Free/Libre open analytics platform
+    digest: c523990b56037269f9fe21ae5d85eff5a29e825c702a04994bc4aa5852f339a0
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/matomo
+    icon: https://truecharts.org/_static/img/appicons/matomo.png
+    keywords:
+    - analytics
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: matomo
+    sources:
+    - https://hub.docker.com/_/matomo
+    - https://github.com/matomo-org/docker
+    - https://github.com/matomo-org/matomo
+    urls:
+    - https://github.com/truecharts/apps/releases/download/matomo-0.0.1/matomo-0.0.1.tgz
+    version: 0.0.1
   mealie:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -73282,4 +73318,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-09T18:22:59.370217988Z"
+generated: "2022-03-09T20:10:46.960376915Z"
