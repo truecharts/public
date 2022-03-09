@@ -55,6 +55,8 @@ You will, however, be able to use all values referenced in the common chart here
 | probes.startup.path | string | `"/index.php"` |  |
 | securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
+| service.https.enabled | bool | `true` |  |
+| service.https.ports.https.enabled | bool | `true` |  |
 | service.https.ports.https.port | int | `10173` |  |
 | service.https.ports.https.protocol | string | `"HTTPS"` |  |
 | service.https.ports.https.targetPort | int | `10173` |  |

@@ -7,4 +7,3 @@
 #### Feat
 
 * Add storj-node ([#2119](https://github.com/truecharts/apps/issues/2119))
-
