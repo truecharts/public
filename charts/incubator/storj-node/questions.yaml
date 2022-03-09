@@ -83,6 +83,7 @@ questions:
       attrs:
         - variable: WALLET
           label: "WALLET"
+          description: "A wallet address to receive STORJ token payouts for running the node."
           schema:
             type: string
             default: ""
