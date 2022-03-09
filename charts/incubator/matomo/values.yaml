@@ -68,8 +68,10 @@ service:
         port: 10172
         targetPort: 10172
   https:
+    enabled: true
     ports:
       https:
+        enabled: true
         protocol: HTTPS
         port: 10173
         targetPort: 10173
