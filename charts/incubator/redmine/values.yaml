@@ -1,0 +1,53 @@
+image:
+  repository: tccr.io/truecharts/redmine
+  pullPolicy: IfNotPresent
+  tag: v4.2.4@sha256:5dec2ce2ea609a1b59101ab4903efa5177082c6603d73e8d5b7e6a0136ccb42a
+
+env:
+  REDMINE_DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  REDMINE_DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  REDMINE_DB_PORT: "5432"
+
+  # Anything but empty means true, empty means false
+  REDMINE_NO_DB_MIGRATE: "{{ ternary \"true\" \"\" .Values.redmine.no_db_migrate }}"
+  REDMINE_PLUGINS_MIGRATE: "{{ ternary \"true\" \"\" .Values.redmine.plugins_migrate }}"
+
+redmine:
+  plugins_migrate: true
+  no_db_migrate: false
+
+envValueFrom:
+  REDMINE_DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  REDMINE_DB_POSTGRES:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  REDMINE_SECRET_KEY_BASE:
+    secretKeyRef:
+      name: redmine-secrets
+      key: REDMINE_SECRET_KEY_BASE
+
+securityContext:
+  readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10171
+        targetPort: 3000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/usr/src/redmine/files"
+
+# Enabled postgres
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: redmine
+  postgresqlDatabase: redmine
