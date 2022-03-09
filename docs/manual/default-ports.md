@@ -328,6 +328,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | ddns-go                    |      main       |      main       | 10168 |   TCP    |                                         |
 | openhab                    |      main       |      main       | 10169 |   HTTP   |                                         |
 | openhab                    |      main       |      main       | 10170 |   HTTPS  |                                         |
+| flexget                    |      main       |      main       | 10171 |   HTTP   |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |

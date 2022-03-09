@@ -1,0 +1,30 @@
+image:
+  repository: tccr.io/truecharts/flexget
+  pullPolicy: IfNotPresent
+  tag: v6.5@sha256:ccdb84bd5f8970f022c4dbe62f5b6d4b795304c6c02def8fc5369d9725fae140
+
+securityContext:
+  runAsNonRoot: false
+  readOnlyRootFilesystem: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 568
+
+service:
+  main:
+    ports:
+      main:
+        port: 10171
+        targetPort: 3539
+
+secret:
+  FG_WEBUI_PASSWD: "changeme"
+
+env: {}
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
