@@ -64198,6 +64198,40 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/statping-4.0.12/statping-4.0.12.tgz
     version: 4.0.12
+  storj-node:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.49.5
+    created: "2022-03-09T23:12:08.006683496Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: Storj is an S3-compatible platform and suite of decentralized applications
+      that allows you to store data in a secure and decentralized manner
+    digest: 6410f3af3f7c92b7dcb9e78e180656e1fe3d0e2859852128dbca36026a946e76
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/storj-node
+    icon: https://truecharts.org/_static/img/appicons/storj-node.png
+    keywords:
+    - storj
+    - storage
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: storj-node
+    sources:
+    - https://github.com/storj/storj
+    - https://docs.storj.io/node/
+    - https://hub.docker.com/r/storjlabs/storagenode
+    urls:
+    - https://github.com/truecharts/apps/releases/download/storj-node-0.0.1/storj-node-0.0.1.tgz
+    version: 0.0.1
   strapi:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -73318,4 +73352,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-09T20:10:46.960376915Z"
+generated: "2022-03-09T23:12:08.013914964Z"

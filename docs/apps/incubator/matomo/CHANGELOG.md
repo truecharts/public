@@ -7,4 +7,3 @@
 #### Feat
 
 * Add matomo ([#2115](https://github.com/truecharts/apps/issues/2115))
-
