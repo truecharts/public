@@ -34,14 +34,6 @@ envValueFrom:
     secretKeyRef:
       name: dbcreds
       key: plainporthost
-  REDIS_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  REDIS_HOST_PASSWORD:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
 
 persistence:
   data:
@@ -53,7 +45,3 @@ mariadb:
   existingSecret: "dbcreds"
   mariadbUsername: seafile
   mariadbDatabase: seafile
-
-redis:
-  enabled: true
-  existingSecret: "rediscreds"
