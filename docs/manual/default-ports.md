@@ -331,6 +331,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | redmine                    |      main       |      main       | 10171 |   HTTP   |                                         |
 | matomo                     |      main       |      main       | 10172 |   HTTP   |                                         |
 | matomo                     |      https      |      https      | 10173 |  HTTPS   |                                         |
+| seafile                    |      https      |      https      | 10175 |   HTTP   |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |

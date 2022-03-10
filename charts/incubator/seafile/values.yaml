@@ -1,0 +1,61 @@
+image:
+  repository: seafileltd/seafile-mc
+  pullPolicy: IfNotPresent
+  tag: 9.0.4@sha256:22fa02f3ba24433633f98689d2855ecb9a7a049866f20f54f652be8c476af6c6
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10175
+        targetPort: 80
+secret:
+  SEAFILE_ADMIN_EMAIL: "me@example.com"
+  SEAFILE_ADMIN_PASSWORD: "adminpass"
+
+env:
+  MARIA_DB: "{{ .Values.mariadb.mariadbDatabase }}"
+  MARIA_USER: "{{ .Values.mariadb.mariadbUsername }}"
+
+envValueFrom:
+  DB_ROOT_PASSWD:
+    secretKeyRef:
+      name: dbcreds
+      key: mariadb-password
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainporthost
+  REDIS_HOST:
+    secretKeyRef:
+      name: rediscreds
+      key: plainhost
+  REDIS_HOST_PASSWORD:
+    secretKeyRef:
+      name: rediscreds
+      key: redis-password
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/shared"
+
+
+
+mariadb:
+  enabled: true
+  existingSecret: "dbcreds"
+  mariadbUsername: seafile
+  mariadbDatabase: seafile
+
+redis:
+  enabled: true
+  existingSecret: "rediscreds"
