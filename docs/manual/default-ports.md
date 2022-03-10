@@ -327,8 +327,12 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | alist                      |      main       |      main       | 10167 |   TCP    |                                         |
 | ddns-go                    |      main       |      main       | 10168 |   TCP    |                                         |
 | openhab                    |      main       |      main       | 10169 |   HTTP   |                                         |
-| openhab                    |      main       |      main       | 10170 |   HTTPS  |                                         |
-| flexget                    |      main       |      main       | 10173 |   HTTP   |                                         |
+| openhab                    |      https      |      https      | 10170 |  HTTPS   |                                         |
+| redmine                    |      main       |      main       | 10171 |   HTTP   |                                         |
+| matomo                     |      main       |      main       | 10172 |   HTTP   |                                         |
+| matomo                     |      https      |      https      | 10173 |  HTTPS   |                                         |
+| flexget                    |      main       |      main       | 10174 |   HTTP   |                                         |
+| storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
 | minecraft-bedrock          |      main       |      main       | 19132 |   UDP    |                                         |
@@ -344,6 +348,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | impostor-server            |      main       |      main       | 22023 |   UDP    |                                         |
 | joplin-server              |      main       |      main       | 22300 |   TCP    |                                         |
 | minecraft-java             |      main       |      main       | 25565 |   TCP    |                                         |
+| storj-node                 |     coretcp     |     coretcp     | 28967 |   TCP    |                                         |
+| storj-node                 |     coreudp     |     coreudp     | 28967 |   UDP    |                                         |
 | omada-controller           |    omada-udp    |   omada-udp1    | 29810 |   UDP    |                                         |
 | omada-controller           |    omada-tcp    |   omada-tcp2    | 29811 |   TCP    |                                         |
 | omada-controller           |    omada-tcp    |   omada-tcp3    | 29812 |   TCP    |                                         |

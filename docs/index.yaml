@@ -33027,6 +33027,77 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/mariadb-1.0.25/mariadb-1.0.25.tgz
     version: 1.0.25
+  matomo:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.7.1
+    created: "2022-03-09T23:47:57.958147548Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.1
+    description: Matomo is the leading Free/Libre open analytics platform
+    digest: 7d8b5c95b653ee739f7ecf05abead584956a0658ad78f6d548a6676e73c8298a
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/matomo
+    icon: https://truecharts.org/_static/img/appicons/matomo.png
+    keywords:
+    - analytics
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: matomo
+    sources:
+    - https://hub.docker.com/_/matomo
+    - https://github.com/matomo-org/docker
+    - https://github.com/matomo-org/matomo
+    urls:
+    - https://github.com/truecharts/apps/releases/download/matomo-0.0.2/matomo-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.7.1
+    created: "2022-03-09T20:10:46.952788427Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.1
+    description: Matomo is the leading Free/Libre open analytics platform
+    digest: c523990b56037269f9fe21ae5d85eff5a29e825c702a04994bc4aa5852f339a0
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/matomo
+    icon: https://truecharts.org/_static/img/appicons/matomo.png
+    keywords:
+    - analytics
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: matomo
+    sources:
+    - https://hub.docker.com/_/matomo
+    - https://github.com/matomo-org/docker
+    - https://github.com/matomo-org/matomo
+    urls:
+    - https://github.com/truecharts/apps/releases/download/matomo-0.0.1/matomo-0.0.1.tgz
+    version: 0.0.1
   mealie:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -59543,6 +59614,47 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/redis-1.0.27/redis-1.0.27.tgz
     version: 1.0.27
+  redmine:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.2.4
+    created: "2022-03-09T18:22:59.361172009Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.1
+    description: Redmine is a flexible project management web application written
+      using Ruby on Rails framework.
+    digest: 6262a488eb7874e3f5bfcd04dab3cfa4b8697a3c34e42c30908502e2f6d5a398
+    home: https://github.com/truecharts/apps/tree/main/charts/redmine
+    icon: https://truecharts.org/_static/img/appicons/redmine.png
+    keywords:
+    - project
+    - management
+    - time
+    - tracking
+    - ticket
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: redmine
+    sources:
+    - https://github.com/redmine/redmine
+    - https://hub.docker.com/_/redmine
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/redmine-0.0.1/redmine-0.0.1.tgz
+    version: 0.0.1
   reg:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -64121,6 +64233,40 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/statping-4.0.12/statping-4.0.12.tgz
     version: 4.0.12
+  storj-node:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.49.5
+    created: "2022-03-09T23:12:08.006683496Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: Storj is an S3-compatible platform and suite of decentralized applications
+      that allows you to store data in a secure and decentralized manner
+    digest: 6410f3af3f7c92b7dcb9e78e180656e1fe3d0e2859852128dbca36026a946e76
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/storj-node
+    icon: https://truecharts.org/_static/img/appicons/storj-node.png
+    keywords:
+    - storj
+    - storage
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: storj-node
+    sources:
+    - https://github.com/storj/storj
+    - https://docs.storj.io/node/
+    - https://hub.docker.com/r/storjlabs/storagenode
+    urls:
+    - https://github.com/truecharts/apps/releases/download/storj-node-0.0.1/storj-node-0.0.1.tgz
+    version: 0.0.1
   strapi:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -73241,4 +73387,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-08T21:11:16.565455295Z"
+generated: "2022-03-09T23:47:57.96359679Z"
