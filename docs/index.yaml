@@ -15663,6 +15663,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/fleet-0.0.1/fleet-0.0.1.tgz
     version: 0.0.1
+  flexget:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.3.2
+    created: "2022-03-10T08:05:54.002957917Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: FlexGet is a multipurpose automation tool for all of your media
+    digest: b9b306ca9fde07bbaa247c61923fb872862b7bafb68b8f77431353aa9dcf95c1
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/flexget
+    icon: https://truecharts.org/_static/img/appicons/flexget.png
+    keywords:
+    - flexget
+    - automation
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: flexget
+    sources:
+    - https://hub.docker.com/r/wiserain/flexget
+    - https://github.com/wiserain/docker-flexget
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/flexget-0.0.1/flexget-0.0.1.tgz
+    version: 0.0.1
   flood:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -73387,4 +73420,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-09T23:47:57.96359679Z"
+generated: "2022-03-10T08:05:54.010326147Z"
