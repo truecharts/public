@@ -48,8 +48,6 @@ persistence:
     enabled: true
     mountPath: "/shared"
 
-
-
 mariadb:
   enabled: true
   existingSecret: "dbcreds"
