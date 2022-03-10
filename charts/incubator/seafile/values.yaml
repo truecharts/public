@@ -28,11 +28,11 @@ env:
 envValueFrom:
   DB_ROOT_PASSWD:
     secretKeyRef:
-      name: dbcreds
+      name: mariadbcreds
       key: mariadb-password
   DB_HOST:
     secretKeyRef:
-      name: dbcreds
+      name: mariadbcreds
       key: plainporthost
 
 persistence:
@@ -42,6 +42,6 @@ persistence:
 
 mariadb:
   enabled: true
-  existingSecret: "dbcreds"
+  existingSecret: "mariadbcreds"
   mariadbUsername: seafile
   mariadbDatabase: seafile
