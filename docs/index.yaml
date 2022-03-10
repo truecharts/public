@@ -33068,6 +33068,41 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 4.7.1
+    created: "2022-03-10T09:37:19.988618729Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.1
+    description: Matomo is the leading Free/Libre open analytics platform
+    digest: 0f58c29b7efd600e25462038e5ff99527bb52331cac9c7a68773e29905f65120
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/matomo
+    icon: https://truecharts.org/_static/img/appicons/matomo.png
+    keywords:
+    - analytics
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: matomo
+    sources:
+    - https://hub.docker.com/r/bitnami/matomo
+    - https://github.com/bitnami/bitnami-docker-matomo
+    - https://github.com/matomo-org/matomo
+    urls:
+    - https://github.com/truecharts/apps/releases/download/matomo-1.0.0/matomo-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.7.1
     created: "2022-03-09T23:47:57.958147548Z"
     dependencies:
     - name: common
@@ -59655,6 +59690,46 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 4.2.4
+    created: "2022-03-10T09:37:20.268063348Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.1
+    description: Redmine is a flexible project management web application written
+      using Ruby on Rails framework.
+    digest: d53bb263b8134d71e4f7a8fa28a333467f4ab0a662a79e960acd92abee1ff955
+    home: https://github.com/truecharts/apps/tree/main/charts/redmine
+    icon: https://truecharts.org/_static/img/appicons/redmine.png
+    keywords:
+    - project
+    - management
+    - time
+    - tracking
+    - ticket
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: redmine
+    sources:
+    - https://github.com/redmine/redmine
+    - https://hub.docker.com/_/redmine
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/redmine-1.0.0/redmine-1.0.0.tgz
+    version: 1.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.2.4
     created: "2022-03-09T18:22:59.361172009Z"
     dependencies:
     - name: common
@@ -73420,4 +73495,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-10T08:05:54.010326147Z"
+generated: "2022-03-10T09:37:20.277450928Z"

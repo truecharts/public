@@ -7,4 +7,3 @@
 #### Feat
 
 *  Add flexget ([#2117](https://github.com/truecharts/apps/issues/2117))
-

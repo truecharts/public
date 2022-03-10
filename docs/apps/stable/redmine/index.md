@@ -1,15 +1,14 @@
 # Introduction
 
-Matomo is the leading Free/Libre open analytics platform
+Redmine is a flexible project management web application written using Ruby on Rails framework.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://hub.docker.com/r/bitnami/matomo>
-* <https://github.com/bitnami/bitnami-docker-matomo>
-* <https://github.com/matomo-org/matomo>
+* <https://github.com/redmine/redmine>
+* <https://hub.docker.com/_/redmine>
 
 ## Requirements
 
@@ -19,7 +18,7 @@ Kubernetes: `>=1.16.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://truecharts.org/ | mariadb | 2.0.1 |
+| https://truecharts.org/ | postgresql | 7.0.1 |
 | https://truecharts.org | common | 9.1.2 |
 
 ## Installing the Chart
