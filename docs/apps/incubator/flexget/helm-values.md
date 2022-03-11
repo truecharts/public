@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.FG_LOG_FILE | string | `"flexget.log"` |  |
 | env.FG_LOG_LEVEL | string | `"info"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"wiserain/flexget"` |  |
-| image.tag | string | `"3.3.2@sha256:5a38f9587d298e923eb828d73c33cac3691bc3b3b8f06508db9e394e0270960c"` |  |
+| image.repository | string | `"tccr.io/truecharts/flexget"` |  |
+| image.tag | string | `"v3.3.2@sha256:be8e8bb0834b8d763bc8db69acda82e434de5b53826ec52a5f92e2f4c22f97c0"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.data.enabled | bool | `true` |  |
