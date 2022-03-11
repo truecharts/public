@@ -1,17 +1,17 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
-name: paperless-ng
-version: 2.1.0
-appVersion: "1.5.0"
-description: Paperless-ng is an application by Daniel Quinn and contributors that indexes your scanned documents. This chart is deprecated, please switch to paperless-ngx
+name: paperless-ngx
+version: 1.0.0
+appVersion: "1.6.0"
+description: paperless-ngx is an application by the paperless-ngx community that indexes your scanned documents.
 type: application
 deprecated: true
-home: https://github.com/truecharts/apps/tree/master/charts/stable/paperless-ng
+home: https://github.com/truecharts/apps/tree/master/charts/stable/paperless-ngx
 icon: https://truecharts.org/_static/img/appicons/paperless-ng.png
 keywords:
-  - paperless-ng
+  - paperless-ngx
 sources:
-  - https://hub.docker.com/r/linuxserver/paperless-ng
+  - https://github.com/paperless-ngx/paperless-ngx/pkgs/container/paperless-ngx
 dependencies:
 - name: common
   repository: https://truecharts.org
@@ -29,7 +29,7 @@ maintainers:
   name: TrueCharts
   url: https://truecharts.org
 annotations:
-  truecharts.org/catagories: |
-    - incubator
+  truecharts.org/categories: |
+    - stable
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U
