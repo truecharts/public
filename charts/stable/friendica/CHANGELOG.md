@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="friendica-2.0.0"></a>
+### [friendica-2.0.0](https://github.com/truecharts/apps/compare/friendica-1.0.3...friendica-2.0.0) (2022-03-11)
+
+#### Fix
+
+* fix blank page issue (breaking change) ([#2131](https://github.com/truecharts/apps/issues/2131))
+
+
+
 <a name="friendica-1.0.3"></a>
 ### [friendica-1.0.3](https://github.com/truecharts/apps/compare/friendica-1.0.2...friendica-1.0.3) (2022-03-08)
 

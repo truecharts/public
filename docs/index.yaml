@@ -16761,6 +16761,45 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: "2022.02"
+    created: "2022-03-11T09:58:59.616947948Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://truecharts.org/
+      version: 2.0.2
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.2
+    description: Welcome to the free social web
+    digest: a64a0f12467496caab7352f3ebcceb37e054b8e6d2d2d9aa33e397f00a51b8ca
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/friendica
+    icon: https://truecharts.org/_static/img/appicons/friendica.png
+    keywords:
+    - friend
+    - social
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: friendica
+    sources:
+    - https://friendi.ca/
+    - https://hub.docker.com/_/friendica
+    urls:
+    - https://github.com/truecharts/apps/releases/download/friendica-2.0.0/friendica-2.0.0.tgz
+    version: 2.0.0
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - social
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: "2022.02"
     created: "2022-03-08T21:11:06.055914314Z"
     dependencies:
     - name: common
@@ -73527,4 +73566,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-11T08:03:27.498385317Z"
+generated: "2022-03-11T09:58:59.626531714Z"

@@ -12,9 +12,18 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | env.FRIENDICA_ADMIN_MAIL | string | `"my@domain.com"` |  |
-| env.FRIENDICA_URL | string | `"https://friendica.local"` |  |
-| env.MYSQL_DATABASE | string | `"friendica"` |  |
-| env.MYSQL_USER | string | `"friendica"` |  |
+| env.FRIENDICA_CONFIG_DIR | string | `"/config"` |  |
+| env.FRIENDICA_DATA_DIR | string | `"/data"` |  |
+| env.FRIENDICA_TZ | string | `"{{ .Values.TZ }}"` |  |
+| env.FRIENDICA_UPGRADE | bool | `false` |  |
+| env.FRIENDICA_URL | string | `"http://localhost:{{ .Values.service.main.ports.main.port }}"` |  |
+| env.MYSQL_DATABASE | string | `"{{ .Values.mariadb.mariadbDatabase }}"` |  |
+| env.MYSQL_PORT | int | `3306` |  |
+| env.MYSQL_USER | string | `"{{ .Values.mariadb.mariadbUsername }}"` |  |
+| env.PHP_MEMORY_LIMIT | string | `"512M"` |  |
+| env.PHP_UPLOAD_LIMIT | string | `"512M"` |  |
+| env.REDIS_DB | int | `1` |  |
+| env.REDIS_PORT | int | `6379` |  |
 | envValueFrom.MYSQL_HOST.secretKeyRef.key | string | `"plainhost"` |  |
 | envValueFrom.MYSQL_HOST.secretKeyRef.name | string | `"mariadbcreds"` |  |
 | envValueFrom.MYSQL_PASSWORD.secretKeyRef.key | string | `"mariadb-password"` |  |
@@ -31,12 +40,18 @@ You will, however, be able to use all values referenced in the common chart here
 | mariadb.mariadbDatabase | string | `"friendica"` |  |
 | mariadb.mariadbUsername | string | `"friendica"` |  |
 | persistence.config.enabled | bool | `true` |  |
-| persistence.config.mountPath | string | `"/var/www/html"` |  |
+| persistence.config.mountPath | string | `"/config"` |  |
+| persistence.data.enabled | bool | `true` |  |
+| persistence.data.mountPath | string | `"/data"` |  |
 | persistence.varrun.enabled | bool | `true` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |
 | podSecurityContext.runAsUser | int | `0` |  |
+| probes.liveness.path | string | `"/friendica"` |  |
+| probes.readiness.path | string | `"/friendica"` |  |
+| probes.startup.path | string | `"/friendica"` |  |
 | redis.enabled | bool | `true` |  |
 | redis.existingSecret | string | `"rediscreds"` |  |
+| securityContext.readOnlyRootFilesystem | bool | `false` |  |
 | securityContext.runAsNonRoot | bool | `false` |  |
 | service.main.ports.main.port | int | `10058` |  |
 | service.main.ports.main.targetPort | int | `80` |  |
