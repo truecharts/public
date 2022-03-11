@@ -83,6 +83,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: FRIENDICA_UPGRADE
+          label: "Friendica Force Upgrade"
+          description: "Force starting the Friendica update even it's the same version"
+          schema:
+            type: boolean
+            default: false
         - variable: FRIENDICA_ADMIN_MAIL
           label: "Admin E-Mail"
           description: "E-Mail address of the administrator."
@@ -97,6 +103,27 @@ questions:
             type: string
             required: true
             default: ""
+        - variable: FRIENDICA_SITENAME
+          label: "Friendica Site Name"
+          description: "The Sitename of the Friendica server."
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: PHP_MEMORY_LIMIT
+          label: "PHP Memory Limit"
+          description: "This sets the maximum amount of memory in bytes that a script is allowed to allocate."
+          schema:
+            type: string
+            required: true
+            default: "512M"
+        - variable: PHP_UPLOAD_LIMIT
+          label: "PHP Upload Limit"
+          description: "This sets the upload limit (post_max_size and upload_max_filesize) for big files."
+          schema:
+            type: string
+            required: true
+            default: "512M"
 # Include{containerConfig}
 
   - variable: service
@@ -197,6 +224,49 @@ questions:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict
