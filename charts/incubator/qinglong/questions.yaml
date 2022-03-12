@@ -209,9 +209,10 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
+# Include{persistenceAdvanced}                      
         - variable: log
-          label: "App Data Storage"
-          description: "Stores the Application Data."
+          label: "App Log Storage"
+          description: "Stores the Application Logs."
           schema:
             additional_attrs: true
             type: dict
