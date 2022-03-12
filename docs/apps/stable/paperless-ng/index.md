@@ -1,13 +1,14 @@
 # Introduction
 
-Paperless-ng is an application by Daniel Quinn and contributors that indexes your scanned documents.
+Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
 
 TrueCharts are designed to be installed as TrueNAS SCALE app only. We can not guarantee this charts works as a stand-alone helm installation.
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/apps/issues/new/choose)**
 
 ## Source Code
 
-* <https://hub.docker.com/r/linuxserver/paperless-ng>
+* <https://github.com/paperless-ngx/paperless-ngx>
+* <https://paperless-ngx.readthedocs.io/en/latest/>
 
 ## Requirements
 
