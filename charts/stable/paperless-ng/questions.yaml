@@ -100,6 +100,20 @@ questions:
           schema:
             type: string
             default: ""
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: PAPERLESS_WEBSERVER_WORKERS
+          label: "PAPERLESS_WEBSERVER_WORKERS"
+          description: "The number of worker processes the webserver should spawn."
+          schema:
+            type: int
+            required: true
+            default: 2
 # Include{containerConfig}
 
   - variable: service

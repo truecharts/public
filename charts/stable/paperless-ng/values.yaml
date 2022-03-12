@@ -17,7 +17,9 @@ secret:
   PAPERLESS_ADMIN_MAIL: "admin@admin.com"
 
 env:
+  PAPERLESS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
   PAPERLESS_DATA_DIR: "/data/"
+  PAPERLESS_TRASH_DIR: "/data/trash/"
   PAPERLESS_CONSUMPTION_DIR: "/consume/"
   PAPERLESS_MEDIA_ROOT: "/media/"
   USERMAP_UID: "{{ .Values.security.PUID }}"
@@ -26,6 +28,7 @@ env:
   PAPERLESS_DBNAME: "{{ .Values.postgresql.postgresqlDatabase }}"
   PAPERLESS_DBUSER: "{{ .Values.postgresql.postgresqlUsername }}"
   PAPERLESS_DBPORT: "5432"
+  PAPERLESS_WEBSERVER_WORKERS: 2
 
 envValueFrom:
   PAPERLESS_DBPASS:
