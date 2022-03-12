@@ -335,9 +335,10 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
+# Include{persistenceAdvanced}                      
         - variable: raw
-          label: "App Data Storage"
-          description: "Stores the Application Data."
+          label: "App Raw Storage"
+          description: "Stores the Application Raw Data."
           schema:
             additional_attrs: true
             type: dict
