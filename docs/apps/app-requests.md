@@ -13,7 +13,6 @@ _This is the old list that was used to track `App Requests` from one place._
 
 ### Apps
 
-- [ ] Flexget #726
 - [ ] Seafile #725
 - [ ] dnsmasq #711
 - [ ] Trackarr #602
@@ -518,3 +517,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] AMD - Automated Music Downloader
 - [x] Deemix #628
 - [x] Ghost #1282
+- [x] Flexget #726
