@@ -7,4 +7,3 @@
 #### Feat
 
 * Add qinglong ([#2133](https://github.com/truecharts/apps/issues/2133))
-
