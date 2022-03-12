@@ -28197,6 +28197,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 7.2.2
+    created: "2022-03-12T17:20:59.901713839Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: LibreOffice is a free and powerful office suite, and a successor
+      to OpenOffice.org.
+    digest: dc25a6b360c85fdf1c3d35b47404e583d39104f3449a259da821af72f3f5fcc2
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/libreoffice
+    icon: https://truecharts.org/_static/img/appicons/libreoffice.png
+    keywords:
+    - libreoffice
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: libreoffice
+    sources:
+    - https://hub.docker.com/r/linuxserver/libreoffice
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/libreoffice-1.0.2/libreoffice-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - incubator
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 7.2.2
     created: "2022-01-04T20:49:08.106685767Z"
     dependencies:
     - name: common
@@ -73703,4 +73734,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-12T14:51:35.441571742Z"
+generated: "2022-03-12T17:20:59.912691858Z"
