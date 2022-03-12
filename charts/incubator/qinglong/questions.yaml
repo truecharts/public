@@ -293,9 +293,10 @@ questions:
                       description: "Default"
                     - value: "Memory"
                       description: "Memory"
+# Include{persistenceAdvanced}                      
         - variable: repo
-          label: "App Data Storage"
-          description: "Stores the Application Data."
+          label: "App Repo Storage"
+          description: "Stores the Application Repo."
           schema:
             additional_attrs: true
             type: dict
