@@ -1,0 +1,44 @@
+image:
+  repository: whyour/qinglong
+  pullPolicy: IfNotPresent
+  tag: 2.11.3@sha256:6d6aef9300e35353530f8087d7e098e212e588d512a209d98c8d5ba65dfca43c
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 5700
+        port: 10176
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/ql/config"
+
+  log:
+    enabled: true
+    mountPath: "/ql/log"
+
+  db:
+    enabled: true
+    mountPath: "/ql/db"
+
+  repo:
+    enabled: true
+    mountPath: "/ql/repo"
+
+  raw:
+    enabled: true
+    mountPath: "/ql/raw"
+
+  scripts:
+    enabled: true
+    mountPath: "/ql/scripts"
