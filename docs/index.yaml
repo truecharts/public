@@ -56262,6 +56262,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/qbittorrent-9.0.24/qbittorrent-9.0.24.tgz
     version: 9.0.24
+  qinglong:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - cloud
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.11.3
+    created: "2022-03-12T07:30:17.226555633Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: A timed task management panel that supports typescript, javaScript,
+      python3, and shell
+    digest: 750432ce16963c23ebd8e5ed47a3eb0df92e32f2683f7c525deae295b2038794
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/qinglong
+    icon: https://truecharts.org/_static/img/appicons/qinglong.png
+    keywords:
+    - qinglong
+    - task
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: qinglong
+    sources:
+    - https://hub.docker.com/r/whyour/qinglong
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/qinglong-0.0.1/qinglong-0.0.1.tgz
+    version: 0.0.1
   quassel-core:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -73606,4 +73639,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-12T06:04:44.117617875Z"
+generated: "2022-03-12T07:30:17.233036421Z"
