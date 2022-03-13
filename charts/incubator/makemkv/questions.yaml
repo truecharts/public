@@ -100,14 +100,82 @@ questions:
           label: "KEEP_APP_RUNNING"
           description: "When set to true, the application will be automatically restarted if it crashes or if a user quits it."
           schema:
-            type: string
+            type: boolean
             default: false
         - variable: SECURE_CONNECTION
           label: "SECURE_CONNECTION"
           description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
           schema:
-            type: string
+            type: boolean
             default: false
+        - variable: DISPLAY_WIDTH
+          label: "DISPLAY_WIDTH"
+          description: "Width (in pixels) of the application's window."
+          schema:
+            type: int
+            default: 1280
+        - variable: DISPLAY_HEIGHT
+          label: "DISPLAY_HEIGHT"
+          description: "Height (in pixels) of the application's window."
+          schema:
+            type: int
+            default: 768
+        - variable: MAKEMKV_KEY
+          label: "MAKEMKV_KEY"
+          description: "MakeMKV registration key to use."
+          schema:
+            type: string
+            default: "BETA"
+
+        - variable: AUTO_DISC_RIPPER_INTERVAL
+          label: "AUTO_DISC_RIPPER_INTERVAL"
+          description: "Height (in pixels) of the application's window."
+          schema:
+            type: int
+            default: 768
+        - variable: AUTO_DISC_RIPPER_BD_MODE
+          label: "AUTO_DISC_RIPPER_BD_MODE"
+          description: "MakeMKV registration key to use."
+          schema:
+            type: string
+            default: "BETA"
+        - variable: AUTO_DISC_RIPPER_MAKEMKV_PROFILE
+          label: "AUTO_DISC_RIPPER_MAKEMKV_PROFILE"
+          description: "MakeMKV registration key to use."
+          schema:
+            type: string
+            default: "BETA"
+        - variable: AUTO_DISC_RIPPER
+          label: "AUTO_DISC_RIPPER"
+          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          schema:
+            type: boolean
+            default: false
+        - variable: AUTO_DISC_RIPPER_EJECT
+          label: "AUTO_DISC_RIPPER_EJECT"
+          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          schema:
+            type: boolean
+            default: false
+        - variable: AUTO_DISC_RIPPER_PARALLEL_RIP
+          label: "AUTO_DISC_RIPPER_PARALLEL_RIP"
+          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          schema:
+            type: boolean
+            default: false
+        - variable: AUTO_DISC_RIPPER_NO_GUI_PROGRESS
+          label: "AUTO_DISC_RIPPER_NO_GUI_PROGRESS"
+          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          schema:
+            type: boolean
+            default: false
+        - variable: AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR
+          label: "AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR"
+          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          schema:
+            type: boolean
+            default: false
+
 # Include{containerConfig}
 
   - variable: service
