@@ -35778,6 +35778,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2022.1.0
+    created: "2022-03-13T20:15:30.956210251Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: Minecraft Bedrock Dedicated Server
+    digest: 68b928f3adb8d561d7b0221322f7980cdc29575e1c6dfd89d4c82a630a5cefc4
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-bedrock
+    icon: https://truecharts.org/_static/img/appicons/minecraft-bedrock.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-bedrock
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.14/minecraft-bedrock-0.0.14.tgz
+    version: 0.0.14
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.1.0
     created: "2022-03-07T08:44:19.605994827Z"
     dependencies:
     - name: common
@@ -36020,6 +36051,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.2/minecraft-bedrock-0.0.2.tgz
     version: 0.0.2
   minecraft-java:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.4.1
+    created: "2022-03-13T20:15:31.182880617Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: Minecraft Java Dedicated Server
+    digest: f9926f146f6de649ec02941611fd1d10912fd40279720f1fa1dcb4dd1277e53b
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-java
+    icon: https://truecharts.org/_static/img/appicons/minecraft-java.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-java
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-java-0.0.20/minecraft-java-0.0.20.tgz
+    version: 0.0.20
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -73833,4 +73895,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-13T19:06:35.181647621Z"
+generated: "2022-03-13T20:15:31.191859075Z"

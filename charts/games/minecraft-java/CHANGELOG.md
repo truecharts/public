@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.20"></a>
+### [minecraft-java-0.0.20](https://github.com/truecharts/apps/compare/minecraft-java-0.0.19...minecraft-java-0.0.20) (2022-03-13)
+
+#### Chore
+
+* remove UID and GID from values ([#2146](https://github.com/truecharts/apps/issues/2146))
+
+
+
 <a name="minecraft-java-0.0.19"></a>
 ### [minecraft-java-0.0.19](https://github.com/truecharts/apps/compare/minecraft-java-0.0.18...minecraft-java-0.0.19) (2022-03-07)
 

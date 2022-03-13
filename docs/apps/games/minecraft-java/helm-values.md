@@ -34,7 +34,6 @@ You will, however, be able to use all values referenced in the common chart here
 | env.SPAWN_MONSTERS | bool | `true` |  |
 | env.SPAWN_NPCS | bool | `true` |  |
 | env.TYPE | string | `"VANILLA"` |  |
-| env.UID | string | `"{{ .Values.security.PUID }}"` |  |
 | env.VERSION | string | `"LATEST"` |  |
 | env.VIEW_DISTANCE | int | `16` |  |
 | image.pullPolicy | string | `"Always"` |  |

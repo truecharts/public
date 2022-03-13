@@ -7,4 +7,3 @@
 #### Feat
 
 * Add lanraragi ([#2145](https://github.com/truecharts/apps/issues/2145))
-
