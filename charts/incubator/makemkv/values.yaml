@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/homer
-  tag: v22.02.1@sha256:1ca289a58ff340731b07b48d8028b53695e6f3063436ea78272a47f6b227ef7e
+  repository: jlesage/makemkv
+  tag: v1.21.3@sha256:886bae9e9455d7152936c3031591790cb2be8869546e61f4475ecc7528e882a5
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -52,10 +52,9 @@ configmap:
     enabled: true
     data:
       KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.makemkv.KEEP_APP_RUNNING }}"
-      CLEAN_TMP_DIR: "{{ ternary \"1\" \"0\" .Values.makemkv.CLEAN_TMP_DIR }}"
+      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.makemkv.SECURE_CONNECTION }}"
       DISPLAY_WIDTH: "{{ .Values.makemkv.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.makemkv.DISPLAY_HEIGHT }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.makemkv.SECURE_CONNECTION }}"
       MAKEMKV_KEY: "{{ .Values.makemkv.MAKEMKV_KEY }}"
       AUTO_DISC_RIPPER_INTERVAL: "{{ .Values.makemkv.AUTO_DISC_RIPPER_INTERVAL }}"
       AUTO_DISC_RIPPER_BD_MODE: "{{ .Values.makemkv.AUTO_DISC_RIPPER_BD_MODE }}"

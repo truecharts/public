@@ -74,7 +74,40 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
+  - variable: secret
+    group: "Container Configuration"
+    label: "Image Secrets"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+              - variable: VNC_PASSWORD
+                label: "VNC_PASSWORD"
+                description: "Password needed to connect to the application's GUI. See the VNC Password section for more details."
+                schema:
+                  type: string
+                  private: true
+                  default: ""
 
+  - variable: makemkv
+    group: "Container Configuration"
+    label: "MakeMKV Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: KEEP_APP_RUNNING
+          label: "KEEP_APP_RUNNING"
+          description: "When set to true, the application will be automatically restarted if it crashes or if a user quits it."
+          schema:
+            type: string
+            default: false
+        - variable: SECURE_CONNECTION
+          label: "SECURE_CONNECTION"
+          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          schema:
+            type: string
+            default: false
 # Include{containerConfig}
 
   - variable: service
@@ -261,7 +294,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
