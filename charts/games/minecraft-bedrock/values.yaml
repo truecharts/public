@@ -4,8 +4,6 @@ image:
   pullPolicy: Always
 
 env:
-  UID: "{{ .Values.security.PUID }}"
-  GID: "{{ .Values.podSecurityContext.fsGroup }}"
   EULA: "TRUE"
   VERSION: "LATEST"
   SERVER_NAME: "TrueCharts Dedicated Server!"
