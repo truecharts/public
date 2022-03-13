@@ -35,8 +35,6 @@ service:
 secret:
   VNC_PASSWORD: ""
 env:
-  # Permissions Settings
-  USER_ID: "{{ .Values.security.PUID }}"
   # General Settings
   KEEP_APP_RUNNING: 0
   CLEAN_TMP_DIR: 1

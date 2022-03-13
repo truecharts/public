@@ -13,13 +13,10 @@ service:
         port: 3579
         targetPort: 3579
 
-env: {}
-  # PUID: 1001
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-
 
 # Enabled mariadb
 # ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/mariadb
