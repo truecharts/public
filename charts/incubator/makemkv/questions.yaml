@@ -126,52 +126,51 @@ questions:
           schema:
             type: string
             default: "BETA"
-
         - variable: AUTO_DISC_RIPPER_INTERVAL
           label: "AUTO_DISC_RIPPER_INTERVAL"
-          description: "Height (in pixels) of the application's window."
+          description: "Interval, in seconds, the automatic disc ripper checks for the presence of a DVD/Blu-ray discs."
           schema:
             type: int
-            default: 768
+            default: 5
         - variable: AUTO_DISC_RIPPER_BD_MODE
           label: "AUTO_DISC_RIPPER_BD_MODE"
-          description: "MakeMKV registration key to use."
+          description: "Rip mode of Blu-ray discs. mkv is the default mode, where a set of MKV files are produced. When set to backup, a copy of the (decrypted) file system is created instead. This applies to Blu-ray discs only. For DVD discs, MKV files are always produced."
           schema:
             type: string
-            default: "BETA"
+            default: "mkv"
         - variable: AUTO_DISC_RIPPER_MAKEMKV_PROFILE
           label: "AUTO_DISC_RIPPER_MAKEMKV_PROFILE"
-          description: "MakeMKV registration key to use."
+          description: "Filename of the custom MakeMKV profile the automatic disc ripper should use. The profile is expected to be found under the /config folder of the container."
           schema:
             type: string
-            default: "BETA"
+            default: ""
         - variable: AUTO_DISC_RIPPER
           label: "AUTO_DISC_RIPPER"
-          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          description: "When set to true, disc is ejected from the drive when ripping is terminated."
           schema:
             type: boolean
             default: false
         - variable: AUTO_DISC_RIPPER_EJECT
           label: "AUTO_DISC_RIPPER_EJECT"
-          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          description: "When set to true, disc is ejected from the drive when ripping is terminated."
           schema:
             type: boolean
             default: false
         - variable: AUTO_DISC_RIPPER_PARALLEL_RIP
           label: "AUTO_DISC_RIPPER_PARALLEL_RIP"
-          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          description: "When set to true, discs from all available optical drives are ripped in parallel. Else, each disc from optical drives is ripped one at time."
           schema:
             type: boolean
             default: false
         - variable: AUTO_DISC_RIPPER_NO_GUI_PROGRESS
           label: "AUTO_DISC_RIPPER_NO_GUI_PROGRESS"
-          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          description: "When set to true, progress of discs ripped by the automatic disc ripper is not shown in the MakeMKV GUI."
           schema:
             type: boolean
             default: false
         - variable: AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR
           label: "AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR"
-          description: "When set to true, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client)."
+          description: "When set to false, files are written to /output/DISC_LABEL/, where DISC_LABEL is the label/name of the disc. If this directory exists, then files are written to /output/DISC_LABEL-XXXXXX, where XXXXXX are random readable characters. When set to true, the /output/DISC_LABEL-XXXXXX pattern is always used."
           schema:
             type: boolean
             default: false
