@@ -3,8 +3,6 @@ image:
   tag: v1.21.3@sha256:886bae9e9455d7152936c3031591790cb2be8869546e61f4475ecc7528e882a5
   pullPolicy: IfNotPresent
 
-command: ["env"]
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -23,7 +21,6 @@ envFrom:
 makemkv:
   # General Settings
   KEEP_APP_RUNNING: false
-  CLEAN_TMP_DIR: true
   # GUI Settings
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
@@ -33,7 +30,7 @@ makemkv:
   AUTO_DISC_RIPPER_BD_MODE: "mkv"
   AUTO_DISC_RIPPER_MAKEMKV_PROFILE: ""
   SECURE_CONNECTION: false
-  AUTO_DISC_RIPPER: true
+  AUTO_DISC_RIPPER: false
   AUTO_DISC_RIPPER_EJECT: false
   AUTO_DISC_RIPPER_PARALLEL_RIP: false
   AUTO_DISC_RIPPER_NO_GUI_PROGRESS: false
