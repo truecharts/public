@@ -35,45 +35,36 @@ frigate:
   mqtt:
     host: mosquitto.ix-mosquitto.svc.cluster.local
     port: 1883
-    authentitcated: false
-    username: mqtt_user
-    password: password
   birdseye:
     enabled: true
     mode: motion
-  cameras:
-    - name: camera1
-      objects:
+  objects:
+    track:
+      - person
+      - car
+      - motorcyle
+      - cat
+      - dog   
         # Optional: list of objects to track from labelmap.txt (default: shown below)
-        track:
-          - person
-          - car
-          - motorcyle
-          - cat
-          - dog
-      detect:
-        height: 720
-        width: 1280
-      inputs:
-        # Required: the path to the stream
-        # NOTE: path may include environment variables, which must begin with 'FRIGATE_' and be referenced in {}
-        - path: rtsp://username:password@highres.url
-          # Required: list of roles for this stream. valid values are: detect,record,rtmp
-          # NOTICE: In addition to assigning the record, and rtmp roles,
-          # they must also be enabled in the camera config.
-          roles:
-            - record
-        - path: rtsp://username:password@lowres.url
-          roles:
+  cameras:
+    mi6:
+      ffmpeg:
+        inputs:
+          - path: rtsp://10.0.0.117:8080/h264_ulaw.sdp
+            roles:
             - detect
             - rtmp
-      record:
-        enabled: True
+            - record
+  detect:
+    height: 1080
+    width: 1920
+    fps: 15
+  record:
+    enabled: True
       # Optional: timeout for highest scoring image before allowing it
       # to be replaced by a newer image. (default: shown below)
-      best_image_timeout: 60
-      snapshots:
-        enabled: True
+  snapshots:
+    enabled: True
 persistence:
   cache:
     enabled: true
