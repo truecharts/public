@@ -1,0 +1,22 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "common.setup" . }}
+
+{{/* Render configmap for openhab */}}
+{{- include "openhab.configmap" . }}
+
+{{/* Append the hardcoded volumes */}}
+{{- define "selfservicepassword.hardcodedValues" -}}
+persistence:
+  init:
+    enabled: true
+    mountPath: /var/www/conf/config.inc.local.php
+    subPath: config.inc.local.php
+    type: custom
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-init" (include "common.names.fullname" .) }}
+{{- end -}}
+{{- $_ := mergeOverwrite .Values (include "selfservicepassword.hardcodedValues" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}

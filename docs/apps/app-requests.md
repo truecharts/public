@@ -520,3 +520,4 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] boinc-client ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [x] hedgedoc ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [x] MakeMKV #1469
+- [x] Self Service Password  #1482

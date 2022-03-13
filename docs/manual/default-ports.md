@@ -338,6 +338,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | tinymediamanager           |      main       |      main       | 10179 |   TCP    |                                         |
 | makemkv                    |      main       |      main       | 10180 |   TCP    |                                         |
 | makemkv                    |       vnc       |       vnc       | 10181 |   TCP    |                                         |
+| self-service-password      |      main       |      main       | 10182 |   TCP    |                                         |
 | nextpvr                    |      main       |      main       | 10183 |   TCP    |                                         |
 | ispy-agent-dvr             |      main       |      main       | 10184 |   TCP    |                                         |
 | ispy-agent-dvr             |      turn       |      turn       | 10185 |   UDP    |                                         |
