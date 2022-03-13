@@ -13,8 +13,6 @@ service:
         port: 8686
         targetPort: 8686
 
-env: {}
-  # PUID: 1001
 probes:
   liveness:
     enabled: true

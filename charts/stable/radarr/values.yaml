@@ -13,8 +13,6 @@ service:
         port: 7878
         targetPort: 7878
 
-env: {}
-  # PUID: 1001
 probes:
   liveness:
     enabled: true

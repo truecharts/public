@@ -13,8 +13,6 @@ service:
         port: 5076
         targetPort: 5076
 
-env: {}
-  # PUID: 1001
 probes:
   liveness:
     custom: true
