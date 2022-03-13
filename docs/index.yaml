@@ -31425,6 +31425,38 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/lychee-9.0.20/lychee-9.0.20.tgz
     version: 9.0.20
+  makemkv:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.21.3
+    created: "2022-03-13T23:31:44.652489235Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: MakeMKV is your one-click solution to convert video that you own
+      into free and patents-unencumbered format that can be played everywhere.
+    digest: 2b319f12a9b967d5d7e512f4d57551e1ae9903cca548554ae3a5b5df8f23dd76
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/makemkv
+    icon: https://truecharts.org/_static/img/appicons/makemkv.png
+    keywords:
+    - mkv
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: makemkv
+    sources:
+    - https://github.com/jlesage/docker-makemkv
+    - https://hub.docker.com/r/jlesage/makemkv
+    urls:
+    - https://github.com/truecharts/apps/releases/download/makemkv-0.0.1/makemkv-0.0.1.tgz
+    version: 0.0.1
   mariadb:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -73963,4 +73995,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-13T21:58:41.741016047Z"
+generated: "2022-03-13T23:31:44.661209486Z"

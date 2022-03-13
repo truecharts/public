@@ -7,4 +7,3 @@
 #### Feat
 
 * add tinymediamanager ([#2150](https://github.com/truecharts/apps/issues/2150))
-
