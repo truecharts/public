@@ -31,7 +31,6 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  UID: "{{ .Values.security.PUID }}"
   EULA: "TRUE"
   VERSION: "LATEST"
   TYPE: "VANILLA"
