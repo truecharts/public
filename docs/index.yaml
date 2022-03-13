@@ -67604,6 +67604,40 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/thelounge-4.0.21/thelounge-4.0.21.tgz
     version: 4.0.21
+  tinymediamanager:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.2.7
+    created: "2022-03-13T21:58:41.733566616Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: TinyMediaManager is a full featured media manager to organize and
+      clean up your media library.
+    digest: c29aacd2142ef2dbd48fb5ca01bbe14b9db0f62d292ad3151146cb9d56370ce7
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/tinymediamanager
+    icon: https://truecharts.org/_static/img/appicons/tinymediamanager.png
+    keywords:
+    - tiny
+    - media
+    - manager
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: tinymediamanager
+    sources:
+    - https://hub.docker.com/r/tinymediamanager/tinymediamanager
+    - https://gitlab.com/tinyMediaManager/tinyMediaManager
+    urls:
+    - https://github.com/truecharts/apps/releases/download/tinymediamanager-0.0.1/tinymediamanager-0.0.1.tgz
+    version: 0.0.1
   traccar:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -73929,4 +73963,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-13T21:02:17.334623292Z"
+generated: "2022-03-13T21:58:41.741016047Z"
