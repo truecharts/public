@@ -22909,6 +22909,40 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/home-assistant-12.0.12/home-assistant-12.0.12.tgz
     version: 12.0.12
+  homer:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 22.02.1
+    created: "2022-03-13T21:02:17.327063983Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: A dead simple static homepage for your server to keep your services
+      on hand.
+    digest: 2d4a4b68ff850bf186e48e8d13f1c087f259a816c5e4cbe7507684ec1d197a70
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/homer
+    icon: https://truecharts.org/_static/img/appicons/homer.png
+    keywords:
+    - homer
+    - dashboard
+    - launcher
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: homer
+    sources:
+    - https://github.com/bastienwirtz/homer
+    - https://hub.docker.com/r/b4bz/homer
+    urls:
+    - https://github.com/truecharts/apps/releases/download/homer-0.0.1/homer-0.0.1.tgz
+    version: 0.0.1
   htpcmanager:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -73895,4 +73929,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-13T20:15:31.191859075Z"
+generated: "2022-03-13T21:02:17.334623292Z"
