@@ -335,6 +335,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | qinglong                   |      main       |      main       | 10176 |   HTTP   |                                         |
 | lanraragi                  |      main       |      main       | 10177 |   TCP    |                                         |
 | homer                      |      main       |      main       | 10178 |   TCP    |                                         |
+| tinymediamanager           |      main       |      main       | 10179 |   TCP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
