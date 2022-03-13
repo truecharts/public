@@ -336,6 +336,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | lanraragi                  |      main       |      main       | 10177 |   TCP    |                                         |
 | homer                      |      main       |      main       | 10178 |   TCP    |                                         |
 | tinymediamanager           |      main       |      main       | 10179 |   TCP    |                                         |
+| makemkv                    |      main       |      main       | 10180 |   TCP    |                                         |
+| makemkv                    |       vnc       |       vnc       | 10181 |   TCP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |

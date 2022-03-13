@@ -1,0 +1,78 @@
+image:
+  repository: tccr.io/truecharts/homer
+  tag: v22.02.1@sha256:1ca289a58ff340731b07b48d8028b53695e6f3063436ea78272a47f6b227ef7e
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+secret:
+  VNC_PASSWORD: ""
+
+makemkv:
+  # General Settings
+  KEEP_APP_RUNNING: false
+  CLEAN_TMP_DIR: true
+  # GUI Settings
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  # App Settings
+  MAKEMKV_KEY: "BETA"
+  AUTO_DISC_RIPPER_INTERVAL: 5
+  AUTO_DISC_RIPPER_BD_MODE: "mkv"
+  AUTO_DISC_RIPPER_MAKEMKV_PROFILE: ""
+  SECURE_CONNECTION: false
+  AUTO_DISC_RIPPER: true
+  AUTO_DISC_RIPPER_EJECT: false
+  AUTO_DISC_RIPPER_PARALLEL_RIP: false
+  AUTO_DISC_RIPPER_NO_GUI_PROGRESS: false
+  AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 10180
+        targetPort: 5800
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 10181
+        targetPort: 5900
+
+configmap:
+  makemkv:
+    enabled: true
+    data:
+      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.makemkv.KEEP_APP_RUNNING }}"
+      CLEAN_TMP_DIR: "{{ ternary \"1\" \"0\" .Values.makemkv.CLEAN_TMP_DIR }}"
+      DISPLAY_WIDTH: "{{ .Values.makemkv.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.makemkv.DISPLAY_HEIGHT }}"
+      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.makemkv.SECURE_CONNECTION }}"
+      MAKEMKV_KEY: "{{ .Values.makemkv.MAKEMKV_KEY }}"
+      AUTO_DISC_RIPPER_INTERVAL: "{{ .Values.makemkv.AUTO_DISC_RIPPER_INTERVAL }}"
+      AUTO_DISC_RIPPER_BD_MODE: "{{ .Values.makemkv.AUTO_DISC_RIPPER_BD_MODE }}"
+      AUTO_DISC_RIPPER_MAKEMKV_PROFILE: "{{ .Values.makemkv.AUTO_DISC_RIPPER_MAKEMKV_PROFILE }}"
+      AUTO_DISC_RIPPER: "{{ ternary \"1\" \"0\" .Values.makemkv.AUTO_DISC_RIPPER }}"
+      AUTO_DISC_RIPPER_EJECT: "{{ ternary \"1\" \"0\" .Values.makemkv.AUTO_DISC_RIPPER_EJECT }}"
+      AUTO_DISC_RIPPER_PARALLEL_RIP: "{{ ternary \"1\" \"0\" .Values.makemkv.AUTO_DISC_RIPPER_PARALLEL_RIP }}"
+      AUTO_DISC_RIPPER_NO_GUI_PROGRESS: "{{ ternary \"1\" \"0\" .Values.makemkv.AUTO_DISC_RIPPER_NO_GUI_PROGRESS }}"
+      AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR: "{{ ternary \"1\" \"0\" .Values.makemkv.AUTO_DISC_RIPPER_FORCE_UNIQUE_OUTPUT_DIR }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  storage:
+    enabled: true
+    mountPath: "/storage"
+  output:
+    enabled: true
+    mountPath: "/output"
