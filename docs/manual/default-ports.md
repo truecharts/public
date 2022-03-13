@@ -333,6 +333,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | matomo                     |      https      |      https      | 10173 |  HTTPS   |                                         |
 | flexget                    |      main       |      main       | 10174 |   HTTP   |                                         |
 | qinglong                   |      main       |      main       | 10176 |   HTTP   |                                         |
+| lanraragi                  |      main       |      main       | 10177 |   TCP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
