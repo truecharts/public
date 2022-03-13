@@ -53,10 +53,10 @@ configmap:
   jdownloader:
     enabled: true
     data:
-      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.handbrake.KEEP_APP_RUNNING }}"
-      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.handbrake.SECURE_CONNECTION }}"
-      DISPLAY_WIDTH: "{{ .Values.handbrake.DISPLAY_WIDTH }}"
-      DISPLAY_HEIGHT: "{{ .Values.handbrake.DISPLAY_HEIGHT }}"
+      KEEP_APP_RUNNING: "{{ ternary \"1\" \"0\" .Values.jdownloader.KEEP_APP_RUNNING }}"
+      SECURE_CONNECTION: "{{ ternary \"1\" \"0\" .Values.jdownloader.SECURE_CONNECTION }}"
+      DISPLAY_WIDTH: "{{ .Values.jdownloader.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.jdownloader.DISPLAY_HEIGHT }}"
 
 persistence:
   config:
