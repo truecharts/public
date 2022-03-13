@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: ".0.8.4"
+dependencies:
+- name: common
+  repository: https://truecharts.org
+  version: 9.1.2
+description: A dead simple static homepage for your server to keep your services on hand.
+home: https://github.com/truecharts/apps/tree/master/charts/stable/homer
+icon: https://truecharts.org/_static/img/appicons/homer.png
+keywords:
+- homer
+- dashboard
+- launcher
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@truecharts.org
+  name: TrueCharts
+  url: https://truecharts.org
+name: homer
+sources:
+- https://github.com/Difegue/LANraragi
+- https://hub.docker.com/r/difegue/lanraragi
+- https://sugoi.gitbook.io/lanraragi/
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
