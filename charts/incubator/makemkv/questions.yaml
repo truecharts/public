@@ -114,30 +114,35 @@ questions:
           schema:
             type: int
             default: 1280
+            required: true
         - variable: DISPLAY_HEIGHT
           label: "DISPLAY_HEIGHT"
           description: "Height (in pixels) of the application's window."
           schema:
             type: int
             default: 768
+            required: true
         - variable: MAKEMKV_KEY
           label: "MAKEMKV_KEY"
           description: "MakeMKV registration key to use."
           schema:
             type: string
             default: "BETA"
+            required: true
         - variable: AUTO_DISC_RIPPER_INTERVAL
           label: "AUTO_DISC_RIPPER_INTERVAL"
           description: "Interval, in seconds, the automatic disc ripper checks for the presence of a DVD/Blu-ray discs."
           schema:
             type: int
             default: 5
+            required: true
         - variable: AUTO_DISC_RIPPER_BD_MODE
           label: "AUTO_DISC_RIPPER_BD_MODE"
           description: "Rip mode of Blu-ray discs. mkv is the default mode, where a set of MKV files are produced. When set to backup, a copy of the (decrypted) file system is created instead. This applies to Blu-ray discs only. For DVD discs, MKV files are always produced."
           schema:
             type: string
             default: "mkv"
+            required: true
         - variable: AUTO_DISC_RIPPER_MAKEMKV_PROFILE
           label: "AUTO_DISC_RIPPER_MAKEMKV_PROFILE"
           description: "Filename of the custom MakeMKV profile the automatic disc ripper should use. The profile is expected to be found under the /config folder of the container."
