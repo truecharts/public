@@ -32,15 +32,12 @@ _This is the old list that was used to track `App Requests` from one place._
 - [ ] UISP #1007
 - [ ] Openspeedtest #1018
 - [ ] Zoneminder #1021
-- [ ] OpenHAB #1043
 - [ ] Suricata #1063
 - [ ] Jitsi Meet #1064
 - [ ] Mumble Server #1065
 - [ ] KodBox #1079
 - [ ] oauth2-proxy
-- [ ] Storj Node #1086
 - [ ] PiGallery2 #1116
-- [ ] LANraragi #1159
 - [ ] ArchiSteamFarm #1164
 - [ ] Docker Registry #1165
 - [ ] Monero #1228
@@ -51,13 +48,11 @@ _This is the old list that was used to track `App Requests` from one place._
 - [ ] MakeMKV #1469
 - [ ] rTorrent #1485
 - [ ] MediaElch #1456
-- [ ] Tiny Media Manager #1455
 - [ ] Mysterium #1436
 - [ ] urBackup #1408
 - [ ] HyperHDR #1389
 - [ ] Channels DVR #1377
 - [ ] Gerbera UPnP #1357
-- [ ] LibrePhotos #1349
 - [ ] Geth #1348
 - [ ] Spotify Connect #1319
 - [ ] Machinaris #1304
@@ -95,10 +90,8 @@ _This is the old list that was used to track `App Requests` from one place._
 - [ ] adguard-home ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] blocky ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] comcast ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] Frigate #871 ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] games-on-whales ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] gollum ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] homer ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] magic-mirror ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] modem-stats ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] neolink ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
@@ -116,6 +109,7 @@ _This is the old list that was used to track `App Requests` from one place._
 - [ ] limnoria
 
 ##### TODO: Requires Postgresql customisation
+
 - [ ] Keycloack #1106
 
 ##### TODO: Requires Postgresql+redis customisation
@@ -124,6 +118,7 @@ _This is the old list that was used to track `App Requests` from one place._
 
 
 ##### TODO: Requires MariaDB to be added first
+
 - [ ] FreePBX #1111
 
 
@@ -146,11 +141,7 @@ _This is the old list that was used to track `App Requests` from one place._
 _These Apps have specific requirements or need specific customisation and care_
 
 - [ ] foundryvtt ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] homebridge ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
 - [ ] jetbrains-projector ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] paperless ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
-- [ ] boinc-client ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
-- [ ] hedgedoc ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [ ] cryptpad ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
 - [ ] netbootxyz
 
@@ -518,3 +509,14 @@ _These Apps have specific requirements or need specific customisation and care_
 - [x] Deemix #628
 - [x] Ghost #1282
 - [x] Flexget #726
+- [x] Tiny Media Manager #1455
+- [x] homer ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] Storj Node #1086
+- [x] LANraragi #1159
+- [x] homebridge ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] OpenHAB #1043
+- [x] LibrePhotos #1349
+- [x] paperless ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] Frigate #871 ( example helm-chart available from [ k8s-at-home ](https://github.com/k8s-at-home/charts) )
+- [x] boinc-client ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
+- [x] hedgedoc ( example helm-chart available from [ nicholaswilde ](https://github.com/nicholaswilde/helm-charts) )
