@@ -88,14 +88,20 @@ questions:
                 schema:
                   type: string
                   private: true
-                  default: "REPLACETHIS"
-  - variable: env
+                  default: ""
+  - variable: handbrake
     group: "Container Configuration"
-    label: "Image Environment"
+    label: "HandBrake Configuration"
     schema:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: KEEP_APP_RUNNING
+          label: "KEEP_APP_RUNNING"
+          description: "When set to true, the application will be automatically restarted if it crashes or if a user quits it."
+          schema:
+            type: boolean
+            default: false
         - variable: gui
           label: "GUI Settings"
           description: "Always read description before changing a value here. Also refer to README"
@@ -122,9 +128,8 @@ questions:
                 label: "SECURE_CONNECTION"
                 description: "When set to 1, an encrypted connection is used to access the application's GUI (either via a web browser or VNC client). See the Security section for more details."
                 schema:
-                  type: int
-                  default: 0
-                  required: true
+                  type: boolean
+                  default: false
         - variable: autoconv
           label: "Automated Conversion Settings"
           description: "Always read description before changing a value here. Also refer to README"
@@ -151,9 +156,8 @@ questions:
                 label: "AUTOMATED_CONVERSION_KEEP_SOURCE"
                 description: "When set to 0, a video that has been successfully converted is removed from the watch folder."
                 schema:
-                  type: int
-                  default: 0
-                  required: true
+                  type: boolean
+                  default: false
               - variable: AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION
                 label: "AUTOMATED_CONVERSION_NON_VIDEO_FILE_ACTION"
                 description: "When set to ignore, a non-video file found in the watch folder is ignored. If set to copy, a non-video file is copied as-is to the output folder."
@@ -225,7 +229,6 @@ questions:
                                   schema:
                                     type: int
                                     default: 5800
-
 
         - variable: vnc
           label: "VNC Service"
@@ -313,6 +316,92 @@ questions:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: storage
+          label: "App Storage"
+          description: "Application Storage."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: type
+                label: "Type of Storage"
+                description: "Sets the persistence type, Anything other than PVC could break rollback!"
+                schema:
+                  type: string
+                  default: "simplePVC"
+                  enum:
+                    - value: "simplePVC"
+                      description: "PVC (simple)"
+                    - value: "simpleHP"
+                      description: "HostPath (simple)"
+                    - value: "emptyDir"
+                      description: "emptyDir"
+                    - value: "pvc"
+                      description: "pvc"
+                    - value: "hostPath"
+                      description: "hostPath"
+# Include{persistenceBasic}
+              - variable: hostPath
+                label: "hostPath"
+                description: "Path inside the container the storage is mounted"
+                schema:
+                  show_if: [["type", "=", "hostPath"]]
+                  type: hostpath
+              - variable: medium
+                label: "EmptyDir Medium"
+                schema:
+                  show_if: [["type", "=", "emptyDir"]]
+                  type: string
+                  default: ""
+                  enum:
+                    - value: ""
+                      description: "Default"
+                    - value: "Memory"
+                      description: "Memory"
+# Include{persistenceAdvanced}
+        - variable: output
+          label: "App Output Storage"
+          description: "Stores the Application Output."
           schema:
             additional_attrs: true
             type: dict
