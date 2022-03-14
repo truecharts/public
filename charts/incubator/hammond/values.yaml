@@ -3,16 +3,13 @@ image:
   tag: 1.0.0@sha256:b5df7f1bd33e01645535f2d20f22731c9a0859c77b97ddcbf49f57635eb81646
   pullPolicy: IfNotPresent
 
-securityContext:
+# securityContext:
   # readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  # runAsNonRoot: false
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  # PORT: "{{ .Values.service.main.ports.main.port }}"
+# podSecurityContext:
+#   runAsUser: 0
+  # runAsGroup: 0
 
 envValueFrom:
   JWT_SECRET:
