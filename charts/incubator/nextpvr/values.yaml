@@ -1,0 +1,33 @@
+image:
+  repository: nextpvr/nextpvr_amd64
+  tag: stable@sha256:74251f12dc32a1de2085bab9c6025cdb10f49f31c6407687d4db72e84b7d2c1e
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+env:
+  HOST_IP: "localhost"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10183
+        targetPort: 8866
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  recordings:
+    enabled: true
+    mountPath: "/recordings"
+  buffer:
+    enabled: true
+    mountPath: "/buffer"
