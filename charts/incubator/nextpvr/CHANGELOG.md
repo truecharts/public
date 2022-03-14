@@ -7,4 +7,3 @@
 #### Feat
 
 * Add nextpvr ([#2161](https://github.com/truecharts/apps/issues/2161))
-
