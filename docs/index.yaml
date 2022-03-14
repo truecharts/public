@@ -27280,6 +27280,39 @@ entries:
         - media
       truecharts.org/grade: U
     apiVersion: v2
+    appVersion: 0.8.4
+    created: "2022-03-14T20:02:56.396813781Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: Open source server for archival of comics/manga.
+    digest: 9c3c8ba88d8b367e523919165b4cdf25a17bcac21d8768f6ae9dad678861704e
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/lanraragi
+    icon: https://truecharts.org/_static/img/appicons/lanraragi.png
+    keywords:
+    - lanraragi
+    - comics
+    - manga
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: lanraragi
+    sources:
+    - https://github.com/Difegue/LANraragi
+    - https://hub.docker.com/r/difegue/lanraragi
+    - https://sugoi.gitbook.io/lanraragi/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lanraragi-0.0.3/lanraragi-0.0.3.tgz
+    version: 0.0.3
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
     appVersion: .0.8.4
     created: "2022-03-14T15:54:51.746657918Z"
     dependencies:
@@ -74253,4 +74286,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-14T19:25:51.12050076Z"
+generated: "2022-03-14T20:02:56.404662793Z"

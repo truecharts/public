@@ -7,4 +7,3 @@
 #### Feat
 
 * Add hammond ([#2163](https://github.com/truecharts/apps/issues/2163))
-

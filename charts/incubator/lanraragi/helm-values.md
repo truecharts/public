@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.LRR_UID | string | `"{{ .Values.security.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/lanraragi"` |  |
-| image.tag | string | `"v.0.8.4@sha256:e41603c23afbb27544cdef8cf30f4e568eb499bd3221f81953e6cd60c469ab25"` |  |
+| image.tag | string | `"v0.8.4@sha256:b9af21eae127e581758bf2038e82d0a00b20d3199f550ccfb2d5b130fa9b375c"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/home/koyomi/lanraragi/database"` |  |
 | persistence.content.enabled | bool | `true` |  |
