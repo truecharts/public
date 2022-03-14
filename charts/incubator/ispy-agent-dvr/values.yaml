@@ -3,13 +3,13 @@ image:
   tag: 3.8.6.0@sha256:b2ad9ed49abfcbb6f82362209fbf4cdccdb4abf2cf7aa7c9bf276ad8b5ed312c
   pullPolicy: IfNotPresent
 
-# securityContext:
+securityContext:
 #   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
+  runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 service:
   main:
