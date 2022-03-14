@@ -13,6 +13,7 @@ podSecurityContext:
 
 env:
   SETUP_MODE: "manual"
+  ENABLE_RESET_LOG: true
 
 service:
   main:

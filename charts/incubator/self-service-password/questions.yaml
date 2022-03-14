@@ -93,6 +93,12 @@ questions:
                 description: "Configuration File"
               - value: "AUTO"
                 description: "Environment Variables"
+        - variable: ENABLE_RESET_LOG
+          label: "ENABLE_RESET_LOG"
+          description: "Write to log detailing password resets."
+          schema:
+            type: boolean
+            default: false
 # Include{containerConfig}
 
   - variable: service
