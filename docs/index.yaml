@@ -61595,6 +61595,42 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/scrutiny-0.0.1/scrutiny-0.0.1.tgz
     version: 0.0.1
+  self-service-password:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 5.2.1
+    created: "2022-03-14T22:03:01.100169649Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: Self Service Password is a PHP application that allows users to change
+      their password in an LDAP directory.
+    digest: 23a70ad2bbf4d286b4baaa2027626721adadce187d994e8629720b8ffbbf4e57
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/self-service-password
+    icon: https://truecharts.org/_static/img/appicons/self-service-password.png
+    keywords:
+    - password
+    - self-service
+    - ldap
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: self-service-password
+    sources:
+    - https://github.com/tiredofit/docker-self-service-password
+    - https://hub.docker.com/r/tiredofit/self-service-password
+    - https://self-service-password.readthedocs.io/en/latest
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/self-service-password-0.0.1/self-service-password-0.0.1.tgz
+    version: 0.0.1
   ser2sock:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -74318,4 +74354,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-14T21:32:21.427993654Z"
+generated: "2022-03-14T22:03:01.107488126Z"
