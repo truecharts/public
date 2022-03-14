@@ -3,19 +3,20 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.4.3@sha256:85b310d2a458ff4b3ad3b91fda22e515afc7445ab2330f4ac11286d4c44084a9
 
-# securityContext:
-#   readOnlyRootFilesystem: false
-#   runAsNonRoot: false
 
-# podSecurityContext:
-#   runAsUser: 0
-#   runAsGroup: 0
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 
-# config:
-#   type: hostPath
-#   hostPathType: File
-#   noMount: true
-#   hostPath: "/"
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+configFile:
+  enabled: true
+  type: hostPath
+  hostPathType: File
+  hostPath: "/etc/hosts"
 
 service:
   main:
@@ -23,3 +24,10 @@ service:
       main:
         port: 10182
         targetPort: 80
+
+persistence:
+  config-file:
+    enabled: true
+    type: hostPath
+    hostPathType: "File"
+    mountPath: ""
