@@ -21341,6 +21341,38 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/habridge-0.0.1/habridge-0.0.1.tgz
     version: 0.0.1
+  hammond:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-03-14T19:25:51.113144867Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: A self-hosted vehicle expense tracking system with support for multiple
+      users.
+    digest: 6a835a220a74a446a413e81c7a01247e7218587e555e1900f74c0548867c9638
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/hammond
+    icon: https://truecharts.org/_static/img/appicons/hammond.png
+    keywords:
+    - hammond
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: hammond
+    sources:
+    - https://github.com/akhilrex/hammond
+    - https://hub.docker.com/r/akhilrex/hammond
+    urls:
+    - https://github.com/truecharts/apps/releases/download/hammond-0.0.1/hammond-0.0.1.tgz
+    version: 0.0.1
   handbrake:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -74221,4 +74253,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-14T18:55:26.655794387Z"
+generated: "2022-03-14T19:25:51.12050076Z"
