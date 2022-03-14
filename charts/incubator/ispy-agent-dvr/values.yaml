@@ -1,0 +1,96 @@
+image:
+  repository: doitandbedone/ispyagentdvr
+  tag: 3.8.6.0@sha256:b2ad9ed49abfcbb6f82362209fbf4cdccdb4abf2cf7aa7c9bf276ad8b5ed312c
+  pullPolicy: IfNotPresent
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+#   runAsNonRoot: false
+
+# podSecurityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10184
+        targetPort: 8090
+  turn:
+    enabled: true
+    ports:
+      turn:
+        enabled: true
+        protocol: UDP
+        port: 10185
+        targetPort: 3478
+  webrtc:
+    enabled: true
+    ports:
+      webrtc0:
+        enabled: true
+        protocol: UDP
+        port: 50000
+        targetPort: 50000
+      webrtc1:
+        enabled: true
+        protocol: UDP
+        port: 50001
+        targetPort: 50001
+      webrtc2:
+        enabled: true
+        protocol: UDP
+        port: 50002
+        targetPort: 50002
+      webrtc3:
+        enabled: true
+        protocol: UDP
+        port: 50003
+        targetPort: 50003
+      webrtc4:
+        enabled: true
+        protocol: UDP
+        port: 50004
+        targetPort: 50004
+      webrtc5:
+        enabled: true
+        protocol: UDP
+        port: 50005
+        targetPort: 50005
+      webrtc6:
+        enabled: true
+        protocol: UDP
+        port: 50006
+        targetPort: 60005
+      webrtc7:
+        enabled: true
+        protocol: UDP
+        port: 50007
+        targetPort: 50007
+      webrtc8:
+        enabled: true
+        protocol: UDP
+        port: 50008
+        targetPort: 50008
+      webrtc9:
+        enabled: true
+        protocol: UDP
+        port: 50009
+        targetPort: 50009
+      webrtc10:
+        enabled: true
+        protocol: UDP
+        port: 50010
+        targetPort: 50010
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/agent/Media/XML"
+  media:
+    enabled: true
+    mountPath: "/agent/Media/WebServerRoot/Media"
+  commands:
+    enabled: true
+    mountPath: "/agent/Commands"
