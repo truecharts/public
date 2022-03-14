@@ -12,7 +12,7 @@ podSecurityContext:
   runAsGroup: 0
 
 env:
-  PORT: "{{ .Values.service.main.ports.main.port }}"
+  # PORT: "{{ .Values.service.main.ports.main.port }}"
 
 envValueFrom:
   JWT_SECRET:
@@ -25,6 +25,7 @@ service:
     ports:
       main:
         port: 10186
+        targetPort: 3000
 
 persistence:
   config:
