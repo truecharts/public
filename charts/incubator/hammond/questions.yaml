@@ -74,7 +74,7 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-  # Docker specific env
+
 # Include{containerConfig}
 
   - variable: service
@@ -304,7 +304,7 @@ questions:
                 label: "ReadOnly Root Filesystem"
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: allowPrivilegeEscalation
                 label: "Allow Privilege Escalation"
                 schema:
