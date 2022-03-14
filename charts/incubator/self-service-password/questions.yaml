@@ -75,7 +75,24 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: SETUP_MODE
+          label: "SETUP_MODE"
+          description: "Select if you will provide Environment Variables or Configuration File, to overwrite the default configuration."
+          schema:
+            type: string
+            default: "MANUAL"
+            enum:
+              - value: "MANUAL"
+                description: "Configuration File"
+              - value: "AUTO"
+                description: "Environment Variables"
 # Include{containerConfig}
 
   - variable: service
@@ -104,7 +121,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10169
+                              default: 10182
                               required: true
                           - variable: advanced
                             label: "Show Advanced settings"
@@ -144,68 +161,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 10169
-        - variable: https
-          label: "https Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelector}
-                    - variable: https
-                      label: "https Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 10170
-                              required: true
-                          - variable: advanced
-                            label: "Show Advanced settings"
-                            schema:
-                              type: boolean
-                              default: false
-                              show_subquestions_if: true
-                              subquestions:
-                                - variable: enabled
-                                  label: "Enable the port"
-                                  schema:
-                                    type: boolean
-                                    default: true
-                                - variable: protocol
-                                  label: "Port Type"
-                                  schema:
-                                    type: string
-                                    default: "HTTP"
-                                    enum:
-                                      - value: HTTP
-                                        description: "HTTP"
-                                      - value: "HTTPS"
-                                        description: "HTTPS"
-                                      - value: TCP
-                                        description: "TCP"
-                                      - value: "UDP"
-                                        description: "UDP"
-                                - variable: nodePort
-                                  label: "Node Port (Optional)"
-                                  description: "This port gets exposed to the node. Only considered when service type is NodePort, Simple or LoadBalancer"
-                                  schema:
-                                    type: int
-                                    min: 9000
-                                    max: 65535
-                                - variable: targetPort
-                                  label: "Target Port"
-                                  description: "The internal(!) port on the container the Application runs on"
-                                  schema:
-                                    type: int
-                                    default: 10170
-
+                                    default: 80
 
   - variable: serviceexpert
     group: "Networking and Services"
@@ -320,9 +276,9 @@ questions:
                     - value: "Memory"
                       description: "Memory"
 # Include{persistenceAdvanced}
-        - variable: userdata
-          label: "App userdata Storage"
-          description: "Stores the Application userdata."
+        - variable: logs
+          label: "App Logs Storage"
+          description: "Stores the Application Logs."
           schema:
             additional_attrs: true
             type: dict
