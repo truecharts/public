@@ -27209,6 +27209,39 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/lanraragi-5.0.1/lanraragi-5.0.1.tgz
     version: 5.0.1
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: .0.8.4
+    created: "2022-03-14T15:54:51.746657918Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: Open source server for archival of comics/manga.
+    digest: 09899e594756cca28c3fc45b93878ed4d90d5e98462f69ca1230ec26dc9991fe
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/lanraragi
+    icon: https://truecharts.org/_static/img/appicons/lanraragi.png
+    keywords:
+    - lanraragi
+    - comics
+    - manga
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: lanraragi
+    sources:
+    - https://github.com/Difegue/LANraragi
+    - https://hub.docker.com/r/difegue/lanraragi
+    - https://sugoi.gitbook.io/lanraragi/
+    urls:
+    - https://github.com/truecharts/apps/releases/download/lanraragi-0.0.2/lanraragi-0.0.2.tgz
+    version: 0.0.2
   lazylibrarian:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -31426,6 +31459,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/lychee-9.0.20/lychee-9.0.20.tgz
     version: 9.0.20
   makemkv:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.21.3
+    created: "2022-03-14T15:54:51.886807788Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: MakeMKV is your one-click solution to convert video that you own
+      into free and patents-unencumbered format that can be played everywhere.
+    digest: 5afcdb6666cb1943ddd6b8549e9d06de8c80bd057bcfefe863c1196ad9abb5ed
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/makemkv
+    icon: https://truecharts.org/_static/img/appicons/makemkv.png
+    keywords:
+    - mkv
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: makemkv
+    sources:
+    - https://github.com/jlesage/docker-makemkv
+    - https://hub.docker.com/r/jlesage/makemkv
+    urls:
+    - https://github.com/truecharts/apps/releases/download/makemkv-0.0.3/makemkv-0.0.3.tgz
+    version: 0.0.3
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -67675,6 +67739,39 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 4.2.7
+    created: "2022-03-14T15:54:52.065034783Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: TinyMediaManager is a full featured media manager to organize and
+      clean up your media library.
+    digest: 76dcd02b050ce1852b3a6f46e5ef78f280b9192c6c215914fd1796b64745e2a3
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/tinymediamanager
+    icon: https://truecharts.org/_static/img/appicons/tinymediamanager.png
+    keywords:
+    - tiny
+    - media
+    - manager
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: tinymediamanager
+    sources:
+    - https://hub.docker.com/r/tinymediamanager/tinymediamanager
+    - https://gitlab.com/tinyMediaManager/tinyMediaManager
+    urls:
+    - https://github.com/truecharts/apps/releases/download/tinymediamanager-0.0.2/tinymediamanager-0.0.2.tgz
+    version: 0.0.2
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 4.2.7
     created: "2022-03-13T21:58:41.733566616Z"
     dependencies:
     - name: common
@@ -74026,4 +74123,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-14T00:10:13.259253927Z"
+generated: "2022-03-14T15:54:52.071591508Z"

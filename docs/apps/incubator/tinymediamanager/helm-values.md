@@ -12,8 +12,8 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"tinymediamanager/tinymediamanager"` |  |
-| image.tag | string | `"4.2.7@sha256:80602caa61aea1f274265af9a8e3e90722d18f2d191b586d9304ada590e9d334"` |  |
+| image.repository | string | `"tccr.io/truecharts/tinymediamanager"` |  |
+| image.tag | string | `"v4.2.7@sha256:ed1883ca3a17969f12810143bed84eb94998e8bf1e65bc9d4717d1605ee03ef5"` |  |
 | persistence.data.enabled | bool | `true` |  |
 | persistence.data.mountPath | string | `"/data"` |  |
 | persistence.movies.enabled | bool | `true` |  |

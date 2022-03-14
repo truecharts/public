@@ -14,8 +14,8 @@ You will, however, be able to use all values referenced in the common chart here
 | env.LRR_GID | string | `"{{ .Values.podSecurityContext.fsGroup }}"` |  |
 | env.LRR_UID | string | `"{{ .Values.security.PUID }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"difegue/lanraragi"` |  |
-| image.tag | string | `"v.0.8.4@sha256:f059a0bffbb3f5c6aae001388e4317f4ff78ca7b1f905ee65b27a1f3a894ccef"` |  |
+| image.repository | string | `"tccr.io/truecharts/lanraragi"` |  |
+| image.tag | string | `"v.0.8.4@sha256:e41603c23afbb27544cdef8cf30f4e568eb499bd3221f81953e6cd60c469ab25"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/home/koyomi/lanraragi/database"` |  |
 | persistence.content.enabled | bool | `true` |  |

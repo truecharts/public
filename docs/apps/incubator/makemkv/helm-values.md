@@ -27,8 +27,8 @@ You will, however, be able to use all values referenced in the common chart here
 | configmap.makemkv.enabled | bool | `true` |  |
 | envFrom[0].configMapRef.name | string | `"{{ include \"common.names.fullname\" . }}-makemkv"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"jlesage/makemkv"` |  |
-| image.tag | string | `"v1.21.3@sha256:886bae9e9455d7152936c3031591790cb2be8869546e61f4475ecc7528e882a5"` |  |
+| image.repository | string | `"tccr.io/truecharts/makemkv"` |  |
+| image.tag | string | `"v1.21.3@sha256:f118ce074c75f8544913c1ed1f2354613e3a8838061aa7d44c323a52a811f23d"` |  |
 | makemkv.AUTO_DISC_RIPPER | bool | `false` |  |
 | makemkv.AUTO_DISC_RIPPER_BD_MODE | string | `"mkv"` |  |
 | makemkv.AUTO_DISC_RIPPER_EJECT | bool | `false` |  |
