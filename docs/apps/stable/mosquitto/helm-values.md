@@ -12,11 +12,14 @@ You will, however, be able to use all values referenced in the common chart here
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | auth.enabled | bool | `false` | By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config. |
-| image.pullPolicy | string | `"IfNotPresent"` | image pull policy |
-| image.repository | string | `"tccr.io/truecharts/eclipse-mosquitto"` | image repository |
-| image.tag | string | `"v2.0.14@sha256:047eb800158878c1bea9e6281e2dc3081b53b61ca10fdca5a17816c6fbe15216"` | image tag |
-| persistence.configinc | object | See values.yaml | Configure a persistent volume to place *.conf mosquitto-config-files in. When enabled, this gets set as `include_dir` in the mosquitto config. |
-| persistence.data | object | See values.yaml | Configure a persistent volume to place mosquitto data in. When enabled, this enables `persistence` and `persistence_location` in the mosquitto config. |
-| service | object | See values.yaml | Configures service settings for the chart. Normally this does not need to be modified. |
+| image.pullPolicy | string | `"IfNotPresent"` |  |
+| image.repository | string | `"tccr.io/truecharts/eclipse-mosquitto"` |  |
+| image.tag | string | `"v2.0.14@sha256:047eb800158878c1bea9e6281e2dc3081b53b61ca10fdca5a17816c6fbe15216"` |  |
+| persistence.configinc.enabled | bool | `true` |  |
+| persistence.configinc.mountPath | string | `"/mosquitto/configinc"` |  |
+| persistence.data.enabled | bool | `true` |  |
+| persistence.data.mountPath | string | `"/mosquitto/data"` |  |
+| service.main.ports.main.port | int | `1883` |  |
+| service.main.ports.main.targetPort | int | `1883` |  |
 
 All Rights Reserved - The TrueCharts Project
