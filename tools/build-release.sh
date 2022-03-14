@@ -288,6 +288,7 @@ sync_tag() {
     tag=$(echo $tag | sed "s/version-//g")
     tag=$(echo $tag | sed "s/version_//g")
     tag="${tag#*V.}"
+    tag="${tag#*v.}"
     tag="${tag#*v-}"
     tag="${tag#*v}"
     tag="${tag%-*}"
