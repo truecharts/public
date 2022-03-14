@@ -339,6 +339,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | makemkv                    |      main       |      main       | 10180 |   TCP    |                                         |
 | makemkv                    |       vnc       |       vnc       | 10181 |   TCP    |                                         |
 | nextpvr                    |      main       |      main       | 10183 |   TCP    |                                         |
+| ispy-agent-dvr             |      main       |      main       | 10184 |   TCP    |                                         |
+| ispy-agent-dvr             |      turn       |      turn       | 10185 |   UDP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
@@ -368,7 +370,18 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | pydio-cells                |      gprc       |      gprc       | 33060 |   TCP    |                                         |
 | xteve                      |      main       |      main       | 34400 |   TCP    |                                         |
 | foldingathome              |     control     |     control     | 36330 |   TCP    |                                         |
-| habridge                   |      comm       |      comm       | 50000 |   TCP    |                                         |
+| habridge                   |      comm       |      comm       | 50000 |   TCP    | Potential conflict with ispy-agent-dvr  |
+| ispy-agent-dvr             |     webrtc      |     webrtc0     | 50000 |   UDP    |    Potential conflict with habridge     |
+| ispy-agent-dvr             |     webrtc      |     webrtc1     | 50001 |   UDP    |                                         |
+| ispy-agent-dvr             |     webrtc      |     webrtc2     | 50002 |   UDP    |                                         |
+| ispy-agent-dvr             |     webrtc      |     webrtc3     | 50003 |   UDP    |                                         |
+| ispy-agent-dvr             |     webrtc      |     webrtc4     | 50004 |   UDP    |                                         |
+| ispy-agent-dvr             |     webrtc      |     webrtc5     | 50005 |   UDP    |                                         |
+| ispy-agent-dvr             |     webrtc      |     webrtc6     | 50006 |   UDP    |                                         |
+| ispy-agent-dvr             |     webrtc      |     webrtc7     | 50007 |   UDP    |                                         |
+| ispy-agent-dvr             |     webrtc      |     webrtc8     | 50008 |   UDP    |                                         |
+| ispy-agent-dvr             |     webrtc      |     webrtc9     | 50009 |   UDP    |                                         |
+| ispy-agent-dvr             |     webrtc      |    webrtc10     | 50010 |   UDP    |                                         |
 | appdaemon                  |       tcp       |       tcp       | 51050 |   TCP    |                                         |
 | podgrab                    |       tcp       |       tcp       | 51080 |   TCP    |                                         |
 | deluge                     |     torrent     |       tcp       | 51413 |   TCP    |                                         |
