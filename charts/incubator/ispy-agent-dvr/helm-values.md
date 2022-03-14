@@ -27,7 +27,7 @@ You will, however, be able to use all values referenced in the common chart here
 | service.main.ports.main.targetPort | int | `8090` |  |
 | service.turn.enabled | bool | `true` |  |
 | service.turn.ports.turn.enabled | bool | `true` |  |
-| service.turn.ports.turn.port | int | `10185` |  |
+| service.turn.ports.turn.port | int | `3478` |  |
 | service.turn.ports.turn.protocol | string | `"UDP"` |  |
 | service.turn.ports.turn.targetPort | int | `3478` |  |
 | service.webrtc.enabled | bool | `true` |  |
