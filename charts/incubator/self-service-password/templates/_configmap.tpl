@@ -1,5 +1,5 @@
 {{/* Append the hardcoded volumes */}}
-{{- define "openhab.configmap" -}}
+{{- define "selfservicepassword.configmap" -}}
 ---
 apiVersion: v1
 kind: ConfigMap
