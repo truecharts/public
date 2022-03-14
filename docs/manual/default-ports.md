@@ -67,7 +67,8 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | jdownloader2               |      myjd       |      myjd       | 3129  |   TCP    |                                         |
 | pylon                      |      main       |      main       | 3131  |   TCP    |                                         |
 | clamav                     |      main       |      main       | 3310  |   TCP    |                                         |
-| unifi                      |      stun       |    mstunain     | 3478  |   UDP    |                                         |
+| unifi                      |      stun       |    mstunain     | 3478  |   UDP    | Potential conflict with ispy-agent-dvr  |
+| ispy-agent-dvr             |      turn       |      turn       | 3478  |   UDP    |      Potential conflict with unifi      |
 | logitech-media-server      |    playertcp    |  slimprototcp   | 3483  |   TCP    |                                         |
 | logitech-media-server      |    playerudp    |  slimprotoudp   | 3483  |   UDP    |                                         |
 | ombi                       |      main       |      main       | 3579  |   TCP    |                                         |
@@ -340,7 +341,6 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | makemkv                    |       vnc       |       vnc       | 10181 |   TCP    |                                         |
 | nextpvr                    |      main       |      main       | 10183 |   TCP    |                                         |
 | ispy-agent-dvr             |      main       |      main       | 10184 |   TCP    |                                         |
-| ispy-agent-dvr             |      turn       |      turn       | 10185 |   UDP    |                                         |
 | hammond                    |      main       |      main       | 10186 |   TCP    |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
