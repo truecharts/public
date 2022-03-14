@@ -1,13 +1,8 @@
 image:
-  # -- image repository
   repository: tccr.io/truecharts/eclipse-mosquitto
-  # -- image tag
   tag: v2.0.14@sha256:047eb800158878c1bea9e6281e2dc3081b53b61ca10fdca5a17816c6fbe15216
-  # -- image pull policy
   pullPolicy: IfNotPresent
 
-# -- Configures service settings for the chart. Normally this does not need to be modified.
-# @default -- See values.yaml
 service:
   main:
     ports:
@@ -20,15 +15,9 @@ auth:
   enabled: false
 
 persistence:
-  # -- Configure a persistent volume to place mosquitto data in.
-  # When enabled, this enables `persistence` and `persistence_location` in the mosquitto config.
-  # @default -- See values.yaml
   data:
     enabled: true
     mountPath: "/mosquitto/data"
-  # -- Configure a persistent volume to place *.conf mosquitto-config-files in.
-  # When enabled, this gets set as `include_dir` in the mosquitto config.
-  # @default -- See values.yaml
   configinc:
     enabled: true
     mountPath: "/mosquitto/configinc"
