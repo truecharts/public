@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.21"></a>
+### [minecraft-java-0.0.21](https://github.com/truecharts/apps/compare/minecraft-java-0.0.20...minecraft-java-0.0.21) (2022-03-15)
+
+#### Chore
+
+* update helm chart common to v9.1.3 ([#2174](https://github.com/truecharts/apps/issues/2174))
+* make some fields required ([#2155](https://github.com/truecharts/apps/issues/2155))
+
+
+
 <a name="minecraft-java-0.0.20"></a>
 ### [minecraft-java-0.0.20](https://github.com/truecharts/apps/compare/minecraft-java-0.0.19...minecraft-java-0.0.20) (2022-03-13)
 
