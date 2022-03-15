@@ -1,17 +1,21 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "common.setup" . }}
 
-{{/* Append the configMap volume to the volumes */}}
-{{- define "filebrowser.configVolume" -}}
-enabled: "true"
-mountPath: "/.filebrowser.json"
-subPath: ".filebrowser.json"
-type: "custom"
-volumeSpec:
-  configMap:
-    name: {{ printf "%v-init" (include "common.names.fullname" .) }}
+{{/* Append the hardcoded settings */}}
+{{- define "filebrowser.harcodedValues" -}}
+persistence:
+  focalboard-config:
+    enabled: "true"
+    mountPath: "/.filebrowser.json"
+    subPath: "filebrowser-config"
+    type: "custom"
+    volumeSpec:
+      configMap:
+        name: {{ printf "%v-install" (include "common.names.fullname" .) }}
 {{- end -}}
-{{- $_ := set .Values.persistence "filebrowser-config" (include "filebrowser.configVolume" . | fromYaml) -}}
+{{- $_ := mergeOverwrite .Values (include "filebrowser.harcodedValues" . | fromYaml) -}}
+
+{{- include "filebrowser.configmap" . }}
 
 {{/* Render the templates */}}
 {{ include "common.postSetup" . }}
