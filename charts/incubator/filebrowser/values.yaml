@@ -10,15 +10,17 @@ service:
         targetPort: 10187
         port: 10187
 
-config: |
-  {
-    "port": 10187,
-    "baseURL": "",
-    "address": "",
-    "log": "stdout",
-    "database": "/config/database.db",
-    "root": "/srv"
-  }
+secret: 
+  FB_USERNAME: "admin"
+  FB_PASSWORD: "secretpass"
+
+env:
+  FB_ADDRESS: ""
+  FB_BASEURL: ""
+  FB_DATABASE: "/database"
+  FB_CONFIG: "/config"
+  FB_ROOT: "/data"
+  FB_PORT: "{{ .Values.services.main.ports.main.port }}"
 
 persistence:
   config:
