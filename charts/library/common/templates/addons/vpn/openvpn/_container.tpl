@@ -57,7 +57,7 @@ envFrom:
 volumeMounts:
   - mountPath: {{ .Values.persistence.shared.mountPath }}
     name: shared
-{{- if or .Values.addons.vpn.configFile }}
+{{- if .Values.addons.vpn.configFile }}
   - name: vpnconfig
     mountPath: /vpn/vpn.conf
 {{- end }}
