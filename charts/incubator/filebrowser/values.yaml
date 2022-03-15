@@ -16,8 +16,8 @@ secret:
 env:
   FB_ADDRESS: ""
   FB_BASEURL: ""
-  FB_DATABASE: "/database"
-  FB_CONFIG: "/config"
+  FB_DATABASE: "/database/filebrowser.db"
+  FB_CONFIG: "/config/filebrowser.json"
   FB_ROOT: "/data"
   FB_PORT: "{{ .Values.service.main.ports.main.port }}"
 
