@@ -1,4 +1,4 @@
-{{- define "focalboard.configmap" -}}
+{{- define "filebrowser.configmap" -}}
 
 ---
 apiVersion: v1
