@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: pydio-cells
-version: 2.0.3
+version: 2.0.4
 appVersion: "3.0.5"
 description: Pydio-cells is the nextgen file sharing platform for organizations.
 type: application
@@ -15,11 +15,11 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 9.1.2
+  version: 9.1.4
 - condition: mariadb.enabled
   name: mariadb
   repository: https://truecharts.org/
-  version: 2.0.2
+  version: 2.0.4
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts

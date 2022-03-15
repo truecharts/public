@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "0.90.74"
 description: Status page for monitoring your websites and applications
 name: statping
-version: 5.0.2
+version: 5.0.3
 kubeVersion: ">=1.16.0-0"
 keywords:
 - statping
@@ -15,11 +15,11 @@ sources:
 dependencies:
 - name: common
   repository: https://truecharts.org
-  version: 9.1.2
+  version: 9.1.4
 - condition: postgresql.enabled
   name: postgresql
   repository: https://truecharts.org/
-  version: 7.0.2
+  version: 7.0.4
 maintainers:
 - email: info@truecharts.org
   name: TrueCharts
