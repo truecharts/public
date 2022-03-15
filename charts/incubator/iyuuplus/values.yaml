@@ -1,0 +1,30 @@
+image:
+  repository: iyuucn/iyuuplus
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:657efe26a464638a2e39ba618e8912830c6280fa1fe9af55adb942175cf0835e
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8787
+        port: 10188
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/IYUU/db"
+  torrents:
+    enabled: true
+    mountPath: "/torrents"
+  btbackup:
+    enabled: true
+    mountPath: "/BT_backup"
