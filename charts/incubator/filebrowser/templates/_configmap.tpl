@@ -1,4 +1,3 @@
-{{- define "filebrowser.configmap" -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
