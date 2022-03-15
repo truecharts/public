@@ -7,12 +7,12 @@ service:
   main:
     ports:
       main:
-        targetPort: 80
+        targetPort: 10187
         port: 10187
 
 config: |
   {
-    "port": 80,
+    "port": 10187,
     "baseURL": "",
     "address": "",
     "log": "stdout",
