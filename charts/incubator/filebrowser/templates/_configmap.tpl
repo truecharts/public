@@ -1,7 +1,10 @@
+{{- define "focalboard.configmap" -}}
+
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "common.names.fullname" . }}-init
+  name: {{ include "common.names.fullname" . }}-install
   labels:
     {{- include "common.labels" . | nindent 4 }}
 data:
