@@ -24,6 +24,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  database:
+    enabled: true
+    mountPath: "/database"    
   data:
     enabled: true
-    mountPath: "/srv"
+    mountPath: "/data"
