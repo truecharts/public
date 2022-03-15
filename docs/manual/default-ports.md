@@ -342,6 +342,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | self-service-password      |      main       |      main       | 10182 |   TCP    |                                         |
 | nextpvr                    |      main       |      main       | 10183 |   TCP    |                                         |
 | ispy-agent-dvr             |      main       |      main       | 10184 |   TCP    |                                         |
+| koel                       |      main       |      main       | 10185 |   TCP    |                                         |
 | hammond                    |      main       |      main       | 10186 |   TCP    |                                         |
 | iyuuplus                   |      main       |      main       | 10188 |   HTTP   |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
