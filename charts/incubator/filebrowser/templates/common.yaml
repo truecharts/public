@@ -1,0 +1,20 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "common.setup" . }}
+
+{{/* Render configmap for openhab */}}
+{{- include "filebrowser.configmap" . }}
+
+{{/* Append the configMap volume to the volumes */}}
+{{- define "filebrowser.configVolume" -}}
+enabled: "true"
+mountPath: "/.filebrowser.json"
+subPath: ".filebrowser.json"
+type: "custom"
+volumeSpec:
+  configMap:
+    name: {{ printf "%v-init" (include "common.names.fullname" .) }}
+{{- end -}}
+{{- $_ := set .Values.persistence "filebrowser-config" (include "filebrowser.configVolume" . | fromYaml) -}}
+
+{{/* Render the templates */}}
+{{ include "common.postSetup" . }}

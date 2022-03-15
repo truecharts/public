@@ -343,6 +343,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | nextpvr                    |      main       |      main       | 10183 |   TCP    |                                         |
 | ispy-agent-dvr             |      main       |      main       | 10184 |   TCP    |                                         |
 | hammond                    |      main       |      main       | 10186 |   TCP    |                                         |
+| filebrowser                |      main       |      main       | 10187 |   HTTP   |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
 | satisfactory               |      query      |      query      | 15777 |   UDP    |                                         |
