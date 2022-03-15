@@ -1,0 +1,29 @@
+image:
+  repository: filebrowser/filebrowser
+  pullPolicy: IfNotPresent
+  tag: v2.21.1@sha256:fc69202b56e8a883a152f54467e4d8e5a3ed75b7ffb78a33aef63e222b46f773
+
+service:
+  main:
+    ports:
+      main:
+        port: 10187
+
+env:
+  FB_ADDRESS: ""
+  FB_BASEURL: ""
+  FB_DATABASE: "/database/filebrowser.db"
+  FB_CONFIG: "/config/filebrowser.json"
+  FB_ROOT: "/data"
+  FB_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  database:
+    enabled: true
+    mountPath: "/database"
+  data:
+    enabled: true
+    mountPath: "/data"

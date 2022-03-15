@@ -344,6 +344,7 @@ These defaults can of course be changed, but as we guarantee "sane, working defa
 | ispy-agent-dvr             |      main       |      main       | 10184 |   TCP    |                                         |
 | koel                       |      main       |      main       | 10185 |   TCP    |                                         |
 | hammond                    |      main       |      main       | 10186 |   TCP    |                                         |
+| filebrowser                |      main       |      main       | 10187 |   HTTP   |                                         |
 | iyuuplus                   |      main       |      main       | 10188 |   HTTP   |                                         |
 | storj-node                 |      main       |      main       | 14002 |   TCP    |                                         |
 | satisfactory               |     beacon      |     beacon      | 15000 |   UDP    |                                         |
