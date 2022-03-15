@@ -24477,6 +24477,36 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.6.0
+    created: "2022-03-15T19:16:46.490078062Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: A private Among Us server
+    digest: b2230f88bd4fa010021d251c320d5fc3969d7c8ce369b2c9b8d1e9b5b1d12f46
+    home: https://github.com/truecharts/apps/tree/master/charts/games/impostor-server
+    icon: https://truecharts.org/_static/img/appicons/impostor-server.png
+    keywords:
+    - impostor-server
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: impostor-server
+    sources:
+    - https://github.com/truecharts/apps/tree/master/incubator/impostor-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/impostor-server-0.0.18/impostor-server-0.0.18.tgz
+    version: 0.0.18
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.0
     created: "2022-03-15T13:06:42.013507572Z"
     dependencies:
     - name: common
@@ -37181,6 +37211,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 2022.1.0
+    created: "2022-03-15T19:16:46.621486687Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: Minecraft Bedrock Dedicated Server
+    digest: 495315be2d069c284f401b65757ddeb0ffd33f514dcd0e262159d46637673dbb
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-bedrock
+    icon: https://truecharts.org/_static/img/appicons/minecraft-bedrock.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-bedrock
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.16/minecraft-bedrock-0.0.16.tgz
+    version: 0.0.16
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.1.0
     created: "2022-03-15T13:06:42.231549328Z"
     dependencies:
     - name: common
@@ -37485,6 +37546,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minecraft-bedrock-0.0.2/minecraft-bedrock-0.0.2.tgz
     version: 0.0.2
   minecraft-java:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2022.4.1
+    created: "2022-03-15T19:16:46.743756056Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: Minecraft Java Dedicated Server
+    digest: 8685cf7b6985c25f21a61d00652586d72ef09984caf76c0109185a167b0746be
+    home: https://github.com/truecharts/apps/tree/master/charts/games/minecraft-java
+    icon: https://truecharts.org/_static/img/appicons/minecraft-java.png
+    keywords:
+    - minecraft
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minecraft-java
+    sources:
+    - https://github.com/itzg/docker-minecraft-server
+    - https://hub.docker.com/r/itzg/minecraft-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minecraft-java-0.0.23/minecraft-java-0.0.23.tgz
+    version: 0.0.23
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -38075,6 +38167,37 @@ entries:
     - https://github.com/truecharts/apps/releases/download/minecraft-java-0.0.1/minecraft-java-0.0.1.tgz
     version: 0.0.1
   minetest:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 5.4.1
+    created: "2022-03-15T19:16:46.881986324Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: Minetest (server) is a near-infinite-world block sandbox game and
+      a game engine.
+    digest: a46233d70db7a3c5f22bc5fd15f37545ea47d7c7a0b84f559f3599d6e0dd3467
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/minetest
+    icon: https://truecharts.org/_static/img/appicons/minetest.png
+    keywords:
+    - minetest
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: minetest
+    sources:
+    - https://hub.docker.com/r/linuxserver/minetest
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/minetest-0.0.30/minetest-0.0.30.tgz
+    version: 0.0.30
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -66664,6 +66787,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: 1.2.3
+    created: "2022-03-15T19:16:47.018384581Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: Satisfactory Dedicated Server
+    digest: 72ca997242af499ecea59da211bca8d3d2dd1d75c01aa1615b662c480b498841
+    home: https://github.com/truecharts/apps/tree/master/charts/games/satisfactory
+    icon: https://truecharts.org/_static/img/appicons/satisfactory.png
+    keywords:
+    - satisfactory
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: statisfactory
+    sources:
+    - https://github.com/wolveix/satisfactory-server
+    - https://hub.docker.com/r/wolveix/satisfactory-server
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/statisfactory-0.0.15/statisfactory-0.0.15.tgz
+    version: 0.0.15
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - games
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.2.3
     created: "2022-03-15T13:06:42.944179149Z"
     dependencies:
     - name: common
@@ -73611,6 +73765,37 @@ entries:
       truecharts.org/grade: U
     apiVersion: v2
     appVersion: latest
+    created: "2022-03-15T19:16:47.167396617Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.4
+    description: Valheim dedicated gameserver with automatic update and world backup
+      support
+    digest: 6893c0932f4028e7622fe7416f092a46961c2070e57d42cb33b513f46ab33309
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/valheim
+    icon: https://truecharts.org/_static/img/appicons/valheim.png
+    keywords:
+    - valheim
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: valheim
+    sources:
+    - https://github.com/lloesche/valheim-server-docker
+    - https://hub.docker.com/r/lloesche/valheim-server
+    urls:
+    - https://github.com/truecharts/apps/releases/download/valheim-2.0.32/valheim-2.0.32.tgz
+    version: 2.0.32
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
     created: "2022-03-15T13:06:43.166781834Z"
     dependencies:
     - name: common
@@ -76669,4 +76854,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-15T18:41:09.397910168Z"
+generated: "2022-03-15T19:16:47.175500868Z"
