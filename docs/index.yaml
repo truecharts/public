@@ -46056,6 +46056,38 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/onlyoffice-document-server-3.0.0/onlyoffice-document-server-3.0.0.tgz
     version: 3.0.0
+  openhab:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+        - test
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 3.2.0
+    created: "2022-03-15T18:22:05.571027475Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: OpenHab is a home-automation application
+    digest: 0b57ac7fcf97a97c657b2c0baad6dce34bc21322f190260da5023a663afed1ea
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/openhab
+    icon: https://truecharts.org/_static/img/appicons/openhab.png
+    keywords:
+    - openhab
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: openhab
+    sources:
+    - https://hub.docker.com/r/openhab/openhab
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/openhab-1.0.0/openhab-1.0.0.tgz
+    version: 1.0.0
   openkm:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -47846,6 +47878,49 @@ entries:
     - https://github.com/truecharts/apps/releases/download/owncloud-ocis-4.0.21/owncloud-ocis-4.0.21.tgz
     version: 4.0.21
   paperless-ng:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - productivity
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 1.6.0
+    created: "2022-03-15T18:22:05.815348139Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.2
+    - condition: redis.enabled
+      name: redis
+      repository: https://truecharts.org
+      version: 2.0.2
+    description: Paperless-ngx is an application by Daniel Quinn and contributors
+      that indexes your scanned documents.
+    digest: 95d110200ff85d342737f5de79aa5eade7892000bbf9ef601b8a8012434b4be7
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/paperless-ng
+    icon: https://truecharts.org/_static/img/appicons/paperless-ng.png
+    keywords:
+    - paperless-ng
+    - paperless-ngx
+    - documents
+    - paper
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: paperless-ng
+    sources:
+    - https://github.com/paperless-ngx/paperless-ngx
+    - https://paperless-ngx.readthedocs.io/en/latest/
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/paperless-ng-2.0.7/paperless-ng-2.0.7.tgz
+    version: 2.0.7
   - annotations:
       truecharts.org/SCALE-support: "true"
       truecharts.org/catagories: |
@@ -76497,4 +76572,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-15T17:44:22.11273239Z"
+generated: "2022-03-15T18:22:05.822140085Z"
