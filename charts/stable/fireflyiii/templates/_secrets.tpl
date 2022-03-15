@@ -18,7 +18,7 @@ data:
   {{- $static_cron_token := randAlphaNum 32 }}
   {{- $app_key := randAlphaNum 32 }}
   STATIC_CRON_TOKEN: {{ $static_cron_token | b64enc }}
-  APP_KEY: {{ $static_cron_token | b64enc }}
+  APP_KEY: {{ $app_key | b64enc }}
   {{- end }}
 
 {{- end -}}
