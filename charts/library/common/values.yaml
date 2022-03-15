@@ -44,7 +44,7 @@ codeserverImage:
   # -- Specify the code-server image
   repository: ghcr.io/truecharts/code-server
   # -- Specify the code-server image tag
-  tag: v4.0.2@sha256:7c5ad7103055cb743b1f3647fcb2b2517d6ef6772a11d9c53443a056c2ea8002
+  tag: v4.1.0@sha256:f96a1fab826dda8f8e0c2050baafe2572c13b2502ac80c412e9bed2171f9869e
   # -- Specify the code-server image pull policy
   pullPolicy: IfNotPresent
 
@@ -64,7 +64,7 @@ postgresqlImage:
   # -- Specify the postgresql image
   repository: ghcr.io/truecharts/postgresql
   # -- Specify the postgresql image tag
-  tag: v14.2.0@sha256:d197a9691ce5d949504dabaa75459448f643950a71c1c16b2fcadbaed2d06772
+  tag: v14.2.0@sha256:049f50be357425653422a2d790efa90ae82ad5e4df2eb974308a5bcbd41e6605
   # -- Specify the postgresql image pull policy
   pullPolicy: IfNotPresent
 
