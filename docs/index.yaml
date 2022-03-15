@@ -14423,6 +14423,40 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/external-service-4.0.20/external-service-4.0.20.tgz
     version: 4.0.20
+  filebrowser:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: 2.21.1
+    created: "2022-03-15T22:20:27.037585411Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: Filebrowser provides a file managing interface within a specified
+      directory
+    digest: f45c356a60ea582a70f72cc7cf99fadcf0fd8c16117d51c294d18044f40ca628
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/filebrowser
+    icon: https://truecharts.org/_static/img/appicons/filebrowser.png
+    keywords:
+    - filebrowser
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: filebrowser
+    sources:
+    - https://github.com/filebrowser/filebrowser
+    - https://filebrowser.org/cli/filebrowser
+    - https://hub.docker.com/r/filebrowser/filebrowser
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/filebrowser-0.0.1/filebrowser-0.0.1.tgz
+    version: 0.0.1
   filezilla:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -76932,4 +76966,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-15T21:21:25.365092574Z"
+generated: "2022-03-15T22:20:27.047790274Z"

@@ -7,4 +7,3 @@
 #### Feat
 
 * Add koel ([#2182](https://github.com/truecharts/apps/issues/2182))
-
