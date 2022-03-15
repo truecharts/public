@@ -74,7 +74,25 @@ questions:
                     - value: "OnDelete"
                       description: "(Legacy) OnDelete: ignore .spec.template changes"
 # Include{controllerExpert}
-
+  - variable: env
+    group: "Container Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: FB_ADDRESS
+          label: "ADDRESS"
+          description: "Address to listen on (Leave empty for default)"
+          schema:
+            type: string
+            default: ""
+        - variable: FB_BASEURL
+          label: "BASEURL"
+          description: "Base URL"
+          schema:
+            type: string
+            default: ""
 # Include{containerConfig}
 
   - variable: service
@@ -138,7 +156,7 @@ questions:
                                   description: "The internal(!) port on the container the Application runs on"
                                   schema:
                                     type: int
-                                    default: 80
+                                    default: 10187
 
   - variable: serviceexpert
     group: "Networking and Services"
