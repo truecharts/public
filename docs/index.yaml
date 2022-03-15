@@ -25115,6 +25115,40 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/ispy-agent-dvr-0.0.1/ispy-agent-dvr-0.0.1.tgz
     version: 0.0.1
+  iyuuplus:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-03-15T17:44:22.104249685Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    description: The IYUU automatic seeding tool can automatically seed most PT sites
+      in China, support downloader clusters, multiple disks, multiple download directories,
+      connecting to remote downloaders, etc.
+    digest: cc40e2a8fe7e67883f81810586ee36064b88bb4960416890334a9bcfc93ef4c0
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/iyuuplus
+    icon: https://truecharts.org/_static/img/appicons/iyuuplus.png
+    keywords:
+    - iyuuplus
+    - pt
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: iyuuplus
+    sources:
+    - https://hub.docker.com/r/iyuucn/iyuuplus
+    type: application
+    urls:
+    - https://github.com/truecharts/apps/releases/download/iyuuplus-0.0.1/iyuuplus-0.0.1.tgz
+    version: 0.0.1
   jackett:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -76463,4 +76497,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-15T16:55:28.239767498Z"
+generated: "2022-03-15T17:44:22.11273239Z"
