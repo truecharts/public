@@ -54,7 +54,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | codeserverImage | object | See below | codeserver specific configuration |
 | codeserverImage.pullPolicy | string | `"IfNotPresent"` | Specify the code-server image pull policy |
 | codeserverImage.repository | string | `"ghcr.io/truecharts/code-server"` | Specify the code-server image |
-| codeserverImage.tag | string | `"v4.0.2@sha256:7c5ad7103055cb743b1f3647fcb2b2517d6ef6772a11d9c53443a056c2ea8002"` | Specify the code-server image tag |
+| codeserverImage.tag | string | `"v4.1.0@sha256:f96a1fab826dda8f8e0c2050baafe2572c13b2502ac80c412e9bed2171f9869e"` | Specify the code-server image tag |
 | command | list | `[]` | Override the command(s) for the default container |
 | configmap | object | See below | Configure configMaps for the chart here. Additional configMaps can be added by adding a dictionary key similar to the 'config' object. |
 | configmap.config.annotations | object | `{}` | Annotations to add to the configMap |
@@ -203,7 +203,7 @@ This chart is used by a lot of our Apps to provide sane defaults and logic.
 | postgresqlImage | object | See below | postgresql specific configuration |
 | postgresqlImage.pullPolicy | string | `"IfNotPresent"` | Specify the postgresql image pull policy |
 | postgresqlImage.repository | string | `"ghcr.io/truecharts/postgresql"` | Specify the postgresql image |
-| postgresqlImage.tag | string | `"v14.2.0@sha256:d197a9691ce5d949504dabaa75459448f643950a71c1c16b2fcadbaed2d06772"` | Specify the postgresql image tag |
+| postgresqlImage.tag | string | `"v14.2.0@sha256:049f50be357425653422a2d790efa90ae82ad5e4df2eb974308a5bcbd41e6605"` | Specify the postgresql image tag |
 | priorityClassName | string | `nil` | Custom priority class for different treatment by the scheduler |
 | probes | object | See below | [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) |
 | probes.liveness | object | See below | Liveness probe configuration |

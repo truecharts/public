@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/pgadmin4"` |  |
-| image.tag | string | `"v6.5@sha256:ccdb84bd5f8970f022c4dbe62f5b6d4b795304c6c02def8fc5369d9725fae140"` |  |
+| image.tag | string | `"v6.7@sha256:c187b358389e145be5c20b6773abbca1d86af7ff4c6406fb325a7373f1455326"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/var/lib/pgadmin"` |  |
 | podSecurityContext.fsGroup | int | `5050` |  |

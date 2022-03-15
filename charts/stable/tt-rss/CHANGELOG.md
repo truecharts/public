@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="tt-rss-5.0.4"></a>
+### [tt-rss-5.0.4](https://github.com/truecharts/apps/compare/tt-rss-5.0.3...tt-rss-5.0.4) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
 <a name="tt-rss-5.0.3"></a>
 ### [tt-rss-5.0.3](https://github.com/truecharts/apps/compare/tt-rss-5.0.2...tt-rss-5.0.3) (2022-03-08)
 

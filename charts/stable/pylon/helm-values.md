@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.GITURL | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/pylon"` |  |
-| image.tag | string | `"v2.7.0"` |  |
+| image.tag | string | `"v2.8.0"` |  |
 | persistence.code.enabled | bool | `true` |  |
 | persistence.code.mountPath | string | `"/code"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

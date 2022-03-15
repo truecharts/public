@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | auth.enabled | bool | `false` | By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config. |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/eclipse-mosquitto"` |  |
-| image.tag | string | `"v2.0.14@sha256:047eb800158878c1bea9e6281e2dc3081b53b61ca10fdca5a17816c6fbe15216"` |  |
+| image.tag | string | `"v2.0.14@sha256:55be28ea8ea96796b86d214f999ba053064d155655c17012ef5b0ddba5e70030"` |  |
 | persistence.configinc.enabled | bool | `true` |  |
 | persistence.configinc.mountPath | string | `"/mosquitto/configinc"` |  |
 | persistence.data.enabled | bool | `true` |  |

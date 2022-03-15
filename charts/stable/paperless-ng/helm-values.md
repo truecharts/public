@@ -33,7 +33,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.PAPERLESS_SECRET_KEY.secretKeyRef.name | string | `"paperlessng-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/paperless-ng"` |  |
-| image.tag | string | `"v1.5.0@sha256:fb64bc161bc6d7ca90ca6c72131e8de9f5890a995913d4c656400d8ac1feca33"` |  |
+| image.tag | string | `"v1.6.0@sha256:d37f7885870d0105b0a121c7e0f21b4a8176fcce9b1c4419305d1f7997db8a54"` |  |
 | persistence.consume.enabled | bool | `true` |  |
 | persistence.consume.mountPath | string | `"/consume"` |  |
 | persistence.data.enabled | bool | `true` |  |

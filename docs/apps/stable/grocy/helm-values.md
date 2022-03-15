@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/grocy"` |  |
-| image.tag | string | `"v3.2.0@sha256:881ea3b1f47678eafe74d1697ea4798e49084d7486002485c0d3c6433b4b1710"` |  |
+| image.tag | string | `"v3.2.0@sha256:eb0d3531fe8c93bd928d116a8e325620c770ce0e96e854d9de226b11a79c2409"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | podSecurityContext.runAsGroup | int | `0` |  |

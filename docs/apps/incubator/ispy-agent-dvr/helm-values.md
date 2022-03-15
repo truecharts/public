@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"doitandbedone/ispyagentdvr"` |  |
-| image.tag | string | `"3.8.6.0@sha256:b2ad9ed49abfcbb6f82362209fbf4cdccdb4abf2cf7aa7c9bf276ad8b5ed312c"` |  |
+| image.tag | string | `"3.8.8.0@sha256:0b67bb6967d2ecde08b9299268bb3038c5a630b147da9dcaadd94a73c812a433"` |  |
 | persistence.commands.enabled | bool | `true` |  |
 | persistence.commands.mountPath | string | `"/agent/Commands"` |  |
 | persistence.config.enabled | bool | `true` |  |

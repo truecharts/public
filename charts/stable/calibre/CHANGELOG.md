@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="calibre-6.0.3"></a>
+### [calibre-6.0.3](https://github.com/truecharts/apps/compare/calibre-web-10.0.1...calibre-6.0.3) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
 <a name="calibre-6.0.2"></a>
 ### [calibre-6.0.2](https://github.com/truecharts/apps/compare/calibre-6.0.1...calibre-6.0.2) (2022-03-07)
 

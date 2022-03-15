@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="budge-1.0.4"></a>
+### [budge-1.0.4](https://github.com/truecharts/apps/compare/budge-1.0.3...budge-1.0.4) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
 <a name="budge-1.0.3"></a>
 ### [budge-1.0.3](https://github.com/truecharts/apps/compare/budge-1.0.2...budge-1.0.3) (2022-03-07)
 

@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="bazarr-10.0.2"></a>
+### [bazarr-10.0.2](https://github.com/truecharts/apps/compare/bazarr-10.0.1...bazarr-10.0.2) (2022-03-15)
+
+#### Chore
+
+* remove puid from values ([#2152](https://github.com/truecharts/apps/issues/2152))
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
 <a name="bazarr-10.0.1"></a>
 ### [bazarr-10.0.1](https://github.com/truecharts/apps/compare/bazarr-10.0.0...bazarr-10.0.1) (2022-03-07)
 
