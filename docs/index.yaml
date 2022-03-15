@@ -27682,6 +27682,45 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/kodi-headless-0.0.1/kodi-headless-0.0.1.tgz
     version: 0.0.1
+  koel:
+  - annotations:
+      truecharts.org/SCALE-support: "true"
+      truecharts.org/catagories: |
+        - media
+      truecharts.org/grade: U
+    apiVersion: v2
+    appVersion: latest
+    created: "2022-03-15T21:21:25.353953716Z"
+    dependencies:
+    - name: common
+      repository: https://truecharts.org
+      version: 9.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://truecharts.org/
+      version: 7.0.2
+    description: Koel is a simple web-based personal audio streaming service written
+      in Vue on the client side and Laravel on the server side.
+    digest: b49263ccfefc7a55d0480f68efce22b7892c8a5d9a34a83c7904517cb1a0f6da
+    home: https://github.com/truecharts/apps/tree/master/charts/stable/koel
+    icon: https://truecharts.org/_static/img/appicons/koel.png
+    keywords:
+    - koel
+    - music
+    - stream
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+    name: koel
+    sources:
+    - https://github.com/koel/docker
+    - https://hub.docker.com/r/hyzual/koel
+    - https://github.com/koel/koel
+    urls:
+    - https://github.com/truecharts/apps/releases/download/koel-0.0.1/koel-0.0.1.tgz
+    version: 0.0.1
   komga:
   - annotations:
       truecharts.org/SCALE-support: "true"
@@ -76893,4 +76932,4 @@ entries:
     urls:
     - https://github.com/truecharts/apps/releases/download/zwavejs2mqtt-9.0.24/zwavejs2mqtt-9.0.24.tgz
     version: 9.0.24
-generated: "2022-03-15T20:43:54.363456526Z"
+generated: "2022-03-15T21:21:25.365092574Z"
