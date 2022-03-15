@@ -11,10 +11,9 @@ You will, however, be able to use all values referenced in the common chart here
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/nzbhydra2"` |  |
-| image.tag | string | `"v4.1.0@sha256:7a9511530053833ecc3e3ea96ae186e48d6b807cc35ee3d44998f30546c46682"` |  |
+| image.tag | string | `"v4.2.0@sha256:c79c9f0df6eeffd8822dff0797c8ef3e2d1b33e5ce246f5367354fdc48152822"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | probes.liveness.custom | bool | `true` |  |

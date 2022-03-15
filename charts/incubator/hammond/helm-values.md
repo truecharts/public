@@ -15,7 +15,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.JWT_SECRET.secretKeyRef.name | string | `"hammond-secrets"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"akhilrex/hammond"` |  |
-| image.tag | string | `"1.0.0@sha256:b5df7f1bd33e01645535f2d20f22731c9a0859c77b97ddcbf49f57635eb81646"` |  |
+| image.tag | string | `"1.0.0@sha256:6f61ed86cc93c8e37244448b8323d135ce456be3b79a6935268ef664478c8045"` |  |
 | persistence.assets.enabled | bool | `true` |  |
 | persistence.assets.mountPath | string | `"/assets"` |  |
 | persistence.config.enabled | bool | `true` |  |

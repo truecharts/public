@@ -1,6 +1,16 @@
 # Changelog<br>
 
 
+<a name="ombi-10.0.3"></a>
+### [ombi-10.0.3](https://github.com/truecharts/apps/compare/ombi-10.0.2...ombi-10.0.3) (2022-03-15)
+
+#### Chore
+
+* remove puid from values ([#2152](https://github.com/truecharts/apps/issues/2152))
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
 <a name="ombi-10.0.2"></a>
 ### [ombi-10.0.2](https://github.com/truecharts/apps/compare/ombi-10.0.1...ombi-10.0.2) (2022-03-07)
 

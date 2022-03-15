@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="deemix-1.0.2"></a>
+### [deemix-1.0.2](https://github.com/truecharts/apps/compare/deemix-1.0.1...deemix-1.0.2) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2178](https://github.com/truecharts/apps/issues/2178))
+
+
+
 <a name="deemix-1.0.1"></a>
 ### [deemix-1.0.1](https://github.com/truecharts/apps/compare/deemix-1.0.0...deemix-1.0.1) (2022-03-07)
 

@@ -28,7 +28,7 @@ You will, however, be able to use all values referenced in the common chart here
 | envValueFrom.REDIS_PASSWORD.secretKeyRef.name | string | `"rediscreds"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/weblate"` |  |
-| image.tag | string | `"v4.10.1@sha256:bc517880487a9a766a3ce4ddfe429ed37ad4605d0097e28b0dd16eafdacd12b2"` |  |
+| image.tag | string | `"v4.11.2@sha256:b8217cb4e2ab878a7f8c67263b29276ff35699f1c55e1c7f13abfddae75c5a9c"` |  |
 | persistence.cache.enabled | bool | `true` |  |
 | persistence.cache.mountPath | string | `"/app/cache"` |  |
 | persistence.cache.type | string | `"emptyDir"` |  |

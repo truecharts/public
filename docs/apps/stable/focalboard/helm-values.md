@@ -18,7 +18,7 @@ You will, however, be able to use all values referenced in the common chart here
 | focalboard.telemetry | bool | `false` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/focalboard"` |  |
-| image.tag | string | `"v0.14.0@sha256:489150257a4638e83a81e3e07afbb76fd891ae47c8b258b0a271ebcaa95638c3"` |  |
+| image.tag | string | `"v0.15.0@sha256:81fcf2a97f980c5b7f41c64e752794bc33fe4b0762a31694a88062ac39ce92d7"` |  |
 | persistence.uploads.enabled | bool | `true` |  |
 | persistence.uploads.mountPath | string | `"/uploads"` |  |
 | postgresql.enabled | bool | `true` |  |

@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="minetest-0.0.30"></a>
+### [minetest-0.0.30](https://github.com/truecharts/apps/compare/minetest-0.0.29...minetest-0.0.30) (2022-03-15)
+
+#### Chore
+
+* update helm chart common to v9.1.4 ([#2181](https://github.com/truecharts/apps/issues/2181))
+
+
+
+<a name="minetest-0.0.29"></a>
+### [minetest-0.0.29](https://github.com/truecharts/apps/compare/minetest-0.0.28...minetest-0.0.29) (2022-03-15)
+
+#### Chore
+
+* update helm chart common to v9.1.3 ([#2174](https://github.com/truecharts/apps/issues/2174))
+
+#### Docs
+
+* add alexthamm as a contributor for bug ([#2082](https://github.com/truecharts/apps/issues/2082))
+
+
+
 <a name="minetest-0.0.28"></a>
 ### [minetest-0.0.28](https://github.com/truecharts/apps/compare/minetest-0.0.27...minetest-0.0.28) (2022-03-07)
 

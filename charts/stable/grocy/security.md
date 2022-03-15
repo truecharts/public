@@ -46,7 +46,7 @@ hide:
 
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
           tccr.io/truecharts/alpine:v3.14.2@sha256:4095394abbae907e94b1f2fd2e2de6c4f201a5b9704573243ca8eb16db8cdb7c
-          tccr.io/truecharts/grocy:v3.2.0@sha256:881ea3b1f47678eafe74d1697ea4798e49084d7486002485c0d3c6433b4b1710
+          tccr.io/truecharts/grocy:v3.2.0@sha256:eb0d3531fe8c93bd928d116a8e325620c770ce0e96e854d9de226b11a79c2409
 
 ##### Scan Results
 

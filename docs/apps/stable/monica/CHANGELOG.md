@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="monica-1.0.4"></a>
+### [monica-1.0.4](https://github.com/truecharts/apps/compare/monica-1.0.3...monica-1.0.4) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2178](https://github.com/truecharts/apps/issues/2178))
+
+
+
 <a name="monica-1.0.3"></a>
 ### [monica-1.0.3](https://github.com/truecharts/apps/compare/monica-1.0.2...monica-1.0.3) (2022-03-08)
 

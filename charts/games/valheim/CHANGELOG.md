@@ -1,6 +1,28 @@
 # Changelog<br>
 
 
+<a name="valheim-2.0.32"></a>
+### [valheim-2.0.32](https://github.com/truecharts/apps/compare/valheim-2.0.31...valheim-2.0.32) (2022-03-15)
+
+#### Chore
+
+* update helm chart common to v9.1.4 ([#2181](https://github.com/truecharts/apps/issues/2181))
+
+
+
+<a name="valheim-2.0.31"></a>
+### [valheim-2.0.31](https://github.com/truecharts/apps/compare/valheim-2.0.30...valheim-2.0.31) (2022-03-15)
+
+#### Chore
+
+* update helm chart common to v9.1.3 ([#2174](https://github.com/truecharts/apps/issues/2174))
+
+#### Docs
+
+* add alexthamm as a contributor for bug ([#2082](https://github.com/truecharts/apps/issues/2082))
+
+
+
 <a name="valheim-2.0.30"></a>
 ### [valheim-2.0.30](https://github.com/truecharts/apps/compare/valheim-2.0.29...valheim-2.0.30) (2022-03-07)
 

@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="owncloud-ocis-6.0.1"></a>
+### [owncloud-ocis-6.0.1](https://github.com/truecharts/apps/compare/owncloud-ocis-6.0.0...owncloud-ocis-6.0.1) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
 <a name="owncloud-ocis-6.0.0"></a>
 ### [owncloud-ocis-6.0.0](https://github.com/truecharts/apps/compare/owncloud-ocis-5.0.2...owncloud-ocis-6.0.0) (2022-03-07)
 

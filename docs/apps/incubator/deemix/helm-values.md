@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env.INTPORT | string | `"{{ .Values.service.main.ports.main.targetPort }}"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/deemix"` |  |
-| image.tag | string | `"latest@sha256:cc770caa2f11b2e1b89129e17ebbbbb2533bd3e7c93303e52a072e1b3e471f70"` |  |
+| image.tag | string | `"latest@sha256:2049efdfd192969be93cb8308836a6089feedc67e10bba6a354d43f767fc1821"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.data.enabled | bool | `true` |  |

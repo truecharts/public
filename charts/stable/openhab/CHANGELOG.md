@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="openhab-1.0.0"></a>
+### [openhab-1.0.0](https://github.com/truecharts/apps/compare/openhab-0.0.2...openhab-1.0.0) (2022-03-15)
+
+#### Feat
+
+* move to stable ([#2179](https://github.com/truecharts/apps/issues/2179))
+
+
+
 <a name="openhab-0.0.2"></a>
 ### [openhab-0.0.2](https://github.com/truecharts/apps/compare/openhab-0.0.1...openhab-0.0.2) (2022-03-07)
 

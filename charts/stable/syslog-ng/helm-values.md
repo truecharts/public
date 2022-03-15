@@ -14,7 +14,7 @@ You will, however, be able to use all values referenced in the common chart here
 | env | object | `{}` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/syslog-ng"` |  |
-| image.tag | string | `"v3.35.1@sha256:58fa2b58b78dbfd23f3e1ccfae757fa49fe065c1f5a1bf96e13a65319ef18f12"` |  |
+| image.tag | string | `"v3.36.1@sha256:7b8d18e31faad631d519c5a8f10bd711ff4fd5862830a6a61b3f1c47ab05da0f"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/config"` |  |
 | persistence.varrun.enabled | bool | `true` |  |

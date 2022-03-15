@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="piaware-5.0.3"></a>
+### [piaware-5.0.3](https://github.com/truecharts/apps/compare/piaware-5.0.2...piaware-5.0.3) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+
+
+
 <a name="piaware-5.0.2"></a>
 ### [piaware-5.0.2](https://github.com/truecharts/apps/compare/piaware-5.0.1...piaware-5.0.2) (2022-03-07)
 

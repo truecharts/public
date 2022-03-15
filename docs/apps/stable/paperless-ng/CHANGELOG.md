@@ -1,6 +1,25 @@
 # Changelog<br>
 
 
+<a name="paperless-ng-2.0.7"></a>
+### [paperless-ng-2.0.7](https://github.com/truecharts/apps/compare/paperless-ng-2.0.6...paperless-ng-2.0.7) (2022-03-15)
+
+#### Feat
+
+* move to stable ([#2179](https://github.com/truecharts/apps/issues/2179))
+
+
+
+<a name="paperless-ng-2.0.6"></a>
+### [paperless-ng-2.0.6](https://github.com/truecharts/apps/compare/paperless-ng-2.0.5...paperless-ng-2.0.6) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2175](https://github.com/truecharts/apps/issues/2175))
+* add more keywords ([#2140](https://github.com/truecharts/apps/issues/2140))
+
+
+
 <a name="paperless-ng-2.0.5"></a>
 ### [paperless-ng-2.0.5](https://github.com/truecharts/apps/compare/paperless-ng-2.0.4...paperless-ng-2.0.5) (2022-03-12)
 
