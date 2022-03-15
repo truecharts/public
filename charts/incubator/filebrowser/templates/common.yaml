@@ -4,7 +4,7 @@
 {{/* Append the hardcoded settings */}}
 {{- define "filebrowser.harcodedValues" -}}
 persistence:
-  focalboard-config:
+  filebrowser-config:
     enabled: "true"
     mountPath: "/.filebrowser.json"
     subPath: "filebrowser-config"
