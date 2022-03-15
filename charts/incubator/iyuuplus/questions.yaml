@@ -212,7 +212,7 @@ questions:
 # Include{persistenceAdvanced}
         - variable: torrents
           label: "App Torrent Storage"
-          description: "Stores the Application Torrent."
+          description: "transmission torrent directory"
           schema:
             additional_attrs: true
             type: dict
@@ -255,7 +255,7 @@ questions:
 # Include{persistenceAdvanced}
         - variable: btbackup
           label: "App BT Backup Storage"
-          description: "Stores the Application BT Backup."
+          description: "qBittorrent torrent directory"
           schema:
             additional_attrs: true
             type: dict
