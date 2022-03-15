@@ -10,4 +10,4 @@ metadata:
 data:
   .filebrowser.json: |
     {{- tpl .Values.config $ | nindent 4 }}
-
+{{- end -}}
