@@ -1,6 +1,15 @@
 # Changelog<br>
 
 
+<a name="minecraft-java-0.0.22"></a>
+### [minecraft-java-0.0.22](https://github.com/truecharts/apps/compare/minecraft-java-0.0.21...minecraft-java-0.0.22) (2022-03-15)
+
+#### Chore
+
+* update docker general non-major ([#2178](https://github.com/truecharts/apps/issues/2178))
+
+
+
 <a name="minecraft-java-0.0.21"></a>
 ### [minecraft-java-0.0.21](https://github.com/truecharts/apps/compare/minecraft-java-0.0.20...minecraft-java-0.0.21) (2022-03-15)
 

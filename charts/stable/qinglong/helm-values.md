@@ -13,7 +13,7 @@ You will, however, be able to use all values referenced in the common chart here
 |-----|------|---------|-------------|
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"tccr.io/truecharts/qinglong"` |  |
-| image.tag | string | `"v2.11.3@sha256:0d0ab99a644b786d86e2d449d0840c79efaf1ad507bbc7a2cf8d7533b56f7edf"` |  |
+| image.tag | string | `"v2.11.3@sha256:4f57c35169a7ecb0aa266c1282d494d53ada1f0cdbfba218a216bce7680de51c"` |  |
 | persistence.config.enabled | bool | `true` |  |
 | persistence.config.mountPath | string | `"/ql/config"` |  |
 | persistence.db.enabled | bool | `true` |  |
