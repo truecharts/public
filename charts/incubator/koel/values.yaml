@@ -1,0 +1,59 @@
+image:
+  repository: hyzual/koel
+  tag: latest@sha256:fa4bafbe3ae869f153bdc3bc87db739f300bef6cc94e398d7efa587a443f86fa
+  pullPolicy: IfNotPresent
+
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+env:
+  DB_CONNECTION: "pgsql"
+  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+  FORCE_HTTPS: false
+  MEMORY_LIMIT: 2048
+  LASTFM_API_KEY: ""
+  LASTFM_API_SECRET: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 10185
+        targetPort: 80
+
+envValueFrom:
+  DB_HOST:
+    secretKeyRef:
+      name: dbcreds
+      key: plainhost
+  DB_PASSWORD:
+    secretKeyRef:
+      name: dbcreds
+      key: postgresql-password
+  APP_KEY:
+    secretKeyRef:
+      name: koel-secrets
+      key: APP_KEY
+
+persistence:
+  music:
+    enabled: true
+    mountPath: "/music"
+  covers:
+    enabled: true
+    mountPath: "/var/www/html/public/img/covers"
+  searchindex:
+    enabled: true
+    mountPath: "/var/www/html/storage/search-indexes"
+
+postgresql:
+  enabled: true
+  existingSecret: "dbcreds"
+  postgresqlUsername: koel
+  postgresqlDatabase: koel
